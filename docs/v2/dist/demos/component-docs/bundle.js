@@ -68752,6 +68752,8 @@
 
 	var _iconIcon = __webpack_require__(445);
 
+	var _utilDom = __webpack_require__(435);
+
 	/**
 	 * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
 	 * of the Component docs._
@@ -69083,15 +69085,19 @@
 	    _createClass(TabHighlight, [{
 	        key: "select",
 	        value: function select(tab) {
-	            var d = tab.btn.getDimensions();
-	            var ele = this.elementRef.nativeElement;
-	            ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
-	            if (!this.init) {
-	                this.init = true;
-	                setTimeout(function () {
-	                    ele.classList.add('animate');
-	                }, 64);
-	            }
+	            var _this4 = this;
+
+	            (0, _utilDom.rafFrames)(3, function () {
+	                var d = tab.btn.getDimensions();
+	                var ele = _this4.elementRef.nativeElement;
+	                ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
+	                if (!_this4.init) {
+	                    _this4.init = true;
+	                    (0, _utilDom.rafFrames)(6, function () {
+	                        ele.classList.add('animate');
+	                    });
+	                }
+	            });
 	        }
 	    }]);
 

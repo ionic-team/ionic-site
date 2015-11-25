@@ -58756,7 +58756,7 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
         }
     };
 });
-System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", "../app/id", "../../config/config", "../../platform/platform", "../nav/nav-controller", "../nav/view-controller", "../../config/decorators", "../icon/icon"], function (_export) {
+System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", "../app/id", "../../config/config", "../../platform/platform", "../nav/nav-controller", "../nav/view-controller", "../../config/decorators", "../icon/icon", "../../util/dom"], function (_export) {
     /**
      * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
      * of the Component docs._
@@ -58809,7 +58809,7 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
      */
     "use strict";
 
-    var Directive, ElementRef, Optional, Host, NgFor, NgIf, forwardRef, ViewContainerRef, Ion, Attr, Config, Platform, NavController, ViewController, ConfigComponent, Icon, __decorate, __metadata, __param, Tabs, tabIds, TabButton, TabHighlight, TabNavBarAnchor, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+    var Directive, ElementRef, Optional, Host, NgFor, NgIf, forwardRef, ViewContainerRef, Ion, Attr, Config, Platform, NavController, ViewController, ConfigComponent, Icon, rafFrames, __decorate, __metadata, __param, Tabs, tabIds, TabButton, TabHighlight, TabNavBarAnchor, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -58845,6 +58845,8 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
             ConfigComponent = _configDecorators.ConfigComponent;
         }, function (_iconIcon) {
             Icon = _iconIcon.Icon;
+        }, function (_utilDom) {
+            rafFrames = _utilDom.rafFrames;
         }],
         execute: function () {
             __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -59137,15 +59139,19 @@ System.register("ionic/components/tabs/tabs", ["angular2/angular2", "../ion", ".
                 _createClass(TabHighlight, [{
                     key: "select",
                     value: function select(tab) {
-                        var d = tab.btn.getDimensions();
-                        var ele = this.elementRef.nativeElement;
-                        ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
-                        if (!this.init) {
-                            this.init = true;
-                            setTimeout(function () {
-                                ele.classList.add('animate');
-                            }, 64);
-                        }
+                        var _this4 = this;
+
+                        rafFrames(3, function () {
+                            var d = tab.btn.getDimensions();
+                            var ele = _this4.elementRef.nativeElement;
+                            ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
+                            if (!_this4.init) {
+                                _this4.init = true;
+                                rafFrames(6, function () {
+                                    ele.classList.add('animate');
+                                });
+                            }
+                        });
                     }
                 }]);
 

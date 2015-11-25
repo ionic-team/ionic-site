@@ -44649,7 +44649,6 @@ System.register('ionic/config/decorators', ['angular2/angular2', 'ionic/util', '
             config.host = config.host || {};
             config.host['[hidden]'] = '_hidden';
             config.host['[class.tab-subpage]'] = '_tabSubPage';
-            config.host['[style.zIndex]'] = '_zIndex';
             var annotations = Reflect.getMetadata('annotations', cls) || [];
             annotations.push(new Component(config));
             Reflect.defineMetadata('annotations', annotations, cls);
@@ -49747,7 +49746,6 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
                 selector: 'ion-action-sheet',
                 template: '<backdrop (click)="cancel()" tappable disable-activated></backdrop>' + '<action-sheet-wrapper>' + '<div class="action-sheet-container">' + '<div class="action-sheet-group action-sheet-options">' + '<div class="action-sheet-title" *ng-if="d.titleText">{{d.titleText}}</div>' + '<button (click)="buttonClicked(i)" *ng-for="#b of d.buttons; #i=index" class="action-sheet-option disable-hover">' + '<icon [name]="b.icon" *ng-if="b.icon"></icon> ' + '{{b.text}}' + '</button>' + '<button *ng-if="d.destructiveText" (click)="destructive()" class="action-sheet-destructive disable-hover">' + '<icon [name]="d.destructiveIcon" *ng-if="d.destructiveIcon"></icon> ' + '{{d.destructiveText}}</button>' + '</div>' + '<div class="action-sheet-group action-sheet-cancel" *ng-if="d.cancelText">' + '<button (click)="cancel()" class="disable-hover">' + '<icon [name]="d.cancelIcon" *ng-if="d.cancelIcon"></icon> ' + '{{d.cancelText}}</button>' + '</div>' + '</div>' + '</action-sheet-wrapper>',
                 host: {
-                    '[style.zIndex]': '_zIndex',
                     'role': 'dialog'
                 },
                 directives: [NgFor, NgIf, Icon]
@@ -53007,7 +53005,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-    var _get = function get(_x11, _x12, _x13) { var _again = true; _function: while (_again) { var object = _x11, property = _x12, receiver = _x13; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x11 = parent; _x12 = property; _x13 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+    var _get = function get(_x12, _x13, _x14) { var _again = true; _function: while (_again) { var object = _x12, property = _x13, receiver = _x14; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x12 = parent; _x13 = property; _x14 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -53047,7 +53045,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                     this._loader = loader;
                     this._viewManager = viewManager;
                     this._zone = zone;
-                    this.renderer = renderer;
+                    this._renderer = renderer;
                     this._views = [];
                     this._trnsTime = 0;
                     this._sbTrans = null;
@@ -53092,8 +53090,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         if (opts === undefined) opts = {};
 
                         if (!componentType) {
-                            console.debug('invalid componentType to push');
-                            return Promise.reject();
+                            return Promise.reject('invalid componentType to push');
                         }
                         if (typeof componentType !== 'function') {
                             throw 'Loading component must be a component class, not "' + componentType.toString() + '"';
@@ -53130,9 +53127,6 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         enteringView.handle = opts.handle || null;
                         // add the view to the stack
                         this._add(enteringView);
-                        if (opts.preCleanup !== false) {
-                            this._cleanup(enteringView);
-                        }
                         if (this.router) {
                             // notify router of the state change
                             this.router.stateChange('push', enteringView, params);
@@ -53207,22 +53201,28 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         if (viewIndex < 0 || targetIndex > this._views.length - 1) {
                             return Promise.resolve();
                         }
-                        var resolve = undefined;
+                        // ensure the entering view is shown
+                        this._renderView(viewCtrl, true);
+                        var resolve = null;
                         var promise = new Promise(function (res) {
                             resolve = res;
                         });
                         opts.direction = opts.direction || 'back';
+                        var leavingView = this.getActive() || new ViewController();
                         // get the views to auto remove without having to do a transiton for each
                         // the last view (the currently active one) will do a normal transition out
                         if (this._views.length > 1) {
                             var autoRemoveItems = this._views.slice(targetIndex, this._views.length);
+                            var popView = undefined;
                             for (var i = 0; i < autoRemoveItems.length; i++) {
-                                autoRemoveItems[i].shouldDestroy = true;
-                                autoRemoveItems[i].shouldCache = false;
-                                autoRemoveItems[i].willUnload();
+                                popView = autoRemoveItems[i];
+                                popView.shouldDestroy = true;
+                                popView.shouldCache = false;
+                                popView.willUnload();
+                                // only the leaving view should be shown, all others hide
+                                this._renderView(popView, popView === leavingView);
                             }
                         }
-                        var leavingView = this.getPrevious(viewCtrl);
                         if (this.router) {
                             this.router.stateChange('pop', viewCtrl);
                         }
@@ -53244,13 +53244,13 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
 
                     /**
                      * Inserts a view into the nav stack at the specified index.
-                     * @param {Component} The name of the component you want to insert into the nav stack
                      * @param {Index} The index where you want to insert the view
+                     * @param {Component} The name of the component you want to insert into the nav stack
                      * @returns {Promise} Returns a promise when the view has been inserted into the navigation stack
                      */
                 }, {
                     key: 'insert',
-                    value: function insert(componentType, index) {
+                    value: function insert(index, componentType) {
                         var params = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
                         var opts = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
 
@@ -53294,39 +53294,57 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                     }
 
                     /**
-                     * Set the view stack to reflect the given component classes.
-                     * @param {TODO} components  TODO
-                     * @param {TODO} [opts={}]  TODO
-                     * @returns {Promise} TODO
+                     * @private
                      */
                 }, {
                     key: 'setViews',
                     value: function setViews(components) {
                         var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
+                        console.warn('setViews() deprecated, use setPages() instead');
+                        this.setPages(components, opts);
+                    }
+
+                    /**
+                     * Set the view stack to reflect the given component classes.
+                     * @param {TODO} components  TODO
+                     * @param {TODO} [opts={}]  TODO
+                     * @returns {Promise} TODO
+                     */
+                }, {
+                    key: 'setPages',
+                    value: function setPages(components) {
+                        var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
                         if (!components || !components.length) {
                             return Promise.resolve();
                         }
+                        var leavingView = this.getActive() || new ViewController();
                         // if animate has not been set then default to false
                         opts.animate = opts.animate || false;
-                        opts.preCleanup = false;
                         // ensure leaving views are not cached, and should be destroyed
                         opts.cacheLeavingView = false;
                         // get the views to auto remove without having to do a transiton for each
                         // the last view (the currently active one) will do a normal transition out
                         if (this._views.length > 1) {
                             var autoRemoveItems = this._views.slice(0, this._views.length - 1);
+                            var popView = undefined;
                             for (var i = 0; i < autoRemoveItems.length; i++) {
-                                autoRemoveItems[i].shouldDestroy = true;
-                                autoRemoveItems[i].shouldCache = false;
-                                autoRemoveItems[i].willUnload();
+                                popView = autoRemoveItems[i];
+                                popView.shouldDestroy = true;
+                                popView.shouldCache = false;
+                                popView.willUnload();
+                                if (opts.animate) {
+                                    // only the leaving view should be shown, all others hide
+                                    this._renderView(popView, popView === leavingView);
+                                }
                             }
                         }
                         var componentObj = null;
                         var componentType = null;
                         var viewCtrl = null;
-                        // create the ViewControllers that go before the new active ViewController in the stack
-                        // but the previous views won't should render yet
+                        // create the ViewControllers that go before the new active ViewController
+                        // in the stack, but the previous views shouldn't render yet
                         if (components.length > 1) {
                             var newBeforeItems = components.slice(0, components.length - 1);
                             for (var j = 0; j < newBeforeItems.length; j++) {
@@ -53364,7 +53382,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         var params = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
                         var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 
-                        return this.setViews([{
+                        return this.setPages([{
                             componentType: componentType,
                             params: params
                         }], opts);
@@ -53382,6 +53400,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: '_transition',
                     value: function _transition(enteringView, leavingView, opts, done) {
+                        console.debug('_transition', enteringView, leavingView, opts);
                         var self = this;
                         if (enteringView === leavingView) {
                             return done(enteringView);
@@ -53402,8 +53421,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                 // already marked as a view that will be destroyed, don't continue
                                 return done(enteringView);
                             }
-                            self._setZIndex(enteringView.instance, leavingView.instance, opts.direction);
                             self._zone.runOutsideAngular(function () {
+                                self._setZIndex(enteringView, leavingView, opts.direction);
                                 enteringView.shouldDestroy = false;
                                 enteringView.shouldCache = false;
                                 if (!opts.preload) {
@@ -53526,7 +53545,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                             if (_this._views.length === 1) {
                                 _this._zone.runOutsideAngular(function () {
                                     rafFrames(38, function () {
-                                        _this.renderer.setElementClass(_this.elementRef, 'has-views', true);
+                                        _this._renderer.setElementClass(_this.elementRef, 'has-views', true);
                                     });
                                 });
                             }
@@ -53535,15 +53554,38 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                     }
                 }, {
                     key: '_setZIndex',
-                    value: function _setZIndex(enteringInstance, leavingInstance, direction) {
-                        if (!leavingInstance) {
-                            enteringInstance._zIndex = 10;
-                        } else if (direction === 'back') {
-                            // moving back
-                            enteringInstance._zIndex = leavingInstance._zIndex - 1;
-                        } else {
-                            // moving forward
-                            enteringInstance._zIndex = leavingInstance._zIndex + 1;
+                    value: function _setZIndex(enteringView, leavingView, direction) {
+                        var enteringPageRef = enteringView && enteringView.pageRef();
+                        if (enteringPageRef) {
+                            if (!leavingView || !leavingView.isLoaded()) {
+                                enteringView.zIndex = 10;
+                            } else if (direction === 'back') {
+                                // moving back
+                                enteringView.zIndex = leavingView.zIndex - 1;
+                            } else {
+                                // moving forward
+                                enteringView.zIndex = leavingView.zIndex + 1;
+                            }
+                            if (enteringView.zIndex !== enteringView._zIndex) {
+                                this._renderer.setElementStyle(enteringPageRef, 'z-index', enteringView.zIndex);
+                                enteringView._zIndex = enteringView.zIndex;
+                            }
+                        }
+                    }
+                }, {
+                    key: '_renderView',
+                    value: function _renderView(viewCtrl, shouldShow) {
+                        // using hidden element attribute to display:none and not render views
+                        // renderAttr of '' means the hidden attribute will be added
+                        // renderAttr of null means the hidden attribute will be removed
+                        // doing checks to make sure we only make an update to the element when needed
+                        if (shouldShow && viewCtrl._hdnAttr === '' || !shouldShow && viewCtrl._hdnAttr !== '') {
+                            viewCtrl._hdnAttr = shouldShow ? null : '';
+                            this._renderer.setElementAttribute(viewCtrl.pageRef(), 'hidden', viewCtrl._hdnAttr);
+                            var navbarRef = viewCtrl.navbarRef();
+                            if (navbarRef) {
+                                this._renderer.setElementAttribute(navbarRef, 'hidden', viewCtrl._hdnAttr);
+                            }
                         }
                     }
 
@@ -53774,9 +53816,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                 if (view.shouldDestroy) {
                                     destroys.push(view);
                                 } else {
-                                    var isActiveView = view === activeView;
-                                    var isPreviousView = view === previousView;
-                                    view.domCache && view.domCache(isActiveView, isPreviousView);
+                                    var shouldShow = view === activeView || view === previousView;
+                                    _this4._renderView(view, shouldShow);
                                 }
                             }
                         });
@@ -54998,11 +55039,6 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                         this.instance.onPageDidUnload && this.instance.onPageDidUnload();
                     }
                 }, {
-                    key: 'domCache',
-                    value: function domCache(isActiveView, isPreviousView) {
-                        this.instance._hidden = !isActiveView && !isPreviousView;
-                    }
-                }, {
                     key: 'index',
                     get: function get() {
                         return this.navCtrl ? this.navCtrl.indexOf(this) : -1;
@@ -55848,7 +55884,6 @@ System.register("ionic/components/popup/popup", ["angular2/angular2", "../overla
                 selector: 'ion-popup',
                 template: '<backdrop (click)="cancel($event)" tappable disable-activated></backdrop>' + '<popup-wrapper>' + '<div class="popup-head">' + '<h2 class="popup-title" [inner-html]="d.title" *ng-if="d.title"></h2>' + '<h3 class="popup-sub-title" [inner-html]="d.subTitle" *ng-if="d.subTitle"></h3>' + '</div>' + '<div class="popup-body">' + '<div [inner-html]="d.template" *ng-if="d.template"></div>' + '<input type="{{d.inputType || \'text\'}}" placeholder="{{d.inputPlaceholder}}" *ng-if="d.showPrompt" class="prompt-input">' + '</div>' + '<div class="popup-buttons" *ng-if="d.buttons.length">' + '<button *ng-for="#btn of d.buttons" (click)="buttonTapped(btn, $event)" [inner-html]="btn.text"></button>' + '</div>' + '</popup-wrapper>',
                 host: {
-                    '[style.zIndex]': '_zIndex',
                     'role': 'dialog'
                 },
                 directives: [FORM_DIRECTIVES, NgClass, NgIf, NgFor, Button]

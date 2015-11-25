@@ -40,10 +40,10 @@ var FirstPage = (function () {
     }
 
     _createClass(FirstPage, [{
-        key: "setViews",
-        value: function setViews() {
+        key: "setPages",
+        value: function setPages() {
             var items = [ThirdPage];
-            this.nav.setViews(items);
+            this.nav.setPages(items);
         }
     }, {
         key: "push",
@@ -55,7 +55,7 @@ var FirstPage = (function () {
     return FirstPage;
 })();
 FirstPage = __decorate([(0, _ionicIonic.IonicView)({
-    template: '' + '<ion-navbar *navbar primary>' + '<ion-title>{{title}}</ion-title>' + '</ion-navbar>' + '<ion-content padding>' + '<h1>{{title}}</h1>' + '<p><button id="from1To2" secondary (click)="push()">(Push) Go to Second Page</button></p>' + '<p><button secondary [nav-push]="pushPage" [nav-params]="pushData">(Nav-Push) Go to Second Page</button></p>' + '<p><button danger (click)="setViews()">(setViews) Go to Third Page</button></p>' + '</ion-content>'
+    template: '' + '<ion-navbar *navbar primary>' + '<ion-title>{{title}}</ion-title>' + '</ion-navbar>' + '<ion-content padding>' + '<h1>{{title}}</h1>' + '<p><button id="from1To2" secondary (click)="push()">(Push) Go to Second Page</button></p>' + '<p><button secondary [nav-push]="pushPage" [nav-params]="pushData">(Nav-Push) Go to Second Page</button></p>' + '<p><button danger (click)="setPages()">(setPages) Go to Third Page</button></p>' + '</ion-content>'
 }), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _ionicIonic.Config !== 'undefined' && _ionicIonic.Config) === 'function' && _c || Object])], FirstPage);
 var SecondPage = (function () {
     function SecondPage(nav, params) {
@@ -67,10 +67,10 @@ var SecondPage = (function () {
     }
 
     _createClass(SecondPage, [{
-        key: "setViews",
-        value: function setViews() {
+        key: "setPages",
+        value: function setPages() {
             var items = [FirstPage, ThirdPage];
-            this.nav.setViews(items);
+            this.nav.setPages(items);
         }
     }, {
         key: "pop",
@@ -87,7 +87,7 @@ var SecondPage = (function () {
     return SecondPage;
 })();
 SecondPage = __decorate([(0, _ionicIonic.IonicView)({
-    template: "\n    <ion-navbar secondary *navbar>\n      <ion-title>{{title}}</ion-title>\n    </ion-navbar>\n    <ion-content padding>\n      <h1>Second page</h1>\n      <p><button (click)=\"pop()\">(Pop) Go back to First Page</button></p>\n      <p><button id=\"from2To1\" nav-pop>(NavPop) Go back to First Page</button></p>\n      <p><button danger id=\"from2To3\" (click)=\"push()\">(Push) Go to Third Page</button></p>\n      <p><button danger (click)=\"setViews()\">(setViews) Go to Third Page</button></p>\n    </ion-content>\n  "
+    template: "\n    <ion-navbar secondary *navbar>\n      <ion-title>{{title}}</ion-title>\n    </ion-navbar>\n    <ion-content padding>\n      <h1>Second page</h1>\n      <p><button (click)=\"pop()\">(Pop) Go back to First Page</button></p>\n      <p><button id=\"from2To1\" nav-pop>(NavPop) Go back to First Page</button></p>\n      <p><button danger id=\"from2To3\" (click)=\"push()\">(Push) Go to Third Page</button></p>\n      <p><button danger (click)=\"setPages()\">(setPages) Go to Third Page</button></p>\n    </ion-content>\n  "
 }), __metadata('design:paramtypes', [typeof (_d = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _d || Object, typeof (_e = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _e || Object])], SecondPage);
 var ThirdPage = (function () {
     function ThirdPage(nav) {

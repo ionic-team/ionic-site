@@ -42,7 +42,7 @@ docType: "class"
 
 <h1 class="class export">ViewController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L216">ionic/components/nav/view-controller.ts (line 1)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L212">ionic/components/nav/view-controller.ts (line 1)</a>
 </p>
 ## Members
 
@@ -628,23 +628,6 @@ The view is about to be destroyed and have its elements removed.
 </h2>
 
 The view has been destroyed and its elements have been removed.
-
-
-
-
-
-
-
-
-
-
-
-<div id="domCache"></div>
-<h2>
-  <code>domCache()</code>
-
-</h2>
-
 
 
 

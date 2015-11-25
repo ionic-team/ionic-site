@@ -112,7 +112,7 @@ class HelloWorld {
 
 <h1 class="class export">NavController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11-L1134">ionic/components/nav/nav-controller.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11-L1176">ionic/components/nav/nav-controller.ts (line 11)</a>
 </p>
 ## Members
 
@@ -364,10 +364,10 @@ Inserts a view into the nav stack at the specified index.
       </td>
       <td>
         
-  <code>Component</code>
+  <code>Index</code>
       </td>
       <td>
-        <p>name of the component you want to insert into the nav stack</p>
+        <p>index where you want to insert the view</p>
 
         
       </td>
@@ -381,10 +381,10 @@ Inserts a view into the nav stack at the specified index.
       </td>
       <td>
         
-  <code>Index</code>
+  <code>Component</code>
       </td>
       <td>
-        <p>index where you want to insert the view</p>
+        <p>name of the component you want to insert into the nav stack</p>
 
         
       </td>
@@ -455,9 +455,9 @@ Removes a view from the nav stack at the specified index.
 
 
 
-<div id="setViews"></div>
+<div id="setPages"></div>
 <h2>
-  <code>setViews(components, opts)</code>
+  <code>setPages(components, opts)</code>
 
 </h2>
 

@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L2'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L1'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/animations/animation.ts#L2'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/animations/animation.ts#L1'>
     Improve this doc
   </a>
 </div>
@@ -57,7 +57,7 @@ docType: "class"
 
 <h1 class="class export">Animation <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L3-L549">ionic/animations/animation.ts (line 3)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L2-L556">ionic/animations/animation.ts (line 2)</a>
 </p>
 ## Members
 

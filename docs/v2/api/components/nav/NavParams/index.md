@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1080'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1281'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L1080'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L1281'>
     Improve this doc
   </a>
 </div>
@@ -42,13 +42,13 @@ docType: "class"
 
 <h1 class="class export">NavParams <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1081-L1103">ionic/components/nav/nav-controller.ts (line 1081)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1282-L1304">ionic/components/nav/nav-controller.ts (line 1282)</a>
 </p>
 ## Members
 
 <div id="get"></div>
 <h2>
-  <code>get(param)</code>
+  <code>get(Which)</code>
 
 </h2>
 
@@ -68,16 +68,16 @@ TODO
     
     <tr>
       <td>
-        param
+        Which
         
         
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>string</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>param you want to look up</p>
 
         
       </td>

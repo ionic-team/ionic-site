@@ -490,6 +490,23 @@ TODO
 
 
 
+<div id="isLoaded"></div>
+<h2>
+  <code>isLoaded()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="loaded"></div>
 <h2>
   <code>loaded()</code>
@@ -611,23 +628,6 @@ The view is about to be destroyed and have its elements removed.
 </h2>
 
 The view has been destroyed and its elements have been removed.
-
-
-
-
-
-
-
-
-
-
-
-<div id="domCache"></div>
-<h2>
-  <code>domCache()</code>
-
-</h2>
-
 
 
 

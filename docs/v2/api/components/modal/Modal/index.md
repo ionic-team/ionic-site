@@ -37,23 +37,29 @@ docType: "class"
 
 
 
-<p>The Modal is a content pane that can go over the user&#39;s main view temporarily.
-Usually used for making a choice or editing an item.</p>
+<p>The Modal is a content pane that can go over the user&#39;s current page.
+Usually used for making a choice or editing an item. A modal can be opened
+similar to how NavController#push works, where it is passed a Page component,
+along with optional Page params, and options for presenting the modal.</p>
 
 
 <h1 class="class export">Modal <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L6-L63">ionic/components/modal/modal.ts (line 6)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L6-L90">ionic/components/modal/modal.ts (line 6)</a>
 </p>
 ## Members
 
 <div id="open"></div>
 <h2>
-  <code>open(componentType, opts)</code>
+  <code>open(pageComponent, params, opts)</code>
 
 </h2>
 
-TODO
+Opens a new modal using the page component is was pass as the first
+argument. This is similar to how NavController's `push` method works.
+Currently you must have `<ion-overlay>` in the @App component's template
+for the modal to work correctly. (This is something that will
+be hopefully be removed in the near future.)
 
 
 
@@ -69,16 +75,34 @@ TODO
     
     <tr>
       <td>
-        componentType
+        pageComponent
         
         
       </td>
       <td>
         
-  <code>Type</code>
+  
       </td>
       <td>
-        <p>TODO</p>
+        <p>The Page component to load in the modal.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        params
+        
+        
+      </td>
+      <td>
+        
+  <code>Object</code>
+      </td>
+      <td>
+        <p>Optional data which can be passed to the page
+component, which can be read from the constructor&#39;s <code>NavParams</code>.</p>
 
         
       </td>
@@ -95,7 +119,9 @@ TODO
   <code>Object</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>Additional options for this one modal instance of.
+Options include <code>enterAnimation</code> and <code>leaveAnimation</code>, which
+allows customization of which animation to use.</p>
 
         
       </td>
@@ -110,7 +136,9 @@ TODO
 
 
 * Returns: 
-  <code>TODO</code> TODO
+  <code>Promise</code> Returns a promise which resolves when the modal has
+loaded and its entering animation has completed. The resolved promise's
+value is the instance of the newly created modal.
 
 
 
@@ -121,7 +149,14 @@ TODO
 
 </h2>
 
-TODO
+Get the instance of a modal. This is usually helpful to getting ahold of a
+certain modal, from anywhere within the app, and closing it. By calling
+just `get()` without a `handle` argument, it'll return the active modal
+on top (it is possible to have multipe modals opened at the same time).
+If getting just the active modal isn't enough, when creating
+a modal, it's options can be given a `handle`, which is simply a string-based
+name for the modal instance. You can later get a reference to that modal's
+instance by calling this method with the same handle name.
 
 
 
@@ -143,10 +178,10 @@ TODO
       </td>
       <td>
         
-  <code>TODO</code>
+  
       </td>
       <td>
-        <p>TODO</p>
+        <p>Optional string name given in the modal&#39;s options when it was opened.</p>
 
         
       </td>
@@ -161,7 +196,9 @@ TODO
 
 
 * Returns: 
-  <code>TODO</code> TODO
+   Returns the instance of the modal if it is found, otherwise `null`.
+
+
 
 
 

@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L4'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L4'>
     Improve this doc
   </a>
 </div>
@@ -43,7 +43,7 @@ components see the <a href="../id/IdRef/">IdRef API reference</a>.</p>
 
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L4-L115">ionic/components/app/app.ts (line 4)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L5-L107">ionic/components/app/app.ts (line 5)</a>
 </p>
 ## Members
 
@@ -172,42 +172,6 @@ something goes wrong during a transition and the app wasn&#39;t re-enabled corre
 </h2>
 
 Boolean if the app is actively enabled or not.
-
-
-
-
-
-
-* Returns: 
-  <code>bool</code> 
-
-
-
-
-<div id="setTransitioning"></div>
-<h2>
-  <code>setTransitioning()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="isTransitioning"></div>
-<h2>
-  <code>isTransitioning()</code>
-
-</h2>
-
-Boolean if the app is actively transitioning or not.
 
 
 

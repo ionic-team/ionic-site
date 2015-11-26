@@ -8021,7 +8021,7 @@ System.register("ionic/components/checkbox/checkbox", ["angular2/angular2", "../
         }
     };
 });
-System.register("ionic/components/content/content", ["angular2/angular2", "../ion", "../../config/config", "../../util/dom", "../../util/keyboard", "../nav/view-controller", "../../animations/animation", "../../animations/scroll-to"], function (_export) {
+System.register("ionic/components/content/content", ["angular2/angular2", "../ion", "../../config/config", "../../util/dom", "../../util/keyboard", "../nav/view-controller", "../../animations/scroll-to"], function (_export) {
     /**
      * The Content component provides an easy to use content area that can be configured to use Ionic's custom Scroll View, or the built in overflow scrolling of the browser.
      *
@@ -8039,7 +8039,7 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
      */
     "use strict";
 
-    var Component, ElementRef, Optional, NgZone, Ion, Config, raf, Keyboard, ViewController, Animation, ScrollTo, __decorate, __metadata, __param, Content, _a, _b, _c, _d, _e;
+    var Component, ElementRef, Optional, NgZone, Ion, Config, raf, Keyboard, ViewController, ScrollTo, __decorate, __metadata, __param, Content, _a, _b, _c, _d, _e;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -8065,8 +8065,6 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
             Keyboard = _utilKeyboard.Keyboard;
         }, function (_navViewController) {
             ViewController = _navViewController.ViewController;
-        }, function (_animationsAnimation) {
-            Animation = _animationsAnimation.Animation;
         }, function (_animationsScrollTo) {
             ScrollTo = _animationsScrollTo.ScrollTo;
         }],
@@ -8271,26 +8269,10 @@ System.register("ionic/components/content/content", ["angular2/angular2", "../io
                 }, {
                     key: "addScrollPadding",
                     value: function addScrollPadding(newScrollPadding) {
-                        var _this3 = this;
-
                         if (newScrollPadding > this.scrollPadding) {
                             console.debug('addScrollPadding', newScrollPadding);
                             this.scrollPadding = newScrollPadding;
                             this.scrollElement.style.paddingBottom = newScrollPadding + 'px';
-                            if (!this.keyboardPromise) {
-                                console.debug('add scroll keyboard close callback', newScrollPadding);
-                                this.keyboardPromise = this.keyboard.onClose(function () {
-                                    console.debug('scroll keyboard closed', newScrollPadding);
-                                    if (_this3) {
-                                        if (_this3.scrollPadding && _this3.scrollElement) {
-                                            var _close = new Animation(_this3.scrollElement);
-                                            _close.duration(150).fromTo('paddingBottom', _this3.scrollPadding + 'px', '0px').play();
-                                        }
-                                        _this3.scrollPadding = 0;
-                                        _this3.keyboardPromise = null;
-                                    }
-                                });
-                            }
                         }
                     }
                 }]);
@@ -17398,6 +17380,16 @@ System.register("ionic/components/text-input/text-input", ["angular2/angular2", 
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+    function cloneInput(srcInput, addCssClass) {
+        var clonedInputEle = srcInput.cloneNode(true);
+        clonedInputEle.classList.add(addCssClass);
+        clonedInputEle.classList.remove('hide-focused-input');
+        clonedInputEle.setAttribute('aria-hidden', true);
+        clonedInputEle.removeAttribute('aria-labelledby');
+        clonedInputEle.tabIndex = -1;
+        return clonedInputEle;
+    }
+
     function getScrollAssistDuration(distanceToScroll) {
         //return 3000;
         distanceToScroll = Math.abs(distanceToScroll);
@@ -17871,11 +17863,7 @@ System.register("ionic/components/text-input/text-input", ["angular2/angular2", 
                         if (this._relocated !== shouldRelocate) {
                             var focusedInputEle = this.getNativeElement();
                             if (shouldRelocate) {
-                                var clonedInputEle = focusedInputEle.cloneNode(true);
-                                clonedInputEle.classList.add('cloned-input');
-                                clonedInputEle.classList.remove('hide-focused-input');
-                                clonedInputEle.setAttribute('aria-hidden', true);
-                                clonedInputEle.tabIndex = -1;
+                                var clonedInputEle = cloneInput(focusedInputEle, 'cloned-input');
                                 focusedInputEle.classList.add('hide-focused-input');
                                 focusedInputEle.style[dom.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
                                 focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
@@ -17896,10 +17884,7 @@ System.register("ionic/components/text-input/text-input", ["angular2/angular2", 
                     value: function hideFocus(shouldHideFocus) {
                         var focusedInputEle = this.getNativeElement();
                         if (shouldHideFocus) {
-                            var clonedInputEle = focusedInputEle.cloneNode(true);
-                            clonedInputEle.classList.add('cloned-hidden');
-                            clonedInputEle.setAttribute('aria-hidden', true);
-                            clonedInputEle.tabIndex = -1;
+                            var clonedInputEle = cloneInput(focusedInputEle, 'cloned-hidden');
                             focusedInputEle.classList.add('hide-focused-input');
                             focusedInputEle.style[dom.CSS.transform] = 'translate3d(-9999px,0,0)';
                             focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
@@ -17962,8 +17947,7 @@ System.register("ionic/components/text-input/text-input", ["angular2/angular2", 
                 host: {
                     '(focus)': 'receivedFocus($event)'
                 }
-            }), __metadata('design:paramtypes', [typeof (_l = typeof Form !== 'undefined' && Form) === 'function' && _l || Object, _TextInput])], InputScrollAssist);
-            SCROLL_ASSIST_SPEED = 0.4;
+            }), __metadata('design:paramtypes', [typeof (_l = typeof Form !== 'undefined' && Form) === 'function' && _l || Object, _TextInput])], InputScrollAssist);SCROLL_ASSIST_SPEED = 0.4;
         }
     };
 });

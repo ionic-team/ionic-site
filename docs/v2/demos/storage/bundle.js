@@ -67147,8 +67147,6 @@
 
 	var _navViewController = __webpack_require__(449);
 
-	var _animationsAnimation = __webpack_require__(446);
-
 	var _animationsScrollTo = __webpack_require__(478);
 
 	/**
@@ -67363,26 +67361,10 @@
 	    }, {
 	        key: "addScrollPadding",
 	        value: function addScrollPadding(newScrollPadding) {
-	            var _this3 = this;
-
 	            if (newScrollPadding > this.scrollPadding) {
 	                console.debug('addScrollPadding', newScrollPadding);
 	                this.scrollPadding = newScrollPadding;
 	                this.scrollElement.style.paddingBottom = newScrollPadding + 'px';
-	                if (!this.keyboardPromise) {
-	                    console.debug('add scroll keyboard close callback', newScrollPadding);
-	                    this.keyboardPromise = this.keyboard.onClose(function () {
-	                        console.debug('scroll keyboard closed', newScrollPadding);
-	                        if (_this3) {
-	                            if (_this3.scrollPadding && _this3.scrollElement) {
-	                                var _close = new _animationsAnimation.Animation(_this3.scrollElement);
-	                                _close.duration(150).fromTo('paddingBottom', _this3.scrollPadding + 'px', '0px').play();
-	                            }
-	                            _this3.scrollPadding = 0;
-	                            _this3.keyboardPromise = null;
-	                        }
-	                    });
-	                }
 	            }
 	        }
 	    }]);
@@ -71229,11 +71211,7 @@
 	            if (this._relocated !== shouldRelocate) {
 	                var focusedInputEle = this.getNativeElement();
 	                if (shouldRelocate) {
-	                    var clonedInputEle = focusedInputEle.cloneNode(true);
-	                    clonedInputEle.classList.add('cloned-input');
-	                    clonedInputEle.classList.remove('hide-focused-input');
-	                    clonedInputEle.setAttribute('aria-hidden', true);
-	                    clonedInputEle.tabIndex = -1;
+	                    var clonedInputEle = cloneInput(focusedInputEle, 'cloned-input');
 	                    focusedInputEle.classList.add('hide-focused-input');
 	                    focusedInputEle.style[dom.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
 	                    focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
@@ -71254,10 +71232,7 @@
 	        value: function hideFocus(shouldHideFocus) {
 	            var focusedInputEle = this.getNativeElement();
 	            if (shouldHideFocus) {
-	                var clonedInputEle = focusedInputEle.cloneNode(true);
-	                clonedInputEle.classList.add('cloned-hidden');
-	                clonedInputEle.setAttribute('aria-hidden', true);
-	                clonedInputEle.tabIndex = -1;
+	                var clonedInputEle = cloneInput(focusedInputEle, 'cloned-hidden');
 	                focusedInputEle.classList.add('hide-focused-input');
 	                focusedInputEle.style[dom.CSS.transform] = 'translate3d(-9999px,0,0)';
 	                focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
@@ -71317,6 +71292,15 @@
 	        '(focus)': 'receivedFocus($event)'
 	    }
 	}), __metadata('design:paramtypes', [typeof (_l = typeof _utilForm.Form !== 'undefined' && _utilForm.Form) === 'function' && _l || Object, _TextInput])], InputScrollAssist);
+	function cloneInput(srcInput, addCssClass) {
+	    var clonedInputEle = srcInput.cloneNode(true);
+	    clonedInputEle.classList.add(addCssClass);
+	    clonedInputEle.classList.remove('hide-focused-input');
+	    clonedInputEle.setAttribute('aria-hidden', true);
+	    clonedInputEle.removeAttribute('aria-labelledby');
+	    clonedInputEle.tabIndex = -1;
+	    return clonedInputEle;
+	}
 	var SCROLL_ASSIST_SPEED = 0.4;
 	function getScrollAssistDuration(distanceToScroll) {
 	    //return 3000;

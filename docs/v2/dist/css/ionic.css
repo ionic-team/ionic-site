@@ -470,6 +470,10 @@ focus-ctrl {
   transform: translate3d(-9999px, 0, 0);
   pointer-events: none; }
 
+[floating-label] .hide-focused-input,
+[stacked-label] .hide-focused-input {
+  margin-top: -8px !important; }
+
 .cloned-input {
   pointer-events: none; }
 

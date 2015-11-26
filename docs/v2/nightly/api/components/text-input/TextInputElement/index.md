@@ -41,7 +41,7 @@ docType: "class"
 
 <h1 class="class export">TextInputElement <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L395-L508">ionic/components/text-input/text-input.ts (line 395)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L395-L501">ionic/components/text-input/text-input.ts (line 395)</a>
 </p>
 <h2>Directive</h2>
   <span>selector: textarea, input[type=text], input[type=password], input[type=number], input[type=search], input[type=email], input[type=url], input[type=tel]</span>

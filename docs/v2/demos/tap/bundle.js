@@ -60295,22 +60295,17 @@
 	                // already compiled this view
 	                return done();
 	            }
-	            function loaded() {
-	                // this ViewController instance has finished loading
-	                try {
-	                    viewCtrl.loaded();
-	                } catch (e) {
-	                    console.error(e);
-	                }
-	                done();
-	            }
 	            // get the pane the NavController wants to use
 	            // the pane is where all this content will be placed into
 	            this.loadPage(viewCtrl, null, function () {
 	                if (viewCtrl.onReady) {
-	                    viewCtrl.onReady(loaded);
+	                    viewCtrl.onReady(function () {
+	                        viewCtrl.loaded();
+	                        done();
+	                    });
 	                } else {
-	                    loaded();
+	                    viewCtrl.loaded();
+	                    done();
 	                }
 	            });
 	        }
@@ -61230,7 +61225,7 @@
 	        value: function loaded() {
 	            this._loaded = true;
 	            if (!this.shouldDestroy) {
-	                this.instance.onPageLoaded && this.instance.onPageLoaded();
+	                ctrlFn(this, 'onPageLoaded');
 	            }
 	        }
 
@@ -61241,7 +61236,7 @@
 	        key: 'willEnter',
 	        value: function willEnter() {
 	            if (!this.shouldDestroy) {
-	                this.instance.onPageWillEnter && this.instance.onPageWillEnter();
+	                ctrlFn(this, 'onPageWillEnter');
 	            }
 	        }
 
@@ -61254,7 +61249,7 @@
 	        value: function didEnter() {
 	            var navbar = this.getNavbar();
 	            navbar && navbar.didEnter();
-	            this.instance.onPageDidEnter && this.instance.onPageDidEnter();
+	            ctrlFn(this, 'onPageDidEnter');
 	        }
 
 	        /**
@@ -61263,7 +61258,7 @@
 	    }, {
 	        key: 'willLeave',
 	        value: function willLeave() {
-	            this.instance.onPageWillLeave && this.instance.onPageWillLeave();
+	            ctrlFn(this, 'onPageWillLeave');
 	        }
 
 	        /**
@@ -61273,7 +61268,7 @@
 	    }, {
 	        key: 'didLeave',
 	        value: function didLeave() {
-	            this.instance.onPageDidLeave && this.instance.onPageDidLeave();
+	            ctrlFn(this, 'onPageDidLeave');
 	        }
 
 	        /**
@@ -61282,7 +61277,7 @@
 	    }, {
 	        key: 'willUnload',
 	        value: function willUnload() {
-	            this.instance.onPageWillUnload && this.instance.onPageWillUnload();
+	            ctrlFn(this, 'onPageWillUnload');
 	        }
 
 	        /**
@@ -61291,7 +61286,7 @@
 	    }, {
 	        key: 'didUnload',
 	        value: function didUnload() {
-	            this.instance.onPageDidUnload && this.instance.onPageDidUnload();
+	            ctrlFn(this, 'onPageDidUnload');
 	        }
 	    }, {
 	        key: 'index',
@@ -61304,6 +61299,16 @@
 	})();
 
 	exports.ViewController = ViewController;
+
+	function ctrlFn(viewCtrl, fnName) {
+	    if (viewCtrl.instance && viewCtrl.instance[fnName]) {
+	        try {
+	            viewCtrl.instance[fnName]();
+	        } catch (e) {
+	            console.error(fnName + ': ' + e.message);
+	        }
+	    }
+	}
 
 /***/ },
 /* 450 */
@@ -66762,7 +66767,11 @@
 	    }, {
 	        key: "didEnter",
 	        value: function didEnter() {
-	            this.app.setTitle(this.getTitleText());
+	            try {
+	                this.app.setTitle(this.getTitleText());
+	            } catch (e) {
+	                console.error(e);
+	            }
 	        }
 
 	        /**

@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L184'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L188'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/navbar/navbar.ts#L184'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/navbar/navbar.ts#L188'>
     Improve this doc
   </a>
 </div>
@@ -41,7 +41,7 @@ docType: "class"
 
 <h1 class="class export">NavbarTemplate <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L185-L208">ionic/components/navbar/navbar.ts (line 185)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L189-L212">ionic/components/navbar/navbar.ts (line 189)</a>
 </p>
 <h2>Directive</h2>
   <span>selector: template[navbar]</span>

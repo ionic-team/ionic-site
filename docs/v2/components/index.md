@@ -869,9 +869,9 @@ The markup level config will take precedent over the original config object
 <h2 id="navigation" class="section-header">Navigation</h2>
 _For more in depth information on navigation, see the [Nav API reference](../api/components/nav/Nav)._
 
-Navigation in Ionic is much more "native like" and is heavily modeled off of [the navigation features in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
+Navigation is how apps move between pages in an app. Ionic's navigation follows standard native animation conceps, like [those in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
 
-Like native, URLs are not required for navigation.  Instead, pages are pushed and popped on and off a navigation controller's page stack.  However, URLs are of course supported if you need them, using the [Angular2 router](https://angular.io/docs/js/latest/api/router/Router-class.html).
+Like native apps, URLs are not required for navigation.  Instead, pages are pushed and popped on and off a navigation controller's page stack.  URLs can be used to link back to unique, important parts of your app ("deeplinking") but don't define navigation as your app runs.
 
 There are several ways to navigate throughout an Ionic app:
 

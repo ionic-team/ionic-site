@@ -65833,10 +65833,10 @@
 	var OverlayNav = (function (_NavController) {
 	    _inherits(OverlayNav, _NavController);
 
-	    function OverlayNav(overlayCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer) {
+	    function OverlayNav(overlayCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd) {
 	        _classCallCheck(this, OverlayNav);
 
-	        _get(Object.getPrototypeOf(OverlayNav.prototype), "constructor", this).call(this, null, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer);
+	        _get(Object.getPrototypeOf(OverlayNav.prototype), "constructor", this).call(this, null, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd);
 	        if (overlayCtrl.anchor) {
 	            throw 'An app should only have one <ion-overlay></ion-overlay>';
 	        }
@@ -65849,8 +65849,8 @@
 	exports.OverlayNav = OverlayNav = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-overlay',
 	    template: '<template #contents></template>'
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _overlayController.OverlayController !== 'undefined' && _overlayController.OverlayController) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _k || Object])], OverlayNav);
-	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _overlayController.OverlayController !== 'undefined' && _overlayController.OverlayController) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _k || Object, typeof (_l = typeof _angular2Angular2.ChangeDetectorRef !== 'undefined' && _angular2Angular2.ChangeDetectorRef) === 'function' && _l || Object])], OverlayNav);
+	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 
 /***/ },
 /* 470 */

@@ -58239,9 +58239,11 @@
 	            self.zone.runOutsideAngular(function () {
 	                function checkKeyboard() {
 	                    if (!self.isOpen()) {
-	                        self.zone.run(function () {
-	                            console.debug('keyboard closed');
-	                            callback();
+	                        (0, _dom.rafFrames)(30, function () {
+	                            self.zone.run(function () {
+	                                console.debug('keyboard closed');
+	                                callback();
+	                            });
 	                        });
 	                    } else {
 	                        setTimeout(checkKeyboard, pollingInternval);
@@ -59728,7 +59730,7 @@
 	var NavController = (function (_Ion) {
 	    _inherits(NavController, _Ion);
 
-	    function NavController(parentnavCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer) {
+	    function NavController(parentnavCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd) {
 	        _classCallCheck(this, NavController);
 
 	        _get(Object.getPrototypeOf(NavController.prototype), 'constructor', this).call(this, elementRef, config);
@@ -59741,6 +59743,7 @@
 	        this._viewManager = viewManager;
 	        this._zone = zone;
 	        this._renderer = renderer;
+	        this._cd = cd;
 	        this._views = [];
 	        this._trnsTime = 0;
 	        this._sbTrans = null;
@@ -60197,7 +60200,6 @@
 	    }, {
 	        key: '_transition',
 	        value: function _transition(enteringView, leavingView, opts, done) {
-	            console.debug('_transition', enteringView, leavingView, opts);
 	            var self = this;
 	            if (enteringView === leavingView) {
 	                return done(enteringView);
@@ -60209,7 +60211,7 @@
 	                opts.animate = false;
 	            }
 	            if (!enteringView) {
-	                // if not entering view then create a bogus one
+	                // if no entering view then create a bogus one
 	                enteringView = new _viewController.ViewController();
 	                enteringView.loaded();
 	            }
@@ -60244,6 +60246,12 @@
 	                    // fallback to remove the clickblock if something goes wrong
 	                    self.app.setEnabled(enableApp, duration);
 	                    self.setTransitioning(!enableApp, duration);
+	                    if (!enableApp) {
+	                        // do a quick check for changes
+	                        // then detach the change detection during a transition
+	                        self._cd.detectChanges();
+	                        self._cd.detach();
+	                    }
 	                    if (opts.pageType) {
 	                        transAnimation.before.addClass(opts.pageType);
 	                    }
@@ -60258,22 +60266,23 @@
 	                            enteringView.didEnter();
 	                            leavingView.didLeave();
 	                        }
-	                        // all done!
+	                        // reattach the change detection
+	                        self._cd.reattach();
 	                        self._zone.run(function () {
-	                            self._transComplete();
-	                            done(enteringView);
+	                            if (self.keyboard.isOpen()) {
+	                                self.keyboard.onClose(function () {
+	                                    self._transComplete();
+	                                    done(enteringView);
+	                                }, 32);
+	                            } else {
+	                                self._transComplete();
+	                                done(enteringView);
+	                            }
 	                        });
 	                    });
 	                });
 	            }
-	            // wait for the new view to complete setup
-	            if (self.keyboard.isOpen()) {
-	                self._stage(enteringView, function () {
-	                    self.keyboard.onClose(beginTransition, 64);
-	                });
-	            } else {
-	                self._stage(enteringView, beginTransition);
-	            }
+	            self._stage(enteringView, beginTransition);
 	        }
 
 	        /**
@@ -69464,11 +69473,11 @@
 	var Tab = (function (_NavController) {
 	    _inherits(Tab, _NavController);
 
-	    function Tab(parentTabs, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer) {
+	    function Tab(parentTabs, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd) {
 	        _classCallCheck(this, Tab);
 
 	        // A Tab is a NavController for its child pages
-	        _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, parentTabs, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer);
+	        _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, parentTabs, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd);
 	        this._isInitial = parentTabs.add(this);
 	        this._panelId = 'tabpanel-' + this.id;
 	        this._btnId = 'tab-' + this.id;
@@ -69578,8 +69587,8 @@
 	        'role': 'tabpanel'
 	    },
 	    template: '<template #contents></template>'
-	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof (_a = typeof _tabs.Tabs !== 'undefined' && _tabs.Tabs) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _k || Object])], Tab);
-	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof (_a = typeof _tabs.Tabs !== 'undefined' && _tabs.Tabs) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _k || Object, typeof (_l = typeof _angular2Angular2.ChangeDetectorRef !== 'undefined' && _angular2Angular2.ChangeDetectorRef) === 'function' && _l || Object])], Tab);
+	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 
 /***/ },
 /* 486 */
@@ -72305,10 +72314,10 @@
 	var Nav = (function (_NavController) {
 	    _inherits(Nav, _NavController);
 
-	    function Nav(hostNavCtrl, viewCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer) {
+	    function Nav(hostNavCtrl, viewCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd) {
 	        _classCallCheck(this, Nav);
 
-	        _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer);
+	        _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd);
 	        if (viewCtrl) {
 	            // an ion-nav can also act as an ion-page within a parent ion-nav
 	            // this would happen when an ion-nav nests a child ion-nav.
@@ -72346,8 +72355,8 @@
 	        'swipeBackEnabled': true
 	    },
 	    template: '<template #contents></template>'
-	}), __param(0, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _navController.NavController !== 'undefined' && _navController.NavController) === 'function' && _a || Object, typeof (_b = typeof _viewController.ViewController !== 'undefined' && _viewController.ViewController) === 'function' && _b || Object, typeof (_c = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _c || Object, typeof (_d = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _d || Object, typeof (_e = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _k || Object, typeof (_l = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _l || Object])], Nav);
-	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+	}), __param(0, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _navController.NavController !== 'undefined' && _navController.NavController) === 'function' && _a || Object, typeof (_b = typeof _viewController.ViewController !== 'undefined' && _viewController.ViewController) === 'function' && _b || Object, typeof (_c = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _c || Object, typeof (_d = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _d || Object, typeof (_e = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _k || Object, typeof (_l = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _l || Object, typeof (_m = typeof _angular2Angular2.ChangeDetectorRef !== 'undefined' && _angular2Angular2.ChangeDetectorRef) === 'function' && _m || Object])], Nav);
+	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 
 /***/ },
 /* 499 */

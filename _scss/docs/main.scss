@@ -24,7 +24,10 @@ a.improve-docs {
   top: 134px - 7px;
 }
 .docs-container {
-  .side-nav { width: $sidenav-width; }
+  .side-nav {
+    width: $sidenav-width;
+    padding-top: 73px;
+  }
   > main {
     margin-left: $sidenav-width;
   }
@@ -49,7 +52,7 @@ a.improve-docs {
       padding: 30px 20px;
     }
     #side-nav{
-      // padding-top: 50px;
+      padding-top: 0;
       top: 50px;
       z-index: 1;
       transform: translateX(-$sidenav-width);

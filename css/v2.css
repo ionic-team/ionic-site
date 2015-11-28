@@ -4682,7 +4682,8 @@ a.improve-docs {
   top: 127px; }
 
 .docs-container .side-nav {
-  width: 230px; }
+  width: 230px;
+  padding-top: 73px; }
 
 .docs-container > main {
   margin-left: 230px; }
@@ -4705,6 +4706,7 @@ a.improve-docs {
       margin-left: 0;
       padding: 30px 20px; }
     .docs-container #side-nav {
+      padding-top: 0;
       top: 50px;
       z-index: 1;
       -webkit-transform: translateX(-230px);

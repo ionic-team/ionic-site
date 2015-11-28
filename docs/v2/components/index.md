@@ -121,8 +121,8 @@ To create a button with rounded corners, just add the `round` property:
 
 ```html
 <button light round>Light Round</button>
-<button rount>Primary Round</button>
-<button secondary rount>Secondary Round</button>
+<button round>Primary Round</button>
+<button secondary round>Secondary Round</button>
 <button danger round>Danger Round</button>
 <button dark round>Dark Round</button>
 ```

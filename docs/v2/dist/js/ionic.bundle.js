@@ -43796,6 +43796,7 @@ System.register('ionic/animations/ios-transition', ['./animation'], function (_e
                         var enteringNavbarBg = new Animation(enteringView.navbarBgRef());
                         var enteringBackButton = new Animation(enteringView.backBtnRef());
                         enteringNavBar.add(enteringTitle).add(enteringNavbarItems).add(enteringNavbarBg).add(enteringBackButton);
+                        enteringNavBar.before.addClass('show-navbar');
                         enteringTitle.fadeIn();
                         enteringNavbarItems.fadeIn();
                         // set properties depending on direction
@@ -43929,6 +43930,9 @@ System.register('ionic/animations/md-transition', ['./animation'], function (_ex
                         enteringPage.fromTo(TRANSLATEY, OFF_BOTTOM, CENTER).fadeIn();
                     }
                     if (enteringHasNavbar) {
+                        var enteringNavBar = new Animation(enteringView.navbarRef());
+                        this.add(enteringNavBar);
+                        enteringNavBar.before.addClass('show-navbar');
                         var enteringBackButton = new Animation(enteringView.backBtnRef());
                         this.add(enteringBackButton);
                         if (enteringView.enableBack()) {
@@ -53480,14 +53484,15 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: '_transition',
                     value: function _transition(enteringView, leavingView, opts, done) {
-                        var self = this;
+                        var _this = this;
+
                         if (enteringView === leavingView) {
                             return done(enteringView);
                         }
                         if (!opts.animation) {
-                            opts.animation = self.config.get('pageTransition');
+                            opts.animation = this.config.get('pageTransition');
                         }
-                        if (self.config.get('animate') === false) {
+                        if (this.config.get('animate') === false) {
                             opts.animate = false;
                         }
                         if (!enteringView) {
@@ -53495,74 +53500,75 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                             enteringView = new ViewController();
                             enteringView.loaded();
                         }
-                        function beginTransition() {
+                        this._stage(enteringView, opts, function () {
                             if (enteringView.shouldDestroy) {
                                 // already marked as a view that will be destroyed, don't continue
                                 return done(enteringView);
                             }
-                            self._zone.runOutsideAngular(function () {
-                                self._setZIndex(enteringView, leavingView, opts.direction);
+                            _this._zone.runOutsideAngular(function () {
+                                _this._setZIndex(enteringView, leavingView, opts.direction);
                                 enteringView.shouldDestroy = false;
                                 enteringView.shouldCache = false;
-                                if (!opts.preload) {
-                                    enteringView.willEnter();
-                                    leavingView.willLeave();
-                                }
-                                // set that the new view pushed on the stack is staged to be entering/leaving
-                                // staged state is important for the transition to find the correct view
-                                enteringView.state = STAGED_ENTERING_STATE;
-                                leavingView.state = STAGED_LEAVING_STATE;
-                                // init the transition animation
-                                opts.renderDelay = opts.transitionDelay || self.config.get('pageTransitionDelay');
-                                var transAnimation = Animation.createTransition(self._getStagedEntering(), self._getStagedLeaving(), opts);
-                                if (opts.animate === false) {
-                                    // force it to not animate the elements, just apply the "to" styles
-                                    transAnimation.clearDuration();
-                                    transAnimation.duration(0);
-                                }
-                                var duration = transAnimation.duration();
-                                var enableApp = duration < 64;
-                                // block any clicks during the transition and provide a
-                                // fallback to remove the clickblock if something goes wrong
-                                self.app.setEnabled(enableApp, duration);
-                                self.setTransitioning(!enableApp, duration);
-                                if (!enableApp) {
-                                    // do a quick check for changes
-                                    // then detach the change detection during a transition
-                                    self._cd.detectChanges();
-                                    self._cd.detach();
-                                }
-                                if (opts.pageType) {
-                                    transAnimation.before.addClass(opts.pageType);
-                                }
-                                // start the transition
-                                transAnimation.play(function () {
-                                    // transition has completed, update each view's state
-                                    enteringView.state = ACTIVE_STATE;
-                                    leavingView.state = CACHED_STATE;
-                                    // dispose any views that shouldn't stay around
-                                    transAnimation.dispose();
+                                _this._postRender(enteringView, opts, function () {
                                     if (!opts.preload) {
-                                        enteringView.didEnter();
-                                        leavingView.didLeave();
+                                        enteringView.willEnter();
+                                        leavingView.willLeave();
                                     }
-                                    // reattach the change detection
-                                    self._cd.reattach();
-                                    self._zone.run(function () {
-                                        if (self.keyboard.isOpen()) {
-                                            self.keyboard.onClose(function () {
-                                                self._transComplete();
-                                                done(enteringView);
-                                            }, 32);
-                                        } else {
-                                            self._transComplete();
-                                            done(enteringView);
+                                    // set that the new view pushed on the stack is staged to be entering/leaving
+                                    // staged state is important for the transition to find the correct view
+                                    enteringView.state = STAGED_ENTERING_STATE;
+                                    leavingView.state = STAGED_LEAVING_STATE;
+                                    // init the transition animation
+                                    opts.renderDelay = opts.transitionDelay || _this.config.get('pageTransitionDelay');
+                                    var transAnimation = Animation.createTransition(_this._getStagedEntering(), _this._getStagedLeaving(), opts);
+                                    if (opts.animate === false) {
+                                        // force it to not animate the elements, just apply the "to" styles
+                                        transAnimation.clearDuration();
+                                        transAnimation.duration(0);
+                                    }
+                                    var duration = transAnimation.duration();
+                                    var enableApp = duration < 64;
+                                    // block any clicks during the transition and provide a
+                                    // fallback to remove the clickblock if something goes wrong
+                                    _this.app.setEnabled(enableApp, duration);
+                                    _this.setTransitioning(!enableApp, duration);
+                                    if (!enableApp) {
+                                        // do a quick check for changes
+                                        // then detach the change detection during a transition
+                                        _this._cd.detectChanges();
+                                        _this._cd.detach();
+                                    }
+                                    if (opts.pageType) {
+                                        transAnimation.before.addClass(opts.pageType);
+                                    }
+                                    // start the transition
+                                    transAnimation.play(function () {
+                                        // transition has completed, update each view's state
+                                        enteringView.state = ACTIVE_STATE;
+                                        leavingView.state = CACHED_STATE;
+                                        // dispose any views that shouldn't stay around
+                                        transAnimation.dispose();
+                                        if (!opts.preload) {
+                                            enteringView.didEnter();
+                                            leavingView.didLeave();
                                         }
+                                        // reattach the change detection
+                                        _this._cd.reattach();
+                                        _this._zone.run(function () {
+                                            if (_this.keyboard.isOpen()) {
+                                                _this.keyboard.onClose(function () {
+                                                    _this._transComplete();
+                                                    done(enteringView);
+                                                }, 32);
+                                            } else {
+                                                _this._transComplete();
+                                                done(enteringView);
+                                            }
+                                        });
                                     });
                                 });
                             });
-                        }
-                        self._stage(enteringView, beginTransition);
+                        });
                     }
 
                     /**
@@ -53570,14 +53576,14 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                      */
                 }, {
                     key: '_stage',
-                    value: function _stage(viewCtrl, done) {
+                    value: function _stage(viewCtrl, opts, done) {
                         if (viewCtrl.isLoaded() || viewCtrl.shouldDestroy) {
                             // already compiled this view
                             return done();
                         }
                         // get the pane the NavController wants to use
                         // the pane is where all this content will be placed into
-                        this.loadPage(viewCtrl, null, function () {
+                        this.loadPage(viewCtrl, null, opts, function () {
                             if (viewCtrl.onReady) {
                                 viewCtrl.onReady(function () {
                                     viewCtrl.loaded();
@@ -53591,8 +53597,8 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                     }
                 }, {
                     key: 'loadPage',
-                    value: function loadPage(viewCtrl, navbarContainerRef, done) {
-                        var _this = this;
+                    value: function loadPage(viewCtrl, navbarContainerRef, opts, done) {
+                        var _this2 = this;
 
                         var providers = this.providers.concat(Injector.resolve([provide(ViewController, { useValue: viewCtrl }), provide(NavParams, { useValue: viewCtrl.params })]));
                         console.time('loadPage ' + viewCtrl.componentType.name + ': loadIntoLocation');
@@ -53623,15 +53629,26 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                     });
                                 })();
                             }
-                            if (_this._views.length === 1) {
-                                _this._zone.runOutsideAngular(function () {
+                            opts.postLoad && opts.postLoad(viewCtrl);
+                            if (_this2._views.length === 1) {
+                                _this2._zone.runOutsideAngular(function () {
                                     rafFrames(38, function () {
-                                        _this._renderer.setElementClass(_this.elementRef, 'has-views', true);
+                                        _this2._renderer.setElementClass(_this2.elementRef, 'has-views', true);
                                     });
                                 });
                             }
                             done(viewCtrl);
                         });
+                    }
+                }, {
+                    key: '_postRender',
+                    value: function _postRender(enteringView, opts, done) {
+                        enteringView.postRender();
+                        if (opts.animate === false) {
+                            done();
+                        } else {
+                            rafFrames(2, done);
+                        }
                     }
                 }, {
                     key: '_setZIndex',
@@ -53677,7 +53694,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: 'swipeBackStart',
                     value: function swipeBackStart() {
-                        var _this2 = this;
+                        var _this3 = this;
 
                         return;
                         if (!this.app.isEnabled() || !this.canSwipeBack()) {
@@ -53703,15 +53720,15 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         enteringView.shouldCache = false;
                         enteringView.willEnter();
                         // wait for the new view to complete setup
-                        enteringView._stage(function () {
-                            _this2._zone.runOutsideAngular(function () {
+                        enteringView._stage(enteringView, {}, function () {
+                            _this3._zone.runOutsideAngular(function () {
                                 // set that the new view pushed on the stack is staged to be entering/leaving
                                 // staged state is important for the transition to find the correct view
                                 enteringView.state = STAGED_ENTERING_STATE;
                                 leavingView.state = STAGED_LEAVING_STATE;
                                 // init the swipe back transition animation
-                                _this2._sbTrans = Transition.create(_this2, opts);
-                                _this2._sbTrans.easing('linear').progressStart();
+                                _this3._sbTrans = Transition.create(_this3, opts);
+                                _this3._sbTrans.easing('linear').progressStart();
                             });
                         });
                     }
@@ -53742,7 +53759,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: 'swipeBackEnd',
                     value: function swipeBackEnd(completeSwipeBack, rate) {
-                        var _this3 = this;
+                        var _this4 = this;
 
                         return;
                         if (!this._sbTrans) return;
@@ -53750,10 +53767,10 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         this.app.setEnabled(false);
                         this.setTransitioning(true);
                         this._sbTrans.progressEnd(completeSwipeBack, rate).then(function () {
-                            _this3._zone.run(function () {
+                            _this4._zone.run(function () {
                                 // find the views that were entering and leaving
-                                var enteringView = _this3._getStagedEntering();
-                                var leavingView = _this3._getStagedLeaving();
+                                var enteringView = _this4._getStagedEntering();
+                                var leavingView = _this4._getStagedLeaving();
                                 if (enteringView && leavingView) {
                                     // finish up the animation
                                     if (completeSwipeBack) {
@@ -53763,9 +53780,9 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                         leavingView.state = CACHED_STATE;
                                         enteringView.didEnter();
                                         leavingView.didLeave();
-                                        if (_this3.router) {
+                                        if (_this4.router) {
                                             // notify router of the pop state change
-                                            _this3.router.stateChange('pop', enteringView);
+                                            _this4.router.stateChange('pop', enteringView);
                                         }
                                     } else {
                                         // cancelled the swipe back, they didn't end up going back
@@ -53780,10 +53797,10 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                     }
                                 }
                                 // empty out and dispose the swipe back transition animation
-                                _this3._sbTrans && _this3._sbTrans.dispose();
-                                _this3._sbTrans = null;
+                                _this4._sbTrans && _this4._sbTrans.dispose();
+                                _this4._sbTrans = null;
                                 // all done!
-                                _this3._transComplete();
+                                _this4._transComplete();
                             });
                         });
                     }
@@ -53889,7 +53906,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                 }, {
                     key: '_cleanup',
                     value: function _cleanup(activeView) {
-                        var _this4 = this;
+                        var _this5 = this;
 
                         // the active view, and the previous view, should be rendered in dom and ready to go
                         // all others, like a cached page 2 back, should be display: none and not rendered
@@ -53902,14 +53919,14 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                                     destroys.push(view);
                                 } else if (view.isLoaded()) {
                                     var shouldShow = view === activeView || view === previousView;
-                                    _this4._renderView(view, shouldShow);
+                                    _this5._renderView(view, shouldShow);
                                 }
                             }
                         });
                         // all views being destroyed should be removed from the list of views
                         // and completely removed from the dom
                         destroys.forEach(function (view) {
-                            _this4._remove(view);
+                            _this5._remove(view);
                             view.destroy();
                         });
                     }
@@ -55070,10 +55087,17 @@ System.register('ionic/components/nav/view-controller', ['./nav-controller'], fu
                             ctrlFn(this, 'onPageLoaded');
                         }
                     }
+                }, {
+                    key: 'postRender',
+                    value: function postRender() {}
+                    // let navbar = this.getNavbar();
+                    // navbar && navbar.postRender();
+                    // ctrlFn(this, 'onPagePostRender');
 
                     /**
                      * The view is about to enter and become the active view.
                      */
+
                 }, {
                     key: 'willEnter',
                     value: function willEnter() {
@@ -58799,11 +58823,13 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
                                 if (!_this._loaded) {
                                     var opts = {
                                         animate: false,
-                                        preload: true
+                                        preload: true,
+                                        postLoad: function postLoad(viewCtrl) {
+                                            var navbar = viewCtrl.getNavbar();
+                                            navbar && navbar.setHidden(true);
+                                        }
                                     };
-                                    _this.load(opts, function () {
-                                        _this.hideNavbars(true);
-                                    });
+                                    _this.load(opts);
                                 }
                             }, 1000 * this.index);
                         }
@@ -58828,7 +58854,7 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
                      */
                 }, {
                     key: "loadPage",
-                    value: function loadPage(viewCtrl, navbarContainerRef, done) {
+                    value: function loadPage(viewCtrl, navbarContainerRef, opts, done) {
                         // by default a page's navbar goes into the shared tab's navbar section
                         navbarContainerRef = this.parent.navbarContainerRef;
                         var isTabSubPage = this.parent.subPages && viewCtrl.index > 0;
@@ -58837,7 +58863,7 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
                             // should not use the shared tabs navbar section, but use it's own
                             navbarContainerRef = null;
                         }
-                        _get(Object.getPrototypeOf(Tab.prototype), "loadPage", this).call(this, viewCtrl, navbarContainerRef, function () {
+                        _get(Object.getPrototypeOf(Tab.prototype), "loadPage", this).call(this, viewCtrl, navbarContainerRef, opts, function () {
                             if (viewCtrl.instance) {
                                 viewCtrl.instance._tabSubPage = isTabSubPage;
                             }

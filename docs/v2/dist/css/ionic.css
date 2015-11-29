@@ -1839,7 +1839,13 @@ ion-navbar.toolbar {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-transform: translate3d(-9999px, -9999px, 0);
+  transform: translate3d(-9999px, -9999px, 0); }
+
+ion-navbar.toolbar.show-navbar {
+  -webkit-transform: none;
+  transform: none; }
 
 .back-button {
   -webkit-box-ordinal-group: 11;

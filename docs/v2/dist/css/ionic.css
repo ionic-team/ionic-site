@@ -5648,7 +5648,7 @@ icon,
       -webkit-order: 10;
       -ms-flex-order: 10;
       order: 10;
-      overflow: inherit; }
+      overflow: visible; }
     .ios .toolbar .back-button-icon {
       display: inherit;
       margin: 0;

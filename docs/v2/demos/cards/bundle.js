@@ -9526,7 +9526,7 @@
 
 	_defaults(exports, _interopExportWildcard(_configBootstrap, _defaults));
 
-	var _configConfig = __webpack_require__(437);
+	var _configConfig = __webpack_require__(436);
 
 	_defaults(exports, _interopExportWildcard(_configConfig, _defaults));
 
@@ -9546,7 +9546,7 @@
 
 	_defaults(exports, _interopExportWildcard(_components, _defaults));
 
-	var _platformPlatform = __webpack_require__(438);
+	var _platformPlatform = __webpack_require__(437);
 
 	_defaults(exports, _interopExportWildcard(_platformPlatform, _defaults));
 
@@ -9558,19 +9558,19 @@
 
 	_defaults(exports, _interopExportWildcard(_platformStorage, _defaults));
 
-	var _utilClickBlock = __webpack_require__(436);
+	var _utilClickBlock = __webpack_require__(450);
 
 	_defaults(exports, _interopExportWildcard(_utilClickBlock, _defaults));
 
-	var _utilEvents = __webpack_require__(449);
+	var _utilEvents = __webpack_require__(448);
 
 	_defaults(exports, _interopExportWildcard(_utilEvents, _defaults));
 
-	var _utilKeyboard = __webpack_require__(441);
+	var _utilKeyboard = __webpack_require__(440);
 
 	_defaults(exports, _interopExportWildcard(_utilKeyboard, _defaults));
 
-	var _animationsAnimation = __webpack_require__(444);
+	var _animationsAnimation = __webpack_require__(443);
 
 	_defaults(exports, _interopExportWildcard(_animationsAnimation, _defaults));
 
@@ -9586,7 +9586,7 @@
 
 	_defaults(exports, _interopExportWildcard(_animationsMdTransition, _defaults));
 
-	var _translationTranslate = __webpack_require__(450);
+	var _translationTranslate = __webpack_require__(449);
 
 	_defaults(exports, _interopExportWildcard(_translationTranslate, _defaults));
 
@@ -9605,8 +9605,6 @@
 	});
 	exports.ionicProviders = ionicProviders;
 
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
 	var _angular2Angular2 = __webpack_require__(45);
 
 	var _angular2Router = __webpack_require__(396);
@@ -9615,35 +9613,35 @@
 
 	var _componentsAppApp = __webpack_require__(434);
 
-	var _config = __webpack_require__(437);
+	var _config = __webpack_require__(436);
 
-	var _platformPlatform = __webpack_require__(438);
+	var _platformPlatform = __webpack_require__(437);
 
 	var _componentsOverlayOverlayController = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/overlay/overlay-controller\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	var _utilForm = __webpack_require__(440);
+	var _utilForm = __webpack_require__(439);
 
-	var _utilKeyboard = __webpack_require__(441);
+	var _utilKeyboard = __webpack_require__(440);
 
-	var _componentsActionSheetActionSheet = __webpack_require__(442);
+	var _componentsActionSheetActionSheet = __webpack_require__(441);
 
-	var _componentsModalModal = __webpack_require__(447);
+	var _componentsModalModal = __webpack_require__(446);
 
 	var _componentsPopupPopup = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/popup/popup\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	var _utilEvents = __webpack_require__(449);
+	var _utilEvents = __webpack_require__(448);
 
 	var _componentsNavNavRegistry = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/nav/nav-registry\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	var _translationTranslate = __webpack_require__(450);
+	var _translationTranslate = __webpack_require__(449);
+
+	var _utilClickBlock = __webpack_require__(450);
 
 	var _utilFeatureDetect = __webpack_require__(451);
 
 	var _componentsTapClickTapClick = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/tap-click/tap-click\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _utilDom = __webpack_require__(435);
-
-	var dom = _interopRequireWildcard(_utilDom);
 
 	function ionicProviders() {
 	    var args = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
@@ -9659,21 +9657,22 @@
 	    platform.navigatorPlatform(window.navigator.platform);
 	    platform.load();
 	    config.setPlatform(platform);
-	    var app = new _componentsAppApp.IonicApp(config);
+	    var clickBlock = new _utilClickBlock.ClickBlock(config.get('clickBlock'));
+	    var app = new _componentsAppApp.IonicApp(config, clickBlock);
 	    var events = new _utilEvents.Events();
 	    (0, _componentsTapClickTapClick.initTapClick)(window, document, app, config);
 	    var featureDetect = new _utilFeatureDetect.FeatureDetect();
-	    setupDom(window, document, config, platform, featureDetect);
+	    setupDom(window, document, config, platform, clickBlock, featureDetect);
 	    bindEvents(window, document, platform, events);
 	    // prepare the ready promise to fire....when ready
 	    platform.prepareReady(config);
 	    return [(0, _angular2Angular2.provide)(_componentsAppApp.IonicApp, { useValue: app }), (0, _angular2Angular2.provide)(_config.Config, { useValue: config }), (0, _angular2Angular2.provide)(_platformPlatform.Platform, { useValue: platform }), (0, _angular2Angular2.provide)(_utilFeatureDetect.FeatureDetect, { useValue: featureDetect }), (0, _angular2Angular2.provide)(_utilEvents.Events, { useValue: events }), (0, _angular2Angular2.provide)(_componentsNavNavRegistry.NavRegistry, { useValue: navRegistry }), _utilForm.Form, _utilKeyboard.Keyboard, _componentsOverlayOverlayController.OverlayController, _componentsActionSheetActionSheet.ActionSheet, _componentsModalModal.Modal, _componentsPopupPopup.Popup, _translationTranslate.Translate, _angular2Router.ROUTER_PROVIDERS, (0, _angular2Angular2.provide)(_angular2Router.LocationStrategy, { useClass: _angular2Router.HashLocationStrategy }), _angular2Http.HTTP_PROVIDERS];
 	}
 
-	function setupDom(window, document, config, platform, featureDetect) {
+	function setupDom(window, document, config, platform, clickBlock, featureDetect) {
 	    var bodyEle = document.body;
 	    if (!bodyEle) {
-	        return dom.ready(function () {
+	        return (0, _utilDom.ready)(function () {
 	            applyBodyCss(document, config, platform);
 	        });
 	    }
@@ -9699,6 +9698,9 @@
 	    if (config.get('hoverCSS') !== false) {
 	        bodyEle.classList.add('enable-hover');
 	    }
+	    if (config.get('clickBlock')) {
+	        clickBlock.enable();
+	    }
 	    // run feature detection tests
 	    featureDetect.run(window, document);
 	}
@@ -9722,7 +9724,7 @@
 	        if (!el) {
 	            return;
 	        }
-	        var content = dom.closest(el, 'scroll-content');
+	        var content = (0, _utilDom.closest)(el, 'scroll-content');
 	        if (content) {
 	            var scrollTo = new ScrollTo(content);
 	            scrollTo.start(0, 0, 300, 0);
@@ -56224,21 +56226,20 @@
 
 	var _utilDom = __webpack_require__(435);
 
-	var _utilClickBlock = __webpack_require__(436);
-
 	/**
 	 * Component registry service.  For more information on registering
 	 * components see the [IdRef API reference](../id/IdRef/).
 	 */
 
 	var IonicApp = (function () {
-	    function IonicApp(config) {
+	    function IonicApp(config, clickBlock) {
 	        _classCallCheck(this, IonicApp);
 
 	        this._config = config;
 	        this._titleSrv = new _angular2Angular2.Title();
 	        this._title = '';
 	        this._disTime = 0;
+	        this._clickBlock = clickBlock;
 	        // Our component registry map
 	        this.components = {};
 	    }
@@ -56280,9 +56281,7 @@
 	            var fallback = arguments.length <= 1 || arguments[1] === undefined ? 700 : arguments[1];
 
 	            this._disTime = isEnabled ? 0 : Date.now() + fallback;
-	            if (this._config.get('clickBlock')) {
-	                (0, _utilClickBlock.ClickBlock)(!isEnabled, fallback + 100);
-	            }
+	            this._clickBlock.show(!isEnabled, fallback + 100);
 	        }
 
 	        /**
@@ -56746,52 +56745,6 @@
 
 /***/ },
 /* 436 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	var CSS_CLICK_BLOCK = 'click-block-active';
-	var DEFAULT_EXPIRE = 330;
-	var cbEle = undefined,
-	    fallbackTimerId = undefined;
-	var isShowing = false;
-	function disableInput(ev) {
-	    ev.preventDefault();
-	    ev.stopPropagation();
-	}
-	function show(expire) {
-	    clearTimeout(fallbackTimerId);
-	    fallbackTimerId = setTimeout(hide, expire || DEFAULT_EXPIRE);
-	    if (!isShowing) {
-	        isShowing = true;
-	        if (cbEle) {
-	            cbEle.classList.add(CSS_CLICK_BLOCK);
-	        } else {
-	            cbEle = document.createElement('div');
-	            cbEle.className = 'click-block ' + CSS_CLICK_BLOCK;
-	            document.body.appendChild(cbEle);
-	        }
-	        cbEle.addEventListener('touchmove', disableInput);
-	    }
-	}
-	function hide() {
-	    clearTimeout(fallbackTimerId);
-	    if (isShowing) {
-	        cbEle.classList.remove(CSS_CLICK_BLOCK);
-	        isShowing = false;
-	        cbEle.removeEventListener('touchmove', disableInput);
-	    }
-	}
-	var ClickBlock = function ClickBlock(shouldShow, expire) {
-	    (shouldShow ? show : hide)(expire);
-	};
-	exports.ClickBlock = ClickBlock;
-
-/***/ },
-/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -56811,9 +56764,9 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _platformPlatform = __webpack_require__(438);
+	var _platformPlatform = __webpack_require__(437);
 
-	var _utilUtil = __webpack_require__(439);
+	var _utilUtil = __webpack_require__(438);
 
 	/**
 	 * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
@@ -57048,7 +57001,7 @@
 	var modeConfigs = {};
 
 /***/ },
-/* 438 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -57070,7 +57023,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _utilUtil = __webpack_require__(439);
+	var _utilUtil = __webpack_require__(438);
 
 	var util = _interopRequireWildcard(_utilUtil);
 
@@ -57672,7 +57625,7 @@
 	var platformDefault = null;
 
 /***/ },
-/* 439 */
+/* 438 */
 /***/ function(module, exports) {
 
 	// Simple noop function
@@ -57922,7 +57875,7 @@
 	}
 
 /***/ },
-/* 440 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58046,7 +57999,7 @@
 	exports.Form = Form = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [])], Form);
 
 /***/ },
-/* 441 */
+/* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58061,9 +58014,9 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _configConfig = __webpack_require__(437);
+	var _configConfig = __webpack_require__(436);
 
-	var _form = __webpack_require__(440);
+	var _form = __webpack_require__(439);
 
 	var _dom = __webpack_require__(435);
 
@@ -58208,7 +58161,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 442 */
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58229,15 +58182,15 @@
 
 	var _overlayOverlayController = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../overlay/overlay-controller\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	var _configConfig = __webpack_require__(437);
+	var _configConfig = __webpack_require__(436);
 
-	var _iconIcon = __webpack_require__(443);
+	var _iconIcon = __webpack_require__(442);
 
-	var _animationsAnimation = __webpack_require__(444);
+	var _animationsAnimation = __webpack_require__(443);
 
-	var _navNavController = __webpack_require__(445);
+	var _navNavController = __webpack_require__(444);
 
-	var _utilUtil = __webpack_require__(439);
+	var _utilUtil = __webpack_require__(438);
 
 	/**
 	 * @name ActionSheet
@@ -58472,7 +58425,7 @@
 	var _a, _b, _c, _d;
 
 /***/ },
-/* 443 */
+/* 442 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58487,7 +58440,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _configConfig = __webpack_require__(437);
+	var _configConfig = __webpack_require__(436);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -58602,7 +58555,7 @@
 	var _a, _b, _c;
 
 /***/ },
-/* 444 */
+/* 443 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58617,7 +58570,7 @@
 
 	var _utilDom = __webpack_require__(435);
 
-	var _utilUtil = __webpack_require__(439);
+	var _utilUtil = __webpack_require__(438);
 
 	/**
 	  Animation Steps/Process
@@ -59492,7 +59445,7 @@
 	}
 
 /***/ },
-/* 445 */
+/* 444 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59511,15 +59464,15 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(446);
+	var _ion = __webpack_require__(445);
 
 	var _viewController = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./view-controller\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	var _animationsAnimation = __webpack_require__(444);
+	var _animationsAnimation = __webpack_require__(443);
 
 	var _swipeBack = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./swipe-back\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	var _utilUtil = __webpack_require__(439);
+	var _utilUtil = __webpack_require__(438);
 
 	var _utilDom = __webpack_require__(435);
 
@@ -60821,7 +60774,7 @@
 	exports.NavParams = NavParams;
 
 /***/ },
-/* 446 */
+/* 445 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60917,7 +60870,7 @@
 	exports.Ion = Ion;
 
 /***/ },
-/* 447 */
+/* 446 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60938,11 +60891,11 @@
 
 	var _overlayOverlayController = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../overlay/overlay-controller\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	var _configConfig = __webpack_require__(437);
+	var _configConfig = __webpack_require__(436);
 
-	var _animationsAnimation = __webpack_require__(444);
+	var _animationsAnimation = __webpack_require__(443);
 
-	var _ionicUtil = __webpack_require__(448);
+	var _ionicUtil = __webpack_require__(447);
 
 	/**
 	 * The Modal is a content pane that can go over the user's current page.
@@ -61125,7 +61078,7 @@
 	var _a, _b;
 
 /***/ },
-/* 448 */
+/* 447 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61147,12 +61100,12 @@
 	var dom = domUtil;
 	exports.dom = dom;
 
-	var _ionicUtilUtil = __webpack_require__(439);
+	var _ionicUtilUtil = __webpack_require__(438);
 
 	_defaults(exports, _interopExportWildcard(_ionicUtilUtil, _defaults));
 
 /***/ },
-/* 449 */
+/* 448 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61291,7 +61244,7 @@
 	exports.Events = Events = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [])], Events);
 
 /***/ },
-/* 450 */
+/* 449 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61400,6 +61353,77 @@
 	exports.Translate = Translate = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [])], Translate);
 
 /***/ },
+/* 450 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var CSS_CLICK_BLOCK = 'click-block-active';
+	var DEFAULT_EXPIRE = 330;
+	var cbEle = undefined,
+	    fallbackTimerId = undefined;
+	var isShowing = false;
+
+	var ClickBlock = (function () {
+	    function ClickBlock() {
+	        _classCallCheck(this, ClickBlock);
+	    }
+
+	    _createClass(ClickBlock, [{
+	        key: 'enable',
+	        value: function enable() {
+	            cbEle = document.createElement('div');
+	            cbEle.className = 'click-block';
+	            document.body.appendChild(cbEle);
+	            cbEle.addEventListener('touchmove', function (ev) {
+	                ev.preventDefault();
+	                ev.stopPropagation();
+	            });
+	            this._enabled = true;
+	        }
+	    }, {
+	        key: 'show',
+	        value: function show(shouldShow, expire) {
+	            if (this._enabled) {
+	                if (shouldShow) {
+	                    _show(expire);
+	                } else {
+	                    hide();
+	                }
+	            }
+	        }
+	    }]);
+
+	    return ClickBlock;
+	})();
+
+	exports.ClickBlock = ClickBlock;
+
+	function _show(expire) {
+	    clearTimeout(fallbackTimerId);
+	    fallbackTimerId = setTimeout(hide, expire || DEFAULT_EXPIRE);
+	    if (!isShowing) {
+	        cbEle.classList.add(CSS_CLICK_BLOCK);
+	        isShowing = true;
+	    }
+	}
+	function hide() {
+	    clearTimeout(fallbackTimerId);
+	    if (isShowing) {
+	        cbEle.classList.remove(CSS_CLICK_BLOCK);
+	        isShowing = false;
+	    }
+	}
+
+/***/ },
 /* 451 */
 /***/ function(module, exports) {
 
@@ -61476,7 +61500,7 @@
 
 	'use strict';
 
-	var _config = __webpack_require__(437);
+	var _config = __webpack_require__(436);
 
 	// iOS Mode Settings
 	_config.Config.setModeConfig('ios', {
@@ -61536,7 +61560,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ionicUtil = __webpack_require__(448);
+	var _ionicUtil = __webpack_require__(447);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -61722,7 +61746,7 @@
 
 	var _componentsToolbarToolbar = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/toolbar/toolbar\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	var _componentsIconIcon = __webpack_require__(443);
+	var _componentsIconIcon = __webpack_require__(442);
 
 	var _componentsCheckboxCheckbox = __webpack_require__(473);
 
@@ -61797,15 +61821,15 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(446);
+	var _ion = __webpack_require__(445);
 
 	var _appApp = __webpack_require__(434);
 
-	var _configConfig = __webpack_require__(437);
+	var _configConfig = __webpack_require__(436);
 
-	var _platformPlatform = __webpack_require__(438);
+	var _platformPlatform = __webpack_require__(437);
 
-	var _utilKeyboard = __webpack_require__(441);
+	var _utilKeyboard = __webpack_require__(440);
 
 	var _menuGestures = __webpack_require__(456);
 
@@ -62247,7 +62271,7 @@
 
 	var _gesturesSlideEdgeGesture = __webpack_require__(457);
 
-	var _ionicUtil = __webpack_require__(448);
+	var _ionicUtil = __webpack_require__(447);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -62397,7 +62421,7 @@
 
 	var _ionicGesturesSlideGesture = __webpack_require__(458);
 
-	var _utilUtil = __webpack_require__(439);
+	var _utilUtil = __webpack_require__(438);
 
 	var _utilDom = __webpack_require__(435);
 
@@ -62482,7 +62506,7 @@
 
 	var _ionicGesturesDragGesture = __webpack_require__(459);
 
-	var _ionicUtil = __webpack_require__(448);
+	var _ionicUtil = __webpack_require__(447);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -62608,7 +62632,7 @@
 
 	var _ionicGesturesGesture = __webpack_require__(460);
 
-	var _ionicUtil = __webpack_require__(448);
+	var _ionicUtil = __webpack_require__(447);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -62680,7 +62704,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _ionicUtil = __webpack_require__(448);
+	var _ionicUtil = __webpack_require__(447);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -64919,7 +64943,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(446);
+	var _ion = __webpack_require__(445);
 
 	var _appApp = __webpack_require__(434);
 
@@ -65022,7 +65046,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(446);
+	var _ion = __webpack_require__(445);
 
 	var _appApp = __webpack_require__(434);
 
@@ -65093,7 +65117,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _configConfig = __webpack_require__(437);
+	var _configConfig = __webpack_require__(436);
 
 	/**
 	 * TODO
@@ -65243,13 +65267,13 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(446);
+	var _ion = __webpack_require__(445);
 
-	var _configConfig = __webpack_require__(437);
+	var _configConfig = __webpack_require__(436);
 
 	var _utilDom = __webpack_require__(435);
 
-	var _utilKeyboard = __webpack_require__(441);
+	var _utilKeyboard = __webpack_require__(440);
 
 	var _navViewController = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../nav/view-controller\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
@@ -65622,15 +65646,15 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _ion = __webpack_require__(446);
+	var _ion = __webpack_require__(445);
 
-	var _configConfig = __webpack_require__(437);
+	var _configConfig = __webpack_require__(436);
 
 	var _virtual = __webpack_require__(469);
 
 	var _itemItemSlidingGesture = __webpack_require__(470);
 
-	var _ionicUtil = __webpack_require__(448);
+	var _ionicUtil = __webpack_require__(447);
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
@@ -66328,7 +66352,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _utilForm = __webpack_require__(440);
+	var _utilForm = __webpack_require__(439);
 
 	/**
 	 * The checkbox is no different than the HTML checkbox input, except it's styled differently
@@ -66628,7 +66652,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsAppId, _defaults));
 
-	var _ionicComponentsActionSheetActionSheet = __webpack_require__(442);
+	var _ionicComponentsActionSheetActionSheet = __webpack_require__(441);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsActionSheetActionSheet, _defaults));
 
@@ -66648,7 +66672,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsContentContent, _defaults));
 
-	var _ionicComponentsIconIcon = __webpack_require__(443);
+	var _ionicComponentsIconIcon = __webpack_require__(442);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsIconIcon, _defaults));
 
@@ -66692,7 +66716,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsShowHideWhenShowHideWhen, _defaults));
 
-	var _ionicComponentsModalModal = __webpack_require__(447);
+	var _ionicComponentsModalModal = __webpack_require__(446);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsModalModal, _defaults));
 
@@ -66700,7 +66724,7 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNav, _defaults));
 
-	var _ionicComponentsNavNavController = __webpack_require__(445);
+	var _ionicComponentsNavNavController = __webpack_require__(444);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavController, _defaults));
 
@@ -66792,7 +66816,7 @@
 
 	var _menu = __webpack_require__(455);
 
-	var _ionicAnimationsAnimation = __webpack_require__(444);
+	var _ionicAnimationsAnimation = __webpack_require__(443);
 
 	/**
 	 * Menu Type
@@ -67013,7 +67037,7 @@
 
 	'use strict';
 
-	var _platform = __webpack_require__(438);
+	var _platform = __webpack_require__(437);
 
 	var _utilDom = __webpack_require__(435);
 
@@ -67181,7 +67205,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _animation = __webpack_require__(444);
+	var _animation = __webpack_require__(443);
 
 	var SlideIn = (function (_Animation) {
 	    _inherits(SlideIn, _Animation);
@@ -67255,7 +67279,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _animation = __webpack_require__(444);
+	var _animation = __webpack_require__(443);
 
 	var DURATION = 550;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
@@ -67402,7 +67426,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _animation = __webpack_require__(444);
+	var _animation = __webpack_require__(443);
 
 	var TRANSLATEY = 'translateY';
 	var OFF_BOTTOM = '40px';
@@ -67474,7 +67498,7 @@
 
 	var _angular2Angular2 = __webpack_require__(45);
 
-	var _translate = __webpack_require__(450);
+	var _translate = __webpack_require__(449);
 
 	/**
 	 * The Translate pipe makes it easy to translate strings.

@@ -44163,10 +44163,10 @@ System.register('ionic/components/ion', ['ionic/util/dom'], function (_export) {
         }
     };
 });
-System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router', 'angular2/http', '../components/app/app', './config', '../platform/platform', '../components/overlay/overlay-controller', '../util/form', '../util/keyboard', '../components/action-sheet/action-sheet', '../components/modal/modal', '../components/popup/popup', '../util/events', '../components/nav/nav-registry', '../translation/translate', '../util/feature-detect', '../components/tap-click/tap-click', '../util/dom'], function (_export) {
+System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router', 'angular2/http', '../components/app/app', './config', '../platform/platform', '../components/overlay/overlay-controller', '../util/form', '../util/keyboard', '../components/action-sheet/action-sheet', '../components/modal/modal', '../components/popup/popup', '../util/events', '../components/nav/nav-registry', '../translation/translate', '../util/click-block', '../util/feature-detect', '../components/tap-click/tap-click', '../util/dom'], function (_export) {
     'use strict';
 
-    var provide, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, HTTP_PROVIDERS, IonicApp, Config, Platform, OverlayController, Form, Keyboard, ActionSheet, Modal, Popup, Events, NavRegistry, Translate, FeatureDetect, initTapClick, dom;
+    var provide, ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, HTTP_PROVIDERS, IonicApp, Config, Platform, OverlayController, Form, Keyboard, ActionSheet, Modal, Popup, Events, NavRegistry, Translate, ClickBlock, FeatureDetect, initTapClick, ready, closest;
 
     _export('ionicProviders', ionicProviders);
 
@@ -44184,21 +44184,22 @@ System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router
         platform.navigatorPlatform(window.navigator.platform);
         platform.load();
         config.setPlatform(platform);
-        var app = new IonicApp(config);
+        var clickBlock = new ClickBlock(config.get('clickBlock'));
+        var app = new IonicApp(config, clickBlock);
         var events = new Events();
         initTapClick(window, document, app, config);
         var featureDetect = new FeatureDetect();
-        setupDom(window, document, config, platform, featureDetect);
+        setupDom(window, document, config, platform, clickBlock, featureDetect);
         bindEvents(window, document, platform, events);
         // prepare the ready promise to fire....when ready
         platform.prepareReady(config);
         return [provide(IonicApp, { useValue: app }), provide(Config, { useValue: config }), provide(Platform, { useValue: platform }), provide(FeatureDetect, { useValue: featureDetect }), provide(Events, { useValue: events }), provide(NavRegistry, { useValue: navRegistry }), Form, Keyboard, OverlayController, ActionSheet, Modal, Popup, Translate, ROUTER_PROVIDERS, provide(LocationStrategy, { useClass: HashLocationStrategy }), HTTP_PROVIDERS];
     }
 
-    function setupDom(window, document, config, platform, featureDetect) {
+    function setupDom(window, document, config, platform, clickBlock, featureDetect) {
         var bodyEle = document.body;
         if (!bodyEle) {
-            return dom.ready(function () {
+            return ready(function () {
                 applyBodyCss(document, config, platform);
             });
         }
@@ -44224,6 +44225,9 @@ System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router
         if (config.get('hoverCSS') !== false) {
             bodyEle.classList.add('enable-hover');
         }
+        if (config.get('clickBlock')) {
+            clickBlock.enable();
+        }
         // run feature detection tests
         featureDetect.run(window, document);
     }
@@ -44247,7 +44251,7 @@ System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router
             if (!el) {
                 return;
             }
-            var content = dom.closest(el, 'scroll-content');
+            var content = closest(el, 'scroll-content');
             if (content) {
                 var scrollTo = new ScrollTo(content);
                 scrollTo.start(0, 0, 300, 0);
@@ -44293,12 +44297,15 @@ System.register('ionic/config/bootstrap', ['angular2/angular2', 'angular2/router
             NavRegistry = _componentsNavNavRegistry.NavRegistry;
         }, function (_translationTranslate) {
             Translate = _translationTranslate.Translate;
+        }, function (_utilClickBlock) {
+            ClickBlock = _utilClickBlock.ClickBlock;
         }, function (_utilFeatureDetect) {
             FeatureDetect = _utilFeatureDetect.FeatureDetect;
         }, function (_componentsTapClickTapClick) {
             initTapClick = _componentsTapClickTapClick.initTapClick;
         }, function (_utilDom) {
-            dom = _utilDom;
+            ready = _utilDom.ready;
+            closest = _utilDom.closest;
         }],
         execute: function () {}
     };
@@ -48382,23 +48389,16 @@ System.register('ionic/util/click-block', [], function (_export) {
 
     var CSS_CLICK_BLOCK, DEFAULT_EXPIRE, cbEle, fallbackTimerId, isShowing, ClickBlock;
 
-    function disableInput(ev) {
-        ev.preventDefault();
-        ev.stopPropagation();
-    }
-    function show(expire) {
+    var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+    function _show(expire) {
         clearTimeout(fallbackTimerId);
         fallbackTimerId = setTimeout(hide, expire || DEFAULT_EXPIRE);
         if (!isShowing) {
+            cbEle.classList.add(CSS_CLICK_BLOCK);
             isShowing = true;
-            if (cbEle) {
-                cbEle.classList.add(CSS_CLICK_BLOCK);
-            } else {
-                cbEle = document.createElement('div');
-                cbEle.className = 'click-block ' + CSS_CLICK_BLOCK;
-                document.body.appendChild(cbEle);
-            }
-            cbEle.addEventListener('touchmove', disableInput);
         }
     }
     function hide() {
@@ -48406,7 +48406,6 @@ System.register('ionic/util/click-block', [], function (_export) {
         if (isShowing) {
             cbEle.classList.remove(CSS_CLICK_BLOCK);
             isShowing = false;
-            cbEle.removeEventListener('touchmove', disableInput);
         }
     }
     return {
@@ -48418,9 +48417,38 @@ System.register('ionic/util/click-block', [], function (_export) {
             fallbackTimerId = undefined;
             isShowing = false;
 
-            ClickBlock = function ClickBlock(shouldShow, expire) {
-                (shouldShow ? show : hide)(expire);
-            };
+            ClickBlock = (function () {
+                function ClickBlock() {
+                    _classCallCheck(this, ClickBlock);
+                }
+
+                _createClass(ClickBlock, [{
+                    key: 'enable',
+                    value: function enable() {
+                        cbEle = document.createElement('div');
+                        cbEle.className = 'click-block';
+                        document.body.appendChild(cbEle);
+                        cbEle.addEventListener('touchmove', function (ev) {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                        });
+                        this._enabled = true;
+                    }
+                }, {
+                    key: 'show',
+                    value: function show(shouldShow, expire) {
+                        if (this._enabled) {
+                            if (shouldShow) {
+                                _show(expire);
+                            } else {
+                                hide();
+                            }
+                        }
+                    }
+                }]);
+
+                return ClickBlock;
+            })();
 
             _export('ClickBlock', ClickBlock);
         }
@@ -49893,14 +49921,14 @@ System.register("ionic/components/action-sheet/action-sheet", ["angular2/angular
         }
     };
 });
-System.register('ionic/components/app/app', ['angular2/angular2', '../../util/dom', '../../util/click-block'], function (_export) {
+System.register('ionic/components/app/app', ['angular2/angular2', '../../util/dom'], function (_export) {
     /**
      * Component registry service.  For more information on registering
      * components see the [IdRef API reference](../id/IdRef/).
      */
     'use strict';
 
-    var Title, rafFrames, ClickBlock, IonicApp;
+    var Title, rafFrames, IonicApp;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -49911,18 +49939,17 @@ System.register('ionic/components/app/app', ['angular2/angular2', '../../util/do
             Title = _angular2Angular2.Title;
         }, function (_utilDom) {
             rafFrames = _utilDom.rafFrames;
-        }, function (_utilClickBlock) {
-            ClickBlock = _utilClickBlock.ClickBlock;
         }],
         execute: function () {
             IonicApp = (function () {
-                function IonicApp(config) {
+                function IonicApp(config, clickBlock) {
                     _classCallCheck(this, IonicApp);
 
                     this._config = config;
                     this._titleSrv = new Title();
                     this._title = '';
                     this._disTime = 0;
+                    this._clickBlock = clickBlock;
                     // Our component registry map
                     this.components = {};
                 }
@@ -49964,9 +49991,7 @@ System.register('ionic/components/app/app', ['angular2/angular2', '../../util/do
                         var fallback = arguments.length <= 1 || arguments[1] === undefined ? 700 : arguments[1];
 
                         this._disTime = isEnabled ? 0 : Date.now() + fallback;
-                        if (this._config.get('clickBlock')) {
-                            ClickBlock(!isEnabled, fallback + 100);
-                        }
+                        this._clickBlock.show(!isEnabled, fallback + 100);
                     }
 
                     /**

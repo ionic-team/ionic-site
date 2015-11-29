@@ -6,18 +6,18 @@ path: ""
 category: api
 id: "{{ClickBlock | slugify}}"
 title: "ClickBlock"
-header_sub_title: "Let in module "
+header_sub_title: "Class in module "
 doc: "ClickBlock"
-docType: "let"
+docType: "class"
 ---
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/click-block.ts#L37'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/click-block.ts#L3'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/util/click-block.ts#L37'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/util/click-block.ts#L3'>
     Improve this doc
   </a>
 </div>
@@ -39,8 +39,43 @@ docType: "let"
 
 
 
-<h1 class="class export">ClickBlock <span class="type">let</span></h1>
+<h1 class="class export">ClickBlock <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/click-block.ts#L38-L40">ionic/util/click-block.ts (line 38)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/click-block.ts#L4-L31">ionic/util/click-block.ts (line 4)</a>
 </p>
+## Members
+
+<div id="enable"></div>
+<h2>
+  <code>enable()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="show"></div>
+<h2>
+  <code>show()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+
+
+
 

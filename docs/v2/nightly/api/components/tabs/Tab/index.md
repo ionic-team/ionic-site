@@ -76,7 +76,7 @@ inputs:</p>
 
 <h1 class="class export">Tab <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L8-L177">ionic/components/tabs/tab.ts (line 8)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L8-L176">ionic/components/tabs/tab.ts (line 8)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-tab</span>

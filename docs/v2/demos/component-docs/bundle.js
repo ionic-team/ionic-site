@@ -71204,14 +71204,19 @@
 	    }
 
 	    _createClass(TextInputElement, [{
-	        key: "onKeyup",
-	        value: function onKeyup(ev) {
-	            this.wrapper.hasValue(ev.target.value);
-	        }
-	    }, {
 	        key: "onInit",
 	        value: function onInit() {
-	            this.wrapper.hasValue(this.value);
+	            this.wrapper && this.wrapper.hasValue(this.value);
+	        }
+	    }, {
+	        key: "focusChange",
+	        value: function focusChange(changed) {
+	            this.wrapper && this.wrapper.focusChange(changed);
+	        }
+	    }, {
+	        key: "onKeyup",
+	        value: function onKeyup(ev) {
+	            this.wrapper && this.wrapper.hasValue(ev.target.value);
 	        }
 	    }, {
 	        key: "labelledBy",
@@ -71282,8 +71287,8 @@
 	    selector: 'textarea,input[type=text],input[type=password],input[type=number],input[type=search],input[type=email],input[type=url],input[type=tel]',
 	    inputs: ['value'],
 	    host: {
-	        '(focus)': 'wrapper.focusChange(true)',
-	        '(blur)': 'wrapper.focusChange(false)',
+	        '(focus)': 'focusChange(true)',
+	        '(blur)': 'focusChange(false)',
 	        '(keyup)': 'onKeyup($event)'
 	    }
 	}), __param(0, (0, _angular2Angular2.Attribute)('type')), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [String, typeof (_j = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _k || Object, _TextInput])], TextInputElement);

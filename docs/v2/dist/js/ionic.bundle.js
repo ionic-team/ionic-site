@@ -60353,14 +60353,19 @@ System.register("ionic/components/text-input/text-input", ["angular2/angular2", 
                 }
 
                 _createClass(TextInputElement, [{
-                    key: "onKeyup",
-                    value: function onKeyup(ev) {
-                        this.wrapper.hasValue(ev.target.value);
-                    }
-                }, {
                     key: "onInit",
                     value: function onInit() {
-                        this.wrapper.hasValue(this.value);
+                        this.wrapper && this.wrapper.hasValue(this.value);
+                    }
+                }, {
+                    key: "focusChange",
+                    value: function focusChange(changed) {
+                        this.wrapper && this.wrapper.focusChange(changed);
+                    }
+                }, {
+                    key: "onKeyup",
+                    value: function onKeyup(ev) {
+                        this.wrapper && this.wrapper.hasValue(ev.target.value);
                     }
                 }, {
                     key: "labelledBy",
@@ -60433,8 +60438,8 @@ System.register("ionic/components/text-input/text-input", ["angular2/angular2", 
                 selector: 'textarea,input[type=text],input[type=password],input[type=number],input[type=search],input[type=email],input[type=url],input[type=tel]',
                 inputs: ['value'],
                 host: {
-                    '(focus)': 'wrapper.focusChange(true)',
-                    '(blur)': 'wrapper.focusChange(false)',
+                    '(focus)': 'focusChange(true)',
+                    '(blur)': 'focusChange(false)',
                     '(keyup)': 'onKeyup($event)'
                 }
             }), __param(0, Attribute('type')), __param(3, Optional()), __metadata('design:paramtypes', [String, typeof (_j = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _j || Object, typeof (_k = typeof Renderer !== 'undefined' && Renderer) === 'function' && _k || Object, _TextInput])], TextInputElement));

@@ -109,49 +109,13 @@ class HelloWorld {
 
 <h1 class="class export">NavController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L12-L1280">ionic/components/nav/nav-controller.ts (line 12)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L12-L1359">ionic/components/nav/nav-controller.ts (line 12)</a>
 </p>
 <h2>Members</h2>
 
-<div id="isTransitioning"></div>
+<div id="push"></div>
 <h3>
-  <code>isTransitioning()</code>
-
-</h3>
-
-Boolean if the nav controller is actively transitioning or not.
-
-
-
-
-
-
-* Returns: 
-  <code>bool</code> 
-
-
-
-
-<div id="setTransitioning"></div>
-<h3>
-  <code>setTransitioning()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="NavController#push"></div>
-<h3>
-  <code>NavController#push(The, params, opts)</code>
+  <code>push(component, params, opts)</code>
 
 </h3>
 
@@ -230,16 +194,16 @@ class MyClass{
     
     <tr>
       <td>
-        The
+        component
         
         
       </td>
       <td>
         
-  <code>Component</code>
+  <code>Any</code>
       </td>
       <td>
-        <p>name of the component you want to push on the navigation stack</p>
+        <p>The name of the component you want to push on the navigation stack</p>
 
         
       </td>
@@ -293,14 +257,15 @@ class MyClass{
 
 
 
-<div id="NavController#pop"></div>
+<div id="pop"></div>
 <h3>
-  <code>NavController#pop(opts)</code>
+  <code>pop(opts)</code>
 
 </h3>
 
 If you wanted to navigate back from a current view, you can use the back-button or programatically call `pop()`
 Similar to `push()`, you can pass animation options.
+
 ```typescript
 class SecondView{
    constructor(nav:NavController){
@@ -410,7 +375,7 @@ Similar to `pop()`, this method let's you navigate back to the root of the stack
 
 <div id="insert"></div>
 <h3>
-  <code>insert(The, The)</code>
+  <code>insert(index, component)</code>
 
 </h3>
 
@@ -426,8 +391,9 @@ export class Detail {
      this.nav.insert(1,Info)
    }
  }
- ```
- This will insert the `Info` view into the second slot of our navigation stack
+```
+
+This will insert the `Info` view into the second slot of our navigation stack
 
 
 
@@ -444,16 +410,16 @@ export class Detail {
     
     <tr>
       <td>
-        The
+        index
         
         
       </td>
       <td>
         
-  <code>Index</code>
+  <code>Number</code>
       </td>
       <td>
-        <p>index where you want to insert the view</p>
+        <p>The index where you want to insert the view</p>
 
         
       </td>
@@ -461,16 +427,16 @@ export class Detail {
     
     <tr>
       <td>
-        The
+        component
         
         
       </td>
       <td>
         
-  <code>Component</code>
+  <code>Any</code>
       </td>
       <td>
-        <p>name of the component you want to insert into the nav stack</p>
+        <p>The name of the component you want to insert into the nav stack</p>
 
         
       </td>
@@ -492,7 +458,7 @@ export class Detail {
 
 <div id="remove"></div>
 <h3>
-  <code>remove(Remove, opts)</code>
+  <code>remove(index, opts)</code>
 
 </h3>
 
@@ -507,7 +473,7 @@ export class Detail {
      this.nav.remove(1)
    }
  }
- ```
+```
 
 
 
@@ -524,16 +490,16 @@ export class Detail {
     
     <tr>
       <td>
-        Remove
+        index
         
         
       </td>
       <td>
         
-  <code>Index</code>
+  <code>Number</code>
       </td>
       <td>
-        <p>the view from the nav stack at that index</p>
+        <p>Remove the view from the nav stack at that index</p>
 
         
       </td>
@@ -572,11 +538,81 @@ export class Detail {
 
 <div id="setPages"></div>
 <h3>
-  <code>setPages(an, opts)</code>
+  <code>setPages(component, opts)</code>
 
 </h3>
 
-Set the view stack to reflect the given component classes.
+You can set the views of the current navigation stack and navigate to the last view past
+
+
+```typescript
+import {Page, NavController} from 'ionic/ionic'
+import {Detail} from '../detail/detail'
+import {Info} from '../info/info'
+
+ export class Home {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   setView() {
+     this.nav.setViews([List,Detail, Info]);
+   }
+ }
+```
+
+
+In this example, we're giving the current nav stack an array of pages. Then the navigation stack will navigate to the last view in the array and remove the orignal view you came from.
+
+By default, animations are disabled, but they can be enabled by passing options to the navigation controller
+
+
+```typescript
+import {Page, NavController} from 'ionic/ionic'
+import {Detail} from '../detail/detail'
+import {Info} from '../info/info'
+
+ export class Home {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   setView() {
+     this.nav.setViews([List,Detail, Info],{
+       animate: true
+     });
+   }
+ }
+```
+
+
+You can also pass any navigation params to the individual pages in the array.
+
+
+```typescript
+import {Page, NavController} from 'ionic/ionic'
+import {Detail} from '../detail/detail'
+import {Info} from '../info/info'
+
+ export class Home {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   setView() {
+     this.nav.setViews([{
+       componentType: List,
+       params: {id: 43}
+     }, {
+       componentType: Detail,
+       params: {id: 45}
+     },{
+       componentType: Info,
+       params: {id: 5}
+     } ],{
+       animate: true
+     });
+   }
+ }
+```
+
 
 
 
@@ -592,16 +628,16 @@ Set the view stack to reflect the given component classes.
     
     <tr>
       <td>
-        an
+        component
         
         
       </td>
       <td>
         
-  <code>Component</code>
+  <code>Array</code>
       </td>
       <td>
-        <p>arry of components to load in the stack</p>
+        <p>an arry of components to load in the stack</p>
 
         
       </td>
@@ -633,7 +669,7 @@ Set the view stack to reflect the given component classes.
 
 
 * Returns: 
-  <code>Promise</code> TODO
+  <code>Promise</code> Returns a promise when the views are set
 
 
 

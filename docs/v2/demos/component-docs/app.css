@@ -8815,7 +8815,7 @@ icon,
 
 #subtle-footer {
   background-color: #fff;
-  border-image-source: url(footer-wireframe.png);
+  border-image-source: url(../component-docs/img/footer-wireframe.png);
   border-image-repeat: repeat;
   border-image-width: 100%;
   border-bottom: 0;

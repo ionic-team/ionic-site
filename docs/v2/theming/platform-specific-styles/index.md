@@ -74,6 +74,16 @@ $button-md-border-radius: 8px;
 @import "ionic";
 ```
 
+## Setting Attributes Dynamically
+
+By setting an attribute dynamically, you can add or remove functionality from a component based on a certain condition. To set an attribute dynamically, use the following syntax:
+
+```html
+<ion-list [attr.no-lines]="isMD ? '' : null">
+```
+
+This will set the `no-lines` attribute on the list component if `isMD` evaluates to true.
+
 ## Ionic Sass Variables
 
 The [next section](../overriding-ionic-variables/) explains how to override Ionic's variables with a list of all of the variables you can change.

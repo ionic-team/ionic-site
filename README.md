@@ -21,6 +21,18 @@ gulp watch uses LiveReload. You may have to up your max file limit with the foll
 
     http://localhost:4000/
 
+
+## CI Explanation
+
+Ionic v1 and v2 now automatically deploy their changes to an Ionic staging server. Ionic team members are given permission to the staging and production servers in Heroku. V1 and V2 docs changes go as follows:
+
+1. Change the content of the docs as necessary. 
+2. Optionally preview the changes by running `gulp docs` in the Ionic v1/2 repo, and `gulp watch` in ionic site, which should be a sibling directory of the `ionic` and `ionic2` repos. 
+3. Commit and push changes
+4. Sit back. The [Ionic v1 CI tasks](https://circleci.com/gh/driftyco/ionic) and the [Ionic v2 CI tasks](https://circleci.com/gh/driftyco/ionic2) will generate the new docs and push them to the `ionic-site` repo. The `ionic-site` CI tasks will then build them and automatically deploy them to the staging server. 
+5. Preview changes on the [staging server](http://ionic-site-staging.herokuapp.com/) and promote the changes to production if all looks well. Be sure to give the site a quick look over to make sure things look good. 
+
+
 ## Deploy
 
 Install [heroku-toolbelt](https://toolbelt.heroku.com/) or with homebrew
@@ -60,6 +72,7 @@ git remote add staging git@heroku.com:ionic-site-staging.git
 - Promote the staging server to production
 - `heroku pipelines:promote -r staging`
 - Watch the build server at [https://circleci.com/gh/driftyco/ionic-site](https://circleci.com/gh/driftyco/ionic-site)
+
 
 ## Community
 

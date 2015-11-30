@@ -59683,7 +59683,7 @@
 	var NavController = (function (_Ion) {
 	    _inherits(NavController, _Ion);
 
-	    function NavController(parentnavCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd) {
+	    function NavController(parentnavCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer) {
 	        _classCallCheck(this, NavController);
 
 	        _get(Object.getPrototypeOf(NavController.prototype), 'constructor', this).call(this, elementRef, config);
@@ -59696,7 +59696,6 @@
 	        this._viewManager = viewManager;
 	        this._zone = zone;
 	        this._renderer = renderer;
-	        this._cd = cd;
 	        this._views = [];
 	        this._trnsTime = 0;
 	        this._sbTrans = null;
@@ -60199,12 +60198,6 @@
 	                        // fallback to remove the clickblock if something goes wrong
 	                        _this.app.setEnabled(enableApp, duration);
 	                        _this.setTransitioning(!enableApp, duration);
-	                        if (!enableApp) {
-	                            // do a quick check for changes
-	                            // then detach the change detection during a transition
-	                            _this._cd.detectChanges();
-	                            _this._cd.detach();
-	                        }
 	                        if (opts.pageType) {
 	                            transAnimation.before.addClass(opts.pageType);
 	                        }
@@ -60219,8 +60212,6 @@
 	                                enteringView.didEnter();
 	                                leavingView.didLeave();
 	                            }
-	                            // reattach the change detection
-	                            _this._cd.reattach();
 	                            _this._zone.run(function () {
 	                                if (_this.keyboard.isOpen()) {
 	                                    _this.keyboard.onClose(function () {
@@ -65879,10 +65870,10 @@
 	var OverlayNav = (function (_NavController) {
 	    _inherits(OverlayNav, _NavController);
 
-	    function OverlayNav(overlayCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd) {
+	    function OverlayNav(overlayCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer) {
 	        _classCallCheck(this, OverlayNav);
 
-	        _get(Object.getPrototypeOf(OverlayNav.prototype), "constructor", this).call(this, null, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd);
+	        _get(Object.getPrototypeOf(OverlayNav.prototype), "constructor", this).call(this, null, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer);
 	        if (overlayCtrl.anchor) {
 	            throw 'An app should only have one <ion-overlay></ion-overlay>';
 	        }
@@ -65895,8 +65886,8 @@
 	exports.OverlayNav = OverlayNav = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-overlay',
 	    template: '<template #contents></template>'
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _overlayController.OverlayController !== 'undefined' && _overlayController.OverlayController) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _k || Object, typeof (_l = typeof _angular2Angular2.ChangeDetectorRef !== 'undefined' && _angular2Angular2.ChangeDetectorRef) === 'function' && _l || Object])], OverlayNav);
-	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+	}), __metadata('design:paramtypes', [typeof (_a = typeof _overlayController.OverlayController !== 'undefined' && _overlayController.OverlayController) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _k || Object])], OverlayNav);
+	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
 /***/ },
 /* 470 */
@@ -69523,11 +69514,11 @@
 	var Tab = (function (_NavController) {
 	    _inherits(Tab, _NavController);
 
-	    function Tab(parentTabs, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd) {
+	    function Tab(parentTabs, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer) {
 	        _classCallCheck(this, Tab);
 
 	        // A Tab is a NavController for its child pages
-	        _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, parentTabs, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd);
+	        _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, parentTabs, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer);
 	        this._isInitial = parentTabs.add(this);
 	        this._panelId = 'tabpanel-' + this.id;
 	        this._btnId = 'tab-' + this.id;
@@ -69638,8 +69629,8 @@
 	        'role': 'tabpanel'
 	    },
 	    template: '<template #contents></template>'
-	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof (_a = typeof _tabs.Tabs !== 'undefined' && _tabs.Tabs) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _k || Object, typeof (_l = typeof _angular2Angular2.ChangeDetectorRef !== 'undefined' && _angular2Angular2.ChangeDetectorRef) === 'function' && _l || Object])], Tab);
-	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof (_a = typeof _tabs.Tabs !== 'undefined' && _tabs.Tabs) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _k || Object])], Tab);
+	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
 /***/ },
 /* 486 */
@@ -72370,10 +72361,10 @@
 	var Nav = (function (_NavController) {
 	    _inherits(Nav, _NavController);
 
-	    function Nav(hostNavCtrl, viewCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd) {
+	    function Nav(hostNavCtrl, viewCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer) {
 	        _classCallCheck(this, Nav);
 
-	        _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer, cd);
+	        _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, keyboard, elementRef, compiler, loader, viewManager, zone, renderer);
 	        if (viewCtrl) {
 	            // an ion-nav can also act as an ion-page within a parent ion-nav
 	            // this would happen when an ion-nav nests a child ion-nav.
@@ -72411,8 +72402,8 @@
 	        'swipeBackEnabled': true
 	    },
 	    template: '<template #contents></template>'
-	}), __param(0, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _navController.NavController !== 'undefined' && _navController.NavController) === 'function' && _a || Object, typeof (_b = typeof _viewController.ViewController !== 'undefined' && _viewController.ViewController) === 'function' && _b || Object, typeof (_c = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _c || Object, typeof (_d = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _d || Object, typeof (_e = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _k || Object, typeof (_l = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _l || Object, typeof (_m = typeof _angular2Angular2.ChangeDetectorRef !== 'undefined' && _angular2Angular2.ChangeDetectorRef) === 'function' && _m || Object])], Nav);
-	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+	}), __param(0, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _navController.NavController !== 'undefined' && _navController.NavController) === 'function' && _a || Object, typeof (_b = typeof _viewController.ViewController !== 'undefined' && _viewController.ViewController) === 'function' && _b || Object, typeof (_c = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _c || Object, typeof (_d = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _d || Object, typeof (_e = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _k || Object, typeof (_l = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _l || Object])], Nav);
+	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 
 /***/ },
 /* 499 */

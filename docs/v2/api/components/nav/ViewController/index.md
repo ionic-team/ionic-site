@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
-versionHref: "/docs/v2"
+version: "nightly"
+versionHref: "/docs/v2/nightly"
 path: ""
 category: api
 id: "{{ViewController | slugify}}"
@@ -42,7 +42,7 @@ docType: "class"
 
 <h1 class="class export">ViewController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L212">ionic/components/nav/view-controller.ts (line 1)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L218">ionic/components/nav/view-controller.ts (line 1)</a>
 </p>
 ## Members
 
@@ -518,6 +518,23 @@ created. If a view leaves but is cached, then this will not
 fire again on a subsequent viewing. This method is a good place
 to put your setup code for the view; however, it is not the
 recommended method to use when a view becomes active.
+
+
+
+
+
+
+
+
+
+
+
+<div id="postRender"></div>
+<h2>
+  <code>postRender()</code>
+
+</h2>
+
 
 
 

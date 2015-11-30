@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0"
-versionHref: "/docs/v2"
+version: "nightly"
+versionHref: "/docs/v2/nightly"
 path: ""
 category: api
 id: "{{ActionSheet | slugify}}"
@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L109'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L7'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/action-sheet/action-sheet.ts#L109'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/action-sheet/action-sheet.ts#L7'>
     Improve this doc
   </a>
 </div>
@@ -37,11 +37,13 @@ docType: "class"
 
 
 
+<p>The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.</p>
+<p>There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.</p>
 
 
 <h1 class="class export">ActionSheet <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L110-L151">ionic/components/action-sheet/action-sheet.ts (line 110)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L8-L87">ionic/components/action-sheet/action-sheet.ts (line 8)</a>
 </p>
 ## Members
 

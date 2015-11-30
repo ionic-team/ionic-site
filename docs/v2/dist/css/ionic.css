@@ -490,7 +490,8 @@ backdrop {
   -webkit-transform: translateZ(0);
   transform: translateZ(0); }
 
-.click-block {
+click-block {
+  display: block;
   position: absolute;
   top: 0;
   right: 0;
@@ -498,8 +499,10 @@ backdrop {
   left: 0;
   opacity: 0;
   z-index: 9999;
-  -webkit-transform: translate3d(-9999px, 0px, 0px);
-  transform: translate3d(-9999px, 0px, 0px); }
+  -webkit-transform: translate3d(0px, -100%, 0px);
+  transform: translate3d(0px, -100%, 0px);
+  -webkit-transform: translate3d(0px, calc(-100% + 1px), 0px);
+  transform: translate3d(0px, calc(-100% + 1px), 0px); }
 
 .click-block-active {
   -webkit-transform: translate3d(0px, 0px, 0px);

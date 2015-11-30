@@ -41,7 +41,7 @@ docType: "class"
 
 <h1 class="class export">ClickBlock <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/click-block.ts#L4-L31">ionic/util/click-block.ts (line 4)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/click-block.ts#L4-L30">ionic/util/click-block.ts (line 4)</a>
 </p>
 ## Members
 

@@ -84,13 +84,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: root, tabTitle, tabIcon</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="setSelected"></div>
-<h2>
+<h3>
   <code>setSelected()</code>
 
-</h2>
+</h3>
 
 
 
@@ -104,10 +104,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="index"></div>
-<h2>
+<h3>
   <code>index()</code>
 
-</h2>
+</h3>
 
 
 
@@ -121,10 +121,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onDestroy"></div>
-<h2>
+<h3>
   <code>onDestroy()</code>
 
-</h2>
+</h3>
 
 
 

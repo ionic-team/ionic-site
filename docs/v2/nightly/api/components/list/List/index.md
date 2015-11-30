@@ -55,13 +55,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: items, virtual, content</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="zone"></div>
-<h2>
+<h3>
   <code>zone()</code>
 
-</h2>
+</h3>
 
 
 
@@ -75,10 +75,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="enableSlidingItems"></div>
-<h2>
+<h3>
   <code>enableSlidingItems()</code>
 
-</h2>
+</h3>
 
 
 
@@ -92,10 +92,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="closeSlidingItems"></div>
-<h2>
+<h3>
   <code>closeSlidingItems()</code>
 
-</h2>
+</h3>
 
 
 

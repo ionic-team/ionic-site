@@ -43,13 +43,13 @@ docType: "class"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L110-L151">ionic/components/action-sheet/action-sheet.ts (line 110)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="open"></div>
-<h2>
+<h3>
   <code>open(opts)</code>
 
-</h2>
+</h3>
 
 Create and open a new Action Sheet. This is the
 public API, and most often you will only use ActionSheet.open()
@@ -99,10 +99,10 @@ public API, and most often you will only use ActionSheet.open()
 
 
 <div id="get"></div>
-<h2>
+<h3>
   <code>get()</code>
 
-</h2>
+</h3>
 
 TODO
 

@@ -111,13 +111,13 @@ class HelloWorld {
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L12-L1280">ionic/components/nav/nav-controller.ts (line 12)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="isTransitioning"></div>
-<h2>
+<h3>
   <code>isTransitioning()</code>
 
-</h2>
+</h3>
 
 Boolean if the nav controller is actively transitioning or not.
 
@@ -133,10 +133,10 @@ Boolean if the nav controller is actively transitioning or not.
 
 
 <div id="setTransitioning"></div>
-<h2>
+<h3>
   <code>setTransitioning()</code>
 
-</h2>
+</h3>
 
 
 
@@ -150,10 +150,10 @@ Boolean if the nav controller is actively transitioning or not.
 
 
 <div id="NavController#push"></div>
-<h2>
+<h3>
   <code>NavController#push(The, params, opts)</code>
 
-</h2>
+</h3>
 
 Push is how we can pass components and navigate to them. We push the component we want to navigate to on to the navigation stack.
 
@@ -294,10 +294,10 @@ class MyClass{
 
 
 <div id="NavController#pop"></div>
-<h2>
+<h3>
   <code>NavController#pop(opts)</code>
 
-</h2>
+</h3>
 
 If you wanted to navigate back from a current view, you can use the back-button or programatically call `pop()`
 Similar to `push()`, you can pass animation options.
@@ -361,10 +361,10 @@ class SecondView{
 
 
 <div id="popToRoot"></div>
-<h2>
+<h3>
   <code>popToRoot(opts)</code>
 
-</h2>
+</h3>
 
 Similar to `pop()`, this method let's you navigate back to the root of the stack, no matter how many views that is
 
@@ -409,10 +409,10 @@ Similar to `pop()`, this method let's you navigate back to the root of the stack
 
 
 <div id="insert"></div>
-<h2>
+<h3>
   <code>insert(The, The)</code>
 
-</h2>
+</h3>
 
 Inserts a view into the nav stack at the specified index.
 This is useful if you need to add a view at any point in your navigation stack
@@ -491,10 +491,10 @@ export class Detail {
 
 
 <div id="remove"></div>
-<h2>
+<h3>
   <code>remove(Remove, opts)</code>
 
-</h2>
+</h3>
 
 Removes a view from the nav stack at the specified index.
 
@@ -571,10 +571,10 @@ export class Detail {
 
 
 <div id="setPages"></div>
-<h2>
+<h3>
   <code>setPages(an, opts)</code>
 
-</h2>
+</h3>
 
 Set the view stack to reflect the given component classes.
 
@@ -639,10 +639,10 @@ Set the view stack to reflect the given component classes.
 
 
 <div id="setRoot"></div>
-<h2>
+<h3>
   <code>setRoot(The, params, opts)</code>
 
-</h2>
+</h3>
 
 Set the root for the current navigation stack
 
@@ -724,10 +724,10 @@ Set the root for the current navigation stack
 
 
 <div id="isSwipeBackEnabled"></div>
-<h2>
+<h3>
   <code>isSwipeBackEnabled([isSwipeBackEnabled])</code>
 
-</h2>
+</h3>
 
 Check to see if swipe-to-go-back is enabled
 
@@ -775,10 +775,10 @@ Check to see if swipe-to-go-back is enabled
 
 
 <div id="canSwipeBack"></div>
-<h2>
+<h3>
   <code>canSwipeBack()</code>
 
-</h2>
+</h3>
 
 If it's possible to use swipe back or not. If it's not possible
 to go back, or swipe back is not enable then this will return false.
@@ -797,10 +797,10 @@ will return true.
 
 
 <div id="canGoBack"></div>
-<h2>
+<h3>
   <code>canGoBack()</code>
 
-</h2>
+</h3>
 
 Returns `true` if there's a valid previous view that we can pop back to.
 Otherwise returns false.
@@ -817,10 +817,10 @@ Otherwise returns false.
 
 
 <div id="getByIndex"></div>
-<h2>
+<h3>
   <code>getByIndex(The)</code>
 
-</h2>
+</h3>
 
 
 
@@ -868,10 +868,10 @@ Otherwise returns false.
 
 
 <div id="first"></div>
-<h2>
+<h3>
   <code>first()</code>
 
-</h2>
+</h3>
 
 First view in this nav controller's stack. This would
 not return an view which is about to be destroyed.
@@ -888,10 +888,10 @@ not return an view which is about to be destroyed.
 
 
 <div id="last"></div>
-<h2>
+<h3>
   <code>last()</code>
 
-</h2>
+</h3>
 
 Last view in this nav controller's stack. This would
 not return an view which is about to be destroyed.
@@ -908,10 +908,10 @@ not return an view which is about to be destroyed.
 
 
 <div id="length"></div>
-<h2>
+<h3>
   <code>length()</code>
 
-</h2>
+</h3>
 
 Number of sibling views in the nav controller. This does
 not include views which are about to be destroyed.

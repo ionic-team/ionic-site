@@ -44,13 +44,13 @@ docType: "class"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1287-L1309">ionic/components/nav/nav-controller.ts (line 1287)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="get"></div>
-<h2>
+<h3>
   <code>get(Which)</code>
 
-</h2>
+</h3>
 
 TODO
 

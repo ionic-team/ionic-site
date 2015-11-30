@@ -44,13 +44,13 @@ docType: "class"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L218">ionic/components/nav/view-controller.ts (line 1)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="enableBack"></div>
-<h2>
+<h3>
   <code>enableBack()</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -66,10 +66,10 @@ TODO
 
 
 <div id="setInstance"></div>
-<h2>
+<h3>
   <code>setInstance()</code>
 
-</h2>
+</h3>
 
 
 
@@ -83,10 +83,10 @@ TODO
 
 
 <div id="index"></div>
-<h2>
+<h3>
   <code>index()</code>
 
-</h2>
+</h3>
 
 
 
@@ -100,10 +100,10 @@ TODO
 
 
 <div id="isRoot"></div>
-<h2>
+<h3>
   <code>isRoot()</code>
 
-</h2>
+</h3>
 
 
 
@@ -117,10 +117,10 @@ TODO
 
 
 <div id="addDestroy"></div>
-<h2>
+<h3>
   <code>addDestroy()</code>
 
-</h2>
+</h3>
 
 
 
@@ -134,10 +134,10 @@ TODO
 
 
 <div id="destroy"></div>
-<h2>
+<h3>
   <code>destroy()</code>
 
-</h2>
+</h3>
 
 
 
@@ -151,10 +151,10 @@ TODO
 
 
 <div id="setNavbarTemplateRef"></div>
-<h2>
+<h3>
   <code>setNavbarTemplateRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -168,10 +168,10 @@ TODO
 
 
 <div id="getNavbarTemplateRef"></div>
-<h2>
+<h3>
   <code>getNavbarTemplateRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -185,10 +185,10 @@ TODO
 
 
 <div id="getNavbarViewRef"></div>
-<h2>
+<h3>
   <code>getNavbarViewRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -202,10 +202,10 @@ TODO
 
 
 <div id="setNavbarViewRef"></div>
-<h2>
+<h3>
   <code>setNavbarViewRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -219,10 +219,10 @@ TODO
 
 
 <div id="setPageRef"></div>
-<h2>
+<h3>
   <code>setPageRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -236,10 +236,10 @@ TODO
 
 
 <div id="pageRef"></div>
-<h2>
+<h3>
   <code>pageRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -253,10 +253,10 @@ TODO
 
 
 <div id="setContentRef"></div>
-<h2>
+<h3>
   <code>setContentRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -270,10 +270,10 @@ TODO
 
 
 <div id="contentRef"></div>
-<h2>
+<h3>
   <code>contentRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -287,10 +287,10 @@ TODO
 
 
 <div id="setContent"></div>
-<h2>
+<h3>
   <code>setContent()</code>
 
-</h2>
+</h3>
 
 
 
@@ -304,10 +304,10 @@ TODO
 
 
 <div id="getContent"></div>
-<h2>
+<h3>
   <code>getContent()</code>
 
-</h2>
+</h3>
 
 
 
@@ -321,10 +321,10 @@ TODO
 
 
 <div id="setNavbar"></div>
-<h2>
+<h3>
   <code>setNavbar()</code>
 
-</h2>
+</h3>
 
 
 
@@ -338,10 +338,10 @@ TODO
 
 
 <div id="getNavbar"></div>
-<h2>
+<h3>
   <code>getNavbar()</code>
 
-</h2>
+</h3>
 
 
 
@@ -355,10 +355,10 @@ TODO
 
 
 <div id="hasNavbar"></div>
-<h2>
+<h3>
   <code>hasNavbar()</code>
 
-</h2>
+</h3>
 
 
 
@@ -372,10 +372,10 @@ TODO
 
 
 <div id="navbarRef"></div>
-<h2>
+<h3>
   <code>navbarRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -389,10 +389,10 @@ TODO
 
 
 <div id="titleRef"></div>
-<h2>
+<h3>
   <code>titleRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -406,10 +406,10 @@ TODO
 
 
 <div id="navbarItemRefs"></div>
-<h2>
+<h3>
   <code>navbarItemRefs()</code>
 
-</h2>
+</h3>
 
 
 
@@ -423,10 +423,10 @@ TODO
 
 
 <div id="backBtnRef"></div>
-<h2>
+<h3>
   <code>backBtnRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -440,10 +440,10 @@ TODO
 
 
 <div id="backBtnTextRef"></div>
-<h2>
+<h3>
   <code>backBtnTextRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -457,10 +457,10 @@ TODO
 
 
 <div id="navbarBgRef"></div>
-<h2>
+<h3>
   <code>navbarBgRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -474,10 +474,10 @@ TODO
 
 
 <div id="hideBackButton"></div>
-<h2>
+<h3>
   <code>hideBackButton()</code>
 
-</h2>
+</h3>
 
 
 
@@ -491,10 +491,10 @@ TODO
 
 
 <div id="isLoaded"></div>
-<h2>
+<h3>
   <code>isLoaded()</code>
 
-</h2>
+</h3>
 
 
 
@@ -508,10 +508,10 @@ TODO
 
 
 <div id="loaded"></div>
-<h2>
+<h3>
   <code>loaded()</code>
 
-</h2>
+</h3>
 
 The view has loaded. This event only happens once per view being
 created. If a view leaves but is cached, then this will not
@@ -530,10 +530,10 @@ recommended method to use when a view becomes active.
 
 
 <div id="postRender"></div>
-<h2>
+<h3>
   <code>postRender()</code>
 
-</h2>
+</h3>
 
 
 
@@ -547,10 +547,10 @@ recommended method to use when a view becomes active.
 
 
 <div id="willEnter"></div>
-<h2>
+<h3>
   <code>willEnter()</code>
 
-</h2>
+</h3>
 
 The view is about to enter and become the active view.
 
@@ -565,10 +565,10 @@ The view is about to enter and become the active view.
 
 
 <div id="didEnter"></div>
-<h2>
+<h3>
   <code>didEnter()</code>
 
-</h2>
+</h3>
 
 The view has fully entered and is now the active view. This
 will fire, whether it was the first load or loaded from the cache.
@@ -584,10 +584,10 @@ will fire, whether it was the first load or loaded from the cache.
 
 
 <div id="willLeave"></div>
-<h2>
+<h3>
   <code>willLeave()</code>
 
-</h2>
+</h3>
 
 The view has is about to leave and no longer be the active view.
 
@@ -602,10 +602,10 @@ The view has is about to leave and no longer be the active view.
 
 
 <div id="didLeave"></div>
-<h2>
+<h3>
   <code>didLeave()</code>
 
-</h2>
+</h3>
 
 The view has finished leaving and is no longer the active view. This
 will fire, whether it is cached or unloaded.
@@ -621,10 +621,10 @@ will fire, whether it is cached or unloaded.
 
 
 <div id="willUnload"></div>
-<h2>
+<h3>
   <code>willUnload()</code>
 
-</h2>
+</h3>
 
 The view is about to be destroyed and have its elements removed.
 
@@ -639,10 +639,10 @@ The view is about to be destroyed and have its elements removed.
 
 
 <div id="didUnload"></div>
-<h2>
+<h3>
   <code>didUnload()</code>
 
-</h2>
+</h3>
 
 The view has been destroyed and its elements have been removed.
 

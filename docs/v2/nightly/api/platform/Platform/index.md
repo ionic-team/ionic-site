@@ -44,13 +44,13 @@ docType: "class"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L446">ionic/platform/platform.ts (line 11)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="is"></div>
-<h2>
+<h3>
   <code>is(platformName)</code>
 
-</h2>
+</h3>
 
 Depending on the platform name, isPlatform will return true or flase
 
@@ -110,10 +110,10 @@ export MyClass {
 
 
 <div id="platforms"></div>
-<h2>
+<h3>
   <code>platforms()</code>
 
-</h2>
+</h3>
 
 Depending on what device you are on, `platforms` can return multiple values.
 Each possible value is a hierarchy of platforms. For example, on an iPhone,
@@ -143,10 +143,10 @@ export MyClass {
 
 
 <div id="versions"></div>
-<h2>
+<h3>
   <code>versions(optional)</code>
 
-</h2>
+</h3>
 
 Returns an object conta
 
@@ -210,10 +210,10 @@ export MyClass {
 
 
 <div id="version"></div>
-<h2>
+<h3>
   <code>version()</code>
 
-</h2>
+</h3>
 
 
 
@@ -227,10 +227,10 @@ export MyClass {
 
 
 <div id="ready"></div>
-<h2>
+<h3>
   <code>ready()</code>
 
-</h2>
+</h3>
 
 Returns a promise when the platform is ready and native functionality can be called
 
@@ -259,10 +259,10 @@ export MyClass {
 
 
 <div id="on"></div>
-<h2>
+<h3>
   <code>on()</code>
 
-</h2>
+</h3>
 
 
 
@@ -276,10 +276,10 @@ export MyClass {
 
 
 <div id="onHardwareBackButton"></div>
-<h2>
+<h3>
   <code>onHardwareBackButton()</code>
 
-</h2>
+</h3>
 
 
 
@@ -293,10 +293,10 @@ export MyClass {
 
 
 <div id="registerBackButtonAction"></div>
-<h2>
+<h3>
   <code>registerBackButtonAction()</code>
 
-</h2>
+</h3>
 
 
 
@@ -310,10 +310,10 @@ export MyClass {
 
 
 <div id="exitApp"></div>
-<h2>
+<h3>
   <code>exitApp()</code>
 
-</h2>
+</h3>
 
 
 
@@ -327,10 +327,10 @@ export MyClass {
 
 
 <div id="fullScreen"></div>
-<h2>
+<h3>
   <code>fullScreen()</code>
 
-</h2>
+</h3>
 
 
 
@@ -344,10 +344,10 @@ export MyClass {
 
 
 <div id="showStatusBar"></div>
-<h2>
+<h3>
   <code>showStatusBar()</code>
 
-</h2>
+</h3>
 
 
 
@@ -361,10 +361,10 @@ export MyClass {
 
 
 <div id="url"></div>
-<h2>
+<h3>
   <code>url()</code>
 
-</h2>
+</h3>
 
 
 
@@ -378,10 +378,10 @@ export MyClass {
 
 
 <div id="query"></div>
-<h2>
+<h3>
   <code>query()</code>
 
-</h2>
+</h3>
 
 
 
@@ -395,10 +395,10 @@ export MyClass {
 
 
 <div id="userAgent"></div>
-<h2>
+<h3>
   <code>userAgent()</code>
 
-</h2>
+</h3>
 
 
 
@@ -412,10 +412,10 @@ export MyClass {
 
 
 <div id="navigatorPlatform"></div>
-<h2>
+<h3>
   <code>navigatorPlatform()</code>
 
-</h2>
+</h3>
 
 
 
@@ -429,10 +429,10 @@ export MyClass {
 
 
 <div id="width"></div>
-<h2>
+<h3>
   <code>width()</code>
 
-</h2>
+</h3>
 
 
 
@@ -446,10 +446,10 @@ export MyClass {
 
 
 <div id="height"></div>
-<h2>
+<h3>
   <code>height()</code>
 
-</h2>
+</h3>
 
 
 
@@ -463,10 +463,10 @@ export MyClass {
 
 
 <div id="isPortrait"></div>
-<h2>
+<h3>
   <code>isPortrait()</code>
 
-</h2>
+</h3>
 
 
 
@@ -480,10 +480,10 @@ export MyClass {
 
 
 <div id="isLandscape"></div>
-<h2>
+<h3>
   <code>isLandscape()</code>
 
-</h2>
+</h3>
 
 
 
@@ -497,10 +497,10 @@ export MyClass {
 
 
 <div id="windowResize"></div>
-<h2>
+<h3>
   <code>windowResize()</code>
 
-</h2>
+</h3>
 
 
 
@@ -514,10 +514,10 @@ export MyClass {
 
 
 <div id="onResize"></div>
-<h2>
+<h3>
   <code>onResize()</code>
 
-</h2>
+</h3>
 
 
 
@@ -531,10 +531,10 @@ export MyClass {
 
 
 <div id="testQuery"></div>
-<h2>
+<h3>
   <code>testQuery(queryValue)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -582,10 +582,10 @@ TODO
 
 
 <div id="testUserAgent"></div>
-<h2>
+<h3>
   <code>testUserAgent(userAgentExpression)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -633,10 +633,10 @@ TODO
 
 
 <div id="matchUserAgentVersion"></div>
-<h2>
+<h3>
   <code>matchUserAgentVersion(userAgentExpression)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -684,10 +684,10 @@ TODO
 
 
 <div id="isPlatform"></div>
-<h2>
+<h3>
   <code>isPlatform(queryValue, userAgentExpression)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -752,10 +752,10 @@ TODO
 
 
 <div id="load"></div>
-<h2>
+<h3>
   <code>load(config)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -800,10 +800,10 @@ TODO
 
 
 <div id="matchPlatform"></div>
-<h2>
+<h3>
   <code>matchPlatform(platformName)</code>
 
-</h2>
+</h3>
 
 TODO
 

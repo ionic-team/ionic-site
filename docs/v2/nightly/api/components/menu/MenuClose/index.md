@@ -50,13 +50,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: menuClose</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="close"></div>
-<h2>
+<h3>
   <code>close()</code>
 
-</h2>
+</h3>
 
 
 

@@ -51,13 +51,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: value, checked, disabled, id</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="check"></div>
-<h2>
+<h3>
   <code>check()</code>
 
-</h2>
+</h3>
 
 Update the checked state of this radio button.
 TODO: Call this toggle? Since unchecks as well

@@ -84,13 +84,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>selector: ion-tabs</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="platform"></div>
-<h2>
+<h3>
   <code>platform()</code>
 
-</h2>
+</h3>
 
 
 
@@ -104,10 +104,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="select"></div>
-<h2>
+<h3>
   <code>select(tab)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -155,10 +155,10 @@ TODO
 
 
 <div id="getByIndex"></div>
-<h2>
+<h3>
   <code>getByIndex(index)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -206,10 +206,10 @@ TODO
 
 
 <div id="getSelected"></div>
-<h2>
+<h3>
   <code>getSelected()</code>
 
-</h2>
+</h3>
 
 
 
@@ -223,10 +223,10 @@ TODO
 
 
 <div id="getIndex"></div>
-<h2>
+<h3>
   <code>getIndex()</code>
 
-</h2>
+</h3>
 
 
 

@@ -54,13 +54,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>outputs: refresh, starting, pulling</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="onInit"></div>
-<h2>
+<h3>
   <code>onInit()</code>
 
-</h2>
+</h3>
 
 
 
@@ -74,10 +74,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="initEvents"></div>
-<h2>
+<h3>
   <code>initEvents()</code>
 
-</h2>
+</h3>
 
 Initialize touch and scroll event listeners.
 
@@ -92,10 +92,10 @@ Initialize touch and scroll event listeners.
 
 
 <div id="onDehydrate"></div>
-<h2>
+<h3>
   <code>onDehydrate()</code>
 
-</h2>
+</h3>
 
 
 
@@ -109,10 +109,10 @@ Initialize touch and scroll event listeners.
 
 
 <div id="overscroll"></div>
-<h2>
+<h3>
   <code>overscroll(val)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -157,10 +157,10 @@ TODO
 
 
 <div id="nativescroll"></div>
-<h2>
+<h3>
   <code>nativescroll(target, newScrollTop)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -222,10 +222,10 @@ TODO
 
 
 <div id="setScrollLock"></div>
-<h2>
+<h3>
   <code>setScrollLock(enabled)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -270,10 +270,10 @@ TODO
 
 
 <div id="activate"></div>
-<h2>
+<h3>
   <code>activate()</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -288,10 +288,10 @@ TODO
 
 
 <div id="deactivate"></div>
-<h2>
+<h3>
   <code>deactivate()</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -306,10 +306,10 @@ TODO
 
 
 <div id="start"></div>
-<h2>
+<h3>
   <code>start()</code>
 
-</h2>
+</h3>
 
 
 
@@ -323,10 +323,10 @@ TODO
 
 
 <div id="show"></div>
-<h2>
+<h3>
   <code>show()</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -341,10 +341,10 @@ TODO
 
 
 <div id="hide"></div>
-<h2>
+<h3>
   <code>hide()</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -359,10 +359,10 @@ TODO
 
 
 <div id="tail"></div>
-<h2>
+<h3>
   <code>tail()</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -377,10 +377,10 @@ TODO
 
 
 <div id="complete"></div>
-<h2>
+<h3>
   <code>complete()</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -395,10 +395,10 @@ TODO
 
 
 <div id="scrollTo"></div>
-<h2>
+<h3>
   <code>scrollTo(Y, duration, callback)</code>
 
-</h2>
+</h3>
 
 TODO
 

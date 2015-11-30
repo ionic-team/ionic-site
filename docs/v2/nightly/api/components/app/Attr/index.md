@@ -49,13 +49,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: attr</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="renderer"></div>
-<h2>
+<h3>
   <code>renderer()</code>
 
-</h2>
+</h3>
 
 
 
@@ -69,10 +69,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="elementRef"></div>
-<h2>
+<h3>
   <code>elementRef()</code>
 
-</h2>
+</h3>
 
 
 

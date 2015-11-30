@@ -48,13 +48,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>selector: ion-searchbar</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="clearInput"></div>
-<h2>
+<h3>
   <code>clearInput()</code>
 
-</h2>
+</h3>
 
 
 

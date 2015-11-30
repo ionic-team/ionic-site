@@ -49,13 +49,13 @@ during low disk space situations.</p>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/storage.ts#L1-L34">ionic/platform/storage/storage.ts (line 1)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="get"></div>
-<h2>
+<h3>
   <code>get()</code>
 
-</h2>
+</h3>
 
 
 
@@ -69,10 +69,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
 
 
 <div id="getJson"></div>
-<h2>
+<h3>
   <code>getJson()</code>
 
-</h2>
+</h3>
 
 
 
@@ -86,10 +86,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
 
 
 <div id="set"></div>
-<h2>
+<h3>
   <code>set()</code>
 
-</h2>
+</h3>
 
 
 
@@ -103,10 +103,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
 
 
 <div id="remove"></div>
-<h2>
+<h3>
   <code>remove()</code>
 
-</h2>
+</h3>
 
 
 
@@ -120,10 +120,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
 
 
 <div id="query"></div>
-<h2>
+<h3>
   <code>query()</code>
 
-</h2>
+</h3>
 
 
 

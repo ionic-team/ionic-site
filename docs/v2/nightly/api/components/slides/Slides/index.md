@@ -59,13 +59,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>outputs: slideChanged</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="onInit"></div>
-<h2>
+<h3>
   <code>onInit()</code>
 
-</h2>
+</h3>
 
 
 
@@ -79,10 +79,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onTap"></div>
-<h2>
+<h3>
   <code>onTap()</code>
 
-</h2>
+</h3>
 
 
 
@@ -96,10 +96,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onClick"></div>
-<h2>
+<h3>
   <code>onClick()</code>
 
-</h2>
+</h3>
 
 
 
@@ -113,10 +113,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onDoubleTap"></div>
-<h2>
+<h3>
   <code>onDoubleTap()</code>
 
-</h2>
+</h3>
 
 
 
@@ -130,10 +130,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onLazyImageLoad"></div>
-<h2>
+<h3>
   <code>onLazyImageLoad()</code>
 
-</h2>
+</h3>
 
 
 
@@ -147,10 +147,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onLazyImageReady"></div>
-<h2>
+<h3>
   <code>onLazyImageReady()</code>
 
-</h2>
+</h3>
 
 
 
@@ -164,10 +164,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="initZoom"></div>
-<h2>
+<h3>
   <code>initZoom()</code>
 
-</h2>
+</h3>
 
 
 
@@ -181,10 +181,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="resetZoom"></div>
-<h2>
+<h3>
   <code>resetZoom()</code>
 
-</h2>
+</h3>
 
 
 
@@ -198,10 +198,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="toggleZoom"></div>
-<h2>
+<h3>
   <code>toggleZoom()</code>
 
-</h2>
+</h3>
 
 
 
@@ -215,10 +215,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onTransitionStart"></div>
-<h2>
+<h3>
   <code>onTransitionStart()</code>
 
-</h2>
+</h3>
 
 
 
@@ -232,10 +232,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onTransitionEnd"></div>
-<h2>
+<h3>
   <code>onTransitionEnd()</code>
 
-</h2>
+</h3>
 
 
 
@@ -249,10 +249,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onTouchStart"></div>
-<h2>
+<h3>
   <code>onTouchStart()</code>
 
-</h2>
+</h3>
 
 
 
@@ -266,10 +266,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onTouchMove"></div>
-<h2>
+<h3>
   <code>onTouchMove()</code>
 
-</h2>
+</h3>
 
 
 
@@ -283,10 +283,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onTouchEnd"></div>
-<h2>
+<h3>
   <code>onTouchEnd()</code>
 
-</h2>
+</h3>
 
 
 
@@ -300,10 +300,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="update"></div>
-<h2>
+<h3>
   <code>update()</code>
 
-</h2>
+</h3>
 
 Update the underlying slider implementation. Call this if you've added or removed
 child slides.
@@ -319,10 +319,10 @@ child slides.
 
 
 <div id="next"></div>
-<h2>
+<h3>
   <code>next()</code>
 
-</h2>
+</h3>
 
 
 
@@ -336,10 +336,10 @@ child slides.
 
 
 <div id="prev"></div>
-<h2>
+<h3>
   <code>prev()</code>
 
-</h2>
+</h3>
 
 
 
@@ -353,10 +353,10 @@ child slides.
 
 
 <div id="getIndex"></div>
-<h2>
+<h3>
   <code>getIndex()</code>
 
-</h2>
+</h3>
 
 
 
@@ -370,10 +370,10 @@ child slides.
 
 
 <div id="getNumSlides"></div>
-<h2>
+<h3>
   <code>getNumSlides()</code>
 
-</h2>
+</h3>
 
 
 
@@ -387,10 +387,10 @@ child slides.
 
 
 <div id="isAtEnd"></div>
-<h2>
+<h3>
   <code>isAtEnd()</code>
 
-</h2>
+</h3>
 
 
 
@@ -404,10 +404,10 @@ child slides.
 
 
 <div id="isAtBeginning"></div>
-<h2>
+<h3>
   <code>isAtBeginning()</code>
 
-</h2>
+</h3>
 
 
 
@@ -421,10 +421,10 @@ child slides.
 
 
 <div id="getSliderWidget"></div>
-<h2>
+<h3>
   <code>getSliderWidget()</code>
 
-</h2>
+</h3>
 
 
 

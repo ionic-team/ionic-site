@@ -43,13 +43,13 @@ docType: "class"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/keyboard.ts#L5-L125">ionic/util/keyboard.ts (line 5)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="isOpen"></div>
-<h2>
+<h3>
   <code>isOpen()</code>
 
-</h2>
+</h3>
 
 
 
@@ -63,10 +63,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/ke
 
 
 <div id="onClose"></div>
-<h2>
+<h3>
   <code>onClose()</code>
 
-</h2>
+</h3>
 
 
 
@@ -80,10 +80,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/ke
 
 
 <div id="close"></div>
-<h2>
+<h3>
   <code>close()</code>
 
-</h2>
+</h3>
 
 
 
@@ -97,10 +97,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/ke
 
 
 <div id="focusOutline"></div>
-<h2>
+<h3>
   <code>focusOutline()</code>
 
-</h2>
+</h3>
 
 
 

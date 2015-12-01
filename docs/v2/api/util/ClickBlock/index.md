@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{ClickBlock | slugify}}"
@@ -43,13 +43,13 @@ docType: "class"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/click-block.ts#L4-L30">ionic/util/click-block.ts (line 4)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="enable"></div>
-<h2>
+<h3>
   <code>enable()</code>
 
-</h2>
+</h3>
 
 
 
@@ -63,10 +63,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/cl
 
 
 <div id="show"></div>
-<h2>
+<h3>
   <code>show()</code>
 
-</h2>
+</h3>
 
 
 

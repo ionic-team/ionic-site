@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{OverlayNav | slugify}}"
@@ -41,7 +41,7 @@ docType: "class"
 
 <h1 class="class export">OverlayNav <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/overlay/overlay.ts#L7-L38">ionic/components/overlay/overlay.ts (line 7)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/overlay/overlay.ts#L7-L37">ionic/components/overlay/overlay.ts (line 7)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-overlay</span>

@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{SqlStorage | slugify}}"
@@ -49,13 +49,13 @@ storage. The full SQL engine is exposed underneath through the <code>query</code
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/sql.ts#L5-L203">ionic/platform/storage/sql.ts (line 5)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="query"></div>
-<h2>
+<h3>
   <code>query(query, params)</code>
 
-</h2>
+</h3>
 
 Perform an arbitrary SQL operation on the database. Use this method
 to have full control over the underlying database through SQL operations
@@ -123,10 +123,10 @@ like SELECT, INSERT, and UPDATE.
 
 
 <div id="get"></div>
-<h2>
+<h3>
   <code>get(key)</code>
 
-</h2>
+</h3>
 
 Get the value in the database identified by the given key.
 
@@ -174,10 +174,10 @@ Get the value in the database identified by the given key.
 
 
 <div id="set"></div>
-<h2>
+<h3>
   <code>set(key, value)</code>
 
-</h2>
+</h3>
 
 Set the value in the database for the given key. Existing values will be overwritten.
 
@@ -242,10 +242,10 @@ Set the value in the database for the given key. Existing values will be overwri
 
 
 <div id="remove"></div>
-<h2>
+<h3>
   <code>remove(key, value)</code>
 
-</h2>
+</h3>
 
 Remove the value in the database for the given key.
 

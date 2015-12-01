@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{MenuType | slugify}}"
@@ -47,13 +47,13 @@ and registers itself with Menu.</p>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-types.ts#L2-L75">ionic/components/menu/menu-types.ts (line 2)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="setOpen"></div>
-<h2>
+<h3>
   <code>setOpen()</code>
 
-</h2>
+</h3>
 
 
 
@@ -67,10 +67,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="setProgressStart"></div>
-<h2>
+<h3>
   <code>setProgressStart()</code>
 
-</h2>
+</h3>
 
 
 
@@ -84,10 +84,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="setProgess"></div>
-<h2>
+<h3>
   <code>setProgess()</code>
 
-</h2>
+</h3>
 
 
 
@@ -101,10 +101,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="setProgressEnd"></div>
-<h2>
+<h3>
   <code>setProgressEnd()</code>
 
-</h2>
+</h3>
 
 
 
@@ -118,10 +118,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onDestroy"></div>
-<h2>
+<h3>
   <code>onDestroy()</code>
 
-</h2>
+</h3>
 
 
 

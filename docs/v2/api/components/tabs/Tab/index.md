@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{Tab | slugify}}"
@@ -76,7 +76,7 @@ inputs:</p>
 
 <h1 class="class export">Tab <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L8-L175">ionic/components/tabs/tab.ts (line 8)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L8-L174">ionic/components/tabs/tab.ts (line 8)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-tab</span>
@@ -84,13 +84,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: root, tabTitle, tabIcon</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="setSelected"></div>
-<h2>
+<h3>
   <code>setSelected()</code>
 
-</h2>
+</h3>
 
 
 
@@ -104,10 +104,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="index"></div>
-<h2>
+<h3>
   <code>index()</code>
 
-</h2>
+</h3>
 
 
 
@@ -121,10 +121,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onDestroy"></div>
-<h2>
+<h3>
   <code>onDestroy()</code>
 
-</h2>
+</h3>
 
 
 

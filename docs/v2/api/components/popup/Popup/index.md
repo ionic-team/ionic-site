@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{Popup | slugify}}"
@@ -45,13 +45,13 @@ docType: "class"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L9-L266">ionic/components/popup/popup.ts (line 9)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="open"></div>
-<h2>
+<h3>
   <code>open(opts)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -99,10 +99,10 @@ TODO
 
 
 <div id="alert"></div>
-<h2>
+<h3>
   <code>alert(opts)</code>
 
-</h2>
+</h3>
 
 Show a simple alert popup with a message and one button
 that the user can tap to close the popup.
@@ -162,10 +162,10 @@ that the user can tap to close the popup.
 
 
 <div id="confirm"></div>
-<h2>
+<h3>
   <code>confirm(opts)</code>
 
-</h2>
+</h3>
 
 Show a simple confirm popup with a message, Cancel and OK button.
 
@@ -228,10 +228,10 @@ Resolves the promise with true if the user presses the OK button, and false if t
 
 
 <div id="prompt"></div>
-<h2>
+<h3>
   <code>prompt(opts)</code>
 
-</h2>
+</h3>
 
 Show a simple prompt popup with a message, input, Cancel and OK button.
 
@@ -296,10 +296,10 @@ Resolves the promise with the value of the input if the user presses OK, and wit
 
 
 <div id="get"></div>
-<h2>
+<h3>
   <code>get(handle)</code>
 
-</h2>
+</h3>
 
 TODO
 

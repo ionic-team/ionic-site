@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{IonicApp | slugify}}"
@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L5'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L3'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L5'>
     Improve this doc
   </a>
 </div>
@@ -43,15 +43,15 @@ components see the <a href="../id/IdRef/">IdRef API reference</a>.</p>
 
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L4-L105">ionic/components/app/app.ts (line 4)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L6-L111">ionic/components/app/app.ts (line 6)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="setTitle"></div>
-<h2>
+<h3>
   <code>setTitle(val)</code>
 
-</h2>
+</h3>
 
 Sets the document title.
 
@@ -96,10 +96,10 @@ Sets the document title.
 
 
 <div id="setEnabled"></div>
-<h2>
+<h3>
   <code>setEnabled(isEnabled, fallback)</code>
 
-</h2>
+</h3>
 
 Sets if the app is currently enabled or not, meaning if it's
 available to accept new user commands. For example, this is set to `false`
@@ -166,10 +166,10 @@ something goes wrong during a transition and the app wasn&#39;t re-enabled corre
 
 
 <div id="isEnabled"></div>
-<h2>
+<h3>
   <code>isEnabled()</code>
 
-</h2>
+</h3>
 
 Boolean if the app is actively enabled or not.
 
@@ -185,10 +185,10 @@ Boolean if the app is actively enabled or not.
 
 
 <div id="register"></div>
-<h2>
+<h3>
   <code>register(id, component)</code>
 
-</h2>
+</h3>
 
 Register a known component with a key, for easy lookups later.
 
@@ -250,10 +250,10 @@ Register a known component with a key, for easy lookups later.
 
 
 <div id="unregister"></div>
-<h2>
+<h3>
   <code>unregister(id)</code>
 
-</h2>
+</h3>
 
 Unregister a known component with a key.
 
@@ -298,10 +298,10 @@ Unregister a known component with a key.
 
 
 <div id="getRegisteredComponent"></div>
-<h2>
+<h3>
   <code>getRegisteredComponent(cls)</code>
 
-</h2>
+</h3>
 
 Get a registered component with the given type (returns the first)
 
@@ -351,10 +351,10 @@ Get a registered component with the given type (returns the first)
 
 
 <div id="getComponent"></div>
-<h2>
+<h3>
   <code>getComponent(key)</code>
 
-</h2>
+</h3>
 
 Get the component for the given key.
 

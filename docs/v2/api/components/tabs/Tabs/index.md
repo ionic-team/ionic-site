@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{Tabs | slugify}}"
@@ -78,19 +78,19 @@ of that Tabs component.</p>
 
 <h1 class="class export">Tabs <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L11-L273">ionic/components/tabs/tabs.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L11-L274">ionic/components/tabs/tabs.ts (line 11)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-tabs</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="platform"></div>
-<h2>
+<h3>
   <code>platform()</code>
 
-</h2>
+</h3>
 
 
 
@@ -104,10 +104,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="select"></div>
-<h2>
+<h3>
   <code>select(tab)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -155,10 +155,10 @@ TODO
 
 
 <div id="getByIndex"></div>
-<h2>
+<h3>
   <code>getByIndex(index)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -206,10 +206,10 @@ TODO
 
 
 <div id="getSelected"></div>
-<h2>
+<h3>
   <code>getSelected()</code>
 
-</h2>
+</h3>
 
 
 
@@ -223,10 +223,10 @@ TODO
 
 
 <div id="getIndex"></div>
-<h2>
+<h3>
   <code>getIndex()</code>
 
-</h2>
+</h3>
 
 
 

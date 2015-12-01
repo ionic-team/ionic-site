@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{Translate | slugify}}"
@@ -46,13 +46,13 @@ to provide strings for your default language, just new languages.</p>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/translation/translate.ts#L1-L65">ionic/translation/translate.ts (line 1)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="translations"></div>
-<h2>
+<h3>
   <code>translations()</code>
 
-</h2>
+</h3>
 
 
 
@@ -66,10 +66,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/transla
 
 
 <div id="setLanguage"></div>
-<h2>
+<h3>
   <code>setLanguage()</code>
 
-</h2>
+</h3>
 
 
 
@@ -83,10 +83,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/transla
 
 
 <div id="getTranslations"></div>
-<h2>
+<h3>
   <code>getTranslations()</code>
 
-</h2>
+</h3>
 
 
 
@@ -100,10 +100,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/transla
 
 
 <div id="translate"></div>
-<h2>
+<h3>
   <code>translate()</code>
 
-</h2>
+</h3>
 
 
 

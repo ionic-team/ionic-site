@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{ConfigComponent | slugify}}"
@@ -13,11 +13,11 @@ docType: "function"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L77'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L78'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators.ts#L77'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators.ts#L78'>
     Improve this doc
   </a>
 </div>
@@ -41,6 +41,6 @@ docType: "function"
 
 <h1 class="class export">ConfigComponent <span class="type">function</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L78-L90">ionic/config/decorators.ts (line 78)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L79-L91">ionic/config/decorators.ts (line 79)</a>
 </p>
 

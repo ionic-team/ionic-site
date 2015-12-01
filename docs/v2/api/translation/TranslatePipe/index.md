@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{TranslatePipe | slugify}}"
@@ -44,13 +44,13 @@ docType: "class"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/translation/translate_pipe.ts#L3-L30">ionic/translation/translate_pipe.ts (line 3)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="transform"></div>
-<h2>
+<h3>
   <code>transform()</code>
 
-</h2>
+</h3>
 
 
 
@@ -64,10 +64,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/transla
 
 
 <div id="supports"></div>
-<h2>
+<h3>
   <code>supports()</code>
 
-</h2>
+</h3>
 
 
 

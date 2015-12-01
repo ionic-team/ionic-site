@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{Content | slugify}}"
@@ -50,13 +50,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>selector: ion-content</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="addScrollEventListener"></div>
-<h2>
+<h3>
   <code>addScrollEventListener(handler)</code>
 
-</h2>
+</h3>
 
 Adds the specified scroll handler to the content' scroll element.
 
@@ -104,10 +104,10 @@ Adds the specified scroll handler to the content' scroll element.
 
 
 <div id="onScrollEnd"></div>
-<h2>
+<h3>
   <code>onScrollEnd()</code>
 
-</h2>
+</h3>
 
 
 
@@ -121,10 +121,10 @@ Adds the specified scroll handler to the content' scroll element.
 
 
 <div id="addTouchMoveListener"></div>
-<h2>
+<h3>
   <code>addTouchMoveListener(handler)</code>
 
-</h2>
+</h3>
 
 Adds the specified touchmove handler to the content's scroll element.
 
@@ -172,10 +172,10 @@ Adds the specified touchmove handler to the content's scroll element.
 
 
 <div id="scrollTo"></div>
-<h2>
+<h3>
   <code>scrollTo(x, y, duration, tolerance)</code>
 
-</h2>
+</h3>
 
 Scroll to the specified position.
 
@@ -274,10 +274,10 @@ Scroll to the specified position.
 
 
 <div id="scrollToTop"></div>
-<h2>
+<h3>
   <code>scrollToTop()</code>
 
-</h2>
+</h3>
 
 
 

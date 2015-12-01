@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{Attr | slugify}}"
@@ -49,13 +49,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: attr</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="renderer"></div>
-<h2>
+<h3>
   <code>renderer()</code>
 
-</h2>
+</h3>
 
 
 
@@ -69,10 +69,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="elementRef"></div>
-<h2>
+<h3>
   <code>elementRef()</code>
 
-</h2>
+</h3>
 
 
 

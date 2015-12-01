@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{Modal | slugify}}"
@@ -47,13 +47,13 @@ along with optional Page params, and options for presenting the modal.</p>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L6-L90">ionic/components/modal/modal.ts (line 6)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="open"></div>
-<h2>
+<h3>
   <code>open(pageComponent, params, opts)</code>
 
-</h2>
+</h3>
 
 Opens a new modal using the page component is was pass as the first
 argument. This is similar to how NavController's `push` method works.
@@ -144,10 +144,10 @@ value is the instance of the newly created modal.
 
 
 <div id="get"></div>
-<h2>
+<h3>
   <code>get(handle)</code>
 
-</h2>
+</h3>
 
 Get the instance of a modal. This is usually helpful to getting ahold of a
 certain modal, from anywhere within the app, and closing it. By calling

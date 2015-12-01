@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{Scroll | slugify}}"
@@ -51,13 +51,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: scrollX, scrollY, zoom, maxZoom</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="addScrollEventListener"></div>
-<h2>
+<h3>
   <code>addScrollEventListener(handler)</code>
 
-</h2>
+</h3>
 
 Add a scroll event handler to the scroll element if it exists.
 

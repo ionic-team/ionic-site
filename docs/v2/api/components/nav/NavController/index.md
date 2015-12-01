@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{NavController | slugify}}"
@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L10'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L10'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L11'>
     Improve this doc
   </a>
 </div>
@@ -109,51 +109,15 @@ class HelloWorld {
 
 <h1 class="class export">NavController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11-L1276">ionic/components/nav/nav-controller.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L12-L1377">ionic/components/nav/nav-controller.ts (line 12)</a>
 </p>
-## Members
+<h2>Members</h2>
 
-<div id="isTransitioning"></div>
-<h2>
-  <code>isTransitioning()</code>
+<div id="push"></div>
+<h3>
+  <code>push(component, params, opts)</code>
 
-</h2>
-
-Boolean if the nav controller is actively transitioning or not.
-
-
-
-
-
-
-* Returns: 
-  <code>bool</code> 
-
-
-
-
-<div id="setTransitioning"></div>
-<h2>
-  <code>setTransitioning()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="NavController#push"></div>
-<h2>
-  <code>NavController#push(The, params, opts)</code>
-
-</h2>
+</h3>
 
 Push is how we can pass components and navigate to them. We push the component we want to navigate to on to the navigation stack.
 
@@ -230,16 +194,16 @@ class MyClass{
     
     <tr>
       <td>
-        The
+        component
         
         
       </td>
       <td>
         
-  <code>Component</code>
+  <code>Any</code>
       </td>
       <td>
-        <p>name of the component you want to push on the navigation stack</p>
+        <p>The name of the component you want to push on the navigation stack</p>
 
         
       </td>
@@ -293,14 +257,15 @@ class MyClass{
 
 
 
-<div id="NavController#pop"></div>
-<h2>
-  <code>NavController#pop(opts)</code>
+<div id="pop"></div>
+<h3>
+  <code>pop(opts)</code>
 
-</h2>
+</h3>
 
 If you wanted to navigate back from a current view, you can use the back-button or programatically call `pop()`
 Similar to `push()`, you can pass animation options.
+
 ```typescript
 class SecondView{
    constructor(nav:NavController){
@@ -361,10 +326,10 @@ class SecondView{
 
 
 <div id="popToRoot"></div>
-<h2>
+<h3>
   <code>popToRoot(opts)</code>
 
-</h2>
+</h3>
 
 Similar to `pop()`, this method let's you navigate back to the root of the stack, no matter how many views that is
 
@@ -409,10 +374,10 @@ Similar to `pop()`, this method let's you navigate back to the root of the stack
 
 
 <div id="insert"></div>
-<h2>
-  <code>insert(The, The)</code>
+<h3>
+  <code>insert(index, component)</code>
 
-</h2>
+</h3>
 
 Inserts a view into the nav stack at the specified index.
 This is useful if you need to add a view at any point in your navigation stack
@@ -426,8 +391,9 @@ export class Detail {
      this.nav.insert(1,Info)
    }
  }
- ```
- This will insert the `Info` view into the second slot of our navigation stack
+```
+
+This will insert the `Info` view into the second slot of our navigation stack
 
 
 
@@ -444,16 +410,16 @@ export class Detail {
     
     <tr>
       <td>
-        The
+        index
         
         
       </td>
       <td>
         
-  <code>Index</code>
+  <code>Number</code>
       </td>
       <td>
-        <p>index where you want to insert the view</p>
+        <p>The index where you want to insert the view</p>
 
         
       </td>
@@ -461,16 +427,16 @@ export class Detail {
     
     <tr>
       <td>
-        The
+        component
         
         
       </td>
       <td>
         
-  <code>Component</code>
+  <code>Any</code>
       </td>
       <td>
-        <p>name of the component you want to insert into the nav stack</p>
+        <p>The name of the component you want to insert into the nav stack</p>
 
         
       </td>
@@ -491,10 +457,10 @@ export class Detail {
 
 
 <div id="remove"></div>
-<h2>
-  <code>remove(Remove, opts)</code>
+<h3>
+  <code>remove(index, opts)</code>
 
-</h2>
+</h3>
 
 Removes a view from the nav stack at the specified index.
 
@@ -507,7 +473,7 @@ export class Detail {
      this.nav.remove(1)
    }
  }
- ```
+```
 
 
 
@@ -524,16 +490,16 @@ export class Detail {
     
     <tr>
       <td>
-        Remove
+        index
         
         
       </td>
       <td>
         
-  <code>Index</code>
+  <code>Number</code>
       </td>
       <td>
-        <p>the view from the nav stack at that index</p>
+        <p>Remove the view from the nav stack at that index</p>
 
         
       </td>
@@ -571,12 +537,82 @@ export class Detail {
 
 
 <div id="setPages"></div>
-<h2>
-  <code>setPages(an, opts)</code>
+<h3>
+  <code>setPages(component, opts)</code>
 
-</h2>
+</h3>
 
-Set the view stack to reflect the given component classes.
+You can set the views of the current navigation stack and navigate to the last view past
+
+
+```typescript
+import {Page, NavController} from 'ionic/ionic'
+import {Detail} from '../detail/detail'
+import {Info} from '../info/info'
+
+ export class Home {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   setView() {
+     this.nav.setViews([List,Detail, Info]);
+   }
+ }
+```
+
+
+In this example, we're giving the current nav stack an array of pages. Then the navigation stack will navigate to the last view in the array and remove the orignal view you came from.
+
+By default, animations are disabled, but they can be enabled by passing options to the navigation controller
+
+
+```typescript
+import {Page, NavController} from 'ionic/ionic'
+import {Detail} from '../detail/detail'
+import {Info} from '../info/info'
+
+ export class Home {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   setView() {
+     this.nav.setViews([List,Detail, Info],{
+       animate: true
+     });
+   }
+ }
+```
+
+
+You can also pass any navigation params to the individual pages in the array.
+
+
+```typescript
+import {Page, NavController} from 'ionic/ionic'
+import {Detail} from '../detail/detail'
+import {Info} from '../info/info'
+
+ export class Home {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   setView() {
+     this.nav.setViews([{
+       componentType: List,
+       params: {id: 43}
+     }, {
+       componentType: Detail,
+       params: {id: 45}
+     },{
+       componentType: Info,
+       params: {id: 5}
+     } ],{
+       animate: true
+     });
+   }
+ }
+```
+
 
 
 
@@ -592,16 +628,16 @@ Set the view stack to reflect the given component classes.
     
     <tr>
       <td>
-        an
+        component
         
         
       </td>
       <td>
         
-  <code>Component</code>
+  <code>Array</code>
       </td>
       <td>
-        <p>arry of components to load in the stack</p>
+        <p>an arry of components to load in the stack</p>
 
         
       </td>
@@ -633,16 +669,16 @@ Set the view stack to reflect the given component classes.
 
 
 * Returns: 
-  <code>Promise</code> TODO
+  <code>Promise</code> Returns a promise when the views are set
 
 
 
 
 <div id="setRoot"></div>
-<h2>
+<h3>
   <code>setRoot(The, params, opts)</code>
 
-</h2>
+</h3>
 
 Set the root for the current navigation stack
 
@@ -723,28 +759,11 @@ Set the root for the current navigation stack
 
 
 
-<div id="loadPage"></div>
-<h2>
-  <code>loadPage()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="isSwipeBackEnabled"></div>
-<h2>
+<h3>
   <code>isSwipeBackEnabled([isSwipeBackEnabled])</code>
 
-</h2>
+</h3>
 
 Check to see if swipe-to-go-back is enabled
 
@@ -792,10 +811,10 @@ Check to see if swipe-to-go-back is enabled
 
 
 <div id="canSwipeBack"></div>
-<h2>
+<h3>
   <code>canSwipeBack()</code>
 
-</h2>
+</h3>
 
 If it's possible to use swipe back or not. If it's not possible
 to go back, or swipe back is not enable then this will return false.
@@ -814,10 +833,10 @@ will return true.
 
 
 <div id="canGoBack"></div>
-<h2>
+<h3>
   <code>canGoBack()</code>
 
-</h2>
+</h3>
 
 Returns `true` if there's a valid previous view that we can pop back to.
 Otherwise returns false.
@@ -834,10 +853,10 @@ Otherwise returns false.
 
 
 <div id="getByIndex"></div>
-<h2>
+<h3>
   <code>getByIndex(The)</code>
 
-</h2>
+</h3>
 
 
 
@@ -885,10 +904,10 @@ Otherwise returns false.
 
 
 <div id="first"></div>
-<h2>
+<h3>
   <code>first()</code>
 
-</h2>
+</h3>
 
 First view in this nav controller's stack. This would
 not return an view which is about to be destroyed.
@@ -905,10 +924,10 @@ not return an view which is about to be destroyed.
 
 
 <div id="last"></div>
-<h2>
+<h3>
   <code>last()</code>
 
-</h2>
+</h3>
 
 Last view in this nav controller's stack. This would
 not return an view which is about to be destroyed.
@@ -925,10 +944,10 @@ not return an view which is about to be destroyed.
 
 
 <div id="length"></div>
-<h2>
+<h3>
   <code>length()</code>
 
-</h2>
+</h3>
 
 Number of sibling views in the nav controller. This does
 not include views which are about to be destroyed.

@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{RadioGroup | slugify}}"
@@ -51,13 +51,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>selector: [radio-group]</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="radios"></div>
-<h2>
+<h3>
   <code>radios()</code>
 
-</h2>
+</h3>
 
 
 
@@ -71,10 +71,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="headerQuery"></div>
-<h2>
+<h3>
   <code>headerQuery()</code>
 
-</h2>
+</h3>
 
 
 

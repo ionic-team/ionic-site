@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/nightly"
+version: "2.0.0-alpha.38"
+versionHref: "/docs/v2"
 path: ""
 category: api
 id: "{{ViewController | slugify}}"
@@ -42,17 +42,17 @@ docType: "class"
 
 <h1 class="class export">ViewController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L218">ionic/components/nav/view-controller.ts (line 1)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L315">ionic/components/nav/view-controller.ts (line 1)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="enableBack"></div>
-<h2>
+<h3>
   <code>enableBack()</code>
 
-</h2>
+</h3>
 
-TODO
+
 
 
 
@@ -60,33 +60,16 @@ TODO
 
 
 * Returns: 
-  <code>boolean</code> TODO
-
-
-
-
-<div id="setInstance"></div>
-<h2>
-  <code>setInstance()</code>
-
-</h2>
-
-
-
-
-
-
-
-
+  <code>boolean</code> Returns if it's possible to go back from this Page.
 
 
 
 
 <div id="index"></div>
-<h2>
+<h3>
   <code>index()</code>
 
-</h2>
+</h3>
 
 
 
@@ -95,15 +78,17 @@ TODO
 
 
 
+* Returns: 
+  <code>Number</code> Returns the index of this page within its NavController.
 
 
 
 
 <div id="isRoot"></div>
-<h2>
+<h3>
   <code>isRoot()</code>
 
-</h2>
+</h3>
 
 
 
@@ -112,134 +97,17 @@ TODO
 
 
 
-
-
-
-
-<div id="addDestroy"></div>
-<h2>
-  <code>addDestroy()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="destroy"></div>
-<h2>
-  <code>destroy()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setNavbarTemplateRef"></div>
-<h2>
-  <code>setNavbarTemplateRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getNavbarTemplateRef"></div>
-<h2>
-  <code>getNavbarTemplateRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getNavbarViewRef"></div>
-<h2>
-  <code>getNavbarViewRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setNavbarViewRef"></div>
-<h2>
-  <code>setNavbarViewRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setPageRef"></div>
-<h2>
-  <code>setPageRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
+* Returns: 
+  <code>boolean</code> Returns if this Page is the root page of the NavController.
 
 
 
 
 <div id="pageRef"></div>
-<h2>
+<h3>
   <code>pageRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -248,32 +116,17 @@ TODO
 
 
 
-
-
-
-
-<div id="setContentRef"></div>
-<h2>
-  <code>setContentRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
+* Returns: 
+  <code>ElementRef</code> Returns the Page's ElementRef
 
 
 
 
 <div id="contentRef"></div>
-<h2>
+<h3>
   <code>contentRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -282,32 +135,17 @@ TODO
 
 
 
-
-
-
-
-<div id="setContent"></div>
-<h2>
-  <code>setContent()</code>
-
-</h2>
-
-
-
-
-
-
-
-
+* Returns: 
+  <code>ElementRef</code> Returns the Page's Content ElementRef
 
 
 
 
 <div id="getContent"></div>
-<h2>
+<h3>
   <code>getContent()</code>
 
-</h2>
+</h3>
 
 
 
@@ -316,49 +154,17 @@ TODO
 
 
 
-
-
-
-
-<div id="setNavbar"></div>
-<h2>
-  <code>setNavbar()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getNavbar"></div>
-<h2>
-  <code>getNavbar()</code>
-
-</h2>
-
-
-
-
-
-
-
-
+* Returns: 
+  <code>Component</code> Returns the Page's Content component reference.
 
 
 
 
 <div id="hasNavbar"></div>
-<h2>
+<h3>
   <code>hasNavbar()</code>
 
-</h2>
+</h3>
 
 
 
@@ -367,286 +173,99 @@ TODO
 
 
 
+* Returns: 
+  <code>boolean</code> Returns a boolean if this Page has a navbar or not.
 
 
 
 
-<div id="navbarRef"></div>
-<h2>
-  <code>navbarRef()</code>
+<div id="setBackButtonText"></div>
+<h3>
+  <code>setBackButtonText(Set)</code>
 
-</h2>
+</h3>
 
 
 
 
 
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        Set
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>the back button text.</p>
 
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
 
 
 
-<div id="titleRef"></div>
-<h2>
-  <code>titleRef()</code>
 
-</h2>
 
 
+<div id="showBackButton"></div>
+<h3>
+  <code>showBackButton(Set)</code>
 
+</h3>
 
 
 
 
 
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        Set
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>if this Page&#39;s back button should show or not.</p>
 
-
-
-
-<div id="navbarItemRefs"></div>
-<h2>
-  <code>navbarItemRefs()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="backBtnRef"></div>
-<h2>
-  <code>backBtnRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="backBtnTextRef"></div>
-<h2>
-  <code>backBtnTextRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="navbarBgRef"></div>
-<h2>
-  <code>navbarBgRef()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="hideBackButton"></div>
-<h2>
-  <code>hideBackButton()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="isLoaded"></div>
-<h2>
-  <code>isLoaded()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="loaded"></div>
-<h2>
-  <code>loaded()</code>
-
-</h2>
-
-The view has loaded. This event only happens once per view being
-created. If a view leaves but is cached, then this will not
-fire again on a subsequent viewing. This method is a good place
-to put your setup code for the view; however, it is not the
-recommended method to use when a view becomes active.
-
-
-
-
-
-
-
-
-
-
-
-<div id="postRender"></div>
-<h2>
-  <code>postRender()</code>
-
-</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="willEnter"></div>
-<h2>
-  <code>willEnter()</code>
-
-</h2>
-
-The view is about to enter and become the active view.
-
-
-
-
-
-
-
-
-
-
-
-<div id="didEnter"></div>
-<h2>
-  <code>didEnter()</code>
-
-</h2>
-
-The view has fully entered and is now the active view. This
-will fire, whether it was the first load or loaded from the cache.
-
-
-
-
-
-
-
-
-
-
-
-<div id="willLeave"></div>
-<h2>
-  <code>willLeave()</code>
-
-</h2>
-
-The view has is about to leave and no longer be the active view.
-
-
-
-
-
-
-
-
-
-
-
-<div id="didLeave"></div>
-<h2>
-  <code>didLeave()</code>
-
-</h2>
-
-The view has finished leaving and is no longer the active view. This
-will fire, whether it is cached or unloaded.
-
-
-
-
-
-
-
-
-
-
-
-<div id="willUnload"></div>
-<h2>
-  <code>willUnload()</code>
-
-</h2>
-
-The view is about to be destroyed and have its elements removed.
-
-
-
-
-
-
-
-
-
-
-
-<div id="didUnload"></div>
-<h2>
-  <code>didUnload()</code>
-
-</h2>
-
-The view has been destroyed and its elements have been removed.
-
-
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

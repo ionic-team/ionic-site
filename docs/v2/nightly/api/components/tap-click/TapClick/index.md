@@ -41,7 +41,7 @@ docType: "class"
 
 <h1 class="class export">TapClick <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tap-click/tap-click.ts#L7-L163">ionic/components/tap-click/tap-click.ts (line 7)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tap-click/tap-click.ts#L7-L166">ionic/components/tap-click/tap-click.ts (line 7)</a>
 </p>
 <h2>Members</h2>
 
@@ -133,23 +133,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 <div id="pointerEnd"></div>
 <h3>
   <code>pointerEnd()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="pointerMove"></div>
-<h3>
-  <code>pointerMove()</code>
 
 </h3>
 

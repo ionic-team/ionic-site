@@ -1,13 +1,13 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+version: "nightly"
+versionHref: "/docs/v2/nightly"
 path: ""
 category: api
-id: "{{Searchbar | slugify}}"
-title: "Searchbar"
+id: "{{SearchBar | slugify}}"
+title: "SearchBar"
 header_sub_title: "Class in module "
-doc: "Searchbar"
+doc: "SearchBar"
 docType: "class"
 ---
 
@@ -27,7 +27,7 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Searchbar
+  SearchBar
 
 
 
@@ -40,7 +40,7 @@ docType: "class"
 <p>The Search Bar service adds an input field which can be used to search or filter items.</p>
 
 
-<h1 class="class export">Searchbar <span class="type">class</span></h1>
+<h1 class="class export">SearchBar <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/searchbar/searchbar.ts#L6-L129">ionic/components/searchbar/searchbar.ts (line 6)</a>
 </p>

@@ -67,13 +67,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: id</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="app"></div>
-<h2>
+<h3>
   <code>app()</code>
 
-</h2>
+</h3>
 
 
 
@@ -87,10 +87,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="elementRef"></div>
-<h2>
+<h3>
   <code>elementRef()</code>
 
-</h2>
+</h3>
 
 
 
@@ -104,10 +104,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="appViewManager"></div>
-<h2>
+<h3>
   <code>appViewManager()</code>
 
-</h2>
+</h3>
 
 
 

@@ -45,13 +45,13 @@ events across your app.</p>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/events.ts#L1-L87">ionic/util/events.ts (line 1)</a>
 </p>
-## Members
+<h2>Members</h2>
 
 <div id="subscribe"></div>
-<h2>
+<h3>
   <code>subscribe(topic, handler)</code>
 
-</h2>
+</h3>
 
 Subscribe to an event topic. Events that get posted to that topic
 will trigger the provided handler.
@@ -115,10 +115,10 @@ will trigger the provided handler.
 
 
 <div id="unsubscribe"></div>
-<h2>
+<h3>
   <code>unsubscribe(topic, handler)</code>
 
-</h2>
+</h3>
 
 Unsubscribe from the given topic. Your handler will
 no longer receive events published to this topic.
@@ -187,10 +187,10 @@ no longer receive events published to this topic.
 
 
 <div id="publish"></div>
-<h2>
+<h3>
   <code>publish(topic, eventData)</code>
 
-</h2>
+</h3>
 
 Publish an event to the given topic.
 

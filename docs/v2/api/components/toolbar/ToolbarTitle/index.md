@@ -47,13 +47,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>selector: ion-title</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="getTitleText"></div>
-<h2>
+<h3>
   <code>getTitleText()</code>
 
-</h2>
+</h3>
 
 
 

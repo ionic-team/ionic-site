@@ -75,13 +75,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: instruction: navPush, params: navParams</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="onClick"></div>
-<h2>
+<h3>
   <code>onClick()</code>
 
-</h2>
+</h3>
 
 
 

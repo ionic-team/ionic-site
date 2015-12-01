@@ -48,13 +48,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>selector: ion-nav</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="reuse"></div>
-<h2>
+<h3>
   <code>reuse()</code>
 
-</h2>
+</h3>
 
 
 
@@ -68,10 +68,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="stateChange"></div>
-<h2>
+<h3>
   <code>stateChange(type, viewCtrl)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -133,10 +133,10 @@ TODO
 
 
 <div id="getPathRecognizerByComponent"></div>
-<h2>
+<h3>
   <code>getPathRecognizerByComponent(componentType)</code>
 
-</h2>
+</h3>
 
 TODO
 

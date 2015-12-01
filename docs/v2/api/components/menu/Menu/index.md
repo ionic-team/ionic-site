@@ -77,13 +77,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>outputs: opening</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="setOpen"></div>
-<h2>
+<h3>
   <code>setOpen(isOpen)</code>
 
-</h2>
+</h3>
 
 Sets the state of the Menu to open or not.
 
@@ -131,10 +131,10 @@ Sets the state of the Menu to open or not.
 
 
 <div id="open"></div>
-<h2>
+<h3>
   <code>open()</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -150,10 +150,10 @@ TODO
 
 
 <div id="close"></div>
-<h2>
+<h3>
   <code>close()</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -169,10 +169,10 @@ TODO
 
 
 <div id="toggle"></div>
-<h2>
+<h3>
   <code>toggle()</code>
 
-</h2>
+</h3>
 
 TODO
 

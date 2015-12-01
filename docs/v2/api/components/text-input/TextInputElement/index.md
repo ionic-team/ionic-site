@@ -49,13 +49,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: value</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="onInit"></div>
-<h2>
+<h3>
   <code>onInit()</code>
 
-</h2>
+</h3>
 
 
 
@@ -69,10 +69,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="focusChange"></div>
-<h2>
+<h3>
   <code>focusChange()</code>
 
-</h2>
+</h3>
 
 
 
@@ -86,10 +86,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="onKeyup"></div>
-<h2>
+<h3>
   <code>onKeyup()</code>
 
-</h2>
+</h3>
 
 
 
@@ -103,10 +103,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="labelledBy"></div>
-<h2>
+<h3>
   <code>labelledBy()</code>
 
-</h2>
+</h3>
 
 
 
@@ -120,10 +120,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="setFocus"></div>
-<h2>
+<h3>
   <code>setFocus()</code>
 
-</h2>
+</h3>
 
 
 
@@ -137,10 +137,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="relocate"></div>
-<h2>
+<h3>
   <code>relocate()</code>
 
-</h2>
+</h3>
 
 
 
@@ -154,10 +154,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="hideFocus"></div>
-<h2>
+<h3>
   <code>hideFocus()</code>
 
-</h2>
+</h3>
 
 
 
@@ -171,10 +171,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="hasFocus"></div>
-<h2>
+<h3>
   <code>hasFocus()</code>
 
-</h2>
+</h3>
 
 
 
@@ -188,10 +188,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="getNativeElement"></div>
-<h2>
+<h3>
   <code>getNativeElement()</code>
 
-</h2>
+</h3>
 
 
 

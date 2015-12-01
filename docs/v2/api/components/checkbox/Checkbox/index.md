@@ -51,13 +51,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: value, checked, disabled, id</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="onInit"></div>
-<h2>
+<h3>
   <code>onInit()</code>
 
-</h2>
+</h3>
 
 
 
@@ -71,10 +71,10 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="toggle"></div>
-<h2>
+<h3>
   <code>toggle()</code>
 
-</h2>
+</h3>
 
 Toggle the checked state of the checkbox. Calls onChange to pass the
 updated checked state to the model (Control).

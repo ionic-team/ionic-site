@@ -50,13 +50,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>inputs: menuToggle</span>
 
 
-## Members
+<h2>Members</h2>
 
 <div id="toggle"></div>
-<h2>
+<h3>
   <code>toggle(event)</code>
 
-</h2>
+</h3>
 
 TODO
 
@@ -101,10 +101,10 @@ TODO
 
 
 <div id="isHidden"></div>
-<h2>
+<h3>
   <code>isHidden()</code>
 
-</h2>
+</h3>
 
 
 

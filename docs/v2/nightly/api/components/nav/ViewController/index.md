@@ -37,22 +37,54 @@ docType: "class"
 
 
 
-<p>TODO</p>
+<p>You can access various features and information about the current view</p>
 
 
 <h1 class="class export">ViewController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L315">ionic/components/nav/view-controller.ts (line 1)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L346">ionic/components/nav/view-controller.ts (line 1)</a>
 </p>
 <h2>Members</h2>
 
 <div id="enableBack"></div>
 <h3>
-  <code>enableBack()</code>
+  <code>enableBack(Check)</code>
 
 </h3>
 
+Check to see if you can go back in the navigation stack
 
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        Check
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>whether or not you can go back from this page</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
@@ -71,6 +103,17 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 </h3>
 
+You can find out the index of the current view is in the current navigation stack
+
+```typescript
+ export class Page1 {
+   constructor(view: ViewController){
+     this.view = view;
+     // Just log out the index
+     console.log(this.view.index);
+   }
+ }
+```
 
 
 
@@ -103,69 +146,24 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
-<div id="pageRef"></div>
-<h3>
-  <code>pageRef()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-* Returns: 
-  <code>ElementRef</code> Returns the Page's ElementRef
-
-
-
-
-<div id="contentRef"></div>
-<h3>
-  <code>contentRef()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-* Returns: 
-  <code>ElementRef</code> Returns the Page's Content ElementRef
-
-
-
-
-<div id="getContent"></div>
-<h3>
-  <code>getContent()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-* Returns: 
-  <code>Component</code> Returns the Page's Content component reference.
-
-
-
-
 <div id="hasNavbar"></div>
 <h3>
   <code>hasNavbar()</code>
 
 </h3>
 
+You can find out of the current view has a Navbar or not. Be sure to wrap this in an `onInit` method in order to make sure the view has rendered fully.
+
+```typescript
+export class Page1 {
+ constructor(view: ViewController) {
+   this.view = view
+ }
+ onInit(){
+   console.log('Do we have a Navbar?', this.view.hasNavbar());
+ }
+}
+```
 
 
 
@@ -233,7 +231,7 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 </h3>
 
-
+Set if the back button for the current view is visible or not. Be sure to wrap this in `onInit` to make sure the has been compleltly rendered.
 
 
 

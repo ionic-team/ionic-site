@@ -42,7 +42,7 @@ docType: "class"
 
 <h1 class="class export">ViewController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L305">ionic/components/nav/view-controller.ts (line 1)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L315">ionic/components/nav/view-controller.ts (line 1)</a>
 </p>
 <h2>Members</h2>
 
@@ -175,6 +175,54 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 * Returns: 
   <code>boolean</code> Returns a boolean if this Page has a navbar or not.
+
+
+
+
+<div id="setBackButtonText"></div>
+<h3>
+  <code>setBackButtonText(Set)</code>
+
+</h3>
+
+
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        Set
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>the back button text.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
 
 
 

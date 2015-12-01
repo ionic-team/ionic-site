@@ -109,7 +109,7 @@ class HelloWorld {
 
 <h1 class="class export">NavController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L12-L1377">ionic/components/nav/nav-controller.ts (line 12)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L12-L1368">ionic/components/nav/nav-controller.ts (line 12)</a>
 </p>
 <h2>Members</h2>
 
@@ -173,7 +173,6 @@ class MyClass{
      },{
       // here we can configure things like the animations direction or
       // or if the view should animate at all.
-      animate: true,
       direction: back
      });
    }
@@ -271,12 +270,8 @@ class SecondView{
    constructor(nav:NavController){
      this.nav = nav;
    }
-
    goBack(){
-     this.nav.pop({
-      animate: true,
-      direction: back
-     });
+     this.nav.pop();
    }
 }
 ```
@@ -554,8 +549,8 @@ import {Info} from '../info/info'
    constructor(nav: NavController) {
      this.nav = nav;
    }
-   setView() {
-     this.nav.setViews([List,Detail, Info]);
+   setPages() {
+     this.nav.setPages([List,Detail, Info]);
    }
  }
 ```
@@ -575,8 +570,8 @@ import {Info} from '../info/info'
    constructor(nav: NavController) {
      this.nav = nav;
    }
-   setView() {
-     this.nav.setViews([List,Detail, Info],{
+   setPages() {
+     this.nav.setPages([List,Detail, Info],{
        animate: true
      });
    }
@@ -596,8 +591,8 @@ import {Info} from '../info/info'
    constructor(nav: NavController) {
      this.nav = nav;
    }
-   setView() {
-     this.nav.setViews([{
+   setPages() {
+     this.nav.setPages([{
        componentType: List,
        params: {id: 43}
      }, {
@@ -606,9 +601,7 @@ import {Info} from '../info/info'
      },{
        componentType: Info,
        params: {id: 5}
-     } ],{
-       animate: true
-     });
+     }]);
    }
  }
 ```
@@ -669,7 +662,7 @@ import {Info} from '../info/info'
 
 
 * Returns: 
-  <code>Promise</code> Returns a promise when the views are set
+  <code>Promise</code> Returns a promise when the pages are set
 
 
 
@@ -838,7 +831,7 @@ will return true.
 
 </h3>
 
-Returns `true` if there's a valid previous view that we can pop back to.
+Returns `true` if there's a valid previous page that we can pop back to.
 Otherwise returns false.
 
 
@@ -847,7 +840,7 @@ Otherwise returns false.
 
 
 * Returns: 
-  <code>boolean</code> Whether there is a view to go back to
+  <code>boolean</code> Whether there is a page to go back to
 
 
 
@@ -883,7 +876,7 @@ Otherwise returns false.
   <code>Index</code>
       </td>
       <td>
-        <p>index of the view you want to get</p>
+        <p>index of the page you want to get</p>
 
         
       </td>
@@ -909,8 +902,7 @@ Otherwise returns false.
 
 </h3>
 
-First view in this nav controller's stack. This would
-not return an view which is about to be destroyed.
+First page in this nav controller's stack. This would not return a page which is about to be destroyed.
 
 
 
@@ -918,7 +910,7 @@ not return an view which is about to be destroyed.
 
 
 * Returns: 
-  <code>Component</code> Returns the first component view in the current stack
+  <code>Component</code> Returns the first component page in the current stack
 
 
 
@@ -929,8 +921,7 @@ not return an view which is about to be destroyed.
 
 </h3>
 
-Last view in this nav controller's stack. This would
-not return an view which is about to be destroyed.
+Last page in this nav controller's stack. This would not return a page which is about to be destroyed.
 
 
 
@@ -938,7 +929,7 @@ not return an view which is about to be destroyed.
 
 
 * Returns: 
-  <code>Component</code> Returns the last component view in the current stack
+  <code>Component</code> Returns the last component page in the current stack
 
 
 

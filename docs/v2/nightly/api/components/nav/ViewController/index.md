@@ -152,14 +152,14 @@ You can find out the index of the current view is in the current navigation stac
 
 </h3>
 
-You can find out of the current view has a Navbar or not. Be sure to wrap this in an `onInit` method in order to make sure the view has rendered fully.
+You can find out of the current view has a Navbar or not. Be sure to wrap this in an `onPageLoaded` method in order to make sure the view has rendered fully.
 
 ```typescript
 export class Page1 {
  constructor(view: ViewController) {
    this.view = view
  }
- onInit(){
+ onPageLoaded(){
    console.log('Do we have a Navbar?', this.view.hasNavbar());
  }
 }
@@ -231,7 +231,7 @@ export class Page1 {
 
 </h3>
 
-Set if the back button for the current view is visible or not. Be sure to wrap this in `onInit` to make sure the has been compleltly rendered.
+Set if the back button for the current view is visible or not. Be sure to wrap this in `onPageLoaded` to make sure the has been compleltly rendered.
 
 
 

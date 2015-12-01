@@ -13,11 +13,11 @@ docType: "function"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L115'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L114'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators.ts#L115'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators.ts#L114'>
     Improve this doc
   </a>
 </div>
@@ -42,6 +42,6 @@ docType: "function"
 
 <h1 class="class export">App <span class="type">function</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L116-L150">ionic/config/decorators.ts (line 116)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L115-L147">ionic/config/decorators.ts (line 115)</a>
 </p>
 

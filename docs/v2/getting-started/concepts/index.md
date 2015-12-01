@@ -48,7 +48,7 @@ The framework is available on NPM under the name `ionic-framework`. When you cre
 }
 ```
 
-Here we are saying that this project depends on the `ionic-framework` package and it uses the version `2.0.0-aplha.34`. But how do we update a packaged when a new version comes out? To check if there is an update, we can run
+Here we are saying that this project depends on the `ionic-framework` package and it uses the version `2.0.0-alpha.34`. But how do we update a packaged when a new version comes out? To check if there is an update, we can run
 
 ```bash
 npm outdated
@@ -57,4 +57,4 @@ Package                           Current          Wanted          Latest  Locat
 ionic-framework            2.0.0-alpha.34  2.0.0-alpha.34  2.0.0-alpha.35  myApp
 ```
 
-This tells us that there is an update to the ionic-framework package, version `2.0.0-aplha.35`. To get this update, we can run `npm update`.
+This tells us that there is an update to the ionic-framework package, version `2.0.0-alpha.35`. To get this update, we can run `npm update`.

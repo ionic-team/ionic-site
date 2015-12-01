@@ -4676,7 +4676,7 @@ body {
 #components-index ul.nav > li > a {
   background-color: #F9FAFB; }
 
-a.improve-docs {
+.improve-docs {
   position: absolute;
   right: 50px;
   top: 127px; }

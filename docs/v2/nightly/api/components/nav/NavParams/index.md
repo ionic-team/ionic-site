@@ -13,11 +13,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1379'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1383'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L1379'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L1383'>
     Improve this doc
   </a>
 </div>
@@ -42,7 +42,7 @@ docType: "class"
 
 <h1 class="class export">NavParams <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1380-L1402">ionic/components/nav/nav-controller.ts (line 1380)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1384-L1406">ionic/components/nav/nav-controller.ts (line 1384)</a>
 </p>
 <h2>Members</h2>
 

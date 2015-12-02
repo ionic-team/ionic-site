@@ -43,7 +43,7 @@ components see the <a href="../id/IdRef/">IdRef API reference</a>.</p>
 
 <h1 class="class export">IonicApp <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L6-L111">ionic/components/app/app.ts (line 6)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L6-L115">ionic/components/app/app.ts (line 6)</a>
 </p>
 <h2>Members</h2>
 

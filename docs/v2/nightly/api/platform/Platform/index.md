@@ -43,7 +43,7 @@ docType: "class"
 
 <h1 class="class export">Platform <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L446">ionic/platform/platform.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L456">ionic/platform/platform.ts (line 11)</a>
 </p>
 <h2>Members</h2>
 
@@ -605,6 +605,57 @@ TODO
     <tr>
       <td>
         userAgentExpression
+        
+        
+      </td>
+      <td>
+        
+  <code>TODO</code>
+      </td>
+      <td>
+        <p>TODO</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>boolean</code> TODO
+
+
+
+
+<div id="testNavigatorPlatform"></div>
+<h3>
+  <code>testNavigatorPlatform(navigatorPlatformExpression)</code>
+
+</h3>
+
+TODO
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        navigatorPlatformExpression
         
         
       </td>

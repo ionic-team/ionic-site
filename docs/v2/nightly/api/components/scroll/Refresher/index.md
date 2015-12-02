@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/pull-to-refresh.ts#L4'>
     View Source
@@ -467,6 +468,8 @@ TODO
     
   </tbody>
 </table>
+
+
 
 
 

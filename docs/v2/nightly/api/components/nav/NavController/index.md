@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11'>
     View Source
@@ -950,6 +951,8 @@ not include views which are about to be destroyed.
 
 * Returns: 
   <code>Number</code> The number of views in stack, including the current view
+
+
 
 
 

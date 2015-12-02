@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L70'>
     View Source
@@ -199,6 +200,8 @@ Retrieves an actionSheet instance.
 
 * Returns: 
   <code>ActionSheet</code> An actionSheet instance.
+
+
 
 
 

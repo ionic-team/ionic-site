@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L450'>
     View Source
@@ -48,6 +49,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>selector: ion-slide</span>
 
   <span>inputs: zoom</span>
+
+
 
 
 

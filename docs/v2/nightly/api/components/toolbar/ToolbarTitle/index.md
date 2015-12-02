@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L88'>
     View Source
@@ -54,6 +55,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <code>getTitleText()</code>
 
 </h3>
+
+
 
 
 

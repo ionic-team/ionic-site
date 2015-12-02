@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-router.ts#L8'>
     View Source
@@ -179,6 +180,8 @@ TODO
 
 * Returns: 
   <code>TODO</code> TODO
+
+
 
 
 

@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/translation/translate_pipe.ts#L2'>
     View Source
@@ -68,6 +69,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/transla
   <code>supports()</code>
 
 </h3>
+
+
 
 
 

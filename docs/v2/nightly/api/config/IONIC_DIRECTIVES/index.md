@@ -12,6 +12,7 @@ docType: "let"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/directives.ts#L37'>
     View Source
@@ -45,4 +46,6 @@ FORM_DIRECTIVES.  Automatically available in every <a href="../Page/">@Page</a> 
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/directives.ts#L38-L102">ionic/config/directives.ts (line 38)</a>
 </p>
+
+
 

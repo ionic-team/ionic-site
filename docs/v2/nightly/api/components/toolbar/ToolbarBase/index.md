@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L5'>
     View Source
@@ -44,4 +45,6 @@ docType: "class"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L6-L61">ionic/components/toolbar/toolbar.ts (line 6)</a>
 </p>
+
+
 

@@ -12,6 +12,7 @@ docType: "function"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/bootstrap.ts#L20'>
     View Source
@@ -43,4 +44,6 @@ docType: "function"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/bootstrap.ts#L21-L71">ionic/config/bootstrap.ts (line 21)</a>
 </p>
+
+
 

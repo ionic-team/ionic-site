@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/label.ts#L4'>
     View Source
@@ -47,6 +48,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>selector: ion-label</span>
 
   <span>inputs: id</span>
+
+
 
 
 

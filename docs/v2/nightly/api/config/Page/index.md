@@ -12,6 +12,7 @@ docType: "function"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L5'>
     View Source
@@ -89,4 +90,6 @@ them in your templates.</p>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L6-L79">ionic/config/decorators.ts (line 6)</a>
 </p>
+
+
 

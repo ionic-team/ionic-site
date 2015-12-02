@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L5'>
     View Source
@@ -397,6 +398,8 @@ Get the component for the given key.
 
 * Returns: 
   <code>TODO</code> TODO
+
+
 
 
 

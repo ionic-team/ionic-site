@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L1'>
     View Source
@@ -562,6 +563,8 @@ subAnimationInstance.getCurrentTime()
   <code>dispose()</code>
 
 </h3>
+
+
 
 
 

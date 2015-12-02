@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L0'>
     View Source
@@ -264,6 +265,8 @@ Set if the back button for the current view is visible or not. Be sure to wrap t
     
   </tbody>
 </table>
+
+
 
 
 

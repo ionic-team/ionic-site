@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/switch/switch.ts#L31'>
     View Source
@@ -126,6 +127,8 @@ Set checked state of this switch.
 </h3>
 
 Toggle the checked state of this switch.
+
+
 
 
 

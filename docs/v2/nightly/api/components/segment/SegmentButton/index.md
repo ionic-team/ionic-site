@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L124'>
     View Source
@@ -47,6 +48,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <span>selector: ion-segment-button</span>
 
   <span>inputs: value</span>
+
+
 
 
 

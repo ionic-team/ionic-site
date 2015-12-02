@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/click-block.ts#L3'>
     View Source
@@ -67,6 +68,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/cl
   <code>show()</code>
 
 </h3>
+
+
 
 
 

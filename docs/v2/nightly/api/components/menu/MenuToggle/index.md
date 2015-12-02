@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L5'>
     View Source
@@ -105,6 +106,8 @@ TODO
   <code>isHidden()</code>
 
 </h3>
+
+
 
 
 

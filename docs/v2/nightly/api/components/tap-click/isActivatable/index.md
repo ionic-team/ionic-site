@@ -12,6 +12,7 @@ docType: "function"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tap-click/tap-click.ts#L179'>
     View Source
@@ -43,4 +44,6 @@ docType: "function"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tap-click/tap-click.ts#L180-L198">ionic/components/tap-click/tap-click.ts (line 180)</a>
 </p>
+
+
 

@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L12'>
     View Source
@@ -425,6 +426,8 @@ child slides.
   <code>getSliderWidget()</code>
 
 </h3>
+
+
 
 
 

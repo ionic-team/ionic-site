@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L10'>
     View Source
@@ -227,6 +228,8 @@ TODO
   <code>getIndex()</code>
 
 </h3>
+
+
 
 
 

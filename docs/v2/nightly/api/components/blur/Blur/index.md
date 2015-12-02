@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/blur/blur.ts#L0'>
     View Source
@@ -71,6 +72,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <code>renderer()</code>
 
 </h3>
+
+
 
 
 

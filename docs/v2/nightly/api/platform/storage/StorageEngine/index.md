@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/storage.ts#L33'>
     View Source
@@ -101,6 +102,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
   <code>query()</code>
 
 </h3>
+
+
 
 
 

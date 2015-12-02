@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tap-click/tap-click.ts#L6'>
     View Source
@@ -203,6 +204,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <code>isDisabledNativeClick()</code>
 
 </h3>
+
+
 
 
 

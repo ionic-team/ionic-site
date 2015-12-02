@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/scroll.ts#L8'>
     View Source
@@ -101,6 +102,8 @@ Add a scroll event handler to the scroll element if it exists.
 * Returns: 
   <code>?Function</code> a function to remove the specified handler, otherwise
 undefined if the scroll element doesn't exist.
+
+
 
 
 

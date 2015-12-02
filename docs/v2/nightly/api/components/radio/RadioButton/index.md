@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L148'>
     View Source
@@ -61,6 +62,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 Update the checked state of this radio button.
 TODO: Call this toggle? Since unchecks as well
+
+
 
 
 

@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L7'>
     View Source
@@ -125,6 +126,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <code>onDestroy()</code>
 
 </h3>
+
+
 
 
 

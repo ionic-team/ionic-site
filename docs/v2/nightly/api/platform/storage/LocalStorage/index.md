@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/local-storage.ts#L0'>
     View Source
@@ -90,6 +91,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
   <code>remove()</code>
 
 </h3>
+
+
 
 
 

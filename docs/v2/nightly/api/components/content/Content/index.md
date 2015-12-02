@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L8'>
     View Source
@@ -278,6 +279,8 @@ Scroll to the specified position.
   <code>scrollToTop()</code>
 
 </h3>
+
+
 
 
 

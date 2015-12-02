@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/translation/translate.ts#L0'>
     View Source
@@ -104,6 +105,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/transla
   <code>translate()</code>
 
 </h3>
+
+
 
 
 

@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/sql.ts#L4'>
     View Source
@@ -305,6 +306,8 @@ Remove the value in the database for the given key.
 
 * Returns: 
   <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+
+
 
 
 

@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1480'>
     View Source
@@ -85,6 +86,8 @@ TODO
     
   </tbody>
 </table>
+
+
 
 
 

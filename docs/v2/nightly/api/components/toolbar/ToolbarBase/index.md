@@ -38,7 +38,6 @@ docType: "class"
 
 
 
-<p>TODO</p>
 
 
 <h1 class="class export">ToolbarBase <span class="type">class</span></h1>

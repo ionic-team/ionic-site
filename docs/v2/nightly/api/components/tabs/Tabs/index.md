@@ -79,7 +79,7 @@ of that Tabs component.</p>
 
 <h1 class="class export">Tabs <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L11-L274">ionic/components/tabs/tabs.ts (line 11)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L11-L284">ionic/components/tabs/tabs.ts (line 11)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-tabs</span>
@@ -106,62 +106,11 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 <div id="select"></div>
 <h3>
-  <code>select(tab)</code>
+  <code>select(index)</code>
 
 </h3>
 
-TODO
 
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        tab
-        
-        
-      </td>
-      <td>
-        
-  <code>Tab</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
-
-
-
-
-<div id="getByIndex"></div>
-<h3>
-  <code>getByIndex(index)</code>
-
-</h3>
-
-TODO
 
 
 
@@ -183,10 +132,58 @@ TODO
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Number</code>
       </td>
       <td>
-        <p>TODO</p>
+        <p>Index of the tab you want to select</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<div id="getByIndex"></div>
+<h3>
+  <code>getByIndex(index)</code>
+
+</h3>
+
+
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        index
+        
+        
+      </td>
+      <td>
+        
+  <code>Number</code>
+      </td>
+      <td>
+        <p>Index of the tab you want to get</p>
 
         
       </td>
@@ -201,7 +198,7 @@ TODO
 
 
 * Returns: 
-  <code>TODO</code> TODO
+  <code>Any</code> Tab Returs the tab who's index matches the one passed
 
 
 
@@ -219,25 +216,68 @@ TODO
 
 
 
+* Returns: 
+  <code>Any</code> Tab Returns the currently selected tab
 
 
-
-
-<div id="getIndex"></div>
-<h3>
-  <code>getIndex()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
+ 
+  <h2>Attributes:</h2>
+  <table class="table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>
+          
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          tabbar-placement
+        </td>
+        <td>
+          set position of the tabbar, top or bottom
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          tabbar-icons
+        </td>
+        <td>
+          set the position of the tabbar's icons: top, bottom, left, right, hide
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          tabbar-style
+        </td>
+        <td>
+          sets tabbar's style (primary, secondary, etc)
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          preload-tabs
+        </td>
+        <td>
+          sets whether to preload all the tabs, true or false
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
 
 
 

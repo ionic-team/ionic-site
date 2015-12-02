@@ -14,11 +14,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L88'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L98'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L88'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L98'>
     Improve this doc
   </a>
 </div>
@@ -38,32 +38,15 @@ docType: "class"
 
 
 
+<p><code>ion-title</code> is a component that sets the title of the <code>ionToolbar</code> or <code>ionNavbar</code></p>
 
 
 <h1 class="class export">ToolbarTitle <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L89-L113">ionic/components/toolbar/toolbar.ts (line 89)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L99-L140">ionic/components/toolbar/toolbar.ts (line 99)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-title</span>
-
-
-<h2>Members</h2>
-
-<div id="getTitleText"></div>
-<h3>
-  <code>getTitleText()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
 
 
 

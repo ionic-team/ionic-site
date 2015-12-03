@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L7'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu.ts#L7'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -65,9 +69,12 @@ but this can be overriden using the <code>type</code> property:</p>
 </code></pre>
 
 
+
+
+
 <h1 class="class export">Menu <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L8-L342">ionic/components/menu/menu.ts (line 8)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L8-L359">ionic/components/menu/menu.ts (line 8)</a>
 </p>
 <h2>Component</h2>
   <span>selector: ion-menu</span>
@@ -183,6 +190,60 @@ TODO
 
 * Returns: 
   <code>TODO</code> TODO
+
+
+
+
+<div id="enable"></div>
+<h3>
+  <code>enable(shouldEnable)</code>
+
+</h3>
+
+Used to enable or disable a menu. For example, there could be multiple
+left menus, but only one of them should be able to be dragged open.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        shouldEnable
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>True if it should be enabled, false if not.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
+
+
 
 
 

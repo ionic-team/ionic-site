@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L54'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/id.ts#L54'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -32,6 +36,9 @@ docType: "class"
 
 
 </h1>
+
+
+
 
 
 
@@ -73,6 +80,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <code>elementRef()</code>
 
 </h3>
+
+
 
 
 

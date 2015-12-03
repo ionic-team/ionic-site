@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L5'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-toggle.ts#L5'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -38,6 +42,9 @@ docType: "class"
 
 
 <p>TODO</p>
+
+
+
 
 
 <h1 class="class export">MenuToggle <span class="type">class</span></h1>
@@ -105,6 +112,8 @@ TODO
   <code>isHidden()</code>
 
 </h3>
+
+
 
 
 

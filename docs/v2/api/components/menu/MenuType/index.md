@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-types.ts#L1'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-types.ts#L1'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -41,6 +45,9 @@ docType: "class"
 Base class which is extended by the various types. Each
 type will provide their own animations for open and close
 and registers itself with Menu.</p>
+
+
+
 
 
 <h1 class="class export">MenuType <span class="type">class</span></h1>
@@ -122,6 +129,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <code>onDestroy()</code>
 
 </h3>
+
+
 
 
 

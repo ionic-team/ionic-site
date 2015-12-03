@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L5'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/modal/modal.ts#L5'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -41,6 +45,33 @@ docType: "class"
 Usually used for making a choice or editing an item. A modal can be opened
 similar to how NavController#push works, where it is passed a Page component,
 along with optional Page params, and options for presenting the modal.</p>
+
+
+
+
+
+<pre><code class="lang-ts">class MyApp {
+
+ constructor(modal: Modal) {
+   this.modal = modal;
+ }
+
+ openContactModal() {
+   this.modal.open(ContactUs);
+ }
+
+ openProfileModal() {
+   this.modal.open(Profile, { userId: 8675309 }, {
+     enterAnimation: &#39;my-fade-in&#39;,
+     leaveAnimation: &#39;my-fade-out&#39;,
+     handle: &#39;profile-modal&#39;
+   });
+ }
+
+}
+</code></pre>
+
+
 
 
 <h1 class="class export">Modal <span class="type">class</span></h1>
@@ -197,6 +228,8 @@ instance by calling this method with the same handle name.
 
 * Returns: 
    Returns the instance of the modal if it is found, otherwise `null`.
+
+
 
 
 

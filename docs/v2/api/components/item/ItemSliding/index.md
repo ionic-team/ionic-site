@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-sliding.ts#L2'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item-sliding.ts#L2'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -39,6 +43,25 @@ docType: "class"
 
 <p>Creates a list-item that can easily be swiped,
 deleted, reordered, edited, and more.</p>
+
+
+
+
+
+<pre><code class="lang-html">&lt;ion-list&gt;
+  &lt;ion-item-sliding *ng-for=&quot;#item of items&quot;&gt;
+    &lt;ion-item (click)=&quot;itemTapped(item)&quot;&gt;
+      {{item.title}}
+    &lt;/ion-item&gt;
+    &lt;ion-item-options&gt;
+      &lt;button (click)=&quot;favorite(item)&quot;&gt;Favorite&lt;/button&gt;
+      &lt;button (click)=&quot;share(item)&quot;&gt;Share&lt;/button&gt;
+    &lt;/ion-item-options&gt;
+  &lt;/ion-item&gt;
+&lt;/ion-list&gt;
+</code></pre>
+
+
 
 
 <h1 class="class export">ItemSliding <span class="type">class</span></h1>
@@ -73,6 +96,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <code>close()</code>
 
 </h3>
+
+
 
 
 

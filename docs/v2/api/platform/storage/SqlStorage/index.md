@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/sql.ts#L4'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/sql.ts#L4'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -43,6 +47,28 @@ persistent SQL store on the filesystem.</p>
 app storage, unlike Local Storage which is treated differently by the OS.</p>
 <p>For convenience, the engine supports key/value storage for simple get/set and blob
 storage. The full SQL engine is exposed underneath through the <code>query</code> method.</p>
+
+
+
+
+
+<pre><code class="lang-js">let storage = new Storage(SqlStorage, options);
+storage.set(&#39;name&#39;, &#39;Max&#39;);
+storage.get(&#39;name&#39;).then((name) =&gt; {
+});
+
+// Sql storage also exposes the full engine underneath
+storage.query(&#39;insert into projects(name, data) values(&#39;Cool Project&#39;, &#39;blah&#39;);&#39;
+storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
+</code></pre>
+<p>The <code>SqlStorage</code> service supports these options:
+{
+  name: the name of the database (__ionicstorage by default)
+  backupFlag: // where to store the file, default is BACKUP_LOCAL which DOES NOT store to iCloud. Other options: BACKUP_LIBRARY, BACKUP_DOCUMENTS
+  existingDatabase: whether to load this as an existing database (default is false)
+}</p>
+
+
 
 
 <h1 class="class export">SqlStorage <span class="type">class</span></h1>
@@ -305,6 +331,8 @@ Remove the value in the database for the given key.
 
 * Returns: 
   <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+
+
 
 
 

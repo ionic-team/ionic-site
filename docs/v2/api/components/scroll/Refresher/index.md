@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/pull-to-refresh.ts#L4'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/pull-to-refresh.ts#L4'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -40,6 +44,33 @@ docType: "class"
 <p>Allows you to add pull-to-refresh to an Content component.</p>
 <p>Place it as the first child of your Content or Scroll element.</p>
 <p>When refreshing is complete, call <code>refresher.complete()</code> from your controller.</p>
+
+
+
+
+
+<pre><code class="lang-ts">&lt;ion-refresher (starting)=&quot;doStarting()&quot; (refresh)=&quot;doRefresh($event, refresher)&quot; (pulling)=&quot;doPulling($event, amt)&quot;&gt;
+
+
+doRefresh(refresher) {
+  console.log(&#39;Refreshing!&#39;, refresher);
+
+  setTimeout(() =&gt; {
+    console.log(&#39;Pull to refresh complete!&#39;, refresher);
+    refresher.complete();
+  })
+}
+
+doStarting() {
+  console.log(&#39;Pull started!&#39;);
+}
+
+doPulling(amt) {
+  console.log(&#39;You have pulled&#39;, amt);
+}
+</code></pre>
+
+
 
 
 <h1 class="class export">Refresher <span class="type">class</span></h1>
@@ -467,6 +498,8 @@ TODO
     
   </tbody>
 </table>
+
+
 
 
 

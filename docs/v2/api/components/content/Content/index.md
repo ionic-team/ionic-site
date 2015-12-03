@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L8'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/content/content.ts#L8'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -40,6 +44,17 @@ docType: "class"
 <p>The Content component provides an easy to use content area that can be configured to use Ionic&#39;s custom Scroll View, or the built in overflow scrolling of the browser.</p>
 <p>While we recommend using the custom Scroll features in Ionic in most cases, sometimes (for performance reasons) only the browser&#39;s native overflow scrolling will suffice, and so we&#39;ve made it easy to toggle between the Ionic scroll implementation and overflow scrolling.</p>
 <p>You can implement pull-to-refresh with the <a href="../../scroll/Refresher">Refresher</a> component.</p>
+
+
+
+
+
+<pre><code class="lang-html">&lt;ion-content&gt;
+  Add your content here!
+&lt;/ion-content&gt;
+</code></pre>
+
+
 
 
 <h1 class="class export">Content <span class="type">class</span></h1>
@@ -278,6 +293,8 @@ Scroll to the specified position.
   <code>scrollToTop()</code>
 
 </h3>
+
+
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/scroll.ts#L8'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/scroll.ts#L8'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -39,6 +43,9 @@ docType: "class"
 
 <p>Scroll is a non-flexboxed scroll area that can scroll horizontally or
 vertically.</p>
+
+
+
 
 
 <h1 class="class export">Scroll <span class="type">class</span></h1>
@@ -101,6 +108,8 @@ Add a scroll event handler to the scroll element if it exists.
 * Returns: 
   <code>?Function</code> a function to remove the specified handler, otherwise
 undefined if the scroll element doesn't exist.
+
+
 
 
 

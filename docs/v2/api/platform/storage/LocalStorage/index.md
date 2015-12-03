@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/local-storage.ts#L0'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/local-storage.ts#L0'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -43,6 +47,9 @@ storing key/value pairs.</p>
 Given disk space constraints on a mobile device, local storage might be &quot;cleaned up&quot;
 by the operating system (iOS).</p>
 <p>For guaranteed, long-term storage, use the SqlStorage engine which stores data in a file.</p>
+
+
+
 
 
 <h1 class="class export">LocalStorage <span class="type">class</span></h1>
@@ -90,6 +97,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platfor
   <code>remove()</code>
 
 </h3>
+
+
 
 
 

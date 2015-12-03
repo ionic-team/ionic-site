@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L6'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L6'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -45,9 +49,12 @@ element.</p>
 interaction modes such as swipe to edit, drag to reorder, and removing items.</p>
 
 
+
+
+
 <h1 class="class export">List <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L7-L110">ionic/components/list/list.ts (line 7)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L7-L112">ionic/components/list/list.ts (line 7)</a>
 </p>
 <h2>Directive</h2>
   <span>selector: ion-list</span>
@@ -96,6 +103,8 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <code>closeSlidingItems()</code>
 
 </h3>
+
+
 
 
 

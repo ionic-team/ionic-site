@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L1'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/animations/animation.ts#L1'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -53,6 +57,9 @@ docType: "class"
  12) Remove after classes from elements
  13) Call onFinish()
  14) Resolve play()&#39;s promise</p>
+
+
+
 
 
 <h1 class="class export">Animation <span class="type">class</span></h1>
@@ -562,6 +569,8 @@ subAnimationInstance.getCurrentTime()
   <code>dispose()</code>
 
 </h3>
+
+
 
 
 

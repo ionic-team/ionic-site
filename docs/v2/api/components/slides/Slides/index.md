@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "class"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L12'>
     View Source
@@ -20,6 +21,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L12'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -45,6 +49,9 @@ The most modern mobile touch slider and framework with hardware accelerated tran
 The iDangero.us
 <a href="http://www.idangero.us/">http://www.idangero.us/</a></p>
 <p>Licensed under MIT</p>
+
+
+
 
 
 <h1 class="class export">Slides <span class="type">class</span></h1>
@@ -425,6 +432,8 @@ child slides.
   <code>getSliderWidget()</code>
 
 </h3>
+
+
 
 
 

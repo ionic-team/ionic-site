@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "2.0.0-alpha.39"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -12,6 +12,7 @@ docType: "function"
 ---
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L5'>
     View Source
@@ -20,6 +21,9 @@ docType: "function"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators.ts#L5'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -85,8 +89,13 @@ you may see these tags if you inspect your markup, you don&#39;t need to include
 them in your templates.</p>
 
 
+
+
+
 <h1 class="class export">Page <span class="type">function</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L6-L79">ionic/config/decorators.ts (line 6)</a>
 </p>
+
+
 

@@ -232,6 +232,19 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
     <thead>
       <tr>
         <th>Attribute</th>
+
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+
         <th>Description</th>
       </tr>
     </thead>
@@ -239,8 +252,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           tabbar-placement
         </td>
+
+        
+
         <td>
           set position of the tabbar, top or bottom
         </td>
@@ -248,8 +266,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           tabbar-icons
         </td>
+
+        
+
         <td>
           set the position of the tabbar's icons: top, bottom, left, right, hide
         </td>
@@ -257,8 +280,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           tabbar-style
         </td>
+
+        
+
         <td>
           sets tabbar's style (primary, secondary, etc)
         </td>
@@ -266,8 +294,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           preload-tabs
         </td>
+
+        
+
         <td>
           sets whether to preload all the tabs, true or false
         </td>

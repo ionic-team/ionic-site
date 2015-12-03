@@ -83,6 +83,17 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
     <thead>
       <tr>
         <th>Attribute</th>
+
+        
+        
+          
+        
+          
+        
+          
+        
+        
+
         <th>Description</th>
       </tr>
     </thead>
@@ -90,8 +101,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           fixed-labels
         </td>
+
+        
+
         <td>
           a persistant label that sits next the the input
         </td>
@@ -99,8 +115,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           floating-labels
         </td>
+
+        
+
         <td>
           a label that will float about the input if the input is empty of looses focus
         </td>
@@ -108,8 +129,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           stacked-labels
         </td>
+
+        
+
         <td>
           A stacked label will always appear on top of the input
         </td>

@@ -60,6 +60,47 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
     <thead>
       <tr>
         <th>Attribute</th>
+
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+
         <th>Description</th>
       </tr>
     </thead>
@@ -67,8 +108,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           primary
         </td>
+
+        
+
         <td>
           sets button color to default primary
         </td>
@@ -76,8 +122,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           secondary
         </td>
+
+        
+
         <td>
           sets button color to default secondary
         </td>
@@ -85,8 +136,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           danger
         </td>
+
+        
+
         <td>
           sets button color to default danger
         </td>
@@ -94,8 +150,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           light
         </td>
+
+        
+
         <td>
           sets button color to default light
         </td>
@@ -103,8 +164,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           dark
         </td>
+
+        
+
         <td>
           sets button color to default dark
         </td>
@@ -112,8 +178,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           outline
         </td>
+
+        
+
         <td>
           for an unfilled outline button
         </td>
@@ -121,8 +192,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           clear
         </td>
+
+        
+
         <td>
           for a transparent button that only shows text and icons
         </td>
@@ -130,8 +206,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           round
         </td>
+
+        
+
         <td>
           for a button with rounded corners
         </td>
@@ -139,8 +220,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           block
         </td>
+
+        
+
         <td>
           for a block button that fills it's parent container
         </td>
@@ -148,8 +234,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           full
         </td>
+
+        
+
         <td>
           for a full width button
         </td>
@@ -157,8 +248,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           small
         </td>
+
+        
+
         <td>
           sets button size to small
         </td>
@@ -166,8 +262,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           large
         </td>
+
+        
+
         <td>
           sets button size to large
         </td>
@@ -175,8 +276,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           fab
         </td>
+
+        
+
         <td>
           for a floating action button
         </td>
@@ -184,8 +290,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           fab-left
         </td>
+
+        
+
         <td>
           position a fab button to the left
         </td>
@@ -193,8 +304,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           fab-right
         </td>
+
+        
+
         <td>
           position a fab button to the right
         </td>
@@ -202,8 +318,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           fab-center
         </td>
+
+        
+
         <td>
           position a fab button towards the center
         </td>
@@ -211,8 +332,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           fab-top
         </td>
+
+        
+
         <td>
           position a fab button towards the top
         </td>
@@ -220,8 +346,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
+          
+          
           fab-bottom
         </td>
+
+        
+
         <td>
           position a fab button towards the bottom
         </td>

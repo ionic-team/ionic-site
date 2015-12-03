@@ -107,6 +107,15 @@ Toggle the checked state of the checkbox. Calls onChange to pass the updated che
     <thead>
       <tr>
         <th>Attribute</th>
+
+        
+        
+          
+        
+          
+        
+        
+
         <th>Description</th>
       </tr>
     </thead>
@@ -114,8 +123,13 @@ Toggle the checked state of the checkbox. Calls onChange to pass the updated che
       
       <tr>
         <td>
+          
+          
           checked
         </td>
+
+        
+
         <td>
           whether or not the checkbox is checked (defaults to false)
         </td>
@@ -123,8 +137,13 @@ Toggle the checked state of the checkbox. Calls onChange to pass the updated che
       
       <tr>
         <td>
+          
+          
           value
         </td>
+
+        
+
         <td>
           the value of the checkbox component
 

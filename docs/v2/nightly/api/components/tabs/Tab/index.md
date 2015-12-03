@@ -50,33 +50,16 @@ to pages in and manipulate the navigation stack of a particular tab.</p>
 take a look at the <a href="../NavController/">NavController API reference</a>.</p>
 <p>See the <a href="../Tabs/">Tabs API reference</a> for more details on configuring Tabs
 and the TabBar.</p>
-<p>Like Nav, you must set a root page to be loaded initially for each Tab with
-the &#39;root&#39; property:</p>
-<pre><code>import {GettingStartedPage} from &#39;getting-started&#39;;
-@App({
-  template: `&lt;ion-tabs&gt;
-               &lt;ion-tab [root]=&quot;tabOneRoot&quot;&gt;&lt;/ion-tab&gt;
-               &lt;ion-tab [root]=&quot;tabTwoRoot&quot;&gt;&lt;/ion-tab&gt;
-             &lt;ion-tabs&gt;`
-})
-class MyApp {
-  constructor(){
-    this.tabOneRoot = GettingStartedPage;
-    this.tabTwoRoot = GettingStartedPage;
-  }
-}
-</code></pre>
-<p><h3 id="tab_properties">Tab Properties</h3>
-The Tabs component automatically creates the TabBar from the properties you
-set on each Tab.</p>
-<p>To change the title and icon, use the <code>tab-title</code> and <code>tab-icon</code>
-inputs:</p>
+
+
+
+
+
 <pre><code class="lang-html">&lt;ion-tabs&gt;
      &lt;ion-tab tab-title=&quot;Home&quot; tab-icon=&quot;home&quot; [root]=&quot;tabOneRoot&quot;&gt;&lt;/ion-tab&gt;
      &lt;ion-tab tab-title=&quot;Login&quot; tab-icon=&quot;star&quot; [root]=&quot;tabTwoRoot&quot;&gt;&lt;/ion-tab&gt;
-&lt;ion-tabs&gt;
+&lt;/ion-tabs&gt;
 </code></pre>
-
 
 
 
@@ -88,29 +71,20 @@ inputs:</p>
 
 <h2>Members</h2>
 
-<div id="setSelected"></div>
-<h3>
-  <code>setSelected()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="index"></div>
 <h3>
   <code>index()</code>
 
 </h3>
 
+```ts
+export class MyClass{
+ constructor(tab: Tab){
+   this.tab = tab;
+   console.log(this.tab.index);
+ }
+}
+```
 
 
 
@@ -118,25 +92,72 @@ inputs:</p>
 
 
 
+* Returns: 
+  <code>Number</code> Returns the index of this page within its NavController.
 
 
 
+  <h2>Attributes:</h2>
+  <table class="table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Attribute</th>
 
-<div id="onDestroy"></div>
-<h3>
-  <code>onDestroy()</code>
+        
+        
+          
+        
+          
+        
+          
+        
+        
 
-</h3>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>
+          root
+        </td>
+
+        
+
+        <td>
+          set the root page for this tab
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          tab-title
+        </td>
+
+        
+
+        <td>
+          set the title of this tab
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          tab-icon
+        </td>
+
+        
+
+        <td>
+          set the icon for this tab
 
 
-
-
-
-
-
-
-
-
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
 
 
 

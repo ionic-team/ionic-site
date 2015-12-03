@@ -42,6 +42,9 @@ docType: "class"
 vertically.</p>
 
 
+
+
+
 <h1 class="class export">Scroll <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/scroll.ts#L9-L63">ionic/components/scroll/scroll.ts (line 9)</a>

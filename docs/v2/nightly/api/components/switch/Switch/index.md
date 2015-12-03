@@ -43,6 +43,35 @@ docType: "class"
 <p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 
 
+
+
+
+<pre><code class="lang-html">// Create a single switch
+ &lt;ion-switch checked=&quot;true&quot;&gt;
+   Pineapple
+ &lt;/ion-switch&gt;
+
+// Create a list of switches:
+ &lt;ion-list&gt;
+
+   &lt;ion-switch checked=&quot;true&quot;&gt;
+     Apple
+   &lt;/ion-switch&gt;
+
+    &lt;ion-switch checked=&quot;false&quot;&gt;
+      Banana
+    &lt;/ion-switch&gt;
+
+    &lt;ion-switch disabled=&quot;true&quot;&gt;
+      Cherry
+    &lt;/ion-switch&gt;
+
+ &lt;/ion-list&gt;
+</code></pre>
+
+
+
+
 <h1 class="class export">Switch <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/switch/switch.ts#L32-L248">ionic/components/switch/switch.ts (line 32)</a>

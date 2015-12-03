@@ -46,6 +46,9 @@ by the operating system (iOS).</p>
 <p>For guaranteed, long-term storage, use the SqlStorage engine which stores data in a file.</p>
 
 
+
+
+
 <h1 class="class export">LocalStorage <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/local-storage.ts#L1-L48">ionic/platform/storage/local-storage.ts (line 1)</a>

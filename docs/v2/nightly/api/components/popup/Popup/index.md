@@ -42,6 +42,58 @@ docType: "class"
 <p>The popup service has support for more flexible versions of the built in <code>alert()</code>, <code>prompt()</code>, and <code>confirm()</code> functions that users are used to, in addition to allowing popups with completely custom content and look.</p>
 
 
+
+
+
+<pre><code class="lang-ts">class myApp {
+
+  constructor(popup: Popup) {
+    this.popup = popup;
+  }
+
+  doAlert() {
+    this.popup.alert({
+      title: &quot;New Friend!&quot;,
+      template: &quot;Your friend, Obi wan Kenobi, just accepted your friend request!&quot;,
+      cssClass: &#39;my-alert&#39;
+    }).then(() =&gt; {
+      console.log(&#39;Alert closed&#39;);
+    });
+  }
+
+  doPrompt() {
+    this.popup.prompt({
+      title: &quot;New Album&quot;,
+      template: &quot;Enter a name for this new album you&#39;re so keen on adding&quot;,
+      inputPlaceholder: &quot;Title&quot;,
+      okText: &quot;Save&quot;,
+      okType: &quot;secondary&quot;
+    }).then((name) =&gt; {
+      console.log(&#39;Name entered:&#39;, name);
+    }, () =&gt; {
+      console.error(&#39;Prompt closed&#39;);
+    });
+  }
+
+  doConfirm() {
+    this.popup.confirm({
+      title: &quot;Use this lightsaber?&quot;,
+      subTitle: &quot;You can&#39;t exchange lightsabers&quot;,
+      template: &quot;Do you agree to use this lightsaber to do good across the intergalactic galaxy?&quot;,
+      cancelText: &quot;Disagree&quot;,
+      okText: &quot;Agree&quot;
+    }).then((result, ev) =&gt; {
+      console.log(&#39;Confirmed!&#39;, result);
+    }, () =&gt; {
+      console.error(&#39;Not confirmed!&#39;);
+    });
+  }
+}
+</code></pre>
+
+
+
+
 <h1 class="class export">Popup <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L9-L263">ionic/components/popup/popup.ts (line 9)</a>

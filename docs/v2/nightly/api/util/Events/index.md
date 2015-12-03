@@ -42,6 +42,9 @@ docType: "class"
 events across your app.</p>
 
 
+
+
+
 <h1 class="class export">Events <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/events.ts#L1-L87">ionic/util/events.ts (line 1)</a>

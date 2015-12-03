@@ -41,6 +41,9 @@ docType: "class"
 <p>You can access various features and information about the current view</p>
 
 
+
+
+
 <h1 class="class export">ViewController <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L1-L344">ionic/components/nav/view-controller.ts (line 1)</a>

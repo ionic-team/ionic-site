@@ -41,6 +41,15 @@ docType: "class"
 <p>The Search Bar service adds an input field which can be used to search or filter items.</p>
 
 
+
+
+
+<pre><code class="lang-html">&lt;ion-searchbar ng-control=&quot;searchQuery&quot;&gt;&lt;/ion-searchbar&gt;
+</code></pre>
+
+
+
+
 <h1 class="class export">Searchbar <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/searchbar/searchbar.ts#L6-L129">ionic/components/searchbar/searchbar.ts (line 6)</a>

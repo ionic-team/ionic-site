@@ -44,6 +44,33 @@ similar to how NavController#push works, where it is passed a Page component,
 along with optional Page params, and options for presenting the modal.</p>
 
 
+
+
+
+<pre><code class="lang-ts">class MyApp {
+
+ constructor(modal: Modal) {
+   this.modal = modal;
+ }
+
+ openContactModal() {
+   this.modal.open(ContactUs);
+ }
+
+ openProfileModal() {
+   this.modal.open(Profile, { userId: 8675309 }, {
+     enterAnimation: &#39;my-fade-in&#39;,
+     leaveAnimation: &#39;my-fade-out&#39;,
+     handle: &#39;profile-modal&#39;
+   });
+ }
+
+}
+</code></pre>
+
+
+
+
 <h1 class="class export">Modal <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L6-L90">ionic/components/modal/modal.ts (line 6)</a>

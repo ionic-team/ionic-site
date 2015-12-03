@@ -41,6 +41,9 @@ docType: "class"
 <p>TODO</p>
 
 
+
+
+
 <h1 class="class export">Slide <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L451-L476">ionic/components/slides/slides.ts (line 451)</a>

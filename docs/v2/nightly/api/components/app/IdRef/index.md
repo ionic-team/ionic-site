@@ -58,6 +58,9 @@ guarantee that the registered component has not been destroyed if its Page
 has been navigated away from.</p>
 
 
+
+
+
 <h1 class="class export">IdRef <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L3-L55">ionic/components/app/id.ts (line 3)</a>

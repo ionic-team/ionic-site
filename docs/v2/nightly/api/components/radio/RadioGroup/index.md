@@ -44,6 +44,37 @@ docType: "class"
 <p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 
 
+
+
+
+<pre><code class="lang-html">&lt;ion-list radio-group ng-control=&quot;clientside&quot;&gt;
+
+  &lt;ion-list-header&gt;
+    Clientside
+  &lt;/ion-list-header&gt;
+
+  &lt;ion-radio value=&quot;ember&quot;&gt;
+    Ember
+  &lt;/ion-radio&gt;
+
+  &lt;ion-radio value=&quot;angular1&quot;&gt;
+    Angular 1
+  &lt;/ion-radio&gt;
+
+  &lt;ion-radio value=&quot;angular2&quot; checked=&quot;true&quot;&gt;
+    Angular 2
+  &lt;/ion-radio&gt;
+
+  &lt;ion-radio value=&quot;react&quot;&gt;
+    React
+  &lt;/ion-radio&gt;
+
+&lt;/ion-list&gt;
+</code></pre>
+
+
+
+
 <h1 class="class export">RadioGroup <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L5-L149">ionic/components/radio/radio.ts (line 5)</a>

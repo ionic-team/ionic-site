@@ -42,6 +42,19 @@ docType: "class"
 Unlike an <code>ionNavbar</code>, <code>ionToolbar</code> can be used for a subheader as well.</p>
 
 
+
+
+
+<pre><code class="lang-html">&lt;ion-toolbar&gt;
+  &lt;ion-title&gt;My Toolbar Title&lt;/ion-title&gt;
+&lt;/ion-toolbar&gt;
+
+ &lt;ion-content&gt;&lt;/ion-content&gt;
+</code></pre>
+
+
+
+
 <h1 class="class export">Toolbar <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L61-L99">ionic/components/toolbar/toolbar.ts (line 61)</a>

@@ -66,6 +66,9 @@ but this can be overriden using the <code>type</code> property:</p>
 </code></pre>
 
 
+
+
+
 <h1 class="class export">Menu <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L8-L359">ionic/components/menu/menu.ts (line 8)</a>

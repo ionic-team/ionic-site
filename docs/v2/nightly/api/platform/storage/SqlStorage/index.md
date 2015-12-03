@@ -46,6 +46,28 @@ app storage, unlike Local Storage which is treated differently by the OS.</p>
 storage. The full SQL engine is exposed underneath through the <code>query</code> method.</p>
 
 
+
+
+
+<pre><code class="lang-js">let storage = new Storage(SqlStorage, options);
+storage.set(&#39;name&#39;, &#39;Max&#39;);
+storage.get(&#39;name&#39;).then((name) =&gt; {
+});
+
+// Sql storage also exposes the full engine underneath
+storage.query(&#39;insert into projects(name, data) values(&#39;Cool Project&#39;, &#39;blah&#39;);&#39;
+storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
+</code></pre>
+<p>The <code>SqlStorage</code> service supports these options:
+{
+  name: the name of the database (__ionicstorage by default)
+  backupFlag: // where to store the file, default is BACKUP_LOCAL which DOES NOT store to iCloud. Other options: BACKUP_LIBRARY, BACKUP_DOCUMENTS
+  existingDatabase: whether to load this as an existing database (default is false)
+}</p>
+
+
+
+
 <h1 class="class export">SqlStorage <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/sql.ts#L5-L203">ionic/platform/storage/sql.ts (line 5)</a>

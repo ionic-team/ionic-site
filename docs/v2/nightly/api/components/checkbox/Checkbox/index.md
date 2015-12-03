@@ -42,6 +42,17 @@ docType: "class"
 <p>See the <a href="https://angular.io/docs/js/latest/api/core/Form-interface.html">Angular 2 Docs</a> for more info on forms and input.</p>
 
 
+
+
+
+<pre><code class="lang-html">&lt;ion-checkbox checked=&quot;true&quot; value=&quot;isChecked&quot; ng-control=&quot;htmlCtrl&quot;&gt;
+  HTML5
+&lt;/ion-checkbox&gt;
+</code></pre>
+
+
+
+
 <h1 class="class export">Checkbox <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/checkbox/checkbox.ts#L4-L123">ionic/components/checkbox/checkbox.ts (line 4)</a>
@@ -87,7 +98,7 @@ Toggle the checked state of the checkbox. Calls onChange to pass the updated che
 
 
 
- 
+
   <h2>Attributes:</h2>
   <table class="table" style="margin:0;">
     <thead>

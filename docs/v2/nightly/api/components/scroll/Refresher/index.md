@@ -43,6 +43,33 @@ docType: "class"
 <p>When refreshing is complete, call <code>refresher.complete()</code> from your controller.</p>
 
 
+
+
+
+<pre><code class="lang-ts">&lt;ion-refresher (starting)=&quot;doStarting()&quot; (refresh)=&quot;doRefresh($event, refresher)&quot; (pulling)=&quot;doPulling($event, amt)&quot;&gt;
+
+
+doRefresh(refresher) {
+  console.log(&#39;Refreshing!&#39;, refresher);
+
+  setTimeout(() =&gt; {
+    console.log(&#39;Pull to refresh complete!&#39;, refresher);
+    refresher.complete();
+  })
+}
+
+doStarting() {
+  console.log(&#39;Pull started!&#39;);
+}
+
+doPulling(amt) {
+  console.log(&#39;You have pulled&#39;, amt);
+}
+</code></pre>
+
+
+
+
 <h1 class="class export">Refresher <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/pull-to-refresh.ts#L5-L421">ionic/components/scroll/pull-to-refresh.ts (line 5)</a>

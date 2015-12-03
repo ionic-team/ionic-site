@@ -40,6 +40,9 @@ docType: "class"
 
 
 
+
+
+
 <h1 class="class export">Blur <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/blur/blur.ts#L1-L10">ionic/components/blur/blur.ts (line 1)</a>

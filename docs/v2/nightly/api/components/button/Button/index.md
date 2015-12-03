@@ -41,6 +41,9 @@ docType: "class"
 <p>Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.</p>
 
 
+
+
+
 <h1 class="class export">Button <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/button/button.ts#L3-L94">ionic/components/button/button.ts (line 3)</a>
@@ -48,7 +51,7 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 <h2>Directive</h2>
   <span>selector: button, [button]</span>
 
- 
+
   <h2>Attributes:</h2>
   <table class="table" style="margin:0;">
     <thead>

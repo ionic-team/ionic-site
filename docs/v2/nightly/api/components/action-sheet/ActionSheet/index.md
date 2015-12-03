@@ -42,6 +42,41 @@ docType: "class"
 There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.</p>
 
 
+
+
+
+<pre><code class="lang-ts">openMenu() {
+
+  this.actionSheet.open({
+    buttons: [
+      { text: &#39;Share This&#39; },
+      { text: &#39;Move&#39; }
+    ],
+    destructiveText: &#39;Delete&#39;,
+    titleText: &#39;Modify your album&#39;,
+    cancelText: &#39;Cancel&#39;,
+    cancel: function() {
+      console.log(&#39;Canceled&#39;);
+    },
+    destructiveButtonClicked: () =&gt; {
+      console.log(&#39;Destructive clicked&#39;);
+    },
+    buttonClicked: function(index) {
+      console.log(&#39;Button clicked&#39;, index);
+      if(index == 1) { return false; }
+      return true;
+    }
+
+  }).then(actionSheetRef =&gt; {
+    this.actionSheetRef = actionSheetRef;
+  });
+
+}
+</code></pre>
+
+
+
+
 <h1 class="class export">ActionSheet <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L71-L153">ionic/components/action-sheet/action-sheet.ts (line 71)</a>

@@ -42,6 +42,17 @@ docType: "class"
 <p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 
 
+
+
+
+<pre><code class="lang-html">&lt;ion-radio value=&quot;isChecked&quot; checked=&quot;true&quot;&gt;
+  Radio Label
+&lt;/ion-radio&gt;
+</code></pre>
+
+
+
+
 <h1 class="class export">RadioButton <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L149-L235">ionic/components/radio/radio.ts (line 149)</a>

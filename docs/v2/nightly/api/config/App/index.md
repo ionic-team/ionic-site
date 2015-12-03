@@ -41,6 +41,9 @@ docType: "function"
 <p>App is an Ionic decorator that bootstraps an application. It can be passed a number of arguments, that act as global config variables for the app.</p>
 
 
+
+
+
 <h1 class="class export">App <span class="type">function</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L115-L155">ionic/config/decorators.ts (line 115)</a>

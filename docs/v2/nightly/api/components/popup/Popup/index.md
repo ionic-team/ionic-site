@@ -44,7 +44,7 @@ docType: "class"
 
 <h1 class="class export">Popup <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L9-L260">ionic/components/popup/popup.ts (line 9)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L9-L263">ionic/components/popup/popup.ts (line 9)</a>
 </p>
 <h2>Members</h2>
 
@@ -137,6 +137,7 @@ that the user can tap to close the popup.
   title: &#39;&#39;, // String. The title of the popup.
   cssClass: &#39;&#39;, // String (optional). The custom CSS class name.
   subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
+  template: &#39;&#39;, // String (optional). The html template to place in the popup body.
   okText: &#39;&#39;, // String (default: &#39;OK&#39;). The text of the OK button.
   okType: &#39;&#39;, // String (default: &#39;&#39;). The type of the OK button.
 }
@@ -199,6 +200,7 @@ Resolves the promise with true if the user presses the OK button, and false if t
   title: &#39;&#39;, // String. The title of the popup.
   cssClass: &#39;&#39;, // String (optional). The custom CSS class name.
   subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
+  template: &#39;&#39;, // String (optional). The html template to place in the popup body.
   cancelText: &#39;&#39;, // String (default: &#39;Cancel&#39;). The text of the Cancel button.
   cancelType: &#39;&#39;, // String (default: &#39;&#39;). The type of the Cancel button.
   okText: &#39;&#39;, // String (default: &#39;OK&#39;). The text of the OK button.
@@ -263,6 +265,7 @@ Resolves the promise with the value of the input if the user presses OK, and wit
   title: &#39;&#39;, // String. The title of the popup.
   cssClass: &#39;&#39;, // String (optional). The custom CSS class name.
   subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
+  template: &#39;&#39;, // String (optional). The html template to place in the popup body.
   inputType: // String (default: &#39;text&#39;). The type of input to use.
   inputPlaceholder: // String (default: &#39;&#39;). A placeholder to use for the input.
   cancelText: &#39;&#39;, // String (default: &#39;Cancel&#39;). The text of the Cancel button.

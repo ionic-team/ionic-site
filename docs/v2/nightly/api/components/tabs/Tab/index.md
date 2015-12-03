@@ -92,6 +92,14 @@ and the TabBar.</p>
 
 
 
+
+
+
+
+
+<th>Type</th>
+
+
 <th>Description</th>
 </tr>
 </thead>
@@ -102,6 +110,10 @@ and the TabBar.</p>
 root
 </td>
 
+
+<td>
+any
+</td>
 
 
 <td>
@@ -115,6 +127,10 @@ tab-title
 </td>
 
 
+<td>
+any
+</td>
+
 
 <td>
 set the title of this tab
@@ -127,11 +143,13 @@ tab-icon
 </td>
 
 
+<td>
+any
+</td>
+
 
 <td>
 set the icon for this tab
-
-
 </td>
 </tr>
 

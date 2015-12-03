@@ -41,15 +41,22 @@ docType: "class"
 
 
 
-<p>TODO</p>
+<p>The <code>show-when</code> attribute takes a value or expression, and only shows the element it has been added to when
+the value or expression is true. Complements the <a href="../HideWhen">hide-when attribute</a>.</p>
 
+
+
+
+
+<pre><code class="lang-html">&lt;div show-when=&quot;false&quot;&gt;I am hidden!&lt;/div&gt;
+</code></pre>
 
 
 
 
 <h1 class="class export">ShowWhen <span class="type">class</span></h1>
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L52-L80">ionic/components/show-hide-when/show-hide-when.ts (line 52)</a>
+defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L52-L86">ionic/components/show-hide-when/show-hide-when.ts (line 52)</a>
 </p>
 <h2>Directive</h2>
   <span>selector: [show-when]</span>

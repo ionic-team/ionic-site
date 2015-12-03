@@ -21,6 +21,9 @@ docType: "let"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/directives.ts#L37'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 

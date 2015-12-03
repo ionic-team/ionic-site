@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.39"
+version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -10,6 +10,7 @@ header_sub_title: "Class in module "
 doc: "Modal"
 docType: "class"
 ---
+
 
 
 
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Modal
+
+Modal
+
+
+
 
 
 
@@ -41,13 +46,15 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>The Modal is a content pane that can go over the user&#39;s current page.
 Usually used for making a choice or editing an item. A modal can be opened
 similar to how NavController#push works, where it is passed a Page component,
 along with optional Page params, and options for presenting the modal.</p>
 
-
-
+<h2>Usage</h2>
 
 
 <pre><code class="lang-ts">class MyApp {
@@ -74,15 +81,15 @@ along with optional Page params, and options for presenting the modal.</p>
 
 
 
-<h1 class="class export">Modal <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L6-L90">ionic/components/modal/modal.ts (line 6)</a>
-</p>
-<h2>Members</h2>
+
+
+
+<h2>Methods</h2>
 
 <div id="open"></div>
+
 <h3>
-  <code>open(pageComponent, params, opts)</code>
+<code>open(pageComponent, params, opts)</code>
 
 </h3>
 
@@ -175,8 +182,9 @@ value is the instance of the newly created modal.
 
 
 <div id="get"></div>
+
 <h3>
-  <code>get(handle)</code>
+<code>get(handle)</code>
 
 </h3>
 
@@ -232,7 +240,9 @@ instance by calling this method with the same handle name.
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

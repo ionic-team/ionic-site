@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.39"
+version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -10,6 +10,7 @@ header_sub_title: "Class in module "
 doc: "Platform"
 docType: "class"
 ---
+
 
 
 
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Platform
+
+Platform
+
+
+
 
 
 
@@ -41,21 +46,23 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>TODO</p>
 
+<h2>Usage</h2>
 
 
 
 
-<h1 class="class export">Platform <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L11-L456">ionic/platform/platform.ts (line 11)</a>
-</p>
-<h2>Members</h2>
+
+<h2>Methods</h2>
 
 <div id="is"></div>
+
 <h3>
-  <code>is(platformName)</code>
+<code>is(platformName)</code>
 
 </h3>
 
@@ -117,8 +124,9 @@ export MyClass {
 
 
 <div id="platforms"></div>
+
 <h3>
-  <code>platforms()</code>
+<code>platforms()</code>
 
 </h3>
 
@@ -150,8 +158,9 @@ export MyClass {
 
 
 <div id="versions"></div>
+
 <h3>
-  <code>versions(optional)</code>
+<code>versions(optional)</code>
 
 </h3>
 
@@ -217,8 +226,9 @@ export MyClass {
 
 
 <div id="version"></div>
+
 <h3>
-  <code>version()</code>
+<code>version()</code>
 
 </h3>
 
@@ -234,8 +244,9 @@ export MyClass {
 
 
 <div id="ready"></div>
+
 <h3>
-  <code>ready()</code>
+<code>ready()</code>
 
 </h3>
 
@@ -266,8 +277,9 @@ export MyClass {
 
 
 <div id="on"></div>
+
 <h3>
-  <code>on()</code>
+<code>on()</code>
 
 </h3>
 
@@ -283,8 +295,9 @@ export MyClass {
 
 
 <div id="onHardwareBackButton"></div>
+
 <h3>
-  <code>onHardwareBackButton()</code>
+<code>onHardwareBackButton()</code>
 
 </h3>
 
@@ -300,8 +313,9 @@ export MyClass {
 
 
 <div id="registerBackButtonAction"></div>
+
 <h3>
-  <code>registerBackButtonAction()</code>
+<code>registerBackButtonAction()</code>
 
 </h3>
 
@@ -317,8 +331,9 @@ export MyClass {
 
 
 <div id="exitApp"></div>
+
 <h3>
-  <code>exitApp()</code>
+<code>exitApp()</code>
 
 </h3>
 
@@ -334,8 +349,9 @@ export MyClass {
 
 
 <div id="fullScreen"></div>
+
 <h3>
-  <code>fullScreen()</code>
+<code>fullScreen()</code>
 
 </h3>
 
@@ -351,8 +367,9 @@ export MyClass {
 
 
 <div id="showStatusBar"></div>
+
 <h3>
-  <code>showStatusBar()</code>
+<code>showStatusBar()</code>
 
 </h3>
 
@@ -368,8 +385,9 @@ export MyClass {
 
 
 <div id="url"></div>
+
 <h3>
-  <code>url()</code>
+<code>url()</code>
 
 </h3>
 
@@ -385,8 +403,9 @@ export MyClass {
 
 
 <div id="query"></div>
+
 <h3>
-  <code>query()</code>
+<code>query()</code>
 
 </h3>
 
@@ -402,8 +421,9 @@ export MyClass {
 
 
 <div id="userAgent"></div>
+
 <h3>
-  <code>userAgent()</code>
+<code>userAgent()</code>
 
 </h3>
 
@@ -419,8 +439,9 @@ export MyClass {
 
 
 <div id="navigatorPlatform"></div>
+
 <h3>
-  <code>navigatorPlatform()</code>
+<code>navigatorPlatform()</code>
 
 </h3>
 
@@ -436,8 +457,9 @@ export MyClass {
 
 
 <div id="width"></div>
+
 <h3>
-  <code>width()</code>
+<code>width()</code>
 
 </h3>
 
@@ -453,8 +475,9 @@ export MyClass {
 
 
 <div id="height"></div>
+
 <h3>
-  <code>height()</code>
+<code>height()</code>
 
 </h3>
 
@@ -470,8 +493,9 @@ export MyClass {
 
 
 <div id="isPortrait"></div>
+
 <h3>
-  <code>isPortrait()</code>
+<code>isPortrait()</code>
 
 </h3>
 
@@ -487,8 +511,9 @@ export MyClass {
 
 
 <div id="isLandscape"></div>
+
 <h3>
-  <code>isLandscape()</code>
+<code>isLandscape()</code>
 
 </h3>
 
@@ -504,8 +529,9 @@ export MyClass {
 
 
 <div id="windowResize"></div>
+
 <h3>
-  <code>windowResize()</code>
+<code>windowResize()</code>
 
 </h3>
 
@@ -521,8 +547,9 @@ export MyClass {
 
 
 <div id="onResize"></div>
+
 <h3>
-  <code>onResize()</code>
+<code>onResize()</code>
 
 </h3>
 
@@ -538,8 +565,9 @@ export MyClass {
 
 
 <div id="testQuery"></div>
+
 <h3>
-  <code>testQuery(queryValue)</code>
+<code>testQuery(queryValue)</code>
 
 </h3>
 
@@ -589,8 +617,9 @@ TODO
 
 
 <div id="testUserAgent"></div>
+
 <h3>
-  <code>testUserAgent(userAgentExpression)</code>
+<code>testUserAgent(userAgentExpression)</code>
 
 </h3>
 
@@ -640,8 +669,9 @@ TODO
 
 
 <div id="testNavigatorPlatform"></div>
+
 <h3>
-  <code>testNavigatorPlatform(navigatorPlatformExpression)</code>
+<code>testNavigatorPlatform(navigatorPlatformExpression)</code>
 
 </h3>
 
@@ -691,8 +721,9 @@ TODO
 
 
 <div id="matchUserAgentVersion"></div>
+
 <h3>
-  <code>matchUserAgentVersion(userAgentExpression)</code>
+<code>matchUserAgentVersion(userAgentExpression)</code>
 
 </h3>
 
@@ -742,8 +773,9 @@ TODO
 
 
 <div id="isPlatform"></div>
+
 <h3>
-  <code>isPlatform(queryValue, userAgentExpression)</code>
+<code>isPlatform(queryValue, userAgentExpression)</code>
 
 </h3>
 
@@ -810,8 +842,9 @@ TODO
 
 
 <div id="load"></div>
+
 <h3>
-  <code>load(config)</code>
+<code>load(config)</code>
 
 </h3>
 
@@ -858,8 +891,9 @@ TODO
 
 
 <div id="matchPlatform"></div>
+
 <h3>
-  <code>matchPlatform(platformName)</code>
+<code>matchPlatform(platformName)</code>
 
 </h3>
 
@@ -906,7 +940,9 @@ TODO
   <code>TODO</code> TODO
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

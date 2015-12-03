@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.39"
+version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -10,6 +10,7 @@ header_sub_title: "Class in module "
 doc: "Popup"
 docType: "class"
 ---
+
 
 
 
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Popup
+
+Popup
+
+
+
 
 
 
@@ -41,11 +46,13 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>The Ionic Popup service allows the creation of popup windows that require the user to respond in order to continue.</p>
 <p>The popup service has support for more flexible versions of the built in <code>alert()</code>, <code>prompt()</code>, and <code>confirm()</code> functions that users are used to, in addition to allowing popups with completely custom content and look.</p>
 
-
-
+<h2>Usage</h2>
 
 
 <pre><code class="lang-ts">class myApp {
@@ -97,15 +104,15 @@ docType: "class"
 
 
 
-<h1 class="class export">Popup <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L9-L263">ionic/components/popup/popup.ts (line 9)</a>
-</p>
-<h2>Members</h2>
+
+
+
+<h2>Methods</h2>
 
 <div id="open"></div>
+
 <h3>
-  <code>open(opts)</code>
+<code>open(opts)</code>
 
 </h3>
 
@@ -155,8 +162,9 @@ TODO
 
 
 <div id="alert"></div>
+
 <h3>
-  <code>alert(opts)</code>
+<code>alert(opts)</code>
 
 </h3>
 
@@ -217,8 +225,9 @@ that the user can tap to close the popup.
 
 
 <div id="confirm"></div>
+
 <h3>
-  <code>confirm(opts)</code>
+<code>confirm(opts)</code>
 
 </h3>
 
@@ -282,8 +291,9 @@ Resolves the promise with true if the user presses the OK button, and false if t
 
 
 <div id="prompt"></div>
+
 <h3>
-  <code>prompt(opts)</code>
+<code>prompt(opts)</code>
 
 </h3>
 
@@ -349,8 +359,9 @@ Resolves the promise with the value of the input if the user presses OK, and wit
 
 
 <div id="get"></div>
+
 <h3>
-  <code>get(handle)</code>
+<code>get(handle)</code>
 
 </h3>
 
@@ -397,7 +408,9 @@ TODO
   <code>TODO</code> TODO
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

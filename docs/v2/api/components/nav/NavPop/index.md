@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.39"
+version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -10,6 +10,7 @@ header_sub_title: "Class in module "
 doc: "NavPop"
 docType: "class"
 ---
+
 
 
 
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  NavPop
+
+NavPop
+
+
+
 
 
 
@@ -41,25 +46,26 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>TODO</p>
 
 
-
-
-
-<h1 class="class export">NavPop <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-push.ts#L84-L111">ionic/components/nav/nav-push.ts (line 84)</a>
-</p>
 <h2>Directive</h2>
-  <span>selector: [nav-pop]</span>
+<h3>selector: <code>[nav-pop]</code></h3>
+<h2>Usage</h2>
 
 
-<h2>Members</h2>
+
+
+
+<h2>Methods</h2>
 
 <div id="onClick"></div>
+
 <h3>
-  <code>onClick()</code>
+<code>onClick()</code>
 
 </h3>
 
@@ -72,7 +78,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

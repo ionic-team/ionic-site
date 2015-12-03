@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.39"
+version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -10,6 +10,7 @@ header_sub_title: "Class in module "
 doc: "Item"
 docType: "class"
 ---
+
 
 
 
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Item
+
+Item
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p>Creates a list-item that can easily be swiped, deleted, reordered, edited, and more.</p>
 <p>There are three common ways to use an item:</p>
@@ -55,7 +63,9 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 this component will automatically be added inside of an <code>&lt;ion-item&gt;</code>, giving it a single column.</p>
 
 
-
+<h2>Component</h2>
+<h3>selector: <code>ion-item,[ion-item]</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-html">&lt;ion-list&gt;
@@ -78,14 +88,10 @@ this component will automatically be added inside of an <code>&lt;ion-item&gt;</
 
 
 
-<h1 class="class export">Item <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/item/item.ts#L1-L56">ionic/components/item/item.ts (line 1)</a>
-</p>
-<h2>Component</h2>
-  <span>selector: ion-item, [ion-item]</span>
+
+<!-- end content block -->
 
 
-
+<!-- end body block -->
 
 

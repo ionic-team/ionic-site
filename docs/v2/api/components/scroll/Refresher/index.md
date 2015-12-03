@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.39"
+version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -10,6 +10,7 @@ header_sub_title: "Class in module "
 doc: "Refresher"
 docType: "class"
 ---
+
 
 
 
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Refresher
+
+Refresher
+
+
+
 
 
 
@@ -41,12 +46,17 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>Allows you to add pull-to-refresh to an Content component.</p>
 <p>Place it as the first child of your Content or Scroll element.</p>
 <p>When refreshing is complete, call <code>refresher.complete()</code> from your controller.</p>
 
 
-
+<h2>Component</h2>
+<h3>selector: <code>ion-refresher</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-ts">&lt;ion-refresher (starting)=&quot;doStarting()&quot; (refresh)=&quot;doRefresh($event, refresher)&quot; (pulling)=&quot;doPulling($event, amt)&quot;&gt;
@@ -73,23 +83,15 @@ doPulling(amt) {
 
 
 
-<h1 class="class export">Refresher <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/pull-to-refresh.ts#L5-L421">ionic/components/scroll/pull-to-refresh.ts (line 5)</a>
-</p>
-<h2>Component</h2>
-  <span>selector: ion-refresher</span>
-
-  <span>inputs: pullingIcon, pullingText, refreshingIcon, refreshingText, spinner, disablePullingRotation</span>
-
-  <span>outputs: refresh, starting, pulling</span>
 
 
-<h2>Members</h2>
+
+<h2>Methods</h2>
 
 <div id="onInit"></div>
+
 <h3>
-  <code>onInit()</code>
+<code>onInit()</code>
 
 </h3>
 
@@ -105,8 +107,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="initEvents"></div>
+
 <h3>
-  <code>initEvents()</code>
+<code>initEvents()</code>
 
 </h3>
 
@@ -123,8 +126,9 @@ Initialize touch and scroll event listeners.
 
 
 <div id="onDehydrate"></div>
+
 <h3>
-  <code>onDehydrate()</code>
+<code>onDehydrate()</code>
 
 </h3>
 
@@ -140,8 +144,9 @@ Initialize touch and scroll event listeners.
 
 
 <div id="overscroll"></div>
+
 <h3>
-  <code>overscroll(val)</code>
+<code>overscroll(val)</code>
 
 </h3>
 
@@ -188,8 +193,9 @@ TODO
 
 
 <div id="nativescroll"></div>
+
 <h3>
-  <code>nativescroll(target, newScrollTop)</code>
+<code>nativescroll(target, newScrollTop)</code>
 
 </h3>
 
@@ -253,8 +259,9 @@ TODO
 
 
 <div id="setScrollLock"></div>
+
 <h3>
-  <code>setScrollLock(enabled)</code>
+<code>setScrollLock(enabled)</code>
 
 </h3>
 
@@ -301,8 +308,9 @@ TODO
 
 
 <div id="activate"></div>
+
 <h3>
-  <code>activate()</code>
+<code>activate()</code>
 
 </h3>
 
@@ -319,8 +327,9 @@ TODO
 
 
 <div id="deactivate"></div>
+
 <h3>
-  <code>deactivate()</code>
+<code>deactivate()</code>
 
 </h3>
 
@@ -337,8 +346,9 @@ TODO
 
 
 <div id="start"></div>
+
 <h3>
-  <code>start()</code>
+<code>start()</code>
 
 </h3>
 
@@ -354,8 +364,9 @@ TODO
 
 
 <div id="show"></div>
+
 <h3>
-  <code>show()</code>
+<code>show()</code>
 
 </h3>
 
@@ -372,8 +383,9 @@ TODO
 
 
 <div id="hide"></div>
+
 <h3>
-  <code>hide()</code>
+<code>hide()</code>
 
 </h3>
 
@@ -390,8 +402,9 @@ TODO
 
 
 <div id="tail"></div>
+
 <h3>
-  <code>tail()</code>
+<code>tail()</code>
 
 </h3>
 
@@ -408,8 +421,9 @@ TODO
 
 
 <div id="complete"></div>
+
 <h3>
-  <code>complete()</code>
+<code>complete()</code>
 
 </h3>
 
@@ -426,8 +440,9 @@ TODO
 
 
 <div id="scrollTo"></div>
+
 <h3>
-  <code>scrollTo(Y, duration, callback)</code>
+<code>scrollTo(Y, duration, callback)</code>
 
 </h3>
 
@@ -505,7 +520,9 @@ TODO
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

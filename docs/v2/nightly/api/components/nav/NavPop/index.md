@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-push.ts#L83'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  NavPop
+
+NavPop
+
+
+
 
 
 
@@ -41,20 +46,26 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>TODO</p>
 
 
-
-
 <h2>Directive</h2>
-  <span>selector: [nav-pop]</span>
+<h3>selector: <code>[nav-pop]</code></h3>
+<h2>Usage</h2>
 
 
-<h2>Members</h2>
+
+
+
+<h2>Methods</h2>
 
 <div id="onClick"></div>
+
 <h3>
-  <code>onClick()</code>
+<code>onClick()</code>
 
 </h3>
 
@@ -67,7 +78,9 @@ docType: "class"
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

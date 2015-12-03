@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/checkbox/checkbox.ts#L3'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Checkbox
+
+Checkbox
+
+
+
 
 
 
@@ -41,11 +46,16 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>The checkbox is no different than the HTML checkbox input, except it&#39;s styled differently.</p>
 <p>See the <a href="https://angular.io/docs/js/latest/api/core/Form-interface.html">Angular 2 Docs</a> for more info on forms and input.</p>
 
 
-
+<h2>Component</h2>
+<h3>selector: <code>ion-checkbox</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-html">&lt;ion-checkbox checked=&quot;true&quot; value=&quot;isChecked&quot; ng-control=&quot;htmlCtrl&quot;&gt;
@@ -55,17 +65,63 @@ docType: "class"
 
 
 
-<h2>Component</h2>
-  <span>selector: ion-checkbox</span>
-
-  <span>inputs: value, checked, disabled, id</span>
 
 
-<h2>Members</h2>
+
+<h2>Attributes:</h2>
+<table class="table" style="margin:0;">
+<thead>
+<tr>
+<th>Attribute</th>
+
+
+
+
+
+
+
+
+
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>
+checked
+</td>
+
+
+
+<td>
+whether or not the checkbox is checked (defaults to false)
+</td>
+</tr>
+
+<tr>
+<td>
+value
+</td>
+
+
+
+<td>
+the value of the checkbox component
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h2>Methods</h2>
 
 <div id="onInit"></div>
+
 <h3>
-  <code>onInit()</code>
+<code>onInit()</code>
 
 </h3>
 
@@ -81,8 +137,9 @@ docType: "class"
 
 
 <div id="toggle"></div>
+
 <h3>
-  <code>toggle()</code>
+<code>toggle()</code>
 
 </h3>
 
@@ -96,54 +153,9 @@ Toggle the checked state of the checkbox. Calls onChange to pass the updated che
 
 
 
-
-  <h2>Attributes:</h2>
-  <table class="table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Attribute</th>
-
-        
-        
-          
-        
-          
-        
-        
-
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td>
-          checked
-        </td>
-
-        
-
-        <td>
-          whether or not the checkbox is checked (defaults to false)
-        </td>
-      </tr>
-      
-      <tr>
-        <td>
-          value
-        </td>
-
-        
-
-        <td>
-          the value of the checkbox component
-
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

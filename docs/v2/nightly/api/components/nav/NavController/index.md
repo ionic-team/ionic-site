@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  NavController
+
+NavController
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p><em>For examples on the basic usage of NavController, check out the
 <a href="../../../../components/#navigation">Navigation section</a> of the Component
@@ -110,14 +118,18 @@ class HelloWorld {
 <li><code>onPageDidUnload</code> - Runs after the page has been destroyed and its elements have been removed.</li>
 </ul>
 
+<h2>Usage</h2>
 
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="push"></div>
+
 <h3>
-  <code>push(component, params, opts)</code>
+<code>push(component, params, opts)</code>
 
 </h3>
 
@@ -259,8 +271,9 @@ class MyClass{
 
 
 <div id="pop"></div>
+
 <h3>
-  <code>pop(opts)</code>
+<code>pop(opts)</code>
 
 </h3>
 
@@ -323,8 +336,9 @@ class SecondView{
 
 
 <div id="popToRoot"></div>
+
 <h3>
-  <code>popToRoot(opts)</code>
+<code>popToRoot(opts)</code>
 
 </h3>
 
@@ -371,8 +385,9 @@ Similar to `pop()`, this method let's you navigate back to the root of the stack
 
 
 <div id="insert"></div>
+
 <h3>
-  <code>insert(index, component)</code>
+<code>insert(index, component)</code>
 
 </h3>
 
@@ -454,8 +469,9 @@ This will insert the `Info` view into the second slot of our navigation stack
 
 
 <div id="remove"></div>
+
 <h3>
-  <code>remove(index, opts)</code>
+<code>remove(index, opts)</code>
 
 </h3>
 
@@ -534,8 +550,9 @@ export class Detail {
 
 
 <div id="setPages"></div>
+
 <h3>
-  <code>setPages(component, opts)</code>
+<code>setPages(component, opts)</code>
 
 </h3>
 
@@ -670,8 +687,9 @@ import {Info} from '../info/info'
 
 
 <div id="setRoot"></div>
+
 <h3>
-  <code>setRoot(The, params, opts)</code>
+<code>setRoot(The, params, opts)</code>
 
 </h3>
 
@@ -755,8 +773,9 @@ Set the root for the current navigation stack
 
 
 <div id="isSwipeBackEnabled"></div>
+
 <h3>
-  <code>isSwipeBackEnabled([isSwipeBackEnabled])</code>
+<code>isSwipeBackEnabled([isSwipeBackEnabled])</code>
 
 </h3>
 
@@ -806,8 +825,9 @@ Check to see if swipe-to-go-back is enabled
 
 
 <div id="canSwipeBack"></div>
+
 <h3>
-  <code>canSwipeBack()</code>
+<code>canSwipeBack()</code>
 
 </h3>
 
@@ -828,8 +848,9 @@ will return true.
 
 
 <div id="canGoBack"></div>
+
 <h3>
-  <code>canGoBack()</code>
+<code>canGoBack()</code>
 
 </h3>
 
@@ -848,8 +869,9 @@ Otherwise returns false.
 
 
 <div id="getByIndex"></div>
+
 <h3>
-  <code>getByIndex(The)</code>
+<code>getByIndex(The)</code>
 
 </h3>
 
@@ -899,8 +921,9 @@ Otherwise returns false.
 
 
 <div id="first"></div>
+
 <h3>
-  <code>first()</code>
+<code>first()</code>
 
 </h3>
 
@@ -918,8 +941,9 @@ First page in this nav controller's stack. This would not return a page which is
 
 
 <div id="last"></div>
+
 <h3>
-  <code>last()</code>
+<code>last()</code>
 
 </h3>
 
@@ -937,8 +961,9 @@ Last page in this nav controller's stack. This would not return a page which is 
 
 
 <div id="length"></div>
+
 <h3>
-  <code>length()</code>
+<code>length()</code>
 
 </h3>
 
@@ -954,7 +979,9 @@ not include views which are about to be destroyed.
   <code>Number</code> The number of views in stack, including the current view
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

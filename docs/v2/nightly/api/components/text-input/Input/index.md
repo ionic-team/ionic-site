@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L9'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Input
+
+Input
+
+
+
 
 
 
@@ -41,10 +46,15 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p><code>ionInput</code> is a generic wrapper for both inputs and textareas. You can give <code>ion-input</code> to tell it how to handle a chile <code>ion-label</code> component</p>
 
 
-
+<h2>Component</h2>
+<h3>selector: <code>ion-input</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-html">&lt;ion-input&gt;
@@ -69,70 +79,71 @@ docType: "class"
 
 
 
-<h2>Component</h2>
-  <span>selector: ion-input</span>
 
 
-  <h2>Attributes:</h2>
-  <table class="table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Attribute</th>
 
-        
-        
-          
-        
-          
-        
-          
-        
-        
-
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td>
-          fixed-labels
-        </td>
-
-        
-
-        <td>
-          a persistant label that sits next the the input
-        </td>
-      </tr>
-      
-      <tr>
-        <td>
-          floating-labels
-        </td>
-
-        
-
-        <td>
-          a label that will float about the input if the input is empty of looses focus
-        </td>
-      </tr>
-      
-      <tr>
-        <td>
-          stacked-labels
-        </td>
-
-        
-
-        <td>
-          A stacked label will always appear on top of the input
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
+<h2>Attributes:</h2>
+<table class="table" style="margin:0;">
+<thead>
+<tr>
+<th>Attribute</th>
 
 
+
+
+
+
+
+
+
+
+
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>
+fixed-labels
+</td>
+
+
+
+<td>
+a persistant label that sits next the the input
+</td>
+</tr>
+
+<tr>
+<td>
+floating-labels
+</td>
+
+
+
+<td>
+a label that will float about the input if the input is empty of looses focus
+</td>
+</tr>
+
+<tr>
+<td>
+stacked-labels
+</td>
+
+
+
+<td>
+A stacked label will always appear on top of the input
+</td>
+</tr>
+
+</tbody>
+</table>
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

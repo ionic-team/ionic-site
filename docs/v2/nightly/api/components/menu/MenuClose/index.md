@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-close.ts#L3'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  MenuClose
+
+MenuClose
+
+
+
 
 
 
@@ -41,22 +46,26 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>TODO</p>
 
 
-
-
 <h2>Directive</h2>
-  <span>selector: [menu-close]</span>
+<h3>selector: <code>[menu-close]</code></h3>
+<h2>Usage</h2>
 
-  <span>inputs: menuClose</span>
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="close"></div>
+
 <h3>
-  <code>close()</code>
+<code>close()</code>
 
 </h3>
 
@@ -69,7 +78,9 @@ docType: "class"
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

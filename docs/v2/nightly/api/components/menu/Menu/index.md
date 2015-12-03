@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L7'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Menu
+
+Menu
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p><em>For basic Menu usage, see the <a href="../../../../components/#menus">Menu section</a>
 of the Component docs.</em></p>
@@ -69,21 +77,20 @@ but this can be overriden using the <code>type</code> property:</p>
 </code></pre>
 
 
-
-
 <h2>Component</h2>
-  <span>selector: ion-menu</span>
-
-  <span>inputs: content, dragThreshold, id, side, type</span>
-
-  <span>outputs: opening</span>
+<h3>selector: <code>ion-menu</code></h3>
+<h2>Usage</h2>
 
 
-<h2>Members</h2>
+
+
+
+<h2>Methods</h2>
 
 <div id="setOpen"></div>
+
 <h3>
-  <code>setOpen(isOpen)</code>
+<code>setOpen(isOpen)</code>
 
 </h3>
 
@@ -133,8 +140,9 @@ Sets the state of the Menu to open or not.
 
 
 <div id="open"></div>
+
 <h3>
-  <code>open()</code>
+<code>open()</code>
 
 </h3>
 
@@ -152,8 +160,9 @@ TODO
 
 
 <div id="close"></div>
+
 <h3>
-  <code>close()</code>
+<code>close()</code>
 
 </h3>
 
@@ -171,8 +180,9 @@ TODO
 
 
 <div id="toggle"></div>
+
 <h3>
-  <code>toggle()</code>
+<code>toggle()</code>
 
 </h3>
 
@@ -190,8 +200,9 @@ TODO
 
 
 <div id="enable"></div>
+
 <h3>
-  <code>enable(shouldEnable)</code>
+<code>enable(shouldEnable)</code>
 
 </h3>
 
@@ -239,7 +250,9 @@ left menus, but only one of them should be able to be dragged open.
   <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

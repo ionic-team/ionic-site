@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/scroll.ts#L8'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Scroll
+
+Scroll
+
+
+
 
 
 
@@ -41,23 +46,27 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>Scroll is a non-flexboxed scroll area that can scroll horizontally or
 vertically.</p>
 
 
-
-
 <h2>Component</h2>
-  <span>selector: ion-scroll</span>
+<h3>selector: <code>ion-scroll</code></h3>
+<h2>Usage</h2>
 
-  <span>inputs: scrollX, scrollY, zoom, maxZoom</span>
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="addScrollEventListener"></div>
+
 <h3>
-  <code>addScrollEventListener(handler)</code>
+<code>addScrollEventListener(handler)</code>
 
 </h3>
 
@@ -105,7 +114,9 @@ Add a scroll event handler to the scroll element if it exists.
 undefined if the scroll element doesn't exist.
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

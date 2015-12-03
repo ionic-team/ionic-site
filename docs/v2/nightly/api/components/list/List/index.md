@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L6'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  List
+
+List
+
+
+
 
 
 
@@ -41,6 +46,9 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>The List is a widely used interface element in almost any mobile app, and can include
 content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.</p>
 <p>Both the list, which contains items, and the list items themselves can be any HTML
@@ -49,19 +57,20 @@ element.</p>
 interaction modes such as swipe to edit, drag to reorder, and removing items.</p>
 
 
-
-
 <h2>Directive</h2>
-  <span>selector: ion-list</span>
+<h3>selector: <code>ion-list</code></h3>
+<h2>Usage</h2>
 
-  <span>inputs: items, virtual, content</span>
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="zone"></div>
+
 <h3>
-  <code>zone()</code>
+<code>zone()</code>
 
 </h3>
 
@@ -77,8 +86,9 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 
 <div id="enableSlidingItems"></div>
+
 <h3>
-  <code>enableSlidingItems()</code>
+<code>enableSlidingItems()</code>
 
 </h3>
 
@@ -94,8 +104,9 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 
 <div id="closeSlidingItems"></div>
+
 <h3>
-  <code>closeSlidingItems()</code>
+<code>closeSlidingItems()</code>
 
 </h3>
 
@@ -108,7 +119,9 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

@@ -13,6 +13,7 @@ docType: "let"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/directives.ts#L37'>
     View Source
@@ -31,7 +32,11 @@ docType: "let"
 
 <h1 class="api-title">
 
-  IONIC_DIRECTIVES
+
+IONIC_DIRECTIVES
+
+
+
 
 
 
@@ -41,12 +46,19 @@ docType: "let"
 
 
 
+
+<h2>Description</h2>
+
 <p>The core Ionic directives as well as Angular&#39;s CORE_DIRECTIVES and
 FORM_DIRECTIVES.  Automatically available in every <a href="../Page/">@Page</a> template.</p>
 
+<h2>Usage</h2>
 
 
 
+<!-- end content block -->
 
+
+<!-- end body block -->
 
 

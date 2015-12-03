@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/switch/switch.ts#L31'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Switch
+
+Switch
+
+
+
 
 
 
@@ -41,12 +46,17 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>A switch technically is the same thing as an HTML checkbox input, except it looks different and is easier to use on a touch device. Ionic prefers to wrap the checkbox input with the <label> in order to make the entire toggle easy to tap or drag.</p>
 <p>Toggles can also have colors assigned to them, by adding the <code>toggle-assertive</code> attribute to assign the assertive color.</p>
 <p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 
 
-
+<h2>Component</h2>
+<h3>selector: <code>ion-switch</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-html">// Create a single switch
@@ -74,17 +84,16 @@ docType: "class"
 
 
 
-<h2>Component</h2>
-  <span>selector: ion-switch</span>
-
-  <span>inputs: value, checked, disabled, id</span>
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="ngControl"></div>
+
 <h3>
-  <code>ngControl()</code>
+<code>ngControl()</code>
 
 </h3>
 
@@ -100,8 +109,9 @@ docType: "class"
 
 
 <div id="check"></div>
+
 <h3>
-  <code>check(value)</code>
+<code>check(value)</code>
 
 </h3>
 
@@ -148,8 +158,9 @@ Set checked state of this switch.
 
 
 <div id="toggle"></div>
+
 <h3>
-  <code>toggle()</code>
+<code>toggle()</code>
 
 </h3>
 
@@ -163,7 +174,9 @@ Toggle the checked state of this switch.
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

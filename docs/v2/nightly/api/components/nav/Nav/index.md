@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav.ts#L7'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Nav
+
+Nav
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p><em>For a quick walkthrough of navigation in Ionic, check out the
 <a href="../../../../components/#navigation">Navigation section</a> of the Component
@@ -121,14 +129,15 @@ swipe to go back:</p>
 
 
 
-
-
 <h2>Component</h2>
-  <span>selector: ion-nav</span>
-
-  <span>inputs: root</span>
-
+<h3>selector: <code>ion-nav</code></h3>
+<h2>Usage</h2>
 
 
+
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L12'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Slides
+
+Slides
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p>Slides is a slide box implementation based on Swiper.js</p>
 <p>Swiper.js:
@@ -51,21 +59,20 @@ The iDangero.us
 <p>Licensed under MIT</p>
 
 
-
-
 <h2>Component</h2>
-  <span>selector: ion-slides</span>
-
-  <span>inputs: autoplay, loop, index, bounce, pager, options, zoom, zoomDuration, zoomMax</span>
-
-  <span>outputs: slideChanged</span>
+<h3>selector: <code>ion-slides</code></h3>
+<h2>Usage</h2>
 
 
-<h2>Members</h2>
+
+
+
+<h2>Methods</h2>
 
 <div id="onInit"></div>
+
 <h3>
-  <code>onInit()</code>
+<code>onInit()</code>
 
 </h3>
 
@@ -81,8 +88,9 @@ The iDangero.us
 
 
 <div id="onTap"></div>
+
 <h3>
-  <code>onTap()</code>
+<code>onTap()</code>
 
 </h3>
 
@@ -98,8 +106,9 @@ The iDangero.us
 
 
 <div id="onClick"></div>
+
 <h3>
-  <code>onClick()</code>
+<code>onClick()</code>
 
 </h3>
 
@@ -115,8 +124,9 @@ The iDangero.us
 
 
 <div id="onDoubleTap"></div>
+
 <h3>
-  <code>onDoubleTap()</code>
+<code>onDoubleTap()</code>
 
 </h3>
 
@@ -132,8 +142,9 @@ The iDangero.us
 
 
 <div id="onLazyImageLoad"></div>
+
 <h3>
-  <code>onLazyImageLoad()</code>
+<code>onLazyImageLoad()</code>
 
 </h3>
 
@@ -149,8 +160,9 @@ The iDangero.us
 
 
 <div id="onLazyImageReady"></div>
+
 <h3>
-  <code>onLazyImageReady()</code>
+<code>onLazyImageReady()</code>
 
 </h3>
 
@@ -166,8 +178,9 @@ The iDangero.us
 
 
 <div id="initZoom"></div>
+
 <h3>
-  <code>initZoom()</code>
+<code>initZoom()</code>
 
 </h3>
 
@@ -183,8 +196,9 @@ The iDangero.us
 
 
 <div id="resetZoom"></div>
+
 <h3>
-  <code>resetZoom()</code>
+<code>resetZoom()</code>
 
 </h3>
 
@@ -200,8 +214,9 @@ The iDangero.us
 
 
 <div id="toggleZoom"></div>
+
 <h3>
-  <code>toggleZoom()</code>
+<code>toggleZoom()</code>
 
 </h3>
 
@@ -217,8 +232,9 @@ The iDangero.us
 
 
 <div id="onTransitionStart"></div>
+
 <h3>
-  <code>onTransitionStart()</code>
+<code>onTransitionStart()</code>
 
 </h3>
 
@@ -234,8 +250,9 @@ The iDangero.us
 
 
 <div id="onTransitionEnd"></div>
+
 <h3>
-  <code>onTransitionEnd()</code>
+<code>onTransitionEnd()</code>
 
 </h3>
 
@@ -251,8 +268,9 @@ The iDangero.us
 
 
 <div id="onTouchStart"></div>
+
 <h3>
-  <code>onTouchStart()</code>
+<code>onTouchStart()</code>
 
 </h3>
 
@@ -268,8 +286,9 @@ The iDangero.us
 
 
 <div id="onTouchMove"></div>
+
 <h3>
-  <code>onTouchMove()</code>
+<code>onTouchMove()</code>
 
 </h3>
 
@@ -285,8 +304,9 @@ The iDangero.us
 
 
 <div id="onTouchEnd"></div>
+
 <h3>
-  <code>onTouchEnd()</code>
+<code>onTouchEnd()</code>
 
 </h3>
 
@@ -302,8 +322,9 @@ The iDangero.us
 
 
 <div id="update"></div>
+
 <h3>
-  <code>update()</code>
+<code>update()</code>
 
 </h3>
 
@@ -321,8 +342,9 @@ child slides.
 
 
 <div id="next"></div>
+
 <h3>
-  <code>next()</code>
+<code>next()</code>
 
 </h3>
 
@@ -338,8 +360,9 @@ child slides.
 
 
 <div id="prev"></div>
+
 <h3>
-  <code>prev()</code>
+<code>prev()</code>
 
 </h3>
 
@@ -355,8 +378,9 @@ child slides.
 
 
 <div id="getIndex"></div>
+
 <h3>
-  <code>getIndex()</code>
+<code>getIndex()</code>
 
 </h3>
 
@@ -372,8 +396,9 @@ child slides.
 
 
 <div id="getNumSlides"></div>
+
 <h3>
-  <code>getNumSlides()</code>
+<code>getNumSlides()</code>
 
 </h3>
 
@@ -389,8 +414,9 @@ child slides.
 
 
 <div id="isAtEnd"></div>
+
 <h3>
-  <code>isAtEnd()</code>
+<code>isAtEnd()</code>
 
 </h3>
 
@@ -406,8 +432,9 @@ child slides.
 
 
 <div id="isAtBeginning"></div>
+
 <h3>
-  <code>isAtBeginning()</code>
+<code>isAtBeginning()</code>
 
 </h3>
 
@@ -423,8 +450,9 @@ child slides.
 
 
 <div id="getSliderWidget"></div>
+
 <h3>
-  <code>getSliderWidget()</code>
+<code>getSliderWidget()</code>
 
 </h3>
 
@@ -437,7 +465,9 @@ child slides.
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

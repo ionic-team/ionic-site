@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/local-storage.ts#L0'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  LocalStorage
+
+LocalStorage
+
+
+
 
 
 
@@ -41,6 +46,9 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>The LocalStorage storage engine uses the browser&#39;s local storage system for
 storing key/value pairs.</p>
 <p>Note: LocalStorage should ONLY be used for temporary data that you can afford to lose.
@@ -48,14 +56,18 @@ Given disk space constraints on a mobile device, local storage might be &quot;cl
 by the operating system (iOS).</p>
 <p>For guaranteed, long-term storage, use the SqlStorage engine which stores data in a file.</p>
 
+<h2>Usage</h2>
 
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="get"></div>
+
 <h3>
-  <code>get()</code>
+<code>get()</code>
 
 </h3>
 
@@ -71,8 +83,9 @@ by the operating system (iOS).</p>
 
 
 <div id="set"></div>
+
 <h3>
-  <code>set()</code>
+<code>set()</code>
 
 </h3>
 
@@ -88,8 +101,9 @@ by the operating system (iOS).</p>
 
 
 <div id="remove"></div>
+
 <h3>
-  <code>remove()</code>
+<code>remove()</code>
 
 </h3>
 
@@ -102,7 +116,9 @@ by the operating system (iOS).</p>
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

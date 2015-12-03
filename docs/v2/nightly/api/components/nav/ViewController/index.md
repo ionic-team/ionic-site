@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L0'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  ViewController
+
+ViewController
+
+
+
 
 
 
@@ -41,16 +46,23 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>You can access various features and information about the current view</p>
 
+<h2>Usage</h2>
 
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="enableBack"></div>
+
 <h3>
-  <code>enableBack(Check)</code>
+<code>enableBack(Check)</code>
 
 </h3>
 
@@ -100,8 +112,9 @@ Check to see if you can go back in the navigation stack
 
 
 <div id="index"></div>
+
 <h3>
-  <code>index()</code>
+<code>index()</code>
 
 </h3>
 
@@ -130,8 +143,9 @@ You can find out the index of the current view is in the current navigation stac
 
 
 <div id="isRoot"></div>
+
 <h3>
-  <code>isRoot()</code>
+<code>isRoot()</code>
 
 </h3>
 
@@ -149,8 +163,9 @@ You can find out the index of the current view is in the current navigation stac
 
 
 <div id="hasNavbar"></div>
+
 <h3>
-  <code>hasNavbar()</code>
+<code>hasNavbar()</code>
 
 </h3>
 
@@ -180,8 +195,9 @@ export class Page1 {
 
 
 <div id="setBackButtonText"></div>
+
 <h3>
-  <code>setBackButtonText(Set)</code>
+<code>setBackButtonText(Set)</code>
 
 </h3>
 
@@ -228,8 +244,9 @@ export class Page1 {
 
 
 <div id="showBackButton"></div>
+
 <h3>
-  <code>showBackButton(Set)</code>
+<code>showBackButton(Set)</code>
 
 </h3>
 
@@ -273,7 +290,9 @@ Set if the back button for the current view is visible or not. Be sure to wrap t
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

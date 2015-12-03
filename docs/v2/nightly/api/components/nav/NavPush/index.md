@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-push.ts#L2'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  NavPush
+
+NavPush
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p>Directive for declaratively linking to a new page instead of using
 <a href="../NavController/#push">NavController.push()</a>. Similar to ui-router&#39;s <code>ui-sref</code>.</p>
@@ -69,19 +77,20 @@ NavPush:</p>
 </code></pre>
 
 
-
-
 <h2>Directive</h2>
-  <span>selector: [nav-push]</span>
+<h3>selector: <code>[nav-push]</code></h3>
+<h2>Usage</h2>
 
-  <span>inputs: instruction: navPush, params: navParams</span>
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="onClick"></div>
+
 <h3>
-  <code>onClick()</code>
+<code>onClick()</code>
 
 </h3>
 
@@ -94,7 +103,9 @@ NavPush:</p>
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/storage.ts#L33'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  StorageEngine
+
+StorageEngine
+
+
+
 
 
 
@@ -42,14 +47,21 @@ docType: "class"
 
 
 
+<h2>Description</h2>
+
+
+<h2>Usage</h2>
 
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="get"></div>
+
 <h3>
-  <code>get()</code>
+<code>get()</code>
 
 </h3>
 
@@ -65,8 +77,9 @@ docType: "class"
 
 
 <div id="set"></div>
+
 <h3>
-  <code>set()</code>
+<code>set()</code>
 
 </h3>
 
@@ -82,8 +95,9 @@ docType: "class"
 
 
 <div id="remove"></div>
+
 <h3>
-  <code>remove()</code>
+<code>remove()</code>
 
 </h3>
 
@@ -99,8 +113,9 @@ docType: "class"
 
 
 <div id="query"></div>
+
 <h3>
-  <code>query()</code>
+<code>query()</code>
 
 </h3>
 
@@ -113,7 +128,9 @@ docType: "class"
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

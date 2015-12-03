@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L10'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Tabs
+
+Tabs
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p><em>For basic Tabs usage, see the <a href="../../../../components/#tabs">Tabs section</a>
 of the Component docs.</em></p>
@@ -80,17 +88,94 @@ class TabOne {
 of that Tabs component.</p>
 
 
-
-
 <h2>Component</h2>
-  <span>selector: ion-tabs</span>
+<h3>selector: <code>ion-tabs</code></h3>
+<h2>Usage</h2>
 
 
-<h2>Members</h2>
+
+
+<h2>Attributes:</h2>
+<table class="table" style="margin:0;">
+<thead>
+<tr>
+<th>Attribute</th>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>
+tabbar-placement
+</td>
+
+
+
+<td>
+set position of the tabbar, top or bottom
+</td>
+</tr>
+
+<tr>
+<td>
+tabbar-icons
+</td>
+
+
+
+<td>
+set the position of the tabbar's icons: top, bottom, left, right, hide
+</td>
+</tr>
+
+<tr>
+<td>
+tabbar-style
+</td>
+
+
+
+<td>
+sets tabbar's style (primary, secondary, etc)
+</td>
+</tr>
+
+<tr>
+<td>
+preload-tabs
+</td>
+
+
+
+<td>
+sets whether to preload all the tabs, true or false
+</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h2>Methods</h2>
 
 <div id="platform"></div>
+
 <h3>
-  <code>platform()</code>
+<code>platform()</code>
 
 </h3>
 
@@ -106,8 +191,9 @@ of that Tabs component.</p>
 
 
 <div id="select"></div>
+
 <h3>
-  <code>select(index)</code>
+<code>select(index)</code>
 
 </h3>
 
@@ -154,8 +240,9 @@ of that Tabs component.</p>
 
 
 <div id="getByIndex"></div>
+
 <h3>
-  <code>getByIndex(index)</code>
+<code>getByIndex(index)</code>
 
 </h3>
 
@@ -205,8 +292,9 @@ of that Tabs component.</p>
 
 
 <div id="getSelected"></div>
+
 <h3>
-  <code>getSelected()</code>
+<code>getSelected()</code>
 
 </h3>
 
@@ -221,81 +309,9 @@ of that Tabs component.</p>
   <code>Any</code> Tab Returns the currently selected tab
 
 
-
-  <h2>Attributes:</h2>
-  <table class="table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Attribute</th>
-
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td>
-          tabbar-placement
-        </td>
-
-        
-
-        <td>
-          set position of the tabbar, top or bottom
-        </td>
-      </tr>
-      
-      <tr>
-        <td>
-          tabbar-icons
-        </td>
-
-        
-
-        <td>
-          set the position of the tabbar's icons: top, bottom, left, right, hide
-        </td>
-      </tr>
-      
-      <tr>
-        <td>
-          tabbar-style
-        </td>
-
-        
-
-        <td>
-          sets tabbar's style (primary, secondary, etc)
-        </td>
-      </tr>
-      
-      <tr>
-        <td>
-          preload-tabs
-        </td>
-
-        
-
-        <td>
-          sets whether to preload all the tabs, true or false
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

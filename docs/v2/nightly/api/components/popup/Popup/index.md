@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L8'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Popup
+
+Popup
+
+
+
 
 
 
@@ -41,11 +46,13 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>The Ionic Popup service allows the creation of popup windows that require the user to respond in order to continue.</p>
 <p>The popup service has support for more flexible versions of the built in <code>alert()</code>, <code>prompt()</code>, and <code>confirm()</code> functions that users are used to, in addition to allowing popups with completely custom content and look.</p>
 
-
-
+<h2>Usage</h2>
 
 
 <pre><code class="lang-ts">class myApp {
@@ -96,11 +103,16 @@ docType: "class"
 
 
 
-<h2>Members</h2>
+
+
+
+
+<h2>Methods</h2>
 
 <div id="open"></div>
+
 <h3>
-  <code>open(opts)</code>
+<code>open(opts)</code>
 
 </h3>
 
@@ -150,8 +162,9 @@ TODO
 
 
 <div id="alert"></div>
+
 <h3>
-  <code>alert(opts)</code>
+<code>alert(opts)</code>
 
 </h3>
 
@@ -212,8 +225,9 @@ that the user can tap to close the popup.
 
 
 <div id="confirm"></div>
+
 <h3>
-  <code>confirm(opts)</code>
+<code>confirm(opts)</code>
 
 </h3>
 
@@ -277,8 +291,9 @@ Resolves the promise with true if the user presses the OK button, and false if t
 
 
 <div id="prompt"></div>
+
 <h3>
-  <code>prompt(opts)</code>
+<code>prompt(opts)</code>
 
 </h3>
 
@@ -344,8 +359,9 @@ Resolves the promise with the value of the input if the user presses OK, and wit
 
 
 <div id="get"></div>
+
 <h3>
-  <code>get(handle)</code>
+<code>get(handle)</code>
 
 </h3>
 
@@ -392,7 +408,9 @@ TODO
   <code>TODO</code> TODO
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

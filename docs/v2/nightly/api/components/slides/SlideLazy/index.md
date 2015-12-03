@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L475'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  SlideLazy
+
+SlideLazy
+
+
+
 
 
 
@@ -42,13 +47,19 @@ docType: "class"
 
 
 
+<h2>Description</h2>
 
 
 
 <h2>Directive</h2>
-  <span>selector: slide-lazy</span>
+<h3>selector: <code>slide-lazy</code></h3>
+<h2>Usage</h2>
 
 
 
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

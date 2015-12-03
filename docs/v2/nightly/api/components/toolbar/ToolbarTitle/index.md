@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L98'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  ToolbarTitle
+
+ToolbarTitle
+
+
+
 
 
 
@@ -41,10 +46,15 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p><code>ion-title</code> is a component that sets the title of the <code>ionToolbar</code> or <code>ionNavbar</code></p>
 
 
-
+<h2>Component</h2>
+<h3>selector: <code>ion-title</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
@@ -59,10 +69,11 @@ docType: "class"
 
 
 
-<h2>Component</h2>
-  <span>selector: ion-title</span>
 
 
+<!-- end content block -->
 
+
+<!-- end body block -->
 
 

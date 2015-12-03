@@ -13,6 +13,7 @@ docType: "function"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/bootstrap.ts#L20'>
     View Source
@@ -31,7 +32,11 @@ docType: "function"
 
 <h1 class="api-title">
 
-  ionicProviders
+
+ionicProviders
+
+
+
 
 
 
@@ -42,9 +47,16 @@ docType: "function"
 
 
 
+<h2>Description</h2>
+
+
+<h2>Usage</h2>
 
 
 
+<!-- end content block -->
 
+
+<!-- end body block -->
 
 

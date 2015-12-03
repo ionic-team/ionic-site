@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/keyboard.ts#L4'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Keyboard
+
+Keyboard
+
+
+
 
 
 
@@ -42,14 +47,21 @@ docType: "class"
 
 
 
+<h2>Description</h2>
+
+
+<h2>Usage</h2>
 
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="isOpen"></div>
+
 <h3>
-  <code>isOpen()</code>
+<code>isOpen()</code>
 
 </h3>
 
@@ -65,8 +77,9 @@ docType: "class"
 
 
 <div id="onClose"></div>
+
 <h3>
-  <code>onClose()</code>
+<code>onClose()</code>
 
 </h3>
 
@@ -82,8 +95,9 @@ docType: "class"
 
 
 <div id="close"></div>
+
 <h3>
-  <code>close()</code>
+<code>close()</code>
 
 </h3>
 
@@ -99,8 +113,9 @@ docType: "class"
 
 
 <div id="focusOutline"></div>
+
 <h3>
-  <code>focusOutline()</code>
+<code>focusOutline()</code>
 
 </h3>
 
@@ -113,7 +128,9 @@ docType: "class"
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

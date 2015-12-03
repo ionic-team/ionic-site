@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1453'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  NavParams
+
+NavParams
+
+
+
 
 
 
@@ -41,16 +46,23 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>TODO</p>
 
+<h2>Usage</h2>
 
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="get"></div>
+
 <h3>
-  <code>get(Which)</code>
+<code>get(Which)</code>
 
 </h3>
 
@@ -94,7 +106,9 @@ TODO
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

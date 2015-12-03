@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L3'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Segment
+
+Segment
+
+
+
 
 
 
@@ -41,11 +46,16 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>A Segment is a group of buttons, sometimes known as Segmented Controls, that allow the user to interact with a compact group of a number of controls.</p>
 <p>Segments provide functionality similar to tabs, selecting one will unselect all others. You should use a tab bar instead of a segmented control when you want to let the user move back and forth between distinct pages in your app.</p>
 
 
-
+<h2>Directive</h2>
+<h3>selector: <code>ion-segment</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-html">&lt;ion-segment [(ng-model)]=&quot;relationship&quot; danger&gt;
@@ -75,10 +85,11 @@ docType: "class"
 
 
 
-<h2>Directive</h2>
-  <span>selector: ion-segment</span>
 
 
+<!-- end content block -->
 
+
+<!-- end body block -->
 
 

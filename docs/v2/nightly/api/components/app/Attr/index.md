@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L54'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Attr
+
+Attr
+
+
+
 
 
 
@@ -42,20 +47,24 @@ docType: "class"
 
 
 
+<h2>Description</h2>
 
 
 
 <h2>Directive</h2>
-  <span>selector: [attr]</span>
+<h3>selector: <code>[attr]</code></h3>
+<h2>Usage</h2>
 
-  <span>inputs: attr</span>
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="renderer"></div>
+
 <h3>
-  <code>renderer()</code>
+<code>renderer()</code>
 
 </h3>
 
@@ -71,8 +80,9 @@ docType: "class"
 
 
 <div id="elementRef"></div>
+
 <h3>
-  <code>elementRef()</code>
+<code>elementRef()</code>
 
 </h3>
 
@@ -85,7 +95,9 @@ docType: "class"
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

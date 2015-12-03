@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L7'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Tab
+
+Tab
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p><em>For basic Tabs usage, see the <a href="../../../../components/#tabs">Tabs section</a>
 of the Component docs.</em></p>
@@ -52,7 +60,9 @@ take a look at the <a href="../NavController/">NavController API reference</a>.<
 and the TabBar.</p>
 
 
-
+<h2>Component</h2>
+<h3>selector: <code>ion-tab</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-html">&lt;ion-tabs&gt;
@@ -63,17 +73,78 @@ and the TabBar.</p>
 
 
 
-<h2>Component</h2>
-  <span>selector: ion-tab</span>
-
-  <span>inputs: root, tabTitle, tabIcon</span>
 
 
-<h2>Members</h2>
+
+<h2>Attributes:</h2>
+<table class="table" style="margin:0;">
+<thead>
+<tr>
+<th>Attribute</th>
+
+
+
+
+
+
+
+
+
+
+
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>
+root
+</td>
+
+
+
+<td>
+set the root page for this tab
+</td>
+</tr>
+
+<tr>
+<td>
+tab-title
+</td>
+
+
+
+<td>
+set the title of this tab
+</td>
+</tr>
+
+<tr>
+<td>
+tab-icon
+</td>
+
+
+
+<td>
+set the icon for this tab
+
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h2>Methods</h2>
 
 <div id="index"></div>
+
 <h3>
-  <code>index()</code>
+<code>index()</code>
 
 </h3>
 
@@ -96,69 +167,9 @@ export class MyClass{
   <code>Number</code> Returns the index of this page within its NavController.
 
 
-
-  <h2>Attributes:</h2>
-  <table class="table" style="margin:0;">
-    <thead>
-      <tr>
-        <th>Attribute</th>
-
-        
-        
-          
-        
-          
-        
-          
-        
-        
-
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td>
-          root
-        </td>
-
-        
-
-        <td>
-          set the root page for this tab
-        </td>
-      </tr>
-      
-      <tr>
-        <td>
-          tab-title
-        </td>
-
-        
-
-        <td>
-          set the title of this tab
-        </td>
-      </tr>
-      
-      <tr>
-        <td>
-          tab-icon
-        </td>
-
-        
-
-        <td>
-          set the icon for this tab
+<!-- end content block -->
 
 
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
-
-
+<!-- end body block -->
 
 

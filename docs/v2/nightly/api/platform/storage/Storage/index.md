@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/storage.ts#L0'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Storage
+
+Storage
+
+
+
 
 
 
@@ -41,6 +46,9 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>Storage is an easy way to store key/value pairs and other complicated
 data in a way that uses a variety of storage engines underneath.</p>
 <p>For most cases, we recommend the SqlStorage system as it will store
@@ -48,14 +56,18 @@ data in a file in the app&#39;s sandbox. LocalStorage should ONLY be used
 for temporary data as it may be &quot;cleaned up&quot; by the operation system
 during low disk space situations.</p>
 
+<h2>Usage</h2>
 
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="get"></div>
+
 <h3>
-  <code>get()</code>
+<code>get()</code>
 
 </h3>
 
@@ -71,8 +83,9 @@ during low disk space situations.</p>
 
 
 <div id="getJson"></div>
+
 <h3>
-  <code>getJson()</code>
+<code>getJson()</code>
 
 </h3>
 
@@ -88,8 +101,9 @@ during low disk space situations.</p>
 
 
 <div id="set"></div>
+
 <h3>
-  <code>set()</code>
+<code>set()</code>
 
 </h3>
 
@@ -105,8 +119,9 @@ during low disk space situations.</p>
 
 
 <div id="remove"></div>
+
 <h3>
-  <code>remove()</code>
+<code>remove()</code>
 
 </h3>
 
@@ -122,8 +137,9 @@ during low disk space situations.</p>
 
 
 <div id="query"></div>
+
 <h3>
-  <code>query()</code>
+<code>query()</code>
 
 </h3>
 
@@ -136,7 +152,9 @@ during low disk space situations.</p>
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

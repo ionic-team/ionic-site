@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/config.ts#L9'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Config
+
+Config
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p>Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.</p>
 <pre><code class="lang-ts">@App({
@@ -117,9 +125,13 @@ tabbarPlacement: &#39;top&#39;,
 tabSubPages: true,
 </code></pre>
 
+<h2>Usage</h2>
 
 
 
+<!-- end content block -->
 
+
+<!-- end body block -->
 
 

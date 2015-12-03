@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/events.ts#L0'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Events
+
+Events
+
+
+
 
 
 
@@ -41,17 +46,24 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>Events is a pub/sub style event system for sending and responding to application-level
 events across your app.</p>
 
+<h2>Usage</h2>
 
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="subscribe"></div>
+
 <h3>
-  <code>subscribe(topic, handler)</code>
+<code>subscribe(topic, handler)</code>
 
 </h3>
 
@@ -117,8 +129,9 @@ will trigger the provided handler.
 
 
 <div id="unsubscribe"></div>
+
 <h3>
-  <code>unsubscribe(topic, handler)</code>
+<code>unsubscribe(topic, handler)</code>
 
 </h3>
 
@@ -189,8 +202,9 @@ no longer receive events published to this topic.
 
 
 <div id="publish"></div>
+
 <h3>
-  <code>publish(topic, eventData)</code>
+<code>publish(topic, eventData)</code>
 
 </h3>
 
@@ -252,7 +266,9 @@ Publish an event to the given topic.
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

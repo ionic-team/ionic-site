@@ -70,11 +70,6 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 
 
-
-<h1 class="class export">SqlStorage <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/sql.ts#L5-L203">ionic/platform/storage/sql.ts (line 5)</a>
-</p>
 <h2>Members</h2>
 
 <div id="query"></div>

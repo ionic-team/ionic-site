@@ -74,11 +74,6 @@ docType: "class"
 
 
 
-
-<h1 class="class export">Switch <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/switch/switch.ts#L32-L248">ionic/components/switch/switch.ts (line 32)</a>
-</p>
 <h2>Component</h2>
   <span>selector: ion-switch</span>
 

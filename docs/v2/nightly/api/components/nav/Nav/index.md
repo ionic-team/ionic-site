@@ -123,11 +123,6 @@ swipe to go back:</p>
 
 
 
-
-<h1 class="class export">Nav <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav.ts#L8-L152">ionic/components/nav/nav.ts (line 8)</a>
-</p>
 <h2>Component</h2>
   <span>selector: ion-nav</span>
 

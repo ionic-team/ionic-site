@@ -51,11 +51,6 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 
 
-
-<h1 class="class export">List <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L7-L112">ionic/components/list/list.ts (line 7)</a>
-</p>
 <h2>Directive</h2>
   <span>selector: ion-list</span>
 

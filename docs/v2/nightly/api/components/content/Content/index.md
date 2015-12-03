@@ -56,11 +56,6 @@ docType: "class"
 
 
 
-
-<h1 class="class export">Content <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L9-L227">ionic/components/content/content.ts (line 9)</a>
-</p>
 <h2>Component</h2>
   <span>selector: ion-content</span>
 

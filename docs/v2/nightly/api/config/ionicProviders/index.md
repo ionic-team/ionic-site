@@ -46,10 +46,5 @@ docType: "function"
 
 
 
-<h1 class="class export">ionicProviders <span class="type">function</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/bootstrap.ts#L21-L71">ionic/config/bootstrap.ts (line 21)</a>
-</p>
-
 
 

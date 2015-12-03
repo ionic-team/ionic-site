@@ -77,11 +77,6 @@ this component will automatically be added inside of an <code>&lt;ion-item&gt;</
 
 
 
-
-<h1 class="class export">Item <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/item/item.ts#L1-L56">ionic/components/item/item.ts (line 1)</a>
-</p>
 <h2>Component</h2>
   <span>selector: ion-item, [ion-item]</span>
 

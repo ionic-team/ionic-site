@@ -46,11 +46,6 @@ docType: "class"
 
 
 
-
-<h1 class="class export">Button <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/button/button.ts#L3-L94">ionic/components/button/button.ts (line 3)</a>
-</p>
 <h2>Directive</h2>
   <span>selector: button, [button]</span>
 
@@ -108,8 +103,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           primary
         </td>
 
@@ -122,8 +115,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           secondary
         </td>
 
@@ -136,8 +127,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           danger
         </td>
 
@@ -150,8 +139,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           light
         </td>
 
@@ -164,8 +151,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           dark
         </td>
 
@@ -178,8 +163,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           outline
         </td>
 
@@ -192,8 +175,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           clear
         </td>
 
@@ -206,8 +187,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           round
         </td>
 
@@ -220,8 +199,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           block
         </td>
 
@@ -234,8 +211,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           full
         </td>
 
@@ -248,8 +223,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           small
         </td>
 
@@ -262,8 +235,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           large
         </td>
 
@@ -276,8 +247,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           fab
         </td>
 
@@ -290,8 +259,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           fab-left
         </td>
 
@@ -304,8 +271,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           fab-right
         </td>
 
@@ -318,8 +283,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           fab-center
         </td>
 
@@ -332,8 +295,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           fab-top
         </td>
 
@@ -346,8 +307,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           fab-bottom
         </td>
 

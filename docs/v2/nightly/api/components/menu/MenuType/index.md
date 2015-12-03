@@ -49,11 +49,6 @@ and registers itself with Menu.</p>
 
 
 
-
-<h1 class="class export">MenuType <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-types.ts#L2-L75">ionic/components/menu/menu-types.ts (line 2)</a>
-</p>
 <h2>Members</h2>
 
 <div id="setOpen"></div>

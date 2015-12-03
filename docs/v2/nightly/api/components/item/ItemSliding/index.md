@@ -63,11 +63,6 @@ deleted, reordered, edited, and more.</p>
 
 
 
-
-<h1 class="class export">ItemSliding <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-sliding.ts#L3-L43">ionic/components/item/item-sliding.ts (line 3)</a>
-</p>
 <h2>Component</h2>
   <span>selector: ion-item-sliding</span>
 

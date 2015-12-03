@@ -113,11 +113,6 @@ class HelloWorld {
 
 
 
-
-<h1 class="class export">NavController <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L12-L1447">ionic/components/nav/nav-controller.ts (line 12)</a>
-</p>
 <h2>Members</h2>
 
 <div id="push"></div>

@@ -79,11 +79,6 @@ There are easy ways to cancel out of the action sheet, such as tapping the backd
 
 
 
-
-<h1 class="class export">ActionSheet <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L71-L153">ionic/components/action-sheet/action-sheet.ts (line 71)</a>
-</p>
 <h2>Members</h2>
 
 <div id="open"></div>

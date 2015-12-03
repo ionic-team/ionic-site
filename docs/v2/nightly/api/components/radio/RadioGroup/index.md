@@ -77,11 +77,6 @@ docType: "class"
 
 
 
-
-<h1 class="class export">RadioGroup <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L5-L149">ionic/components/radio/radio.ts (line 5)</a>
-</p>
 <h2>Directive</h2>
   <span>selector: [radio-group]</span>
 

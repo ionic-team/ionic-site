@@ -45,11 +45,6 @@ docType: "class"
 
 
 
-
-<h1 class="class export">SlideLazy <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L476-L485">ionic/components/slides/slides.ts (line 476)</a>
-</p>
 <h2>Directive</h2>
   <span>selector: slide-lazy</span>
 

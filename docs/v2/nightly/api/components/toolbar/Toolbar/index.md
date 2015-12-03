@@ -57,11 +57,6 @@ Unlike an <code>ionNavbar</code>, <code>ionToolbar</code> can be used for a subh
 
 
 
-
-<h1 class="class export">Toolbar <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L61-L99">ionic/components/toolbar/toolbar.ts (line 61)</a>
-</p>
 <h2>Component</h2>
   <span>selector: ion-toolbar</span>
 

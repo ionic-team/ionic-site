@@ -46,11 +46,6 @@ docType: "class"
 
 
 
-
-<h1 class="class export">NavParams <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1454-L1476">ionic/components/nav/nav-controller.ts (line 1454)</a>
-</p>
 <h2>Members</h2>
 
 <div id="get"></div>

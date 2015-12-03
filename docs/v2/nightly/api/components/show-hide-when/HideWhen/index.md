@@ -53,11 +53,6 @@ the value or expression is true. Complements the <a href="../ShowWhen">show-when
 
 
 
-
-<h1 class="class export">HideWhen <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L86-L120">ionic/components/show-hide-when/show-hide-when.ts (line 86)</a>
-</p>
 <h2>Directive</h2>
   <span>selector: [hide-when]</span>
 

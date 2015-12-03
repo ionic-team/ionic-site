@@ -51,11 +51,6 @@ during low disk space situations.</p>
 
 
 
-
-<h1 class="class export">Storage <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/storage.ts#L1-L34">ionic/platform/storage/storage.ts (line 1)</a>
-</p>
 <h2>Members</h2>
 
 <div id="get"></div>

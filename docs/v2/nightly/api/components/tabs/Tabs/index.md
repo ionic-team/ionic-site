@@ -82,11 +82,6 @@ of that Tabs component.</p>
 
 
 
-
-<h1 class="class export">Tabs <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L11-L283">ionic/components/tabs/tabs.ts (line 11)</a>
-</p>
 <h2>Component</h2>
   <span>selector: ion-tabs</span>
 
@@ -252,8 +247,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           tabbar-placement
         </td>
 
@@ -266,8 +259,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           tabbar-icons
         </td>
 
@@ -280,8 +271,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           tabbar-style
         </td>
 
@@ -294,8 +283,6 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
       
       <tr>
         <td>
-          
-          
           preload-tabs
         </td>
 

@@ -73,11 +73,6 @@ along with optional Page params, and options for presenting the modal.</p>
 
 
 
-
-<h1 class="class export">Modal <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L6-L90">ionic/components/modal/modal.ts (line 6)</a>
-</p>
 <h2>Members</h2>
 
 <div id="open"></div>

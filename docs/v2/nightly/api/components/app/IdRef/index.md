@@ -63,11 +63,6 @@ has been navigated away from.</p>
 
 
 
-
-<h1 class="class export">IdRef <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L3-L55">ionic/components/app/id.ts (line 3)</a>
-</p>
 <h2>Directive</h2>
   <span>selector: [id]</span>
 

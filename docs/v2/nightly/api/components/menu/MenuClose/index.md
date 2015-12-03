@@ -46,11 +46,6 @@ docType: "class"
 
 
 
-
-<h1 class="class export">MenuClose <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-close.ts#L4-L34">ionic/components/menu/menu-close.ts (line 4)</a>
-</p>
 <h2>Directive</h2>
   <span>selector: [menu-close]</span>
 

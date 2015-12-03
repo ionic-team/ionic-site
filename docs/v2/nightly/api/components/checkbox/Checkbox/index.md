@@ -55,11 +55,6 @@ docType: "class"
 
 
 
-
-<h1 class="class export">Checkbox <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/checkbox/checkbox.ts#L4-L123">ionic/components/checkbox/checkbox.ts (line 4)</a>
-</p>
 <h2>Component</h2>
   <span>selector: ion-checkbox</span>
 
@@ -123,8 +118,6 @@ Toggle the checked state of the checkbox. Calls onChange to pass the updated che
       
       <tr>
         <td>
-          
-          
           checked
         </td>
 
@@ -137,8 +130,6 @@ Toggle the checked state of the checkbox. Calls onChange to pass the updated che
       
       <tr>
         <td>
-          
-          
           value
         </td>
 

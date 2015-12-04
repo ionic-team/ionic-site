@@ -55,6 +55,21 @@ events across your app.</p>
 <h2>Usage</h2>
 
 
+<pre><code class="lang-ts">// first page (publish an event when a user is created)
+function createUser(user) {
+  console.log(&#39;User created!&#39;)
+  events.publish(&#39;user:created&#39;, user);
+}
+
+// second page (listen for the user created event)
+events.subscribe(&#39;user:created&#39;, (user) =&gt; {
+  console.log(&#39;Welcome&#39;, user); 
+});
+</code></pre>
+
+
+
+
 
 
 

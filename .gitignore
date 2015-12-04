@@ -7,3 +7,5 @@ _site/
 .jekyll-metadata
 .tmp
 linkchecker.html
+
+* text=auto

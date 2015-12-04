@@ -8,7 +8,9 @@ id: "{{Segment | slugify}}"
 title: "Segment"
 header_sub_title: "Class in module "
 doc: "Segment"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

@@ -8,7 +8,9 @@ id: "{{MenuToggle | slugify}}"
 title: "MenuToggle"
 header_sub_title: "Class in module "
 doc: "MenuToggle"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

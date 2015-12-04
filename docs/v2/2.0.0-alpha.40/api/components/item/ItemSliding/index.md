@@ -8,7 +8,9 @@ id: "{{ItemSliding | slugify}}"
 title: "ItemSliding"
 header_sub_title: "Class in module "
 doc: "ItemSliding"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

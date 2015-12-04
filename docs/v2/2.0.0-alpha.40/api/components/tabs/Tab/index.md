@@ -8,7 +8,9 @@ id: "{{Tab | slugify}}"
 title: "Tab"
 header_sub_title: "Class in module "
 doc: "Tab"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

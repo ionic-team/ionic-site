@@ -8,7 +8,9 @@ id: "{{ViewController | slugify}}"
 title: "ViewController"
 header_sub_title: "Class in module "
 doc: "ViewController"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

@@ -8,7 +8,9 @@ id: "{{Modal | slugify}}"
 title: "Modal"
 header_sub_title: "Class in module "
 doc: "Modal"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

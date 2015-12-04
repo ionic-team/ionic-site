@@ -8,7 +8,9 @@ id: "{{Scroll | slugify}}"
 title: "Scroll"
 header_sub_title: "Class in module "
 doc: "Scroll"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

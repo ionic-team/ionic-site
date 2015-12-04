@@ -132,6 +132,35 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       $platformPreview.removeClass('fixey');
     }
   }
+}])
+.controller('APIDemoCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+
+  $scope.setPlatform = function(platform) {
+    $scope.previewPlatform = platform;
+    if (platform == 'ios') {
+      $scope.iosActive = true;
+      $scope.androidActive = false;
+      $('#demo-device-android').css('display', 'none');
+      $('#demo-device-ios').css('display', 'block');
+      return;
+    }
+    $scope.iosActive = false;
+    $scope.androidActive = true;
+    $('#demo-device-ios').css('display', 'none');
+    $('#demo-device-android').css('display', 'block');
+  };
+
+  $scope.setPlatform('ios');
+
+  var $window = $(window);
+  $window.scroll(fixyCheck);
+  function fixyCheck(a, b, c) {
+    if ($window.scrollTop() > 78) {
+      $platformPreview.addClass('fixey');
+    } else {
+      $platformPreview.removeClass('fixey');
+    }
+  }
 }]);
 
 IonicDocsModule;

@@ -8,7 +8,9 @@ id: "{{Blur | slugify}}"
 title: "Blur"
 header_sub_title: "Class in module "
 doc: "Blur"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

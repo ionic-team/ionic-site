@@ -8,7 +8,9 @@ id: "{{Switch | slugify}}"
 title: "Switch"
 header_sub_title: "Class in module "
 doc: "Switch"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

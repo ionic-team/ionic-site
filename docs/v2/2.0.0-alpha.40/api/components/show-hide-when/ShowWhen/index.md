@@ -8,7 +8,9 @@ id: "{{ShowWhen | slugify}}"
 title: "ShowWhen"
 header_sub_title: "Class in module "
 doc: "ShowWhen"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

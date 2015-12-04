@@ -8,7 +8,10 @@ id: "{{List | slugify}}"
 title: "List"
 header_sub_title: "Class in module "
 doc: "List"
-docType: "class"---
+docType: "class"
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/list/"
+---
 
 
 

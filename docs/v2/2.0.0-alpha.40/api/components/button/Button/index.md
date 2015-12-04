@@ -8,7 +8,9 @@ id: "{{Button | slugify}}"
 title: "Button"
 header_sub_title: "Class in module ionic"
 doc: "Button"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

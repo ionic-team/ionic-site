@@ -8,7 +8,9 @@ id: "{{Platform | slugify}}"
 title: "Platform"
 header_sub_title: "Class in module "
 doc: "Platform"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

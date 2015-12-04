@@ -8,7 +8,9 @@ id: "{{ionicProviders | slugify}}"
 title: "ionicProviders"
 header_sub_title: "Function in module "
 doc: "ionicProviders"
-docType: "function"---
+docType: "function"
+
+---
 
 
 

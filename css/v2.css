@@ -5016,7 +5016,8 @@ body {
           height: 0; }
 
 .docs-container main {
-  padding: 50px 40px; }
+  padding: 50px 40px;
+  position: relative; }
   .docs-container main h1, .docs-container main h2, .docs-container main h3, .docs-container main h4, .docs-container main h5 {
     color: #26292e;
     line-height: 1.4em;

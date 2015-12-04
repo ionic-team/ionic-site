@@ -8,7 +8,9 @@ id: "{{RadioGroup | slugify}}"
 title: "RadioGroup"
 header_sub_title: "Class in module "
 doc: "RadioGroup"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

@@ -8,8 +8,7 @@ id: "{{StorageEngine | slugify}}"
 title: "StorageEngine"
 header_sub_title: "Class in module "
 doc: "StorageEngine"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/storage.ts#L33'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -131,5 +128,4 @@ StorageEngine
 
 
 <!-- end body block -->
-
 

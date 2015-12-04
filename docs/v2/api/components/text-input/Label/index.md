@@ -8,8 +8,7 @@ id: "{{Label | slugify}}"
 title: "Label"
 header_sub_title: "Class in module "
 doc: "Label"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/label.ts#L4'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -77,5 +74,4 @@ Label
 
 
 <!-- end body block -->
-
 

@@ -8,8 +8,7 @@ id: "{{Refresher | slugify}}"
 title: "Refresher"
 header_sub_title: "Class in module "
 doc: "Refresher"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/pull-to-refresh.ts#L4'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -524,5 +521,4 @@ TODO
 
 
 <!-- end body block -->
-
 

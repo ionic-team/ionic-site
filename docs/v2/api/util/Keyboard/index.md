@@ -8,8 +8,7 @@ id: "{{Keyboard | slugify}}"
 title: "Keyboard"
 header_sub_title: "Class in module "
 doc: "Keyboard"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/util/keyboard.ts#L4'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -131,5 +128,4 @@ Keyboard
 
 
 <!-- end body block -->
-
 

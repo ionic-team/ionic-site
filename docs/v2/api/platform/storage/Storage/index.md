@@ -8,8 +8,7 @@ id: "{{Storage | slugify}}"
 title: "Storage"
 header_sub_title: "Class in module "
 doc: "Storage"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/storage.ts#L0'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -155,5 +152,4 @@ during low disk space situations.</p>
 
 
 <!-- end body block -->
-
 

@@ -8,8 +8,7 @@ id: "{{NavPop | slugify}}"
 title: "NavPop"
 header_sub_title: "Class in module "
 doc: "NavPop"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-push.ts#L83'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -81,5 +78,4 @@ NavPop
 
 
 <!-- end body block -->
-
 

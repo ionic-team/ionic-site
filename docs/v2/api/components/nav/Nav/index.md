@@ -8,8 +8,7 @@ id: "{{Nav | slugify}}"
 title: "Nav"
 header_sub_title: "Class in module "
 doc: "Nav"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav.ts#L7'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -138,5 +135,4 @@ swipe to go back:</p>
 
 
 <!-- end body block -->
-
 

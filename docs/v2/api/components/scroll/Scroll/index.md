@@ -8,8 +8,7 @@ id: "{{Scroll | slugify}}"
 title: "Scroll"
 header_sub_title: "Class in module "
 doc: "Scroll"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/scroll.ts#L8'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -117,5 +114,4 @@ undefined if the scroll element doesn't exist.
 
 
 <!-- end body block -->
-
 

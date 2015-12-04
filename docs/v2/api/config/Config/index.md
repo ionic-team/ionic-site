@@ -8,8 +8,7 @@ id: "{{Config | slugify}}"
 title: "Config"
 header_sub_title: "Class in module "
 doc: "Config"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/config.ts#L9'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -132,5 +129,4 @@ tabSubPages: true,
 
 
 <!-- end body block -->
-
 

@@ -8,8 +8,7 @@ id: "{{Tab | slugify}}"
 title: "Tab"
 header_sub_title: "Class in module "
 doc: "Tab"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tab.ts#L7'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -189,5 +186,4 @@ export class MyClass{
 
 
 <!-- end body block -->
-
 

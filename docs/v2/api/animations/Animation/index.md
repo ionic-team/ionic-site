@@ -8,8 +8,7 @@ id: "{{Animation | slugify}}"
 title: "Animation"
 header_sub_title: "Class in module "
 doc: "Animation"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/animations/animation.ts#L1'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -618,5 +615,4 @@ subAnimationInstance.getCurrentTime()
 
 
 <!-- end body block -->
-
 

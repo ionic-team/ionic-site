@@ -8,8 +8,7 @@ id: "{{Menu | slugify}}"
 title: "Menu"
 header_sub_title: "Class in module "
 doc: "Menu"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu.ts#L7'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -253,5 +250,4 @@ left menus, but only one of them should be able to be dragged open.
 
 
 <!-- end body block -->
-
 

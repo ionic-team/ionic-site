@@ -8,8 +8,7 @@ id: "{{RadioGroup | slugify}}"
 title: "RadioGroup"
 header_sub_title: "Class in module "
 doc: "RadioGroup"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L4'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -131,5 +128,4 @@ RadioGroup
 
 
 <!-- end body block -->
-
 

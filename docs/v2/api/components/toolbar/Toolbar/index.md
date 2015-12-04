@@ -8,8 +8,7 @@ id: "{{Toolbar | slugify}}"
 title: "Toolbar"
 header_sub_title: "Class in module "
 doc: "Toolbar"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L60'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -73,5 +70,4 @@ Unlike an <code>ionNavbar</code>, <code>ionToolbar</code> can be used for a subh
 
 
 <!-- end body block -->
-
 

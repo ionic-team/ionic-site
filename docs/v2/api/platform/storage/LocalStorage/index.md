@@ -8,8 +8,7 @@ id: "{{LocalStorage | slugify}}"
 title: "LocalStorage"
 header_sub_title: "Class in module "
 doc: "LocalStorage"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/local-storage.ts#L0'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -119,5 +116,4 @@ by the operating system (iOS).</p>
 
 
 <!-- end body block -->
-
 

@@ -8,8 +8,7 @@ id: "{{IonicApp | slugify}}"
 title: "IonicApp"
 header_sub_title: "Class in module "
 doc: "IonicApp"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L5'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -422,5 +419,4 @@ Get the component for the given key.
 
 
 <!-- end body block -->
-
 

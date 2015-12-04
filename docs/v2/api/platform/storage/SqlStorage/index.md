@@ -8,8 +8,7 @@ id: "{{SqlStorage | slugify}}"
 title: "SqlStorage"
 header_sub_title: "Class in module "
 doc: "SqlStorage"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/sql.ts#L4'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -347,5 +344,4 @@ Remove the value in the database for the given key.
 
 
 <!-- end body block -->
-
 

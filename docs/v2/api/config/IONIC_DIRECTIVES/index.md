@@ -8,8 +8,7 @@ id: "{{IONIC_DIRECTIVES | slugify}}"
 title: "IONIC_DIRECTIVES"
 header_sub_title: "Let in module "
 doc: "IONIC_DIRECTIVES"
-docType: "let"
----
+docType: "let"---
 
 
 
@@ -22,8 +21,6 @@ docType: "let"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/directives.ts#L37'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -59,5 +56,4 @@ FORM_DIRECTIVES.  Automatically available in every <a href="../Page/">@Page</a> 
 
 
 <!-- end body block -->
-
 

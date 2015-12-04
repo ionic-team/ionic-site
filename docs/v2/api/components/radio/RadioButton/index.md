@@ -8,8 +8,7 @@ id: "{{RadioButton | slugify}}"
 title: "RadioButton"
 header_sub_title: "Class in module "
 doc: "RadioButton"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L148'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -93,5 +90,4 @@ TODO: Call this toggle? Since unchecks as well
 
 
 <!-- end body block -->
-
 

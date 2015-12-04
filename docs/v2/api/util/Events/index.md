@@ -8,8 +8,7 @@ id: "{{Events | slugify}}"
 title: "Events"
 header_sub_title: "Class in module "
 doc: "Events"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/util/events.ts#L0'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -285,5 +282,4 @@ Publish an event to the given topic.
 
 
 <!-- end body block -->
-
 

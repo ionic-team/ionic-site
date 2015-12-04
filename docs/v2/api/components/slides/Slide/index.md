@@ -8,8 +8,7 @@ id: "{{Slide | slugify}}"
 title: "Slide"
 header_sub_title: "Class in module "
 doc: "Slide"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L450'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -61,5 +58,4 @@ Slide
 
 
 <!-- end body block -->
-
 

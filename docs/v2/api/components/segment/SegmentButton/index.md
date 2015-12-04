@@ -8,8 +8,7 @@ id: "{{SegmentButton | slugify}}"
 title: "SegmentButton"
 header_sub_title: "Class in module "
 doc: "SegmentButton"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L124'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -60,5 +57,4 @@ SegmentButton
 
 
 <!-- end body block -->
-
 

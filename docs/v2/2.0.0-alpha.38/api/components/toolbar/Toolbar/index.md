@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{Toolbar | slugify}}"
@@ -12,6 +12,8 @@ docType: "class"
 ---
 
 
+
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L60'>
     View Source
@@ -20,6 +22,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L60'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Toolbar
+
+Toolbar
+
+
+
 
 
 
@@ -37,15 +46,32 @@ docType: "class"
 
 
 
-<p>TODO</p>
+
+<h2>Description</h2>
+
+<p>The toolbar is generic bar that sits above content.
+Unlike an <code>ionNavbar</code>, <code>ionToolbar</code> can be used for a subheader as well.</p>
 
 
-<h1 class="class export">Toolbar <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L61-L89">ionic/components/toolbar/toolbar.ts (line 61)</a>
-</p>
 <h2>Component</h2>
-  <span>selector: ion-toolbar</span>
+<h3>selector: <code>ion-toolbar</code></h3>
+<h2>Usage</h2>
 
+
+<pre><code class="lang-html">&lt;ion-toolbar&gt;
+  &lt;ion-title&gt;My Toolbar Title&lt;/ion-title&gt;
+&lt;/ion-toolbar&gt;
+
+ &lt;ion-content&gt;&lt;/ion-content&gt;
+</code></pre>
+
+
+
+
+
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

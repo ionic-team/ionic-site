@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{SegmentButton | slugify}}"
@@ -12,6 +12,8 @@ docType: "class"
 ---
 
 
+
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L124'>
     View Source
@@ -20,6 +22,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L124'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  SegmentButton
+
+SegmentButton
+
+
+
 
 
 
@@ -38,15 +47,19 @@ docType: "class"
 
 
 
+<h2>Description</h2>
 
-<h1 class="class export">SegmentButton <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L125-L164">ionic/components/segment/segment.ts (line 125)</a>
-</p>
+
+
 <h2>Directive</h2>
-  <span>selector: ion-segment-button</span>
+<h3>selector: <code>ion-segment-button</code></h3>
+<h2>Usage</h2>
 
-  <span>inputs: value</span>
 
+
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

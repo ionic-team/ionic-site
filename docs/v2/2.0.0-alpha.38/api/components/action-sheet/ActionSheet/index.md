@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{ActionSheet | slugify}}"
@@ -12,6 +12,8 @@ docType: "class"
 ---
 
 
+
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L70'>
     View Source
@@ -20,6 +22,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/action-sheet/action-sheet.ts#L70'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  ActionSheet
+
+ActionSheet
+
+
+
 
 
 
@@ -37,19 +46,56 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
 There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.</p>
 
+<h2>Usage</h2>
 
-<h1 class="class export">ActionSheet <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L71-L153">ionic/components/action-sheet/action-sheet.ts (line 71)</a>
-</p>
-<h2>Members</h2>
+
+<pre><code class="lang-ts">openMenu() {
+
+  this.actionSheet.open({
+    buttons: [
+      { text: &#39;Share This&#39; },
+      { text: &#39;Move&#39; }
+    ],
+    destructiveText: &#39;Delete&#39;,
+    titleText: &#39;Modify your album&#39;,
+    cancelText: &#39;Cancel&#39;,
+    cancel: function() {
+      console.log(&#39;Canceled&#39;);
+    },
+    destructiveButtonClicked: () =&gt; {
+      console.log(&#39;Destructive clicked&#39;);
+    },
+    buttonClicked: function(index) {
+      console.log(&#39;Button clicked&#39;, index);
+      if(index == 1) { return false; }
+      return true;
+    }
+
+  }).then(actionSheetRef =&gt; {
+    this.actionSheetRef = actionSheetRef;
+  });
+
+}
+</code></pre>
+
+
+
+
+
+
+
+<h2>Methods</h2>
 
 <div id="open"></div>
+
 <h3>
-  <code>open(opts, opts.pageType, opts.enterAnimation, opts.leaveAnimation)</code>
+<code>open(opts, opts.pageType, opts.enterAnimation, opts.leaveAnimation)</code>
 
 </h3>
 
@@ -152,8 +198,9 @@ public API, and most often you will only use ActionSheet.open()
 
 
 <div id="get"></div>
+
 <h3>
-  <code>get(handle)</code>
+<code>get(handle)</code>
 
 </h3>
 
@@ -201,5 +248,9 @@ Retrieves an actionSheet instance.
   <code>ActionSheet</code> An actionSheet instance.
 
 
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

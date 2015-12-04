@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{ToolbarTitle | slugify}}"
@@ -12,14 +12,19 @@ docType: "class"
 ---
 
 
+
+
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L88'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L98'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L88'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L98'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  ToolbarTitle
+
+ToolbarTitle
+
+
+
 
 
 
@@ -38,31 +47,33 @@ docType: "class"
 
 
 
+<h2>Description</h2>
 
-<h1 class="class export">ToolbarTitle <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L89-L113">ionic/components/toolbar/toolbar.ts (line 89)</a>
-</p>
+<p><code>ion-title</code> is a component that sets the title of the <code>ionToolbar</code> or <code>ionNavbar</code></p>
+
+
 <h2>Component</h2>
-  <span>selector: ion-title</span>
+<h3>selector: <code>ion-title</code></h3>
+<h2>Usage</h2>
 
 
-<h2>Members</h2>
+<pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
+   &lt;ion-title&gt;Tab 1&lt;/ion-title&gt;
+&lt;/ion-navbar&gt;
 
-<div id="getTitleText"></div>
-<h3>
-  <code>getTitleText()</code>
-
-</h3>
-
-
-
-
-
+&lt;!-- or if you wanted to crate a subheader title--&gt;
+&lt;ion-toolbar&gt;
+  &lt;ion-title&gt;SubHeader&lt;/ion-title&gt;
+&lt;/ion-toolbar&gt;
+</code></pre>
 
 
 
 
 
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

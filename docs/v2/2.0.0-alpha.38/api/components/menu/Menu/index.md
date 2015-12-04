@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{Menu | slugify}}"
@@ -12,6 +12,8 @@ docType: "class"
 ---
 
 
+
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L7'>
     View Source
@@ -20,6 +22,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu.ts#L7'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Menu
+
+Menu
+
+
+
 
 
 
@@ -36,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p><em>For basic Menu usage, see the <a href="../../../../components/#menus">Menu section</a>
 of the Component docs.</em></p>
@@ -65,23 +77,20 @@ but this can be overriden using the <code>type</code> property:</p>
 </code></pre>
 
 
-<h1 class="class export">Menu <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L8-L342">ionic/components/menu/menu.ts (line 8)</a>
-</p>
 <h2>Component</h2>
-  <span>selector: ion-menu</span>
-
-  <span>inputs: content, dragThreshold, id, side, type</span>
-
-  <span>outputs: opening</span>
+<h3>selector: <code>ion-menu</code></h3>
+<h2>Usage</h2>
 
 
-<h2>Members</h2>
+
+
+
+<h2>Methods</h2>
 
 <div id="setOpen"></div>
+
 <h3>
-  <code>setOpen(isOpen)</code>
+<code>setOpen(isOpen)</code>
 
 </h3>
 
@@ -131,8 +140,9 @@ Sets the state of the Menu to open or not.
 
 
 <div id="open"></div>
+
 <h3>
-  <code>open()</code>
+<code>open()</code>
 
 </h3>
 
@@ -150,8 +160,9 @@ TODO
 
 
 <div id="close"></div>
+
 <h3>
-  <code>close()</code>
+<code>close()</code>
 
 </h3>
 
@@ -169,8 +180,9 @@ TODO
 
 
 <div id="toggle"></div>
+
 <h3>
-  <code>toggle()</code>
+<code>toggle()</code>
 
 </h3>
 
@@ -185,5 +197,62 @@ TODO
   <code>TODO</code> TODO
 
 
+
+
+<div id="enable"></div>
+
+<h3>
+<code>enable(shouldEnable)</code>
+
+</h3>
+
+Used to enable or disable a menu. For example, there could be multiple
+left menus, but only one of them should be able to be dragged open.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        shouldEnable
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>True if it should be enabled, false if not.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
+
+
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

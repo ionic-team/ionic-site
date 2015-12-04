@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{MenuToggle | slugify}}"
@@ -12,6 +12,8 @@ docType: "class"
 ---
 
 
+
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L5'>
     View Source
@@ -20,6 +22,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-toggle.ts#L5'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  MenuToggle
+
+MenuToggle
+
+
+
 
 
 
@@ -37,24 +46,26 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>TODO</p>
 
 
-<h1 class="class export">MenuToggle <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L6-L53">ionic/components/menu/menu-toggle.ts (line 6)</a>
-</p>
 <h2>Directive</h2>
-  <span>selector: [menu-toggle]</span>
+<h3>selector: <code>[menu-toggle]</code></h3>
+<h2>Usage</h2>
 
-  <span>inputs: menuToggle</span>
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="toggle"></div>
+
 <h3>
-  <code>toggle(event)</code>
+<code>toggle(event)</code>
 
 </h3>
 
@@ -101,8 +112,9 @@ TODO
 
 
 <div id="isHidden"></div>
+
 <h3>
-  <code>isHidden()</code>
+<code>isHidden()</code>
 
 </h3>
 
@@ -115,5 +127,9 @@ TODO
 
 
 
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

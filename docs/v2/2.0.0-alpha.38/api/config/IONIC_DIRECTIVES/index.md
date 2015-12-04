@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{IONIC_DIRECTIVES | slugify}}"
@@ -12,6 +12,8 @@ docType: "let"
 ---
 
 
+
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/directives.ts#L37'>
     View Source
@@ -20,6 +22,9 @@ docType: "let"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/directives.ts#L37'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "let"
 
 <h1 class="api-title">
 
-  IONIC_DIRECTIVES
+
+IONIC_DIRECTIVES
+
+
+
 
 
 
@@ -37,12 +46,19 @@ docType: "let"
 
 
 
+
+<h2>Description</h2>
+
 <p>The core Ionic directives as well as Angular&#39;s CORE_DIRECTIVES and
 FORM_DIRECTIVES.  Automatically available in every <a href="../Page/">@Page</a> template.</p>
 
+<h2>Usage</h2>
 
-<h1 class="class export">IONIC_DIRECTIVES <span class="type">let</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/directives.ts#L38-L102">ionic/config/directives.ts (line 38)</a>
-</p>
+
+
+<!-- end content block -->
+
+
+<!-- end body block -->
+
 

@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{ItemSliding | slugify}}"
@@ -12,6 +12,8 @@ docType: "class"
 ---
 
 
+
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-sliding.ts#L2'>
     View Source
@@ -20,6 +22,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item-sliding.ts#L2'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  ItemSliding
+
+ItemSliding
+
+
+
 
 
 
@@ -37,23 +46,43 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>Creates a list-item that can easily be swiped,
 deleted, reordered, edited, and more.</p>
 
 
-<h1 class="class export">ItemSliding <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-sliding.ts#L3-L43">ionic/components/item/item-sliding.ts (line 3)</a>
-</p>
 <h2>Component</h2>
-  <span>selector: ion-item-sliding</span>
+<h3>selector: <code>ion-item-sliding</code></h3>
+<h2>Usage</h2>
 
 
-<h2>Members</h2>
+<pre><code class="lang-html">&lt;ion-list&gt;
+  &lt;ion-item-sliding *ng-for=&quot;#item of items&quot;&gt;
+    &lt;ion-item (click)=&quot;itemTapped(item)&quot;&gt;
+      {{item.title}}
+    &lt;/ion-item&gt;
+    &lt;ion-item-options&gt;
+      &lt;button (click)=&quot;favorite(item)&quot;&gt;Favorite&lt;/button&gt;
+      &lt;button (click)=&quot;share(item)&quot;&gt;Share&lt;/button&gt;
+    &lt;/ion-item-options&gt;
+  &lt;/ion-item&gt;
+&lt;/ion-list&gt;
+</code></pre>
+
+
+
+
+
+
+
+<h2>Methods</h2>
 
 <div id="list"></div>
+
 <h3>
-  <code>list()</code>
+<code>list()</code>
 
 </h3>
 
@@ -69,8 +98,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="close"></div>
+
 <h3>
-  <code>close()</code>
+<code>close()</code>
 
 </h3>
 
@@ -83,5 +113,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

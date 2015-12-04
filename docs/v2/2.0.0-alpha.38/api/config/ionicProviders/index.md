@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{ionicProviders | slugify}}"
@@ -12,6 +12,8 @@ docType: "function"
 ---
 
 
+
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/bootstrap.ts#L20'>
     View Source
@@ -20,6 +22,9 @@ docType: "function"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/bootstrap.ts#L20'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "function"
 
 <h1 class="api-title">
 
-  ionicProviders
+
+ionicProviders
+
+
+
 
 
 
@@ -38,9 +47,16 @@ docType: "function"
 
 
 
+<h2>Description</h2>
 
-<h1 class="class export">ionicProviders <span class="type">function</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/bootstrap.ts#L21-L71">ionic/config/bootstrap.ts (line 21)</a>
-</p>
+
+<h2>Usage</h2>
+
+
+
+<!-- end content block -->
+
+
+<!-- end body block -->
+
 

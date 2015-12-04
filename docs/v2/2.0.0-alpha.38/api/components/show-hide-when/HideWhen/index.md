@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{HideWhen | slugify}}"
@@ -12,14 +12,19 @@ docType: "class"
 ---
 
 
+
+
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L79'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L85'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L79'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L85'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  HideWhen
+
+HideWhen
+
+
+
 
 
 
@@ -37,15 +46,28 @@ docType: "class"
 
 
 
-<p>TODO</p>
+
+<h2>Description</h2>
+
+<p>The <code>hide-when</code> attribute takes a value or expression, and hides the element it has been added to when
+the value or expression is true. Complements the <a href="../ShowWhen">show-when attribute</a>.</p>
 
 
-<h1 class="class export">HideWhen <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L80-L108">ionic/components/show-hide-when/show-hide-when.ts (line 80)</a>
-</p>
 <h2>Directive</h2>
-  <span>selector: [hide-when]</span>
+<h3>selector: <code>[hide-when]</code></h3>
+<h2>Usage</h2>
 
+
+<pre><code class="lang-html">&lt;div hide-when=&quot;true&quot;&gt;I am hidden!&lt;/div&gt;
+</code></pre>
+
+
+
+
+
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

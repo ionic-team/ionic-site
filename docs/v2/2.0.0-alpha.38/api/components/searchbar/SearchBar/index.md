@@ -1,15 +1,17 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{Searchbar | slugify}}"
 title: "Searchbar"
-header_sub_title: "Class in module "
+header_sub_title: "Class in module ionic"
 doc: "Searchbar"
 docType: "class"
 ---
+
+
 
 
 <div class="improve-docs">
@@ -20,6 +22,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/searchbar/searchbar.ts#L5'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Searchbar
+
+Searchbar
+
+
+
 
 
 
@@ -37,33 +46,103 @@ docType: "class"
 
 
 
-<p>The Search Bar service adds an input field which can be used to search or filter items.</p>
+
+<h2>Description</h2>
+
+<p>Manages the display of a search bar which can be used to search or filter items.</p>
 
 
-<h1 class="class export">Searchbar <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/searchbar/searchbar.ts#L6-L129">ionic/components/searchbar/searchbar.ts (line 6)</a>
-</p>
 <h2>Component</h2>
-  <span>selector: ion-searchbar</span>
+<h3>selector: <code>ion-searchbar</code></h3>
+<h2>Usage</h2>
 
 
-<h2>Members</h2>
-
-<div id="clearInput"></div>
-<h3>
-  <code>clearInput()</code>
-
-</h3>
+<pre><code class="lang-html">&lt;ion-searchbar [(ng-model)]=&quot;defaultSearch&quot;&gt;&lt;/ion-searchbar&gt;
+</code></pre>
 
 
 
 
 
 
+<h2>Attributes:</h2>
+<table class="table" style="margin:0;">
+<thead>
+<tr>
+<th>Attribute</th>
 
 
 
 
+
+
+
+
+
+
+
+
+
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>
+placeholder
+</td>
+
+
+
+<td>
+sets input placeholder to value passed in
+</td>
+</tr>
+
+<tr>
+<td>
+show-cancel
+</td>
+
+
+
+<td>
+shows the cancel button based on boolean value passed in
+</td>
+</tr>
+
+<tr>
+<td>
+cancel-text
+</td>
+
+
+
+<td>
+sets the cancel button text to the value passed in
+</td>
+</tr>
+
+<tr>
+<td>
+cancel-action
+</td>
+
+
+
+<td>
+the function that gets called by clicking the cancel button
+
+
+</td>
+</tr>
+
+</tbody>
+</table>
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{Keyboard | slugify}}"
@@ -12,6 +12,8 @@ docType: "class"
 ---
 
 
+
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/keyboard.ts#L4'>
     View Source
@@ -20,6 +22,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/util/keyboard.ts#L4'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Keyboard
+
+Keyboard
+
+
+
 
 
 
@@ -38,16 +47,21 @@ docType: "class"
 
 
 
+<h2>Description</h2>
 
-<h1 class="class export">Keyboard <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/keyboard.ts#L5-L125">ionic/util/keyboard.ts (line 5)</a>
-</p>
-<h2>Members</h2>
+
+<h2>Usage</h2>
+
+
+
+
+
+<h2>Methods</h2>
 
 <div id="isOpen"></div>
+
 <h3>
-  <code>isOpen()</code>
+<code>isOpen()</code>
 
 </h3>
 
@@ -63,8 +77,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/ke
 
 
 <div id="onClose"></div>
+
 <h3>
-  <code>onClose()</code>
+<code>onClose()</code>
 
 </h3>
 
@@ -80,8 +95,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/ke
 
 
 <div id="close"></div>
+
 <h3>
-  <code>close()</code>
+<code>close()</code>
 
 </h3>
 
@@ -97,8 +113,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/ke
 
 
 <div id="focusOutline"></div>
+
 <h3>
-  <code>focusOutline()</code>
+<code>focusOutline()</code>
 
 </h3>
 
@@ -111,5 +128,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/ke
 
 
 
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

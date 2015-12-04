@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{Events | slugify}}"
@@ -12,6 +12,8 @@ docType: "class"
 ---
 
 
+
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/events.ts#L0'>
     View Source
@@ -20,6 +22,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/util/events.ts#L0'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Events
+
+Events
+
+
+
 
 
 
@@ -37,19 +46,24 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>Events is a pub/sub style event system for sending and responding to application-level
 events across your app.</p>
 
+<h2>Usage</h2>
 
-<h1 class="class export">Events <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/util/events.ts#L1-L87">ionic/util/events.ts (line 1)</a>
-</p>
-<h2>Members</h2>
+
+
+
+
+<h2>Methods</h2>
 
 <div id="subscribe"></div>
+
 <h3>
-  <code>subscribe(topic, handler)</code>
+<code>subscribe(topic, handler)</code>
 
 </h3>
 
@@ -115,8 +129,9 @@ will trigger the provided handler.
 
 
 <div id="unsubscribe"></div>
+
 <h3>
-  <code>unsubscribe(topic, handler)</code>
+<code>unsubscribe(topic, handler)</code>
 
 </h3>
 
@@ -187,8 +202,9 @@ no longer receive events published to this topic.
 
 
 <div id="publish"></div>
+
 <h3>
-  <code>publish(topic, eventData)</code>
+<code>publish(topic, eventData)</code>
 
 </h3>
 
@@ -250,5 +266,9 @@ Publish an event to the given topic.
 
 
 
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

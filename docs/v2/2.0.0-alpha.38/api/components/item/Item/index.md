@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
 version: "2.0.0-alpha.38"
-versionHref: "/docs/v2"
+versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
 id: "{{Item | slugify}}"
@@ -12,6 +12,8 @@ docType: "class"
 ---
 
 
+
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/item/item.ts#L0'>
     View Source
@@ -20,6 +22,9 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item.ts#L0'>
     Improve this doc
   </a>
+
+  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
+
 </div>
 
 
@@ -27,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Item
+
+Item
+
+
+
 
 
 
@@ -36,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p>Creates a list-item that can easily be swiped, deleted, reordered, edited, and more.</p>
 <p>There are three common ways to use an item:</p>
@@ -51,12 +63,35 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 this component will automatically be added inside of an <code>&lt;ion-item&gt;</code>, giving it a single column.</p>
 
 
-<h1 class="class export">Item <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/item/item.ts#L1-L56">ionic/components/item/item.ts (line 1)</a>
-</p>
 <h2>Component</h2>
-  <span>selector: ion-item, [ion-item]</span>
+<h3>selector: <code>ion-item,[ion-item]</code></h3>
+<h2>Usage</h2>
 
+
+<pre><code class="lang-html">&lt;ion-list&gt;
+
+  // default item
+  &lt;ion-item&gt;
+    {{item.title}}
+  &lt;/ion-item&gt;
+
+  // multiple item-content containers
+  &lt;ion-item&gt;
+    &lt;ion-item-content&gt;First Column&lt;/ion-item-content&gt;
+    &lt;ion-item-content&gt;Second Column&lt;/ion-item-content&gt;
+    &lt;ion-item-content&gt;Third Column&lt;/ion-item-content&gt;
+  &lt;/ion-item&gt;
+
+&lt;/ion-list&gt;
+</code></pre>
+
+
+
+
+
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

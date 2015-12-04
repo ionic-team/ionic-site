@@ -52,8 +52,8 @@ Events
 <p>Events is a pub/sub style event system for sending and responding to application-level
 events across your app.</p>
 
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-ts">// first page (publish an event when a user is created)
 function createUser(user) {

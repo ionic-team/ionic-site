@@ -51,7 +51,6 @@ ViewController
 
 <p>You can access various features and information about the current view</p>
 
-<h2>Usage</h2>
 
 
 

@@ -53,7 +53,6 @@ Blur
 
 <h2>Directive</h2>
 <h3>selector: <code>[ion-blur]</code></h3>
-<h2>Usage</h2>
 
 
 

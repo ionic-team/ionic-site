@@ -55,7 +55,6 @@ check out the <a href="../../../../../resources/ionicons">Ionicons resource docs
 
 <h2>Directive</h2>
 <h3>selector: <code>icon</code></h3>
-<h2>Usage</h2>
 
 
 

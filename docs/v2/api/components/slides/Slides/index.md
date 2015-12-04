@@ -61,7 +61,6 @@ The iDangero.us
 
 <h2>Component</h2>
 <h3>selector: <code>ion-slides</code></h3>
-<h2>Usage</h2>
 
 
 

@@ -71,7 +71,6 @@ has been navigated away from.</p>
 
 <h2>Directive</h2>
 <h3>selector: <code>[id]</code></h3>
-<h2>Usage</h2>
 
 
 

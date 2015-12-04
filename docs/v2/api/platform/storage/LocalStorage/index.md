@@ -56,7 +56,6 @@ Given disk space constraints on a mobile device, local storage might be &quot;cl
 by the operating system (iOS).</p>
 <p>For guaranteed, long-term storage, use the SqlStorage engine which stores data in a file.</p>
 
-<h2>Usage</h2>
 
 
 

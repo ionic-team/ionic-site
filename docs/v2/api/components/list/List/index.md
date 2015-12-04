@@ -59,7 +59,6 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h2>Directive</h2>
 <h3>selector: <code>ion-list</code></h3>
-<h2>Usage</h2>
 
 
 

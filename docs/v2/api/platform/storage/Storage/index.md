@@ -56,7 +56,6 @@ data in a file in the app&#39;s sandbox. LocalStorage should ONLY be used
 for temporary data as it may be &quot;cleaned up&quot; by the operation system
 during low disk space situations.</p>
 
-<h2>Usage</h2>
 
 
 

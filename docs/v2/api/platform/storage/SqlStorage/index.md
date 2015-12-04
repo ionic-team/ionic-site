@@ -56,8 +56,8 @@ app storage, unlike Local Storage which is treated differently by the OS.</p>
 <p>For convenience, the engine supports key/value storage for simple get/set and blob
 storage. The full SQL engine is exposed underneath through the <code>query</code> method.</p>
 
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-js">let storage = new Storage(SqlStorage, options);
 storage.set(&#39;name&#39;, &#39;Max&#39;);

@@ -55,8 +55,8 @@ RadioButton
 
 <h2>Component</h2>
 <h3>selector: <code>ion-radio</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-radio value=&quot;isChecked&quot; checked=&quot;true&quot;&gt;
   Radio Label

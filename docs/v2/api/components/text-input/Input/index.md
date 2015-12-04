@@ -54,8 +54,8 @@ Input
 
 <h2>Component</h2>
 <h3>selector: <code>ion-input</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-input&gt;
   &lt;ion-label&gt;Username&lt;/ion-label&gt;

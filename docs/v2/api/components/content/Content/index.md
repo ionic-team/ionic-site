@@ -56,8 +56,8 @@ Content
 
 <h2>Component</h2>
 <h3>selector: <code>ion-content</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
   Add your content here!

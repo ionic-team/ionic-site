@@ -79,7 +79,6 @@ but this can be overriden using the <code>type</code> property:</p>
 
 <h2>Component</h2>
 <h3>selector: <code>ion-menu</code></h3>
-<h2>Usage</h2>
 
 
 

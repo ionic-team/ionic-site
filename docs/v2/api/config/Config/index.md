@@ -125,7 +125,6 @@ tabbarPlacement: &#39;top&#39;,
 tabSubPages: true,
 </code></pre>
 
-<h2>Usage</h2>
 
 
 

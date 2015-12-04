@@ -51,7 +51,6 @@ NavParams
 
 <p>TODO</p>
 
-<h2>Usage</h2>
 
 
 

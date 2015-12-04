@@ -96,7 +96,6 @@ performance overhead, so there is really no reason to not always use it.</p>
 you may see these tags if you inspect your markup, you don&#39;t need to include
 them in your templates.</p>
 
-<h2>Usage</h2>
 
 
 

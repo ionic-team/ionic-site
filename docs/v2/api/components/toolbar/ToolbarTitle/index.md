@@ -54,8 +54,8 @@ ToolbarTitle
 
 <h2>Component</h2>
 <h3>selector: <code>ion-title</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
    &lt;ion-title&gt;Tab 1&lt;/ion-title&gt;

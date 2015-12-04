@@ -53,7 +53,6 @@ Navbar
 
 <h2>Component</h2>
 <h3>selector: <code>ion-navbar</code></h3>
-<h2>Usage</h2>
 
 
 

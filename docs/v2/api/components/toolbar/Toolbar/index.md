@@ -55,8 +55,8 @@ Unlike an <code>ionNavbar</code>, <code>ionToolbar</code> can be used for a subh
 
 <h2>Component</h2>
 <h3>selector: <code>ion-toolbar</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-toolbar&gt;
   &lt;ion-title&gt;My Toolbar Title&lt;/ion-title&gt;

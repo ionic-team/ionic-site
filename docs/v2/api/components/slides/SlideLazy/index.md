@@ -53,7 +53,6 @@ SlideLazy
 
 <h2>Directive</h2>
 <h3>selector: <code>slide-lazy</code></h3>
-<h2>Usage</h2>
 
 
 

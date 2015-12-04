@@ -56,8 +56,8 @@ Switch
 
 <h2>Component</h2>
 <h3>selector: <code>ion-switch</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">// Create a single switch
  &lt;ion-switch checked=&quot;true&quot;&gt;

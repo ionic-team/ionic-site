@@ -51,7 +51,6 @@ App
 
 <p>App is an Ionic decorator that bootstraps an application. It can be passed a number of arguments, that act as global config variables for the app.</p>
 
-<h2>Usage</h2>
 
 
 

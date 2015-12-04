@@ -52,8 +52,8 @@ ActionSheet
 <p>The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
 There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.</p>
 
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-ts">openMenu() {
 
@@ -95,7 +95,7 @@ There are easy ways to cancel out of the action sheet, such as tapping the backd
 <div id="open"></div>
 
 <h3>
-<code>open(opts, opts.pageType, opts.enterAnimation, opts.leaveAnimation)</code>
+<code>open(opts, opts.enterAnimation, opts.leaveAnimation)</code>
 
 </h3>
 
@@ -127,23 +127,19 @@ public API, and most often you will only use ActionSheet.open()
       </td>
       <td>
         <p>An object containing optional settings.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        opts.pageType
-        
-        
-      </td>
-      <td>
-        
-  <code>String</code>
-      </td>
-      <td>
-        <p>The page type that determines how the page renders and animates.</p>
+<ul>
+<li><code>[Object]</code> <code>buttons</code> Which buttons to show.  Each button is an object with a <code>text</code> field.</li>
+<li><code>{string}</code> <code>titleText</code> The title to show on the action sheet.</li>
+<li><code>{string=}</code> <code>cancelText</code> the text for a &#39;cancel&#39; button on the action sheet.</li>
+<li><code>{string=}</code> <code>destructiveText</code> The text for a &#39;danger&#39; on the action sheet.</li>
+<li><code>{function=}</code> <code>cancel</code> Called if the cancel button is pressed, the backdrop is tapped or
+ the hardware back button is pressed.</li>
+<li><code>{function=}</code> <code>buttonClicked</code> Called when one of the non-destructive buttons is clicked,
+ with the index of the button that was clicked and the button object. Return true to close
+ the action sheet, or false to keep it opened.</li>
+<li><code>{function=}</code> <code>destructiveButtonClicked</code> Called when the destructive button is clicked.
+ Return true to close the action sheet, or false to keep it opened.</li>
+</ul>
 
         
       </td>

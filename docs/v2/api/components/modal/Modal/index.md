@@ -54,8 +54,8 @@ Usually used for making a choice or editing an item. A modal can be opened
 similar to how NavController#push works, where it is passed a Page component,
 along with optional Page params, and options for presenting the modal.</p>
 
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-ts">class MyApp {
 

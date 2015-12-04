@@ -62,8 +62,8 @@ and the TabBar.</p>
 
 <h2>Component</h2>
 <h3>selector: <code>ion-tab</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-tabs&gt;
      &lt;ion-tab tab-title=&quot;Home&quot; tab-icon=&quot;home&quot; [root]=&quot;tabOneRoot&quot;&gt;&lt;/ion-tab&gt;

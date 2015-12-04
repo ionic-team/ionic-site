@@ -118,7 +118,6 @@ class HelloWorld {
 <li><code>onPageDidUnload</code> - Runs after the page has been destroyed and its elements have been removed.</li>
 </ul>
 
-<h2>Usage</h2>
 
 
 

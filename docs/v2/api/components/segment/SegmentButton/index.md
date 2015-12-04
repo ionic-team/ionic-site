@@ -53,7 +53,6 @@ SegmentButton
 
 <h2>Directive</h2>
 <h3>selector: <code>ion-segment-button</code></h3>
-<h2>Usage</h2>
 
 
 

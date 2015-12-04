@@ -55,8 +55,8 @@ Checkbox
 
 <h2>Component</h2>
 <h3>selector: <code>ion-checkbox</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-checkbox checked=&quot;true&quot; value=&quot;isChecked&quot; ng-control=&quot;htmlCtrl&quot;&gt;
   HTML5

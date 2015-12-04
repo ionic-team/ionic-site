@@ -66,7 +66,6 @@ Animation
  13) Call onFinish()
  14) Resolve play()&#39;s promise</p>
 
-<h2>Usage</h2>
 
 
 

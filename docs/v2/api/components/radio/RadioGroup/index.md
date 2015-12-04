@@ -57,8 +57,8 @@ RadioGroup
 
 <h2>Directive</h2>
 <h3>selector: <code>[radio-group]</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-list radio-group ng-control=&quot;clientside&quot;&gt;
 

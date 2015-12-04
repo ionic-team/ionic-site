@@ -55,8 +55,8 @@ deleted, reordered, edited, and more.</p>
 
 <h2>Component</h2>
 <h3>selector: <code>ion-item-sliding</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item-sliding *ng-for=&quot;#item of items&quot;&gt;

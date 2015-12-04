@@ -54,7 +54,6 @@ NavPop
 
 <h2>Directive</h2>
 <h3>selector: <code>[nav-pop]</code></h3>
-<h2>Usage</h2>
 
 
 

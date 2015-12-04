@@ -52,7 +52,6 @@ IonicApp
 <p>Component registry service.  For more information on registering
 components see the <a href="../id/IdRef/">IdRef API reference</a>.</p>
 
-<h2>Usage</h2>
 
 
 

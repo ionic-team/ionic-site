@@ -59,8 +59,8 @@ the screen, while on Android it is at the top.</p>
 
 <h2>Component</h2>
 <h3>selector: <code>ion-tabs</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-tabs&gt;
   &lt;ion-tab [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;

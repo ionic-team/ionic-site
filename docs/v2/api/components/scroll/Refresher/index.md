@@ -56,8 +56,8 @@ Refresher
 
 <h2>Component</h2>
 <h3>selector: <code>ion-refresher</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-ts">&lt;ion-refresher (starting)=&quot;doStarting()&quot; (refresh)=&quot;doRefresh($event, refresher)&quot; (pulling)=&quot;doPulling($event, amt)&quot;&gt;
 

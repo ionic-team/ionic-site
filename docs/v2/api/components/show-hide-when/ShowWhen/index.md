@@ -55,8 +55,8 @@ the value or expression is true. Complements the <a href="../HideWhen">hide-when
 
 <h2>Directive</h2>
 <h3>selector: <code>[show-when]</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;div show-when=&quot;false&quot;&gt;I am hidden!&lt;/div&gt;
 </code></pre>

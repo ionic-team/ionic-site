@@ -65,29 +65,29 @@ The iDangero.us
 
 <pre><code class="lang-ts">@Page({
  template: `
-        &lt;ion-slides pager (slide-changed)=&quot;onSlideChanged($event)&quot; loop=&quot;true&quot; autoplay=&quot;true&quot;&gt;
-         &lt;ion-slide&gt;
-           &lt;h3&gt;Thank you for choosing the Awesome App!&lt;/h3&gt;
-           &lt;p&gt;
-             The number one app for everything awesome.
-           &lt;/p&gt;
-         &lt;/ion-slide&gt;
-         &lt;ion-slide&gt;
-           &lt;h3&gt;Using Awesome&lt;/h3&gt;
-            &lt;div id=&quot;list&quot;&gt;
-              &lt;h5&gt;Just three steps:&lt;/h5&gt;
-              &lt;ol&gt;
-                &lt;li&gt;Be awesome&lt;/li&gt;
-                &lt;li&gt;Stay awesome&lt;/li&gt;
-                &lt;li&gt;There is no step 3&lt;/li&gt;
-              &lt;/ol&gt;
-            &lt;/div&gt;
-         &lt;/ion-slide&gt;
-         &lt;ion-slide&gt;
-           &lt;h3&gt;Any questions?&lt;/h3&gt;
-         &lt;/ion-slide&gt;
-       &lt;/ion-slides&gt;
-       `
+    &lt;ion-slides pager (slide-changed)=&quot;onSlideChanged($event)&quot; loop=&quot;true&quot; autoplay=&quot;true&quot;&gt;
+     &lt;ion-slide&gt;
+       &lt;h3&gt;Thank you for choosing the Awesome App!&lt;/h3&gt;
+       &lt;p&gt;
+         The number one app for everything awesome.
+       &lt;/p&gt;
+     &lt;/ion-slide&gt;
+     &lt;ion-slide&gt;
+       &lt;h3&gt;Using Awesome&lt;/h3&gt;
+        &lt;div id=&quot;list&quot;&gt;
+          &lt;h5&gt;Just three steps:&lt;/h5&gt;
+          &lt;ol&gt;
+            &lt;li&gt;Be awesome&lt;/li&gt;
+            &lt;li&gt;Stay awesome&lt;/li&gt;
+            &lt;li&gt;There is no step 3&lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/div&gt;
+     &lt;/ion-slide&gt;
+     &lt;ion-slide&gt;
+       &lt;h3&gt;Any questions?&lt;/h3&gt;
+     &lt;/ion-slide&gt;
+   &lt;/ion-slides&gt;
+   `
 })
 </code></pre>
 
@@ -101,6 +101,10 @@ The iDangero.us
 <thead>
 <tr>
 <th>Attribute</th>
+
+
+
+
 
 
 
@@ -138,7 +142,7 @@ autoplay
 
 
 <td>
-Any
+Boolean
 </td>
 
 
@@ -154,7 +158,7 @@ loop
 
 
 <td>
-Any
+Boolean
 </td>
 
 
@@ -170,12 +174,28 @@ bounce
 
 
 <td>
-Any
+Boolean
 </td>
 
 
 <td>
 whether the slides should bounce
+</td>
+</tr>
+
+<tr>
+<td>
+index
+</td>
+
+
+<td>
+Number
+</td>
+
+
+<td>
+The slide index to start on
 </td>
 </tr>
 

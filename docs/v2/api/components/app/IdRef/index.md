@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.39"
+version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -10,6 +10,7 @@ header_sub_title: "Class in module "
 doc: "IdRef"
 docType: "class"
 ---
+
 
 
 
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  IdRef
+
+IdRef
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p>IdRef is an easy way to identify unique components in an app and access them
 no matter where in the UI heirarchy you are. For example, this makes toggling
@@ -61,24 +69,20 @@ guarantee that the registered component has not been destroyed if its Page
 has been navigated away from.</p>
 
 
-
-
-
-<h1 class="class export">IdRef <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L3-L55">ionic/components/app/id.ts (line 3)</a>
-</p>
 <h2>Directive</h2>
-  <span>selector: [id]</span>
+<h3>selector: <code>[id]</code></h3>
+<h2>Usage</h2>
 
-  <span>inputs: id</span>
 
 
-<h2>Members</h2>
+
+
+<h2>Methods</h2>
 
 <div id="app"></div>
+
 <h3>
-  <code>app()</code>
+<code>app()</code>
 
 </h3>
 
@@ -94,8 +98,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="elementRef"></div>
+
 <h3>
-  <code>elementRef()</code>
+<code>elementRef()</code>
 
 </h3>
 
@@ -111,8 +116,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="appViewManager"></div>
+
 <h3>
-  <code>appViewManager()</code>
+<code>appViewManager()</code>
 
 </h3>
 
@@ -125,7 +131,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

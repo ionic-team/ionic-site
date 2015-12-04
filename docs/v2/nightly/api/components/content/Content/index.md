@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L8'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Content
+
+Content
+
+
+
 
 
 
@@ -41,12 +46,17 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>The Content component provides an easy to use content area that can be configured to use Ionic&#39;s custom Scroll View, or the built in overflow scrolling of the browser.</p>
 <p>While we recommend using the custom Scroll features in Ionic in most cases, sometimes (for performance reasons) only the browser&#39;s native overflow scrolling will suffice, and so we&#39;ve made it easy to toggle between the Ionic scroll implementation and overflow scrolling.</p>
 <p>You can implement pull-to-refresh with the <a href="../../scroll/Refresher">Refresher</a> component.</p>
 
 
-
+<h2>Component</h2>
+<h3>selector: <code>ion-content</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-html">&lt;ion-content&gt;
@@ -57,19 +67,15 @@ docType: "class"
 
 
 
-<h1 class="class export">Content <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L9-L227">ionic/components/content/content.ts (line 9)</a>
-</p>
-<h2>Component</h2>
-  <span>selector: ion-content</span>
 
 
-<h2>Members</h2>
+
+<h2>Methods</h2>
 
 <div id="addScrollEventListener"></div>
+
 <h3>
-  <code>addScrollEventListener(handler)</code>
+<code>addScrollEventListener(handler)</code>
 
 </h3>
 
@@ -119,8 +125,9 @@ Adds the specified scroll handler to the content' scroll element.
 
 
 <div id="onScrollEnd"></div>
+
 <h3>
-  <code>onScrollEnd()</code>
+<code>onScrollEnd()</code>
 
 </h3>
 
@@ -136,8 +143,9 @@ Adds the specified scroll handler to the content' scroll element.
 
 
 <div id="addTouchMoveListener"></div>
+
 <h3>
-  <code>addTouchMoveListener(handler)</code>
+<code>addTouchMoveListener(handler)</code>
 
 </h3>
 
@@ -187,8 +195,9 @@ Adds the specified touchmove handler to the content's scroll element.
 
 
 <div id="scrollTo"></div>
+
 <h3>
-  <code>scrollTo(x, y, duration, tolerance)</code>
+<code>scrollTo(x, y, duration, tolerance)</code>
 
 </h3>
 
@@ -289,8 +298,9 @@ Scroll to the specified position.
 
 
 <div id="scrollToTop"></div>
+
 <h3>
-  <code>scrollToTop()</code>
+<code>scrollToTop()</code>
 
 </h3>
 
@@ -303,7 +313,9 @@ Scroll to the specified position.
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

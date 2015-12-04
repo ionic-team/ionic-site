@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.39"
+version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -10,6 +10,7 @@ header_sub_title: "Class in module "
 doc: "Toolbar"
 docType: "class"
 ---
+
 
 
 
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Toolbar
+
+Toolbar
+
+
+
 
 
 
@@ -41,11 +46,16 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>The toolbar is generic bar that sits above content.
 Unlike an <code>ionNavbar</code>, <code>ionToolbar</code> can be used for a subheader as well.</p>
 
 
-
+<h2>Component</h2>
+<h3>selector: <code>ion-toolbar</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-html">&lt;ion-toolbar&gt;
@@ -58,14 +68,10 @@ Unlike an <code>ionNavbar</code>, <code>ionToolbar</code> can be used for a subh
 
 
 
-<h1 class="class export">Toolbar <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L61-L99">ionic/components/toolbar/toolbar.ts (line 61)</a>
-</p>
-<h2>Component</h2>
-  <span>selector: ion-toolbar</span>
+
+<!-- end content block -->
 
 
-
+<!-- end body block -->
 
 

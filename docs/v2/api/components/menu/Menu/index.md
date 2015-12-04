@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.39"
+version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -10,6 +10,7 @@ header_sub_title: "Class in module "
 doc: "Menu"
 docType: "class"
 ---
+
 
 
 
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Menu
+
+Menu
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p><em>For basic Menu usage, see the <a href="../../../../components/#menus">Menu section</a>
 of the Component docs.</em></p>
@@ -69,26 +77,20 @@ but this can be overriden using the <code>type</code> property:</p>
 </code></pre>
 
 
-
-
-
-<h1 class="class export">Menu <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L8-L359">ionic/components/menu/menu.ts (line 8)</a>
-</p>
 <h2>Component</h2>
-  <span>selector: ion-menu</span>
-
-  <span>inputs: content, dragThreshold, id, side, type</span>
-
-  <span>outputs: opening</span>
+<h3>selector: <code>ion-menu</code></h3>
+<h2>Usage</h2>
 
 
-<h2>Members</h2>
+
+
+
+<h2>Methods</h2>
 
 <div id="setOpen"></div>
+
 <h3>
-  <code>setOpen(isOpen)</code>
+<code>setOpen(isOpen)</code>
 
 </h3>
 
@@ -138,8 +140,9 @@ Sets the state of the Menu to open or not.
 
 
 <div id="open"></div>
+
 <h3>
-  <code>open()</code>
+<code>open()</code>
 
 </h3>
 
@@ -157,8 +160,9 @@ TODO
 
 
 <div id="close"></div>
+
 <h3>
-  <code>close()</code>
+<code>close()</code>
 
 </h3>
 
@@ -176,8 +180,9 @@ TODO
 
 
 <div id="toggle"></div>
+
 <h3>
-  <code>toggle()</code>
+<code>toggle()</code>
 
 </h3>
 
@@ -195,8 +200,9 @@ TODO
 
 
 <div id="enable"></div>
+
 <h3>
-  <code>enable(shouldEnable)</code>
+<code>enable(shouldEnable)</code>
 
 </h3>
 
@@ -244,7 +250,9 @@ left menus, but only one of them should be able to be dragged open.
   <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

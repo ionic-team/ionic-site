@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L70'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  ActionSheet
+
+ActionSheet
+
+
+
 
 
 
@@ -41,11 +46,13 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
 There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.</p>
 
-
-
+<h2>Usage</h2>
 
 
 <pre><code class="lang-ts">openMenu() {
@@ -80,15 +87,15 @@ There are easy ways to cancel out of the action sheet, such as tapping the backd
 
 
 
-<h1 class="class export">ActionSheet <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L71-L153">ionic/components/action-sheet/action-sheet.ts (line 71)</a>
-</p>
-<h2>Members</h2>
+
+
+
+<h2>Methods</h2>
 
 <div id="open"></div>
+
 <h3>
-  <code>open(opts, opts.pageType, opts.enterAnimation, opts.leaveAnimation)</code>
+<code>open(opts, opts.pageType, opts.enterAnimation, opts.leaveAnimation)</code>
 
 </h3>
 
@@ -191,8 +198,9 @@ public API, and most often you will only use ActionSheet.open()
 
 
 <div id="get"></div>
+
 <h3>
-  <code>get(handle)</code>
+<code>get(handle)</code>
 
 </h3>
 
@@ -240,7 +248,9 @@ Retrieves an actionSheet instance.
   <code>ActionSheet</code> An actionSheet instance.
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

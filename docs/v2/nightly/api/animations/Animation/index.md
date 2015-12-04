@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L1'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Animation
+
+Animation
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <h2 id="animation-steps-process">Animation Steps/Process</h2>
 <p>  1) Construct animation (doesn&#39;t start)
@@ -58,19 +66,18 @@ docType: "class"
  13) Call onFinish()
  14) Resolve play()&#39;s promise</p>
 
+<h2>Usage</h2>
 
 
 
 
-<h1 class="class export">Animation <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animations/animation.ts#L2-L556">ionic/animations/animation.ts (line 2)</a>
-</p>
-<h2>Members</h2>
+
+<h2>Methods</h2>
 
 <div id="reset"></div>
+
 <h3>
-  <code>reset()</code>
+<code>reset()</code>
 
 </h3>
 
@@ -86,8 +93,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="elements"></div>
+
 <h3>
-  <code>elements()</code>
+<code>elements()</code>
 
 </h3>
 
@@ -103,8 +111,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="addElement"></div>
+
 <h3>
-  <code>addElement()</code>
+<code>addElement()</code>
 
 </h3>
 
@@ -120,8 +129,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="parent"></div>
+
 <h3>
-  <code>parent()</code>
+<code>parent()</code>
 
 </h3>
 
@@ -137,8 +147,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="add"></div>
+
 <h3>
-  <code>add()</code>
+<code>add()</code>
 
 </h3>
 
@@ -154,8 +165,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="duration"></div>
+
 <h3>
-  <code>duration()</code>
+<code>duration()</code>
 
 </h3>
 
@@ -171,8 +183,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="clearDuration"></div>
+
 <h3>
-  <code>clearDuration()</code>
+<code>clearDuration()</code>
 
 </h3>
 
@@ -188,8 +201,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="easing"></div>
+
 <h3>
-  <code>easing()</code>
+<code>easing()</code>
 
 </h3>
 
@@ -205,8 +219,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="playbackRate"></div>
+
 <h3>
-  <code>playbackRate()</code>
+<code>playbackRate()</code>
 
 </h3>
 
@@ -222,8 +237,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="reverse"></div>
+
 <h3>
-  <code>reverse()</code>
+<code>reverse()</code>
 
 </h3>
 
@@ -239,8 +255,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="forward"></div>
+
 <h3>
-  <code>forward()</code>
+<code>forward()</code>
 
 </h3>
 
@@ -256,8 +273,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="from"></div>
+
 <h3>
-  <code>from()</code>
+<code>from()</code>
 
 </h3>
 
@@ -273,8 +291,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="to"></div>
+
 <h3>
-  <code>to()</code>
+<code>to()</code>
 
 </h3>
 
@@ -290,8 +309,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="fromTo"></div>
+
 <h3>
-  <code>fromTo()</code>
+<code>fromTo()</code>
 
 </h3>
 
@@ -307,8 +327,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="fadeIn"></div>
+
 <h3>
-  <code>fadeIn()</code>
+<code>fadeIn()</code>
 
 </h3>
 
@@ -324,8 +345,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="fadeOut"></div>
+
 <h3>
-  <code>fadeOut()</code>
+<code>fadeOut()</code>
 
 </h3>
 
@@ -341,8 +363,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="before"></div>
+
 <h3>
-  <code>before()</code>
+<code>before()</code>
 
 </h3>
 
@@ -358,8 +381,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="after"></div>
+
 <h3>
-  <code>after()</code>
+<code>after()</code>
 
 </h3>
 
@@ -375,8 +399,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="play"></div>
+
 <h3>
-  <code>play()</code>
+<code>play()</code>
 
 </h3>
 
@@ -392,8 +417,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="stage"></div>
+
 <h3>
-  <code>stage()</code>
+<code>stage()</code>
 
 </h3>
 
@@ -409,8 +435,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="pause"></div>
+
 <h3>
-  <code>pause()</code>
+<code>pause()</code>
 
 </h3>
 
@@ -426,8 +453,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="progressStart"></div>
+
 <h3>
-  <code>progressStart()</code>
+<code>progressStart()</code>
 
 </h3>
 
@@ -443,8 +471,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="progress"></div>
+
 <h3>
-  <code>progress()</code>
+<code>progress()</code>
 
 </h3>
 
@@ -460,8 +489,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/animati
 
 
 <div id="getCurrentTime"></div>
+
 <h3>
-  <code>getCurrentTime()</code>
+<code>getCurrentTime()</code>
 
 </h3>
 
@@ -480,8 +510,9 @@ subAnimationInstance.getCurrentTime()
 
 
 <div id="progressEnd"></div>
+
 <h3>
-  <code>progressEnd()</code>
+<code>progressEnd()</code>
 
 </h3>
 
@@ -497,8 +528,9 @@ subAnimationInstance.getCurrentTime()
 
 
 <div id="onReady"></div>
+
 <h3>
-  <code>onReady()</code>
+<code>onReady()</code>
 
 </h3>
 
@@ -514,8 +546,9 @@ subAnimationInstance.getCurrentTime()
 
 
 <div id="onPlay"></div>
+
 <h3>
-  <code>onPlay()</code>
+<code>onPlay()</code>
 
 </h3>
 
@@ -531,8 +564,9 @@ subAnimationInstance.getCurrentTime()
 
 
 <div id="onFinish"></div>
+
 <h3>
-  <code>onFinish()</code>
+<code>onFinish()</code>
 
 </h3>
 
@@ -548,8 +582,9 @@ subAnimationInstance.getCurrentTime()
 
 
 <div id="clone"></div>
+
 <h3>
-  <code>clone()</code>
+<code>clone()</code>
 
 </h3>
 
@@ -565,8 +600,9 @@ subAnimationInstance.getCurrentTime()
 
 
 <div id="dispose"></div>
+
 <h3>
-  <code>dispose()</code>
+<code>dispose()</code>
 
 </h3>
 
@@ -579,7 +615,9 @@ subAnimationInstance.getCurrentTime()
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

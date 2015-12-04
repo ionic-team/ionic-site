@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L51'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  ShowWhen
+
+ShowWhen
+
+
+
 
 
 
@@ -41,11 +46,16 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>The <code>show-when</code> attribute takes a value or expression, and only shows the element it has been added to when
 the value or expression is true. Complements the <a href="../HideWhen">hide-when attribute</a>.</p>
 
 
-
+<h2>Directive</h2>
+<h3>selector: <code>[show-when]</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-html">&lt;div show-when=&quot;false&quot;&gt;I am hidden!&lt;/div&gt;
@@ -54,14 +64,10 @@ the value or expression is true. Complements the <a href="../HideWhen">hide-when
 
 
 
-<h1 class="class export">ShowWhen <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L52-L86">ionic/components/show-hide-when/show-hide-when.ts (line 52)</a>
-</p>
-<h2>Directive</h2>
-  <span>selector: [show-when]</span>
+
+<!-- end content block -->
 
 
-
+<!-- end body block -->
 
 

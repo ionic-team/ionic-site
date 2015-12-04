@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.39"
+version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
@@ -10,6 +10,7 @@ header_sub_title: "Class in module "
 doc: "IonicApp"
 docType: "class"
 ---
+
 
 
 
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  IonicApp
+
+IonicApp
+
+
+
 
 
 
@@ -41,22 +46,24 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>Component registry service.  For more information on registering
 components see the <a href="../id/IdRef/">IdRef API reference</a>.</p>
 
+<h2>Usage</h2>
 
 
 
 
-<h1 class="class export">IonicApp <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L6-L115">ionic/components/app/app.ts (line 6)</a>
-</p>
-<h2>Members</h2>
+
+<h2>Methods</h2>
 
 <div id="setTitle"></div>
+
 <h3>
-  <code>setTitle(val)</code>
+<code>setTitle(val)</code>
 
 </h3>
 
@@ -103,8 +110,9 @@ Sets the document title.
 
 
 <div id="setEnabled"></div>
+
 <h3>
-  <code>setEnabled(isEnabled, fallback)</code>
+<code>setEnabled(isEnabled, fallback)</code>
 
 </h3>
 
@@ -173,8 +181,9 @@ something goes wrong during a transition and the app wasn&#39;t re-enabled corre
 
 
 <div id="isEnabled"></div>
+
 <h3>
-  <code>isEnabled()</code>
+<code>isEnabled()</code>
 
 </h3>
 
@@ -192,8 +201,9 @@ Boolean if the app is actively enabled or not.
 
 
 <div id="register"></div>
+
 <h3>
-  <code>register(id, component)</code>
+<code>register(id, component)</code>
 
 </h3>
 
@@ -257,8 +267,9 @@ Register a known component with a key, for easy lookups later.
 
 
 <div id="unregister"></div>
+
 <h3>
-  <code>unregister(id)</code>
+<code>unregister(id)</code>
 
 </h3>
 
@@ -305,8 +316,9 @@ Unregister a known component with a key.
 
 
 <div id="getRegisteredComponent"></div>
+
 <h3>
-  <code>getRegisteredComponent(cls)</code>
+<code>getRegisteredComponent(cls)</code>
 
 </h3>
 
@@ -358,8 +370,9 @@ Get a registered component with the given type (returns the first)
 
 
 <div id="getComponent"></div>
+
 <h3>
-  <code>getComponent(key)</code>
+<code>getComponent(key)</code>
 
 </h3>
 
@@ -406,7 +419,9 @@ Get the component for the given key.
   <code>TODO</code> TODO
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

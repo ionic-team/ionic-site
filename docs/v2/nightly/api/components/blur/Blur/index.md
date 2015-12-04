@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/blur/blur.ts#L0'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Blur
+
+Blur
+
+
+
 
 
 
@@ -42,23 +47,24 @@ docType: "class"
 
 
 
+<h2>Description</h2>
 
 
 
-
-<h1 class="class export">Blur <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/blur/blur.ts#L1-L10">ionic/components/blur/blur.ts (line 1)</a>
-</p>
 <h2>Directive</h2>
-  <span>selector: [ion-blur]</span>
+<h3>selector: <code>[ion-blur]</code></h3>
+<h2>Usage</h2>
 
 
-<h2>Members</h2>
+
+
+
+<h2>Methods</h2>
 
 <div id="elementRef"></div>
+
 <h3>
-  <code>elementRef()</code>
+<code>elementRef()</code>
 
 </h3>
 
@@ -74,8 +80,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="renderer"></div>
+
 <h3>
-  <code>renderer()</code>
+<code>renderer()</code>
 
 </h3>
 
@@ -88,7 +95,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

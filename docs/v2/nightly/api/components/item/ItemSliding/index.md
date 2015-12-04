@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-sliding.ts#L2'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  ItemSliding
+
+ItemSliding
+
+
+
 
 
 
@@ -41,11 +46,16 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>Creates a list-item that can easily be swiped,
 deleted, reordered, edited, and more.</p>
 
 
-
+<h2>Component</h2>
+<h3>selector: <code>ion-item-sliding</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-html">&lt;ion-list&gt;
@@ -64,19 +74,15 @@ deleted, reordered, edited, and more.</p>
 
 
 
-<h1 class="class export">ItemSliding <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-sliding.ts#L3-L43">ionic/components/item/item-sliding.ts (line 3)</a>
-</p>
-<h2>Component</h2>
-  <span>selector: ion-item-sliding</span>
 
 
-<h2>Members</h2>
+
+<h2>Methods</h2>
 
 <div id="list"></div>
+
 <h3>
-  <code>list()</code>
+<code>list()</code>
 
 </h3>
 
@@ -92,8 +98,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="close"></div>
+
 <h3>
-  <code>close()</code>
+<code>close()</code>
 
 </h3>
 
@@ -106,7 +113,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

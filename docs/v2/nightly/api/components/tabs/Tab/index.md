@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L7'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Tab
+
+Tab
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "class"
 
 
 
+
+
+<h2>Description</h2>
 
 <p><em>For basic Tabs usage, see the <a href="../../../../components/#tabs">Tabs section</a>
 of the Component docs.</em></p>
@@ -50,54 +58,29 @@ to pages in and manipulate the navigation stack of a particular tab.</p>
 take a look at the <a href="../NavController/">NavController API reference</a>.</p>
 <p>See the <a href="../Tabs/">Tabs API reference</a> for more details on configuring Tabs
 and the TabBar.</p>
-<p>Like Nav, you must set a root page to be loaded initially for each Tab with
-the &#39;root&#39; property:</p>
-<pre><code>import {GettingStartedPage} from &#39;getting-started&#39;;
-@App({
-  template: `&lt;ion-tabs&gt;
-               &lt;ion-tab [root]=&quot;tabOneRoot&quot;&gt;&lt;/ion-tab&gt;
-               &lt;ion-tab [root]=&quot;tabTwoRoot&quot;&gt;&lt;/ion-tab&gt;
-             &lt;ion-tabs&gt;`
-})
-class MyApp {
-  constructor(){
-    this.tabOneRoot = GettingStartedPage;
-    this.tabTwoRoot = GettingStartedPage;
-  }
-}
-</code></pre>
-<p><h3 id="tab_properties">Tab Properties</h3>
-The Tabs component automatically creates the TabBar from the properties you
-set on each Tab.</p>
-<p>To change the title and icon, use the <code>tab-title</code> and <code>tab-icon</code>
-inputs:</p>
+
+
+<h2>Component</h2>
+<h3>selector: <code>ion-tab</code></h3>
+<h2>Usage</h2>
+
+
 <pre><code class="lang-html">&lt;ion-tabs&gt;
      &lt;ion-tab tab-title=&quot;Home&quot; tab-icon=&quot;home&quot; [root]=&quot;tabOneRoot&quot;&gt;&lt;/ion-tab&gt;
      &lt;ion-tab tab-title=&quot;Login&quot; tab-icon=&quot;star&quot; [root]=&quot;tabTwoRoot&quot;&gt;&lt;/ion-tab&gt;
-&lt;ion-tabs&gt;
+&lt;/ion-tabs&gt;
 </code></pre>
 
 
 
 
 
-<h1 class="class export">Tab <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L8-L174">ionic/components/tabs/tab.ts (line 8)</a>
-</p>
-<h2>Component</h2>
-  <span>selector: ion-tab</span>
 
-  <span>inputs: root, tabTitle, tabIcon</span>
-
-
-<h2>Members</h2>
-
-<div id="setSelected"></div>
-<h3>
-  <code>setSelected()</code>
-
-</h3>
+<h2>Attributes:</h2>
+<table class="table" style="margin:0;">
+<thead>
+<tr>
+<th>Attribute</th>
 
 
 
@@ -109,13 +92,88 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
+
+
+
+
+
+<th>Type</th>
+
+
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>
+root
+</td>
+
+
+<td>
+any
+</td>
+
+
+<td>
+set the root page for this tab
+</td>
+</tr>
+
+<tr>
+<td>
+tab-title
+</td>
+
+
+<td>
+any
+</td>
+
+
+<td>
+set the title of this tab
+</td>
+</tr>
+
+<tr>
+<td>
+tab-icon
+</td>
+
+
+<td>
+any
+</td>
+
+
+<td>
+set the icon for this tab
+</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h2>Methods</h2>
 
 <div id="index"></div>
+
 <h3>
-  <code>index()</code>
+<code>index()</code>
 
 </h3>
 
+```ts
+export class MyClass{
+ constructor(tab: Tab){
+   this.tab = tab;
+   console.log(this.tab.index);
+ }
+}
+```
 
 
 
@@ -123,26 +181,13 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
+* Returns: 
+  <code>Number</code> Returns the index of this page within its NavController.
 
 
+<!-- end content block -->
 
 
-<div id="onDestroy"></div>
-<h3>
-  <code>onDestroy()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- end body block -->
 
 

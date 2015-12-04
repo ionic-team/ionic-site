@@ -13,6 +13,7 @@ docType: "function"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L114'>
     View Source
@@ -31,7 +32,11 @@ docType: "function"
 
 <h1 class="api-title">
 
-  App
+
+App
+
+
+
 
 
 
@@ -41,16 +46,18 @@ docType: "function"
 
 
 
+
+<h2>Description</h2>
+
 <p>App is an Ionic decorator that bootstraps an application. It can be passed a number of arguments, that act as global config variables for the app.</p>
 
+<h2>Usage</h2>
 
 
 
+<!-- end content block -->
 
-<h1 class="class export">App <span class="type">function</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L115-L155">ionic/config/decorators.ts (line 115)</a>
-</p>
 
+<!-- end body block -->
 
 

@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L60'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Navbar
+
+Navbar
+
+
+
 
 
 
@@ -42,20 +47,19 @@ docType: "class"
 
 
 
+<h2>Description</h2>
 
 
 
-
-<h1 class="class export">Navbar <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L61-L189">ionic/components/navbar/navbar.ts (line 61)</a>
-</p>
 <h2>Component</h2>
-  <span>selector: ion-navbar</span>
-
-  <span>inputs: hideBackButton, navbarStyle</span>
-
+<h3>selector: <code>ion-navbar</code></h3>
+<h2>Usage</h2>
 
 
+
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

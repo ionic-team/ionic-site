@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L54'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  Attr
+
+Attr
+
+
+
 
 
 
@@ -42,25 +47,32 @@ docType: "class"
 
 
 
+<h2>Description</h2>
+
+<p>Attr allows you to dynamically add or remove an attribute based on the value of an expression or variable.</p>
 
 
-
-
-<h1 class="class export">Attr <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L55-L71">ionic/components/app/id.ts (line 55)</a>
-</p>
 <h2>Directive</h2>
-  <span>selector: [attr]</span>
+<h3>selector: <code>[attr]</code></h3>
+<h2>Usage</h2>
 
-  <span>inputs: attr</span>
+
+<pre><code class="lang-html">// toggle the no-lines attributes based on whether isAndroid is true or false
+&lt;ion-list [attr.no-lines]=&quot;isAndroid ? &#39;&#39; : null&quot;&gt;
+</code></pre>
 
 
-<h2>Members</h2>
+
+
+
+
+
+<h2>Methods</h2>
 
 <div id="renderer"></div>
+
 <h3>
-  <code>renderer()</code>
+<code>renderer()</code>
 
 </h3>
 
@@ -76,8 +88,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="elementRef"></div>
+
 <h3>
-  <code>elementRef()</code>
+<code>elementRef()</code>
 
 </h3>
 
@@ -90,7 +103,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

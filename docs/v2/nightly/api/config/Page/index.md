@@ -13,6 +13,7 @@ docType: "function"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L5'>
     View Source
@@ -31,7 +32,11 @@ docType: "function"
 
 <h1 class="api-title">
 
-  Page
+
+Page
+
+
+
 
 
 
@@ -40,6 +45,9 @@ docType: "function"
 
 
 
+
+
+<h2>Description</h2>
 
 <p>_For more information on how pages are created, see the <a href="../../components/nav/NavController/#creating_pages">NavController API
 reference</a>._</p>
@@ -88,14 +96,13 @@ performance overhead, so there is really no reason to not always use it.</p>
 you may see these tags if you inspect your markup, you don&#39;t need to include
 them in your templates.</p>
 
+<h2>Usage</h2>
 
 
 
+<!-- end content block -->
 
-<h1 class="class export">Page <span class="type">function</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L6-L79">ionic/config/decorators.ts (line 6)</a>
-</p>
 
+<!-- end body block -->
 
 

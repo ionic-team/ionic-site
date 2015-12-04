@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L4'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  RadioGroup
+
+RadioGroup
+
+
+
 
 
 
@@ -41,13 +46,18 @@ docType: "class"
 
 
 
+
+<h2>Description</h2>
+
 <p>A radio group is a group of radio components.</p>
 <p>Selecting a radio button in the group unselects all others in the group.</p>
 <p>New radios can be registered dynamically.</p>
 <p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 
 
-
+<h2>Directive</h2>
+<h3>selector: <code>[radio-group]</code></h3>
+<h2>Usage</h2>
 
 
 <pre><code class="lang-html">&lt;ion-list radio-group ng-control=&quot;clientside&quot;&gt;
@@ -78,19 +88,15 @@ docType: "class"
 
 
 
-<h1 class="class export">RadioGroup <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L5-L149">ionic/components/radio/radio.ts (line 5)</a>
-</p>
-<h2>Directive</h2>
-  <span>selector: [radio-group]</span>
 
 
-<h2>Members</h2>
+
+<h2>Methods</h2>
 
 <div id="radios"></div>
+
 <h3>
-  <code>radios()</code>
+<code>radios()</code>
 
 </h3>
 
@@ -106,8 +112,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 <div id="headerQuery"></div>
+
 <h3>
-  <code>headerQuery()</code>
+<code>headerQuery()</code>
 
 </h3>
 
@@ -120,7 +127,9 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 
 
 
+<!-- end content block -->
 
 
+<!-- end body block -->
 
 

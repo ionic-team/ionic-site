@@ -13,6 +13,7 @@ docType: "class"
 
 
 
+
 <div class="improve-docs">
   <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L124'>
     View Source
@@ -31,7 +32,11 @@ docType: "class"
 
 <h1 class="api-title">
 
-  SegmentButton
+
+SegmentButton
+
+
+
 
 
 
@@ -42,20 +47,19 @@ docType: "class"
 
 
 
+<h2>Description</h2>
 
 
 
-
-<h1 class="class export">SegmentButton <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L125-L164">ionic/components/segment/segment.ts (line 125)</a>
-</p>
 <h2>Directive</h2>
-  <span>selector: ion-segment-button</span>
-
-  <span>inputs: value</span>
-
+<h3>selector: <code>ion-segment-button</code></h3>
+<h2>Usage</h2>
 
 
+
+<!-- end content block -->
+
+
+<!-- end body block -->
 
 

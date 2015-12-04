@@ -8,7 +8,9 @@ id: "{{ActionSheet | slugify}}"
 title: "ActionSheet"
 header_sub_title: "Class in module "
 doc: "ActionSheet"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

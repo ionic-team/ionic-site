@@ -8,7 +8,9 @@ id: "{{LocalStorage | slugify}}"
 title: "LocalStorage"
 header_sub_title: "Class in module "
 doc: "LocalStorage"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

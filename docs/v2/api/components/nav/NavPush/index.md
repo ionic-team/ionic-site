@@ -8,7 +8,9 @@ id: "{{NavPush | slugify}}"
 title: "NavPush"
 header_sub_title: "Class in module "
 doc: "NavPush"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

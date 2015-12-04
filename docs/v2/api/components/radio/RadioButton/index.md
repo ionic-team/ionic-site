@@ -8,7 +8,9 @@ id: "{{RadioButton | slugify}}"
 title: "RadioButton"
 header_sub_title: "Class in module "
 doc: "RadioButton"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

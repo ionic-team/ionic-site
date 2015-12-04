@@ -8,7 +8,9 @@ id: "{{Switch | slugify}}"
 title: "Switch"
 header_sub_title: "Class in module "
 doc: "Switch"
-docType: "class"---
+docType: "class"
+
+---
 
 
 
@@ -46,8 +48,8 @@ Switch
 
 <h2>Description</h2>
 
-<p>A switch technically is the same thing as an HTML checkbox input, except it looks different and is easier to use on a touch device. Ionic prefers to wrap the checkbox input with the <label> in order to make the entire toggle easy to tap or drag.</p>
-<p>Toggles can also have colors assigned to them, by adding the <code>toggle-assertive</code> attribute to assign the assertive color.</p>
+<p>A switch technically is the same thing as an HTML checkbox input, except it looks different and is easier to use on a touch device. Ionic prefers to wrap the checkbox input with the <code>&lt;label&gt;</code> in order to make the entire toggle easy to tap or drag.
+Switches can also have colors assigned to them, by adding any color attribute to them.</p>
 <p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 
 

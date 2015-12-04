@@ -8,7 +8,9 @@ id: "{{Searchbar | slugify}}"
 title: "Searchbar"
 header_sub_title: "Class in module ionic"
 doc: "Searchbar"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

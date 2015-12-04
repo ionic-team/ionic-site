@@ -8,7 +8,9 @@ id: "{{SqlStorage | slugify}}"
 title: "SqlStorage"
 header_sub_title: "Class in module "
 doc: "SqlStorage"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

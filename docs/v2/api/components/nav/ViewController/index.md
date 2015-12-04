@@ -8,7 +8,9 @@ id: "{{ViewController | slugify}}"
 title: "ViewController"
 header_sub_title: "Class in module "
 doc: "ViewController"
-docType: "class"---
+docType: "class"
+
+---
 
 
 
@@ -46,7 +48,20 @@ ViewController
 
 <h2>Description</h2>
 
-<p>You can access various features and information about the current view</p>
+<p>Access various features and information about the current view</p>
+
+
+<h2>Usage</h2>
+
+<pre><code class="lang-ts">import {Page, ViewController} from &#39;ionic/ionic&#39;;
+@Page....
+export class MyPage{
+ constructor(viewCtrl: ViewController){
+   this.viewCtrl = viewCtrl;
+ }
+}
+</code></pre>
+
 
 
 

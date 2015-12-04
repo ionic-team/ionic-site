@@ -8,7 +8,9 @@ id: "{{Checkbox | slugify}}"
 title: "Checkbox"
 header_sub_title: "Class in module "
 doc: "Checkbox"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

@@ -8,7 +8,9 @@ id: "{{IONIC_DIRECTIVES | slugify}}"
 title: "IONIC_DIRECTIVES"
 header_sub_title: "Let in module "
 doc: "IONIC_DIRECTIVES"
-docType: "let"---
+docType: "let"
+
+---
 
 
 

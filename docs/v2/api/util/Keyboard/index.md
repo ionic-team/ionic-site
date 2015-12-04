@@ -8,7 +8,9 @@ id: "{{Keyboard | slugify}}"
 title: "Keyboard"
 header_sub_title: "Class in module "
 doc: "Keyboard"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

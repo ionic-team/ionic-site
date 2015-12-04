@@ -8,7 +8,9 @@ id: "{{Popup | slugify}}"
 title: "Popup"
 header_sub_title: "Class in module "
 doc: "Popup"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

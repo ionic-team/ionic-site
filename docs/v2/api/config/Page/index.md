@@ -8,7 +8,9 @@ id: "{{Page | slugify}}"
 title: "Page"
 header_sub_title: "Function in module "
 doc: "Page"
-docType: "function"---
+docType: "function"
+
+---
 
 
 

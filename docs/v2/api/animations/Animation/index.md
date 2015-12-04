@@ -8,7 +8,9 @@ id: "{{Animation | slugify}}"
 title: "Animation"
 header_sub_title: "Class in module "
 doc: "Animation"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

@@ -8,7 +8,9 @@ id: "{{IonicApp | slugify}}"
 title: "IonicApp"
 header_sub_title: "Class in module "
 doc: "IonicApp"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

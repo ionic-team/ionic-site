@@ -8,7 +8,9 @@ id: "{{ToolbarTitle | slugify}}"
 title: "ToolbarTitle"
 header_sub_title: "Class in module "
 doc: "ToolbarTitle"
-docType: "class"---
+docType: "class"
+
+---
 
 
 
@@ -59,6 +61,9 @@ ToolbarTitle
 &lt;/ion-navbar&gt;
 
 &lt;!-- or if you wanted to crate a subheader title--&gt;
+&lt;ion-navbar *navbar&gt;
+   &lt;ion-title&gt;Tab 1&lt;/ion-title&gt;
+&lt;/ion-navbar&gt;
 &lt;ion-toolbar&gt;
   &lt;ion-title&gt;SubHeader&lt;/ion-title&gt;
 &lt;/ion-toolbar&gt;

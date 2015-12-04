@@ -8,7 +8,9 @@ id: "{{App | slugify}}"
 title: "App"
 header_sub_title: "Function in module ionic"
 doc: "App"
-docType: "function"---
+docType: "function"
+
+---
 
 
 

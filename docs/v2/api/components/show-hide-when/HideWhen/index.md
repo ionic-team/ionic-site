@@ -8,7 +8,9 @@ id: "{{HideWhen | slugify}}"
 title: "HideWhen"
 header_sub_title: "Class in module "
 doc: "HideWhen"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

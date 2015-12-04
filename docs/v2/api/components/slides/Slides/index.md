@@ -8,7 +8,9 @@ id: "{{Slides | slugify}}"
 title: "Slides"
 header_sub_title: "Class in module "
 doc: "Slides"
-docType: "class"---
+docType: "class"
+
+---
 
 
 
@@ -59,18 +61,46 @@ The iDangero.us
 <h2>Component</h2>
 <h3>selector: <code>ion-slides</code></h3>
 
+<h2>Usage</h2>
 
+<pre><code class="lang-ts">@Page({
+ template: `
+        &lt;ion-slides pager (slide-changed)=&quot;onSlideChanged($event)&quot; loop=&quot;true&quot; autoplay=&quot;true&quot;&gt;
+         &lt;ion-slide&gt;
+           &lt;h3&gt;Thank you for choosing the Awesome App!&lt;/h3&gt;
+           &lt;p&gt;
+             The number one app for everything awesome.
+           &lt;/p&gt;
+         &lt;/ion-slide&gt;
+         &lt;ion-slide&gt;
+           &lt;h3&gt;Using Awesome&lt;/h3&gt;
+            &lt;div id=&quot;list&quot;&gt;
+              &lt;h5&gt;Just three steps:&lt;/h5&gt;
+              &lt;ol&gt;
+                &lt;li&gt;Be awesome&lt;/li&gt;
+                &lt;li&gt;Stay awesome&lt;/li&gt;
+                &lt;li&gt;There is no step 3&lt;/li&gt;
+              &lt;/ol&gt;
+            &lt;/div&gt;
+         &lt;/ion-slide&gt;
+         &lt;ion-slide&gt;
+           &lt;h3&gt;Any questions?&lt;/h3&gt;
+         &lt;/ion-slide&gt;
+       &lt;/ion-slides&gt;
+       `
+})
+</code></pre>
 
 
 
-<h2>Methods</h2>
 
-<div id="onInit"></div>
 
-<h3>
-<code>onInit()</code>
 
-</h3>
+<h2>Attributes:</h2>
+<table class="table" style="margin:0;">
+<thead>
+<tr>
+<th>Attribute</th>
 
 
 
@@ -83,12 +113,8 @@ The iDangero.us
 
 
 
-<div id="onTap"></div>
 
-<h3>
-<code>onTap()</code>
 
-</h3>
 
 
 
@@ -97,370 +123,96 @@ The iDangero.us
 
 
 
+<th>Type</th>
 
 
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 
+<tr>
+<td>
+autoplay
+</td>
 
-<div id="onClick"></div>
 
-<h3>
-<code>onClick()</code>
+<td>
+Any
+</td>
 
-</h3>
 
+<td>
+whether or not the slides should automatically change
+</td>
+</tr>
 
+<tr>
+<td>
+loop
+</td>
 
 
+<td>
+Any
+</td>
 
 
+<td>
+whether the slides should loop from the last slide back to the first
+</td>
+</tr>
 
+<tr>
+<td>
+bounce
+</td>
 
 
+<td>
+Any
+</td>
 
 
+<td>
+whether the slides should bounce
+</td>
+</tr>
 
-<div id="onDoubleTap"></div>
+<tr>
+<td>
+pager
+</td>
 
-<h3>
-<code>onDoubleTap()</code>
 
-</h3>
+<td>
 
+</td>
 
 
+<td>
+add this property to enable the slide pager
+</td>
+</tr>
 
+<tr>
+<td>
+slideChanged
+</td>
 
 
+<td>
+Any
+</td>
 
 
+<td>
+expression to evaluate when a slide has been changed
+</td>
+</tr>
 
-
-
-
-<div id="onLazyImageLoad"></div>
-
-<h3>
-<code>onLazyImageLoad()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onLazyImageReady"></div>
-
-<h3>
-<code>onLazyImageReady()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="initZoom"></div>
-
-<h3>
-<code>initZoom()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="resetZoom"></div>
-
-<h3>
-<code>resetZoom()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="toggleZoom"></div>
-
-<h3>
-<code>toggleZoom()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onTransitionStart"></div>
-
-<h3>
-<code>onTransitionStart()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onTransitionEnd"></div>
-
-<h3>
-<code>onTransitionEnd()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onTouchStart"></div>
-
-<h3>
-<code>onTouchStart()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onTouchMove"></div>
-
-<h3>
-<code>onTouchMove()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onTouchEnd"></div>
-
-<h3>
-<code>onTouchEnd()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="update"></div>
-
-<h3>
-<code>update()</code>
-
-</h3>
-
-Update the underlying slider implementation. Call this if you've added or removed
-child slides.
-
-
-
-
-
-
-
-
-
-
-
-<div id="next"></div>
-
-<h3>
-<code>next()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="prev"></div>
-
-<h3>
-<code>prev()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getIndex"></div>
-
-<h3>
-<code>getIndex()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getNumSlides"></div>
-
-<h3>
-<code>getNumSlides()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="isAtEnd"></div>
-
-<h3>
-<code>isAtEnd()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="isAtBeginning"></div>
-
-<h3>
-<code>isAtBeginning()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getSliderWidget"></div>
-
-<h3>
-<code>getSliderWidget()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
+</tbody>
+</table>
 
 
 <h2>Related</h2>

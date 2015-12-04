@@ -8,7 +8,9 @@ id: "{{Config | slugify}}"
 title: "Config"
 header_sub_title: "Class in module "
 doc: "Config"
-docType: "class"---
+docType: "class"
+
+---
 
 
 

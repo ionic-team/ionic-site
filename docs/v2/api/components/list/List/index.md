@@ -115,7 +115,11 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#lists'>List Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

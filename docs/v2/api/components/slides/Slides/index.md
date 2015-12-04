@@ -461,7 +461,11 @@ child slides.
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#slides'>Slides Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

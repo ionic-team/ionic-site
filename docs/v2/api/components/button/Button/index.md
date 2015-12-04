@@ -324,7 +324,11 @@ position a fab button towards the bottom
 
 </tbody>
 </table>
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#buttons'>Button Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

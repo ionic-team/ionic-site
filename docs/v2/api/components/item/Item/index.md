@@ -86,7 +86,12 @@ this component will automatically be added inside of an <code>&lt;ion-item&gt;</
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#lists'>List Component Docs</a>
+<a href='../../list/List'>List API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

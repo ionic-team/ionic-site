@@ -174,7 +174,11 @@ Explicitly set the icon to use on Android.
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#icons'>Icon Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

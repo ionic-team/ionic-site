@@ -150,7 +150,11 @@ Toggle the checked state of the checkbox. Calls onChange to pass the updated che
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#checkbox'>Checkbox Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

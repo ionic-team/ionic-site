@@ -99,7 +99,11 @@ NavPush:</p>
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

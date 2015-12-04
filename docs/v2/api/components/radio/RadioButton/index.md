@@ -14,11 +14,11 @@ docType: "class"---
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L148'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L149'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L148'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L149'>
     Improve this doc
   </a>
 
@@ -86,7 +86,11 @@ TODO: Call this toggle? Since unchecks as well
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#radio'>Radio Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

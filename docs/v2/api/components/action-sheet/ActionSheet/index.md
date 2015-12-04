@@ -241,7 +241,11 @@ Retrieves an actionSheet instance.
   <code>ActionSheet</code> An actionSheet instance.
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#action-sheets'>ActionSheet Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

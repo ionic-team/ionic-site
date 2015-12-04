@@ -246,7 +246,13 @@ left menus, but only one of them should be able to be dragged open.
   <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#menus'>Menu Component Docs</a>
+<a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
+<a href='../../nav/Nav'>Nav API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

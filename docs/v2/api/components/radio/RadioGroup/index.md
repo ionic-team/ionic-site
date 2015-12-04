@@ -124,7 +124,11 @@ RadioGroup
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#radio'>Radio Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

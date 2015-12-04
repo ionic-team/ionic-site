@@ -125,13 +125,16 @@ swipe to go back:</p>
 </div>
 
 
-
 <h2>Component</h2>
 <h3>selector: <code>ion-nav</code></h3>
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

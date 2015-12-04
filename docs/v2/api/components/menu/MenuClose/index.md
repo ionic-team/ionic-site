@@ -74,7 +74,12 @@ MenuClose
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#menus'>Menu Component Docs</a>
+<a href='../../menu/Menu'>Menu API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

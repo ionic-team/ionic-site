@@ -66,8 +66,7 @@ Label
 
 
 
-  <h2>Related</h2>
-
+<h2>Related</h2>
 
 <a href='../../../../components#inputs'>Input Component Docs</a>
 <a href='../Input'>Input API Docs</a><!-- end content block -->

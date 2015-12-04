@@ -975,7 +975,11 @@ not include views which are about to be destroyed.
   <code>Number</code> The number of views in stack, including the current view
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

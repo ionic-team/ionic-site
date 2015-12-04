@@ -171,7 +171,11 @@ Toggle the checked state of this switch.
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#switch'>Switch Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

@@ -130,14 +130,16 @@ cancel-action
 
 <td>
 the function that gets called by clicking the cancel button
-
-
 </td>
 </tr>
 
 </tbody>
 </table>
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#search'>Search Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

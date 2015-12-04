@@ -5,10 +5,5 @@
   <li class="back-to-main">
     <a href="/docs/v2">Back to Main Docs</a>
   </li>
-  <li class="active">
-    <a ng-click="showAPI = !showAPI">API</a>
-    <ul ng-show="showAPI" ng-init="showAPI = true">
-      {% include v2_fluid/api_menu.html %}
-    </ul>
-  </li>
+  {% include v2_fluid/api_menu.html %}
 </ul>

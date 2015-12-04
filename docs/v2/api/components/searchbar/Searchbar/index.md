@@ -54,8 +54,8 @@ Searchbar
 
 <h2>Component</h2>
 <h3>selector: <code>ion-searchbar</code></h3>
-
 <h2>Usage</h2>
+
 
 <pre><code class="lang-html">&lt;ion-searchbar [(ng-model)]=&quot;defaultSearch&quot;&gt;&lt;/ion-searchbar&gt;
 </code></pre>

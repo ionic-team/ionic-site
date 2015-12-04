@@ -65,7 +65,7 @@ storage.get(&#39;name&#39;).then((name) =&gt; {
 });
 
 // Sql storage also exposes the full engine underneath
-storage.query(&#39;insert into projects(name, data) values(&#39;Cool Project&#39;, &#39;blah&#39;);&#39;
+storage.query(&#39;insert into projects(name, data) values(&#39;Cool Project&#39;, &#39;blah&#39;)&#39;);
 storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 </code></pre>
 <p>The <code>SqlStorage</code> service supports these options:

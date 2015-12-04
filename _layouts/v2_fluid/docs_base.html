@@ -36,14 +36,18 @@
         </div>
         <div id="demo-device-ios" ng-class="previewPlatform">
           <iframe id="demo-ios"
+                {% if page.preview_device_url %}
+                  src="{{ page.preview_device_url }}?ionicplatform=ios"
+                {% else %}
                   src="../demos/component-docs/?ionicplatform=ios"
+                {% endif %}
                   frameborder="0">
           </iframe>
         </div>
         <div id="demo-device-android" ng-class="previewPlatform">
           <iframe id="demo-android"
                 {% if page.preview_device_url %}
-                  src="{{ page.preview_device_url }}"
+                  src="{{ page.preview_device_url }}?ionicplatform=android"
                 {% else %}
                   src="../demos/component-docs/?ionicplatform=android"
                 {% endif %}

@@ -8,8 +8,7 @@ id: "{{Searchbar | slugify}}"
 title: "Searchbar"
 header_sub_title: "Class in module ionic"
 doc: "Searchbar"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/searchbar/searchbar.ts#L5'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -54,8 +51,8 @@ Searchbar
 
 <h2>Component</h2>
 <h3>selector: <code>ion-searchbar</code></h3>
-<h2>Usage</h2>
 
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-searchbar [(ng-model)]=&quot;defaultSearch&quot;&gt;&lt;/ion-searchbar&gt;
 </code></pre>
@@ -133,16 +130,17 @@ cancel-action
 
 <td>
 the function that gets called by clicking the cancel button
-
-
 </td>
 </tr>
 
 </tbody>
 </table>
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#search'>Search Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

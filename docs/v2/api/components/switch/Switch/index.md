@@ -8,8 +8,7 @@ id: "{{Switch | slugify}}"
 title: "Switch"
 header_sub_title: "Class in module "
 doc: "Switch"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/switch/switch.ts#L31'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -174,9 +171,12 @@ Toggle the checked state of this switch.
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#switch'>Switch Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

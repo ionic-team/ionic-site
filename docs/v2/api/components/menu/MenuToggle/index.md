@@ -8,8 +8,7 @@ id: "{{MenuToggle | slugify}}"
 title: "MenuToggle"
 header_sub_title: "Class in module "
 doc: "MenuToggle"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-toggle.ts#L5'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -126,9 +123,13 @@ TODO
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#menus'>Menu Component Docs</a>
+<a href='../../menu/Menu'>Menu API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

@@ -8,8 +8,7 @@ id: "{{Page | slugify}}"
 title: "Page"
 header_sub_title: "Function in module "
 doc: "Page"
-docType: "function"
----
+docType: "function"---
 
 
 
@@ -22,8 +21,6 @@ docType: "function"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators.ts#L5'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -103,5 +100,4 @@ them in your templates.</p>
 
 
 <!-- end body block -->
-
 

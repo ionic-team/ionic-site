@@ -8,8 +8,7 @@ id: "{{ItemSliding | slugify}}"
 title: "ItemSliding"
 header_sub_title: "Class in module "
 doc: "ItemSliding"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item-sliding.ts#L2'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -117,5 +114,4 @@ deleted, reordered, edited, and more.</p>
 
 
 <!-- end body block -->
-
 

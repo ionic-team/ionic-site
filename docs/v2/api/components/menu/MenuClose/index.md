@@ -8,8 +8,7 @@ id: "{{MenuClose | slugify}}"
 title: "MenuClose"
 header_sub_title: "Class in module "
 doc: "MenuClose"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-close.ts#L3'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -77,9 +74,13 @@ MenuClose
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#menus'>Menu Component Docs</a>
+<a href='../../menu/Menu'>Menu API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

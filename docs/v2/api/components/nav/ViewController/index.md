@@ -8,8 +8,7 @@ id: "{{ViewController | slugify}}"
 title: "ViewController"
 header_sub_title: "Class in module "
 doc: "ViewController"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/view-controller.ts#L0'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -293,5 +290,4 @@ Set if the back button for the current view is visible or not. Be sure to wrap t
 
 
 <!-- end body block -->
-
 

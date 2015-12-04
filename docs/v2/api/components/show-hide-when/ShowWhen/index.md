@@ -8,8 +8,7 @@ id: "{{ShowWhen | slugify}}"
 title: "ShowWhen"
 header_sub_title: "Class in module "
 doc: "ShowWhen"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L51'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -69,5 +66,4 @@ the value or expression is true. Complements the <a href="../HideWhen">hide-when
 
 
 <!-- end body block -->
-
 

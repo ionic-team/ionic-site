@@ -8,8 +8,7 @@ id: "{{Icon | slugify}}"
 title: "Icon"
 header_sub_title: "Class in module "
 doc: "Icon"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/icon/icon.ts#L2'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -177,9 +174,12 @@ Explicitly set the icon to use on Android.
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#icons'>Icon Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

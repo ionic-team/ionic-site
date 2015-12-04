@@ -8,8 +8,7 @@ id: "{{ActionSheet | slugify}}"
 title: "ActionSheet"
 header_sub_title: "Class in module "
 doc: "ActionSheet"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/action-sheet/action-sheet.ts#L70'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -244,9 +241,12 @@ Retrieves an actionSheet instance.
   <code>ActionSheet</code> An actionSheet instance.
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#action-sheets'>ActionSheet Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

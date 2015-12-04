@@ -8,8 +8,7 @@ id: "{{NavController | slugify}}"
 title: "NavController"
 header_sub_title: "Class in module "
 doc: "NavController"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L11'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -978,9 +975,12 @@ not include views which are about to be destroyed.
   <code>Number</code> The number of views in stack, including the current view
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

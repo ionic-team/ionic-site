@@ -8,8 +8,7 @@ id: "{{Modal | slugify}}"
 title: "Modal"
 header_sub_title: "Class in module "
 doc: "Modal"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/modal/modal.ts#L5'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -240,9 +237,12 @@ instance by calling this method with the same handle name.
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#modals'>Modal Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

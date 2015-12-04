@@ -8,8 +8,7 @@ id: "{{Item | slugify}}"
 title: "Item"
 header_sub_title: "Class in module "
 doc: "Item"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item.ts#L0'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -89,9 +86,13 @@ this component will automatically be added inside of an <code>&lt;ion-item&gt;</
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#lists'>List Component Docs</a>
+<a href='../../list/List'>List API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

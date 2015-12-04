@@ -8,8 +8,7 @@ id: "{{Blur | slugify}}"
 title: "Blur"
 header_sub_title: "Class in module "
 doc: "Blur"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/blur/blur.ts#L0'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -98,5 +95,4 @@ Blur
 
 
 <!-- end body block -->
-
 

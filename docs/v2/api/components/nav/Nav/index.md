@@ -8,8 +8,7 @@ id: "{{Nav | slugify}}"
 title: "Nav"
 header_sub_title: "Class in module "
 doc: "Nav"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav.ts#L7'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -128,15 +125,17 @@ swipe to go back:</p>
 </div>
 
 
-
 <h2>Component</h2>
 <h3>selector: <code>ion-nav</code></h3>
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

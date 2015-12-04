@@ -8,8 +8,7 @@ id: "{{MenuType | slugify}}"
 title: "MenuType"
 header_sub_title: "Class in module "
 doc: "MenuType"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-types.ts#L1'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -153,5 +150,4 @@ and registers itself with Menu.</p>
 
 
 <!-- end body block -->
-
 

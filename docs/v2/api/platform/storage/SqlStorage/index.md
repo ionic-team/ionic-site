@@ -8,8 +8,7 @@ id: "{{SqlStorage | slugify}}"
 title: "SqlStorage"
 header_sub_title: "Class in module "
 doc: "SqlStorage"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/sql.ts#L4'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -65,7 +62,7 @@ storage.get(&#39;name&#39;).then((name) =&gt; {
 });
 
 // Sql storage also exposes the full engine underneath
-storage.query(&#39;insert into projects(name, data) values(&#39;Cool Project&#39;, &#39;blah&#39;);&#39;
+storage.query(&#39;insert into projects(name, data) values(&#39;Cool Project&#39;, &#39;blah&#39;)&#39;);
 storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 </code></pre>
 <p>The <code>SqlStorage</code> service supports these options:
@@ -347,5 +344,4 @@ Remove the value in the database for the given key.
 
 
 <!-- end body block -->
-
 

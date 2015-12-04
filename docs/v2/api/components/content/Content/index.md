@@ -8,8 +8,7 @@ id: "{{Content | slugify}}"
 title: "Content"
 header_sub_title: "Class in module "
 doc: "Content"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/content/content.ts#L8'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -317,5 +314,4 @@ Scroll to the specified position.
 
 
 <!-- end body block -->
-
 

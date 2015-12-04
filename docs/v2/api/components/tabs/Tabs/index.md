@@ -8,8 +8,7 @@ id: "{{Tabs | slugify}}"
 title: "Tabs"
 header_sub_title: "Class in module "
 doc: "Tabs"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L10'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -54,7 +51,6 @@ of the Component docs.</em></p>
 <p>The Tabs component is a container with a TabBar and any number of
 individual Tab components. On iOS, the TabBar is placed on the bottom of
 the screen, while on Android it is at the top.</p>
-<p>See the <a href="../Tab/">Tab API reference</a> for more details on individual Tab components.</p>
 
 
 <h2>Component</h2>
@@ -312,9 +308,13 @@ sets whether to preload all the tabs, true or false
   <code>Any</code> Tab Returns the currently selected tab
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#tabs'>Tabs Component Docs</a>
+<a href='../Tab'>Tab API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

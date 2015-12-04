@@ -8,8 +8,7 @@ id: "{{Popup | slugify}}"
 title: "Popup"
 header_sub_title: "Class in module "
 doc: "Popup"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/popup/popup.ts#L8'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -408,9 +405,12 @@ TODO
   <code>TODO</code> TODO
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#popups'>Popup Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

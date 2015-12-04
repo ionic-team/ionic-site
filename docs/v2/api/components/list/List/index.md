@@ -8,8 +8,7 @@ id: "{{List | slugify}}"
 title: "List"
 header_sub_title: "Class in module "
 doc: "List"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L6'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -118,9 +115,12 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#lists'>List Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

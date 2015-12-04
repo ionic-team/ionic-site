@@ -8,22 +8,19 @@ id: "{{SlideLazy | slugify}}"
 title: "SlideLazy"
 header_sub_title: "Class in module "
 doc: "SlideLazy"
-docType: "class"
----
+docType: "class"---
 
 
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L475'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L476'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L475'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L476'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -60,5 +57,4 @@ SlideLazy
 
 
 <!-- end body block -->
-
 

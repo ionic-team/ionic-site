@@ -8,8 +8,7 @@ id: "{{Input | slugify}}"
 title: "Input"
 header_sub_title: "Class in module ionic"
 doc: "Input"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L9'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -145,5 +142,4 @@ A stacked label will always appear on top of the input
 
 
 <!-- end body block -->
-
 

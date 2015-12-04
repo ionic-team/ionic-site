@@ -8,8 +8,7 @@ id: "{{ionicProviders | slugify}}"
 title: "ionicProviders"
 header_sub_title: "Function in module "
 doc: "ionicProviders"
-docType: "function"
----
+docType: "function"---
 
 
 
@@ -22,8 +21,6 @@ docType: "function"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/bootstrap.ts#L20'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -57,5 +54,4 @@ ionicProviders
 
 
 <!-- end body block -->
-
 

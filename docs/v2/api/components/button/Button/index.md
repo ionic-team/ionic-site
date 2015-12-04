@@ -8,8 +8,7 @@ id: "{{Button | slugify}}"
 title: "Button"
 header_sub_title: "Class in module ionic"
 doc: "Button"
-docType: "class"
----
+docType: "class"---
 
 
 
@@ -22,8 +21,6 @@ docType: "class"
   <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/button/button.ts#L2'>
     Improve this doc
   </a>
-
-  <!-- TODO(drewrygh, perrygovier): render this block in the correct location, markup identical to component docs -->
 
 </div>
 
@@ -327,9 +324,12 @@ position a fab button towards the bottom
 
 </tbody>
 </table>
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/components#buttons'>Button Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->
-
 

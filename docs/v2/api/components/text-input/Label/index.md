@@ -49,6 +49,7 @@ Label
 
 <h2>Description</h2>
 
+<p>Labels describe the data that the user should enter in to an input element.</p>
 
 
 <h2>Directive</h2>
@@ -56,8 +57,23 @@ Label
 <h2>Usage</h2>
 
 
+<pre><code class="lang-html">&lt;ion-input&gt;
+  &lt;ion-label&gt;Username&lt;/ion-label&gt;
+  &lt;input type=&quot;text&quot; value=&quot;&quot;&gt;
+&lt;/ion-input&gt;
+</code></pre>
 
-<!-- end content block -->
+
+
+
+
+
+
+  <h2>Related</h2>
+
+
+<a href='../../../../components#inputs'>Input Component Docs</a>
+<a href='../Input'>Input API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

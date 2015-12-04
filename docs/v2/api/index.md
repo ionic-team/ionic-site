@@ -1,7 +1,7 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "nightly"
-versionHref: "/docs/v2/"
+version: "2.0.0-alpha.40"
+versionHref: "/docs/v2/2.0.0-alpha.40"
 path: ""
 
 category: api

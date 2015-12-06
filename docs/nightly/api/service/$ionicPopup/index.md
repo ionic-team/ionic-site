@@ -393,8 +393,10 @@ if the user presses Cancel.
   cssClass: &#39;&#39;, // String, The custom CSS class name
   subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
   template: &#39;&#39;, // String (optional). The html template to place in the popup body.
-  templateUrl: &#39;&#39;, // String (optional). The URL of an html template to place in the popup   body.
+  templateUrl: &#39;&#39;, // String (optional). The URL of an html template to place in the popup body.
   inputType: // String (default: &#39;text&#39;). The type of input to use
+  defaultText: // String (default: &#39;&#39;). The initial value placed into the input.
+  maxLength: // Integer (default: null). Specify a maxlength attribute for the input.
   inputPlaceholder: // String (default: &#39;&#39;). A placeholder to use for the input.
   cancelText: // String (default: &#39;Cancel&#39;. The text of the Cancel button.
   cancelType: // String (default: &#39;button-default&#39;). The type of the Cancel button.

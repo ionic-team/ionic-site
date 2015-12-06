@@ -144,6 +144,57 @@ Select the tab matching the given index.
 
 
 
+<div id="showBar"></div>
+<h2>
+  <code>showBar(show)</code>
+
+</h2>
+
+Set/get whether the <a href="/docs/nightly/api/directive/ionTabs/"><code>ionTabs</code></a> is shown
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        show
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>Whether to show the bar.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>boolean</code> Whether the bar is shown.
+
+
+
+
 <div id="$getByHandle"></div>
 <h2>
   <code>$getByHandle(handle)</code>

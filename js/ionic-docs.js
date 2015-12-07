@@ -154,6 +154,11 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 
   $scope.setPlatform('ios');
 
+  // Listen for scroll events on iframe - don't allow them to bubble to parent
+  $('iframe').on('mousewheel DOMMouseScroll', function(ev) {
+    ev.preventDefault();
+  });
+
   var $window = $(window);
   $window.scroll(fixyCheck);
   function fixyCheck(a, b, c) {

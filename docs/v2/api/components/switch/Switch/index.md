@@ -86,6 +86,106 @@ Switches can also have colors assigned to them, by adding any color attribute to
 
 
 
+<h2>Attributes:</h2>
+<table class="table" style="margin:0;">
+<thead>
+<tr>
+<th>Attribute</th>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<th>Type</th>
+
+
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>
+value
+</td>
+
+
+<td>
+any
+</td>
+
+
+<td>
+the inital value of the switch
+</td>
+</tr>
+
+<tr>
+<td>
+checked
+</td>
+
+
+<td>
+boolean
+</td>
+
+
+<td>
+whether the switch it toggled or not
+</td>
+</tr>
+
+<tr>
+<td>
+disabled
+</td>
+
+
+<td>
+boolean
+</td>
+
+
+<td>
+whether the switch is disabled or not
+</td>
+</tr>
+
+<tr>
+<td>
+id
+</td>
+
+
+<td>
+string
+</td>
+
+
+<td>
+a unique ID for a switch
+</td>
+</tr>
+
+</tbody>
+</table>
+
 
 <h2>Methods</h2>
 

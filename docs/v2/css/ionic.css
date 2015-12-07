@@ -383,34 +383,6 @@ sub[dark],
 sup[dark] {
   color: #222 !important; }
 
-h1[energized], h2[energized], h3[energized], h4[energized], h5[energized], h6[energized],
-p[energized],
-span[energized],
-a:not([button])[energized],
-small[energized],
-b[energized],
-i[energized],
-u[energized],
-strong[energized],
-em[energized],
-sub[energized],
-sup[energized] {
-  color: #ffc527 !important; }
-
-h1[royal], h2[royal], h3[royal], h4[royal], h5[royal], h6[royal],
-p[royal],
-span[royal],
-a:not([button])[royal],
-small[royal],
-b[royal],
-i[royal],
-u[royal],
-strong[royal],
-em[royal],
-sub[royal],
-sup[royal] {
-  color: #7e60ff !important; }
-
 .align-left {
   text-align: left; }
 
@@ -778,30 +750,6 @@ ion-nav-items,
 .toolbar[dark] a {
   color: white; }
 
-.toolbar[energized] toolbar-background {
-  background-color: #ffc527;
-  border-color: #f3b200; }
-
-.toolbar[energized] .toolbar-title,
-.toolbar[energized] button,
-.toolbar[energized] [button],
-.toolbar[energized] button:hover:not(.disable-hover),
-.toolbar[energized] [button]:hover:not(.disable-hover),
-.toolbar[energized] a {
-  color: black; }
-
-.toolbar[royal] toolbar-background {
-  background-color: #7e60ff;
-  border-color: #552dff; }
-
-.toolbar[royal] .toolbar-title,
-.toolbar[royal] button,
-.toolbar[royal] [button],
-.toolbar[royal] button:hover:not(.disable-hover),
-.toolbar[royal] [button]:hover:not(.disable-hover),
-.toolbar[royal] a {
-  color: black; }
-
 ion-action-sheet {
   position: absolute;
   top: 0;
@@ -1015,22 +963,6 @@ button[dark],
   [button][dark].activated {
     background-color: #343434; }
 
-button[energized],
-[button][energized] {
-  background-color: #ffc527;
-  color: black; }
-  button[energized].activated,
-  [button][energized].activated {
-    background-color: #ebb524; }
-
-button[royal],
-[button][royal] {
-  background-color: #7e60ff;
-  color: black; }
-  button[royal].activated,
-  [button][royal].activated {
-    background-color: #7458eb; }
-
 button[clear], .ios .popup-buttons button, .ios .searchbar-cancel, .md .popup-buttons button,
 [button][clear] {
   border-color: transparent;
@@ -1080,24 +1012,6 @@ button[clear][dark], .ios .popup-buttons button[dark], .ios [dark].searchbar-can
   button[clear][dark]:hover:not(.disable-hover), .ios .popup-buttons button[dark]:hover:not(.disable-hover), .ios [dark].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[dark]:hover:not(.disable-hover),
   [button][clear][dark]:hover:not(.disable-hover) {
     color: #444444; }
-
-button[clear][energized], .ios .popup-buttons button[energized], .ios [energized].searchbar-cancel, .md .popup-buttons button[energized],
-[button][clear][energized] {
-  border-color: transparent;
-  background: transparent;
-  color: #ebb524; }
-  button[clear][energized]:hover:not(.disable-hover), .ios .popup-buttons button[energized]:hover:not(.disable-hover), .ios [energized].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[energized]:hover:not(.disable-hover),
-  [button][clear][energized]:hover:not(.disable-hover) {
-    color: #d8a721; }
-
-button[clear][royal], .ios .popup-buttons button[royal], .ios [royal].searchbar-cancel, .md .popup-buttons button[royal],
-[button][clear][royal] {
-  border-color: transparent;
-  background: transparent;
-  color: #7458eb; }
-  button[clear][royal]:hover:not(.disable-hover), .ios .popup-buttons button[royal]:hover:not(.disable-hover), .ios [royal].searchbar-cancel:hover:not(.disable-hover), .md .popup-buttons button[royal]:hover:not(.disable-hover),
-  [button][clear][royal]:hover:not(.disable-hover) {
-    color: #6b51d8; }
 
 button[outline],
 [button][outline] {
@@ -1149,26 +1063,6 @@ button[dark][outline],
   [button][dark][outline].activated {
     color: #fff;
     background-color: #2d2d2d; }
-
-button[energized][outline],
-[button][energized][outline] {
-  border-color: #f2bb25;
-  background: transparent;
-  color: #f2bb25; }
-  button[energized][outline].activated,
-  [button][energized][outline].activated {
-    color: #fff;
-    background-color: #f2bb25; }
-
-button[royal][outline],
-[button][royal][outline] {
-  border-color: #785bf2;
-  background: transparent;
-  color: #785bf2; }
-  button[royal][outline].activated,
-  [button][royal][outline].activated {
-    color: #fff;
-    background-color: #785bf2; }
 
 button[large],
 [button][large] {
@@ -1789,12 +1683,6 @@ ion-label[light] {
 
 ion-label[dark] {
   color: #222 !important; }
-
-ion-label[energized] {
-  color: #ffc527 !important; }
-
-ion-label[royal] {
-  color: #7e60ff !important; }
 
 ion-label {
   display: block;
@@ -3018,25 +2906,9 @@ tabbar[dark] {
   tabbar[dark] .tab-button[aria-selected=true] {
     color: white; }
 
-tabbar[energized] {
-  background-color: #ffc527; }
-  tabbar[energized] .tab-button {
-    color: black; }
-  tabbar[energized] .tab-button:hover:not(.disable-hover),
-  tabbar[energized] .tab-button[aria-selected=true] {
-    color: black; }
-
-tabbar[royal] {
-  background-color: #7e60ff; }
-  tabbar[royal] .tab-button {
-    color: black; }
-  tabbar[royal] .tab-button:hover:not(.disable-hover),
-  tabbar[royal] .tab-button[aria-selected=true] {
-    color: black; }
-
 @font-face {
   font-family: "Ionicons";
-  src: url("../../dist/fonts/ionicons.ttf?v=3.0.0") format("truetype"), url("../../dist/fonts/ionicons.woff?v=3.0.0") format("woff");
+  src: url("../fonts/ionicons.ttf?v=3.0.0") format("truetype"), url("../fonts/ionicons.woff?v=3.0.0") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -6161,12 +6033,6 @@ icon,
   .ios ion-checkbox[dark][aria-checked=true] checkbox-icon {
     background-color: #222;
     border-color: #222; }
-  .ios ion-checkbox[energized][aria-checked=true] checkbox-icon {
-    background-color: #ffc527;
-    border-color: #ffc527; }
-  .ios ion-checkbox[royal][aria-checked=true] checkbox-icon {
-    background-color: #7e60ff;
-    border-color: #7e60ff; }
   .ios ion-radio[aria-checked=true] radio-icon:after {
     position: absolute;
     border: 2px solid #387ef5;
@@ -6207,14 +6073,6 @@ icon,
     border-color: #222; }
   .ios ion-radio[dark][aria-checked=true] {
     color: #222; }
-  .ios ion-radio[energized][aria-checked=true] radio-icon:after {
-    border-color: #ffc527; }
-  .ios ion-radio[energized][aria-checked=true] {
-    color: #ffc527; }
-  .ios ion-radio[royal][aria-checked=true] radio-icon:after {
-    border-color: #7e60ff; }
-  .ios ion-radio[royal][aria-checked=true] {
-    color: #7e60ff; }
   .ios ion-searchbar {
     padding: 0 8px;
     background: rgba(0, 0, 0, 0.2);
@@ -6310,10 +6168,6 @@ icon,
     color: #f4f4f4; }
   .ios ion-searchbar[dark] .searchbar-cancel {
     color: #222; }
-  .ios ion-searchbar[energized] .searchbar-cancel {
-    color: #ffc527; }
-  .ios ion-searchbar[royal] .searchbar-cancel {
-    color: #7e60ff; }
   .ios ion-segment button,
   .ios ion-segment [button] {
     border-width: 1px;
@@ -6431,30 +6285,6 @@ icon,
         background-color: #222; }
       .ios .toolbar[primary] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.segment-activated) {
         background-color: rgba(34, 34, 34, 0.16); }
-  .ios .toolbar[primary] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[primary] ion-segment[energized] ion-segment-button[button][outline] {
-      border-color: #ffc527;
-      background: transparent;
-      color: #ffc527; }
-      .ios .toolbar[primary] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #ffc527; }
-      .ios .toolbar[primary] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(255, 197, 39, 0.16); }
-  .ios .toolbar[primary] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[primary] ion-segment[royal] ion-segment-button[button][outline] {
-      border-color: #7e60ff;
-      background: transparent;
-      color: #7e60ff; }
-      .ios .toolbar[primary] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #7e60ff; }
-      .ios .toolbar[primary] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-segment[primary] ion-segment-button[button] {
     background-color: transparent; }
     .ios ion-segment[primary] ion-segment-button[button][outline] {
@@ -6463,7 +6293,7 @@ icon,
       color: #387ef5; }
       .ios ion-segment[primary] ion-segment-button[button][outline].segment-activated {
         opacity: 1;
-        color: black;
+        color: white;
         background-color: #387ef5; }
       .ios ion-segment[primary] ion-segment-button[button][outline]:hover:not(.segment-activated) {
         background-color: rgba(56, 126, 245, 0.16); }
@@ -6539,30 +6369,6 @@ icon,
         background-color: #222; }
       .ios .toolbar[secondary] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.segment-activated) {
         background-color: rgba(34, 34, 34, 0.16); }
-  .ios .toolbar[secondary] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[secondary] ion-segment[energized] ion-segment-button[button][outline] {
-      border-color: #ffc527;
-      background: transparent;
-      color: #ffc527; }
-      .ios .toolbar[secondary] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #ffc527; }
-      .ios .toolbar[secondary] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(255, 197, 39, 0.16); }
-  .ios .toolbar[secondary] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[secondary] ion-segment[royal] ion-segment-button[button][outline] {
-      border-color: #7e60ff;
-      background: transparent;
-      color: #7e60ff; }
-      .ios .toolbar[secondary] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #7e60ff; }
-      .ios .toolbar[secondary] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-segment[secondary] ion-segment-button[button] {
     background-color: transparent; }
     .ios ion-segment[secondary] ion-segment-button[button][outline] {
@@ -6571,7 +6377,7 @@ icon,
       color: #32db64; }
       .ios ion-segment[secondary] ion-segment-button[button][outline].segment-activated {
         opacity: 1;
-        color: black;
+        color: white;
         background-color: #32db64; }
       .ios ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.segment-activated) {
         background-color: rgba(50, 219, 100, 0.16); }
@@ -6647,30 +6453,6 @@ icon,
         background-color: #222; }
       .ios .toolbar[danger] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.segment-activated) {
         background-color: rgba(34, 34, 34, 0.16); }
-  .ios .toolbar[danger] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[danger] ion-segment[energized] ion-segment-button[button][outline] {
-      border-color: #ffc527;
-      background: transparent;
-      color: #ffc527; }
-      .ios .toolbar[danger] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #ffc527; }
-      .ios .toolbar[danger] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(255, 197, 39, 0.16); }
-  .ios .toolbar[danger] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[danger] ion-segment[royal] ion-segment-button[button][outline] {
-      border-color: #7e60ff;
-      background: transparent;
-      color: #7e60ff; }
-      .ios .toolbar[danger] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #7e60ff; }
-      .ios .toolbar[danger] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-segment[danger] ion-segment-button[button] {
     background-color: transparent; }
     .ios ion-segment[danger] ion-segment-button[button][outline] {
@@ -6679,7 +6461,7 @@ icon,
       color: #f53d3d; }
       .ios ion-segment[danger] ion-segment-button[button][outline].segment-activated {
         opacity: 1;
-        color: black;
+        color: white;
         background-color: #f53d3d; }
       .ios ion-segment[danger] ion-segment-button[button][outline]:hover:not(.segment-activated) {
         background-color: rgba(245, 61, 61, 0.16); }
@@ -6755,30 +6537,6 @@ icon,
         background-color: #222; }
       .ios .toolbar[light] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.segment-activated) {
         background-color: rgba(34, 34, 34, 0.16); }
-  .ios .toolbar[light] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[light] ion-segment[energized] ion-segment-button[button][outline] {
-      border-color: #ffc527;
-      background: transparent;
-      color: #ffc527; }
-      .ios .toolbar[light] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #ffc527; }
-      .ios .toolbar[light] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(255, 197, 39, 0.16); }
-  .ios .toolbar[light] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[light] ion-segment[royal] ion-segment-button[button][outline] {
-      border-color: #7e60ff;
-      background: transparent;
-      color: #7e60ff; }
-      .ios .toolbar[light] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #7e60ff; }
-      .ios .toolbar[light] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-segment[light] ion-segment-button[button] {
     background-color: transparent; }
     .ios ion-segment[light] ion-segment-button[button][outline] {
@@ -6787,7 +6545,7 @@ icon,
       color: #f4f4f4; }
       .ios ion-segment[light] ion-segment-button[button][outline].segment-activated {
         opacity: 1;
-        color: black;
+        color: white;
         background-color: #f4f4f4; }
       .ios ion-segment[light] ion-segment-button[button][outline]:hover:not(.segment-activated) {
         background-color: rgba(244, 244, 244, 0.16); }
@@ -6863,30 +6621,6 @@ icon,
         background-color: #222; }
       .ios .toolbar[dark] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.segment-activated) {
         background-color: rgba(34, 34, 34, 0.16); }
-  .ios .toolbar[dark] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[dark] ion-segment[energized] ion-segment-button[button][outline] {
-      border-color: #ffc527;
-      background: transparent;
-      color: #ffc527; }
-      .ios .toolbar[dark] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #ffc527; }
-      .ios .toolbar[dark] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(255, 197, 39, 0.16); }
-  .ios .toolbar[dark] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[dark] ion-segment[royal] ion-segment-button[button][outline] {
-      border-color: #7e60ff;
-      background: transparent;
-      color: #7e60ff; }
-      .ios .toolbar[dark] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #7e60ff; }
-      .ios .toolbar[dark] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-segment[dark] ion-segment-button[button] {
     background-color: transparent; }
     .ios ion-segment[dark] ion-segment-button[button][outline] {
@@ -6895,226 +6629,10 @@ icon,
       color: #222; }
       .ios ion-segment[dark] ion-segment-button[button][outline].segment-activated {
         opacity: 1;
-        color: black;
+        color: white;
         background-color: #222; }
       .ios ion-segment[dark] ion-segment-button[button][outline]:hover:not(.segment-activated) {
         background-color: rgba(34, 34, 34, 0.16); }
-  .ios .toolbar[energized] ion-segment ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[energized] ion-segment ion-segment-button[button][outline] {
-      border-color: black;
-      background: transparent;
-      color: black; }
-      .ios .toolbar[energized] ion-segment ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: #ffc527;
-        background-color: black; }
-      .ios .toolbar[energized] ion-segment ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(0, 0, 0, 0.16); }
-  .ios .toolbar[energized] ion-segment[primary] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[energized] ion-segment[primary] ion-segment-button[button][outline] {
-      border-color: #387ef5;
-      background: transparent;
-      color: #387ef5; }
-      .ios .toolbar[energized] ion-segment[primary] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: white;
-        background-color: #387ef5; }
-      .ios .toolbar[energized] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(56, 126, 245, 0.16); }
-  .ios .toolbar[energized] ion-segment[secondary] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[energized] ion-segment[secondary] ion-segment-button[button][outline] {
-      border-color: #32db64;
-      background: transparent;
-      color: #32db64; }
-      .ios .toolbar[energized] ion-segment[secondary] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: white;
-        background-color: #32db64; }
-      .ios .toolbar[energized] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(50, 219, 100, 0.16); }
-  .ios .toolbar[energized] ion-segment[danger] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[energized] ion-segment[danger] ion-segment-button[button][outline] {
-      border-color: #f53d3d;
-      background: transparent;
-      color: #f53d3d; }
-      .ios .toolbar[energized] ion-segment[danger] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: white;
-        background-color: #f53d3d; }
-      .ios .toolbar[energized] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(245, 61, 61, 0.16); }
-  .ios .toolbar[energized] ion-segment[light] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[energized] ion-segment[light] ion-segment-button[button][outline] {
-      border-color: #f4f4f4;
-      background: transparent;
-      color: #f4f4f4; }
-      .ios .toolbar[energized] ion-segment[light] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #f4f4f4; }
-      .ios .toolbar[energized] ion-segment[light] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(244, 244, 244, 0.16); }
-  .ios .toolbar[energized] ion-segment[dark] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[energized] ion-segment[dark] ion-segment-button[button][outline] {
-      border-color: #222;
-      background: transparent;
-      color: #222; }
-      .ios .toolbar[energized] ion-segment[dark] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: white;
-        background-color: #222; }
-      .ios .toolbar[energized] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(34, 34, 34, 0.16); }
-  .ios .toolbar[energized] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[energized] ion-segment[energized] ion-segment-button[button][outline] {
-      border-color: #ffc527;
-      background: transparent;
-      color: #ffc527; }
-      .ios .toolbar[energized] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #ffc527; }
-      .ios .toolbar[energized] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(255, 197, 39, 0.16); }
-  .ios .toolbar[energized] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[energized] ion-segment[royal] ion-segment-button[button][outline] {
-      border-color: #7e60ff;
-      background: transparent;
-      color: #7e60ff; }
-      .ios .toolbar[energized] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #7e60ff; }
-      .ios .toolbar[energized] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(126, 96, 255, 0.16); }
-  .ios ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios ion-segment[energized] ion-segment-button[button][outline] {
-      border-color: #ffc527;
-      background: transparent;
-      color: #ffc527; }
-      .ios ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #ffc527; }
-      .ios ion-segment[energized] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(255, 197, 39, 0.16); }
-  .ios .toolbar[royal] ion-segment ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[royal] ion-segment ion-segment-button[button][outline] {
-      border-color: black;
-      background: transparent;
-      color: black; }
-      .ios .toolbar[royal] ion-segment ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: #7e60ff;
-        background-color: black; }
-      .ios .toolbar[royal] ion-segment ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(0, 0, 0, 0.16); }
-  .ios .toolbar[royal] ion-segment[primary] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[royal] ion-segment[primary] ion-segment-button[button][outline] {
-      border-color: #387ef5;
-      background: transparent;
-      color: #387ef5; }
-      .ios .toolbar[royal] ion-segment[primary] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: white;
-        background-color: #387ef5; }
-      .ios .toolbar[royal] ion-segment[primary] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(56, 126, 245, 0.16); }
-  .ios .toolbar[royal] ion-segment[secondary] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[royal] ion-segment[secondary] ion-segment-button[button][outline] {
-      border-color: #32db64;
-      background: transparent;
-      color: #32db64; }
-      .ios .toolbar[royal] ion-segment[secondary] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: white;
-        background-color: #32db64; }
-      .ios .toolbar[royal] ion-segment[secondary] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(50, 219, 100, 0.16); }
-  .ios .toolbar[royal] ion-segment[danger] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[royal] ion-segment[danger] ion-segment-button[button][outline] {
-      border-color: #f53d3d;
-      background: transparent;
-      color: #f53d3d; }
-      .ios .toolbar[royal] ion-segment[danger] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: white;
-        background-color: #f53d3d; }
-      .ios .toolbar[royal] ion-segment[danger] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(245, 61, 61, 0.16); }
-  .ios .toolbar[royal] ion-segment[light] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[royal] ion-segment[light] ion-segment-button[button][outline] {
-      border-color: #f4f4f4;
-      background: transparent;
-      color: #f4f4f4; }
-      .ios .toolbar[royal] ion-segment[light] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #f4f4f4; }
-      .ios .toolbar[royal] ion-segment[light] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(244, 244, 244, 0.16); }
-  .ios .toolbar[royal] ion-segment[dark] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[royal] ion-segment[dark] ion-segment-button[button][outline] {
-      border-color: #222;
-      background: transparent;
-      color: #222; }
-      .ios .toolbar[royal] ion-segment[dark] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: white;
-        background-color: #222; }
-      .ios .toolbar[royal] ion-segment[dark] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(34, 34, 34, 0.16); }
-  .ios .toolbar[royal] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[royal] ion-segment[energized] ion-segment-button[button][outline] {
-      border-color: #ffc527;
-      background: transparent;
-      color: #ffc527; }
-      .ios .toolbar[royal] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #ffc527; }
-      .ios .toolbar[royal] ion-segment[energized] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(255, 197, 39, 0.16); }
-  .ios .toolbar[royal] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios .toolbar[royal] ion-segment[royal] ion-segment-button[button][outline] {
-      border-color: #7e60ff;
-      background: transparent;
-      color: #7e60ff; }
-      .ios .toolbar[royal] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #7e60ff; }
-      .ios .toolbar[royal] ion-segment[royal] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(126, 96, 255, 0.16); }
-  .ios ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .ios ion-segment[royal] ion-segment-button[button][outline] {
-      border-color: #7e60ff;
-      background: transparent;
-      color: #7e60ff; }
-      .ios ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        opacity: 1;
-        color: black;
-        background-color: #7e60ff; }
-      .ios ion-segment[royal] ion-segment-button[button][outline]:hover:not(.segment-activated) {
-        background-color: rgba(126, 96, 255, 0.16); }
   .ios ion-switch.item.activated {
     background: #fff; }
   .ios ion-switch media-switch {
@@ -7178,10 +6696,6 @@ icon,
     background-color: #f4f4f4; }
   .ios ion-switch[dark][aria-checked=true] switch-icon {
     background-color: #222; }
-  .ios ion-switch[energized][aria-checked=true] switch-icon {
-    background-color: #ffc527; }
-  .ios ion-switch[royal][aria-checked=true] switch-icon {
-    background-color: #7e60ff; }
   .ios tabbar {
     border-top: 1px solid #b2b2b2; }
   .ios ion-tabs[tabbar-placement=top] tabbar {
@@ -7237,10 +6751,6 @@ icon,
     border-color: #dbdbdb; }
   .ios tabbar[dark] {
     border-color: #090909; }
-  .ios tabbar[energized] {
-    border-color: #f3b200; }
-  .ios tabbar[royal] {
-    border-color: #552dff; }
   .ios.platform-cordova.platform-ios ion-navbar-section {
     min-height: 6.4rem;
     height: 6.4rem; }
@@ -7462,30 +6972,6 @@ icon,
     opacity: 1; }
     .md button[dark][outline].activated md-ripple,
     .md [button][dark][outline].activated md-ripple {
-      background: rgba(0, 0, 0, 0.1); }
-  .md button[energized].activated,
-  .md [button][energized].activated {
-    opacity: 1; }
-  .md button[energized][outline] md-ripple,
-  .md [button][energized][outline] md-ripple {
-    background: rgba(255, 197, 39, 0.2); }
-  .md button[energized][outline].activated,
-  .md [button][energized][outline].activated {
-    opacity: 1; }
-    .md button[energized][outline].activated md-ripple,
-    .md [button][energized][outline].activated md-ripple {
-      background: rgba(0, 0, 0, 0.1); }
-  .md button[royal].activated,
-  .md [button][royal].activated {
-    opacity: 1; }
-  .md button[royal][outline] md-ripple,
-  .md [button][royal][outline] md-ripple {
-    background: rgba(126, 96, 255, 0.2); }
-  .md button[royal][outline].activated,
-  .md [button][royal][outline].activated {
-    opacity: 1; }
-    .md button[royal][outline].activated md-ripple,
-    .md [button][royal][outline].activated md-ripple {
       background: rgba(0, 0, 0, 0.1); }
   .md [padding],
   .md [padding] > scroll-content {
@@ -7793,12 +7279,6 @@ icon,
   .md ion-checkbox[dark][aria-checked=true] checkbox-icon {
     background-color: #222;
     border-color: #222; }
-  .md ion-checkbox[energized][aria-checked=true] checkbox-icon {
-    background-color: #ffc527;
-    border-color: #ffc527; }
-  .md ion-checkbox[royal][aria-checked=true] checkbox-icon {
-    background-color: #7e60ff;
-    border-color: #7e60ff; }
   .md [text-input] {
     margin: 13px 8px 13px 8px;
     padding: 0; }
@@ -7947,18 +7427,6 @@ icon,
     background: #222; }
   .md ion-radio[dark][aria-checked=true] {
     color: #222; }
-  .md ion-radio[energized][aria-checked=true] radio-icon {
-    border-color: #ffc527; }
-  .md ion-radio[energized][aria-checked=true] radio-icon:after {
-    background: #ffc527; }
-  .md ion-radio[energized][aria-checked=true] {
-    color: #ffc527; }
-  .md ion-radio[royal][aria-checked=true] radio-icon {
-    border-color: #7e60ff; }
-  .md ion-radio[royal][aria-checked=true] radio-icon:after {
-    background: #7e60ff; }
-  .md ion-radio[royal][aria-checked=true] {
-    color: #7e60ff; }
   .md ion-searchbar {
     padding: 8px;
     background: inherit; }
@@ -8102,24 +7570,6 @@ icon,
         color: #222;
         border-color: #222;
         opacity: 1; }
-  .md .toolbar[primary] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[primary] ion-segment[energized] ion-segment-button[button][outline] {
-      color: #ffc527; }
-      .md .toolbar[primary] ion-segment[energized] ion-segment-button[button][outline].activated, .md .toolbar[primary] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #ffc527;
-        border-color: #ffc527;
-        opacity: 1; }
-  .md .toolbar[primary] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[primary] ion-segment[royal] ion-segment-button[button][outline] {
-      color: #7e60ff; }
-      .md .toolbar[primary] ion-segment[royal] ion-segment-button[button][outline].activated, .md .toolbar[primary] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #7e60ff;
-        border-color: #7e60ff;
-        opacity: 1; }
   .md ion-segment[primary] ion-segment-button[button] {
     background-color: transparent; }
     .md ion-segment[primary] ion-segment-button[button][outline] {
@@ -8182,24 +7632,6 @@ icon,
         background-color: transparent;
         color: #222;
         border-color: #222;
-        opacity: 1; }
-  .md .toolbar[secondary] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[secondary] ion-segment[energized] ion-segment-button[button][outline] {
-      color: #ffc527; }
-      .md .toolbar[secondary] ion-segment[energized] ion-segment-button[button][outline].activated, .md .toolbar[secondary] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #ffc527;
-        border-color: #ffc527;
-        opacity: 1; }
-  .md .toolbar[secondary] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[secondary] ion-segment[royal] ion-segment-button[button][outline] {
-      color: #7e60ff; }
-      .md .toolbar[secondary] ion-segment[royal] ion-segment-button[button][outline].activated, .md .toolbar[secondary] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #7e60ff;
-        border-color: #7e60ff;
         opacity: 1; }
   .md ion-segment[secondary] ion-segment-button[button] {
     background-color: transparent; }
@@ -8264,24 +7696,6 @@ icon,
         color: #222;
         border-color: #222;
         opacity: 1; }
-  .md .toolbar[danger] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[danger] ion-segment[energized] ion-segment-button[button][outline] {
-      color: #ffc527; }
-      .md .toolbar[danger] ion-segment[energized] ion-segment-button[button][outline].activated, .md .toolbar[danger] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #ffc527;
-        border-color: #ffc527;
-        opacity: 1; }
-  .md .toolbar[danger] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[danger] ion-segment[royal] ion-segment-button[button][outline] {
-      color: #7e60ff; }
-      .md .toolbar[danger] ion-segment[royal] ion-segment-button[button][outline].activated, .md .toolbar[danger] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #7e60ff;
-        border-color: #7e60ff;
-        opacity: 1; }
   .md ion-segment[danger] ion-segment-button[button] {
     background-color: transparent; }
     .md ion-segment[danger] ion-segment-button[button][outline] {
@@ -8344,24 +7758,6 @@ icon,
         background-color: transparent;
         color: #222;
         border-color: #222;
-        opacity: 1; }
-  .md .toolbar[light] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[light] ion-segment[energized] ion-segment-button[button][outline] {
-      color: #ffc527; }
-      .md .toolbar[light] ion-segment[energized] ion-segment-button[button][outline].activated, .md .toolbar[light] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #ffc527;
-        border-color: #ffc527;
-        opacity: 1; }
-  .md .toolbar[light] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[light] ion-segment[royal] ion-segment-button[button][outline] {
-      color: #7e60ff; }
-      .md .toolbar[light] ion-segment[royal] ion-segment-button[button][outline].activated, .md .toolbar[light] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #7e60ff;
-        border-color: #7e60ff;
         opacity: 1; }
   .md ion-segment[light] ion-segment-button[button] {
     background-color: transparent; }
@@ -8426,24 +7822,6 @@ icon,
         color: #222;
         border-color: #222;
         opacity: 1; }
-  .md .toolbar[dark] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[dark] ion-segment[energized] ion-segment-button[button][outline] {
-      color: #ffc527; }
-      .md .toolbar[dark] ion-segment[energized] ion-segment-button[button][outline].activated, .md .toolbar[dark] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #ffc527;
-        border-color: #ffc527;
-        opacity: 1; }
-  .md .toolbar[dark] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[dark] ion-segment[royal] ion-segment-button[button][outline] {
-      color: #7e60ff; }
-      .md .toolbar[dark] ion-segment[royal] ion-segment-button[button][outline].activated, .md .toolbar[dark] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #7e60ff;
-        border-color: #7e60ff;
-        opacity: 1; }
   .md ion-segment[dark] ion-segment-button[button] {
     background-color: transparent; }
     .md ion-segment[dark] ion-segment-button[button][outline] {
@@ -8452,168 +7830,6 @@ icon,
         background-color: transparent;
         color: #222;
         border-color: #222;
-        opacity: 1; }
-  .md .toolbar[energized] ion-segment ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[energized] ion-segment ion-segment-button[button][outline] {
-      color: black; }
-      .md .toolbar[energized] ion-segment ion-segment-button[button][outline].activated, .md .toolbar[energized] ion-segment ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: black;
-        border-color: black;
-        opacity: 1; }
-  .md .toolbar[energized] ion-segment[primary] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[energized] ion-segment[primary] ion-segment-button[button][outline] {
-      color: #387ef5; }
-      .md .toolbar[energized] ion-segment[primary] ion-segment-button[button][outline].activated, .md .toolbar[energized] ion-segment[primary] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #387ef5;
-        border-color: #387ef5;
-        opacity: 1; }
-  .md .toolbar[energized] ion-segment[secondary] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[energized] ion-segment[secondary] ion-segment-button[button][outline] {
-      color: #32db64; }
-      .md .toolbar[energized] ion-segment[secondary] ion-segment-button[button][outline].activated, .md .toolbar[energized] ion-segment[secondary] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #32db64;
-        border-color: #32db64;
-        opacity: 1; }
-  .md .toolbar[energized] ion-segment[danger] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[energized] ion-segment[danger] ion-segment-button[button][outline] {
-      color: #f53d3d; }
-      .md .toolbar[energized] ion-segment[danger] ion-segment-button[button][outline].activated, .md .toolbar[energized] ion-segment[danger] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #f53d3d;
-        border-color: #f53d3d;
-        opacity: 1; }
-  .md .toolbar[energized] ion-segment[light] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[energized] ion-segment[light] ion-segment-button[button][outline] {
-      color: #f4f4f4; }
-      .md .toolbar[energized] ion-segment[light] ion-segment-button[button][outline].activated, .md .toolbar[energized] ion-segment[light] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #f4f4f4;
-        border-color: #f4f4f4;
-        opacity: 1; }
-  .md .toolbar[energized] ion-segment[dark] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[energized] ion-segment[dark] ion-segment-button[button][outline] {
-      color: #222; }
-      .md .toolbar[energized] ion-segment[dark] ion-segment-button[button][outline].activated, .md .toolbar[energized] ion-segment[dark] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #222;
-        border-color: #222;
-        opacity: 1; }
-  .md .toolbar[energized] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[energized] ion-segment[energized] ion-segment-button[button][outline] {
-      color: #ffc527; }
-      .md .toolbar[energized] ion-segment[energized] ion-segment-button[button][outline].activated, .md .toolbar[energized] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #ffc527;
-        border-color: #ffc527;
-        opacity: 1; }
-  .md .toolbar[energized] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[energized] ion-segment[royal] ion-segment-button[button][outline] {
-      color: #7e60ff; }
-      .md .toolbar[energized] ion-segment[royal] ion-segment-button[button][outline].activated, .md .toolbar[energized] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #7e60ff;
-        border-color: #7e60ff;
-        opacity: 1; }
-  .md ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .md ion-segment[energized] ion-segment-button[button][outline] {
-      color: #ffc527; }
-      .md ion-segment[energized] ion-segment-button[button][outline].activated, .md ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #ffc527;
-        border-color: #ffc527;
-        opacity: 1; }
-  .md .toolbar[royal] ion-segment ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[royal] ion-segment ion-segment-button[button][outline] {
-      color: black; }
-      .md .toolbar[royal] ion-segment ion-segment-button[button][outline].activated, .md .toolbar[royal] ion-segment ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: black;
-        border-color: black;
-        opacity: 1; }
-  .md .toolbar[royal] ion-segment[primary] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[royal] ion-segment[primary] ion-segment-button[button][outline] {
-      color: #387ef5; }
-      .md .toolbar[royal] ion-segment[primary] ion-segment-button[button][outline].activated, .md .toolbar[royal] ion-segment[primary] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #387ef5;
-        border-color: #387ef5;
-        opacity: 1; }
-  .md .toolbar[royal] ion-segment[secondary] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[royal] ion-segment[secondary] ion-segment-button[button][outline] {
-      color: #32db64; }
-      .md .toolbar[royal] ion-segment[secondary] ion-segment-button[button][outline].activated, .md .toolbar[royal] ion-segment[secondary] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #32db64;
-        border-color: #32db64;
-        opacity: 1; }
-  .md .toolbar[royal] ion-segment[danger] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[royal] ion-segment[danger] ion-segment-button[button][outline] {
-      color: #f53d3d; }
-      .md .toolbar[royal] ion-segment[danger] ion-segment-button[button][outline].activated, .md .toolbar[royal] ion-segment[danger] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #f53d3d;
-        border-color: #f53d3d;
-        opacity: 1; }
-  .md .toolbar[royal] ion-segment[light] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[royal] ion-segment[light] ion-segment-button[button][outline] {
-      color: #f4f4f4; }
-      .md .toolbar[royal] ion-segment[light] ion-segment-button[button][outline].activated, .md .toolbar[royal] ion-segment[light] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #f4f4f4;
-        border-color: #f4f4f4;
-        opacity: 1; }
-  .md .toolbar[royal] ion-segment[dark] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[royal] ion-segment[dark] ion-segment-button[button][outline] {
-      color: #222; }
-      .md .toolbar[royal] ion-segment[dark] ion-segment-button[button][outline].activated, .md .toolbar[royal] ion-segment[dark] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #222;
-        border-color: #222;
-        opacity: 1; }
-  .md .toolbar[royal] ion-segment[energized] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[royal] ion-segment[energized] ion-segment-button[button][outline] {
-      color: #ffc527; }
-      .md .toolbar[royal] ion-segment[energized] ion-segment-button[button][outline].activated, .md .toolbar[royal] ion-segment[energized] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #ffc527;
-        border-color: #ffc527;
-        opacity: 1; }
-  .md .toolbar[royal] ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .md .toolbar[royal] ion-segment[royal] ion-segment-button[button][outline] {
-      color: #7e60ff; }
-      .md .toolbar[royal] ion-segment[royal] ion-segment-button[button][outline].activated, .md .toolbar[royal] ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #7e60ff;
-        border-color: #7e60ff;
-        opacity: 1; }
-  .md ion-segment[royal] ion-segment-button[button] {
-    background-color: transparent; }
-    .md ion-segment[royal] ion-segment-button[button][outline] {
-      color: #7e60ff; }
-      .md ion-segment[royal] ion-segment-button[button][outline].activated, .md ion-segment[royal] ion-segment-button[button][outline].segment-activated {
-        background-color: transparent;
-        color: #7e60ff;
-        border-color: #7e60ff;
         opacity: 1; }
   .md ion-switch media-switch {
     padding: 12px 8px 12px 16px; }
@@ -8665,14 +7881,6 @@ icon,
     background-color: #626262; }
   .md ion-switch[dark][aria-checked=true] switch-icon:after {
     background-color: #222; }
-  .md ion-switch[energized][aria-checked=true] switch-icon {
-    background-color: #ffe7a6; }
-  .md ion-switch[energized][aria-checked=true] switch-icon:after {
-    background-color: #ffc527; }
-  .md ion-switch[royal][aria-checked=true] switch-icon {
-    background-color: #e5e0ff; }
-  .md ion-switch[royal][aria-checked=true] switch-icon:after {
-    background-color: #7e60ff; }
   .md .tab-button {
     padding: 12px 10px 5px 10px;
     min-height: 4.8rem;
@@ -8730,10 +7938,6 @@ icon,
     background: black; }
   .md tabbar[dark] tab-highlight {
     background: white; }
-  .md tabbar[energized] tab-highlight {
-    background: black; }
-  .md tabbar[royal] tab-highlight {
-    background: black; }
   .md md-ripple {
     position: absolute;
     z-index: 0;
@@ -8755,433 +7959,25 @@ icon,
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../../dist/fonts/roboto-light.ttf") format("truetype"), url("../../dist/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../../dist/fonts/roboto-regular.ttf") format("truetype"), url("../../dist/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../../dist/fonts/roboto-medium.ttf") format("truetype"), url("../../dist/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../../dist/fonts/roboto-bold.ttf") format("truetype"), url("../../dist/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 .md {
   font-family: "Roboto", "Helvetica Neue", sans-serif; }
-
-.md .ion-md-share {
-  color: #ED4248; }
-
-.md .ion-md-arrow-dropright-circle {
-  color: #508AE4; }
-
-.md .ion-md-heart-outline {
-  color: #31D55F; }
-
-.md .action-sheet-destructive {
-  margin-top: 2px;
-  padding-top: 1px; }
-
-.md .action-sheet-cancel icon, .md .action-sheet-destructive icon {
-  color: #757575; }
-
-#subtle-footer {
-  background-color: #fff;
-  border-image-source: url(../component-docs/img/footer-wireframe.png);
-  border-image-repeat: repeat;
-  border-image-width: 100%;
-  border-bottom: 0;
-  border-left: 0;
-  border-right: 0;
-  position: absolute;
-  bottom: 0; }
-
-#demo-fab-bottom {
-  padding-top: 3px;
-  z-index: 100; }
-
-#subtle-footer .toolbar-background {
-  background-color: #fff;
-  border-bottom: 0; }
-
-ion-card ion-card-content.buttons-in-components {
-  background-color: #F4F5F8; }
-
-ion-card ion-card-content.buttons-in-components img {
-  width: auto;
-  height: 44px;
-  display: block;
-  margin: 20px auto; }
-
-ion-card.buttons-in-components {
-  margin-bottom: 2em; }
-
-ion-content ion-card ion-item.advanced-trans p {
-  color: #fff; }
-
-ion-card p.advanced-background-subtitle {
-  font-size: 1.0em;
-  position: absolute;
-  top: 48%;
-  width: 100%;
-  color: #fff !important; }
-
-.advanced-background {
-  position: relative;
-  text-align: center !important; }
-
-ion-card ion-item.advanced-trans.item {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  padding: 12px 20px !important;
-  background: transparent; }
-
-ion-card ion-item.advanced-trans.item p {
-  font-size: 12px;
-  letter-spacing: 1.7px;
-  font-weight: 500;
-  opacity: 0.7; }
-
-ion-card p.advanced-background-title {
-  position: absolute;
-  top: 25%;
-  font-size: 2.0em;
-  width: 100%;
-  font-weight: bold;
-  color: #fff !important; }
-
-ion-card p.advanced-background-title-large {
-  top: 29%;
-  font-weight: normal;
-  font-size: 4.4em;
-  color: #fff !important; }
-
-ion-card p.advanced-background-title-large span {
-  vertical-align: top;
-  padding-top: 5px;
-  font-size: 72px;
-  height: 74px;
-  line-height: 1;
-  display: inline-block; }
-
-ion-card.cards-list-demo ion-card-header {
-  color: #387df5; }
-
-ion-card.cards-list-demo a > icon {
-  color: #444444; }
-
-body.ios ion-card .advanced-weather-tabs tabbar {
-  height: 88px; }
-
-body.md ion-card .advanced-weather-tabs tabbar {
-  height: 100px; }
-
-body.md ion-card .advanced-weather-tabs tabbar a span.tab-button-text {
-  text-transform: uppercase; }
-
-body.md .cards-bg tab-highlight {
-  background-color: #fff !important;
-  top: 0; }
-
-body.ios ion-card p.advanced-background-title-large span {
-  font-weight: 300; }
-
-.preview-weather-cards ion-content ion-card ion-item.advanced-trans p {
-  color: #fff; }
-
-.preview-weather-cards ion-card p.advanced-background-subtitle {
-  font-size: 1.0em;
-  position: absolute;
-  top: 48%;
-  width: 100%;
-  color: #fff !important; }
-
-.preview-weather-cards .advanced-background {
-  position: relative;
-  text-align: center !important; }
-
-.preview-weather-cards ion-card ion-item.advanced-trans.item {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  padding: 12px 20px !important;
-  background: transparent; }
-
-.preview-weather-cards ion-card ion-item.advanced-trans.item p {
-  font-size: 12px;
-  letter-spacing: 1.7px;
-  font-weight: 500;
-  opacity: 0.7; }
-
-.preview-weather-cards ion-card p.advanced-background-title {
-  position: absolute;
-  top: 25%;
-  font-size: 2.0em;
-  width: 100%;
-  font-weight: bold;
-  color: #fff !important; }
-
-.preview-weather-cards ion-card p.advanced-background-title-large {
-  top: 29%;
-  font-weight: normal;
-  font-size: 4.4em;
-  color: #fff !important; }
-
-.preview-weather-cards ion-card p.advanced-background-title-large span {
-  vertical-align: top;
-  padding-top: 5px;
-  font-size: 72px;
-  height: 74px;
-  line-height: 1;
-  display: inline-block; }
-
-.preview-weather-cards ion-card .advanced-weather-tabs tabbar {
-  background: transparent;
-  border-top: none; }
-
-.preview-weather-cards ion-card .advanced-weather-tabs tabbar a {
-  height: 100%;
-  border-top: 2px solid transparent !important;
-  border-bottom: 0px !important; }
-
-.preview-weather-cards ion-card .advanced-weather-tabs tabbar a icon.tab-button-icon {
-  color: #fff;
-  font-size: 2.8em; }
-
-.preview-weather-cards ion-card .advanced-weather-tabs tabbar a span.tab-button-text {
-  color: #fff;
-  font-size: 13px; }
-
-.preview-weather-cards md-ripple {
-  background: rgba(255, 255, 255, 0.15); }
-
-.preview-weather-cards ion-card .advanced-weather-tabs {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: transparent; }
-
-.preview-weather-cards ion-card ion-item.advanced-trans.item {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  padding: 12px 20px !important;
-  background: transparent; }
-
-.preview-weather-cards ion-card ion-item.advanced-trans.item p {
-  font-size: 12px;
-  letter-spacing: 1.7px;
-  font-weight: 500;
-  opacity: 0.7; }
-
-.preview-weather-cards ion-content ion-card ion-item.advanced-trans p {
-  color: #fff; }
-
-ion-card .advanced-weather-tabs {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: transparent; }
-
-ion-card.adv-map p {
-  font-size: 0.7em !important; }
-
-p.time-ago {
-  color: #bbbbbb !important;
-  margin-left: 4px !important;
-  margin-right: 0px !important; }
-
-button[fab].fab-map {
-  top: 190px;
-  z-index: 50; }
-
-body.ios button[fab].fab-map {
-  width: 50px;
-  height: 50px; }
-
-body.md button[fab].fab-map {
-  top: 220px; }
-
-ion-card .icon-avatar {
-  margin: 10px 8px;
-  min-width: 2.4rem !important;
-  color: #444444;
-  font-size: 1.8em;
-  text-align: center; }
-
-.item-bold {
-  font-weight: bold;
-  color: #32DB64; }
-
-.item-subtle {
-  color: #656565;
-  margin-left: -3px !important; }
-
-.item-subtle:before {
-  padding-right: 5px; }
-
-.grid-page ion-col div {
-  background-color: #F9FAFB;
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 2px;
-  text-align: center; }
-
-.preview-icons {
-  font-size: 2em;
-  text-align: center; }
-
-body.md ion-menu#leftMenu {
-  width: 304px; }
-
-.preview-slides .slide-contents {
-  display: block;
-  height: 100%;
-  padding: 500px 0;
-  width: 100%;
-  font-weight: bold;
-  font-size: 2.5em;
-  color: #fff; }
-
-.preview-slides #slide-1 {
-  background-color: #32db64; }
-
-.preview-slides #slide-2 {
-  background-color: #387ef5; }
-
-.preview-slides #slide-3 {
-  background-color: #f53d3d; }
-
-body.md .tabs-basic tabbar {
-  background-color: #387EF5; }
-  body.md .tabs-basic tabbar a {
-    color: #fff !important; }
-
-body.md .tabs-basic tab-highlight {
-  color: #fff;
-  background-color: #fff; }
-
-body.md .tabs-icon tabbar {
-  background-color: #f53d3d; }
-  body.md .tabs-icon tabbar a {
-    color: #fff; }
-
-body.md .tabs-icon tab-highlight {
-  color: #fff;
-  background-color: #fff; }
-
-body.ios .tabs-icon tabbar a {
-  color: #f53d3d; }
-
-body.md .tabs-icon-text tabbar {
-  background-color: #7e60ff; }
-  body.md .tabs-icon-text tabbar a {
-    color: #fff !important; }
-
-body.md .tabs-icon-text tab-highlight {
-  color: #fff;
-  background-color: #fff; }
-
-body.ios .tabs-icon-text tabbar a {
-  color: #7e60ff; }
-
-body, body:hover, body a, body button, body media-switch {
-  cursor: url("http://ionicframework.com/img/finger.png") 8 8, auto; }
-
-body ion-app {
-  overflow: visible; }
-
-ion-page {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
-
-ion-scroll {
-  width: 100%;
-  height: 100%; }
-
-body.has-scrollbar scroll-content {
-  margin-right: -15px; }
-
-body.has-scrollbar ion-menu scroll-content {
-  margin-right: 0; }
-
-scroll-content {
-  overflow-y: scroll; }
-
-section.hidden {
-  display: none !important; }
-
-.components-demo h4 {
-  text-align: center; }
-
-.section-padding {
-  padding: 16px; }
-
-.components-demo section {
-  width: 100%;
-  height: 100%; }
-
-#card-wireframe {
-  width: 100%;
-  margin-bottom: 2.7em; }
-
-.demo-card {
-  height: 0; }
-
-.demo-card button {
-  font-size: 1.3rem; }
-
-.ios ion-content.cards-bg {
-  background-color: #f4f4f7; }
-
-.md ion-content.cards-bg {
-  background-color: #EEEEEE !important; }
-
-.demo-list-icons icon {
-  color: #444444; }
-
-.demo-list-icons icon#secondary {
-  color: #32DB64; }
-
-body.md {
-  border-top: 24px solid black; }
-
-body.md backdrop {
-  top: -24px;
-  height: 107%; }
-
-body.md img#md-only {
-  display: block !important;
-  position: absolute;
-  top: -24px;
-  width: 100%;
-  height: auto; }
-
-body.md img#md-tabs-icon, body.md img#md-tabs-icon-text {
-  display: none;
-  position: absolute;
-  top: -24px;
-  width: 100%;
-  height: auto; }
-
-body.ios img#ios-only {
-  display: block !important;
-  position: absolute;
-  background-color: #F8F8F8;
-  padding: 5px 0;
-  top: 0px;
-  width: 100%;
-  height: auto;
-  z-index: 999; }

@@ -266,8 +266,8 @@ forward views cached and not reset on each load.
 
 </h2>
 
-Whether to use JS or Native scrolling. Defaults to JS scrolling. Setting this to
-`false` has the same effect as setting each `ion-content` to have `overflow-scroll='true'`.
+Whether to use JS or Native scrolling. Defaults to native scrolling. Setting this to
+`true` has the same effect as setting each `ion-content` to have `overflow-scroll='false'`.
 
 
 
@@ -292,7 +292,7 @@ Whether to use JS or Native scrolling. Defaults to JS scrolling. Setting this to
   <code>boolean</code>
       </td>
       <td>
-        <p>Defaults to <code>true</code></p>
+        <p>Defaults to <code>false</code> as of Ionic 1.2</p>
 
         
       </td>

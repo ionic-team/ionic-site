@@ -88,7 +88,7 @@ app.config(function($stateProvider) {
   });
 });
 ```
-Then on app start, $stateProvider will look at the url, see it matches the index state,
+Then on app start, $stateProvider will look at the url, see if it matches the index state,
 and then try to load home.html into the `<ion-nav-view>`.
 
 Pages are loaded by the URLs given. One simple way to create templates in Angular is to put

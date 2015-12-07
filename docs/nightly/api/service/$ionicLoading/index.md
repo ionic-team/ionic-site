@@ -74,7 +74,9 @@ angular.module('LoadingApp', ['ionic'])
 </h2>
 
 Shows a loading indicator. If the indicator is already shown,
-it will set the options given and keep the indicator shown.
+it will set the options given and keep the indicator shown. Note: While this
+function still returns an $ionicLoading instance for backwards compatiblity,
+its use has been deprecated.
 
 
 

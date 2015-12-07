@@ -4678,8 +4678,8 @@ body {
 
 .improve-docs {
   position: absolute;
-  right: 50px;
-  top: 127px; }
+  right: 1.5em;
+  top: 8em; }
 
 .docs-container .side-nav {
   width: 230px;

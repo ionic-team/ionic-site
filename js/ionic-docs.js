@@ -135,6 +135,8 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 }])
 .controller('APIDemoCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
+  var $platformPreview = $('#platform-preview');
+
   $scope.setPlatform = function(platform) {
     $scope.previewPlatform = platform;
     if (platform == 'ios') {

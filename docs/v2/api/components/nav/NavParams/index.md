@@ -48,7 +48,22 @@ NavParams
 
 <h2>Description</h2>
 
-<p>TODO</p>
+<p>NavParams are an object that exists on a page and can contain data for that particular view.
+Similar to how data was pass to a view in V1 with <code>$stateParams</code>, NavParams offer a much more flexible
+option with a simple <code>get</code> method.</p>
+
+
+<h2>Usage</h2>
+
+<pre><code class="lang-ts">export class MyClass{
+ constructor(params: NavParams){
+   this.params = params;
+   // userParams is an object we have in our nav-parameters
+   this.params.get(&#39;userParams&#39;);
+ }
+}
+</code></pre>
+
 
 
 
@@ -60,11 +75,23 @@ NavParams
 <div id="get"></div>
 
 <h3>
-<code>get(Which)</code>
+<code>get(parameter)</code>
 
 </h3>
 
-TODO
+Get the value of a nav-parameter for the current view
+
+```ts
+export class MyClass{
+ constructor(params: NavParams){
+   this.params = params;
+   // userParams is an object we have in our nav-parameters
+   this.params.get('userParams');
+ }
+}
+```
+
+
 
 
 
@@ -80,7 +107,7 @@ TODO
     
     <tr>
       <td>
-        Which
+        parameter
         
         
       </td>
@@ -89,7 +116,7 @@ TODO
   <code>string</code>
       </td>
       <td>
-        <p>param you want to look up</p>
+        <p>Which param you want to look up</p>
 
         
       </td>

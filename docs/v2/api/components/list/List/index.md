@@ -11,6 +11,7 @@ doc: "List"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/list/"
+angular_controller: APIDemoCtrl 
 ---
 
 

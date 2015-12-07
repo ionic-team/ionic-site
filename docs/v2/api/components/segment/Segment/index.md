@@ -48,8 +48,9 @@ Segment
 
 <h2>Description</h2>
 
-<p>A Segment is a group of buttons, sometimes known as Segmented Controls, that allow the user to interact with a compact group of a number of controls.</p>
-<p>Segments provide functionality similar to tabs, selecting one will unselect all others. You should use a tab bar instead of a segmented control when you want to let the user move back and forth between distinct pages in your app.</p>
+<p>A Segment is a group of buttons, sometimes known as Segmented Controls, that allow the user to interact with a compact group of a number of controls.
+Segments provide functionality similar to tabs, selecting one will unselect all others. You should use a tab bar instead of a segmented control when you want to let the user move back and forth between distinct pages in your app.
+You could use Angular 2&#39;s <code>ng-model</code> or <code>FormBuilder</code> API. For an overview on how <code>FormBuilder</code> works, checkout <a href="http://learnangular2.com/forms/">Angular 2 Forms</a>, or <a href="https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html">Angular FormBuilder</a></p>
 
 
 <h2>Directive</h2>
@@ -65,9 +66,9 @@ Segment
     Enemies
   &lt;/ion-segment-button&gt;
 &lt;/ion-segment&gt;
-
-
-&lt;form [ng-form-model]=&quot;myForm&quot;&gt;
+</code></pre>
+<p>Or with <code>FormBuilder</code></p>
+<pre><code class="lang-html">&lt;form [ng-form-model]=&quot;myForm&quot;&gt;
   &lt;ion-segment ng-control=&quot;mapStyle&quot; danger&gt;
     &lt;ion-segment-button value=&quot;standard&quot;&gt;
       Standard
@@ -90,7 +91,8 @@ Segment
 
 <h2>Related</h2>
 
-<a href='/docs/v2/components#segment'>Segment Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#segment'>Segment Component Docs</a>
+[Angular 2 Forms](http://learnangular2.com/forms/)<!-- end content block -->
 
 
 <!-- end body block -->

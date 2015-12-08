@@ -1,16 +1,89 @@
 ---
 layout: docs_faq
-title: CLI FAQ
-header_title: CLI FAQ
-header_sub_title: Some common pitfalls related to Cordova, Node, NPM, and Android
+title: Ionic FAQ
+header_title: Ionic FAQ
+header_sub_title: Some common pitfalls related to using Ionic and Ionic dependencies
 news: Check out our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up.
 search_sections: true
 ---
 
+<!-- Platform ready -->
+<h3 class="title">Common Issues and FAQs</h3>
+
+<section class="docs-section active" id="platform-ready">
+
+  <h3 class="title"><a href="#platform-ready">Platform.ready</a></h3>
+  <p>
+    Before using native Cordova plugins, apps need to listen for the platform ready event. The best way to do this is in
+    the <code>run</code> function of your app:
+  </p>
+  {% highlight javascript %}
+  myModule.run(function($ionicPlatform) {
+    $ionicPlatform.ready(function() {
+      // Anything native should go here, like StatusBar.styleLightContent()
+    });
+  });
+  {% endhighlight %}
+  <p>
+    Sometimes, this event never fires and that case can be difficult to debug. Generally, when <code>$ionicPlatform.ready</code> does not
+    fire, or the lower-level <code>deviceready</code> event does not fire from Cordova, it means your plugins are in
+    an inconsistent state.
+  </p>
+  <p>
+    To remedy this, remove your existing plugins and reinstall them. For each plugin, run:
+  </p>
+  {% highlight bash %}
+  cordova plugin rm cordova-plugin-statusbar
+  cordova plugin add cordova-plugin-statusbar
+  {% endhighlight %}
+  <p>
+    If this does not resolve the issue, please let us know if you might be using a cordova plugin that is faulty: <a href="https://docs.google.com/forms/d/163L7WP7Q8q6cSgJyfFn2RKUu0iyy3jlYqf94VvyKvNI/viewform?usp=send_form">Report Bad Cordova Plugin</a>
+  </p>
+</section>
+
+<section class="docs-section active" id="cordova-plugins">
+
+  <h3 class="title"><a href="#bad-plugin">Unstable or outdated Cordova Plugin</a></h3>
+
+  <p>
+    Are you using a Cordova plugin that is either unstable (crashes, doens't function properly), or outdated (breaks on new mobile OS's, etc.)?
+  </p>
+  <p>
+    Let us know by reporting it on our <a href="https://docs.google.com/forms/d/163L7WP7Q8q6cSgJyfFn2RKUu0iyy3jlYqf94VvyKvNI/viewform?usp=send_form">Bad Cordova Plugin</a> form.
+  </p>
+  <p>
+    We can't promise we'll be able to fix the issue, but we are working hard to improve the quality of the Cordova plugin community and your report helps. We aren't
+    able to respond individually to cordova plugin issue reports at this time.
+  </p>
+</section>
+
+<section class="docs-section active" id="touch-events">
+
+  <h3 class="title"><a href="#tap-issues">Ionic breaks touch/mouse events for 3rd party library</a></h3>
+
+  <p>
+    Running into an issue where Ionic's tap and event handling system is conflicting with a 3rd party library,
+    such as a map widget or embedded object?
+  </p>
+  <p>
+    Ionic's complex event system makes it possible to build mobile apps in the browser with fast and fluid
+    touch events and gestures. Unfortunately, that can conflict with widgets that expect to have full control
+    over their own events.
+  </p>
+  <p>
+    To fix this, add <code>data-tap-disabled="true"</code> around the widget. For example:
+  </p>
+  {% highlight html %}
+  <div id="google_map" data-tap-disabled="true"></div>
+  {% endhighlight %}
+</section>
+
 <!-- Android SDK
   ================================================== -->
 
-<p>When working with Cordova and Ionic, Node is going to be your best friend. Specifically working with Node and the Command Line. Yet getting things set up often seems to be a challenge, especially when it comes to setting up things cross platform (Mac,
+<h3 class="title">Ionic CLI</h3>
+
+<p>When working with Cordova and Ionic, Node is to be your best friend. Specifically, working with Node and the Command Line. Yet getting things set up often seems to be a challenge, especially when it comes to setting up things cross platform (Mac,
   Windows, Linux).</p>
 <p>Below are a few issues that are not necessarily an Ionic Framework issue, but common pitfalls seen related to Cordova, Node, NPM, Android:</p>
 
@@ -52,8 +125,13 @@ export PATH=/usr/local/bin:$PATH
   ================================================== -->
 <section class="docs-section" id="genymotion">
 
-  <h3 class="title"><a href="#genymotion">Genymotion</a></h3>
-        <p>This helpful tip cannot be stressed enough! Even when working natively, the Android emulator is a pain. It’s slow to boot, becomes unresponsive and locks up easily. Thankfully <a href="http://www.genymotion.com/">Genymotion</a> is a great replacement. It uses a virtual machine to emulate android devices and does it perfectly. One thing to remember, if you want to deploy to a genymotion device, your computer will treat it as an actual connect machine. So instead of running</p>
+  <h3 class="title"><a href="#genymotion">Faster Android Emulation</a></h3>
+        <p>Having trouble emulating your Android apps? The Android emulator is notoriously slow, but there are some new choices available for speeding it up.</p>
+        <p>
+          First, follow the <a href="http://developer.android.com/tools/devices/emulator.html">Android Emulator</a> docs to ensure you're tried an image with Intel virtualization extensions added.
+        </p>
+        <p>
+          If that doesn't work, <a href="http://www.genymotion.com/">Genymotion</a> is a great replacement. It uses a virtual machine to emulate android devices and does it nearly perfectly. One thing to remember, if you want to deploy to a genymotion device, your computer will treat it as an actual connect machine. So instead of running</p>
         {% highlight bash %}
         $ ionic emulate android
         {% endhighlight %}
@@ -191,4 +269,22 @@ $ cordova platform update android
           addCliHookDirectory fs.chmodSync: Error: ENOENT, no such file or directory 'hooks/after_prepare/010_add_platform_class.js'
 {% endhighlight %}
 <p> Thankfully this has been fixed in the latest version of the Ionic CLI. If the hook isn't found when you try to build either iOS or Android, the Ionic CLI will add it back.</p>
+
+  <h3 class="title"><a href="#hool=ks">Incorrect Hook Permissions</a></h3>
+  <p>If, instead, you see an error like this:</p>
+  {% highlight bash %}
+  cordova emulate ios
+  running cordova emulate ios
+  Running command: /Users/username/myApp/hooks/after_prepare/010_add_platform_class.js /Users/username/myApp
+  Error: spawn EACCES
+  {% endhighlight %}
+  <p>
+    You should run
+  </p>
+  {% highlight bash %}
+  chmod +x -R hooks/after_prepare
+  {% endhighlight %}
+  <p>
+    This problem has been fixed in a recent version of the Ionic CLI but only helps new projects.
+  </p>
 </section>

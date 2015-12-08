@@ -9,7 +9,9 @@ title: "Modal"
 header_sub_title: "Class in module "
 doc: "Modal"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/modal/"
+angular_controller: APIDemoCtrl 
 ---
 
 

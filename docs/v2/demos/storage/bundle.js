@@ -61437,7 +61437,23 @@
 	var STAGED_LEAVING_STATE = 4;
 	var ctrlIds = -1;
 	/**
-	 * TODO
+	 * @name NavParams
+	 * @description
+	 * NavParams are an object that exists on a page and can contain data for that particular view.
+	 * Similar to how data was pass to a view in V1 with `$stateParams`, NavParams offer a much more flexible
+	 * option with a simple `get` method.
+	 *
+	 * @usage
+	 * ```ts
+	 * export class MyClass{
+	 *  constructor(params: NavParams){
+	 *    this.params = params;
+	 *    // userParams is an object we have in our nav-parameters
+	 *    this.params.get('userParams');
+	 *  }
+	 * }
+	 * ```
+	 *
 	 */
 
 	var NavParams = (function () {
@@ -61453,8 +61469,20 @@
 	    }
 
 	    /**
-	     * TODO
-	     * @param {string} Which param you want to look up
+	     * Get the value of a nav-parameter for the current view
+	     *
+	     * ```ts
+	     * export class MyClass{
+	     *  constructor(params: NavParams){
+	     *    this.params = params;
+	     *    // userParams is an object we have in our nav-parameters
+	     *    this.params.get('userParams');
+	     *  }
+	     * }
+	     * ```
+	     *
+	     *
+	     * @param {string} parameter Which param you want to look up
 	     */
 
 	    _createClass(NavParams, [{
@@ -61786,14 +61814,14 @@
 	        }
 
 	        /**
-	         * You can find out of the current view has a Navbar or not. Be sure to wrap this in an `onPageLoaded` method in order to make sure the view has rendered fully.
+	         * You can find out of the current view has a Navbar or not. Be sure to wrap this in an `onPageWillEnter` method in order to make sure the view has rendered fully.
 	         *
 	         * ```typescript
 	         * export class Page1 {
 	         *  constructor(view: ViewController) {
 	         *    this.view = view
 	         *  }
-	         *  onPageLoaded(){
+	         *  onPageWillEnter(){
 	         *    console.log('Do we have a Navbar?', this.view.hasNavbar());
 	         *  }
 	         *}
@@ -61868,7 +61896,21 @@
 	        }
 
 	        /**
-	         * @param {string} Set the back button text.
+	         * You can change the text of the back button on a view-by-view basis.
+	         *
+	         * ```ts
+	         * export class MyClass{
+	         *  constructor(viewCtrl: ViewController){
+	         *    this.viewCtrl = viewCtrl
+	         *  }
+	         *  onPageWillEnter() {
+	         *    this.viewCtrl.setBackButtonText('Previous');
+	         *  }
+	         * }
+	         * ```
+	         * Make sure you use the view events when calling this method, otherwise the back-button will not have been created
+	         *
+	         * @param {string} backButtonText Set the back button text.
 	         */
 	    }, {
 	        key: 'setBackButtonText',
@@ -61880,7 +61922,7 @@
 	        }
 
 	        /**
-	         * Set if the back button for the current view is visible or not. Be sure to wrap this in `onPageLoaded` to make sure the has been compleltly rendered.
+	         * Set if the back button for the current view is visible or not. Be sure to wrap this in `onPageWillEnter` to make sure the has been compleltly rendered.
 	         * @param {boolean} Set if this Page's back button should show or not.
 	         */
 	    }, {
@@ -65322,6 +65364,7 @@
 	  * @property [fab-bottom] - position a fab button towards the bottom
 	  * @description
 	  * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
+	  * @demo /docs/v2/demos/buttons/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
 
 	 */
@@ -69001,35 +69044,36 @@
 	 * ```ts
 	 * @Page({
 	 *  template: `
-	 *         <ion-slides pager (slide-changed)="onSlideChanged($event)" loop="true" autoplay="true">
-	 *          <ion-slide>
-	 *            <h3>Thank you for choosing the Awesome App!</h3>
-	 *            <p>
-	 *              The number one app for everything awesome.
-	 *            </p>
-	 *          </ion-slide>
-	 *          <ion-slide>
-	 *            <h3>Using Awesome</h3>
-	 *             <div id="list">
-	 *               <h5>Just three steps:</h5>
-	 *               <ol>
-	 *                 <li>Be awesome</li>
-	 *                 <li>Stay awesome</li>
-	 *                 <li>There is no step 3</li>
-	 *               </ol>
-	 *             </div>
-	 *          </ion-slide>
-	 *          <ion-slide>
-	 *            <h3>Any questions?</h3>
-	 *          </ion-slide>
-	 *        </ion-slides>
-	 *        `
+	 *     <ion-slides pager (slide-changed)="onSlideChanged($event)" loop="true" autoplay="true">
+	 *      <ion-slide>
+	 *        <h3>Thank you for choosing the Awesome App!</h3>
+	 *        <p>
+	 *          The number one app for everything awesome.
+	 *        </p>
+	 *      </ion-slide>
+	 *      <ion-slide>
+	 *        <h3>Using Awesome</h3>
+	 *         <div id="list">
+	 *           <h5>Just three steps:</h5>
+	 *           <ol>
+	 *             <li>Be awesome</li>
+	 *             <li>Stay awesome</li>
+	 *             <li>There is no step 3</li>
+	 *           </ol>
+	 *         </div>
+	 *      </ion-slide>
+	 *      <ion-slide>
+	 *        <h3>Any questions?</h3>
+	 *      </ion-slide>
+	 *    </ion-slides>
+	 *    `
 	 *})
 	 *
 	 *```
-	 * @property {Any} [autoplay] - whether or not the slides should automatically change
-	 * @property {Any} [loop] - whether the slides should loop from the last slide back to the first
-	 * @property {Any} [bounce] - whether the slides should bounce
+	 * @property {Boolean} [autoplay] - whether or not the slides should automatically change
+	 * @property {Boolean} [loop] - whether the slides should loop from the last slide back to the first
+	 * @property {Boolean} [bounce] - whether the slides should bounce
+	 * @property {Number} [index] - The slide index to start on
 	 * @property [pager] - add this property to enable the slide pager
 	 * @property {Any} [slideChanged] - expression to evaluate when a slide has been changed
 	 * @see {@link /docs/v2/components#slides Slides Component Docs}
@@ -70248,7 +70292,7 @@
 	 * no matter where in the UI heirarchy you are. For example, this makes toggling
 	 * a global side menu feasible from any place in the application.
 	 *
-	 * See the [Menu section](http://localhost:4000/docs/v2/components/#menus) of
+	 * See the [Menu section](http://ionicframework.com/docs/v2/components/#menus) of
 	 * the Component docs for an example of how Menus rely on ID's.
 	 *
 	 * To give any component an ID, simply set its `id` property:
@@ -71559,7 +71603,10 @@
 	 * Switches can also have colors assigned to them, by adding any color attribute to them.
 	 *
 	 * See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/forms/) for more info on forms and input.
-	 *
+	 * @property {any} [value] - the inital value of the switch
+	 * @property {boolean} [checked] - whether the switch it toggled or not
+	 * @property {boolean} [disabled] - whether the switch is disabled or not
+	 * @property {string} [id] - a unique ID for a switch
 	 * @usage
 	 * ```html
 	 * // Create a single switch
@@ -72538,10 +72585,12 @@
 	var _configConfig = __webpack_require__(435);
 
 	/**
+	 * @name Segment
 	 * @description
 	 * A Segment is a group of buttons, sometimes known as Segmented Controls, that allow the user to interact with a compact group of a number of controls.
-	 *
 	 * Segments provide functionality similar to tabs, selecting one will unselect all others. You should use a tab bar instead of a segmented control when you want to let the user move back and forth between distinct pages in your app.
+	 * You could use Angular 2's `ng-model` or `FormBuilder` API. For an overview on how `FormBuilder` works, checkout [Angular 2 Forms](http://learnangular2.com/forms/), or [Angular FormBuilder](https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html)
+	 *
 	 *
 	 * @usage
 	 * ```html
@@ -72553,8 +72602,11 @@
 	 *     Enemies
 	 *   </ion-segment-button>
 	 * </ion-segment>
+	 *```
 	 *
+	 * Or with `FormBuilder`
 	 *
+	 *```html
 	 * <form [ng-form-model]="myForm">
 	 *   <ion-segment ng-control="mapStyle" danger>
 	 *     <ion-segment-button value="standard">
@@ -72571,6 +72623,7 @@
 	 * ```
 	 *
 	 * @see {@link /docs/v2/components#segment Segment Component Docs}
+	 * @see [Angular 2 Forms](http://learnangular2.com/forms/)
 	 */
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -72699,6 +72752,43 @@
 	exports.Segment = Segment = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: 'ion-segment'
 	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object])], Segment);
+	/**
+	 * @name SegmentButton
+	 * @description
+	 * The child buttons of the `ion-segment` component. Each `ion-segment-button` must have a value.
+	 * @property {string} [value] - the value of the segment-button.
+	 * @usage
+	 * ```html
+	 * <ion-segment [(ng-model)]="relationship" danger>
+	 *   <ion-segment-button value="friends">
+	 *     Friends
+	 *   </ion-segment-button>
+	 *   <ion-segment-button value="enemies">
+	 *     Enemies
+	 *   </ion-segment-button>
+	 * </ion-segment>
+	 *```
+	 *
+	 * Or with `FormBuilder`
+	 *
+	 *```html
+	 * <form [ng-form-model]="myForm">
+	 *   <ion-segment ng-control="mapStyle" danger>
+	 *     <ion-segment-button value="standard">
+	 *       Standard
+	 *     </ion-segment-button>
+	 *     <ion-segment-button value="hybrid">
+	 *       Hybrid
+	 *     </ion-segment-button>
+	 *     <ion-segment-button value="sat">
+	 *       Satellite
+	 *     </ion-segment-button>
+	 *   </ion-segment>
+	 * </form>
+	 * ```
+	 * @see {@link /docs/v2/components#segment Segment Component Docs}
+	 * @see {@link /docs/v2/api/components/segment/Segment/ Segment API Docs}
+	 */
 	var SegmentButton = (function () {
 	    function SegmentButton(segment, elementRef, renderer) {
 	        _classCallCheck(this, SegmentButton);

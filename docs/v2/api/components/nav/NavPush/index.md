@@ -9,7 +9,9 @@ title: "NavPush"
 header_sub_title: "Class in module "
 doc: "NavPush"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/nav-push-pop/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -105,7 +107,8 @@ NavPush:</p>
 
 <h2>Related</h2>
 
-<a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
+<a href='../NavPop'>NavPop API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

@@ -9,7 +9,9 @@ title: "LocalStorage"
 header_sub_title: "Class in module "
 doc: "LocalStorage"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/local-storage/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -114,7 +116,11 @@ by the operating system (iOS).</p>
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='/docs/v2/platform/storage/'>Storage Platform Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

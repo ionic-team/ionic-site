@@ -11,11 +11,11 @@ docType: "utility"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/platform.js#L15'>
+  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/platform.js#L16'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/platform.js#L15'>
+  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/platform.js#L16'>
     Improve this doc
   </a>
 </div>
@@ -291,6 +291,25 @@ Return the current device (given by cordova).
 
 * Returns: 
   <code>boolean</code> Whether we are running on Windows Phone.
+
+
+
+
+<div id="isEdge"></div>
+<h2>
+  <code>isEdge()</code>
+
+</h2>
+
+
+
+
+
+
+
+
+* Returns: 
+  <code>boolean</code> Whether we are running on MS Edge/Windows 10 (inc. Phone)
 
 
 

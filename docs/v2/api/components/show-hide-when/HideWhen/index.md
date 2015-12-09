@@ -18,11 +18,11 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L87'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L88'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L87'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L88'>
     Improve this doc
   </a>
 
@@ -67,7 +67,11 @@ Complements the <a href="../ShowWhen">show-when attribute</a>.</p>
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='../ShowWhen'>ShowWhen API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

@@ -67,7 +67,11 @@ Complements the <a href="../HideWhen">hide-when attribute</a>.</p>
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='../HideWhen'>HideWhen API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

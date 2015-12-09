@@ -117,10 +117,10 @@ the value of the checkbox component
 
 <h2>Methods</h2>
 
-<div id="onInit"></div>
+<div id="ngOnInit"></div>
 
 <h3>
-<code>onInit()</code>
+<code>ngOnInit()</code>
 
 </h3>
 

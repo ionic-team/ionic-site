@@ -68,6 +68,44 @@ Label
 
 
 
+<h2>Methods</h2>
+
+<div id="elementRef"></div>
+
+<h3>
+<code>elementRef()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="renderer"></div>
+
+<h3>
+<code>renderer()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <h2>Related</h2>
 
 <a href='../../../../components#inputs'>Input Component Docs</a>

@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L60'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L61'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L60'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L61'>
     Improve this doc
   </a>
 
@@ -48,8 +48,8 @@ Toolbar
 
 <h2>Description</h2>
 
-<p>The toolbar is generic bar that sits above content.
-Unlike an <code>ionNavbar</code>, <code>ionToolbar</code> can be used for a subheader as well.</p>
+<p>The toolbar is generic bar that sits above or below content.
+Unlike an <code>Navbar</code>, <code>Toolbar</code> can be used for a subheader as well.</p>
 
 
 <h2>Component</h2>

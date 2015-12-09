@@ -18,11 +18,11 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/button/button.ts#L2'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/button/button.ts#L3'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/button/button.ts#L2'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/button/button.ts#L3'>
     Improve this doc
   </a>
 
@@ -95,80 +95,10 @@ Button
 
 
 
-
-
-
-
-
-
-
-
-
-
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-
-<tr>
-<td>
-primary
-</td>
-
-
-
-<td>
-sets button color to default primary
-</td>
-</tr>
-
-<tr>
-<td>
-secondary
-</td>
-
-
-
-<td>
-sets button color to default secondary
-</td>
-</tr>
-
-<tr>
-<td>
-danger
-</td>
-
-
-
-<td>
-sets button color to default danger
-</td>
-</tr>
-
-<tr>
-<td>
-light
-</td>
-
-
-
-<td>
-sets button color to default light
-</td>
-</tr>
-
-<tr>
-<td>
-dark
-</td>
-
-
-
-<td>
-sets button color to default dark
-</td>
-</tr>
 
 <tr>
 <td>
@@ -328,6 +258,80 @@ position a fab button towards the bottom
 
 </tbody>
 </table>
+
+
+<h2>Methods</h2>
+
+<div id="elementRef"></div>
+
+<h3>
+<code>elementRef()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="renderer"></div>
+
+<h3>
+<code>renderer()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ngAfterContentInit"></div>
+
+<h3>
+<code>ngAfterContentInit()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="setRole"></div>
+
+<h3>
+<code>setRole()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 
 <h2>Related</h2>

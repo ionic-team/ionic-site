@@ -79063,8 +79063,6 @@
 	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _ionicIonic = __webpack_require__(43);
@@ -79098,50 +79096,13 @@
 	ApiDemoApp = __decorate([(0, _ionicIonic.App)({
 	    templateUrl: 'app.html'
 	}), __metadata('design:paramtypes', [])], ApiDemoApp);
-	var InitialPage = (function () {
-	    function InitialPage(actionSheet, platform) {
-	        _classCallCheck(this, InitialPage);
-
-	        this.actionSheet = actionSheet;
-	        this.platform = platform;
-	    }
-
-	    _createClass(InitialPage, [{
-	        key: "open",
-	        value: function open() {
-	            var _this = this;
-
-	            this.actionSheet.open({
-	                buttons: [{ text: 'Share' }, { text: 'Play' }, { text: 'Favorite' }],
-	                destructiveText: 'Delete',
-	                titleText: 'Albums',
-	                cancelText: 'Cancel',
-	                cancel: function cancel() {
-	                    console.log('Canceled');
-	                },
-	                destructiveButtonClicked: function destructiveButtonClicked() {
-	                    console.log('Destructive clicked');
-	                },
-	                buttonClicked: function buttonClicked(index) {
-	                    console.log('Button clicked', index);
-	                    if (index == 1) {
-	                        return false;
-	                    }
-	                    return true;
-	                }
-	            }).then(function (actionSheetRef) {
-	                _this.actionSheetRef = actionSheetRef;
-	            });
-	        }
-	    }]);
-
-	    return InitialPage;
-	})();
+	var InitialPage = function InitialPage() {
+	    _classCallCheck(this, InitialPage);
+	};
 	exports.InitialPage = InitialPage;
 	exports.InitialPage = InitialPage = __decorate([(0, _ionicIonic.Page)({
 	    templateUrl: 'main.html'
-	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], InitialPage);
-	var _a, _b;
+	}), __metadata('design:paramtypes', [])], InitialPage);
 
 /***/ }
 /******/ ]);

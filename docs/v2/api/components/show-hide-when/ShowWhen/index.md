@@ -9,7 +9,9 @@ title: "ShowWhen"
 header_sub_title: "Class in module "
 doc: "ShowWhen"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/show-when/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -48,8 +50,9 @@ ShowWhen
 
 <h2>Description</h2>
 
-<p>The <code>show-when</code> attribute takes a value or expression, and only shows the element it has been added to when
-the value or expression is true. Complements the <a href="../HideWhen">hide-when attribute</a>.</p>
+<p>The <code>show-when</code> attribute takes a string that represents a plaform or screen orientation.
+The element the attribute is added to will only be shown when that platform or screen orientation is active.
+Complements the <a href="../HideWhen">hide-when attribute</a>.</p>
 
 
 <h2>Directive</h2>
@@ -57,7 +60,7 @@ the value or expression is true. Complements the <a href="../HideWhen">hide-when
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;div show-when=&quot;false&quot;&gt;I am hidden!&lt;/div&gt;
+<pre><code class="lang-html">&lt;div show-when=&quot;ios&quot;&gt;I am only visible on iOS!&lt;/div&gt;
 </code></pre>
 
 

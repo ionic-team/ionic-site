@@ -9,7 +9,9 @@ title: "ActionSheet"
 header_sub_title: "Class in module "
 doc: "ActionSheet"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/action-sheet/"
+angular_controller: APIDemoCtrl 
 ---
 
 

@@ -59,15 +59,15 @@ Note: this is a new version of the Ionic Slide Box based on the [Swiper](http://
   
 ```html
 <ion-slides on-slide-changed="slideHasChanged($index)">
-  <ion-slide>
+  <ion-slide-page>
     <div class="box blue"><h1>BLUE</h1></div>
-  </ion-slide>
-  <ion-slide>
+  </ion-slide-page>
+  <ion-slide-page>
     <div class="box yellow"><h1>YELLOW</h1></div>
-  </ion-slide>
-  <ion-slide>
+  </ion-slide-page>
+  <ion-slide-page>
     <div class="box pink"><h1>PINK</h1></div>
-  </ion-slide>
+  </ion-slide-page>
 </ion-slides>
 ```
   

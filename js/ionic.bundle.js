@@ -14,6 +14,9 @@ d("onScriptLoad",function(e){return function(t){e.call(this,t);var n=this.get("@
 //# sourceMappingURL=system.js.map
 
 System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
+System.config({ 'paths': { '@reactivex/*': '@reactivex/*.js' }});
 /**
  @license
 Copyright 2014-2015 Google, Inc. http://angularjs.org
@@ -36653,6 +36656,36 @@ System.register("angular2/src/core/render/dom/dom_renderer", ["angular2/src/core
     }
   }
   function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
+    // https://github.com/angular/angular/issues/5077
+    var cs = sibling;
+    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+      for (var i = 0; i < nodes.length; i++) {
+        dom_adapter_1.DOM.insertAfter(cs, nodes[i]);
+        cs = nodes[i];
+      }
+    }
+  }
+  function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
+    // https://github.com/angular/angular/issues/5077
+    var cs = sibling;
+    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+      for (var i = 0; i < nodes.length; i++) {
+        dom_adapter_1.DOM.insertAfter(cs, nodes[i]);
+        cs = nodes[i];
+      }
+    }
+  }
+  function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
+    // https://github.com/angular/angular/issues/5077
+    var cs = sibling;
+    if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
+      for (var i = 0; i < nodes.length; i++) {
+        dom_adapter_1.DOM.insertAfter(cs, nodes[i]);
+        cs = nodes[i];
+      }
+    }
+  }
+  function moveNodesAfterSibling_IF_YOU_WANT_DAT_FLICKER(sibling, nodes) {
     var sib = sibling;
 
     if (nodes.length > 0 && lang_1.isPresent(dom_adapter_1.DOM.parentElement(sibling))) {
@@ -45113,8 +45146,6 @@ System.register('ionic/gestures/hammer', [], function (_export) {
      *
      * Copyright (c) 2014 Jorik Tangelder;
      * Licensed under the MIT license */
-    //(function(window, document, exportName, undefined) {
-    //'use strict';
     'use strict';
 
     var VENDOR_PREFIXES, TEST_ELEMENT, TYPE_FUNCTION, round, abs, now, _uniqueId, MOBILE_REGEX, SUPPORT_TOUCH, SUPPORT_POINTER_EVENTS, SUPPORT_ONLY_TOUCH, INPUT_TYPE_TOUCH, INPUT_TYPE_PEN, INPUT_TYPE_MOUSE, INPUT_TYPE_KINECT, COMPUTE_INTERVAL, INPUT_START, INPUT_MOVE, INPUT_END, INPUT_CANCEL, DIRECTION_NONE, DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_UP, DIRECTION_DOWN, DIRECTION_HORIZONTAL, DIRECTION_VERTICAL, DIRECTION_ALL, PROPS_XY, PROPS_CLIENT_XY, MOUSE_INPUT_MAP, MOUSE_ELEMENT_EVENTS, MOUSE_WINDOW_EVENTS, POINTER_INPUT_MAP, IE10_POINTER_TYPE_ENUM, POINTER_ELEMENT_EVENTS, POINTER_WINDOW_EVENTS, SINGLE_TOUCH_INPUT_MAP, SINGLE_TOUCH_TARGET_EVENTS, SINGLE_TOUCH_WINDOW_EVENTS, TOUCH_INPUT_MAP, TOUCH_TARGET_EVENTS, PREFIXED_TOUCH_ACTION, NATIVE_TOUCH_ACTION, TOUCH_ACTION_COMPUTE, TOUCH_ACTION_AUTO, TOUCH_ACTION_MANIPULATION, TOUCH_ACTION_NONE, TOUCH_ACTION_PAN_X, TOUCH_ACTION_PAN_Y, STATE_POSSIBLE, STATE_BEGAN, STATE_CHANGED, STATE_ENDED, STATE_RECOGNIZED, STATE_CANCELLED, STATE_FAILED, STOP, FORCED_STOP;
@@ -47241,21 +47272,10 @@ System.register('ionic/gestures/hammer', [], function (_export) {
                 bindFn: bindFn,
                 prefixed: prefixed
             });
-            /*
-            if (typeof define == TYPE_FUNCTION && define.amd) {
-                define(function() {
-                    return Hammer;
-                });
-            } else if (typeof module != 'undefined' && module.exports) {
-                module.exports = Hammer;
-            } else {
-                window[exportName] = Hammer;
-            }
-            */
+            // attach to window for angular2 gesture listeners
+            window.Hammer = Hammer;
 
             _export('Hammer', Hammer);
-
-            //})(window, document, 'Hammer');
         }
     };
 });
@@ -51215,7 +51235,9 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                         }
                     };
                     this.mouseOut = function (ev) {
-                        _this.onDragEnd(ev);
+                        if (ev.target.tagName === 'ION-ITEM-SLIDING') {
+                            _this.onDragEnd(ev);
+                        }
                     };
                 }
 
@@ -51235,9 +51257,6 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                         itemContainerEle.classList.add('active-slide');
                         this.set(itemContainerEle, 'offsetX', openAmout);
                         this.set(itemContainerEle, 'startX', ev.center[this.direction]);
-                        if (ev.srcEvent.type.indexOf('mouse') > -1) {
-                            ev.target.addEventListener('mouseout', this.mouseOut);
-                        }
                         this.dragEnded = false;
                     }
                 }, {
@@ -51262,6 +51281,10 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                         if (newX > itemData.optsWidth) {
                             // Calculate the new X position, capped at the top of the buttons
                             newX = -Math.min(-itemData.optsWidth, -itemData.optsWidth + (delta + itemData.optsWidth) * 0.4);
+                        }
+                        if (newX > 5 && ev.srcEvent.type.indexOf('mouse') > -1 && !itemData.hasMouseOut) {
+                            itemContainerEle.addEventListener('mouseout', this.mouseOut);
+                            itemData.hasMouseOut = true;
                         }
                         raf(function () {
                             if (!_this2.dragEnded && !_this2.preventDrag) {
@@ -51291,7 +51314,8 @@ System.register('ionic/components/item/item-sliding-gesture', ['ionic/gestures/h
                                 restingPoint = 0;
                             }
                         }
-                        ev.target.removeEventListener('mouseout', this.mouseOut);
+                        itemContainerEle.removeEventListener('mouseout', this.mouseOut);
+                        itemData.hasMouseOut = false;
                         raf(function () {
                             _this3.open(itemContainerEle, restingPoint, true);
                         });
@@ -52962,6 +52986,7 @@ System.register("ionic/components/modal/modal", ["angular2/angular2", "../overla
      *
      * }
      * ```
+     * @demo /docs/v2/demos/modal/
      * @see {@link /docs/v2/components#modals Modal Component Docs}
      */
     "use strict";
@@ -53274,7 +53299,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
             NavController = (function (_Ion) {
                 _inherits(NavController, _Ion);
 
-                function NavController(parentnavCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd) {
+                function NavController(parentnavCtrl, app, config, keyboard, elementRef, anchorName, compiler, viewManager, zone, renderer, cd) {
                     _classCallCheck(this, NavController);
 
                     _get(Object.getPrototypeOf(NavController.prototype), 'constructor', this).call(this, elementRef, config);
@@ -53282,6 +53307,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                     this.app = app;
                     this.config = config;
                     this.keyboard = keyboard;
+                    this._anchorName = anchorName;
                     this._compiler = compiler;
                     this._viewManager = viewManager;
                     this._zone = zone;
@@ -53293,6 +53319,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                     this._sbTrans = null;
                     this._sbEnabled = config.get('swipeBackEnabled') || false;
                     this._sbThreshold = config.get('swipeBackThreshold') || 40;
+                    this.initZIndex = 10;
                     this.id = ++ctrlIds;
                     this._ids = -1;
                     // build a new injector for child ViewControllers to use
@@ -53646,7 +53673,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
                         console.warn('setViews() deprecated, use setPages() instead');
-                        this.setPages(components, opts);
+                        return this.setPages(components, opts);
                     }
 
                     /**
@@ -54041,7 +54068,10 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         this._compiler.compileInHost(viewCtrl.componentType).then(function (hostProtoViewRef) {
                             var wtfScope = wtfCreateScope('ionic.NavController#loadPage_After_Compile')();
                             var providers = _this5.providers.concat(Injector.resolve([provide(ViewController, { useValue: viewCtrl }), provide(NavParams, { useValue: viewCtrl.params })]));
-                            var location = _this5._viewManager.getNamedElementInComponentView(_this5.elementRef, 'contents');
+                            var location = _this5.elementRef;
+                            if (_this5._anchorName) {
+                                location = _this5._viewManager.getNamedElementInComponentView(location, _this5._anchorName);
+                            }
                             var viewContainer = _this5._viewManager.getViewContainer(location);
                             var hostViewRef = viewContainer.createHostView(hostProtoViewRef, viewContainer.length, providers);
                             var pageElementRef = _this5._viewManager.getHostElement(hostViewRef);
@@ -54099,7 +54129,7 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
                         var enteringPageRef = enteringView && enteringView.pageRef();
                         if (enteringPageRef) {
                             if (!leavingView || !leavingView.isLoaded()) {
-                                enteringView.zIndex = 10;
+                                enteringView.zIndex = this.initZIndex;
                             } else if (direction === 'back') {
                                 // moving back
                                 enteringView.zIndex = leavingView.zIndex - 1;
@@ -54623,7 +54653,11 @@ System.register('ionic/components/nav/nav-controller', ['angular2/angular2', '..
              *  }
              * }
              * ```
-             *
+             * @demo /docs/v2/demos/nav-params/
+             * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+             * @see {@link ../NavController/ NavController API Docs}
+             * @see {@link ../Nav/ Nav API Docs}
+             * @see {@link ../NavPush/ NavPush API Docs}
              */
 
             NavParams = (function () {
@@ -54704,7 +54738,9 @@ System.register("ionic/components/nav/nav-push", ["angular2/angular2", "./nav-co
      * ```html
      * <button [nav-push]="[pushPage, params]"></button>
      * ```
+     * @demo /docs/v2/demos/nav-push-pop/
      * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+     * @see {@link ../NavPop NavPop API Docs}
      */
     "use strict";
 
@@ -54805,6 +54841,9 @@ System.register("ionic/components/nav/nav-push", ["angular2/angular2", "./nav-co
             }), __param(0, Optional()), __metadata('design:paramtypes', [typeof (_a = typeof NavController !== 'undefined' && NavController) === 'function' && _a || Object, typeof (_b = typeof NavRegistry !== 'undefined' && NavRegistry) === 'function' && _b || Object])], NavPush));
             /**
              * TODO
+             * @demo /docs/v2/demos/nav-push-pop/
+             * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+             * @see {@link ../NavPush NavPush API Docs}
              */
 
             NavPop = (function () {
@@ -55216,7 +55255,7 @@ System.register("ionic/components/nav/nav", ["angular2/angular2", "../app/app", 
                 function Nav(hostNavCtrl, viewCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd) {
                     _classCallCheck(this, Nav);
 
-                    _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd);
+                    _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer, cd);
                     if (viewCtrl) {
                         // an ion-nav can also act as an ion-page within a parent ion-nav
                         // this would happen when an ion-nav nests a child ion-nav.
@@ -56221,10 +56260,11 @@ System.register("ionic/components/overlay/overlay", ["angular2/angular2", "../ap
                 function OverlayNav(overlayCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd) {
                     _classCallCheck(this, OverlayNav);
 
-                    _get(Object.getPrototypeOf(OverlayNav.prototype), "constructor", this).call(this, null, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd);
+                    _get(Object.getPrototypeOf(OverlayNav.prototype), "constructor", this).call(this, null, app, config, keyboard, elementRef, null, compiler, viewManager, zone, renderer, cd);
                     if (overlayCtrl.anchor) {
                         throw 'An app should only have one <ion-overlay></ion-overlay>';
                     }
+                    this.initZIndex = 1000;
                     overlayCtrl.nav = this;
                 }
 
@@ -56235,7 +56275,7 @@ System.register("ionic/components/overlay/overlay", ["angular2/angular2", "../ap
 
             _export("OverlayNav", OverlayNav = __decorate([Component({
                 selector: 'ion-overlay',
-                template: '<template #contents></template>'
+                template: ''
             }), __metadata('design:paramtypes', [typeof (_a = typeof OverlayController !== 'undefined' && OverlayController) === 'function' && _a || Object, typeof (_b = typeof IonicApp !== 'undefined' && IonicApp) === 'function' && _b || Object, typeof (_c = typeof Config !== 'undefined' && Config) === 'function' && _c || Object, typeof (_d = typeof Keyboard !== 'undefined' && Keyboard) === 'function' && _d || Object, typeof (_e = typeof ElementRef !== 'undefined' && ElementRef) === 'function' && _e || Object, typeof (_f = typeof Compiler !== 'undefined' && Compiler) === 'function' && _f || Object, typeof (_g = typeof AppViewManager !== 'undefined' && AppViewManager) === 'function' && _g || Object, typeof (_h = typeof NgZone !== 'undefined' && NgZone) === 'function' && _h || Object, typeof (_j = typeof Renderer !== 'undefined' && Renderer) === 'function' && _j || Object, typeof (_k = typeof ChangeDetectorRef !== 'undefined' && ChangeDetectorRef) === 'function' && _k || Object])], OverlayNav));
         }
     };
@@ -57532,8 +57572,24 @@ System.register("ionic/components/scroll/pull-to-refresh", ["angular2/angular2",
 });
 System.register("ionic/components/scroll/scroll", ["angular2/angular2", "../ion", "../../config/config"], function (_export) {
     /**
-     * Scroll is a non-flexboxed scroll area that can scroll horizontally or
-     * vertically.
+     * @name Scroll
+     * @description
+     * Scroll is a non-flexboxed scroll area that can scroll horizontally or vertically. `ion-Scroll` Can be used in places were you may not need a full page scroller, but a highly customized one, such as image scubber or comment scroller.
+     * @usage
+     * ```html
+     * <ion-scroll scroll-x="true">
+     * </ion-scroll>
+     *
+     * <ion-scroll scroll-y="true">
+     * </ion-scroll>
+     *
+     * <ion-scroll scroll-x="true" scroll-y="true">
+     * </ion-scroll>
+     * ```
+     *@property {boolean} [scroll-x] - whether to enable scrolling along the X axis
+     *@property {boolean} [scroll-y] - whether to enable scrolling along the Y axis
+     *@property {boolean} [zoom] - whether to enable zooming
+     *@property {number} [max-zoom] - set the max zoom amount for ion-scroll
      */
     "use strict";
 
@@ -59629,7 +59685,7 @@ System.register("ionic/components/tabs/tab", ["angular2/angular2", "../app/app",
                     _classCallCheck(this, Tab);
 
                     // A Tab is a NavController for its child pages
-                    _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, parentTabs, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd);
+                    _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, parentTabs, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer, cd);
                     this._isInitial = parentTabs.add(this);
                     this._panelId = 'tabpanel-' + this.id;
                     this._btnId = 'tab-' + this.id;
@@ -62101,6 +62157,8 @@ System.register('ionic/platform/storage/local-storage', ['./storage'], function 
      * by the operating system (iOS).
      *
      * For guaranteed, long-term storage, use the SqlStorage engine which stores data in a file.
+     * @demo /docs/v2/demos/local-storage/
+     * @see {@link /docs/v2/platform/storage/ Storage Platform Docs}
      */
     'use strict';
 

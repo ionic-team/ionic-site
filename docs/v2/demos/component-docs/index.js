@@ -93,6 +93,13 @@ var DemoApp = (function () {
     return DemoApp;
 })();
 DemoApp = __decorate([(0, _ionicIonic.App)({
-    templateUrl: 'app.html'
+    templateUrl: 'app.html',
+    config: {
+        platforms: {
+            android: {
+                activator: 'ripple'
+            }
+        }
+    }
 }), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], DemoApp);
 var _a, _b;

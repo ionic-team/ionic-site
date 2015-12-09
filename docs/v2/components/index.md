@@ -583,7 +583,7 @@ Adding the `no-lines` attribute will hide the dividers between list items:
 ```html
 <ion-list no-lines>
   <ion-item *ng-for="#item of items" (click)="itemSelected(item)">
-    {{item.title}}
+    {% raw %}{{item.title}}{% endraw %}
   </ion-item>
 </ion-list>
 ```
@@ -605,7 +605,7 @@ Adding [icons](#icons) to list items is a great way to hint about the contents o
 
   <ion-item>
     <icon leaf item-left></icon>
-    Herbology
+      Herbology
     <icon rose item-right></icon>
   </ion-item>
 

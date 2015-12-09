@@ -46,6 +46,13 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
 
 
 
+<fieldset class="deprecated">
+  <legend>Deprecated API</legend>
+  <p>will be removed in the next Ionic release in favor of the new ion-slides component.
+Don&#39;t depend on the internal behavior of this widget.</p>
+
+</fieldset>
+
 
 
 

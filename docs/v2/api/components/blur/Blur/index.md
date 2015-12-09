@@ -9,7 +9,9 @@ title: "Blur"
 header_sub_title: "Class in module "
 doc: "Blur"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/blur/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -48,6 +50,8 @@ Blur
 
 <h2>Description</h2>
 
+<p>The blur attribute applies the CSS blur attribute to an element. If the CSS attribute is not supported,
+it will fall back to applying a semi-transparent background color to the element.</p>
 
 
 <h2>Directive</h2>

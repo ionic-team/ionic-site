@@ -9,18 +9,20 @@ title: "HideWhen"
 header_sub_title: "Class in module "
 doc: "HideWhen"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/hide-when/"
+angular_controller: APIDemoCtrl 
 ---
 
 
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L85'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L88'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L85'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L88'>
     Improve this doc
   </a>
 
@@ -48,8 +50,9 @@ HideWhen
 
 <h2>Description</h2>
 
-<p>The <code>hide-when</code> attribute takes a value or expression, and hides the element it has been added to when
-the value or expression is true. Complements the <a href="../ShowWhen">show-when attribute</a>.</p>
+<p>The <code>hide-when</code> attribute takes a string that represents a plaform or screen orientation.
+The element the attribute is added to will only be hidden when that platform or screen orientation is active.
+Complements the <a href="../ShowWhen">show-when attribute</a>.</p>
 
 
 <h2>Directive</h2>
@@ -57,14 +60,18 @@ the value or expression is true. Complements the <a href="../ShowWhen">show-when
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;div hide-when=&quot;true&quot;&gt;I am hidden!&lt;/div&gt;
+<pre><code class="lang-html">&lt;div hide-when=&quot;android&quot;&gt;I am hidden on Android!&lt;/div&gt;
 </code></pre>
 
 
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='../ShowWhen'>ShowWhen API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

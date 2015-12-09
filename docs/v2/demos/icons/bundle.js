@@ -9504,7 +9504,14 @@
 	    return DemoApp;
 	})();
 	DemoApp = __decorate([(0, _ionicIonic.App)({
-	    templateUrl: 'app.html'
+	    templateUrl: 'app.html',
+	    config: {
+	        platforms: {
+	            android: {
+	                activator: 'ripple'
+	            }
+	        }
+	    }
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], DemoApp);
 	var _a, _b;
 
@@ -60105,7 +60112,7 @@
 	var NavController = (function (_Ion) {
 	    _inherits(NavController, _Ion);
 
-	    function NavController(parentnavCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd) {
+	    function NavController(parentnavCtrl, app, config, keyboard, elementRef, anchorName, compiler, viewManager, zone, renderer, cd) {
 	        _classCallCheck(this, NavController);
 
 	        _get(Object.getPrototypeOf(NavController.prototype), 'constructor', this).call(this, elementRef, config);
@@ -60113,6 +60120,7 @@
 	        this.app = app;
 	        this.config = config;
 	        this.keyboard = keyboard;
+	        this._anchorName = anchorName;
 	        this._compiler = compiler;
 	        this._viewManager = viewManager;
 	        this._zone = zone;
@@ -60124,6 +60132,7 @@
 	        this._sbTrans = null;
 	        this._sbEnabled = config.get('swipeBackEnabled') || false;
 	        this._sbThreshold = config.get('swipeBackThreshold') || 40;
+	        this.initZIndex = 10;
 	        this.id = ++ctrlIds;
 	        this._ids = -1;
 	        // build a new injector for child ViewControllers to use
@@ -60477,7 +60486,7 @@
 	            var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
 	            console.warn('setViews() deprecated, use setPages() instead');
-	            this.setPages(components, opts);
+	            return this.setPages(components, opts);
 	        }
 
 	        /**
@@ -60872,7 +60881,10 @@
 	            this._compiler.compileInHost(viewCtrl.componentType).then(function (hostProtoViewRef) {
 	                var wtfScope = (0, _angular2Angular2.wtfCreateScope)('ionic.NavController#loadPage_After_Compile')();
 	                var providers = _this5.providers.concat(_angular2Angular2.Injector.resolve([(0, _angular2Angular2.provide)(_viewController.ViewController, { useValue: viewCtrl }), (0, _angular2Angular2.provide)(NavParams, { useValue: viewCtrl.params })]));
-	                var location = _this5._viewManager.getNamedElementInComponentView(_this5.elementRef, 'contents');
+	                var location = _this5.elementRef;
+	                if (_this5._anchorName) {
+	                    location = _this5._viewManager.getNamedElementInComponentView(location, _this5._anchorName);
+	                }
 	                var viewContainer = _this5._viewManager.getViewContainer(location);
 	                var hostViewRef = viewContainer.createHostView(hostProtoViewRef, viewContainer.length, providers);
 	                var pageElementRef = _this5._viewManager.getHostElement(hostViewRef);
@@ -60930,7 +60942,7 @@
 	            var enteringPageRef = enteringView && enteringView.pageRef();
 	            if (enteringPageRef) {
 	                if (!leavingView || !leavingView.isLoaded()) {
-	                    enteringView.zIndex = 10;
+	                    enteringView.zIndex = this.initZIndex;
 	                } else if (direction === 'back') {
 	                    // moving back
 	                    enteringView.zIndex = leavingView.zIndex - 1;
@@ -61453,7 +61465,11 @@
 	 *  }
 	 * }
 	 * ```
-	 *
+	 * @demo /docs/v2/demos/nav-params/
+	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+	 * @see {@link ../NavController/ NavController API Docs}
+	 * @see {@link ../Nav/ Nav API Docs}
+	 * @see {@link ../NavPush/ NavPush API Docs}
 	 */
 
 	var NavParams = (function () {
@@ -62520,8 +62536,6 @@
 	 *
 	 * Copyright (c) 2014 Jorik Tangelder;
 	 * Licensed under the MIT license */
-	//(function(window, document, exportName, undefined) {
-	//'use strict';
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
@@ -64634,20 +64648,9 @@
 	    bindFn: bindFn,
 	    prefixed: prefixed
 	});
-	/*
-	if (typeof define == TYPE_FUNCTION && define.amd) {
-	    define(function() {
-	        return Hammer;
-	    });
-	} else if (typeof module != 'undefined' && module.exports) {
-	    module.exports = Hammer;
-	} else {
-	    window[exportName] = Hammer;
-	}
-	*/
+	// attach to window for angular2 gesture listeners
+	window.Hammer = Hammer;
 	exports.Hammer = Hammer;
-
-	//})(window, document, 'Hammer');
 
 /***/ },
 /* 456 */
@@ -64705,6 +64708,7 @@
 	 *
 	 * }
 	 * ```
+	 * @demo /docs/v2/demos/modal/
 	 * @see {@link /docs/v2/components#modals Modal Component Docs}
 	 */
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
@@ -66695,10 +66699,11 @@
 	    function OverlayNav(overlayCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd) {
 	        _classCallCheck(this, OverlayNav);
 
-	        _get(Object.getPrototypeOf(OverlayNav.prototype), "constructor", this).call(this, null, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd);
+	        _get(Object.getPrototypeOf(OverlayNav.prototype), "constructor", this).call(this, null, app, config, keyboard, elementRef, null, compiler, viewManager, zone, renderer, cd);
 	        if (overlayCtrl.anchor) {
 	            throw 'An app should only have one <ion-overlay></ion-overlay>';
 	        }
+	        this.initZIndex = 1000;
 	        overlayCtrl.nav = this;
 	    }
 
@@ -66707,7 +66712,7 @@
 	exports.OverlayNav = OverlayNav;
 	exports.OverlayNav = OverlayNav = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-overlay',
-	    template: '<template #contents></template>'
+	    template: ''
 	}), __metadata('design:paramtypes', [typeof (_a = typeof _overlayController.OverlayController !== 'undefined' && _overlayController.OverlayController) === 'function' && _a || Object, typeof (_b = typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp) === 'function' && _b || Object, typeof (_c = typeof _configConfig.Config !== 'undefined' && _configConfig.Config) === 'function' && _c || Object, typeof (_d = typeof _utilKeyboard.Keyboard !== 'undefined' && _utilKeyboard.Keyboard) === 'function' && _d || Object, typeof (_e = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _e || Object, typeof (_f = typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler) === 'function' && _f || Object, typeof (_g = typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager) === 'function' && _g || Object, typeof (_h = typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone) === 'function' && _h || Object, typeof (_j = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _j || Object, typeof (_k = typeof _angular2Angular2.ChangeDetectorRef !== 'undefined' && _angular2Angular2.ChangeDetectorRef) === 'function' && _k || Object])], OverlayNav);
 	var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
@@ -68452,8 +68457,24 @@
 	var _configConfig = __webpack_require__(435);
 
 	/**
-	 * Scroll is a non-flexboxed scroll area that can scroll horizontally or
-	 * vertically.
+	 * @name Scroll
+	 * @description
+	 * Scroll is a non-flexboxed scroll area that can scroll horizontally or vertically. `ion-Scroll` Can be used in places were you may not need a full page scroller, but a highly customized one, such as image scubber or comment scroller.
+	 * @usage
+	 * ```html
+	 * <ion-scroll scroll-x="true">
+	 * </ion-scroll>
+	 *
+	 * <ion-scroll scroll-y="true">
+	 * </ion-scroll>
+	 *
+	 * <ion-scroll scroll-x="true" scroll-y="true">
+	 * </ion-scroll>
+	 * ```
+	 *@property {boolean} [scroll-x] - whether to enable scrolling along the X axis
+	 *@property {boolean} [scroll-y] - whether to enable scrolling along the Y axis
+	 *@property {boolean} [zoom] - whether to enable zooming
+	 *@property {number} [max-zoom] - set the max zoom amount for ion-scroll
 	 */
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -70501,7 +70522,7 @@
 	        _classCallCheck(this, Tab);
 
 	        // A Tab is a NavController for its child pages
-	        _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, parentTabs, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd);
+	        _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, parentTabs, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer, cd);
 	        this._isInitial = parentTabs.add(this);
 	        this._panelId = 'tabpanel-' + this.id;
 	        this._btnId = 'tab-' + this.id;
@@ -70993,7 +71014,9 @@
 	            }
 	        };
 	        this.mouseOut = function (ev) {
-	            _this.onDragEnd(ev);
+	            if (ev.target.tagName === 'ION-ITEM-SLIDING') {
+	                _this.onDragEnd(ev);
+	            }
 	        };
 	    }
 
@@ -71013,9 +71036,6 @@
 	            itemContainerEle.classList.add('active-slide');
 	            this.set(itemContainerEle, 'offsetX', openAmout);
 	            this.set(itemContainerEle, 'startX', ev.center[this.direction]);
-	            if (ev.srcEvent.type.indexOf('mouse') > -1) {
-	                ev.target.addEventListener('mouseout', this.mouseOut);
-	            }
 	            this.dragEnded = false;
 	        }
 	    }, {
@@ -71040,6 +71060,10 @@
 	            if (newX > itemData.optsWidth) {
 	                // Calculate the new X position, capped at the top of the buttons
 	                newX = -Math.min(-itemData.optsWidth, -itemData.optsWidth + (delta + itemData.optsWidth) * 0.4);
+	            }
+	            if (newX > 5 && ev.srcEvent.type.indexOf('mouse') > -1 && !itemData.hasMouseOut) {
+	                itemContainerEle.addEventListener('mouseout', this.mouseOut);
+	                itemData.hasMouseOut = true;
 	            }
 	            (0, _ionicUtilDom.raf)(function () {
 	                if (!_this2.dragEnded && !_this2.preventDrag) {
@@ -71069,7 +71093,8 @@
 	                    restingPoint = 0;
 	                }
 	            }
-	            ev.target.removeEventListener('mouseout', this.mouseOut);
+	            itemContainerEle.removeEventListener('mouseout', this.mouseOut);
+	            itemData.hasMouseOut = false;
 	            (0, _ionicUtilDom.raf)(function () {
 	                _this3.open(itemContainerEle, restingPoint, true);
 	            });
@@ -73525,7 +73550,7 @@
 	    function Nav(hostNavCtrl, viewCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd) {
 	        _classCallCheck(this, Nav);
 
-	        _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, cd);
+	        _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostNavCtrl, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer, cd);
 	        if (viewCtrl) {
 	            // an ion-nav can also act as an ion-page within a parent ion-nav
 	            // this would happen when an ion-nav nests a child ion-nav.
@@ -73620,7 +73645,9 @@
 	 * ```html
 	 * <button [nav-push]="[pushPage, params]"></button>
 	 * ```
+	 * @demo /docs/v2/demos/nav-push-pop/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+	 * @see {@link ../NavPop NavPop API Docs}
 	 */
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -73698,6 +73725,9 @@
 	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof (_a = typeof _navController.NavController !== 'undefined' && _navController.NavController) === 'function' && _a || Object, typeof (_b = typeof _navRegistry.NavRegistry !== 'undefined' && _navRegistry.NavRegistry) === 'function' && _b || Object])], NavPush);
 	/**
 	 * TODO
+	 * @demo /docs/v2/demos/nav-push-pop/
+	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+	 * @see {@link ../NavPush NavPush API Docs}
 	 */
 	var NavPop = (function () {
 	    /**
@@ -74778,6 +74808,8 @@
 	 * by the operating system (iOS).
 	 *
 	 * For guaranteed, long-term storage, use the SqlStorage engine which stores data in a file.
+	 * @demo /docs/v2/demos/local-storage/
+	 * @see {@link /docs/v2/platform/storage/ Storage Platform Docs}
 	 */
 
 	var LocalStorage = (function (_StorageEngine) {

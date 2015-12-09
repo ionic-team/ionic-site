@@ -56,7 +56,7 @@ SegmentButton
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-segment [(ng-model)]=&quot;relationship&quot; danger&gt;
+<pre><code class="lang-html">&lt;ion-segment [(ng-model)]=&quot;relationship&quot; primary&gt;
   &lt;ion-segment-button value=&quot;friends&quot;&gt;
     Friends
   &lt;/ion-segment-button&gt;

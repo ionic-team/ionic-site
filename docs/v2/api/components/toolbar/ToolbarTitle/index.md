@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L98'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L100'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L98'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L100'>
     Improve this doc
   </a>
 
@@ -48,7 +48,7 @@ ToolbarTitle
 
 <h2>Description</h2>
 
-<p><code>ion-title</code> is a component that sets the title of the <code>ionToolbar</code> or <code>ionNavbar</code></p>
+<p><code>ion-title</code> is a component that sets the title of the <code>Toolbar</code> or <code>Navbar</code></p>
 
 
 <h2>Component</h2>
@@ -60,7 +60,7 @@ ToolbarTitle
    &lt;ion-title&gt;Tab 1&lt;/ion-title&gt;
 &lt;/ion-navbar&gt;
 
-&lt;!-- or if you wanted to crate a subheader title--&gt;
+&lt;!-- or if you wanted to create a subheader title--&gt;
 &lt;ion-navbar *navbar&gt;
    &lt;ion-title&gt;Tab 1&lt;/ion-title&gt;
 &lt;/ion-navbar&gt;

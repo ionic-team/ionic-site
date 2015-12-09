@@ -48,7 +48,7 @@ Icon
 
 <h2>Description</h2>
 
-<p>Icons can be used on their own, or inside of a number of Ionic components. For a full list of available icons, 
+<p>Icons can be used on their own, or inside of a number of Ionic components. For a full list of available icons,
 check out the <a href="../../../../../resources/ionicons">Ionicons resource docs</a>.</p>
 
 

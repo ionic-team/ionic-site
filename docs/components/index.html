@@ -2301,14 +2301,8 @@ search_sections: true
   <h3 class="title"><a href="#checkbox">Checkbox</a></h3>
 
   <p>
-    A checkbox is no different than the HTML checkbox input, except it's
-    styled differently. This is an example of multiple checkboxes within a list.
-    Note the <code>item-checkbox</code> class was added along side
-    <code>item</code> for each item.
-  </p>
-  <p>
-    Ionic prefers to use the <code>&lt;label&gt;</code> element for a checkbox
-    item in order to make the entire checkbox tappable.
+    Checkboxes allow the user to select a number of items in a set of choices. A good use for a checkbox
+    list would be a filter list to apply multiple filters to a search.
   </p>
   <p>
     Checkboxes can also have <a href="#colors">colors</a> assigned to them,
@@ -2316,18 +2310,13 @@ search_sections: true
   </p>
 
 {% highlight html %}
-<ul class="list">
+<ion-list>
 
-  <li class="item item-checkbox">
-     <label class="checkbox">
-       <input type="checkbox">
-     </label>
-     Flux Capacitor
-  </li>
+  <ion-checkbox ng-model="filter.blue">Red</ion-checkbox>
+  <ion-checkbox ng-model="filter.yellow">Yellow</ion-checkbox>
+  <ion-checkbox ng-model="filter.pink">Pink</ion-checkbox>
 
-  ...
-
-</ul>
+</ion-list>
 {% endhighlight %}
 
   <div class="doc-example ionic">
@@ -2385,34 +2374,15 @@ search_sections: true
   <h3 class="title"><a href="#radio-buttons">Radio Button List</a></h3>
 
   <p>
-    Radio buttons act no differently as standard radio input elements. Following this
-    convention will display a list of radio buttons similarly seen in modern app.
-  </p>
-  <p>
-    Each <code>item-radio</code> must have a radio input with the same input <code>name</code> attribute.
-    The <code>radio-icon</code> class is used to designate when to show and hide the icon element.
-  </p>
-  <p>
-    Ionic prefers to use the <code>&lt;label&gt;</code> element for a radio item in order to make the
-    entire area tappable.
+    Radio buttons let the user select one option in a set of options, unlike a checkbox
+    which allows for multiple selections.
   </p>
 
 {% highlight html %}
-<div class="list">
-
-  <label class="item item-radio">
-    <input type="radio" name="group">
-    <div class="radio-content">
-      <div class="item-content">
-        Go
-      </div>
-      <i class="radio-icon ion-checkmark"></i>
-    </div>
-  </label>
-
-  ...
-
-</div>
+<ion-list>
+  <ion-radio ng-model="choice" ng-value="'A'">Choose A</ion-radio>
+  <ion-radio ng-model="choice" ng-value="'B'">Choose B</ion-radio>
+</ion-list>
 {% endhighlight %}
 
   <div class="doc-example ionic">

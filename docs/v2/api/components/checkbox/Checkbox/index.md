@@ -135,25 +135,6 @@ the value of the checkbox component
 
 
 
-<div id="toggle"></div>
-
-<h3>
-<code>toggle()</code>
-
-</h3>
-
-Toggle the checked state of the checkbox. Calls onChange to pass the updated checked state to the model (Control).
-
-
-
-
-
-
-
-
-
-
-
 <h2>Related</h2>
 
 <a href='/docs/v2/components#checkbox'>Checkbox Component Docs</a><!-- end content block -->

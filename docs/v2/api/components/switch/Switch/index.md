@@ -9,7 +9,9 @@ title: "Switch"
 header_sub_title: "Class in module "
 doc: "Switch"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/switch/"
+angular_controller: APIDemoCtrl 
 ---
 
 

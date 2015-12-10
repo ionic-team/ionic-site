@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L132'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L133'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L132'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L133'>
     Improve this doc
   </a>
 

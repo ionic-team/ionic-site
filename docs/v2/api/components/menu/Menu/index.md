@@ -68,6 +68,13 @@ to the content element that Menu should listen on for drag events, using the
 property:</p>
 <pre><code class="lang-html">&lt;ion-menu [content]=&quot;contentRef&quot; side=&quot;right&quot;&gt;&lt;/ion-menu&gt;
 </code></pre>
+<p>Menus can optionally be given an <code>id</code> attribute which allows the app to
+to get ahold of menu references. If no <code>id</code> is given then the menu
+automatically receives an <code>id</code> created from the side it is on, such as
+<code>leftMenu</code> or <code>rightMenu</code>. When using more than one menu it is always
+recommended to give each menu a unique <code>id</code>. Additionally menu-toggle and
+menu-close directives should be given menu id values of their respective
+menu.</p>
 <p>Menu supports two display styles: overlay, and reveal. Overlay
 is the traditional Android drawer style, and Reveal is the traditional iOS
 style. By default, Menu will adjust to the correct style for the platform,

@@ -60,10 +60,10 @@ MenuClose
 
 <h2>Methods</h2>
 
-<div id="close"></div>
+<div id="app"></div>
 
 <h3>
-<code>close()</code>
+<code>app()</code>
 
 </h3>
 

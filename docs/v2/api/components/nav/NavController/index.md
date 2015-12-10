@@ -979,6 +979,26 @@ not include views which are about to be destroyed.
 
 
 
+<div id="rootNav"></div>
+
+<h3>
+<code>rootNav()</code>
+
+</h3>
+
+Returns the root NavController.
+
+
+
+
+
+
+* Returns: 
+  <code>NavController</code> 
+
+
+
+
 <h2>Related</h2>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->

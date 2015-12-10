@@ -312,6 +312,27 @@ sets whether to preload all the tabs, true or false
 
 
 
+<div id="rootNav"></div>
+
+<h3>
+<code>rootNav()</code>
+
+</h3>
+
+Returns the root NavController. Returns `null` if Tabs is not
+within a NavController.
+
+
+
+
+
+
+* Returns: 
+  <code>NavController</code> 
+
+
+
+
 <h2>Related</h2>
 
 <a href='/docs/v2/components#tabs'>Tabs Component Docs</a>

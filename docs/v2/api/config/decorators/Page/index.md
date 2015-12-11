@@ -48,28 +48,30 @@ Page
 
 <h2>Description</h2>
 
-<p>_For more information on how pages are created, see the <a href="../../components/nav/NavController/#creating_pages">NavController API
-reference</a>._</p>
+<p>For more information on how pages are created, see the <a href="../../components/nav/NavController/#creating_pages">NavController API reference</a></p>
 <p>The Page decorator indicates that the decorated class is an Ionic
 navigation component, meaning it can be navigated to using a NavController.</p>
-<p>Pages have all <a href="../IONIC_DIRECTIVES/">IONIC_DIRECTIVES</a>, which include
-all Ionic components and directives, as well as Angular&#39;s <a href="https://angular.io/docs/js/latest/api/core/CORE_DIRECTIVES-const.html">CORE_DIRECTIVES</a>
+<p>Pages have all IONIC_DIRECTIVES, which include all Ionic components and directives,
+as well as Angular&#39;s <a href="https://angular.io/docs/js/latest/api/core/CORE_DIRECTIVES-const.html">CORE_DIRECTIVES</a>
 and <a href="https://angular.io/docs/js/latest/api/core/FORM_DIRECTIVES-const.html">FORM_DIRECTIVES</a>,
-already provided to them, so you only need to supply custom components and
-directives to your pages:</p>
+already provided to them, so you only need to supply custom components and directives to your pages:</p>
+
+
+<h2>Usage</h2>
+
 <pre><code class="lang-ts">@Page({
   template: `
-    &lt;ion-checkbox my-custom-dir&gt;
-    &lt;/ion-checkbox&gt;`
-  directives: [MyCustomDirective]
+   &lt;ion-content&gt;
+     I am a page!
+   &lt;/ion-content&gt;
+  `
 })
 class MyPage {}
 </code></pre>
-<p>Here <a href="../../../components/checkbox/Checkbox/">Checkbox</a> will load because
-it is in IONIC_DIRECTIVES, so there is no need to add it to the <code>directives</code>
-array.</p>
-<p>For custom components that use Ionic components, you will need to include
-IONIC_DIRECTIVES in the <code>directives</code> array:</p>
+<p>Here <a href="../../../components/content/Content/">Content</a> will load because
+it is in <code>IONIC_DIRECTIVES</code>, so there is no need to add a <code>directives</code> array.</p>
+<p>Say you built a custom component that uses the an already exsiting Ionic component.
+In this case, you would add <code>IONIC_DIRECTIVES</code> to your directives array.</p>
 <pre><code class="lang-ts">import {IONIC_DIRECTIVES} from &#39;ionic/ionic&#39;;
 @Component({
   selector: &#39;my-component&#39;
@@ -94,6 +96,7 @@ performance overhead, so there is really no reason to not always use it.</p>
 <p>Pages have their content automatically wrapped in <code>&lt;ion-view&gt;</code>, so although
 you may see these tags if you inspect your markup, you don&#39;t need to include
 them in your templates.</p>
+
 
 
 

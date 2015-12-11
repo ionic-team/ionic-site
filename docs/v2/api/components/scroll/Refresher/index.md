@@ -139,7 +139,7 @@ constructor(){}
 
 <tr>
 <td>
-pulling-icon
+pullingIcon
 </td>
 
 
@@ -155,7 +155,7 @@ the icon you want to display when you begin to pull down
 
 <tr>
 <td>
-pulling-text
+pullingText
 </td>
 
 
@@ -171,7 +171,7 @@ the text you want to display when you begin to pull down
 
 <tr>
 <td>
-refreshing-icon
+refreshingIcon
 </td>
 
 
@@ -187,7 +187,7 @@ the icon you want to display when performing a refresh
 
 <tr>
 <td>
-refreshing-text
+refreshingText
 </td>
 
 

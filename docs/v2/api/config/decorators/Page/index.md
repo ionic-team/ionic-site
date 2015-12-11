@@ -51,7 +51,7 @@ Page
 <p>For more information on how pages are created, see the <a href="../../components/nav/NavController/#creating_pages">NavController API reference</a></p>
 <p>The Page decorator indicates that the decorated class is an Ionic
 navigation component, meaning it can be navigated to using a NavController.</p>
-<p>Pages have all IONIC_DIRECTIVES, which include all Ionic components and directives,
+<p>Pages have all <code>IONIC_DIRECTIVES</code>, which include all Ionic components and directives,
 as well as Angular&#39;s <a href="https://angular.io/docs/js/latest/api/core/CORE_DIRECTIVES-const.html">CORE_DIRECTIVES</a>
 and <a href="https://angular.io/docs/js/latest/api/core/FORM_DIRECTIVES-const.html">FORM_DIRECTIVES</a>,
 already provided to them, so you only need to supply custom components and directives to your pages:</p>

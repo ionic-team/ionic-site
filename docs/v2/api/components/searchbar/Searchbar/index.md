@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/searchbar/searchbar.ts#L7'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/searchbar/searchbar.ts#L5'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/searchbar/searchbar.ts#L7'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/searchbar/searchbar.ts#L5'>
     Improve this doc
   </a>
 
@@ -56,7 +56,7 @@ Searchbar
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-searchbar [(ngModel)]=&quot;defaultSearch&quot;&gt;&lt;/ion-searchbar&gt;
+<pre><code class="lang-html">&lt;ion-searchbar [(ng-model)]=&quot;defaultSearch&quot;&gt;&lt;/ion-searchbar&gt;
 </code></pre>
 
 
@@ -101,7 +101,7 @@ sets input placeholder to value passed in
 
 <tr>
 <td>
-showCancel
+show-cancel
 </td>
 
 
@@ -113,7 +113,7 @@ shows the cancel button based on boolean value passed in
 
 <tr>
 <td>
-cancelText
+cancel-text
 </td>
 
 
@@ -125,7 +125,7 @@ sets the cancel button text to the value passed in
 
 <tr>
 <td>
-cancelAction
+cancel-action
 </td>
 
 

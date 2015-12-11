@@ -105,7 +105,7 @@ the screen, while on Android it is at the top.</p>
 
 <tr>
 <td>
-tabbar-placement
+tabbarPlacement
 </td>
 
 
@@ -121,7 +121,7 @@ set position of the tabbar, top or bottom
 
 <tr>
 <td>
-tabbar-icons
+tabbarIcons
 </td>
 
 
@@ -153,7 +153,7 @@ sets tabbar's style (primary, secondary, etc)
 
 <tr>
 <td>
-preload-tabs
+preloadTabs
 </td>
 
 

@@ -59,7 +59,7 @@ Checkbox
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-checkbox checked=&quot;true&quot; value=&quot;isChecked&quot; ng-control=&quot;htmlCtrl&quot;&gt;
+<pre><code class="lang-html">&lt;ion-checkbox checked=&quot;true&quot; value=&quot;isChecked&quot; ngControl=&quot;htmlCtrl&quot;&gt;
   HTML5
 &lt;/ion-checkbox&gt;
 </code></pre>

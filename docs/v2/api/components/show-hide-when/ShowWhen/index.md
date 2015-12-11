@@ -18,11 +18,11 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L51'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L54'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L51'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L54'>
     Improve this doc
   </a>
 
@@ -56,11 +56,11 @@ Complements the <a href="../HideWhen">hide-when attribute</a>.</p>
 
 
 <h2>Directive</h2>
-<h3>selector: <code>[show-when]</code></h3>
+<h3>selector: <code>[showWhen]</code></h3>
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;div show-when=&quot;ios&quot;&gt;I am only visible on iOS!&lt;/div&gt;
+<pre><code class="lang-html">&lt;div showWhen=&quot;ios&quot;&gt;I am only visible on iOS!&lt;/div&gt;
 </code></pre>
 
 

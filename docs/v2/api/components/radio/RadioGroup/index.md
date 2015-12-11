@@ -59,7 +59,7 @@ RadioGroup
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-list radio-group ng-control=&quot;clientside&quot;&gt;
+<pre><code class="lang-html">&lt;ion-list radio-group ngControl=&quot;clientside&quot;&gt;
 
   &lt;ion-list-header&gt;
     Clientside

@@ -50,7 +50,7 @@ Segment
 
 <p>A Segment is a group of buttons, sometimes known as Segmented Controls, that allow the user to interact with a compact group of a number of controls.
 Segments provide functionality similar to tabs, selecting one will unselect all others. You should use a tab bar instead of a segmented control when you want to let the user move back and forth between distinct pages in your app.
-You could use Angular 2&#39;s <code>ng-model</code> or <code>FormBuilder</code> API. For an overview on how <code>FormBuilder</code> works, checkout <a href="http://learnangular2.com/forms/">Angular 2 Forms</a>, or <a href="https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html">Angular FormBuilder</a></p>
+You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> API. For an overview on how <code>FormBuilder</code> works, checkout <a href="http://learnangular2.com/forms/">Angular 2 Forms</a>, or <a href="https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html">Angular FormBuilder</a></p>
 
 
 <h2>Directive</h2>
@@ -58,7 +58,7 @@ You could use Angular 2&#39;s <code>ng-model</code> or <code>FormBuilder</code> 
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-segment [(ng-model)]=&quot;relationship&quot; danger&gt;
+<pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; danger&gt;
   &lt;ion-segment-button value=&quot;friends&quot;&gt;
     Friends
   &lt;/ion-segment-button&gt;
@@ -68,8 +68,8 @@ You could use Angular 2&#39;s <code>ng-model</code> or <code>FormBuilder</code> 
 &lt;/ion-segment&gt;
 </code></pre>
 <p>Or with <code>FormBuilder</code></p>
-<pre><code class="lang-html">&lt;form [ng-form-model]=&quot;myForm&quot;&gt;
-  &lt;ion-segment ng-control=&quot;mapStyle&quot; danger&gt;
+<pre><code class="lang-html">&lt;form [ngFormModel]=&quot;myForm&quot;&gt;
+  &lt;ion-segment ngControl=&quot;mapStyle&quot; danger&gt;
     &lt;ion-segment-button value=&quot;standard&quot;&gt;
       Standard
     &lt;/ion-segment-button&gt;

@@ -52,7 +52,7 @@ MenuClose
 
 
 <h2>Directive</h2>
-<h3>selector: <code>[menu-close]</code></h3>
+<h3>selector: <code>[menuClose]</code></h3>
 
 
 

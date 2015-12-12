@@ -95,31 +95,31 @@ placeholder
 
 
 <td>
-sets input placeholder to value passed in
+(default: 'Search') Sets input placeholder to value passed in
 </td>
 </tr>
 
 <tr>
 <td>
-showCancel
+hideCancelButton
 </td>
 
 
 
 <td>
-shows the cancel button based on boolean value passed in
+(default: false) Hides the cancel button
 </td>
 </tr>
 
 <tr>
 <td>
-cancelText
+cancelButtonText
 </td>
 
 
 
 <td>
-sets the cancel button text to the value passed in
+(default: 'Cancel') sets the cancel button text to the value passed in
 </td>
 </tr>
 
@@ -137,6 +137,44 @@ the function that gets called by clicking the cancel button
 
 </tbody>
 </table>
+
+
+<h2>Methods</h2>
+
+<div id="searchbarInput"></div>
+
+<h3>
+<code>searchbarInput()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="query"></div>
+
+<h3>
+<code>query()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 
 <h2>Related</h2>

@@ -23,11 +23,11 @@ The CLI (**C**ommand **L**ine **I**nterface) is the main tool that you will use 
 npm install -g ionic
 ```
 
-This will install the latest stable release of the Ionic CLI. To install the latest alpha release, which is currently required for V2 development, run:
+This will install the latest stable release of the Ionic CLI. To install the latest beta release, which is currently required for V2 development, run:
 
 ```bash
 # if on linux/osx, run with sudo
-npm install -g ionic@alpha
+npm install -g ionic@beta
 ```
 Then we can use the CLI from the command line by running `ionic <command>`.
 

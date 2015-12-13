@@ -13,7 +13,7 @@ header_sub_title: Ionic 2 Developer Preview
 
 Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool, or built and tested right in the browser.
 
-To install the Ionic SDK and create Ionic 2 projects, we need to install the latest alpha release:
+To install the Ionic SDK and create Ionic 2 projects, we need to install the latest beta release:
 
 ```bash
 $ npm install -g ionic@beta
@@ -21,7 +21,7 @@ $ npm install -g ionic@beta
 
 (Note: do not type the dollar sign, that is a placeholder for your shell prompt).
 
-> Worried about your V1 Ionic projects? Don't worry! The alpha release has all the functionality to work with both V1 projects and V2 projects.
+> Worried about your V1 Ionic projects? Don't worry! The beta release has all the functionality to work with both V1 projects and V2 projects.
 
 Once that's done, create your first Ionic app:
 

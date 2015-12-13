@@ -5,7 +5,7 @@ id: installation
 title: Ionic 2 | Installing
 header_title: Developer Tips - Building to a Device
 header_sub_title: Ionic 2 Developer Preview
----  
+---
 
 # Installing Ionic
 
@@ -16,7 +16,7 @@ Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool
 To install the Ionic SDK and create Ionic 2 projects, we need to install the latest alpha release:
 
 ```bash
-$ npm install -g ionic@alpha
+$ npm install -g ionic@beta
 ```
 
 (Note: do not type the dollar sign, that is a placeholder for your shell prompt).

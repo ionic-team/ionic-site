@@ -561,3 +561,7 @@ ul.docs-example {
 .highlight .err {
   background-color: #fff;
 }
+
+li.capitalize a {
+  text-transform: capitalize;
+}

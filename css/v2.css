@@ -5017,6 +5017,9 @@ ul.docs-example {
 .highlight .err {
   background-color: #fff; }
 
+li.capitalize a {
+  text-transform: capitalize; }
+
 .docs-ionicons .download {
   margin-top: 60px;
   margin-bottom: 10px; }

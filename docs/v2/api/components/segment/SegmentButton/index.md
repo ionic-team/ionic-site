@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L134'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L134'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L134'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L134'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ SegmentButton
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The child buttons of the <code>ion-segment</code> component. Each <code>ion-segment-button</code> must have a value.</p>
@@ -53,6 +54,7 @@ SegmentButton
 
 <h2>Directive</h2>
 <h3>selector: <code>ion-segment-button</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -84,7 +86,7 @@ SegmentButton
 
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
@@ -126,6 +128,8 @@ the value of the segment-button.
 </tbody>
 </table>
 
+
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

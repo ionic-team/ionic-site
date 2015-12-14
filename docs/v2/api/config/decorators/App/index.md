@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "{{App | slugify}}"
 title: "App"
-header_sub_title: "Function in module ionic"
+header_sub_title: "Function in module "
 doc: "App"
 docType: "function"
 
@@ -16,15 +16,15 @@ docType: "function"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators/app.ts#L4'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators/app.ts#L4'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators/app.ts#L4'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators/app.ts#L4'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,14 +46,34 @@ App
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
-<p>App is an Ionic decorator that bootstraps an application. It can be passed a number of arguments, that act as global config variables for the app.</p>
+<p>App is an Ionic decorator that bootstraps an application. It can be passed a number of arguments, that act as global config variables for the app.
+App can accept a <code>template</code> property that has an inline template or a <code>templateUrl</code> property that points to an external html template.</p>
+
+<!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-ts">import {App} from &#39;ionic/ionic&#39;;
+
+@App({
+  templateUrl: &#39;app/app.html&#39;
+})
+
+export class MyApp{
+
+}
+</code></pre>
 
 
 
 
-<!-- end content block -->
+<!-- @property tags -->
+
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L61'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L61'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L61'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L61'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Toolbar
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The toolbar is generic bar that sits above or below content.
@@ -54,6 +55,7 @@ Unlike an <code>Navbar</code>, <code>Toolbar</code> can be used for a subheader 
 
 <h2>Component</h2>
 <h3>selector: <code>ion-toolbar</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -67,8 +69,10 @@ Unlike an <code>Navbar</code>, <code>Toolbar</code> can be used for a subheader 
 
 
 
+<!-- @property tags -->
 
-<!-- end content block -->
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

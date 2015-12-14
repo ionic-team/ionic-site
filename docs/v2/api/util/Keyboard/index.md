@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/keyboard.ts#L4'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/util/keyboard.ts#L4'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/keyboard.ts#L4'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/util/keyboard.ts#L4'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,13 +46,17 @@ Keyboard
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -60,6 +64,7 @@ Keyboard
 
 <h3>
 <code>isOpen()</code>
+  
 
 </h3>
 
@@ -78,6 +83,7 @@ Keyboard
 
 <h3>
 <code>onClose()</code>
+  
 
 </h3>
 
@@ -96,6 +102,7 @@ Keyboard
 
 <h3>
 <code>close()</code>
+  
 
 </h3>
 
@@ -114,6 +121,7 @@ Keyboard
 
 <h3>
 <code>focusOutline()</code>
+  
 
 </h3>
 
@@ -126,7 +134,7 @@ Keyboard
 
 
 
-<!-- end content block -->
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

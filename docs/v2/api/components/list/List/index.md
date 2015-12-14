@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L6'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L6'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L6'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L6'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,6 +48,7 @@ List
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The List is a widely used interface element in almost any mobile app, and can include
@@ -60,10 +61,13 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h2>Directive</h2>
 <h3>selector: <code>ion-list</code></h3>
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -71,6 +75,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>zone()</code>
+  
 
 </h3>
 
@@ -89,6 +94,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>enableSlidingItems()</code>
+  
 
 </h3>
 
@@ -107,6 +113,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>closeSlidingItems()</code>
+  
 
 </h3>
 
@@ -119,7 +126,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

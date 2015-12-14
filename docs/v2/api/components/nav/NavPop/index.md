@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-push.ts#L86'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-push.ts#L86'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-push.ts#L86'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-push.ts#L86'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,6 +48,7 @@ NavPop
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>TODO</p>
@@ -55,10 +56,13 @@ NavPop
 
 <h2>Directive</h2>
 <h3>selector: <code>[nav-pop]</code></h3>
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -66,6 +70,7 @@ NavPop
 
 <h3>
 <code>onClick()</code>
+  
 
 </h3>
 
@@ -78,7 +83,7 @@ NavPop
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

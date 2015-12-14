@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/local-storage.ts#L0'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/local-storage.ts#L0'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/local-storage.ts#L0'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/local-storage.ts#L0'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,6 +48,7 @@ LocalStorage
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The LocalStorage storage engine uses the browser&#39;s local storage system for
@@ -57,10 +58,13 @@ Given disk space constraints on a mobile device, local storage might be &quot;cl
 by the operating system (iOS).</p>
 <p>For guaranteed, long-term storage, use the SqlStorage engine which stores data in a file.</p>
 
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -68,6 +72,7 @@ by the operating system (iOS).</p>
 
 <h3>
 <code>get()</code>
+  
 
 </h3>
 
@@ -86,6 +91,7 @@ by the operating system (iOS).</p>
 
 <h3>
 <code>set()</code>
+  
 
 </h3>
 
@@ -104,6 +110,7 @@ by the operating system (iOS).</p>
 
 <h3>
 <code>remove()</code>
+  
 
 </h3>
 
@@ -116,7 +123,7 @@ by the operating system (iOS).</p>
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

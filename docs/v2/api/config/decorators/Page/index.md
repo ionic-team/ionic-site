@@ -16,15 +16,15 @@ docType: "function"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators/page.ts#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators/page.ts#L1'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/decorators/page.ts#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/decorators/page.ts#L1'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Page
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>For more information on how pages are created, see the <a href="../../components/nav/NavController/#creating_pages">NavController API reference</a></p>
@@ -56,6 +57,7 @@ as well as Angular&#39;s <a href="https://angular.io/docs/js/latest/api/core/COR
 and <a href="https://angular.io/docs/js/latest/api/core/FORM_DIRECTIVES-const.html">FORM_DIRECTIVES</a>,
 already provided to them, so you only need to supply custom components and directives to your pages:</p>
 
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -100,8 +102,10 @@ them in your templates.</p>
 
 
 
+<!-- @property tags -->
 
-<!-- end content block -->
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/searchbar/searchbar.ts#L7'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/searchbar/searchbar.ts#L7'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/searchbar/searchbar.ts#L7'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/searchbar/searchbar.ts#L7'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Searchbar
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Manages the display of a Searchbar which can be used to search or filter items.</p>
@@ -53,6 +54,7 @@ Searchbar
 
 <h2>Component</h2>
 <h3>selector: <code>ion-searchbar</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -62,7 +64,7 @@ Searchbar
 
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
@@ -165,12 +167,15 @@ Sets input placeholder to the value passed in
 </table>
 
 
+<!-- methods on the class -->
+
 <h2>Methods</h2>
 
 <div id="searchbarInput"></div>
 
 <h3>
 <code>searchbarInput()</code>
+  
 
 </h3>
 
@@ -189,6 +194,7 @@ Sets input placeholder to the value passed in
 
 <h3>
 <code>query()</code>
+  
 
 </h3>
 
@@ -207,6 +213,7 @@ Sets input placeholder to the value passed in
 
 <h3>
 <code>blurInput()</code>
+  
 
 </h3>
 
@@ -219,7 +226,7 @@ Sets input placeholder to the value passed in
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

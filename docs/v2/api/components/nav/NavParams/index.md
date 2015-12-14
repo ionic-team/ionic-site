@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1477'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L1477'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L1477'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L1477'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,12 +48,14 @@ NavParams
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>NavParams are an object that exists on a page and can contain data for that particular view.
 Similar to how data was pass to a view in V1 with <code>$stateParams</code>, NavParams offer a much more flexible
 option with a simple <code>get</code> method.</p>
 
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -69,8 +71,10 @@ option with a simple <code>get</code> method.</p>
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -78,6 +82,7 @@ option with a simple <code>get</code> method.</p>
 
 <h3>
 <code>get(parameter)</code>
+  
 
 </h3>
 
@@ -92,7 +97,6 @@ export class MyClass{
  }
 }
 ```
-
 
 
 
@@ -132,8 +136,7 @@ export class MyClass{
 
 
 
-
-
+<!-- related link -->
 
 <h2>Related</h2>
 

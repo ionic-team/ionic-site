@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-push.ts#L2'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-push.ts#L2'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-push.ts#L2'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-push.ts#L2'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,6 +48,7 @@ NavPush
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Directive for declaratively linking to a new page instead of using
@@ -80,10 +81,13 @@ NavPush:</p>
 
 <h2>Directive</h2>
 <h3>selector: <code>[navPush]</code></h3>
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -91,6 +95,7 @@ NavPush:</p>
 
 <h3>
 <code>onClick()</code>
+  
 
 </h3>
 
@@ -103,7 +108,7 @@ NavPush:</p>
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

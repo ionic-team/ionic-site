@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L73'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/action-sheet/action-sheet.ts#L73'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/action-sheet/action-sheet.ts#L66'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/action-sheet/action-sheet.ts#L66'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,11 +48,13 @@ ActionSheet
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
 There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.</p>
 
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -88,21 +90,23 @@ There are easy ways to cancel out of the action sheet, such as tapping the backd
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
 <div id="open"></div>
 
 <h3>
-<code>open(opts, opts.enterAnimation, opts.leaveAnimation)</code>
+<code>open(opts,&nbsp;opts.enterAnimation,&nbsp;opts.leaveAnimation)</code>
+  
 
 </h3>
 
 Create and open a new Action Sheet. This is the
 public API, and most often you will only use ActionSheet.open()
-
 
 
 
@@ -187,7 +191,6 @@ public API, and most often you will only use ActionSheet.open()
 
 
 
-
 * Returns: 
   <code>Promise</code> Promise that resolves when the action sheet is open.
 
@@ -198,11 +201,11 @@ public API, and most often you will only use ActionSheet.open()
 
 <h3>
 <code>get(handle)</code>
+  
 
 </h3>
 
 Retrieves an actionSheet instance.
-
 
 
 
@@ -240,12 +243,11 @@ Retrieves an actionSheet instance.
 
 
 
-
 * Returns: 
   <code>ActionSheet</code> An actionSheet instance.
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

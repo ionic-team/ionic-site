@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L150'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L150'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L150'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L150'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ RadioButton
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>A single radio component.</p>
@@ -54,6 +55,7 @@ RadioButton
 
 <h2>Component</h2>
 <h3>selector: <code>ion-radio</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -65,8 +67,10 @@ RadioButton
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -74,6 +78,7 @@ RadioButton
 
 <h3>
 <code>check()</code>
+  
 
 </h3>
 
@@ -88,7 +93,7 @@ TODO: Call this toggle? Since unchecks as well
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

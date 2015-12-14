@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L2'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/id.ts#L2'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L2'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/id.ts#L2'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ IdRef
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>IdRef is an easy way to identify unique components in an app and access them
@@ -70,10 +71,13 @@ has been navigated away from.</p>
 
 <h2>Directive</h2>
 <h3>selector: <code>[id]</code></h3>
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -81,6 +85,7 @@ has been navigated away from.</p>
 
 <h3>
 <code>app()</code>
+  
 
 </h3>
 
@@ -99,6 +104,7 @@ has been navigated away from.</p>
 
 <h3>
 <code>elementRef()</code>
+  
 
 </h3>
 
@@ -117,6 +123,7 @@ has been navigated away from.</p>
 
 <h3>
 <code>appViewManager()</code>
+  
 
 </h3>
 
@@ -129,7 +136,7 @@ has been navigated away from.</p>
 
 
 
-<!-- end content block -->
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

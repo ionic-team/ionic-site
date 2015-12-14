@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L0'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/view-controller.ts#L0'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/view-controller.ts#L0'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/view-controller.ts#L0'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,10 +46,12 @@ ViewController
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Access various features and information about the current view</p>
 
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -65,8 +67,10 @@ export class MyPage{
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -74,11 +78,11 @@ export class MyPage{
 
 <h3>
 <code>enableBack(Check)</code>
+  
 
 </h3>
 
 Check to see if you can go back in the navigation stack
-
 
 
 <table class="table" style="margin:0;">
@@ -115,7 +119,6 @@ Check to see if you can go back in the navigation stack
 
 
 
-
 * Returns: 
   <code>boolean</code> Returns if it's possible to go back from this Page.
 
@@ -126,6 +129,7 @@ Check to see if you can go back in the navigation stack
 
 <h3>
 <code>index()</code>
+  
 
 </h3>
 
@@ -157,6 +161,7 @@ You can find out the index of the current view is in the current navigation stac
 
 <h3>
 <code>isRoot()</code>
+  
 
 </h3>
 
@@ -177,6 +182,7 @@ You can find out the index of the current view is in the current navigation stac
 
 <h3>
 <code>hasNavbar()</code>
+  
 
 </h3>
 
@@ -209,6 +215,7 @@ export class Page1 {
 
 <h3>
 <code>setBackButtonText(backButtonText)</code>
+  
 
 </h3>
 
@@ -225,7 +232,6 @@ export class MyClass{
 }
 ```
 Make sure you use the view events when calling this method, otherwise the back-button will not have been created
-
 
 
 
@@ -266,16 +272,15 @@ Make sure you use the view events when calling this method, otherwise the back-b
 
 
 
-
 <div id="showBackButton"></div>
 
 <h3>
 <code>showBackButton(Set)</code>
+  
 
 </h3>
 
 Set if the back button for the current view is visible or not. Be sure to wrap this in `onPageWillEnter` to make sure the has been compleltly rendered.
-
 
 
 <table class="table" style="margin:0;">
@@ -313,8 +318,7 @@ Set if the back button for the current view is visible or not. Be sure to wrap t
 
 
 
-
-<!-- end content block -->
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

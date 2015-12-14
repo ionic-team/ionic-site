@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/pull-to-refresh.ts#L5'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/pull-to-refresh.ts#L5'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/pull-to-refresh.ts#L5'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/pull-to-refresh.ts#L5'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Refresher
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Allows you to add pull-to-refresh to an Content component.
@@ -55,6 +56,7 @@ Place it as the first child of your Content or Scroll element.</p>
 
 <h2>Component</h2>
 <h3>selector: <code>ion-refresher</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -90,7 +92,7 @@ constructor(){}
 
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
@@ -251,7 +253,9 @@ the methond on your class you want to perform when you are pulling down
 
 </tbody>
 </table>
-<!-- end content block -->
+
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

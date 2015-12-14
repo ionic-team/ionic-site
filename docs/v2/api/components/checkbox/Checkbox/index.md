@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/checkbox/checkbox.ts#L4'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/checkbox/checkbox.ts#L4'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/checkbox/checkbox.ts#L4'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/checkbox/checkbox.ts#L4'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,6 +48,7 @@ Checkbox
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The checkbox is no different than the HTML checkbox input, except it&#39;s styled differently.</p>
@@ -56,6 +57,7 @@ Checkbox
 
 <h2>Component</h2>
 <h3>selector: <code>ion-checkbox</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -67,7 +69,7 @@ Checkbox
 
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
@@ -117,12 +119,15 @@ the value of the checkbox component
 </table>
 
 
+<!-- methods on the class -->
+
 <h2>Methods</h2>
 
 <div id="ngOnInit"></div>
 
 <h3>
 <code>ngOnInit()</code>
+  
 
 </h3>
 
@@ -135,7 +140,7 @@ the value of the checkbox component
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

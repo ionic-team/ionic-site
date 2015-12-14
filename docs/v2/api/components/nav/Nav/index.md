@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav.ts#L7'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav.ts#L7'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav.ts#L7'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav.ts#L7'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Nav
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p><em>For a quick walkthrough of navigation in Ionic, check out the
@@ -129,10 +130,13 @@ swipe to go back:</p>
 
 <h2>Component</h2>
 <h3>selector: <code>ion-nav</code></h3>
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

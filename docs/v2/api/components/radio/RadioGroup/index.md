@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L5'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L5'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L5'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L5'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ RadioGroup
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>A radio group is a group of radio components.</p>
@@ -56,6 +57,7 @@ RadioGroup
 
 <h2>Directive</h2>
 <h3>selector: <code>[radio-group]</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -87,8 +89,10 @@ RadioGroup
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -96,6 +100,7 @@ RadioGroup
 
 <h3>
 <code>radios()</code>
+  
 
 </h3>
 
@@ -114,6 +119,7 @@ RadioGroup
 
 <h3>
 <code>headerQuery()</code>
+  
 
 </h3>
 
@@ -126,7 +132,7 @@ RadioGroup
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

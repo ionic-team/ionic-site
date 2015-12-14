@@ -16,15 +16,15 @@ docType: "function"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/bootstrap.ts#L20'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/bootstrap.ts#L20'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/bootstrap.ts#L20'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/bootstrap.ts#L20'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,13 +46,17 @@ ionicProviders
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
-<!-- end content block -->
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

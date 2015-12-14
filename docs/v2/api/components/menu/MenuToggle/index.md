@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L5'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-toggle.ts#L5'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L5'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-toggle.ts#L5'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ MenuToggle
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>TODO</p>
@@ -53,10 +54,13 @@ MenuToggle
 
 <h2>Directive</h2>
 <h3>selector: <code>[menuToggle]</code></h3>
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

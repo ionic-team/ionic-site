@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/config.ts#L9'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/config.ts#L9'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/config.ts#L9'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/config.ts#L9'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Config
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.</p>
@@ -124,10 +125,13 @@ tabbarPlacement: &#39;top&#39;,
 tabSubPages: true,
 </code></pre>
 
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
-<!-- end content block -->
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

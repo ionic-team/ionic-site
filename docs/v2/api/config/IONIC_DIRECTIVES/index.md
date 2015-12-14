@@ -16,15 +16,15 @@ docType: "let"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/directives.ts#L104'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/directives.ts#L104'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/config/directives.ts#L104'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/config/directives.ts#L104'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ IONIC_DIRECTIVES
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The core Ionic directives as well as Angular&#39;s CORE_DIRECTIVES and
@@ -125,10 +126,13 @@ FORM_DIRECTIVES.  Automatically available in every <a href="../Page/">@Page</a> 
 <li>HideWhen</li>
 </ul>
 
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
-<!-- end content block -->
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

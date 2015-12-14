@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/item/item.ts#L0'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item.ts#L0'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/item/item.ts#L0'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item.ts#L0'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Item
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Creates a list-item that can easily be swiped, deleted, reordered, edited, and more.</p>
@@ -64,6 +65,7 @@ this component will automatically be added inside of an <code>&lt;ion-item&gt;</
 
 <h2>Component</h2>
 <h3>selector: <code>ion-item,[ion-item]</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -87,8 +89,10 @@ this component will automatically be added inside of an <code>&lt;ion-item&gt;</
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

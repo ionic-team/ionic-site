@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-close.ts#L3'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-close.ts#L3'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-close.ts#L3'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-close.ts#L3'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ MenuClose
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>TODO</p>
@@ -53,10 +54,13 @@ MenuClose
 
 <h2>Directive</h2>
 <h3>selector: <code>[menuClose]</code></h3>
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -64,6 +68,7 @@ MenuClose
 
 <h3>
 <code>app()</code>
+  
 
 </h3>
 
@@ -76,7 +81,7 @@ MenuClose
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

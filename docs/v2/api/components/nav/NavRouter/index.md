@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-router.ts#L8'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-router.ts#L8'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-router.ts#L8'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-router.ts#L8'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ NavRouter
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>TODO</p>
@@ -53,10 +54,13 @@ NavRouter
 
 <h2>Directive</h2>
 <h3>selector: <code>ion-nav</code></h3>
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -64,6 +68,7 @@ NavRouter
 
 <h3>
 <code>reuse()</code>
+  
 
 </h3>
 
@@ -81,12 +86,12 @@ NavRouter
 <div id="stateChange"></div>
 
 <h3>
-<code>stateChange(type, viewCtrl)</code>
+<code>stateChange(type,&nbsp;viewCtrl)</code>
+  
 
 </h3>
 
 TODO
-
 
 
 <table class="table" style="margin:0;">
@@ -143,16 +148,15 @@ TODO
 
 
 
-
 <div id="getPathRecognizerByComponent"></div>
 
 <h3>
 <code>getPathRecognizerByComponent(componentType)</code>
+  
 
 </h3>
 
 TODO
-
 
 
 <table class="table" style="margin:0;">
@@ -189,12 +193,11 @@ TODO
 
 
 
-
 * Returns: 
   <code>TODO</code> TODO
 
 
-<!-- end content block -->
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

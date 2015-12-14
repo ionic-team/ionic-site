@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L54'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/id.ts#L54'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/id.ts#L54'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/id.ts#L54'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Attr
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Attr allows you to dynamically add or remove an attribute based on the value of an expression or variable.</p>
@@ -53,6 +54,7 @@ Attr
 
 <h2>Directive</h2>
 <h3>selector: <code>[attr]</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -63,8 +65,10 @@ Attr
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -72,6 +76,7 @@ Attr
 
 <h3>
 <code>renderer()</code>
+  
 
 </h3>
 
@@ -90,6 +95,7 @@ Attr
 
 <h3>
 <code>elementRef()</code>
+  
 
 </h3>
 
@@ -102,7 +108,7 @@ Attr
 
 
 
-<!-- end content block -->
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

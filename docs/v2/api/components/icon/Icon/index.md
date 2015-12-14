@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/icon/icon.ts#L2'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/icon/icon.ts#L2'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/icon/icon.ts#L2'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/icon/icon.ts#L2'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Icon
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Icons can be used on their own, or inside of a number of Ionic components. For a full list of available icons,
@@ -54,9 +55,10 @@ check out the <a href="../../../../../resources/ionicons">Ionicons resource docs
 
 <h2>Directive</h2>
 <h3>selector: <code>icon</code></h3>
+<!-- @usage tag -->
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
@@ -140,12 +142,15 @@ Explicitly set the icon to use on Android.
 </table>
 
 
+<!-- methods on the class -->
+
 <h2>Methods</h2>
 
 <div id="elementRef"></div>
 
 <h3>
 <code>elementRef()</code>
+  
 
 </h3>
 
@@ -164,6 +169,7 @@ Explicitly set the icon to use on Android.
 
 <h3>
 <code>renderer()</code>
+  
 
 </h3>
 
@@ -176,7 +182,7 @@ Explicitly set the icon to use on Android.
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L10'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/platform.ts#L10'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L10'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/platform.ts#L10'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,14 +46,18 @@ Platform
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>TODO</p>
 
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -61,6 +65,7 @@ Platform
 
 <h3>
 <code>is(platformName)</code>
+  
 
 </h3>
 
@@ -78,7 +83,6 @@ export MyClass {
    }
 }
 ```
-
 
 
 <table class="table" style="margin:0;">
@@ -114,7 +118,6 @@ export MyClass {
 
 
 
-
 * Returns: 
   <code>bool</code> returns true/false based on platform you place
 
@@ -125,6 +128,7 @@ export MyClass {
 
 <h3>
 <code>platforms()</code>
+  
 
 </h3>
 
@@ -159,6 +163,7 @@ export MyClass {
 
 <h3>
 <code>versions(optional)</code>
+  
 
 </h3>
 
@@ -175,7 +180,6 @@ export MyClass {
    }
 }
 ```
-
 
 
 <table class="table" style="margin:0;">
@@ -212,7 +216,6 @@ export MyClass {
 
 
 
-
 * Returns: 
   <code>object</code> An object with various platform info
 - `{object=} `cordova`
@@ -227,6 +230,7 @@ export MyClass {
 
 <h3>
 <code>version()</code>
+  
 
 </h3>
 
@@ -245,6 +249,7 @@ export MyClass {
 
 <h3>
 <code>ready()</code>
+  
 
 </h3>
 
@@ -278,6 +283,7 @@ export MyClass {
 
 <h3>
 <code>on()</code>
+  
 
 </h3>
 
@@ -296,6 +302,7 @@ export MyClass {
 
 <h3>
 <code>onHardwareBackButton()</code>
+  
 
 </h3>
 
@@ -314,6 +321,7 @@ export MyClass {
 
 <h3>
 <code>registerBackButtonAction()</code>
+  
 
 </h3>
 
@@ -332,6 +340,7 @@ export MyClass {
 
 <h3>
 <code>exitApp()</code>
+  
 
 </h3>
 
@@ -350,6 +359,7 @@ export MyClass {
 
 <h3>
 <code>fullScreen()</code>
+  
 
 </h3>
 
@@ -368,6 +378,7 @@ export MyClass {
 
 <h3>
 <code>showStatusBar()</code>
+  
 
 </h3>
 
@@ -386,6 +397,7 @@ export MyClass {
 
 <h3>
 <code>url()</code>
+  
 
 </h3>
 
@@ -404,6 +416,7 @@ export MyClass {
 
 <h3>
 <code>query()</code>
+  
 
 </h3>
 
@@ -422,6 +435,7 @@ export MyClass {
 
 <h3>
 <code>userAgent()</code>
+  
 
 </h3>
 
@@ -440,6 +454,7 @@ export MyClass {
 
 <h3>
 <code>navigatorPlatform()</code>
+  
 
 </h3>
 
@@ -458,6 +473,7 @@ export MyClass {
 
 <h3>
 <code>width()</code>
+  
 
 </h3>
 
@@ -476,6 +492,7 @@ export MyClass {
 
 <h3>
 <code>height()</code>
+  
 
 </h3>
 
@@ -494,6 +511,7 @@ export MyClass {
 
 <h3>
 <code>isPortrait()</code>
+  
 
 </h3>
 
@@ -512,6 +530,7 @@ export MyClass {
 
 <h3>
 <code>isLandscape()</code>
+  
 
 </h3>
 
@@ -530,6 +549,7 @@ export MyClass {
 
 <h3>
 <code>windowResize()</code>
+  
 
 </h3>
 
@@ -548,6 +568,7 @@ export MyClass {
 
 <h3>
 <code>onResize()</code>
+  
 
 </h3>
 
@@ -566,11 +587,11 @@ export MyClass {
 
 <h3>
 <code>testQuery(queryValue)</code>
+  
 
 </h3>
 
 TODO
-
 
 
 <table class="table" style="margin:0;">
@@ -607,7 +628,6 @@ TODO
 
 
 
-
 * Returns: 
   <code>boolean</code> TODO
 
@@ -618,11 +638,11 @@ TODO
 
 <h3>
 <code>testUserAgent(userAgentExpression)</code>
+  
 
 </h3>
 
 TODO
-
 
 
 <table class="table" style="margin:0;">
@@ -659,7 +679,6 @@ TODO
 
 
 
-
 * Returns: 
   <code>boolean</code> TODO
 
@@ -670,11 +689,11 @@ TODO
 
 <h3>
 <code>testNavigatorPlatform(navigatorPlatformExpression)</code>
+  
 
 </h3>
 
 TODO
-
 
 
 <table class="table" style="margin:0;">
@@ -711,7 +730,6 @@ TODO
 
 
 
-
 * Returns: 
   <code>boolean</code> TODO
 
@@ -722,11 +740,11 @@ TODO
 
 <h3>
 <code>matchUserAgentVersion(userAgentExpression)</code>
+  
 
 </h3>
 
 TODO
-
 
 
 <table class="table" style="margin:0;">
@@ -763,7 +781,6 @@ TODO
 
 
 
-
 * Returns: 
   <code>Object</code> TODO
 
@@ -773,12 +790,12 @@ TODO
 <div id="isPlatform"></div>
 
 <h3>
-<code>isPlatform(queryValue, userAgentExpression)</code>
+<code>isPlatform(queryValue,&nbsp;userAgentExpression)</code>
+  
 
 </h3>
 
 TODO
-
 
 
 <table class="table" style="margin:0;">
@@ -832,7 +849,6 @@ TODO
 
 
 
-
 * Returns: 
   <code>boolean</code> TODO
 
@@ -843,11 +859,11 @@ TODO
 
 <h3>
 <code>load(config)</code>
+  
 
 </h3>
 
 TODO
-
 
 
 <table class="table" style="margin:0;">
@@ -887,16 +903,15 @@ TODO
 
 
 
-
 <div id="matchPlatform"></div>
 
 <h3>
 <code>matchPlatform(platformName)</code>
+  
 
 </h3>
 
 TODO
-
 
 
 <table class="table" style="margin:0;">
@@ -933,12 +948,11 @@ TODO
 
 
 
-
 * Returns: 
   <code>TODO</code> TODO
 
 
-<!-- end content block -->
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

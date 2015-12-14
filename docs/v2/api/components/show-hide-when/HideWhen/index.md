@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L91'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L91'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L91'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L91'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,6 +48,7 @@ HideWhen
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The <code>hide-when</code> attribute takes a string that represents a plaform or screen orientation.
@@ -57,6 +58,7 @@ Complements the <a href="../ShowWhen">show-when attribute</a>.</p>
 
 <h2>Directive</h2>
 <h3>selector: <code>[hideWhen]</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -66,8 +68,10 @@ Complements the <a href="../ShowWhen">show-when attribute</a>.</p>
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

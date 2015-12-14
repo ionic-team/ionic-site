@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L7'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu.ts#L7'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu.ts#L7'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu.ts#L7'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Menu
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p><em>For basic Menu usage, see the <a href="../../../../components/#menus">Menu section</a>
@@ -85,10 +86,13 @@ but this can be overriden using the <code>type</code> property:</p>
 
 <h2>Component</h2>
 <h3>selector: <code>ion-menu</code></h3>
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -96,11 +100,11 @@ but this can be overriden using the <code>type</code> property:</p>
 
 <h3>
 <code>setOpen(isOpen)</code>
+  
 
 </h3>
 
 Sets the state of the Menu to open or not.
-
 
 
 <table class="table" style="margin:0;">
@@ -137,7 +141,6 @@ Sets the state of the Menu to open or not.
 
 
 
-
 * Returns: 
   <code>Promise</code> TODO
 
@@ -148,6 +151,7 @@ Sets the state of the Menu to open or not.
 
 <h3>
 <code>open()</code>
+  
 
 </h3>
 
@@ -168,6 +172,7 @@ TODO
 
 <h3>
 <code>close()</code>
+  
 
 </h3>
 
@@ -188,6 +193,7 @@ TODO
 
 <h3>
 <code>toggle()</code>
+  
 
 </h3>
 
@@ -208,12 +214,12 @@ TODO
 
 <h3>
 <code>enable(shouldEnable)</code>
+  
 
 </h3>
 
 Used to enable or disable a menu. For example, there could be multiple
 left menus, but only one of them should be able to be dragged open.
-
 
 
 <table class="table" style="margin:0;">
@@ -250,12 +256,11 @@ left menus, but only one of them should be able to be dragged open.
 
 
 
-
 * Returns: 
   <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

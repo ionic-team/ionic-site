@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L100'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L100'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L100'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L100'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ ToolbarTitle
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p><code>ion-title</code> is a component that sets the title of the <code>Toolbar</code> or <code>Navbar</code></p>
@@ -53,6 +54,7 @@ ToolbarTitle
 
 <h2>Component</h2>
 <h3>selector: <code>ion-title</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -72,8 +74,10 @@ ToolbarTitle
 
 
 
+<!-- @property tags -->
 
-<!-- end content block -->
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

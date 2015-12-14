@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L8'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/popup/popup.ts#L8'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L8'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/popup/popup.ts#L8'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,11 +48,13 @@ Popup
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The Ionic Popup service allows the creation of popup windows that require the user to respond in order to continue.</p>
 <p>The popup service has support for more flexible versions of the built in <code>alert()</code>, <code>prompt()</code>, and <code>confirm()</code> functions that users are used to, in addition to allowing popups with completely custom content and look.</p>
 
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -105,8 +107,10 @@ Popup
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -114,11 +118,11 @@ Popup
 
 <h3>
 <code>open(opts)</code>
+  
 
 </h3>
 
 TODO
-
 
 
 <table class="table" style="margin:0;">
@@ -155,7 +159,6 @@ TODO
 
 
 
-
 * Returns: 
   <code>object</code> A promise
 
@@ -166,12 +169,12 @@ TODO
 
 <h3>
 <code>alert(opts)</code>
+  
 
 </h3>
 
 Show a simple alert popup with a message and one button
 that the user can tap to close the popup.
-
 
 
 
@@ -218,7 +221,6 @@ that the user can tap to close the popup.
 
 
 
-
 * Returns: 
   <code>object</code> A promise which is resolved when the popup is closed.
 
@@ -229,13 +231,13 @@ that the user can tap to close the popup.
 
 <h3>
 <code>confirm(opts)</code>
+  
 
 </h3>
 
 Show a simple confirm popup with a message, Cancel and OK button.
 
 Resolves the promise with true if the user presses the OK button, and false if the user presses the Cancel button.
-
 
 
 
@@ -284,7 +286,6 @@ Resolves the promise with true if the user presses the OK button, and false if t
 
 
 
-
 * Returns: 
   <code>object</code> A promise which is resolved when the popup is closed.
 
@@ -295,13 +296,13 @@ Resolves the promise with true if the user presses the OK button, and false if t
 
 <h3>
 <code>prompt(opts)</code>
+  
 
 </h3>
 
 Show a simple prompt popup with a message, input, Cancel and OK button.
 
 Resolves the promise with the value of the input if the user presses OK, and with undefined if the user presses Cancel.
-
 
 
 
@@ -352,7 +353,6 @@ Resolves the promise with the value of the input if the user presses OK, and wit
 
 
 
-
 * Returns: 
   <code>object</code> A promise which is resolved when the popup is closed.
 
@@ -363,11 +363,11 @@ Resolves the promise with the value of the input if the user presses OK, and wit
 
 <h3>
 <code>get(handle)</code>
+  
 
 </h3>
 
 TODO
-
 
 
 <table class="table" style="margin:0;">
@@ -404,12 +404,11 @@ TODO
 
 
 
-
 * Returns: 
   <code>TODO</code> TODO
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

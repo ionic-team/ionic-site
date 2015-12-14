@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toggle/toggle.ts#L32'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toggle/toggle.ts#L32'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toggle/toggle.ts#L32'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toggle/toggle.ts#L32'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,6 +48,7 @@ Toggle
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>A toggle technically is the same thing as an HTML checkbox input, except it looks different and is easier to use on a touch device. Ionic prefers to wrap the checkbox input with the <code>&lt;label&gt;</code> in order to make the entire toggle easy to tap or drag.
@@ -57,6 +58,7 @@ Togglees can also have colors assigned to them, by adding any color attribute to
 
 <h2>Component</h2>
 <h3>selector: <code>ion-toggle,ion-switch</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -86,7 +88,7 @@ Togglees can also have colors assigned to them, by adding any color attribute to
 
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
@@ -189,12 +191,15 @@ a unique ID for a toggle
 </table>
 
 
+<!-- methods on the class -->
+
 <h2>Methods</h2>
 
 <div id="ngControl"></div>
 
 <h3>
 <code>ngControl()</code>
+  
 
 </h3>
 
@@ -207,7 +212,7 @@ a unique ID for a toggle
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/label.ts#L4'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/label.ts#L4'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/label.ts#L4'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/label.ts#L4'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Label
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Labels describe the data that the user should enter in to an input element.</p>
@@ -53,6 +54,7 @@ Label
 
 <h2>Directive</h2>
 <h3>selector: <code>ion-label</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -65,8 +67,10 @@ Label
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -74,6 +78,7 @@ Label
 
 <h3>
 <code>elementRef()</code>
+  
 
 </h3>
 
@@ -92,6 +97,7 @@ Label
 
 <h3>
 <code>renderer()</code>
+  
 
 </h3>
 
@@ -104,7 +110,7 @@ Label
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/scroll.ts#L8'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/scroll.ts#L8'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/scroll/scroll.ts#L8'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/scroll.ts#L8'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Scroll
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Scroll is a non-flexboxed scroll area that can scroll horizontally or vertically. <code>ion-Scroll</code> Can be used in places were you may not need a full page scroller, but a highly customized one, such as image scubber or comment scroller.</p>
@@ -53,6 +54,7 @@ Scroll
 
 <h2>Component</h2>
 <h3>selector: <code>ion-scroll</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -69,7 +71,7 @@ Scroll
 
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
@@ -172,17 +174,19 @@ set the max zoom amount for ion-scroll
 </table>
 
 
+<!-- methods on the class -->
+
 <h2>Methods</h2>
 
 <div id="addScrollEventListener"></div>
 
 <h3>
 <code>addScrollEventListener(handler)</code>
+  
 
 </h3>
 
 Add a scroll event handler to the scroll element if it exists.
-
 
 
 <table class="table" style="margin:0;">
@@ -219,13 +223,12 @@ Add a scroll event handler to the scroll element if it exists.
 
 
 
-
 * Returns: 
   <code>?Function</code> a function to remove the specified handler, otherwise
 undefined if the scroll element doesn't exist.
 
 
-<!-- end content block -->
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

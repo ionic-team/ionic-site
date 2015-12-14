@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L60'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/navbar/navbar.ts#L60'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L60'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/navbar/navbar.ts#L60'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,16 +46,20 @@ Navbar
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 
 
 <h2>Component</h2>
 <h3>selector: <code>ion-navbar</code></h3>
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
-<!-- end content block -->
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/button/button.ts#L3'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/button/button.ts#L3'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/button/button.ts#L3'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/button/button.ts#L3'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,6 +48,7 @@ Button
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.</p>
@@ -55,9 +56,10 @@ Button
 
 <h2>Directive</h2>
 <h3>selector: <code>button,[button]</code></h3>
+<!-- @usage tag -->
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
@@ -274,12 +276,15 @@ position a fab button towards the bottom
 </table>
 
 
+<!-- methods on the class -->
+
 <h2>Methods</h2>
 
 <div id="elementRef"></div>
 
 <h3>
 <code>elementRef()</code>
+  
 
 </h3>
 
@@ -298,6 +303,7 @@ position a fab button towards the bottom
 
 <h3>
 <code>renderer()</code>
+  
 
 </h3>
 
@@ -316,6 +322,7 @@ position a fab button towards the bottom
 
 <h3>
 <code>ngAfterContentInit()</code>
+  
 
 </h3>
 
@@ -334,6 +341,7 @@ position a fab button towards the bottom
 
 <h3>
 <code>setRole()</code>
+  
 
 </h3>
 
@@ -346,7 +354,7 @@ position a fab button towards the bottom
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

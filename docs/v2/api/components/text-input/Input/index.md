@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L10'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L10'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/text-input.ts#L10'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L10'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Input
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p><code>ionInput</code> is a generic wrapper for both inputs and textareas. You can give <code>ion-input</code> to tell it how to handle a chile <code>ion-label</code> component</p>
@@ -53,6 +54,7 @@ Input
 
 <h2>Component</h2>
 <h3>selector: <code>ion-input</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -79,7 +81,7 @@ Input
 
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
@@ -140,7 +142,9 @@ A stacked label will always appear on top of the input
 
 </tbody>
 </table>
-<!-- end content block -->
+
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

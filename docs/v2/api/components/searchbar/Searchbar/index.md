@@ -48,7 +48,7 @@ Searchbar
 
 <h2>Description</h2>
 
-<p>Manages the display of a search bar which can be used to search or filter items.</p>
+<p>Manages the display of a Searchbar which can be used to search or filter items.</p>
 
 
 <h2>Component</h2>
@@ -82,6 +82,16 @@ Searchbar
 
 
 
+
+
+
+
+
+
+
+<th>Type</th>
+
+
 <th>Description</th>
 </tr>
 </thead>
@@ -89,25 +99,17 @@ Searchbar
 
 <tr>
 <td>
-placeholder
+cancelButtonAction
 </td>
 
 
-
 <td>
-(default: 'Search') Sets input placeholder to value passed in
-</td>
-</tr>
 
-<tr>
-<td>
-hideCancelButton
 </td>
 
 
-
 <td>
-(default: false) Hides the cancel button
+the function that gets called by clicking the cancel button
 </td>
 </tr>
 
@@ -117,21 +119,45 @@ cancelButtonText
 </td>
 
 
+<td>
+string
+</td>
+
 
 <td>
-(default: 'Cancel') sets the cancel button text to the value passed in
+sets the cancel button text to the value passed in
 </td>
 </tr>
 
 <tr>
 <td>
-cancelAction
+hideCancelButton
 </td>
 
 
+<td>
+boolean
+</td>
+
 
 <td>
-the function that gets called by clicking the cancel button
+Hides the cancel button
+</td>
+</tr>
+
+<tr>
+<td>
+placeholder
+</td>
+
+
+<td>
+string
+</td>
+
+
+<td>
+Sets input placeholder to the value passed in
 </td>
 </tr>
 
@@ -163,6 +189,24 @@ the function that gets called by clicking the cancel button
 
 <h3>
 <code>query()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="blurInput"></div>
+
+<h3>
+<code>blurInput()</code>
 
 </h3>
 

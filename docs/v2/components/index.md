@@ -569,7 +569,7 @@ By default, all lists will be styled with divider lines:
 
 ```html
 <ion-list>
-  <ion-item *ng-for="#item of items" (click)="itemSelected(item)">
+  <ion-item *ngFor="#item of items" (click)="itemSelected(item)">
     {{item.title}}
   </ion-item>
 </ion-list>
@@ -582,7 +582,7 @@ Adding the `no-lines` attribute will hide the dividers between list items:
 
 ```html
 <ion-list no-lines>
-  <ion-item *ng-for="#item of items" (click)="itemSelected(item)">
+  <ion-item *ngFor="#item of items" (click)="itemSelected(item)">
     {% raw %}{{item.title}}{% endraw %}
   </ion-item>
 </ion-list>
@@ -1018,9 +1018,9 @@ Like the [checkbox](#checkbox), a radio is an input component that holds a *bool
 A search bar binds to a model, and calls a function to update the page when the model is changed:
 
 ```html
-<ion-searchbar [(ng-model)]="searchQuery"></ion-searchbar>
+<ion-searchbar [(ngModel)]="searchQuery"></ion-searchbar>
 <ion-list #list>
-  <ion-item *ng-for="#item of getItems()">
+  <ion-item *ngFor="#item of getItems()">
     {{item}}
   </ion-item>
 </ion-list>
@@ -1062,7 +1062,7 @@ Use the segment to control to use radio selections.
 
 ```html
 <div padding>
-  <ion-segment [(ng-model)]="pet">
+  <ion-segment [(ngNodel)]="pet">
     <ion-segment-button value="kittens">
       Kittens
     </ion-segment-button>
@@ -1072,8 +1072,8 @@ Use the segment to control to use radio selections.
   </ion-segment>
 </div>
 
-<div [ng-switch]="pet">
-  <ion-list *ng-switch-when="'puppies'">
+<div [ngSwitch]="pet">
+  <ion-list *ngSwitch-when="'puppies'">
     <ion-item>
       <ion-thumbnail item-left>
         <img src="img/thumbnail-puppy-1.jpg">
@@ -1083,7 +1083,7 @@ Use the segment to control to use radio selections.
     ...
   </ion-list>
 
-  <ion-list *ng-switch-when="'kittens'">
+  <ion-list *ngSwitch-when="'kittens'">
     <ion-item>
       <ion-thumbnail item-left>
         <img src="img/thumbnail-kitten-1.jpg">

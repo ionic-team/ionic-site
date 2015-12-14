@@ -50,12 +50,23 @@ Icon
 <h2>Description</h2>
 
 <p>Icons can be used on their own, or inside of a number of Ionic components. For a full list of available icons,
-check out the <a href="../../../../../resources/ionicons">Ionicons resource docs</a>.</p>
+check out the <a href="../../../../resources/ionicons">Ionicons resource docs</a>.</p>
 
 
 <h2>Directive</h2>
 <h3>selector: <code>icon</code></h3>
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-html">&lt;!-- use the appropriate home icon for ios and md --&gt;
+&lt;icon home&gt;&lt;/icon&gt;
+
+&lt;!-- explicity set the icon for each platform --&gt;
+&lt;icon ios=&quot;ion-ios-home&quot; md=&quot;ion-md-home&quot;&gt;&lt;/icon&gt;
+</code></pre>
+
+
 
 
 <!-- @property tags -->

@@ -85,6 +85,8 @@ Checkbox
 
 
 
+
+
 <th>Description</th>
 </tr>
 </thead>
@@ -111,6 +113,18 @@ value
 
 <td>
 the value of the checkbox component
+</td>
+</tr>
+
+<tr>
+<td>
+disabled
+</td>
+
+
+
+<td>
+whether or not the checkbox is disabled or not.
 
 </td>
 </tr>
@@ -119,28 +133,7 @@ the value of the checkbox component
 </table>
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="ngOnInit"></div>
-
-<h3>
-<code>ngOnInit()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link -->
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

@@ -316,44 +316,6 @@ position a fab button towards the bottom
 
 
 
-
-
-<div id="ngAfterContentInit"></div>
-
-<h3>
-<code>ngAfterContentInit()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setRole"></div>
-
-<h3>
-<code>setRole()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
 <!-- related link -->
 
 <h2>Related</h2>

@@ -63,7 +63,7 @@ App can accept a <code>template</code> property that has an inline template or a
 })
 
 export class MyApp{
-
+  // Anything we would want to do at the root of our app
 }
 </code></pre>
 

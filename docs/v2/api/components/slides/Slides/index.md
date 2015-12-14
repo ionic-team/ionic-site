@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L13'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L12'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L13'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L12'>
     Improve this doc
   </a>
 
@@ -65,7 +65,7 @@ The iDangero.us
 
 <pre><code class="lang-ts">@Page({
  template: `
-    &lt;ion-slides pager (slideChanged)=&quot;onSlideChanged($event)&quot; loop=&quot;true&quot; autoplay=&quot;true&quot;&gt;
+    &lt;ion-slides pager (slide-changed)=&quot;onSlideChanged($event)&quot; loop=&quot;true&quot; autoplay=&quot;true&quot;&gt;
      &lt;ion-slide&gt;
        &lt;h3&gt;Thank you for choosing the Awesome App!&lt;/h3&gt;
        &lt;p&gt;

@@ -58,7 +58,7 @@ deleted, reordered, edited, and more.</p>
 <h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
-  &lt;ion-item-sliding *ngFor=&quot;#item of items&quot;&gt;
+  &lt;ion-item-sliding *ng-for=&quot;#item of items&quot;&gt;
     &lt;ion-item (click)=&quot;itemTapped(item)&quot;&gt;
       {{item.title}}
     &lt;/ion-item&gt;

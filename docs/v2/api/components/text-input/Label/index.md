@@ -9,7 +9,9 @@ title: "Label"
 header_sub_title: "Class in module "
 doc: "Label"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/label/"
+angular_controller: APIDemoCtrl 
 ---
 
 

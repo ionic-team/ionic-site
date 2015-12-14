@@ -1013,7 +1013,7 @@ Like the [checkbox](#checkbox), a radio is an input component that holds a *bool
 *Coming soon.*
 
 
-<h2 id="search" class="section-header">Search</h2>
+<h2 id="searchbar" class="section-header">Searchbar</h2>
 
 A search bar binds to a model, and calls a function to update the page when the model is changed:
 

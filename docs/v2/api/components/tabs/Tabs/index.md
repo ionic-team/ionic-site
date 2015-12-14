@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L11'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L10'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L11'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L10'>
     Improve this doc
   </a>
 
@@ -105,7 +105,7 @@ the screen, while on Android it is at the top.</p>
 
 <tr>
 <td>
-tabbarPlacement
+tabbar-placement
 </td>
 
 
@@ -121,7 +121,7 @@ set position of the tabbar, top or bottom
 
 <tr>
 <td>
-tabbarIcons
+tabbar-icons
 </td>
 
 
@@ -153,7 +153,7 @@ sets tabbar's style (primary, secondary, etc)
 
 <tr>
 <td>
-preloadTabs
+preload-tabs
 </td>
 
 

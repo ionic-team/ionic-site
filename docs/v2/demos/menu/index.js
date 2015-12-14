@@ -30,11 +30,11 @@ var __metadata = undefined && undefined.__metadata || function (k, v) {
 var Page1 = function Page1() {
     _classCallCheck(this, Page1);
 };
-Page1 = __decorate([(0, _ionicIonic.IonicView)({ templateUrl: 'page1.html' }), __metadata('design:paramtypes', [])], Page1);
+Page1 = __decorate([(0, _ionicIonic.Page)({ templateUrl: 'page1.html' }), __metadata('design:paramtypes', [])], Page1);
 var Page2 = function Page2() {
     _classCallCheck(this, Page2);
 };
-Page2 = __decorate([(0, _ionicIonic.IonicView)({ templateUrl: 'page2.html' }), __metadata('design:paramtypes', [])], Page2);
+Page2 = __decorate([(0, _ionicIonic.Page)({ templateUrl: 'page2.html' }), __metadata('design:paramtypes', [])], Page2);
 var E2EApp = (function () {
     function E2EApp(app) {
         _classCallCheck(this, E2EApp);

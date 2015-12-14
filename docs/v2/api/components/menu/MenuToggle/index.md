@@ -9,7 +9,9 @@ title: "MenuToggle"
 header_sub_title: "Class in module "
 doc: "MenuToggle"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/menu/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -52,7 +54,7 @@ MenuToggle
 
 
 <h2>Directive</h2>
-<h3>selector: <code>[menuToggle]</code></h3>
+<h3>selector: <code>[menu-toggle]</code></h3>
 
 
 

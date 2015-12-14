@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/searchbar/searchbar.ts#L7'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/searchbar/searchbar.ts#L6'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/searchbar/searchbar.ts#L7'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/searchbar/searchbar.ts#L6'>
     Improve this doc
   </a>
 
@@ -56,7 +56,7 @@ Searchbar
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-searchbar [(ngModel)]=&quot;defaultSearch&quot;&gt;&lt;/ion-searchbar&gt;
+<pre><code class="lang-html">&lt;ion-searchbar [(ng-model)]=&quot;defaultSearch&quot;&gt;&lt;/ion-searchbar&gt;
 </code></pre>
 
 
@@ -109,18 +109,34 @@ cancelButtonAction
 
 
 <td>
-the function that gets called by clicking the cancel button
+sets input placeholder to value passed in
 </td>
 </tr>
 
 <tr>
 <td>
-cancelButtonText
+show-cancel
 </td>
 
 
 <td>
 string
+</td>
+
+
+<td>
+shows the cancel button based on boolean value passed in
+</td>
+</tr>
+
+<tr>
+<td>
+cancel-text
+</td>
+
+
+<td>
+boolean
 </td>
 
 
@@ -131,23 +147,7 @@ sets the cancel button text to the value passed in
 
 <tr>
 <td>
-hideCancelButton
-</td>
-
-
-<td>
-boolean
-</td>
-
-
-<td>
-Hides the cancel button
-</td>
-</tr>
-
-<tr>
-<td>
-placeholder
+cancel-action
 </td>
 
 
@@ -163,62 +163,6 @@ Sets input placeholder to the value passed in
 
 </tbody>
 </table>
-
-
-<h2>Methods</h2>
-
-<div id="searchbarInput"></div>
-
-<h3>
-<code>searchbarInput()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="query"></div>
-
-<h3>
-<code>query()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="blurInput"></div>
-
-<h3>
-<code>blurInput()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
 
 
 <h2>Related</h2>

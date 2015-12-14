@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L134'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L133'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L134'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L133'>
     Improve this doc
   </a>
 
@@ -56,7 +56,7 @@ SegmentButton
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; primary&gt;
+<pre><code class="lang-html">&lt;ion-segment [(ng-model)]=&quot;relationship&quot; primary&gt;
   &lt;ion-segment-button value=&quot;friends&quot;&gt;
     Friends
   &lt;/ion-segment-button&gt;
@@ -66,8 +66,8 @@ SegmentButton
 &lt;/ion-segment&gt;
 </code></pre>
 <p>Or with <code>FormBuilder</code></p>
-<pre><code class="lang-html">&lt;form [ngFormModel]=&quot;myForm&quot;&gt;
-  &lt;ion-segment ngControl=&quot;mapStyle&quot; danger&gt;
+<pre><code class="lang-html">&lt;form [ng-form-model]=&quot;myForm&quot;&gt;
+  &lt;ion-segment ng-control=&quot;mapStyle&quot; danger&gt;
     &lt;ion-segment-button value=&quot;standard&quot;&gt;
       Standard
     &lt;/ion-segment-button&gt;

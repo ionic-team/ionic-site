@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L5'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L4'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L5'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L4'>
     Improve this doc
   </a>
 
@@ -59,7 +59,7 @@ RadioGroup
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-list radio-group ngControl=&quot;clientside&quot;&gt;
+<pre><code class="lang-html">&lt;ion-list radio-group ng-control=&quot;clientside&quot;&gt;
 
   &lt;ion-list-header&gt;
     Clientside

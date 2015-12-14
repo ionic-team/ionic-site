@@ -9,7 +9,9 @@ title: "Menu"
 header_sub_title: "Class in module "
 doc: "Menu"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/menu/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -72,8 +74,8 @@ property:</p>
 to get ahold of menu references. If no <code>id</code> is given then the menu
 automatically receives an <code>id</code> created from the side it is on, such as
 <code>leftMenu</code> or <code>rightMenu</code>. When using more than one menu it is always
-recommended to give each menu a unique <code>id</code>. Additionally menuToggle and
-menuClose directives should be given menu id values of their respective
+recommended to give each menu a unique <code>id</code>. Additionally menu-toggle and
+menu-close directives should be given menu id values of their respective
 menu.</p>
 <p>Menu supports two display styles: overlay, and reveal. Overlay
 is the traditional Android drawer style, and Reveal is the traditional iOS

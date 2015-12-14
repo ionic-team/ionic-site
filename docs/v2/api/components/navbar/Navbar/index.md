@@ -55,7 +55,11 @@ Navbar
 
 
 
-<!-- end content block -->
+
+
+<h2>Related</h2>
+
+<a href='../../toolbar/Toolbar/'>Toolbar API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

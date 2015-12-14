@@ -9,20 +9,18 @@ title: "Platform"
 header_sub_title: "Class in module "
 doc: "Platform"
 docType: "class"
-show_preview_device: true
-preview_device_url: "/docs/v2/demos/platform/"
-angular_controller: APIDemoCtrl 
+
 ---
 
 
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L8'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L10'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/platform.ts#L8'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/platform.ts#L10'>
     Improve this doc
   </a>
 
@@ -50,7 +48,7 @@ Platform
 
 <h2>Description</h2>
 
-<p>Platform returns the availble information about your current platform.</p>
+<p>TODO</p>
 
 
 

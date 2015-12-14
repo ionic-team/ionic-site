@@ -65,8 +65,8 @@ and the TabBar.</p>
 <h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-tabs&gt;
-     &lt;ion-tab tab-title=&quot;Home&quot; tab-icon=&quot;home&quot; [root]=&quot;tabOneRoot&quot;&gt;&lt;/ion-tab&gt;
-     &lt;ion-tab tab-title=&quot;Login&quot; tab-icon=&quot;star&quot; [root]=&quot;tabTwoRoot&quot;&gt;&lt;/ion-tab&gt;
+     &lt;ion-tab tabTitle=&quot;Home&quot; tabIcon=&quot;home&quot; [root]=&quot;tabOneRoot&quot;&gt;&lt;/ion-tab&gt;
+     &lt;ion-tab tabTitle=&quot;Login&quot; tabIcon=&quot;star&quot; [root]=&quot;tabTwoRoot&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 
@@ -122,7 +122,7 @@ set the root page for this tab
 
 <tr>
 <td>
-tab-title
+tabTitle
 </td>
 
 
@@ -138,7 +138,7 @@ set the title of this tab
 
 <tr>
 <td>
-tab-icon
+tabIcon
 </td>
 
 

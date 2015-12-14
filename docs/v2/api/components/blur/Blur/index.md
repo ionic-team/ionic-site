@@ -55,7 +55,7 @@ it will fall back to applying a semi-transparent background color to the element
 
 
 <h2>Directive</h2>
-<h3>selector: <code>[ion-blur]</code></h3>
+<h3>selector: <code>[blur]</code></h3>
 
 
 

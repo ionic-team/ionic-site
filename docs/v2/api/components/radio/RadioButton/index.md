@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L149'>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L150'>
     View Source
   </a>
   &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L149'>
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L150'>
     Improve this doc
   </a>
 

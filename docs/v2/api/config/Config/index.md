@@ -9,9 +9,7 @@ title: "Config"
 header_sub_title: "Class in module "
 doc: "Config"
 docType: "class"
-show_preview_device: true
-preview_device_url: "/docs/v2/demos/config/"
-angular_controller: APIDemoCtrl 
+
 ---
 
 
@@ -77,8 +75,8 @@ Config
 })
 </code></pre>
 <p>We could also configure these values at a component level. Take <code>tabbarPlacement</code>, we can configure this as a property on our <code>ion-tabs</code>.</p>
-<pre><code class="lang-html">&lt;ion-tabs tabbar-placement=&quot;top&quot;&gt;
-  &lt;ion-tab tab-title=&quot;Dash&quot; tab-icon=&quot;pulse&quot; [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
+<pre><code class="lang-html">&lt;ion-tabs tabbarPlacement=&quot;top&quot;&gt;
+  &lt;ion-tab tabTitle=&quot;Dash&quot; tabIcon=&quot;pulse&quot; [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <p>The property will override anything else set in the apps.</p>

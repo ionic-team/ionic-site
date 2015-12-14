@@ -89,7 +89,7 @@ check out the <a href="../../../../../resources/ionicons">Ionicons resource docs
 
 <tr>
 <td>
-is-active
+isActive
 </td>
 
 

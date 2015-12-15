@@ -49,8 +49,22 @@ ActionSheet.open({
 ```
 
 <h2 id="badges" class="section-header">Badges</h2>
-*Coming soon.*
 
+Badges are small components that typically communicate a numerical value to the user. They are typically used within an item:
+
+```html
+<ion-item>
+  <icon ion-social-twitter item-left></icon>
+  Followers
+  <ion-badge item-right>260k</ion-badge>
+</ion-item>
+```
+
+Badges can also be given any color attribute:
+
+```html
+<ion-badge secondary></ion-badge>
+```
 
 <h2 id="buttons" class="section-header">Buttons</h2>
 

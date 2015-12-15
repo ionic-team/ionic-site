@@ -49,8 +49,7 @@ ItemSliding
 <!-- description -->
 <h2>Description</h2>
 
-<p>Creates a list-item that can easily be swiped,
-deleted, reordered, edited, and more.</p>
+<p>Creates a list-item that can easily be swiped, deleted, reordered, edited, and more.</p>
 
 
 <h2>Component</h2>

@@ -60,7 +60,7 @@ Content
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-content&gt;
+<pre><code class="lang-html">&lt;ion-content id=&quot;myContent&quot;&gt;
   Add your content here!
 &lt;/ion-content&gt;
 </code></pre>
@@ -85,6 +85,26 @@ Content
 
 Adds the specified scroll handler to the content' scroll element.
 
+```ts
+@Page({
+  template: `<ion-content id="my-content"></ion-content>`
+)}
+export class MyPage{
+   constructor(app: IonicApp){
+       this.app = app;
+   }
+  // Need to wait until the component has been initialized
+  ngAfterViewInit() {
+    // Here 'my-content' is the ID of my ion-content
+    this.content = this.app.getComponent('my-content');
+    this.content.addScrollEventListener(this.myScroll);
+  }
+    myScroll() {
+     console.info('They see me scrolling...');
+   }
+}
+```
+
 
 <table class="table" style="margin:0;">
   <thead>
@@ -107,7 +127,7 @@ Adds the specified scroll handler to the content' scroll element.
   <code>Function</code>
       </td>
       <td>
-        <p>The scroll event handler.</p>
+        <p>The method you want perform when scrolling</p>
 
         
       </td>
@@ -155,6 +175,26 @@ Adds the specified scroll handler to the content' scroll element.
 
 Adds the specified touchmove handler to the content's scroll element.
 
+```ts
+@Page({
+  template: `<ion-content id="my-content"></ion-content>`
+)}
+export class MyPage{
+   constructor(app: IonicApp){
+       this.app = app;
+   }
+  // Need to wait until the component has been initialized
+  ngAfterViewInit() {
+    // Here 'my-content' is the ID of my ion-content
+    this.content = this.app.getComponent('my-content');
+    this.content.addTouchMoveListener(this.touchHandler);
+  }
+   touchHandler() {
+     console.log("I'm touching all the magazines!!");
+   }
+}
+```
+
 
 <table class="table" style="margin:0;">
   <thead>
@@ -177,7 +217,7 @@ Adds the specified touchmove handler to the content's scroll element.
   <code>Function</code>
       </td>
       <td>
-        <p>The touchmove handler.</p>
+        <p>The method you want to perform when touchmove is firing</p>
 
         
       </td>
@@ -206,6 +246,27 @@ Adds the specified touchmove handler to the content's scroll element.
 
 Scroll to the specified position.
 
+```ts
+@Page({
+  template: `<ion-content id="my-content">
+     <button (click)="scrollTo()"> Down 500px</button>
+  </ion-content>`
+)}
+export class MyPage{
+   constructor(app: IonicApp){
+       this.app = app;
+   }
+  // Need to wait until the component has been initialized
+  ngAfterViewInit() {
+    // Here 'my-content' is the ID of my ion-content
+    this.content = this.app.getComponent('my-content');
+  }
+   scrollTo() {
+     this.content.scrollTo(0, 500, 200);
+   }
+}
+```
+
 
 <table class="table" style="margin:0;">
   <thead>
@@ -225,7 +286,7 @@ Scroll to the specified position.
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Number</code>
       </td>
       <td>
         <p>The x-value to scroll to.</p>
@@ -242,7 +303,7 @@ Scroll to the specified position.
       </td>
       <td>
         
-  <code>TODO</code>
+  <code>Number</code>
       </td>
       <td>
         <p>The y-value to scroll to.</p>
@@ -262,7 +323,7 @@ Scroll to the specified position.
   <code>Number</code>
       </td>
       <td>
-        <p>Duration of the scroll animation.</p>
+        <p>Duration of the scroll animation in ms.</p>
 
         
       </td>
@@ -293,7 +354,7 @@ Scroll to the specified position.
 
 
 * Returns: 
-  <code>TODO</code> TODO
+  <code>Promise</code> Returns a promise when done
 
 
 
@@ -306,13 +367,36 @@ Scroll to the specified position.
 
 </h3>
 
+Scroll to the specified position.
+
+```ts
+@Page({
+  template: `<ion-content id="my-content">
+     <button (click)="scrollTop()"> Down 500px</button>
+  </ion-content>`
+)}
+export class MyPage{
+   constructor(app: IonicApp){
+       this.app = app;
+   }
+  // Need to wait until the component has been initialized
+  ngAfterViewInit() {
+    // Here 'my-content' is the ID of my ion-content
+    this.content = this.app.getComponent('my-content');
+  }
+   scrollTop() {
+     this.content.scrollTop();
+   }
+}
+```
 
 
 
 
 
 
-
+* Returns: 
+  <code>Promise</code> Returns a promise when done
 
 
 <!-- related link --><!-- end content block -->

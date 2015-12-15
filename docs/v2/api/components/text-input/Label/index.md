@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/label.ts#L4'>
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/label.ts#L5'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/label.ts#L4'>
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/label.ts#L5'>
 Improve this doc
 </a>
 </div>
@@ -74,6 +74,25 @@ Label
 
 <h2>Methods</h2>
 
+<div id="form"></div>
+
+<h3>
+<code>form()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="elementRef"></div>
 
 <h3>
@@ -97,6 +116,25 @@ Label
 
 <h3>
 <code>renderer()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ngOnInit"></div>
+
+<h3>
+<code>ngOnInit()</code>
   
 
 </h3>

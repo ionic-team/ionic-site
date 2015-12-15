@@ -133,7 +133,28 @@ whether or not the checkbox is disabled or not.
 </table>
 
 
-<!-- methods on the class --><!-- related link -->
+<!-- methods on the class -->
+
+<h2>Methods</h2>
+
+<div id="form"></div>
+
+<h3>
+<code>form()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
 
 <h2>Related</h2>
 

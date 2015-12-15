@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L150'>
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L151'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L150'>
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L151'>
 Improve this doc
 </a>
 </div>
@@ -73,6 +73,25 @@ RadioButton
 <!-- methods on the class -->
 
 <h2>Methods</h2>
+
+<div id="form"></div>
+
+<h3>
+<code>form()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="check"></div>
 

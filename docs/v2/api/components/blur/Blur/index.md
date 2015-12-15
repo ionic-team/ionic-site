@@ -59,6 +59,15 @@ it will fall back to applying a semi-transparent background color to the element
 <h3>selector: <code>[blur]</code></h3>
 <!-- @usage tag -->
 
+<h2>Usage</h2>
+
+<pre><code class="lang-html">&lt;ion-card blur&gt;
+   This card will blur the content behind it.
+&lt;/ion-card&gt;
+</code></pre>
+
+
+
 
 <!-- @property tags -->
 

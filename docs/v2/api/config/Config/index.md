@@ -86,44 +86,107 @@ Simply add <code>?ionic&lt;PROPERTYNAME&gt;=&lt;value&gt;</code> to the url.</p>
 <pre><code class="lang-bash">http://localhost:8100/?ionicTabbarPlacement=bottom
 </code></pre>
 <p>A config value can come from anywhere and be anything, but there are a default set of values.</p>
-<pre><code class="lang-javascript">// iOS
-activator: &#39;highlight&#39;,
-actionSheetEnter: &#39;action-sheet-slide-in&#39;,
-actionSheetLeave: &#39;action-sheet-slide-out&#39;,
-actionSheetCancelIcon: &#39;&#39;,
-actionSheetDestructiveIcon: &#39;&#39;,
-backButtonText: &#39;Back&#39;,
-backButtonIcon: &#39;ion-ios-arrow-back&#39;,
-iconMode: &#39;ios&#39;,
-menuType: &#39;reveal&#39;,
-modalEnter: &#39;modal-slide-in&#39;,
-modalLeave: &#39;modal-slide-out&#39;,
-pageTransition: &#39;ios-transition&#39;,
-pageTransitionDelay: 16,
-popupEnter: &#39;popup-pop-in&#39;,
-popupLeave: &#39;popup-pop-out&#39;,
-tabbarPlacement: &#39;bottom&#39;,
-
-// MD
-activator: &#39;ripple&#39;,
-actionSheetEnter: &#39;action-sheet-md-slide-in&#39;,
-actionSheetLeave: &#39;action-sheet-md-slide-out&#39;,
-actionSheetCancelIcon: &#39;ion-md-close&#39;,
-actionSheetDestructiveIcon: &#39;ion-md-trash&#39;,
-backButtonText: &#39;&#39;,
-backButtonIcon: &#39;ion-md-arrow-back&#39;,
-iconMode: &#39;md&#39;,
-menuType: &#39;overlay&#39;,
-modalEnter: &#39;modal-md-slide-in&#39;,
-modalLeave: &#39;modal-md-slide-out&#39;,
-pageTransition: &#39;md-transition&#39;,
-pageTransitionDelay: 120,
-popupEnter: &#39;popup-md-pop-in&#39;,
-popupLeave: &#39;popup-md-pop-out&#39;,
-tabbarHighlight: true,
-tabbarPlacement: &#39;top&#39;,
-tabSubPages: true,
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Config property</th>
+<th>Default iOS Value</th>
+<th>Default MD Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>activator</td>
+<td>highlight</td>
+<td>ripple</td>
+</tr>
+<tr>
+<td>actionSheetEnter</td>
+<td>action-sheet-slide-in</td>
+<td>action-sheet-md-slide-in</td>
+</tr>
+<tr>
+<td>actionSheetLeave</td>
+<td>action-sheet-slide-out</td>
+<td>action-sheet-md-slide-out</td>
+</tr>
+<tr>
+<td>actionSheetCancelIcon</td>
+<td></td>
+<td>ion-md-close</td>
+</tr>
+<tr>
+<td>actionSheetDestructiveIcon</td>
+<td></td>
+<td>ion-md-trash</td>
+</tr>
+<tr>
+<td>backButtonText</td>
+<td>Back</td>
+<td></td>
+</tr>
+<tr>
+<td>backButtonIcon</td>
+<td>ion-ios-arrow-back</td>
+<td>ion-md-arrow-back</td>
+</tr>
+<tr>
+<td>iconMode</td>
+<td>ios</td>
+<td>md</td>
+</tr>
+<tr>
+<td>menuType</td>
+<td>reveal</td>
+<td>overlay</td>
+</tr>
+<tr>
+<td>modalEnter</td>
+<td>modal-slide-in</td>
+<td>modal-md-slide-in</td>
+</tr>
+<tr>
+<td>modalLeave</td>
+<td>modal-slide-out</td>
+<td>modal-md-slide-out</td>
+</tr>
+<tr>
+<td>pageTransition</td>
+<td>ios-transition</td>
+<td>md-transition</td>
+</tr>
+<tr>
+<td>pageTransitionDelay</td>
+<td>16</td>
+<td>120</td>
+</tr>
+<tr>
+<td>popupEnter</td>
+<td>popup-pop-in</td>
+<td>popup-md-pop-in</td>
+</tr>
+<tr>
+<td>popupLeave</td>
+<td>popup-pop-out</td>
+<td>popup-md-pop-out</td>
+</tr>
+<tr>
+<td>tabbarPlacement</td>
+<td>bottom</td>
+<td>true</td>
+</tr>
+<tr>
+<td>tabbarHighlight</td>
+<td></td>
+<td>top</td>
+</tr>
+<tr>
+<td>tabSubPage</td>
+<td></td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
 
 <!-- @usage tag -->
 

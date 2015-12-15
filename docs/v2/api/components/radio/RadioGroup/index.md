@@ -9,9 +9,7 @@ title: "RadioGroup"
 header_sub_title: "Class in module "
 doc: "RadioGroup"
 docType: "class"
-show_preview_device: true
-preview_device_url: "/docs/v2/demos/radio/"
-angular_controller: APIDemoCtrl 
+
 ---
 
 

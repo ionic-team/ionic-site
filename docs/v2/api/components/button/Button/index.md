@@ -97,8 +97,6 @@ Button
 
 
 
-
-
 <th>Description</th>
 </tr>
 </thead>
@@ -185,18 +183,6 @@ large
 
 <td>
 sets button size to large
-</td>
-</tr>
-
-<tr>
-<td>
-disabled
-</td>
-
-
-
-<td>
-disables the button
 </td>
 </tr>
 

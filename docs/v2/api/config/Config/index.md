@@ -88,6 +88,44 @@ Simply add <code>?ionic&lt;PROPERTYNAME&gt;=&lt;value&gt;</code> to the url.</p>
 <pre><code class="lang-bash">http://localhost:8100/?ionicTabbarPlacement=bottom
 </code></pre>
 <p>A config value can come from anywhere and be anything, but there are a default set of values.</p>
+<pre><code class="lang-javascript">// iOS
+activator: &#39;highlight&#39;,
+actionSheetEnter: &#39;action-sheet-slide-in&#39;,
+actionSheetLeave: &#39;action-sheet-slide-out&#39;,
+actionSheetCancelIcon: &#39;&#39;,
+actionSheetDestructiveIcon: &#39;&#39;,
+backButtonText: &#39;Back&#39;,
+backButtonIcon: &#39;ion-ios-arrow-back&#39;,
+iconMode: &#39;ios&#39;,
+menuType: &#39;reveal&#39;,
+modalEnter: &#39;modal-slide-in&#39;,
+modalLeave: &#39;modal-slide-out&#39;,
+pageTransition: &#39;ios-transition&#39;,
+pageTransitionDelay: 16,
+popupEnter: &#39;popup-pop-in&#39;,
+popupLeave: &#39;popup-pop-out&#39;,
+tabbarPlacement: &#39;bottom&#39;,
+
+// MD
+activator: &#39;ripple&#39;,
+actionSheetEnter: &#39;action-sheet-md-slide-in&#39;,
+actionSheetLeave: &#39;action-sheet-md-slide-out&#39;,
+actionSheetCancelIcon: &#39;ion-md-close&#39;,
+actionSheetDestructiveIcon: &#39;ion-md-trash&#39;,
+backButtonText: &#39;&#39;,
+backButtonIcon: &#39;ion-md-arrow-back&#39;,
+iconMode: &#39;md&#39;,
+menuType: &#39;overlay&#39;,
+modalEnter: &#39;modal-md-slide-in&#39;,
+modalLeave: &#39;modal-md-slide-out&#39;,
+pageTransition: &#39;md-transition&#39;,
+pageTransitionDelay: 120,
+popupEnter: &#39;popup-md-pop-in&#39;,
+popupLeave: &#39;popup-md-pop-out&#39;,
+tabbarHighlight: true,
+tabbarPlacement: &#39;top&#39;,
+tabSubPages: true,
+</code></pre>
 <table>
 <thead>
 <tr>

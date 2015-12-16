@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L6'>
-View Source
-</a>
-&nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L6'>
-Improve this doc
-</a>
-</div>
+  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/app/app.ts#L5'>
+    View Source
+  </a>
+  &nbsp;
+  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/app.ts#L5'>
+    Improve this doc
+  </a>
 
+</div>
 
 
 
@@ -46,19 +46,15 @@ IonicApp
 
 
 
-<!-- description -->
 <h2>Description</h2>
 
 <p>Component registry service.  For more information on registering
 components see the <a href="../id/IdRef/">IdRef API reference</a>.</p>
 
-<!-- @usage tag -->
 
 
-<!-- @property tags -->
 
 
-<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -66,11 +62,11 @@ components see the <a href="../id/IdRef/">IdRef API reference</a>.</p>
 
 <h3>
 <code>setTitle(val)</code>
-  
 
 </h3>
 
 Sets the document title.
+
 
 
 <table class="table" style="margin:0;">
@@ -110,11 +106,11 @@ Sets the document title.
 
 
 
+
 <div id="setEnabled"></div>
 
 <h3>
-<code>setEnabled(isEnabled,&nbsp;fallback)</code>
-  
+<code>setEnabled(isEnabled, fallback)</code>
 
 </h3>
 
@@ -122,6 +118,7 @@ Sets if the app is currently enabled or not, meaning if it's
 available to accept new user commands. For example, this is set to `false`
 while views transition, a modal slides up, an action-sheet
 slides up, etc. After the transition completes it is set back to `true`.
+
 
 
 <table class="table" style="margin:0;">
@@ -180,11 +177,11 @@ something goes wrong during a transition and the app wasn&#39;t re-enabled corre
 
 
 
+
 <div id="isEnabled"></div>
 
 <h3>
 <code>isEnabled()</code>
-  
 
 </h3>
 
@@ -204,12 +201,12 @@ Boolean if the app is actively enabled or not.
 <div id="register"></div>
 
 <h3>
-<code>register(id,&nbsp;component)</code>
-  
+<code>register(id, component)</code>
 
 </h3>
 
 Register a known component with a key, for easy lookups later.
+
 
 
 <table class="table" style="margin:0;">
@@ -266,15 +263,16 @@ Register a known component with a key, for easy lookups later.
 
 
 
+
 <div id="unregister"></div>
 
 <h3>
 <code>unregister(id)</code>
-  
 
 </h3>
 
 Unregister a known component with a key.
+
 
 
 <table class="table" style="margin:0;">
@@ -314,15 +312,16 @@ Unregister a known component with a key.
 
 
 
+
 <div id="getRegisteredComponent"></div>
 
 <h3>
 <code>getRegisteredComponent(cls)</code>
-  
 
 </h3>
 
 Get a registered component with the given type (returns the first)
+
 
 
 <table class="table" style="margin:0;">
@@ -359,6 +358,7 @@ Get a registered component with the given type (returns the first)
 
 
 
+
 * Returns: 
    the matching component, or undefined if none was found
 
@@ -371,11 +371,11 @@ Get a registered component with the given type (returns the first)
 
 <h3>
 <code>getComponent(key)</code>
-  
 
 </h3>
 
 Get the component for the given key.
+
 
 
 <table class="table" style="margin:0;">
@@ -412,11 +412,12 @@ Get the component for the given key.
 
 
 
+
 * Returns: 
   <code>TODO</code> TODO
 
 
-<!-- related link --><!-- end content block -->
+<!-- end content block -->
 
 
 <!-- end body block -->

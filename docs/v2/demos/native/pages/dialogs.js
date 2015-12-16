@@ -50,5 +50,5 @@ var DialogsPage = (function () {
 })();
 exports.DialogsPage = DialogsPage;
 exports.DialogsPage = DialogsPage = __decorate([(0, _ionicIonic.IonicView)({
-    template: "\n  <ion-navbar *navbar>\n    <button menu-toggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>Dialogs</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>Dialogs</h2>\n    <button primary outline (click)=\"doAlert()\">Do Alert</button>\n    <button primary outline (click)=\"doConfirm()\">Do Confirm</button>\n    <button primary outline (click)=\"doPrompt()\">Do Prompt</button>\n  </ion-content>\n  "
+    template: "\n  <ion-navbar *navbar>\n    <button menuToggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>Dialogs</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>Dialogs</h2>\n    <button primary outline (click)=\"doAlert()\">Do Alert</button>\n    <button primary outline (click)=\"doConfirm()\">Do Confirm</button>\n    <button primary outline (click)=\"doPrompt()\">Do Prompt</button>\n  </ion-content>\n  "
 }), __metadata('design:paramtypes', [])], DialogsPage);

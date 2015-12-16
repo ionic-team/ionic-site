@@ -40,5 +40,5 @@ var CameraPage = (function () {
 })();
 exports.CameraPage = CameraPage;
 exports.CameraPage = CameraPage = __decorate([(0, _ionicIonic.IonicView)({
-    template: "\n  <ion-navbar *navbar>\n    <button menu-toggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>Camera</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>Camera</h2>\n    <button primary outline (click)=\"getPicture()\">Get Picture</button>\n  </ion-content>\n  "
+    template: "\n  <ion-navbar *navbar>\n    <button menuToggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>Camera</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>Camera</h2>\n    <button primary outline (click)=\"getPicture()\">Get Picture</button>\n  </ion-content>\n  "
 }), __metadata('design:paramtypes', [])], CameraPage);

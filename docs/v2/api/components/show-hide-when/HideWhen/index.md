@@ -51,9 +51,9 @@ HideWhen
 <!-- description -->
 <h2>Description</h2>
 
-<p>The <code>hide-when</code> attribute takes a string that represents a plaform or screen orientation.
+<p>The <code>hideWhen</code> attribute takes a string that represents a plaform or screen orientation.
 The element the attribute is added to will only be hidden when that platform or screen orientation is active.
-Complements the <a href="../ShowWhen">show-when attribute</a>.</p>
+Complements the <a href="../ShowWhen">showWhen attribute</a>.</p>
 
 
 <h2>Directive</h2>

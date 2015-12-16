@@ -14,7 +14,7 @@ header_sub_title: Ionic 2 Developer Preview
   Improve this doc
 </a>
 
-Now that we have [Ionic and its dependencies installed](../installation), let's build our first app! This section will walk through the process of starting a new application, adding pages, navigating between those pages, and more. Let's get started!
+Now that we have [Ionic and its dependencies installed](../installation), let's build our first app! This section will guide you through the process of starting a new application, adding pages, navigating between those pages, and more. Let's get started!
 
 
 ## Starting a New Ionic 2 App
@@ -37,7 +37,7 @@ You may have noticed that we passed in <b>tutorial</b> to the <code>ionic start<
 
 
 ## Viewing the app in a browser
-Let's `cd` in to the folder that was created. To get a quick preview of your app in the browser, use the `serve` command.
+Let's `cd` into the folder that was created. To get a quick preview of your app in the browser, use the `serve` command.
 
 ```bash
 $ cd MyIonic2Project/

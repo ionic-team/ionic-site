@@ -59,7 +59,11 @@ Navbar
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class --><!-- related link -->
+
+<h2>Related</h2>
+
+<a href='../../toolbar/Toolbar/'>Toolbar API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

@@ -9,7 +9,9 @@ title: "Refresher"
 header_sub_title: "Class in module "
 doc: "Refresher"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/refresher/"
+angular_controller: APIDemoCtrl 
 ---
 
 

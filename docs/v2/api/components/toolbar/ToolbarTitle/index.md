@@ -9,18 +9,20 @@ title: "ToolbarTitle"
 header_sub_title: "Class in module "
 doc: "ToolbarTitle"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/toolbar/"
+angular_controller: APIDemoCtrl 
 ---
 
 
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L100'>
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L102'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L100'>
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L102'>
 Improve this doc
 </a>
 </div>

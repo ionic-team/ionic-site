@@ -9,7 +9,9 @@ title: "Toolbar"
 header_sub_title: "Class in module "
 doc: "Toolbar"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/toolbar/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -72,7 +74,11 @@ Unlike an <code>Navbar</code>, <code>Toolbar</code> can be used for a subheader 
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class --><!-- related link -->
+
+<h2>Related</h2>
+
+<a href='../../navbar/Navbar/'>Navbar API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

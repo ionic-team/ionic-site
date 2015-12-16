@@ -611,7 +611,17 @@ Adding the `no-lines` attribute will hide the dividers between list items:
 By default, lists have an outside margin, to remove that add the `inset` property to make the list flush with the parent container.
 
 <h3 class="section-nav" id="list-headers">List Headers</h3>
-*Coming soon.*
+
+Each list can include a header at the top of the list:
+
+```html
+  <ion-list>
+    <ion-list-header>Action</ion-list-header>
+    <ion-item>Terminator II</ion-item>
+    <ion-item>The Empire Strikes Back</ion-item>
+    <ion-item>Blade Runner</ion-item>
+  </ion-list>
+```
 
 <h3 class="section-nav" id="icon-list">Icon List</h3>
 

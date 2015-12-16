@@ -18,11 +18,11 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L102'>
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L104'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L102'>
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L104'>
 Improve this doc
 </a>
 </div>

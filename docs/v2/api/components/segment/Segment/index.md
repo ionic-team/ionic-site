@@ -62,7 +62,7 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; danger&gt;
+<pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; (change)=&quot;onSegmentChanged($event)&quot; danger&gt;
   &lt;ion-segment-button value=&quot;friends&quot;&gt;
     Friends
   &lt;/ion-segment-button&gt;
@@ -92,8 +92,88 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
 
 <!-- @property tags -->
 
+<h2>Attributes:</h2>
+<table class="table" style="margin:0;">
+<thead>
+<tr>
+<th>Attribute</th>
 
-<!-- methods on the class --><!-- related link -->
+
+
+
+
+
+
+
+<th>Type</th>
+
+
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>
+change
+</td>
+
+
+<td>
+Any
+</td>
+
+
+<td>
+expression to evaluate when a segment button has been changed
+</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<!-- methods on the class -->
+
+<h2>Methods</h2>
+
+<div id="change"></div>
+
+<h3>
+<code>change()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="value"></div>
+
+<h3>
+<code>value()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
 
 <h2>Related</h2>
 

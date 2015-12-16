@@ -18,11 +18,11 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L134'>
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L131'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L134'>
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L131'>
 Improve this doc
 </a>
 </div>
@@ -61,10 +61,10 @@ SegmentButton
 <h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; primary&gt;
-  &lt;ion-segment-button value=&quot;friends&quot;&gt;
+  &lt;ion-segment-button value=&quot;friends&quot; (click)=&quot;clickedFriends()&quot;&gt;
     Friends
   &lt;/ion-segment-button&gt;
-  &lt;ion-segment-button value=&quot;enemies&quot;&gt;
+  &lt;ion-segment-button value=&quot;enemies&quot; (click)=&quot;clickedEnemies()&quot;&gt;
     Enemies
   &lt;/ion-segment-button&gt;
 &lt;/ion-segment&gt;
@@ -103,6 +103,10 @@ SegmentButton
 
 
 
+
+
+
+
 <th>Type</th>
 
 
@@ -124,6 +128,22 @@ string
 
 <td>
 the value of the segment-button.
+</td>
+</tr>
+
+<tr>
+<td>
+click
+</td>
+
+
+<td>
+Any
+</td>
+
+
+<td>
+expression to evaluate when a segment button has been clicked
 </td>
 </tr>
 

@@ -67,7 +67,7 @@ The iDangero.us
 
 <pre><code class="lang-ts">@Page({
  template: `
-    &lt;ion-slides pager (slideChanged)=&quot;onSlideChanged($event)&quot; loop=&quot;true&quot; autoplay=&quot;true&quot;&gt;
+    &lt;ion-slides pager (change)=&quot;onSlideChanged($event)&quot; loop=&quot;true&quot; autoplay=&quot;true&quot;&gt;
      &lt;ion-slide&gt;
        &lt;h3&gt;Thank you for choosing the Awesome App!&lt;/h3&gt;
        &lt;p&gt;
@@ -219,7 +219,7 @@ add this property to enable the slide pager
 
 <tr>
 <td>
-slideChanged
+change
 </td>
 
 
@@ -237,7 +237,28 @@ expression to evaluate when a slide has been changed
 </table>
 
 
-<!-- methods on the class --><!-- related link -->
+<!-- methods on the class -->
+
+<h2>Methods</h2>
+
+<div id="change"></div>
+
+<h3>
+<code>change()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
 
 <h2>Related</h2>
 

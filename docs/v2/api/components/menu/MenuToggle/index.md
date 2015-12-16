@@ -51,12 +51,23 @@ MenuToggle
 <!-- description -->
 <h2>Description</h2>
 
-<p>TODO</p>
+<p>Toggle a menu by placing this directive on any item.
+Note that the menu&#39;s id must be either <code>leftMenu</code> or <code>rightMenu</code></p>
 
 
 <h2>Directive</h2>
 <h3>selector: <code>[menuToggle]</code></h3>
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-html">&lt;ion-content&gt;
+ &lt;h3&gt;Page 1&lt;/h3&gt;
+ &lt;button menuToggle&gt;Toggle Menu&lt;/button&gt;
+&lt;/ion-content&gt;
+</code></pre>
+
+
 
 
 <!-- @property tags -->

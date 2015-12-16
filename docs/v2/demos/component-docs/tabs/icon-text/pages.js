@@ -38,16 +38,11 @@ var TabIconTextPage = (function () {
     }
 
     _createClass(TabIconTextPage, [{
-        key: "onInit",
-        value: function onInit() {
+        key: "onPageWillEnter",
+        value: function onPageWillEnter() {
+            console.log('enter');
             document.getElementById('md-tabs-icon-text').style.display = "block";
             document.getElementById('md-only').style.display = "none";
-        }
-    }, {
-        key: "onDestroy",
-        value: function onDestroy() {
-            document.getElementById('md-tabs-icon-text').style.display = "none";
-            document.getElementById('md-only').style.display = "block";
         }
     }]);
 
@@ -59,14 +54,26 @@ TabIconTextPage = __decorate([(0, _ionicIonic.Page)({
         return helpers.AndroidAttribute;
     })]
 }), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _a || Object])], TabIconTextPage);
-var IconTextPage = function IconTextPage() {
-    _classCallCheck(this, IconTextPage);
+var IconTextPage = (function () {
+    function IconTextPage() {
+        _classCallCheck(this, IconTextPage);
 
-    this.tabOne = TabIconTextPage;
-    this.tabTwo = TabIconTextPage;
-    this.tabThree = TabIconTextPage;
-    this.tabFour = TabIconTextPage;
-};
+        this.tabOne = TabIconTextPage;
+        this.tabTwo = TabIconTextPage;
+        this.tabThree = TabIconTextPage;
+        this.tabFour = TabIconTextPage;
+    }
+
+    _createClass(IconTextPage, [{
+        key: "onPageWillLeave",
+        value: function onPageWillLeave() {
+            document.getElementById('md-tabs-icon-text').style.display = "none";
+            document.getElementById('md-only').style.display = "block";
+        }
+    }]);
+
+    return IconTextPage;
+})();
 exports.IconTextPage = IconTextPage;
 exports.IconTextPage = IconTextPage = __decorate([(0, _ionicIonic.Page)({
     template: '<ion-tabs class="tabs-icon-text">' + '<ion-tab tab-icon="water" tab-title="Water" [root]="tabOne"></ion-tab>' + '<ion-tab tab-icon="leaf" tab-title="Life" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-icon="flame" tab-title="Fire" [root]="tabThree"></ion-tab>' + '<ion-tab tab-icon="magnet" tab-title="Force" [root]="tabFour"></ion-tab>' + '</ion-tabs>'

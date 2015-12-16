@@ -38,16 +38,10 @@ var TabIconPage = (function () {
     }
 
     _createClass(TabIconPage, [{
-        key: "onInit",
-        value: function onInit() {
+        key: "onPageWillEnter",
+        value: function onPageWillEnter() {
             document.getElementById('md-tabs-icon').style.display = "block";
             document.getElementById('md-only').style.display = "none";
-        }
-    }, {
-        key: "onDestroy",
-        value: function onDestroy() {
-            document.getElementById('md-tabs-icon').style.display = "none";
-            document.getElementById('md-only').style.display = "block";
         }
     }]);
 
@@ -59,14 +53,26 @@ TabIconPage = __decorate([(0, _ionicIonic.Page)({
         return helpers.AndroidAttribute;
     })]
 }), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _a || Object])], TabIconPage);
-var IconPage = function IconPage() {
-    _classCallCheck(this, IconPage);
+var IconPage = (function () {
+    function IconPage() {
+        _classCallCheck(this, IconPage);
 
-    this.tabOne = TabIconPage;
-    this.tabTwo = TabIconPage;
-    this.tabThree = TabIconPage;
-    this.tabFour = TabIconPage;
-};
+        this.tabOne = TabIconPage;
+        this.tabTwo = TabIconPage;
+        this.tabThree = TabIconPage;
+        this.tabFour = TabIconPage;
+    }
+
+    _createClass(IconPage, [{
+        key: "onPageWillLeave",
+        value: function onPageWillLeave() {
+            document.getElementById('md-tabs-icon').style.display = "none";
+            document.getElementById('md-only').style.display = "block";
+        }
+    }]);
+
+    return IconPage;
+})();
 exports.IconPage = IconPage;
 exports.IconPage = IconPage = __decorate([(0, _ionicIonic.Page)({
     template: '<ion-tabs class="tabs-icon">' + '<ion-tab tab-icon="contact" [root]="tabOne"></ion-tab>' + '<ion-tab tab-icon="compass" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-icon="analytics" [root]="tabThree"></ion-tab>' + '<ion-tab tab-icon="settings" [root]="tabFour"></ion-tab>' + '</ion-tabs>'

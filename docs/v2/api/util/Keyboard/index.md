@@ -49,20 +49,8 @@ Keyboard
 <!-- description -->
 <h2>Description</h2>
 
-<p>The <code>Keyboard</code> class allows you to work with the keyboard events provide by the Ionic keyboard plugin.</p>
 
 <!-- @usage tag -->
-
-<h2>Usage</h2>
-
-<pre><code class="lang-ts">export class MyClass{
- constructor(keyboard: Keyboard){
-   this.keyboard = keyboard;
- }
-}
-</code></pre>
-
-
 
 
 <!-- @property tags -->
@@ -80,19 +68,6 @@ Keyboard
 
 </h3>
 
-Chech to see if the keyboard is open or not.
-
-```ts
-export class MyClass{
- constructor(keyboard: Keyboard){
-   this.keyboard = keyboard;
- }
- keyboardCheck(){
-   setTimeout(()  => console.log('is the keyboard open ', this.keyboard.isOpen()));
- }
-}
-
-```
 
 
 
@@ -100,8 +75,6 @@ export class MyClass{
 
 
 
-* Returns: 
-  <code>Bool</code> returns a true or flase value if the keyboard is open or not
 
 
 
@@ -109,64 +82,18 @@ export class MyClass{
 <div id="onClose"></div>
 
 <h3>
-<code>onClose(callback)</code>
+<code>onClose()</code>
   
 
 </h3>
 
-When the keyboard is closed, call any methods you want
-
-```ts
-export class MyClass{
- constructor(keyboard: Keyboard){
-   this.keyboard = keyboard;
-   this.keyboard.onClose(this.closeCallback);
- }
- closeCallback(){
-    // call what ever functionality you want on keyboard close
-    console.log('Closing time");
- }
-}
-
-```
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        callback
-        
-        
-      </td>
-      <td>
-        
-  <code>Function</code>
-      </td>
-      <td>
-        <p>method you want to call when the keyboard has been closed</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
 
 
-* Returns: 
-  <code>Function</code> returns a callback that gets fired when the keyboard is closed
+
+
 
 
 
@@ -179,7 +106,25 @@ export class MyClass{
 
 </h3>
 
-Progamatically close they keyboard
+
+
+
+
+
+
+
+
+
+
+
+<div id="focusOutline"></div>
+
+<h3>
+<code>focusOutline()</code>
+  
+
+</h3>
+
 
 
 

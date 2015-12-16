@@ -10673,6 +10673,9 @@ body.md .tabs-icon tab-highlight {
 body.ios .tabs-icon tabbar a {
   color: #f53d3d; }
 
+body.md .tabs-icon-text ion-title div.toolbar-title {
+  color: #fff !important; }
+
 body.md .tabs-icon-text tabbar {
   background-color: #7e60ff; }
   body.md .tabs-icon-text tabbar a {

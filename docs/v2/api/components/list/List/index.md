@@ -93,55 +93,14 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 <div id="enableSlidingItems"></div>
 
 <h3>
-<code>enableSlidingItems(shouldEnable)</code>
+<code>enableSlidingItems()</code>
   
 
 </h3>
 
-Enable sliding items if your page has them
-
-```ts
-export class MyClass {
-   constructor(app: IonicApp){
-     this.app = app;
-     this.list = this.app.getComponent('my-list');
-   }
-   stopSliding(){
-     this.list.enableSlidingItems(false);
-   }
-}
-```
 
 
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        shouldEnable
-        
-        
-      </td>
-      <td>
-        
-  <code>Boolean</code>
-      </td>
-      <td>
-        <p>whether the item-sliding should be enabled or not</p>
 
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -158,21 +117,6 @@ export class MyClass {
 
 </h3>
 
-Enable sliding items if your page has
-
-```ts
-export class MyClass {
-   constructor(app: IonicApp){
-     this.app = app;
-     this.list = this.app.getComponent('my-list');
-   }
-   // Here we have some method that will close the items
-   // when called
-   closeItmes(){
-     this.list.closeSlidingItems();
-   }
-}
-```
 
 
 

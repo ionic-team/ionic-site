@@ -27,6 +27,8 @@ $ ionic start MyIonic2Project tutorial --v2
 
 This will pull Ionic 2 down, install [npm modules](../../resources/what-is/#npm) for the application, and get [Cordova](../../resources/what-is/#cordova) set up and ready to go.
 
+**Want to use Typescript instead? pass the `--ts` flag and get a project set up for TypeScript instead.**
+
 <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#starter-templates">
   Ionic starter templates
 </button>

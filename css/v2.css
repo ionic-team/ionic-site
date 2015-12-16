@@ -5030,6 +5030,10 @@ ul.docs-example {
 li.capitalize a {
   text-transform: capitalize; }
 
+li.capitalize.active a {
+  color: #4D8CF4;
+  border-right: #4D8CF4 2px solid; }
+
 .docs-ionicons .download {
   margin-top: 60px;
   margin-bottom: 10px; }

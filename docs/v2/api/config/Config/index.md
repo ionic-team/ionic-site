@@ -87,45 +87,12 @@ Config
 Simply add <code>?ionic&lt;PROPERTYNAME&gt;=&lt;value&gt;</code> to the url.</p>
 <pre><code class="lang-bash">http://localhost:8100/?ionicTabbarPlacement=bottom
 </code></pre>
-<p>A config value can come from anywhere and be anything, but there are a default set of values.</p>
-<pre><code class="lang-javascript">// iOS
-activator: &#39;highlight&#39;,
-actionSheetEnter: &#39;action-sheet-slide-in&#39;,
-actionSheetLeave: &#39;action-sheet-slide-out&#39;,
-actionSheetCancelIcon: &#39;&#39;,
-actionSheetDestructiveIcon: &#39;&#39;,
-backButtonText: &#39;Back&#39;,
-backButtonIcon: &#39;ion-ios-arrow-back&#39;,
-iconMode: &#39;ios&#39;,
-menuType: &#39;reveal&#39;,
-modalEnter: &#39;modal-slide-in&#39;,
-modalLeave: &#39;modal-slide-out&#39;,
-pageTransition: &#39;ios-transition&#39;,
-pageTransitionDelay: 16,
-popupEnter: &#39;popup-pop-in&#39;,
-popupLeave: &#39;popup-pop-out&#39;,
-tabbarPlacement: &#39;bottom&#39;,
-
-// MD
-activator: &#39;ripple&#39;,
-actionSheetEnter: &#39;action-sheet-md-slide-in&#39;,
-actionSheetLeave: &#39;action-sheet-md-slide-out&#39;,
-actionSheetCancelIcon: &#39;ion-md-close&#39;,
-actionSheetDestructiveIcon: &#39;ion-md-trash&#39;,
-backButtonText: &#39;&#39;,
-backButtonIcon: &#39;ion-md-arrow-back&#39;,
-iconMode: &#39;md&#39;,
-menuType: &#39;overlay&#39;,
-modalEnter: &#39;modal-md-slide-in&#39;,
-modalLeave: &#39;modal-md-slide-out&#39;,
-pageTransition: &#39;md-transition&#39;,
-pageTransitionDelay: 120,
-popupEnter: &#39;popup-md-pop-in&#39;,
-popupLeave: &#39;popup-md-pop-out&#39;,
-tabbarHighlight: true,
-tabbarPlacement: &#39;top&#39;,
-tabSubPages: true,
+<p>Custom values can be added to config, and looked up at a later point in time.</p>
+<pre><code class="lang-javascript">config.set(&#39;ios&#39;, &#39;favoriteColor&#39;, &#39;green&#39;);
+// from any page in your app:
+config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 </code></pre>
+<p>A config value can come from anywhere and be anything, but there are a default set of values.</p>
 <table>
 <thead>
 <tr>
@@ -234,7 +201,139 @@ tabSubPages: true,
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<h2>Methods</h2>
+
+<div id="set"></div>
+
+<h3>
+<code>set(platform,&nbsp;key,&nbsp;value)</code>
+  
+
+</h3>
+
+Sets a single config value.
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        platform
+        
+        
+      </td>
+      <td>
+        
+  <code>String</code>
+      </td>
+      <td>
+        <p>The platform (either &#39;ios&#39; or &#39;android&#39;) that the config value should apply to. Leaving this blank will apply the config value to all platforms.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        key
+        
+        
+      </td>
+      <td>
+        
+  <code>String</code>
+      </td>
+      <td>
+        <p>The key used to look up the value at a later point in time.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        value
+        
+        
+      </td>
+      <td>
+        
+  <code>String</code>
+      </td>
+      <td>
+        <p>The config value being stored.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="get"></div>
+
+<h3>
+<code>get(key)</code>
+  
+
+</h3>
+
+Returns a single config value, given a key.
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        key
+        
+        
+      </td>
+      <td>
+        
+  <code>String</code>
+      </td>
+      <td>
+        <p>the key for the config value</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

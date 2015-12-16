@@ -131,25 +131,6 @@ Label
 
 
 
-
-
-<div id="ngOnInit"></div>
-
-<h3>
-<code>ngOnInit()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
 <!-- related link -->
 
 <h2>Related</h2>

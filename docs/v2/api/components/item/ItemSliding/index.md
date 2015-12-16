@@ -98,26 +98,12 @@ ItemSliding
 
 
 
+<!-- related link -->
 
+<h2>Related</h2>
 
-<div id="close"></div>
-
-<h3>
-<code>close()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link --><!-- end content block -->
+<a href='/docs/v2/components#lists'>List Component Docs</a>
+<a href='../../list/List'>List API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

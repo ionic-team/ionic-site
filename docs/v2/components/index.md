@@ -1101,7 +1101,7 @@ Use the segment to control to use radio selections.
 </div>
 
 <div [ngSwitch]="pet">
-  <ion-list *ngSwitch-when="'puppies'">
+  <ion-list *ngSwitchWhen="'puppies'">
     <ion-item>
       <ion-thumbnail item-left>
         <img src="img/thumbnail-puppy-1.jpg">
@@ -1111,7 +1111,7 @@ Use the segment to control to use radio selections.
     ...
   </ion-list>
 
-  <ion-list *ngSwitch-when="'kittens'">
+  <ion-list *ngSwitchWhen="'kittens'">
     <ion-item>
       <ion-thumbnail item-left>
         <img src="img/thumbnail-kitten-1.jpg">

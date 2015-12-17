@@ -1,0 +1,24 @@
+<h2 id="action-sheets" class="section-header">Action Sheets</h2>
+
+Action Sheets slide up from the bottom edge of the device screen, and display a set of options with the ability to confirm or cancel an action. Action Sheets can sometimes be used as an alternative to menus, however, they **should not** be used for navigation.
+
+The Action Sheet always appears above any other components on the page, and must be dismissed in order to interact with the underlying content. When it is triggered, the rest of the page darkens to give more focus to the Action Sheet options.
+
+```typescript
+ActionSheet.open({
+  buttons: [
+    { text: 'Share This' },
+    { text: 'Move' }
+  ],
+  destructiveText: 'Delete',
+  titleText: 'Modify your album',
+  cancelText: 'Cancel',
+  cancel: () => {...},
+  destructiveButtonClicked: () => {...},
+  buttonClicked: (index) => {...}
+}).then(actionSheetRef => {
+  // Action sheet was created and opened
+  this.actionSheetRef = actionSheetRef;
+  // this.actionSheetRef.close() to close it
+})
+```

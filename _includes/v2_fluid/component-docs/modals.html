@@ -1,0 +1,48 @@
+<h2 id="modals" class="section-header">Modals</h2>
+
+Modals slide in off screen to display a temporary UI, often used for login or signup pages,
+message composition, and option selection.
+
+First, we need to add the `<ion-overlay>` component to our root `app.html` template. This only needs to be done once, no matter how many modal pages our app contains:
+
+```html
+<ion-overlay></ion-overlay>
+```
+
+Next, we need to create the class that will control our modal. Let's import `Modal`:
+
+```typescript
+import {Modal} from 'ionic/ionic';
+```
+
+Next, let's create our modal and define add its template:
+
+```typescript
+@Page({
+  template: `
+  <ion-content padding>
+    <h2>I'm a modal!</h2>
+    <button (click)="close()">Close</button>
+  </ion-content>`
+})
+class MyModal {
+  constructor() {
+  }
+}
+```
+
+
+Finally, let's add the code that will open our Modal:
+
+```typescript
+class MyPage {
+  constructor(modal: Modal){
+    this.modal = modal;
+  }
+  showModal() {
+    this.modal.open(MyModal);
+  }
+}
+```
+
+The `modal.open()` function can also receive an object as the second argument that will be passed to the modal. See the [Modal API docs](/docs/v2/api/components/modal/Modal/) for more information.

@@ -1,0 +1,132 @@
+<h2 id="lists" class="section-header">Lists</h2>
+
+Lists are used to display rows of information, such as a contact list, playlist, or menu. Or maybe something crazy we don't even know exists yet!
+
+<ul class="docs-content">
+  <li class="docs-content-header">Contents</li>
+  <li class="docs-content-item"><a href="{{components_link}}#lists">Basic Lists</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#list-dividers">List Dividers</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#inset-list">Inset List</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#list-headers">List Headers</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#icon-list">Icon List</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#avatar-list">Avatar List</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#multiline-list">Multiline List</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#thumbnail-list">Thumbnail List</a></li>
+</ul>
+
+<h3 class="section-nav" id="list-lines">Basic Usage (Default)</h3>
+
+By default, all lists will be styled with divider lines:
+
+```html
+<ion-list>
+  <ion-item *ngFor="#item of items" (click)="itemSelected(item)">
+    {{item.title}}
+  </ion-item>
+</ion-list>
+```
+
+
+<h3 class="no-para" id="list-no-lines">Basic Usage (No Lines)</h3>
+
+Adding the `no-lines` attribute will hide the dividers between list items:
+
+```html
+<ion-list no-lines>
+  <ion-item *ngFor="#item of items" (click)="itemSelected(item)">
+    {% raw %}{{item.title}}{% endraw %}
+  </ion-item>
+</ion-list>
+```
+
+<h3 class="section-nav" id="inset-list">Inset List</h3>
+
+By default, lists have an outside margin, to remove that add the `inset` property to make the list flush with the parent container.
+
+<h3 class="section-nav" id="list-headers">List Headers</h3>
+
+Each list can include a header at the top of the list:
+
+```html
+  <ion-list>
+    <ion-list-header>Action</ion-list-header>
+    <ion-item>Terminator II</ion-item>
+    <ion-item>The Empire Strikes Back</ion-item>
+    <ion-item>Blade Runner</ion-item>
+  </ion-list>
+```
+
+<h3 class="section-nav" id="icon-list">Icon List</h3>
+
+Adding [icons](#icons) to list items is a great way to hint about the contents of each item. The position of the icon can be set using the `item-left` and `item-right` attributes:
+
+
+```html
+<ion-list>
+
+  <ion-item>
+    <icon leaf item-left></icon>
+      Herbology
+    <icon rose item-right></icon>
+  </ion-item>
+
+</ion-list>
+```
+
+
+<h3 class="section-nav" id="avatar-list">Avatar List</h3>
+
+Item avatars showcase an image larger than an icon, but smaller than a thumbnail. To use an avatar, add an `<ion-avatar>` component inside of an item. The position of the avatar can be set using the `item-left` and `item-right` attributes:
+
+```html
+<ion-list>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="img/avatar-cher.png">
+    </ion-avatar>
+    <h2>Cher</h2>
+    <p>Ugh. As if.</p>
+  </ion-item>
+
+</ion-list>
+```
+
+<h3 class="section-nav" id="multiline-list">Multiline List</h3>
+
+Multiline lists are identical to regular lists, except they can multiple lines of text. When multiple header or paragraph tags are added to an `<ion-item>`, the item will automatically adjust its height to fit the new lines. Below is an example with three lines of text:
+
+```html
+<ion-list>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="img/avatar-finn.png">
+    </ion-avatar>
+    <h2>Finn</h2>
+    <h3>Don't Know What To Do!</h3>
+    <p>I've had a pretty messed up day. If we just...</p>
+  </ion-item>
+
+</ion-list>
+```
+
+
+<h3 class="section-nav" id="thumbnail-list">Thumbnail List</h3>
+
+Item thumbnails showcase an image that takes up the entire height of an item. To use a thumbnail, add an `<ion-thumbnail>` component inside of an item. The position of the thumbnail can be set using the `item-left` and `item-right` attributes:
+
+```html
+<ion-list>
+
+  <ion-item>
+    <ion-thumbnail item-left>
+      <img src="img/thumbnail-totoro.png">
+    </ion-thumbnail>
+    <h2>My Neighbor Totoro</h2>
+    <p>Hayao Miyazaki • 1988</p>
+    <button clear item-right>View</button>
+  </ion-item>
+
+</ion-list>
+```

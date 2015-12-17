@@ -1,0 +1,21 @@
+<h2 id="radio" class="section-header">Radio</h2>
+
+Like the [checkbox](#checkbox), a radio is an input component that holds a *boolean* value. Under the hood, radios are no different than HTML radio inputs. However, like other Ionic components, radios are styled differently on each platform. Unlike checkboxes, radio components form a group, where only one radio can be selected at a time. Use the `checked` attribute to set the default value, and the `disabled` attribute to disable the user from changing the value:
+
+```html
+<ion-radio-group>
+
+  <ion-header>
+    Language
+  </ion-header>
+
+  <ion-radio checked="true">
+    Go
+  </ion-radio>
+
+  <ion-radio>
+    Rust
+  </ion-radio>
+
+</ion-radio-group>
+```

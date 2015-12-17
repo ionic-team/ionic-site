@@ -1,0 +1,145 @@
+<h2 id="inputs" class="section-header">Inputs</h2>
+
+Inputs are essential for collecting and handling user input in a secure way. They should follow styling and interaction guidelines for each platform, so that they are intuitive for users to interact with. Ionic uses Angular 2’s form library, which can be thought of as two dependent pieces, **Controls**, and **Control Groups**.
+
+Each input field in a form has a **Control**, a function that binds to the value in the field, and performs validation. A **Control Group** is a collection of Controls. Control Groups handle form submission, and provide a high level API that can be used to determine whether the entire form is valid.
+
+A number of attributes that can be used to style forms and their various input fields are listed below. For more info on form logic, check out the [Inputs API docs](../api/components/text-input/TextInput/).
+
+
+<ul class="docs-content">
+  <li class="docs-content-header">Contents</li>
+  <li class="docs-content-item"><a href="{{components_link}}#fixed-inline-labels">Fixed Inline Labels</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#floating-labels">Floating Labels</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#inline-labels">Inline Labels</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#inset-labels">Inset Labels</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#placeholder-labels">Placeholder Labels</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#stacked-labels">Stacked Labels</a></li>
+</ul>
+
+<h3 class="section-nav" id="fixed-inline-labels">Fixed Labels</h3>
+
+Use `fixed-label` to place a label to the left of the input element. When the user enters text, the label does not hide. The user's input will align on the same position, regardless of the length of the label. Note that there's nothing stopping you from also using a placeholder label too.
+
+```html
+<ion-list>
+
+  <ion-input fixed-label>
+    <ion-label>Username</ion-label>
+    <input type="text" value="">
+  </ion-input>
+
+  <ion-input fixed-label>
+    <ion-label>Password</ion-label>
+    <input type="password" value="">
+  </ion-input>
+
+</ion-list>
+```
+
+
+<h3 class="section-nav" id="floating-labels">Floating Labels</h3>
+
+Floating labels are just like [Stacked Labels](#forms-stacked-labels), except that their labels animate, or "float" up when text is entered in the input. Each `<ion-input>` should have the `floating-label` attribute assigned.
+
+Enter text in the example to the right to see the floating labels in action.
+
+
+```html
+<ion-list>
+
+  <ion-input floating-label>
+    <ion-label>Username</ion-label>
+    <input type="text" value="">
+  </ion-input>
+
+  <ion-input floating-label>
+    <ion-label>Password</ion-label>
+    <input type="password" value="">
+  </ion-input>
+
+</ion-list>
+```
+
+<h3 class="section-nav" id="inline-labels" class="section-header">Inline Labels</h3>
+
+If a label attribute is not provided, an `<ion-input>` component will default to using an inline label. When the user enters text, the label does not hide. Note that there's nothing stopping you from also using a placeholder as well.
+
+```html
+<ion-list>
+
+  <ion-input>
+    <ion-label>Username</ion-label>
+    <input type="text" value="">
+  </ion-input>
+
+  <ion-input>
+    <ion-label>Password</ion-label>
+    <input type="password" value="">
+  </ion-input>
+
+</ion-list>
+
+<div padding>
+  <button block>Sign In</button>
+</div>
+```
+<h3 class="section-nav" id="inset-labels" class="section-header">Inset Labels</h3>
+
+By default each input item will fill 100% of the width of its parent element (the list). However, you can inset the list by adding the `inset` attribute.
+
+```html
+<ion-list inset>
+
+  <ion-input>
+    <ion-label>Username</ion-label>
+    <input type="text" value="">
+  </ion-input>
+
+  <ion-input>
+    <ion-label>Password</ion-label>
+    <input type="password" value="">
+  </ion-input>
+
+</ion-list>
+```
+
+<h3 class="section-nav" id="placeholder-labels" class="section-header">Placeholder Labels</h3>
+
+Add the `placeholder` attribute to an `<input>` element to simulate the input's label. When the user begins to enter text into the input, the placeholder label will be hidden.
+
+```html
+<ion-list>
+
+  <ion-input>
+    <input type="text" placeholder="Username">
+  </ion-input>
+
+  <ion-input>
+    <input type="password" placeholder="Password">
+  </ion-input>
+
+</ion-list>
+
+```
+
+<h3 class="section-nav" id="stacked-labels" class="section-header">Stacked Labels</h3>
+
+A stacked label will always appear on top of the input. Each `<ion-input>` should have the `stacked-label` attribute.
+You can also add a placeholder so that users have a hint of what type of text the input is looking for.
+
+```html
+<ion-list>
+
+  <ion-input stacked-label>
+    <ion-label>Username</ion-label>
+    <input type="text">
+  </ion-input>
+
+  <ion-input stacked-label>
+    <ion-label>Password</ion-label>
+    <input type="password">
+  </ion-input>
+
+</ion-list>
+```

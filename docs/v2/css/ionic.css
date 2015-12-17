@@ -2622,6 +2622,9 @@ icon,
 .ion-ios-snow:before {
   content: "\f218"; }
 
+.ion-ios-snow-outline:before {
+  content: "\f45a"; }
+
 .ion-ios-speedometer:before {
   content: "\f4b0"; }
 

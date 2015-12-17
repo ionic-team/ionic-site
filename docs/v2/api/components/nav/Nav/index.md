@@ -127,7 +127,6 @@ swipe to go back:</p>
   </pre>
 </div>
 
-
 <h2>Component</h2>
 <h3>selector: <code>ion-nav</code></h3>
 <!-- @usage tag -->

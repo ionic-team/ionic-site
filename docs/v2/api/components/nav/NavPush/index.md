@@ -52,8 +52,15 @@ NavPush
 <h2>Description</h2>
 
 <p>Directive for declaratively linking to a new page instead of using
-<a href="../NavController/#push">NavController.push()</a>. Similar to ui-router&#39;s <code>ui-sref</code>.</p>
-<p>Basic usage:</p>
+<a href='../NavController/#push'>NavController.push</a>. Similar to ui-router&#39;s <code>ui-sref</code>.</p>
+
+
+<h2>Directive</h2>
+<h3>selector: <code>[navPush]</code></h3>
+<!-- @usage tag -->
+
+<h2>Usage</h2>
+
 <pre><code class="lang-html">&lt;button [navPush]=&quot;pushPage&quot;&gt;&lt;/button&gt;
 </code></pre>
 <p>To specify parameters you can use array syntax or the <code>nav-params</code> property:</p>
@@ -79,36 +86,12 @@ NavPush:</p>
 </code></pre>
 
 
-<h2>Directive</h2>
-<h3>selector: <code>[navPush]</code></h3>
-<!-- @usage tag -->
 
 
 <!-- @property tags -->
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="onClick"></div>
-
-<h3>
-<code>onClick()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link -->
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

@@ -62,12 +62,12 @@ Togglees can also have colors assigned to them, by adding any color attribute to
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">// Create a single toggle
+<pre><code class="lang-html">&lt;!-- Create a single toggle --&gt;
  &lt;ion-toggle checked=&quot;true&quot;&gt;
    Pineapple
  &lt;/ion-toggle&gt;
 
-// Create a list of togglees:
+&lt;!-- Create a list of togglees --&gt;
  &lt;ion-list&gt;
 
    &lt;ion-toggle checked=&quot;true&quot;&gt;

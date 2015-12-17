@@ -53,8 +53,9 @@ Modal
 
 <p>The Modal is a content pane that can go over the user&#39;s current page.
 Usually used for making a choice or editing an item. A modal can be opened
-similar to how NavController#push works, where it is passed a Page component,
-along with optional Page params, and options for presenting the modal.</p>
+similar to how <a href='/docs/v2/api/components/nav/NavController/#push'>NavController.push</a>  works,
+where it is passed a Page component, along with optional Page params,
+and options for presenting the modal.</p>
 
 <!-- @usage tag -->
 
@@ -101,9 +102,10 @@ along with optional Page params, and options for presenting the modal.</p>
 
 Opens a new modal using the page component is was pass as the first
 argument. This is similar to how NavController's `push` method works.
-Currently you must have `<ion-overlay>` in the @App component's template
+Currently you must have `<ion-overlay>` in the `@App` component's template
 for the modal to work correctly. (This is something that will
 be hopefully be removed in the near future.)
+
 
 
 <table class="table" style="margin:0;">

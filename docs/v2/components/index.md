@@ -1133,76 +1133,25 @@ Use the segment to control to use radio selections.
 Slides make it easy to create galleries, tutorials, and page-based layouts.
 
 ```html
-<ion-slides>
+<ion-slides pager loop="true" autoplay="true">
+
+  <ion-slide style="background-color: green">
+    <h2>Slide 1</h2>
+  </ion-slide>
 
   <ion-slide style="background-color: blue">
-    <h2>Page 1</h2>
+    <h2>Slide 2</h2>
   </ion-slide>
 
-  <ion-slide style="background-color: yellow">
-    <h2>Page 2</h2>
+  <ion-slide style="background-color: red">
+    <h2>Slide 3</h2>
   </ion-slide>
-
-  <ion-slide style="background-color: pink">
-    <h2>Page 3</h2>
-  </ion-slide>
-
-  <ion-pager>
-  </ion-pager>
 
 </ion-slides>
 ```
 
-Slides take a number of configuration options on the `<ion-slides>` element:
+Slides take a number of configuration options on the `<ion-slides>` element, such as `loop` and `autoplay`. Check out the [Slides API reference](../api/components/slides/Slides/) for more information on configuring slides. 
 
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Type</th>
-      <th>Details</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        loop
-      </td>
-      <td>
-        boolean
-      </td>
-      <td>
-        Whether to loop at the beginning and end of the slides for a continuous experience.
-      </td>
-      <td>false</td>
-    </tr>
-    <tr>
-      <td>
-        index
-      </td>
-      <td>
-        number
-      </td>
-      <td>
-        The index to start on
-      </td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>
-        bounce
-      </td>
-      <td>
-        boolean
-      </td>
-      <td>
-        Whether to slow down and bounce when reaching the beginning/end of the slides
-      </td>
-      <td>false</td>
-    </tr>
-  </tbody>
-</table>
 
 <h2 id="switch" class="section-header">Switch</h2>
 *Coming soon.*

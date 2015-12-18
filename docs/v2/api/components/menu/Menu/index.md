@@ -126,6 +126,82 @@ export class MyClass{
 
 <h2>Methods</h2>
 
+<div id="app"></div>
+
+<h3>
+<code>app()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="platform"></div>
+
+<h3>
+<code>platform()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="keyboard"></div>
+
+<h3>
+<code>keyboard()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="zone"></div>
+
+<h3>
+<code>zone()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="setOpen"></div>
 
 <h3>

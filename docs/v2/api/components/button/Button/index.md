@@ -99,6 +99,8 @@ Button
 
 
 
+
+
 <th>Description</th>
 </tr>
 </thead>
@@ -272,51 +274,23 @@ position a fab button towards the bottom
 </td>
 </tr>
 
+<tr>
+<td>
+color
+</td>
+
+
+
+<td>
+Dynamically set which color attribute this button should use.
+</td>
+</tr>
+
 </tbody>
 </table>
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="elementRef"></div>
-
-<h3>
-<code>elementRef()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="renderer"></div>
-
-<h3>
-<code>renderer()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link -->
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

@@ -100,7 +100,7 @@ There are easy ways to cancel out of the action sheet, such as tapping the backd
 <div id="open"></div>
 
 <h3>
-<code>open(opts,&nbsp;opts.enterAnimation,&nbsp;opts.leaveAnimation)</code>
+<code>open(opts)</code>
   
 
 </h3>
@@ -144,41 +144,9 @@ public API, and most often you will only use ActionSheet.open()
  the action sheet, or false to keep it opened.</li>
 <li><code>{function=}</code> <code>destructiveButtonClicked</code> Called when the destructive button is clicked.
  Return true to close the action sheet, or false to keep it opened.</li>
+<li><code>{String}</code> <code>enterAnimation</code> The class used to animate an actionSheet that is entering.</li>
+<li><code>{String}</code> <code>leaveAnimation</code> The class used to animate an actionSheet that is leaving.</li>
 </ul>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        opts.enterAnimation
-        
-        
-      </td>
-      <td>
-        
-  <code>String</code>
-      </td>
-      <td>
-        <p>The class used to animate an actionSheet that is entering.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        opts.leaveAnimation
-        
-        
-      </td>
-      <td>
-        
-  <code>String</code>
-      </td>
-      <td>
-        <p>The class used to animate an actionSheet that is leaving.</p>
 
         
       </td>

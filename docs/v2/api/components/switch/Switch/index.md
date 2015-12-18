@@ -9,7 +9,9 @@ title: "Switch"
 header_sub_title: "Class in module "
 doc: "Switch"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/switch/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -196,74 +198,6 @@ a unique ID for a switch
 
 </h3>
 
-
-
-
-
-
-
-
-
-
-
-
-<div id="check"></div>
-
-<h3>
-<code>check(value)</code>
-
-</h3>
-
-Set checked state of this switch.
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        value
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Boolean to set this switch&#39;s checked state to.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-<div id="toggle"></div>
-
-<h3>
-<code>toggle()</code>
-
-</h3>
-
-Toggle the checked state of this switch.
 
 
 

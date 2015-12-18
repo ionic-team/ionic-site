@@ -2057,11 +2057,16 @@ caption {
 th {
   text-align: left; }
 
-.table {
+table, .table {
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px; }
-  .table > thead > tr > th,
+  table > thead > tr > th,
+  table > thead > tr > td,
+  table > tbody > tr > th,
+  table > tbody > tr > td,
+  table > tfoot > tr > th,
+  table > tfoot > tr > td, .table > thead > tr > th,
   .table > thead > tr > td,
   .table > tbody > tr > th,
   .table > tbody > tr > td,
@@ -2071,19 +2076,24 @@ th {
     line-height: 1.428571429;
     vertical-align: top;
     border-top: 1px solid #ddd; }
-  .table > thead > tr > th {
+  table > thead > tr > th, .table > thead > tr > th {
     vertical-align: bottom;
     border-bottom: 2px solid #ddd; }
-  .table > caption + thead > tr:first-child > th,
+  table > caption + thead > tr:first-child > th,
+  table > caption + thead > tr:first-child > td,
+  table > colgroup + thead > tr:first-child > th,
+  table > colgroup + thead > tr:first-child > td,
+  table > thead:first-child > tr:first-child > th,
+  table > thead:first-child > tr:first-child > td, .table > caption + thead > tr:first-child > th,
   .table > caption + thead > tr:first-child > td,
   .table > colgroup + thead > tr:first-child > th,
   .table > colgroup + thead > tr:first-child > td,
   .table > thead:first-child > tr:first-child > th,
   .table > thead:first-child > tr:first-child > td {
     border-top: 0; }
-  .table > tbody + tbody {
+  table > tbody + tbody, .table > tbody + tbody {
     border-top: 2px solid #ddd; }
-  .table .table {
+  table .table, .table .table {
     background-color: #fff; }
 
 .table-condensed > thead > tr > th,
@@ -5016,6 +5026,13 @@ ul.docs-example {
 
 .highlight .err {
   background-color: #fff; }
+
+li.capitalize a {
+  text-transform: capitalize; }
+
+li.capitalize.active a {
+  color: #4D8CF4;
+  border-right: #4D8CF4 2px solid; }
 
 .docs-ionicons .download {
   margin-top: 60px;

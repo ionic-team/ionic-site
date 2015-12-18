@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L7'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tab.ts#L7'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L7'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tab.ts#L7'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Tab
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p><em>For basic Tabs usage, see the <a href="../../../../components/#tabs">Tabs section</a>
@@ -61,19 +62,20 @@ and the TabBar.</p>
 
 <h2>Component</h2>
 <h3>selector: <code>ion-tab</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-tabs&gt;
-     &lt;ion-tab tab-title=&quot;Home&quot; tab-icon=&quot;home&quot; [root]=&quot;tabOneRoot&quot;&gt;&lt;/ion-tab&gt;
-     &lt;ion-tab tab-title=&quot;Login&quot; tab-icon=&quot;star&quot; [root]=&quot;tabTwoRoot&quot;&gt;&lt;/ion-tab&gt;
+     &lt;ion-tab tabTitle=&quot;Home&quot; tabIcon=&quot;home&quot; [root]=&quot;tabOneRoot&quot;&gt;&lt;/ion-tab&gt;
+     &lt;ion-tab tabTitle=&quot;Login&quot; tabIcon=&quot;star&quot; [root]=&quot;tabTwoRoot&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 
 
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
@@ -122,7 +124,7 @@ set the root page for this tab
 
 <tr>
 <td>
-tab-title
+tabTitle
 </td>
 
 
@@ -138,7 +140,7 @@ set the title of this tab
 
 <tr>
 <td>
-tab-icon
+tabIcon
 </td>
 
 
@@ -156,12 +158,15 @@ set the icon for this tab
 </table>
 
 
+<!-- methods on the class -->
+
 <h2>Methods</h2>
 
 <div id="index"></div>
 
 <h3>
 <code>index()</code>
+  
 
 </h3>
 
@@ -184,7 +189,7 @@ export class MyClass{
   <code>Number</code> Returns the index of this page within its NavController.
 
 
-<!-- end content block -->
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -9,22 +9,24 @@ title: "RadioGroup"
 header_sub_title: "Class in module "
 doc: "RadioGroup"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/radio/"
+angular_controller: APIDemoCtrl 
 ---
 
 
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L4'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L4'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L6'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L6'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +48,7 @@ RadioGroup
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>A radio group is a group of radio components.</p>
@@ -56,10 +59,11 @@ RadioGroup
 
 <h2>Directive</h2>
 <h3>selector: <code>[radio-group]</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-list radio-group ng-control=&quot;clientside&quot;&gt;
+<pre><code class="lang-html">&lt;ion-list radio-group ngControl=&quot;clientside&quot;&gt;
 
   &lt;ion-list-header&gt;
     Clientside
@@ -87,8 +91,10 @@ RadioGroup
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -96,6 +102,7 @@ RadioGroup
 
 <h3>
 <code>radios()</code>
+  
 
 </h3>
 
@@ -114,6 +121,7 @@ RadioGroup
 
 <h3>
 <code>headerQuery()</code>
+  
 
 </h3>
 
@@ -126,7 +134,7 @@ RadioGroup
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

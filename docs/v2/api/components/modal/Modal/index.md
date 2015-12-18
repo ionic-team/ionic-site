@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L5'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/modal/modal.ts#L5'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/modal/modal.ts#L5'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/modal/modal.ts#L5'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,13 +48,16 @@ Modal
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The Modal is a content pane that can go over the user&#39;s current page.
 Usually used for making a choice or editing an item. A modal can be opened
-similar to how NavController#push works, where it is passed a Page component,
-along with optional Page params, and options for presenting the modal.</p>
+similar to how <a href='/docs/v2/api/components/nav/NavController/#push'>NavController.push</a>  works,
+where it is passed a Page component, along with optional Page params,
+and options for presenting the modal.</p>
 
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -82,21 +85,24 @@ along with optional Page params, and options for presenting the modal.</p>
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
 <div id="open"></div>
 
 <h3>
-<code>open(pageComponent, params, opts)</code>
+<code>open(pageComponent,&nbsp;params,&nbsp;opts)</code>
+  
 
 </h3>
 
 Opens a new modal using the page component is was pass as the first
 argument. This is similar to how NavController's `push` method works.
-Currently you must have `<ion-overlay>` in the @App component's template
+Currently you must have `<ion-overlay>` in the `@App` component's template
 for the modal to work correctly. (This is something that will
 be hopefully be removed in the near future.)
 
@@ -173,7 +179,6 @@ allows customization of which animation to use.</p>
 
 
 
-
 * Returns: 
   <code>Promise</code> Returns a promise which resolves when the modal has
 loaded and its entering animation has completed. The resolved promise's
@@ -186,6 +191,7 @@ value is the instance of the newly created modal.
 
 <h3>
 <code>get(handle)</code>
+  
 
 </h3>
 
@@ -197,7 +203,6 @@ If getting just the active modal isn't enough, when creating
 a modal, it's options can be given a `handle`, which is simply a string-based
 name for the modal instance. You can later get a reference to that modal's
 instance by calling this method with the same handle name.
-
 
 
 <table class="table" style="margin:0;">
@@ -234,14 +239,13 @@ instance by calling this method with the same handle name.
 
 
 
-
 * Returns: 
    Returns the instance of the modal if it is found, otherwise `null`.
 
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L11'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-controller.ts#L11'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L11'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ NavController
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p><em>For examples on the basic usage of NavController, check out the
@@ -82,7 +83,7 @@ navigation controller for most situations (for more advanced situations, see
 }
 </code></pre>
 <p><h2 id="creating_pages">Page creation</h2>
-<em>For more information on the <code>@Page</code> decorator see the <a href="../../../config/Page/">@Page API
+<em>For more information on the <code>@Page</code> decorator see the <a href="../../../config/decorators/Page/">@Page API
 reference</a>.</em></p>
 <p>Pages are created when they are added to the navigation stack.  For methods
 like <a href="#push">push()</a>, the NavController takes any component class that is
@@ -117,17 +118,21 @@ class HelloWorld {
 <li><code>onPageDidUnload</code> - Runs after the page has been destroyed and its elements have been removed.</li>
 </ul>
 
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
 <div id="push"></div>
 
 <h3>
-<code>push(component, params, opts)</code>
+<code>push(component,&nbsp;params,&nbsp;opts)</code>
+  
 
 </h3>
 
@@ -190,7 +195,6 @@ class MyClass{
    }
 }
 ```
-
 
 
 <table class="table" style="margin:0;">
@@ -261,7 +265,6 @@ class MyClass{
 
 
 
-
 * Returns: 
   <code>Promise</code> Returns a promise when the transition is completed
 
@@ -272,6 +275,7 @@ class MyClass{
 
 <h3>
 <code>pop(opts)</code>
+  
 
 </h3>
 
@@ -291,7 +295,6 @@ class SecondView{
 
 
 
-
 <table class="table" style="margin:0;">
   <thead>
     <tr>
@@ -321,7 +324,6 @@ class SecondView{
     
   </tbody>
 </table>
-
 
 
 
@@ -337,11 +339,11 @@ class SecondView{
 
 <h3>
 <code>popToRoot(opts)</code>
+  
 
 </h3>
 
 Similar to `pop()`, this method let's you navigate back to the root of the stack, no matter how many views that is
-
 
 
 <table class="table" style="margin:0;">
@@ -381,11 +383,11 @@ Similar to `pop()`, this method let's you navigate back to the root of the stack
 
 
 
-
 <div id="insert"></div>
 
 <h3>
-<code>insert(index, component)</code>
+<code>insert(index,&nbsp;component)</code>
+  
 
 </h3>
 
@@ -404,7 +406,6 @@ export class Detail {
 ```
 
 This will insert the `Info` view into the second slot of our navigation stack
-
 
 
 
@@ -459,7 +460,6 @@ This will insert the `Info` view into the second slot of our navigation stack
 
 
 
-
 * Returns: 
   <code>Promise</code> Returns a promise when the view has been inserted into the navigation stack
 
@@ -469,7 +469,8 @@ This will insert the `Info` view into the second slot of our navigation stack
 <div id="remove"></div>
 
 <h3>
-<code>remove(index, opts)</code>
+<code>remove(index,&nbsp;opts)</code>
+  
 
 </h3>
 
@@ -485,7 +486,6 @@ export class Detail {
    }
  }
 ```
-
 
 
 
@@ -540,7 +540,6 @@ export class Detail {
 
 
 
-
 * Returns: 
   <code>Promise</code> Returns a promise when the view has been removed
 
@@ -550,7 +549,8 @@ export class Detail {
 <div id="setPages"></div>
 
 <h3>
-<code>setPages(component, opts)</code>
+<code>setPages(component,&nbsp;opts)</code>
+  
 
 </h3>
 
@@ -625,7 +625,6 @@ import {Info} from '../info/info'
 
 
 
-
 <table class="table" style="margin:0;">
   <thead>
     <tr>
@@ -677,7 +676,6 @@ import {Info} from '../info/info'
 
 
 
-
 * Returns: 
   <code>Promise</code> Returns a promise when the pages are set
 
@@ -687,12 +685,12 @@ import {Info} from '../info/info'
 <div id="setRoot"></div>
 
 <h3>
-<code>setRoot(The, params, opts)</code>
+<code>setRoot(The,&nbsp;params,&nbsp;opts)</code>
+  
 
 </h3>
 
 Set the root for the current navigation stack
-
 
 
 <table class="table" style="margin:0;">
@@ -763,7 +761,6 @@ Set the root for the current navigation stack
 
 
 
-
 * Returns: 
   <code>Promise</code> Returns a promise when done
 
@@ -774,11 +771,11 @@ Set the root for the current navigation stack
 
 <h3>
 <code>isSwipeBackEnabled([isSwipeBackEnabled])</code>
+  
 
 </h3>
 
 Check to see if swipe-to-go-back is enabled
-
 
 
 <table class="table" style="margin:0;">
@@ -815,7 +812,6 @@ Check to see if swipe-to-go-back is enabled
 
 
 
-
 * Returns: 
   <code>boolean</code> Whether swipe-to-go-back is enabled
 
@@ -826,6 +822,7 @@ Check to see if swipe-to-go-back is enabled
 
 <h3>
 <code>canSwipeBack()</code>
+  
 
 </h3>
 
@@ -849,6 +846,7 @@ will return true.
 
 <h3>
 <code>canGoBack()</code>
+  
 
 </h3>
 
@@ -870,9 +868,9 @@ Otherwise returns false.
 
 <h3>
 <code>getByIndex(The)</code>
+  
 
 </h3>
-
 
 
 
@@ -911,7 +909,6 @@ Otherwise returns false.
 
 
 
-
 * Returns: 
   <code>Component</code> Returns the component that matches the index given
 
@@ -922,6 +919,7 @@ Otherwise returns false.
 
 <h3>
 <code>first()</code>
+  
 
 </h3>
 
@@ -942,6 +940,7 @@ First page in this nav controller's stack. This would not return a page which is
 
 <h3>
 <code>last()</code>
+  
 
 </h3>
 
@@ -962,6 +961,7 @@ Last page in this nav controller's stack. This would not return a page which is 
 
 <h3>
 <code>length()</code>
+  
 
 </h3>
 
@@ -978,6 +978,27 @@ not include views which are about to be destroyed.
 
 
 
+
+<div id="rootNav"></div>
+
+<h3>
+<code>rootNav()</code>
+  
+
+</h3>
+
+Returns the root NavController.
+
+
+
+
+
+
+* Returns: 
+  <code>NavController</code> 
+
+
+<!-- related link -->
 
 <h2>Related</h2>
 

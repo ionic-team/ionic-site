@@ -11,21 +11,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var _ionicIonic = require('ionic/ionic');
 
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-    switch (arguments.length) {
-        case 2:
-            return decorators.reduceRight(function (o, d) {
-                return d && d(o) || o;
-            }, target);
-        case 3:
-            return decorators.reduceRight(function (o, d) {
-                return d && d(target, key), void 0;
-            }, void 0);
-        case 4:
-            return decorators.reduceRight(function (o, d) {
-                return d && d(target, key, o) || o;
-            }, desc);
-    }
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -50,5 +40,5 @@ var CameraPage = (function () {
 })();
 exports.CameraPage = CameraPage;
 exports.CameraPage = CameraPage = __decorate([(0, _ionicIonic.IonicView)({
-    template: "\n  <ion-navbar *navbar>\n    <a menu-toggle>\n      <icon menu></icon>\n    </a>\n    <ion-title>Camera</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>Camera</h2>\n    <button primary outline (click)=\"getPicture()\">Get Picture</button>\n  </ion-content>\n  "
+    template: "\n  <ion-navbar *navbar>\n    <button menuToggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>Camera</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>Camera</h2>\n    <button primary outline (click)=\"getPicture()\">Get Picture</button>\n  </ion-content>\n  "
 }), __metadata('design:paramtypes', [])], CameraPage);

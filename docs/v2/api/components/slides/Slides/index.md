@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L12'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L12'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L13'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L13'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Slides
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Slides is a slide box implementation based on Swiper.js</p>
@@ -60,12 +61,13 @@ The iDangero.us
 
 <h2>Component</h2>
 <h3>selector: <code>ion-slides</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
 <pre><code class="lang-ts">@Page({
  template: `
-    &lt;ion-slides pager (slide-changed)=&quot;onSlideChanged($event)&quot; loop=&quot;true&quot; autoplay=&quot;true&quot;&gt;
+    &lt;ion-slides pager (change)=&quot;onSlideChanged($event)&quot; loop=&quot;true&quot; autoplay=&quot;true&quot;&gt;
      &lt;ion-slide&gt;
        &lt;h3&gt;Thank you for choosing the Awesome App!&lt;/h3&gt;
        &lt;p&gt;
@@ -94,7 +96,7 @@ The iDangero.us
 
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
@@ -217,7 +219,7 @@ add this property to enable the slide pager
 
 <tr>
 <td>
-slideChanged
+change
 </td>
 
 
@@ -234,6 +236,29 @@ expression to evaluate when a slide has been changed
 </tbody>
 </table>
 
+
+<!-- methods on the class -->
+
+<h2>Methods</h2>
+
+<div id="change"></div>
+
+<h3>
+<code>change()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
 
 <h2>Related</h2>
 

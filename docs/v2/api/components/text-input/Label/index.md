@@ -9,22 +9,24 @@ title: "Label"
 header_sub_title: "Class in module "
 doc: "Label"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/label/"
+angular_controller: APIDemoCtrl 
 ---
 
 
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/label.ts#L4'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/label.ts#L4'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/text-input/label.ts#L5'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/label.ts#L5'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +48,7 @@ Label
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Labels describe the data that the user should enter in to an input element.</p>
@@ -53,6 +56,7 @@ Label
 
 <h2>Directive</h2>
 <h3>selector: <code>ion-label</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -65,15 +69,37 @@ Label
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
+
+<div id="form"></div>
+
+<h3>
+<code>form()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="elementRef"></div>
 
 <h3>
 <code>elementRef()</code>
+  
 
 </h3>
 
@@ -92,6 +118,7 @@ Label
 
 <h3>
 <code>renderer()</code>
+  
 
 </h3>
 
@@ -104,7 +131,7 @@ Label
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

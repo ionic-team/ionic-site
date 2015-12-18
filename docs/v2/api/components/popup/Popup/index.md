@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L8'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/popup/popup.ts#L8'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/popup/popup.ts#L8'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/popup/popup.ts#L8'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,11 +48,13 @@ Popup
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The Ionic Popup service allows the creation of popup windows that require the user to respond in order to continue.</p>
 <p>The popup service has support for more flexible versions of the built in <code>alert()</code>, <code>prompt()</code>, and <code>confirm()</code> functions that users are used to, in addition to allowing popups with completely custom content and look.</p>
 
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -105,74 +107,23 @@ Popup
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
-
-<div id="open"></div>
-
-<h3>
-<code>open(opts)</code>
-
-</h3>
-
-TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        opts
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-  <code>object</code> A promise
-
-
-
 
 <div id="alert"></div>
 
 <h3>
 <code>alert(opts)</code>
+  
 
 </h3>
 
 Show a simple alert popup with a message and one button
 that the user can tap to close the popup.
-
-
 
 
 <table class="table" style="margin:0;">
@@ -197,15 +148,13 @@ that the user can tap to close the popup.
       </td>
       <td>
         <p>The options for showing the alert, of the form:</p>
-<pre><code>{
-  title: &#39;&#39;, // String. The title of the popup.
-  cssClass: &#39;&#39;, // String (optional). The custom CSS class name.
-  subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
-  template: &#39;&#39;, // String (optional). The html template to place in the popup body.
-  okText: &#39;&#39;, // String (default: &#39;OK&#39;). The text of the OK button.
-  okType: &#39;&#39;, // String (default: &#39;&#39;). The type of the OK button.
-}
-</code></pre>
+<ul>
+<li><code>{String}</code> <code>title</code> The title of the popup.</li>
+<li><code>{String}</code> <code>cssClass</code>  (optional). The custom CSS class name.</li>
+<li><code>{String}</code> <code>subTitle</code>  (optional). The sub-title of the popup.</li>
+<li><code>{String}</code> <code>template</code>  (optional). The html template to place in the popup body.</li>
+<li><code>{String}</code> <code>okText</code> (default: &#39;OK&#39;). The text of the OK button.</li>
+</ul>
 
         
       </td>
@@ -213,7 +162,6 @@ that the user can tap to close the popup.
     
   </tbody>
 </table>
-
 
 
 
@@ -229,13 +177,13 @@ that the user can tap to close the popup.
 
 <h3>
 <code>confirm(opts)</code>
+  
 
 </h3>
 
 Show a simple confirm popup with a message, Cancel and OK button.
 
 Resolves the promise with true if the user presses the OK button, and false if the user presses the Cancel button.
-
 
 
 
@@ -261,17 +209,14 @@ Resolves the promise with true if the user presses the OK button, and false if t
       </td>
       <td>
         <p>The options for showing the confirm, of the form:</p>
-<pre><code>{
-  title: &#39;&#39;, // String. The title of the popup.
-  cssClass: &#39;&#39;, // String (optional). The custom CSS class name.
-  subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
-  template: &#39;&#39;, // String (optional). The html template to place in the popup body.
-  cancelText: &#39;&#39;, // String (default: &#39;Cancel&#39;). The text of the Cancel button.
-  cancelType: &#39;&#39;, // String (default: &#39;&#39;). The type of the Cancel button.
-  okText: &#39;&#39;, // String (default: &#39;OK&#39;). The text of the OK button.
-  okType: &#39;&#39;, // String (default: &#39;&#39;). The type of the OK button.
-}
-</code></pre>
+<ul>
+<li><code>{String}</code> <code>title</code> The title of the popup.</li>
+<li><code>{String}</code> <code>cssClass</code>  (optional). The custom CSS class name.</li>
+<li><code>{String}</code> <code>subTitle</code>  (optional). The sub-title of the popup.</li>
+<li><code>{String}</code> <code>template</code>  (optional). The html template to place in the popup body.</li>
+<li><code>{String}</code> <code>okText</code> (default: &#39;OK&#39;). The text of the OK button.</li>
+<li><code>{String}</code> <code>cancelText</code> (default: &#39;Cancel&#39;). The text of the OK button.</li>
+</ul>
 
         
       </td>
@@ -279,7 +224,6 @@ Resolves the promise with true if the user presses the OK button, and false if t
     
   </tbody>
 </table>
-
 
 
 
@@ -295,13 +239,13 @@ Resolves the promise with true if the user presses the OK button, and false if t
 
 <h3>
 <code>prompt(opts)</code>
+  
 
 </h3>
 
 Show a simple prompt popup with a message, input, Cancel and OK button.
 
 Resolves the promise with the value of the input if the user presses OK, and with undefined if the user presses Cancel.
-
 
 
 
@@ -327,19 +271,16 @@ Resolves the promise with the value of the input if the user presses OK, and wit
       </td>
       <td>
         <p>The options for showing the prompt, of the form:</p>
-<pre><code>{
-  title: &#39;&#39;, // String. The title of the popup.
-  cssClass: &#39;&#39;, // String (optional). The custom CSS class name.
-  subTitle: &#39;&#39;, // String (optional). The sub-title of the popup.
-  template: &#39;&#39;, // String (optional). The html template to place in the popup body.
-  inputType: // String (default: &#39;text&#39;). The type of input to use.
-  inputPlaceholder: // String (default: &#39;&#39;). A placeholder to use for the input.
-  cancelText: &#39;&#39;, // String (default: &#39;Cancel&#39;). The text of the Cancel button.
-  cancelType: &#39;&#39;, // String (default: &#39;&#39;). The type of the Cancel button.
-  okText: &#39;&#39;, // String (default: &#39;OK&#39;). The text of the OK button.
-  okType: &#39;&#39;, // String (default: &#39;&#39;). The type of the OK button.
-}
-</code></pre>
+<ul>
+<li><code>{String}</code> <code>title</code> The title of the popup.</li>
+<li><code>{String}</code> <code>cssClass</code>  (optional). The custom CSS class name.</li>
+<li><code>{String}</code> <code>subTitle</code>  (optional). The sub-title of the popup.</li>
+<li><code>{String}</code> <code>template</code>  (optional). The html template to place in the popup body.</li>
+<li><code>{String}</code> <code>inputType</code> (default: &#39;text&#39;). The type of input to use.</li>
+<li><code>{String}</code>inputPlaceholder` (default: &#39;&#39;). A placeholder to use for the input.</li>
+<li><code>{String}</code> <code>okText</code> (default: &#39;OK&#39;). The text of the OK button.</li>
+<li><code>{String}</code> <code>cancelText</code> (default: &#39;Cancel&#39;). The text of the OK button.</li>
+</ul>
 
         
       </td>
@@ -347,7 +288,6 @@ Resolves the promise with the value of the input if the user presses OK, and wit
     
   </tbody>
 </table>
-
 
 
 
@@ -357,59 +297,7 @@ Resolves the promise with the value of the input if the user presses OK, and wit
   <code>object</code> A promise which is resolved when the popup is closed.
 
 
-
-
-<div id="get"></div>
-
-<h3>
-<code>get(handle)</code>
-
-</h3>
-
-TODO
-
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        handle
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
-
-
-
+<!-- related link -->
 
 <h2>Related</h2>
 

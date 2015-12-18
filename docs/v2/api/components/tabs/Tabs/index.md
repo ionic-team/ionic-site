@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L10'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L10'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L11'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L11'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ Tabs
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p><em>For basic Tabs usage, see the <a href="../../../../components/#tabs">Tabs section</a>
@@ -57,6 +58,7 @@ the screen, while on Android it is at the top.</p>
 
 <h2>Component</h2>
 <h3>selector: <code>ion-tabs</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -68,7 +70,7 @@ the screen, while on Android it is at the top.</p>
 
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
@@ -105,7 +107,7 @@ the screen, while on Android it is at the top.</p>
 
 <tr>
 <td>
-tabbar-placement
+tabbarPlacement
 </td>
 
 
@@ -121,7 +123,7 @@ set position of the tabbar, top or bottom
 
 <tr>
 <td>
-tabbar-icons
+tabbarIcons
 </td>
 
 
@@ -153,7 +155,7 @@ sets tabbar's style (primary, secondary, etc)
 
 <tr>
 <td>
-preload-tabs
+preloadTabs
 </td>
 
 
@@ -171,12 +173,15 @@ sets whether to preload all the tabs, true or false
 </table>
 
 
+<!-- methods on the class -->
+
 <h2>Methods</h2>
 
 <div id="platform"></div>
 
 <h3>
 <code>platform()</code>
+  
 
 </h3>
 
@@ -195,9 +200,9 @@ sets whether to preload all the tabs, true or false
 
 <h3>
 <code>select(index)</code>
+  
 
 </h3>
-
 
 
 
@@ -239,14 +244,13 @@ sets whether to preload all the tabs, true or false
 
 
 
-
 <div id="getByIndex"></div>
 
 <h3>
 <code>getByIndex(index)</code>
+  
 
 </h3>
-
 
 
 
@@ -285,7 +289,6 @@ sets whether to preload all the tabs, true or false
 
 
 
-
 * Returns: 
   <code>Any</code> Tab Returs the tab who's index matches the one passed
 
@@ -296,6 +299,7 @@ sets whether to preload all the tabs, true or false
 
 <h3>
 <code>getSelected()</code>
+  
 
 </h3>
 
@@ -311,6 +315,28 @@ sets whether to preload all the tabs, true or false
 
 
 
+
+<div id="rootNav"></div>
+
+<h3>
+<code>rootNav()</code>
+  
+
+</h3>
+
+Returns the root NavController. Returns `null` if Tabs is not
+within a NavController.
+
+
+
+
+
+
+* Returns: 
+  <code>NavController</code> 
+
+
+<!-- related link -->
 
 <h2>Related</h2>
 

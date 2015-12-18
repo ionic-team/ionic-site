@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L6'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L6'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L6'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L6'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,6 +48,7 @@ List
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The List is a widely used interface element in almost any mobile app, and can include
@@ -60,10 +61,13 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h2>Directive</h2>
 <h3>selector: <code>ion-list</code></h3>
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -71,6 +75,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>zone()</code>
+  
 
 </h3>
 
@@ -88,13 +93,55 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 <div id="enableSlidingItems"></div>
 
 <h3>
-<code>enableSlidingItems()</code>
+<code>enableSlidingItems(shouldEnable)</code>
+  
 
 </h3>
 
+Enable sliding items if your page has them
+
+```ts
+export class MyClass {
+   constructor(app: IonicApp){
+     this.app = app;
+     this.list = this.app.getComponent('my-list');
+   }
+   stopSliding(){
+     this.list.enableSlidingItems(false);
+   }
+}
+```
 
 
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        shouldEnable
+        
+        
+      </td>
+      <td>
+        
+  <code>Boolean</code>
+      </td>
+      <td>
+        <p>whether the item-sliding should be enabled or not</p>
 
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 
@@ -107,9 +154,25 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>closeSlidingItems()</code>
+  
 
 </h3>
 
+Enable sliding items if your page has
+
+```ts
+export class MyClass {
+   constructor(app: IonicApp){
+     this.app = app;
+     this.list = this.app.getComponent('my-list');
+   }
+   // Here we have some method that will close the items
+   // when called
+   closeItmes(){
+     this.list.closeSlidingItems();
+   }
+}
+```
 
 
 
@@ -119,7 +182,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 
 
-
+<!-- related link -->
 
 <h2>Related</h2>
 

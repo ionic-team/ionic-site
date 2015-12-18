@@ -9,22 +9,24 @@ title: "MenuToggle"
 header_sub_title: "Class in module "
 doc: "MenuToggle"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/menu/"
+angular_controller: APIDemoCtrl 
 ---
 
 
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L5'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-toggle.ts#L5'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/menu/menu-toggle.ts#L5'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-toggle.ts#L5'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,86 +48,32 @@ MenuToggle
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
-<p>TODO</p>
+<p>Toggle a menu by placing this directive on any item.
+Note that the menu&#39;s id must be either <code>leftMenu</code> or <code>rightMenu</code></p>
 
 
 <h2>Directive</h2>
-<h3>selector: <code>[menu-toggle]</code></h3>
+<h3>selector: <code>[menuToggle]</code></h3>
+<!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-html">&lt;ion-content&gt;
+ &lt;h3&gt;Page 1&lt;/h3&gt;
+ &lt;button menuToggle&gt;Toggle Menu&lt;/button&gt;
+&lt;/ion-content&gt;
+</code></pre>
 
 
 
 
-
-<h2>Methods</h2>
-
-<div id="toggle"></div>
-
-<h3>
-<code>toggle(event)</code>
-
-</h3>
-
-TODO
+<!-- @property tags -->
 
 
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        event
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-<div id="isHidden"></div>
-
-<h3>
-<code>isHidden()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

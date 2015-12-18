@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L51'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L51'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/show-hide-when/show-hide-when.ts#L54'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/show-hide-when/show-hide-when.ts#L54'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,26 +48,30 @@ ShowWhen
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
-<p>The <code>show-when</code> attribute takes a string that represents a plaform or screen orientation.
+<p>The <code>showWhen</code> attribute takes a string that represents a plaform or screen orientation.
 The element the attribute is added to will only be shown when that platform or screen orientation is active.
-Complements the <a href="../HideWhen">hide-when attribute</a>.</p>
+Complements the <a href="../HideWhen">hideWhen attribute</a>.</p>
 
 
 <h2>Directive</h2>
-<h3>selector: <code>[show-when]</code></h3>
+<h3>selector: <code>[showWhen]</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;div show-when=&quot;ios&quot;&gt;I am only visible on iOS!&lt;/div&gt;
+<pre><code class="lang-html">&lt;div showWhen=&quot;ios&quot;&gt;I am only visible on iOS!&lt;/div&gt;
 </code></pre>
 
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

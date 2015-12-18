@@ -9,22 +9,24 @@ title: "Checkbox"
 header_sub_title: "Class in module "
 doc: "Checkbox"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/checkbox/"
+angular_controller: APIDemoCtrl 
 ---
 
 
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/checkbox/checkbox.ts#L3'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/checkbox/checkbox.ts#L3'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/checkbox/checkbox.ts#L4'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/checkbox/checkbox.ts#L4'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +48,7 @@ Checkbox
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The checkbox is no different than the HTML checkbox input, except it&#39;s styled differently.</p>
@@ -54,10 +57,11 @@ Checkbox
 
 <h2>Component</h2>
 <h3>selector: <code>ion-checkbox</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-checkbox checked=&quot;true&quot; value=&quot;isChecked&quot; ng-control=&quot;htmlCtrl&quot;&gt;
+<pre><code class="lang-html">&lt;ion-checkbox checked=&quot;true&quot; value=&quot;isChecked&quot; ngControl=&quot;htmlCtrl&quot;&gt;
   HTML5
 &lt;/ion-checkbox&gt;
 </code></pre>
@@ -65,13 +69,15 @@ Checkbox
 
 
 
-
+<!-- @property tags -->
 
 <h2>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
 <th>Attribute</th>
+
+
 
 
 
@@ -107,6 +113,18 @@ value
 
 <td>
 the value of the checkbox component
+</td>
+</tr>
+
+<tr>
+<td>
+disabled
+</td>
+
+
+
+<td>
+whether or not the checkbox is disabled or not.
 
 </td>
 </tr>
@@ -115,12 +133,15 @@ the value of the checkbox component
 </table>
 
 
+<!-- methods on the class -->
+
 <h2>Methods</h2>
 
-<div id="ngOnInit"></div>
+<div id="form"></div>
 
 <h3>
-<code>ngOnInit()</code>
+<code>form()</code>
+  
 
 </h3>
 
@@ -133,26 +154,7 @@ the value of the checkbox component
 
 
 
-
-
-<div id="toggle"></div>
-
-<h3>
-<code>toggle()</code>
-
-</h3>
-
-Toggle the checked state of the checkbox. Calls onChange to pass the updated checked state to the model (Control).
-
-
-
-
-
-
-
-
-
-
+<!-- related link -->
 
 <h2>Related</h2>
 

@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-push.ts#L86'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-push.ts#L86'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/nav/nav-push.ts#L91'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-push.ts#L91'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,37 +48,32 @@ NavPop
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
-<p>TODO</p>
+<p>Directive for declaratively pop the current page off from the navigation stack.</p>
 
 
 <h2>Directive</h2>
 <h3>selector: <code>[nav-pop]</code></h3>
+<!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-html">&lt;ion-content&gt;
+ &lt;div block button nav-pop&gt;go back&lt;/div&gt;
+&lt;/ion-content&gt;
+</code></pre>
+<p>This will go back one page in the navigation stack</p>
+<p>Similar to <a href='/docs/v2/api/components/nav/NavPush/'><code>NavPush</code></a></p>
 
 
 
 
-
-<h2>Methods</h2>
-
-<div id="onClick"></div>
-
-<h3>
-<code>onClick()</code>
-
-</h3>
+<!-- @property tags -->
 
 
-
-
-
-
-
-
-
-
-
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-sliding.ts#L2'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item-sliding.ts#L2'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/item/item-sliding.ts#L2'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item-sliding.ts#L2'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,19 +46,20 @@ ItemSliding
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
-<p>Creates a list-item that can easily be swiped,
-deleted, reordered, edited, and more.</p>
+<p>Creates a list-item that can easily be swiped, deleted, reordered, edited, and more.</p>
 
 
 <h2>Component</h2>
 <h3>selector: <code>ion-item-sliding</code></h3>
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
-  &lt;ion-item-sliding *ng-for=&quot;#item of items&quot;&gt;
+  &lt;ion-item-sliding *ngFor=&quot;#item of items&quot;&gt;
     &lt;ion-item (click)=&quot;itemTapped(item)&quot;&gt;
       {{item.title}}
     &lt;/ion-item&gt;
@@ -73,8 +74,10 @@ deleted, reordered, edited, and more.</p>
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -82,6 +85,7 @@ deleted, reordered, edited, and more.</p>
 
 <h3>
 <code>list()</code>
+  
 
 </h3>
 
@@ -94,25 +98,12 @@ deleted, reordered, edited, and more.</p>
 
 
 
+<!-- related link -->
 
+<h2>Related</h2>
 
-<div id="close"></div>
-
-<h3>
-<code>close()</code>
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- end content block -->
+<a href='/docs/v2/components#lists'>List Component Docs</a>
+<a href='../../list/List'>List API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

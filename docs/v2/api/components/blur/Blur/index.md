@@ -18,15 +18,15 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/blur/blur.ts#L0'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/blur/blur.ts#L0'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/blur/blur.ts#L0'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/blur/blur.ts#L0'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -48,6 +48,7 @@ Blur
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>The blur attribute applies the CSS blur attribute to an element. If the CSS attribute is not supported,
@@ -55,11 +56,23 @@ it will fall back to applying a semi-transparent background color to the element
 
 
 <h2>Directive</h2>
-<h3>selector: <code>[ion-blur]</code></h3>
+<h3>selector: <code>[blur]</code></h3>
+<!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-html">&lt;ion-card blur&gt;
+   This card will blur the content behind it.
+&lt;/ion-card&gt;
+</code></pre>
 
 
 
 
+<!-- @property tags -->
+
+
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
@@ -67,6 +80,7 @@ it will fall back to applying a semi-transparent background color to the element
 
 <h3>
 <code>elementRef()</code>
+  
 
 </h3>
 
@@ -85,6 +99,7 @@ it will fall back to applying a semi-transparent background color to the element
 
 <h3>
 <code>renderer()</code>
+  
 
 </h3>
 
@@ -97,7 +112,7 @@ it will fall back to applying a semi-transparent background color to the element
 
 
 
-<!-- end content block -->
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

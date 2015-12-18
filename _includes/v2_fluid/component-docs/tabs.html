@@ -1,0 +1,158 @@
+<h2 id="tabs" class="section-header">Tabs</h2>
+
+_For more details on the Tabs component, see the [Tabs API reference](../api/components/tabs/Tabs/), and the [Tab API reference](../api/components/tabs/Tab/) for information on configuring the individual Tab components it contains._
+
+Tabs powers a multi-tabbed interface with a Tab Bar and a set of "pages" that can be tabbed through.
+
+For iOS, tabs will appear at the bottom of the screen. For Android, tabs will be at the top of the screen, below the nav-bar. This follows each platform's design specification, but can be configured with [Config](../api/config/Config/).
+
+Tabs are useful if you have a few "root" or "top-level" pages.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root pages, a [Menu](#menu) may be a better option.
+
+
+<ul class="docs-content">
+  <li class="docs-content-header">Contents</li>
+  <li class="docs-content-item"><a href="#tabs">Text Tabs</a></li>
+  <li class="docs-content-item"><a href="#tabs-icon">Icon Tabs</a></li>
+  <li class="docs-content-item"><a href="#tabs-icon-text">Text and Icon Tabs</a></li>
+</ul>
+
+### Basic Usage
+
+
+To initialize Tabs, use [`<ion-tabs>`](../api/components/tabs/Tabs/), with a child [`<ion-tab>`](../api/components/tabs/Tab/) for each tab:
+
+```typescript
+@App({
+  template: `
+    <ion-tabs>
+      <ion-tab tab-icon="heart" [root]="tab1"></ion-tab>
+      <ion-tab tab-icon="star" [root]="tab2"></ion-tab>
+    </ion-tabs>`
+})
+class MyApp {
+  constructor() {
+    this.tab1 = Tab1;
+    this.tab1 = Tab2;
+  }
+}
+```
+
+Individual tabs are just [`@Pages`](../api/config/Page/):
+
+```typescript
+@Page({
+  template: `
+    <ion-navbar *navbar>
+      <ion-title>Heart</ion-title>
+    </ion-navbar>
+    <ion-content>Tab 1</ion-content>`
+})
+class Tab1 {}
+
+@Page({
+  template: `
+    <ion-navbar *navbar>
+      <ion-title>Star</ion-title>
+    </ion-navbar>
+    <ion-content>Tab 2</ion-content>`
+})
+class Tab2 {}
+```
+
+Notice that each `<ion-tab>` binds to a `[root]` property, just like [`<ion-nav>`](../api/components/nav/Nav/) in the [Navigation](#navigation) section above.  That is because each `<ion-tab>` is really just a navigation controller.  This means that each tab has its own history stack, and [`NavController instances injected`](../api/components/nav/NavController/#injecting_nav_controller) into children `@Pages` of each tab will be unique to each tab:
+
+```typescript
+@Page({
+...
+})
+class Tab1 {
+  constructor(nav: NavController) {
+    // Id is 1, nav refers to Tab1
+    console.log(nav.id)
+  }
+}
+
+@Page({
+...
+})
+class Tab2 {
+  constructor(nav: NavController) {
+    // Id is 2, nav refers to Tab2
+    console.log(nav.id)
+  }
+}
+```
+
+<h3 class="section-nav" id="tabs-icon">Icon Tabs</h3>
+
+To add an icon inside of a tab, use the `tab-icon` attribute. This attribute can be passed the name of any [icon](#icon):
+
+```typescript
+@Page({
+  template: `
+  <ion-navbar *navbar>
+    <ion-title>Tabs</ion-title>
+  </ion-navbar>
+  <ion-content>
+  </ion-content>`,
+})
+class TabContentPage {
+  constructor() {
+  }
+}
+
+@Page({
+  template: `
+  <ion-tabs>
+    <ion-tab tab-icon="contact" [root]="tab1"></ion-tab>
+    <ion-tab tab-icon="compass" [root]="tab2"></ion-tab>
+    <ion-tab tab-icon="analytics" [root]="tab3"></ion-tab>
+    <ion-tab tab-icon="settings" [root]="tab4"></ion-tab>
+  </ion-tabs>`
+})
+export class TabsIconPage {
+  constructor() {
+    this.tab1 = TabContentPage;
+    this.tab2 = TabContentPage;
+    ...
+  }
+}
+```
+
+<h3 class="section-nav" id="tabs-icon-text">Icon and Text</h3>
+
+To add text and an icon inside of a tab, use the `tab-icon` and `tab-title` attributes:
+
+```typescript
+@Page({
+  template: `
+  <ion-navbar *navbar>
+    <ion-title>Tabs</ion-title>
+  </ion-navbar>
+  <ion-content>
+  </ion-content>`
+})
+class TabsTextContentPage {
+  constructor() {
+  }
+}
+
+@Page({
+  template: `
+  <ion-tabs>
+    <ion-tab tab-icon="water" tab-title="Water" [root]="tab1"></ion-tab>
+    <ion-tab tab-icon="leaf" tab-title="Life" [root]="tab2"></ion-tab>
+    <ion-tab tab-icon="flame" tab-title="Fire" [root]="tab3"></ion-tab>
+    <ion-tab tab-icon="magnet" tab-title="Force" [root]="tab4"></ion-tab>
+  </ion-tabs>`
+})
+export class TabsTextPage {
+  constructor() {
+    this.tab1 = TabsTextContentPage;
+    this.tab2 = TabsTextContentPage;
+    ...
+  }
+}
+```
+
+For more information on tabs, check out the [Tabs API reference](../api/components/tabs/Tabs/).

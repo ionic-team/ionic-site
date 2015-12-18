@@ -19,21 +19,11 @@ var _helpers = require('../../helpers');
 var helpers = _interopRequireWildcard(_helpers);
 
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-    switch (arguments.length) {
-        case 2:
-            return decorators.reduceRight(function (o, d) {
-                return d && d(o) || o;
-            }, target);
-        case 3:
-            return decorators.reduceRight(function (o, d) {
-                return d && d(target, key), void 0;
-            }, void 0);
-        case 4:
-            return decorators.reduceRight(function (o, d) {
-                return d && d(target, key, o) || o;
-            }, desc);
-    }
+    var c = arguments.length,
+        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+        d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var __metadata = undefined && undefined.__metadata || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -48,16 +38,11 @@ var TabIconTextPage = (function () {
     }
 
     _createClass(TabIconTextPage, [{
-        key: "onInit",
-        value: function onInit() {
+        key: "onPageWillEnter",
+        value: function onPageWillEnter() {
+            console.log('enter');
             document.getElementById('md-tabs-icon-text').style.display = "block";
             document.getElementById('md-only').style.display = "none";
-        }
-    }, {
-        key: "onDestroy",
-        value: function onDestroy() {
-            document.getElementById('md-tabs-icon-text').style.display = "none";
-            document.getElementById('md-only').style.display = "block";
         }
     }]);
 
@@ -69,14 +54,26 @@ TabIconTextPage = __decorate([(0, _ionicIonic.Page)({
         return helpers.AndroidAttribute;
     })]
 }), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _a || Object])], TabIconTextPage);
-var IconTextPage = function IconTextPage() {
-    _classCallCheck(this, IconTextPage);
+var IconTextPage = (function () {
+    function IconTextPage() {
+        _classCallCheck(this, IconTextPage);
 
-    this.tabOne = TabIconTextPage;
-    this.tabTwo = TabIconTextPage;
-    this.tabThree = TabIconTextPage;
-    this.tabFour = TabIconTextPage;
-};
+        this.tabOne = TabIconTextPage;
+        this.tabTwo = TabIconTextPage;
+        this.tabThree = TabIconTextPage;
+        this.tabFour = TabIconTextPage;
+    }
+
+    _createClass(IconTextPage, [{
+        key: "onPageWillLeave",
+        value: function onPageWillLeave() {
+            document.getElementById('md-tabs-icon-text').style.display = "none";
+            document.getElementById('md-only').style.display = "block";
+        }
+    }]);
+
+    return IconTextPage;
+})();
 exports.IconTextPage = IconTextPage;
 exports.IconTextPage = IconTextPage = __decorate([(0, _ionicIonic.Page)({
     template: '<ion-tabs class="tabs-icon-text">' + '<ion-tab tab-icon="water" tab-title="Water" [root]="tabOne"></ion-tab>' + '<ion-tab tab-icon="leaf" tab-title="Life" [root]="tabTwo"></ion-tab>' + '<ion-tab tab-icon="flame" tab-title="Fire" [root]="tabThree"></ion-tab>' + '<ion-tab tab-icon="magnet" tab-title="Force" [root]="tabFour"></ion-tab>' + '</ion-tabs>'

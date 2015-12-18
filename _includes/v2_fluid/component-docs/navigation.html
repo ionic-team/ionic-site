@@ -1,0 +1,107 @@
+<h2 id="navigation" class="section-header">Navigation</h2>
+_For more in depth information on navigation, see the [Nav API reference](../api/components/nav/Nav)._
+
+Navigation is how users move between different pages in your app. Ionic's navigation follows standard native animation conceps, like [those in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
+
+Like native apps, URLs are not required for navigation.  Instead, pages are pushed and popped on and off a navigation controller's page stack.  URLs can be used to link back to unique, important parts of your app ("deeplinking") but don't define navigation as your app runs.
+
+There are several ways to navigate throughout an Ionic app:
+
+<h3 id="basic_navigation">Basic Navigation</h3>
+The simplest way to navigate throughout your app is to create and initialize a new navigation controller, using [`<ion-nav>`](../api/components/nav/Nav/):
+
+```typescript
+  import {StartPage} from 'start'
+
+  @App({
+    template: '<ion-nav [root]="rootPage"></ion-nav>'
+  })
+  class MyApp {
+    constructor(){
+      // First page to push onto the stack
+      this.rootPage = StartPage;
+    }
+  }
+```
+
+You can access the navigation controller you create by injecting it into any of your Pages:
+
+```typescript
+@Page({
+  template: `
+    <ion-navbar *navbar>
+      <ion-title>Login</ion-title>
+    </ion-navbar>
+
+    <ion-content>Hello World</ion-content>`
+})
+export class StartPage {
+  constructor(nav: NavController){
+    this.nav = nav;
+  }
+}
+```
+
+To navigate from one page to another simply push or pop a new page onto the stack:
+
+```typescript
+@Page({
+  template: `
+    <ion-navbar *navbar>
+      <ion-title>Login</ion-title>
+    </ion-navbar>
+
+    <ion-content>
+      <button (click)="goToOtherPage()">
+        Go to OtherPage
+      </button>
+    </ion-content>`
+})
+export class StartPage {
+  constructor(nav: NavController) {
+    this.nav = nav;
+  }
+
+  goToOtherPage(){
+    //push another page onto the history stack
+    //causing the nav controller to animate the new page in
+    this.nav.push(OtherPage);
+  }
+}
+
+@Page({
+  template: `
+    <ion-navbar *navbar>
+      <ion-title>Other Page</ion-title>
+    </ion-navbar>
+
+    <ion-content>I'm the other page!</ion-content>`
+})
+class OtherPage {}
+```
+
+If your page has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back button will automatically be added to it if it is not a root page.
+
+Alternatively, if you want to go back, but don't have a NavBar, you can pop the current page off the stack:
+
+```typescript
+@Page({
+  template: `
+    <ion-content>
+      <button (click)="goBack()">
+        There's no place like home
+      </button>
+    </ion-content>`
+})
+class OtherPage {
+  constructor(nav: NavController) {
+    this.nav = nav;
+  }
+  goBack() {
+    this.nav.pop();
+  }
+}
+```
+For more information on navigation controllers, check out the [Nav API reference](../api/components/nav/Nav/).
+
+But what if you have several "root" or "top-level" pages that don't have a parent-child relationship, but rather are siblings? You have two options: [Tabs](#tabs) and [Menu](#menu).

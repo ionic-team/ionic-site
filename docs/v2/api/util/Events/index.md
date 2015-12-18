@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/events.ts#L0'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/util/events.ts#L0'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/util/events.ts#L0'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/util/events.ts#L0'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,11 +46,13 @@ Events
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>Events is a pub/sub style event system for sending and responding to application-level
 events across your app.</p>
 
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -69,21 +71,23 @@ events.subscribe(&#39;user:created&#39;, (user) =&gt; {
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
 <div id="subscribe"></div>
 
 <h3>
-<code>subscribe(topic, handler)</code>
+<code>subscribe(topic,&nbsp;handler)</code>
+  
 
 </h3>
 
 Subscribe to an event topic. Events that get posted to that topic
 will trigger the provided handler.
-
 
 
 
@@ -141,17 +145,16 @@ will trigger the provided handler.
 
 
 
-
 <div id="unsubscribe"></div>
 
 <h3>
-<code>unsubscribe(topic, handler)</code>
+<code>unsubscribe(topic,&nbsp;handler)</code>
+  
 
 </h3>
 
 Unsubscribe from the given topic. Your handler will
 no longer receive events published to this topic.
-
 
 
 
@@ -206,7 +209,6 @@ no longer receive events published to this topic.
 
 
 
-
 * Returns: 
    true if a handler was removed
 
@@ -218,12 +220,12 @@ no longer receive events published to this topic.
 <div id="publish"></div>
 
 <h3>
-<code>publish(topic, eventData)</code>
+<code>publish(topic,&nbsp;eventData)</code>
+  
 
 </h3>
 
 Publish an event to the given topic.
-
 
 
 
@@ -279,8 +281,7 @@ Publish an event to the given topic.
 
 
 
-
-<!-- end content block -->
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

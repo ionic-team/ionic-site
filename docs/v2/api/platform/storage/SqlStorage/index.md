@@ -16,15 +16,15 @@ docType: "class"
 
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/sql.ts#L4'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/sql.ts#L4'>
-    Improve this doc
-  </a>
-
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/sql.ts#L4'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/sql.ts#L4'>
+Improve this doc
+</a>
 </div>
+
 
 
 
@@ -46,6 +46,7 @@ SqlStorage
 
 
 
+<!-- description -->
 <h2>Description</h2>
 
 <p>SqlStorage uses SQLite or WebSQL (development only!) to store data in a
@@ -55,6 +56,7 @@ app storage, unlike Local Storage which is treated differently by the OS.</p>
 <p>For convenience, the engine supports key/value storage for simple get/set and blob
 storage. The full SQL engine is exposed underneath through the <code>query</code> method.</p>
 
+<!-- @usage tag -->
 
 <h2>Usage</h2>
 
@@ -77,22 +79,24 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 
 
+<!-- @property tags -->
 
 
+<!-- methods on the class -->
 
 <h2>Methods</h2>
 
 <div id="query"></div>
 
 <h3>
-<code>query(query, params)</code>
+<code>query(query,&nbsp;params)</code>
+  
 
 </h3>
 
 Perform an arbitrary SQL operation on the database. Use this method
 to have full control over the underlying database through SQL operations
 like SELECT, INSERT, and UPDATE.
-
 
 
 
@@ -147,7 +151,6 @@ like SELECT, INSERT, and UPDATE.
 
 
 
-
 * Returns: 
   <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 
@@ -158,11 +161,11 @@ like SELECT, INSERT, and UPDATE.
 
 <h3>
 <code>get(key)</code>
+  
 
 </h3>
 
 Get the value in the database identified by the given key.
-
 
 
 <table class="table" style="margin:0;">
@@ -194,7 +197,6 @@ Get the value in the database identified by the given key.
     
   </tbody>
 </table>
-
 
 
 
@@ -209,12 +211,12 @@ Get the value in the database identified by the given key.
 <div id="set"></div>
 
 <h3>
-<code>set(key, value)</code>
+<code>set(key,&nbsp;value)</code>
+  
 
 </h3>
 
 Set the value in the database for the given key. Existing values will be overwritten.
-
 
 
 <table class="table" style="margin:0;">
@@ -263,7 +265,6 @@ Set the value in the database for the given key. Existing values will be overwri
     
   </tbody>
 </table>
-
 
 
 
@@ -278,12 +279,12 @@ Set the value in the database for the given key. Existing values will be overwri
 <div id="remove"></div>
 
 <h3>
-<code>remove(key, value)</code>
+<code>remove(key,&nbsp;value)</code>
+  
 
 </h3>
 
 Remove the value in the database for the given key.
-
 
 
 <table class="table" style="margin:0;">
@@ -337,12 +338,11 @@ Remove the value in the database for the given key.
 
 
 
-
 * Returns: 
   <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 
 
-<!-- end content block -->
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

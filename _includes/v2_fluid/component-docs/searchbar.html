@@ -1,0 +1,41 @@
+<h2 id="searchbar" class="section-header">Searchbar</h2>
+
+A search bar binds to a model, and calls a function to update the page when the model is changed:
+
+```html
+<ion-searchbar [(ngModel)]="searchQuery"></ion-searchbar>
+<ion-list #list>
+  <ion-item *ngFor="#item of getItems()">
+    {{item}}
+  </ion-item>
+</ion-list>
+```
+
+Note that in this example, the search bar binds to the `searchQuery` variable. The `getItems()` function is called when this variable changes, which updates the cities that are displayed. Although this example filters the list based on the search input, search bar can be used in many different scenarios:
+
+```typescript
+@Page({
+  templateUrl: 'search/template.html',
+})
+class SearchPage{
+  constructor() {
+    this.searchQuery = '';
+    this.items = [
+      'Amsterdam',
+      'Bogota',
+      ...
+    ];
+  }
+
+  getItems() {
+    var q = this.searchQuery;
+    if(q.trim() == '') { return this.items; }
+    return this.items.filter((v) => {
+      if(v.toLowerCase().indexOf(q.toLowerCase()) >= 0) {
+        return true;
+      }
+      return false;
+    })
+  }
+}
+```

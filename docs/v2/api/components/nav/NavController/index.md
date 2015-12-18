@@ -83,7 +83,7 @@ navigation controller for most situations (for more advanced situations, see
 }
 </code></pre>
 <p><h2 id="creating_pages">Page creation</h2>
-<em>For more information on the <code>@Page</code> decorator see the <a href="../../../config/decorators/Page/">@Page API
+<em>For more information on the <code>@Page</code> decorator see the <a href="../../../decorators/Page/">@Page API
 reference</a>.</em></p>
 <p>Pages are created when they are added to the navigation stack.  For methods
 like <a href="#push">push()</a>, the NavController takes any component class that is

@@ -93,10 +93,6 @@ the screen, while on Android it is at the top.</p>
 
 
 
-
-
-
-
 <th>Type</th>
 
 
@@ -134,22 +130,6 @@ any
 
 <td>
 set the position of the tabbar's icons: top, bottom, left, right, hide
-</td>
-</tr>
-
-<tr>
-<td>
-tabbar-style
-</td>
-
-
-<td>
-any
-</td>
-
-
-<td>
-sets tabbar's style (primary, secondary, etc)
 </td>
 </tr>
 

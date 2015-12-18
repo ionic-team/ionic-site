@@ -21,6 +21,18 @@ body {
   top: 8em;
 }
 
+.improve-component-docs {
+  display: block;
+  margin-top: -3.9em;
+  float: right;
+}
+
+.component-doc-demo {
+  display: block;
+  margin-top: -3.1em;
+  float: right;
+}
+
 .docs-container {
   .side-nav {
     width: $sidenav-width;

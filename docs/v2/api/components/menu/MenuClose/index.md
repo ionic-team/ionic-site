@@ -78,28 +78,7 @@ MenuClose
 <!-- @property tags -->
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="app"></div>
-
-<h3>
-<code>app()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link -->
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

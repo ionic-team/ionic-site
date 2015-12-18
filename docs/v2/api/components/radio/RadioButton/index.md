@@ -76,25 +76,6 @@ RadioButton
 
 <h2>Methods</h2>
 
-<div id="form"></div>
-
-<h3>
-<code>form()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="check"></div>
 
 <h3>

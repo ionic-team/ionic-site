@@ -70,47 +70,7 @@ Attr
 <!-- @property tags -->
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="renderer"></div>
-
-<h3>
-<code>renderer()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="elementRef"></div>
-
-<h3>
-<code>elementRef()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link --><!-- end content block -->
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

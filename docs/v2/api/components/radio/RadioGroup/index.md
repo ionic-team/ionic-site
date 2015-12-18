@@ -115,25 +115,6 @@ RadioGroup
 
 
 
-
-
-<div id="headerQuery"></div>
-
-<h3>
-<code>headerQuery()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
 <!-- related link -->
 
 <h2>Related</h2>

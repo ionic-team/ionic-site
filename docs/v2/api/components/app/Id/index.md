@@ -87,66 +87,7 @@ has been navigated away from.</p>
 <!-- @property tags -->
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="app"></div>
-
-<h3>
-<code>app()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="elementRef"></div>
-
-<h3>
-<code>elementRef()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="appViewManager"></div>
-
-<h3>
-<code>appViewManager()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link --><!-- end content block -->
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/searchbar/searchbar.ts#L7'>
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/searchbar/searchbar.ts#L30'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/searchbar/searchbar.ts#L7'>
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/searchbar/searchbar.ts#L30'>
 Improve this doc
 </a>
 </div>
@@ -58,7 +58,7 @@ Searchbar
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-searchbar [(ngModel)]=&quot;defaultSearch&quot;&gt;&lt;/ion-searchbar&gt;
+<pre><code class="lang-html">&lt;ion-searchbar [(ngModel)]=&quot;defaultSearch&quot; (input)=&quot;triggerInput($event)&quot; (cancel)=&quot;onCancelSearchbar($event)&quot; (clear)=&quot;onClearSearchbar($event)&quot;&gt;&lt;/ion-searchbar&gt;
 </code></pre>
 
 
@@ -91,6 +91,14 @@ Searchbar
 
 
 
+
+
+
+
+
+
+
+
 <th>Type</th>
 
 
@@ -98,22 +106,6 @@ Searchbar
 </tr>
 </thead>
 <tbody>
-
-<tr>
-<td>
-cancelButtonAction
-</td>
-
-
-<td>
-
-</td>
-
-
-<td>
-the function that gets called by clicking the cancel button
-</td>
-</tr>
 
 <tr>
 <td>
@@ -127,7 +119,7 @@ string
 
 
 <td>
-sets the cancel button text to the value passed in
+Sets the cancel button text to the value passed in
 </td>
 </tr>
 
@@ -163,6 +155,54 @@ Sets input placeholder to the value passed in
 </td>
 </tr>
 
+<tr>
+<td>
+input
+</td>
+
+
+<td>
+Any
+</td>
+
+
+<td>
+Expression to evaluate when the Searchbar input has changed
+</td>
+</tr>
+
+<tr>
+<td>
+cancel
+</td>
+
+
+<td>
+Any
+</td>
+
+
+<td>
+Expression to evaluate when the cancel button is clicked.
+</td>
+</tr>
+
+<tr>
+<td>
+clear
+</td>
+
+
+<td>
+Any
+</td>
+
+
+<td>
+Expression to evaluate when the clear input button is clicked.
+</td>
+</tr>
+
 </tbody>
 </table>
 
@@ -190,10 +230,143 @@ Sets input placeholder to the value passed in
 
 
 
-<div id="query"></div>
+<div id="cancelButtonText"></div>
 
 <h3>
-<code>query()</code>
+<code>cancelButtonText()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="hideCancelButton"></div>
+
+<h3>
+<code>hideCancelButton()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="placeholder"></div>
+
+<h3>
+<code>placeholder()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ngModel"></div>
+
+<h3>
+<code>ngModel()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="input"></div>
+
+<h3>
+<code>input()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="cancel"></div>
+
+<h3>
+<code>cancel()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="clear"></div>
+
+<h3>
+<code>clear()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="value"></div>
+
+<h3>
+<code>value()</code>
   
 
 </h3>
@@ -213,6 +386,101 @@ Sets input placeholder to the value passed in
 
 <h3>
 <code>blurInput()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isFocused"></div>
+
+<h3>
+<code>isFocused()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="shouldLeftAlign"></div>
+
+<h3>
+<code>shouldLeftAlign()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="inputChanged"></div>
+
+<h3>
+<code>inputChanged()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="onChange"></div>
+
+<h3>
+<code>onChange()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="onTouched"></div>
+
+<h3>
+<code>onTouched()</code>
   
 
 </h3>

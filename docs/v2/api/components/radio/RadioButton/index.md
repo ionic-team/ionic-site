@@ -18,11 +18,11 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L152'>
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L5'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L152'>
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L5'>
 Improve this doc
 </a>
 </div>
@@ -51,7 +51,9 @@ RadioButton
 <!-- description -->
 <h2>Description</h2>
 
-<p>A single radio component.</p>
+<p>A radio button with a unique value. Note that all <code>&lt;ion-radio&gt;</code> components
+must be wrapped within a <code>&lt;ion-list radio-group&gt;</code>, and there must be at 
+least two <code>&lt;ion-radio&gt;</code> components within the radio group.</p>
 <p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 
 
@@ -61,7 +63,7 @@ RadioButton
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-radio value=&quot;isChecked&quot; checked=&quot;true&quot;&gt;
+<pre><code class="lang-html">&lt;ion-radio value=&quot;my-value&quot; checked=&quot;true&quot;&gt;
   Radio Label
 &lt;/ion-radio&gt;
 </code></pre>
@@ -76,16 +78,109 @@ RadioButton
 
 <h2>Methods</h2>
 
-<div id="check"></div>
+<div id="value"></div>
 
 <h3>
-<code>check()</code>
+<code>value()</code>
   
 
 </h3>
 
-Update the checked state of this radio button.
-TODO: Call this toggle? Since unchecks as well
+
+
+
+
+
+
+
+
+
+
+
+<div id="checked"></div>
+
+<h3>
+<code>checked()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="disabled"></div>
+
+<h3>
+<code>disabled()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="id"></div>
+
+<h3>
+<code>id()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="select"></div>
+
+<h3>
+<code>select()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isChecked"></div>
+
+<h3>
+<code>isChecked()</code>
+  
+
+</h3>
+
 
 
 

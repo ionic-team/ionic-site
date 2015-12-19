@@ -18,11 +18,11 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L6'>
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/radio/radio.ts#L80'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L6'>
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L80'>
 Improve this doc
 </a>
 </div>
@@ -63,26 +63,34 @@ RadioGroup
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-list radio-group ngControl=&quot;clientside&quot;&gt;
+<pre><code class="lang-html">&lt;ion-list radio-group ngControl=&quot;autoManufactures&quot;&gt;
 
   &lt;ion-list-header&gt;
-    Clientside
+    Auto Manufactures
   &lt;/ion-list-header&gt;
 
-  &lt;ion-radio value=&quot;ember&quot;&gt;
-    Ember
+  &lt;ion-radio value=&quot;cord&quot;&gt;
+    Cord
   &lt;/ion-radio&gt;
 
-  &lt;ion-radio value=&quot;angular1&quot;&gt;
-    Angular 1
+  &lt;ion-radio value=&quot;duesenberg&quot; checked=&quot;true&quot;&gt;
+    Duesenberg
   &lt;/ion-radio&gt;
 
-  &lt;ion-radio value=&quot;angular2&quot; checked=&quot;true&quot;&gt;
-    Angular 2
+  &lt;ion-radio value=&quot;hudson&quot;&gt;
+    Hudson
   &lt;/ion-radio&gt;
 
-  &lt;ion-radio value=&quot;react&quot;&gt;
-    React
+  &lt;ion-radio value=&quot;packard&quot;&gt;
+    Packard
+  &lt;/ion-radio&gt;
+
+  &lt;ion-radio value=&quot;studebaker&quot;&gt;
+    Studebaker
+  &lt;/ion-radio&gt;
+
+  &lt;ion-radio value=&quot;tucker&quot;&gt;
+    Tucker
   &lt;/ion-radio&gt;
 
 &lt;/ion-list&gt;
@@ -98,10 +106,10 @@ RadioGroup
 
 <h2>Methods</h2>
 
-<div id="radios"></div>
+<div id="change"></div>
 
 <h3>
-<code>radios()</code>
+<code>change()</code>
   
 
 </h3>

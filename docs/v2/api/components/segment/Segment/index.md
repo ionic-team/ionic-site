@@ -18,11 +18,11 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L83'>
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/segment/segment.ts#L82'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L83'>
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/segment/segment.ts#L82'>
 Improve this doc
 </a>
 </div>
@@ -141,25 +141,6 @@ expression to evaluate when a segment button has been changed
 
 <h3>
 <code>change()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="buttons"></div>
-
-<h3>
-<code>buttons()</code>
   
 
 </h3>

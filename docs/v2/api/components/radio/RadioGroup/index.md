@@ -63,10 +63,10 @@ RadioGroup
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-list radio-group ngControl=&quot;autoManufactures&quot;&gt;
+<pre><code class="lang-html">&lt;ion-list radio-group ngControl=&quot;autoManufacturers&quot;&gt;
 
   &lt;ion-list-header&gt;
-    Auto Manufactures
+    Auto Manufacturers
   &lt;/ion-list-header&gt;
 
   &lt;ion-radio value=&quot;cord&quot;&gt;

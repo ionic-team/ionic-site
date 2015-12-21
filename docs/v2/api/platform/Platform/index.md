@@ -18,11 +18,11 @@ angular_controller: APIDemoCtrl
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L8'>
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/platform.ts#L1'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/platform.ts#L8'>
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/platform.ts#L1'>
 Improve this doc
 </a>
 </div>
@@ -51,9 +51,24 @@ Platform
 <!-- description -->
 <h2>Description</h2>
 
-<p>Platform returns the availble information about your current platform.</p>
+<p>Platform returns the availble information about your current platform.
+Platforms in Ionic 2 are much more complex then in V1, returns not just a single platform,
+but a hierarchy of information, such as a devices OS, phone vs tablet, or mobile vs browser.
+With this information you can completely custimize your app to fit any device and platform.</p>
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-ts">import {Platform} &#39;ionic/ionic&#39;;
+export MyClass {
+   constructor(platform: Platform){
+     this.platform = platform;
+   }
+}
+</code></pre>
+
+
 
 
 <!-- @property tags -->
@@ -164,12 +179,12 @@ export MyClass {
 <div id="versions"></div>
 
 <h3>
-<code>versions(optional)</code>
+<code>versions(platformName)</code>
   
 
 </h3>
 
-Returns an object conta
+Returns an object containing information about the paltform
 
 ```
 import {Platform} 'ionic/ionic';
@@ -177,11 +192,10 @@ export MyClass {
    constructor(platform: Platform){
      this.platform = platform;
      console.log(this.platform.versions());
-     // or pass in a platform name
-     console.log(this.platform.versions('ios'));
    }
 }
 ```
+
 
 
 <table class="table" style="margin:0;">
@@ -196,7 +210,7 @@ export MyClass {
     
     <tr>
       <td>
-        optional
+        platformName
         
         
       </td>
@@ -205,7 +219,7 @@ export MyClass {
   <code>string</code>
       </td>
       <td>
-        <p>platformName</p>
+        <p>optional platformName</p>
 
         
       </td>
@@ -220,29 +234,6 @@ export MyClass {
 
 * Returns: 
   <code>object</code> An object with various platform info
-- `{object=} `cordova`
-- `{object=}` `platformOS` {str: "9.1", num: 9.1, major: 9, minor: 1}
-- `{object=} `deviceName` Returns the name of the device
-- `{object=}` `device platform` R
-
-
-
-
-<div id="version"></div>
-
-<h3>
-<code>version()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
 
 
 
@@ -276,682 +267,7 @@ export MyClass {
 
 
 * Returns: 
-  <code>promise</code> 
-
-
-
-
-<div id="on"></div>
-
-<h3>
-<code>on()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onHardwareBackButton"></div>
-
-<h3>
-<code>onHardwareBackButton()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="registerBackButtonAction"></div>
-
-<h3>
-<code>registerBackButtonAction()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="exitApp"></div>
-
-<h3>
-<code>exitApp()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="fullScreen"></div>
-
-<h3>
-<code>fullScreen()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="showStatusBar"></div>
-
-<h3>
-<code>showStatusBar()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="url"></div>
-
-<h3>
-<code>url()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="query"></div>
-
-<h3>
-<code>query()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="userAgent"></div>
-
-<h3>
-<code>userAgent()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="navigatorPlatform"></div>
-
-<h3>
-<code>navigatorPlatform()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="width"></div>
-
-<h3>
-<code>width()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="height"></div>
-
-<h3>
-<code>height()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="isPortrait"></div>
-
-<h3>
-<code>isPortrait()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="isLandscape"></div>
-
-<h3>
-<code>isLandscape()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="windowResize"></div>
-
-<h3>
-<code>windowResize()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onResize"></div>
-
-<h3>
-<code>onResize()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="testQuery"></div>
-
-<h3>
-<code>testQuery(queryValue)</code>
-  
-
-</h3>
-
-TODO
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        queryValue
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-* Returns: 
-  <code>boolean</code> TODO
-
-
-
-
-<div id="testUserAgent"></div>
-
-<h3>
-<code>testUserAgent(userAgentExpression)</code>
-  
-
-</h3>
-
-TODO
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        userAgentExpression
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-* Returns: 
-  <code>boolean</code> TODO
-
-
-
-
-<div id="testNavigatorPlatform"></div>
-
-<h3>
-<code>testNavigatorPlatform(navigatorPlatformExpression)</code>
-  
-
-</h3>
-
-TODO
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        navigatorPlatformExpression
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-* Returns: 
-  <code>boolean</code> TODO
-
-
-
-
-<div id="matchUserAgentVersion"></div>
-
-<h3>
-<code>matchUserAgentVersion(userAgentExpression)</code>
-  
-
-</h3>
-
-TODO
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        userAgentExpression
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-* Returns: 
-  <code>Object</code> TODO
-
-
-
-
-<div id="isPlatform"></div>
-
-<h3>
-<code>isPlatform(queryValue,&nbsp;userAgentExpression)</code>
-  
-
-</h3>
-
-TODO
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        queryValue
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        userAgentExpression
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-* Returns: 
-  <code>boolean</code> TODO
-
-
-
-
-<div id="load"></div>
-
-<h3>
-<code>load(config)</code>
-  
-
-</h3>
-
-TODO
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        config
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-<div id="matchPlatform"></div>
-
-<h3>
-<code>matchPlatform(platformName)</code>
-  
-
-</h3>
-
-TODO
-
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        platformName
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-* Returns: 
-  <code>TODO</code> TODO
+  <code>promise</code> Returns a promsie when device ready has fired
 
 
 <!-- related link --><!-- end content block -->

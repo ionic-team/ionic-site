@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L7'>
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tab.ts#L8'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tab.ts#L7'>
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tab.ts#L8'>
 Improve this doc
 </a>
 </div>
@@ -161,6 +161,25 @@ set the icon for this tab
 <!-- methods on the class -->
 
 <h2>Methods</h2>
+
+<div id="select"></div>
+
+<h3>
+<code>select()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="index"></div>
 

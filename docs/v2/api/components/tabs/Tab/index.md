@@ -58,6 +58,36 @@ to pages in and manipulate the navigation stack of a particular tab.</p>
 take a look at the <a href="../NavController/">NavController API reference</a>.</p>
 <p>See the <a href="../Tabs/">Tabs API reference</a> for more details on configuring Tabs
 and the TabBar.</p>
+<p>For most cases, you can give tab a <code>[root]</code> property along with the component you want to load.</p>
+<pre><code class="lang-html">&lt;ion-tabs&gt;
+ &lt;ion-tab [root]=&quot;chatRoot&quot;&gt;&lt;ion-tab&gt;
+&lt;/ion-tabs&gt;
+</code></pre>
+<pre><code class="lang-ts">import {Chat} from &#39;../chat/chat&#39;;
+export class Tabs {
+   constructor(){
+     // here we&#39;ll set the property of chatRoot to
+     // the imported class of Chat
+     this.chatRoot = Chat
+   }
+}
+</code></pre>
+<p>In other cases, you may not want to navigate to a new component, but just call a method.
+You can use the <code>(select)</code> event to call a method on your class.</p>
+<pre><code class="lang-html">&lt;ion-tabs preloadTabs=&quot;false&quot;&gt;
+  &lt;ion-tab (select)=&quot;chat()&quot;&gt;&lt;/ion-tab&gt;
+&lt;/ion-tabs&gt;
+</code></pre>
+<pre><code class="lang-ts">export class Tabs {
+  constructor(modal: Modal){
+    this.modal = modal;
+  }
+  chat() {
+     this.modal.open(ChatPage);
+  }
+}
+</code></pre>
+<p>In this case, when we tap on the tab, we&#39;ll open a modal instead of loading a new component.</p>
 
 
 <h2>Component</h2>
@@ -82,6 +112,10 @@ and the TabBar.</p>
 <thead>
 <tr>
 <th>Attribute</th>
+
+
+
+
 
 
 
@@ -151,6 +185,22 @@ any
 
 <td>
 set the icon for this tab
+</td>
+</tr>
+
+<tr>
+<td>
+select
+</td>
+
+
+<td>
+any
+</td>
+
+
+<td>
+method to call when the current tab is selected
 </td>
 </tr>
 

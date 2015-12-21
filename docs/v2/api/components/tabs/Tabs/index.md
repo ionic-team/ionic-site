@@ -176,25 +176,6 @@ sets whether to preload all the tabs, true or false
 
 
 
-<div id="platform"></div>
-
-<h3>
-<code>platform()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="select"></div>
 
 <h3>

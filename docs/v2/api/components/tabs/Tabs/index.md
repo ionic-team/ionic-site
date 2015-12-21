@@ -16,11 +16,11 @@ docType: "class"
 
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L11'>
+<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/tabs/tabs.ts#L12'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L11'>
+<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L12'>
 Improve this doc
 </a>
 </div>
@@ -156,6 +156,25 @@ sets whether to preload all the tabs, true or false
 <!-- methods on the class -->
 
 <h2>Methods</h2>
+
+<div id="change"></div>
+
+<h3>
+<code>change()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="platform"></div>
 

@@ -19,7 +19,7 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <h3><a href="#android-sdk">Android SDK</a></h3>
     <p>The Android SDK is a software development kit that for developers building for Google's Android Platform. It includes tools for building, testing, and debugging Android apps.</p>
   </section>
-   
+
 
   <section id="annotations">
     <h3><a href="#annotations">Annotations</a></h3>
@@ -36,7 +36,12 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <h3><a href="#babel">Babel</a></h3>
     <p><a href="http://babeljs.io">Babel</a> is a next-generation JavaScript compiler. Currently, today's browsers do not support every feature of the next-generation of JavaScript (<a href="#es2015-es6">ES6</a>). Babel solves this problem by compiling your ES6 code in to <a href="#es5">ES5</a>, which is the well-known version of JavaScript supported in all browsers.</p>
   </section>
-
+  
+  <section id="bundling">
+    <h3><a href="#bundling">Bundling</a></h3>
+    <p>Bundling is the process of taking an app dependencies (code you've written plus any npm modules installed) and compiling/transpiling them down to one single file.</p>
+  </section>
+  
   <section id="cli">
     <h3><a href="#cli">CLI</a></h3>
     <p>A CLI, or command-line interface, is text-based interface for interacting with a program. The common command-line app for a Mac user is the Terminal app, and Windows users often use Command Prompt. The Ionic community often uses this term to refer to <a href="http://ionicframework.com/docs/cli/">Ionic's CLI</a>. Ionic's CLI can be used for a number of things, such as creating production builds of an app, running the development server, and accessing <a href="http://ionic.io/">Ionic services</a>.</p>
@@ -45,6 +50,7 @@ header_sub_title: Learn about the Ionic community's favorite tools
   <section id="commonjs">
     <h3><a href="#commonjs">CommonJS</a></h3>
     <p>CommonJS is a group that defines standard formats for JavaScript API's. They have defined standards for JavaScript modules and packages.</p>
+    <p><a href="https://webpack.github.io/docs/commonjs.html">CommonJS</a></p>
   </section>
 
   <section id="cordova">
@@ -73,13 +79,11 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <p>ES2016/ES7 are two commonly used names for the experimental version of JavaScript. This future version of JavaScript will add a number of new features to the language, including async functions and typed objects. It is constantly being revised, and it is not currently suitable for production apps.</p>
   </section>
 
-
-
   <section id="genymotion">
     <h3><a href="#genymotion">Genymotion</a></h3>
     <p>Genymotion is a third-party Android emulator. It is extremely fast, and is useful for quickly testing your app on Android. Check out our <a href="/docs/v2/resources/developer-tips/#using-genymotion-android">resource section</a> on Genymotion for more info.</p>
   </section>
-  
+
   <section id="git">
     <h3><a href="#git">Git</a></h3>
     <p><a href="https://git-scm.com/">Git</a> is a version control system for managing code. It allows development teams to contribute code to the same project without causing code conflicts.</p>
@@ -88,6 +92,12 @@ header_sub_title: Learn about the Ionic community's favorite tools
   <section id="gulp">
     <h3><a href="#gulp">Gulp</a></h3>
     <p><a href="http://gulpjs.com/">Gulp</a> is a tool for running tasks which can be used to build your application. Common build tasks include transpiling <a href="#es2015-es6">ES6</a> to <a href="#es5">ES5</a>, turning <a href="#sass">Sass</a> in to CSS, minifying code, and concatenating files.</p>
+  </section>
+
+  <section id="imports">
+    <h3><a href="#imports">Imports</a></h3>
+    <p>ES6 brings the concept of modules to javascript. With modules, things are no longer on the global scope and have to imported into be used. This makes it much easier to understand where your code is coming from.</p>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">Imports</a></p>
   </section>
 
   <section id="ionicons">

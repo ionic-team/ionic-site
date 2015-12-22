@@ -99,6 +99,14 @@ Searchbar
 
 
 
+
+
+
+
+
+
+
+
 <th>Type</th>
 
 
@@ -168,6 +176,38 @@ Any
 
 <td>
 Expression to evaluate when the Searchbar input has changed
+</td>
+</tr>
+
+<tr>
+<td>
+blur
+</td>
+
+
+<td>
+Any
+</td>
+
+
+<td>
+Expression to evaluate when the Searchbar input has blurred
+</td>
+</tr>
+
+<tr>
+<td>
+focus
+</td>
+
+
+<td>
+Any
+</td>
+
+
+<td>
+Expression to evaluate when the Searchbar input has focused
 </td>
 </tr>
 
@@ -310,6 +350,44 @@ Expression to evaluate when the clear input button is clicked.
 
 <h3>
 <code>input()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="blur"></div>
+
+<h3>
+<code>blur()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="focus"></div>
+
+<h3>
+<code>focus()</code>
   
 
 </h3>

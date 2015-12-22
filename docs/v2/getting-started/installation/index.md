@@ -54,11 +54,8 @@ Once you have Cordova installed, and a device or emulator ready to go, we can mo
 {% highlight bash %}
 $ ionic platform add ios
 {% endhighlight %}
-Next, we will need to install <a href="../../resources/what-is/#xcode">Xcode</a>. Xcode allows us to build compile to a target device running iOS. Once installed, if you plan on using the iOS emulator, we can safely install it using <a href="../../resources/what-is/#npm">npm</a>:
 
-```bash
-$ npm install ios-sim
-```
+Next, we will need to install <a href="../../resources/what-is/#xcode">Xcode</a>. Xcode allows us to build compile to a target device running iOS.
 
 From there, we should be able to run the iOS emulator using the following command:
 
@@ -79,3 +76,10 @@ Next, we will need to install the <a href="../../resources/what-is/#android-sdk"
 ```bash
 $ ionic run android
 ```
+
+<h3 style="text-align:right;">
+ <a href="/docs/v2/getting-started/tutorial">
+    Learn the basics
+  </a>
+</h3>
+

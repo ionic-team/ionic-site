@@ -53,4 +53,9 @@ You should see the welcome message shown above if everything was installed succe
 In the next section, let's go over the project structure created by the `ionic start` command.
 
 
-<a href="project-structure/" class="btn btn-primary">Project Structure</a>
+<h3 style="text-align:right;">
+ <a href="project-structure/">
+ Project Structure
+ </a>
+</h3>
+

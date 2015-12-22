@@ -4557,7 +4557,7 @@ body {
 .improve-docs {
   position: absolute;
   right: 3.5em;
-  top: 8em; }
+  top: 20px; }
 
 .improve-component-docs {
   display: block;

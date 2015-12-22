@@ -62,11 +62,13 @@ ControllerAs Syntax is a feature in Angular 1.x where instead of binding data to
 _index.html_
 
 ```html
+{% raw %}
     <ion-content ng-controller="MainCtrl">
       <ion-item>
         {{data.text}}
       </ion-item>
     </ion-content>
+{% endraw %}
 ```
 
 _app.js_
@@ -84,11 +86,13 @@ To convert this to `controllerAs` syntax, you only have to change a few things.
 _index.html_
 
 ```html
+{% raw %}
     <ion-content ng-controller="MainCtrl as main">
       <ion-item>
         {{data.text}}
       </ion-item>
     </ion-content>
+{% endraw %}
 ```
 
 _app.js_

@@ -37,12 +37,12 @@ Here is a chart of the default mode that gets added based on platform:
     <td>Android</td>
     <td>md</td>
     <td>Applies Material Design styling to all components.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>Windows Phone</td>
     <td>md</td>
     <td>Applies Material Design styling to all components.</td>
-  </tr>  
+  </tr>
   <tr>
     <td>All Other Platforms</td>
     <td>ios</td>
@@ -54,7 +54,7 @@ You can change the mode that gets assigned in the configuration of your app. The
 
 ## Overriding the Mode Styles
 
-Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet that consists of styles shared between all modes, a material stylesheet which contains the styles for the `md` mode, and an iOS stylesheet for, you guessed it, the `ios` mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.  
+Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet that consists of styles shared between all modes, a material stylesheet which contains the styles for the `md` mode, and an iOS stylesheet for, you guessed it, the `ios` mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.
 
 You can use the class that is applied to the body to override specific properties in mode components. For example, if you wanted to override all Material Design (md) mode buttons to have capitalized text:
 
@@ -84,6 +84,13 @@ By setting an attribute dynamically, you can add or remove functionality from a 
 
 This will set the `no-lines` attribute on the list component if `isMD` evaluates to true.
 
-## Ionic Sass Variables
 
-The [next section](../overriding-ionic-variables/) explains how to override Ionic's variables with a list of all of the variables you can change.
+
+<h3 style="text-align:right;">
+ <a href="../overriding-ionic-variables/">
+    Sass Variables
+  </a>
+</h3>
+
+
+

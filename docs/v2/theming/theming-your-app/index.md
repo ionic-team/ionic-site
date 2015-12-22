@@ -60,6 +60,9 @@ By default, Ionic comes with a light and dark theme. To use the dark theme, impo
 @import "ionic";
 ```
 
-## Platform Specific Styles
+<h3 style="text-align:right;">
+ <a href="/docs/v2/theming/platform-specific-styles/">
+    Platform specific theming
+  </a>
+</h3>
 
-To change the look of your app on different platforms, continue to the [next section](../platform-specific-styles/).

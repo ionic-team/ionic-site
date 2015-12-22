@@ -19,4 +19,11 @@ still following the standards of each platform. The best apps in the app stores 
 
 We've made theming Ionic 2 apps easier than ever. Ionic is built on top of [Sass](../../what-is/#sass), which allows us to set some default styles for your app but makes it extremely easy for you to change our defaults.
 
-The [next section](./theming-your-app/) talks more in detail about Theming your Ionic App.
+
+<h3 style="text-align:right;">
+ <a href="./theming-your-app/">
+    Theming your app
+  </a>
+</h3>
+
+

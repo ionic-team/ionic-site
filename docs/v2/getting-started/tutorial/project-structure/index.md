@@ -14,7 +14,7 @@ header_sub_title: Ionic 2 Developer Preview
   Improve this doc
 </a>
 
-Let's walk through the anatomy of an Ionic 2 app. Inside of the folder that was created, we have a typical [Cordova](/docs/what-is/#cordova) project structure where we can install native plugins, and create platform-specific project files. The bulk of our application lives inside the `www` folder, and so we are going to spend most of our time there.
+Let's walk through the anatomy of an Ionic 2 app. Inside of the folder that was created, we have a typical [Cordova](/docs/what-is/#cordova) project structure where we can install native plugins, and create platform-specific project files. The bulk of our application lives inside the `app` folder, and so we are going to spend most of our time there.
 
 <h3 class="file-title">www/index.html</h3>
 
@@ -37,17 +37,17 @@ And the following scripts near the bottom:
 
 - `cordova.js` will 404 during local development, as it gets injected into your project during cordova's build process.
 
-<h3 class="file-title">www/app/app.js</h3>
+<h3 class="file-title">app/app.js</h3>
 
 Inside of the `app` directory we find our pre-compiled Javascript code. This is where most of the work for an Ionic 2 app will take place. When we run `ionic serve`, our code inside of `app/` is [transpiled](/docs/what-is/#transpiler) into the correct Javascript version that the browser understands (currently, [ES5](/docs/what-is/#es5)). That means we can work at a higher level using TypeScript and [ES6+](/docs/what-is/es2015-es6), but compile down to the older form of Javascript the browser needs.
 
-`www/app/app.js` is the entry point for our app.
+`app/app.js` is the entry point for our app.
 
 Near the top of the file, we should see this:
 
 ```ts
 @App({
-  templateUrl: 'app/app.html'
+  templateUrl: 'build/app.html'
 })
 class MyApp {
   constructor() {
@@ -57,12 +57,12 @@ class MyApp {
 
 Every app has a *root component* that essentially controls the rest of the application. This is very similar to `ng-app` from Ionic and Angular 1. To specify a root component with Ionic, we use the `@App` decorator.
 
-In this component, we set the template to be the file at `app/app.html`, let's take a look!
+In this component, we set the template to be the file at `build/app.html`. This URL is relative to the `www/` directory. On compilation, `app/app.html` will be placed in `www/build/`, so let's take a look at `app/app.html`!
 
-<h3 class="file-title">www/app/app.html</h3>
+<h3 class="file-title">app/app.html</h3>
 
 
-Here's the main template for the app in `www/app/app.html`:
+Here's the main template for the app in `app/app.html`:
 
 ```html
 <ion-menu [content]="content">

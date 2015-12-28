@@ -107,6 +107,18 @@ Searchbar
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <th>Type</th>
 
 
@@ -175,7 +187,55 @@ Any
 
 
 <td>
-Expression to evaluate when the Searchbar input has changed
+Expression to evaluate when the Searchbar input has changed including cleared
+</td>
+</tr>
+
+<tr>
+<td>
+keydown
+</td>
+
+
+<td>
+Any
+</td>
+
+
+<td>
+Expression to evaluate when a key is pushed down in the Searchbar input
+</td>
+</tr>
+
+<tr>
+<td>
+keypress
+</td>
+
+
+<td>
+Any
+</td>
+
+
+<td>
+Expression to evaluate when a character is inserted in the Searchbar input
+</td>
+</tr>
+
+<tr>
+<td>
+keyup
+</td>
+
+
+<td>
+Any
+</td>
+
+
+<td>
+Expression to evaluate when a key is released in the Searchbar input
 </td>
 </tr>
 
@@ -223,7 +283,7 @@ Any
 
 
 <td>
-Expression to evaluate when the cancel button is clicked.
+Expression to evaluate when the cancel button is clicked
 </td>
 </tr>
 
@@ -239,7 +299,7 @@ Any
 
 
 <td>
-Expression to evaluate when the clear input button is clicked.
+Expression to evaluate when the clear input button is clicked
 </td>
 </tr>
 
@@ -502,25 +562,6 @@ Expression to evaluate when the clear input button is clicked.
 
 <h3>
 <code>shouldLeftAlign()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="inputChanged"></div>
-
-<h3>
-<code>inputChanged()</code>
   
 
 </h3>

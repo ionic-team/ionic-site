@@ -436,7 +436,7 @@ body {
       outline: none;
     }
 
-    ul {
+    ul, .capitalize {
       padding: 0;
       opacity: 1;
 
@@ -667,15 +667,3 @@ ul.docs-example {
   background-color: #fff;
 }
 
-li.capitalize {
-  a {
-    text-transform: capitalize;
-  }
-
-  &.active {
-    a {
-      color: #4D8CF4;
-      border-right: #4D8CF4 2px solid;
-    }
-  }
-}

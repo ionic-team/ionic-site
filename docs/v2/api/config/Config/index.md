@@ -180,7 +180,7 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 <tr>
 <td>tabbarPlacement</td>
 <td>bottom</td>
-<td>true</td>
+<td>top</td>
 </tr>
 <tr>
 <td>tabbarHighlight</td>

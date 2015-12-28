@@ -7,6 +7,7 @@ header_title: Resources - Using NPM
 header_sub_title: Ionic 2 Developer Preview
 ---
 
+# Using NPM
 
 There is a lot of new terminology in Ionic V2, much of it having to do with Node and NPM. Let's take a look at some key concepts with Node/NPM and how this relates to Ionic.
 

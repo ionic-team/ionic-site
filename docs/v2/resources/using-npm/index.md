@@ -58,4 +58,4 @@ Package                           Current          Wanted          Latest  Locat
 ionic-framework            2.0.0-alpha.44  2.0.0-alpha.44  2.0.0-alpha.45  myApp
 ```
 
-This tells us that there is an update to the ionic-framework package, version `2.0.0-alpha.45`. To get this update, we can run `npm install ionic-framework@latest`.
+This tells us that there is an update to the ionic-framework package, version `2.0.0-alpha.45`. To get this update, we can run `npm install ionic-framework@latest`. Alternatively, we could update our `package.json` to `"ionic-framework": "2.0.0-alpha.45"`, and then run `npm update`.

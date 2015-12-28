@@ -8,53 +8,31 @@ header_sub_title: Ionic 2 Developer Preview
 ---
 
 
-There is a lot of new terminology in Ionic V2, much of it having to do with Node and NPM. Let's take a look at some key concepts with Node/NPM and how this relates to Ionic.
+# Core Concepts
 
-## Ionic NPM packages - Whats in a name?
+If you're new to Ionic and/or hybrid mobile development, it can help to get a high-level understanding of the core concepts and tools behind Ionic.
 
-There are two packages that relate to Ionic on NPM. The Ionic CLI package and the Ionic-Framework package.
+## What is Ionic?
 
-### Ionic CLI
-
-The CLI (**C**ommand **L**ine **I**nterface) is the main tool that you will use to create a project, build native apps, and handle bundling your apps resources. This package is available on NPM and is called `ionic`. To install, run:
-
-```bash
-# if on linux/osx, run with sudo
-npm install -g ionic
-```
-
-This will install the latest stable release of the Ionic CLI. To install the latest beta release, which is currently required for V2 development, run:
-
-```bash
-# if on linux/osx, run with sudo
-npm install -g ionic@beta
-```
-Then we can use the CLI from the command line by running `ionic <command>`.
+Ionic is a SDK that allows developers to build mobile apps using familiar web technologies (HTML, CSS, Javascript). 
 
 
-### Ionic Framework
+## What is the Ionic CLI?
 
-The framework is available on NPM under the name `ionic-framework`. When you create a project using the CLI, you will automatically get the Ionic Framework package installed. The package and it's version are managed through NPM and a projects `package.json`. A simple project should have a `package.json` that looks like this.
+The [CLI](../../resources/what-is/#cli), or command line interface is a tools that provides a number of helpful commands to Ionic developers. In addition to installing and updating Ionic, the CLI comes with a built in development server, build and debugging tools, and much more. If you are using the [Ionic Platform](http://ionic.io/), the CLI can be used to interact with your account programmatically.
 
-```javascript
-{
-  "devDependencies": {
-  // List of devDependencies
-  },
-  "dependencies": {
-    "ionic-framework": "2.0.0-alpha.34"
-  }
-  // and anything else
-}
-```
+## What are components?
 
-Here we are saying that this project depends on the `ionic-framework` package and it uses the version `2.0.0-alpha.34`. But how do we update a packaged when a new version comes out? To check if there is an update, we can run
+Components are reusable UI elements that serve as building blocks for your mobile app. Components are made up of HTML, CSS, and sometimes Javascript. All Ionic components adapt to the platform your app is running on.
 
-```bash
-npm outdated
 
-Package                           Current          Wanted          Latest  Location
-ionic-framework            2.0.0-alpha.34  2.0.0-alpha.34  2.0.0-alpha.35  myApp
-```
+## What is theming?
 
-This tells us that there is an update to the ionic-framework package, version `2.0.0-alpha.35`. To get this update, we can run `npm update`.
+Themes are sets of styles that get applied to an app. Ionic uses a light theme by default, but it also comes with a dark theme. In addition to theming, Ionic components have platform specific styles. This means the app's styles will change based on the platform (iOS, Android, etc.)
+
+## How does navigation work?
+
+Navigation works like a stack &mdash; **push** a page to the stack to navigate to it, and **pop** to go back. Modals and alerts can also be displayed by pushing them onto the navigation stack.
+
+
+

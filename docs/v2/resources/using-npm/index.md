@@ -9,15 +9,15 @@ header_sub_title: Ionic 2 Developer Preview
 
 # Using NPM
 
-There is a lot of new terminology in Ionic V2, much of it having to do with Node and NPM. Let's take a look at some key concepts with Node/NPM and how this relates to Ionic.
+There is a lot of new terminology in Ionic V2, much of it having to do with Node and NPM. Let's take a look at some key concepts with Node/NPM, and how they relate to Ionic.
 
-## Ionic NPM packages - Whats in a name?
+## Ionic NPM packages - What's in a name?
 
-There are two packages that relate to Ionic on NPM. The Ionic CLI package and the Ionic-Framework package.
+There are two packages related to Ionic on NPM &mdash; the Ionic CLI package and the Ionic-Framework package.
 
 ### Ionic CLI
 
-The CLI (**C**ommand **L**ine **I**nterface) is the main tool that you will use to create a project, build native apps, and handle bundling your apps resources. This package is available on NPM and is called `ionic`. To install, run:
+The CLI (**C**ommand **L**ine **I**nterface) is the main tool that you will use to create a project, build native apps, and handle bundling your app's resources. This package is available on NPM and is called `ionic`. To install, run:
 
 ```bash
 # if on linux/osx, run with sudo
@@ -35,7 +35,7 @@ Then we can use the CLI from the command line by running `ionic <command>`.
 
 ### Ionic Framework
 
-The framework is available on NPM under the name `ionic-framework`. When you create a project using the CLI, you will automatically get the Ionic Framework package installed. The package and it's version are managed through NPM and a projects `package.json`. A simple project should have a `package.json` that looks like this.
+The framework is available on NPM under the name `ionic-framework`. When you create a project using the CLI, you will automatically get the Ionic Framework package installed. The package and its version are managed through NPM and a project's `package.json`. A simple project should have a `package.json` that looks like this.
 
 ```javascript
 {
@@ -43,19 +43,19 @@ The framework is available on NPM under the name `ionic-framework`. When you cre
   // List of devDependencies
   },
   "dependencies": {
-    "ionic-framework": "2.0.0-alpha.34"
+    "ionic-framework": "2.0.0-alpha.44"
   }
   // and anything else
 }
 ```
 
-Here we are saying that this project depends on the `ionic-framework` package and it uses the version `2.0.0-alpha.34`. But how do we update a packaged when a new version comes out? To check if there is an update, we can run
+Here we are saying that this project depends on the `ionic-framework` package and it uses the version `2.0.0-alpha.44`. But how do we update a packaged when a new version comes out? To check if there is an update, we can run
 
 ```bash
 npm outdated
 
 Package                           Current          Wanted          Latest  Location
-ionic-framework            2.0.0-alpha.34  2.0.0-alpha.34  2.0.0-alpha.35  myApp
+ionic-framework            2.0.0-alpha.44  2.0.0-alpha.44  2.0.0-alpha.45  myApp
 ```
 
-This tells us that there is an update to the ionic-framework package, version `2.0.0-alpha.35`. To get this update, we can run `npm update`.
+This tells us that there is an update to the ionic-framework package, version `2.0.0-alpha.45`. To get this update, we can run `npm install ionic-framework@latest`.

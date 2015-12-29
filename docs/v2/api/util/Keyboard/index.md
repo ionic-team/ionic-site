@@ -32,7 +32,7 @@ Keyboard
 
 </h1>
 
-<a class="improve-component-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/util/keyboard.ts#L4'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/util/keyboard.ts#L4'>
 Improve this doc
 </a> 
 

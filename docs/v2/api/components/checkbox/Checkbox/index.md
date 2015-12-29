@@ -34,7 +34,7 @@ Checkbox
 
 </h1>
 
-<a class="improve-component-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/checkbox/checkbox.ts#L4'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/checkbox/checkbox.ts#L4'>
 Improve this doc
 </a> 
 

@@ -7,12 +7,10 @@ header_title: Ionic 2 Resources
 header_sub_title: Ionic 2 Developer Preview
 ---
 
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>
-    Improve this doc
-  </a>
-</div>
-
 # Resources
+
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/resources/index.md'>
+  Improve this doc
+</a>
 
 TODO

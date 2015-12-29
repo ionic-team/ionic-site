@@ -10,7 +10,7 @@ header_sub_title: Ionic 2 Developer Preview
 
 # Ionic Developer Tips
 
-<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/resources/developer-tips/index.md'>
   Improve this doc
 </a>
 

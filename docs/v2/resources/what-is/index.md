@@ -9,7 +9,7 @@ header_sub_title: Learn about the Ionic community's favorite tools
 
 # Ionic Developer Glossary
 
-<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/resources/what-is/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/resources/what-is/index.md'>
   Improve this doc
 </a>
 

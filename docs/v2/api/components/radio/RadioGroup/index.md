@@ -34,7 +34,7 @@ RadioGroup
 
 </h1>
 
-<a class="improve-component-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L80'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L80'>
 Improve this doc
 </a> 
 

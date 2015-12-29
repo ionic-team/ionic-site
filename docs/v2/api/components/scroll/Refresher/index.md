@@ -34,7 +34,7 @@ Refresher
 
 </h1>
 
-<a class="improve-component-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/pull-to-refresh.ts#L5'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/pull-to-refresh.ts#L5'>
 Improve this doc
 </a> 
 

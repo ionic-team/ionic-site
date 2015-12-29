@@ -9,6 +9,10 @@ header_sub_title: Ionic 2 Developer Preview
 
 # Using NPM
 
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/resources/using-npm/index.md'>
+  Improve this doc
+</a>
+
 There is a lot of new terminology in Ionic V2, much of it having to do with Node and NPM. Let's take a look at some key concepts with Node/NPM, and how they relate to Ionic.
 
 ## Ionic NPM packages - What's in a name?

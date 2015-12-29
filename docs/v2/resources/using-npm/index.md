@@ -26,16 +26,19 @@ npm install -g ionic
 
 This will install the latest stable release of the Ionic CLI. To install the latest beta release, which is currently required for V2 development, run:
 
+
 ```bash
 # if on linux/osx, run with sudo
 npm install -g ionic@beta
 ```
+
 Then we can use the CLI from the command line by running `ionic <command>`.
 
 
 ### Ionic Framework
 
 The framework is available on NPM under the name `ionic-framework`. When you create a project using the CLI, you will automatically get the Ionic Framework package installed. The package and its version are managed through NPM and a project's `package.json`. A simple project should have a `package.json` that looks like this.
+
 
 ```javascript
 {

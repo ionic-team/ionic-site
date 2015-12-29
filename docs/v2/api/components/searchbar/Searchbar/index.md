@@ -441,7 +441,7 @@ Expression to evaluate when the clear input button is clicked
 
 <h2>Related</h2>
 
-<a href='/docs/v2/components#search'>Search Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#searchbar'>Searchbar Component Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

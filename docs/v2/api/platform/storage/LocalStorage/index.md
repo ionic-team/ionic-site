@@ -17,15 +17,6 @@ angular_controller: APIDemoCtrl
 
 
 
-<div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/local-storage.ts#L0'>
-View Source
-</a>
-&nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/local-storage.ts#L0'>
-Improve this doc
-</a>
-</div>
 
 
 
@@ -42,6 +33,10 @@ LocalStorage
 
 
 </h1>
+
+<a class="improve-component-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/local-storage.ts#L0'>
+Improve this doc
+</a> 
 
 
 

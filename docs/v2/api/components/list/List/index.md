@@ -17,15 +17,6 @@ angular_controller: APIDemoCtrl
 
 
 
-<div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L6'>
-View Source
-</a>
-&nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L6'>
-Improve this doc
-</a>
-</div>
 
 
 
@@ -42,6 +33,10 @@ List
 
 
 </h1>
+
+<a class="improve-component-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L6'>
+Improve this doc
+</a> 
 
 
 

@@ -15,15 +15,6 @@ docType: "class"
 
 
 
-<div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/content/content.ts#L8'>
-View Source
-</a>
-&nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/content/content.ts#L8'>
-Improve this doc
-</a>
-</div>
 
 
 
@@ -40,6 +31,10 @@ Content
 
 
 </h1>
+
+<a class="improve-component-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/content/content.ts#L8'>
+Improve this doc
+</a> 
 
 
 

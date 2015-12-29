@@ -10,6 +10,8 @@ header_sub_title: Ionic 2 Developer Preview
 
 # Core Concepts
 
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/concepts/index.md'>Improve this doc</a>
+
 If you're new to Ionic and/or hybrid mobile development, it can help to get a high-level understanding of the core concepts and tools behind Ionic.
 
 ## What is Ionic?

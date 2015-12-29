@@ -15,15 +15,6 @@ docType: "class"
 
 
 
-<div class="improve-docs">
-<a href='http://github.com/driftyco/ionic2/tree/master/ionic/platform/storage/sql.ts#L4'>
-View Source
-</a>
-&nbsp;
-<a href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/sql.ts#L4'>
-Improve this doc
-</a>
-</div>
 
 
 
@@ -40,6 +31,10 @@ SqlStorage
 
 
 </h1>
+
+<a class="improve-component-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/sql.ts#L4'>
+Improve this doc
+</a> 
 
 
 

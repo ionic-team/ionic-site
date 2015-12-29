@@ -429,19 +429,6 @@ body {
       }
     }
 
-    ul .active > a,
-    a:hover {
-      color: $blue;
-      text-decoration: none;
-      background: none;
-    }
-
-    ul .active > a:after,
-    a:focus:after {
-      transform: scaleY(1);
-      outline: none;
-    }
-
     ul, .capitalize {
       padding: 0;
       opacity: 1;
@@ -470,6 +457,23 @@ body {
         }
       }
     }
+
+    ul .active > a,
+    .capitalize.active > a,
+    a:hover {
+      color: $blue;
+      text-decoration: none;
+      background: none;
+    }
+
+    ul .active > a:after,
+    .capitalize.active > a:after,
+    a:focus:after {
+      transform: scaleY(1);
+      outline: none;
+    }
+
+
   }
 }
 

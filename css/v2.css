@@ -4879,17 +4879,6 @@ body {
                 transform: scaleY(0.0001);
         transition: -webkit-transform .08s ease-in-out;
         transition: transform .08s ease-in-out; }
-    .side-nav ul ul .active > a,
-    .side-nav ul a:hover {
-      color: #4f8ff7;
-      text-decoration: none;
-      background: none; }
-    .side-nav ul ul .active > a:after,
-    .side-nav ul a:focus:after {
-      -webkit-transform: scaleY(1);
-          -ms-transform: scaleY(1);
-              transform: scaleY(1);
-      outline: none; }
     .side-nav ul ul, .side-nav ul .capitalize {
       padding: 0;
       opacity: 1; }
@@ -4908,6 +4897,19 @@ body {
         .side-nav ul ul.ng-hide a, .side-nav ul .capitalize.ng-hide a {
           padding: 0;
           height: 0; }
+    .side-nav ul ul .active > a,
+    .side-nav ul .capitalize.active > a,
+    .side-nav ul a:hover {
+      color: #4f8ff7;
+      text-decoration: none;
+      background: none; }
+    .side-nav ul ul .active > a:after,
+    .side-nav ul .capitalize.active > a:after,
+    .side-nav ul a:focus:after {
+      -webkit-transform: scaleY(1);
+          -ms-transform: scaleY(1);
+              transform: scaleY(1);
+      outline: none; }
 
 .docs-container main {
   padding: 50px 40px;

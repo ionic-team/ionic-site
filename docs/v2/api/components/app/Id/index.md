@@ -32,7 +32,7 @@ Id
 
 </h1>
 
-<a class="improve-component-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/id.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/id.ts#L2'>
 Improve this doc
 </a> 
 

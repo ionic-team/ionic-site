@@ -32,7 +32,7 @@ Tabs
 
 </h1>
 
-<a class="improve-component-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L12'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L12'>
 Improve this doc
 </a> 
 

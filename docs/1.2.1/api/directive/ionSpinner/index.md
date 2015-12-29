@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/spinner.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/spinner.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/spinner.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/spinner.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-spinner
+ion-spinner
 
 
 
@@ -177,9 +177,9 @@ and scaled to any size.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 The following code would use the default spinner for the platform it's running from. If it's neither
 iOS or Android, it'll default to use `ios`.
 
@@ -216,10 +216,10 @@ have different names, for example, SVG uses the term `stroke` instead of `border
   fill: #444;
 }
 ```
-  
-  
 
-  
+
+
+
 
 
 

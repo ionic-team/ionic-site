@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/sideMenuContent.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/sideMenuContent.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/sideMenuContent.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/sideMenuContent.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,12 +25,12 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-side-menu-content
+ion-side-menu-content
 
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionSideMenus/"><code>ionSideMenus</code></a>
+Child of <a href="/docs/api/directive/ionSideMenus/"><code>ionSideMenus</code></a>
 </small>
 
 
@@ -50,9 +50,9 @@ A container for the main visible content, sibling to one or more
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-side-menu-content
   edge-drag-threshold="true"
@@ -61,8 +61,8 @@ A container for the main visible content, sibling to one or more
 ```
 For a complete side menu example, see the
 <a href="/docs/api/directive/ionSideMenus/"><code>ionSideMenus</code></a> documentation.
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -117,9 +117,9 @@ For a complete side menu example, see the
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

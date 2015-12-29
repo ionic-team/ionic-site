@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/exposeAsideWhen.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/exposeAsideWhen.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/exposeAsideWhen.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/exposeAsideWhen.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,12 +25,12 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  expose-aside-when
+expose-aside-when
 
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionSideMenus/"><code>ionSideMenus</code></a>
+Child of <a href="/docs/api/directive/ionSideMenus/"><code>ionSideMenus</code></a>
 </small>
 
 
@@ -65,9 +65,9 @@ as the value, such as `(min-width:600px)` or even multiple queries such as
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-side-menus>
   <!-- Center content -->
@@ -81,10 +81,10 @@ as the value, such as `(min-width:600px)` or even multiple queries such as
 ```
 For a complete side menu example, see the
 <a href="/docs/api/directive/ionSideMenus/"><code>ionSideMenus</code></a> documentation.
-  
-  
 
-  
+
+
+
 
 
 

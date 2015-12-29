@@ -11,13 +11,13 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/popover.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/popover.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/popover.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/popover.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "service"
 
 <h1 class="api-title">
 
-  $ionicPopover
+$ionicPopover
 
 
 
@@ -120,7 +120,7 @@ angular.module('testApp', ['ionic'])
 
 <div id="fromTemplate"></div>
 <h2>
-  <code>fromTemplate(templateString, options)</code>
+  <code>fromTemplate(templateString,&nbsp;options)</code>
 
 </h2>
 
@@ -190,7 +190,7 @@ controller (ionicPopover is built on top of $ionicPopover).
 
 <div id="fromTemplateUrl"></div>
 <h2>
-  <code>fromTemplateUrl(templateUrl, options)</code>
+  <code>fromTemplateUrl(templateUrl,&nbsp;options)</code>
 
 </h2>
 

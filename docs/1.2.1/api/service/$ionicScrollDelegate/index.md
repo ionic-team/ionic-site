@@ -11,13 +11,13 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/scrollDelegate.js#L2'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/scrollDelegate.js#L2'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/scrollDelegate.js#L2'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/scrollDelegate.js#L2'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "service"
 
 <h1 class="api-title">
 
-  $ionicScrollDelegate
+$ionicScrollDelegate
 
 
 
@@ -215,7 +215,7 @@ Tell the scrollView to recalculate the size of its container.
 
 <div id="scrollTo"></div>
 <h2>
-  <code>scrollTo(left, top, [shouldAnimate])</code>
+  <code>scrollTo(left,&nbsp;top,&nbsp;[shouldAnimate])</code>
 
 </h2>
 
@@ -297,7 +297,7 @@ Tell the scrollView to recalculate the size of its container.
 
 <div id="scrollBy"></div>
 <h2>
-  <code>scrollBy(left, top, [shouldAnimate])</code>
+  <code>scrollBy(left,&nbsp;top,&nbsp;[shouldAnimate])</code>
 
 </h2>
 
@@ -379,7 +379,7 @@ Tell the scrollView to recalculate the size of its container.
 
 <div id="zoomTo"></div>
 <h2>
-  <code>zoomTo(level, [animate], [originLeft], [originTop])</code>
+  <code>zoomTo(level,&nbsp;[animate],&nbsp;[originLeft],&nbsp;[originTop])</code>
 
 </h2>
 
@@ -478,7 +478,7 @@ Tell the scrollView to recalculate the size of its container.
 
 <div id="zoomBy"></div>
 <h2>
-  <code>zoomBy(factor, [animate], [originLeft], [originTop])</code>
+  <code>zoomBy(factor,&nbsp;[animate],&nbsp;[originLeft],&nbsp;[originTop])</code>
 
 </h2>
 

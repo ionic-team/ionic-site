@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/headerFooterBar.js#L44'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/headerFooterBar.js#L44'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/headerFooterBar.js#L44'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/headerFooterBar.js#L44'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-footer-bar
+ion-footer-bar
 
 
 
@@ -50,9 +50,9 @@ will not align correctly.  This will be fixed soon.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-content>
   Some content!
@@ -67,8 +67,8 @@ will not align correctly.  This will be fixed soon.
   </div>
 </ion-footer-bar>
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -102,9 +102,9 @@ Available: &#39;left&#39;, &#39;right&#39;, or &#39;center&#39;.  Defaults to &#
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

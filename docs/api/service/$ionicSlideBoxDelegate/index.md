@@ -11,13 +11,13 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/slideBoxDelegate.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/slideBoxDelegate.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/slideBoxDelegate.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/slideBoxDelegate.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "service"
 
 <h1 class="api-title">
 
-  $ionicSlideBoxDelegate
+$ionicSlideBoxDelegate
 
 
 
@@ -98,7 +98,7 @@ resize it for the elements inside).
 
 <div id="slide"></div>
 <h2>
-  <code>slide(to, [speed])</code>
+  <code>slide(to,&nbsp;[speed])</code>
 
 </h2>
 

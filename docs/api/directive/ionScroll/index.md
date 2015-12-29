@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/scroll.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/scroll.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/scroll.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/scroll.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,13 +25,13 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-scroll
+ion-scroll
 
 
 
 <br/>
 <small>
-  Delegate: <a href="/docs/api/service/$ionicScrollDelegate/"><code>$ionicScrollDelegate</code></a>
+Delegate: <a href="/docs/api/service/$ionicScrollDelegate/"><code>$ionicScrollDelegate</code></a>
 </small>
 
 </h1>
@@ -51,9 +51,9 @@ Creates a scrollable container for all content inside.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 Basic usage:
 
 ```html
@@ -66,8 +66,8 @@ Note that it's important to set the height of the scroll box as well as the heig
 content to enable scrolling. This makes it possible to have full control over scrollable areas.
 
 If you'd just like to have a center content scrolling area, use <a href="/docs/api/directive/ionContent/"><code>ionContent</code></a> instead.
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -289,9 +289,9 @@ of the content.  Defaults to true on iOS, false on Android.</p>
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navView.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navView.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navView.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navView.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-nav-view
+ion-nav-view
 
 
 
@@ -63,9 +63,9 @@ and remember to replace ui-view with ion-nav-view in examples).
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 In this example, we will create a navigation view that contains our different states for the app.
 
 To do this, in our markup we use ionNavView top level directive. To display a header bar we use
@@ -173,8 +173,8 @@ how it all works:
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/dqJRoh8MnBo"
 frameborder="0" allowfullscreen></iframe>
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -210,9 +210,9 @@ information, see ui-router&#39;s
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

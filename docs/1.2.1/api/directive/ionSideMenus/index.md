@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/sideMenus.js#L3'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/sideMenus.js#L3'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/sideMenus.js#L3'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/sideMenus.js#L3'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,13 +25,13 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-side-menus
+ion-side-menus
 
 
 
 <br/>
 <small>
-  Delegate: <a href="/docs/api/service/$ionicSideMenuDelegate/"><code>$ionicSideMenuDelegate</code></a>
+Delegate: <a href="/docs/api/service/$ionicSideMenuDelegate/"><code>$ionicSideMenuDelegate</code></a>
 </small>
 
 </h1>
@@ -76,9 +76,9 @@ For more information on side menus, check out:
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 To use side menus, add an `<ion-side-menus>` parent element. This will encompass all pages that have a
 side menu, and have at least 2 child elements: 1 `<ion-side-menu-content>` for the center content,
 and one or more `<ion-side-menu>` directives for each side menu(left/right) that you wish to place.
@@ -106,8 +106,8 @@ function ContentController($scope, $ionicSideMenuDelegate) {
   };
 }
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -162,9 +162,9 @@ with <a href="/docs/api/service/$ionicSideMenuDelegate/"><code>$ionicSideMenuDel
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

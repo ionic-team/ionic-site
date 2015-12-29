@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/gesture.js#L105'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/gesture.js#L105'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/gesture.js#L105'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/gesture.js#L105'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  on-drag
+on-drag
 
 
 
@@ -46,16 +46,16 @@ blocking you disable scrolling on that area.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <button on-drag="onDrag()" class="button">Test</button>
 ```
-  
-  
 
-  
+
+
+
 
 
 

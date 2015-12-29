@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navTitle.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navTitle.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navTitle.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navTitle.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,12 +25,12 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-nav-title
+ion-nav-title
 
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a>
+Child of <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a>
 </small>
 
 
@@ -56,9 +56,9 @@ Note that `ion-nav-title` must be an immediate descendant of the `ion-view` or
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-nav-bar>
 </ion-nav-bar>
@@ -73,10 +73,10 @@ Note that `ion-nav-title` must be an immediate descendant of the `ion-view` or
   </ion-view>
 </ion-nav-view>
 ```
-  
-  
 
-  
+
+
+
 
 
 

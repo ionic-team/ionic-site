@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/menuToggle.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/menuToggle.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/menuToggle.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/menuToggle.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  menu-toggle
+menu-toggle
 
 
 
@@ -44,9 +44,9 @@ Toggle a side menu on the given side.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 Below is an example of a link within a nav bar. Tapping this button
 would open the given side menu, and tapping it again would close it.
 
@@ -73,10 +73,10 @@ directive to true.
 ```html
 <ion-side-menus enable-menu-with-back-views="true">
 ```
-  
-  
 
-  
+
+
+
 
 
 

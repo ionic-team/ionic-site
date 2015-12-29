@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/menuClose.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/menuClose.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/menuClose.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/menuClose.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  menu-close
+menu-close
 
 
 
@@ -51,9 +51,9 @@ menu button. We recommend that you also use the `enable-menu-with-back-views="fa
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 Below is an example of a link within a side menu. Tapping this link would
 automatically close the currently opened menu.
 
@@ -72,10 +72,10 @@ $ionicHistory.nextViewOptions({
  expire: 300
 });
 ```
-  
-  
 
-  
+
+
+
 
 
 

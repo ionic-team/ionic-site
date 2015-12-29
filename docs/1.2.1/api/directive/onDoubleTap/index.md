@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/gesture.js#L41'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/gesture.js#L41'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/gesture.js#L41'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/gesture.js#L41'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  on-double-tap
+on-double-tap
 
 
 
@@ -44,16 +44,16 @@ Double tap touch at a location.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <button on-double-tap="onDoubleTap()" class="button">Test</button>
 ```
-  
-  
 
-  
+
+
+
 
 
 

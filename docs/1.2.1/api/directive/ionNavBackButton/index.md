@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navBackButton.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navBackButton.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navBackButton.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navBackButton.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,12 +25,12 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-nav-back-button
+ion-nav-back-button
 
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a>
+Child of <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a>
 </small>
 
 
@@ -57,9 +57,9 @@ possible, as outlined below.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 Recommended markup for default settings:
 
 ```html
@@ -96,10 +96,10 @@ function MyCtrl($scope, $ionicHistory) {
   };
 }
 ```
-  
-  
 
-  
+
+
+
 
 
 

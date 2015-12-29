@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/item.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/item.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/item.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/item.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,12 +25,12 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-item
+ion-item
 
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionList/"><code>ionList</code></a>
+Child of <a href="/docs/api/directive/ionList/"><code>ionList</code></a>
 </small>
 
 
@@ -49,9 +49,9 @@ docType: "directive"
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-list>
   <ion-item>Hello!</ion-item>
@@ -60,10 +60,10 @@ docType: "directive"
   </ion-item>
 </ion-list>
 ```
-  
-  
 
-  
+
+
+
 
 
 

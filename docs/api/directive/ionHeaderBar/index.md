@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/headerFooterBar.js#L5'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/headerFooterBar.js#L5'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/headerFooterBar.js#L5'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/headerFooterBar.js#L5'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-header-bar
+ion-header-bar
 
 
 
@@ -47,9 +47,9 @@ See [the header CSS docs](/docs/components/#subheader).
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-header-bar align-title="left" class="bar-positive">
   <div class="buttons">
@@ -64,8 +64,8 @@ See [the header CSS docs](/docs/components/#subheader).
   Some content!
 </ion-content>
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -121,9 +121,9 @@ Available: true or false.  Defaults to false.</p>
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

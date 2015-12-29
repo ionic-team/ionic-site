@@ -11,13 +11,13 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/gesture.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/gesture.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/gesture.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/gesture.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "service"
 
 <h1 class="api-title">
 
-  $ionicGesture
+$ionicGesture
 
 
 
@@ -54,7 +54,7 @@ An angular service exposing ionic
 
 <div id="on"></div>
 <h2>
-  <code>on(eventType, callback, $element, options)</code>
+  <code>on(eventType,&nbsp;callback,&nbsp;$element,&nbsp;options)</code>
 
 </h2>
 
@@ -157,7 +157,7 @@ happens.</p>
 
 <div id="off"></div>
 <h2>
-  <code>off(gesture, eventType, callback)</code>
+  <code>off(gesture,&nbsp;eventType,&nbsp;callback)</code>
 
 </h2>
 

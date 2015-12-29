@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navTransition.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navTransition.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navTransition.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navTransition.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  nav-transition
+nav-transition
 
 
 
@@ -45,16 +45,16 @@ Current, options are `ios`, `android`, and `none`. More options coming soon.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <a nav-transition="none" href="#/home">Home</a>
 ```
-  
-  
 
-  
+
+
+
 
 
 

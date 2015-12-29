@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/view.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/view.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/view.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/view.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,12 +25,12 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-view
+ion-view
 
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a>
+Child of <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a>
 </small>
 
 
@@ -60,9 +60,9 @@ as an attribute on the view itself (see below).
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 Below is an example where our page will load with a <a href="/docs/api/directive/ionNavBar/"><code>ionNavBar</code></a> containing
 "My Page" as the title.
 
@@ -134,8 +134,8 @@ Caching can be disabled and enabled in multiple ways. By default, Ionic will
 cache a maximum of 10 views. You can optionally choose to disable caching at
 either an individual view basis, or by global configuration. Please see the
 _Caching_ section in <a href="/docs/api/directive/ionNavView/"><code>ionNavView</code></a> for more info.
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -243,9 +243,9 @@ from, or there isn&#39;t a previous view. Default <code>true</code></p>
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

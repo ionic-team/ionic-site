@@ -11,13 +11,13 @@ docType: "utility"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/events.js#L44'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/events.js#L44'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/utils/events.js#L44'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/utils/events.js#L44'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "utility"
 
 <h1 class="api-title">
 
-  ionic.EventController
+ionic.EventController
 
 
 
@@ -53,7 +53,7 @@ docType: "utility"
 
 <div id="trigger"></div>
 <h2>
-  <code>trigger(eventType, data, [bubbles], [cancelable])</code><small>(alias: ionic.trigger)</small>
+  <code>trigger(eventType,&nbsp;data,&nbsp;[bubbles],&nbsp;[cancelable])</code><small>(alias: ionic.trigger)</small>
 
 </h2>
 
@@ -153,7 +153,7 @@ docType: "utility"
 
 <div id="on"></div>
 <h2>
-  <code>on(type, callback, element)</code><small>(alias: ionic.on)</small>
+  <code>on(type,&nbsp;callback,&nbsp;element)</code><small>(alias: ionic.on)</small>
 
 </h2>
 
@@ -235,7 +235,7 @@ Listen to an event on an element.
 
 <div id="off"></div>
 <h2>
-  <code>off(type, callback, element)</code><small>(alias: ionic.off)</small>
+  <code>off(type,&nbsp;callback,&nbsp;element)</code><small>(alias: ionic.off)</small>
 
 </h2>
 
@@ -314,7 +314,7 @@ Remove an event listener.
 
 <div id="onGesture"></div>
 <h2>
-  <code>onGesture(eventType, callback, element, options)</code><small>(alias: ionic.onGesture)</small>
+  <code>onGesture(eventType,&nbsp;callback,&nbsp;element,&nbsp;options)</code><small>(alias: ionic.onGesture)</small>
 
 </h2>
 
@@ -424,7 +424,7 @@ happens.</p>
 
 <div id="offGesture"></div>
 <h2>
-  <code>offGesture(gesture, eventType, callback)</code><small>(alias: ionic.offGesture)</small>
+  <code>offGesture(gesture,&nbsp;eventType,&nbsp;callback)</code><small>(alias: ionic.offGesture)</small>
 
 </h2>
 

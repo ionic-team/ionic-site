@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/keyboardAttach.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/keyboardAttach.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/keyboardAttach.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/keyboardAttach.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  keyboard-attach
+keyboard-attach
 
 
 
@@ -55,18 +55,18 @@ the keyboard when the keyboard shows. Currently only supports the
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
  <ion-footer-bar align-title="left" keyboard-attach class="bar-assertive">
    <h1 class="title">Title!</h1>
  </ion-footer-bar>
 ```
-  
-  
 
-  
+
+
+
 
 
 

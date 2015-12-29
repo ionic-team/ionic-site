@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/content.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/content.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/content.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/content.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,13 +25,13 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-content
+ion-content
 
 
 
 <br/>
 <small>
-  Delegate: <a href="/docs/api/service/$ionicScrollDelegate/"><code>$ionicScrollDelegate</code></a>
+Delegate: <a href="/docs/api/service/$ionicScrollDelegate/"><code>$ionicScrollDelegate</code></a>
 </small>
 
 </h1>
@@ -65,32 +65,32 @@ is important, you can read [https://docs.angularjs.org/guide/scope](https://docs
 
 
 
-  
-<h2 id="usage">Usage</h2>
-  
-    
 
-  ```html
-  <ion-content
-    [delegate-handle=""]
-    [direction=""]
-    [locking=""]
-    [padding=""]
-    [scroll=""]
-    [overflow-scroll=""]
-    [scrollbar-x=""]
-    [scrollbar-y=""]
-    [start-x=""]
-    [start-y=""]
-    [on-scroll=""]
-    [on-scroll-complete=""]
-    [has-bouncing=""]
-    [scroll-event-interval=""]>
-  ...
-  </ion-content>
-  ```
-    
-  
+<h2 id="usage">Usage</h2>
+
+
+
+```html
+<ion-content
+[delegate-handle=""]
+[direction=""]
+[locking=""]
+[padding=""]
+[scroll=""]
+[overflow-scroll=""]
+[scrollbar-x=""]
+[scrollbar-y=""]
+[start-x=""]
+[start-y=""]
+[on-scroll=""]
+[on-scroll-complete=""]
+[has-bouncing=""]
+[scroll-event-interval=""]>
+...
+</ion-content>
+```
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -348,9 +348,9 @@ of the content.  Defaults to true on iOS, false on Android.</p>
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/tab.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/tab.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/tab.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/tab.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,12 +25,12 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-tab
+ion-tab
 
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionTabs/"><code>ionTabs</code></a>
+Child of <a href="/docs/api/directive/ionTabs/"><code>ionTabs</code></a>
 </small>
 
 
@@ -51,9 +51,9 @@ Each ionTab has its own view history.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-tab
   title="Tab!"
@@ -64,8 +64,8 @@ Each ionTab has its own view history.
 </ion-tab>
 ```
 For a complete, working tab bar example, see the <a href="/docs/api/directive/ionTabs/"><code>ionTabs</code></a> documentation.
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -285,9 +285,9 @@ For a complete, working tab bar example, see the <a href="/docs/api/directive/io
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/itemDeleteButton.js#L4'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/itemDeleteButton.js#L4'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/itemDeleteButton.js#L4'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/itemDeleteButton.js#L4'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,12 +25,12 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-delete-button
+ion-delete-button
 
 
 <br />
 <small>
-  Child of <a href="/docs/api/directive/ionItem/"><code>ionItem</code></a>
+Child of <a href="/docs/api/directive/ionItem/"><code>ionItem</code></a>
 </small>
 
 
@@ -49,9 +49,9 @@ docType: "directive"
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-list show-delete="shouldShowDelete">
   <ion-item>
@@ -63,10 +63,10 @@ docType: "directive"
   Show Delete?
 </ion-toggle>
 ```
-  
-  
 
-  
+
+
+
 
 
 

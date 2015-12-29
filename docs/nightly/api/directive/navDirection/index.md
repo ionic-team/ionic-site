@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navDirection.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navDirection.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navDirection.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navDirection.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  nav-direction
+nav-direction
 
 
 
@@ -45,16 +45,16 @@ are: `forward`, `back`, `enter`, `exit`, `swap`.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <a nav-direction="forward" href="#/home">Home</a>
 ```
-  
-  
 
-  
+
+
+
 
 
 

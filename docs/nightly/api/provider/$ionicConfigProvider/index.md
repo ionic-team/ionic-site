@@ -11,13 +11,13 @@ docType: "provider"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/ionicConfig.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/ionicConfig.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/ionicConfig.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/ionicConfig.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "provider"
 
 <h1 class="api-title">
 
-  $ionicConfigProvider
+$ionicConfigProvider
 
 
 

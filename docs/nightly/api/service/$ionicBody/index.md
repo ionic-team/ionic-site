@@ -11,13 +11,13 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/body.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/body.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/body.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/body.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "service"
 
 <h1 class="api-title">
 
-  $ionicBody
+$ionicBody
 
 
 
@@ -156,7 +156,7 @@ Remove a class from the document's body element.
 
 <div id="enableClass"></div>
 <h2>
-  <code>enableClass(shouldEnableClass, class)</code>
+  <code>enableClass(shouldEnableClass,&nbsp;class)</code>
 
 </h2>
 

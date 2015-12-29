@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/tabs.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/tabs.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/tabs.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/tabs.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,13 +25,13 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-tabs
+ion-tabs
 
 
 
 <br/>
 <small>
-  Delegate: <a href="/docs/nightly/api/service/$ionicTabsDelegate/"><code>$ionicTabsDelegate</code></a>
+Delegate: <a href="/docs/nightly/api/service/$ionicTabsDelegate/"><code>$ionicTabsDelegate</code></a>
 </small>
 
 </h1>
@@ -65,9 +65,9 @@ certain CSS bug.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-tabs class="tabs-positive tabs-icon-top">
 
@@ -85,8 +85,8 @@ certain CSS bug.
 
 </ion-tabs>
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -120,9 +120,9 @@ with <a href="/docs/nightly/api/service/$ionicTabsDelegate/"><code>$ionicTabsDel
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

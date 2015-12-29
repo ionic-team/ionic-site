@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/radio.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/radio.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/radio.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/radio.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-radio
+ion-radio
 
 
 
@@ -48,16 +48,16 @@ Radio behaves like [AngularJS radio](http://docs.angularjs.org/api/ng/input/inpu
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-radio ng-model="choice" ng-value="'A'">Choose A</ion-radio>
 <ion-radio ng-model="choice" ng-value="'B'">Choose B</ion-radio>
 <ion-radio ng-model="choice" ng-value="'C'">Choose C</ion-radio>
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -209,9 +209,9 @@ Radio behaves like [AngularJS radio](http://docs.angularjs.org/api/ng/input/inpu
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/collectionRepeat.js#L2'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/collectionRepeat.js#L2'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/collectionRepeat.js#L2'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/collectionRepeat.js#L2'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  collection-repeat
+collection-repeat
 
 
 
@@ -67,9 +67,9 @@ the current scroll position will be rendered.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 #### Basic Item List ([codepen](http://codepen.io/ionic/pen/0c2c35a34a8b18ad4d793fef0b081693))
 ```html
 <ion-content>
@@ -101,8 +101,8 @@ the current scroll position will be rendered.
   </ion-scroll>
 </ion-content>
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -214,9 +214,9 @@ the current scroll position will be rendered.
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

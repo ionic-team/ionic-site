@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/pane.js#L2'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/pane.js#L2'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/pane.js#L2'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/pane.js#L2'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-pane
+ion-pane
 
 
 
@@ -44,20 +44,20 @@ A simple container that fits content, with no side effects.  Adds the 'pane' cla
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
-    
 
-  ```html
-  <ion-pane>
-  ...
-  </ion-pane>
-  ```
-    
-  
 
-  
+
+```html
+<ion-pane>
+...
+</ion-pane>
+```
+
+
+
+
 
 
 

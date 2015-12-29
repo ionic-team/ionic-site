@@ -11,13 +11,13 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/platform.js#L2'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/platform.js#L2'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/platform.js#L2'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/platform.js#L2'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "service"
 
 <h1 class="api-title">
 
-  $ionicPlatform
+$ionicPlatform
 
 
 
@@ -154,7 +154,7 @@ originally bound.</p>
 
 <div id="registerBackButtonAction"></div>
 <h2>
-  <code>registerBackButtonAction(callback, priority, [actionId])</code>
+  <code>registerBackButtonAction(callback,&nbsp;priority,&nbsp;[actionId])</code>
 
 </h2>
 
@@ -261,7 +261,7 @@ this backButtonAction.
 
 <div id="on"></div>
 <h2>
-  <code>on(type, callback)</code>
+  <code>on(type,&nbsp;callback)</code>
 
 </h2>
 

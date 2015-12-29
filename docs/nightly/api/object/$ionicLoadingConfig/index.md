@@ -11,13 +11,13 @@ docType: "object"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/loading.js#L35'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/loading.js#L35'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/loading.js#L35'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/loading.js#L35'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "object"
 
 <h1 class="api-title">
 
-  $ionicLoadingConfig
+$ionicLoadingConfig
 
 
 

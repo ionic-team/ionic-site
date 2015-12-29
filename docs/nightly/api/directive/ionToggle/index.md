@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/toggle.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/toggle.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/toggle.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/toggle.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-toggle
+ion-toggle
 
 
 
@@ -50,17 +50,17 @@ The toggle behaves like any [AngularJS checkbox](http://docs.angularjs.org/api/n
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 Below is an example of a toggle directive which is wired up to the `airplaneMode` model
 and has the `toggle-calm` CSS class assigned to the inner element.
 
 ```html
 <ion-toggle ng-model="airplaneMode" toggle-class="toggle-calm">Airplane Mode</ion-toggle>
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -93,9 +93,9 @@ and has the `toggle-calm` CSS class assigned to the inner element.
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

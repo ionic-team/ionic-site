@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/checkbox.js#L2'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/checkbox.js#L2'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/checkbox.js#L2'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/checkbox.js#L2'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-checkbox
+ion-checkbox
 
 
 
@@ -48,16 +48,16 @@ The checkbox behaves like any [AngularJS checkbox](http://docs.angularjs.org/api
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-checkbox ng-model="isChecked">Checkbox Label</ion-checkbox>
 ```
-  
-  
 
-  
+
+
+
 
 
 

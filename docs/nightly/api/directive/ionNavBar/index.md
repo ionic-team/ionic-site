@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navBar.js#L2'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navBar.js#L2'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/navBar.js#L2'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/navBar.js#L2'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,13 +25,13 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-nav-bar
+ion-nav-bar
 
 
 
 <br/>
 <small>
-  Delegate: <a href="/docs/nightly/api/service/$ionicNavBarDelegate/"><code>$ionicNavBarDelegate</code></a>
+Delegate: <a href="/docs/nightly/api/service/$ionicNavBarDelegate/"><code>$ionicNavBarDelegate</code></a>
 </small>
 
 </h1>
@@ -58,9 +58,9 @@ ionView around it.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <body ng-app="starter">
   <!-- The nav bar that will be updated as we navigate -->
@@ -75,8 +75,8 @@ ionView around it.
   </ion-nav-view>
 </body>
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -147,9 +147,9 @@ to the top when tapped.  Set no-tap-scroll to true to disable this behavior.</p>
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/list.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/list.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/list.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/list.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,13 +25,13 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-list
+ion-list
 
 
 
 <br/>
 <small>
-  Delegate: <a href="/docs/nightly/api/service/$ionicListDelegate/"><code>$ionicListDelegate</code></a>
+Delegate: <a href="/docs/nightly/api/service/$ionicListDelegate/"><code>$ionicListDelegate</code></a>
 </small>
 
 </h1>
@@ -62,9 +62,9 @@ Related: <a href="/docs/nightly/api/directive/ionItem/"><code>ionItem</code></a>
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 Basic Usage:
 
 ```html
@@ -114,8 +114,8 @@ app.controller('MyCtrl', function($scope) {
  $scope.listCanSwipe = true
 });
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -220,9 +220,9 @@ option buttons. Default: true.</p>
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

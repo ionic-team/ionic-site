@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/infiniteScroll.js#L1'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/infiniteScroll.js#L1'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/infiniteScroll.js#L1'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/infiniteScroll.js#L1'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,12 +25,12 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-infinite-scroll
+ion-infinite-scroll
 
 
 <br />
 <small>
-  Child of <a href="/docs/nightly/api/directive/ionContent/"><code>ionContent</code></a> or <a href="/docs/nightly/api/directive/ionScroll/"><code>ionScroll</code></a>
+Child of <a href="/docs/nightly/api/directive/ionContent/"><code>ionContent</code></a> or <a href="/docs/nightly/api/directive/ionScroll/"><code>ionScroll</code></a>
 </small>
 
 
@@ -55,9 +55,9 @@ event from your controller (see below example).
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-content ng-controller="MyController">
   <ion-list>
@@ -97,8 +97,8 @@ is to use angular's `ng-if` directive:
   on-infinite="loadMoreData()">
 </ion-infinite-scroll>
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -203,9 +203,9 @@ in favor of the SVG <a href="/docs/nightly/api/directive/ionSpinner/"><code>ionS
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

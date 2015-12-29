@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/gesture.js#L249'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/gesture.js#L249'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/gesture.js#L249'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/gesture.js#L249'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  on-swipe-down
+on-swipe-down
 
 
 
@@ -44,16 +44,16 @@ Called when a moving touch has a high velocity moving down.
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <button on-swipe-down="onSwipeDown()" class="button">Test</button>
 ```
-  
-  
 
-  
+
+
+
 
 
 

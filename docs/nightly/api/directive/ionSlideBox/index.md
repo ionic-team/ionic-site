@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/slideBox.js#L2'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/slideBox.js#L2'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/slideBox.js#L2'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/slideBox.js#L2'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,13 +25,13 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-slide-box
+ion-slide-box
 
 
 
 <br/>
 <small>
-  Delegate: <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDelegate</code></a>
+Delegate: <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDelegate</code></a>
 </small>
 
 </h1>
@@ -47,8 +47,8 @@ The Slide Box is a multi-page container where each page can be swiped or dragged
 
 
 <fieldset class="deprecated">
-  <legend>Deprecated API</legend>
-  <p>will be removed in the next Ionic release in favor of the new ion-slides component.
+<legend>Deprecated API</legend>
+<p>will be removed in the next Ionic release in favor of the new ion-slides component.
 Don&#39;t depend on the internal behavior of this widget.</p>
 
 </fieldset>
@@ -58,9 +58,9 @@ Don&#39;t depend on the internal behavior of this widget.</p>
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-slide-box on-slide-changed="slideHasChanged($index)">
   <ion-slide>
@@ -74,8 +74,8 @@ Don&#39;t depend on the internal behavior of this widget.</p>
   </ion-slide>
 </ion-slide-box>
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -228,9 +228,9 @@ with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

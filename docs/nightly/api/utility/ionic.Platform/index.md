@@ -11,13 +11,13 @@ docType: "utility"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/platform.js#L16'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/platform.js#L16'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/utils/platform.js#L16'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/utils/platform.js#L16'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "utility"
 
 <h1 class="api-title">
 
-  ionic.Platform
+ionic.Platform
 
 
 
@@ -469,7 +469,7 @@ Shows or hides the device status bar (in Cordova). Requires `cordova plugin add 
 
 <div id="fullScreen"></div>
 <h2>
-  <code>fullScreen([showFullScreen], [showStatusBar])</code>
+  <code>fullScreen([showFullScreen],&nbsp;[showStatusBar])</code>
 
 </h2>
 

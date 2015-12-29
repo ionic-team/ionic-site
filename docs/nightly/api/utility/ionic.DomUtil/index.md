@@ -11,13 +11,13 @@ docType: "utility"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/dom.js#L37'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/utils/dom.js#L37'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/utils/dom.js#L37'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/utils/dom.js#L37'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,7 +25,7 @@ docType: "utility"
 
 <h1 class="api-title">
 
-  ionic.DomUtil
+ionic.DomUtil
 
 
 
@@ -317,7 +317,7 @@ Get a rect representing the bounds of the given textNode.
 
 <div id="getChildIndex"></div>
 <h2>
-  <code>getChildIndex(element, type)</code>
+  <code>getChildIndex(element,&nbsp;type)</code>
 
 </h2>
 
@@ -386,7 +386,7 @@ specified type.
 
 <div id="getParentWithClass"></div>
 <h2>
-  <code>getParentWithClass(element, className)</code>
+  <code>getParentWithClass(element,&nbsp;className)</code>
 
 </h2>
 
@@ -453,7 +453,7 @@ className, or null.
 
 <div id="getParentOrSelfWithClass"></div>
 <h2>
-  <code>getParentOrSelfWithClass(element, className)</code>
+  <code>getParentOrSelfWithClass(element,&nbsp;className)</code>
 
 </h2>
 
@@ -520,7 +520,7 @@ className, or null.
 
 <div id="rectContains"></div>
 <h2>
-  <code>rectContains(x, y, x1, y1, x2, y2)</code>
+  <code>rectContains(x,&nbsp;y,&nbsp;x1,&nbsp;y1,&nbsp;x2,&nbsp;y2)</code>
 
 </h2>
 

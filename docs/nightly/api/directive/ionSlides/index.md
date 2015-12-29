@@ -11,13 +11,13 @@ docType: "directive"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/slides.js#L2'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/slides.js#L2'>
-    Improve this doc
-  </a>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/directive/slides.js#L2'>
+View Source
+</a>
+&nbsp;
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/directive/slides.js#L2'>
+Improve this doc
+</a>
 </div>
 
 
@@ -25,13 +25,13 @@ docType: "directive"
 
 <h1 class="api-title">
 
-  ion-slides
+ion-slides
 
 
 
 <br/>
 <small>
-  Delegate: <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDelegate</code></a>
+Delegate: <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDelegate</code></a>
 </small>
 
 </h1>
@@ -54,9 +54,9 @@ Note: this is a new version of the Ionic Slide Box based on the [Swiper](http://
 
 
 
-  
+
 <h2 id="usage">Usage</h2>
-  
+
 ```html
 <ion-slides on-slide-changed="slideHasChanged($index)">
   <ion-slide-page>
@@ -70,8 +70,8 @@ Note: this is a new version of the Ionic Slide Box based on the [Swiper](http://
   </ion-slide-page>
 </ion-slides>
 ```
-  
-  
+
+
 <h2 id="api" style="clear:both;">API</h2>
 
 <table class="table" style="margin:0;">
@@ -122,9 +122,9 @@ with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSli
   </tbody>
 </table>
 
-  
 
-  
+
+
 
 
 

@@ -6,13 +6,12 @@ title: Platform Specific Styles
 header_title: Platform Specific Styles
 header_sub_title: Platform Specific Styles
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/platform-specific-styles/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Platform Specific Styles</h1>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/platform-specific-styles/index.md'>
+  Improve this doc
+</a>
+
 
 Ionic uses modes to customize the look of components to match the platform you are using. For example, when you are viewing the app on an Android device, the `<body>` will have `class="md"` added to it by default:
 

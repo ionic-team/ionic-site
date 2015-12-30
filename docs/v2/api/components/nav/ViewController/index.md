@@ -80,7 +80,7 @@ export class MyPage{
 Check to see if you can go back in the navigation stack
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -114,8 +114,11 @@ Check to see if you can go back in the navigation stack
 
 
 
-* Returns: 
-  <code>boolean</code> Returns if it's possible to go back from this Page.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> Returns if it's possible to go back from this Page.  
+</div>
 
 
 
@@ -146,8 +149,11 @@ You can find out the index of the current view is in the current navigation stac
 
 
 
-* Returns: 
-  <code>Number</code> Returns the index of this page within its NavController.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Number</code> Returns the index of this page within its NavController.  
+</div>
 
 
 
@@ -167,8 +173,11 @@ You can find out the index of the current view is in the current navigation stac
 
 
 
-* Returns: 
-  <code>boolean</code> Returns if this Page is the root page of the NavController.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> Returns if this Page is the root page of the NavController.  
+</div>
 
 
 
@@ -200,8 +209,11 @@ export class Page1 {
 
 
 
-* Returns: 
-  <code>boolean</code> Returns a boolean if this Page has a navbar or not.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> Returns a boolean if this Page has a navbar or not.  
+</div>
 
 
 
@@ -230,7 +242,7 @@ Make sure you use the view events when calling this method, otherwise the back-b
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -278,7 +290,7 @@ Make sure you use the view events when calling this method, otherwise the back-b
 Set if the back button for the current view is visible or not. Be sure to wrap this in `onPageWillEnter` to make sure the has been compleltly rendered.
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>

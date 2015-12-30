@@ -105,7 +105,7 @@ public API, and most often you will only use ActionSheet.open()
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -154,8 +154,11 @@ public API, and most often you will only use ActionSheet.open()
 
 
 
-* Returns: 
-  <code>Promise</code> Promise that resolves when the action sheet is open.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Promise that resolves when the action sheet is open.  
+</div>
 
 
 
@@ -172,7 +175,7 @@ Retrieves an actionSheet instance.
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -206,8 +209,11 @@ Retrieves an actionSheet instance.
 
 
 
-* Returns: 
-  <code>ActionSheet</code> An actionSheet instance.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>ActionSheet</code> An actionSheet instance.  
+</div>
 
 
 <!-- related link -->

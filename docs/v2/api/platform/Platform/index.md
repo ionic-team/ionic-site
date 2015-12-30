@@ -97,7 +97,7 @@ export MyClass {
 ```
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -130,8 +130,11 @@ export MyClass {
 
 
 
-* Returns: 
-  <code>bool</code> returns true/false based on platform you place
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>bool</code> returns true/false based on platform you place  
+</div>
 
 
 
@@ -165,8 +168,11 @@ export MyClass {
 
 
 
-* Returns: 
-  <code>array</code> the array of platforms
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>array</code> the array of platforms  
+</div>
 
 
 
@@ -193,7 +199,7 @@ export MyClass {
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -227,8 +233,11 @@ export MyClass {
 
 
 
-* Returns: 
-  <code>object</code> An object with various platform info
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>object</code> An object with various platform info  
+</div>
 
 
 
@@ -261,8 +270,11 @@ export MyClass {
 
 
 
-* Returns: 
-  <code>promise</code> Returns a promsie when device ready has fired
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>promise</code> Returns a promsie when device ready has fired  
+</div>
 
 
 <!-- related link --><!-- end content block -->

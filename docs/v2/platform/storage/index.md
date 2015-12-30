@@ -10,7 +10,7 @@ header_sub_title: Save and load data
 
 <h1 class="title">Storage</h1>
 
-<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/storage/index.md'>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/storage/index.md'>
   Improve this doc
 </a>
 

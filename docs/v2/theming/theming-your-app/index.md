@@ -6,13 +6,11 @@ title: Theming your Ionic app
 header_title: Theming your App
 header_sub_title: Customizing your app to fit your brand
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/theming-your-app/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Theming your Ionic App</h1>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/theming-your-app/index.md'>
+  Improve this doc
+</a>
 
 Theme support is baked right in to your Ionic apps. To change the theme, just tweak the `$colors` [map](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps) in your `www/app/app.scss` file:
 

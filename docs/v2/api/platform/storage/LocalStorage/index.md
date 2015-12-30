@@ -90,7 +90,7 @@ export class MyClass{
 Get the value of a key in LocalStorage
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -138,7 +138,7 @@ Get the value of a key in LocalStorage
 Set a key value pair and save it to LocalStorage
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -203,7 +203,7 @@ Set a key value pair and save it to LocalStorage
 Remove a key from LocalStorage
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>

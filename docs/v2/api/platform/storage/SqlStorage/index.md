@@ -95,7 +95,7 @@ like SELECT, INSERT, and UPDATE.
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -146,8 +146,11 @@ like SELECT, INSERT, and UPDATE.
 
 
 
-* Returns: 
-  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}  
+</div>
 
 
 
@@ -163,7 +166,7 @@ like SELECT, INSERT, and UPDATE.
 Get the value in the database identified by the given key.
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -197,8 +200,11 @@ Get the value in the database identified by the given key.
 
 
 
-* Returns: 
-  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}  
+</div>
 
 
 
@@ -214,7 +220,7 @@ Get the value in the database identified by the given key.
 Set the value in the database for the given key. Existing values will be overwritten.
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -265,8 +271,11 @@ Set the value in the database for the given key. Existing values will be overwri
 
 
 
-* Returns: 
-  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}  
+</div>
 
 
 
@@ -282,7 +291,7 @@ Set the value in the database for the given key. Existing values will be overwri
 Remove the value in the database for the given key.
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -333,8 +342,11 @@ Remove the value in the database for the given key.
 
 
 
-* Returns: 
-  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}  
+</div>
 
 
 <!-- related link --><!-- end content block -->

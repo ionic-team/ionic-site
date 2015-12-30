@@ -192,7 +192,7 @@ class MyClass{
 ```
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -260,8 +260,11 @@ class MyClass{
 
 
 
-* Returns: 
-  <code>Promise</code> Returns a promise when the transition is completed
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise when the transition is completed  
+</div>
 
 
 
@@ -290,7 +293,7 @@ class SecondView{
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -324,8 +327,11 @@ class SecondView{
 
 
 
-* Returns: 
-  <code>Promise</code> Returns a promise when the transition is completed
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise when the transition is completed  
+</div>
 
 
 
@@ -341,7 +347,7 @@ class SecondView{
 Similar to `pop()`, this method let's you navigate back to the root of the stack, no matter how many views that is
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -404,7 +410,7 @@ This will insert the `Info` view into the second slot of our navigation stack
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -455,8 +461,11 @@ This will insert the `Info` view into the second slot of our navigation stack
 
 
 
-* Returns: 
-  <code>Promise</code> Returns a promise when the view has been inserted into the navigation stack
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise when the view has been inserted into the navigation stack  
+</div>
 
 
 
@@ -484,7 +493,7 @@ export class Detail {
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -535,8 +544,11 @@ export class Detail {
 
 
 
-* Returns: 
-  <code>Promise</code> Returns a promise when the view has been removed
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise when the view has been removed  
+</div>
 
 
 
@@ -620,7 +632,7 @@ import {Info} from '../info/info'
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -671,8 +683,11 @@ import {Info} from '../info/info'
 
 
 
-* Returns: 
-  <code>Promise</code> Returns a promise when the pages are set
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise when the pages are set  
+</div>
 
 
 
@@ -688,7 +703,7 @@ import {Info} from '../info/info'
 Set the root for the current navigation stack
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -756,8 +771,11 @@ Set the root for the current navigation stack
 
 
 
-* Returns: 
-  <code>Promise</code> Returns a promise when done
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise when done  
+</div>
 
 
 
@@ -773,7 +791,7 @@ Set the root for the current navigation stack
 Check to see if swipe-to-go-back is enabled
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -807,8 +825,11 @@ Check to see if swipe-to-go-back is enabled
 
 
 
-* Returns: 
-  <code>boolean</code> Whether swipe-to-go-back is enabled
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> Whether swipe-to-go-back is enabled  
+</div>
 
 
 
@@ -831,8 +852,11 @@ will return true.
 
 
 
-* Returns: 
-  <code>boolean</code> Whether you can swipe to go back
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> Whether you can swipe to go back  
+</div>
 
 
 
@@ -853,8 +877,11 @@ Otherwise returns false.
 
 
 
-* Returns: 
-  <code>boolean</code> Whether there is a page to go back to
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> Whether there is a page to go back to  
+</div>
 
 
 
@@ -870,7 +897,7 @@ Otherwise returns false.
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -904,8 +931,11 @@ Otherwise returns false.
 
 
 
-* Returns: 
-  <code>Component</code> Returns the component that matches the index given
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Component</code> Returns the component that matches the index given  
+</div>
 
 
 
@@ -925,8 +955,11 @@ First page in this nav controller's stack. This would not return a page which is
 
 
 
-* Returns: 
-  <code>Component</code> Returns the first component page in the current stack
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Component</code> Returns the first component page in the current stack  
+</div>
 
 
 
@@ -946,8 +979,11 @@ Last page in this nav controller's stack. This would not return a page which is 
 
 
 
-* Returns: 
-  <code>Component</code> Returns the last component page in the current stack
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Component</code> Returns the last component page in the current stack  
+</div>
 
 
 
@@ -968,8 +1004,11 @@ not include views which are about to be destroyed.
 
 
 
-* Returns: 
-  <code>Number</code> The number of views in stack, including the current view
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Number</code> The number of views in stack, including the current view  
+</div>
 
 
 
@@ -989,8 +1028,11 @@ Returns the root NavController.
 
 
 
-* Returns: 
-  <code>NavController</code> 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>NavController</code>   
+</div>
 
 
 <!-- related link -->

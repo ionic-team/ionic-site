@@ -95,8 +95,11 @@ export class MyClass{
 
 
 
-* Returns: 
-  <code>Bool</code> returns a true or flase value if the keyboard is open or not
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Bool</code> returns a true or flase value if the keyboard is open or not  
+</div>
 
 
 
@@ -126,7 +129,7 @@ export class MyClass{
 ```
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -160,8 +163,11 @@ export class MyClass{
 
 
 
-* Returns: 
-  <code>Function</code> returns a callback that gets fired when the keyboard is closed
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Function</code> returns a callback that gets fired when the keyboard is closed  
+</div>
 
 
 

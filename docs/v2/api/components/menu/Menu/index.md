@@ -208,7 +208,7 @@ export class MyClass{
 Sets the state of the Menu to open or not.
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -242,8 +242,11 @@ Sets the state of the Menu to open or not.
 
 
 
-* Returns: 
-  <code>Promise</code> returns a promise once set
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> returns a promise once set  
+</div>
 
 
 
@@ -263,8 +266,11 @@ Progamatically open the Menu
 
 
 
-* Returns: 
-  <code>Promise</code> returns a promise when the menu is fully opened
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> returns a promise when the menu is fully opened  
+</div>
 
 
 
@@ -284,8 +290,11 @@ Progamatically close the Menu
 
 
 
-* Returns: 
-  <code>Promise</code> returns a promise when the menu is fully closed
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> returns a promise when the menu is fully closed  
+</div>
 
 
 
@@ -305,8 +314,11 @@ Toggle the menu. If it's closed, it will open, and if opened, it will close
 
 
 
-* Returns: 
-  <code>Promise</code> returns a promise when the menu has been toggled
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> returns a promise when the menu has been toggled  
+</div>
 
 
 
@@ -323,7 +335,7 @@ Used to enable or disable a menu. For example, there could be multiple
 left menus, but only one of them should be able to be dragged open.
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -357,8 +369,11 @@ left menus, but only one of them should be able to be dragged open.
 
 
 
-* Returns: 
-  <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Menu</code> Returns the instance of the menu, which is useful for chaining.  
+</div>
 
 
 <!-- related link -->

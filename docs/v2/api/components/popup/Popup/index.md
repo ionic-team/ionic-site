@@ -121,7 +121,7 @@ Show a simple alert popup with a message and one button
 that the user can tap to close the popup.
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -162,8 +162,11 @@ that the user can tap to close the popup.
 
 
 
-* Returns: 
-  <code>object</code> A promise which is resolved when the popup is closed.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>object</code> A promise which is resolved when the popup is closed.  
+</div>
 
 
 
@@ -182,7 +185,7 @@ Resolves the promise with true if the user presses the OK button, and false if t
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -224,8 +227,11 @@ Resolves the promise with true if the user presses the OK button, and false if t
 
 
 
-* Returns: 
-  <code>object</code> A promise which is resolved when the popup is closed.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>object</code> A promise which is resolved when the popup is closed.  
+</div>
 
 
 
@@ -244,7 +250,7 @@ Resolves the promise with the value of the input if the user presses OK, and wit
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -288,8 +294,11 @@ Resolves the promise with the value of the input if the user presses OK, and wit
 
 
 
-* Returns: 
-  <code>object</code> A promise which is resolved when the popup is closed.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>object</code> A promise which is resolved when the popup is closed.  
+</div>
 
 
 <!-- related link -->

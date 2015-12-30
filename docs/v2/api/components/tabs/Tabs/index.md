@@ -182,7 +182,7 @@ sets whether to preload all the tabs, true or false
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -230,7 +230,7 @@ sets whether to preload all the tabs, true or false
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -264,8 +264,11 @@ sets whether to preload all the tabs, true or false
 
 
 
-* Returns: 
-  <code>Any</code> Tab Returs the tab who's index matches the one passed
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Any</code> Tab Returs the tab who's index matches the one passed  
+</div>
 
 
 
@@ -285,8 +288,11 @@ sets whether to preload all the tabs, true or false
 
 
 
-* Returns: 
-  <code>Any</code> Tab Returns the currently selected tab
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Any</code> Tab Returns the currently selected tab  
+</div>
 
 
 
@@ -307,8 +313,11 @@ within a NavController.
 
 
 
-* Returns: 
-  <code>NavController</code> 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>NavController</code>   
+</div>
 
 
 <!-- related link -->

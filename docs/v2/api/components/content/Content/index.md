@@ -101,7 +101,7 @@ export class MyPage{
 ```
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -135,8 +135,11 @@ export class MyPage{
 
 
 
-* Returns: 
-  <code>Function</code> A function that removes the scroll handler.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Function</code> A function that removes the scroll handler.  
+</div>
 
 
 
@@ -191,7 +194,7 @@ export class MyPage{
 ```
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -225,8 +228,11 @@ export class MyPage{
 
 
 
-* Returns: 
-  <code>Function</code> A function that removes the touchmove handler.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Function</code> A function that removes the touchmove handler.  
+</div>
 
 
 
@@ -263,7 +269,7 @@ export class MyPage{
 ```
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -348,8 +354,11 @@ export class MyPage{
 
 
 
-* Returns: 
-  <code>Promise</code> Returns a promise when done
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise when done  
+</div>
 
 
 
@@ -390,8 +399,11 @@ export class MyPage{
 
 
 
-* Returns: 
-  <code>Promise</code> Returns a promise when done
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise when done  
+</div>
 
 
 <!-- related link --><!-- end content block -->

@@ -249,8 +249,11 @@ export class MyClass{
 
 
 
-* Returns: 
-  <code>Number</code> Returns the index of this page within its NavController.
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Number</code> Returns the index of this page within its NavController.  
+</div>
 
 
 <!-- related link --><!-- end content block -->

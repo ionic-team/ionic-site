@@ -86,7 +86,7 @@ will trigger the provided handler.
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -153,7 +153,7 @@ no longer receive events published to this topic.
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -204,10 +204,13 @@ no longer receive events published to this topic.
 
 
 
-* Returns: 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
    true if a handler was removed
 
-
+  
+</div>
 
 
 
@@ -224,7 +227,7 @@ Publish an event to the given topic.
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>

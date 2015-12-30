@@ -9,13 +9,10 @@ header_includes: <link rel="stylesheet" type="text/css" href="style.css">
 footer_includes: <script src="app.js"></script>
 ---
 
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/overriding-ionic-variables/index.md'>
-    Improve this doc
-  </a>
-</div>
-
 <h1 class="title">Overriding Ionic Sass Variables</h1>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/theming/overriding-ionic-variables/index.md'>
+  Improve this doc
+</a>
 
 There are many variables you can override with Ionic. Any of the following variables can be overridden from your `www/app/app.scss` file, just add a new value above the Ionic import:
 

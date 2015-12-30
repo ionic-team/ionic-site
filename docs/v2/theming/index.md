@@ -6,13 +6,11 @@ title: Ionic 2 Theming
 header_title: Theming Ionic Apps
 header_sub_title: Ionic 2 Developer Preview
 ---
-<div class="improve-docs">
-  <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/theming/index.md'>
-    Improve this doc
-  </a>
-</div>
 
 <h1 class="title">Theming Ionic Apps</h1>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/theming/index.md'>
+  Improve this doc
+</a>
 
 We built Ionic to be a blank slate that you can easily customize and modify to fit your brand, while
 still following the standards of each platform. The best apps in the app stores are fully customized, and we want to make it easy to do the same with your Ionic apps.

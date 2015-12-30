@@ -103,7 +103,7 @@ be hopefully be removed in the near future.)
 
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -174,10 +174,13 @@ allows customization of which animation to use.</p>
 
 
 
-* Returns: 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
   <code>Promise</code> Returns a promise which resolves when the modal has
 loaded and its entering animation has completed. The resolved promise's
-value is the instance of the newly created modal.
+value is the instance of the newly created modal.  
+</div>
 
 
 
@@ -200,7 +203,7 @@ name for the modal instance. You can later get a reference to that modal's
 instance by calling this method with the same handle name.
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -234,10 +237,13 @@ instance by calling this method with the same handle name.
 
 
 
-* Returns: 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
    Returns the instance of the modal if it is found, otherwise `null`.
 
-
+  
+</div>
 
 
 <!-- related link -->

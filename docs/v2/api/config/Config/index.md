@@ -211,7 +211,7 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 Sets a single config value.
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -293,7 +293,7 @@ Sets a single config value.
 Returns a single config value, given a key.
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>

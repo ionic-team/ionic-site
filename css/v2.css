@@ -5045,6 +5045,32 @@ ul.docs-example {
 .highlight .err {
   background-color: #fff; }
 
+.param-table td p {
+  margin: 0; }
+
+.param-table td ul {
+  list-style: none;
+  margin-right: -7px;
+  margin-left: -92px;
+  border: 1px solid #e6e9ee;
+  border-left: none;
+  border-top: none;
+  padding: 10px 17px;
+  border-bottom-right-radius: 0.5em; }
+  .param-table td ul li {
+    padding: 0;
+    margin: 17px 0; }
+
+.return-value b:before {
+  font-family: "Ionicons";
+  -webkit-font-smoothing: antialiased;
+  content: "\f203";
+  font-size: 16px;
+  font-weight: 800;
+  position: relative;
+  padding-right: 5px;
+  top: 2px; }
+
 .docs-ionicons .download {
   margin-top: 60px;
   margin-bottom: 10px; }

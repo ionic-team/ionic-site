@@ -186,7 +186,7 @@ set the max zoom amount for ion-scroll
 Add a scroll event handler to the scroll element if it exists.
 
 
-<table class="table" style="margin:0;">
+<table class="table param-table" style="margin:0;">
   <thead>
     <tr>
       <th>Param</th>
@@ -220,9 +220,12 @@ Add a scroll event handler to the scroll element if it exists.
 
 
 
-* Returns: 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
   <code>?Function</code> a function to remove the specified handler, otherwise
-undefined if the scroll element doesn't exist.
+undefined if the scroll element doesn't exist.  
+</div>
 
 
 <!-- related link --><!-- end content block -->

@@ -179,6 +179,43 @@
     </ul>
   </li>
 
+  <!-- ### CLI ### -->
+  <li class="{% if page.category == 'cli' %}active{% endif %}">
+    <a ng-click="showCli = !showCli">CLI</a>
+    <ul ng-show="showCli"
+        {% if page.category == 'cli' %}
+          ng-init="showCli = true"
+        {% endif %}>
+      <li class="{% if page.id == 'cli-build' %}active{% endif %}">
+        <a href="/docs/v2/cli/build">build</a>
+      </li>
+      <li class="{% if page.id == 'cli-emulate' %}active{% endif %}">
+        <a href="/docs/v2/cli/emulate">emulate</a>
+      </li>
+      <li class="{% if page.id == 'cli-generate' %}active{% endif %}">
+        <a href="/docs/v2/cli/generate">generate</a>
+      </li>
+      <li class="{% if page.id == 'cli-info' %}active{% endif %}">
+        <a href="/docs/v2/cli/info">info</a>
+      </li>
+      <li class="{% if page.id == 'cli-platform' %}active{% endif %}">
+        <a href="/docs/v2/cli/platform">platform</a>
+      </li>
+      <li class="{% if page.id == 'cli-run' %}active{% endif %}">
+        <a href="/docs/v2/cli/run">run</a>
+      </li>
+      <li class="{% if page.id == 'cli-serve' %}active{% endif %}">
+        <a href="/docs/v2/cli/serve">serve</a>
+      </li>
+      <li class="{% if page.id == 'cli-start' %}active{% endif %}">
+        <a href="/docs/v2/cli/start">start</a>
+      </li>
+      <li class="{% if page.id == 'cli-v2' %}active{% endif %}">
+        <a href="/docs/v2/cli/v2">v2</a>
+      </li>
+    </ul>
+  </li>
+
   <!-- ### FAQ ### -->
   <li class="{% if page.category == 'faq' %}active{% endif %}">
     <a href="/docs/v2/faq/">FAQ</a>

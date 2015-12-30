@@ -166,5 +166,11 @@ gulp.task('watch', ['server'],function() {
 
 });
 
+gulp.task('cli-docs', function() {
+  var fs = require('fs');
+  var cliTasks = JSON.stringify(require('../ionic-cli/lib/tasks/cliTasks'));
+  fs.writeFileSync('_data/cliData.json', cliTasks);
+});
+
 gulp.task('build', ['styles:v1', 'styles:v2', 'jekyll-build', 'images', 'js']);
 gulp.task('default', ['build']);

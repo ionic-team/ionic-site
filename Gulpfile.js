@@ -107,7 +107,7 @@ gulp.task('js', function() {
 /**
  * Build the Jekyll Site
  */
-gulp.task('jekyll-build', function(done) {
+gulp.task('jekyll-build', ['cli-docs'], function(done) {
   browserSync.notify(messages.jekyllBuild);
   return cp.spawn('jekyll', ['build'], {stdio: 'inherit'})
            .on('close', done);
@@ -167,9 +167,13 @@ gulp.task('watch', ['server'],function() {
 });
 
 gulp.task('cli-docs', function() {
-  var fs = require('fs');
-  var cliTasks = JSON.stringify(require('../ionic-cli/lib/tasks/cliTasks'));
-  fs.writeFileSync('_data/cliData.json', cliTasks);
+  try {
+    var fs = require('fs');
+    var cliTasks = JSON.stringify(require('../ionic-cli/lib/tasks/cliTasks'));
+    fs.writeFileSync('_data/cliData.json', cliTasks);
+  } catch(e) {
+    console.error('Cannot find module cliTasks, please make sure the ionic-cli repo is cloned locally. ionic-site and ionic-cli should be sibling directories.');
+  }
 });
 
 gulp.task('build', ['styles:v1', 'styles:v2', 'jekyll-build', 'images', 'js']);

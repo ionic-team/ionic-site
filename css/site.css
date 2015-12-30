@@ -15758,7 +15758,6 @@ a {
     max-width: 1170px; }
   @media (min-width: 630px) {
     .footer .copy-container {
-      background: url(/img/drifty-footer-logo.png) no-repeat 0 1px;
       background-size: 128px 32px; } }
   .footer .authors {
     margin: 0;

@@ -186,6 +186,9 @@
         {% if page.category == 'cli' %}
           ng-init="showCli = true"
         {% endif %}>
+      <li class="{% if page.id == 'cli-intro' %}active{% endif %}">
+        <a href="/docs/v2/cli/">Intro</a>
+      </li>
       <li class="{% if page.id == 'cli-build' %}active{% endif %}">
         <a href="/docs/v2/cli/build">build</a>
       </li>

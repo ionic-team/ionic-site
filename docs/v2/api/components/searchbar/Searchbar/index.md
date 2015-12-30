@@ -363,6 +363,44 @@ Expression to evaluate when the clear input button is clicked
 
 
 
+<div id="inputElement"></div>
+
+<h3>
+<code>inputElement()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="searchIconElement"></div>
+
+<h3>
+<code>searchIconElement()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="isFocused"></div>
 
 <h3>
@@ -386,6 +424,25 @@ Expression to evaluate when the clear input button is clicked
 
 <h3>
 <code>shouldLeftAlign()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="elementRef"></div>
+
+<h3>
+<code>elementRef()</code>
   
 
 </h3>

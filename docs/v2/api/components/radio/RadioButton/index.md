@@ -168,6 +168,25 @@ least two <code>&lt;ion-radio&gt;</code> components within the radio group.</p>
 
 
 
+<div id="labelId"></div>
+
+<h3>
+<code>labelId()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="isChecked"></div>
 
 <h3>

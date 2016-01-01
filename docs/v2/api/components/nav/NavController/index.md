@@ -185,7 +185,7 @@ class MyClass{
      },{
       // here we can configure things like the animations direction or
       // or if the view should animate at all.
-      direction: back
+      direction: 'back'
      });
    }
 }

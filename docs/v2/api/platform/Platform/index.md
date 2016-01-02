@@ -277,6 +277,31 @@ export MyClass {
 </div>
 
 
+
+
+<div id="isRTL"></div>
+
+<h3>
+<code>isRTL()</code>
+  
+
+</h3>
+
+Returns if this app is using right-to-left language direction or not.
+http://www.w3.org/International/questions/qa-html-dir
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code>   
+</div>
+
+
 <!-- related link --><!-- end content block -->
 
 

@@ -10,4 +10,4 @@ header_sub_title: Ionic 2 Developer Preview
 
 ## Description
 
-TODO
+The `start` command creates a new Ionic project. Use the `--v2` flag to create a V2 project. This will use the [tabs starter template](https://github.com/driftyco/ionic2-starter-tabs), and also download the latest stable version of Ionic.

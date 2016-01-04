@@ -10,4 +10,4 @@ header_sub_title: Ionic 2 Developer Preview
 
 ## Description
 
-TODO
+The `v2` command prints out information relevant to starting a V2 application.

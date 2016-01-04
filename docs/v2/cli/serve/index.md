@@ -10,4 +10,4 @@ header_sub_title: Ionic 2 Developer Preview
 
 ## Description
 
-TODO
+Use `ionic serve` to start a local development server for app dev and testing. This is useful for both desktop browser testing, and to test within a device browser which is connected to the same network. Additionally, this command starts LiveReload which is used to monitor changes in the file system. As soon as you save a file the browser is refreshed automatically.

@@ -18,9 +18,9 @@ To create a page you can use the following command:
 # ionic g page <PageName>
 ionic g page myPage
 
-√ Create www/app/my-page/my-page.html
-√ Create www/app/my-page/my-page.js
-√ Create www/app/my-page/my-page.scss
+√ Create app/pages/my-page/my-page.html
+√ Create app/pages/my-page/my-page.js
+√ Create app/pages/my-page/my-page.scss
 ```
 
 This will give you a html file, sass file, and a js file with your component definition.
@@ -31,7 +31,7 @@ To create a service, you can replace `page` with `injectable`:
 ```bash
 ionic g injectable MyData
 
-√ Create www/app/my-data/my-data.js
+√ Create app/pages/my-data/my-data.js
 ```
 
 This will create a standard class with a simple `http` get request using Angular's `http` class.

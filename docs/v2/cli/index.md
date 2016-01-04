@@ -14,7 +14,7 @@ The Ionic CLI is the primary tool used during the process of developing an Ionic
 
 ### Installing the CLI
 
-To install the CLI, you will need to first install [node](../resources/what-is#node) and [npm](../resources/what-is#npm). Once installed, run the following command to get the latest version of the Ionic CLI:
+To install the CLI, you will need to first install [node](../resources/what-is#node) and [npm](../resources/what-is#npm). Note - the CLI requires Node 4.X. Node 5.X has been know to cause a number of issues.  Once installed, run the following command to get the latest version of the Ionic CLI:
 
 ```bash
 $ npm install -g ionic@beta

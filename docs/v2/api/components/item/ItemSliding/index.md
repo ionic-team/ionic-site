@@ -62,7 +62,7 @@ Improve this doc
       &lt;button (click)=&quot;favorite(item)&quot;&gt;Favorite&lt;/button&gt;
       &lt;button (click)=&quot;share(item)&quot;&gt;Share&lt;/button&gt;
     &lt;/ion-item-options&gt;
-  &lt;/ion-item&gt;
+  &lt;/ion-item-sliding&gt;
 &lt;/ion-list&gt;
 </code></pre>
 

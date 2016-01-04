@@ -12,16 +12,11 @@ message composition, and option selection.
   View Demo Source
 </a>
 
-First, we need to add the `<ion-overlay>` component to our root `app.html` template. This only needs to be done once, no matter how many modal pages our app contains:
 
-```html
-<ion-overlay></ion-overlay>
-```
-
-Next, we need to create the class that will control our modal. Let's import `Modal`:
+Next, we need to create the class that will control our modal. Let's import `Modal` and `NavController`:
 
 ```typescript
-import {Modal} from 'ionic/ionic';
+import {Modal, NavController} from 'ionic/ionic';
 ```
 
 Next, let's create our modal and define add its template:
@@ -44,14 +39,16 @@ class MyModal {
 Finally, let's add the code that will open our Modal:
 
 ```typescript
+import {Modal, NavController} from 'ionic/ionic'
 class MyPage {
-  constructor(modal: Modal){
-    this.modal = modal;
+  constructor(nav: NavController){
+    this.nav = nav;
   }
   showModal() {
-    this.modal.open(MyModal);
+    let modal = Modal.create(MyModal);
+    this.nav.present(modal)
   }
 }
 ```
 
-The `modal.open()` function can also receive an object as the second argument that will be passed to the modal. See the [Modal API docs](/docs/v2/api/components/modal/Modal/) for more information.
+The `Modal.create()` function can also receive an object as the second argument that will be passed to the modal. See the [Modal API docs](/docs/v2/api/components/modal/Modal/) for more information.

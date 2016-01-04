@@ -49,7 +49,7 @@ Improve this doc
 <p>A Modal is a content pane that goes over the user&#39;s current page.
 Usually it is used for making a choice or editing an item. A modal uses the
 <code>NavController</code> to
-<a href='/docs/v2/api/components/nav/NavController/#present'>NavController.present</a>
+<a href='/docs/v2/api/components/nav/NavController/#present'>present</a>
 itself in the root nav stack. It is added to the stack similar to how
 <a href='/docs/v2/api/components/nav/NavController/#push'>NavController.push</a>
 works.</p>

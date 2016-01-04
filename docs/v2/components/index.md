@@ -14,6 +14,7 @@ angular_controller: ComponentsCtrl
 Ionic apps are made of high-level building blocks called components. Components allow you to quickly construct an interface for your app. Ionic comes with a number of components, including modals, popups, and cards. Although components are primarily HTML and CSS, some components also include Javascript functionality. Check out the examples below to see what each component looks like, and to learn how to use it. Once you're familiar with the basics, head over to the [API docs](../api) for ideas on how to customize each components.
 
 {% include v2_fluid/component-docs/action-sheets.html %}
+{% include v2_fluid/component-docs/alert.html %}
 {% include v2_fluid/component-docs/badges.html %}
 {% include v2_fluid/component-docs/buttons.html %}
 {% include v2_fluid/component-docs/cards.html %}
@@ -26,7 +27,6 @@ Ionic apps are made of high-level building blocks called components. Components 
 {% include v2_fluid/component-docs/modals.html %}
 {% include v2_fluid/component-docs/modes.html %}
 {% include v2_fluid/component-docs/navigation.html %}
-{% include v2_fluid/component-docs/popups.html %}
 {% include v2_fluid/component-docs/radio.html %}
 {% include v2_fluid/component-docs/range.html %}
 {% include v2_fluid/component-docs/searchbar.html %}

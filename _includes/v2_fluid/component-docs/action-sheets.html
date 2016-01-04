@@ -15,20 +15,30 @@ The Action Sheet always appears above any other components on the page, and must
 </a>
 
 ```typescript
-ActionSheet.open({
-  buttons: [
-    { text: 'Share This' },
-    { text: 'Move' }
-  ],
-  destructiveText: 'Delete',
-  titleText: 'Modify your album',
-  cancelText: 'Cancel',
-  cancel: () => {...},
-  destructiveButtonClicked: () => {...},
-  buttonClicked: (index) => {...}
-}).then(actionSheetRef => {
-  // Action sheet was created and opened
-  this.actionSheetRef = actionSheetRef;
-  // this.actionSheetRef.close() to close it
-})
+presentActionSheet() {
+  let actionSheet = ActionSheet.create({
+    title: 'Modify your album',
+    buttons: [
+      {
+        text: 'Destructive',
+        style: 'destructive',
+        handler: () => {
+          console.log('Destructive clicked');
+        }
+      },{
+        text: 'Archive',
+        handler: () => {
+          console.log('Archive clicked');
+        }
+      },{
+        text: 'Cancel',
+        style: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }
+    ]
+  });
+  this.nav.present(actionSheet);
+  }
 ```

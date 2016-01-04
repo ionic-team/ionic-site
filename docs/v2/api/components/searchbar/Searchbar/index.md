@@ -401,6 +401,25 @@ Expression to evaluate when the clear input button is clicked
 
 
 
+<div id="mode"></div>
+
+<h3>
+<code>mode()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="isFocused"></div>
 
 <h3>
@@ -424,25 +443,6 @@ Expression to evaluate when the clear input button is clicked
 
 <h3>
 <code>shouldLeftAlign()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="elementRef"></div>
-
-<h3>
-<code>elementRef()</code>
   
 
 </h3>

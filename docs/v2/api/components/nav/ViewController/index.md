@@ -32,7 +32,7 @@ ViewController
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/view-controller.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/view-controller.ts#L1'>
 Improve this doc
 </a> 
 
@@ -68,6 +68,158 @@ export class MyPage{
 <!-- methods on the class -->
 
 <h2>Methods</h2>
+
+<div id="subscribe"></div>
+
+<h3>
+<code>subscribe()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="emit"></div>
+
+<h3>
+<code>emit()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="onDismiss"></div>
+
+<h3>
+<code>onDismiss()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="dismiss"></div>
+
+<h3>
+<code>dismiss()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="setNav"></div>
+
+<h3>
+<code>setNav()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="getTransitionName"></div>
+
+<h3>
+<code>getTransitionName()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="getNavParams"></div>
+
+<h3>
+<code>getNavParams()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="setLeavingOpts"></div>
+
+<h3>
+<code>setLeavingOpts()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="enableBack"></div>
 

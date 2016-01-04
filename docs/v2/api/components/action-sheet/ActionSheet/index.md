@@ -34,7 +34,7 @@ ActionSheet
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/action-sheet/action-sheet.ts#L66'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/action-sheet/action-sheet.ts#L7'>
 Improve this doc
 </a> 
 
@@ -46,39 +46,62 @@ Improve this doc
 <!-- description -->
 <h2>Description</h2>
 
-<p>The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
-There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.</p>
+<p>An Action Sheet is a dialog that lets the user choose from a set of
+options. It appears on top of the app&#39;s content, and must be manually
+dismissed by the user before they can resume interaction with the app.
+Dangerous (destructive) options are made obvious. There are easy
+ways to cancel out of the action sheet, such as tapping the backdrop or
+hitting the escape key on desktop.</p>
+<p>An action sheet is created from an array of <code>buttons</code>, with each button
+including properties for its <code>text</code>, and optionally a <code>style</code> and <code>handler</code>.
+If a handler returns <code>false</code> then the action sheet will not be dismissed. An
+action sheet can also optionally have a <code>title</code> and a <code>subTitle</code>.</p>
+<p>A button&#39;s <code>style</code> property can either be <code>destructive</code> or <code>cancel</code>. Buttons
+without a style property will have a default style for its platform. Buttons
+with the <code>cancel</code> style will always load as the bottom button, no matter where
+it shows up in the array. All other buttons will show up in the order they
+have been added to the <code>buttons</code> array. Note: We recommend that <code>destructive</code>
+buttons show be the first button in the array, making it the button on top.</p>
+<p>Its shorthand is to add all the action sheet&#39;s options from within the
+<code>ActionSheet.create(opts)</code> first argument. Otherwise the action sheet&#39;s
+instance has methods to add options, such as <code>setTitle()</code> or <code>addButton()</code>.</p>
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">openMenu() {
+<pre><code class="lang-ts">constructor(nav: NavController) {
+  this.nav = nav;
+}
 
-  this.actionSheet.open({
+presentActionSheet() {
+  let actionSheet = ActionSheet.create({
+    title: &#39;Modify your album&#39;,
     buttons: [
-      { text: &#39;Share This&#39; },
-      { text: &#39;Move&#39; }
-    ],
-    destructiveText: &#39;Delete&#39;,
-    titleText: &#39;Modify your album&#39;,
-    cancelText: &#39;Cancel&#39;,
-    cancel: function() {
-      console.log(&#39;Canceled&#39;);
-    },
-    destructiveButtonClicked: () =&gt; {
-      console.log(&#39;Destructive clicked&#39;);
-    },
-    buttonClicked: function(index) {
-      console.log(&#39;Button clicked&#39;, index);
-      if(index == 1) { return false; }
-      return true;
-    }
-
-  }).then(actionSheetRef =&gt; {
-    this.actionSheetRef = actionSheetRef;
+      {
+        text: &#39;Destructive&#39;,
+        style: &#39;destructive&#39;,
+        handler: () =&gt; {
+          console.log(&#39;Destructive clicked&#39;);
+        }
+      },
+      {
+        text: &#39;Archive&#39;,
+        handler: () =&gt; {
+          console.log(&#39;Archive clicked&#39;);
+        }
+      },
+      {
+        text: &#39;Cancel&#39;,
+        style: &#39;cancel&#39;,
+        handler: () =&gt; {
+          console.log(&#39;Cancel clicked&#39;);
+        }
+      }
+    ]
   });
 
+  this.nav.present(actionSheet);
 }
 </code></pre>
 
@@ -92,16 +115,14 @@ There are easy ways to cancel out of the action sheet, such as tapping the backd
 
 <h2>Methods</h2>
 
-<div id="open"></div>
+<div id="setTitle"></div>
 
 <h3>
-<code>open(opts)</code>
+<code>setTitle(title)</code>
   
 
 </h3>
 
-Create and open a new Action Sheet. This is the
-public API, and most often you will only use ActionSheet.open()
 
 
 
@@ -117,7 +138,103 @@ public API, and most often you will only use ActionSheet.open()
     
     <tr>
       <td>
-        opts
+        title
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Action sheet title</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="setSubTitle"></div>
+
+<h3>
+<code>setSubTitle(subTitle)</code>
+  
+
+</h3>
+
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        subTitle
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Action sheet subtitle</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="addButton"></div>
+
+<h3>
+<code>addButton(button)</code>
+  
+
+</h3>
+
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        button
         
         
       </td>
@@ -126,22 +243,7 @@ public API, and most often you will only use ActionSheet.open()
   <code>Object</code>
       </td>
       <td>
-        <p>An object containing optional settings.</p>
-<ul>
-<li><code>[Object]</code> <code>buttons</code> Which buttons to show.  Each button is an object with a <code>text</code> field.</li>
-<li><code>{string}</code> <code>titleText</code> The title to show on the action sheet.</li>
-<li><code>{string=}</code> <code>cancelText</code> the text for a &#39;cancel&#39; button on the action sheet.</li>
-<li><code>{string=}</code> <code>destructiveText</code> The text for a &#39;danger&#39; on the action sheet.</li>
-<li><code>{function=}</code> <code>cancel</code> Called if the cancel button is pressed, the backdrop is tapped or
- the hardware back button is pressed.</li>
-<li><code>{function=}</code> <code>buttonClicked</code> Called when one of the non-destructive buttons is clicked,
- with the index of the button that was clicked and the button object. Return true to close
- the action sheet, or false to keep it opened.</li>
-<li><code>{function=}</code> <code>destructiveButtonClicked</code> Called when the destructive button is clicked.
- Return true to close the action sheet, or false to keep it opened.</li>
-<li><code>{String}</code> <code>enterAnimation</code> The class used to animate an actionSheet that is entering.</li>
-<li><code>{String}</code> <code>leaveAnimation</code> The class used to animate an actionSheet that is leaving.</li>
-</ul>
+        <p>Action sheet button</p>
 
         
       </td>
@@ -153,67 +255,6 @@ public API, and most often you will only use ActionSheet.open()
 
 
 
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> Promise that resolves when the action sheet is open.  
-</div>
-
-
-
-
-<div id="get"></div>
-
-<h3>
-<code>get(handle)</code>
-  
-
-</h3>
-
-Retrieves an actionSheet instance.
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        handle
-        
-        
-      </td>
-      <td>
-        
-  <code>String</code>
-      </td>
-      <td>
-        <p>The handle used to open the instance to be retrieved.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>ActionSheet</code> An actionSheet instance.  
-</div>
 
 
 <!-- related link -->

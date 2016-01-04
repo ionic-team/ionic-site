@@ -171,7 +171,7 @@ We can also pass any options to the transtion from that same method
 
 ```typescript
 class MyClass{
-   constructor(nav:NavController){
+   constructor(nav: NavController){
      this.nav = nav;
    }
 
@@ -213,7 +213,7 @@ class MyClass{
   <code>Any</code>
       </td>
       <td>
-        <p>The name of the component you want to push on the navigation stack</p>
+        <p>The page component class you want to push on to the navigation stack</p>
 
         
       </td>
@@ -263,7 +263,97 @@ class MyClass{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise when the transition is completed  
+  <code>Promise</code> Returns a promise, which resolves when the transition has completed  
+</div>
+
+
+
+
+<div id="present"></div>
+
+<h3>
+<code>present(enteringView,&nbsp;opts)</code>
+  
+
+</h3>
+
+Present is how we display overlays on top of the content, from within the
+root level `NavController`. The `present` method is used by overlays, such
+as `ActionSheet`, `Alert`, and `Modal`. The main difference between `push`
+and `present`, is that `present` takes a `ViewController` instance, whereas
+`push` takes a `Page` component class. Additionally, `present` will place
+the overlay in the root NavController's stack.
+
+```typescript
+class MyClass{
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+
+   presentModal() {
+     let modal = Modal.create(ProfilePage);
+     this.nav.present(modal);
+   }
+}
+```
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        enteringView
+        
+        
+      </td>
+      <td>
+        
+  <code>ViewController</code>
+      </td>
+      <td>
+        <p>The name of the component you want to push on the navigation stack</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>Object</code>
+      </td>
+      <td>
+        <p>Any options you want to use pass to transtion</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise, which resolves when the transition has completed  
 </div>
 
 

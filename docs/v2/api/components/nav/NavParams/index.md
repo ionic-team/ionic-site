@@ -34,7 +34,7 @@ NavParams
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L1481'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L1527'>
 Improve this doc
 </a> 
 

@@ -32,7 +32,7 @@ Item
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item.ts#L3'>
 Improve this doc
 </a> 
 

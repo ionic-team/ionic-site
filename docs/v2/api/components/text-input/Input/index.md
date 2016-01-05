@@ -32,7 +32,7 @@ Input
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L11'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L131'>
 Improve this doc
 </a> 
 
@@ -171,25 +171,6 @@ A clear icon will appear in the input which clears it
 <!-- methods on the class -->
 
 <h2>Methods</h2>
-
-<div id="textInputElement"></div>
-
-<h3>
-<code>textInputElement()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="value"></div>
 

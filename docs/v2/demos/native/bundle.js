@@ -27303,18 +27303,18 @@
 	 * components see the [IdRef API reference](../id/IdRef/).
 	 */
 	var IonicApp = (function () {
-	    function IonicApp(config, clickBlock, zone) {
-	        this._config = config;
-	        this._zone = zone;
+	    function IonicApp(_config, _clickBlock, _zone) {
+	        this._config = _config;
+	        this._clickBlock = _clickBlock;
+	        this._zone = _zone;
 	        this._titleSrv = new browser_1.Title();
 	        this._title = '';
 	        this._disTime = 0;
-	        this._clickBlock = clickBlock;
+	        this._scrollTime = 0;
 	        // Our component registry map
 	        this.components = {};
 	    }
 	    /**
-	     * @private
 	     * Sets the document title.
 	     * @param {string} val  Value to set the document title to.
 	     */
@@ -27357,6 +27357,20 @@
 	     */
 	    IonicApp.prototype.isEnabled = function () {
 	        return (this._disTime < Date.now());
+	    };
+	    /**
+	     * @private
+	     */
+	    IonicApp.prototype.setScrolling = function () {
+	        this._scrollTime = Date.now();
+	    };
+	    /**
+	     * @private
+	     * Boolean if the app is actively scrolling or not.
+	     * @return {bool}
+	     */
+	    IonicApp.prototype.isScrolling = function () {
+	        return (this._scrollTime + 64 > Date.now());
 	    };
 	    /**
 	     * @private
@@ -41858,16 +41872,25 @@
 	    TapClick.prototype.touchEnd = function (ev) {
 	        this.lastTouch = Date.now();
 	        if (this.usePolyfill && this.startCoord && this.app.isEnabled()) {
+	            // only dispatch mouse click events from a touchend event
+	            // when tapPolyfill config is true, and the startCoordand endCoord
+	            // are not too far off from each other
 	            var endCoord = dom_1.pointerCoord(ev);
 	            if (!dom_1.hasPointerMoved(POINTER_TOLERANCE, this.startCoord, endCoord)) {
-	                console.debug('create click from touch ' + Date.now());
 	                // prevent native mouse click events for XX amount of time
 	                this.disableClick = this.lastTouch + DISABLE_NATIVE_CLICK_AMOUNT;
-	                // manually dispatch the mouse click event
-	                var clickEvent = document.createEvent('MouseEvents');
-	                clickEvent.initMouseEvent('click', true, true, window, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
-	                clickEvent.isIonicTap = true;
-	                ev.target.dispatchEvent(clickEvent);
+	                if (this.app.isScrolling()) {
+	                    // do not fire off a click event while the app was scrolling
+	                    console.debug('click from touch prevented by scrolling ' + Date.now());
+	                }
+	                else {
+	                    // dispatch a mouse click event
+	                    console.debug('create click from touch ' + Date.now());
+	                    var clickEvent = document.createEvent('MouseEvents');
+	                    clickEvent.initMouseEvent('click', true, true, window, 1, 0, 0, endCoord.x, endCoord.y, false, false, false, false, 0, null);
+	                    clickEvent.isIonicTap = true;
+	                    ev.target.dispatchEvent(clickEvent);
+	                }
 	            }
 	        }
 	        this.pointerEnd(ev);
@@ -43178,6 +43201,7 @@
 	    function OverlayNav() {
 	        // deprecated warning
 	        console.warn('<ion-overlay> is no longer needed and can be safely removed.');
+	        console.warn('https://github.com/driftyco/ionic2/blob/master/CHANGELOG.md#overlay-refactor');
 	        console.warn('See the v2 docs for an update on how overlays work.');
 	    }
 	    OverlayNav = __decorate([
@@ -49056,9 +49080,9 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var ion_1 = __webpack_require__(288);
+	var app_1 = __webpack_require__(165);
 	var config_1 = __webpack_require__(270);
 	var dom_1 = __webpack_require__(273);
-	var keyboard_1 = __webpack_require__(276);
 	var view_controller_1 = __webpack_require__(297);
 	var scroll_to_1 = __webpack_require__(308);
 	/**
@@ -49084,11 +49108,12 @@
 	     * @param {ElementRef} elementRef  A reference to the component's DOM element.
 	     * @param {Config} config  The config object to change content's default settings.
 	     */
-	    function Content(elementRef, config, keyboard, viewCtrl, _zone) {
-	        _super.call(this, elementRef, config);
+	    function Content(elementRef, _config, viewCtrl, _app, _zone) {
+	        _super.call(this, elementRef, _config);
+	        this._config = _config;
+	        this._app = _app;
 	        this._zone = _zone;
 	        this.scrollPadding = 0;
-	        this.keyboard = keyboard;
 	        if (viewCtrl) {
 	            viewCtrl.setContent(this);
 	            viewCtrl.setContentRef(elementRef);
@@ -49099,7 +49124,19 @@
 	     */
 	    Content.prototype.ngOnInit = function () {
 	        _super.prototype.ngOnInit.call(this);
-	        this.scrollElement = this.getNativeElement().children[0];
+	        var self = this;
+	        self.scrollElement = self.getNativeElement().children[0];
+	        self._scroll = function (ev) {
+	            self._app.setScrolling();
+	        };
+	        if (self._config.get('tapPolyfill') === true) {
+	            self._zone.runOutsideAngular(function () {
+	                self.scrollElement.addEventListener('scroll', self._scroll);
+	            });
+	        }
+	    };
+	    Content.prototype.ngOnDestroy = function () {
+	        this.scrollElement.removeEventListener('scroll', this._scroll);
 	    };
 	    /**
 	     * Adds the specified scroll handler to the content' scroll element.
@@ -49321,8 +49358,8 @@
 	                '<ng-content></ng-content>' +
 	                '</scroll-content>'
 	        }),
-	        __param(3, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _c) || Object, (typeof (_d = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object])
+	        __param(2, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object])
 	    ], Content);
 	    return Content;
 	    var _a, _b, _c, _d, _e;

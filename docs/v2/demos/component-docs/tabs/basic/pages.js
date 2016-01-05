@@ -38,11 +38,11 @@ var BasicPage = (function () {
     }
     BasicPage = __decorate([
         ionic_1.Page({
-            template: '<ion-tabbar class="tabs-basic">' +
-                '<ion-tab tab-title="Music"></ion-tab>' +
-                '<ion-tab tab-title="Movies"></ion-tab>' +
-                '<ion-tab tab-title="Games"></ion-tab>' +
-                '</ion-tabbar>',
+            template: '<ion-tabs class="tabs-basic">' +
+                '<ion-tab tab-title="Music" [root]="tabOne"></ion-tab>' +
+                '<ion-tab tab-title="Movies" [root]="tabTwo"></ion-tab>' +
+                '<ion-tab tab-title="Games" [root]="tabThree"></ion-tab>' +
+                '</ion-tabs>',
         }), 
         __metadata('design:paramtypes', [])
     ], BasicPage);

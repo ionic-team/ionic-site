@@ -7,4 +7,4 @@ __export(require('./range/pages'));
 __export(require('./search/pages'));
 __export(require('./segment/pages'));
 __export(require('./select/pages'));
-__export(require('./switch/pages'));
+__export(require('./toggle/pages'));

@@ -1,103 +1,110 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var _ionicIonic = require('ionic/ionic');
-
-var _angular2Angular2 = require('angular2/angular2');
-
-var _helpers = require('../../helpers');
-
-var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = undefined && undefined.__metadata || function (k, v) {
+var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var ionic_1 = require('ionic/ionic');
+var core_1 = require('angular2/core');
+var helpers_1 = require('../../helpers');
 var BasicPage = (function () {
-    function BasicPage(actionSheet, platform) {
-        _classCallCheck(this, BasicPage);
-
-        this.actionSheet = actionSheet;
+    function BasicPage(platform, nav) {
+        this.nav = nav;
         this.platform = platform;
     }
-
-    _createClass(BasicPage, [{
-        key: "openMenu",
-        value: function openMenu() {
-            var _this = this;
-
-            if (this.platform.is('android')) {
-                var androidSheet = {
-                    buttons: [{ text: 'Share', icon: 'share' }, { text: 'Play', icon: 'arrow-dropright-circle' }, { text: 'Favorite', icon: 'ion-md-heart-outline' }],
-                    destructiveText: 'Delete',
-                    titleText: 'Albums',
-                    cancelText: 'Cancel',
-                    cancel: function cancel() {
-                        console.log('Canceled');
+    BasicPage.prototype.openMenu = function () {
+        var buttonHandler = function (index) {
+            console.log('Button clicked', index);
+            if (index == 1) {
+                return false;
+            }
+            return true;
+        };
+        if (this.platform.is('android')) {
+            var androidSheet = {
+                title: 'Albums',
+                buttons: [
+                    { text: 'Share',
+                        handler: buttonHandler,
+                        icon: 'share'
                     },
-                    destructiveButtonClicked: function destructiveButtonClicked() {
-                        console.log('Destructive clicked');
+                    { text: 'Play',
+                        handler: buttonHandler,
+                        icon: 'arrow-dropright-circle'
                     },
-                    buttonClicked: function buttonClicked(index) {
-                        console.log('Button clicked', index);
-                        if (index == 1) {
-                            return false;
+                    { text: 'Favorite',
+                        handler: buttonHandler,
+                        icon: 'ion-md-heart-outline'
+                    },
+                    {
+                        text: 'Delete',
+                        style: 'destructive',
+                        handler: function () {
+                            console.log('Destructive clicked');
                         }
-                        return true;
+                    },
+                    {
+                        text: 'Cancel',
+                        style: 'cancel',
+                        handler: function () {
+                            console.log('Cancel clicked');
+                        }
                     }
-                };
-            }
-            this.actionSheet.open(androidSheet || {
-                buttons: [{ text: 'Share' }, { text: 'Play' }, { text: 'Favorite' }],
-                destructiveText: 'Delete',
-                titleText: 'Albums',
-                cancelText: 'Cancel',
-                cancel: function cancel() {
-                    console.log('Canceled');
-                },
-                destructiveButtonClicked: function destructiveButtonClicked() {
-                    console.log('Destructive clicked');
-                },
-                buttonClicked: function buttonClicked(index) {
-                    console.log('Button clicked', index);
-                    if (index == 1) {
-                        return false;
+                ],
+            };
+        }
+        var actionSheet = ionic_1.ActionSheet.create(androidSheet || {
+            buttons: [
+                {
+                    text: 'Share',
+                    handler: function () {
+                        console.log('Share clicked');
                     }
-                    return true;
+                },
+                {
+                    text: 'Play',
+                    handler: function () {
+                        console.log('Play clicked');
+                    }
+                },
+                {
+                    text: 'Favorite',
+                    handler: function () {
+                        console.log('Favorite clicked');
+                    }
+                },
+                {
+                    text: 'Delete',
+                    style: 'destructive',
+                    handler: function () {
+                        console.log('Destructive clicked');
+                    }
+                },
+                {
+                    text: 'Cancel',
+                    style: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
                 }
-            }).then(function (actionSheetRef) {
-                console.log(actionSheetRef);
-                _this.actionSheetRef = actionSheetRef;
-            });
-        }
-    }, {
-        key: "onPageWillLeave",
-        value: function onPageWillLeave() {
-            var actionSheet = this.actionSheet.get();
-            if (actionSheet) {
-                actionSheet.close();
-            }
-        }
-    }]);
-
+            ]
+        });
+        this.nav.present(actionSheet);
+    };
+    BasicPage.prototype.onPageWillLeave = function () {
+        actionSheet && actionSheet.dismiss();
+    };
+    BasicPage = __decorate([
+        ionic_1.Page({
+            templateUrl: 'action-sheets/basic/basic.html',
+            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _b) || Object])
+    ], BasicPage);
     return BasicPage;
+    var _a, _b;
 })();
 exports.BasicPage = BasicPage;
-exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'action-sheets/basic/basic.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return _helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.ActionSheet !== 'undefined' && _ionicIonic.ActionSheet) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], BasicPage);
-var _a, _b;

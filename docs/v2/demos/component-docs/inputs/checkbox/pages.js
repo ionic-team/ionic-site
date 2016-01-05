@@ -1,34 +1,25 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var _ionicIonic = require('ionic/ionic');
-
-var _angular2Angular2 = require('angular2/angular2');
-
-var _helpers = require('../../helpers');
-
-var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = undefined && undefined.__metadata || function (k, v) {
+var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var CheckboxPage = function CheckboxPage() {
-    _classCallCheck(this, CheckboxPage);
-};
+var ionic_1 = require('ionic/ionic');
+var core_1 = require('angular2/core');
+var helpers_1 = require('../../helpers');
+var CheckboxPage = (function () {
+    function CheckboxPage() {
+    }
+    CheckboxPage = __decorate([
+        ionic_1.Page({
+            templateUrl: 'inputs/checkbox/template.html',
+            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], CheckboxPage);
+    return CheckboxPage;
+})();
 exports.CheckboxPage = CheckboxPage;
-exports.CheckboxPage = CheckboxPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'inputs/checkbox/template.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return _helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [])], CheckboxPage);

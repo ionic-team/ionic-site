@@ -1,55 +1,46 @@
-"use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var _ionicIonic = require('ionic/ionic');
-
-var _menusMenus = require('./menus/menus');
-
-var _actionSheetsActionSheets = require('./action-sheets/action-sheets');
-
-var actionSheets = _interopRequireWildcard(_actionSheetsActionSheets);
-
-var _helpers = require('./helpers');
-
-var helpers = _interopRequireWildcard(_helpers);
-
-var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = undefined && undefined.__metadata || function (k, v) {
+var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
+var ionic_1 = require('ionic/ionic');
+var menus_1 = require('./menus/menus');
+var actionSheets = require('./action-sheets/action-sheets');
+var helpers = require('./helpers');
 var DemoApp = (function () {
     function DemoApp(app, platform) {
         var _this = this;
-
-        _classCallCheck(this, DemoApp);
-
         this.app = app;
         this.platform = platform;
         this.androidAttribute = helpers.AndroidAttribute;
-        this.pages = [{ title: 'Home', component: _menusMenus.PageOne }, { title: 'Friends', component: _menusMenus.PageTwo }, { title: 'Events', component: _menusMenus.PageThree }];
+        this.pages = [
+            { title: 'Home', component: menus_1.PageOne },
+            { title: 'Friends', component: menus_1.PageTwo },
+            { title: 'Events', component: menus_1.PageThree }
+        ];
         this.platform.ready().then(function () {
             window.addEventListener('message', function (e) {
+                //TODO(@drewrygh)
                 zone.run(function () {
                     if (e.data) {
-                        var data = JSON.parse(e.data);
+                        var data;
+                        try {
+                            data = JSON.parse(e.data);
+                        }
+                        catch (e) {
+                            console.error(e);
+                        }
                         if (data.hash) {
                             _this.nextPage = helpers.getPageFor(data.hash.replace('#', ''));
                             if (data.hash !== 'menus') {
                                 _this.app.getComponent('leftMenu').enable(false);
                             }
-                        } else {
+                        }
+                        else {
                             _this.nextPage = actionSheets.BasicPage;
                         }
                         var nav = _this.app.getComponent('nav');
@@ -66,30 +57,28 @@ var DemoApp = (function () {
             }
         });
     }
-
-    _createClass(DemoApp, [{
-        key: "openPage",
-        value: function openPage(page) {
-            // close the menu when clicking a link from the menu
-            // debugger;
-            this.app.getComponent('leftMenu').close();
-            // Reset the content nav to have just this page
-            // we wouldn't want the back button to show in this scenario
-            var nav = this.app.getComponent('nav');
-            nav.setRoot(page.component);
-        }
-    }]);
-
-    return DemoApp;
-})();
-DemoApp = __decorate([(0, _ionicIonic.App)({
-    templateUrl: 'app.html',
-    config: {
-        platforms: {
-            android: {
-                activator: 'ripple'
+    DemoApp.prototype.openPage = function (page) {
+        // close the menu when clicking a link from the menu
+        // debugger;
+        this.app.getComponent('leftMenu').close();
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        var nav = this.app.getComponent('nav');
+        nav.setRoot(page.component);
+    };
+    DemoApp = __decorate([
+        ionic_1.App({
+            templateUrl: 'app.html',
+            config: {
+                platforms: {
+                    android: {
+                        activator: 'ripple'
+                    }
+                }
             }
-        }
-    }
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], DemoApp);
-var _a, _b;
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _b) || Object])
+    ], DemoApp);
+    return DemoApp;
+    var _a, _b;
+})();

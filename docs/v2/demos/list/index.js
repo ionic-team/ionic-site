@@ -1,83 +1,97 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var _ionicIonic = require('ionic/ionic');
-
-var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = undefined && undefined.__metadata || function (k, v) {
+var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
+var ionic_1 = require('ionic/ionic');
 var ApiDemoApp = (function () {
     function ApiDemoApp(app, platform) {
-        _classCallCheck(this, ApiDemoApp);
-
         this.app = app;
         this.platform = platform;
         this.rootPage = PageOne;
-        this.pages = [{ title: 'Basic List', component: PageOne }, { title: 'Inset List', component: PageTwo }, { title: 'No-lines List', component: PageThree }, { title: 'List Headers', component: PageFour }, { title: 'Sliding Items', component: PageFive }];
+        this.pages = [
+            { title: 'Basic List', component: PageOne },
+            { title: 'Inset List', component: PageTwo },
+            { title: 'No-lines List', component: PageThree },
+            { title: 'List Headers', component: PageFour },
+            { title: 'Sliding Items', component: PageFive },
+        ];
     }
-
-    _createClass(ApiDemoApp, [{
-        key: "openPage",
-        value: function openPage(page) {
-            this.app.getComponent('leftMenu').close();
-            var nav = this.app.getComponent('nav');
-            nav.setRoot(page.component);
-        }
-    }]);
-
+    ApiDemoApp.prototype.openPage = function (page) {
+        this.app.getComponent('leftMenu').close();
+        var nav = this.app.getComponent('nav');
+        nav.setRoot(page.component);
+    };
+    ApiDemoApp = __decorate([
+        ionic_1.App({
+            templateUrl: 'app.html'
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _b) || Object])
+    ], ApiDemoApp);
     return ApiDemoApp;
+    var _a, _b;
 })();
-ApiDemoApp = __decorate([(0, _ionicIonic.App)({
-    templateUrl: 'app.html'
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.IonicApp !== 'undefined' && _ionicIonic.IonicApp) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _b || Object])], ApiDemoApp);
-var PageOne = function PageOne() {
-    _classCallCheck(this, PageOne);
-};
+var PageOne = (function () {
+    function PageOne() {
+    }
+    PageOne = __decorate([
+        ionic_1.Page({
+            templateUrl: 'basic-list.html',
+        }), 
+        __metadata('design:paramtypes', [])
+    ], PageOne);
+    return PageOne;
+})();
 exports.PageOne = PageOne;
-exports.PageOne = PageOne = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'basic-list.html'
-}), __metadata('design:paramtypes', [])], PageOne);
-var PageTwo = function PageTwo() {
-    _classCallCheck(this, PageTwo);
-};
+var PageTwo = (function () {
+    function PageTwo() {
+    }
+    PageTwo = __decorate([
+        ionic_1.Page({
+            templateUrl: 'inset-list.html',
+        }), 
+        __metadata('design:paramtypes', [])
+    ], PageTwo);
+    return PageTwo;
+})();
 exports.PageTwo = PageTwo;
-exports.PageTwo = PageTwo = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'inset-list.html'
-}), __metadata('design:paramtypes', [])], PageTwo);
-var PageThree = function PageThree() {
-    _classCallCheck(this, PageThree);
-};
+var PageThree = (function () {
+    function PageThree() {
+    }
+    PageThree = __decorate([
+        ionic_1.Page({
+            templateUrl: 'no-lines-list.html',
+        }), 
+        __metadata('design:paramtypes', [])
+    ], PageThree);
+    return PageThree;
+})();
 exports.PageThree = PageThree;
-exports.PageThree = PageThree = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'no-lines-list.html'
-}), __metadata('design:paramtypes', [])], PageThree);
-var PageFour = function PageFour() {
-    _classCallCheck(this, PageFour);
-};
+var PageFour = (function () {
+    function PageFour() {
+    }
+    PageFour = __decorate([
+        ionic_1.Page({
+            templateUrl: 'list-headers.html',
+        }), 
+        __metadata('design:paramtypes', [])
+    ], PageFour);
+    return PageFour;
+})();
 exports.PageFour = PageFour;
-exports.PageFour = PageFour = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'list-headers.html'
-}), __metadata('design:paramtypes', [])], PageFour);
-var PageFive = function PageFive() {
-    _classCallCheck(this, PageFive);
-};
+var PageFive = (function () {
+    function PageFive() {
+    }
+    PageFive = __decorate([
+        ionic_1.Page({
+            templateUrl: 'sliding-items.html',
+        }), 
+        __metadata('design:paramtypes', [])
+    ], PageFive);
+    return PageFive;
+})();
 exports.PageFive = PageFive;
-exports.PageFive = PageFive = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'sliding-items.html'
-}), __metadata('design:paramtypes', [])], PageFive);
-var _a, _b;

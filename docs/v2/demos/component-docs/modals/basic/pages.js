@@ -1,127 +1,112 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var _ionicIonic = require('ionic/ionic');
-
-var _angular2Angular2 = require('angular2/angular2');
-
-var _helpers = require('../../helpers');
-
-var helpers = _interopRequireWildcard(_helpers);
-
-var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = undefined && undefined.__metadata || function (k, v) {
+var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
+var ionic_1 = require('ionic/ionic');
+var core_1 = require('angular2/core');
+var common_1 = require('angular2/common');
+var helpers = require('../../helpers');
 var ModalsInitialPage = (function () {
     function ModalsInitialPage(nav, modal) {
-        _classCallCheck(this, ModalsInitialPage);
-
         this.nav = nav;
         this.modal = modal;
     }
-
-    _createClass(ModalsInitialPage, [{
-        key: "openModal",
-        value: function openModal(characterNum) {
-            this.modal.open(ModalsContentPage, characterNum);
-        }
-    }]);
-
+    ModalsInitialPage.prototype.openModal = function (characterNum) {
+        this.modal.open(ModalsContentPage, characterNum);
+    };
+    ModalsInitialPage = __decorate([
+        ionic_1.Page({
+            templateUrl: 'modals/basic/template.html',
+            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.Modal !== 'undefined' && ionic_1.Modal) === 'function' && _b) || Object])
+    ], ModalsInitialPage);
     return ModalsInitialPage;
+    var _a, _b;
 })();
-ModalsInitialPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'modals/basic/template.html',
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.NavController !== 'undefined' && _ionicIonic.NavController) === 'function' && _a || Object, typeof (_b = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _b || Object])], ModalsInitialPage);
 var ModalsContentPage = (function () {
     function ModalsContentPage(modal, platform, params) {
-        _classCallCheck(this, ModalsContentPage);
-
         this.modal = modal;
         this.params = params;
         if (platform.is('android')) {
             this.currentPlatform = 'android';
-        } else {
+        }
+        else {
             this.currentPlatform = 'ios';
         }
-        var characters = [{
-            name: 'Gollum',
-            quote: 'Sneaky little hobbitses!',
-            image: 'img/avatar-gollum.jpg',
-            items: [{ title: 'Race', note: 'Hobbit' }, { title: 'Culture', note: 'River Folk' }, { title: 'Alter Ego', note: 'Smeagol' }]
-        }, {
-            name: 'Frodo',
-            quote: 'Go back, Sam! I\'m going to Mordor alone!',
-            image: 'img/avatar-frodo.jpg',
-            items: [{ title: 'Race', note: 'Hobbit' }, { title: 'Culture', note: 'Shire Folk' }, { title: 'Weapon', note: 'Sting' }]
-        }, {
-            name: 'Samwise Gamgee',
-            quote: 'What we need is a few good taters.',
-            image: 'img/avatar-samwise.jpg',
-            items: [{ title: 'Race', note: 'Hobbit' }, { title: 'Culture', note: 'Shire Folk' }, { title: 'Nickname', note: 'Sam' }]
-        }];
+        var characters = [
+            {
+                name: 'Gollum',
+                quote: 'Sneaky little hobbitses!',
+                image: 'img/avatar-gollum.jpg',
+                items: [
+                    { title: 'Race', note: 'Hobbit' },
+                    { title: 'Culture', note: 'River Folk' },
+                    { title: 'Alter Ego', note: 'Smeagol' }
+                ]
+            },
+            {
+                name: 'Frodo',
+                quote: 'Go back, Sam! I\'m going to Mordor alone!',
+                image: 'img/avatar-frodo.jpg',
+                items: [
+                    { title: 'Race', note: 'Hobbit' },
+                    { title: 'Culture', note: 'Shire Folk' },
+                    { title: 'Weapon', note: 'Sting' }
+                ]
+            },
+            {
+                name: 'Samwise Gamgee',
+                quote: 'What we need is a few good taters.',
+                image: 'img/avatar-samwise.jpg',
+                items: [
+                    { title: 'Race', note: 'Hobbit' },
+                    { title: 'Culture', note: 'Shire Folk' },
+                    { title: 'Nickname', note: 'Sam' }
+                ]
+            }
+        ];
         this.character = characters[this.params.get('charNum')];
     }
-
-    _createClass(ModalsContentPage, [{
-        key: "closeModal",
-        value: function closeModal() {
-            var modal = this.modal.get();
-            if (modal) {
-                modal.close();
-            }
+    ModalsContentPage.prototype.closeModal = function () {
+        var modal = this.modal.get();
+        if (modal) {
+            modal.close();
         }
-    }]);
-
+    };
+    ModalsContentPage = __decorate([
+        ionic_1.Page({
+            templateUrl: 'modals/basic/modal-content.html',
+            directives: [common_1.NgFor, core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Modal !== 'undefined' && ionic_1.Modal) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _b) || Object, (typeof (_c = typeof ionic_1.NavParams !== 'undefined' && ionic_1.NavParams) === 'function' && _c) || Object])
+    ], ModalsContentPage);
     return ModalsContentPage;
+    var _a, _b, _c;
 })();
-ModalsContentPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'modals/basic/modal-content.html',
-    directives: [_angular2Angular2.NgFor, (0, _angular2Angular2.forwardRef)(function () {
-        return helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [typeof (_c = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _c || Object, typeof (_d = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _d || Object, typeof (_e = typeof _ionicIonic.NavParams !== 'undefined' && _ionicIonic.NavParams) === 'function' && _e || Object])], ModalsContentPage);
 var BasicPage = (function () {
     function BasicPage(modal) {
-        _classCallCheck(this, BasicPage);
-
         this.rootView = ModalsInitialPage;
         this.modal = modal;
     }
-
-    _createClass(BasicPage, [{
-        key: "onPageWillLeave",
-        value: function onPageWillLeave() {
-            var modal = this.modal.get();
-            if (modal) {
-                modal.close();
-            }
+    BasicPage.prototype.onPageWillLeave = function () {
+        var modal = this.modal.get();
+        if (modal) {
+            modal.close();
         }
-    }]);
-
+    };
+    BasicPage = __decorate([
+        ionic_1.Page({
+            template: '<ion-nav [root]="rootView"></ion-nav>'
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Modal !== 'undefined' && ionic_1.Modal) === 'function' && _a) || Object])
+    ], BasicPage);
     return BasicPage;
+    var _a;
 })();
 exports.BasicPage = BasicPage;
-exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
-    template: '<ion-nav [root]="rootView"></ion-nav>'
-}), __metadata('design:paramtypes', [typeof (_f = typeof _ionicIonic.Modal !== 'undefined' && _ionicIonic.Modal) === 'function' && _f || Object])], BasicPage);
-var _a, _b, _c, _d, _e, _f;

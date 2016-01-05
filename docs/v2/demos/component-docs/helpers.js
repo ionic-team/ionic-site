@@ -1,108 +1,48 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.toTitleCase = toTitleCase;
-exports.hasScrollbar = hasScrollbar;
-exports.getPageFor = getPageFor;
-exports.debounce = debounce;
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var _angular2Angular2 = require('angular2/angular2');
-
-var _ionicIonic = require('ionic/ionic');
-
-var _actionSheetsActionSheets = require('./action-sheets/action-sheets');
-
-var actionSheets = _interopRequireWildcard(_actionSheetsActionSheets);
-
-var _badgeBadge = require('./badge/badge');
-
-var badges = _interopRequireWildcard(_badgeBadge);
-
-var _buttonsButtons = require('./buttons/buttons');
-
-var buttons = _interopRequireWildcard(_buttonsButtons);
-
-var _cardsCards = require('./cards/cards');
-
-var cards = _interopRequireWildcard(_cardsCards);
-
-var _gridGrid = require('./grid/grid');
-
-var grid = _interopRequireWildcard(_gridGrid);
-
-var _labelsLabels = require('./labels/labels');
-
-var labels = _interopRequireWildcard(_labelsLabels);
-
-var _iconsIcons = require('./icons/icons');
-
-var icons = _interopRequireWildcard(_iconsIcons);
-
-var _inputsInputs = require('./inputs/inputs');
-
-var inputs = _interopRequireWildcard(_inputsInputs);
-
-var _listsLists = require('./lists/lists');
-
-var lists = _interopRequireWildcard(_listsLists);
-
-var _menusMenus = require('./menus/menus');
-
-var menus = _interopRequireWildcard(_menusMenus);
-
-var _modalsModals = require('./modals/modals');
-
-var modals = _interopRequireWildcard(_modalsModals);
-
-var _navigationNavigation = require('./navigation/navigation');
-
-var navigation = _interopRequireWildcard(_navigationNavigation);
-
-var _popupsPopups = require('./popups/popups');
-
-var popups = _interopRequireWildcard(_popupsPopups);
-
-var _slidesSlides = require('./slides/slides');
-
-var slides = _interopRequireWildcard(_slidesSlides);
-
-var _tabsTabs = require('./tabs/tabs');
-
-var tabs = _interopRequireWildcard(_tabsTabs);
-
-var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = undefined && undefined.__metadata || function (k, v) {
+var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var AndroidAttribute = function AndroidAttribute(platform, elementRef, renderer) {
-    _classCallCheck(this, AndroidAttribute);
-
-    this.isAndroid = platform.is('android');
-    renderer.setElementAttribute(elementRef, 'primary', this.isAndroid ? true : null);
-};
+var core_1 = require('angular2/core');
+var ionic_1 = require('ionic/ionic');
+var actionSheets = require('./action-sheets/action-sheets');
+var badges = require('./badge/badge');
+var buttons = require('./buttons/buttons');
+var cards = require('./cards/cards');
+var grid = require('./grid/grid');
+var labels = require('./labels/labels');
+var icons = require('./icons/icons');
+var inputs = require('./inputs/inputs');
+var lists = require('./lists/lists');
+var menus = require('./menus/menus');
+var modals = require('./modals/modals');
+var navigation = require('./navigation/navigation');
+var alerts = require('./alerts/alerts');
+var slides = require('./slides/slides');
+var tabs = require('./tabs/tabs');
+var AndroidAttribute = (function () {
+    function AndroidAttribute(platform, elementRef, renderer) {
+        this.isAndroid = platform.is('android');
+        renderer.setElementAttribute(elementRef, 'primary', this.isAndroid ? true : null);
+    }
+    AndroidAttribute = __decorate([
+        core_1.Directive({
+            selector: '.android-attr',
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+    ], AndroidAttribute);
+    return AndroidAttribute;
+    var _a, _b, _c;
+})();
 exports.AndroidAttribute = AndroidAttribute;
-exports.AndroidAttribute = AndroidAttribute = __decorate([(0, _angular2Angular2.Directive)({
-    selector: '.android-attr'
-}), __metadata('design:paramtypes', [typeof (_a = typeof _ionicIonic.Platform !== 'undefined' && _ionicIonic.Platform) === 'function' && _a || Object, typeof (_b = typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef) === 'function' && _b || Object, typeof (_c = typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer) === 'function' && _c || Object])], AndroidAttribute);
-
 function toTitleCase(str) {
-    return str.replace(/\w\S*/g, function (txt) {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
+    return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
 }
-
+exports.toTitleCase = toTitleCase;
 function hasScrollbar() {
     if (typeof window.top.innerWidth === 'number') {
         return window.top.innerWidth > window.top.document.documentElement.clientWidth;
@@ -124,13 +64,14 @@ function hasScrollbar() {
     var contentOverflows = rootElem.scrollHeight > rootElem.clientHeight;
     var overflowShown = /^(visible|auto)$/.test(overflowStyle) || /^(visible|auto)$/.test(overflowYStyle);
     var alwaysShowScroll = overflowStyle === 'scroll' || overflowYStyle === 'scroll';
-    return contentOverflows && overflowShown || alwaysShowScroll;
+    return (contentOverflows && overflowShown) || (alwaysShowScroll);
 }
-
+exports.hasScrollbar = hasScrollbar;
 function getPageFor(hash) {
-    return ({
+    return {
         'overview': actionSheets.BasicPage,
         'action-sheets': actionSheets.BasicPage,
+        'alert': alerts.BasicPage,
         'badges': badges.BasicPage,
         'buttons': buttons.BasicPage,
         'block-buttons': buttons.BlockPage,
@@ -179,29 +120,28 @@ function getPageFor(hash) {
         'menus': menus.BasicPage,
         'modals': modals.BasicPage,
         'navigation': navigation.BasicPage,
-        'popups': popups.BasicPage,
         'slides': slides.BasicPage,
         'tabs': tabs.BasicPage,
         'tabs-icon': tabs.IconPage,
-        'tabs-icon-text': tabs.IconTextPage
-    })[hash];
+        'tabs-icon-text': tabs.IconTextPage,
+    }[hash];
 }
-
+exports.getPageFor = getPageFor;
 function debounce(func, wait, immediate) {
     var timeout;
     return function () {
-        var context = this,
-            args = arguments;
-        var later = function later() {
+        var context = this, args = arguments;
+        var later = function () {
             timeout = null;
-            if (!immediate) func.apply(context, args);
+            if (!immediate)
+                func.apply(context, args);
         };
         var callNow = immediate && !timeout;
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
+        if (callNow)
+            func.apply(context, args);
     };
 }
-
+exports.debounce = debounce;
 ;
-var _a, _b, _c;

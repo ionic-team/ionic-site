@@ -1,39 +1,27 @@
-"use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var _ionicIonic = require('ionic/ionic');
-
-var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = undefined && undefined.__metadata || function (k, v) {
+var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
+var ionic_1 = require('ionic/ionic');
 var E2EApp = (function () {
     function E2EApp() {
-        _classCallCheck(this, E2EApp);
     }
-
-    _createClass(E2EApp, [{
-        key: "tapTest",
-        value: function tapTest(eleType) {
-            console.debug('test click', eleType);
-        }
-    }]);
-
+    E2EApp.prototype.tapTest = function (eleType) {
+        console.debug('test click', eleType);
+    };
+    E2EApp = __decorate([
+        ionic_1.App({
+            templateUrl: 'main.html'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], E2EApp);
     return E2EApp;
 })();
-E2EApp = __decorate([(0, _ionicIonic.App)({
-    templateUrl: 'main.html'
-}), __metadata('design:paramtypes', [])], E2EApp);
 function onEvent(ev) {
     var c = pointerCoord(ev);
     var l = '(' + c.x + ',' + c.y + ')';
@@ -48,7 +36,7 @@ function pointerCoord(ev) {
     var c = { x: 0, y: 0 };
     if (ev) {
         var touches = ev.touches && ev.touches.length ? ev.touches : [ev];
-        var e = ev.changedTouches && ev.changedTouches[0] || touches[0];
+        var e = (ev.changedTouches && ev.changedTouches[0]) || touches[0];
         if (e) {
             c.x = e.clientX || e.pageX || 0;
             c.y = e.clientY || e.pageY || 0;
@@ -83,13 +71,20 @@ console.debug = function () {
     }
     msg.push(getTime());
     msg = msg.join(', ');
-    if (arguments[0] === 'ERROR!') msg = '<span style="color:red;font-weight:bold">' + msg + '</span>';
-    if (arguments[0] === 'touchstart') msg = '<span style="color:blue">' + msg + '</span>';
-    if (arguments[0] === 'touchend') msg = '<span style="color:darkblue">' + msg + '</span>';
-    if (arguments[0] === 'mousedown') msg = '<span style="color:red">' + msg + '</span>';
-    if (arguments[0] === 'mouseup') msg = '<span style="color:maroon">' + msg + '</span>';
-    if (arguments[0] === 'click') msg = '<span style="color:purple">' + msg + '</span>';
-    if (arguments[0] === 'test click') msg = '<span style="color:orange">' + msg + '</span>';
+    if (arguments[0] === 'ERROR!')
+        msg = '<span style="color:red;font-weight:bold">' + msg + '</span>';
+    if (arguments[0] === 'touchstart')
+        msg = '<span style="color:blue">' + msg + '</span>';
+    if (arguments[0] === 'touchend')
+        msg = '<span style="color:darkblue">' + msg + '</span>';
+    if (arguments[0] === 'mousedown')
+        msg = '<span style="color:red">' + msg + '</span>';
+    if (arguments[0] === 'mouseup')
+        msg = '<span style="color:maroon">' + msg + '</span>';
+    if (arguments[0] === 'click')
+        msg = '<span style="color:purple">' + msg + '</span>';
+    if (arguments[0] === 'test click')
+        msg = '<span style="color:orange">' + msg + '</span>';
     msgs.unshift(msg);
     if (msgs.length > 25) {
         msgs.splice(25);

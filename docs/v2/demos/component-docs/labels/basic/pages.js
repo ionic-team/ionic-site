@@ -1,54 +1,35 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var _angular2Angular2 = require('angular2/angular2');
-
-var _ionicIonic = require('ionic/ionic');
-
-var _helpers = require('../../helpers');
-
-var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-    var c = arguments.length,
-        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-        d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = undefined && undefined.__metadata || function (k, v) {
+var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var core_1 = require('angular2/core');
+var common_1 = require('angular2/common');
+var ionic_1 = require('ionic/ionic');
+var helpers_1 = require('../../helpers');
 var BasicPage = (function () {
     function BasicPage() {
-        _classCallCheck(this, BasicPage);
-
-        this.form = new _angular2Angular2.ControlGroup({
-            firstName: new _angular2Angular2.Control("", _angular2Angular2.Validators.required),
-            lastName: new _angular2Angular2.Control("", _angular2Angular2.Validators.required)
+        this.form = new common_1.ControlGroup({
+            firstName: new common_1.Control("", common_1.Validators.required),
+            lastName: new common_1.Control("", common_1.Validators.required)
         });
     }
-
-    _createClass(BasicPage, [{
-        key: "processForm",
-        value: function processForm(event) {
-            // TODO: display input in a popup
-            console.log(event);
-        }
-    }]);
-
+    BasicPage.prototype.processForm = function (event) {
+        // TODO: display input in a popup
+        console.log(event);
+    };
+    BasicPage = __decorate([
+        ionic_1.Page({
+            templateUrl: 'labels/basic/template.html',
+            providers: [common_1.FormBuilder],
+            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], BasicPage);
     return BasicPage;
 })();
 exports.BasicPage = BasicPage;
-exports.BasicPage = BasicPage = __decorate([(0, _ionicIonic.Page)({
-    templateUrl: 'labels/basic/template.html',
-    providers: [_angular2Angular2.FormBuilder],
-    directives: [(0, _angular2Angular2.forwardRef)(function () {
-        return _helpers.AndroidAttribute;
-    })]
-}), __metadata('design:paramtypes', [])], BasicPage);

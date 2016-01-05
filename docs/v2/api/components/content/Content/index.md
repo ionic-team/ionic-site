@@ -70,6 +70,25 @@ Improve this doc
 
 <h2>Methods</h2>
 
+<div id="ngOnDestroy"></div>
+
+<h3>
+<code>ngOnDestroy()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="addScrollEventListener"></div>
 
 <h3>

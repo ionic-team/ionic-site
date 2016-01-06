@@ -28,7 +28,7 @@ By default, all lists will be styled with divider lines:
 ```html
 <ion-list>
   <ion-item *ngFor="#item of items" (click)="itemSelected(item)">
-    {{item.title}}
+    {% raw %}{{item.title}}{% endraw %}
   </ion-item>
 </ion-list>
 ```
@@ -56,6 +56,14 @@ Adding the `no-lines` attribute will hide the dividers between list items:
 
 By default, lists have an outside margin, to remove that add the `inset` property to make the list flush with the parent container.
 
+```html
+<ion-list inset>
+  <ion-item *ngFor="#item of items" (click)="itemSelected(item)">
+    {% raw %}{{item.title}}{% endraw %}
+  </ion-item>
+</ion-list>
+```
+
 <h3 class="section-nav" id="list-headers">List Headers</h3>
 <a class="component-doc-demo" href="https://github.com/driftyco/ionic2/tree/master/demos/component-docs/lists/headers">
   View Demo Source
@@ -64,12 +72,14 @@ By default, lists have an outside margin, to remove that add the `inset` propert
 Each list can include a header at the top of the list:
 
 ```html
-  <ion-list>
-    <ion-list-header>Action</ion-list-header>
-    <ion-item>Terminator II</ion-item>
-    <ion-item>The Empire Strikes Back</ion-item>
-    <ion-item>Blade Runner</ion-item>
-  </ion-list>
+<ion-list>
+  <ion-list-header>
+    Action
+  </ion-list-header>
+  <ion-item>Terminator II</ion-item>
+  <ion-item>The Empire Strikes Back</ion-item>
+  <ion-item>Blade Runner</ion-item>
+</ion-list>
 ```
 
 <h3 class="section-nav" id="icon-list">Icon List</h3>
@@ -82,13 +92,11 @@ Adding [icons](#icons) to list items is a great way to hint about the contents o
 
 ```html
 <ion-list>
-
   <ion-item>
     <icon leaf item-left></icon>
       Herbology
     <icon rose item-right></icon>
   </ion-item>
-
 </ion-list>
 ```
 
@@ -102,7 +110,6 @@ Item avatars showcase an image larger than an icon, but smaller than a thumbnail
 
 ```html
 <ion-list>
-
   <ion-item>
     <ion-avatar item-left>
       <img src="img/avatar-cher.png">
@@ -110,7 +117,6 @@ Item avatars showcase an image larger than an icon, but smaller than a thumbnail
     <h2>Cher</h2>
     <p>Ugh. As if.</p>
   </ion-item>
-
 </ion-list>
 ```
 
@@ -123,7 +129,6 @@ Multiline lists are identical to regular lists, except they can multiple lines o
 
 ```html
 <ion-list>
-
   <ion-item>
     <ion-avatar item-left>
       <img src="img/avatar-finn.png">
@@ -132,7 +137,6 @@ Multiline lists are identical to regular lists, except they can multiple lines o
     <h3>Don't Know What To Do!</h3>
     <p>I've had a pretty messed up day. If we just...</p>
   </ion-item>
-
 </ion-list>
 ```
 
@@ -146,7 +150,6 @@ Item thumbnails showcase an image that takes up the entire height of an item. To
 
 ```html
 <ion-list>
-
   <ion-item>
     <ion-thumbnail item-left>
       <img src="img/thumbnail-totoro.png">
@@ -155,6 +158,5 @@ Item thumbnails showcase an image that takes up the entire height of an item. To
     <p>Hayao Miyazaki • 1988</p>
     <button clear item-right>View</button>
   </ion-item>
-
 </ion-list>
 ```

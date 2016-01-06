@@ -4,7 +4,7 @@
   Improve This Doc
 </a>
 
-Like the [checkbox](#checkbox), a radio is an input component that holds a *boolean* value. Under the hood, radios are no different than HTML radio inputs. However, like other Ionic components, radios are styled differently on each platform. Unlike checkboxes, radio components form a group, where only one radio can be selected at a time. Use the `checked` attribute to set the default value, and the `disabled` attribute to disable the user from changing the value.
+Like the [checkbox](#checkbox), a radio is an input component that holds a *boolean* value. Under the hood, radios are no different than HTML radio inputs. However, like other Ionic components, radios are styled differently on each platform. Unlike checkboxes, radio components form a group, where only one radio can be selected at a time. Use the `checked` attribute to set the default value, and the `disabled` attribute to disable the user from changing to that value.
 
 <h3 class="section-nav">Basic Usage</h3>
 <a class="component-doc-demo" href="https://github.com/driftyco/ionic2/tree/master/demos/component-docs/inputs/radio">
@@ -12,19 +12,21 @@ Like the [checkbox](#checkbox), a radio is an input component that holds a *bool
 </a>
 
 ```html
-<ion-radio-group>
-
+<ion-list radio-group>
   <ion-header>
     Language
   </ion-header>
 
-  <ion-radio checked="true">
+  <ion-radio checked="true" value="go">
     Go
   </ion-radio>
 
-  <ion-radio>
+  <ion-radio value="rust">
     Rust
   </ion-radio>
 
-</ion-radio-group>
+  <ion-radio value="python" disabled="true">
+    Python
+  </ion-radio>
+</ion-list>
 ```

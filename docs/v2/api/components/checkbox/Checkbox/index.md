@@ -128,7 +128,29 @@ whether or not the checkbox is disabled or not.
 </table>
 
 
-<!-- methods on the class --><!-- related link -->
+<!-- methods on the class -->
+
+<h2>Methods</h2>
+
+<div id="checked"></div>
+
+<h3>
+<code>checked()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
 
 <h2>Related</h2>
 

@@ -16,11 +16,59 @@ var BasicPage = (function () {
     }
     BasicPage.prototype.doAlert = function () {
         var alert = ionic_1.Alert.create({
-            title: "New Friend!",
-            subTitle: "Your friend, Obi wan Kenobi, just accepted your friend request!",
+            title: 'New Friend!',
+            subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
             buttons: ['Ok']
         });
         this.nav.present(alert);
+    };
+    BasicPage.prototype.doPrompt = function () {
+        var prompt = ionic_1.Alert.create({
+            title: 'Login',
+            body: "Enter a name for this new album you're so keen on adding",
+            inputs: [
+                {
+                    name: 'title',
+                    placeholder: 'Title'
+                },
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: function (data) {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'Save',
+                    handler: function (data) {
+                        console.log('Saved clicked');
+                    }
+                }
+            ]
+        });
+        this.nav.present(prompt);
+    };
+    BasicPage.prototype.doConfirm = function () {
+        var confirm = ionic_1.Alert.create({
+            title: 'Use this lightsaber?',
+            body: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+            buttons: [
+                {
+                    text: 'Disagree',
+                    handler: function () {
+                        console.log('Disagree clicked');
+                    }
+                },
+                {
+                    text: 'Agree',
+                    handler: function () {
+                        console.log('Agree clicked');
+                    }
+                }
+            ]
+        });
+        this.nav.present(confirm);
     };
     BasicPage = __decorate([
         ionic_1.Page({

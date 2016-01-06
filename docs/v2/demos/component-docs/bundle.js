@@ -48450,6 +48450,12 @@
 	    /**
 	     * @private
 	     */
+	    Icon.prototype.addClass = function (className) {
+	        this._renderer.setElementClass(this._elementRef, className, true);
+	    };
+	    /**
+	     * @private
+	     */
 	    Icon.prototype.ngOnInit = function () {
 	        var ele = this._elementRef.nativeElement;
 	        if (this.mode == 'ios' && this.ios) {
@@ -48761,6 +48767,9 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
 	var core_1 = __webpack_require__(8);
 	var config_1 = __webpack_require__(270);
 	/**
@@ -48788,7 +48797,7 @@
 
 	 */
 	var Button = (function () {
-	    function Button(config, _elementRef, _renderer) {
+	    function Button(config, _elementRef, _renderer, ionItem) {
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
 	        this._role = 'button'; // bar-button/item-button
@@ -48800,6 +48809,7 @@
 	        this._colors = []; // primary/secondary
 	        this._icon = null; // left/right/only
 	        this._disabled = false; // disabled
+	        this.isItem = (ionItem === '');
 	        var element = _elementRef.nativeElement;
 	        if (config.get('hoverCSS') === false) {
 	            _renderer.setElementClass(_elementRef, 'disable-hover', true);
@@ -48835,6 +48845,12 @@
 	            this._colors = [this.color];
 	            this._assignCss(true);
 	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype.addClass = function (className) {
+	        this._renderer.setElementClass(this._elementRef, className, true);
 	    };
 	    /**
 	     * @private
@@ -48936,8 +48952,9 @@
 	        core_1.Directive({
 	            selector: 'button,[button]',
 	            inputs: ['color']
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+	        }),
+	        __param(3, core_1.Attribute('ion-item')), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, String])
 	    ], Button);
 	    return Button;
 	    var _a, _b, _c;
@@ -55746,6 +55763,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
+	var button_1 = __webpack_require__(304);
+	var icon_1 = __webpack_require__(302);
 	/**
 	 * @name Item
 	 * @description
@@ -55790,12 +55809,42 @@
 	var Item = (function () {
 	    function Item() {
 	    }
+	    Object.defineProperty(Item.prototype, "_buttons", {
+	        set: function (buttons) {
+	            buttons.toArray().forEach(function (button) {
+	                if (!button.isItem) {
+	                    button.addClass('item-button');
+	                }
+	            });
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Item.prototype, "_icons", {
+	        set: function (icons) {
+	            icons.toArray().forEach(function (icon) {
+	                icon.addClass('item-icon');
+	            });
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    __decorate([
+	        core_1.ContentChildren(button_1.Button), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], Item.prototype, "_buttons", null);
+	    __decorate([
+	        core_1.ContentChildren(icon_1.Icon), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], Item.prototype, "_icons", null);
 	    Item = __decorate([
 	        core_1.Component({
 	            selector: 'ion-item,[ion-item]',
 	            template: '<ng-content select="[item-left]"></ng-content>' +
 	                '<div class="item-inner">' +
-	                '<ng-content select="ion-item-content"></ng-content>' +
+	                '<ng-content select="ion-item-content,[item-content]"></ng-content>' +
 	                '<ion-item-content cnt>' +
 	                '<ng-content></ng-content>' +
 	                '</ion-item-content>' +
@@ -56308,11 +56357,145 @@
 	var nav_controller_1 = __webpack_require__(298);
 	var config_1 = __webpack_require__(270);
 	var form_1 = __webpack_require__(275);
+	var label_1 = __webpack_require__(325);
 	var app_1 = __webpack_require__(165);
 	var content_1 = __webpack_require__(307);
-	var dom = __webpack_require__(273);
+	var dom_1 = __webpack_require__(273);
 	var platform_1 = __webpack_require__(271);
 	var button_1 = __webpack_require__(304);
+	/**
+	 * @private
+	 */
+	var TextInputElement = (function () {
+	    function TextInputElement(type, _elementRef, _renderer) {
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	        this.valueChange = new core_1.EventEmitter();
+	        this.focusChange = new core_1.EventEmitter();
+	        this.type = type || 'text';
+	    }
+	    TextInputElement.prototype.ngOnInit = function () {
+	        if (this.ngModel) {
+	            this.value = this.ngModel;
+	        }
+	        else {
+	            this.value = this._elementRef.nativeElement.value;
+	        }
+	    };
+	    TextInputElement.prototype._keyup = function (ev) {
+	        this.valueChange.emit(ev.target.value);
+	    };
+	    TextInputElement.prototype._focus = function () {
+	        this.focusChange.emit(true);
+	    };
+	    TextInputElement.prototype._blur = function () {
+	        this.focusChange.emit(false);
+	        this.hideFocus(false);
+	    };
+	    TextInputElement.prototype.labelledBy = function (val) {
+	        this._renderer.setElementAttribute(this._elementRef, 'aria-labelledby', val);
+	    };
+	    TextInputElement.prototype.setFocus = function () {
+	        this.element().focus();
+	    };
+	    TextInputElement.prototype.relocate = function (shouldRelocate, inputRelativeY) {
+	        if (this._relocated !== shouldRelocate) {
+	            var focusedInputEle = this.element();
+	            if (shouldRelocate) {
+	                var clonedInputEle = cloneInput(focusedInputEle, 'cloned-input');
+	                focusedInputEle.classList.add('hide-focused-input');
+	                focusedInputEle.style[dom_1.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
+	                focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
+	                this.setFocus();
+	            }
+	            else {
+	                focusedInputEle.classList.remove('hide-focused-input');
+	                focusedInputEle.style[dom_1.CSS.transform] = '';
+	                var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-input');
+	                if (clonedInputEle) {
+	                    clonedInputEle.parentNode.removeChild(clonedInputEle);
+	                }
+	            }
+	            this._relocated = shouldRelocate;
+	        }
+	    };
+	    TextInputElement.prototype.hideFocus = function (shouldHideFocus) {
+	        var focusedInputEle = this.element();
+	        if (shouldHideFocus) {
+	            var clonedInputEle = cloneInput(focusedInputEle, 'cloned-hidden');
+	            focusedInputEle.classList.add('hide-focused-input');
+	            focusedInputEle.style[dom_1.CSS.transform] = 'translate3d(-9999px,0,0)';
+	            focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
+	        }
+	        else {
+	            focusedInputEle.classList.remove('hide-focused-input');
+	            focusedInputEle.style[dom_1.CSS.transform] = '';
+	            var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-hidden');
+	            if (clonedInputEle) {
+	                clonedInputEle.parentNode.removeChild(clonedInputEle);
+	            }
+	        }
+	    };
+	    TextInputElement.prototype.hasFocus = function () {
+	        return dom_1.hasFocus(this.element());
+	    };
+	    TextInputElement.prototype.addClass = function (className) {
+	        this._renderer.setElementClass(this._elementRef, className, true);
+	    };
+	    TextInputElement.prototype.hasClass = function (className) {
+	        this._elementRef.nativeElement.classList.contains(className);
+	    };
+	    TextInputElement.prototype.element = function () {
+	        return this._elementRef.nativeElement;
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], TextInputElement.prototype, "value", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], TextInputElement.prototype, "ngModel", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], TextInputElement.prototype, "valueChange", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], TextInputElement.prototype, "focusChange", void 0);
+	    __decorate([
+	        core_1.HostListener('keyup', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], TextInputElement.prototype, "_keyup", null);
+	    __decorate([
+	        core_1.HostListener('focus'), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', []), 
+	        __metadata('design:returntype', void 0)
+	    ], TextInputElement.prototype, "_focus", null);
+	    __decorate([
+	        core_1.HostListener('blur'), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', []), 
+	        __metadata('design:returntype', void 0)
+	    ], TextInputElement.prototype, "_blur", null);
+	    TextInputElement = __decorate([
+	        core_1.Directive({
+	            selector: 'textarea,input[type=text],input[type=password],input[type=number],input[type=search],input[type=email],input[type=url],input[type=tel],input[type=date],input[type=datetime],input[type=datetime-local],input[type=week],input[type=time]',
+	            host: {
+	                'class': 'text-input'
+	            }
+	        }),
+	        __param(0, core_1.Attribute('type')), 
+	        __metadata('design:paramtypes', [String, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object])
+	    ], TextInputElement);
+	    return TextInputElement;
+	    var _a, _b, _c, _d;
+	})();
+	exports.TextInputElement = TextInputElement;
 	/**
 	 * @name Input
 	 * @module ionic
@@ -56350,49 +56533,65 @@
 	 *
 	 */
 	var TextInput = (function () {
-	    function TextInput(form, elementRef, config, renderer, app, platform, scrollView, navCtrl, isFloating, isStacked, isFixed, isInset) {
+	    function TextInput(config, _form, _renderer, _elementRef, _app, _platform, _scrollView, _nav, isFloating, isStacked, isFixed, isInset) {
+	        this._form = _form;
+	        this._renderer = _renderer;
+	        this._elementRef = _elementRef;
+	        this._app = _app;
+	        this._platform = _platform;
+	        this._scrollView = _scrollView;
+	        this._nav = _nav;
 	        this.value = '';
-	        this.renderer = renderer;
-	        this.form = form;
-	        form.register(this);
+	        _form.register(this);
 	        this.type = 'text';
 	        this.lastTouch = 0;
 	        // make more gud with pending @Attributes API
 	        this.displayType = (isFloating === '' ? 'floating' : (isStacked === '' ? 'stacked' : (isFixed === '' ? 'fixed' : (isInset === '' ? 'inset' : null))));
-	        this.app = app;
-	        this.elementRef = elementRef;
-	        this.platform = platform;
-	        this.navCtrl = navCtrl;
-	        this.scrollView = scrollView;
-	        this.scrollAssist = config.get('scrollAssist');
+	        this._assist = config.get('scrollAssist');
 	        this.keyboardHeight = config.get('keyboardHeight');
 	    }
-	    /**
-	     * @private
-	     * This function is used to add the Angular css classes associated with inputs in forms
-	     */
-	    TextInput.prototype.addNgClass = function (className) {
-	        this.input && this.input.elementRef.nativeElement.classList.contains(className);
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.registerInput = function (textInputElement) {
-	        if (this.displayType) {
-	            textInputElement.addClass(this.displayType + '-input');
-	        }
-	        this.input = textInputElement;
-	        this.type = textInputElement.type || 'text';
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.registerLabel = function (label) {
-	        if (this.displayType) {
-	            label.addClass(this.displayType + '-label');
-	        }
-	        this.label = label;
-	    };
+	    Object.defineProperty(TextInput.prototype, "_setInput", {
+	        /**
+	         * @private
+	         */
+	        set: function (textInputElement) {
+	            var _this = this;
+	            if (textInputElement) {
+	                textInputElement.addClass('item-input');
+	                if (this.displayType) {
+	                    textInputElement.addClass(this.displayType + '-input');
+	                }
+	                this.input = textInputElement;
+	                this.type = textInputElement.type;
+	                this.hasValue(this.input.value);
+	                textInputElement.valueChange.subscribe(function (inputValue) {
+	                    _this.hasValue(inputValue);
+	                });
+	                this.focusChange(this.hasFocus());
+	                textInputElement.focusChange.subscribe(function (hasFocus) {
+	                    _this.focusChange(hasFocus);
+	                });
+	            }
+	            else {
+	                console.error('<input> or <textarea> elements required within <ion-input>');
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(TextInput.prototype, "_setLabel", {
+	        /**
+	         * @private
+	         */
+	        set: function (label) {
+	            if (label && this.displayType) {
+	                label.addClass(this.displayType + '-label');
+	            }
+	            this.label = label;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     * On Initialization check for attributes
@@ -56407,22 +56606,21 @@
 	     * @private
 	     */
 	    TextInput.prototype.ngAfterViewInit = function () {
-	        var _this = this;
-	        if (this.input && this.label) {
+	        var self = this;
+	        if (self.input && self.label) {
 	            // if there is an input and a label
 	            // then give the label an ID
 	            // and tell the input the ID of who it's labelled by
-	            this.input.labelledBy(this.label.id);
+	            self.input.labelledBy(self.label.id);
 	        }
-	        var self = this;
 	        self.scrollMove = function (ev) {
-	            if (!(_this.navCtrl && _this.navCtrl.isTransitioning())) {
+	            if (!(self._nav && self._nav.isTransitioning())) {
 	                self.deregMove();
-	                if (self.hasFocus) {
+	                if (self.hasFocus()) {
 	                    self.input.hideFocus(true);
-	                    _this.scrollView.onScrollEnd(function () {
+	                    self._scrollView.onScrollEnd(function () {
 	                        self.input.hideFocus(false);
-	                        if (self.hasFocus) {
+	                        if (self.hasFocus()) {
 	                            self.regMove();
 	                        }
 	                    });
@@ -56441,25 +56639,25 @@
 	     * @private
 	     */
 	    TextInput.prototype.pointerStart = function (ev) {
-	        if (this.scrollAssist && this.app.isEnabled()) {
+	        if (this._assist && this._app.isEnabled()) {
 	            // remember where the touchstart/mousedown started
-	            this.startCoord = dom.pointerCoord(ev);
+	            this.startCoord = dom_1.pointerCoord(ev);
 	        }
 	    };
 	    /**
 	     * @private
 	     */
 	    TextInput.prototype.pointerEnd = function (ev) {
-	        if (!this.app.isEnabled()) {
+	        if (!this._app.isEnabled()) {
 	            ev.preventDefault();
 	            ev.stopPropagation();
 	        }
-	        else if (this.scrollAssist && ev.type === 'touchend') {
+	        else if (this._assist && ev.type === 'touchend') {
 	            // get where the touchend/mouseup ended
-	            var endCoord = dom.pointerCoord(ev);
+	            var endCoord = dom_1.pointerCoord(ev);
 	            // focus this input if the pointer hasn't moved XX pixels
 	            // and the input doesn't already have focus
-	            if (!dom.hasPointerMoved(8, this.startCoord, endCoord) && !this.hasFocus) {
+	            if (!dom_1.hasPointerMoved(8, this.startCoord, endCoord) && !this.hasFocus()) {
 	                ev.preventDefault();
 	                ev.stopPropagation();
 	                this.initFocus();
@@ -56480,12 +56678,12 @@
 	    TextInput.prototype.initFocus = function () {
 	        // begin the process of setting focus to the inner input element
 	        var _this = this;
-	        var scrollView = this.scrollView;
-	        if (scrollView && this.scrollAssist) {
+	        var scrollView = this._scrollView;
+	        if (scrollView && this._assist) {
 	            // this input is inside of a scroll view
 	            // find out if text input should be manually scrolled into view
-	            var ele = this.elementRef.nativeElement;
-	            var scrollData = TextInput.getScrollData(ele.offsetTop, ele.offsetHeight, scrollView.getDimensions(), this.keyboardHeight, this.platform.height());
+	            var ele = this._elementRef.nativeElement;
+	            var scrollData = TextInput.getScrollData(ele.offsetTop, ele.offsetHeight, scrollView.getDimensions(), this.keyboardHeight, this._platform.height());
 	            if (scrollData.scrollAmount > -3 && scrollData.scrollAmount < 3) {
 	                // the text input is in a safe position that doesn't require
 	                // it to be scrolled into view, just set focus now
@@ -56498,8 +56696,8 @@
 	            // manually scroll the text input to the top
 	            // do not allow any clicks while it's scrolling
 	            var scrollDuration = getScrollAssistDuration(scrollData.scrollAmount);
-	            this.app.setEnabled(false, scrollDuration);
-	            this.navCtrl && this.navCtrl.setTransitioning(true, scrollDuration);
+	            this._app.setEnabled(false, scrollDuration);
+	            this._nav && this._nav.setTransitioning(true, scrollDuration);
 	            // temporarily move the focus to the focus holder so the browser
 	            // doesn't freak out while it's trying to get the input in place
 	            // at this point the native text input still does not have focus
@@ -56510,8 +56708,8 @@
 	                // give the native text input focus
 	                _this.input.relocate(false);
 	                // all good, allow clicks again
-	                _this.app.setEnabled(true);
-	                _this.navCtrl && _this.navCtrl.setTransitioning(false);
+	                _this._app.setEnabled(true);
+	                _this._nav && _this._nav.setTransitioning(false);
 	                _this.regMove();
 	            });
 	        }
@@ -56523,11 +56721,72 @@
 	    };
 	    /**
 	     * @private
-	     * @param {TODO} inputOffsetTop  TODO
-	     * @param {TODO} inputOffsetHeight  TODO
-	     * @param {TODO} scrollViewDimensions  TODO
-	     * @param {TODO} keyboardHeight  TODO
-	     * @returns {TODO} TODO
+	     */
+	    TextInput.prototype.setFocus = function () {
+	        if (this.input) {
+	            this._form.setAsFocused(this);
+	            // set focus on the actual input element
+	            this.input.setFocus();
+	            // ensure the body hasn't scrolled down
+	            document.body.scrollTop = 0;
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.regMove = function () {
+	        var _this = this;
+	        if (this._assist && this._scrollView) {
+	            setTimeout(function () {
+	                _this.deregMove();
+	                _this.deregScroll = _this._scrollView.addScrollEventListener(_this.scrollMove);
+	            }, 80);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.deregMove = function () {
+	        this.deregScroll && this.deregScroll();
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.focusChange = function (hasFocus) {
+	        this._renderer.setElementClass(this._elementRef, 'input-focused', hasFocus);
+	        if (!hasFocus) {
+	            this.deregMove();
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.hasFocus = function () {
+	        return !!this.input && this.input.hasFocus();
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.hasValue = function (inputValue) {
+	        var inputHasValue = !!(inputValue && inputValue !== '');
+	        this._renderer.setElementClass(this._elementRef, 'input-has-value', inputHasValue);
+	    };
+	    /**
+	     * @private
+	     * This function is used to add the Angular css classes associated with inputs in forms
+	     */
+	    TextInput.prototype.hasClass = function (className) {
+	        this.input && this.input.hasClass(className);
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.ngOnDestroy = function () {
+	        this.deregMove();
+	        this._form.deregister(this);
+	    };
+	    /**
+	     * @private
 	     */
 	    TextInput.getScrollData = function (inputOffsetTop, inputOffsetHeight, scrollViewDimensions, keyboardHeight, plaformHeight) {
 	        // compute input's Y values relative to the body
@@ -56627,78 +56886,20 @@
 	        // `;
 	        return scrollData;
 	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.focusChange = function (hasFocus) {
-	        this.renderer.setElementClass(this.elementRef, 'input-focused', hasFocus);
-	        if (!hasFocus) {
-	            this.deregMove();
-	            this.input.hideFocus(false);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.hasValue = function (inputValue) {
-	        this.renderer.setElementClass(this.elementRef, 'input-has-value', inputValue && inputValue !== '');
-	        this.value = inputValue;
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.setFocus = function () {
-	        if (this.input) {
-	            this.form.setAsFocused(this);
-	            // set focus on the actual input element
-	            this.input.setFocus();
-	            // ensure the body hasn't scrolled down
-	            document.body.scrollTop = 0;
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.regMove = function () {
-	        var _this = this;
-	        if (this.scrollAssist && this.scrollView) {
-	            setTimeout(function () {
-	                _this.deregMove();
-	                _this.deregScroll = _this.scrollView.addScrollEventListener(_this.scrollMove);
-	            }, 80);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.deregMove = function () {
-	        this.deregScroll && this.deregScroll();
-	    };
-	    Object.defineProperty(TextInput.prototype, "hasFocus", {
-	        /**
-	         * @private
-	         */
-	        get: function () {
-	            return !!this.input && this.input.hasFocus;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.ngOnDestroy = function () {
-	        this.deregMove();
-	        this.form.deregister(this);
-	    };
-	    __decorate([
-	        core_1.ContentChild(core_1.forwardRef(function () { return TextInputElement; })), 
-	        __metadata('design:type', Object)
-	    ], TextInput.prototype, "textInputElement", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
 	    ], TextInput.prototype, "clearInput", void 0);
+	    __decorate([
+	        core_1.ContentChild(TextInputElement), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], TextInput.prototype, "_setInput", null);
+	    __decorate([
+	        core_1.ContentChild(label_1.Label), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], TextInput.prototype, "_setLabel", null);
 	    TextInput = __decorate([
 	        core_1.Component({
 	            selector: 'ion-input',
@@ -56707,16 +56908,16 @@
 	                '(touchend)': 'pointerEnd($event)',
 	                '(mouseup)': 'pointerEnd($event)',
 	                'class': 'item',
-	                '[class.ng-untouched]': 'addNgClass("ng-untouched")',
-	                '[class.ng-touched]': 'addNgClass("ng-touched")',
-	                '[class.ng-pristine]': 'addNgClass("ng-pristine")',
-	                '[class.ng-dirty]': 'addNgClass("ng-dirty")',
-	                '[class.ng-valid]': 'addNgClass("ng-valid")',
-	                '[class.ng-invalid]': 'addNgClass("ng-invalid")'
+	                '[class.ng-untouched]': 'hasClass("ng-untouched")',
+	                '[class.ng-touched]': 'hasClass("ng-touched")',
+	                '[class.ng-pristine]': 'hasClass("ng-pristine")',
+	                '[class.ng-dirty]': 'hasClass("ng-dirty")',
+	                '[class.ng-valid]': 'hasClass("ng-valid")',
+	                '[class.ng-invalid]': 'hasClass("ng-invalid")'
 	            },
 	            template: '<div class="item-inner">' +
 	                '<ng-content></ng-content>' +
-	                '<input [type]="type" aria-hidden="true" scroll-assist *ngIf="scrollAssist">' +
+	                '<input [type]="type" aria-hidden="true" scroll-assist *ngIf="_assist">' +
 	                '<button clear *ngIf="clearInput && value" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
 	                '</div>',
 	            directives: [common_1.NgIf, core_1.forwardRef(function () { return InputScrollAssist; }), core_1.forwardRef(function () { return TextInputElement; }), button_1.Button]
@@ -56728,7 +56929,7 @@
 	        __param(9, core_1.Attribute('stacked-label')),
 	        __param(10, core_1.Attribute('fixed-label')),
 	        __param(11, core_1.Attribute('inset')), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _e) || Object, (typeof (_f = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _f) || Object, (typeof (_g = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, String, String, String, String])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _e) || Object, (typeof (_f = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _f) || Object, (typeof (_g = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, String, String, String, String])
 	    ], TextInput);
 	    return TextInput;
 	    var _a, _b, _c, _d, _e, _f, _g, _h;
@@ -56737,123 +56938,23 @@
 	/**
 	 * @private
 	 */
-	var TextInputElement = (function () {
-	    function TextInputElement(type, elementRef, renderer, wrapper) {
-	        this.type = type;
-	        this.elementRef = elementRef;
-	        this.wrapper = wrapper;
-	        this.renderer = renderer;
-	        // all text inputs (textarea, input[type=text],input[type=password], etc)
-	        renderer.setElementClass(elementRef, 'text-input', true);
-	        if (wrapper) {
-	            // it's within ionic's ion-input, let ion-input handle what's up
-	            renderer.setElementClass(elementRef, 'item-input', true);
-	            wrapper.registerInput(this);
-	        }
-	    }
-	    TextInputElement.prototype.ngOnInit = function () {
-	        if (this.ngModel)
-	            this.value = this.ngModel;
-	        this.wrapper && this.wrapper.hasValue(this.value);
-	    };
-	    TextInputElement.prototype.focusChange = function (changed) {
-	        this.wrapper && this.wrapper.focusChange(changed);
-	    };
-	    TextInputElement.prototype.onKeyup = function (ev) {
-	        this.wrapper && this.wrapper.hasValue(ev.target.value);
-	    };
-	    TextInputElement.prototype.labelledBy = function (val) {
-	        this.renderer.setElementAttribute(this.elementRef, 'aria-labelledby', val);
-	    };
-	    TextInputElement.prototype.setFocus = function () {
-	        this.getNativeElement().focus();
-	    };
-	    TextInputElement.prototype.relocate = function (shouldRelocate, inputRelativeY) {
-	        if (this._relocated !== shouldRelocate) {
-	            var focusedInputEle = this.getNativeElement();
-	            if (shouldRelocate) {
-	                var clonedInputEle = cloneInput(focusedInputEle, 'cloned-input');
-	                focusedInputEle.classList.add('hide-focused-input');
-	                focusedInputEle.style[dom.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
-	                focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
-	                this.wrapper.setFocus();
-	            }
-	            else {
-	                focusedInputEle.classList.remove('hide-focused-input');
-	                focusedInputEle.style[dom.CSS.transform] = '';
-	                var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-input');
-	                if (clonedInputEle) {
-	                    clonedInputEle.parentNode.removeChild(clonedInputEle);
-	                }
-	            }
-	            this._relocated = shouldRelocate;
-	        }
-	    };
-	    TextInputElement.prototype.hideFocus = function (shouldHideFocus) {
-	        var focusedInputEle = this.getNativeElement();
-	        if (shouldHideFocus) {
-	            var clonedInputEle = cloneInput(focusedInputEle, 'cloned-hidden');
-	            focusedInputEle.classList.add('hide-focused-input');
-	            focusedInputEle.style[dom.CSS.transform] = 'translate3d(-9999px,0,0)';
-	            focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
-	        }
-	        else {
-	            focusedInputEle.classList.remove('hide-focused-input');
-	            focusedInputEle.style[dom.CSS.transform] = '';
-	            var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-hidden');
-	            if (clonedInputEle) {
-	                clonedInputEle.parentNode.removeChild(clonedInputEle);
-	            }
-	        }
-	    };
-	    Object.defineProperty(TextInputElement.prototype, "hasFocus", {
-	        get: function () {
-	            return dom.hasFocus(this.getNativeElement());
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    TextInputElement.prototype.addClass = function (className) {
-	        this.renderer.setElementClass(this.elementRef, className, true);
-	    };
-	    TextInputElement.prototype.getNativeElement = function () {
-	        return this.elementRef.nativeElement;
-	    };
-	    TextInputElement = __decorate([
-	        core_1.Directive({
-	            selector: 'textarea,input[type=text],input[type=password],input[type=number],input[type=search],input[type=email],input[type=url],input[type=tel],input[type=date],input[type=datetime],input[type=datetime-local],input[type=week],input[type=time]',
-	            inputs: ['value', 'ngModel'],
-	            host: {
-	                '(focus)': 'focusChange(true)',
-	                '(blur)': 'focusChange(false)',
-	                '(keyup)': 'onKeyup($event)'
-	            }
-	        }),
-	        __param(0, core_1.Attribute('type')),
-	        __param(3, core_1.Optional()), 
-	        __metadata('design:paramtypes', [String, (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object, TextInput])
-	    ], TextInputElement);
-	    return TextInputElement;
-	    var _a, _b;
-	})();
-	exports.TextInputElement = TextInputElement;
-	/**
-	 * @private
-	 */
 	var InputScrollAssist = (function () {
-	    function InputScrollAssist(form, textInput) {
-	        this.form = form;
-	        this.textInput = textInput;
+	    function InputScrollAssist(_form, _input) {
+	        this._form = _form;
+	        this._input = _input;
 	    }
-	    InputScrollAssist.prototype.receivedFocus = function (ev) {
-	        this.form.focusNext(this.textInput);
+	    InputScrollAssist.prototype.receivedFocus = function () {
+	        this._form.focusNext(this._input);
 	    };
+	    __decorate([
+	        core_1.HostListener('focus'), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', []), 
+	        __metadata('design:returntype', void 0)
+	    ], InputScrollAssist.prototype, "receivedFocus", null);
 	    InputScrollAssist = __decorate([
 	        core_1.Directive({
-	            selector: '[scroll-assist]',
-	            host: {
-	                '(focus)': 'receivedFocus($event)'
-	            }
+	            selector: '[scroll-assist]'
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, TextInput])
 	    ], InputScrollAssist);
@@ -56890,13 +56991,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
 	var core_1 = __webpack_require__(8);
-	var config_1 = __webpack_require__(270);
-	var text_input_1 = __webpack_require__(324);
-	var dom_1 = __webpack_require__(273);
 	var form_1 = __webpack_require__(275);
 	/**
 	 * @name Label
@@ -56916,12 +57011,10 @@
 	 *
 	 */
 	var Label = (function () {
-	    function Label(config, container, _form, _elementRef, _renderer) {
+	    function Label(_form, _elementRef, _renderer) {
 	        this._form = _form;
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
-	        this.scrollAssist = config.get('scrollAssist');
-	        this.container = container;
 	    }
 	    /**
 	     * @private
@@ -56929,32 +57022,6 @@
 	    Label.prototype.ngOnInit = function () {
 	        if (!this.id) {
 	            this.id = 'lbl-' + this._form.nextId();
-	        }
-	        this.container && this.container.registerLabel(this);
-	    };
-	    /**
-	     * @private
-	     */
-	    Label.prototype.pointerStart = function (ev) {
-	        if (this.scrollAssist) {
-	            // remember where the touchstart/mousedown started
-	            this.startCoord = dom_1.pointerCoord(ev);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Label.prototype.pointerEnd = function (ev) {
-	        if (this.container) {
-	            // get where the touchend/mouseup ended
-	            var endCoord = dom_1.pointerCoord(ev);
-	            // focus this input if the pointer hasn't moved XX pixels
-	            if (!dom_1.hasPointerMoved(20, this.startCoord, endCoord)) {
-	                ev.preventDefault();
-	                ev.stopPropagation();
-	                this.container.initFocus();
-	            }
-	            this.startCoord = null;
 	        }
 	    };
 	    /**
@@ -56970,18 +57037,13 @@
 	                'id'
 	            ],
 	            host: {
-	                '[attr.id]': 'id',
-	                '(touchstart)': 'pointerStart($event)',
-	                '(touchend)': 'pointerEnd($event)',
-	                '(mousedown)': 'pointerStart($event)',
-	                '(mouseup)': 'pointerEnd($event)'
+	                '[attr.id]': 'id'
 	            }
-	        }),
-	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof text_input_1.TextInput !== 'undefined' && text_input_1.TextInput) === 'function' && _b) || Object, (typeof (_c = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
 	    ], Label);
 	    return Label;
-	    var _a, _b, _c, _d, _e;
+	    var _a, _b, _c;
 	})();
 	exports.Label = Label;
 
@@ -62635,11 +62697,59 @@
 	    }
 	    BasicPage.prototype.doAlert = function () {
 	        var alert = ionic_1.Alert.create({
-	            title: "New Friend!",
-	            subTitle: "Your friend, Obi wan Kenobi, just accepted your friend request!",
+	            title: 'New Friend!',
+	            subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
 	            buttons: ['Ok']
 	        });
 	        this.nav.present(alert);
+	    };
+	    BasicPage.prototype.doPrompt = function () {
+	        var prompt = ionic_1.Alert.create({
+	            title: 'Login',
+	            body: "Enter a name for this new album you're so keen on adding",
+	            inputs: [
+	                {
+	                    name: 'title',
+	                    placeholder: 'Title'
+	                },
+	            ],
+	            buttons: [
+	                {
+	                    text: 'Cancel',
+	                    handler: function (data) {
+	                        console.log('Cancel clicked');
+	                    }
+	                },
+	                {
+	                    text: 'Save',
+	                    handler: function (data) {
+	                        console.log('Saved clicked');
+	                    }
+	                }
+	            ]
+	        });
+	        this.nav.present(prompt);
+	    };
+	    BasicPage.prototype.doConfirm = function () {
+	        var confirm = ionic_1.Alert.create({
+	            title: 'Use this lightsaber?',
+	            body: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+	            buttons: [
+	                {
+	                    text: 'Disagree',
+	                    handler: function () {
+	                        console.log('Disagree clicked');
+	                    }
+	                },
+	                {
+	                    text: 'Agree',
+	                    handler: function () {
+	                        console.log('Agree clicked');
+	                    }
+	                }
+	            ]
+	        });
+	        this.nav.present(confirm);
 	    };
 	    BasicPage = __decorate([
 	        ionic_1.Page({
@@ -62727,7 +62837,7 @@
 	    TabTextPage = __decorate([
 	        ionic_1.Page({
 	            template: '' +
-	                '<ion-navbar *navbar hide-back-button [attr.primary]="isAndroid ? \'\' : null">' +
+	                '<ion-navbar *navbar hideBackButton [attr.primary]="isAndroid ? \'\' : null">' +
 	                '<ion-title>Tabs</ion-title>' +
 	                '</ion-navbar>' +
 	                '<ion-content>' +
@@ -62787,7 +62897,7 @@
 	    TabIconPage = __decorate([
 	        ionic_1.Page({
 	            template: '' +
-	                '<ion-navbar *navbar hide-back-button [attr.danger]="isAndroid ? \'\' : null">' +
+	                '<ion-navbar *navbar hideBackButton [attr.danger]="isAndroid ? \'\' : null">' +
 	                '<ion-title>Tabs</ion-title>' +
 	                '</ion-navbar>' +
 	                '<ion-content>' +
@@ -62854,7 +62964,7 @@
 	    TabIconTextPage = __decorate([
 	        ionic_1.Page({
 	            template: '' +
-	                '<ion-navbar *navbar hide-back-button [attr.royal]="isAndroid ? \'\' : null">' +
+	                '<ion-navbar *navbar hideBackButton [attr.royal]="isAndroid ? \'\' : null">' +
 	                '<ion-title>Tabs</ion-title>' +
 	                '</ion-navbar>' +
 	                '<ion-content>' +

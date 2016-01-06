@@ -22,7 +22,7 @@ var TabIconPage = (function () {
     TabIconPage = __decorate([
         ionic_1.Page({
             template: '' +
-                '<ion-navbar *navbar hide-back-button [attr.danger]="isAndroid ? \'\' : null">' +
+                '<ion-navbar *navbar hideBackButton [attr.danger]="isAndroid ? \'\' : null">' +
                 '<ion-title>Tabs</ion-title>' +
                 '</ion-navbar>' +
                 '<ion-content>' +

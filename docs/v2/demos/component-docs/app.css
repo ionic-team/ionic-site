@@ -10907,9 +10907,9 @@ ion-card .icon-avatar {
   text-align: center; }
 
 .preview-icons {
-  text-align: center !important; }
-  .preview-icons icon {
-    font-size: 2em !important; }
+  text-align: center; }
+  .preview-icons ion-icon {
+    font-size: 2em; }
 
 body.md ion-menu#leftMenu {
   width: 304px; }

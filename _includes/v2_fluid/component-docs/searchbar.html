@@ -15,7 +15,7 @@ A search bar binds to a model, and calls a function to update the page when the 
 <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
 <ion-list>
   <ion-item *ngFor="#item of items">
-    {{ item }}
+    {% raw %}{{ item }}{% endraw %}
   </ion-item>
 </ion-list>
 ```

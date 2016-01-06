@@ -34,7 +34,7 @@ Toggle
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toggle/toggle.ts#L32'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toggle/toggle.ts#L5'>
 Improve this doc
 </a> 
 
@@ -186,7 +186,49 @@ a unique ID for a toggle
 </table>
 
 
-<!-- methods on the class --><!-- related link -->
+<!-- methods on the class -->
+
+<h2>Methods</h2>
+
+<div id="toggle"></div>
+
+<h3>
+<code>toggle()</code>
+  
+
+</h3>
+
+Toggle the checked state of this toggle.
+
+
+
+
+
+
+
+
+
+
+
+<div id="checked"></div>
+
+<h3>
+<code>checked()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
 
 <h2>Related</h2>
 

@@ -13,6 +13,9 @@ var helpers_1 = require('../../helpers');
 var SearchPage = (function () {
     function SearchPage() {
         this.searchQuery = '';
+        this.initializeItems();
+    }
+    SearchPage.prototype.initializeItems = function () {
         this.items = [
             'Amsterdam',
             'Bogota',
@@ -52,14 +55,18 @@ var SearchPage = (function () {
             'Uelzen',
             'Washington'
         ];
-    }
-    SearchPage.prototype.getItems = function () {
-        var q = this.searchQuery;
+    };
+    SearchPage.prototype.getItems = function (searchbar) {
+        // Reset items back to all of the items
+        this.initializeItems();
+        // set q to the value of the searchbar
+        var q = searchbar.value;
+        // if the value is an empty string don't filter the items
         if (q.trim() == '') {
-            return this.items;
+            return;
         }
-        return this.items.filter(function (v) {
-            if (v.toLowerCase().indexOf(q.toLowerCase()) >= 0) {
+        this.items = this.items.filter(function (v) {
+            if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
                 return true;
             }
             return false;

@@ -48351,7 +48351,7 @@
 	            selector: 'ion-navbar',
 	            template: '<div class="toolbar-background"></div>' +
 	                '<button class="back-button bar-button bar-button-default" [hidden]="hideBackButton">' +
-	                '<icon class="back-button-icon" [name]="bbIcon"></icon>' +
+	                '<ion-icon class="back-button-icon" [name]="bbIcon"></ion-icon>' +
 	                '<span class="back-button-text">' +
 	                '<span class="back-default">{{bbText}}</span>' +
 	                '</span>' +
@@ -48421,18 +48421,20 @@
 	/**
 	 * @name Icon
 	 * @description
-	 * Icons can be used on their own, or inside of a number of Ionic components. For a full list of available icons,
-	 * check out the [Ionicons resource docs](../../../../resources/ionicons).
+	 * Icons can be used on their own, or inside of a number of Ionic components.
+	 * For a full list of available icons, check out the
+	 * [Ionicons resource docs](../../../../resources/ionicons).
 	 *
 	 * @usage
 	 * ```html
-	 * <!-- use the appropriate home icon for ios and md -->
-	 * <icon home></icon>
+	 * <!-- use the appropriate star icon for ios and md -->
+	 * <ion-icon name="star"></ion-icon>
 	 *
 	 * <!-- explicity set the icon for each platform -->
-	 * <icon ios="ion-ios-home" md="ion-md-home"></icon>
+	 * <ion-icon ios="ion-ios-home" md="ion-md-home"></ion-icon>
 	 * ```
 	 *
+	 * @property {string} [name] - Use the appropriate icon for the mode.
 	 * @property {boolean} [isActive] - Whether or not the icon is active. Icons that are not active will use an outlined version of the icon.
 	 * If there is not an outlined version for the particular icon, it will use the default (full) version.
 	 * @property {string} [ios] - Explicitly set the icon to use on iOS.
@@ -48441,38 +48443,26 @@
 	 *
 	 */
 	var Icon = (function () {
-	    function Icon(_elementRef, config, _renderer) {
+	    function Icon(config, _elementRef, _renderer) {
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
-	        this.config = config;
 	        this.mode = config.get('iconMode');
+	        if (_elementRef.nativeElement.tagName === 'ICON') {
+	            // deprecated warning
+	            console.warn('<icon> has been renamed to <ion-icon>');
+	            console.warn('<ion-icon> requires the "name" attribute w/ a value');
+	            console.warn('<ion-icon name="home"></ion-icon> should now be <ion-icon name="home"></ion-icon>');
+	        }
 	    }
 	    /**
 	     * @private
 	     */
-	    Icon.prototype.addClass = function (className) {
-	        this._renderer.setElementClass(this._elementRef, className, true);
-	    };
-	    /**
-	     * @private
-	     */
 	    Icon.prototype.ngOnInit = function () {
-	        var ele = this._elementRef.nativeElement;
 	        if (this.mode == 'ios' && this.ios) {
 	            this.name = this.ios;
 	        }
 	        else if (this.mode == 'md' && this.md) {
 	            this.name = this.md;
-	        }
-	        else if (!this.name) {
-	            // looping through native dom attributes, eww
-	            // https://github.com/angular/angular/issues/1818
-	            for (var i = 0, l = ele.attributes.length; i < l; i++) {
-	                if (ele.attributes[i].value === '' && /_|item-|isActive|large|small|class/.test(ele.attributes[i].name) !== true) {
-	                    this.name = ele.attributes[i].name;
-	                    break;
-	                }
-	            }
 	        }
 	        if (!this.name)
 	            return;
@@ -48482,6 +48472,12 @@
 	            this.name = 'ion-' + this.mode + '-' + this.name;
 	        }
 	        this.update();
+	    };
+	    /**
+	     * @private
+	     */
+	    Icon.prototype.addClass = function (className) {
+	        this._renderer.setElementClass(this._elementRef, className, true);
 	    };
 	    Object.defineProperty(Icon.prototype, "isActive", {
 	        get: function () {
@@ -48522,7 +48518,7 @@
 	    };
 	    Icon = __decorate([
 	        core_1.Directive({
-	            selector: 'icon',
+	            selector: 'ion-icon,icon',
 	            inputs: [
 	                'name',
 	                'ios',
@@ -48533,7 +48529,7 @@
 	                'role': 'img'
 	            }
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
 	    ], Icon);
 	    return Icon;
 	    var _a, _b, _c;
@@ -48872,12 +48868,12 @@
 	                }
 	            }
 	            else if (childNode.nodeType === 1) {
-	                if (childNode.nodeName === 'ICON') {
+	                if (childNode.nodeName === 'ION-ICON') {
 	                    // icon element node
 	                    nodes.push(ICON);
 	                }
 	                else {
-	                    // element other than an <icon>
+	                    // element other than an <ion-icon>
 	                    nodes.push(TEXT);
 	                }
 	            }
@@ -54741,7 +54737,7 @@
 	                '<ion-tabbar-section>' +
 	                '<tabbar role="tablist">' +
 	                '<a *ngFor="#t of _tabs" [tab]="t" class="tab-button" role="tab">' +
-	                '<icon [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></icon>' +
+	                '<ion-icon [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></ion-icon>' +
 	                '<span class="tab-button-text">{{t.tabTitle}}</span>' +
 	                '</a>' +
 	                '<tab-highlight></tab-highlight>' +
@@ -56363,6 +56359,7 @@
 	var dom_1 = __webpack_require__(273);
 	var platform_1 = __webpack_require__(271);
 	var button_1 = __webpack_require__(304);
+	var icon_1 = __webpack_require__(302);
 	/**
 	 * @private
 	 */
@@ -56588,6 +56585,32 @@
 	                label.addClass(this.displayType + '-label');
 	            }
 	            this.label = label;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(TextInput.prototype, "_buttons", {
+	        /**
+	         * @private
+	         */
+	        set: function (buttons) {
+	            buttons.toArray().forEach(function (button) {
+	                if (!button.isItem) {
+	                    button.addClass('item-button');
+	                }
+	            });
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(TextInput.prototype, "_icons", {
+	        /**
+	         * @private
+	         */
+	        set: function (icons) {
+	            icons.toArray().forEach(function (icon) {
+	                icon.addClass('item-icon');
+	            });
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -56900,6 +56923,16 @@
 	        __metadata('design:type', Object), 
 	        __metadata('design:paramtypes', [Object])
 	    ], TextInput.prototype, "_setLabel", null);
+	    __decorate([
+	        core_1.ContentChildren(button_1.Button), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], TextInput.prototype, "_buttons", null);
+	    __decorate([
+	        core_1.ContentChildren(icon_1.Icon), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], TextInput.prototype, "_icons", null);
 	    TextInput = __decorate([
 	        core_1.Component({
 	            selector: 'ion-input',
@@ -57884,7 +57917,7 @@
 	            selector: 'ion-searchbar',
 	            template: '<div class="searchbar-input-container">' +
 	                '<button (click)="cancelSearchbar()" (mousedown)="cancelSearchbar()" clear dark class="searchbar-md-cancel">' +
-	                '<icon arrow-back></icon>' +
+	                '<ion-icon name="arrow-back"></ion-icon>' +
 	                '</button>' +
 	                '<div class="searchbar-search-icon"></div>' +
 	                '<input [value]="value" (keyup)="inputChanged($event)" (blur)="inputBlurred()" (focus)="inputFocused()" class="searchbar-input" type="search" [attr.placeholder]="placeholder">' +
@@ -58607,7 +58640,7 @@
 	 * it is in `IONIC_DIRECTIVES`, so there is no need to add a `directives` array.
 	 *
 	 *
-	 * Say you built a custom component that uses the an already exsiting Ionic component.
+	 * Say you built a custom component that uses the already existing Ionic component.
 	 * In this case, you would add `IONIC_DIRECTIVES` to your directives array.
 	 *
 	 * ```ts
@@ -58915,13 +58948,13 @@
 	                '<div class="action-sheet-title" *ngIf="d.title">{{d.title}}</div>' +
 	                '<div class="action-sheet-sub-title" *ngIf="d.subTitle">{{d.subTitle}}</div>' +
 	                '<button (click)="click(b)" *ngFor="#b of d.buttons" class="action-sheet-button disable-hover" [ngClass]="b.cssClass">' +
-	                '<icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></icon> ' +
+	                '<ion-icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></ion-icon> ' +
 	                '{{b.text}}' +
 	                '</button>' +
 	                '</div>' +
 	                '<div class="action-sheet-group" *ngIf="d.cancelButton">' +
 	                '<button (click)="click(d.cancelButton)" class="action-sheet-button action-sheet-cancel disable-hover" [ngClass]="d.cancelButton.cssClass">' +
-	                '<icon [name]="d.cancelButton.icon" *ngIf="d.cancelButton.icon" class="action-sheet-icon"></icon> ' +
+	                '<ion-icon [name]="d.cancelButton.icon" *ngIf="d.cancelButton.icon" class="action-sheet-icon"></ion-icon> ' +
 	                '{{d.cancelButton.text}}' +
 	                '</button>' +
 	                '</div>' +
@@ -62053,6 +62086,9 @@
 	var SearchPage = (function () {
 	    function SearchPage() {
 	        this.searchQuery = '';
+	        this.initializeItems();
+	    }
+	    SearchPage.prototype.initializeItems = function () {
 	        this.items = [
 	            'Amsterdam',
 	            'Bogota',
@@ -62092,14 +62128,18 @@
 	            'Uelzen',
 	            'Washington'
 	        ];
-	    }
-	    SearchPage.prototype.getItems = function () {
-	        var q = this.searchQuery;
+	    };
+	    SearchPage.prototype.getItems = function (searchbar) {
+	        // Reset items back to all of the items
+	        this.initializeItems();
+	        // set q to the value of the searchbar
+	        var q = searchbar.value;
+	        // if the value is an empty string don't filter the items
 	        if (q.trim() == '') {
-	            return this.items;
+	            return;
 	        }
-	        return this.items.filter(function (v) {
-	            if (v.toLowerCase().indexOf(q.toLowerCase()) >= 0) {
+	        this.items = this.items.filter(function (v) {
+	            if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
 	                return true;
 	            }
 	            return false;

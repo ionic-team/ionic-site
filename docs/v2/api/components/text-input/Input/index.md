@@ -32,7 +32,7 @@ Input
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L131'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/text-input/text-input.ts#L132'>
 Improve this doc
 </a> 
 

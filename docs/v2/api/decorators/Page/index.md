@@ -67,7 +67,7 @@ class MyPage {}
 </code></pre>
 <p>Here <a href="../../../components/content/Content/">Content</a> will load because
 it is in <code>IONIC_DIRECTIVES</code>, so there is no need to add a <code>directives</code> array.</p>
-<p>Say you built a custom component that uses the an already exsiting Ionic component.
+<p>Say you built a custom component that uses the already existing Ionic component.
 In this case, you would add <code>IONIC_DIRECTIVES</code> to your directives array.</p>
 <pre><code class="lang-ts">import {IONIC_DIRECTIVES} from &#39;ionic/ionic&#39;;
 @Component({

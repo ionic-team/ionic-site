@@ -12,26 +12,26 @@ var core_1 = require('angular2/core');
 var common_1 = require('angular2/common');
 var helpers = require('../../helpers');
 var ModalsInitialPage = (function () {
-    function ModalsInitialPage(nav, modal) {
+    function ModalsInitialPage(nav) {
         this.nav = nav;
-        this.modal = modal;
     }
     ModalsInitialPage.prototype.openModal = function (characterNum) {
-        this.modal.open(ModalsContentPage, characterNum);
+        var myModal = ionic_1.Modal.create(ModalsContentPage, characterNum);
+        this.nav.present(myModal);
     };
     ModalsInitialPage = __decorate([
         ionic_1.Page({
             templateUrl: 'modals/basic/template.html',
             directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.Modal !== 'undefined' && ionic_1.Modal) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object])
     ], ModalsInitialPage);
     return ModalsInitialPage;
-    var _a, _b;
+    var _a;
 })();
 var ModalsContentPage = (function () {
-    function ModalsContentPage(modal, platform, params) {
-        this.modal = modal;
+    function ModalsContentPage(platform, params, viewCtrl) {
+        this.viewCtrl = viewCtrl;
         this.params = params;
         if (platform.is('android')) {
             this.currentPlatform = 'android';
@@ -73,38 +73,32 @@ var ModalsContentPage = (function () {
         ];
         this.character = characters[this.params.get('charNum')];
     }
-    ModalsContentPage.prototype.closeModal = function () {
-        var modal = this.modal.get();
-        if (modal) {
-            modal.close();
-        }
+    ModalsContentPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
     };
     ModalsContentPage = __decorate([
         ionic_1.Page({
             templateUrl: 'modals/basic/modal-content.html',
             directives: [common_1.NgFor, core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Modal !== 'undefined' && ionic_1.Modal) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _b) || Object, (typeof (_c = typeof ionic_1.NavParams !== 'undefined' && ionic_1.NavParams) === 'function' && _c) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.NavParams !== 'undefined' && ionic_1.NavParams) === 'function' && _b) || Object, (typeof (_c = typeof ionic_1.ViewController !== 'undefined' && ionic_1.ViewController) === 'function' && _c) || Object])
     ], ModalsContentPage);
     return ModalsContentPage;
     var _a, _b, _c;
 })();
 var BasicPage = (function () {
-    function BasicPage(modal) {
+    function BasicPage(viewCtrl) {
+        this.viewCtrl = viewCtrl;
         this.rootView = ModalsInitialPage;
-        this.modal = modal;
     }
     BasicPage.prototype.onPageWillLeave = function () {
-        var modal = this.modal.get();
-        if (modal) {
-            modal.close();
-        }
+        this.viewCtrl.dismiss();
     };
     BasicPage = __decorate([
         ionic_1.Page({
             template: '<ion-nav [root]="rootView"></ion-nav>'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Modal !== 'undefined' && ionic_1.Modal) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.ViewController !== 'undefined' && ionic_1.ViewController) === 'function' && _a) || Object])
     ], BasicPage);
     return BasicPage;
     var _a;

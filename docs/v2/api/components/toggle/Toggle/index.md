@@ -190,15 +190,14 @@ a unique ID for a toggle
 
 <h2>Methods</h2>
 
-<div id="toggle"></div>
+<div id="value"></div>
 
 <h3>
-<code>toggle()</code>
+<code>value()</code>
   
 
 </h3>
 
-Toggle the checked state of this toggle.
 
 
 
@@ -219,6 +218,63 @@ Toggle the checked state of this toggle.
 </h3>
 
 
+
+
+
+
+
+
+
+
+
+
+<div id="disabled"></div>
+
+<h3>
+<code>disabled()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="id"></div>
+
+<h3>
+<code>id()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="toggle"></div>
+
+<h3>
+<code>toggle()</code>
+  
+
+</h3>
+
+Toggle the checked state of this toggle.
 
 
 

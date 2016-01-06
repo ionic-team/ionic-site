@@ -34,7 +34,7 @@ RadioGroup
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L89'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L90'>
 Improve this doc
 </a> 
 
@@ -143,25 +143,6 @@ Improve this doc
 
 <h3>
 <code>value()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="ngControl"></div>
-
-<h3>
-<code>ngControl()</code>
   
 
 </h3>

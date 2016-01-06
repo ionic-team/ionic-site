@@ -132,6 +132,25 @@ whether or not the checkbox is disabled or not.
 
 <h2>Methods</h2>
 
+<div id="value"></div>
+
+<h3>
+<code>value()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="checked"></div>
 
 <h3>
@@ -140,6 +159,43 @@ whether or not the checkbox is disabled or not.
 
 </h3>
 
+
+
+
+
+
+
+
+
+
+
+
+<div id="disabled"></div>
+
+<h3>
+<code>disabled()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="id"></div>
+
+<h3>
+<code>id()</code>
+  
+
+</h3>
 
 
 

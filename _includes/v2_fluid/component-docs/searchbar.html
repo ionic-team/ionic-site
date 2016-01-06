@@ -12,23 +12,27 @@ A search bar binds to a model, and calls a function to update the page when the 
 </a>
 
 ```html
-<ion-searchbar [(ngModel)]="searchQuery"></ion-searchbar>
-<ion-list #list>
-  <ion-item *ngFor="#item of getItems()">
-    {{item}}
+<ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="#item of items">
+    {{ item }}
   </ion-item>
 </ion-list>
 ```
 
-Note that in this example, the search bar binds to the `searchQuery` variable. The `getItems()` function is called when this variable changes, which updates the cities that are displayed. Although this example filters the list based on the search input, search bar can be used in many different scenarios:
+Note that in this example, the Searchbar binds to the `searchQuery` variable. The `getItems()` function is called when the input changes, which updates the cities that are displayed. Although this example filters the list based on the search input, Searchbar can be used in many different scenarios:
 
 ```typescript
 @Page({
   templateUrl: 'search/template.html',
 })
-class SearchPage{
+class SearchPage {
   constructor() {
     this.searchQuery = '';
+    this.initializeItems();
+  }
+
+  initializeItems() {
     this.items = [
       'Amsterdam',
       'Bogota',
@@ -36,11 +40,20 @@ class SearchPage{
     ];
   }
 
-  getItems() {
-    var q = this.searchQuery;
-    if(q.trim() == '') { return this.items; }
-    return this.items.filter((v) => {
-      if(v.toLowerCase().indexOf(q.toLowerCase()) >= 0) {
+  getItems(searchbar) {
+    // Reset items back to all of the items
+    this.initializeItems();
+
+    // set q to the value of the searchbar
+    var q = searchbar.value;
+
+    // if the value is an empty string don't filter the items
+    if (q.trim() == '') {
+      return;
+    }
+
+    this.items = this.items.filter((v) => {
+      if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
         return true;
       }
       return false;
@@ -48,3 +61,5 @@ class SearchPage{
   }
 }
 ```
+
+The Searchbar takes a number of configuration options on the `<ion-searchbar>` element, such as `cancelButtonText` and `hideCancelButton`. Check out the [Searchbar API reference](../api/components/searchbar/Searchbar/) for more information on configuring a Searchbar.

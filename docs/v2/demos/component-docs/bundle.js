@@ -62858,9 +62858,9 @@
 	    BasicPage = __decorate([
 	        ionic_1.Page({
 	            template: '<ion-tabs class="tabs-basic">' +
-	                '<ion-tab tab-title="Music" [root]="tabOne"></ion-tab>' +
-	                '<ion-tab tab-title="Movies" [root]="tabTwo"></ion-tab>' +
-	                '<ion-tab tab-title="Games" [root]="tabThree"></ion-tab>' +
+	                '<ion-tab tabTitle="Music" [root]="tabOne"></ion-tab>' +
+	                '<ion-tab tabTitle="Movies" [root]="tabTwo"></ion-tab>' +
+	                '<ion-tab tabTitle="Games" [root]="tabThree"></ion-tab>' +
 	                '</ion-tabs>',
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62923,10 +62923,10 @@
 	    IconPage = __decorate([
 	        ionic_1.Page({
 	            template: '<ion-tabs class="tabs-icon">' +
-	                '<ion-tab tab-icon="contact" [root]="tabOne"></ion-tab>' +
-	                '<ion-tab tab-icon="compass" [root]="tabTwo"></ion-tab>' +
-	                '<ion-tab tab-icon="analytics" [root]="tabThree"></ion-tab>' +
-	                '<ion-tab tab-icon="settings" [root]="tabFour"></ion-tab>' +
+	                '<ion-tab tabIcon="contact" [root]="tabOne"></ion-tab>' +
+	                '<ion-tab tabIcon="compass" [root]="tabTwo"></ion-tab>' +
+	                '<ion-tab tabIcon="analytics" [root]="tabThree"></ion-tab>' +
+	                '<ion-tab tabIcon="settings" [root]="tabFour"></ion-tab>' +
 	                '</ion-tabs>',
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62990,10 +62990,10 @@
 	    IconTextPage = __decorate([
 	        ionic_1.Page({
 	            template: '<ion-tabs class="tabs-icon-text">' +
-	                '<ion-tab tab-icon="water" tab-title="Water" [root]="tabOne"></ion-tab>' +
-	                '<ion-tab tab-icon="leaf" tab-title="Life" [root]="tabTwo"></ion-tab>' +
-	                '<ion-tab tab-icon="flame" tab-title="Fire" [root]="tabThree"></ion-tab>' +
-	                '<ion-tab tab-icon="magnet" tab-title="Force" [root]="tabFour"></ion-tab>' +
+	                '<ion-tab tabIcon="water" tabTitle="Water" [root]="tabOne"></ion-tab>' +
+	                '<ion-tab tabIcon="leaf" tabTitle="Life" [root]="tabTwo"></ion-tab>' +
+	                '<ion-tab tabIcon="flame" tabTitle="Fire" [root]="tabThree"></ion-tab>' +
+	                '<ion-tab tabIcon="magnet" tabTitle="Force" [root]="tabFour"></ion-tab>' +
 	                '</ion-tabs>',
 	        }), 
 	        __metadata('design:paramtypes', [])

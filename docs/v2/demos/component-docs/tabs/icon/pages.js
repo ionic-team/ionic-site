@@ -48,10 +48,10 @@ var IconPage = (function () {
     IconPage = __decorate([
         ionic_1.Page({
             template: '<ion-tabs class="tabs-icon">' +
-                '<ion-tab tab-icon="contact" [root]="tabOne"></ion-tab>' +
-                '<ion-tab tab-icon="compass" [root]="tabTwo"></ion-tab>' +
-                '<ion-tab tab-icon="analytics" [root]="tabThree"></ion-tab>' +
-                '<ion-tab tab-icon="settings" [root]="tabFour"></ion-tab>' +
+                '<ion-tab tabIcon="contact" [root]="tabOne"></ion-tab>' +
+                '<ion-tab tabIcon="compass" [root]="tabTwo"></ion-tab>' +
+                '<ion-tab tabIcon="analytics" [root]="tabThree"></ion-tab>' +
+                '<ion-tab tabIcon="settings" [root]="tabFour"></ion-tab>' +
                 '</ion-tabs>',
         }), 
         __metadata('design:paramtypes', [])

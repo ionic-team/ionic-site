@@ -59,7 +59,7 @@ For a full list of available icons, check out the
 &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
 
 &lt;!-- explicity set the icon for each platform --&gt;
-&lt;ion-icon ios=&quot;ion-ios-home&quot; md=&quot;ion-md-home&quot;&gt;&lt;/ion-icon&gt;
+&lt;ion-icon ios=&quot;ios-home&quot; md=&quot;md-home&quot;&gt;&lt;/ion-icon&gt;
 </code></pre>
 
 

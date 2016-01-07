@@ -279,6 +279,81 @@ export MyClass {
 
 
 
+<div id="setDir"></div>
+
+<h3>
+<code>setDir(languageDirection)</code>
+  
+
+</h3>
+
+Set the app's language direction, which will update the `dir` attribute
+on the app's root `<html>` element.
+[W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        languageDirection
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Examples: <code>rtl</code>, <code>ltr</code></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="dir"></div>
+
+<h3>
+<code>dir()</code>
+  
+
+</h3>
+
+Returns app's language direction.
+[W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>string</code>   
+</div>
+
+
+
+
 <div id="isRTL"></div>
 
 <h3>
@@ -288,7 +363,7 @@ export MyClass {
 </h3>
 
 Returns if this app is using right-to-left language direction or not.
-http://www.w3.org/International/questions/qa-html-dir
+[W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
 
 
 
@@ -299,6 +374,81 @@ http://www.w3.org/International/questions/qa-html-dir
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code>   
+</div>
+
+
+
+
+<div id="setLang"></div>
+
+<h3>
+<code>setLang(language)</code>
+  
+
+</h3>
+
+Set the app's language and optionally the country code, which will update
+the `lang` attribute on the app's root `<html>` element.
+[W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        language
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>Examples: <code>en-US</code>, <code>en-GB</code>, <code>ar</code>, <code>de</code>, <code>zh</code>, <code>es-MX</code></p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="lang"></div>
+
+<h3>
+<code>lang()</code>
+  
+
+</h3>
+
+Returns app's language and optional country code.
+[W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>string</code>   
 </div>
 
 

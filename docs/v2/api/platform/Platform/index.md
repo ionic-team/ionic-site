@@ -282,13 +282,16 @@ export MyClass {
 <div id="setDir"></div>
 
 <h3>
-<code>setDir(languageDirection)</code>
+<code>setDir(dir)</code>
   
 
 </h3>
 
 Set the app's language direction, which will update the `dir` attribute
-on the app's root `<html>` element.
+on the app's root `<html>` element. We recommend the app's `index.html`
+file already has the correct `dir` attribute value set, such as
+`<html dir="ltr">` or `<html dir="rtl">`. This method is useful if the
+direction needs to be dynamically changed per user/session.
 [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
 
 
@@ -304,7 +307,7 @@ on the app's root `<html>` element.
     
     <tr>
       <td>
-        languageDirection
+        dir
         
         
       </td>
@@ -338,6 +341,8 @@ on the app's root `<html>` element.
 </h3>
 
 Returns app's language direction.
+We recommend the app's `index.html` file already has the correct `dir`
+attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
 [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
 
 
@@ -363,6 +368,8 @@ Returns app's language direction.
 </h3>
 
 Returns if this app is using right-to-left language direction or not.
+We recommend the app's `index.html` file already has the correct `dir`
+attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
 [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
 
 
@@ -389,6 +396,9 @@ Returns if this app is using right-to-left language direction or not.
 
 Set the app's language and optionally the country code, which will update
 the `lang` attribute on the app's root `<html>` element.
+We recommend the app's `index.html` file already has the correct `lang`
+attribute value set, such as `<html lang="en">`. This method is useful if
+the language needs to be dynamically changed per user/session.
 [W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
 
 
@@ -438,6 +448,8 @@ the `lang` attribute on the app's root `<html>` element.
 </h3>
 
 Returns app's language and optional country code.
+We recommend the app's `index.html` file already has the correct `lang`
+attribute value set, such as `<html lang="en">`.
 [W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
 
 

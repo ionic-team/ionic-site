@@ -37,12 +37,12 @@ Delegate: <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ion
 </h1>
 
 
+{% include codepen.html id="AjgEB" %}
+
 
 
 
 The Slide Box is a multi-page container where each page can be swiped or dragged between:
-
-![SlideBox](http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif)
 
 
 

@@ -30,8 +30,8 @@ In `app/app.js`, the `MyApp` root component specifies this in its constructor:
 
 ```ts
 import {App, IonicApp, Platform} from 'ionic/ionic';
-import {HelloIonicPage} from './hello-ionic/hello-ionic';
-import {ListPage} from './list/list';
+import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
+import {ListPage} from './pages/list/list';
 
 class MyApp {
 
@@ -61,7 +61,7 @@ We see that `this.rootPage` is set to `HelloIonicPage`, so `HelloIonicPage` will
 
 ### Creating a Page
 
-Next, let's check out the `HelloIonicPage` that we are importing. Inside the `app/hello-ionic/` folder, let's open up `hello-ionic.js`.
+Next, let's check out the `HelloIonicPage` that we are importing. Inside the `app/pages/hello-ionic/` folder, let's open up `hello-ionic.js`.
 
 <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#naming-conventions">
   Naming conventions
@@ -78,7 +78,7 @@ Below, you will see the `HelloIonicPage` class which has a `Page` [decorator](..
 import {Page, NavController} from 'ionic/ionic';
 
 @Page({
-  templateUrl: 'app/hello-ionic/hello-ionic.html'
+  templateUrl: 'build/pages/hello-ionic/hello-ionic.html'
 })
 export class HelloIonicPage {
   constructor(nav: NavController) {
@@ -90,7 +90,7 @@ export class HelloIonicPage {
 
 Note that we pass in the `nav` object, and set it as a property in the constructor.
 
-All pages have both a class, and an associated template. Let's checkout `app/hello-ionic/hello-ionic.html` - the template file for this page:
+All pages have both a class, and an associated template. Let's checkout `app/pages/hello-ionic/hello-ionic.html` - the template file for this page:
 
 ```html
 {% raw %}
@@ -124,14 +124,14 @@ renders our welcome message.
 
 To create an additional page, we don't need to do much beyond making sure we correctly configure the title and anything else we want the navigation bar to display.
 
-Let's check out the contents of `app/list/list.js`. Inside, you will see a new page is being defined:
+Let's check out the contents of `app/pages/list/list.js`. Inside, you will see a new page is being defined:
 
 ```ts
 {% raw %}
 import {IonicApp, Page, NavController, NavParams} from 'ionic/ionic';
 
 @Page({
-  templateUrl: 'app/list/list.html'
+  templateUrl: 'build/pages/list/list.html'
 })
 export class ListPage {
   constructor(app: IonicApp, nav: NavController, navParams: NavParams) {
@@ -146,7 +146,7 @@ export class ListPage {
 {% endraw %}
 ```
 
-This page will create a basic list page containing a number of items. Notice that we are also defining an `itemTapped` function that logs the title of an item to the console. Let's go check out how this function gets called. Open up `app/list/list.html`:
+This page will create a basic list page containing a number of items. Notice that we are also defining an `itemTapped` function that logs the title of an item to the console. Let's go check out how this function gets called. Open up `app/pages/list/list.html`:
 
 ```html
 <ion-item *ng-for="#item of items" (click)="itemTapped($event, item)">

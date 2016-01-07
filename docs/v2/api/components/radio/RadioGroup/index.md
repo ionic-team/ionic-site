@@ -34,7 +34,7 @@ RadioGroup
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L90'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/radio/radio.ts#L99'>
 Improve this doc
 </a> 
 
@@ -143,44 +143,6 @@ Improve this doc
 
 <h3>
 <code>value()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onChange"></div>
-
-<h3>
-<code>onChange()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onTouched"></div>
-
-<h3>
-<code>onTouched()</code>
   
 
 </h3>

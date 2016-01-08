@@ -113,7 +113,6 @@ $(document).ready(function() {
       }
 
       if(icons[ iconElement.className ]) {
-        // alert(iconElement.className + " already exists");
         continue;
       }
 

@@ -96,7 +96,7 @@ All pages have both a class, and an associated template. Let's checkout `app/hel
 {% raw %}
 <ion-navbar *navbar>
   <a menu-toggle>
-    <icon menu></icon>
+    <ion-icon name="menu"></ion-icon>
   </a>
   <ion-title>Hello Ionic</ion-title>
 </ion-navbar>

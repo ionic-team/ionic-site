@@ -386,6 +386,54 @@ presentPrompt() {
 
 
 
+
+
+<div id="setCssClass"></div>
+
+<h3>
+<code>setCssClass(className)</code>
+  
+
+</h3>
+
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        className
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>CSS class name to add to the alert&#39;s outer wrapper</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
 <!-- related link --><!-- end content block -->
 
 

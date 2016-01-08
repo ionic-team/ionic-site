@@ -67,7 +67,28 @@ Improve this doc
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link -->
+<!-- methods on the class -->
+
+<h2>Methods</h2>
+
+<div id="text"></div>
+
+<h3>
+<code>text()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
 
 <h2>Related</h2>
 

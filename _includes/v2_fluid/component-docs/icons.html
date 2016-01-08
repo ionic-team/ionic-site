@@ -15,7 +15,7 @@ Ionic comes with the same 700+ [Ionicons](http://ionicons.com/) icons we've all 
 To use an icon, just add the Icon's CSS class to your element:
 
 ```html
-<icon heart></icon>
+<ion-icon heart></ion-icon>
 ```
 
 
@@ -24,8 +24,8 @@ To use an icon, just add the Icon's CSS class to your element:
 All icons have both `active` and `inactive` states. Active icons are typically full and thick, where as inactive icons are outlined and thin. Set the `is-active` attribute to `true` or false to change the state of the icon. Icons will default to active if a value is not specified.
 
 ```html
-<icon heart></icon>                    <!-- active -->
-<icon heart is-active="false"></icon>  <!-- inactive -->
+<ion-icon heart></ion-icon>                    <!-- active -->
+<ion-icon heart is-active="false"></ion-icon>  <!-- inactive -->
 ```
 
 
@@ -36,7 +36,7 @@ Many icons have both **Material Design** and **iOS** versions. Ionic will automa
 However, if you want more control, you can explicitly set the icon to use for each platform. Use the `md` (material design) and `ios` attributes to specify a platform specific icon:
 
 ```html
-<icon ios="ion-social-apple" md="ion-social-android"></icon>
+<ion-icon ios="ion-social-apple" md="ion-social-android"></ion-icon>
 ```
 
 
@@ -46,7 +46,7 @@ However, if you want more control, you can explicitly set the icon to use for ea
 To set an icon using a variable:
 
 ```html
-<icon [name]="myIcon"></icon>
+<ion-icon [name]="myIcon"></ion-icon>
 ```
 
 ```typescript

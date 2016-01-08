@@ -566,7 +566,7 @@ header_sub_title: Ionic 2 Developer Preview
     <ion-icon name="square-outline"></ion-icon>
 
     <!-- Advanced: explicity set the icon for each platform -->
-    None
+    <ion-icon ios="ios-square-outline" md="md-square-outline"></ion-icon>
     {% endhighlight %}
   </div>
   
@@ -1096,7 +1096,7 @@ header_sub_title: Ionic 2 Developer Preview
     <ion-icon name="star-outline"></ion-icon>
 
     <!-- Advanced: explicity set the icon for each platform -->
-    None
+    <ion-icon ios="ios-star-outline" md="md-star-outline"></ion-icon>
     {% endhighlight %}
   </div>
   
@@ -1746,7 +1746,7 @@ header_sub_title: Ionic 2 Developer Preview
     <ion-icon name="checkmark-circle-outline"></ion-icon>
 
     <!-- Advanced: explicity set the icon for each platform -->
-    None
+    <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"></ion-icon>
     {% endhighlight %}
   </div>
   
@@ -4466,7 +4466,7 @@ header_sub_title: Ionic 2 Developer Preview
     <ion-icon name="heart-outline"></ion-icon>
 
     <!-- Advanced: explicity set the icon for each platform -->
-    None
+    <ion-icon ios="ios-heart-outline" md="md-heart-outline"></ion-icon>
     {% endhighlight %}
   </div>
   
@@ -4966,7 +4966,7 @@ header_sub_title: Ionic 2 Developer Preview
     <ion-icon name="notifications-outline"></ion-icon>
 
     <!-- Advanced: explicity set the icon for each platform -->
-    None
+    <ion-icon ios="ios-notifications-outline" md="md-notifications-outline"></ion-icon>
     {% endhighlight %}
   </div>
   
@@ -5166,7 +5166,7 @@ header_sub_title: Ionic 2 Developer Preview
     <ion-icon name="cloud-outline"></ion-icon>
 
     <!-- Advanced: explicity set the icon for each platform -->
-    None
+    <ion-icon ios="ios-cloud-outline" md="md-cloud-outline"></ion-icon>
     {% endhighlight %}
   </div>
   
@@ -5256,7 +5256,7 @@ header_sub_title: Ionic 2 Developer Preview
     <ion-icon name="checkbox-outline"></ion-icon>
 
     <!-- Advanced: explicity set the icon for each platform -->
-    None
+    <ion-icon ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
     {% endhighlight %}
   </div>
   

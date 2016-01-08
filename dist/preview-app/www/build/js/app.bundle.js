@@ -3250,8 +3250,10 @@
 	                        else {
 	                            _this.nextPage = actionSheets.BasicPage;
 	                        }
-	                        var nav = _this.app.getComponent('nav');
-	                        helpers.debounce(nav.setRoot(_this.nextPage), 60, false);
+	                        setTimeout(function () {
+	                            var nav = _this.app.getComponent('nav');
+	                            helpers.debounce(nav.setRoot(_this.nextPage), 60, false);
+	                        });
 	                    }
 	                });
 	            });
@@ -3266,7 +3268,7 @@
 	                }
 	            }
 	            else {
-	                _this.isProductionMode = true;
+	                _this.isProductionMode = false;
 	                _this.currentPageIndex = 1;
 	                var nav = _this.app.getComponent('nav');
 	                nav.setRoot(actionSheets.BasicPage);
@@ -3298,7 +3300,7 @@
 	        ionic_1.App({
 	            templateUrl: './build/app.html',
 	            config: {
-	                production: false,
+	                production: true,
 	                platforms: {
 	                    android: {
 	                        activator: 'ripple'

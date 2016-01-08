@@ -51,7 +51,7 @@ they can resume interaction with the app.</p>
 <p>An alert is created from an array of <code>buttons</code> and optionally an array of
 <code>inputs</code>. Each button includes properties for its <code>text</code>, and optionally a
 <code>handler</code>. If a handler returns <code>false</code> then the alert will not be dismissed.
-An alert can also optionally have a <code>title</code>, <code>subTitle</code> and <code>body</code>.</p>
+An alert can also optionally have a <code>title</code>, <code>subTitle</code> and <code>message</code>.</p>
 <p>All buttons will show up in the order they have been added to the <code>buttons</code>
 array, from left to right. Note: The right most button (the last one in the
 array) is the main button.</p>
@@ -81,7 +81,7 @@ presentAlert() {
 presentConfirm() {
   let alert = Alert.create({
     title: &#39;Confirm purchase&#39;,
-    body: &#39;Do you want to buy this book?&#39;,
+    message: &#39;Do you want to buy this book?&#39;,
     buttons: [
       {
         text: &#39;Cancel&#39;,
@@ -244,10 +244,10 @@ presentPrompt() {
 
 
 
-<div id="setBody"></div>
+<div id="setMessage"></div>
 
 <h3>
-<code>setBody(body)</code>
+<code>setMessage(message)</code>
   
 
 </h3>
@@ -267,7 +267,7 @@ presentPrompt() {
     
     <tr>
       <td>
-        body
+        message
         
         
       </td>
@@ -276,7 +276,7 @@ presentPrompt() {
   <code>string</code>
       </td>
       <td>
-        <p>Alert body content</p>
+        <p>Alert message content</p>
 
         
       </td>

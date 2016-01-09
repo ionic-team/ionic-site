@@ -12,12 +12,9 @@ header_sub_title: Ionic 2 Developer Preview
 
 <h1 class="title">Theming Ionic Apps</h1>
 
-We built Ionic not to be a direct clone of the stock iOS and Android theme, but to
-be a blank slate that you can easily customize and modify to fit your brand, while
-still following standards of each platform. The best apps in the app stores are fully customized, and we want to make it easy to do the same with your Ionic apps.
+We built Ionic not to be a direct clone of the stock iOS and Android theme, but to be a blank slate that you can easily customize and modify to fit your brand, while still following standards of each platform. The best apps in the app stores are fully customized, and we want to make it easy to do the same with your Ionic apps.
 
-We've made theming Ionic 2 apps easier than ever, and themes support any number
-of custom colors.
+We've made theming Ionic 2 apps easier than ever, and themes support any number of custom colors.
 
 ### Starter Themes
 
@@ -53,8 +50,7 @@ $colors: (
 )
 ```
 
-Ionic automatically makes this available on most components. For example, to use this color
-on a button:
+Ionic automatically makes this available on most components. For example, to use this color on a button:
 
 ```html
 <button my-brand>Tap!</button>

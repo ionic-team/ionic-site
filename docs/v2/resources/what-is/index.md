@@ -17,7 +17,7 @@ header_sub_title: Learn about the Ionic community's favorite tools
 
  <section id="android-sdk">
     <h3><a href="#android-sdk">Android SDK</a></h3>
-    <p>The Android SDK is a software development kit that for developers building for Google's Android Platform. It includes tools for building, testing, and debugging Android apps.</p>
+    <p>The <a href="http://developer.android.com/sdk/index.html">Android SDK</a> is a software development kit that for developers building for Google's Android Platform. It includes tools for building, testing, and debugging Android apps.</p>
   </section>
 
 
@@ -148,12 +148,12 @@ header_sub_title: Learn about the Ionic community's favorite tools
 
   <section id="webpack">
     <h3><a href="#webpack">Webpack</a></h3><p>
-    Webpack bundles together JavaScript modules and other assets. It can be used to create single or multiple "chunks" that are only loaded when needed. Basically you can use Webpack to take your many files and dependencies and bundle them into one file, or however you see fit.</p>
+    <a href="https://webpack.github.io/">Webpack</a> bundles together JavaScript modules and other assets. It can be used to create single or multiple "chunks" that are only loaded when needed. Basically you can use Webpack to take your many files and dependencies and bundle them into one file, or however you see fit.</p>
   </section>
 
   <section id="xcode">
     <h3><a href="#xcode">XCode</a></h3><p>
-    XCode is an IDE that allows you to develop iOS apps. XCode includes tools that help with building, testing, and debugging your app. Although many Ionic developers do not use it as their primary editor, it is often used to build and sign the production version of an app.</p>
+    <a href="https://developer.apple.com/xcode/">XCode</a> is an IDE that allows you to develop iOS apps. XCode includes tools that help with building, testing, and debugging your app. Although many Ionic developers do not use it as their primary editor, it is often used to build and sign the production version of an app.</p>
   </section>
 
 </div>

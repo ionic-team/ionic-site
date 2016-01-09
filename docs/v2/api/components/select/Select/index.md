@@ -71,8 +71,8 @@ to select multiple options. When multiple options can be selected, the alert
 overlay presents users with a checkbox styled list of options. The
 <code>ion-select multiple=&quot;true&quot;</code> component&#39;s value receives an array of all the
 selected option values.</p>
-<pre><code class="lang-html">&lt;ion-select [(ngModel)]=&quot;topings&quot; multiple=&quot;true&quot;&gt;
-  &lt;ion-label&gt;Topings&lt;/ion-label&gt;
+<pre><code class="lang-html">&lt;ion-select [(ngModel)]=&quot;toppings&quot; multiple=&quot;true&quot;&gt;
+  &lt;ion-label&gt;Toppings&lt;/ion-label&gt;
   &lt;ion-option value=&quot;bacon&quot;&gt;Bacon&lt;/ion-option&gt;
   &lt;ion-option value=&quot;olives&quot;&gt;Black Olives&lt;/ion-option&gt;
   &lt;ion-option value=&quot;xcheese&quot;&gt;Extra Cheese&lt;/ion-option&gt;
@@ -98,8 +98,8 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 &lt;/ion-select&gt;
 </code></pre>
 <pre><code class="lang-ts">this.alertOptions = {
-  title: &#39;Pizza Topings&#39;,
-  subTitle: &#39;Select your topings&#39;
+  title: &#39;Pizza Toppings&#39;,
+  subTitle: &#39;Select your toppings&#39;
 };
 </code></pre>
 

@@ -56,8 +56,8 @@ works.</p>
 <p>When a modal (or any other overlay such as an alert or actionsheet) is
 &quot;presented&quot; to a nav controller, the overlay is added to the app&#39;s root nav.
 After the modal has been presented, from within the component instance The
-modal can later be closed or &quot;dimsissed&quot; by using the ViewController&#39;s
-<code>dismiss</code> method. Additinoally, you can dismiss any overlay by using <code>pop</code>
+modal can later be closed or &quot;dismissed&quot; by using the ViewController&#39;s
+<code>dismiss</code> method. Additionally, you can dismiss any overlay by using <code>pop</code>
 on the root nav controller.</p>
 <p>A modal can also emit data, which is useful when it is used to add or edit
 data. For example, a profile page could slide up in a modal, and on submit,

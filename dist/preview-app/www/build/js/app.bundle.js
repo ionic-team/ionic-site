@@ -3303,7 +3303,8 @@
 	                production: true,
 	                platforms: {
 	                    android: {
-	                        activator: 'ripple'
+	                        activator: 'ripple',
+	                        backButtonIcon: 'md-arrow-back'
 	                    }
 	                }
 	            }
@@ -61135,7 +61136,7 @@
 	                    },
 	                    { text: 'Favorite',
 	                        handler: buttonHandler,
-	                        icon: 'ion-md-heart-outline'
+	                        icon: 'md-heart-outline'
 	                    },
 	                    {
 	                        text: 'Delete',
@@ -62229,10 +62230,19 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(169);
 	var helpers = __webpack_require__(352);
 	var RadioPage = (function () {
 	    function RadioPage() {
+	        this.langs = new common_1.Control("");
+	        this.langForm = new common_1.ControlGroup({
+	            "langs": this.langs
+	        });
 	    }
+	    RadioPage.prototype.doSubmit = function (event) {
+	        console.log('Submitting form', this.langeForm.value);
+	        event.preventDefault();
+	    };
 	    RadioPage = __decorate([
 	        ionic_1.Page({
 	            templateUrl: './build/inputs/radio/template.html',

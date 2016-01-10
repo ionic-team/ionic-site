@@ -59,7 +59,7 @@ function createUser(user) {
 
 // second page (listen for the user created event)
 events.subscribe(&#39;user:created&#39;, (user) =&gt; {
-  console.log(&#39;Welcome&#39;, user); 
+  console.log(&#39;Welcome&#39;, user);
 });
 </code></pre>
 

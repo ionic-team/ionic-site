@@ -32,7 +32,7 @@ SqlStorage
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/sql.ts#L4'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/sql.ts#L5'>
 Improve this doc
 </a> 
 

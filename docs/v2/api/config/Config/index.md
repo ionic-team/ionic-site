@@ -190,6 +190,25 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 
 <h2>Methods</h2>
 
+<div id="platform"></div>
+
+<h3>
+<code>platform()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="set"></div>
 
 <h3>

@@ -73,6 +73,25 @@ export MyClass {
 
 <h2>Methods</h2>
 
+<div id="platformOverride"></div>
+
+<h3>
+<code>platformOverride()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="is"></div>
 
 <h3>

@@ -69,7 +69,7 @@ markup once, and let Ionic automatically apply the appropriate icon.</p>
 
 &lt;!-- always use the same icon, no matter what the mode --&gt;
 &lt;ion-icon name=&quot;ios-clock&quot;&gt;&lt;/ion-icon&gt;
-&lt;ion-icon name=&quot;twitter-logo&quot;&gt;&lt;/ion-icon&gt;
+&lt;ion-icon name=&quot;logo-twitter&quot;&gt;&lt;/ion-icon&gt;
 </code></pre>
 
 

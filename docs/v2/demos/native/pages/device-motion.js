@@ -17,7 +17,7 @@ var DeviceMotionPage = (function () {
     }
     DeviceMotionPage = __decorate([
         ionic_1.IonicView({
-            template: "\n  <ion-navbar *navbar>\n    <button menuToggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>Device Motion</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <div *ng-if=\"accel\">{{accel.x}} {{accel.y}} {{accel.z}}</div>\n  </ion-content>\n  "
+            template: "\n  <ion-navbar *navbar>\n    <button menuToggle>\n      <ion-icon name=\"menu\"></ion-icon>\n    </button>\n    <ion-title>Device Motion</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <div *ngIf=\"accel\">{{accel.x}} {{accel.y}} {{accel.z}}</div>\n  </ion-content>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], DeviceMotionPage);

@@ -19,7 +19,7 @@ var BatteryPage = (function () {
     };
     BatteryPage = __decorate([
         ionic_1.IonicView({
-            template: "\n  <ion-navbar *navbar>\n    <button menuToggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>Battery</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>Battery</h2>\n    <button primary outline (click)=\"doBatteryStatus()\">Get Status</button>\n    <div *ng-if=\"battery\">\n      Battery charging: <b>{{battery.charging}}</b><br>\n      Battery level: <b>{{battery.level * 100}}</b>%<br>\n      Battery charging time: <b>{{battery.chargingTime}}</b>s<br>\n      Battery discharging time: <b>{{battery.dischargingTime}}</b>s<br>\n    </div>\n\n  </ion-content>\n  "
+            template: "\n  <ion-navbar *navbar>\n    <button menuToggle>\n      <ion-icon name=\"menu\"></ion-icon>\n    </button>\n    <ion-title>Battery</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>Battery</h2>\n    <button primary outline (click)=\"doBatteryStatus()\">Get Status</button>\n    <div *ngIf=\"battery\">\n      Battery charging: <b>{{battery.charging}}</b><br>\n      Battery level: <b>{{battery.level * 100}}</b>%<br>\n      Battery charging time: <b>{{battery.chargingTime}}</b>s<br>\n      Battery discharging time: <b>{{battery.dischargingTime}}</b>s<br>\n    </div>\n\n  </ion-content>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], BatteryPage);

@@ -27,81 +27,51 @@ var ApiDemoApp = (function () {
     return ApiDemoApp;
 })();
 var ModalFirstPage = (function () {
-    function ModalFirstPage(modal) {
-        this.modal = modal;
+    function ModalFirstPage(nav) {
+        this.nav = nav;
         this.myParam = '';
     }
     ModalFirstPage.prototype.openBasicModal = function () {
-        this.modal.open(ModalContentPage);
+        var myModal = ionic_2.Modal.create(ModalContentPage);
+        this.nav.present(myModal);
     };
     ModalFirstPage.prototype.openModalWithParams = function () {
-        this.modal.open(ModalContentPage, { 'myParam': this.myParam });
+        var myModal = ionic_2.Modal.create(ModalContentPage, { 'myParam': this.myParam });
+        this.nav.present(myModal);
     };
     ModalFirstPage.prototype.openCustomAnimationModal = function () {
-        this.modal.open(ModalContentPage, {}, {
-            enterAnimation: 'my-fade-in',
-            leaveAnimation: 'my-fade-out',
-            handle: 'my-awesome-modal'
+        var myModal = ionic_2.Modal.create(ModalContentPage, {
+            animation: 'my-fade-in',
         });
+        this.nav.present(myModal);
     };
     ModalFirstPage = __decorate([
         ionic_1.Page({
             templateUrl: 'main.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_2.Modal !== 'undefined' && ionic_2.Modal) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_2.NavController !== 'undefined' && ionic_2.NavController) === 'function' && _a) || Object])
     ], ModalFirstPage);
     return ModalFirstPage;
     var _a;
 })();
 exports.ModalFirstPage = ModalFirstPage;
 var ModalContentPage = (function () {
-    function ModalContentPage(nav, modal, actionSheet, params) {
+    function ModalContentPage(nav, params, viewCtrl) {
         this.nav = nav;
-        this.modal = modal;
-        this.actionSheet = actionSheet;
+        this.viewCtrl = viewCtrl;
         this.myParam = params.get('myParam');
     }
     ModalContentPage.prototype.closeModal = function () {
-        var modal = this.modal.get();
-        if (modal) {
-            modal.close();
-        }
-    };
-    ModalContentPage.prototype.openActionSheet = function () {
-        var _this = this;
-        this.actionSheet.open({
-            buttons: [
-                { text: 'Share This' },
-                { text: 'Move' }
-            ],
-            destructiveText: 'Delete',
-            titleText: 'Modify your album',
-            cancelText: 'Cancel',
-            cancel: function () {
-                console.log('Canceled');
-            },
-            destructiveButtonClicked: function () {
-                console.log('Destructive clicked');
-            },
-            buttonClicked: function (index) {
-                console.log('Button clicked', index);
-                if (index == 1) {
-                    return false;
-                }
-                return true;
-            }
-        }).then(function (actionSheetRef) {
-            _this.actionSheetRef = actionSheetRef;
-        });
+        this.viewCtrl.dismiss();
     };
     ModalContentPage = __decorate([
         ionic_1.Page({
             templateUrl: "modal-content.html"
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_2.NavController !== 'undefined' && ionic_2.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_2.Modal !== 'undefined' && ionic_2.Modal) === 'function' && _b) || Object, (typeof (_c = typeof ionic_2.ActionSheet !== 'undefined' && ionic_2.ActionSheet) === 'function' && _c) || Object, (typeof (_d = typeof ionic_2.NavParams !== 'undefined' && ionic_2.NavParams) === 'function' && _d) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_2.NavController !== 'undefined' && ionic_2.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_2.NavParams !== 'undefined' && ionic_2.NavParams) === 'function' && _b) || Object, (typeof (_c = typeof ionic_1.ViewController !== 'undefined' && ionic_1.ViewController) === 'function' && _c) || Object])
     ], ModalContentPage);
     return ModalContentPage;
-    var _a, _b, _c, _d;
+    var _a, _b, _c;
 })();
 exports.ModalContentPage = ModalContentPage;
 var FadeIn = (function (_super) {

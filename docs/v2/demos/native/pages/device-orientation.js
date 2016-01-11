@@ -20,7 +20,7 @@ var DeviceOrientationPage = (function () {
     }
     DeviceOrientationPage = __decorate([
         ionic_1.IonicView({
-            template: "\n  <ion-navbar *navbar>\n    <button menuToggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>Device Orientation</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <div style=\"text-align: center\">\n      <img src=\"http://ionic-io-assets.s3.amazonaws.com/ionitron-avatar.png\" [ng-style]=\"imageStyle\">\n    </div>\n  </ion-content>\n  "
+            template: "\n  <ion-navbar *navbar>\n    <button menuToggle>\n      <ion-icon name=\"menu\"></ion-icon>\n    </button>\n    <ion-title>Device Orientation</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <div style=\"text-align: center\">\n      <img src=\"http://ionic-io-assets.s3.amazonaws.com/ionitron-avatar.png\" [ng-style]=\"imageStyle\">\n    </div>\n  </ion-content>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], DeviceOrientationPage);

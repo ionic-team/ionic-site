@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*! normalize.css v3.0.2 | MIT License | github.com/necolas/normalize.css */
 audio,
 canvas,
@@ -45,6 +44,12 @@ select,
 textarea {
   line-height: normal;
   font-family: inherit; }
+
+textarea {
+  height: auto;
+  overflow: auto;
+  font: inherit;
+  color: inherit; }
 
 form,
 input,
@@ -319,14 +324,29 @@ sup {
 sub {
   bottom: -0.25em; }
 
-.align-left {
+[text-left] {
   text-align: left; }
 
-.align-center {
+[text-center] {
   text-align: center; }
 
-.align-right {
+[text-right] {
   text-align: right; }
+
+[text-justify] {
+  text-align: justify; }
+
+[text-nowrap] {
+  white-space: nowrap; }
+
+[text-uppercase] {
+  text-transform: uppercase; }
+
+[text-lowercase] {
+  text-transform: lowercase; }
+
+[text-capitalize] {
+  text-transform: capitalize; }
 
 .no-transition {
   -webkit-transition: none !important;
@@ -361,6 +381,9 @@ root-anchor {
 [padding-horizontal] {
   padding-right: 16px;
   padding-left: 16px; }
+
+[no-padding] {
+  padding: 0; }
 
 :focus,
 :active {
@@ -700,11 +723,11 @@ ion-col[width-90] {
       max-width: 100%;
       width: 100%; } }
 
-icon {
+ion-icon {
   display: inline-block;
   font-size: 1.2em; }
 
-icon[small] {
+ion-icon[small] {
   font-size: 1.1em; }
 
 ion-menu {
@@ -1281,9 +1304,7 @@ ion-slides {
   font-weight: normal;
   font-style: normal; }
 
-icon,
-[icon],
-.icon {
+ion-icon {
   display: inline-block;
   font-family: "Ionicons";
   font-style: normal;
@@ -1296,17 +1317,69 @@ icon,
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-/*!
-  Ionicons, v3.0.0
-  Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
-  https://twitter.com/benjsperry  https://twitter.com/ionicframework
-  MIT License: https://github.com/driftyco/ionicons
+.ion-android-logo:before {
+  content: "\f225"; }
 
-  Android-style icons originally built by Google’s
-  Material Design Icons: https://github.com/google/material-design-icons
-  used under CC BY http://creativecommons.org/licenses/by/4.0/
-  Modified icons to fit ionicon’s grid from original.
-*/
+.ion-angular-logo:before {
+  content: "\f227"; }
+
+.ion-apple-logo:before {
+  content: "\f229"; }
+
+.ion-bitcoin-logo:before {
+  content: "\f22b"; }
+
+.ion-buffer-logo:before {
+  content: "\f22d"; }
+
+.ion-chrome-logo:before {
+  content: "\f22f"; }
+
+.ion-codepen-logo:before {
+  content: "\f230"; }
+
+.ion-css3-logo:before {
+  content: "\f231"; }
+
+.ion-designernews-logo:before {
+  content: "\f232"; }
+
+.ion-dribbble-logo:before {
+  content: "\f233"; }
+
+.ion-dropbox-logo:before {
+  content: "\f234"; }
+
+.ion-euro-logo:before {
+  content: "\f235"; }
+
+.ion-facebook-logo:before {
+  content: "\f236"; }
+
+.ion-foursquare-logo:before {
+  content: "\f237"; }
+
+.ion-freebsd-devil-logo:before {
+  content: "\f238"; }
+
+.ion-github-logo:before {
+  content: "\f239"; }
+
+.ion-google-logo:before {
+  content: "\f23a"; }
+
+.ion-googleplus-logo:before {
+  content: "\f23b"; }
+
+.ion-hackernews-logo:before {
+  content: "\f23c"; }
+
+.ion-html5-logo:before {
+  content: "\f23d"; }
+
+.ion-instagram-logo:before {
+  content: "\f23e"; }
+
 .ion-ios-add:before {
   content: "\f102"; }
 
@@ -1315,6 +1388,9 @@ icon,
 
 .ion-ios-add-circle-outline:before {
   content: "\f100"; }
+
+.ion-ios-add-outline:before {
+  content: "\f102"; }
 
 .ion-ios-alarm:before {
   content: "\f3c8"; }
@@ -1373,7 +1449,13 @@ icon,
 .ion-ios-arrow-back:before {
   content: "\f3cf"; }
 
+.ion-ios-arrow-back-outline:before {
+  content: "\f3cf"; }
+
 .ion-ios-arrow-down:before {
+  content: "\f3d0"; }
+
+.ion-ios-arrow-down-outline:before {
   content: "\f3d0"; }
 
 .ion-ios-arrow-dropdown:before {
@@ -1382,11 +1464,23 @@ icon,
 .ion-ios-arrow-dropdown-circle:before {
   content: "\f10f"; }
 
+.ion-ios-arrow-dropdown-circle-outline:before {
+  content: "\f10f"; }
+
+.ion-ios-arrow-dropdown-outline:before {
+  content: "\f110"; }
+
 .ion-ios-arrow-dropleft:before {
   content: "\f112"; }
 
 .ion-ios-arrow-dropleft-circle:before {
   content: "\f111"; }
+
+.ion-ios-arrow-dropleft-circle-outline:before {
+  content: "\f111"; }
+
+.ion-ios-arrow-dropleft-outline:before {
+  content: "\f112"; }
 
 .ion-ios-arrow-dropright:before {
   content: "\f114"; }
@@ -1394,28 +1488,58 @@ icon,
 .ion-ios-arrow-dropright-circle:before {
   content: "\f113"; }
 
+.ion-ios-arrow-dropright-circle-outline:before {
+  content: "\f113"; }
+
+.ion-ios-arrow-dropright-outline:before {
+  content: "\f114"; }
+
 .ion-ios-arrow-dropup:before {
   content: "\f116"; }
 
 .ion-ios-arrow-dropup-circle:before {
   content: "\f115"; }
 
+.ion-ios-arrow-dropup-circle-outline:before {
+  content: "\f115"; }
+
+.ion-ios-arrow-dropup-outline:before {
+  content: "\f116"; }
+
 .ion-ios-arrow-forward:before {
+  content: "\f3d1"; }
+
+.ion-ios-arrow-forward-outline:before {
   content: "\f3d1"; }
 
 .ion-ios-arrow-round-back:before {
   content: "\f117"; }
 
+.ion-ios-arrow-round-back-outline:before {
+  content: "\f117"; }
+
 .ion-ios-arrow-round-down:before {
+  content: "\f118"; }
+
+.ion-ios-arrow-round-down-outline:before {
   content: "\f118"; }
 
 .ion-ios-arrow-round-forward:before {
   content: "\f119"; }
 
+.ion-ios-arrow-round-forward-outline:before {
+  content: "\f119"; }
+
 .ion-ios-arrow-round-up:before {
   content: "\f11a"; }
 
+.ion-ios-arrow-round-up-outline:before {
+  content: "\f11a"; }
+
 .ion-ios-arrow-up:before {
+  content: "\f3d8"; }
+
+.ion-ios-arrow-up-outline:before {
   content: "\f3d8"; }
 
 .ion-ios-at:before {
@@ -1425,6 +1549,9 @@ icon,
   content: "\f3d9"; }
 
 .ion-ios-attach:before {
+  content: "\f11b"; }
+
+.ion-ios-attach-outline:before {
   content: "\f11b"; }
 
 .ion-ios-backspace:before {
@@ -1460,10 +1587,19 @@ icon,
 .ion-ios-battery-charging:before {
   content: "\f120"; }
 
+.ion-ios-battery-charging-outline:before {
+  content: "\f120"; }
+
 .ion-ios-battery-dead:before {
   content: "\f121"; }
 
+.ion-ios-battery-dead-outline:before {
+  content: "\f121"; }
+
 .ion-ios-battery-full:before {
+  content: "\f122"; }
+
+.ion-ios-battery-full-outline:before {
   content: "\f122"; }
 
 .ion-ios-beaker:before {
@@ -1481,7 +1617,13 @@ icon,
 .ion-ios-bicycle:before {
   content: "\f127"; }
 
+.ion-ios-bicycle-outline:before {
+  content: "\f127"; }
+
 .ion-ios-bluetooth:before {
+  content: "\f128"; }
+
+.ion-ios-bluetooth-outline:before {
   content: "\f128"; }
 
 .ion-ios-boat:before {
@@ -1649,6 +1791,9 @@ icon,
 .ion-ios-checkmark-circle-outline:before {
   content: "\f149"; }
 
+.ion-ios-checkmark-outline:before {
+  content: "\f3ff"; }
+
 .ion-ios-clipboard:before {
   content: "\f14c"; }
 
@@ -1669,6 +1814,9 @@ icon,
 
 .ion-ios-close-circle-outline:before {
   content: "\f14d"; }
+
+.ion-ios-close-outline:before {
+  content: "\f406"; }
 
 .ion-ios-closed-captioning:before {
   content: "\f150"; }
@@ -1724,7 +1872,16 @@ icon,
 .ion-ios-code-download:before {
   content: "\f155"; }
 
+.ion-ios-code-download-outline:before {
+  content: "\f155"; }
+
+.ion-ios-code-outline:before {
+  content: "\f157"; }
+
 .ion-ios-code-working:before {
+  content: "\f156"; }
+
+.ion-ios-code-working-outline:before {
   content: "\f156"; }
 
 .ion-ios-cog:before {
@@ -1784,7 +1941,13 @@ icon,
 .ion-ios-contract:before {
   content: "\f162"; }
 
+.ion-ios-contract-outline:before {
+  content: "\f162"; }
+
 .ion-ios-contrast:before {
+  content: "\f163"; }
+
+.ion-ios-contrast-outline:before {
   content: "\f163"; }
 
 .ion-ios-copy:before {
@@ -1838,6 +2001,9 @@ icon,
 .ion-ios-done-all:before {
   content: "\f171"; }
 
+.ion-ios-done-all-outline:before {
+  content: "\f171"; }
+
 .ion-ios-download:before {
   content: "\f420"; }
 
@@ -1865,6 +2031,9 @@ icon,
 .ion-ios-expand:before {
   content: "\f178"; }
 
+.ion-ios-expand-outline:before {
+  content: "\f178"; }
+
 .ion-ios-eye:before {
   content: "\f425"; }
 
@@ -1886,6 +2055,9 @@ icon,
 .ion-ios-female:before {
   content: "\f17b"; }
 
+.ion-ios-female-outline:before {
+  content: "\f17b"; }
+
 .ion-ios-filing:before {
   content: "\f429"; }
 
@@ -1899,6 +2071,9 @@ icon,
   content: "\f42a"; }
 
 .ion-ios-finger-print:before {
+  content: "\f17c"; }
+
+.ion-ios-finger-print-outline:before {
   content: "\f17c"; }
 
 .ion-ios-flag:before {
@@ -1970,19 +2145,37 @@ icon,
 .ion-ios-git-branch:before {
   content: "\f183"; }
 
+.ion-ios-git-branch-outline:before {
+  content: "\f183"; }
+
 .ion-ios-git-commit:before {
+  content: "\f184"; }
+
+.ion-ios-git-commit-outline:before {
   content: "\f184"; }
 
 .ion-ios-git-compare:before {
   content: "\f185"; }
 
+.ion-ios-git-compare-outline:before {
+  content: "\f185"; }
+
 .ion-ios-git-merge:before {
+  content: "\f186"; }
+
+.ion-ios-git-merge-outline:before {
   content: "\f186"; }
 
 .ion-ios-git-network:before {
   content: "\f187"; }
 
+.ion-ios-git-network-outline:before {
+  content: "\f187"; }
+
 .ion-ios-git-pull-request:before {
+  content: "\f188"; }
+
+.ion-ios-git-pull-request-outline:before {
   content: "\f188"; }
 
 .ion-ios-glasses:before {
@@ -2048,6 +2241,9 @@ icon,
 .ion-ios-help-circle-outline:before {
   content: "\f197"; }
 
+.ion-ios-help-outline:before {
+  content: "\f446"; }
+
 .ion-ios-home:before {
   content: "\f448"; }
 
@@ -2087,6 +2283,9 @@ icon,
 .ion-ios-information-circle-outline:before {
   content: "\f19f"; }
 
+.ion-ios-information-outline:before {
+  content: "\f44d"; }
+
 .ion-ios-ionic:before {
   content: "\f1a1"; }
 
@@ -2120,11 +2319,20 @@ icon,
 .ion-ios-laptop:before {
   content: "\f1a8"; }
 
+.ion-ios-laptop-outline:before {
+  content: "\f1a8"; }
+
 .ion-ios-leaf:before {
   content: "\f1aa"; }
 
 .ion-ios-leaf-outline:before {
   content: "\f1a9"; }
+
+.ion-ios-link:before {
+  content: "\f22a"; }
+
+.ion-ios-link-outline:before {
+  content: "\f1ca"; }
 
 .ion-ios-list:before {
   content: "\f454"; }
@@ -2134,6 +2342,9 @@ icon,
 
 .ion-ios-list-box-outline:before {
   content: "\f1ab"; }
+
+.ion-ios-list-outline:before {
+  content: "\f454"; }
 
 .ion-ios-locate:before {
   content: "\f1ae"; }
@@ -2150,7 +2361,13 @@ icon,
 .ion-ios-log-in:before {
   content: "\f1b1"; }
 
+.ion-ios-log-in-outline:before {
+  content: "\f1b1"; }
+
 .ion-ios-log-out:before {
+  content: "\f1b2"; }
+
+.ion-ios-log-out-outline:before {
   content: "\f1b2"; }
 
 .ion-ios-magnet:before {
@@ -2172,6 +2389,9 @@ icon,
   content: "\f1b7"; }
 
 .ion-ios-male:before {
+  content: "\f1b9"; }
+
+.ion-ios-male-outline:before {
   content: "\f1b9"; }
 
 .ion-ios-man:before {
@@ -2247,6 +2467,9 @@ icon,
   content: "\f1c7"; }
 
 .ion-ios-move:before {
+  content: "\f1cb"; }
+
+.ion-ios-move-outline:before {
   content: "\f1cb"; }
 
 .ion-ios-musical-note:before {
@@ -2366,7 +2589,13 @@ icon,
 .ion-ios-phone-landscape:before {
   content: "\f1e2"; }
 
+.ion-ios-phone-landscape-outline:before {
+  content: "\f1e2"; }
+
 .ion-ios-phone-portrait:before {
+  content: "\f1e3"; }
+
+.ion-ios-phone-portrait-outline:before {
   content: "\f1e3"; }
 
 .ion-ios-photos:before {
@@ -2456,6 +2685,9 @@ icon,
 .ion-ios-qr-scanner:before {
   content: "\f1f3"; }
 
+.ion-ios-qr-scanner-outline:before {
+  content: "\f1f3"; }
+
 .ion-ios-quote:before {
   content: "\f1f5"; }
 
@@ -2468,7 +2700,13 @@ icon,
 .ion-ios-radio-button-off:before {
   content: "\f1f6"; }
 
+.ion-ios-radio-button-off-outline:before {
+  content: "\f1f6"; }
+
 .ion-ios-radio-button-on:before {
+  content: "\f1f7"; }
+
+.ion-ios-radio-button-on-outline:before {
   content: "\f1f7"; }
 
 .ion-ios-radio-outline:before {
@@ -2501,6 +2739,9 @@ icon,
 .ion-ios-refresh-circle-outline:before {
   content: "\f224"; }
 
+.ion-ios-refresh-outline:before {
+  content: "\f49c"; }
+
 .ion-ios-remove:before {
   content: "\f1fc"; }
 
@@ -2510,13 +2751,25 @@ icon,
 .ion-ios-remove-circle-outline:before {
   content: "\f1fa"; }
 
+.ion-ios-remove-outline:before {
+  content: "\f1fc"; }
+
 .ion-ios-reorder:before {
+  content: "\f1fd"; }
+
+.ion-ios-reorder-outline:before {
   content: "\f1fd"; }
 
 .ion-ios-repeat:before {
   content: "\f1fe"; }
 
+.ion-ios-repeat-outline:before {
+  content: "\f1fe"; }
+
 .ion-ios-resize:before {
+  content: "\f1ff"; }
+
+.ion-ios-resize-outline:before {
   content: "\f1ff"; }
 
 .ion-ios-restaurant:before {
@@ -2528,7 +2781,13 @@ icon,
 .ion-ios-return-left:before {
   content: "\f202"; }
 
+.ion-ios-return-left-outline:before {
+  content: "\f202"; }
+
 .ion-ios-return-right:before {
+  content: "\f203"; }
+
+.ion-ios-return-right-outline:before {
   content: "\f203"; }
 
 .ion-ios-reverse-camera:before {
@@ -2606,6 +2865,9 @@ icon,
 .ion-ios-shuffle:before {
   content: "\f4a9"; }
 
+.ion-ios-shuffle-outline:before {
+  content: "\f4a9"; }
+
 .ion-ios-skip-backward:before {
   content: "\f215"; }
 
@@ -2622,7 +2884,7 @@ icon,
   content: "\f218"; }
 
 .ion-ios-snow-outline:before {
-  content: "\f45a"; }
+  content: "\f22c"; }
 
 .ion-ios-speedometer:before {
   content: "\f4b0"; }
@@ -2640,6 +2902,9 @@ icon,
   content: "\f4b3"; }
 
 .ion-ios-star-half:before {
+  content: "\f4b1"; }
+
+.ion-ios-star-half-outline:before {
   content: "\f4b1"; }
 
 .ion-ios-star-outline:before {
@@ -2672,6 +2937,9 @@ icon,
 .ion-ios-swap:before {
   content: "\f21f"; }
 
+.ion-ios-swap-outline:before {
+  content: "\f21f"; }
+
 .ion-ios-switch:before {
   content: "\f221"; }
 
@@ -2681,10 +2949,19 @@ icon,
 .ion-ios-sync:before {
   content: "\f222"; }
 
+.ion-ios-sync-outline:before {
+  content: "\f222"; }
+
 .ion-ios-tablet-landscape:before {
   content: "\f223"; }
 
+.ion-ios-tablet-landscape-outline:before {
+  content: "\f223"; }
+
 .ion-ios-tablet-portrait:before {
+  content: "\f24e"; }
+
+.ion-ios-tablet-portrait-outline:before {
   content: "\f24e"; }
 
 .ion-ios-tennisball:before {
@@ -2744,6 +3021,9 @@ icon,
 .ion-ios-transgender:before {
   content: "\f259"; }
 
+.ion-ios-transgender-outline:before {
+  content: "\f259"; }
+
 .ion-ios-trash:before {
   content: "\f4c5"; }
 
@@ -2753,7 +3033,13 @@ icon,
 .ion-ios-trending-down:before {
   content: "\f25a"; }
 
+.ion-ios-trending-down-outline:before {
+  content: "\f25a"; }
+
 .ion-ios-trending-up:before {
+  content: "\f25b"; }
+
+.ion-ios-trending-up-outline:before {
   content: "\f25b"; }
 
 .ion-ios-trophy:before {
@@ -2789,16 +3075,31 @@ icon,
 .ion-ios-volume-down:before {
   content: "\f262"; }
 
+.ion-ios-volume-down-outline:before {
+  content: "\f262"; }
+
 .ion-ios-volume-mute:before {
+  content: "\f263"; }
+
+.ion-ios-volume-mute-outline:before {
   content: "\f263"; }
 
 .ion-ios-volume-off:before {
   content: "\f264"; }
 
+.ion-ios-volume-off-outline:before {
+  content: "\f264"; }
+
 .ion-ios-volume-up:before {
   content: "\f265"; }
 
+.ion-ios-volume-up-outline:before {
+  content: "\f265"; }
+
 .ion-ios-walk:before {
+  content: "\f266"; }
+
+.ion-ios-walk-outline:before {
   content: "\f266"; }
 
 .ion-ios-warning:before {
@@ -2808,6 +3109,9 @@ icon,
   content: "\f267"; }
 
 .ion-ios-watch:before {
+  content: "\f269"; }
+
+.ion-ios-watch-outline:before {
   content: "\f269"; }
 
 .ion-ios-water:before {
@@ -2833,6 +3137,15 @@ icon,
 
 .ion-ios-woman-outline:before {
   content: "\f270"; }
+
+.ion-javascript-logo:before {
+  content: "\f23f"; }
+
+.ion-linkedin-logo:before {
+  content: "\f240"; }
+
+.ion-markdown-logo:before {
+  content: "\f241"; }
 
 .ion-md-add:before {
   content: "\f273"; }
@@ -3320,6 +3633,9 @@ icon,
 .ion-md-leaf:before {
   content: "\f319"; }
 
+.ion-md-link:before {
+  content: "\f22e"; }
+
 .ion-md-list:before {
   content: "\f31b"; }
 
@@ -3731,149 +4047,77 @@ icon,
 .ion-md-woman:before {
   content: "\f3aa"; }
 
-.ion-social-android:before {
-  content: "\f225"; }
+.ion-nodejs-logo:before {
+  content: "\f242"; }
 
-.ion-social-angular:before {
-  content: "\f4d9"; }
-
-.ion-social-apple:before {
-  content: "\f227"; }
-
-.ion-social-bitcoin:before {
-  content: "\f2af"; }
-
-.ion-social-buffer:before {
-  content: "\f229"; }
-
-.ion-social-chrome:before {
-  content: "\f4db"; }
-
-.ion-social-codepen:before {
-  content: "\f4dd"; }
-
-.ion-social-css3:before {
-  content: "\f4df"; }
-
-.ion-social-designernews:before {
-  content: "\f22b"; }
-
-.ion-social-dribbble:before {
-  content: "\f22d"; }
-
-.ion-social-dropbox:before {
-  content: "\f22f"; }
-
-.ion-social-euro:before {
-  content: "\f4e1"; }
-
-.ion-social-facebook:before {
-  content: "\f231"; }
-
-.ion-social-foursquare:before {
-  content: "\f34d"; }
-
-.ion-social-freebsd-devil:before {
-  content: "\f2c4"; }
-
-.ion-social-github:before {
-  content: "\f233"; }
-
-.ion-social-google:before {
-  content: "\f34f"; }
-
-.ion-social-googleplus:before {
-  content: "\f235"; }
-
-.ion-social-hackernews:before {
-  content: "\f237"; }
-
-.ion-social-html5:before {
-  content: "\f4e3"; }
-
-.ion-social-instagram:before {
-  content: "\f351"; }
-
-.ion-social-javascript:before {
-  content: "\f4e5"; }
-
-.ion-social-linkedin:before {
-  content: "\f239"; }
-
-.ion-social-markdown:before {
-  content: "\f4e6"; }
-
-.ion-social-nodejs:before {
-  content: "\f4e7"; }
-
-.ion-social-octocat:before {
-  content: "\f4e8"; }
-
-.ion-social-pinterest:before {
-  content: "\f2b1"; }
-
-.ion-social-playstation:before {
-  content: "\f3ab"; }
-
-.ion-social-python:before {
-  content: "\f4e9"; }
-
-.ion-social-reddit:before {
-  content: "\f23b"; }
-
-.ion-social-rss:before {
-  content: "\f23d"; }
-
-.ion-social-sass:before {
-  content: "\f4ea"; }
-
-.ion-social-skype:before {
-  content: "\f23f"; }
-
-.ion-social-snapchat:before {
-  content: "\f4ec"; }
-
-.ion-social-steam:before {
-  content: "\f3ac"; }
-
-.ion-social-tumblr:before {
-  content: "\f241"; }
-
-.ion-social-tux:before {
-  content: "\f2c5"; }
-
-.ion-social-twitch:before {
-  content: "\f4ee"; }
-
-.ion-social-twitter:before {
+.ion-octocat-logo:before {
   content: "\f243"; }
 
-.ion-social-usd:before {
-  content: "\f353"; }
+.ion-pinterest-logo:before {
+  content: "\f244"; }
 
-.ion-social-vimeo:before {
+.ion-playstation-logo:before {
   content: "\f245"; }
 
-.ion-social-whatsapp:before {
-  content: "\f4f0"; }
+.ion-python-logo:before {
+  content: "\f246"; }
 
-.ion-social-windows:before {
+.ion-reddit-logo:before {
   content: "\f247"; }
 
-.ion-social-wordpress:before {
+.ion-rss-logo:before {
+  content: "\f248"; }
+
+.ion-sass-logo:before {
   content: "\f249"; }
 
-.ion-social-xbox:before {
-  content: "\f3ad"; }
+.ion-skype-logo:before {
+  content: "\f24a"; }
 
-.ion-social-yahoo:before {
+.ion-snapchat-logo:before {
   content: "\f24b"; }
 
-.ion-social-yen:before {
-  content: "\f4f2"; }
+.ion-steam-logo:before {
+  content: "\f24c"; }
 
-.ion-social-youtube:before {
+.ion-tumblr-logo:before {
   content: "\f24d"; }
+
+.ion-tux-logo:before {
+  content: "\f2ae"; }
+
+.ion-twitch-logo:before {
+  content: "\f2af"; }
+
+.ion-twitter-logo:before {
+  content: "\f2b0"; }
+
+.ion-usd-logo:before {
+  content: "\f2b1"; }
+
+.ion-vimeo-logo:before {
+  content: "\f2c4"; }
+
+.ion-whatsapp-logo:before {
+  content: "\f2c5"; }
+
+.ion-windows-logo:before {
+  content: "\f32f"; }
+
+.ion-wordpress-logo:before {
+  content: "\f330"; }
+
+.ion-xbox-logo:before {
+  content: "\f34c"; }
+
+.ion-yahoo-logo:before {
+  content: "\f34d"; }
+
+.ion-yen-logo:before {
+  content: "\f34e"; }
+
+.ion-youtube-logo:before {
+  content: "\f34f"; }
 
 .ios {
   /****************/
@@ -3908,7 +4152,8 @@ icon,
   .ios strong[primary],
   .ios em[primary],
   .ios sub[primary],
-  .ios sup[primary] {
+  .ios sup[primary],
+  .ios ion-icon[primary] {
     color: #387ef5 !important; }
   .ios h1[secondary], .ios h2[secondary], .ios h3[secondary], .ios h4[secondary], .ios h5[secondary], .ios h6[secondary],
   .ios p[secondary],
@@ -3920,7 +4165,8 @@ icon,
   .ios strong[secondary],
   .ios em[secondary],
   .ios sub[secondary],
-  .ios sup[secondary] {
+  .ios sup[secondary],
+  .ios ion-icon[secondary] {
     color: #32db64 !important; }
   .ios h1[danger], .ios h2[danger], .ios h3[danger], .ios h4[danger], .ios h5[danger], .ios h6[danger],
   .ios p[danger],
@@ -3932,7 +4178,8 @@ icon,
   .ios strong[danger],
   .ios em[danger],
   .ios sub[danger],
-  .ios sup[danger] {
+  .ios sup[danger],
+  .ios ion-icon[danger] {
     color: #f53d3d !important; }
   .ios h1[light], .ios h2[light], .ios h3[light], .ios h4[light], .ios h5[light], .ios h6[light],
   .ios p[light],
@@ -3944,7 +4191,8 @@ icon,
   .ios strong[light],
   .ios em[light],
   .ios sub[light],
-  .ios sup[light] {
+  .ios sup[light],
+  .ios ion-icon[light] {
     color: #f4f4f4 !important; }
   .ios h1[dark], .ios h2[dark], .ios h3[dark], .ios h4[dark], .ios h5[dark], .ios h6[dark],
   .ios p[dark],
@@ -3956,7 +4204,8 @@ icon,
   .ios strong[dark],
   .ios em[dark],
   .ios sub[dark],
-  .ios sup[dark] {
+  .ios sup[dark],
+  .ios ion-icon[dark] {
     color: #222 !important; }
   .ios ion-action-sheet {
     position: absolute;
@@ -4022,7 +4271,8 @@ icon,
   .ios .action-sheet-destructive {
     color: #f53d3d; }
   .ios .action-sheet-cancel {
-    font-weight: bold; }
+    font-weight: bold;
+    background: #fff; }
   .ios.hairlines .action-sheet-title,
   .ios.hairlines .action-sheet-button {
     border-bottom-width: 0.55px; }
@@ -4068,9 +4318,9 @@ icon,
     margin: 5px 0 0 0;
     padding: 0;
     font-weight: normal; }
-  .ios .alert-body {
+  .ios .alert-message {
     overflow: auto; }
-    .ios .alert-body:empty {
+    .ios .alert-message:empty {
       padding: 0; }
   .ios .alert-input {
     border: 0;
@@ -4083,7 +4333,7 @@ icon,
     .ios .alert-input::-webkit-input-placeholder {
       color: #999;
       text-indent: 0; }
-  .ios .alert-buttons {
+  .ios .alert-button-group {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -4116,18 +4366,85 @@ icon,
   .ios .alert-sub-title {
     font-size: 14px;
     color: #666; }
-  .ios .alert-body {
+  .ios .alert-message,
+  .ios .alert-input-group {
     padding: 0px 16px 24px;
+    font-size: 13px;
     color: inherit;
-    text-align: center;
-    font-size: 13px; }
+    text-align: center; }
   .ios .alert-input {
-    padding: 6px;
     margin-top: 10px;
-    background-color: #fff;
+    padding: 6px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    background-color: #fff;
     -webkit-appearance: none; }
+  .ios .alert-radio-group,
+  .ios .alert-checkbox-group {
+    max-height: 240px;
+    border-top: 1px solid #c8c7cc;
+    overflow: scroll; }
+  .ios .alert-tappable {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 44px;
+    border-top: 1px solid #c8c7cc;
+    cursor: pointer; }
+    .ios .alert-tappable:first-child {
+      border-top: 0; }
+  .ios .alert-radio-label {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    padding: 13px;
+    text-align: auto;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; }
+  .ios .alert-radio-icon {
+    position: relative;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    min-width: 30px; }
+  .ios .alert-radio[aria-checked=true] {
+    color: #387ef5; }
+    .ios .alert-radio[aria-checked=true] .alert-radio-icon:after {
+      position: absolute;
+      border-width: 2px;
+      border-style: solid;
+      border-color: #387ef5;
+      top: 13px;
+      left: 7px;
+      width: 4px;
+      height: 10px;
+      border-left: none;
+      border-top: none;
+      content: '';
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg); }
+  .ios .alert-checkbox-label {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    padding: 13px;
+    text-align: auto;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; }
   .ios .alert-button {
     margin: 0;
     -webkit-box-flex: 1;
@@ -4167,6 +4484,8 @@ icon,
     background: #ccc; }
     .ios ion-badge:empty {
       display: none; }
+  .ios ion-badge {
+    border-radius: 10px; }
   .ios ion-badge[primary] {
     background-color: #387ef5;
     color: white; }
@@ -4182,8 +4501,6 @@ icon,
   .ios ion-badge[dark] {
     background-color: #222;
     color: white; }
-  .ios ion-badge {
-    border-radius: 10px; }
   .ios .button {
     position: relative;
     display: -webkit-inline-box;
@@ -4265,7 +4582,7 @@ icon,
     padding: 0 0.9em;
     min-height: 2.1em;
     font-size: 1.3rem; }
-  .ios .button-small.button-icon-only icon {
+  .ios .button-small.button-icon-only ion-icon {
     font-size: 1.3em; }
   .ios .button-block {
     display: block;
@@ -4417,7 +4734,7 @@ icon,
     -webkit-transition-property: background-color;
     transition-property: background-color;
     font-size: 14px; }
-    .ios .button-fab icon {
+    .ios .button-fab ion-icon {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -ms-flex: 1;
@@ -4434,12 +4751,14 @@ icon,
     bottom: 16px; }
   .ios [fab-left] {
     left: 16px; }
-  .ios .button-icon-left icon {
+  .ios [fab-fixed] {
+    position: fixed; }
+  .ios .button-icon-left ion-icon {
     padding-right: 0.3em;
     font-size: 1.4em;
     line-height: 0.67;
     pointer-events: none; }
-  .ios .button-icon-right icon {
+  .ios .button-icon-right ion-icon {
     padding-left: 0.4em;
     font-size: 1.4em;
     line-height: 0.67;
@@ -4447,7 +4766,7 @@ icon,
   .ios .button-icon-only {
     padding: 0;
     min-width: 0.9em; }
-    .ios .button-icon-only icon {
+    .ios .button-icon-only ion-icon {
       padding: 0 0.5em;
       font-size: 1.8em;
       line-height: 0.67;
@@ -4590,6 +4909,71 @@ icon,
     border-color: #222; }
     .ios ion-checkbox[dark][aria-checked=true] .checkbox-icon:after {
       border-color: white; }
+  .ios ion-chip {
+    font-size: 13px;
+    font-weight: normal;
+    background: rgba(0, 0, 0, 0.12);
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 16px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    margin: 2px 0; }
+    .ios ion-chip ion-label {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.87); }
+    .ios ion-chip > ion-icon, .ios ion-chip > ion-avatar {
+      width: 32px;
+      height: 32px;
+      margin-left: -12px;
+      vertical-align: top;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 32px;
+      color: rgba(0, 0, 0, 0.87);
+      font-size: 18px; }
+      .ios ion-chip > ion-icon img, .ios ion-chip > ion-avatar img {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: block; }
+      .ios ion-chip > ion-icon + ion-label, .ios ion-chip > ion-avatar + ion-label {
+        margin-left: 8px; }
+    .ios ion-chip ion-avatar {
+      min-width: 32px;
+      min-height: 32px; }
+    .ios ion-chip .button {
+      min-height: inherit;
+      margin-right: -4px;
+      margin-left: 8px; }
+    .ios ion-chip ion-icon[name="close-circle"] {
+      font-size: 1.2em; }
+  .ios ion-chip > ion-icon[primary] {
+    background-color: #387ef5;
+    color: white !important; }
+  .ios ion-chip > ion-icon[secondary] {
+    background-color: #32db64;
+    color: white !important; }
+  .ios ion-chip > ion-icon[danger] {
+    background-color: #f53d3d;
+    color: white !important; }
+  .ios ion-chip > ion-icon[light] {
+    background-color: #f4f4f4;
+    color: black !important; }
+  .ios ion-chip > ion-icon[dark] {
+    background-color: #222;
+    color: white !important; }
   .ios ion-content {
     background-color: #fff; }
   .ios .outer-content {
@@ -4597,6 +4981,65 @@ icon,
   .ios ion-nav.has-views,
   .ios ion-tab.has-views {
     background: #000; }
+  .ios .item-input {
+    display: block;
+    background: transparent;
+    border: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    pointer-events: none; }
+  .ios input.item-input:-webkit-autofill {
+    background-color: transparent; }
+  .ios input::-moz-placeholder,
+  .ios textarea::-moz-placeholder {
+    color: #999; }
+  .ios input:-ms-input-placeholder,
+  .ios textarea:-ms-input-placeholder {
+    color: #999; }
+  .ios input::-webkit-input-placeholder,
+  .ios textarea::-webkit-input-placeholder {
+    color: #999;
+    text-indent: 0; }
+  .ios .platform-mobile textarea {
+    resize: none; }
+  .ios [scroll-assist] {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    pointer-events: none; }
+  .ios .input-focused .item-input {
+    pointer-events: auto; }
+  .ios .text-input-clear-icon {
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute; }
+  .ios .item-input {
+    margin: 12px 8px 13px 0;
+    padding: 0;
+    background-color: #fff; }
+  .ios .inset-input {
+    margin: 6px 16px 6.5px 16px;
+    padding: 6px 8px 6.5px 8px; }
+  .ios .stacked-input,
+  .ios .floating-input {
+    margin-top: 8px;
+    margin-bottom: 8px; }
+  .ios ion-input[clearInput] {
+    position: relative; }
+    .ios ion-input[clearInput] .text-input {
+      padding-right: 30px; }
+  .ios .text-input-clear-icon {
+    width: 30px;
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='rgba(0,%200,%200,%200.5)'%20d='M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0S484.3,190.1,403.1,108.9z%20M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2l11.8,11.8L267.6,256L352,340.2z'/></svg>");
+    background-size: 18px;
+    right: 8px;
+    bottom: 0; }
   .ios .item {
     display: -webkit-box;
     display: -webkit-flex;
@@ -4685,39 +5128,24 @@ icon,
     align-items: flex-start; }
   .ios ion-item-content + ion-item-content[cnt] {
     display: none; }
-  .ios ion-item-divider[primary] {
-    background-color: #387ef5;
-    color: white; }
-  .ios ion-item-divider[secondary] {
-    background-color: #32db64;
-    color: white; }
-  .ios ion-item-divider[danger] {
-    background-color: #f53d3d;
-    color: white; }
-  .ios ion-item-divider[light] {
-    background-color: #f4f4f4;
-    color: black; }
-  .ios ion-item-divider[dark] {
-    background-color: #222;
-    color: white; }
-  .ios .item > icon[small]:first-child,
-  .ios .item-inner > icon[small]:first-child {
+  .ios .item > ion-icon[small]:first-child,
+  .ios .item-inner > ion-icon[small]:first-child {
     min-width: 18px; }
-  .ios .item > icon:first-child,
-  .ios .item-inner > icon:first-child {
+  .ios .item > ion-icon:first-child,
+  .ios .item-inner > ion-icon:first-child {
     min-width: 24px;
     text-align: center; }
-  .ios .item > icon,
-  .ios .item-inner > icon {
+  .ios .item > ion-icon,
+  .ios .item-inner > ion-icon {
     line-height: 1;
     font-size: 2.4rem;
     min-height: 2.4rem; }
-    .ios .item > icon[large],
-    .ios .item-inner > icon[large] {
+    .ios .item > ion-icon[large],
+    .ios .item-inner > ion-icon[large] {
       font-size: 3.2rem;
       min-height: 3.2rem; }
-    .ios .item > icon[small],
-    .ios .item-inner > icon[small] {
+    .ios .item > ion-icon[small],
+    .ios .item-inner > ion-icon[small] {
       font-size: 1.8rem;
       min-height: 1.8rem; }
   .ios ion-avatar,
@@ -4806,48 +5234,32 @@ icon,
   .ios .item-inner {
     padding-right: 8px;
     border-bottom: 1px solid #c8c7cc; }
-  .ios.hairlines .item-inner {
-    border-bottom-width: 0.55px; }
   .ios ion-item-content {
     margin: 12px 8px 13px 0; }
+  .ios.hairlines .item-inner {
+    border-bottom-width: 0.55px; }
   .ios [item-left] {
-    margin: 6px 16px 6.5px 0; }
+    margin: 10px 16px 10px 0; }
   .ios [item-right] {
-    margin: 6px 8px 6.5px 8px; }
-  .ios icon[item-left],
-  .ios icon[item-right] {
+    margin: 10px 8px 10px 8px; }
+  .ios ion-icon[item-left],
+  .ios ion-icon[item-right] {
     margin-top: 10px;
-    margin-bottom: 9px; }
+    margin-bottom: 9px;
+    margin-left: 0; }
   .ios ion-avatar[item-left],
   .ios ion-thumbnail[item-left] {
     margin: 8px 16px 8px 0; }
   .ios ion-avatar[item-right],
   .ios ion-thumbnail[item-right] {
     margin: 8px; }
-  .ios button[item-left],
-  .ios button[item-right],
-  .ios [button][item-left],
-  .ios [button][item-right] {
+  .ios .item-button {
     padding: 0 0.5em;
     font-size: 1.3rem;
-    min-height: 25px;
-    margin-top: 9px; }
-  .ios [item-left].button-icon-only,
-  .ios [item-right].button-icon-only,
-  .ios [item-left].button-icon-only icon,
-  .ios [item-right].button-icon-only icon,
-  .ios [item-left][clear],
-  .ios [item-right][clear] {
+    min-height: 25px; }
+  .ios .button-icon-only ion-icon,
+  .ios .button-icon-only {
     padding: 0 1px; }
-  .ios [item-left].icon-left icon,
-  .ios [item-right].icon-left icon {
-    margin-left: 0;
-    margin-bottom: 1px;
-    padding-right: 0.3em; }
-  .ios [item-left].icon-right icon,
-  .ios [item-right].icon-right icon {
-    margin-right: 0;
-    margin-bottom: 1px; }
   .ios ion-avatar {
     min-width: 3.6rem;
     min-height: 3.6rem; }
@@ -4880,6 +5292,21 @@ icon,
     padding: 12px 16px 13px 16px;
     color: #222;
     background-color: #f7f7f7; }
+  .ios ion-item-divider[primary] {
+    background-color: #387ef5;
+    color: white; }
+  .ios ion-item-divider[secondary] {
+    background-color: #32db64;
+    color: white; }
+  .ios ion-item-divider[danger] {
+    background-color: #f53d3d;
+    color: white; }
+  .ios ion-item-divider[light] {
+    background-color: #f4f4f4;
+    color: black; }
+  .ios ion-item-divider[dark] {
+    background-color: #222;
+    color: white; }
   .ios ion-item-sliding {
     background-color: #fff; }
   .ios ion-label {
@@ -5382,6 +5809,29 @@ icon,
       background-color: #222; }
   .ios .toolbar[dark] .segment-button.segment-activated {
     color: #222; }
+  .ios .select-icon {
+    position: relative;
+    min-width: 16px; }
+  .ios .select-icon:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -3px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    color: #999;
+    content: "";
+    pointer-events: none; }
+  .ios .select-text-value {
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .ios ion-select ion-label {
+    margin: 0; }
   .ios ion-tabs {
     display: -webkit-box;
     display: -webkit-flex;
@@ -5567,8 +6017,8 @@ icon,
     line-height: 1.1;
     margin-top: 0;
     margin-bottom: 0; }
-  .ios [tabbarIcons=right] .tab-button icon,
-  .ios [tabbarIcons=left] .tab-button icon {
+  .ios [tabbarIcons=right] .tab-button ion-icon,
+  .ios [tabbarIcons=left] .tab-button ion-icon {
     min-width: 24px;
     height: 26px;
     font-size: 24px; }
@@ -5626,70 +6076,6 @@ icon,
     .ios ion-tabs[dark] tabbar .tab-button:hover:not(.disable-hover),
     .ios ion-tabs[dark] tabbar .tab-button[aria-selected=true] {
       color: white; }
-  .ios .item-input {
-    display: block;
-    background: transparent;
-    border: 0;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    pointer-events: none; }
-  .ios input.item-input:-webkit-autofill {
-    background-color: transparent; }
-  .ios [scroll-assist] {
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    pointer-events: none; }
-  .ios .input-focused .item-input {
-    pointer-events: auto; }
-  .ios textarea {
-    height: auto;
-    overflow: auto;
-    font: inherit;
-    color: inherit; }
-  .ios .platform-mobile textarea {
-    resize: none; }
-  .ios input::-moz-placeholder,
-  .ios textarea::-moz-placeholder {
-    color: #999; }
-  .ios input:-ms-input-placeholder,
-  .ios textarea:-ms-input-placeholder {
-    color: #999; }
-  .ios input::-webkit-input-placeholder,
-  .ios textarea::-webkit-input-placeholder {
-    color: #999;
-    text-indent: 0; }
-  .ios .text-input-clear-icon {
-    margin: 0;
-    padding: 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute; }
-  .ios .item-input {
-    margin: 12px 8px 13px 0;
-    padding: 0;
-    background-color: #fff; }
-  .ios .inset-input {
-    margin: 6px 16px 6.5px 16px;
-    padding: 6px 8px 6.5px 8px; }
-  .ios .stacked-input,
-  .ios .floating-input {
-    margin-top: 8px;
-    margin-bottom: 8px; }
-  .ios ion-input[clearInput] {
-    position: relative; }
-    .ios ion-input[clearInput] .text-input {
-      padding-right: 30px; }
-  .ios .text-input-clear-icon {
-    width: 30px;
-    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='rgba(0,%200,%200,%200.5)'%20d='M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0S484.3,190.1,403.1,108.9z%20M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2l11.8,11.8L267.6,256L352,340.2z'/></svg>");
-    background-size: 18px;
-    right: 8px;
-    bottom: 0; }
   .ios ion-toggle {
     display: block;
     -webkit-user-select: none;
@@ -6017,13 +6403,13 @@ icon,
       opacity: 0.4;
       color: white;
       background-color: #3474e1; }
-  .ios .bar-button-icon-left icon {
+  .ios .bar-button-icon-left ion-icon {
     margin-left: -0.1em;
     padding-right: 0.3em;
     font-size: 1.4em;
     line-height: 0.67;
     pointer-events: none; }
-  .ios .bar-button-icon-right icon {
+  .ios .bar-button-icon-right ion-icon {
     padding-left: 0.4em;
     font-size: 1.4em;
     line-height: 0.67;
@@ -6031,7 +6417,7 @@ icon,
   .ios .bar-button-icon-only {
     padding: 0;
     min-width: 0.9em; }
-    .ios .bar-button-icon-only icon {
+    .ios .bar-button-icon-only ion-icon {
       padding: 0 0.1em;
       font-size: 1.8em;
       line-height: 0.67;
@@ -6060,7 +6446,7 @@ icon,
     -webkit-order: 1;
     -ms-flex-order: 1;
     order: 1; }
-    .ios .bar-button-menutoggle icon {
+    .ios .bar-button-menutoggle ion-icon {
       padding: 0 6px;
       font-size: 2.8rem; }
   .ios .bar-button-menutoggle[end],
@@ -6312,7 +6698,8 @@ icon,
   .md strong[primary],
   .md em[primary],
   .md sub[primary],
-  .md sup[primary] {
+  .md sup[primary],
+  .md ion-icon[primary] {
     color: #387ef5 !important; }
   .md h1[secondary], .md h2[secondary], .md h3[secondary], .md h4[secondary], .md h5[secondary], .md h6[secondary],
   .md p[secondary],
@@ -6324,7 +6711,8 @@ icon,
   .md strong[secondary],
   .md em[secondary],
   .md sub[secondary],
-  .md sup[secondary] {
+  .md sup[secondary],
+  .md ion-icon[secondary] {
     color: #32db64 !important; }
   .md h1[danger], .md h2[danger], .md h3[danger], .md h4[danger], .md h5[danger], .md h6[danger],
   .md p[danger],
@@ -6336,7 +6724,8 @@ icon,
   .md strong[danger],
   .md em[danger],
   .md sub[danger],
-  .md sup[danger] {
+  .md sup[danger],
+  .md ion-icon[danger] {
     color: #f53d3d !important; }
   .md h1[light], .md h2[light], .md h3[light], .md h4[light], .md h5[light], .md h6[light],
   .md p[light],
@@ -6348,7 +6737,8 @@ icon,
   .md strong[light],
   .md em[light],
   .md sub[light],
-  .md sup[light] {
+  .md sup[light],
+  .md ion-icon[light] {
     color: #f4f4f4 !important; }
   .md h1[dark], .md h2[dark], .md h3[dark], .md h4[dark], .md h5[dark], .md h6[dark],
   .md p[dark],
@@ -6360,7 +6750,8 @@ icon,
   .md strong[dark],
   .md em[dark],
   .md sub[dark],
-  .md sup[dark] {
+  .md sup[dark],
+  .md ion-icon[dark] {
     color: #222 !important; }
 
 /**
@@ -6530,9 +6921,9 @@ icon,
     margin: 5px 0 0 0;
     padding: 0;
     font-weight: normal; }
-  .md .alert-body {
+  .md .alert-message {
     overflow: auto; }
-    .md .alert-body:empty {
+    .md .alert-message:empty {
       padding: 0; }
   .md .alert-input {
     border: 0;
@@ -6545,7 +6936,7 @@ icon,
     .md .alert-input::-webkit-input-placeholder {
       color: #999;
       text-indent: 0; }
-  .md .alert-buttons {
+  .md .alert-button-group {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -6573,7 +6964,8 @@ icon,
     font-size: 20px; }
   .md .alert-sub-title {
     font-size: 15px; }
-  .md .alert-body {
+  .md .alert-message,
+  .md .alert-input-group {
     padding: 10px 24px 24px 24px;
     color: rgba(0, 0, 0, 0.5); }
   .md .alert-input {
@@ -6583,7 +6975,106 @@ icon,
     .md .alert-input:focus {
       border-bottom: 2px solid #387ef5;
       margin-bottom: 4px; }
-  .md .alert-buttons {
+  .md .alert-radio-group,
+  .md .alert-checkbox-group {
+    position: relative;
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    max-height: 240px;
+    overflow: auto; }
+  .md .alert-tappable {
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 44px;
+    border-top: 1px solid #dedede;
+    cursor: pointer; }
+    .md .alert-tappable:first-child {
+      border-top: 0; }
+  .md .alert-radio-label {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: auto;
+    padding: 13px 26px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; }
+  .md .alert-radio-icon {
+    position: relative;
+    top: 13px;
+    left: 13px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #787878;
+    border-radius: 50%; }
+    .md .alert-radio-icon:after {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 8px;
+      height: 8px;
+      background-color: #387ef5;
+      border-radius: 50%;
+      content: '';
+      -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+      -webkit-transform: scale3d(0, 0, 0);
+      transform: scale3d(0, 0, 0); }
+  .md .alert-radio[aria-checked=true] {
+    color: #387ef5; }
+    .md .alert-radio[aria-checked=true] .alert-radio-icon {
+      border-color: #387ef5; }
+    .md .alert-radio[aria-checked=true] .alert-radio-icon:after {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1); }
+  .md .alert-checkbox-label {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: auto;
+    padding: 13px 26px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; }
+  .md .alert-checkbox-icon {
+    position: relative;
+    top: 13px;
+    left: 13px;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #787878;
+    background-color: transparent; }
+  .md .alert-checkbox[aria-checked=true] .alert-checkbox-icon {
+    background-color: #387ef5;
+    border-color: #387ef5; }
+    .md .alert-checkbox[aria-checked=true] .alert-checkbox-icon:after {
+      position: absolute;
+      border-width: 2px;
+      border-style: solid;
+      border-color: #fafafa;
+      top: 0;
+      left: 3px;
+      width: 4px;
+      height: 8px;
+      border-left: none;
+      border-top: none;
+      content: '';
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg); }
+  .md .alert-button-group {
     padding: 8px 8px 8px 24px;
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
@@ -6611,6 +7102,8 @@ icon,
     background: #ccc; }
     .md ion-badge:empty {
       display: none; }
+  .md ion-badge {
+    border-radius: 4px; }
   .md ion-badge[primary] {
     background-color: #387ef5;
     color: white; }
@@ -6626,8 +7119,6 @@ icon,
   .md ion-badge[dark] {
     background-color: #222;
     color: white; }
-  .md ion-badge {
-    border-radius: 4px; }
 
 /**
   Roboto Font
@@ -6743,7 +7234,7 @@ icon,
     padding: 0 0.9em;
     min-height: 2.1em;
     font-size: 1.3rem; }
-  .md .button-small.button-icon-only icon {
+  .md .button-small.button-icon-only ion-icon {
     font-size: 1.4em; }
   .md .button-full {
     border-radius: 0;
@@ -6914,7 +7405,7 @@ icon,
     -webkit-transition-property: background-color;
     transition-property: background-color;
     font-size: 14px; }
-    .md .button-fab icon {
+    .md .button-fab ion-icon {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -ms-flex: 1;
@@ -6931,12 +7422,14 @@ icon,
     bottom: 16px; }
   .md [fab-left] {
     left: 16px; }
-  .md .button-icon-left icon {
+  .md [fab-fixed] {
+    position: fixed; }
+  .md .button-icon-left ion-icon {
     padding-right: 0.3em;
     font-size: 1.4em;
     line-height: 0.67;
     pointer-events: none; }
-  .md .button-icon-right icon {
+  .md .button-icon-right ion-icon {
     padding-left: 0.4em;
     font-size: 1.4em;
     line-height: 0.67;
@@ -6944,7 +7437,7 @@ icon,
   .md .button-icon-only {
     padding: 0;
     min-width: 0.9em; }
-    .md .button-icon-only icon {
+    .md .button-icon-only ion-icon {
       padding: 0 0.5em;
       font-size: 1.8em;
       line-height: 0.67;
@@ -7111,7 +7604,7 @@ icon,
       top: 0;
       left: 3px;
       width: 4px;
-      height: 9px;
+      height: 8px;
       border-left: none;
       border-top: none;
       content: '';
@@ -7157,6 +7650,71 @@ icon,
     border-color: #222; }
     .md ion-checkbox[dark][aria-checked=true] .checkbox-icon:after {
       border-color: white; }
+  .md ion-chip {
+    font-size: 13px;
+    font-weight: normal;
+    background: rgba(0, 0, 0, 0.12);
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 16px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    margin: 2px 0; }
+    .md ion-chip ion-label {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.87); }
+    .md ion-chip > ion-icon, .md ion-chip > ion-avatar {
+      width: 32px;
+      height: 32px;
+      margin-left: -12px;
+      vertical-align: top;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 32px;
+      color: rgba(0, 0, 0, 0.87);
+      font-size: 18px; }
+      .md ion-chip > ion-icon img, .md ion-chip > ion-avatar img {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: block; }
+      .md ion-chip > ion-icon + ion-label, .md ion-chip > ion-avatar + ion-label {
+        margin-left: 8px; }
+    .md ion-chip ion-avatar {
+      min-width: 32px;
+      min-height: 32px; }
+    .md ion-chip .button {
+      min-height: inherit;
+      margin-right: -4px;
+      margin-left: 8px; }
+    .md ion-chip ion-icon[name="close-circle"] {
+      font-size: 1.2em; }
+  .md ion-chip > ion-icon [primary] {
+    background-color: #387ef5;
+    color: white !important; }
+  .md ion-chip > ion-icon [secondary] {
+    background-color: #32db64;
+    color: white !important; }
+  .md ion-chip > ion-icon [danger] {
+    background-color: #f53d3d;
+    color: white !important; }
+  .md ion-chip > ion-icon [light] {
+    background-color: #f4f4f4;
+    color: black !important; }
+  .md ion-chip > ion-icon [dark] {
+    background-color: #222;
+    color: white !important; }
 
 /**
   Roboto Font
@@ -7206,6 +7764,111 @@ icon,
   .md [padding-horizontal] {
     padding-right: 16px;
     padding-left: 16px; }
+
+/**
+  Roboto Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  .md .item-input {
+    display: block;
+    background: transparent;
+    border: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    pointer-events: none; }
+  .md input.item-input:-webkit-autofill {
+    background-color: transparent; }
+  .md input::-moz-placeholder,
+  .md textarea::-moz-placeholder {
+    color: #999; }
+  .md input:-ms-input-placeholder,
+  .md textarea:-ms-input-placeholder {
+    color: #999; }
+  .md input::-webkit-input-placeholder,
+  .md textarea::-webkit-input-placeholder {
+    color: #999;
+    text-indent: 0; }
+  .md .platform-mobile textarea {
+    resize: none; }
+  .md [scroll-assist] {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    pointer-events: none; }
+  .md .input-focused .item-input {
+    pointer-events: auto; }
+  .md .text-input-clear-icon {
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute; }
+  .md .item-input {
+    margin: 13px 8px 13px 8px;
+    padding: 0;
+    background-color: #fff; }
+  .md .inset-input {
+    margin: 6.5px 16px 6.5px 16px;
+    padding: 6.5px 8px 6.5px 8px; }
+  .md ion-input:after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 16px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    content: ''; }
+  .md .input-focused:after {
+    border-bottom-color: #387ef5; }
+  .md ion-input.ng-valid.input-has-value:after {
+    border-bottom-color: #32db64; }
+  .md ion-input.ng-invalid.ng-touched:after {
+    border-bottom-color: #f53d3d; }
+  .md .stacked-input,
+  .md .floating-input {
+    margin-left: 0;
+    margin-top: 8px;
+    margin-bottom: 8px; }
+  .md ion-input[clearInput] {
+    position: relative; }
+    .md ion-input[clearInput] .text-input {
+      padding-right: 30px; }
+  .md .text-input-clear-icon {
+    width: 30px;
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='#5B5B5B'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
+    background-size: 22px;
+    right: 8px;
+    bottom: 2px; }
 
 /**
   Roboto Font
@@ -7324,39 +7987,24 @@ icon,
     align-items: flex-start; }
   .md ion-item-content + ion-item-content[cnt] {
     display: none; }
-  .md ion-item-divider[primary] {
-    background-color: #387ef5;
-    color: white; }
-  .md ion-item-divider[secondary] {
-    background-color: #32db64;
-    color: white; }
-  .md ion-item-divider[danger] {
-    background-color: #f53d3d;
-    color: white; }
-  .md ion-item-divider[light] {
-    background-color: #f4f4f4;
-    color: black; }
-  .md ion-item-divider[dark] {
-    background-color: #222;
-    color: white; }
-  .md .item > icon[small]:first-child,
-  .md .item-inner > icon[small]:first-child {
+  .md .item > ion-icon[small]:first-child,
+  .md .item-inner > ion-icon[small]:first-child {
     min-width: 18px; }
-  .md .item > icon:first-child,
-  .md .item-inner > icon:first-child {
+  .md .item > ion-icon:first-child,
+  .md .item-inner > ion-icon:first-child {
     min-width: 24px;
     text-align: center; }
-  .md .item > icon,
-  .md .item-inner > icon {
+  .md .item > ion-icon,
+  .md .item-inner > ion-icon {
     line-height: 1;
     font-size: 2.4rem;
     min-height: 2.4rem; }
-    .md .item > icon[large],
-    .md .item-inner > icon[large] {
+    .md .item > ion-icon[large],
+    .md .item-inner > ion-icon[large] {
       font-size: 3.2rem;
       min-height: 3.2rem; }
-    .md .item > icon[small],
-    .md .item-inner > icon[small] {
+    .md .item > ion-icon[small],
+    .md .item-inner > ion-icon[small] {
       font-size: 1.8rem;
       min-height: 1.8rem; }
   .md ion-avatar,
@@ -7445,40 +8093,23 @@ icon,
   .md [item-left],
   .md [item-right] {
     margin: 9px 8px 9px 0; }
-  .md icon[item-left],
-  .md icon[item-right] {
+  .md ion-icon[item-left],
+  .md ion-icon[item-right] {
     margin-top: 11px;
     margin-bottom: 10px;
     margin-left: 0; }
-  .md button[item-left],
-  .md button[item-right],
-  .md [button][item-left],
-  .md [button][item-right] {
+  .md .item-button {
     padding: 0 0.6em;
     min-height: 26px;
     font-size: 1.2rem; }
-  .md [item-left].button-icon-only,
-  .md [item-right].button-icon-only,
-  .md [item-left].button-icon-only icon,
-  .md [item-right].button-icon-only icon {
+  .md .button-icon-only ion-icon,
+  .md .button-icon-only {
     padding: 0 1px; }
-  .md [item-left][clear],
-  .md [item-right][clear] {
-    padding: 0 8px; }
-  .md [item-left].icon-left icon,
-  .md [item-right].icon-left icon {
-    margin-bottom: 1px;
-    margin-left: 0;
-    padding-right: 0.3em; }
-  .md [item-left].icon-right icon,
-  .md [item-right].icon-right icon {
-    margin-right: 0;
-    margin-bottom: 1px; }
   .md [text-wrap] ion-item-content {
     font-size: 1.4rem;
     line-height: 1.5; }
-  .md icon[item-left] + .item-inner,
-  .md icon[item-left] + .item-input {
+  .md ion-icon[item-left] + .item-inner,
+  .md ion-icon[item-left] + .item-input {
     margin-left: 24px; }
   .md ion-avatar[item-left],
   .md ion-thumbnail[item-left] {
@@ -7505,6 +8136,21 @@ icon,
     padding: 13px 16px 13px 16px;
     background-color: #fff;
     color: #222; }
+  .md ion-item-divider[primary] {
+    background-color: #387ef5;
+    color: white; }
+  .md ion-item-divider[secondary] {
+    background-color: #32db64;
+    color: white; }
+  .md ion-item-divider[danger] {
+    background-color: #f53d3d;
+    color: white; }
+  .md ion-item-divider[light] {
+    background-color: #f4f4f4;
+    color: black; }
+  .md ion-item-divider[dark] {
+    background-color: #222;
+    color: white; }
   .md ion-item-sliding {
     background-color: #fff; }
 
@@ -8209,6 +8855,59 @@ icon,
   font-style: normal;
   font-weight: 700;
   src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  .md .select-icon {
+    position: relative;
+    min-width: 16px; }
+  .md .select-icon:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -3px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    color: #999;
+    content: "";
+    pointer-events: none; }
+  .md .select-text-value {
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .md ion-select ion-label {
+    margin: 0; }
+
+/**
+  Roboto Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
   .md ion-tabs {
     display: -webkit-box;
     display: -webkit-flex;
@@ -8389,8 +9088,8 @@ icon,
   .md [tabbarIcons=right] .tab-button,
   .md [tabbarIcons=left] .tab-button {
     padding-bottom: 10px; }
-    .md [tabbarIcons=right] .tab-button icon,
-    .md [tabbarIcons=left] .tab-button icon {
+    .md [tabbarIcons=right] .tab-button ion-icon,
+    .md [tabbarIcons=left] .tab-button ion-icon {
       min-width: 24px; }
   .md .tab-button.icon-only,
   .md .tab-button.has-title-only {
@@ -8457,116 +9156,6 @@ icon,
       color: white; }
     .md ion-tabs[dark] tabbar tab-highlight {
       background: white; }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
-  .md .item-input {
-    display: block;
-    background: transparent;
-    border: 0;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    pointer-events: none; }
-  .md input.item-input:-webkit-autofill {
-    background-color: transparent; }
-  .md [scroll-assist] {
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    pointer-events: none; }
-  .md .input-focused .item-input {
-    pointer-events: auto; }
-  .md textarea {
-    height: auto;
-    overflow: auto;
-    font: inherit;
-    color: inherit; }
-  .md .platform-mobile textarea {
-    resize: none; }
-  .md input::-moz-placeholder,
-  .md textarea::-moz-placeholder {
-    color: #999; }
-  .md input:-ms-input-placeholder,
-  .md textarea:-ms-input-placeholder {
-    color: #999; }
-  .md input::-webkit-input-placeholder,
-  .md textarea::-webkit-input-placeholder {
-    color: #999;
-    text-indent: 0; }
-  .md .text-input-clear-icon {
-    margin: 0;
-    padding: 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute; }
-  .md .item-input {
-    margin: 13px 8px 13px 8px;
-    padding: 0;
-    background-color: #fff; }
-  .md .inset-input {
-    margin: 6.5px 16px 6.5px 16px;
-    padding: 6.5px 8px 6.5px 8px; }
-  .md ion-input:after {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 16px;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-    border-bottom-color: transparent;
-    content: ''; }
-  .md .input-focused:after {
-    border-bottom-color: #387ef5; }
-  .md ion-input.ng-valid.input-has-value:after {
-    border-bottom-color: #32db64; }
-  .md ion-input.ng-invalid.ng-touched:after {
-    border-bottom-color: #f53d3d; }
-  .md .stacked-input,
-  .md .floating-input {
-    margin-left: 0;
-    margin-top: 8px;
-    margin-bottom: 8px; }
-  .md ion-input[clearInput] {
-    position: relative; }
-    .md ion-input[clearInput] .text-input {
-      padding-right: 30px; }
-  .md .text-input-clear-icon {
-    width: 30px;
-    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='#5B5B5B'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
-    background-size: 22px;
-    right: 8px;
-    bottom: 2px; }
 
 /**
   Roboto Font
@@ -8929,20 +9518,20 @@ icon,
     .md .bar-button-solid.activated {
       color: white;
       background-color: #515151; }
-  .md .bar-button-icon-left icon {
+  .md .bar-button-icon-left ion-icon {
     margin-left: -0.1em;
     padding-right: 0.3em;
     font-size: 1.4em;
     line-height: 0.67;
     pointer-events: none; }
-  .md .bar-button-icon-right icon {
+  .md .bar-button-icon-right ion-icon {
     padding-left: 0.4em;
     font-size: 1.4em;
     line-height: 0.67;
     pointer-events: none; }
   .md .bar-button-icon-only {
     padding: 0; }
-    .md .bar-button-icon-only icon {
+    .md .bar-button-icon-only ion-icon {
       padding: 0 0.1em;
       font-size: 1.8em;
       line-height: 0.67;
@@ -8965,7 +9554,7 @@ icon,
     -webkit-order: 1;
     -ms-flex-order: 1;
     order: 1; }
-    .md .bar-button-menutoggle icon {
+    .md .bar-button-menutoggle ion-icon {
       padding: 0 6px;
       font-size: 2.4rem; }
   .md .bar-button-menutoggle[end],

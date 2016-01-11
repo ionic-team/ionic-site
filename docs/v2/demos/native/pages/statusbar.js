@@ -35,7 +35,7 @@ var StatusBarPage = (function () {
     };
     StatusBarPage = __decorate([
         ionic_1.IonicView({
-            template: "\n  <ion-navbar *navbar>\n    <button menuToggle>\n      <icon menu></icon>\n    </button>\n    <ion-title>StatusBar</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>StatusBar</h2>\n    <div>\n      <button primary outline (click)=\"hide()\">Hide</button>\n      <button primary outline (click)=\"show()\">Show</button>\n      <button primary outline (click)=\"toggleOverlays()\">Toggle Overlays</button>\n      <button primary outline (click)=\"setStyle()\">Cycle Style</button>\n    </div>\n    <div>\n      <div>\n        <input [(ng-model)]=\"colorHex\">\n      </div>\n      <button primary outline (click)=\"setColor()\">Set Color</button>\n    </div>\n  </ion-content>\n  "
+            template: "\n  <ion-navbar *navbar>\n    <button menuToggle>\n      <ion-icon name=\"menu\"></ion-icon>\n    </button>\n    <ion-title>StatusBar</ion-title>\n  </ion-navbar>\n  <ion-content padding>\n    <h2>StatusBar</h2>\n    <div>\n      <button primary outline (click)=\"hide()\">Hide</button>\n      <button primary outline (click)=\"show()\">Show</button>\n      <button primary outline (click)=\"toggleOverlays()\">Toggle Overlays</button>\n      <button primary outline (click)=\"setStyle()\">Cycle Style</button>\n    </div>\n    <div>\n      <div>\n        <input [(ngModel)]=\"colorHex\">\n      </div>\n      <button primary outline (click)=\"setColor()\">Set Color</button>\n    </div>\n  </ion-content>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], StatusBarPage);

@@ -32,7 +32,7 @@ Nav
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav.ts#L7'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav.ts#L6'>
 Improve this doc
 </a> 
 
@@ -130,7 +130,28 @@ swipe to go back:</p>
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link -->
+<!-- methods on the class -->
+
+<h2>Methods</h2>
+
+<div id="root"></div>
+
+<h3>
+<code>root()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
 
 <h2>Related</h2>
 

@@ -34,7 +34,7 @@ Slides
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L13'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L12'>
 Improve this doc
 </a> 
 

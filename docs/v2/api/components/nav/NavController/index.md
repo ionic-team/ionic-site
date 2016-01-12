@@ -123,10 +123,181 @@ class HelloWorld {
 
 <h2>Methods</h2>
 
+<div id="sbGesture"></div>
+
+<h3>
+<code>sbGesture()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="initZIndex"></div>
+
+<h3>
+<code>initZIndex()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="id"></div>
+
+<h3>
+<code>id()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="providers"></div>
+
+<h3>
+<code>providers()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="router"></div>
+
+<h3>
+<code>router()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="parent"></div>
+
+<h3>
+<code>parent()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="app"></div>
+
+<h3>
+<code>app()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="config"></div>
+
+<h3>
+<code>config()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="keyboard"></div>
+
+<h3>
+<code>keyboard()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="push"></div>
 
 <h3>
-<code>push(component,&nbsp;params,&nbsp;opts)</code>
+<code>push(componentType,&nbsp;params,&nbsp;opts)</code>
   
 
 </h3>
@@ -204,13 +375,13 @@ class MyClass{
     
     <tr>
       <td>
-        component
+        componentType
         
         
       </td>
       <td>
         
-  <code>Any</code>
+  <code>Type</code>
       </td>
       <td>
         <p>The page component class you want to push on to the navigation stack</p>
@@ -477,7 +648,7 @@ Similar to `pop()`, this method let's you navigate back to the root of the stack
 <div id="insert"></div>
 
 <h3>
-<code>insert(index,&nbsp;component)</code>
+<code>insert(index,&nbsp;componentType)</code>
   
 
 </h3>
@@ -518,7 +689,7 @@ This will insert the `Info` view into the second slot of our navigation stack
       </td>
       <td>
         
-  <code>Number</code>
+  <code>number</code>
       </td>
       <td>
         <p>The index where you want to insert the view</p>
@@ -529,13 +700,13 @@ This will insert the `Info` view into the second slot of our navigation stack
     
     <tr>
       <td>
-        component
+        componentType
         
         
       </td>
       <td>
         
-  <code>Any</code>
+  <code>Type</code>
       </td>
       <td>
         <p>The name of the component you want to insert into the nav stack</p>
@@ -601,7 +772,7 @@ export class Detail {
       </td>
       <td>
         
-  <code>Number</code>
+  <code>number</code>
       </td>
       <td>
         <p>Remove the view from the nav stack at that index</p>
@@ -646,7 +817,7 @@ export class Detail {
 <div id="setPages"></div>
 
 <h3>
-<code>setPages(component,&nbsp;opts)</code>
+<code>setPages(componentTypes,&nbsp;opts)</code>
   
 
 </h3>
@@ -734,13 +905,13 @@ import {Info} from '../info/info'
     
     <tr>
       <td>
-        component
+        componentTypes
         
         
       </td>
       <td>
         
-  <code>Array</code>
+  <code>Array&lt;Type&gt;</code>
       </td>
       <td>
         <p>an arry of components to load in the stack</p>
@@ -1097,7 +1268,7 @@ not include views which are about to be destroyed.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Number</code> The number of views in stack, including the current view  
+  <code>number</code> The number of views in stack, including the current view  
 </div>
 
 

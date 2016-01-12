@@ -34,7 +34,7 @@ NavParams
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L1534'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L1539'>
 Improve this doc
 </a> 
 
@@ -72,6 +72,25 @@ option with a simple <code>get</code> method.</p>
 <!-- methods on the class -->
 
 <h2>Methods</h2>
+
+<div id="data"></div>
+
+<h3>
+<code>data()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="get"></div>
 

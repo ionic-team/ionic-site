@@ -69,6 +69,139 @@ export class MyPage{
 
 <h2>Methods</h2>
 
+<div id="instance"></div>
+
+<h3>
+<code>instance()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="state"></div>
+
+<h3>
+<code>state()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="shouldDestroy"></div>
+
+<h3>
+<code>shouldDestroy()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="shouldCache"></div>
+
+<h3>
+<code>shouldCache()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="viewType"></div>
+
+<h3>
+<code>viewType()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="componentType"></div>
+
+<h3>
+<code>componentType()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="data"></div>
+
+<h3>
+<code>data()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="subscribe"></div>
 
 <h3>
@@ -304,7 +437,7 @@ You can find out the index of the current view is in the current navigation stac
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Number</code> Returns the index of this page within its NavController.  
+  <code>number</code> Returns the index of this page within its NavController.  
 </div>
 
 

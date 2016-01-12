@@ -209,25 +209,6 @@ a unique ID for a toggle
 
 
 
-<div id="checked"></div>
-
-<h3>
-<code>checked()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="disabled"></div>
 
 <h3>
@@ -266,6 +247,82 @@ a unique ID for a toggle
 
 
 
+<div id="addMoveListener"></div>
+
+<h3>
+<code>addMoveListener()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="removeMoveListener"></div>
+
+<h3>
+<code>removeMoveListener()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="labelId"></div>
+
+<h3>
+<code>labelId()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isActivated"></div>
+
+<h3>
+<code>isActivated()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="toggle"></div>
 
 <h3>
@@ -275,6 +332,26 @@ a unique ID for a toggle
 </h3>
 
 Toggle the checked state of this toggle.
+
+
+
+
+
+
+
+
+
+
+
+<div id="checked"></div>
+
+<h3>
+<code>checked()</code>
+  
+
+</h3>
+
+
 
 
 

@@ -20,15 +20,16 @@ header_sub_title: Ionic 2 Developer Preview
     </ul>
   
     <h4 class="modal-subtitle">Usage:</h4>
-    <!-- <pre> -->
-      <!-- <code class="language-html hljs xml" data-lang="html"> -->
-        <!--Basic: auto-select the icon based on the platform -->
-        <ion-icon name="{{key}}"></ion-icon>
 
-        <!-- Advanced: explicity set the icon for each platform -->
-        <ion-icon ios="{{getIcon({key:value}, 'ios' )}}" md="{{getIcon({key:value}, 'md' )}}"></ion-icon>
-      <!-- </code> -->
-    <!-- </pre> -->
+      <delayed-pre>
+        <code class="language-html hljs xml" data-lang="html">
+          <!--Basic: auto-select the icon based on the platform -->
+          <ion-icon name="{{key}}"></ion-icon>
+
+          <!-- Advanced: explicity set the icon for each platform -->
+          <ion-icon ios="{{getIcon({key:value}, 'ios' )}}" md="{{getIcon({key:value}, 'md' )}}"></ion-icon>
+        </code>
+      </delayed-pre>
 
   </div>
   {% endraw %}

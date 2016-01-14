@@ -1,7 +1,6 @@
 if (window.isIoniconsPage) {
 $(document).ready(function() {
 
-
   if (!String.prototype.trim) {
     String.prototype.trim = function () {
       return this.replace(/^\s+|\s+$/g, '');
@@ -32,10 +31,16 @@ $(document).ready(function() {
            xobj.onreadystatechange = function () {
              if (xobj.readyState == 4 && xobj.status == "200") {
                // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+               // console.log(xobj.responseText);
                callback(xobj.responseText);
              }
        };
        xobj.send(null);
+    }
+
+    function addModals(data) {
+      var event = new CustomEvent('dataLoaded', { 'detail': data });
+      document.dispatchEvent(event);
     }
 
     function addIcons(data) {
@@ -81,6 +86,7 @@ $(document).ready(function() {
 
     loadJSON(function(response) {
        var data = JSON.parse(response);
+       addModals(data);
        addIcons(data);
        searchSetup();
     });
@@ -273,3 +279,4 @@ $(document).ready(function() {
 
   });
 }
+

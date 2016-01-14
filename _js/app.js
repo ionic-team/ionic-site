@@ -185,6 +185,23 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     }
   }])
 
+  .controller('IoniconDocsCtrl', ['$scope', function($scope) {
+    document.addEventListener("dataLoaded", function(data){
+      $scope.$apply(function(){
+        $scope.icons = data['detail'];
+      });
+    });
+    $scope.getIcon = function(iconObj, platform){
+      if (iconObj.key.icons.length === 1 || platform === 'ios') {
+        return iconObj.key.icons[0]['name']
+      }
+      if (iconObj.key.icons.length === 2) {
+        return iconObj.key.icons[1]['name']
+      }
+      return iconObj.key.icons[2]['name']
+    }
+  }])
+
 .directive('pre', [function() {
   return {
     restrict: 'E',

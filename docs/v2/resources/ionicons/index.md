@@ -20,16 +20,16 @@ header_sub_title: Ionic 2 Developer Preview
     </ul>
   
     <h4 class="modal-subtitle">Usage:</h4>
-
-      <delayed-pre>
-        <code class="language-html hljs xml" data-lang="html">
-          <!--Basic: auto-select the icon based on the platform -->
-          <ion-icon name="{{key}}"></ion-icon>
-
-          <!-- Advanced: explicity set the icon for each platform -->
-          <ion-icon ios="{{getIcon({key:value}, 'ios' )}}" md="{{getIcon({key:value}, 'md' )}}"></ion-icon>
-        </code>
-      </delayed-pre>
+      <figure class="highlight">
+        <delayed-pre>
+          <code class="language-html lang-html hljs xml" data-lang="html">
+  <span class="hljs-comment">&lt;!--Basic: auto-select the icon based on the platform --&gt;</span>
+  &lt;ion-icon name="{{key}}"&gt;&lt;/ion-icon&gt;
+  <span class="hljs-comment">&lt;!-- Advanced: explicity set the icon for each platform --&gt;</span>
+  &lt;ion-icon ios="{{getIcon({key:value}, 'ios' )}}" md="{{getIcon({key:value}, 'md' )}}"&gt;&lt;/ion-icon&gt;
+          </code>
+        </delayed-pre>
+      </figure>
 
   </div>
   {% endraw %}
@@ -59,5 +59,5 @@ header_sub_title: Ionic 2 Developer Preview
   </div>
 
   <script>
-    window.isIoniconsPage = true;
+  window.isIoniconsPage = true;
   </script>

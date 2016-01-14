@@ -198,6 +198,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       if (iconObj.key.icons.length === 2) {
         return iconObj.key.icons[1]['name']
       }
+      
       return iconObj.key.icons[2]['name']
     }
   }])

@@ -34,7 +34,7 @@ Title
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L104'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L97'>
 Improve this doc
 </a> 
 

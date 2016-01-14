@@ -34,7 +34,7 @@ Scroll
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/scroll.ts#L8'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/scroll.ts#L7'>
 Improve this doc
 </a> 
 

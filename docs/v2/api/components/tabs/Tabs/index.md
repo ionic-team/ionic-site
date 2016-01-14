@@ -32,7 +32,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L12'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L11'>
 Improve this doc
 </a> 
 
@@ -151,6 +151,82 @@ sets whether to preload all the tabs, true or false
 <!-- methods on the class -->
 
 <h2>Methods</h2>
+
+<div id="tabs"></div>
+
+<h3>
+<code>tabs()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="tabbarPlacement"></div>
+
+<h3>
+<code>tabbarPlacement()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="tabbarIcons"></div>
+
+<h3>
+<code>tabbarIcons()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="preloadTabs"></div>
+
+<h3>
+<code>preloadTabs()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="change"></div>
 

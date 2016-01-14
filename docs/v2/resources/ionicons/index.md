@@ -24,9 +24,10 @@ header_sub_title: Ionic 2 Developer Preview
         <delayed-pre>
           <code class="language-html lang-html hljs xml" data-lang="html">
   <span class="hljs-comment">&lt;!--Basic: auto-select the icon based on the platform --&gt;</span>
-  &lt;ion-icon name="{{key}}"&gt;&lt;/ion-icon&gt;
+  <span class="hljs-keyword">&lt;ion-icon</span> <span class="hljs-built_in">name=</span><span class="hljs-string">"{{key}}"</span><span class="hljs-keyword">&gt;&lt;/ion-icon&gt;</span>
+
   <span class="hljs-comment">&lt;!-- Advanced: explicity set the icon for each platform --&gt;</span>
-  &lt;ion-icon ios="{{getIcon({key:value}, 'ios' )}}" md="{{getIcon({key:value}, 'md' )}}"&gt;&lt;/ion-icon&gt;
+  <span class="hljs-keyword">&lt;ion-icon</span> <span class="hljs-built_in">ios=</span><span class="hljs-string">"{{getIcon({key:value}, 'ios' )}}"</span> <span class="hljs-built_in">md=</span><span class="hljs-string">"{{getIcon({key:value}, 'md' )}}"</span><span class="hljs-keyword">&gt;&lt;/ion-icon&gt;</span>
           </code>
         </delayed-pre>
       </figure>

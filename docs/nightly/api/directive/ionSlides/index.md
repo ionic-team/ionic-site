@@ -58,7 +58,7 @@ Note: this is a new version of the Ionic Slide Box based on the [Swiper](http://
 <h2 id="usage">Usage</h2>
 
 ```html
-<ion-slides on-slide-changed="slideHasChanged($index)">
+<ion-slides  options="options" slider="data.slider">
   <ion-slide-page>
     <div class="box blue"><h1>BLUE</h1></div>
   </ion-slide-page>
@@ -71,56 +71,17 @@ Note: this is a new version of the Ionic Slide Box based on the [Swiper](http://
 </ion-slides>
 ```
 
-
-<h2 id="api" style="clear:both;">API</h2>
-
-<table class="table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Attr</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        delegate-handle
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>The handle used to identify this slideBox
-with <a href="/docs/nightly/api/service/$ionicSlideBoxDelegate/"><code>$ionicSlideBoxDelegate</code></a>.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        options
-        
-        <div><em>(optional)</em></div>
-      </td>
-      <td>
-        
-  <code>object</code>
-      </td>
-      <td>
-        <p>to pass to the widget. See the full ist here: <a href="http://www.idangero.us/swiper/api/"><a href="http://www.idangero.us/swiper/api/">http://www.idangero.us/swiper/api/</a></a></p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
+```js
+$scope.options = {
+  loop: false,
+  effect: fade,
+  speed: 500,
+}
+$scope.data = {};
+$scope.$watch('data.slider', function(nv, ov) {
+  $scope.slider = $scope.data.slider;
+})
+```
 
 
 

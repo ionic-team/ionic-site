@@ -61578,7 +61578,7 @@
 	        'select': inputs.SelectPage,
 	        'searchbar': inputs.SearchPage,
 	        'toggle': inputs.TogglePage,
-	        'inputs': labels.BasicPage,
+	        'inputs': labels.FixedInlinePage,
 	        'fixed-inline-labels': labels.FixedInlinePage,
 	        'floating-labels': labels.FloatingPage,
 	        'inline-labels': labels.InlinePage,

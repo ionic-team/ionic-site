@@ -3215,9 +3215,9 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var ionic_2 = __webpack_require__(6);
-	var menus_1 = __webpack_require__(350);
-	var actionSheets = __webpack_require__(353);
-	var helpers = __webpack_require__(352);
+	var menus_1 = __webpack_require__(353);
+	var actionSheets = __webpack_require__(356);
+	var helpers = __webpack_require__(355);
 	var DemoApp = (function () {
 	    function DemoApp(app, platform, config) {
 	        var _this = this;
@@ -3326,23 +3326,23 @@
 	__export(__webpack_require__(270));
 	__export(__webpack_require__(285));
 	__export(__webpack_require__(315));
-	__export(__webpack_require__(333));
-	__export(__webpack_require__(334));
-	__export(__webpack_require__(335));
+	__export(__webpack_require__(337));
+	__export(__webpack_require__(338));
+	__export(__webpack_require__(339));
 	__export(__webpack_require__(271));
-	__export(__webpack_require__(340));
+	__export(__webpack_require__(343));
 	__export(__webpack_require__(274));
 	__export(__webpack_require__(277));
 	__export(__webpack_require__(276));
 	__export(__webpack_require__(284));
 	__export(__webpack_require__(279));
-	__export(__webpack_require__(344));
+	__export(__webpack_require__(347));
 	// these modules don't export anything
-	__webpack_require__(345);
-	__webpack_require__(346);
-	__webpack_require__(347);
 	__webpack_require__(348);
 	__webpack_require__(349);
+	__webpack_require__(350);
+	__webpack_require__(351);
+	__webpack_require__(352);
 
 /***/ },
 /* 7 */
@@ -3374,9 +3374,9 @@
 	    if (!(config instanceof config_1.Config)) {
 	        config = new config_1.Config(config);
 	    }
-	    platform.url(window.location.href);
-	    platform.userAgent(window.navigator.userAgent);
-	    platform.navigatorPlatform(window.navigator.platform);
+	    platform.setUrl(window.location.href);
+	    platform.setUserAgent(window.navigator.userAgent);
+	    platform.setNavigatorPlatform(window.navigator.platform);
 	    platform.load();
 	    config.setPlatform(platform);
 	    var clickBlock = new click_block_1.ClickBlock(config.get('clickBlock'));
@@ -40003,8 +40003,9 @@
 	**/
 	var Config = (function () {
 	    function Config(config) {
+	        this._c = {};
+	        this._s = {};
 	        this._s = config && util_1.isObject(config) && !util_1.isArray(config) ? config : {};
-	        this._c = {}; // cached values
 	    }
 	    /**
 	     * For setting and getting multiple config values
@@ -40198,11 +40199,9 @@
 	    function Platform(platforms) {
 	        var _this = this;
 	        if (platforms === void 0) { platforms = []; }
-	        this._platforms = platforms;
 	        this._versions = {};
-	        this._dir = null;
-	        this._lang = null;
 	        this._onResizes = [];
+	        this._platforms = platforms;
 	        this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
 	    }
 	    // Methods
@@ -40420,11 +40419,14 @@
 	    /**
 	    * @private
 	    */
+	    Platform.prototype.setUrl = function (url) {
+	        this._url = url;
+	        this._qs = util_1.getQuerystring(url);
+	    };
+	    /**
+	    * @private
+	    */
 	    Platform.prototype.url = function (val) {
-	        if (arguments.length) {
-	            this._url = val;
-	            this._qs = util_1.getQuerystring(val);
-	        }
 	        return this._url;
 	    };
 	    /**
@@ -40436,19 +40438,25 @@
 	    /**
 	    * @private
 	    */
+	    Platform.prototype.setUserAgent = function (userAgent) {
+	        this._ua = userAgent;
+	    };
+	    /**
+	    * @private
+	    */
 	    Platform.prototype.userAgent = function (val) {
-	        if (arguments.length) {
-	            this._ua = val;
-	        }
 	        return this._ua || '';
 	    };
 	    /**
 	    * @private
 	    */
+	    Platform.prototype.setNavigatorPlatform = function (navigatorPlatform) {
+	        this._bPlt = navigatorPlatform;
+	    };
+	    /**
+	    * @private
+	    */
 	    Platform.prototype.navigatorPlatform = function (val) {
-	        if (arguments.length) {
-	            this._bPlt = val;
-	        }
 	        return this._bPlt || '';
 	    };
 	    /**
@@ -40612,27 +40620,27 @@
 	                // add the engine to the first in the platform hierarchy
 	                // the original rootPlatformNode now becomes a child
 	                // of the engineNode, which is not the new root
-	                engineNode.child(rootPlatformNode);
-	                rootPlatformNode.parent(engineNode);
+	                engineNode.child = rootPlatformNode;
+	                rootPlatformNode.parent = engineNode;
 	                rootPlatformNode = engineNode;
 	                // add any events which the engine would provide
 	                // for example, Cordova provides its own ready event
 	                var engineMethods = engineNode.methods();
 	                engineMethods._engineReady = engineMethods.ready;
 	                delete engineMethods.ready;
-	                util_1.extend(this, engineMethods);
+	                util_1.assign(this, engineMethods);
 	            }
 	            var platformNode = rootPlatformNode;
 	            while (platformNode) {
 	                insertSuperset(platformNode);
-	                platformNode = platformNode.child();
+	                platformNode = platformNode.child;
 	            }
 	            // make sure the root noot is actually the root
 	            // incase a node was inserted before the root
-	            platformNode = rootPlatformNode.parent();
+	            platformNode = rootPlatformNode.parent;
 	            while (platformNode) {
 	                rootPlatformNode = platformNode;
-	                platformNode = platformNode.parent();
+	                platformNode = platformNode.parent;
 	            }
 	            platformNode = rootPlatformNode;
 	            while (platformNode) {
@@ -40642,7 +40650,7 @@
 	                // get the platforms version if a version parser was provided
 	                this._versions[platformNode.name()] = platformNode.version(this);
 	                // go to the next platform child
-	                platformNode = platformNode.child();
+	                platformNode = platformNode.child;
 	            }
 	        }
 	        if (this._platforms.indexOf('mobile') > -1 && this._platforms.indexOf('cordova') === -1) {
@@ -40657,13 +40665,13 @@
 	        // use it's getRoot method to build up its hierarchy
 	        // depending on which platforms match
 	        var platformNode = new PlatformNode(platformName);
-	        var rootNode = platformNode.getRoot(this, 0);
+	        var rootNode = platformNode.getRoot(this);
 	        if (rootNode) {
 	            rootNode.depth = 0;
-	            var childPlatform = rootNode.child();
+	            var childPlatform = rootNode.child;
 	            while (childPlatform) {
 	                rootNode.depth++;
-	                childPlatform = childPlatform.child();
+	                childPlatform = childPlatform.child;
 	            }
 	        }
 	        return rootNode;
@@ -40677,12 +40685,12 @@
 	        // add a platform in between two exist platforms
 	        // so we can build the correct hierarchy of active platforms
 	        var supersetPlatform = new PlatformNode(supersetPlaformName);
-	        supersetPlatform.parent(platformNode.parent());
-	        supersetPlatform.child(platformNode);
-	        if (supersetPlatform.parent()) {
-	            supersetPlatform.parent().child(supersetPlatform);
+	        supersetPlatform.parent = platformNode.parent;
+	        supersetPlatform.child = platformNode;
+	        if (supersetPlatform.parent) {
+	            supersetPlatform.parent.child = supersetPlatform;
 	        }
-	        platformNode.parent(supersetPlatform);
+	        platformNode.parent = supersetPlatform;
 	    }
 	}
 	var PlatformNode = (function () {
@@ -40701,18 +40709,6 @@
 	    };
 	    PlatformNode.prototype.methods = function () {
 	        return this.c.methods || {};
-	    };
-	    PlatformNode.prototype.parent = function (val) {
-	        if (arguments.length) {
-	            this._parent = val;
-	        }
-	        return this._parent;
-	    };
-	    PlatformNode.prototype.child = function (val) {
-	        if (arguments.length) {
-	            this._child = val;
-	        }
-	        return this._child;
 	    };
 	    PlatformNode.prototype.isMatch = function (p) {
 	        if (p.platformOverride && !this.isEngine) {
@@ -40747,10 +40743,10 @@
 	            var rootPlatform = null;
 	            for (var i = 0; i < parents.length; i++) {
 	                platform = new PlatformNode(parents[i]);
-	                platform.child(this);
+	                platform.child = this;
 	                rootPlatform = platform.getRoot(p);
 	                if (rootPlatform) {
-	                    this.parent(platform);
+	                    this.parent = platform;
 	                    return rootPlatform;
 	                }
 	            }
@@ -40794,20 +40790,36 @@
 	}
 	exports.clamp = clamp;
 	/**
-	 * Extend the destination with an arbitrary number of other objects.
-	 * @param dst the destination
-	 * @param ... the param objects
+	 * The assign() method is used to copy the values of all enumerable own
+	 * properties from one or more source objects to a target object. It will
+	 * return the target object. When available, this method will use
+	 * `Object.assign()` under-the-hood.
+	 * @param target  The target object
+	 * @param source(s)  The source object
 	 */
-	function extend(dst) {
-	    return _baseExtend(dst, [].slice.call(arguments, 1), false);
+	function assign() {
+	    var args = [];
+	    for (var _i = 0; _i < arguments.length; _i++) {
+	        args[_i - 0] = arguments[_i];
+	    }
+	    if (typeof Object.assign !== 'function') {
+	        // use the old-school shallow extend method
+	        return _baseExtend(args[0], [].slice.call(args, 1), false);
+	    }
+	    // use the built in ES6 Object.assign method
+	    return Object.assign.apply(null, args);
 	}
-	exports.extend = extend;
+	exports.assign = assign;
 	/**
 	 * Do a deep extend (merge).
 	 * @param dst the destination
 	 * @param ... the param objects
 	 */
 	function merge(dst) {
+	    var args = [];
+	    for (var _i = 1; _i < arguments.length; _i++) {
+	        args[_i - 1] = arguments[_i];
+	    }
 	    return _baseExtend(dst, [].slice.call(arguments, 1), true);
 	}
 	exports.merge = merge;
@@ -40837,9 +40849,9 @@
 	    return function () {
 	        context = this;
 	        args = arguments;
-	        timestamp = new Date();
+	        timestamp = Date.now();
 	        var later = function () {
-	            var last = (new Date()) - timestamp;
+	            var last = Date.now() - timestamp;
 	            if (last < wait) {
 	                timeout = setTimeout(later, wait - last);
 	            }
@@ -40865,6 +40877,10 @@
 	 * @param the destination to apply defaults to.
 	 */
 	function defaults(dest) {
+	    var args = [];
+	    for (var _i = 1; _i < arguments.length; _i++) {
+	        args[_i - 1] = arguments[_i];
+	    }
 	    for (var i = arguments.length - 1; i >= 1; i--) {
 	        var source = arguments[i] || {};
 	        for (var key in source) {
@@ -40924,10 +40940,10 @@
 	    }
 	};
 	/**
-	 * Grab the query string param value for the given key.
-	 * @param key the key to look for
+	 * Grab all query strings keys and values.
+	 * @param url
 	 */
-	function getQuerystring(url, key) {
+	function getQuerystring(url) {
 	    var queryParams = {};
 	    if (url) {
 	        var startIndex = url.indexOf('?');
@@ -40937,9 +40953,6 @@
 	                var split = param.split('=');
 	                queryParams[split[0].toLowerCase()] = split[1].split('#')[0];
 	            });
-	        }
-	        if (key) {
-	            return queryParams[key] || '';
 	        }
 	    }
 	    return queryParams;
@@ -40984,9 +40997,12 @@
 /* 273 */
 /***/ function(module, exports) {
 
+	var win = window;
+	var doc = document;
+	var docEle = doc.documentElement;
 	// requestAnimationFrame is polyfilled for old Android
 	// within the web-animations polyfill
-	exports.raf = window.requestAnimationFrame;
+	exports.raf = win.requestAnimationFrame;
 	function rafFrames(framesToWait, callback) {
 	    framesToWait = Math.ceil(framesToWait);
 	    if (framesToWait < 2) {
@@ -41005,7 +41021,7 @@
 	    var i, keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
 	        '-moz-transform', 'moz-transform', 'MozTransform', 'mozTransform', 'msTransform'];
 	    for (i = 0; i < keys.length; i++) {
-	        if (document.documentElement.style[keys[i]] !== undefined) {
+	        if (docEle.style[keys[i]] !== undefined) {
 	            exports.CSS.transform = keys[i];
 	            break;
 	        }
@@ -41013,26 +41029,23 @@
 	    // transition
 	    keys = ['webkitTransition', 'mozTransition', 'msTransition', 'transition'];
 	    for (i = 0; i < keys.length; i++) {
-	        if (document.documentElement.style[keys[i]] !== undefined) {
+	        if (docEle.style[keys[i]] !== undefined) {
 	            exports.CSS.transition = keys[i];
 	            break;
 	        }
 	    }
 	    // The only prefix we care about is webkit for transitions.
 	    var isWebkit = exports.CSS.transition.indexOf('webkit') > -1;
-	    exports.CSS.prefix = isWebkit ? '-webkit-' : '';
 	    // transition duration
 	    exports.CSS.transitionDuration = (isWebkit ? '-webkit-' : '') + 'transition-duration';
 	    // To be sure transitionend works everywhere, include *both* the webkit and non-webkit events
 	    exports.CSS.transitionEnd = (isWebkit ? 'webkitTransitionEnd ' : '') + 'transitionend';
 	})();
-	if (window.onanimationend === undefined && window.onwebkitanimationend !== undefined) {
-	    exports.CSS.animation = 'WebkitAnimation';
+	if (win.onanimationend === undefined && win.onwebkitanimationend !== undefined) {
 	    exports.CSS.animationStart = 'webkitAnimationStart animationstart';
 	    exports.CSS.animationEnd = 'webkitAnimationEnd animationend';
 	}
 	else {
-	    exports.CSS.animation = 'animation';
 	    exports.CSS.animationStart = 'animationstart';
 	    exports.CSS.animationEnd = 'animationend';
 	}
@@ -41080,17 +41093,17 @@
 	        // a callback wasn't provided, so let's return a promise instead
 	        promise = new Promise(function (resolve) { callback = resolve; });
 	    }
-	    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+	    if (doc.readyState === 'complete' || doc.readyState === 'interactive') {
 	        callback();
 	    }
 	    else {
 	        function completed() {
-	            document.removeEventListener('DOMContentLoaded', completed, false);
-	            window.removeEventListener('load', completed, false);
+	            doc.removeEventListener('DOMContentLoaded', completed, false);
+	            win.removeEventListener('load', completed, false);
 	            callback();
 	        }
-	        document.addEventListener('DOMContentLoaded', completed, false);
-	        window.addEventListener('load', completed, false);
+	        doc.addEventListener('DOMContentLoaded', completed, false);
+	        win.addEventListener('load', completed, false);
 	    }
 	    return promise;
 	}
@@ -41101,15 +41114,15 @@
 	        // a callback wasn't provided, so let's return a promise instead
 	        promise = new Promise(function (resolve) { callback = resolve; });
 	    }
-	    if (document.readyState === 'complete') {
+	    if (doc.readyState === 'complete') {
 	        callback();
 	    }
 	    else {
 	        function completed() {
-	            window.removeEventListener('load', completed, false);
+	            win.removeEventListener('load', completed, false);
 	            callback();
 	        }
-	        window.addEventListener('load', completed, false);
+	        win.addEventListener('load', completed, false);
 	    }
 	    return promise;
 	}
@@ -41135,7 +41148,7 @@
 	}
 	exports.hasPointerMoved = hasPointerMoved;
 	function isActive(ele) {
-	    return !!(ele && (document.activeElement === ele));
+	    return !!(ele && (doc.activeElement === ele));
 	}
 	exports.isActive = isActive;
 	function hasFocus(ele) {
@@ -41150,7 +41163,7 @@
 	}
 	exports.isTextInput = isTextInput;
 	function hasFocusedTextInput() {
-	    var ele = document.activeElement;
+	    var ele = doc.activeElement;
 	    if (isTextInput(ele)) {
 	        return (ele.parentElement.querySelector(':focus') === ele);
 	    }
@@ -41158,9 +41171,11 @@
 	}
 	exports.hasFocusedTextInput = hasFocusedTextInput;
 	var matchesFn;
-	['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'].some(function (fn) {
-	    if (typeof document.documentElement[fn] == 'function') {
+	var matchesMethods = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'];
+	matchesMethods.some(function (fn) {
+	    if (typeof docEle[fn] == 'function') {
 	        matchesFn = fn;
+	        return true;
 	    }
 	});
 	function closest(ele, selector, checkSelf) {
@@ -41217,10 +41232,10 @@
 	function windowDimensions() {
 	    if (!dimensionCache.win) {
 	        // make sure we got good values before caching
-	        if (window.innerWidth && window.innerHeight) {
+	        if (win.innerWidth && win.innerHeight) {
 	            dimensionCache.win = {
-	                width: window.innerWidth,
-	                height: window.innerHeight
+	                width: win.innerWidth,
+	                height: win.innerHeight
 	            };
 	        }
 	        else {
@@ -41245,11 +41260,11 @@
 	 * @param element
 	 */
 	function parentOffsetEl(element) {
-	    var offsetParent = element.offsetParent || document;
-	    while (offsetParent && offsetParent !== document && isStaticPositioned(offsetParent)) {
+	    var offsetParent = element.offsetParent || doc;
+	    while (offsetParent && offsetParent !== doc && isStaticPositioned(offsetParent)) {
 	        offsetParent = offsetParent.offsetParent;
 	    }
-	    return offsetParent || document;
+	    return offsetParent || doc;
 	}
 	exports.parentOffsetEl = parentOffsetEl;
 	;
@@ -41263,7 +41278,7 @@
 	    var elBCR = offset(element);
 	    var offsetParentBCR = { top: 0, left: 0 };
 	    var offsetParentEl = parentOffsetEl(element);
-	    if (offsetParentEl != document) {
+	    if (offsetParentEl != doc) {
 	        offsetParentBCR = offset(offsetParentEl);
 	        offsetParentBCR.top += offsetParentEl.clientTop - offsetParentEl.scrollTop;
 	        offsetParentBCR.left += offsetParentEl.clientLeft - offsetParentEl.scrollLeft;
@@ -41278,7 +41293,7 @@
 	}
 	exports.position = position;
 	/**
-	* Get the current coordinates of the element, relative to the document.
+	* Get the current coordinates of the element, relative to the doc.
 	* Read-only equivalent of [jQuery's offset function](http://api.jquery.com/offset/).
 	* @param {element} element The element to get the offset of.
 	* @returns {object} Returns an object containing the properties top, left, width and height.
@@ -41288,8 +41303,8 @@
 	    return {
 	        width: boundingClientRect.width || element.offsetWidth,
 	        height: boundingClientRect.height || element.offsetHeight,
-	        top: boundingClientRect.top + (window.pageYOffset || document.documentElement.scrollTop),
-	        left: boundingClientRect.left + (window.pageXOffset || document.documentElement.scrollLeft)
+	        top: boundingClientRect.top + (win.pageYOffset || docEle.scrollTop),
+	        left: boundingClientRect.left + (win.pageXOffset || docEle.scrollLeft)
 	    };
 	}
 	exports.offset = offset;
@@ -41307,6 +41322,7 @@
 	 */
 	var ClickBlock = (function () {
 	    function ClickBlock() {
+	        this._enabled = false;
 	    }
 	    ClickBlock.prototype.enable = function () {
 	        cbEle = document.createElement('click-block');
@@ -41373,9 +41389,9 @@
 	 */
 	var Form = (function () {
 	    function Form() {
-	        this._inputs = [];
-	        this._ids = -1;
 	        this._focused = null;
+	        this._ids = -1;
+	        this._inputs = [];
 	        this.focusCtrl(document);
 	    }
 	    Form.prototype.register = function (input) {
@@ -41401,7 +41417,10 @@
 	    };
 	    Form.prototype.focusOut = function () {
 	        console.debug('focusOut');
-	        document.activeElement && document.activeElement.blur();
+	        var activeElement = document.activeElement;
+	        if (activeElement) {
+	            activeElement.blur();
+	        }
 	        this._blur.focus();
 	    };
 	    Form.prototype.setAsFocused = function (input) {
@@ -41471,11 +41490,11 @@
 	 * ```
 	 */
 	var Keyboard = (function () {
-	    function Keyboard(config, form, zone) {
+	    function Keyboard(config, _form, _zone) {
 	        var _this = this;
-	        this.form = form;
-	        this.zone = zone;
-	        zone.runOutsideAngular(function () {
+	        this._form = _form;
+	        this._zone = _zone;
+	        _zone.runOutsideAngular(function () {
 	            _this.focusOutline(config.get('focusOutline'), document);
 	        });
 	    }
@@ -41528,12 +41547,12 @@
 	            // a callback wasn't provided, so let's return a promise instead
 	            promise = new Promise(function (resolve) { callback = resolve; });
 	        }
-	        self.zone.runOutsideAngular(function () {
+	        self._zone.runOutsideAngular(function () {
 	            function checkKeyboard() {
 	                console.debug('keyboard isOpen', self.isOpen(), checks);
 	                if (!self.isOpen() || checks > 100) {
 	                    dom_1.rafFrames(30, function () {
-	                        self.zone.run(function () {
+	                        self._zone.run(function () {
 	                            console.debug('keyboard closed');
 	                            callback();
 	                        });
@@ -41558,7 +41577,7 @@
 	        dom_1.raf(function () {
 	            if (dom_1.hasFocusedTextInput()) {
 	                // only focus out when a text input has focus
-	                _this.form.focusOut();
+	                _this._form.focusOut();
 	            }
 	        });
 	    };
@@ -41604,7 +41623,7 @@
 	        }
 	        function enableKeyInput() {
 	            cssClass();
-	            self.zone.runOutsideAngular(function () {
+	            self._zone.runOutsideAngular(function () {
 	                document.removeEventListener('mousedown', pointerDown);
 	                document.removeEventListener('touchstart', pointerDown);
 	                if (isKeyInputEnabled) {
@@ -41627,18 +41646,8 @@
 
 /***/ },
 /* 277 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
 	/**
 	 * Events is a pub/sub style event system for sending and responding to application-level
 	 * events across your app.
@@ -41659,7 +41668,6 @@
 	 */
 	var Events = (function () {
 	    function Events() {
-	        this.channels = [];
 	    }
 	    /**
 	     * Subscribe to an event topic. Events that get posted to that topic
@@ -41674,11 +41682,11 @@
 	        for (var _i = 1; _i < arguments.length; _i++) {
 	            handlers[_i - 1] = arguments[_i];
 	        }
-	        if (!this.channels[topic]) {
-	            this.channels[topic] = [];
+	        if (!this._channels[topic]) {
+	            this._channels[topic] = [];
 	        }
 	        handlers.forEach(function (handler) {
-	            _this.channels[topic].push(handler);
+	            _this._channels[topic].push(handler);
 	        });
 	    };
 	    /**
@@ -41691,14 +41699,14 @@
 	     * @return true if a handler was removed
 	     */
 	    Events.prototype.unsubscribe = function (topic, handler) {
-	        var t = this.channels[topic];
+	        var t = this._channels[topic];
 	        if (!t) {
 	            // Wasn't found, wasn't removed
 	            return false;
 	        }
 	        if (!handler) {
 	            // Remove all handlers for this topic
-	            delete this.channels[topic];
+	            delete this._channels[topic];
 	            return true;
 	        }
 	        // We need to find and remove a specific handler
@@ -41710,7 +41718,7 @@
 	        t.splice(i, 1);
 	        // If the channel is empty now, remove it from the channel map
 	        if (!t.length) {
-	            delete this.channels[topic];
+	            delete this._channels[topic];
 	        }
 	        return true;
 	    };
@@ -41725,7 +41733,7 @@
 	        for (var _i = 1; _i < arguments.length; _i++) {
 	            args[_i - 1] = arguments[_i];
 	        }
-	        var t = this.channels[topic];
+	        var t = this._channels[topic];
 	        if (!t) {
 	            return null;
 	        }
@@ -41735,10 +41743,6 @@
 	        });
 	        return responses;
 	    };
-	    Events = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [])
-	    ], Events);
 	    return Events;
 	})();
 	exports.Events = Events;
@@ -41768,23 +41772,17 @@
 
 /***/ },
 /* 279 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
 	/**
 	 * @private
 	 * Provide multi-language and i18n support in your app. Translate works by
-	 * mapping full strings to language translated ones. That means that you don't need
-	 * to provide strings for your default language, just new languages.
+	 * mapping full strings to language translated ones. That means that you don't
+	 * need to provide strings for your default language, just new languages.
+	 *
+	 * Note: The Angular team will be building an
+	 * [Localization/Internationalization](https://docs.google.com/document/d/1mwyOFsAD-bPoXTk3Hthq0CAcGXCUw-BtTJMR4nGTY-0/view#heading=h.ixg45w3363q)
+	 * provider, so this Translation provider may not be further developed.
 	 *
 	 * @usage
 	 * ```js
@@ -41808,6 +41806,7 @@
 	var Translate = (function () {
 	    function Translate() {
 	        this._transMap = {};
+	        this._language = {};
 	    }
 	    Translate.prototype.translations = function (lang, map) {
 	        this._transMap[lang] = map;
@@ -41834,10 +41833,6 @@
 	    Translate.prototype._getTranslation = function (map, key) {
 	        return map && map[key] || '';
 	    };
-	    Translate = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [])
-	    ], Translate);
 	    return Translate;
 	})();
 	exports.Translate = Translate;
@@ -41848,9 +41843,9 @@
 
 	var FeatureDetect = (function () {
 	    function FeatureDetect() {
+	        this._results = {};
 	    }
 	    FeatureDetect.prototype.run = function (window, document) {
-	        this._results = {};
 	        for (var name in featureDetects) {
 	            this._results[name] = featureDetects[name](window, document, document.body);
 	        }
@@ -42318,6 +42313,7 @@
 
 	var dom_1 = __webpack_require__(273);
 	var util_1 = __webpack_require__(272);
+	var doc = document;
 	/**
 	  Animation Steps/Process
 	  -----------------------
@@ -42345,11 +42341,11 @@
 	    function Animation(ele, opts) {
 	        if (opts === void 0) { opts = {}; }
 	        this.reset();
-	        this._opts = util_1.extend({
+	        this._opts = util_1.assign({
 	            renderDelay: 16
 	        }, opts);
 	        this.elements(ele);
-	        if (!document.documentElement.animate) {
+	        if (!doc.documentElement.animate) {
 	            console.error('Web Animations polyfill missing');
 	        }
 	    }
@@ -42357,8 +42353,8 @@
 	        this._el = [];
 	        this._chld = [];
 	        this._ani = [];
-	        this._bfAdd = [];
 	        this._bfSty = {};
+	        this._bfAdd = [];
 	        this._bfRmv = [];
 	        this._afAdd = [];
 	        this._afRmv = [];
@@ -42370,7 +42366,7 @@
 	        if (ele) {
 	            if (typeof ele === 'string') {
 	                // string query selector
-	                ele = document.querySelectorAll(ele);
+	                ele = doc.querySelectorAll(ele);
 	            }
 	            if (ele.length) {
 	                // array of elements
@@ -42734,7 +42730,7 @@
 	    Animation.prototype.clone = function () {
 	        function copy(dest, src) {
 	            // undo what stage() may have already done
-	            util_1.extend(dest, src);
+	            util_1.assign(dest, src);
 	            dest._isFinished = dest._isStaged = dest.isProgress = false;
 	            dest._chld = [];
 	            dest._ani = [];
@@ -43115,23 +43111,26 @@
 	var tabs_1 = __webpack_require__(313);
 	var tab_1 = __webpack_require__(316);
 	var list_1 = __webpack_require__(317);
-	var item_1 = __webpack_require__(320);
-	var item_sliding_1 = __webpack_require__(321);
+	var input_1 = __webpack_require__(320);
+	var item_1 = __webpack_require__(323);
+	var item_sliding_1 = __webpack_require__(324);
 	var toolbar_1 = __webpack_require__(303);
 	var icon_1 = __webpack_require__(302);
-	var checkbox_1 = __webpack_require__(322);
-	var toggle_1 = __webpack_require__(323);
-	var text_input_1 = __webpack_require__(324);
-	var label_1 = __webpack_require__(325);
-	var segment_1 = __webpack_require__(326);
-	var radio_1 = __webpack_require__(327);
-	var searchbar_1 = __webpack_require__(328);
-	var nav_1 = __webpack_require__(329);
-	var nav_push_1 = __webpack_require__(330);
-	var nav_router_1 = __webpack_require__(331);
+	var checkbox_1 = __webpack_require__(325);
+	var select_1 = __webpack_require__(326);
+	var option_1 = __webpack_require__(328);
+	var toggle_1 = __webpack_require__(329);
+	var text_input_1 = __webpack_require__(322);
+	var label_1 = __webpack_require__(321);
+	var segment_1 = __webpack_require__(330);
+	var radio_1 = __webpack_require__(331);
+	var searchbar_1 = __webpack_require__(332);
+	var nav_1 = __webpack_require__(333);
+	var nav_push_1 = __webpack_require__(334);
+	var nav_router_1 = __webpack_require__(335);
 	var navbar_1 = __webpack_require__(301);
 	var id_1 = __webpack_require__(314);
-	var show_hide_when_1 = __webpack_require__(332);
+	var show_hide_when_1 = __webpack_require__(336);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @private
@@ -43184,9 +43183,11 @@
 	 * -  Checkbox
 	 * -  RadioGroup
 	 * -  RadioButton
+	 * -  Select
+	 * -  Option
 	 * -  Toggle
+	 * -  ItemInput
 	 * -  TextInput
-	 * -  TextInputElement
 	 * -  Label
 	 *
 	 * **Nav**
@@ -43241,9 +43242,11 @@
 	    checkbox_1.Checkbox,
 	    radio_1.RadioGroup,
 	    radio_1.RadioButton,
+	    select_1.Select,
+	    option_1.Option,
 	    toggle_1.Toggle,
+	    input_1.ItemInput,
 	    text_input_1.TextInput,
-	    text_input_1.TextInputElement,
 	    label_1.Label,
 	    // Nav
 	    nav_1.Nav,
@@ -43683,7 +43686,8 @@
 	                'content',
 	                'id',
 	                'side',
-	                'type'
+	                'type',
+	                'maxEdgeStart'
 	            ],
 	            defaultInputs: {
 	                'side': 'left',
@@ -43807,15 +43811,16 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var slide_edge_gesture_1 = __webpack_require__(290);
-	var util = __webpack_require__(294);
+	var util_1 = __webpack_require__(272);
 	var MenuContentGesture = (function (_super) {
 	    __extends(MenuContentGesture, _super);
 	    function MenuContentGesture(menu, targetEl, options) {
 	        if (options === void 0) { options = {}; }
-	        _super.call(this, targetEl, util.extend({
+	        _super.call(this, targetEl, util_1.assign({
 	            direction: (menu.side === 'left' || menu.side === 'right') ? 'x' : 'y',
 	            edge: menu.side,
-	            threshold: 75
+	            threshold: 0,
+	            maxEdgeStart: menu.maxEdgeStart || 75
 	        }, options));
 	        this.menu = menu;
 	        this.listen();
@@ -43853,7 +43858,7 @@
 	    __extends(TargetGesture, _super);
 	    function TargetGesture(menu) {
 	        _super.call(this, menu, menu.getNativeElement(), {
-	            threshold: 0
+	            maxEdgeStart: 0
 	        });
 	    }
 	    return TargetGesture;
@@ -43906,12 +43911,12 @@
 	        if (opts === void 0) { opts = {}; }
 	        util_1.defaults(opts, {
 	            edge: 'left',
-	            threshold: 50
+	            maxEdgeStart: 50
 	        });
 	        _super.call(this, element, opts);
 	        // Can check corners through use of eg 'left top'
 	        this.edges = opts.edge.split(' ');
-	        this.threshold = opts.threshold;
+	        this.maxEdgeStart = opts.maxEdgeStart;
 	    }
 	    SlideEdgeGesture.prototype.canStart = function (ev) {
 	        var _this = this;
@@ -43928,10 +43933,10 @@
 	    };
 	    SlideEdgeGesture.prototype._checkEdge = function (edge, pos) {
 	        switch (edge) {
-	            case 'left': return pos.x <= this._d.left + this.threshold;
-	            case 'right': return pos.x >= this._d.width - this.threshold;
-	            case 'top': return pos.y <= this._d.top + this.threshold;
-	            case 'bottom': return pos.y >= this._d.height - this.threshold;
+	            case 'left': return pos.x <= this._d.left + this.maxEdgeStart;
+	            case 'right': return pos.x >= this._d.width - this.maxEdgeStart;
+	            case 'top': return pos.y <= this._d.top + this.maxEdgeStart;
+	            case 'bottom': return pos.y >= this._d.height - this.maxEdgeStart;
 	        }
 	    };
 	    return SlideEdgeGesture;
@@ -43948,12 +43953,13 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var drag_gesture_1 = __webpack_require__(292);
-	var util = __webpack_require__(294);
+	var util_1 = __webpack_require__(294);
 	var SlideGesture = (function (_super) {
 	    __extends(SlideGesture, _super);
 	    function SlideGesture(element, opts) {
 	        if (opts === void 0) { opts = {}; }
 	        _super.call(this, element, opts);
+	        this.slide = null;
 	        this.element = element;
 	    }
 	    /*
@@ -43999,7 +44005,7 @@
 	        if (!this.slide || !this.slide.started)
 	            return;
 	        this.slide.pos = ev.center[this.direction];
-	        this.slide.distance = util.clamp(this.slide.min, this.slide.pos - this.slide.pointerStartPos + this.slide.elementStartPos, this.slide.max);
+	        this.slide.distance = util_1.clamp(this.slide.min, this.slide.pos - this.slide.pointerStartPos + this.slide.elementStartPos, this.slide.max);
 	        this.slide.delta = this.slide.pos - this.slide.pointerStartPos;
 	        this.onSlide(this.slide, ev);
 	    };
@@ -44027,12 +44033,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var gesture_1 = __webpack_require__(293);
-	var util = __webpack_require__(294);
+	var util_1 = __webpack_require__(294);
 	var DragGesture = (function (_super) {
 	    __extends(DragGesture, _super);
 	    function DragGesture(element, opts) {
 	        if (opts === void 0) { opts = {}; }
-	        util.defaults(opts, {});
+	        util_1.defaults(opts, {});
 	        _super.call(this, element, opts);
 	    }
 	    DragGesture.prototype.listen = function () {
@@ -44056,7 +44062,7 @@
 	            _this.onDragEnd(ev);
 	            _this.dragging = false;
 	        });
-	        this.hammertime.get('pan').set(this._options);
+	        //this.hammertime.get('pan').set(this._options);
 	    };
 	    DragGesture.prototype.onDrag = function () { };
 	    DragGesture.prototype.onDragStart = function () { };
@@ -44069,7 +44075,7 @@
 /* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var util = __webpack_require__(294);
+	var util_1 = __webpack_require__(294);
 	var hammer_1 = __webpack_require__(295);
 	/**
 	 * A gesture recognizer class.
@@ -44079,7 +44085,7 @@
 	var Gesture = (function () {
 	    function Gesture(element, opts) {
 	        if (opts === void 0) { opts = {}; }
-	        util.defaults(opts, {
+	        util_1.defaults(opts, {
 	            domEvents: true
 	        });
 	        this.element = element;
@@ -44093,7 +44099,7 @@
 	    }
 	    Gesture.prototype.options = function (opts) {
 	        if (opts === void 0) { opts = {}; }
-	        util.extend(this._options, opts);
+	        util_1.assign(this._options, opts);
 	    };
 	    Gesture.prototype.on = function (type, cb) {
 	        if (type == 'pinch' || type == 'rotate') {
@@ -44106,7 +44112,7 @@
 	        this.hammertime.off(type, this._callbacks[type] ? cb : null);
 	    };
 	    Gesture.prototype.listen = function () {
-	        this.hammertime = hammer_1.Hammer(this.element, this._options);
+	        this.hammertime = new hammer_1.Hammer(this.element, this._options);
 	    };
 	    Gesture.prototype.unlisten = function () {
 	        if (this.hammertime) {
@@ -44140,14 +44146,15 @@
 
 /***/ },
 /* 295 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	/*! Hammer.JS - v2.0.4 - 2014-09-28
+	var util_1 = __webpack_require__(272);
+	/*! Hammer.JS - v2.0.6 - 2015-12-23
 	 * http://hammerjs.github.io/
 	 *
-	 * Copyright (c) 2014 Jorik Tangelder;
-	 * Licensed under the MIT license */
-	var VENDOR_PREFIXES = ['', 'webkit', 'moz', 'MS', 'ms', 'o'];
+	 * Copyright (c) 2015 Jorik Tangelder;
+	 * Licensed under the  license */
+	var VENDOR_PREFIXES = ['', 'webkit', 'Moz', 'MS', 'ms', 'o'];
 	var TEST_ELEMENT = document.createElement('div');
 	var TYPE_FUNCTION = 'function';
 	var round = Math.round;
@@ -44207,35 +44214,6 @@
 	    }
 	}
 	/**
-	 * extend object.
-	 * means that properties in dest will be overwritten by the ones in src.
-	 * @param {Object} dest
-	 * @param {Object} src
-	 * @param {Boolean} [merge]
-	 * @returns {Object} dest
-	 */
-	function extend(dest, src, merge) {
-	    var keys = Object.keys(src);
-	    var i = 0;
-	    while (i < keys.length) {
-	        if (!merge || (merge && dest[keys[i]] === undefined)) {
-	            dest[keys[i]] = src[keys[i]];
-	        }
-	        i++;
-	    }
-	    return dest;
-	}
-	/**
-	 * merge the values from src in the dest.
-	 * means that properties that exist in dest will not be overwritten by src
-	 * @param {Object} dest
-	 * @param {Object} src
-	 * @returns {Object} dest
-	 */
-	function merge(dest, src) {
-	    return extend(dest, src, true);
-	}
-	/**
 	 * simple class inheritance
 	 * @param {Function} child
 	 * @param {Function} base
@@ -44247,7 +44225,7 @@
 	    childP.constructor = child;
 	    childP._super = baseP;
 	    if (properties) {
-	        extend(childP, properties);
+	        util_1.assign(childP, properties);
 	    }
 	}
 	/**
@@ -44291,7 +44269,6 @@
 	 */
 	function addEventListeners(target, types, handler) {
 	    each(splitStr(types), function (type) {
-	        //console.debug('hammer addEventListener', type, target.tagName);
 	        target.addEventListener(type, handler, false);
 	    });
 	}
@@ -44303,7 +44280,6 @@
 	 */
 	function removeEventListeners(target, types, handler) {
 	    each(splitStr(types), function (type) {
-	        //console.debug('hammer removeEventListener', type, target.tagName);
 	        target.removeEventListener(type, handler, false);
 	    });
 	}
@@ -44435,8 +44411,8 @@
 	 * @returns {DocumentView|Window}
 	 */
 	function getWindowForElement(element) {
-	    var doc = element.ownerDocument;
-	    return (doc.defaultView || doc.parentWindow);
+	    var doc = element.ownerDocument || element;
+	    return (doc.defaultView || doc.parentWindow || window);
 	}
 	var MOBILE_REGEX = /mobile|tablet|ip(ad|hone|od)|android/i;
 	var SUPPORT_TOUCH = ('ontouchstart' in window);
@@ -44493,7 +44469,6 @@
 	     * bind the events
 	     */
 	    init: function () {
-	        //console.debug('hammer Input init')
 	        this.evEl && addEventListeners(this.element, this.evEl, this.domHandler);
 	        this.evTarget && addEventListeners(this.target, this.evTarget, this.domHandler);
 	        this.evWin && addEventListeners(getWindowForElement(this.element), this.evWin, this.domHandler);
@@ -44589,8 +44564,14 @@
 	    input.distance = getDistance(offsetCenter, center);
 	    computeDeltaXY(session, input);
 	    input.offsetDirection = getDirection(input.deltaX, input.deltaY);
+	    var overallVelocity = getVelocity(input.deltaTime, input.deltaX, input.deltaY);
+	    input.overallVelocityX = overallVelocity.x;
+	    input.overallVelocityY = overallVelocity.y;
+	    input.overallVelocity = (abs(overallVelocity.x) > abs(overallVelocity.y)) ? overallVelocity.x : overallVelocity.y;
 	    input.scale = firstMultiple ? getScale(firstMultiple.pointers, pointers) : 1;
 	    input.rotation = firstMultiple ? getRotation(firstMultiple.pointers, pointers) : 0;
+	    input.maxPointers = !session.prevInput ? input.pointers.length : ((input.pointers.length >
+	        session.prevInput.maxPointers) ? input.pointers.length : session.prevInput.maxPointers);
 	    computeIntervalInputData(session, input);
 	    // find the correct target
 	    var target = manager.element;
@@ -44625,8 +44606,8 @@
 	function computeIntervalInputData(session, input) {
 	    var last = session.lastInterval || input, deltaTime = input.timeStamp - last.timeStamp, velocity, velocityX, velocityY, direction;
 	    if (input.eventType != INPUT_CANCEL && (deltaTime > COMPUTE_INTERVAL || last.velocity === undefined)) {
-	        var deltaX = last.deltaX - input.deltaX;
-	        var deltaY = last.deltaY - input.deltaY;
+	        var deltaX = input.deltaX - last.deltaX;
+	        var deltaY = input.deltaY - last.deltaY;
 	        var v = getVelocity(deltaTime, deltaX, deltaY);
 	        velocityX = v.x;
 	        velocityY = v.y;
@@ -44720,9 +44701,9 @@
 	        return DIRECTION_NONE;
 	    }
 	    if (abs(x) >= abs(y)) {
-	        return x > 0 ? DIRECTION_LEFT : DIRECTION_RIGHT;
+	        return x < 0 ? DIRECTION_LEFT : DIRECTION_RIGHT;
 	    }
-	    return y > 0 ? DIRECTION_UP : DIRECTION_DOWN;
+	    return y < 0 ? DIRECTION_UP : DIRECTION_DOWN;
 	}
 	/**
 	 * calculate the absolute distance between two points
@@ -44759,7 +44740,7 @@
 	 * @return {Number} rotation
 	 */
 	function getRotation(start, end) {
-	    return getAngle(end[1], end[0], PROPS_CLIENT_XY) - getAngle(start[1], start[0], PROPS_CLIENT_XY);
+	    return getAngle(end[1], end[0], PROPS_CLIENT_XY) + getAngle(start[1], start[0], PROPS_CLIENT_XY);
 	}
 	/**
 	 * calculate the scale factor between two pointersets
@@ -44836,7 +44817,7 @@
 	var POINTER_ELEMENT_EVENTS = 'pointerdown';
 	var POINTER_WINDOW_EVENTS = 'pointermove pointerup pointercancel';
 	// IE10 has prefixed support, and case-sensitive
-	if (window.MSPointerEvent) {
+	if (window.MSPointerEvent && !window.PointerEvent) {
 	    POINTER_ELEMENT_EVENTS = 'MSPointerDown';
 	    POINTER_WINDOW_EVENTS = 'MSPointerMove MSPointerUp MSPointerCancel';
 	}
@@ -45105,7 +45086,7 @@
 	        if (value == TOUCH_ACTION_COMPUTE) {
 	            value = this.compute();
 	        }
-	        if (NATIVE_TOUCH_ACTION) {
+	        if (NATIVE_TOUCH_ACTION && this.manager.element.style) {
 	            this.manager.element.style[PREFIXED_TOUCH_ACTION] = value;
 	        }
 	        this.actions = value.toLowerCase().trim();
@@ -45149,6 +45130,19 @@
 	        var hasNone = inStr(actions, TOUCH_ACTION_NONE);
 	        var hasPanY = inStr(actions, TOUCH_ACTION_PAN_Y);
 	        var hasPanX = inStr(actions, TOUCH_ACTION_PAN_X);
+	        if (hasNone) {
+	            //do not prevent defaults if this is a tap gesture
+	            var isTapPointer = input.pointers.length === 1;
+	            var isTapMovement = input.distance < 2;
+	            var isTapTouchTime = input.deltaTime < 250;
+	            if (isTapPointer && isTapMovement && isTapTouchTime) {
+	                return;
+	            }
+	        }
+	        if (hasPanX && hasPanY) {
+	            // `pan-x pan-y` means browser handles all scrolling/panning, do not prevent
+	            return;
+	        }
 	        if (hasNone ||
 	            (hasPanY && direction & DIRECTION_HORIZONTAL) ||
 	            (hasPanX && direction & DIRECTION_VERTICAL)) {
@@ -45176,9 +45170,12 @@
 	    }
 	    var hasPanX = inStr(actions, TOUCH_ACTION_PAN_X);
 	    var hasPanY = inStr(actions, TOUCH_ACTION_PAN_Y);
-	    // pan-x and pan-y can be combined
+	    // if both pan-x and pan-y are set (different recognizers
+	    // for different directions, e.g. horizontal pan but vertical swipe?)
+	    // we need none (as otherwise with pan-x pan-y combined none of these
+	    // recognizers will work, since the browser would handle all panning
 	    if (hasPanX && hasPanY) {
-	        return TOUCH_ACTION_PAN_X + ' ' + TOUCH_ACTION_PAN_Y;
+	        return TOUCH_ACTION_NONE;
 	    }
 	    // pan-x OR pan-y
 	    if (hasPanX || hasPanY) {
@@ -45231,9 +45228,9 @@
 	 * @param {Object} options
 	 */
 	function Recognizer(options) {
+	    this.options = util_1.assign({}, this.defaults, options || {});
 	    this.id = uniqueId();
 	    this.manager = null;
-	    this.options = merge(options || {}, this.defaults);
 	    // default is enable true
 	    this.options.enable = ifUndefined(this.options.enable, true);
 	    this.state = STATE_POSSIBLE;
@@ -45252,7 +45249,7 @@
 	     * @return {Recognizer}
 	     */
 	    set: function (options) {
-	        extend(this.options, options);
+	        util_1.assign(this.options, options);
 	        // also update the touchAction, in case something changed about the directions/enabled state
 	        this.manager && this.manager.touchAction.update();
 	        return this;
@@ -45343,17 +45340,20 @@
 	    emit: function (input) {
 	        var self = this;
 	        var state = this.state;
-	        function emit(withState) {
-	            self.manager.emit(self.options.event + (withState ? stateStr(state) : ''), input);
+	        function emit(event) {
+	            self.manager.emit(event, input);
 	        }
 	        // 'panstart' and 'panmove'
 	        if (state < STATE_ENDED) {
-	            emit(true);
+	            emit(self.options.event + stateStr(state));
 	        }
-	        emit(); // simple 'eventName' events
+	        emit(self.options.event); // simple 'eventName' events
+	        if (input.additionalEvent) {
+	            emit(input.additionalEvent);
+	        }
 	        // panend and pancancel
 	        if (state >= STATE_ENDED) {
-	            emit(true);
+	            emit(self.options.event + stateStr(state));
 	        }
 	    },
 	    /**
@@ -45390,7 +45390,7 @@
 	    recognize: function (inputData) {
 	        // make a new copy of the inputData
 	        // so we can change the inputData without messing up the other recognizers
-	        var inputDataClone = extend({}, inputData);
+	        var inputDataClone = util_1.assign({}, inputData);
 	        // is is enabled and allow recognizing?
 	        if (!boolOrFn(this.options.enable, [this, inputDataClone])) {
 	            this.reset();
@@ -45604,7 +45604,7 @@
 	        this.pY = input.deltaY;
 	        var direction = directionStr(input.direction);
 	        if (direction) {
-	            this.manager.emit(this.options.event + direction, input);
+	            input.additionalEvent = this.options.event + direction;
 	        }
 	        this._super.emit.call(this, input);
 	    }
@@ -45636,11 +45636,11 @@
 	            (Math.abs(input.scale - 1) > this.options.threshold || this.state & STATE_BEGAN);
 	    },
 	    emit: function (input) {
-	        this._super.emit.call(this, input);
 	        if (input.scale !== 1) {
 	            var inOut = input.scale < 1 ? 'in' : 'out';
-	            this.manager.emit(this.options.event + inOut, input);
+	            input.additionalEvent = this.options.event + inOut;
 	        }
+	        this._super.emit.call(this, input);
 	    }
 	});
 	/**
@@ -45662,8 +45662,8 @@
 	    defaults: {
 	        event: 'press',
 	        pointers: 1,
-	        time: 500,
-	        threshold: 5 // a minimal movement is ok, but keep it low
+	        time: 251,
+	        threshold: 9 // a minimal movement is ok, but keep it low
 	    },
 	    getTouchAction: function () {
 	        return [TOUCH_ACTION_AUTO];
@@ -45751,7 +45751,7 @@
 	    defaults: {
 	        event: 'swipe',
 	        threshold: 10,
-	        velocity: 0.65,
+	        velocity: 0.3,
 	        direction: DIRECTION_HORIZONTAL | DIRECTION_VERTICAL,
 	        pointers: 1
 	    },
@@ -45762,21 +45762,22 @@
 	        var direction = this.options.direction;
 	        var velocity;
 	        if (direction & (DIRECTION_HORIZONTAL | DIRECTION_VERTICAL)) {
-	            velocity = input.velocity;
+	            velocity = input.overallVelocity;
 	        }
 	        else if (direction & DIRECTION_HORIZONTAL) {
-	            velocity = input.velocityX;
+	            velocity = input.overallVelocityX;
 	        }
 	        else if (direction & DIRECTION_VERTICAL) {
-	            velocity = input.velocityY;
+	            velocity = input.overallVelocityY;
 	        }
 	        return this._super.attrTest.call(this, input) &&
-	            direction & input.direction &&
+	            direction & input.offsetDirection &&
 	            input.distance > this.options.threshold &&
+	            input.maxPointers == this.options.pointers &&
 	            abs(velocity) > this.options.velocity && input.eventType & INPUT_END;
 	    },
 	    emit: function (input) {
-	        var direction = directionStr(input.direction);
+	        var direction = directionStr(input.offsetDirection);
 	        if (direction) {
 	            this.manager.emit(this.options.event + direction, input);
 	        }
@@ -45814,7 +45815,7 @@
 	        taps: 1,
 	        interval: 300,
 	        time: 250,
-	        threshold: 2,
+	        threshold: 9,
 	        posThreshold: 10 // a multi-tap can be a bit off the initial position
 	    },
 	    getTouchAction: function () {
@@ -45883,7 +45884,7 @@
 	    }
 	});
 	/**
-	 * Simple way to create an manager with a default set of recognizers.
+	 * Simple way to create a manager with a default set of recognizers.
 	 * @param {HTMLElement} element
 	 * @param {Object} [options]
 	 * @constructor
@@ -45897,7 +45898,7 @@
 	/**
 	 * @const {string}
 	 */
-	Hammer.VERSION = '2.0.4';
+	Hammer.VERSION = '2.0.6';
 	/**
 	 * default settings
 	 * @namespace
@@ -46007,8 +46008,7 @@
 	 * @constructor
 	 */
 	function Manager(element, options) {
-	    options = options || {};
-	    this.options = merge(options, Hammer.defaults);
+	    this.options = util_1.assign({}, Hammer.defaults, options || {});
 	    this.options.inputTarget = this.options.inputTarget || element;
 	    this.handlers = {};
 	    this.session = {};
@@ -46017,7 +46017,7 @@
 	    this.input = createInputInstance(this);
 	    this.touchAction = new TouchAction(this, this.options.touchAction);
 	    toggleCssProps(this, true);
-	    each(options.recognizers, function (item) {
+	    each(this.options.recognizers, function (item) {
 	        var recognizer = this.add(new (item[0])(item[1]));
 	        item[2] && recognizer.recognizeWith(item[2]);
 	        item[3] && recognizer.requireFailure(item[3]);
@@ -46030,7 +46030,7 @@
 	     * @returns {Manager}
 	     */
 	    set: function (options) {
-	        extend(this.options, options);
+	        util_1.assign(this.options, options);
 	        // Options that need a little more setup
 	        if (options.touchAction) {
 	            this.touchAction.update();
@@ -46146,10 +46146,16 @@
 	        if (invokeArrayArg(recognizer, 'remove', this)) {
 	            return this;
 	        }
-	        var recognizers = this.recognizers;
 	        recognizer = this.get(recognizer);
-	        recognizers.splice(inArray(recognizers, recognizer), 1);
-	        this.touchAction.update();
+	        // let's make sure this recognizer exists
+	        if (recognizer) {
+	            var recognizers = this.recognizers;
+	            var index = inArray(recognizers, recognizer);
+	            if (index !== -1) {
+	                recognizers.splice(index, 1);
+	                this.touchAction.update();
+	            }
+	        }
 	        return this;
 	    },
 	    /**
@@ -46179,7 +46185,7 @@
 	                delete handlers[event];
 	            }
 	            else {
-	                handlers[event].splice(inArray(handlers[event], handler), 1);
+	                handlers[event] && handlers[event].splice(inArray(handlers[event], handler), 1);
 	            }
 	        });
 	        return this;
@@ -46228,6 +46234,9 @@
 	 */
 	function toggleCssProps(manager, add) {
 	    var element = manager.element;
+	    if (!element.style) {
+	        return;
+	    }
 	    each(manager.options.cssProps, function (value, name) {
 	        element.style[prefixed(element.style, name)] = add ? value : '';
 	    });
@@ -46243,7 +46252,7 @@
 	    gestureEvent.gesture = data;
 	    data.target.dispatchEvent(gestureEvent);
 	}
-	extend(Hammer, {
+	util_1.assign(Hammer, {
 	    INPUT_START: INPUT_START,
 	    INPUT_MOVE: INPUT_MOVE,
 	    INPUT_END: INPUT_END,
@@ -46282,13 +46291,10 @@
 	    on: addEventListeners,
 	    off: removeEventListeners,
 	    each: each,
-	    merge: merge,
-	    extend: extend,
 	    inherit: inherit,
 	    bindFn: bindFn,
 	    prefixed: prefixed
 	});
-	// attach to window for angular2 gesture listeners
 	window.Hammer = Hammer;
 
 /***/ },
@@ -47072,8 +47078,14 @@
 	     */
 	    NavController.prototype.present = function (enteringView, opts) {
 	        if (opts === void 0) { opts = {}; }
-	        var rootNav = this.rootNav;
-	        enteringView.setNav(rootNav);
+	        var nav = this.rootNav;
+	        if (nav._tabs) {
+	            // TODO: must have until this goes in
+	            // https://github.com/angular/angular/issues/5481
+	            console.error('A parent <ion-nav> is required for ActionSheet/Alert/Modal');
+	            return;
+	        }
+	        enteringView.setNav(nav);
 	        var resolve;
 	        var promise = new Promise(function (res) { resolve = res; });
 	        opts.keyboardClose = false;
@@ -47089,16 +47101,16 @@
 	            animation: enteringView.getTransitionName('back')
 	        });
 	        // the active view is going to be the leaving one (if one exists)
-	        var leavingView = rootNav.getActive() || new view_controller_1.ViewController();
+	        var leavingView = nav.getActive() || new view_controller_1.ViewController();
 	        leavingView.shouldCache = (util_1.isBoolean(opts.cacheLeavingView) ? opts.cacheLeavingView : true);
 	        leavingView.shouldDestroy = !leavingView.shouldCache;
 	        if (leavingView.shouldDestroy) {
 	            leavingView.willUnload();
 	        }
 	        // add the view to the stack
-	        rootNav._add(enteringView);
+	        nav._add(enteringView);
 	        // start the transition
-	        rootNav._transition(enteringView, leavingView, opts, resolve);
+	        nav._transition(enteringView, leavingView, opts, resolve);
 	        return promise;
 	    };
 	    /**
@@ -48513,7 +48525,7 @@
 	 *
 	 * <!-- always use the same icon, no matter what the mode -->
 	 * <ion-icon name="ios-clock"></ion-icon>
-	 * <ion-icon name="twitter-logo"></ion-icon>
+	 * <ion-icon name="logo-twitter"></ion-icon>
 	 * ```
 	 *
 	 * @property {string} [name] - Use the appropriate icon for the mode.
@@ -48551,7 +48563,7 @@
 	         * @private
 	         */
 	        set: function (val) {
-	            if (!(/^md-|^ios-|-logo$/.test(val))) {
+	            if (!(/^md-|^ios-|^logo-/.test(val))) {
 	                // this does not have one of the defaults
 	                // so lets auto add in the mode prefix for them
 	                val = this.mode + '-' + val;
@@ -55878,6 +55890,778 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(169);
+	var nav_controller_1 = __webpack_require__(298);
+	var config_1 = __webpack_require__(270);
+	var form_1 = __webpack_require__(275);
+	var label_1 = __webpack_require__(321);
+	var text_input_1 = __webpack_require__(322);
+	var app_1 = __webpack_require__(165);
+	var content_1 = __webpack_require__(307);
+	var dom_1 = __webpack_require__(273);
+	var platform_1 = __webpack_require__(271);
+	var button_1 = __webpack_require__(304);
+	var icon_1 = __webpack_require__(302);
+	/**
+	 * @name Input
+	 * @module ionic
+	 * @description
+	 *
+	 * `ion-input` is a generic wrapper for both inputs and textareas. You can give `ion-input` attributes to tell it how to handle a child `ion-label` component.
+	 *
+	 * @property [fixed-label] - a persistant label that sits next the the input
+	 * @property [floating-label] - a label that will float about the input if the input is empty of looses focus
+	 * @property [stacked-label] - A stacked label will always appear on top of the input
+	 * @property [inset] - The input will be inset
+	 * @property [clearInput] - A clear icon will appear in the input which clears it
+	 *
+	 * @usage
+	 * ```html
+	 *  <ion-input>
+	 *    <ion-label>Username</ion-label>
+	 *    <input type="text" value="">
+	 *  </ion-input>
+	 *
+	 *  <ion-input clearInput>
+	 *    <input type="text" placeholder="Username">
+	 *  </ion-input>
+	 *
+	 *  <ion-input fixed-label>
+	 *    <ion-label>Username</ion-label>
+	 *    <input type="text" value="">
+	 *  </ion-input>
+	 *
+	 *  <ion-input floating-label>
+	 *    <ion-label>Username</ion-label>
+	 *    <input type="text" value="">
+	 *  </ion-input>
+	 * ```
+	 *
+	 */
+	var ItemInput = (function () {
+	    function ItemInput(config, _form, _renderer, _elementRef, _app, _platform, _scrollView, _nav, isFloating, isStacked, isFixed, isInset) {
+	        this._form = _form;
+	        this._renderer = _renderer;
+	        this._elementRef = _elementRef;
+	        this._app = _app;
+	        this._platform = _platform;
+	        this._scrollView = _scrollView;
+	        this._nav = _nav;
+	        this.value = '';
+	        _form.register(this);
+	        this.type = null;
+	        this.lastTouch = 0;
+	        // make more gud with pending @Attributes API
+	        this.displayType = (isFloating === '' ? 'floating' : (isStacked === '' ? 'stacked' : (isFixed === '' ? 'fixed' : (isInset === '' ? 'inset' : null))));
+	        this._assist = config.get('scrollAssist');
+	        this.keyboardHeight = config.get('keyboardHeight');
+	    }
+	    Object.defineProperty(ItemInput.prototype, "_setInput", {
+	        /**
+	         * @private
+	         */
+	        set: function (textInput) {
+	            var _this = this;
+	            if (textInput) {
+	                textInput.addClass('item-input');
+	                if (this.displayType) {
+	                    textInput.addClass(this.displayType + '-input');
+	                }
+	                this.input = textInput;
+	                this.type = textInput.type;
+	                this.hasValue(this.input.value);
+	                textInput.valueChange.subscribe(function (inputValue) {
+	                    _this.hasValue(inputValue);
+	                });
+	                this.focusChange(this.hasFocus());
+	                textInput.focusChange.subscribe(function (textInputHasFocus) {
+	                    _this.focusChange(textInputHasFocus);
+	                });
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(ItemInput.prototype, "_setLabel", {
+	        /**
+	         * @private
+	         */
+	        set: function (label) {
+	            if (label && this.displayType) {
+	                label.addClass(this.displayType + '-label');
+	            }
+	            this.label = label;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(ItemInput.prototype, "_buttons", {
+	        /**
+	         * @private
+	         */
+	        set: function (buttons) {
+	            buttons.toArray().forEach(function (button) {
+	                if (!button.isItem) {
+	                    button.addClass('item-button');
+	                }
+	            });
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(ItemInput.prototype, "_icons", {
+	        /**
+	         * @private
+	         */
+	        set: function (icons) {
+	            icons.toArray().forEach(function (icon) {
+	                icon.addClass('item-icon');
+	            });
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     * On Initialization check for attributes
+	     */
+	    ItemInput.prototype.ngOnInit = function () {
+	        var clearInput = this.clearInput;
+	        if (typeof clearInput === 'string') {
+	            this.clearInput = (clearInput === '' || clearInput === 'true');
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemInput.prototype.ngAfterViewInit = function () {
+	        var self = this;
+	        if (self.input && self.label) {
+	            // if there is an input and a label
+	            // then give the label an ID
+	            // and tell the input the ID of who it's labelled by
+	            self.input.labelledBy(self.label.id);
+	        }
+	        self.scrollMove = function (ev) {
+	            if (!(self._nav && self._nav.isTransitioning())) {
+	                self.deregMove();
+	                if (self.hasFocus()) {
+	                    self.input.hideFocus(true);
+	                    self._scrollView.onScrollEnd(function () {
+	                        self.input.hideFocus(false);
+	                        if (self.hasFocus()) {
+	                            self.regMove();
+	                        }
+	                    });
+	                }
+	            }
+	        };
+	    };
+	    /**
+	      * @private
+	     */
+	    ItemInput.prototype.clearTextInput = function () {
+	        console.log("Should clear input");
+	        //console.log(this.textInput.value);
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemInput.prototype.pointerStart = function (ev) {
+	        if (this._assist && this._app.isEnabled()) {
+	            // remember where the touchstart/mousedown started
+	            this.startCoord = dom_1.pointerCoord(ev);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemInput.prototype.pointerEnd = function (ev) {
+	        if (!this._app.isEnabled()) {
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	        }
+	        else if (this._assist && ev.type === 'touchend') {
+	            // get where the touchend/mouseup ended
+	            var endCoord = dom_1.pointerCoord(ev);
+	            // focus this input if the pointer hasn't moved XX pixels
+	            // and the input doesn't already have focus
+	            if (!dom_1.hasPointerMoved(8, this.startCoord, endCoord) && !this.hasFocus()) {
+	                ev.preventDefault();
+	                ev.stopPropagation();
+	                this.initFocus();
+	                // temporarily prevent mouseup's from focusing
+	                this.lastTouch = Date.now();
+	            }
+	        }
+	        else if (this.lastTouch + 999 < Date.now()) {
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	            this.setFocus();
+	            this.regMove();
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemInput.prototype.initFocus = function () {
+	        // begin the process of setting focus to the inner input element
+	        var _this = this;
+	        var scrollView = this._scrollView;
+	        if (scrollView && this._assist) {
+	            // this input is inside of a scroll view
+	            // find out if text input should be manually scrolled into view
+	            var ele = this._elementRef.nativeElement;
+	            var scrollData = ItemInput.getScrollData(ele.offsetTop, ele.offsetHeight, scrollView.getDimensions(), this.keyboardHeight, this._platform.height());
+	            if (scrollData.scrollAmount > -3 && scrollData.scrollAmount < 3) {
+	                // the text input is in a safe position that doesn't require
+	                // it to be scrolled into view, just set focus now
+	                this.setFocus();
+	                this.regMove();
+	                return;
+	            }
+	            // add padding to the bottom of the scroll view (if needed)
+	            scrollView.addScrollPadding(scrollData.scrollPadding);
+	            // manually scroll the text input to the top
+	            // do not allow any clicks while it's scrolling
+	            var scrollDuration = getScrollAssistDuration(scrollData.scrollAmount);
+	            this._app.setEnabled(false, scrollDuration);
+	            this._nav && this._nav.setTransitioning(true, scrollDuration);
+	            // temporarily move the focus to the focus holder so the browser
+	            // doesn't freak out while it's trying to get the input in place
+	            // at this point the native text input still does not have focus
+	            this.input.relocate(true, scrollData.inputSafeY);
+	            // scroll the input into place
+	            scrollView.scrollTo(0, scrollData.scrollTo, scrollDuration).then(function () {
+	                // the scroll view is in the correct position now
+	                // give the native text input focus
+	                _this.input.relocate(false);
+	                // all good, allow clicks again
+	                _this._app.setEnabled(true);
+	                _this._nav && _this._nav.setTransitioning(false);
+	                _this.regMove();
+	            });
+	        }
+	        else {
+	            // not inside of a scroll view, just focus it
+	            this.setFocus();
+	            this.regMove();
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemInput.prototype.setFocus = function () {
+	        if (this.input) {
+	            this._form.setAsFocused(this);
+	            // set focus on the actual input element
+	            this.input.setFocus();
+	            // ensure the body hasn't scrolled down
+	            document.body.scrollTop = 0;
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemInput.prototype.regMove = function () {
+	        var _this = this;
+	        if (this._assist && this._scrollView) {
+	            setTimeout(function () {
+	                _this.deregMove();
+	                _this.deregScroll = _this._scrollView.addScrollEventListener(_this.scrollMove);
+	            }, 80);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemInput.prototype.deregMove = function () {
+	        this.deregScroll && this.deregScroll();
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemInput.prototype.focusChange = function (inputHasFocus) {
+	        this._renderer.setElementClass(this._elementRef, 'input-focused', inputHasFocus);
+	        if (!inputHasFocus) {
+	            this.deregMove();
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemInput.prototype.hasFocus = function () {
+	        return !!this.input && this.input.hasFocus();
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemInput.prototype.hasValue = function (inputValue) {
+	        var inputHasValue = !!(inputValue && inputValue !== '');
+	        this._renderer.setElementClass(this._elementRef, 'input-has-value', inputHasValue);
+	    };
+	    /**
+	     * @private
+	     * This function is used to add the Angular css classes associated with inputs in forms
+	     */
+	    ItemInput.prototype.hasClass = function (className) {
+	        this.input && this.input.hasClass(className);
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemInput.prototype.ngOnDestroy = function () {
+	        this.deregMove();
+	        this._form.deregister(this);
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemInput.getScrollData = function (inputOffsetTop, inputOffsetHeight, scrollViewDimensions, keyboardHeight, plaformHeight) {
+	        // compute input's Y values relative to the body
+	        var inputTop = (inputOffsetTop + scrollViewDimensions.contentTop - scrollViewDimensions.scrollTop);
+	        var inputBottom = (inputTop + inputOffsetHeight);
+	        // compute the safe area which is the viewable content area when the soft keyboard is up
+	        var safeAreaTop = scrollViewDimensions.contentTop;
+	        var safeAreaHeight = plaformHeight - keyboardHeight - safeAreaTop;
+	        safeAreaHeight /= 2;
+	        var safeAreaBottom = safeAreaTop + safeAreaHeight;
+	        var inputTopWithinSafeArea = (inputTop >= safeAreaTop && inputTop <= safeAreaBottom);
+	        var inputTopAboveSafeArea = (inputTop < safeAreaTop);
+	        var inputTopBelowSafeArea = (inputTop > safeAreaBottom);
+	        var inputBottomWithinSafeArea = (inputBottom >= safeAreaTop && inputBottom <= safeAreaBottom);
+	        var inputBottomBelowSafeArea = (inputBottom > safeAreaBottom);
+	        /*
+	        Text Input Scroll To Scenarios
+	        ---------------------------------------
+	        1) Input top within safe area, bottom within safe area
+	        2) Input top within safe area, bottom below safe area, room to scroll
+	        3) Input top above safe area, bottom within safe area, room to scroll
+	        4) Input top below safe area, no room to scroll, input smaller than safe area
+	        5) Input top within safe area, bottom below safe area, no room to scroll, input smaller than safe area
+	        6) Input top within safe area, bottom below safe area, no room to scroll, input larger than safe area
+	        7) Input top below safe area, no room to scroll, input larger than safe area
+	        */
+	        var scrollData = {
+	            scrollAmount: 0,
+	            scrollTo: 0,
+	            scrollPadding: 0,
+	            inputSafeY: 0
+	        };
+	        if (inputTopWithinSafeArea && inputBottomWithinSafeArea) {
+	            // Input top within safe area, bottom within safe area
+	            // no need to scroll to a position, it's good as-is
+	            return scrollData;
+	        }
+	        // looks like we'll have to do some auto-scrolling
+	        if (inputTopBelowSafeArea || inputBottomBelowSafeArea) {
+	            // Input top and bottom below safe area
+	            // auto scroll the input up so at least the top of it shows
+	            if (safeAreaHeight > inputOffsetHeight) {
+	                // safe area height is taller than the input height, so we
+	                // can bring it up the input just enough to show the input bottom
+	                scrollData.scrollAmount = Math.round(safeAreaBottom - inputBottom);
+	            }
+	            else {
+	                // safe area height is smaller than the input height, so we can
+	                // only scroll it up so the input top is at the top of the safe area
+	                // however the input bottom will be below the safe area
+	                scrollData.scrollAmount = Math.round(safeAreaTop - inputTop);
+	            }
+	            scrollData.inputSafeY = -(inputTop - safeAreaTop) + 4;
+	        }
+	        else if (inputTopAboveSafeArea) {
+	            // Input top above safe area
+	            // auto scroll the input down so at least the top of it shows
+	            scrollData.scrollAmount = Math.round(safeAreaTop - inputTop);
+	            scrollData.inputSafeY = (safeAreaTop - inputTop) + 4;
+	        }
+	        // figure out where it should scroll to for the best position to the input
+	        scrollData.scrollTo = (scrollViewDimensions.scrollTop - scrollData.scrollAmount);
+	        if (scrollData.scrollAmount < 0) {
+	            // when auto-scrolling up, there also needs to be enough
+	            // content padding at the bottom of the scroll view
+	            // manually add it if there isn't enough scrollable area
+	            // figure out how many scrollable area is left to scroll up
+	            var availablePadding = (scrollViewDimensions.scrollHeight - scrollViewDimensions.scrollTop) - scrollViewDimensions.contentHeight;
+	            var paddingSpace = availablePadding + scrollData.scrollAmount;
+	            if (paddingSpace < 0) {
+	                // there's not enough scrollable area at the bottom, so manually add more
+	                scrollData.scrollPadding = (scrollViewDimensions.contentHeight - safeAreaHeight);
+	            }
+	        }
+	        // if (!window.safeAreaEle) {
+	        //   window.safeAreaEle = document.createElement('div');
+	        //   window.safeAreaEle.style.position = 'absolute';
+	        //   window.safeAreaEle.style.background = 'rgba(0, 128, 0, 0.7)';
+	        //   window.safeAreaEle.style.padding = '2px 5px';
+	        //   window.safeAreaEle.style.textShadow = '1px 1px white';
+	        //   window.safeAreaEle.style.left = '0px';
+	        //   window.safeAreaEle.style.right = '0px';
+	        //   window.safeAreaEle.style.fontWeight = 'bold';
+	        //   window.safeAreaEle.style.pointerEvents = 'none';
+	        //   document.body.appendChild(window.safeAreaEle);
+	        // }
+	        // window.safeAreaEle.style.top = safeAreaTop + 'px';
+	        // window.safeAreaEle.style.height = safeAreaHeight + 'px';
+	        // window.safeAreaEle.innerHTML = `
+	        //   <div>scrollTo: ${scrollData.scrollTo}</div>
+	        //   <div>scrollAmount: ${scrollData.scrollAmount}</div>
+	        //   <div>scrollPadding: ${scrollData.scrollPadding}</div>
+	        //   <div>inputSafeY: ${scrollData.inputSafeY}</div>
+	        //   <div>scrollHeight: ${scrollViewDimensions.scrollHeight}</div>
+	        //   <div>scrollTop: ${scrollViewDimensions.scrollTop}</div>
+	        //   <div>contentHeight: ${scrollViewDimensions.contentHeight}</div>
+	        // `;
+	        return scrollData;
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], ItemInput.prototype, "clearInput", void 0);
+	    __decorate([
+	        core_1.ContentChild(text_input_1.TextInput), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], ItemInput.prototype, "_setInput", null);
+	    __decorate([
+	        core_1.ContentChild(label_1.Label), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], ItemInput.prototype, "_setLabel", null);
+	    __decorate([
+	        core_1.ContentChildren(button_1.Button), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], ItemInput.prototype, "_buttons", null);
+	    __decorate([
+	        core_1.ContentChildren(icon_1.Icon), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], ItemInput.prototype, "_icons", null);
+	    ItemInput = __decorate([
+	        core_1.Component({
+	            selector: 'ion-input',
+	            host: {
+	                '(touchstart)': 'pointerStart($event)',
+	                '(touchend)': 'pointerEnd($event)',
+	                '(mouseup)': 'pointerEnd($event)',
+	                'class': 'item',
+	                '[class.ng-untouched]': 'hasClass("ng-untouched")',
+	                '[class.ng-touched]': 'hasClass("ng-touched")',
+	                '[class.ng-pristine]': 'hasClass("ng-pristine")',
+	                '[class.ng-dirty]': 'hasClass("ng-dirty")',
+	                '[class.ng-valid]': 'hasClass("ng-valid")',
+	                '[class.ng-invalid]': 'hasClass("ng-invalid")'
+	            },
+	            template: '<div class="item-inner">' +
+	                '<ng-content></ng-content>' +
+	                '<input [type]="type" aria-hidden="true" scroll-assist *ngIf="_assist">' +
+	                '<button clear *ngIf="clearInput && value" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
+	                '</div>',
+	            directives: [common_1.NgIf, core_1.forwardRef(function () { return InputScrollAssist; }), text_input_1.TextInput, button_1.Button]
+	        }),
+	        __param(6, core_1.Optional()),
+	        __param(6, core_1.Host()),
+	        __param(7, core_1.Optional()),
+	        __param(8, core_1.Attribute('floating-label')),
+	        __param(9, core_1.Attribute('stacked-label')),
+	        __param(10, core_1.Attribute('fixed-label')),
+	        __param(11, core_1.Attribute('inset')), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _e) || Object, (typeof (_f = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _f) || Object, (typeof (_g = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, String, String, String, String])
+	    ], ItemInput);
+	    return ItemInput;
+	    var _a, _b, _c, _d, _e, _f, _g, _h;
+	})();
+	exports.ItemInput = ItemInput;
+	/**
+	 * @private
+	 */
+	var InputScrollAssist = (function () {
+	    function InputScrollAssist(_form, _input) {
+	        this._form = _form;
+	        this._input = _input;
+	    }
+	    InputScrollAssist.prototype.receivedFocus = function () {
+	        this._form.focusNext(this._input);
+	    };
+	    __decorate([
+	        core_1.HostListener('focus'), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', []), 
+	        __metadata('design:returntype', void 0)
+	    ], InputScrollAssist.prototype, "receivedFocus", null);
+	    InputScrollAssist = __decorate([
+	        core_1.Directive({
+	            selector: '[scroll-assist]'
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, ItemInput])
+	    ], InputScrollAssist);
+	    return InputScrollAssist;
+	    var _a;
+	})();
+	var SCROLL_ASSIST_SPEED = 0.4;
+	function getScrollAssistDuration(distanceToScroll) {
+	    //return 3000;
+	    distanceToScroll = Math.abs(distanceToScroll);
+	    var duration = distanceToScroll / SCROLL_ASSIST_SPEED;
+	    return Math.min(400, Math.max(100, duration));
+	}
+
+/***/ },
+/* 321 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var form_1 = __webpack_require__(275);
+	/**
+	 * @name Label
+	 * @description
+	 * Labels describe the data that the user should enter in to an input element.
+	 * @usage
+	 * ```html
+	 * <ion-input>
+	 *   <ion-label>Username</ion-label>
+	 *   <input type="text" value="">
+	 * </ion-input>
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/label/
+	 * @see {@link ../../../../components#inputs Input Component Docs}
+	 * @see {@link ../Input Input API Docs}
+	 *
+	 */
+	var Label = (function () {
+	    function Label(_form, _elementRef, _renderer) {
+	        this._form = _form;
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	    }
+	    /**
+	     * @private
+	     */
+	    Label.prototype.ngOnInit = function () {
+	        if (!this.id) {
+	            this.id = 'lbl-' + this._form.nextId();
+	        }
+	    };
+	    Object.defineProperty(Label.prototype, "text", {
+	        get: function () {
+	            return this._elementRef.nativeElement.textContent;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     */
+	    Label.prototype.addClass = function (className) {
+	        this._renderer.setElementClass(this._elementRef, className, true);
+	    };
+	    Label = __decorate([
+	        core_1.Directive({
+	            selector: 'ion-label',
+	            inputs: [
+	                'id'
+	            ],
+	            host: {
+	                '[attr.id]': 'id'
+	            }
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+	    ], Label);
+	    return Label;
+	    var _a, _b, _c;
+	})();
+	exports.Label = Label;
+
+/***/ },
+/* 322 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(8);
+	var dom_1 = __webpack_require__(273);
+	/**
+	 * @private
+	 */
+	var TextInput = (function () {
+	    function TextInput(type, _elementRef, _renderer) {
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	        this.valueChange = new core_1.EventEmitter();
+	        this.focusChange = new core_1.EventEmitter();
+	        this.type = type || 'text';
+	    }
+	    TextInput.prototype.ngOnInit = function () {
+	        if (this.ngModel) {
+	            this.value = this.ngModel;
+	        }
+	        else {
+	            this.value = this._elementRef.nativeElement.value;
+	        }
+	    };
+	    TextInput.prototype._keyup = function (ev) {
+	        this.valueChange.emit(ev.target.value);
+	    };
+	    TextInput.prototype._focus = function () {
+	        this.focusChange.emit(true);
+	    };
+	    TextInput.prototype._blur = function () {
+	        this.focusChange.emit(false);
+	        this.hideFocus(false);
+	    };
+	    TextInput.prototype.labelledBy = function (val) {
+	        this._renderer.setElementAttribute(this._elementRef, 'aria-labelledby', val);
+	    };
+	    TextInput.prototype.setFocus = function () {
+	        this.element().focus();
+	    };
+	    TextInput.prototype.relocate = function (shouldRelocate, inputRelativeY) {
+	        if (this._relocated !== shouldRelocate) {
+	            var focusedInputEle = this.element();
+	            if (shouldRelocate) {
+	                var clonedInputEle = cloneInput(focusedInputEle, 'cloned-input');
+	                focusedInputEle.classList.add('hide-focused-input');
+	                focusedInputEle.style[dom_1.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
+	                focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
+	                this.setFocus();
+	            }
+	            else {
+	                focusedInputEle.classList.remove('hide-focused-input');
+	                focusedInputEle.style[dom_1.CSS.transform] = '';
+	                var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-input');
+	                if (clonedInputEle) {
+	                    clonedInputEle.parentNode.removeChild(clonedInputEle);
+	                }
+	            }
+	            this._relocated = shouldRelocate;
+	        }
+	    };
+	    TextInput.prototype.hideFocus = function (shouldHideFocus) {
+	        var focusedInputEle = this.element();
+	        if (shouldHideFocus) {
+	            var clonedInputEle = cloneInput(focusedInputEle, 'cloned-hidden');
+	            focusedInputEle.classList.add('hide-focused-input');
+	            focusedInputEle.style[dom_1.CSS.transform] = 'translate3d(-9999px,0,0)';
+	            focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
+	        }
+	        else {
+	            focusedInputEle.classList.remove('hide-focused-input');
+	            focusedInputEle.style[dom_1.CSS.transform] = '';
+	            var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-hidden');
+	            if (clonedInputEle) {
+	                clonedInputEle.parentNode.removeChild(clonedInputEle);
+	            }
+	        }
+	    };
+	    TextInput.prototype.hasFocus = function () {
+	        return dom_1.hasFocus(this.element());
+	    };
+	    TextInput.prototype.addClass = function (className) {
+	        this._renderer.setElementClass(this._elementRef, className, true);
+	    };
+	    TextInput.prototype.hasClass = function (className) {
+	        this._elementRef.nativeElement.classList.contains(className);
+	    };
+	    TextInput.prototype.element = function () {
+	        return this._elementRef.nativeElement;
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], TextInput.prototype, "value", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], TextInput.prototype, "ngModel", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], TextInput.prototype, "valueChange", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], TextInput.prototype, "focusChange", void 0);
+	    __decorate([
+	        core_1.HostListener('keyup', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], TextInput.prototype, "_keyup", null);
+	    __decorate([
+	        core_1.HostListener('focus'), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', []), 
+	        __metadata('design:returntype', void 0)
+	    ], TextInput.prototype, "_focus", null);
+	    __decorate([
+	        core_1.HostListener('blur'), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', []), 
+	        __metadata('design:returntype', void 0)
+	    ], TextInput.prototype, "_blur", null);
+	    TextInput = __decorate([
+	        core_1.Directive({
+	            selector: 'textarea,input[type=text],input[type=password],input[type=number],input[type=search],input[type=email],input[type=url],input[type=tel],input[type=date],input[type=datetime],input[type=datetime-local],input[type=week],input[type=time]',
+	            host: {
+	                'class': 'text-input'
+	            }
+	        }),
+	        __param(0, core_1.Attribute('type')), 
+	        __metadata('design:paramtypes', [String, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object])
+	    ], TextInput);
+	    return TextInput;
+	    var _a, _b, _c, _d;
+	})();
+	exports.TextInput = TextInput;
+	function cloneInput(srcInput, addCssClass) {
+	    var clonedInputEle = srcInput.cloneNode(true);
+	    clonedInputEle.classList.add(addCssClass);
+	    clonedInputEle.classList.remove('hide-focused-input');
+	    clonedInputEle.setAttribute('aria-hidden', true);
+	    clonedInputEle.removeAttribute('aria-labelledby');
+	    clonedInputEle.tabIndex = -1;
+	    return clonedInputEle;
+	}
+
+/***/ },
+/* 323 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
 	var core_1 = __webpack_require__(8);
 	var button_1 = __webpack_require__(304);
 	var icon_1 = __webpack_require__(302);
@@ -55977,7 +56761,7 @@
 	exports.Item = Item;
 
 /***/ },
-/* 321 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56045,7 +56829,7 @@
 	var slideIds = 0;
 
 /***/ },
-/* 322 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56224,7 +57008,877 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 323 */
+/* 326 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(169);
+	var alert_1 = __webpack_require__(327);
+	var form_1 = __webpack_require__(275);
+	var label_1 = __webpack_require__(321);
+	var util_1 = __webpack_require__(272);
+	var nav_controller_1 = __webpack_require__(298);
+	var option_1 = __webpack_require__(328);
+	/**
+	 * @name Select
+	 * @description
+	 * The `ion-select` component is similar to an HTML `<select>` element, however,
+	 * Ionic's select component makes it easier for users to sort through and select
+	 * the preferred option or options. When users tap the select component, a
+	 * dialog will appear with all of the options in a large, easy to select list
+	 * for users.
+	 *
+	 * Under-the-hood the `ion-select` actually uses the
+	 * {@link ../../alert/Alert Alert API} to open up the overlay of options
+	 * which the user is presented with. Select takes one child `ion-label`
+	 * component, and numerous child `ion-option` components. Each `ion-option`
+	 * should be given a `value` attribute.
+	 *
+	 * ### Single Value: Radio Buttons
+	 *
+	 * The standard `ion-select` component allows the user to select only one
+	 * option. When selecting only one option the alert overlay presents users with
+	 * a radio button styled list of options. The `ion-select` component's value
+	 * receives the value of the selected option's value.
+	 *
+	 * ```html
+	 * <ion-select [(ngModel)]="gender">
+	 *   <ion-label>Gender</ion-label>
+	 *   <ion-option value="f" checked="true">Female</ion-option>
+	 *   <ion-option value="m">Male</ion-option>
+	 * </ion-select>
+	 * ```
+	 *
+	 * ### Multiple Value: Checkboxes
+	 *
+	 * By adding the `multiple="true"` attribute to `ion-select`, users are able
+	 * to select multiple options. When multiple options can be selected, the alert
+	 * overlay presents users with a checkbox styled list of options. The
+	 * `ion-select multiple="true"` component's value receives an array of all the
+	 * selected option values.
+	 *
+	 * ```html
+	 * <ion-select [(ngModel)]="toppings" multiple="true">
+	 *   <ion-label>Toppings</ion-label>
+	 *   <ion-option value="bacon">Bacon</ion-option>
+	 *   <ion-option value="olives">Black Olives</ion-option>
+	 *   <ion-option value="xcheese">Extra Cheese</ion-option>
+	 *   <ion-option value="mushrooms">Mushrooms</ion-option>
+	 *   <ion-option value="pepperoni">Pepperoni</ion-option>
+	 *   <ion-option value="sausage">Sausage</ion-option>
+	 * </ion-select>
+	 * ```
+	 *
+	 * ### Alert Buttons
+	 * By default, the two buttons read `Cancel` and `OK`. The each button's text
+	 * can be customized using the `cancelText` and `okText` attributes:
+	 *
+	 * ```html
+	 * <ion-select okText="Okay" cancelText="Dismiss">
+	 *   ...
+	 * </ion-select>
+	 * ```
+	 *
+	 * ### Alert Options
+	 *
+	 * Remember how `ion-select` is really just a wrapper to `Alert`? By using
+	 * the `alertOptions` property you can pass custom options to the alert
+	 * overlay. This would be useful if there is a custom alert title,
+	 * subtitle or message. {@link ../../alert/Alert Alert API}
+	 *
+	 * ```html
+	 * <ion-select [alertOptions]="alertOptions">
+	 *   ...
+	 * </ion-select>
+	 * ```
+	 *
+	 * ```ts
+	 * this.alertOptions = {
+	 *   title: 'Pizza Toppings',
+	 *   subTitle: 'Select your toppings'
+	 * };
+	 * ```
+	 *
+	 */
+	var Select = (function () {
+	    function Select(_form, _elementRef, _renderer, _navCtrl, ngControl) {
+	        this._form = _form;
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	        this._navCtrl = _navCtrl;
+	        this.cancelText = 'Cancel';
+	        this.okText = 'OK';
+	        this.value = '';
+	        this.alertOptions = {};
+	        this.checked = false;
+	        this.disabled = false;
+	        this.id = '';
+	        this.multiple = '';
+	        _form.register(this);
+	        this.selectedText = '';
+	        if (ngControl) {
+	            ngControl.valueAccessor = this;
+	        }
+	        if (!_navCtrl) {
+	            console.error('parent <ion-nav> required for <ion-select>');
+	        }
+	    }
+	    /**
+	     * @private
+	     */
+	    Select.prototype.ngOnInit = function () {
+	        if (!this.id) {
+	            this.id = 'sel-' + this._form.nextId();
+	            this._renderer.setElementAttribute(this._elementRef, 'id', this.id);
+	        }
+	        this.labelId = 'lbl-' + this.id;
+	        this._renderer.setElementAttribute(this._elementRef, 'aria-labelledby', this.labelId);
+	    };
+	    /**
+	     * @private
+	     */
+	    Select.prototype.ngAfterContentInit = function () {
+	        var _this = this;
+	        var selectedOption = this.options.toArray().find(function (o) { return o.checked; });
+	        if (!selectedOption) {
+	            this.options.toArray().forEach(function (o) {
+	                o.checked = o.value === _this.value + '';
+	                if (o.checked) {
+	                    selectedOption = o;
+	                }
+	            });
+	        }
+	        if (selectedOption) {
+	            this.value = selectedOption.value;
+	            this.selectedText = selectedOption.text;
+	            setTimeout(function () {
+	                _this.onChange(_this.value);
+	            });
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Select.prototype._click = function () {
+	        var _this = this;
+	        var isMulti = (this.multiple === true || this.multiple === 'true');
+	        // the user may have assigned some options specifically for the alert
+	        var alertOptions = util_1.merge({}, this.alertOptions);
+	        // make sure their buttons array is removed from the options
+	        // and we create a new array for the alert's two buttons
+	        alertOptions.buttons = [this.cancelText];
+	        // if the alertOptions didn't provide an title then use the label's text
+	        if (!alertOptions.title) {
+	            alertOptions.title = this.label.text;
+	        }
+	        // user cannot provide inputs from alertOptions
+	        // alert inputs must be created by ionic from ion-options
+	        alertOptions.inputs = this.options.toArray().map(function (input) {
+	            return {
+	                type: (isMulti ? 'checkbox' : 'radio'),
+	                label: input.text,
+	                value: input.value,
+	                checked: !!input.checked
+	            };
+	        });
+	        // create the alert instance from our built up alertOptions
+	        var alert = alert_1.Alert.create(alertOptions);
+	        if (isMulti) {
+	            // use checkboxes
+	            alert.setCssClass('select-alert multiple-select-alert');
+	            alert.addButton({
+	                text: this.okText,
+	                handler: function (selectedValues) {
+	                    // passed an array of all the values which were checked
+	                    _this.value = selectedValues;
+	                    // keep a list of all the selected texts
+	                    var selectedTexts = [];
+	                    _this.options.toArray().forEach(function (option) {
+	                        if (selectedValues.indexOf(option.value) > -1) {
+	                            // this option is one that was checked
+	                            option.checked = true;
+	                            selectedTexts.push(option.text);
+	                        }
+	                        else {
+	                            // this option was not checked
+	                            option.checked = false;
+	                        }
+	                    });
+	                    _this.selectedText = selectedTexts.join(', ');
+	                    _this.onChange(selectedValues);
+	                }
+	            });
+	        }
+	        else {
+	            // use radio buttons
+	            alert.setCssClass('select-alert single-select-alert');
+	            alert.addButton({
+	                text: this.okText,
+	                handler: function (selectedValue) {
+	                    // passed the single value that was checked
+	                    // or undefined if nothing was checked
+	                    _this.value = selectedValue;
+	                    _this.selectedText = '';
+	                    _this.options.toArray().forEach(function (option) {
+	                        if (option.value === selectedValue) {
+	                            // this option was the one that was checked
+	                            option.checked = true;
+	                            _this.selectedText = option.text;
+	                        }
+	                        else {
+	                            // this option was not checked
+	                            option.checked = false;
+	                        }
+	                    });
+	                    _this.onChange(selectedValue);
+	                }
+	            });
+	        }
+	        this._navCtrl.present(alert);
+	    };
+	    /**
+	     * @private
+	     * Angular2 Forms API method called by the model (Control) on change to update
+	     * the checked value.
+	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L34
+	     */
+	    Select.prototype.writeValue = function (value) {
+	        this.value = value;
+	    };
+	    /**
+	     * @private
+	     */
+	    Select.prototype.onChange = function (val) {
+	        // TODO: figure the whys and the becauses
+	    };
+	    /**
+	     * @private
+	     */
+	    Select.prototype.onTouched = function (val) {
+	        // TODO: figure the whys and the becauses
+	    };
+	    /**
+	     * @private
+	     * Angular2 Forms API method called by the view (NgControl) to register the
+	     * onChange event handler that updates the model (Control).
+	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
+	     * @param {Function} fn  the onChange event handler.
+	     */
+	    Select.prototype.registerOnChange = function (fn) { this.onChange = fn; };
+	    /**
+	     * @private
+	     * Angular2 Forms API method called by the the view (NgControl) to register
+	     * the onTouched event handler that marks model (Control) as touched.
+	     * @param {Function} fn  onTouched event handler.
+	     */
+	    Select.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+	    /**
+	     * @private
+	     */
+	    Select.prototype.ngOnDestroy = function () {
+	        this._form.deregister(this);
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Select.prototype, "cancelText", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Select.prototype, "okText", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Select.prototype, "value", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], Select.prototype, "alertOptions", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], Select.prototype, "checked", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Select.prototype, "disabled", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Select.prototype, "id", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Select.prototype, "multiple", void 0);
+	    __decorate([
+	        core_1.ContentChild(label_1.Label), 
+	        __metadata('design:type', (typeof (_a = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _a) || Object)
+	    ], Select.prototype, "label", void 0);
+	    __decorate([
+	        core_1.ContentChildren(option_1.Option), 
+	        __metadata('design:type', Object)
+	    ], Select.prototype, "options", void 0);
+	    __decorate([
+	        core_1.HostListener('click'), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', []), 
+	        __metadata('design:returntype', void 0)
+	    ], Select.prototype, "_click", null);
+	    Select = __decorate([
+	        core_1.Component({
+	            selector: 'ion-select',
+	            host: {
+	                'class': 'item',
+	                'tappable': '',
+	                'tabindex': 0,
+	                '[attr.aria-disabled]': 'disabled'
+	            },
+	            template: '<ng-content select="[item-left]"></ng-content>' +
+	                '<div class="item-inner">' +
+	                '<ion-item-content id="{{labelId}}">' +
+	                '<ng-content select="ion-label"></ng-content>' +
+	                '</ion-item-content>' +
+	                '<div class="select-text-value" item-right>{{selectedText}}</div>' +
+	                '<div class="select-icon" item-right></div>' +
+	                '</div>'
+	        }),
+	        __param(3, core_1.Optional()),
+	        __param(4, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _e) || Object, (typeof (_f = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _f) || Object])
+	    ], Select);
+	    return Select;
+	    var _a, _b, _c, _d, _e, _f;
+	})();
+	exports.Select = Select;
+
+/***/ },
+/* 327 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(169);
+	var nav_controller_1 = __webpack_require__(298);
+	var view_controller_1 = __webpack_require__(297);
+	var config_1 = __webpack_require__(270);
+	var animation_1 = __webpack_require__(284);
+	var util_1 = __webpack_require__(272);
+	/**
+	 * @name Alert
+	 * @description
+	 * An Alert is a dialog that presents users with either information, or used
+	 * to receive information from the user using inputs. An alert appears on top
+	 * of the app's content, and must be manually dismissed by the user before
+	 * they can resume interaction with the app.
+	 *
+	 * An alert is created from an array of `buttons` and optionally an array of
+	 * `inputs`. Each button includes properties for its `text`, and optionally a
+	 * `handler`. If a handler returns `false` then the alert will not be dismissed.
+	 * An alert can also optionally have a `title`, `subTitle` and `message`.
+	 *
+	 * All buttons will show up in the order they have been added to the `buttons`
+	 * array, from left to right. Note: The right most button (the last one in the
+	 * array) is the main button.
+	 *
+	 * Alerts can also include inputs whos data can be passed back to the app.
+	 * Inputs can be used to prompt users for information.
+	 *
+	 * Its shorthand is to add all the alert's options from within the
+	 * `Alert.create(opts)` first argument. Otherwise the alert's
+	 * instance has methods to add options, such as `setTitle()` or `addButton()`.
+	 *
+	 * @usage
+	 * ```ts
+	 * constructor(nav: NavController) {
+	 *   this.nav = nav;
+	 * }
+	 *
+	 * presentAlert() {
+	 *   let alert = Alert.create({
+	 *     title: 'Low battery',
+	 *     subTitle: '10% of battery remaining',
+	 *     buttons: ['Dismiss']
+	 *   });
+	 *   this.nav.present(alert);
+	 * }
+	 *
+	 * presentConfirm() {
+	 *   let alert = Alert.create({
+	 *     title: 'Confirm purchase',
+	 *     message: 'Do you want to buy this book?',
+	 *     buttons: [
+	 *       {
+	 *         text: 'Cancel',
+	 *         handler: () => {
+	 *           console.log('Cancel clicked');
+	 *         }
+	 *       },
+	 *       {
+	 *         text: 'Buy',
+	 *         handler: () => {
+	 *           console.log('Buy clicked');
+	 *         }
+	 *       }
+	 *     ]
+	 *   });
+	 *   this.nav.present(alert);
+	 * }
+	 *
+	 * presentPrompt() {
+	 *   let alert = Alert.create({
+	 *     title: 'Login',
+	 *     inputs: [
+	 *       {
+	 *         name: 'username',
+	 *         placeholder: 'Username'
+	 *       },
+	 *       {
+	 *         name: 'password',
+	 *         placeholder: 'Password',
+	 *         type: 'password'
+	 *       }
+	 *     ],
+	 *     buttons: [
+	 *       {
+	 *         text: 'Cancel',
+	 *         handler: data => {
+	 *           console.log('Cancel clicked');
+	 *         }
+	 *       },
+	 *       {
+	 *         text: 'Login',
+	 *         handler: data => {
+	 *           if (User.isValid(data.username, data.password)) {
+	 *             // logged in!
+	 *           } else {
+	 *             // invalid login
+	 *             return false;
+	 *           }
+	 *         }
+	 *       }
+	 *     ]
+	 *   });
+	 *   this.nav.present(alert);
+	 * }
+	 * ```
+	 *
+	 */
+	var Alert = (function (_super) {
+	    __extends(Alert, _super);
+	    function Alert(opts) {
+	        if (opts === void 0) { opts = {}; }
+	        opts.inputs = opts.inputs || [];
+	        opts.buttons = opts.buttons || [];
+	        _super.call(this, AlertCmp, opts);
+	        this.viewType = 'alert';
+	    }
+	    /**
+	    * @private
+	    */
+	    Alert.prototype.getTransitionName = function (direction) {
+	        var key = (direction === 'back' ? 'alertLeave' : 'alertEnter');
+	        return this._nav && this._nav.config.get(key);
+	    };
+	    /**
+	     * @param {string} title Alert title
+	     */
+	    Alert.prototype.setTitle = function (title) {
+	        this.data.title = title;
+	    };
+	    /**
+	     * @param {string} subTitle Alert subtitle
+	     */
+	    Alert.prototype.setSubTitle = function (subTitle) {
+	        this.data.subTitle = subTitle;
+	    };
+	    /**
+	     * @private
+	     */
+	    Alert.prototype.setBody = function (message) {
+	        // deprecated warning
+	        console.warn('Alert setBody() has been renamed to setMessage()');
+	        this.setMessage(message);
+	    };
+	    /**
+	     * @param {string} message  Alert message content
+	     */
+	    Alert.prototype.setMessage = function (message) {
+	        this.data.message = message;
+	    };
+	    /**
+	     * @param {Object} input Alert input
+	     */
+	    Alert.prototype.addInput = function (input) {
+	        this.data.inputs.push(input);
+	    };
+	    /**
+	     * @param {Object} button Alert button
+	     */
+	    Alert.prototype.addButton = function (button) {
+	        this.data.buttons.push(button);
+	    };
+	    /**
+	     * @param {string} className CSS class name to add to the alert's outer wrapper
+	     */
+	    Alert.prototype.setCssClass = function (className) {
+	        this.data.cssClass = className;
+	    };
+	    /**
+	     * @param {Object} opts Alert options
+	     */
+	    Alert.create = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        return new Alert(opts);
+	    };
+	    return Alert;
+	})(view_controller_1.ViewController);
+	exports.Alert = Alert;
+	/**
+	* @private
+	*/
+	var AlertCmp = (function () {
+	    function AlertCmp(_viewCtrl, _elementRef, _config, params, renderer) {
+	        this._viewCtrl = _viewCtrl;
+	        this._elementRef = _elementRef;
+	        this._config = _config;
+	        this.d = params.data;
+	        this.cssClass = this.d.cssClass || '';
+	        this.id = (++alertIds);
+	        this.descId = '';
+	        this.hdrId = 'alert-hdr-' + this.id;
+	        this.subHdrId = 'alert-subhdr-' + this.id;
+	        this.msgId = 'alert-msg-' + this.id;
+	        this.activeId = '';
+	        if (this.d.message) {
+	            this.descId = this.msgId;
+	        }
+	        else if (this.d.subTitle) {
+	            this.descId = this.subHdrId;
+	        }
+	    }
+	    AlertCmp.prototype.btnClick = function (button) {
+	        var _this = this;
+	        var shouldDismiss = true;
+	        if (button.handler) {
+	            // a handler has been provided, execute it
+	            // pass the handler the values from the inputs
+	            if (button.handler(this.getValues()) === false) {
+	                // if the return value of the handler is false then do not dismiss
+	                shouldDismiss = false;
+	            }
+	        }
+	        if (shouldDismiss) {
+	            setTimeout(function () {
+	                _this.dismiss();
+	            }, this._config.get('pageTransitionDelay'));
+	        }
+	    };
+	    AlertCmp.prototype.rbClick = function (checkedInput) {
+	        this.d.inputs.forEach(function (input) {
+	            input.checked = (checkedInput === input);
+	        });
+	        this.activeId = checkedInput.id;
+	    };
+	    AlertCmp.prototype.cbClick = function (checkedInput) {
+	        checkedInput.checked = !checkedInput.checked;
+	    };
+	    AlertCmp.prototype.dismiss = function () {
+	        this._viewCtrl.dismiss(this.getValues());
+	    };
+	    AlertCmp.prototype.getValues = function () {
+	        if (this.inputType === 'radio') {
+	            // this is an alert with radio buttons (single value select)
+	            // return the one value which is checked, otherwise undefined
+	            var checkedInput = this.d.inputs.find(function (i) { return i.checked; });
+	            return checkedInput ? checkedInput.value : undefined;
+	        }
+	        if (this.inputType === 'checkbox') {
+	            // this is an alert with checkboxes (multiple value select)
+	            // return an array of all the checked values
+	            return this.d.inputs.filter(function (i) { return i.checked; }).map(function (i) { return i.value; });
+	        }
+	        // this is an alert with text inputs
+	        // return an object of all the values with the input name as the key
+	        var values = {};
+	        this.d.inputs.forEach(function (i) {
+	            values[i.name] = i.value;
+	        });
+	        return values;
+	    };
+	    AlertCmp.prototype.onPageLoaded = function () {
+	        var _this = this;
+	        // normalize the data
+	        var data = this.d;
+	        if (data.body) {
+	            // deprecated warning
+	            console.warn('Alert `body` property has been renamed to `message`');
+	            data.message = data.body;
+	        }
+	        data.buttons = data.buttons.map(function (button) {
+	            if (typeof button === 'string') {
+	                return { text: button };
+	            }
+	            return button;
+	        });
+	        data.inputs = data.inputs.map(function (input, index) {
+	            return {
+	                type: input.type || 'text',
+	                name: util_1.isDefined(input.name) ? input.name : index,
+	                placeholder: util_1.isDefined(input.placeholder) ? input.placeholder : '',
+	                value: util_1.isDefined(input.value) ? input.value : '',
+	                label: input.label,
+	                checked: !!input.checked,
+	                id: 'alert-input-' + _this.id + '-' + index
+	            };
+	        });
+	        this.inputType = (data.inputs.length ? data.inputs[0].type : null);
+	        var checkedInput = this.d.inputs.find(function (input) { return input.checked; });
+	        if (checkedInput) {
+	            this.activeId = checkedInput.id;
+	        }
+	        var self = this;
+	        self.keyUp = function (ev) {
+	            if (ev.keyCode === 13) {
+	                // enter
+	                console.debug('alert enter');
+	                var button = self.d.buttons[self.d.buttons.length - 1];
+	                self.click(button);
+	            }
+	            else if (ev.keyCode === 27) {
+	                console.debug('alert escape');
+	                self.dismiss();
+	            }
+	        };
+	        document.addEventListener('keyup', this.keyUp);
+	    };
+	    AlertCmp.prototype.onPageDidEnter = function () {
+	        document.activeElement && document.activeElement.blur();
+	        if (this.d.inputs.length) {
+	            var firstInput = this._elementRef.nativeElement.querySelector('input');
+	            if (firstInput) {
+	                firstInput.focus();
+	            }
+	        }
+	    };
+	    AlertCmp.prototype.onPageDidLeave = function () {
+	        document.removeEventListener('keyup', this.keyUp);
+	    };
+	    AlertCmp = __decorate([
+	        core_1.Component({
+	            selector: 'ion-alert',
+	            template: '<div (click)="dismiss()" tappable disable-activated class="backdrop" role="presentation"></div>' +
+	                '<div class="alert-wrapper">' +
+	                '<div class="alert-head">' +
+	                '<h2 id="{{hdrId}}" class="alert-title" *ngIf="d.title" [innerHTML]="d.title"></h2>' +
+	                '<h3 id="{{subHdrId}}" class="alert-sub-title" *ngIf="d.subTitle" [innerHTML]="d.subTitle"></h3>' +
+	                '</div>' +
+	                '<div id="{{msgId}}" class="alert-message" *ngIf="d.message" [innerHTML]="d.message"></div>' +
+	                '<div *ngIf="d.inputs.length" [ngSwitch]="inputType">' +
+	                '<template ngSwitchWhen="radio">' +
+	                '<div class="alert-radio-group" role="radiogroup" [attr.aria-labelledby]="hdrId" [attr.aria-activedescendant]="activeId">' +
+	                '<div *ngFor="#i of d.inputs" (click)="rbClick(i)" [attr.aria-checked]="i.checked" [attr.id]="i.id" class="alert-tappable alert-radio" tappable role="radio">' +
+	                '<div class="alert-radio-icon"></div>' +
+	                '<div class="alert-radio-label">' +
+	                '{{i.label}}' +
+	                '</div>' +
+	                '</div>' +
+	                '</div>' +
+	                '</template>' +
+	                '<template ngSwitchWhen="checkbox">' +
+	                '<div class="alert-checkbox-group">' +
+	                '<div *ngFor="#i of d.inputs" (click)="cbClick(i)" [attr.aria-checked]="i.checked" class="alert-tappable alert-checkbox" tappable role="checkbox">' +
+	                '<div class="alert-checkbox-icon"></div>' +
+	                '<div class="alert-checkbox-label">' +
+	                '{{i.label}}' +
+	                '</div>' +
+	                '</div>' +
+	                '</div>' +
+	                '</template>' +
+	                '<template ngSwitchDefault>' +
+	                '<div class="alert-input-group">' +
+	                '<div *ngFor="#i of d.inputs" class="alert-input-wrapper">' +
+	                '<input [placeholder]="i.placeholder" [(ngModel)]="i.value" [type]="i.type" class="alert-input">' +
+	                '</div>' +
+	                '</div>' +
+	                '</template>' +
+	                '</div>' +
+	                '<div class="alert-button-group">' +
+	                '<button *ngFor="#b of d.buttons" (click)="btnClick(b)" [ngClass]="b.cssClass" class="alert-button">' +
+	                '{{b.text}}' +
+	                '</button>' +
+	                '</div>' +
+	                '</div>',
+	            host: {
+	                'role': 'dialog',
+	                '[attr.aria-labelledby]': 'hdrId',
+	                '[attr.aria-describedby]': 'descId',
+	                '[class]': 'cssClass'
+	            },
+	            directives: [common_1.NgClass, common_1.NgSwitch, common_1.NgIf, common_1.NgFor]
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavParams !== 'undefined' && nav_controller_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
+	    ], AlertCmp);
+	    return AlertCmp;
+	    var _a, _b, _c, _d, _e;
+	})();
+	/**
+	 * Animations for alerts
+	 */
+	var AlertPopIn = (function (_super) {
+	    __extends(AlertPopIn, _super);
+	    function AlertPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
+	        backdrop.fromTo('opacity', '0.01', '0.3');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop, wrapper);
+	    }
+	    return AlertPopIn;
+	})(animation_1.Animation);
+	animation_1.Animation.register('alert-pop-in', AlertPopIn);
+	var AlertPopOut = (function (_super) {
+	    __extends(AlertPopOut, _super);
+	    function AlertPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
+	        backdrop.fromTo('opacity', '0.3', '0');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop, wrapper);
+	    }
+	    return AlertPopOut;
+	})(animation_1.Animation);
+	animation_1.Animation.register('alert-pop-out', AlertPopOut);
+	var AlertMdPopIn = (function (_super) {
+	    __extends(AlertMdPopIn, _super);
+	    function AlertMdPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
+	        backdrop.fromTo('opacity', '0.01', '0.5');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop, wrapper);
+	    }
+	    return AlertMdPopIn;
+	})(animation_1.Animation);
+	animation_1.Animation.register('alert-md-pop-in', AlertMdPopIn);
+	var AlertMdPopOut = (function (_super) {
+	    __extends(AlertMdPopOut, _super);
+	    function AlertMdPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
+	        backdrop.fromTo('opacity', '0.5', '0');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop, wrapper);
+	    }
+	    return AlertMdPopOut;
+	})(animation_1.Animation);
+	animation_1.Animation.register('alert-md-pop-out', AlertMdPopOut);
+	var alertIds = -1;
+
+/***/ },
+/* 328 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	/**
+	 * @name Option
+	 */
+	var Option = (function () {
+	    function Option(_elementRef) {
+	        this._elementRef = _elementRef;
+	        this._checked = false;
+	    }
+	    Object.defineProperty(Option.prototype, "checked", {
+	        get: function () {
+	            return this._checked;
+	        },
+	        set: function (val) {
+	            this._checked = (val === 'true' || val === true || val === '');
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Option.prototype, "text", {
+	        get: function () {
+	            return this._elementRef.nativeElement.textContent;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Option.prototype, "value", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], Option.prototype, "checked", void 0);
+	    Option = __decorate([
+	        core_1.Directive({
+	            selector: 'ion-option'
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
+	    ], Option);
+	    return Option;
+	    var _a;
+	})();
+	exports.Option = Option;
+
+/***/ },
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56486,755 +58140,7 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 324 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
-	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(169);
-	var nav_controller_1 = __webpack_require__(298);
-	var config_1 = __webpack_require__(270);
-	var form_1 = __webpack_require__(275);
-	var label_1 = __webpack_require__(325);
-	var app_1 = __webpack_require__(165);
-	var content_1 = __webpack_require__(307);
-	var dom_1 = __webpack_require__(273);
-	var platform_1 = __webpack_require__(271);
-	var button_1 = __webpack_require__(304);
-	var icon_1 = __webpack_require__(302);
-	/**
-	 * @private
-	 */
-	var TextInputElement = (function () {
-	    function TextInputElement(type, _elementRef, _renderer) {
-	        this._elementRef = _elementRef;
-	        this._renderer = _renderer;
-	        this.valueChange = new core_1.EventEmitter();
-	        this.focusChange = new core_1.EventEmitter();
-	        this.type = type || 'text';
-	    }
-	    TextInputElement.prototype.ngOnInit = function () {
-	        if (this.ngModel) {
-	            this.value = this.ngModel;
-	        }
-	        else {
-	            this.value = this._elementRef.nativeElement.value;
-	        }
-	    };
-	    TextInputElement.prototype._keyup = function (ev) {
-	        this.valueChange.emit(ev.target.value);
-	    };
-	    TextInputElement.prototype._focus = function () {
-	        this.focusChange.emit(true);
-	    };
-	    TextInputElement.prototype._blur = function () {
-	        this.focusChange.emit(false);
-	        this.hideFocus(false);
-	    };
-	    TextInputElement.prototype.labelledBy = function (val) {
-	        this._renderer.setElementAttribute(this._elementRef, 'aria-labelledby', val);
-	    };
-	    TextInputElement.prototype.setFocus = function () {
-	        this.element().focus();
-	    };
-	    TextInputElement.prototype.relocate = function (shouldRelocate, inputRelativeY) {
-	        if (this._relocated !== shouldRelocate) {
-	            var focusedInputEle = this.element();
-	            if (shouldRelocate) {
-	                var clonedInputEle = cloneInput(focusedInputEle, 'cloned-input');
-	                focusedInputEle.classList.add('hide-focused-input');
-	                focusedInputEle.style[dom_1.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
-	                focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
-	                this.setFocus();
-	            }
-	            else {
-	                focusedInputEle.classList.remove('hide-focused-input');
-	                focusedInputEle.style[dom_1.CSS.transform] = '';
-	                var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-input');
-	                if (clonedInputEle) {
-	                    clonedInputEle.parentNode.removeChild(clonedInputEle);
-	                }
-	            }
-	            this._relocated = shouldRelocate;
-	        }
-	    };
-	    TextInputElement.prototype.hideFocus = function (shouldHideFocus) {
-	        var focusedInputEle = this.element();
-	        if (shouldHideFocus) {
-	            var clonedInputEle = cloneInput(focusedInputEle, 'cloned-hidden');
-	            focusedInputEle.classList.add('hide-focused-input');
-	            focusedInputEle.style[dom_1.CSS.transform] = 'translate3d(-9999px,0,0)';
-	            focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
-	        }
-	        else {
-	            focusedInputEle.classList.remove('hide-focused-input');
-	            focusedInputEle.style[dom_1.CSS.transform] = '';
-	            var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-hidden');
-	            if (clonedInputEle) {
-	                clonedInputEle.parentNode.removeChild(clonedInputEle);
-	            }
-	        }
-	    };
-	    TextInputElement.prototype.hasFocus = function () {
-	        return dom_1.hasFocus(this.element());
-	    };
-	    TextInputElement.prototype.addClass = function (className) {
-	        this._renderer.setElementClass(this._elementRef, className, true);
-	    };
-	    TextInputElement.prototype.hasClass = function (className) {
-	        this._elementRef.nativeElement.classList.contains(className);
-	    };
-	    TextInputElement.prototype.element = function () {
-	        return this._elementRef.nativeElement;
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], TextInputElement.prototype, "value", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], TextInputElement.prototype, "ngModel", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], TextInputElement.prototype, "valueChange", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], TextInputElement.prototype, "focusChange", void 0);
-	    __decorate([
-	        core_1.HostListener('keyup', ['$event']), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
-	        __metadata('design:returntype', void 0)
-	    ], TextInputElement.prototype, "_keyup", null);
-	    __decorate([
-	        core_1.HostListener('focus'), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', []), 
-	        __metadata('design:returntype', void 0)
-	    ], TextInputElement.prototype, "_focus", null);
-	    __decorate([
-	        core_1.HostListener('blur'), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', []), 
-	        __metadata('design:returntype', void 0)
-	    ], TextInputElement.prototype, "_blur", null);
-	    TextInputElement = __decorate([
-	        core_1.Directive({
-	            selector: 'textarea,input[type=text],input[type=password],input[type=number],input[type=search],input[type=email],input[type=url],input[type=tel],input[type=date],input[type=datetime],input[type=datetime-local],input[type=week],input[type=time]',
-	            host: {
-	                'class': 'text-input'
-	            }
-	        }),
-	        __param(0, core_1.Attribute('type')), 
-	        __metadata('design:paramtypes', [String, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object])
-	    ], TextInputElement);
-	    return TextInputElement;
-	    var _a, _b, _c, _d;
-	})();
-	exports.TextInputElement = TextInputElement;
-	/**
-	 * @name Input
-	 * @module ionic
-	 * @description
-	 *
-	 * `ion-input` is a generic wrapper for both inputs and textareas. You can give `ion-input` attributes to tell it how to handle a child `ion-label` component.
-	 *
-	 * @property [fixed-label] - a persistant label that sits next the the input
-	 * @property [floating-label] - a label that will float about the input if the input is empty of looses focus
-	 * @property [stacked-label] - A stacked label will always appear on top of the input
-	 * @property [inset] - The input will be inset
-	 * @property [clearInput] - A clear icon will appear in the input which clears it
-	 *
-	 * @usage
-	 * ```html
-	 *  <ion-input>
-	 *    <ion-label>Username</ion-label>
-	 *    <input type="text" value="">
-	 *  </ion-input>
-	 *
-	 *  <ion-input clearInput>
-	 *    <input type="text" placeholder="Username">
-	 *  </ion-input>
-	 *
-	 *  <ion-input fixed-label>
-	 *    <ion-label>Username</ion-label>
-	 *    <input type="text" value="">
-	 *  </ion-input>
-	 *
-	 *  <ion-input floating-label>
-	 *    <ion-label>Username</ion-label>
-	 *    <input type="text" value="">
-	 *  </ion-input>
-	 * ```
-	 *
-	 */
-	var TextInput = (function () {
-	    function TextInput(config, _form, _renderer, _elementRef, _app, _platform, _scrollView, _nav, isFloating, isStacked, isFixed, isInset) {
-	        this._form = _form;
-	        this._renderer = _renderer;
-	        this._elementRef = _elementRef;
-	        this._app = _app;
-	        this._platform = _platform;
-	        this._scrollView = _scrollView;
-	        this._nav = _nav;
-	        this.value = '';
-	        _form.register(this);
-	        this.type = 'text';
-	        this.lastTouch = 0;
-	        // make more gud with pending @Attributes API
-	        this.displayType = (isFloating === '' ? 'floating' : (isStacked === '' ? 'stacked' : (isFixed === '' ? 'fixed' : (isInset === '' ? 'inset' : null))));
-	        this._assist = config.get('scrollAssist');
-	        this.keyboardHeight = config.get('keyboardHeight');
-	    }
-	    Object.defineProperty(TextInput.prototype, "_setInput", {
-	        /**
-	         * @private
-	         */
-	        set: function (textInputElement) {
-	            var _this = this;
-	            if (textInputElement) {
-	                textInputElement.addClass('item-input');
-	                if (this.displayType) {
-	                    textInputElement.addClass(this.displayType + '-input');
-	                }
-	                this.input = textInputElement;
-	                this.type = textInputElement.type;
-	                this.hasValue(this.input.value);
-	                textInputElement.valueChange.subscribe(function (inputValue) {
-	                    _this.hasValue(inputValue);
-	                });
-	                this.focusChange(this.hasFocus());
-	                textInputElement.focusChange.subscribe(function (hasFocus) {
-	                    _this.focusChange(hasFocus);
-	                });
-	            }
-	            else {
-	                console.error('<input> or <textarea> elements required within <ion-input>');
-	            }
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(TextInput.prototype, "_setLabel", {
-	        /**
-	         * @private
-	         */
-	        set: function (label) {
-	            if (label && this.displayType) {
-	                label.addClass(this.displayType + '-label');
-	            }
-	            this.label = label;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(TextInput.prototype, "_buttons", {
-	        /**
-	         * @private
-	         */
-	        set: function (buttons) {
-	            buttons.toArray().forEach(function (button) {
-	                if (!button.isItem) {
-	                    button.addClass('item-button');
-	                }
-	            });
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(TextInput.prototype, "_icons", {
-	        /**
-	         * @private
-	         */
-	        set: function (icons) {
-	            icons.toArray().forEach(function (icon) {
-	                icon.addClass('item-icon');
-	            });
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @private
-	     * On Initialization check for attributes
-	     */
-	    TextInput.prototype.ngOnInit = function () {
-	        var clearInput = this.clearInput;
-	        if (typeof clearInput === 'string') {
-	            this.clearInput = (clearInput === '' || clearInput === 'true');
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.ngAfterViewInit = function () {
-	        var self = this;
-	        if (self.input && self.label) {
-	            // if there is an input and a label
-	            // then give the label an ID
-	            // and tell the input the ID of who it's labelled by
-	            self.input.labelledBy(self.label.id);
-	        }
-	        self.scrollMove = function (ev) {
-	            if (!(self._nav && self._nav.isTransitioning())) {
-	                self.deregMove();
-	                if (self.hasFocus()) {
-	                    self.input.hideFocus(true);
-	                    self._scrollView.onScrollEnd(function () {
-	                        self.input.hideFocus(false);
-	                        if (self.hasFocus()) {
-	                            self.regMove();
-	                        }
-	                    });
-	                }
-	            }
-	        };
-	    };
-	    /**
-	      * @private
-	     */
-	    TextInput.prototype.clearTextInput = function () {
-	        console.log("Should clear input");
-	        console.log(this.textInputElement.value);
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.pointerStart = function (ev) {
-	        if (this._assist && this._app.isEnabled()) {
-	            // remember where the touchstart/mousedown started
-	            this.startCoord = dom_1.pointerCoord(ev);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.pointerEnd = function (ev) {
-	        if (!this._app.isEnabled()) {
-	            ev.preventDefault();
-	            ev.stopPropagation();
-	        }
-	        else if (this._assist && ev.type === 'touchend') {
-	            // get where the touchend/mouseup ended
-	            var endCoord = dom_1.pointerCoord(ev);
-	            // focus this input if the pointer hasn't moved XX pixels
-	            // and the input doesn't already have focus
-	            if (!dom_1.hasPointerMoved(8, this.startCoord, endCoord) && !this.hasFocus()) {
-	                ev.preventDefault();
-	                ev.stopPropagation();
-	                this.initFocus();
-	                // temporarily prevent mouseup's from focusing
-	                this.lastTouch = Date.now();
-	            }
-	        }
-	        else if (this.lastTouch + 999 < Date.now()) {
-	            ev.preventDefault();
-	            ev.stopPropagation();
-	            this.setFocus();
-	            this.regMove();
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.initFocus = function () {
-	        // begin the process of setting focus to the inner input element
-	        var _this = this;
-	        var scrollView = this._scrollView;
-	        if (scrollView && this._assist) {
-	            // this input is inside of a scroll view
-	            // find out if text input should be manually scrolled into view
-	            var ele = this._elementRef.nativeElement;
-	            var scrollData = TextInput.getScrollData(ele.offsetTop, ele.offsetHeight, scrollView.getDimensions(), this.keyboardHeight, this._platform.height());
-	            if (scrollData.scrollAmount > -3 && scrollData.scrollAmount < 3) {
-	                // the text input is in a safe position that doesn't require
-	                // it to be scrolled into view, just set focus now
-	                this.setFocus();
-	                this.regMove();
-	                return;
-	            }
-	            // add padding to the bottom of the scroll view (if needed)
-	            scrollView.addScrollPadding(scrollData.scrollPadding);
-	            // manually scroll the text input to the top
-	            // do not allow any clicks while it's scrolling
-	            var scrollDuration = getScrollAssistDuration(scrollData.scrollAmount);
-	            this._app.setEnabled(false, scrollDuration);
-	            this._nav && this._nav.setTransitioning(true, scrollDuration);
-	            // temporarily move the focus to the focus holder so the browser
-	            // doesn't freak out while it's trying to get the input in place
-	            // at this point the native text input still does not have focus
-	            this.input.relocate(true, scrollData.inputSafeY);
-	            // scroll the input into place
-	            scrollView.scrollTo(0, scrollData.scrollTo, scrollDuration).then(function () {
-	                // the scroll view is in the correct position now
-	                // give the native text input focus
-	                _this.input.relocate(false);
-	                // all good, allow clicks again
-	                _this._app.setEnabled(true);
-	                _this._nav && _this._nav.setTransitioning(false);
-	                _this.regMove();
-	            });
-	        }
-	        else {
-	            // not inside of a scroll view, just focus it
-	            this.setFocus();
-	            this.regMove();
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.setFocus = function () {
-	        if (this.input) {
-	            this._form.setAsFocused(this);
-	            // set focus on the actual input element
-	            this.input.setFocus();
-	            // ensure the body hasn't scrolled down
-	            document.body.scrollTop = 0;
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.regMove = function () {
-	        var _this = this;
-	        if (this._assist && this._scrollView) {
-	            setTimeout(function () {
-	                _this.deregMove();
-	                _this.deregScroll = _this._scrollView.addScrollEventListener(_this.scrollMove);
-	            }, 80);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.deregMove = function () {
-	        this.deregScroll && this.deregScroll();
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.focusChange = function (hasFocus) {
-	        this._renderer.setElementClass(this._elementRef, 'input-focused', hasFocus);
-	        if (!hasFocus) {
-	            this.deregMove();
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.hasFocus = function () {
-	        return !!this.input && this.input.hasFocus();
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.hasValue = function (inputValue) {
-	        var inputHasValue = !!(inputValue && inputValue !== '');
-	        this._renderer.setElementClass(this._elementRef, 'input-has-value', inputHasValue);
-	    };
-	    /**
-	     * @private
-	     * This function is used to add the Angular css classes associated with inputs in forms
-	     */
-	    TextInput.prototype.hasClass = function (className) {
-	        this.input && this.input.hasClass(className);
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.prototype.ngOnDestroy = function () {
-	        this.deregMove();
-	        this._form.deregister(this);
-	    };
-	    /**
-	     * @private
-	     */
-	    TextInput.getScrollData = function (inputOffsetTop, inputOffsetHeight, scrollViewDimensions, keyboardHeight, plaformHeight) {
-	        // compute input's Y values relative to the body
-	        var inputTop = (inputOffsetTop + scrollViewDimensions.contentTop - scrollViewDimensions.scrollTop);
-	        var inputBottom = (inputTop + inputOffsetHeight);
-	        // compute the safe area which is the viewable content area when the soft keyboard is up
-	        var safeAreaTop = scrollViewDimensions.contentTop;
-	        var safeAreaHeight = plaformHeight - keyboardHeight - safeAreaTop;
-	        safeAreaHeight /= 2;
-	        var safeAreaBottom = safeAreaTop + safeAreaHeight;
-	        var inputTopWithinSafeArea = (inputTop >= safeAreaTop && inputTop <= safeAreaBottom);
-	        var inputTopAboveSafeArea = (inputTop < safeAreaTop);
-	        var inputTopBelowSafeArea = (inputTop > safeAreaBottom);
-	        var inputBottomWithinSafeArea = (inputBottom >= safeAreaTop && inputBottom <= safeAreaBottom);
-	        var inputBottomBelowSafeArea = (inputBottom > safeAreaBottom);
-	        /*
-	        Text Input Scroll To Scenarios
-	        ---------------------------------------
-	        1) Input top within safe area, bottom within safe area
-	        2) Input top within safe area, bottom below safe area, room to scroll
-	        3) Input top above safe area, bottom within safe area, room to scroll
-	        4) Input top below safe area, no room to scroll, input smaller than safe area
-	        5) Input top within safe area, bottom below safe area, no room to scroll, input smaller than safe area
-	        6) Input top within safe area, bottom below safe area, no room to scroll, input larger than safe area
-	        7) Input top below safe area, no room to scroll, input larger than safe area
-	        */
-	        var scrollData = {
-	            scrollAmount: 0,
-	            scrollTo: 0,
-	            scrollPadding: 0,
-	            inputSafeY: 0
-	        };
-	        if (inputTopWithinSafeArea && inputBottomWithinSafeArea) {
-	            // Input top within safe area, bottom within safe area
-	            // no need to scroll to a position, it's good as-is
-	            return scrollData;
-	        }
-	        // looks like we'll have to do some auto-scrolling
-	        if (inputTopBelowSafeArea || inputBottomBelowSafeArea) {
-	            // Input top and bottom below safe area
-	            // auto scroll the input up so at least the top of it shows
-	            if (safeAreaHeight > inputOffsetHeight) {
-	                // safe area height is taller than the input height, so we
-	                // can bring it up the input just enough to show the input bottom
-	                scrollData.scrollAmount = Math.round(safeAreaBottom - inputBottom);
-	            }
-	            else {
-	                // safe area height is smaller than the input height, so we can
-	                // only scroll it up so the input top is at the top of the safe area
-	                // however the input bottom will be below the safe area
-	                scrollData.scrollAmount = Math.round(safeAreaTop - inputTop);
-	            }
-	            scrollData.inputSafeY = -(inputTop - safeAreaTop) + 4;
-	        }
-	        else if (inputTopAboveSafeArea) {
-	            // Input top above safe area
-	            // auto scroll the input down so at least the top of it shows
-	            scrollData.scrollAmount = Math.round(safeAreaTop - inputTop);
-	            scrollData.inputSafeY = (safeAreaTop - inputTop) + 4;
-	        }
-	        // figure out where it should scroll to for the best position to the input
-	        scrollData.scrollTo = (scrollViewDimensions.scrollTop - scrollData.scrollAmount);
-	        if (scrollData.scrollAmount < 0) {
-	            // when auto-scrolling up, there also needs to be enough
-	            // content padding at the bottom of the scroll view
-	            // manually add it if there isn't enough scrollable area
-	            // figure out how many scrollable area is left to scroll up
-	            var availablePadding = (scrollViewDimensions.scrollHeight - scrollViewDimensions.scrollTop) - scrollViewDimensions.contentHeight;
-	            var paddingSpace = availablePadding + scrollData.scrollAmount;
-	            if (paddingSpace < 0) {
-	                // there's not enough scrollable area at the bottom, so manually add more
-	                scrollData.scrollPadding = (scrollViewDimensions.contentHeight - safeAreaHeight);
-	            }
-	        }
-	        // if (!window.safeAreaEle) {
-	        //   window.safeAreaEle = document.createElement('div');
-	        //   window.safeAreaEle.style.position = 'absolute';
-	        //   window.safeAreaEle.style.background = 'rgba(0, 128, 0, 0.7)';
-	        //   window.safeAreaEle.style.padding = '2px 5px';
-	        //   window.safeAreaEle.style.textShadow = '1px 1px white';
-	        //   window.safeAreaEle.style.left = '0px';
-	        //   window.safeAreaEle.style.right = '0px';
-	        //   window.safeAreaEle.style.fontWeight = 'bold';
-	        //   window.safeAreaEle.style.pointerEvents = 'none';
-	        //   document.body.appendChild(window.safeAreaEle);
-	        // }
-	        // window.safeAreaEle.style.top = safeAreaTop + 'px';
-	        // window.safeAreaEle.style.height = safeAreaHeight + 'px';
-	        // window.safeAreaEle.innerHTML = `
-	        //   <div>scrollTo: ${scrollData.scrollTo}</div>
-	        //   <div>scrollAmount: ${scrollData.scrollAmount}</div>
-	        //   <div>scrollPadding: ${scrollData.scrollPadding}</div>
-	        //   <div>inputSafeY: ${scrollData.inputSafeY}</div>
-	        //   <div>scrollHeight: ${scrollViewDimensions.scrollHeight}</div>
-	        //   <div>scrollTop: ${scrollViewDimensions.scrollTop}</div>
-	        //   <div>contentHeight: ${scrollViewDimensions.contentHeight}</div>
-	        // `;
-	        return scrollData;
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], TextInput.prototype, "clearInput", void 0);
-	    __decorate([
-	        core_1.ContentChild(TextInputElement), 
-	        __metadata('design:type', Object), 
-	        __metadata('design:paramtypes', [Object])
-	    ], TextInput.prototype, "_setInput", null);
-	    __decorate([
-	        core_1.ContentChild(label_1.Label), 
-	        __metadata('design:type', Object), 
-	        __metadata('design:paramtypes', [Object])
-	    ], TextInput.prototype, "_setLabel", null);
-	    __decorate([
-	        core_1.ContentChildren(button_1.Button), 
-	        __metadata('design:type', Object), 
-	        __metadata('design:paramtypes', [Object])
-	    ], TextInput.prototype, "_buttons", null);
-	    __decorate([
-	        core_1.ContentChildren(icon_1.Icon), 
-	        __metadata('design:type', Object), 
-	        __metadata('design:paramtypes', [Object])
-	    ], TextInput.prototype, "_icons", null);
-	    TextInput = __decorate([
-	        core_1.Component({
-	            selector: 'ion-input',
-	            host: {
-	                '(touchstart)': 'pointerStart($event)',
-	                '(touchend)': 'pointerEnd($event)',
-	                '(mouseup)': 'pointerEnd($event)',
-	                'class': 'item',
-	                '[class.ng-untouched]': 'hasClass("ng-untouched")',
-	                '[class.ng-touched]': 'hasClass("ng-touched")',
-	                '[class.ng-pristine]': 'hasClass("ng-pristine")',
-	                '[class.ng-dirty]': 'hasClass("ng-dirty")',
-	                '[class.ng-valid]': 'hasClass("ng-valid")',
-	                '[class.ng-invalid]': 'hasClass("ng-invalid")'
-	            },
-	            template: '<div class="item-inner">' +
-	                '<ng-content></ng-content>' +
-	                '<input [type]="type" aria-hidden="true" scroll-assist *ngIf="_assist">' +
-	                '<button clear *ngIf="clearInput && value" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
-	                '</div>',
-	            directives: [common_1.NgIf, core_1.forwardRef(function () { return InputScrollAssist; }), core_1.forwardRef(function () { return TextInputElement; }), button_1.Button]
-	        }),
-	        __param(6, core_1.Optional()),
-	        __param(6, core_1.Host()),
-	        __param(7, core_1.Optional()),
-	        __param(8, core_1.Attribute('floating-label')),
-	        __param(9, core_1.Attribute('stacked-label')),
-	        __param(10, core_1.Attribute('fixed-label')),
-	        __param(11, core_1.Attribute('inset')), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _e) || Object, (typeof (_f = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _f) || Object, (typeof (_g = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, String, String, String, String])
-	    ], TextInput);
-	    return TextInput;
-	    var _a, _b, _c, _d, _e, _f, _g, _h;
-	})();
-	exports.TextInput = TextInput;
-	/**
-	 * @private
-	 */
-	var InputScrollAssist = (function () {
-	    function InputScrollAssist(_form, _input) {
-	        this._form = _form;
-	        this._input = _input;
-	    }
-	    InputScrollAssist.prototype.receivedFocus = function () {
-	        this._form.focusNext(this._input);
-	    };
-	    __decorate([
-	        core_1.HostListener('focus'), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', []), 
-	        __metadata('design:returntype', void 0)
-	    ], InputScrollAssist.prototype, "receivedFocus", null);
-	    InputScrollAssist = __decorate([
-	        core_1.Directive({
-	            selector: '[scroll-assist]'
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, TextInput])
-	    ], InputScrollAssist);
-	    return InputScrollAssist;
-	    var _a;
-	})();
-	function cloneInput(srcInput, addCssClass) {
-	    var clonedInputEle = srcInput.cloneNode(true);
-	    clonedInputEle.classList.add(addCssClass);
-	    clonedInputEle.classList.remove('hide-focused-input');
-	    clonedInputEle.setAttribute('aria-hidden', true);
-	    clonedInputEle.removeAttribute('aria-labelledby');
-	    clonedInputEle.tabIndex = -1;
-	    return clonedInputEle;
-	}
-	var SCROLL_ASSIST_SPEED = 0.4;
-	function getScrollAssistDuration(distanceToScroll) {
-	    //return 3000;
-	    distanceToScroll = Math.abs(distanceToScroll);
-	    var duration = distanceToScroll / SCROLL_ASSIST_SPEED;
-	    return Math.min(400, Math.max(100, duration));
-	}
-
-/***/ },
-/* 325 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var form_1 = __webpack_require__(275);
-	/**
-	 * @name Label
-	 * @description
-	 * Labels describe the data that the user should enter in to an input element.
-	 * @usage
-	 * ```html
-	 * <ion-input>
-	 *   <ion-label>Username</ion-label>
-	 *   <input type="text" value="">
-	 * </ion-input>
-	 * ```
-	 *
-	 * @demo /docs/v2/demos/label/
-	 * @see {@link ../../../../components#inputs Input Component Docs}
-	 * @see {@link ../Input Input API Docs}
-	 *
-	 */
-	var Label = (function () {
-	    function Label(_form, _elementRef, _renderer) {
-	        this._form = _form;
-	        this._elementRef = _elementRef;
-	        this._renderer = _renderer;
-	    }
-	    /**
-	     * @private
-	     */
-	    Label.prototype.ngOnInit = function () {
-	        if (!this.id) {
-	            this.id = 'lbl-' + this._form.nextId();
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Label.prototype.addClass = function (className) {
-	        this._renderer.setElementClass(this._elementRef, className, true);
-	    };
-	    Label = __decorate([
-	        core_1.Directive({
-	            selector: 'ion-label',
-	            inputs: [
-	                'id'
-	            ],
-	            host: {
-	                '[attr.id]': 'id'
-	            }
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
-	    ], Label);
-	    return Label;
-	    var _a, _b, _c;
-	})();
-	exports.Label = Label;
-
-/***/ },
-/* 326 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57465,7 +58371,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 327 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57765,7 +58671,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 328 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58101,7 +59007,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 329 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58267,7 +59173,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 330 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58429,7 +59335,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 331 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58451,7 +59357,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var router_1 = __webpack_require__(125);
-	var nav_1 = __webpack_require__(329);
+	var nav_1 = __webpack_require__(333);
 	/**
 	 * @private
 	 */
@@ -58562,7 +59468,7 @@
 	})(router_1.Instruction);
 
 /***/ },
-/* 332 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58712,7 +59618,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 333 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(8);
@@ -58771,7 +59677,7 @@
 	exports.App = App;
 
 /***/ },
-/* 334 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(8);
@@ -58860,7 +59766,7 @@
 	exports.Page = Page;
 
 /***/ },
-/* 335 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
@@ -58868,45 +59774,48 @@
 	}
 	__export(__webpack_require__(165));
 	__export(__webpack_require__(314));
-	__export(__webpack_require__(336));
-	__export(__webpack_require__(337));
+	__export(__webpack_require__(340));
+	__export(__webpack_require__(327));
 	__export(__webpack_require__(306));
 	__export(__webpack_require__(304));
-	__export(__webpack_require__(322));
+	__export(__webpack_require__(325));
 	__export(__webpack_require__(307));
 	__export(__webpack_require__(302));
 	__export(__webpack_require__(320));
-	__export(__webpack_require__(321));
+	__export(__webpack_require__(323));
+	__export(__webpack_require__(324));
 	__export(__webpack_require__(287));
-	__export(__webpack_require__(338));
+	__export(__webpack_require__(341));
 	__export(__webpack_require__(296));
 	__export(__webpack_require__(305));
-	__export(__webpack_require__(324));
-	__export(__webpack_require__(325));
+	__export(__webpack_require__(321));
 	__export(__webpack_require__(317));
-	__export(__webpack_require__(332));
-	__export(__webpack_require__(339));
-	__export(__webpack_require__(329));
+	__export(__webpack_require__(336));
+	__export(__webpack_require__(342));
+	__export(__webpack_require__(333));
 	__export(__webpack_require__(298));
 	__export(__webpack_require__(297));
-	__export(__webpack_require__(330));
-	__export(__webpack_require__(331));
+	__export(__webpack_require__(334));
+	__export(__webpack_require__(335));
 	__export(__webpack_require__(301));
+	__export(__webpack_require__(328));
 	__export(__webpack_require__(286));
 	__export(__webpack_require__(311));
-	__export(__webpack_require__(327));
+	__export(__webpack_require__(331));
 	__export(__webpack_require__(309));
 	__export(__webpack_require__(310));
-	__export(__webpack_require__(328));
+	__export(__webpack_require__(332));
+	__export(__webpack_require__(330));
 	__export(__webpack_require__(326));
 	__export(__webpack_require__(313));
 	__export(__webpack_require__(316));
 	__export(__webpack_require__(281));
-	__export(__webpack_require__(323));
+	__export(__webpack_require__(322));
+	__export(__webpack_require__(329));
 	__export(__webpack_require__(303));
 
 /***/ },
-/* 336 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59194,374 +60103,7 @@
 	animation_1.Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
 
 /***/ },
-/* 337 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(169);
-	var nav_controller_1 = __webpack_require__(298);
-	var view_controller_1 = __webpack_require__(297);
-	var config_1 = __webpack_require__(270);
-	var animation_1 = __webpack_require__(284);
-	var util_1 = __webpack_require__(272);
-	/**
-	 * @name Alert
-	 * @description
-	 * An Alert is a dialog that presents users with either information, or used
-	 * to receive information from the user using inputs. An alert appears on top
-	 * of the app's content, and must be manually dismissed by the user before
-	 * they can resume interaction with the app.
-	 *
-	 * An alert is created from an array of `buttons` and optionally an array of
-	 * `inputs`. Each button includes properties for its `text`, and optionally a
-	 * `handler`. If a handler returns `false` then the alert will not be dismissed.
-	 * An alert can also optionally have a `title`, `subTitle` and `body`.
-	 *
-	 * All buttons will show up in the order they have been added to the `buttons`
-	 * array, from left to right. Note: The right most button (the last one in the
-	 * array) is the main button.
-	 *
-	 * Alerts can also include inputs whos data can be passed back to the app.
-	 * Inputs can be used to prompt users for information.
-	 *
-	 * Its shorthand is to add all the alert's options from within the
-	 * `Alert.create(opts)` first argument. Otherwise the alert's
-	 * instance has methods to add options, such as `setTitle()` or `addButton()`.
-	 *
-	 * @usage
-	 * ```ts
-	 * constructor(nav: NavController) {
-	 *   this.nav = nav;
-	 * }
-	 *
-	 * presentAlert() {
-	 *   let alert = Alert.create({
-	 *     title: 'Low battery',
-	 *     subTitle: '10% of battery remaining',
-	 *     buttons: ['Dismiss']
-	 *   });
-	 *   this.nav.present(alert);
-	 * }
-	 *
-	 * presentConfirm() {
-	 *   let alert = Alert.create({
-	 *     title: 'Confirm purchase',
-	 *     body: 'Do you want to buy this book?',
-	 *     buttons: [
-	 *       {
-	 *         text: 'Cancel',
-	 *         handler: () => {
-	 *           console.log('Cancel clicked');
-	 *         }
-	 *       },
-	 *       {
-	 *         text: 'Buy',
-	 *         handler: () => {
-	 *           console.log('Buy clicked');
-	 *         }
-	 *       }
-	 *     ]
-	 *   });
-	 *   this.nav.present(alert);
-	 * }
-	 *
-	 * presentPrompt() {
-	 *   let alert = Alert.create({
-	 *     title: 'Login',
-	 *     inputs: [
-	 *       {
-	 *         name: 'username',
-	 *         placeholder: 'Username'
-	 *       },
-	 *       {
-	 *         name: 'password',
-	 *         placeholder: 'Password',
-	 *         type: 'password'
-	 *       }
-	 *     ],
-	 *     buttons: [
-	 *       {
-	 *         text: 'Cancel',
-	 *         handler: data => {
-	 *           console.log('Cancel clicked');
-	 *         }
-	 *       },
-	 *       {
-	 *         text: 'Login',
-	 *         handler: data => {
-	 *           if (User.isValid(data.username, data.password)) {
-	 *             // logged in!
-	 *           } else {
-	 *             // invalid login
-	 *             return false;
-	 *           }
-	 *         }
-	 *       }
-	 *     ]
-	 *   });
-	 *   this.nav.present(alert);
-	 * }
-	 * ```
-	 *
-	 */
-	var Alert = (function (_super) {
-	    __extends(Alert, _super);
-	    function Alert(opts) {
-	        if (opts === void 0) { opts = {}; }
-	        opts.inputs = opts.inputs || [];
-	        opts.buttons = opts.buttons || [];
-	        _super.call(this, AlertCmp, opts);
-	        this.viewType = 'alert';
-	    }
-	    /**
-	    * @private
-	    */
-	    Alert.prototype.getTransitionName = function (direction) {
-	        var key = (direction === 'back' ? 'alertLeave' : 'alertEnter');
-	        return this._nav && this._nav.config.get(key);
-	    };
-	    /**
-	     * @param {string} title Alert title
-	     */
-	    Alert.prototype.setTitle = function (title) {
-	        this.data.title = title;
-	    };
-	    /**
-	     * @param {string} subTitle Alert subtitle
-	     */
-	    Alert.prototype.setSubTitle = function (subTitle) {
-	        this.data.subTitle = subTitle;
-	    };
-	    /**
-	     * @param {string} body Alert body content
-	     */
-	    Alert.prototype.setBody = function (body) {
-	        this.data.body = body;
-	    };
-	    /**
-	     * @param {Object} input Alert input
-	     */
-	    Alert.prototype.addInput = function (input) {
-	        this.data.inputs.push(input);
-	    };
-	    /**
-	     * @param {Object} button Alert button
-	     */
-	    Alert.prototype.addButton = function (button) {
-	        this.data.buttons.push(button);
-	    };
-	    /**
-	     * @param {Object} opts Alert options
-	     */
-	    Alert.create = function (opts) {
-	        if (opts === void 0) { opts = {}; }
-	        return new Alert(opts);
-	    };
-	    return Alert;
-	})(view_controller_1.ViewController);
-	exports.Alert = Alert;
-	/**
-	* @private
-	*/
-	var AlertCmp = (function () {
-	    function AlertCmp(_viewCtrl, _elementRef, _config, params, renderer) {
-	        this._viewCtrl = _viewCtrl;
-	        this._elementRef = _elementRef;
-	        this._config = _config;
-	        this.d = params.data;
-	        if (this.d.cssClass) {
-	            renderer.setElementClass(_elementRef, this.d.cssClass, true);
-	        }
-	    }
-	    AlertCmp.prototype.click = function (button) {
-	        var _this = this;
-	        var shouldDismiss = true;
-	        if (button.handler) {
-	            // a handler has been provided, execute it
-	            // pass the handler the values from the inputs
-	            if (button.handler(this.getValues()) === false) {
-	                // if the return value of the handler is false then do not dismiss
-	                shouldDismiss = false;
-	            }
-	        }
-	        if (shouldDismiss) {
-	            setTimeout(function () {
-	                _this.dismiss();
-	            }, this._config.get('pageTransitionDelay'));
-	        }
-	    };
-	    AlertCmp.prototype.dismiss = function () {
-	        this._viewCtrl.dismiss(this.getValues());
-	    };
-	    AlertCmp.prototype.getValues = function () {
-	        var values = {};
-	        this.d.inputs.forEach(function (input) {
-	            values[input.name] = input.value;
-	        });
-	        return values;
-	    };
-	    AlertCmp.prototype.onPageLoaded = function () {
-	        // normalize the data
-	        this.d.buttons = this.d.buttons.map(function (button) {
-	            if (typeof button === 'string') {
-	                return { text: button };
-	            }
-	            return button;
-	        });
-	        this.d.inputs = this.d.inputs.map(function (input, index) {
-	            return {
-	                name: util_1.isDefined(input.name) ? input.name : index,
-	                placeholder: util_1.isDefined(input.placeholder) ? input.placeholder : '',
-	                type: input.type || 'text',
-	                value: util_1.isDefined(input.value) ? input.value : ''
-	            };
-	        });
-	        var self = this;
-	        self.keyUp = function (ev) {
-	            if (ev.keyCode === 13) {
-	                // enter
-	                console.debug('alert enter');
-	                var button = self.d.buttons[self.d.buttons.length - 1];
-	                self.click(button);
-	            }
-	            else if (ev.keyCode === 27) {
-	                console.debug('alert escape');
-	                self.dismiss();
-	            }
-	        };
-	        document.addEventListener('keyup', this.keyUp);
-	    };
-	    AlertCmp.prototype.onPageDidEnter = function () {
-	        document.activeElement && document.activeElement.blur();
-	        if (this.d.inputs.length) {
-	            var firstInput = this._elementRef.nativeElement.querySelector('input');
-	            if (firstInput) {
-	                firstInput.focus();
-	            }
-	        }
-	    };
-	    AlertCmp.prototype.onPageDidLeave = function () {
-	        document.removeEventListener('keyup', this.keyUp);
-	    };
-	    AlertCmp = __decorate([
-	        core_1.Component({
-	            selector: 'ion-alert',
-	            template: '<div (click)="dismiss()" tappable disable-activated class="backdrop" role="presentation"></div>' +
-	                '<div class="alert-wrapper">' +
-	                '<div class="alert-head">' +
-	                '<h2 class="alert-title" *ngIf="d.title">{{d.title}}</h2>' +
-	                '<h3 class="alert-sub-title" *ngIf="d.subTitle">{{d.subTitle}}</h3>' +
-	                '</div>' +
-	                '<div class="alert-body" *ngIf="d.body">{{d.body}}</div>' +
-	                '<div class="alert-body alert-inputs" *ngIf="d.inputs.length">' +
-	                '<div class="alert-input-wrapper" *ngFor="#i of d.inputs">' +
-	                '<input [placeholder]="i.placeholder" [(ngModel)]="i.value" [type]="i.type" class="alert-input">' +
-	                '</div>' +
-	                '</div>' +
-	                '<div class="alert-buttons">' +
-	                '<button *ngFor="#b of d.buttons" (click)="click(b)" [ngClass]="b.cssClass" class="alert-button">' +
-	                '{{b.text}}' +
-	                '</button>' +
-	                '</div>' +
-	                '</div>',
-	            host: {
-	                'role': 'dialog'
-	            },
-	            directives: [common_1.NgClass, common_1.NgIf, common_1.NgFor]
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavParams !== 'undefined' && nav_controller_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
-	    ], AlertCmp);
-	    return AlertCmp;
-	    var _a, _b, _c, _d, _e;
-	})();
-	/**
-	 * Animations for alerts
-	 */
-	var AlertPopIn = (function (_super) {
-	    __extends(AlertPopIn, _super);
-	    function AlertPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.3');
-	        this
-	            .easing('ease-in-out')
-	            .duration(200)
-	            .add(backdrop, wrapper);
-	    }
-	    return AlertPopIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-pop-in', AlertPopIn);
-	var AlertPopOut = (function (_super) {
-	    __extends(AlertPopOut, _super);
-	    function AlertPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
-	        backdrop.fromTo('opacity', '0.3', '0');
-	        this
-	            .easing('ease-in-out')
-	            .duration(200)
-	            .add(backdrop, wrapper);
-	    }
-	    return AlertPopOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-pop-out', AlertPopOut);
-	var AlertMdPopIn = (function (_super) {
-	    __extends(AlertMdPopIn, _super);
-	    function AlertMdPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.5');
-	        this
-	            .easing('ease-in-out')
-	            .duration(200)
-	            .add(backdrop, wrapper);
-	    }
-	    return AlertMdPopIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-md-pop-in', AlertMdPopIn);
-	var AlertMdPopOut = (function (_super) {
-	    __extends(AlertMdPopOut, _super);
-	    function AlertMdPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
-	        backdrop.fromTo('opacity', '0.5', '0');
-	        this
-	            .easing('ease-in-out')
-	            .duration(200)
-	            .add(backdrop, wrapper);
-	    }
-	    return AlertMdPopOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-md-pop-out', AlertMdPopOut);
-
-/***/ },
-/* 338 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59747,7 +60289,7 @@
 	var TRANSLATE_X = 'translateX';
 
 /***/ },
-/* 339 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59771,8 +60313,8 @@
 	 * When a modal (or any other overlay such as an alert or actionsheet) is
 	 * "presented" to a nav controller, the overlay is added to the app's root nav.
 	 * After the modal has been presented, from within the component instance The
-	 * modal can later be closed or "dimsissed" by using the ViewController's
-	 * `dismiss` method. Additinoally, you can dismiss any overlay by using `pop`
+	 * modal can later be closed or "dismissed" by using the ViewController's
+	 * `dismiss` method. Additionally, you can dismiss any overlay by using `pop`
 	 * on the root nav controller.
 	 *
 	 * A modal can also emit data, which is useful when it is used to add or edit
@@ -59917,18 +60459,18 @@
 	animation_1.Animation.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 340 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(341));
-	__export(__webpack_require__(342));
-	__export(__webpack_require__(343));
+	__export(__webpack_require__(344));
+	__export(__webpack_require__(345));
+	__export(__webpack_require__(346));
 
 /***/ },
-/* 341 */
+/* 344 */
 /***/ function(module, exports) {
 
 	/**
@@ -59945,6 +60487,7 @@
 	*/
 	var Storage = (function () {
 	    function Storage(strategyCls, options) {
+	        this._strategy = {};
 	        this._strategy = new strategyCls(options);
 	    }
 	    Storage.prototype.get = function (key) {
@@ -59994,7 +60537,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 342 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60002,7 +60545,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(341);
+	var storage_1 = __webpack_require__(344);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -60087,7 +60630,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 343 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60095,9 +60638,10 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(341);
-	var util = __webpack_require__(294);
+	var storage_1 = __webpack_require__(344);
+	var util_1 = __webpack_require__(272);
 	var DB_NAME = '__ionicstorage';
+	var win = window;
 	/**
 	 * SqlStorage uses SQLite or WebSQL (development only!) to store data in a
 	 * persistent SQL store on the filesystem.
@@ -60133,14 +60677,14 @@
 	    function SqlStorage(options) {
 	        if (options === void 0) { options = {}; }
 	        _super.call(this);
-	        var dbOptions = util.defaults(options, {
+	        var dbOptions = util_1.defaults(options, {
 	            name: DB_NAME,
 	            backupFlag: SqlStorage.BACKUP_LOCAL,
 	            existingDatabase: false
 	        });
-	        if (window.sqlitePlugin) {
+	        if (win.sqlitePlugin) {
 	            var location = this._getBackupLocation(dbOptions.backupFlag);
-	            this._db = window.sqlitePlugin.openDatabase(util.extend({
+	            this._db = win.sqlitePlugin.openDatabase(util_1.assign({
 	                name: dbOptions.name,
 	                location: location,
 	                createFromLocation: dbOptions.existingDatabase ? 1 : 0
@@ -60148,7 +60692,7 @@
 	        }
 	        else {
 	            console.warn('Storage: SQLite plugin not installed, falling back to WebSQL. Make sure to install cordova-sqlite-storage in production!');
-	            this._db = window.openDatabase(dbOptions.name, '1.0', 'database', 5 * 1024 * 1024);
+	            this._db = win.openDatabase(dbOptions.name, '1.0', 'database', 5 * 1024 * 1024);
 	        }
 	        this._tryInit();
 	    }
@@ -60303,7 +60847,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 344 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60330,6 +60874,7 @@
 	 */
 	var TranslatePipe = (function () {
 	    function TranslatePipe(translate) {
+	        this.translate = {};
 	        this.translate = translate;
 	    }
 	    TranslatePipe.prototype.transform = function (value, args) {
@@ -60351,7 +60896,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 345 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var config_1 = __webpack_require__(270);
@@ -60363,7 +60908,7 @@
 	    alertEnter: 'alert-pop-in',
 	    alertLeave: 'alert-pop-out',
 	    backButtonText: 'Back',
-	    backButtonIcon: 'ion-ios-arrow-back',
+	    backButtonIcon: 'ios-arrow-back',
 	    iconMode: 'ios',
 	    menuType: 'reveal',
 	    modalEnter: 'modal-slide-in',
@@ -60380,7 +60925,7 @@
 	    alertEnter: 'alert-md-pop-in',
 	    alertLeave: 'alert-md-pop-out',
 	    backButtonText: '',
-	    backButtonIcon: 'ion-md-arrow-back',
+	    backButtonIcon: 'md-arrow-back',
 	    iconMode: 'md',
 	    menuType: 'overlay',
 	    modalEnter: 'modal-md-slide-in',
@@ -60393,11 +60938,13 @@
 	});
 
 /***/ },
-/* 346 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var platform_1 = __webpack_require__(271);
 	var dom_1 = __webpack_require__(273);
+	var win = window;
+	var doc = document;
 	platform_1.Platform.register({
 	    name: 'core',
 	    settings: {
@@ -60532,16 +61079,16 @@
 	    methods: {
 	        ready: function (resolve) {
 	            function isReady() {
-	                document.removeEventListener('deviceready', isReady);
+	                doc.removeEventListener('deviceready', isReady);
 	                resolve();
 	            }
 	            dom_1.windowLoad(function () {
-	                document.addEventListener('deviceready', isReady);
+	                doc.addEventListener('deviceready', isReady);
 	            });
 	        }
 	    },
 	    isMatch: function () {
-	        return !!(window.cordova || window.PhoneGap || window.phonegap);
+	        return !!(win.cordova || win.PhoneGap || win.phonegap);
 	    }
 	});
 	function isIOSDevice(p) {
@@ -60553,7 +61100,7 @@
 	}
 
 /***/ },
-/* 347 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60612,7 +61159,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 348 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60784,7 +61331,7 @@
 	animation_1.Animation.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 349 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60846,17 +61393,17 @@
 	animation_1.Animation.register('md-transition', MDTransition);
 
 /***/ },
-/* 350 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(351));
+	__export(__webpack_require__(354));
 
 
 /***/ },
-/* 351 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60870,7 +61417,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers = __webpack_require__(352);
+	var helpers = __webpack_require__(355);
 	var BasicPage = (function () {
 	    function BasicPage(app) {
 	        this.app = app;
@@ -60928,7 +61475,7 @@
 
 
 /***/ },
-/* 352 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60942,21 +61489,21 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var ionic_1 = __webpack_require__(6);
-	var actionSheets = __webpack_require__(353);
-	var badges = __webpack_require__(355);
-	var buttons = __webpack_require__(357);
-	var cards = __webpack_require__(368);
-	var grid = __webpack_require__(377);
-	var labels = __webpack_require__(379);
-	var icons = __webpack_require__(387);
-	var inputs = __webpack_require__(389);
-	var lists = __webpack_require__(397);
-	var menus = __webpack_require__(350);
-	var modals = __webpack_require__(406);
-	var navigation = __webpack_require__(408);
-	var alerts = __webpack_require__(410);
-	var slides = __webpack_require__(412);
-	var tabs = __webpack_require__(414);
+	var actionSheets = __webpack_require__(356);
+	var badges = __webpack_require__(358);
+	var buttons = __webpack_require__(360);
+	var cards = __webpack_require__(371);
+	var grid = __webpack_require__(380);
+	var labels = __webpack_require__(382);
+	var icons = __webpack_require__(390);
+	var inputs = __webpack_require__(392);
+	var lists = __webpack_require__(400);
+	var menus = __webpack_require__(353);
+	var modals = __webpack_require__(409);
+	var navigation = __webpack_require__(411);
+	var alerts = __webpack_require__(413);
+	var slides = __webpack_require__(415);
+	var tabs = __webpack_require__(417);
 	var AndroidAttribute = (function () {
 	    function AndroidAttribute(platform, elementRef, renderer) {
 	        this.isAndroid = platform.is('android');
@@ -61084,17 +61631,17 @@
 
 
 /***/ },
-/* 353 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(354));
+	__export(__webpack_require__(357));
 
 
 /***/ },
-/* 354 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61108,7 +61655,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
+	var helpers_1 = __webpack_require__(355);
 	var BasicPage = (function () {
 	    function BasicPage(platform, nav) {
 	        this.nav = nav;
@@ -61141,6 +61688,7 @@
 	                    {
 	                        text: 'Delete',
 	                        style: 'destructive',
+	                        icon: 'trash',
 	                        handler: function () {
 	                            console.log('Destructive clicked');
 	                        }
@@ -61148,6 +61696,7 @@
 	                    {
 	                        text: 'Cancel',
 	                        style: 'cancel',
+	                        icon: 'close',
 	                        handler: function () {
 	                            console.log('Cancel clicked');
 	                        }
@@ -61209,94 +61758,13 @@
 
 
 /***/ },
-/* 355 */
-/***/ function(module, exports, __webpack_require__) {
-
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(356));
-
-
-/***/ },
-/* 356 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var BasicPage = (function () {
-	    function BasicPage() {
-	    }
-	    BasicPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/badge/basic/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
-	})();
-	exports.BasicPage = BasicPage;
-
-
-/***/ },
-/* 357 */
-/***/ function(module, exports, __webpack_require__) {
-
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(358));
-	__export(__webpack_require__(359));
-	__export(__webpack_require__(360));
-	__export(__webpack_require__(361));
-	__export(__webpack_require__(362));
-	__export(__webpack_require__(363));
-	__export(__webpack_require__(364));
-	__export(__webpack_require__(365));
-	__export(__webpack_require__(366));
-	__export(__webpack_require__(367));
-
-
-/***/ },
 /* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var BasicPage = (function () {
-	    function BasicPage() {
-	    }
-	    BasicPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/buttons/basic/basic.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
-	})();
-	exports.BasicPage = BasicPage;
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(359));
 
 
 /***/ },
@@ -61314,51 +61782,39 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var BlockPage = (function () {
-	    function BlockPage() {
+	var helpers_1 = __webpack_require__(355);
+	var BasicPage = (function () {
+	    function BasicPage() {
 	    }
-	    BlockPage = __decorate([
+	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/block/block.html',
+	            templateUrl: './build/badge/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BlockPage);
-	    return BlockPage;
+	    ], BasicPage);
+	    return BasicPage;
 	})();
-	exports.BlockPage = BlockPage;
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
 /* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var ClearPage = (function () {
-	    function ClearPage() {
-	    }
-	    ClearPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/buttons/clear/clear.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], ClearPage);
-	    return ClearPage;
-	})();
-	exports.ClearPage = ClearPage;
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(361));
+	__export(__webpack_require__(362));
+	__export(__webpack_require__(363));
+	__export(__webpack_require__(364));
+	__export(__webpack_require__(365));
+	__export(__webpack_require__(366));
+	__export(__webpack_require__(367));
+	__export(__webpack_require__(368));
+	__export(__webpack_require__(369));
+	__export(__webpack_require__(370));
 
 
 /***/ },
@@ -61376,20 +61832,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var ComponentsPage = (function () {
-	    function ComponentsPage() {
+	var helpers_1 = __webpack_require__(355);
+	var BasicPage = (function () {
+	    function BasicPage() {
 	    }
-	    ComponentsPage = __decorate([
+	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/components/components.html',
+	            templateUrl: './build/buttons/basic/basic.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], ComponentsPage);
-	    return ComponentsPage;
+	    ], BasicPage);
+	    return BasicPage;
 	})();
-	exports.ComponentsPage = ComponentsPage;
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
@@ -61407,20 +61863,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var FabPage = (function () {
-	    function FabPage() {
+	var helpers_1 = __webpack_require__(355);
+	var BlockPage = (function () {
+	    function BlockPage() {
 	    }
-	    FabPage = __decorate([
+	    BlockPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/fab/fab.html',
+	            templateUrl: './build/buttons/block/block.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], FabPage);
-	    return FabPage;
+	    ], BlockPage);
+	    return BlockPage;
 	})();
-	exports.FabPage = FabPage;
+	exports.BlockPage = BlockPage;
 
 
 /***/ },
@@ -61438,20 +61894,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var FullPage = (function () {
-	    function FullPage() {
+	var helpers_1 = __webpack_require__(355);
+	var ClearPage = (function () {
+	    function ClearPage() {
 	    }
-	    FullPage = __decorate([
+	    ClearPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/full/full.html',
+	            templateUrl: './build/buttons/clear/clear.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], FullPage);
-	    return FullPage;
+	    ], ClearPage);
+	    return ClearPage;
 	})();
-	exports.FullPage = FullPage;
+	exports.ClearPage = ClearPage;
 
 
 /***/ },
@@ -61469,20 +61925,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var IconsPage = (function () {
-	    function IconsPage() {
+	var helpers_1 = __webpack_require__(355);
+	var ComponentsPage = (function () {
+	    function ComponentsPage() {
 	    }
-	    IconsPage = __decorate([
+	    ComponentsPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/icons/icons.html',
+	            templateUrl: './build/buttons/components/components.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], IconsPage);
-	    return IconsPage;
+	    ], ComponentsPage);
+	    return ComponentsPage;
 	})();
-	exports.IconsPage = IconsPage;
+	exports.ComponentsPage = ComponentsPage;
 
 
 /***/ },
@@ -61500,20 +61956,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var OutlinePage = (function () {
-	    function OutlinePage() {
+	var helpers_1 = __webpack_require__(355);
+	var FabPage = (function () {
+	    function FabPage() {
 	    }
-	    OutlinePage = __decorate([
+	    FabPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/outline/outline.html',
+	            templateUrl: './build/buttons/fab/fab.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], OutlinePage);
-	    return OutlinePage;
+	    ], FabPage);
+	    return FabPage;
 	})();
-	exports.OutlinePage = OutlinePage;
+	exports.FabPage = FabPage;
 
 
 /***/ },
@@ -61531,20 +61987,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var RoundPage = (function () {
-	    function RoundPage() {
+	var helpers_1 = __webpack_require__(355);
+	var FullPage = (function () {
+	    function FullPage() {
 	    }
-	    RoundPage = __decorate([
+	    FullPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/round/round.html',
+	            templateUrl: './build/buttons/full/full.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], RoundPage);
-	    return RoundPage;
+	    ], FullPage);
+	    return FullPage;
 	})();
-	exports.RoundPage = RoundPage;
+	exports.FullPage = FullPage;
 
 
 /***/ },
@@ -61562,37 +62018,51 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var SizesPage = (function () {
-	    function SizesPage() {
+	var helpers_1 = __webpack_require__(355);
+	var IconsPage = (function () {
+	    function IconsPage() {
 	    }
-	    SizesPage = __decorate([
+	    IconsPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/sizes/sizes.html',
+	            templateUrl: './build/buttons/icons/icons.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], SizesPage);
-	    return SizesPage;
+	    ], IconsPage);
+	    return IconsPage;
 	})();
-	exports.SizesPage = SizesPage;
+	exports.IconsPage = IconsPage;
 
 
 /***/ },
 /* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(369));
-	__export(__webpack_require__(370));
-	__export(__webpack_require__(371));
-	__export(__webpack_require__(372));
-	__export(__webpack_require__(373));
-	__export(__webpack_require__(374));
-	__export(__webpack_require__(375));
-	__export(__webpack_require__(376));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var OutlinePage = (function () {
+	    function OutlinePage() {
+	    }
+	    OutlinePage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/buttons/outline/outline.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], OutlinePage);
+	    return OutlinePage;
+	})();
+	exports.OutlinePage = OutlinePage;
 
 
 /***/ },
@@ -61610,20 +62080,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var AdvancedMapPage = (function () {
-	    function AdvancedMapPage() {
+	var helpers_1 = __webpack_require__(355);
+	var RoundPage = (function () {
+	    function RoundPage() {
 	    }
-	    AdvancedMapPage = __decorate([
+	    RoundPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/advanced-map/template.html',
+	            templateUrl: './build/buttons/round/round.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], AdvancedMapPage);
-	    return AdvancedMapPage;
+	    ], RoundPage);
+	    return RoundPage;
 	})();
-	exports.AdvancedMapPage = AdvancedMapPage;
+	exports.RoundPage = RoundPage;
 
 
 /***/ },
@@ -61641,51 +62111,37 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var AdvancedSocialPage = (function () {
-	    function AdvancedSocialPage() {
+	var helpers_1 = __webpack_require__(355);
+	var SizesPage = (function () {
+	    function SizesPage() {
 	    }
-	    AdvancedSocialPage = __decorate([
+	    SizesPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/advanced-social/template.html',
+	            templateUrl: './build/buttons/sizes/sizes.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], AdvancedSocialPage);
-	    return AdvancedSocialPage;
+	    ], SizesPage);
+	    return SizesPage;
 	})();
-	exports.AdvancedSocialPage = AdvancedSocialPage;
+	exports.SizesPage = SizesPage;
 
 
 /***/ },
 /* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var AdvancedWeatherPage = (function () {
-	    function AdvancedWeatherPage() {
-	    }
-	    AdvancedWeatherPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/cards/advanced-weather/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], AdvancedWeatherPage);
-	    return AdvancedWeatherPage;
-	})();
-	exports.AdvancedWeatherPage = AdvancedWeatherPage;
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(372));
+	__export(__webpack_require__(373));
+	__export(__webpack_require__(374));
+	__export(__webpack_require__(375));
+	__export(__webpack_require__(376));
+	__export(__webpack_require__(377));
+	__export(__webpack_require__(378));
+	__export(__webpack_require__(379));
 
 
 /***/ },
@@ -61703,20 +62159,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var BackgroundPage = (function () {
-	    function BackgroundPage() {
+	var helpers_1 = __webpack_require__(355);
+	var AdvancedMapPage = (function () {
+	    function AdvancedMapPage() {
 	    }
-	    BackgroundPage = __decorate([
+	    AdvancedMapPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/background/template.html',
+	            templateUrl: './build/cards/advanced-map/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BackgroundPage);
-	    return BackgroundPage;
+	    ], AdvancedMapPage);
+	    return AdvancedMapPage;
 	})();
-	exports.BackgroundPage = BackgroundPage;
+	exports.AdvancedMapPage = AdvancedMapPage;
 
 
 /***/ },
@@ -61734,20 +62190,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var BasicPage = (function () {
-	    function BasicPage() {
+	var helpers_1 = __webpack_require__(355);
+	var AdvancedSocialPage = (function () {
+	    function AdvancedSocialPage() {
 	    }
-	    BasicPage = __decorate([
+	    AdvancedSocialPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/basic/template.html',
+	            templateUrl: './build/cards/advanced-social/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
+	    ], AdvancedSocialPage);
+	    return AdvancedSocialPage;
 	})();
-	exports.BasicPage = BasicPage;
+	exports.AdvancedSocialPage = AdvancedSocialPage;
 
 
 /***/ },
@@ -61765,20 +62221,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var HeaderPage = (function () {
-	    function HeaderPage() {
+	var helpers_1 = __webpack_require__(355);
+	var AdvancedWeatherPage = (function () {
+	    function AdvancedWeatherPage() {
 	    }
-	    HeaderPage = __decorate([
+	    AdvancedWeatherPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/header/template.html',
+	            templateUrl: './build/cards/advanced-weather/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], HeaderPage);
-	    return HeaderPage;
+	    ], AdvancedWeatherPage);
+	    return AdvancedWeatherPage;
 	})();
-	exports.HeaderPage = HeaderPage;
+	exports.AdvancedWeatherPage = AdvancedWeatherPage;
 
 
 /***/ },
@@ -61796,20 +62252,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var ImagePage = (function () {
-	    function ImagePage() {
+	var helpers_1 = __webpack_require__(355);
+	var BackgroundPage = (function () {
+	    function BackgroundPage() {
 	    }
-	    ImagePage = __decorate([
+	    BackgroundPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/image/template.html',
+	            templateUrl: './build/cards/background/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], ImagePage);
-	    return ImagePage;
+	    ], BackgroundPage);
+	    return BackgroundPage;
 	})();
-	exports.ImagePage = ImagePage;
+	exports.BackgroundPage = BackgroundPage;
 
 
 /***/ },
@@ -61827,30 +62283,51 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var ListPage = (function () {
-	    function ListPage() {
+	var helpers_1 = __webpack_require__(355);
+	var BasicPage = (function () {
+	    function BasicPage() {
 	    }
-	    ListPage = __decorate([
+	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/list/template.html',
+	            templateUrl: './build/cards/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], ListPage);
-	    return ListPage;
+	    ], BasicPage);
+	    return BasicPage;
 	})();
-	exports.ListPage = ListPage;
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
 /* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(378));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var HeaderPage = (function () {
+	    function HeaderPage() {
+	    }
+	    HeaderPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/cards/header/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], HeaderPage);
+	    return HeaderPage;
+	})();
+	exports.HeaderPage = HeaderPage;
 
 
 /***/ },
@@ -61868,7 +62345,79 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
+	var helpers_1 = __webpack_require__(355);
+	var ImagePage = (function () {
+	    function ImagePage() {
+	    }
+	    ImagePage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/cards/image/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], ImagePage);
+	    return ImagePage;
+	})();
+	exports.ImagePage = ImagePage;
+
+
+/***/ },
+/* 379 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var ListPage = (function () {
+	    function ListPage() {
+	    }
+	    ListPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/cards/list/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], ListPage);
+	    return ListPage;
+	})();
+	exports.ListPage = ListPage;
+
+
+/***/ },
+/* 380 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(381));
+
+
+/***/ },
+/* 381 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
 	var BasicPage = (function () {
 	    function BasicPage() {
 	    }
@@ -61885,23 +62434,23 @@
 
 
 /***/ },
-/* 379 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(380));
-	__export(__webpack_require__(381));
-	__export(__webpack_require__(382));
 	__export(__webpack_require__(383));
 	__export(__webpack_require__(384));
 	__export(__webpack_require__(385));
 	__export(__webpack_require__(386));
+	__export(__webpack_require__(387));
+	__export(__webpack_require__(388));
+	__export(__webpack_require__(389));
 
 
 /***/ },
-/* 380 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61916,7 +62465,7 @@
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(169);
 	var ionic_1 = __webpack_require__(6);
-	var helpers_1 = __webpack_require__(352);
+	var helpers_1 = __webpack_require__(355);
 	var BasicPage = (function () {
 	    function BasicPage() {
 	        this.form = new common_1.ControlGroup({
@@ -61942,99 +62491,6 @@
 
 
 /***/ },
-/* 381 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var FixedInlinePage = (function () {
-	    function FixedInlinePage() {
-	    }
-	    FixedInlinePage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/labels/fixed-inline/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], FixedInlinePage);
-	    return FixedInlinePage;
-	})();
-	exports.FixedInlinePage = FixedInlinePage;
-
-
-/***/ },
-/* 382 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var FloatingPage = (function () {
-	    function FloatingPage() {
-	    }
-	    FloatingPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/labels/floating/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], FloatingPage);
-	    return FloatingPage;
-	})();
-	exports.FloatingPage = FloatingPage;
-
-
-/***/ },
-/* 383 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var InlinePage = (function () {
-	    function InlinePage() {
-	    }
-	    InlinePage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/labels/inline/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], InlinePage);
-	    return InlinePage;
-	})();
-	exports.InlinePage = InlinePage;
-
-
-/***/ },
 /* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -62049,20 +62505,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var InsetPage = (function () {
-	    function InsetPage() {
+	var helpers_1 = __webpack_require__(355);
+	var FixedInlinePage = (function () {
+	    function FixedInlinePage() {
 	    }
-	    InsetPage = __decorate([
+	    FixedInlinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/labels/inset/template.html',
+	            templateUrl: './build/labels/fixed-inline/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], InsetPage);
-	    return InsetPage;
+	    ], FixedInlinePage);
+	    return FixedInlinePage;
 	})();
-	exports.InsetPage = InsetPage;
+	exports.FixedInlinePage = FixedInlinePage;
 
 
 /***/ },
@@ -62080,20 +62536,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var PlaceholderPage = (function () {
-	    function PlaceholderPage() {
+	var helpers_1 = __webpack_require__(355);
+	var FloatingPage = (function () {
+	    function FloatingPage() {
 	    }
-	    PlaceholderPage = __decorate([
+	    FloatingPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/labels/placeholder/template.html',
+	            templateUrl: './build/labels/floating/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], PlaceholderPage);
-	    return PlaceholderPage;
+	    ], FloatingPage);
+	    return FloatingPage;
 	})();
-	exports.PlaceholderPage = PlaceholderPage;
+	exports.FloatingPage = FloatingPage;
 
 
 /***/ },
@@ -62111,30 +62567,51 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var StackedPage = (function () {
-	    function StackedPage() {
+	var helpers_1 = __webpack_require__(355);
+	var InlinePage = (function () {
+	    function InlinePage() {
 	    }
-	    StackedPage = __decorate([
+	    InlinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/labels/stacked/template.html',
+	            templateUrl: './build/labels/inline/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], StackedPage);
-	    return StackedPage;
+	    ], InlinePage);
+	    return InlinePage;
 	})();
-	exports.StackedPage = StackedPage;
+	exports.InlinePage = InlinePage;
 
 
 /***/ },
 /* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(388));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var InsetPage = (function () {
+	    function InsetPage() {
+	    }
+	    InsetPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/labels/inset/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], InsetPage);
+	    return InsetPage;
+	})();
+	exports.InsetPage = InsetPage;
 
 
 /***/ },
@@ -62152,40 +62629,24 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var BasicPage = (function () {
-	    function BasicPage() {
+	var helpers_1 = __webpack_require__(355);
+	var PlaceholderPage = (function () {
+	    function PlaceholderPage() {
 	    }
-	    BasicPage = __decorate([
+	    PlaceholderPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/icons/basic/template.html',
+	            templateUrl: './build/labels/placeholder/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
+	    ], PlaceholderPage);
+	    return PlaceholderPage;
 	})();
-	exports.BasicPage = BasicPage;
+	exports.PlaceholderPage = PlaceholderPage;
 
 
 /***/ },
 /* 389 */
-/***/ function(module, exports, __webpack_require__) {
-
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(390));
-	__export(__webpack_require__(391));
-	__export(__webpack_require__(392));
-	__export(__webpack_require__(393));
-	__export(__webpack_require__(394));
-	__export(__webpack_require__(395));
-	__export(__webpack_require__(396));
-
-
-/***/ },
-/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62199,20 +62660,30 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var CheckboxPage = (function () {
-	    function CheckboxPage() {
+	var helpers_1 = __webpack_require__(355);
+	var StackedPage = (function () {
+	    function StackedPage() {
 	    }
-	    CheckboxPage = __decorate([
+	    StackedPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/checkbox/template.html',
+	            templateUrl: './build/labels/stacked/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], CheckboxPage);
-	    return CheckboxPage;
+	    ], StackedPage);
+	    return StackedPage;
 	})();
-	exports.CheckboxPage = CheckboxPage;
+	exports.StackedPage = StackedPage;
+
+
+/***/ },
+/* 390 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(391));
 
 
 /***/ },
@@ -62230,60 +62701,36 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(169);
-	var helpers = __webpack_require__(352);
-	var RadioPage = (function () {
-	    function RadioPage() {
-	        this.langs = new common_1.Control("");
-	        this.langForm = new common_1.ControlGroup({
-	            "langs": this.langs
-	        });
+	var helpers_1 = __webpack_require__(355);
+	var BasicPage = (function () {
+	    function BasicPage() {
 	    }
-	    RadioPage.prototype.doSubmit = function (event) {
-	        console.log('Submitting form', this.langeForm.value);
-	        event.preventDefault();
-	    };
-	    RadioPage = __decorate([
+	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/radio/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
+	            templateUrl: './build/icons/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], RadioPage);
-	    return RadioPage;
+	    ], BasicPage);
+	    return BasicPage;
 	})();
-	exports.RadioPage = RadioPage;
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
 /* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var RangePage = (function () {
-	    function RangePage() {
-	    }
-	    RangePage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/inputs/range/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], RangePage);
-	    return RangePage;
-	})();
-	exports.RangePage = RangePage;
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(393));
+	__export(__webpack_require__(394));
+	__export(__webpack_require__(395));
+	__export(__webpack_require__(396));
+	__export(__webpack_require__(397));
+	__export(__webpack_require__(398));
+	__export(__webpack_require__(399));
 
 
 /***/ },
@@ -62301,7 +62748,109 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
+	var helpers_1 = __webpack_require__(355);
+	var CheckboxPage = (function () {
+	    function CheckboxPage() {
+	    }
+	    CheckboxPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/inputs/checkbox/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], CheckboxPage);
+	    return CheckboxPage;
+	})();
+	exports.CheckboxPage = CheckboxPage;
+
+
+/***/ },
+/* 394 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(169);
+	var helpers = __webpack_require__(355);
+	var RadioPage = (function () {
+	    function RadioPage() {
+	        this.langs = new common_1.Control("");
+	        this.langForm = new common_1.ControlGroup({
+	            "langs": this.langs
+	        });
+	    }
+	    RadioPage.prototype.doSubmit = function (event) {
+	        console.log('Submitting form', this.langForm.value);
+	        event.preventDefault();
+	    };
+	    RadioPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/inputs/radio/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], RadioPage);
+	    return RadioPage;
+	})();
+	exports.RadioPage = RadioPage;
+
+
+/***/ },
+/* 395 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var RangePage = (function () {
+	    function RangePage() {
+	    }
+	    RangePage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/inputs/range/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], RangePage);
+	    return RangePage;
+	})();
+	exports.RangePage = RangePage;
+
+
+/***/ },
+/* 396 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
 	var SearchPage = (function () {
 	    function SearchPage() {
 	        this.searchQuery = '';
@@ -62377,7 +62926,7 @@
 
 
 /***/ },
-/* 394 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62391,7 +62940,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
+	var helpers_1 = __webpack_require__(355);
 	var SegmentPage = (function () {
 	    function SegmentPage(platform) {
 	        this.platform = platform;
@@ -62411,85 +62960,6 @@
 
 
 /***/ },
-/* 395 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var SelectPage = (function () {
-	    function SelectPage() {
-	    }
-	    SelectPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/inputs/select/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], SelectPage);
-	    return SelectPage;
-	})();
-	exports.SelectPage = SelectPage;
-
-
-/***/ },
-/* 396 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var TogglePage = (function () {
-	    function TogglePage() {
-	    }
-	    TogglePage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/inputs/toggle/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], TogglePage);
-	    return TogglePage;
-	})();
-	exports.TogglePage = TogglePage;
-
-
-/***/ },
-/* 397 */
-/***/ function(module, exports, __webpack_require__) {
-
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(398));
-	__export(__webpack_require__(399));
-	__export(__webpack_require__(400));
-	__export(__webpack_require__(401));
-	__export(__webpack_require__(402));
-	__export(__webpack_require__(403));
-	__export(__webpack_require__(404));
-	__export(__webpack_require__(405));
-
-
-/***/ },
 /* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -62504,20 +62974,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var AvatarPage = (function () {
-	    function AvatarPage() {
+	var helpers_1 = __webpack_require__(355);
+	var SelectPage = (function () {
+	    function SelectPage() {
 	    }
-	    AvatarPage = __decorate([
+	    SelectPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/avatar/template.html',
+	            templateUrl: './build/inputs/select/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], AvatarPage);
-	    return AvatarPage;
+	    ], SelectPage);
+	    return SelectPage;
 	})();
-	exports.AvatarPage = AvatarPage;
+	exports.SelectPage = SelectPage;
 
 
 /***/ },
@@ -62535,51 +63005,37 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var BasicPage = (function () {
-	    function BasicPage() {
+	var helpers_1 = __webpack_require__(355);
+	var TogglePage = (function () {
+	    function TogglePage() {
 	    }
-	    BasicPage = __decorate([
+	    TogglePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/basic/template.html',
+	            templateUrl: './build/inputs/toggle/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
+	    ], TogglePage);
+	    return TogglePage;
 	})();
-	exports.BasicPage = BasicPage;
+	exports.TogglePage = TogglePage;
 
 
 /***/ },
 /* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var HeadersPage = (function () {
-	    function HeadersPage() {
-	    }
-	    HeadersPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/lists/headers/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], HeadersPage);
-	    return HeadersPage;
-	})();
-	exports.HeadersPage = HeadersPage;
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(401));
+	__export(__webpack_require__(402));
+	__export(__webpack_require__(403));
+	__export(__webpack_require__(404));
+	__export(__webpack_require__(405));
+	__export(__webpack_require__(406));
+	__export(__webpack_require__(407));
+	__export(__webpack_require__(408));
 
 
 /***/ },
@@ -62597,20 +63053,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var IconPage = (function () {
-	    function IconPage() {
+	var helpers_1 = __webpack_require__(355);
+	var AvatarPage = (function () {
+	    function AvatarPage() {
 	    }
-	    IconPage = __decorate([
+	    AvatarPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/icon/template.html',
+	            templateUrl: './build/lists/avatar/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], IconPage);
-	    return IconPage;
+	    ], AvatarPage);
+	    return AvatarPage;
 	})();
-	exports.IconPage = IconPage;
+	exports.AvatarPage = AvatarPage;
 
 
 /***/ },
@@ -62628,20 +63084,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var InsetPage = (function () {
-	    function InsetPage() {
+	var helpers_1 = __webpack_require__(355);
+	var BasicPage = (function () {
+	    function BasicPage() {
 	    }
-	    InsetPage = __decorate([
+	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/inset/template.html',
+	            templateUrl: './build/lists/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], InsetPage);
-	    return InsetPage;
+	    ], BasicPage);
+	    return BasicPage;
 	})();
-	exports.InsetPage = InsetPage;
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
@@ -62659,20 +63115,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var NoLinesPage = (function () {
-	    function NoLinesPage() {
+	var helpers_1 = __webpack_require__(355);
+	var HeadersPage = (function () {
+	    function HeadersPage() {
 	    }
-	    NoLinesPage = __decorate([
+	    HeadersPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/no-lines/template.html',
+	            templateUrl: './build/lists/headers/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], NoLinesPage);
-	    return NoLinesPage;
+	    ], HeadersPage);
+	    return HeadersPage;
 	})();
-	exports.NoLinesPage = NoLinesPage;
+	exports.HeadersPage = HeadersPage;
 
 
 /***/ },
@@ -62690,20 +63146,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var MultilinePage = (function () {
-	    function MultilinePage() {
+	var helpers_1 = __webpack_require__(355);
+	var IconPage = (function () {
+	    function IconPage() {
 	    }
-	    MultilinePage = __decorate([
+	    IconPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/multiline/template.html',
+	            templateUrl: './build/lists/icon/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], MultilinePage);
-	    return MultilinePage;
+	    ], IconPage);
+	    return IconPage;
 	})();
-	exports.MultilinePage = MultilinePage;
+	exports.IconPage = IconPage;
 
 
 /***/ },
@@ -62721,30 +63177,51 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
-	var ThumbnailPage = (function () {
-	    function ThumbnailPage() {
+	var helpers_1 = __webpack_require__(355);
+	var InsetPage = (function () {
+	    function InsetPage() {
 	    }
-	    ThumbnailPage = __decorate([
+	    InsetPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/thumbnail/template.html',
+	            templateUrl: './build/lists/inset/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], ThumbnailPage);
-	    return ThumbnailPage;
+	    ], InsetPage);
+	    return InsetPage;
 	})();
-	exports.ThumbnailPage = ThumbnailPage;
+	exports.InsetPage = InsetPage;
 
 
 /***/ },
 /* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(407));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var NoLinesPage = (function () {
+	    function NoLinesPage() {
+	    }
+	    NoLinesPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/lists/no-lines/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], NoLinesPage);
+	    return NoLinesPage;
+	})();
+	exports.NoLinesPage = NoLinesPage;
 
 
 /***/ },
@@ -62762,8 +63239,80 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var MultilinePage = (function () {
+	    function MultilinePage() {
+	    }
+	    MultilinePage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/lists/multiline/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], MultilinePage);
+	    return MultilinePage;
+	})();
+	exports.MultilinePage = MultilinePage;
+
+
+/***/ },
+/* 408 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var ThumbnailPage = (function () {
+	    function ThumbnailPage() {
+	    }
+	    ThumbnailPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/lists/thumbnail/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], ThumbnailPage);
+	    return ThumbnailPage;
+	})();
+	exports.ThumbnailPage = ThumbnailPage;
+
+
+/***/ },
+/* 409 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(410));
+
+
+/***/ },
+/* 410 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(169);
-	var helpers = __webpack_require__(352);
+	var helpers = __webpack_require__(355);
 	var ModalsInitialPage = (function () {
 	    function ModalsInitialPage(nav) {
 	        this.nav = nav;
@@ -62857,17 +63406,17 @@
 
 
 /***/ },
-/* 408 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(409));
+	__export(__webpack_require__(412));
 
 
 /***/ },
-/* 409 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62882,7 +63431,7 @@
 	var ionic_1 = __webpack_require__(6);
 	var ionic_2 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers = __webpack_require__(352);
+	var helpers = __webpack_require__(355);
 	var NavigationDetailsPage = (function () {
 	    function NavigationDetailsPage(nav, params) {
 	        this.nav = nav;
@@ -62931,17 +63480,17 @@
 
 
 /***/ },
-/* 410 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(411));
+	__export(__webpack_require__(414));
 
 
 /***/ },
-/* 411 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62954,7 +63503,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(6);
-	var helpers_1 = __webpack_require__(352);
+	var helpers_1 = __webpack_require__(355);
 	var core_1 = __webpack_require__(8);
 	var BasicPage = (function () {
 	    function BasicPage(nav) {
@@ -63029,17 +63578,17 @@
 
 
 /***/ },
-/* 412 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(413));
+	__export(__webpack_require__(416));
 
 
 /***/ },
-/* 413 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63053,7 +63602,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(352);
+	var helpers_1 = __webpack_require__(355);
 	var BasicPage = (function () {
 	    function BasicPage() {
 	    }
@@ -63070,19 +63619,19 @@
 
 
 /***/ },
-/* 414 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(415));
-	__export(__webpack_require__(416));
-	__export(__webpack_require__(417));
+	__export(__webpack_require__(418));
+	__export(__webpack_require__(419));
+	__export(__webpack_require__(420));
 
 
 /***/ },
-/* 415 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63096,7 +63645,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers = __webpack_require__(352);
+	var helpers = __webpack_require__(355);
 	var TabTextPage = (function () {
 	    function TabTextPage(platform) {
 	        this.platform = platform;
@@ -63138,7 +63687,7 @@
 
 
 /***/ },
-/* 416 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63152,7 +63701,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers = __webpack_require__(352);
+	var helpers = __webpack_require__(355);
 	var TabIconPage = (function () {
 	    function TabIconPage(platform) {
 	        this.platform = platform;
@@ -63204,7 +63753,7 @@
 
 
 /***/ },
-/* 417 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63218,7 +63767,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers = __webpack_require__(352);
+	var helpers = __webpack_require__(355);
 	var TabIconTextPage = (function () {
 	    function TabIconTextPage(platform) {
 	        this.platform = platform;

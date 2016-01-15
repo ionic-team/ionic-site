@@ -32,6 +32,10 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
     { id: 'docs', label: 'documentation' },
     { id: 'feat', label: 'feature request' }
   ];
+  $scope.ionicVersions = [
+    '1.x',
+    '2.x'
+  ];
   $scope.platformOptions = [
     { id: 'ios', label: 'ios' },
     { id: 'android',  label: 'android' },
@@ -40,20 +44,18 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
     { id: 'all', label: 'all platforms' }
   ];
   $scope.iosVersions = [
+    '9',
     '8',
     '7',
-    '6'
   ];
   $scope.androidVersions = [
+    '6.0',
     '5.1',
     '5.0',
-    '5.x',
     '4.4',
     '4.3',
     '4.2',
-    '4.0',
-    '4.1',
-    '4.x'
+    '4.1'
   ];
   $scope.componentOptions = [
     'action sheet',
@@ -144,7 +146,7 @@ var IssueApp = angular.module('issueApp', ['firebase', 'ga', 'ngAnimate', 'ngSan
         alert('Issue Update Error! Try again.');
       });
 
-    } else{
+    } else {
       return issueTemplatePromise.then(function(template) {
         return GitHubService.submitIssue({
           title: _.template(issueTitleTemplate, $scope.issue),

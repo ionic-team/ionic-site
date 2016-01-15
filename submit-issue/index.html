@@ -53,7 +53,7 @@ title: Submit an Ionic Framework Issue
         </div>
       </div>
 
-      <div step="2" heading="Issue Type" is-done="issue.type">
+      <div step="2" heading="Issue Type" is-done="issue.type  && issue.ionivVersion">
         <div class="input-container">
           <div class="subtext">What type of issue? Select one.</div>
           <a class="btn"
@@ -61,6 +61,14 @@ title: Submit an Ionic Framework Issue
             ng-class="{'active btn-primary': issue.type == opt.id}"
             ng-click="issue.type = opt.id"
             ng-bind="opt.label">
+          </a>
+        </div><div class="inset-step fade-down">
+          <div class="subtext">What version of Ionic?</div>
+          <a class="btn btn-small"
+            ng-repeat="ver in ionicVersions"
+            ng-click="issue.ionicVersion = ver"
+            ng-class="{'active btn-primary': issue.ionicVersion == ver}"
+            ng-bind="ver">
           </a>
         </div>
       </div>
@@ -71,13 +79,13 @@ title: Submit an Ionic Framework Issue
 
         <div class="input-container">
           <div class="subtext">What device/platform is the issue related t?</div>
-          <a class="btn"
-            ng-repeat="opt in platformOptions"
-            ng-class="{'active btn-primary': issue.platform == opt.id}"
-            ng-click="issue.platform = opt.id"
-            ng-bind="opt.label">
-          </a>
-
+            <a class="btn"
+              ng-repeat="opt in platformOptions"
+              ng-class="{'active btn-primary': issue.platform == opt.id}"
+              ng-click="issue.platform = opt.id"
+              ng-bind="opt.label">
+            </a>
+          </div>
           <div ng-if="issue.platform == 'ios'" class="inset-step fade-down">
             <div class="subtext">What version of iOS?</div>
             <a class="btn btn-small"

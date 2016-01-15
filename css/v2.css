@@ -4793,7 +4793,7 @@ body {
   .side-nav .form-group {
     position: relative;
     border-bottom: 1px solid #e6e9ee;
-    min-height: 76px; }
+    min-height: 54px; }
     .side-nav .form-group.search {
       padding: 22px 20px 20px;
       margin-bottom: 0; }

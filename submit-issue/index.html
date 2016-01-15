@@ -29,7 +29,7 @@ title: Submit an Ionic Framework Issue
       </a>
       <a class="btn btn-primary" disabled="disabled"
          ng-show="authenticated()"
-         ng-bind="'Connected to Github as '+currentUser().name">
+         ng-bind="'Connected to Github as ' + currentUser().displayName">
       </a>
       <a class="btn btn-link"
          ng-if="authenticated()"
@@ -53,7 +53,7 @@ title: Submit an Ionic Framework Issue
         </div>
       </div>
 
-      <div step="2" heading="Issue Type" is-done="issue.type  && issue.ionivVersion">
+      <div step="2" heading="Issue Type" is-done="issue.type  && issue.ionicVersion">
         <div class="input-container">
           <div class="subtext">What type of issue? Select one.</div>
           <a class="btn"
@@ -62,7 +62,8 @@ title: Submit an Ionic Framework Issue
             ng-click="issue.type = opt.id"
             ng-bind="opt.label">
           </a>
-        </div><div class="inset-step fade-down">
+        </div>
+        <div class="inset-step fade-down">
           <div class="subtext">What version of Ionic?</div>
           <a class="btn btn-small"
             ng-repeat="ver in ionicVersions"
@@ -79,41 +80,39 @@ title: Submit an Ionic Framework Issue
 
         <div class="input-container">
           <div class="subtext">What device/platform is the issue related t?</div>
-            <a class="btn"
-              ng-repeat="opt in platformOptions"
-              ng-class="{'active btn-primary': issue.platform == opt.id}"
-              ng-click="issue.platform = opt.id"
-              ng-bind="opt.label">
-            </a>
-          </div>
-          <div ng-if="issue.platform == 'ios'" class="inset-step fade-down">
-            <div class="subtext">What version of iOS?</div>
-            <a class="btn btn-small"
-              ng-repeat="ver in iosVersions"
-              ng-click="issue.iosVersion = ver"
-              ng-class="{'active btn-primary': issue.iosVersion == ver}"
-              ng-bind="ver">
-            </a>
-          </div>
-          <div ng-if="issue.platform == 'android'" class="inset-step fade-down">
-            <div class="subtext">What version of android?</div>
-            <a class="btn btn-small"
-              ng-repeat="ver in androidVersions"
-              ng-click="issue.androidVersion = ver"
-              ng-class="{'active btn-primary': issue.androidVersion == ver}"
-              ng-bind="ver">
-            </a>
-          </div>
-          <div ng-if="issue.platform && issue.platform != 'desktop' && issue.platform != 'all'" class="inset-step fade-down">
-            <div class="subtext">Were you testing in a 'native hybrid app' on the phone when this happened, or in the browser?</div>
-            <a class="btn btn-small" ng-click="issue.webview = true" ng-class="{'btn-primary active': issue.webview === true}">
-              In a 'native hybrid' app
-            </a>
-            <a class="btn btn-small" ng-click="issue.webview = false" ng-class="{'btn-primary active': issue.webview === false}">
-              In the phone's browser
-            </a>
-          </div>
-
+          <a class="btn"
+             ng-repeat="opt in platformOptions"
+             ng-class="{'active btn-primary': issue.platform == opt.id}"
+             ng-click="issue.platform = opt.id"
+             ng-bind="opt.label">
+          </a>
+        </div>
+        <div ng-if="issue.platform == 'ios'" class="inset-step fade-down">
+          <div class="subtext">What version of iOS?</div>
+          <a class="btn btn-small"
+            ng-repeat="ver in iosVersions"
+            ng-click="issue.iosVersion = ver"
+            ng-class="{'active btn-primary': issue.iosVersion == ver}"
+            ng-bind="ver">
+          </a>
+        </div>
+        <div ng-if="issue.platform == 'android'" class="inset-step fade-down">
+          <div class="subtext">What version of android?</div>
+          <a class="btn btn-small"
+            ng-repeat="ver in androidVersions"
+            ng-click="issue.androidVersion = ver"
+            ng-class="{'active btn-primary': issue.androidVersion == ver}"
+            ng-bind="ver">
+          </a>
+        </div>
+        <div ng-if="issue.platform && issue.platform != 'desktop' && issue.platform != 'all'" class="inset-step fade-down">
+          <div class="subtext">Were you testing in a 'native hybrid app' on the phone when this happened, or in the browser?</div>
+          <a class="btn btn-small" ng-click="issue.webview = true" ng-class="{'btn-primary active': issue.webview === true}">
+            In a 'native hybrid' app
+          </a>
+          <a class="btn btn-small" ng-click="issue.webview = false" ng-class="{'btn-primary active': issue.webview === false}">
+            In the phone's browser
+          </a>
         </div>
       </div>
 
@@ -134,7 +133,7 @@ title: Submit an Ionic Framework Issue
       </div>
       <div step="5" no-total="true" heading="All Finished!">
         <div class="btn btn-primary btn-lg btn-block"
-          ng-click="!issue.loading && submitIssue()">
+             ng-click="!issue.loading && submitIssue()">
           <i class="fa fa-github"></i> Submit Issue to Github!
         </div>
       </div>
@@ -144,7 +143,7 @@ title: Submit an Ionic Framework Issue
 
   <div class="col-md-5 col-md-offset-1 suggestions">
     <div  ng-show="issue.title.length > 5 && suggestions.length">
-      <h2> Is your issue related to:</h2>
+      <h2 ng-click="test()"> Is your issue related to:</h2>
       <ul>
         <li ng-repeat="suggestion in suggestions" ng-style="{opacity: suggestionOutdated?'.5':'1'}">
           <a ng-click="openTab(suggestion.html_url)" target="_blank" class="suggest-title btn">

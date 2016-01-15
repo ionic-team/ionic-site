@@ -34,9 +34,9 @@ Platform
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/platform.ts#L1'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/platform/platform.ts#L1'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,7 +44,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Platform returns the availble information about your current platform.
 Platforms in Ionic 2 are much more complex then in V1, returns not just a single platform,
@@ -53,7 +52,8 @@ With this information you can completely custimize your app to fit any device an
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-ts">import {Platform} &#39;ionic/ionic&#39;;
 export MyClass {
@@ -71,7 +71,7 @@ export MyClass {
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="platformOverride"></div>
 
@@ -152,7 +152,7 @@ export MyClass {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>bool</code> returns true/false based on platform you place  
+  <code>bool</code> returns true/false based on platform you place
 </div>
 
 
@@ -190,7 +190,7 @@ export MyClass {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>array</code> the array of platforms  
+  <code>array</code> the array of platforms
 </div>
 
 
@@ -255,7 +255,7 @@ export MyClass {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>object</code> An object with various platform info  
+  <code>object</code> An object with various platform info
 </div>
 
 
@@ -292,7 +292,7 @@ export MyClass {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>promise</code> Returns a promsie when device ready has fired  
+  <code>promise</code> Returns a promsie when device ready has fired
 </div>
 
 
@@ -372,7 +372,7 @@ attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>string</code>   
+  <code>string</code> 
 </div>
 
 
@@ -399,7 +399,7 @@ attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code>   
+  <code>boolean</code> 
 </div>
 
 
@@ -479,7 +479,7 @@ attribute value set, such as `<html lang="en">`.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>string</code>   
+  <code>string</code> 
 </div>
 
 

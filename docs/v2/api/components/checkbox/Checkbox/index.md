@@ -34,9 +34,9 @@ Checkbox
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/checkbox/checkbox.ts#L3'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/checkbox/checkbox.ts#L3'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,17 +44,17 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>The checkbox is no different than the HTML checkbox input, except it&#39;s styled differently.</p>
 <p>See the <a href="https://angular.io/docs/js/latest/api/core/Form-interface.html">Angular 2 Docs</a> for more info on forms and input.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-checkbox</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-checkbox checked=&quot;true&quot; value=&quot;isChecked&quot; ngControl=&quot;htmlCtrl&quot;&gt;
   HTML5
@@ -66,7 +66,7 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h3>Attributes:</h3>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -130,12 +130,12 @@ whether or not the checkbox is disabled or not.
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
-<div id="value"></div>
+<div id="labelId"></div>
 
 <h3>
-<code>value()</code>
+<code>labelId()</code>
   
 
 </h3>
@@ -151,10 +151,10 @@ whether or not the checkbox is disabled or not.
 
 
 
-<div id="checked"></div>
+<div id="value"></div>
 
 <h3>
-<code>checked()</code>
+<code>value()</code>
   
 
 </h3>
@@ -206,9 +206,29 @@ whether or not the checkbox is disabled or not.
 
 
 
+
+
+<div id="checked"></div>
+
+<h3>
+<code>checked()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#checkbox'>Checkbox Component Docs</a><!-- end content block -->
 

@@ -34,9 +34,9 @@ NavPush
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-push.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/nav-push.ts#L2'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,17 +44,17 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Directive for declaratively linking to a new page instead of using
 <a href='../NavController/#push'>NavController.push</a>. Similar to ui-router&#39;s <code>ui-sref</code>.</p>
 
 
-<h2>Directive</h2>
+<h3>Directive</h3>
 <h3>selector: <code>[navPush]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;button [navPush]=&quot;pushPage&quot;&gt;&lt;/button&gt;
 </code></pre>
@@ -86,9 +86,68 @@ NavPush:</p>
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link -->
+<!-- methods on the class -->
 
-<h2>Related</h2>
+<h3>Methods</h3>
+
+<div id="navPush"></div>
+
+<h3>
+<code>navPush()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="navParams"></div>
+
+<h3>
+<code>navParams()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="registry"></div>
+
+<h3>
+<code>registry()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
+
+<h3>Related</h3>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
 <a href='../NavPop'>NavPop API Docs</a><!-- end content block -->

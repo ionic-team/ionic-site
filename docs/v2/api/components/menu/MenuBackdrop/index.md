@@ -4,10 +4,10 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{Option | slugify}}"
-title: "Option"
+id: "{{MenuBackdrop | slugify}}"
+title: "MenuBackdrop"
 header_sub_title: "Class in module "
-doc: "Option"
+doc: "MenuBackdrop"
 docType: "class"
 
 ---
@@ -23,7 +23,7 @@ docType: "class"
 <h1 class="api-title">
 
 
-Option
+MenuBackdrop
 
 
 
@@ -32,7 +32,7 @@ Option
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/option/option.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/menu/menu.ts#L440'>
 Improve this doc
 </a>
 
@@ -46,7 +46,7 @@ Improve this doc
 
 
 <h3>Directive</h3>
-<h3>selector: <code>ion-option</code></h3>
+<h3>selector: <code>.backdrop</code></h3>
 <!-- @usage tag -->
 
 
@@ -57,10 +57,10 @@ Improve this doc
 
 <h3>Methods</h3>
 
-<div id="value"></div>
+<div id="menu"></div>
 
 <h3>
-<code>value()</code>
+<code>menu()</code>
   
 
 </h3>
@@ -76,30 +76,10 @@ Improve this doc
 
 
 
-<div id="checked"></div>
+<div id="elementRef"></div>
 
 <h3>
-<code>checked()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="text"></div>
-
-<h3>
-<code>text()</code>
+<code>elementRef()</code>
   
 
 </h3>

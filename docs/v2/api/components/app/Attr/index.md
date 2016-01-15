@@ -34,9 +34,9 @@ Attr
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/app/id.ts#L62'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/app/id.ts#L64'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,16 +44,16 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Attr allows you to dynamically add or remove an attribute based on the value of an expression or variable.</p>
 
 
-<h2>Directive</h2>
+<h3>Directive</h3>
 <h3>selector: <code>[attr]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">// toggle the no-lines attributes based on whether isAndroid is true or false
 &lt;ion-list [attr.no-lines]=&quot;isAndroid ? &#39;&#39; : null&quot;&gt;
@@ -65,7 +65,28 @@ Improve this doc
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<h3>Methods</h3>
+
+<div id="attr"></div>
+
+<h3>
+<code>attr()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

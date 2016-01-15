@@ -32,9 +32,9 @@ Alert
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/alert/alert.ts#L7'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/alert/alert.ts#L7'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,7 +42,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>An Alert is a dialog that presents users with either information, or used
 to receive information from the user using inputs. An alert appears on top
@@ -63,7 +62,8 @@ instance has methods to add options, such as <code>setTitle()</code> or <code>ad
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-ts">constructor(nav: NavController) {
   this.nav = nav;
@@ -146,7 +146,7 @@ presentPrompt() {
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="setTitle"></div>
 
@@ -321,7 +321,7 @@ presentPrompt() {
       </td>
       <td>
         
-  <code>Object</code>
+  <code>object</code>
       </td>
       <td>
         <p>Alert input</p>
@@ -369,7 +369,7 @@ presentPrompt() {
       </td>
       <td>
         
-  <code>Object</code>
+  <code>object</code>
       </td>
       <td>
         <p>Alert button</p>
@@ -391,7 +391,7 @@ presentPrompt() {
 <div id="setCssClass"></div>
 
 <h3>
-<code>setCssClass(className)</code>
+<code>setCssClass(cssClass)</code>
   
 
 </h3>
@@ -411,7 +411,7 @@ presentPrompt() {
     
     <tr>
       <td>
-        className
+        cssClass
         
         
       </td>

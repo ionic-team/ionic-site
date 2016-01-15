@@ -32,9 +32,9 @@ NavController
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L11'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/nav-controller.ts#L11'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,7 +42,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p><em>For examples on the basic usage of NavController, check out the
 <a href="../../../../components/#navigation">Navigation section</a> of the Component
@@ -121,45 +120,7 @@ class HelloWorld {
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
-
-<div id="sbGesture"></div>
-
-<h3>
-<code>sbGesture()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="initZIndex"></div>
-
-<h3>
-<code>initZIndex()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
+<h3>Methods</h3>
 
 <div id="id"></div>
 
@@ -203,6 +164,25 @@ class HelloWorld {
 
 <h3>
 <code>router()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="sbGesture"></div>
+
+<h3>
+<code>sbGesture()</code>
   
 
 </h3>
@@ -434,7 +414,7 @@ class MyClass{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise, which resolves when the transition has completed  
+  <code>Promise</code> Returns a promise, which resolves when the transition has completed
 </div>
 
 
@@ -524,7 +504,7 @@ class MyClass{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise, which resolves when the transition has completed  
+  <code>Promise</code> Returns a promise, which resolves when the transition has completed
 </div>
 
 
@@ -591,7 +571,7 @@ class SecondView{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise when the transition is completed  
+  <code>Promise</code> Returns a promise when the transition is completed
 </div>
 
 
@@ -725,7 +705,7 @@ This will insert the `Info` view into the second slot of our navigation stack
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise when the view has been inserted into the navigation stack  
+  <code>Promise</code> Returns a promise when the view has been inserted into the navigation stack
 </div>
 
 
@@ -808,7 +788,7 @@ export class Detail {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise when the view has been removed  
+  <code>Promise</code> Returns a promise when the view has been removed
 </div>
 
 
@@ -947,7 +927,7 @@ import {Info} from '../info/info'
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise when the pages are set  
+  <code>Promise</code> Returns a promise when the pages are set
 </div>
 
 
@@ -1035,7 +1015,7 @@ Set the root for the current navigation stack
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise when done  
+  <code>Promise</code> Returns a promise when done
 </div>
 
 
@@ -1089,7 +1069,7 @@ Check to see if swipe-to-go-back is enabled
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Whether swipe-to-go-back is enabled  
+  <code>boolean</code> Whether swipe-to-go-back is enabled
 </div>
 
 
@@ -1116,7 +1096,7 @@ will return true.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Whether you can swipe to go back  
+  <code>boolean</code> Whether you can swipe to go back
 </div>
 
 
@@ -1141,7 +1121,7 @@ Otherwise returns false.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Whether there is a page to go back to  
+  <code>boolean</code> Whether there is a page to go back to
 </div>
 
 
@@ -1195,7 +1175,7 @@ Otherwise returns false.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Component</code> Returns the component that matches the index given  
+  <code>Component</code> Returns the component that matches the index given
 </div>
 
 
@@ -1219,7 +1199,7 @@ First page in this nav controller's stack. This would not return a page which is
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Component</code> Returns the first component page in the current stack  
+  <code>Component</code> Returns the first component page in the current stack
 </div>
 
 
@@ -1243,7 +1223,7 @@ Last page in this nav controller's stack. This would not return a page which is 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Component</code> Returns the last component page in the current stack  
+  <code>Component</code> Returns the last component page in the current stack
 </div>
 
 
@@ -1268,7 +1248,7 @@ not include views which are about to be destroyed.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>number</code> The number of views in stack, including the current view  
+  <code>number</code> The number of views in stack, including the current view
 </div>
 
 
@@ -1292,13 +1272,13 @@ Returns the root NavController.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>NavController</code>   
+  <code>NavController</code> 
 </div>
 
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 

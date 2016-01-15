@@ -34,9 +34,9 @@ NavParams
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-controller.ts#L1539'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/nav-controller.ts#L1504'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,7 +44,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>NavParams are an object that exists on a page and can contain data for that particular view.
 Similar to how data was pass to a view in V1 with <code>$stateParams</code>, NavParams offer a much more flexible
@@ -52,7 +51,8 @@ option with a simple <code>get</code> method.</p>
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-ts">export class MyClass{
  constructor(params: NavParams){
@@ -71,7 +71,7 @@ option with a simple <code>get</code> method.</p>
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="data"></div>
 
@@ -152,7 +152,7 @@ export class MyClass{
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
 <a href='../NavController/'>NavController API Docs</a>

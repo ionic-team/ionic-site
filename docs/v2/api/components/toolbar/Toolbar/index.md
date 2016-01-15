@@ -34,9 +34,9 @@ Toolbar
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toolbar/toolbar.ts#L59'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/toolbar/toolbar.ts#L59'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,17 +44,17 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>The toolbar is generic bar that sits above or below content.
 Unlike an <code>Navbar</code>, <code>Toolbar</code> can be used for a subheader as well.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-toolbar</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-toolbar&gt;
   &lt;ion-title&gt;My Toolbar Title&lt;/ion-title&gt;
@@ -71,7 +71,7 @@ Unlike an <code>Navbar</code>, <code>Toolbar</code> can be used for a subheader 
 
 <!-- methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='../../navbar/Navbar/'>Navbar API Docs</a><!-- end content block -->
 

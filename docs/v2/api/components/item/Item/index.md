@@ -32,9 +32,9 @@ Item
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item.ts#L3'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/item/item.ts#L3'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,7 +42,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Creates a list-item that can easily be swiped, deleted, reordered, edited, and more.</p>
 <p>There are three common ways to use an item:</p>
@@ -58,11 +57,12 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 this component will automatically be added inside of an <code>&lt;ion-item&gt;</code>, giving it a single column.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-item,[ion-item]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-list&gt;
 
@@ -89,7 +89,7 @@ this component will automatically be added inside of an <code>&lt;ion-item&gt;</
 
 <!-- methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#lists'>List Component Docs</a>
 <a href='../../list/List'>List API Docs</a><!-- end content block -->

@@ -32,9 +32,9 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tabs.ts#L11'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/tabs/tabs.ts#L14'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,7 +42,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p><em>For basic Tabs usage, see the <a href="../../../../components/#tabs">Tabs section</a>
 of the Component docs.</em></p>
@@ -51,11 +50,12 @@ individual Tab components. On iOS, the TabBar is placed on the bottom of
 the screen, while on Android it is at the top.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-tabs</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-tabs&gt;
   &lt;ion-tab [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
@@ -67,7 +67,7 @@ the screen, while on Android it is at the top.</p>
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h3>Attributes:</h3>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -150,12 +150,12 @@ sets whether to preload all the tabs, true or false
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
-<div id="tabs"></div>
+<div id="id"></div>
 
 <h3>
-<code>tabs()</code>
+<code>id()</code>
   
 
 </h3>
@@ -171,10 +171,10 @@ sets whether to preload all the tabs, true or false
 
 
 
-<div id="tabbarPlacement"></div>
+<div id="navbarContainerRef"></div>
 
 <h3>
-<code>tabbarPlacement()</code>
+<code>navbarContainerRef()</code>
   
 
 </h3>
@@ -190,10 +190,10 @@ sets whether to preload all the tabs, true or false
 
 
 
-<div id="tabbarIcons"></div>
+<div id="subPages"></div>
 
 <h3>
-<code>tabbarIcons()</code>
+<code>subPages()</code>
   
 
 </h3>
@@ -228,10 +228,67 @@ sets whether to preload all the tabs, true or false
 
 
 
+<div id="tabbarIcons"></div>
+
+<h3>
+<code>tabbarIcons()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="tabbarPlacement"></div>
+
+<h3>
+<code>tabbarPlacement()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="change"></div>
 
 <h3>
 <code>change()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="parent"></div>
+
+<h3>
+<code>parent()</code>
   
 
 </h3>
@@ -276,7 +333,7 @@ sets whether to preload all the tabs, true or false
       </td>
       <td>
         
-  <code>Number</code>
+  <code>number</code>
       </td>
       <td>
         <p>Index of the tab you want to select</p>
@@ -324,7 +381,7 @@ sets whether to preload all the tabs, true or false
       </td>
       <td>
         
-  <code>Number</code>
+  <code>number</code>
       </td>
       <td>
         <p>Index of the tab you want to get</p>
@@ -343,7 +400,7 @@ sets whether to preload all the tabs, true or false
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Any</code> Tab Returs the tab who's index matches the one passed  
+  <code>Any</code> Tab Returs the tab who's index matches the one passed
 </div>
 
 
@@ -367,7 +424,7 @@ sets whether to preload all the tabs, true or false
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Any</code> Tab Returns the currently selected tab  
+  <code>Any</code> Tab Returns the currently selected tab
 </div>
 
 
@@ -392,13 +449,13 @@ within a NavController.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>NavController</code>   
+  <code>NavController</code> 
 </div>
 
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#tabs'>Tabs Component Docs</a>
 <a href='../Tab'>Tab API Docs</a><!-- end content block -->

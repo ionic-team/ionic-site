@@ -32,9 +32,9 @@ Nav
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav.ts#L6'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/nav.ts#L6'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,7 +42,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p><em>For a quick walkthrough of navigation in Ionic, check out the
 <a href="../../../../components/#navigation">Navigation section</a> of the Component
@@ -122,7 +121,7 @@ swipe to go back:</p>
   </pre>
 </div>
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-nav</code></h3>
 <!-- @usage tag -->
 
@@ -132,7 +131,7 @@ swipe to go back:</p>
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="root"></div>
 
@@ -151,9 +150,28 @@ swipe to go back:</p>
 
 
 
+
+
+<div id="swipeBackEnabled"></div>
+
+<h3>
+<code>swipeBackEnabled()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 <!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 

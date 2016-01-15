@@ -34,9 +34,9 @@ NavPop
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/nav-push.ts#L91'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/nav-push.ts#L88'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,16 +44,16 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Directive for declaratively pop the current page off from the navigation stack.</p>
 
 
-<h2>Directive</h2>
+<h3>Directive</h3>
 <h3>selector: <code>[nav-pop]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-content&gt;
  &lt;div block button nav-pop&gt;go back&lt;/div&gt;
@@ -70,7 +70,7 @@ Improve this doc
 
 <!-- methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
 <a href='../NavPush'>NavPush API Docs</a><!-- end content block -->

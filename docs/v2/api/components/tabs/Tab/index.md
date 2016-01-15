@@ -32,9 +32,9 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/tabs/tab.ts#L8'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/tabs/tab.ts#L9'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,7 +42,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p><em>For basic Tabs usage, see the <a href="../../../../components/#tabs">Tabs section</a>
 of the Component docs.</em></p>
@@ -86,11 +85,12 @@ class. Below is an example of presenting a modal from one of the tabs.</p>
 </code></pre>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-tab</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-tabs&gt;
      &lt;ion-tab tabTitle=&quot;Home&quot; tabIcon=&quot;home&quot; [root]=&quot;tabOneRoot&quot;&gt;&lt;/ion-tab&gt;
@@ -103,7 +103,7 @@ class. Below is an example of presenting a modal from one of the tabs.</p>
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h3>Attributes:</h3>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -206,7 +206,102 @@ method to call when the current tab is selected
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
+
+<div id="isSelected"></div>
+
+<h3>
+<code>isSelected()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="btn"></div>
+
+<h3>
+<code>btn()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="root"></div>
+
+<h3>
+<code>root()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="tabTitle"></div>
+
+<h3>
+<code>tabTitle()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="tabIcon"></div>
+
+<h3>
+<code>tabIcon()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="select"></div>
 
@@ -253,7 +348,7 @@ export class MyClass{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Number</code> Returns the index of this page within its NavController.  
+  <code>number</code> Returns the index of this page within its NavController.
 </div>
 
 

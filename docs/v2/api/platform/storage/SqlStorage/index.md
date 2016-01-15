@@ -32,9 +32,9 @@ SqlStorage
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/platform/storage/sql.ts#L5'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/platform/storage/sql.ts#L5'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,7 +42,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>SqlStorage uses SQLite or WebSQL (development only!) to store data in a
 persistent SQL store on the filesystem.</p>
@@ -53,7 +52,8 @@ storage. The full SQL engine is exposed underneath through the <code>query</code
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-js">let storage = new Storage(SqlStorage, options);
 storage.set(&#39;name&#39;, &#39;Max&#39;);
@@ -79,7 +79,7 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="query"></div>
 
@@ -149,7 +149,7 @@ like SELECT, INSERT, and UPDATE.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}  
+  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 </div>
 
 
@@ -203,7 +203,7 @@ Get the value in the database identified by the given key.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}  
+  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 </div>
 
 
@@ -274,7 +274,7 @@ Set the value in the database for the given key. Existing values will be overwri
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}  
+  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 </div>
 
 
@@ -345,7 +345,7 @@ Remove the value in the database for the given key.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}  
+  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 </div>
 
 

@@ -32,9 +32,9 @@ Events
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/util/events.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/util/events.ts#L0'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,14 +42,14 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Events is a pub/sub style event system for sending and responding to application-level
 events across your app.</p>
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-ts">// first page (publish an event when a user is created)
 function createUser(user) {
@@ -71,7 +71,7 @@ events.subscribe(&#39;user:created&#39;, (user) =&gt; {
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="subscribe"></div>
 
@@ -209,7 +209,7 @@ no longer receive events published to this topic.
 <b>Returns:</b> 
    true if a handler was removed
 
-  
+
 </div>
 
 

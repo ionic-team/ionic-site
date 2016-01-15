@@ -32,9 +32,9 @@ Input
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/input/input.ts#L13'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/input/input.ts#L13'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,16 +42,16 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p><code>ion-input</code> is a generic wrapper for both inputs and textareas. You can give <code>ion-input</code> attributes to tell it how to handle a child <code>ion-label</code> component.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-input</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-input&gt;
   &lt;ion-label&gt;Username&lt;/ion-label&gt;
@@ -78,7 +78,7 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h3>Attributes:</h3>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -170,12 +170,202 @@ A clear icon will appear in the input which clears it
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
+
+<div id="input"></div>
+
+<h3>
+<code>input()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="label"></div>
+
+<h3>
+<code>label()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="scrollMove"></div>
+
+<h3>
+<code>scrollMove()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="startCoord"></div>
+
+<h3>
+<code>startCoord()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="deregScroll"></div>
+
+<h3>
+<code>deregScroll()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="keyboardHeight"></div>
+
+<h3>
+<code>keyboardHeight()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="value"></div>
 
 <h3>
 <code>value()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="type"></div>
+
+<h3>
+<code>type()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="lastTouch"></div>
+
+<h3>
+<code>lastTouch()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="displayType"></div>
+
+<h3>
+<code>displayType()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="clearInput"></div>
+
+<h3>
+<code>clearInput()</code>
   
 
 </h3>

@@ -32,9 +32,9 @@ Icon
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/icon/icon.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/icon/icon.ts#L2'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,7 +42,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Icons can be used on their own, or inside of a number of Ionic components.
 For a full list of available icons, check out the
@@ -55,11 +54,12 @@ automatically apply <code>md-alarm</code>. This allow the developer to write the
 markup once, and let Ionic automatically apply the appropriate icon.</p>
 
 
-<h2>Directive</h2>
+<h3>Directive</h3>
 <h3>selector: <code>ion-icon,icon</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;!-- automatically uses the correct &quot;star&quot; icon depending on the mode --&gt;
 &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
@@ -77,7 +77,7 @@ markup once, and let Ionic automatically apply the appropriate icon.</p>
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h3>Attributes:</h3>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -182,9 +182,110 @@ or not. The `isActive` property is largely used by the tabbar.
 </table>
 
 
-<!-- methods on the class --><!-- related link -->
+<!-- methods on the class -->
 
-<h2>Related</h2>
+<h3>Methods</h3>
+
+<div id="mode"></div>
+
+<h3>
+<code>mode()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="name"></div>
+
+<h3>
+<code>name()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ios"></div>
+
+<h3>
+<code>ios()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="md"></div>
+
+<h3>
+<code>md()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isActive"></div>
+
+<h3>
+<code>isActive()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
+
+<h3>Related</h3>
 
 <a href='/docs/v2/components#icons'>Icon Component Docs</a><!-- end content block -->
 

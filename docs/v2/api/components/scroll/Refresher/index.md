@@ -34,9 +34,9 @@ Refresher
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/pull-to-refresh.ts#L5'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/scroll/pull-to-refresh.ts#L6'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,18 +44,18 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Allows you to add pull-to-refresh to an Content component.
 Place it as the first child of your Content or Scroll element.</p>
 <p>When refreshing is complete, call <code>refresher.complete()</code> from your controller.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-refresher</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-content&gt;
   &lt;ion-refresher (starting)=&quot;doStarting()&quot;
@@ -91,7 +91,7 @@ constructor(){}
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h3>Attributes:</h3>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -252,7 +252,351 @@ the methond on your class you want to perform when you are pulling down
 </table>
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<h3>Methods</h3>
+
+<div id="ele"></div>
+
+<h3>
+<code>ele()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isDragging"></div>
+
+<h3>
+<code>isDragging()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isOverscrolling"></div>
+
+<h3>
+<code>isOverscrolling()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="dragOffset"></div>
+
+<h3>
+<code>dragOffset()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="lastOverscroll"></div>
+
+<h3>
+<code>lastOverscroll()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="ptrThreshold"></div>
+
+<h3>
+<code>ptrThreshold()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="activated"></div>
+
+<h3>
+<code>activated()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="scrollTime"></div>
+
+<h3>
+<code>scrollTime()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="canOverscroll"></div>
+
+<h3>
+<code>canOverscroll()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pullingIcon"></div>
+
+<h3>
+<code>pullingIcon()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pullingText"></div>
+
+<h3>
+<code>pullingText()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="refreshingIcon"></div>
+
+<h3>
+<code>refreshingIcon()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="refreshingText"></div>
+
+<h3>
+<code>refreshingText()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="spinner"></div>
+
+<h3>
+<code>spinner()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pulling"></div>
+
+<h3>
+<code>pulling()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="refresh"></div>
+
+<h3>
+<code>refresh()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="starting"></div>
+
+<h3>
+<code>starting()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="content"></div>
+
+<h3>
+<code>content()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

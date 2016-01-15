@@ -32,9 +32,9 @@ Searchbar
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/searchbar/searchbar.ts#L30'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/searchbar/searchbar.ts#L30'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,16 +42,16 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Manages the display of a Searchbar which can be used to search or filter items.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-searchbar</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-searchbar [(ngModel)]=&quot;defaultSearch&quot; (input)=&quot;triggerInput($event)&quot; (cancel)=&quot;onCancelSearchbar($event)&quot; (clear)=&quot;onClearSearchbar($event)&quot;&gt;&lt;/ion-searchbar&gt;
 </code></pre>
@@ -61,7 +61,7 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h3>Attributes:</h3>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -304,7 +304,7 @@ Expression to evaluate when the clear input button is clicked
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="searchbarInput"></div>
 
@@ -496,7 +496,7 @@ Expression to evaluate when the clear input button is clicked
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#searchbar'>Searchbar Component Docs</a><!-- end content block -->
 

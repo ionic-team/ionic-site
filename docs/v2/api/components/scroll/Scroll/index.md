@@ -34,9 +34,9 @@ Scroll
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/scroll/scroll.ts#L7'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/scroll/scroll.ts#L7'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,16 +44,16 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Scroll is a non-flexboxed scroll area that can scroll horizontally or vertically. <code>ion-Scroll</code> Can be used in places were you may not need a full page scroller, but a highly customized one, such as image scubber or comment scroller.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-scroll</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-scroll scroll-x=&quot;true&quot;&gt;
 &lt;/ion-scroll&gt;
@@ -70,7 +70,7 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h3>Attributes:</h3>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -173,7 +173,64 @@ set the max zoom amount for ion-scroll
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
+
+<div id="maxScale"></div>
+
+<h3>
+<code>maxScale()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="zoomDuration"></div>
+
+<h3>
+<code>zoomDuration()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="scrollElement"></div>
+
+<h3>
+<code>scrollElement()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="addScrollEventListener"></div>
 
@@ -224,7 +281,7 @@ Add a scroll event handler to the scroll element if it exists.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>?Function</code> a function to remove the specified handler, otherwise
-undefined if the scroll element doesn't exist.  
+undefined if the scroll element doesn't exist.
 </div>
 
 

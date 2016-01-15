@@ -34,9 +34,9 @@ Toggle
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/toggle/toggle.ts#L5'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/toggle/toggle.ts#L5'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,18 +44,18 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>A toggle technically is the same thing as an HTML checkbox input, except it looks different and is easier to use on a touch device. Ionic prefers to wrap the checkbox input with the <code>&lt;label&gt;</code> in order to make the entire toggle easy to tap or drag.
 Togglees can also have colors assigned to them, by adding any color attribute to them.</p>
 <p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-toggle,ion-switch</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;!-- Create a single toggle --&gt;
  &lt;ion-toggle checked=&quot;true&quot;&gt;
@@ -85,7 +85,7 @@ Togglees can also have colors assigned to them, by adding any color attribute to
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h3>Attributes:</h3>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -188,7 +188,7 @@ a unique ID for a toggle
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="value"></div>
 
@@ -363,7 +363,7 @@ Toggle the checked state of this toggle.
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#toggle'>Toggle Component Docs</a><!-- end content block -->
 

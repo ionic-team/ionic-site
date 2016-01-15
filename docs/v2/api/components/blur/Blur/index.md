@@ -34,9 +34,9 @@ Blur
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/blur/blur.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/blur/blur.ts#L0'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,17 +44,17 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>The blur attribute applies the CSS blur attribute to an element. If the CSS attribute is not supported,
 it will fall back to applying a semi-transparent background color to the element.</p>
 
 
-<h2>Directive</h2>
+<h3>Directive</h3>
 <h3>selector: <code>[blur]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-card blur&gt;
    This card will blur the content behind it.

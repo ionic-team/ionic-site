@@ -34,9 +34,9 @@ Menu
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu.ts#L7'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/menu/menu.ts#L9'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,18 +44,18 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p><em>For basic Menu usage, see the <a href="../../../../components/#menus">Menu section</a>
 of the Component docs.</em></p>
 <p>Menu is a side-menu navigation that can be dragged out or toggled to show.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-menu</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <p>In order to use Menu, you must specify a <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">reference</a>
 to the content element that Menu should listen on for drag events, using the <code>content</code> property:</p>
@@ -119,7 +119,197 @@ export class MyClass{
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
+
+<div id="opening"></div>
+
+<h3>
+<code>opening()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isOpen"></div>
+
+<h3>
+<code>isOpen()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isEnabled"></div>
+
+<h3>
+<code>isEnabled()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="backdrop"></div>
+
+<h3>
+<code>backdrop()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="onContentClick"></div>
+
+<h3>
+<code>onContentClick()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="content"></div>
+
+<h3>
+<code>content()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="id"></div>
+
+<h3>
+<code>id()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="side"></div>
+
+<h3>
+<code>side()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="type"></div>
+
+<h3>
+<code>type()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="maxEdgeStart"></div>
+
+<h3>
+<code>maxEdgeStart()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="app"></div>
 
@@ -245,7 +435,7 @@ Sets the state of the Menu to open or not.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> returns a promise once set  
+  <code>Promise</code> returns a promise once set
 </div>
 
 
@@ -269,7 +459,7 @@ Progamatically open the Menu
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> returns a promise when the menu is fully opened  
+  <code>Promise</code> returns a promise when the menu is fully opened
 </div>
 
 
@@ -293,7 +483,7 @@ Progamatically close the Menu
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> returns a promise when the menu is fully closed  
+  <code>Promise</code> returns a promise when the menu is fully closed
 </div>
 
 
@@ -317,7 +507,7 @@ Toggle the menu. If it's closed, it will open, and if opened, it will close
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> returns a promise when the menu has been toggled  
+  <code>Promise</code> returns a promise when the menu has been toggled
 </div>
 
 
@@ -372,13 +562,13 @@ left menus, but only one of them should be able to be dragged open.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Menu</code> Returns the instance of the menu, which is useful for chaining.  
+  <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
 </div>
 
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#menus'>Menu Component Docs</a>
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>

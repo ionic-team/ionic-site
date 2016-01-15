@@ -34,9 +34,9 @@ ActionSheet
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/action-sheet/action-sheet.ts#L7'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/action-sheet/action-sheet.ts#L7'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,7 +44,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>An Action Sheet is a dialog that lets the user choose from a set of
 options. It appears on top of the app&#39;s content, and must be manually
@@ -68,7 +67,8 @@ instance has methods to add options, such as <code>setTitle()</code> or <code>ad
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-ts">constructor(nav: NavController) {
   this.nav = nav;
@@ -113,7 +113,7 @@ presentActionSheet() {
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="setTitle"></div>
 
@@ -240,7 +240,7 @@ presentActionSheet() {
       </td>
       <td>
         
-  <code>Object</code>
+  <code>object</code>
       </td>
       <td>
         <p>Action sheet button</p>
@@ -259,7 +259,7 @@ presentActionSheet() {
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#action-sheets'>ActionSheet Component Docs</a><!-- end content block -->
 

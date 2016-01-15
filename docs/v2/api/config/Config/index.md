@@ -34,9 +34,9 @@ Config
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/config/config.ts#L9'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/config/config.ts#L9'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,7 +44,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.</p>
 <pre><code class="lang-ts">@App({
@@ -188,7 +187,7 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="platform"></div>
 
@@ -331,6 +330,25 @@ Returns a single config value, given a key.
     
   </tbody>
 </table>
+
+
+
+
+
+
+
+
+<div id="getBoolean"></div>
+
+<h3>
+<code>getBoolean()</code>
+  
+
+</h3>
+
+
+
+
 
 
 

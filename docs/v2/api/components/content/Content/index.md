@@ -32,9 +32,9 @@ Content
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/content/content.ts#L8'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/content/content.ts#L8'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,18 +42,18 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>The Content component provides an easy to use content area that can be configured to use Ionic&#39;s custom Scroll View, or the built in overflow scrolling of the browser.</p>
 <p>While we recommend using the custom Scroll features in Ionic in most cases, sometimes (for performance reasons) only the browser&#39;s native overflow scrolling will suffice, and so we&#39;ve made it easy to toggle between the Ionic scroll implementation and overflow scrolling.</p>
 <p>You can implement pull-to-refresh with the <a href="../../scroll/Refresher">Refresher</a> component.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-content</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-content id=&quot;myContent&quot;&gt;
   Add your content here!
@@ -68,7 +68,7 @@ Improve this doc
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="ngOnDestroy"></div>
 
@@ -157,7 +157,7 @@ export class MyPage{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Function</code> A function that removes the scroll handler.  
+  <code>Function</code> A function that removes the scroll handler.
 </div>
 
 
@@ -250,7 +250,7 @@ export class MyPage{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Function</code> A function that removes the touchmove handler.  
+  <code>Function</code> A function that removes the touchmove handler.
 </div>
 
 
@@ -376,7 +376,7 @@ export class MyPage{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise when done  
+  <code>Promise</code> Returns a promise when done
 </div>
 
 
@@ -421,7 +421,7 @@ export class MyPage{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise when done  
+  <code>Promise</code> Returns a promise when done
 </div>
 
 

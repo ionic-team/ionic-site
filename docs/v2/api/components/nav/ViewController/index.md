@@ -32,9 +32,9 @@ ViewController
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/nav/view-controller.ts#L1'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/view-controller.ts#L2'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,13 +42,13 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Access various features and information about the current view</p>
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-ts">import {Page, ViewController} from &#39;ionic/ionic&#39;;
 @Page....
@@ -67,7 +67,26 @@ export class MyPage{
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
+
+<div id="id"></div>
+
+<h3>
+<code>id()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="instance"></div>
 
@@ -149,6 +168,25 @@ export class MyPage{
 
 <h3>
 <code>viewType()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="onReady"></div>
+
+<h3>
+<code>onReady()</code>
   
 
 </h3>
@@ -402,7 +440,7 @@ Check to see if you can go back in the navigation stack
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Returns if it's possible to go back from this Page.  
+  <code>boolean</code> Returns if it's possible to go back from this Page.
 </div>
 
 
@@ -437,7 +475,7 @@ You can find out the index of the current view is in the current navigation stac
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>number</code> Returns the index of this page within its NavController.  
+  <code>number</code> Returns the index of this page within its NavController.
 </div>
 
 
@@ -461,7 +499,7 @@ You can find out the index of the current view is in the current navigation stac
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Returns if this Page is the root page of the NavController.  
+  <code>boolean</code> Returns if this Page is the root page of the NavController.
 </div>
 
 
@@ -497,7 +535,7 @@ export class Page1 {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Returns a boolean if this Page has a navbar or not.  
+  <code>boolean</code> Returns a boolean if this Page has a navbar or not.
 </div>
 
 

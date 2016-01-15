@@ -32,9 +32,9 @@ Select
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/select/select.ts#L8'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/select/select.ts#L8'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,7 +42,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>The <code>ion-select</code> component is similar to an HTML <code>&lt;select&gt;</code> element, however,
 Ionic&#39;s select component makes it easier for users to sort through and select
@@ -104,7 +103,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 </code></pre>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-select</code></h3>
 <!-- @usage tag -->
 
@@ -114,7 +113,45 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
+
+<div id="selectedText"></div>
+
+<h3>
+<code>selectedText()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="labelId"></div>
+
+<h3>
+<code>labelId()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="cancelText"></div>
 
@@ -291,6 +328,82 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>options()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="form"></div>
+
+<h3>
+<code>form()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="elementRef"></div>
+
+<h3>
+<code>elementRef()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="renderer"></div>
+
+<h3>
+<code>renderer()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="navCtrl"></div>
+
+<h3>
+<code>navCtrl()</code>
   
 
 </h3>

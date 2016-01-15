@@ -32,9 +32,9 @@ ItemSliding
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/item/item-sliding.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/item/item-sliding.ts#L2'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,16 +42,16 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Creates a list-item that can easily be swiped, deleted, reordered, edited, and more.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-item-sliding</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item-sliding *ngFor=&quot;#item of items&quot;&gt;
@@ -74,7 +74,7 @@ Improve this doc
 
 <!-- methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#lists'>List Component Docs</a>
 <a href='../../list/List'>List API Docs</a><!-- end content block -->

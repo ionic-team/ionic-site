@@ -34,9 +34,9 @@ MenuClose
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/menu/menu-close.ts#L3'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/menu/menu-close.ts#L3'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,17 +44,17 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Place <code>menuClose</code> on a button to automatically close an open menu. Note that the menu&#39;s id must be either
 <code>leftMenu</code> or <code>rightMenu</code></p>
 
 
-<h2>Directive</h2>
+<h3>Directive</h3>
 <h3>selector: <code>[menuClose]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot; id=&quot;leftMenu&quot;&gt;
   &lt;ion-content&gt;
@@ -75,7 +75,7 @@ Improve this doc
 
 <!-- methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#menus'>Menu Component Docs</a>
 <a href='../../menu/Menu'>Menu API Docs</a><!-- end content block -->

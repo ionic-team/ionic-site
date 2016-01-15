@@ -32,9 +32,9 @@ Page
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/decorators/page.ts#L3'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/decorators/page.ts#L3'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,7 +42,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>For more information on how pages are created, see the <a href="../../components/nav/NavController/#creating_pages">NavController API reference</a></p>
 <p>The Page decorator indicates that the decorated class is an Ionic
@@ -54,7 +53,8 @@ already provided to them, so you only need to supply custom components and direc
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-ts">@Page({
   template: `

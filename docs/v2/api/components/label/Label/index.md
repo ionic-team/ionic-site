@@ -34,9 +34,9 @@ Label
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/label/label.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/label/label.ts#L2'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,16 +44,16 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Labels describe the data that the user should enter in to an input element.</p>
 
 
-<h2>Directive</h2>
+<h3>Directive</h3>
 <h3>selector: <code>ion-label</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-input&gt;
   &lt;ion-label&gt;Username&lt;/ion-label&gt;
@@ -69,7 +69,26 @@ Improve this doc
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
+
+<div id="id"></div>
+
+<h3>
+<code>id()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="text"></div>
 
@@ -90,7 +109,7 @@ Improve this doc
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='../../../../components#inputs'>Input Component Docs</a>
 <a href='../Input'>Input API Docs</a><!-- end content block -->

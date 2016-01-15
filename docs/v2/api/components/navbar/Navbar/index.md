@@ -32,9 +32,9 @@ Navbar
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/navbar/navbar.ts#L59'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/navbar/navbar.ts#L58'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,17 +42,17 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Navbar is a global level toolbar that gets updated every time a page gets
 loaded. You can pass the navbar a <code>ion-title</code> or any number of buttons.</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-navbar</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
 
@@ -80,9 +80,49 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link -->
+<!-- methods on the class -->
 
-<h2>Related</h2>
+<h3>Methods</h3>
+
+<div id="hideBackButton"></div>
+
+<h3>
+<code>hideBackButton()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="setBackButtonText"></div>
+
+<h3>
+<code>setBackButtonText()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
+
+<h3>Related</h3>
 
 <a href='../../toolbar/Toolbar/'>Toolbar API Docs</a><!-- end content block -->
 

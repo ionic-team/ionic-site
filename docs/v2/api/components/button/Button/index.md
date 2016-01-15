@@ -34,9 +34,9 @@ Button
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/button/button.ts#L3'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/button/button.ts#L3'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,19 +44,18 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.</p>
 
 
-<h2>Directive</h2>
+<h3>Directive</h3>
 <h3>selector: <code>button,[button]</code></h3>
 <!-- @usage tag -->
 
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h3>Attributes:</h3>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -285,9 +284,49 @@ Dynamically set which color attribute this button should use.
 </table>
 
 
-<!-- methods on the class --><!-- related link -->
+<!-- methods on the class -->
 
-<h2>Related</h2>
+<h3>Methods</h3>
+
+<div id="isItem"></div>
+
+<h3>
+<code>isItem()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="color"></div>
+
+<h3>
+<code>color()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
+
+<h3>Related</h3>
 
 <a href='/docs/v2/components#buttons'>Button Component Docs</a><!-- end content block -->
 

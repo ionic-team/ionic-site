@@ -32,9 +32,9 @@ Keyboard
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/util/keyboard.ts#L4'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/util/keyboard.ts#L4'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -42,13 +42,13 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>The <code>Keyboard</code> class allows you to work with the keyboard events provide by the Ionic keyboard plugin.</p>
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-ts">export class MyClass{
  constructor(keyboard: Keyboard){
@@ -65,7 +65,7 @@ Improve this doc
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="isOpen"></div>
 
@@ -98,7 +98,7 @@ export class MyClass{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Bool</code> returns a true or flase value if the keyboard is open or not  
+  <code>Bool</code> returns a true or flase value if the keyboard is open or not
 </div>
 
 
@@ -166,7 +166,7 @@ export class MyClass{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Function</code> returns a callback that gets fired when the keyboard is closed  
+  <code>Function</code> returns a callback that gets fired when the keyboard is closed
 </div>
 
 

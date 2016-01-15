@@ -34,9 +34,9 @@ Slides
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L12'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/slides/slides.ts#L12'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,7 +44,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Slides is a slide box implementation based on Swiper.js</p>
 <p>Swiper.js:
@@ -56,11 +55,12 @@ The iDangero.us
 <p>Licensed under MIT</p>
 
 
-<h2>Component</h2>
+<h3>Component</h3>
 <h3>selector: <code>ion-slides</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h3 style="margin-bottom: 7px">Usage</h3>
+
 
 <pre><code class="lang-ts">@Page({
  template: `
@@ -95,7 +95,7 @@ The iDangero.us
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h3>Attributes:</h3>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -236,7 +236,7 @@ expression to evaluate when a slide has been changed
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="rapidUpdate"></div>
 
@@ -675,7 +675,7 @@ expression to evaluate when a slide has been changed
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#slides'>Slides Component Docs</a><!-- end content block -->
 

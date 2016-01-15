@@ -34,9 +34,9 @@ List
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L5'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/list/list.ts#L5'>
 Improve this doc
-</a> 
+</a>
 
 
 
@@ -44,7 +44,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>The List is a widely used interface element in almost any mobile app, and can include
 content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.</p>
@@ -54,7 +53,7 @@ element.</p>
 interaction modes such as swipe to edit, drag to reorder, and removing items.</p>
 
 
-<h2>Directive</h2>
+<h3>Directive</h3>
 <h3>selector: <code>ion-list</code></h3>
 <!-- @usage tag -->
 
@@ -64,7 +63,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h3>Methods</h3>
 
 <div id="zone"></div>
 
@@ -179,7 +178,7 @@ export class MyClass {
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h3>Related</h3>
 
 <a href='/docs/v2/components#lists'>List Component Docs</a><!-- end content block -->
 

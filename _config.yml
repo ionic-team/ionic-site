@@ -10,7 +10,7 @@ timezone: "US/Central"
 # Default news if the page didnt enter news
 news: Check out our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up.
 v2news: Check out our <a href="/docs/v2/guide/">Guide</a>, which covers all the basics of setting up.
-exclude: [node_modules, scss, blog, circle.yml, npm-shrinkwrap.json, README.md]
+exclude: [node_modules, scss, blog, npm-shrinkwrap.json, README.md]
 
 # Latest Version Config
 latest_download: http://code.ionicframework.com/1.2.1/ionic-v1.2.1.zip

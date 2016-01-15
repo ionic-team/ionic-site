@@ -159,10 +159,11 @@ gulp.task('watch', ['server'],function() {
   gulp.watch('scss/**.scss', ['server:stylesv1']);
   gulp.watch(['_scss/*.scss', '_scss/docs/*.scss'], ['server:stylesv2']);
   gulp.watch(['_img/*','_img/*/*'], ['server:images']);
-  gulp.watch('_js/**/*.js', 'submit-issue/*/*.js', ['server:js']);
-  gulp.watch(['*.html', 'submit-issue/*.html', '_layouts/*', '_layouts/*/*', '_posts/*', '_includes/*/*',
-              'docs/v2/**/*.{md,html,js,css}', '!docs/v2/2*',
-              '!docs/v2/nightly'], ['server:jekyll']);
+  gulp.watch(['_js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
+  gulp.watch(['*.html', 'submit-issue/*.html', '_layouts/*', '_layouts/*/*',
+              '_posts/*', '_includes/*/*', 'docs/v2/**/*.{md,html,js,css}',
+              '!docs/v2/2*', '!docs/v2/nightly'],
+             ['server:jekyll']);
 
 });
 
@@ -171,8 +172,10 @@ gulp.task('cli-docs', function() {
     var fs = require('fs');
     var cliTasks = JSON.stringify(require('../ionic-cli/lib/tasks/cliTasks'));
     fs.writeFileSync('_data/cliData.json', cliTasks);
-  } catch(e) {
-    console.error('Cannot find module cliTasks, please make sure the ionic-cli repo is cloned locally. ionic-site and ionic-cli should be sibling directories.');
+  } catch (e) {
+    console.error('Cannot find module cliTasks, please make sure the ionic-' +
+                  'cli repo is cloned locally. ionic-site and ionic-cli ' +
+                  'should be sibling directories.');
   }
 });
 

@@ -109,7 +109,9 @@ gulp.task('js', function() {
  */
 gulp.task('jekyll-build', ['cli-docs'], function(done) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn('jekyll', ['build', '-I'], {stdio: 'inherit'})
+  return cp.spawn('jekyll',
+                  ['build', '-I', '--config', '_config_development.yml'],
+                  {stdio: 'inherit'})
            .on('close', done);
 });
 

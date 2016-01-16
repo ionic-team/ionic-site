@@ -12,20 +12,20 @@ Ionic comes with the same 700+ [Ionicons](http://ionicons.com/) icons we've all 
   Demo Source
 </a>
 
-To use an icon, just add the Icon's CSS class to your element:
+To use an icon, just add the Icon's CSS class the name property of your element:
 
 ```html
-<ion-icon heart></ion-icon>
+<ion-icon name="heart"></ion-icon>
 ```
 
 
 ### Active / Inactive Icons:
 
-All icons have both `active` and `inactive` states. Active icons are typically full and thick, where as inactive icons are outlined and thin. Set the `is-active` attribute to `true` or false to change the state of the icon. Icons will default to active if a value is not specified.
+All icons have both `active` and `inactive` states. Active icons are typically full and thick, where as inactive icons are outlined and thin. Set the `isActive` attribute to `true` or false to change the state of the icon. Icons will default to active if a value is not specified.
 
 ```html
-<ion-icon heart></ion-icon>                    <!-- active -->
-<ion-icon heart is-active="false"></ion-icon>  <!-- inactive -->
+<ion-icon name="heart"></ion-icon>                    <!-- active -->
+<ion-icon name="heart" isActive="false"></ion-icon>  <!-- inactive -->
 ```
 
 

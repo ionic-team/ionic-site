@@ -84,8 +84,8 @@ Here's the main template for the app in `app/app.html`:
 <ion-nav id="nav" [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>
 ```
 
-In this template, we set up an `ion-menu` to function as a side menu, and then a navigation controller
-to act as the main content area. The `ion-menu` takes a property of `content`, and we can pass the local variable of `#content` from our `ion-nav`.
+In this template, we set up an `ion-menu` to function as a side menu, and then a navigation controller to act as the main content area. The `ion-menu` takes a property of `content`, and we can pass the local variable of `#content` from our `ion-nav`.
+
 This will let the menu know what element should be the main content. The app will let the user select sections from the side menu which will change what they see in the content area. The user will be able to navigate inside the content menu if the section has other pages to navigate to.
 
 Let's go and see how to create more pages and perform basic navigation.

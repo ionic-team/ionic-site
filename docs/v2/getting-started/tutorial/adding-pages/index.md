@@ -14,8 +14,7 @@ header_sub_title: Ionic 2 Developer Preview
   Improve this doc
 </a>
 
-Now that we have a basic understanding of the layout of an Ionic 2 app, let's walk through the process of
-creating and navigating to pages in our app.
+Now that we have a basic understanding of the layout of an Ionic 2 app, let's walk through the process of creating and navigating to pages in our app.
 
 Taking a look at `app/app.html`, we see this line near the bottom:
 
@@ -23,8 +22,7 @@ Taking a look at `app/app.html`, we see this line near the bottom:
 <ion-nav #content [root]="rootPage"></ion-nav>
 ```
 
-Pay attention to the `[root]` property binding. This sets what is essentially the
-first, or "root" page for the `ion-nav` controller. When the navigation controller loads, the component referenced by `rootPage` will be the root page.
+Pay attention to the `[root]` property binding. This sets what is essentially the first, or "root" page for the `ion-nav` controller. When the navigation controller loads, the component referenced by `rootPage` will be the root page.
 
 In `app/app.js`, the `MyApp` root component specifies this in its constructor:
 
@@ -113,12 +111,9 @@ All pages have both a class, and an associated template. Let's checkout `app/hel
 {% endraw %}
 ```
 
-The `<ion-navbar *navbar>` component functions as configuration
-data for the navigation bar. As we navigate to the page, the nav bar will be updated with the
-various `ion-nav-items` for buttons in the bar, and `<ion-title>` for the title of the bar.
+The `<ion-navbar *navbar>` component functions as configuration data for the navigation bar. As we navigate to the page, the nav bar will be updated with the various `ion-nav-items` for buttons in the bar, and `<ion-title>` for the title of the bar.
 
-The rest of the template is standard Ionic code that sets up our content area, and then
-renders our welcome message.
+The rest of the template is standard Ionic code that sets up our content area, and then renders our welcome message.
 
 ### Creating Additional Pages
 

@@ -16,12 +16,12 @@ If you're new to Ionic and/or hybrid mobile development, it can help to get a hi
 
 ## What is Ionic?
 
-Ionic is a SDK that allows developers to build mobile apps using familiar web technologies (HTML, CSS, Javascript). 
+Ionic is a SDK that allows developers to build mobile apps using familiar web technologies (HTML, CSS, Javascript).
 
 
 ## What is the Ionic CLI?
 
-The [CLI](../../resources/what-is/#cli), or command line interface is a tools that provides a number of helpful commands to Ionic developers. In addition to installing and updating Ionic, the CLI comes with a built in development server, build and debugging tools, and much more. If you are using the [Ionic Platform](http://ionic.io/), the CLI can be used to interact with your account programmatically.
+The [CLI](../../resources/what-is/#cli), or command line interface, is a tool that provides a number of helpful commands to Ionic developers. In addition to installing and updating Ionic, the CLI comes with a built-in development server, build and debugging tools, and much more. If you are using the [Ionic Platform](http://ionic.io/), the CLI can be used to interact with your account programmatically.
 
 ## What are components?
 

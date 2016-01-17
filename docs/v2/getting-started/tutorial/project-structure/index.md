@@ -65,7 +65,7 @@ In this component, we set the template to be the file at `app/app.html`, let's t
 Here's the main template for the app in `app/app.html`:
 
 ```html
-<ion-menu [content]="content">
+<ion-menu id="leftMenu" [content]="content">
 
   <ion-toolbar>
     <ion-title>Pages</ion-title>

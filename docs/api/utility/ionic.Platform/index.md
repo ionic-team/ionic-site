@@ -573,10 +573,5 @@ Sets whether the app is fullscreen or not (in Cordova).
 
   
 
-</ul>
-
-
-
-
 
 

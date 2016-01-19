@@ -78,7 +78,7 @@ $ ionic run android
 ```
 
 <h3 style="text-align:right;">
- <a href="/docs/v2/getting-started/tutorial">
+ <a href="/docs/v2/getting-started/tutorial" role="button">
     Learn the basics
   </a>
 </h3>

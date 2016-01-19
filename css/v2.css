@@ -5071,10 +5071,10 @@ ul.docs-example {
   padding-right: 5px;
   top: 2px; }
 
-#what-is h3 a {
-  color: #26292e; }
-  #what-is h3 a:hover {
-    color: #26292e; }
+.docs-container h3 a:not([role="button"]) {
+  color: #26292e !important; }
+  .docs-container h3 a:not([role="button"]):hover {
+    color: #26292e !important; }
 
 .docs-ionicons .download {
   margin-top: 60px;

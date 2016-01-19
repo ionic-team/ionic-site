@@ -43,6 +43,7 @@ The following are a list of editors and IDEs that we think will give you the mos
 <p>Webstorm is a paid IDE that provides many features, such as advanced refactoring support, automatic compilation of code, and gulp/grunt/webpack support. Out of the box, Webstorm comes with support for ES6 and TypeScript, as well as Angular and Ionic syntax support.</p>
 <p><a href="https://www.jetbrains.com/webstorm/">Webstorm official website</a></p>
 </section>
+
 <script>
 $(document).ready(function() {
   $(function () {

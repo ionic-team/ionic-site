@@ -54,7 +54,7 @@ In the next section, let's go over the project structure created by the `ionic s
 
 
 <h3 style="text-align:right;">
- <a href="project-structure/">
+ <a href="project-structure/" role="button">
  Project Structure
  </a>
 </h3>

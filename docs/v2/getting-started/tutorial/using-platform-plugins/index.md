@@ -27,4 +27,4 @@ Great Ionic apps don't just live in a web view in an app, they embrace the entir
 ## Push Notifications
 
 
-<a href="../building-forms/" class="btn btn-primary">Building Forms</a>
+<a href="../building-forms/" class="btn btn-primary" role="button">Building Forms</a>

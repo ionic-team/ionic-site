@@ -22,4 +22,4 @@ Improve this doc
 ## Custom Stylesheets
 
 
-<a href="../building-forms/" class="btn btn-primary">Building Forms</a>
+<a href="../building-forms/" class="btn btn-primary" role="button">Building Forms</a>

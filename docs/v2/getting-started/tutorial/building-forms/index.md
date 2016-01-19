@@ -23,4 +23,4 @@ Improve this doc
 
 ## Submitting a Form
 
-<a href="../using-platform-plugins/" class="btn btn-primary">Using Platform Plugins</a>
+<a href="../using-platform-plugins/" class="btn btn-primary" role="button">Using Platform Plugins</a>

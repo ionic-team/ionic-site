@@ -157,7 +157,7 @@ This will add each item to the list, and register a click handler on each of tho
 Overall, this page is very similar to the `HelloIonicPage` we saw earlier. Currently, when you tap an item, our app will log a message to the console. In the next section, we will learn about how we can improve this by navigating to a new page!
 
 <h3 style="text-align:right;">
- <a href="../navigation/">
+ <a href="../navigation/" role="button">
  Navigation
  </a>
 </h3>

@@ -712,11 +712,9 @@ ul.docs-example {
   }
 }
 
-#what-is h3 a {
-  color: #26292e;
+.docs-container h3 a:not([role="button"]) {
+  color: #26292e !important;
   &:hover {
-    color: #26292e;
+    color: #26292e !important;
   }
 }
-
-

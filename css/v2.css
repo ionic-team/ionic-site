@@ -5071,6 +5071,11 @@ ul.docs-example {
   padding-right: 5px;
   top: 2px; }
 
+#what-is h3 a {
+  color: #26292e; }
+  #what-is h3 a:hover {
+    color: #26292e; }
+
 .docs-ionicons .download {
   margin-top: 60px;
   margin-bottom: 10px; }

@@ -17,7 +17,7 @@ header_sub_title: Ionic 2 Developer Preview
 <div id="what-is">
 
   <section id="using-debugger">
-    <h3><a href="#using-debugger">Using a Debugger</code></a></h3>
+    <h3><a href="#using-debugger">Using a Debugger</a></h3>
     <p>The <code>debugger</code> keyword can be used to debug your application. When most browsers encounters a `debugger` statement, execution of Javascript is stopped, and your browser will load its debugger. This can be used to set "breakpoints" in your application. For example, if you write a function that is not returning what you expect it to, you can add a debugger statement to the first line of the function:</p>
 
     {% highlight js %}

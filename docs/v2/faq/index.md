@@ -10,7 +10,7 @@ header_sub_title: Ionic 2 Developer Preview
 
 Can't find a solution on this page? Check out the [Ionic Forums](http://forum.ionicframework.com), where the friendly Ions of the community will help you!
 
-<h2 id="Blank_app">Help! My app is blank and there are no errors</h2>
+<h3 id="Blank_app">Help! My app is blank and there are no errors</h3>
 
 - Make sure your @App has a `template` or `templateUrl`
 - Make sure your @App template has an `<ion-nav></ion-nav>` with a `root` property:
@@ -18,7 +18,7 @@ Can't find a solution on this page? Check out the [Ionic Forums](http://forum.io
   <ion-nav [root]="firstPage"></ion-nav>
 ```
 
-<h2 id="Directive_not_working">My component/directive isn't loading!</h2>
+<h3 id="Directive_not_working">My component/directive isn't loading!</h3>
 
 If your custom component or directive isn't working, there are a few things you can check. Make sure:
 
@@ -50,7 +50,7 @@ class MyDir {
 class MyPage {}
 ```
 
-<h2 id="Common_mistakes">Common mistakes:</h2>
+<h3 id="Common_mistakes">Common mistakes:</h3>
 
 - putting your `directives` array in your `@Component` options, not in `(click)`.
 
@@ -118,7 +118,7 @@ class MyApp {
 }
 ```
 
-<h2 id="Common_JS_errors">Common JS errors:</h2>
+<h3 id="Common_JS_errors">Common JS errors:</h3>
 
 `Cannot resolve all parameters for YourClass(?). Make sure they all have valid type or annotations.`
 

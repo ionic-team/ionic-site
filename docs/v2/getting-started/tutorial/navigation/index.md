@@ -42,7 +42,7 @@ import {ItemDetailsPage} from '../item-details/item-details';
 
 After saving the file, you will notice the `ionic serve` process will recompile your app with the new changes, and reload the browser. Let's revisit our app in the browser, and when we tap an item, it will navigate to the item details page!
 
-## How It Works
+### How It Works
 
 Navigation in Ionic 2 works like a simple stack, where we `push` new pages onto the top of the stack, which takes us forwards in the app and shows a back button. To go backwards, we `pop` the top page off. Since we set `this.nav` in the constructor, we can call `this.nav.push()`, and pass it the page we want to navigate to. We can also pass it an object containing data we would like to pass to the page being navigated to. Using `push` to navigate to a new page is simple, but Ionic's [navigation system](../../../components/navigation) is very flexible. Check out the [navigation docs](../../../components/navigation) to see more advanced navigation examples.
 

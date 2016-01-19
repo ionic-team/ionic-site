@@ -17,7 +17,7 @@ header_sub_title: Ionic 2 Developer Preview
 Now that we have [Ionic and its dependencies installed](../installation), let's build our first app! This section will guide you through the process of starting a new application, adding pages, navigating between those pages, and more. Let's get started!
 
 
-## Starting a New Ionic 2 App
+### Starting a New Ionic 2 App
 
 If you don't already have an app started from the [previous section](../installation), let's create a new app! Use the `start` command to initialize a new Ionic app. We specify that we want it to be an Ionic 2 app by passing in the `--v2` option.
 
@@ -38,7 +38,7 @@ You may have noticed that we passed in <b>tutorial</b> to the <code>ionic start<
 </div>
 
 
-## Viewing the app in a browser
+### Viewing the app in a browser
 Let's `cd` into the folder that was created. To get a quick preview of your app in the browser, use the `serve` command.
 
 ```bash

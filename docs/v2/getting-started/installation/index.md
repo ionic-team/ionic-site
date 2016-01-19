@@ -39,7 +39,7 @@ $ ionic serve
 And we can play with it right in the browser!
 
 
-## [Building to a Device](#building-to-a-device)
+### [Building to a Device](#building-to-a-device)
 After you have Ionic installed, we can build our app to a physical device. If you don't have a physical device on hand, you can still build to a device emulator. Check out the <a href="../../resources/developer-tips/#using-ios-simulator">iOS simulator</a> docs if you are on Mac, or the <a href="../../resources/developer-tips/#using-genymotion">Genymotion</a> docs if you are looking to emulate an Android device. We will also need <a href="../../resources/what-is/#cordova">Cordova</a> to run your app on a native device. To install Cordova, run:
 
 ```bash

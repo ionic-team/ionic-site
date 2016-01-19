@@ -4579,7 +4579,8 @@ body {
 .docs-container > aside {
   width: 467px; }
   .docs-container > aside + main {
-    margin-right: 467px; }
+    margin-right: 467px;
+    min-height: 777px; }
 
 @media (max-width: 991px) {
   .docs-container aside {

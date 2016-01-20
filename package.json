@@ -44,6 +44,7 @@
     "tiny-lr": "0.0.5"
   },
   "dependencies": {
-    "express": "^4.12.3"
+    "express": "^4.12.3",
+    "compression": "^1.4.6"
   }
 }

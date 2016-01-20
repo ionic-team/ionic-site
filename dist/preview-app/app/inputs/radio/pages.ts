@@ -27,7 +27,7 @@ export class RadioPage {
       });
     }
     doSubmit(event) {
-      console.log('Submitting form', this.langForm.value);
+      console.log('Submitting form', this.langeForm.value);
       event.preventDefault();
     }
 }

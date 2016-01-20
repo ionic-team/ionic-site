@@ -100,7 +100,7 @@ export function getPages() {
       'select': inputs.SelectPage,
       'searchbar': inputs.SearchPage,
       'toggle': inputs.TogglePage,
-      'inputs': labels.FixedInlinePage,
+      'inputs': labels.BasicPage,
       'fixed-inline-labels': labels.FixedInlinePage,
       'floating-labels': labels.FloatingPage,
       'inline-labels': labels.InlinePage,

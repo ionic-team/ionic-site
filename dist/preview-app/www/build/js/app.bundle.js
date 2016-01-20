@@ -1,41 +1,41 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
@@ -78,12 +78,12 @@
 	Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 	this file except in compliance with the License. You may obtain a copy of the
 	License at http://www.apache.org/licenses/LICENSE-2.0
-
+	
 	THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
 	KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
 	WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
 	MERCHANTABLITY OR NON-INFRINGEMENT.
-
+	
 	See the Apache Version 2.0 License for specific language governing permissions
 	and limitations under the License.
 	***************************************************************************** */
@@ -1053,7 +1053,7 @@
 	// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	//     See the License for the specific language governing permissions and
 	// limitations under the License.
-
+	
 	!function(a,b){!function(){var a=0;if(window.requestAnimationFrame||(window.requestAnimationFrame=function(b,c){var d=Date.now(),e=Math.max(0,16-(d-a)),f=window.setTimeout(function(){b(d+e)},e);return a=d+e,f}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)}),document.documentElement.animate){var b=document.documentElement.animate([],0),c=!0;if(b&&(c=!1,"play|currentTime|pause|reverse|playbackRate|cancel|finish|startTime|playState".split("|").forEach(function(a){void 0===b[a]&&(c=!0)})),!c)return}var d={},e={},f={},g=null;!function(a,b){function c(a){if("number"==typeof a)return a;var b={};for(var c in a)b[c]=a[c];return b}function d(){this._delay=0,this._endDelay=0,this._fill="none",this._iterationStart=0,this._iterations=1,this._duration=0,this._playbackRate=1,this._direction="normal",this._easing="linear"}function e(a,b,c){var e=new d;return b&&(e.fill="both",e.duration="auto"),"number"!=typeof a||isNaN(a)?void 0!==a&&Object.getOwnPropertyNames(a).forEach(function(b){if("auto"!=a[b]){if(("number"==typeof e[b]||"duration"==b)&&("number"!=typeof a[b]||isNaN(a[b])))return;if("fill"==b&&-1==t.indexOf(a[b]))return;if("direction"==b&&-1==u.indexOf(a[b]))return;e[b]=a[b]}}):e.duration=a,e}function f(a){return"number"==typeof a&&(a=isNaN(a)?{duration:0}:{duration:a}),a}function g(b,c){b=a.numericTimingToObject(b);var d=e(b,c);return d._easing=j(d.easing),d}function h(a,b,c,d){return 0>a||a>1||0>c||c>1?C:function(e){function f(a,b,c){return 3*a*(1-c)*(1-c)*c+3*b*(1-c)*c*c+c*c*c}if(0==e||1==e)return e;for(var g=0,h=1;;){var i=(g+h)/2,j=f(a,c,i);if(Math.abs(e-j)<.001)return f(b,d,i);e>j?g=i:h=i}}}function i(a,b){return function(c){if(c>=1)return 1;var d=1/a;return c+=b*d,c-c%d}}function j(a){var b=A.exec(a);if(b)return h.apply(this,b.slice(1).map(Number));var c=B.exec(a);if(c)return i(Number(c[1]),{start:v,middle:w,end:x}[c[2]]);var d=y[a];return d?d:C}function k(a){return Math.abs(l(a)/a.playbackRate)}function l(a){return a.duration*a.iterations}function m(a,b,c){return null==b?D:b<c.delay?E:b>=c.delay+a?F:G}function n(a,b,c,d,e){switch(d){case E:return"backwards"==b||"both"==b?0:null;case G:return c-e;case F:return"forwards"==b||"both"==b?a:null;case D:return null}}function o(a,b,c,d){return(d.playbackRate<0?b-a:b)*d.playbackRate+c}function p(a,b,c,d,e){return c===1/0||c===-(1/0)||c-d==b&&e.iterations&&(e.iterations+e.iterationStart)%1==0?a:c%a}function q(a,b,c,d){return 0===c?0:b==a?d.iterationStart+d.iterations-1:Math.floor(c/a)}function r(a,b,c,d){var e=a%2>=1,f="normal"==d.direction||d.direction==(e?"alternate-reverse":"alternate"),g=f?c:b-c,h=g/b;return b*d.easing(h)}function s(a,b,c){var d=m(a,b,c),e=n(a,c.fill,b,d,c.delay);if(null===e)return null;if(0===a)return d===E?0:1;var f=c.iterationStart*c.duration,g=o(a,e,f,c),h=p(c.duration,l(c),g,f,c),i=q(c.duration,h,g,c);return r(i,c.duration,h,c)/c.duration}var t="backwards|forwards|both|none".split("|"),u="reverse|alternate|alternate-reverse".split("|");d.prototype={_setMember:function(b,c){this["_"+b]=c,this._effect&&(this._effect._timingInput[b]=c,this._effect._timing=a.normalizeTimingInput(a.normalizeTimingInput(this._effect._timingInput)),this._effect.activeDuration=a.calculateActiveDuration(this._effect._timing),this._effect._animation&&this._effect._animation._rebuildUnderlyingAnimation())},get playbackRate(){return this._playbackRate},set delay(a){this._setMember("delay",a)},get delay(){return this._delay},set endDelay(a){this._setMember("endDelay",a)},get endDelay(){return this._endDelay},set fill(a){this._setMember("fill",a)},get fill(){return this._fill},set iterationStart(a){this._setMember("iterationStart",a)},get iterationStart(){return this._iterationStart},set duration(a){this._setMember("duration",a)},get duration(){return this._duration},set direction(a){this._setMember("direction",a)},get direction(){return this._direction},set easing(a){this._setMember("easing",a)},get easing(){return this._easing},set iterations(a){this._setMember("iterations",a)},get iterations(){return this._iterations}};var v=1,w=.5,x=0,y={ease:h(.25,.1,.25,1),"ease-in":h(.42,0,1,1),"ease-out":h(0,0,.58,1),"ease-in-out":h(.42,0,.58,1),"step-start":i(1,v),"step-middle":i(1,w),"step-end":i(1,x)},z="\\s*(-?\\d+\\.?\\d*|-?\\.\\d+)\\s*",A=new RegExp("cubic-bezier\\("+z+","+z+","+z+","+z+"\\)"),B=/steps\(\s*(\d+)\s*,\s*(start|middle|end)\s*\)/,C=function(a){return a},D=0,E=1,F=2,G=3;a.cloneTimingInput=c,a.makeTiming=e,a.numericTimingToObject=f,a.normalizeTimingInput=g,a.calculateActiveDuration=k,a.calculateTimeFraction=s,a.calculatePhase=m,a.toTimingFunction=j}(d,g),function(a,b){function c(a,b){return a in i?i[a][b]||b:b}function d(a,b,d){var e=f[a];if(e){g.style[a]=b;for(var h in e){var i=e[h],j=g.style[i];d[i]=c(i,j)}}else d[a]=c(a,b)}function e(b){function c(){var a=e.length;null==e[a-1].offset&&(e[a-1].offset=1),a>1&&null==e[0].offset&&(e[0].offset=0);for(var b=0,c=e[0].offset,d=1;a>d;d++){var f=e[d].offset;if(null!=f){for(var g=1;d-b>g;g++)e[b+g].offset=c+(f-c)*g/(d-b);b=d,c=f}}}if(!Array.isArray(b)&&null!==b)throw new TypeError("Keyframes must be null or an array of keyframes");if(null==b)return[];for(var e=b.map(function(b){var c={};for(var e in b){var f=b[e];if("offset"==e){if(null!=f&&(f=Number(f),!isFinite(f)))throw new TypeError("keyframe offsets must be numbers.")}else{if("composite"==e)throw{type:DOMException.NOT_SUPPORTED_ERR,name:"NotSupportedError",message:"add compositing is not supported"};f="easing"==e?a.toTimingFunction(f):""+f}d(e,f,c)}return void 0==c.offset&&(c.offset=null),void 0==c.easing&&(c.easing=a.toTimingFunction("linear")),c}),f=!0,g=-(1/0),h=0;h<e.length;h++){var i=e[h].offset;if(null!=i){if(g>i)throw{code:DOMException.INVALID_MODIFICATION_ERR,name:"InvalidModificationError",message:"Keyframes are not loosely sorted by offset. Sort or specify offsets."};g=i}else f=!1}return e=e.filter(function(a){return a.offset>=0&&a.offset<=1}),f||c(),e}var f={background:["backgroundImage","backgroundPosition","backgroundSize","backgroundRepeat","backgroundAttachment","backgroundOrigin","backgroundClip","backgroundColor"],border:["borderTopColor","borderTopStyle","borderTopWidth","borderRightColor","borderRightStyle","borderRightWidth","borderBottomColor","borderBottomStyle","borderBottomWidth","borderLeftColor","borderLeftStyle","borderLeftWidth"],borderBottom:["borderBottomWidth","borderBottomStyle","borderBottomColor"],borderColor:["borderTopColor","borderRightColor","borderBottomColor","borderLeftColor"],borderLeft:["borderLeftWidth","borderLeftStyle","borderLeftColor"],borderRadius:["borderTopLeftRadius","borderTopRightRadius","borderBottomRightRadius","borderBottomLeftRadius"],borderRight:["borderRightWidth","borderRightStyle","borderRightColor"],borderTop:["borderTopWidth","borderTopStyle","borderTopColor"],borderWidth:["borderTopWidth","borderRightWidth","borderBottomWidth","borderLeftWidth"],flex:["flexGrow","flexShrink","flexBasis"],font:["fontFamily","fontSize","fontStyle","fontVariant","fontWeight","lineHeight"],margin:["marginTop","marginRight","marginBottom","marginLeft"],outline:["outlineColor","outlineStyle","outlineWidth"],padding:["paddingTop","paddingRight","paddingBottom","paddingLeft"]},g=document.createElementNS("http://www.w3.org/1999/xhtml","div"),h={thin:"1px",medium:"3px",thick:"5px"},i={borderBottomWidth:h,borderLeftWidth:h,borderRightWidth:h,borderTopWidth:h,fontSize:{"xx-small":"60%","x-small":"75%",small:"89%",medium:"100%",large:"120%","x-large":"150%","xx-large":"200%"},fontWeight:{normal:"400",bold:"700"},outlineWidth:h,textShadow:{none:"0px 0px 0px transparent"},boxShadow:{none:"0px 0px 0px 0px transparent"}};a.normalizeKeyframes=e}(d,g),function(a,b,c){function d(a){for(var b={},c=0;c<a.length;c++)for(var d in a[c])if("offset"!=d&&"easing"!=d&&"composite"!=d){var e={offset:a[c].offset,easing:a[c].easing,value:a[c][d]};b[d]=b[d]||[],b[d].push(e)}for(var f in b){var g=b[f];if(0!=g[0].offset||1!=g[g.length-1].offset)throw{type:DOMException.NOT_SUPPORTED_ERR,name:"NotSupportedError",message:"Partial keyframes are not supported"}}return b}function e(a){var c=[];for(var d in a)for(var e=a[d],f=0;f<e.length-1;f++){var g=e[f].offset,h=e[f+1].offset,i=e[f].value,j=e[f+1].value;g==h&&(1==h?i=j:j=i),c.push({startTime:g,endTime:h,easing:e[f].easing,property:d,interpolation:b.propertyInterpolation(d,i,j)})}return c.sort(function(a,b){return a.startTime-b.startTime}),c}b.convertEffectInput=function(c){var f=a.normalizeKeyframes(c),g=d(f),h=e(g);return function(a,c){null!=c&&h.filter(function(a){return 0>=c&&0==a.startTime||c>=1&&1==a.endTime||c>=a.startTime&&c<=a.endTime}).forEach(function(d){var e=c-d.startTime,f=d.endTime-d.startTime,g=0==f?0:d.easing(e/f);b.apply(a,d.property,d.interpolation(g))})}}}(d,e,g),function(a,b){function c(a,b,c){f[c]=f[c]||[],f[c].push([a,b])}function d(a,b,d){for(var e=0;e<d.length;e++){var f=d[e];c(a,b,f),/-/.test(f)&&c(a,b,f.replace(/-(.)/g,function(a,b){return b.toUpperCase()}))}}function e(b,c,d){if("initial"==c||"initial"==d){var e=b.replace(/-(.)/g,function(a,b){return b.toUpperCase()});"initial"==c&&(c=g[e]),"initial"==d&&(d=g[e])}for(var h=c==d?[]:f[b],i=0;h&&i<h.length;i++){var j=h[i][0](c),k=h[i][0](d);if(void 0!==j&&void 0!==k){var l=h[i][1](j,k);if(l){var m=a.Interpolation.apply(null,l);return function(a){return 0==a?c:1==a?d:m(a)}}}}return a.Interpolation(!1,!0,function(a){return a?d:c})}var f={};a.addPropertiesHandler=d;var g={backgroundColor:"transparent",backgroundPosition:"0% 0%",borderBottomColor:"currentColor",borderBottomLeftRadius:"0px",borderBottomRightRadius:"0px",borderBottomWidth:"3px",borderLeftColor:"currentColor",borderLeftWidth:"3px",borderRightColor:"currentColor",borderRightWidth:"3px",borderSpacing:"2px",borderTopColor:"currentColor",borderTopLeftRadius:"0px",borderTopRightRadius:"0px",borderTopWidth:"3px",bottom:"auto",clip:"rect(0px, 0px, 0px, 0px)",color:"black",fontSize:"100%",fontWeight:"400",height:"auto",left:"auto",letterSpacing:"normal",lineHeight:"120%",marginBottom:"0px",marginLeft:"0px",marginRight:"0px",marginTop:"0px",maxHeight:"none",maxWidth:"none",minHeight:"0px",minWidth:"0px",opacity:"1.0",outlineColor:"invert",outlineOffset:"0px",outlineWidth:"3px",paddingBottom:"0px",paddingLeft:"0px",paddingRight:"0px",paddingTop:"0px",right:"auto",textIndent:"0px",textShadow:"0px 0px 0px transparent",top:"auto",transform:"",verticalAlign:"0px",visibility:"visible",width:"auto",wordSpacing:"normal",zIndex:"auto"};a.propertyInterpolation=e}(e,g),function(a,b,c){function d(b){var c=a.calculateActiveDuration(b),d=function(d){return a.calculateTimeFraction(c,d,b)};return d._totalDuration=b.delay+c+b.endDelay,d._isCurrent=function(d){var e=a.calculatePhase(c,d,b);return e===PhaseActive||e===PhaseBefore},d}b.KeyframeEffect=function(c,e,f){var g,h=d(a.normalizeTimingInput(f)),i=b.convertEffectInput(e),j=function(){i(c,g)};return j._update=function(a){return g=h(a),null!==g},j._clear=function(){i(c,null)},j._hasSameTarget=function(a){return c===a},j._isCurrent=h._isCurrent,j._totalDuration=h._totalDuration,j},b.NullEffect=function(a){var b=function(){a&&(a(),a=null)};return b._update=function(){return null},b._totalDuration=0,b._isCurrent=function(){return!1},b._hasSameTarget=function(){return!1},b}}(d,e,g),function(a,b){a.apply=function(b,c,d){b.style[a.propertyName(c)]=d},a.clear=function(b,c){b.style[a.propertyName(c)]=""}}(e,g),function(a){window.Element.prototype.animate=function(b,c){return a.timeline._play(a.KeyframeEffect(this,b,c))}}(e),function(a,b){function c(a,b,d){if("number"==typeof a&&"number"==typeof b)return a*(1-d)+b*d;if("boolean"==typeof a&&"boolean"==typeof b)return.5>d?a:b;if(a.length==b.length){for(var e=[],f=0;f<a.length;f++)e.push(c(a[f],b[f],d));return e}throw"Mismatched interpolation arguments "+a+":"+b}a.Interpolation=function(a,b,d){return function(e){return d(c(a,b,e))}}}(e,g),function(a,b,c){a.sequenceNumber=0;var d=function(a,b,c){this.target=a,this.currentTime=b,this.timelineTime=c,this.type="finish",this.bubbles=!1,this.cancelable=!1,this.currentTarget=a,this.defaultPrevented=!1,this.eventPhase=Event.AT_TARGET,this.timeStamp=Date.now()};b.Animation=function(b){this._sequenceNumber=a.sequenceNumber++,this._currentTime=0,this._startTime=null,this._paused=!1,this._playbackRate=1,this._inTimeline=!0,this._finishedFlag=!1,this.onfinish=null,this._finishHandlers=[],this._effect=b,this._inEffect=this._effect._update(0),this._idle=!0,this._currentTimePending=!1},b.Animation.prototype={_ensureAlive:function(){this.playbackRate<0&&0===this.currentTime?this._inEffect=this._effect._update(-1):this._inEffect=this._effect._update(this.currentTime),this._inTimeline||!this._inEffect&&this._finishedFlag||(this._inTimeline=!0,b.timeline._animations.push(this))},_tickCurrentTime:function(a,b){a!=this._currentTime&&(this._currentTime=a,this._isFinished&&!b&&(this._currentTime=this._playbackRate>0?this._totalDuration:0),this._ensureAlive())},get currentTime(){return this._idle||this._currentTimePending?null:this._currentTime},set currentTime(a){a=+a,isNaN(a)||(b.restart(),this._paused||null==this._startTime||(this._startTime=this._timeline.currentTime-a/this._playbackRate),this._currentTimePending=!1,this._currentTime!=a&&(this._tickCurrentTime(a,!0),b.invalidateEffects()))},get startTime(){return this._startTime},set startTime(a){a=+a,isNaN(a)||this._paused||this._idle||(this._startTime=a,this._tickCurrentTime((this._timeline.currentTime-this._startTime)*this.playbackRate),b.invalidateEffects())},get playbackRate(){return this._playbackRate},set playbackRate(a){if(a!=this._playbackRate){var b=this.currentTime;this._playbackRate=a,this._startTime=null,"paused"!=this.playState&&"idle"!=this.playState&&this.play(),null!=b&&(this.currentTime=b)}},get _isFinished(){return!this._idle&&(this._playbackRate>0&&this._currentTime>=this._totalDuration||this._playbackRate<0&&this._currentTime<=0)},get _totalDuration(){return this._effect._totalDuration},get playState(){return this._idle?"idle":null==this._startTime&&!this._paused&&0!=this.playbackRate||this._currentTimePending?"pending":this._paused?"paused":this._isFinished?"finished":"running"},play:function(){this._paused=!1,(this._isFinished||this._idle)&&(this._currentTime=this._playbackRate>0?0:this._totalDuration,this._startTime=null,b.invalidateEffects()),this._finishedFlag=!1,b.restart(),this._idle=!1,this._ensureAlive()},pause:function(){this._isFinished||this._paused||this._idle||(this._currentTimePending=!0),this._startTime=null,this._paused=!0},finish:function(){this._idle||(this.currentTime=this._playbackRate>0?this._totalDuration:0,this._startTime=this._totalDuration-this.currentTime,this._currentTimePending=!1)},cancel:function(){this._inEffect&&(this._inEffect=!1,this._idle=!0,this.currentTime=0,this._startTime=null,this._effect._update(null),b.invalidateEffects(),b.restart())},reverse:function(){this.playbackRate*=-1,this.play()},addEventListener:function(a,b){"function"==typeof b&&"finish"==a&&this._finishHandlers.push(b)},removeEventListener:function(a,b){if("finish"==a){var c=this._finishHandlers.indexOf(b);c>=0&&this._finishHandlers.splice(c,1)}},_fireEvents:function(a){var b=this._isFinished;if((b||this._idle)&&!this._finishedFlag){var c=new d(this,this._currentTime,a),e=this._finishHandlers.concat(this.onfinish?[this.onfinish]:[]);e.forEach(function(a){a.call(c.target,c)})}this._finishedFlag=b},_tick:function(a){return this._idle||this._paused||(null==this._startTime?this.startTime=a-this._currentTime/this.playbackRate:this._isFinished||this._tickCurrentTime((a-this._startTime)*this.playbackRate)),this._currentTimePending=!1,this._fireEvents(a),!this._idle&&(this._inEffect||!this._finishedFlag)}}}(d,e,g),function(a,b,c){function d(a){a||(a=Date.now());var b=j;j=[],a<t.currentTime&&(a=t.currentTime),h(a),b.forEach(function(b){b[1](a)}),p&&h(a),g(),m=void 0}function e(a,b){return a._sequenceNumber-b._sequenceNumber}function f(){this._animations=[],this.currentTime=window.performance&&performance.now?performance.now():0}function g(){q.forEach(function(a){a()}),q.length=0}function h(a){o=!1;var c=b.timeline;c.currentTime=a,c._animations.sort(e),n=!1;var d=c._animations;c._animations=[];var f=[],g=[];d=d.filter(function(b){return b._inTimeline=b._tick(a),b._inEffect?g.push(b._effect):f.push(b._effect),b._isFinished||b._paused||b._idle||(n=!0),b._inTimeline}),q.push.apply(q,f),q.push.apply(q,g),c._animations.push.apply(c._animations,d),p=!1,n&&requestAnimationFrame(function(){})}var i=window.requestAnimationFrame,j=[],k=0;window.requestAnimationFrame=function(a){var b=k++;return 0==j.length&&i(d),j.push([b,a]),b},window.cancelAnimationFrame=function(a){j.forEach(function(b){b[0]==a&&(b[1]=function(){})})},f.prototype={_play:function(c){c._timing=a.normalizeTimingInput(c.timing);var d=new b.Animation(c);return d._idle=!1,d._timeline=this,this._animations.push(d),b.restart(),b.invalidateEffects(),d}};var l,m=void 0,l=function(){return void 0==m&&(m=performance.now()),m},n=!1,o=!1;b.restart=function(){return n||(n=!0,requestAnimationFrame(function(){}),o=!0),o};var p=!1;b.invalidateEffects=function(){p=!0};var q=[],r=1e3/60,s=window.getComputedStyle;Object.defineProperty(window,"getComputedStyle",{configurable:!0,enumerable:!0,value:function(){if(p){var a=l();a-t.currentTime>0&&(t.currentTime+=r*(Math.floor((a-t.currentTime)/r)+1)),h(t.currentTime)}return g(),s.apply(this,arguments)}});var t=new f;b.timeline=t}(d,e,g),function(a){function b(a,b){var c=a.exec(b);return c?(c=a.ignoreCase?c[0].toLowerCase():c[0],[c,b.substr(c.length)]):void 0}function c(a,b){b=b.replace(/^\s*/,"");var c=a(b);return c?[c[0],c[1].replace(/^\s*/,"")]:void 0}function d(a,d,e){a=c.bind(null,a);for(var f=[];;){var g=a(e);if(!g)return[f,e];if(f.push(g[0]),e=g[1],g=b(d,e),!g||""==g[1])return[f,e];e=g[1]}}function e(a,b){for(var c=0,d=0;d<b.length&&(!/\s|,/.test(b[d])||0!=c);d++)if("("==b[d])c++;else if(")"==b[d]&&(c--,0==c&&d++,0>=c))break;var e=a(b.substr(0,d));return void 0==e?void 0:[e,b.substr(d)]}function f(a,b){for(var c=a,d=b;c&&d;)c>d?c%=d:d%=c;return c=a*b/(c+d)}function g(a){return function(b){var c=a(b);return c&&(c[0]=void 0),c}}function h(a,b){return function(c){var d=a(c);return d?d:[b,c]}}function i(b,c){for(var d=[],e=0;e<b.length;e++){var f=a.consumeTrimmed(b[e],c);if(!f||""==f[0])return;void 0!==f[0]&&d.push(f[0]),c=f[1]}return""==c?d:void 0}function j(a,b,c,d,e){for(var g=[],h=[],i=[],j=f(d.length,e.length),k=0;j>k;k++){var l=b(d[k%d.length],e[k%e.length]);if(!l)return;g.push(l[0]),h.push(l[1]),i.push(l[2])}return[g,h,function(b){var d=b.map(function(a,b){return i[b](a)}).join(c);return a?a(d):d}]}function k(a,b,c){for(var d=[],e=[],f=[],g=0,h=0;h<c.length;h++)if("function"==typeof c[h]){var i=c[h](a[g],b[g++]);d.push(i[0]),e.push(i[1]),f.push(i[2])}else!function(a){d.push(!1),e.push(!1),f.push(function(){return c[a]})}(h);return[d,e,function(a){for(var b="",c=0;c<a.length;c++)b+=f[c](a[c]);return b}]}a.consumeToken=b,a.consumeTrimmed=c,a.consumeRepeated=d,a.consumeParenthesised=e,a.ignore=g,a.optional=h,a.consumeList=i,a.mergeNestedRepeated=j.bind(null,null),a.mergeWrappedNestedRepeated=j,a.mergeList=k}(e),function(a){function b(b){function c(b){var c=a.consumeToken(/^inset/i,b);if(c)return d.inset=!0,c;var c=a.consumeLengthOrPercent(b);if(c)return d.lengths.push(c[0]),c;var c=a.consumeColor(b);return c?(d.color=c[0],c):void 0}var d={inset:!1,lengths:[],color:null},e=a.consumeRepeated(c,/^/,b);return e&&e[0].length?[d,e[1]]:void 0}function c(c){var d=a.consumeRepeated(b,/^,/,c);return d&&""==d[1]?d[0]:void 0}function d(b,c){for(;b.lengths.length<Math.max(b.lengths.length,c.lengths.length);)b.lengths.push({px:0});for(;c.lengths.length<Math.max(b.lengths.length,c.lengths.length);)c.lengths.push({px:0});if(b.inset==c.inset&&!!b.color==!!c.color){for(var d,e=[],f=[[],0],g=[[],0],h=0;h<b.lengths.length;h++){var i=a.mergeDimensions(b.lengths[h],c.lengths[h],2==h);f[0].push(i[0]),g[0].push(i[1]),e.push(i[2])}if(b.color&&c.color){var j=a.mergeColors(b.color,c.color);f[1]=j[0],g[1]=j[1],d=j[2]}return[f,g,function(a){for(var c=b.inset?"inset ":" ",f=0;f<e.length;f++)c+=e[f](a[0][f])+" ";return d&&(c+=d(a[1])),c}]}}function e(b,c,d,e){function f(a){return{inset:a,color:[0,0,0,0],lengths:[{px:0},{px:0},{px:0},{px:0}]}}for(var g=[],h=[],i=0;i<d.length||i<e.length;i++){var j=d[i]||f(e[i].inset),k=e[i]||f(d[i].inset);g.push(j),h.push(k)}return a.mergeNestedRepeated(b,c,g,h)}var f=e.bind(null,d,", ");a.addPropertiesHandler(c,f,["box-shadow","text-shadow"])}(e),function(a,b){function c(a){return a.toFixed(3).replace(".000","")}function d(a,b,c){return Math.min(b,Math.max(a,c))}function e(a){return/^\s*[-+]?(\d*\.)?\d+\s*$/.test(a)?Number(a):void 0}function f(a,b){return[a,b,c]}function g(a,b){return 0!=a?i(0,1/0)(a,b):void 0}function h(a,b){return[a,b,function(a){return Math.round(d(1,1/0,a))}]}function i(a,b){return function(e,f){return[e,f,function(e){return c(d(a,b,e))}]}}function j(a,b){return[a,b,Math.round]}a.clamp=d,a.addPropertiesHandler(e,i(0,1/0),["border-image-width","line-height"]),a.addPropertiesHandler(e,i(0,1),["opacity","shape-image-threshold"]),a.addPropertiesHandler(e,g,["flex-grow","flex-shrink"]),a.addPropertiesHandler(e,h,["orphans","widows"]),a.addPropertiesHandler(e,j,["z-index"]),a.parseNumber=e,a.mergeNumbers=f,a.numberToString=c}(e,g),function(a,b){function c(a,b){return"visible"==a||"visible"==b?[0,1,function(c){return 0>=c?a:c>=1?b:"visible"}]:void 0}a.addPropertiesHandler(String,c,["visibility"])}(e),function(a,b){function c(a){a=a.trim(),f.fillStyle="#000",f.fillStyle=a;var b=f.fillStyle;if(f.fillStyle="#fff",f.fillStyle=a,b==f.fillStyle){f.fillRect(0,0,1,1);var c=f.getImageData(0,0,1,1).data;f.clearRect(0,0,1,1);var d=c[3]/255;return[c[0]*d,c[1]*d,c[2]*d,d]}}function d(b,c){return[b,c,function(b){function c(a){return Math.max(0,Math.min(255,a))}if(b[3])for(var d=0;3>d;d++)b[d]=Math.round(c(b[d]/b[3]));return b[3]=a.numberToString(a.clamp(0,1,b[3])),"rgba("+b.join(",")+")"}]}var e=document.createElementNS("http://www.w3.org/1999/xhtml","canvas");e.width=e.height=1;var f=e.getContext("2d");a.addPropertiesHandler(c,d,["background-color","border-bottom-color","border-left-color","border-right-color","border-top-color","color","outline-color","text-decoration-color"]),a.consumeColor=a.consumeParenthesised.bind(null,c),a.mergeColors=d}(e,g),function(a,b){function c(a,b){if(b=b.trim().toLowerCase(),"0"==b&&"px".search(a)>=0)return{px:0};if(/^[^(]*$|^calc/.test(b)){b=b.replace(/calc\(/g,"(");var c={};b=b.replace(a,function(a){return c[a]=null,"U"+a});for(var d="U("+a.source+")",e=b.replace(/[-+]?(\d*\.)?\d+/g,"N").replace(new RegExp("N"+d,"g"),"D").replace(/\s[+-]\s/g,"O").replace(/\s/g,""),f=[/N\*(D)/g,/(N|D)[*\/]N/g,/(N|D)O\1/g,/\((N|D)\)/g],g=0;g<f.length;)f[g].test(e)?(e=e.replace(f[g],"$1"),g=0):g++;if("D"==e){for(var h in c){var i=eval(b.replace(new RegExp("U"+h,"g"),"").replace(new RegExp(d,"g"),"*0"));if(!isFinite(i))return;c[h]=i}return c}}}function d(a,b){return e(a,b,!0)}function e(b,c,d){var e,f=[];for(e in b)f.push(e);for(e in c)f.indexOf(e)<0&&f.push(e);return b=f.map(function(a){return b[a]||0}),c=f.map(function(a){return c[a]||0}),[b,c,function(b){var c=b.map(function(c,e){return 1==b.length&&d&&(c=Math.max(c,0)),a.numberToString(c)+f[e]}).join(" + ");return b.length>1?"calc("+c+")":c}]}var f="px|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc",g=c.bind(null,new RegExp(f,"g")),h=c.bind(null,new RegExp(f+"|%","g")),i=c.bind(null,/deg|rad|grad|turn/g);a.parseLength=g,a.parseLengthOrPercent=h,a.consumeLengthOrPercent=a.consumeParenthesised.bind(null,h),a.parseAngle=i,a.mergeDimensions=e;var j=a.consumeParenthesised.bind(null,g),k=a.consumeRepeated.bind(void 0,j,/^/),l=a.consumeRepeated.bind(void 0,k,/^,/);a.consumeSizePairList=l;var m=function(a){var b=l(a);return b&&""==b[1]?b[0]:void 0},n=a.mergeNestedRepeated.bind(void 0,d," "),o=a.mergeNestedRepeated.bind(void 0,n,",");a.mergeNonNegativeSizePair=n,a.addPropertiesHandler(m,o,["background-size"]),a.addPropertiesHandler(h,d,["border-bottom-width","border-image-width","border-left-width","border-right-width","border-top-width","flex-basis","font-size","height","line-height","max-height","max-width","outline-width","width"]),a.addPropertiesHandler(h,e,["border-bottom-left-radius","border-bottom-right-radius","border-top-left-radius","border-top-right-radius","bottom","left","letter-spacing","margin-bottom","margin-left","margin-right","margin-top","min-height","min-width","outline-offset","padding-bottom","padding-left","padding-right","padding-top","perspective","right","shape-margin","text-indent","top","vertical-align","word-spacing"])}(e,g),function(a,b){function c(b){return a.consumeLengthOrPercent(b)||a.consumeToken(/^auto/,b)}function d(b){var d=a.consumeList([a.ignore(a.consumeToken.bind(null,/^rect/)),a.ignore(a.consumeToken.bind(null,/^\(/)),a.consumeRepeated.bind(null,c,/^,/),a.ignore(a.consumeToken.bind(null,/^\)/))],b);return d&&4==d[0].length?d[0]:void 0}function e(b,c){return"auto"==b||"auto"==c?[!0,!1,function(d){var e=d?b:c;if("auto"==e)return"auto";var f=a.mergeDimensions(e,e);return f[2](f[0])}]:a.mergeDimensions(b,c)}function f(a){return"rect("+a+")"}var g=a.mergeWrappedNestedRepeated.bind(null,f,e,", ");a.parseBox=d,a.mergeBoxes=g,a.addPropertiesHandler(d,g,["clip"])}(e,g),function(a,b){function c(a){return function(b){var c=0;return a.map(function(a){return a===k?b[c++]:a})}}function d(a){return a}function e(b){if(b=b.toLowerCase().trim(),"none"==b)return[];for(var c,d=/\s*(\w+)\(([^)]*)\)/g,e=[],f=0;c=d.exec(b);){if(c.index!=f)return;f=c.index+c[0].length;var g=c[1],h=n[g];if(!h)return;var i=c[2].split(","),j=h[0];if(j.length<i.length)return;for(var k=[],o=0;o<j.length;o++){var p,q=i[o],r=j[o];if(p=q?{A:function(b){return"0"==b.trim()?m:a.parseAngle(b)},N:a.parseNumber,T:a.parseLengthOrPercent,L:a.parseLength}[r.toUpperCase()](q):{a:m,n:k[0],t:l}[r],void 0===p)return;k.push(p)}if(e.push({t:g,d:k}),d.lastIndex==b.length)return e}}function f(a){return a.toFixed(6).replace(".000000","")}function g(b,c){if(b.decompositionPair!==c){b.decompositionPair=c;var d=a.makeMatrixDecomposition(b)}if(c.decompositionPair!==b){c.decompositionPair=b;var e=a.makeMatrixDecomposition(c)}return null==d[0]||null==e[0]?[[!1],[!0],function(a){return a?c[0].d:b[0].d}]:(d[0].push(0),e[0].push(1),[d,e,function(b){var c=a.quat(d[0][3],e[0][3],b[5]),g=a.composeMatrix(b[0],b[1],b[2],c,b[4]),h=g.map(f).join(",");return h}])}function h(a){return a.replace(/[xy]/,"")}function i(a){return a.replace(/(x|y|z|3d)?$/,"3d")}function j(b,c){var d=a.makeMatrixDecomposition&&!0,e=!1;if(!b.length||!c.length){b.length||(e=!0,b=c,c=[]);for(var f=0;f<b.length;f++){var j=b[f].t,k=b[f].d,l="scale"==j.substr(0,5)?1:0;c.push({t:j,d:k.map(function(a){if("number"==typeof a)return l;var b={};for(var c in a)b[c]=l;return b})})}}var m=function(a,b){return"perspective"==a&&"perspective"==b||("matrix"==a||"matrix3d"==a)&&("matrix"==b||"matrix3d"==b)},o=[],p=[],q=[];if(b.length!=c.length){if(!d)return;var r=g(b,c);o=[r[0]],p=[r[1]],q=[["matrix",[r[2]]]]}else for(var f=0;f<b.length;f++){var j,s=b[f].t,t=c[f].t,u=b[f].d,v=c[f].d,w=n[s],x=n[t];if(m(s,t)){if(!d)return;var r=g([b[f]],[c[f]]);o.push(r[0]),p.push(r[1]),q.push(["matrix",[r[2]]])}else{if(s==t)j=s;else if(w[2]&&x[2]&&h(s)==h(t))j=h(s),u=w[2](u),v=x[2](v);else{if(!w[1]||!x[1]||i(s)!=i(t)){if(!d)return;var r=g(b,c);o=[r[0]],p=[r[1]],q=[["matrix",[r[2]]]];break}j=i(s),u=w[1](u),v=x[1](v)}for(var y=[],z=[],A=[],B=0;B<u.length;B++){var C="number"==typeof u[B]?a.mergeNumbers:a.mergeDimensions,r=C(u[B],v[B]);y[B]=r[0],z[B]=r[1],A.push(r[2])}o.push(y),p.push(z),q.push([j,A])}}if(e){var D=o;o=p,p=D}return[o,p,function(a){return a.map(function(a,b){var c=a.map(function(a,c){return q[b][1][c](a)}).join(",");return"matrix"==q[b][0]&&16==c.split(",").length&&(q[b][0]="matrix3d"),q[b][0]+"("+c+")"}).join(" ")}]}var k=null,l={px:0},m={deg:0},n={matrix:["NNNNNN",[k,k,0,0,k,k,0,0,0,0,1,0,k,k,0,1],d],matrix3d:["NNNNNNNNNNNNNNNN",d],rotate:["A"],rotatex:["A"],rotatey:["A"],rotatez:["A"],rotate3d:["NNNA"],perspective:["L"],scale:["Nn",c([k,k,1]),d],scalex:["N",c([k,1,1]),c([k,1])],scaley:["N",c([1,k,1]),c([1,k])],scalez:["N",c([1,1,k])],scale3d:["NNN",d],skew:["Aa",null,d],skewx:["A",null,c([k,m])],skewy:["A",null,c([m,k])],translate:["Tt",c([k,k,l]),d],translatex:["T",c([k,l,l]),c([k,l])],translatey:["T",c([l,k,l]),c([l,k])],translatez:["L",c([l,l,k])],translate3d:["TTL",d]};a.addPropertiesHandler(e,j,["transform"])}(e,g),function(a,b){function c(a,b){b.concat([a]).forEach(function(b){b in document.documentElement.style&&(d[a]=b)})}var d={};c("transform",["webkitTransform","msTransform"]),c("transformOrigin",["webkitTransformOrigin"]),c("perspective",["webkitPerspective"]),c("perspectiveOrigin",["webkitPerspectiveOrigin"]),a.propertyName=function(a){return d[a]||a}}(e,g)}(),b["true"]=a}({},function(){return this}());
 	//# sourceMappingURL=web-animations.min.js.map
 
@@ -1064,44 +1064,44 @@
 	(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	var core = require('../core');
 	var microtask = require('../microtask');
 	var browserPatch = require('../patch/browser');
 	var es6Promise = require('es6-promise');
-
+	
 	if (global.Zone) {
 	  console.warn('Zone already exported on window the object!');
 	}
-
+	
 	global.Zone = microtask.addMicrotaskSupport(core.Zone);
 	global.zone = new global.Zone();
-
+	
 	// Monkey patch the Promise implementation to add support for microtasks
 	global.Promise = es6Promise.Promise;
-
+	
 	browserPatch.apply();
-
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"../core":2,"../microtask":4,"../patch/browser":5,"es6-promise":17}],2:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	var keys = require('./keys');
-
+	
 	function Zone(parentZone, data) {
 	  var zone = (arguments.length) ? Object.create(parentZone) : this;
-
+	
 	  zone.parent = parentZone || null;
-
+	
 	  Object.keys(data || {}).forEach(function(property) {
-
+	
 	    var _property = property.substr(1);
-
+	
 	    // augment the new zone with a hook decorates the parent's hook
 	    if (property[0] === '$') {
 	      zone[_property] = data[property](parentZone[_property] || function () {});
-
+	
 	    // augment the new zone with a hook that runs after the parent's hook
 	    } else if (property[0] === '+') {
 	      if (parentZone[_property]) {
@@ -1113,7 +1113,7 @@
 	      } else {
 	        zone[_property] = data[property];
 	      }
-
+	
 	    // augment the new zone with a hook that runs before the parent's hook
 	    } else if (property[0] === '-') {
 	      if (parentZone[_property]) {
@@ -1124,7 +1124,7 @@
 	      } else {
 	        zone[_property] = data[property];
 	      }
-
+	
 	    // set the new zone's hook (replacing the parent zone's)
 	    } else {
 	      zone[property] = (typeof data[property] === 'object') ?
@@ -1132,20 +1132,20 @@
 	                        data[property];
 	    }
 	  });
-
+	
 	  zone.$id = Zone.nextId++;
-
+	
 	  return zone;
 	}
-
+	
 	Zone.prototype = {
 	  constructor: Zone,
-
+	
 	  fork: function (locals) {
 	    this.onZoneCreated();
 	    return new Zone(this, locals);
 	  },
-
+	
 	  bind: function (fn, skipEnqueue) {
 	    if (typeof fn !== 'function') {
 	      throw new Error('Expecting function got: ' + fn);
@@ -1156,7 +1156,7 @@
 	      return zone.run(fn, this, arguments);
 	    };
 	  },
-
+	
 	  bindOnce: function (fn) {
 	    var boundZone = this;
 	    return this.bind(function () {
@@ -1165,19 +1165,19 @@
 	      return result;
 	    });
 	  },
-
+	
 	  isRootZone: function() {
 	    return this.parent === null;
 	  },
-
+	
 	  run: function run (fn, applyTo, applyWith) {
 	    applyWith = applyWith || [];
-
+	
 	    var oldZone = global.zone;
-
+	
 	    // MAKE THIS ZONE THE CURRENT ZONE
 	    global.zone = this;
-
+	
 	    try {
 	      this.beforeTask();
 	      return fn.apply(applyTo, applyWith);
@@ -1193,7 +1193,7 @@
 	      global.zone = oldZone;
 	    }
 	  },
-
+	
 	  // onError is used to override error handling.
 	  // When a custom error handler is provided, it should most probably rethrow the exception
 	  // not to break the expected control flow:
@@ -1216,55 +1216,55 @@
 	    return this[keys.common.removeEventListener].apply(this, arguments);
 	  }
 	};
-
+	
 	// Root zone ID === 1
 	Zone.nextId = 1;
-
+	
 	Zone.bindPromiseFn = require('./patch/promise').bindPromiseFn;
-
+	
 	module.exports = {
 	  Zone: Zone
 	};
-
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"./keys":3,"./patch/promise":12}],3:[function(require,module,exports){
 	/**
 	 * Creates keys for `private` properties on exposed objects to minimize interactions with other codebases.
 	 */
-
+	
 	function create(name) {
 	  // `Symbol` implementation is broken in Chrome 39.0.2171, do not use them even if they are available
 	  return '_zone$' + name;
 	}
-
+	
 	var commonKeys = {
 	  addEventListener: create('addEventListener'),
 	  removeEventListener: create('removeEventListener')
 	};
-
+	
 	module.exports = {
 	  create: create,
 	  common: commonKeys
 	};
-
+	
 	},{}],4:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	// TODO(vicb): Create a benchmark for the different methods & the usage of the queue
 	// see https://github.com/angular/zone.js/issues/97
-
+	
 	// It is required to initialize hasNativePromise before requiring es6-promise otherwise es6-promise would
 	// overwrite the native Promise implementation on v8 and the check would always return false.
 	// see https://github.com/jakearchibald/es6-promise/issues/140
 	var hasNativePromise = typeof Promise !== "undefined" &&
 	    Promise.toString().indexOf("[native code]") !== -1;
-
+	
 	var isFirefox = global.navigator &&
 	    global.navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-
+	
 	var resolvedPromise;
-
+	
 	// TODO(vicb): remove '!isFirefox' when the bug gets fixed:
 	// https://bugzilla.mozilla.org/show_bug.cgi?id=1162013
 	if (hasNativePromise && !isFirefox) {
@@ -1272,15 +1272,15 @@
 	  // When not available, es6-promise fallback will be used
 	  resolvedPromise = Promise.resolve();
 	}
-
+	
 	var es6Promise = require('es6-promise').Promise;
-
+	
 	if (resolvedPromise) {
 	  es6Promise._setScheduler(function(fn) {
 	    resolvedPromise.then(fn);
 	  });
 	}
-
+	
 	// es6-promise asap should schedule microtasks via zone.scheduleMicrotask so that any
 	// user defined hooks are triggered
 	es6Promise._setAsap(function(fn, arg) {
@@ -1288,30 +1288,30 @@
 	    fn(arg);
 	  });
 	});
-
+	
 	// The default implementation of scheduleMicrotask use the original es6-promise implementation
 	// to schedule a microtask
 	function scheduleMicrotask(fn) {
 	  es6Promise._asap(this.bind(fn));
 	}
-
+	
 	function addMicrotaskSupport(zoneClass) {
 	  zoneClass.prototype.scheduleMicrotask = scheduleMicrotask;
 	  return zoneClass;
 	}
-
+	
 	module.exports = {
 	  addMicrotaskSupport: addMicrotaskSupport
 	};
-
-
-
-
+	
+	
+	
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"es6-promise":17}],5:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	var fnPatch = require('./functions');
 	var promisePatch = require('./promise');
 	var mutationObserverPatch = require('./mutation-observer');
@@ -1322,61 +1322,61 @@
 	var propertyDescriptorPatch = require('./property-descriptor');
 	var geolocationPatch = require('./geolocation');
 	var fileReaderPatch = require('./file-reader');
-
+	
 	function apply() {
 	  fnPatch.patchSetClearFunction(global, [
 	    'timeout',
 	    'interval',
 	    'immediate'
 	  ]);
-
+	
 	  fnPatch.patchRequestAnimationFrame(global, [
 	    'requestAnimationFrame',
 	    'mozRequestAnimationFrame',
 	    'webkitRequestAnimationFrame'
 	  ]);
-
+	
 	  fnPatch.patchFunction(global, [
 	    'alert',
 	    'prompt'
 	  ]);
-
+	
 	  eventTargetPatch.apply();
-
+	
 	  propertyDescriptorPatch.apply();
-
+	
 	  promisePatch.apply();
-
+	
 	  mutationObserverPatch.patchClass('MutationObserver');
 	  mutationObserverPatch.patchClass('WebKitMutationObserver');
-
+	
 	  definePropertyPatch.apply();
-
+	
 	  registerElementPatch.apply();
-
+	
 	  geolocationPatch.apply();
-
+	
 	  fileReaderPatch.apply();
 	}
-
+	
 	module.exports = {
 	  apply: apply
 	};
-
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"./define-property":6,"./event-target":7,"./file-reader":8,"./functions":9,"./geolocation":10,"./mutation-observer":11,"./promise":12,"./property-descriptor":13,"./register-element":14,"./websocket":15}],6:[function(require,module,exports){
 	'use strict';
-
+	
 	var keys = require('../keys');
-
+	
 	// might need similar for object.freeze
 	// i regret nothing
-
+	
 	var _defineProperty = Object.defineProperty;
 	var _getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 	var _create = Object.create;
 	var unconfigurablesKey = keys.create('unconfigurables');
-
+	
 	function apply() {
 	  Object.defineProperty = function (obj, prop, desc) {
 	    if (isUnconfigurable(obj, prop)) {
@@ -1387,14 +1387,14 @@
 	    }
 	    return _defineProperty(obj, prop, desc);
 	  };
-
+	
 	  Object.defineProperties = function (obj, props) {
 	    Object.keys(props).forEach(function (prop) {
 	      Object.defineProperty(obj, prop, props[prop]);
 	    });
 	    return obj;
 	  };
-
+	
 	  Object.create = function (obj, proto) {
 	    if (typeof proto === 'object') {
 	      Object.keys(proto).forEach(function (prop) {
@@ -1403,7 +1403,7 @@
 	    }
 	    return _create(obj, proto);
 	  };
-
+	
 	  Object.getOwnPropertyDescriptor = function (obj, prop) {
 	    var desc = _getOwnPropertyDescriptor(obj, prop);
 	    if (isUnconfigurable(obj, prop)) {
@@ -1412,16 +1412,16 @@
 	    return desc;
 	  };
 	};
-
+	
 	function _redefineProperty(obj, prop, desc) {
 	  desc = rewriteDescriptor(obj, prop, desc);
 	  return _defineProperty(obj, prop, desc);
 	};
-
+	
 	function isUnconfigurable (obj, prop) {
 	  return obj && obj[unconfigurablesKey] && obj[unconfigurablesKey][prop];
 	}
-
+	
 	function rewriteDescriptor (obj, prop, desc) {
 	  desc.configurable = true;
 	  if (!desc.configurable) {
@@ -1432,25 +1432,25 @@
 	  }
 	  return desc;
 	}
-
+	
 	module.exports = {
 	  apply: apply,
 	  _redefineProperty: _redefineProperty
 	};
-
-
-
+	
+	
+	
 	},{"../keys":3}],7:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	var utils = require('../utils');
-
+	
 	function apply() {
 	  // patched properties depend on addEventListener, so this needs to come first
 	  if (global.EventTarget) {
 	    utils.patchEventTargetMethods(global.EventTarget.prototype);
-
+	
 	  // Note: EventTarget is not available in all browsers,
 	  // if it's not available, we instead patch the APIs in the IDL that inherit from EventTarget
 	  } else {
@@ -1475,10 +1475,10 @@
 	      'XMLHttpRequestEventTarget',
 	      'XMLHttpRequestUpload'
 	    ];
-
+	
 	    apis.forEach(function(api) {
 	      var proto = global[api] && global[api].prototype;
-
+	
 	      // Some browsers e.g. Android 4.3's don't actually implement
 	      // the EventTarget methods for all of these e.g. FileReader.
 	      // In this case, there is nothing to patch.
@@ -1486,7 +1486,7 @@
 	        utils.patchEventTargetMethods(proto);
 	      }
 	    });
-
+	
 	    // Patch the methods on `window` instead of `Window.prototype`
 	    // `Window` is not accessible on Android 4.3
 	    if (typeof(window) !== 'undefined') {
@@ -1494,43 +1494,43 @@
 	    }
 	  }
 	}
-
+	
 	module.exports = {
 	  apply: apply
 	};
-
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"../utils":16}],8:[function(require,module,exports){
 	'use strict';
-
+	
 	var utils = require('../utils');
-
+	
 	function apply() {
 	  utils.patchClass('FileReader');
 	}
-
+	
 	module.exports = {
 	  apply: apply
 	};
 	},{"../utils":16}],9:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	var utils = require('../utils');
-
+	
 	function patchSetClearFunction(obj, fnNames) {
 	  fnNames.map(function (name) {
 	    return name[0].toUpperCase() + name.substr(1);
 	  }).forEach(function (name) {
 	    var setName = 'set' + name;
 	    var delegate = obj[setName];
-
+	
 	    if (delegate) {
 	      var clearName = 'clear' + name;
 	      var ids = {};
-
+	
 	      var bindArgs = setName === 'setInterval' ? utils.bindArguments : utils.bindArgumentsOnce;
-
+	
 	      global.zone[setName] = function (fn) {
 	        var id, fnRef = fn;
 	        arguments[0] = function () {
@@ -1542,13 +1542,13 @@
 	        ids[id] = true;
 	        return id;
 	      };
-
+	
 	      obj[setName] = function () {
 	        return global.zone[setName].apply(this, arguments);
 	      };
-
+	
 	      var clearDelegate = obj[clearName];
-
+	
 	      global.zone[clearName] = function (id) {
 	        if (ids[id]) {
 	          delete ids[id];
@@ -1556,15 +1556,15 @@
 	        }
 	        return clearDelegate.apply(this, arguments);
 	      };
-
+	
 	      obj[clearName] = function () {
 	        return global.zone[clearName].apply(this, arguments);
 	      };
 	    }
 	  });
 	};
-
-
+	
+	
 	/**
 	 * requestAnimationFrame is typically recursively called from within the callback function
 	 * that it executes.  To handle this case, only fork a zone if this is executed
@@ -1583,18 +1583,18 @@
 	        }
 	        return delegate.apply(obj, arguments);
 	      };
-
+	
 	      obj[name] = function () {
 	        return global.zone[name].apply(this, arguments);
 	      };
 	    }
 	  });
 	};
-
+	
 	function patchSetFunction(obj, fnNames) {
 	  fnNames.forEach(function (name) {
 	    var delegate = obj[name];
-
+	
 	    if (delegate) {
 	      global.zone[name] = function (fn) {
 	        arguments[0] = function () {
@@ -1603,42 +1603,42 @@
 	        var args = utils.bindArgumentsOnce(arguments);
 	        return delegate.apply(obj, args);
 	      };
-
+	
 	      obj[name] = function () {
 	        return zone[name].apply(this, arguments);
 	      };
 	    }
 	  });
 	};
-
+	
 	function patchFunction(obj, fnNames) {
 	  fnNames.forEach(function (name) {
 	    var delegate = obj[name];
 	    global.zone[name] = function () {
 	      return delegate.apply(obj, arguments);
 	    };
-
+	
 	    obj[name] = function () {
 	      return global.zone[name].apply(this, arguments);
 	    };
 	  });
 	};
-
-
+	
+	
 	module.exports = {
 	  patchSetClearFunction: patchSetClearFunction,
 	  patchSetFunction: patchSetFunction,
 	  patchRequestAnimationFrame: patchRequestAnimationFrame,
 	  patchFunction: patchFunction
 	};
-
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"../utils":16}],10:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	var utils = require('../utils');
-
+	
 	function apply() {
 	  if (global.navigator && global.navigator.geolocation) {
 	    utils.patchPrototype(global.navigator.geolocation, [
@@ -1647,35 +1647,35 @@
 	    ]);
 	  }
 	}
-
+	
 	module.exports = {
 	  apply: apply
 	}
-
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"../utils":16}],11:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	var keys = require('../keys');
-
+	
 	var originalInstanceKey = keys.create('originalInstance');
 	var creationZoneKey = keys.create('creationZone');
 	var isActiveKey = keys.create('isActive');
-
+	
 	// wrap some native API on `window`
 	function patchClass(className) {
 	  var OriginalClass = global[className];
 	  if (!OriginalClass) return;
-
+	
 	  global[className] = function (fn) {
 	    this[originalInstanceKey] = new OriginalClass(global.zone.bind(fn, true));
 	    // Remember where the class was instantiate to execute the enqueueTask and dequeueTask hooks
 	    this[creationZoneKey] = global.zone;
 	  };
-
+	
 	  var instance = new OriginalClass(function () {});
-
+	
 	  global[className].prototype.disconnect = function () {
 	    var result = this[originalInstanceKey].disconnect.apply(this[originalInstanceKey], arguments);
 	    if (this[isActiveKey]) {
@@ -1684,7 +1684,7 @@
 	    }
 	    return result;
 	  };
-
+	
 	  global[className].prototype.observe = function () {
 	    if (!this[isActiveKey]) {
 	      this[creationZoneKey].enqueueTask();
@@ -1692,7 +1692,7 @@
 	    }
 	    return this[originalInstanceKey].observe.apply(this[originalInstanceKey], arguments);
 	  };
-
+	
 	  var prop;
 	  for (prop in instance) {
 	    (function (prop) {
@@ -1720,18 +1720,18 @@
 	    }(prop));
 	  }
 	};
-
+	
 	module.exports = {
 	  patchClass: patchClass
 	};
-
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"../keys":3}],12:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	var utils = require('../utils');
-
+	
 	/*
 	 * Patches a function that returns a Promise-like instance.
 	 *
@@ -1752,17 +1752,17 @@
 	 * ```
 	 */
 	var bindPromiseFn;
-
+	
 	if (global.Promise) {
 	  bindPromiseFn = function (delegate) {
 	    return function() {
 	      var delegatePromise = delegate.apply(this, arguments);
-
+	
 	      // if the delegate returned an instance of Promise, forward it.
 	      if (delegatePromise instanceof Promise) {
 	        return delegatePromise;
 	      }
-
+	
 	      // Otherwise wrap the Promise-like in a global Promise
 	      return new Promise(function(resolve, reject) {
 	        delegatePromise.then(resolve, reject);
@@ -1776,20 +1776,20 @@
 	    };
 	  };
 	}
-
-
+	
+	
 	function _patchPromiseFnsOnObject(objectPath, fnNames) {
 	  var obj = global;
-
+	
 	  var exists = objectPath.every(function (segment) {
 	    obj = obj[segment];
 	    return obj;
 	  });
-
+	
 	  if (!exists) {
 	    return;
 	  }
-
+	
 	  fnNames.forEach(function (name) {
 	    var fn = obj[name];
 	    if (fn) {
@@ -1797,7 +1797,7 @@
 	    }
 	  });
 	}
-
+	
 	function _patchThenable(thenable) {
 	  var then = thenable.then;
 	  thenable.then = function () {
@@ -1805,18 +1805,18 @@
 	    var nextThenable = then.apply(thenable, args);
 	    return _patchThenable(nextThenable);
 	  };
-
+	
 	  var ocatch = thenable.catch;
 	  thenable.catch = function () {
 	    var args = utils.bindArguments(arguments);
 	    var nextThenable = ocatch.apply(thenable, args);
 	    return _patchThenable(nextThenable);
 	  };
-
+	
 	  return thenable;
 	}
-
-
+	
+	
 	function apply() {
 	  // Patch .then() and .catch() on native Promises to execute callbacks in the zone where
 	  // those functions are called.
@@ -1825,42 +1825,42 @@
 	      'then',
 	      'catch'
 	    ]);
-
+	
 	    // Patch browser APIs that return a Promise
 	    var patchFns = [
 	      // fetch
 	      [[], ['fetch']],
 	      [['Response', 'prototype'], ['arrayBuffer', 'blob', 'json', 'text']]
 	    ];
-
+	
 	    patchFns.forEach(function(objPathAndFns) {
 	      _patchPromiseFnsOnObject(objPathAndFns[0], objPathAndFns[1]);
 	    });
 	  }
 	}
-
+	
 	module.exports = {
 	  apply: apply,
 	  bindPromiseFn: bindPromiseFn
 	};
-
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"../utils":16}],13:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	var webSocketPatch = require('./websocket');
 	var utils = require('../utils');
 	var keys = require('../keys');
-
+	
 	var eventNames = 'copy cut paste abort blur focus canplay canplaythrough change click contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop durationchange emptied ended input invalid keydown keypress keyup load loadeddata loadedmetadata loadstart message mousedown mouseenter mouseleave mousemove mouseout mouseover mouseup pause play playing progress ratechange reset scroll seeked seeking select show stalled submit suspend timeupdate volumechange waiting mozfullscreenchange mozfullscreenerror mozpointerlockchange mozpointerlockerror error webglcontextrestored webglcontextlost webglcontextcreationerror'.split(' ');
-
+	
 	function apply() {
 	  if (utils.isWebWorker()){
 	    // on WebWorker so don't apply patch
 	    return;
 	  }
-
+	
 	  var supportsWebSocket = typeof WebSocket !== 'undefined';
 	  if (canPatchViaPropertyDescriptor()) {
 	    // for browsers that we can patch the descriptor:  Chrome & Firefox
@@ -1881,7 +1881,7 @@
 	    }
 	  }
 	}
-
+	
 	function canPatchViaPropertyDescriptor() {
 	  if (!Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'onclick') && typeof Element !== 'undefined') {
 	    // WebKit https://bugs.webkit.org/show_bug.cgi?id=134364
@@ -1889,7 +1889,7 @@
 	    var desc = Object.getOwnPropertyDescriptor(Element.prototype, 'onclick');
 	    if (desc && !desc.configurable) return false;
 	  }
-
+	
 	  Object.defineProperty(HTMLElement.prototype, 'onclick', {
 	    get: function () {
 	      return true;
@@ -1900,9 +1900,9 @@
 	  Object.defineProperty(HTMLElement.prototype, 'onclick', {});
 	  return result;
 	};
-
+	
 	var unboundKey = keys.create('unbound');
-
+	
 	// Whenever any event fires, we check the event target and all parents
 	// for `onwhatever` properties and replace them with zone-bound functions
 	// - Chrome (for now)
@@ -1922,24 +1922,24 @@
 	    }, true);
 	  });
 	};
-
+	
 	module.exports = {
 	  apply: apply
 	};
-
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"../keys":3,"../utils":16,"./websocket":15}],14:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	var _redefineProperty = require('./define-property')._redefineProperty;
 	var utils = require("../utils");
-
+	
 	function apply() {
 	  if (utils.isWebWorker() || !('registerElement' in global.document)) {
 	    return;
 	  }
-
+	
 	  var _registerElement = document.registerElement;
 	  var callbacks = [
 	    'createdCallback',
@@ -1947,7 +1947,7 @@
 	    'detachedCallback',
 	    'attributeChangedCallback'
 	  ];
-
+	
 	  document.registerElement = function (name, opts) {
 	    if (opts && opts.prototype) {
 	      callbacks.forEach(function (callback) {
@@ -1964,22 +1964,22 @@
 	        }
 	      });
 	    }
-
+	
 	    return _registerElement.apply(document, [name, opts]);
 	  };
 	}
-
+	
 	module.exports = {
 	  apply: apply
 	};
-
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"../utils":16,"./define-property":6}],15:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	var utils = require('../utils');
-
+	
 	// we have to patch the instance since the proto is non-configurable
 	function apply() {
 	  var WS = global.WebSocket;
@@ -1987,7 +1987,7 @@
 	  global.WebSocket = function(a, b) {
 	    var socket = arguments.length > 1 ? new WS(a, b) : new WS(a);
 	    var proxySocket;
-
+	
 	    // Safari 7.0 has non-configurable own 'onmessage' and friends properties on the socket instance
 	    var onmessageDesc = Object.getOwnPropertyDescriptor(socket, 'onmessage');
 	    if (onmessageDesc && onmessageDesc.configurable === false) {
@@ -2001,24 +2001,24 @@
 	      // we can patch the real socket
 	      proxySocket = socket;
 	    }
-
+	
 	    utils.patchProperties(proxySocket, ['onclose', 'onerror', 'onmessage', 'onopen']);
-
+	
 	    return proxySocket;
 	  };
 	}
-
+	
 	module.exports = {
 	  apply: apply
 	};
-
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"../utils":16}],16:[function(require,module,exports){
 	(function (global){
 	'use strict';
-
+	
 	var keys = require('./keys');
-
+	
 	function bindArguments(args) {
 	  for (var i = args.length - 1; i >= 0; i--) {
 	    if (typeof args[i] === 'function') {
@@ -2027,7 +2027,7 @@
 	  }
 	  return args;
 	};
-
+	
 	function bindArgumentsOnce(args) {
 	  for (var i = args.length - 1; i >= 0; i--) {
 	    if (typeof args[i] === 'function') {
@@ -2036,7 +2036,7 @@
 	  }
 	  return args;
 	};
-
+	
 	function patchPrototype(obj, fnNames) {
 	  fnNames.forEach(function (name) {
 	    var delegate = obj[name];
@@ -2047,17 +2047,17 @@
 	    }
 	  });
 	};
-
+	
 	function isWebWorker() {
 	  return (typeof document === "undefined");
 	}
-
+	
 	function patchProperty(obj, prop) {
 	  var desc = Object.getOwnPropertyDescriptor(obj, prop) || {
 	    enumerable: true,
 	    configurable: true
 	  };
-
+	
 	  // A property descriptor cannot have getter/setter and be writable
 	  // deleting the writable and value properties avoids this error:
 	  //
@@ -2065,16 +2065,16 @@
 	  // getter or setter has been specified
 	  delete desc.writable;
 	  delete desc.value;
-
+	
 	  // substr(2) cuz 'onclick' -> 'click', etc
 	  var eventName = prop.substr(2);
 	  var _prop = '_' + prop;
-
+	
 	  desc.set = function (fn) {
 	    if (this[_prop]) {
 	      this.removeEventListener(eventName, this[_prop]);
 	    }
-
+	
 	    if (typeof fn === 'function') {
 	      this[_prop] = fn;
 	      this.addEventListener(eventName, fn, false);
@@ -2082,14 +2082,14 @@
 	      this[_prop] = null;
 	    }
 	  };
-
+	
 	  desc.get = function () {
 	    return this[_prop];
 	  };
-
+	
 	  Object.defineProperty(obj, prop, desc);
 	};
-
+	
 	function patchProperties(obj, properties) {
 	  (properties || (function () {
 	      var props = [];
@@ -2105,10 +2105,10 @@
 	      patchProperty(obj, eventName);
 	    });
 	};
-
+	
 	var originalFnKey = keys.create('originalFn');
 	var boundFnsKey = keys.create('boundFns');
-
+	
 	function patchEventTargetMethods(obj) {
 	  // This is required for the addEventListener hook on the root zone.
 	  obj[keys.common.addEventListener] = obj.addEventListener;
@@ -2128,20 +2128,20 @@
 	      } else {
 	        fn = handler;
 	      }
-
+	
 	      handler[originalFnKey] = fn;
 	      handler[boundFnsKey] = handler[boundFnsKey] || {};
 	      handler[boundFnsKey][eventType] = handler[boundFnsKey][eventType] || zone.bind(fn);
 	      arguments[1] = handler[boundFnsKey][eventType];
 	    }
-
+	
 	    // - Inside a Web Worker, `this` is undefined, the context is `global` (= `self`)
 	    // - When `addEventListener` is called on the global context in strict mode, `this` is undefined
 	    // see https://github.com/angular/zone.js/issues/190
 	    var target = this || global;
 	    return global.zone.addEventListener.apply(target, arguments);
 	  };
-
+	
 	  // This is required for the removeEventListener hook on the root zone.
 	  obj[keys.common.removeEventListener] = obj.removeEventListener;
 	  obj.removeEventListener = function (eventName, handler, useCapturing) {
@@ -2152,7 +2152,7 @@
 	      delete _bound[eventType];
 	      global.zone.dequeueTask(handler[originalFnKey]);
 	    }
-
+	
 	    // - Inside a Web Worker, `this` is undefined, the context is `global`
 	    // - When `addEventListener` is called on the global context in strict mode, `this` is undefined
 	    // see https://github.com/angular/zone.js/issues/190
@@ -2161,14 +2161,14 @@
 	    return result;
 	  };
 	};
-
+	
 	var originalInstanceKey = keys.create('originalInstance');
-
+	
 	// wrap some native API on `window`
 	function patchClass(className) {
 	  var OriginalClass = global[className];
 	  if (!OriginalClass) return;
-
+	
 	  global[className] = function () {
 	    var a = bindArguments(arguments);
 	    switch (a.length) {
@@ -2180,9 +2180,9 @@
 	      default: throw new Error('what are you even doing?');
 	    }
 	  };
-
+	
 	  var instance = new OriginalClass();
-
+	
 	  var prop;
 	  for (prop in instance) {
 	    (function (prop) {
@@ -2206,14 +2206,14 @@
 	      }
 	    }(prop));
 	  }
-
+	
 	  for (prop in OriginalClass) {
 	    if (prop !== 'prototype' && OriginalClass.hasOwnProperty(prop)) {
 	      global[className][prop] = OriginalClass[prop];
 	    }
 	  }
 	};
-
+	
 	module.exports = {
 	  bindArguments: bindArguments,
 	  bindArgumentsOnce: bindArgumentsOnce,
@@ -2224,7 +2224,7 @@
 	  patchClass: patchClass,
 	  isWebWorker: isWebWorker
 	};
-
+	
 	}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{"./keys":3}],17:[function(require,module,exports){
 	(function (process,global){
@@ -2235,21 +2235,21 @@
 	 *            See https://raw.githubusercontent.com/jakearchibald/es6-promise/master/LICENSE
 	 * @version   3.0.2
 	 */
-
+	
 	(function() {
 	    "use strict";
 	    function lib$es6$promise$utils$$objectOrFunction(x) {
 	      return typeof x === 'function' || (typeof x === 'object' && x !== null);
 	    }
-
+	
 	    function lib$es6$promise$utils$$isFunction(x) {
 	      return typeof x === 'function';
 	    }
-
+	
 	    function lib$es6$promise$utils$$isMaybeThenable(x) {
 	      return typeof x === 'object' && x !== null;
 	    }
-
+	
 	    var lib$es6$promise$utils$$_isArray;
 	    if (!Array.isArray) {
 	      lib$es6$promise$utils$$_isArray = function (x) {
@@ -2258,13 +2258,13 @@
 	    } else {
 	      lib$es6$promise$utils$$_isArray = Array.isArray;
 	    }
-
+	
 	    var lib$es6$promise$utils$$isArray = lib$es6$promise$utils$$_isArray;
 	    var lib$es6$promise$asap$$len = 0;
 	    var lib$es6$promise$asap$$toString = {}.toString;
 	    var lib$es6$promise$asap$$vertxNext;
 	    var lib$es6$promise$asap$$customSchedulerFn;
-
+	
 	    var lib$es6$promise$asap$$asap = function asap(callback, arg) {
 	      lib$es6$promise$asap$$queue[lib$es6$promise$asap$$len] = callback;
 	      lib$es6$promise$asap$$queue[lib$es6$promise$asap$$len + 1] = arg;
@@ -2280,25 +2280,25 @@
 	        }
 	      }
 	    }
-
+	
 	    function lib$es6$promise$asap$$setScheduler(scheduleFn) {
 	      lib$es6$promise$asap$$customSchedulerFn = scheduleFn;
 	    }
-
+	
 	    function lib$es6$promise$asap$$setAsap(asapFn) {
 	      lib$es6$promise$asap$$asap = asapFn;
 	    }
-
+	
 	    var lib$es6$promise$asap$$browserWindow = (typeof window !== 'undefined') ? window : undefined;
 	    var lib$es6$promise$asap$$browserGlobal = lib$es6$promise$asap$$browserWindow || {};
 	    var lib$es6$promise$asap$$BrowserMutationObserver = lib$es6$promise$asap$$browserGlobal.MutationObserver || lib$es6$promise$asap$$browserGlobal.WebKitMutationObserver;
 	    var lib$es6$promise$asap$$isNode = typeof process !== 'undefined' && {}.toString.call(process) === '[object process]';
-
+	
 	    // test for web worker but not in IE10
 	    var lib$es6$promise$asap$$isWorker = typeof Uint8ClampedArray !== 'undefined' &&
 	      typeof importScripts !== 'undefined' &&
 	      typeof MessageChannel !== 'undefined';
-
+	
 	    // node
 	    function lib$es6$promise$asap$$useNextTick() {
 	      // node version 0.10.x displays a deprecation warning when nextTick is used recursively
@@ -2307,25 +2307,25 @@
 	        process.nextTick(lib$es6$promise$asap$$flush);
 	      };
 	    }
-
+	
 	    // vertx
 	    function lib$es6$promise$asap$$useVertxTimer() {
 	      return function() {
 	        lib$es6$promise$asap$$vertxNext(lib$es6$promise$asap$$flush);
 	      };
 	    }
-
+	
 	    function lib$es6$promise$asap$$useMutationObserver() {
 	      var iterations = 0;
 	      var observer = new lib$es6$promise$asap$$BrowserMutationObserver(lib$es6$promise$asap$$flush);
 	      var node = document.createTextNode('');
 	      observer.observe(node, { characterData: true });
-
+	
 	      return function() {
 	        node.data = (iterations = ++iterations % 2);
 	      };
 	    }
-
+	
 	    // web worker
 	    function lib$es6$promise$asap$$useMessageChannel() {
 	      var channel = new MessageChannel();
@@ -2334,28 +2334,28 @@
 	        channel.port2.postMessage(0);
 	      };
 	    }
-
+	
 	    function lib$es6$promise$asap$$useSetTimeout() {
 	      return function() {
 	        setTimeout(lib$es6$promise$asap$$flush, 1);
 	      };
 	    }
-
+	
 	    var lib$es6$promise$asap$$queue = new Array(1000);
 	    function lib$es6$promise$asap$$flush() {
 	      for (var i = 0; i < lib$es6$promise$asap$$len; i+=2) {
 	        var callback = lib$es6$promise$asap$$queue[i];
 	        var arg = lib$es6$promise$asap$$queue[i+1];
-
+	
 	        callback(arg);
-
+	
 	        lib$es6$promise$asap$$queue[i] = undefined;
 	        lib$es6$promise$asap$$queue[i+1] = undefined;
 	      }
-
+	
 	      lib$es6$promise$asap$$len = 0;
 	    }
-
+	
 	    function lib$es6$promise$asap$$attemptVertx() {
 	      try {
 	        var r = require;
@@ -2366,7 +2366,7 @@
 	        return lib$es6$promise$asap$$useSetTimeout();
 	      }
 	    }
-
+	
 	    var lib$es6$promise$asap$$scheduleFlush;
 	    // Decide what async method to use to triggering processing of queued callbacks:
 	    if (lib$es6$promise$asap$$isNode) {
@@ -2380,23 +2380,23 @@
 	    } else {
 	      lib$es6$promise$asap$$scheduleFlush = lib$es6$promise$asap$$useSetTimeout();
 	    }
-
+	
 	    function lib$es6$promise$$internal$$noop() {}
-
+	
 	    var lib$es6$promise$$internal$$PENDING   = void 0;
 	    var lib$es6$promise$$internal$$FULFILLED = 1;
 	    var lib$es6$promise$$internal$$REJECTED  = 2;
-
+	
 	    var lib$es6$promise$$internal$$GET_THEN_ERROR = new lib$es6$promise$$internal$$ErrorObject();
-
+	
 	    function lib$es6$promise$$internal$$selfFulfillment() {
 	      return new TypeError("You cannot resolve a promise with itself");
 	    }
-
+	
 	    function lib$es6$promise$$internal$$cannotReturnOwn() {
 	      return new TypeError('A promises callback cannot return that same promise.');
 	    }
-
+	
 	    function lib$es6$promise$$internal$$getThen(promise) {
 	      try {
 	        return promise.then;
@@ -2405,7 +2405,7 @@
 	        return lib$es6$promise$$internal$$GET_THEN_ERROR;
 	      }
 	    }
-
+	
 	    function lib$es6$promise$$internal$$tryThen(then, value, fulfillmentHandler, rejectionHandler) {
 	      try {
 	        then.call(value, fulfillmentHandler, rejectionHandler);
@@ -2413,7 +2413,7 @@
 	        return e;
 	      }
 	    }
-
+	
 	    function lib$es6$promise$$internal$$handleForeignThenable(promise, thenable, then) {
 	       lib$es6$promise$asap$$asap(function(promise) {
 	        var sealed = false;
@@ -2428,17 +2428,17 @@
 	        }, function(reason) {
 	          if (sealed) { return; }
 	          sealed = true;
-
+	
 	          lib$es6$promise$$internal$$reject(promise, reason);
 	        }, 'Settle: ' + (promise._label || ' unknown promise'));
-
+	
 	        if (!sealed && error) {
 	          sealed = true;
 	          lib$es6$promise$$internal$$reject(promise, error);
 	        }
 	      }, promise);
 	    }
-
+	
 	    function lib$es6$promise$$internal$$handleOwnThenable(promise, thenable) {
 	      if (thenable._state === lib$es6$promise$$internal$$FULFILLED) {
 	        lib$es6$promise$$internal$$fulfill(promise, thenable._result);
@@ -2452,13 +2452,13 @@
 	        });
 	      }
 	    }
-
+	
 	    function lib$es6$promise$$internal$$handleMaybeThenable(promise, maybeThenable) {
 	      if (maybeThenable.constructor === promise.constructor) {
 	        lib$es6$promise$$internal$$handleOwnThenable(promise, maybeThenable);
 	      } else {
 	        var then = lib$es6$promise$$internal$$getThen(maybeThenable);
-
+	
 	        if (then === lib$es6$promise$$internal$$GET_THEN_ERROR) {
 	          lib$es6$promise$$internal$$reject(promise, lib$es6$promise$$internal$$GET_THEN_ERROR.error);
 	        } else if (then === undefined) {
@@ -2470,7 +2470,7 @@
 	        }
 	      }
 	    }
-
+	
 	    function lib$es6$promise$$internal$$resolve(promise, value) {
 	      if (promise === value) {
 	        lib$es6$promise$$internal$$reject(promise, lib$es6$promise$$internal$$selfFulfillment());
@@ -2480,77 +2480,77 @@
 	        lib$es6$promise$$internal$$fulfill(promise, value);
 	      }
 	    }
-
+	
 	    function lib$es6$promise$$internal$$publishRejection(promise) {
 	      if (promise._onerror) {
 	        promise._onerror(promise._result);
 	      }
-
+	
 	      lib$es6$promise$$internal$$publish(promise);
 	    }
-
+	
 	    function lib$es6$promise$$internal$$fulfill(promise, value) {
 	      if (promise._state !== lib$es6$promise$$internal$$PENDING) { return; }
-
+	
 	      promise._result = value;
 	      promise._state = lib$es6$promise$$internal$$FULFILLED;
-
+	
 	      if (promise._subscribers.length !== 0) {
 	        lib$es6$promise$asap$$asap(lib$es6$promise$$internal$$publish, promise);
 	      }
 	    }
-
+	
 	    function lib$es6$promise$$internal$$reject(promise, reason) {
 	      if (promise._state !== lib$es6$promise$$internal$$PENDING) { return; }
 	      promise._state = lib$es6$promise$$internal$$REJECTED;
 	      promise._result = reason;
-
+	
 	      lib$es6$promise$asap$$asap(lib$es6$promise$$internal$$publishRejection, promise);
 	    }
-
+	
 	    function lib$es6$promise$$internal$$subscribe(parent, child, onFulfillment, onRejection) {
 	      var subscribers = parent._subscribers;
 	      var length = subscribers.length;
-
+	
 	      parent._onerror = null;
-
+	
 	      subscribers[length] = child;
 	      subscribers[length + lib$es6$promise$$internal$$FULFILLED] = onFulfillment;
 	      subscribers[length + lib$es6$promise$$internal$$REJECTED]  = onRejection;
-
+	
 	      if (length === 0 && parent._state) {
 	        lib$es6$promise$asap$$asap(lib$es6$promise$$internal$$publish, parent);
 	      }
 	    }
-
+	
 	    function lib$es6$promise$$internal$$publish(promise) {
 	      var subscribers = promise._subscribers;
 	      var settled = promise._state;
-
+	
 	      if (subscribers.length === 0) { return; }
-
+	
 	      var child, callback, detail = promise._result;
-
+	
 	      for (var i = 0; i < subscribers.length; i += 3) {
 	        child = subscribers[i];
 	        callback = subscribers[i + settled];
-
+	
 	        if (child) {
 	          lib$es6$promise$$internal$$invokeCallback(settled, child, callback, detail);
 	        } else {
 	          callback(detail);
 	        }
 	      }
-
+	
 	      promise._subscribers.length = 0;
 	    }
-
+	
 	    function lib$es6$promise$$internal$$ErrorObject() {
 	      this.error = null;
 	    }
-
+	
 	    var lib$es6$promise$$internal$$TRY_CATCH_ERROR = new lib$es6$promise$$internal$$ErrorObject();
-
+	
 	    function lib$es6$promise$$internal$$tryCatch(callback, detail) {
 	      try {
 	        return callback(detail);
@@ -2559,14 +2559,14 @@
 	        return lib$es6$promise$$internal$$TRY_CATCH_ERROR;
 	      }
 	    }
-
+	
 	    function lib$es6$promise$$internal$$invokeCallback(settled, promise, callback, detail) {
 	      var hasCallback = lib$es6$promise$utils$$isFunction(callback),
 	          value, error, succeeded, failed;
-
+	
 	      if (hasCallback) {
 	        value = lib$es6$promise$$internal$$tryCatch(callback, detail);
-
+	
 	        if (value === lib$es6$promise$$internal$$TRY_CATCH_ERROR) {
 	          failed = true;
 	          error = value.error;
@@ -2574,17 +2574,17 @@
 	        } else {
 	          succeeded = true;
 	        }
-
+	
 	        if (promise === value) {
 	          lib$es6$promise$$internal$$reject(promise, lib$es6$promise$$internal$$cannotReturnOwn());
 	          return;
 	        }
-
+	
 	      } else {
 	        value = detail;
 	        succeeded = true;
 	      }
-
+	
 	      if (promise._state !== lib$es6$promise$$internal$$PENDING) {
 	        // noop
 	      } else if (hasCallback && succeeded) {
@@ -2597,7 +2597,7 @@
 	        lib$es6$promise$$internal$$reject(promise, value);
 	      }
 	    }
-
+	
 	    function lib$es6$promise$$internal$$initializePromise(promise, resolver) {
 	      try {
 	        resolver(function resolvePromise(value){
@@ -2609,20 +2609,20 @@
 	        lib$es6$promise$$internal$$reject(promise, e);
 	      }
 	    }
-
+	
 	    function lib$es6$promise$enumerator$$Enumerator(Constructor, input) {
 	      var enumerator = this;
-
+	
 	      enumerator._instanceConstructor = Constructor;
 	      enumerator.promise = new Constructor(lib$es6$promise$$internal$$noop);
-
+	
 	      if (enumerator._validateInput(input)) {
 	        enumerator._input     = input;
 	        enumerator.length     = input.length;
 	        enumerator._remaining = input.length;
-
+	
 	        enumerator._init();
-
+	
 	        if (enumerator.length === 0) {
 	          lib$es6$promise$$internal$$fulfill(enumerator.promise, enumerator._result);
 	        } else {
@@ -2636,37 +2636,37 @@
 	        lib$es6$promise$$internal$$reject(enumerator.promise, enumerator._validationError());
 	      }
 	    }
-
+	
 	    lib$es6$promise$enumerator$$Enumerator.prototype._validateInput = function(input) {
 	      return lib$es6$promise$utils$$isArray(input);
 	    };
-
+	
 	    lib$es6$promise$enumerator$$Enumerator.prototype._validationError = function() {
 	      return new Error('Array Methods must be provided an Array');
 	    };
-
+	
 	    lib$es6$promise$enumerator$$Enumerator.prototype._init = function() {
 	      this._result = new Array(this.length);
 	    };
-
+	
 	    var lib$es6$promise$enumerator$$default = lib$es6$promise$enumerator$$Enumerator;
-
+	
 	    lib$es6$promise$enumerator$$Enumerator.prototype._enumerate = function() {
 	      var enumerator = this;
-
+	
 	      var length  = enumerator.length;
 	      var promise = enumerator.promise;
 	      var input   = enumerator._input;
-
+	
 	      for (var i = 0; promise._state === lib$es6$promise$$internal$$PENDING && i < length; i++) {
 	        enumerator._eachEntry(input[i], i);
 	      }
 	    };
-
+	
 	    lib$es6$promise$enumerator$$Enumerator.prototype._eachEntry = function(entry, i) {
 	      var enumerator = this;
 	      var c = enumerator._instanceConstructor;
-
+	
 	      if (lib$es6$promise$utils$$isMaybeThenable(entry)) {
 	        if (entry.constructor === c && entry._state !== lib$es6$promise$$internal$$PENDING) {
 	          entry._onerror = null;
@@ -2679,29 +2679,29 @@
 	        enumerator._result[i] = entry;
 	      }
 	    };
-
+	
 	    lib$es6$promise$enumerator$$Enumerator.prototype._settledAt = function(state, i, value) {
 	      var enumerator = this;
 	      var promise = enumerator.promise;
-
+	
 	      if (promise._state === lib$es6$promise$$internal$$PENDING) {
 	        enumerator._remaining--;
-
+	
 	        if (state === lib$es6$promise$$internal$$REJECTED) {
 	          lib$es6$promise$$internal$$reject(promise, value);
 	        } else {
 	          enumerator._result[i] = value;
 	        }
 	      }
-
+	
 	      if (enumerator._remaining === 0) {
 	        lib$es6$promise$$internal$$fulfill(promise, enumerator._result);
 	      }
 	    };
-
+	
 	    lib$es6$promise$enumerator$$Enumerator.prototype._willSettleAt = function(promise, i) {
 	      var enumerator = this;
-
+	
 	      lib$es6$promise$$internal$$subscribe(promise, undefined, function(value) {
 	        enumerator._settledAt(lib$es6$promise$$internal$$FULFILLED, i, value);
 	      }, function(reason) {
@@ -2715,39 +2715,39 @@
 	    function lib$es6$promise$promise$race$$race(entries) {
 	      /*jshint validthis:true */
 	      var Constructor = this;
-
+	
 	      var promise = new Constructor(lib$es6$promise$$internal$$noop);
-
+	
 	      if (!lib$es6$promise$utils$$isArray(entries)) {
 	        lib$es6$promise$$internal$$reject(promise, new TypeError('You must pass an array to race.'));
 	        return promise;
 	      }
-
+	
 	      var length = entries.length;
-
+	
 	      function onFulfillment(value) {
 	        lib$es6$promise$$internal$$resolve(promise, value);
 	      }
-
+	
 	      function onRejection(reason) {
 	        lib$es6$promise$$internal$$reject(promise, reason);
 	      }
-
+	
 	      for (var i = 0; promise._state === lib$es6$promise$$internal$$PENDING && i < length; i++) {
 	        lib$es6$promise$$internal$$subscribe(Constructor.resolve(entries[i]), undefined, onFulfillment, onRejection);
 	      }
-
+	
 	      return promise;
 	    }
 	    var lib$es6$promise$promise$race$$default = lib$es6$promise$promise$race$$race;
 	    function lib$es6$promise$promise$resolve$$resolve(object) {
 	      /*jshint validthis:true */
 	      var Constructor = this;
-
+	
 	      if (object && typeof object === 'object' && object.constructor === Constructor) {
 	        return object;
 	      }
-
+	
 	      var promise = new Constructor(lib$es6$promise$$internal$$noop);
 	      lib$es6$promise$$internal$$resolve(promise, object);
 	      return promise;
@@ -2761,83 +2761,83 @@
 	      return promise;
 	    }
 	    var lib$es6$promise$promise$reject$$default = lib$es6$promise$promise$reject$$reject;
-
+	
 	    var lib$es6$promise$promise$$counter = 0;
-
+	
 	    function lib$es6$promise$promise$$needsResolver() {
 	      throw new TypeError('You must pass a resolver function as the first argument to the promise constructor');
 	    }
-
+	
 	    function lib$es6$promise$promise$$needsNew() {
 	      throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");
 	    }
-
+	
 	    var lib$es6$promise$promise$$default = lib$es6$promise$promise$$Promise;
 	    /**
 	      Promise objects represent the eventual result of an asynchronous operation. The
 	      primary way of interacting with a promise is through its `then` method, which
 	      registers callbacks to receive either a promise's eventual value or the reason
 	      why the promise cannot be fulfilled.
-
+	
 	      Terminology
 	      -----------
-
+	
 	      - `promise` is an object or function with a `then` method whose behavior conforms to this specification.
 	      - `thenable` is an object or function that defines a `then` method.
 	      - `value` is any legal JavaScript value (including undefined, a thenable, or a promise).
 	      - `exception` is a value that is thrown using the throw statement.
 	      - `reason` is a value that indicates why a promise was rejected.
 	      - `settled` the final resting state of a promise, fulfilled or rejected.
-
+	
 	      A promise can be in one of three states: pending, fulfilled, or rejected.
-
+	
 	      Promises that are fulfilled have a fulfillment value and are in the fulfilled
 	      state.  Promises that are rejected have a rejection reason and are in the
 	      rejected state.  A fulfillment value is never a thenable.
-
+	
 	      Promises can also be said to *resolve* a value.  If this value is also a
 	      promise, then the original promise's settled state will match the value's
 	      settled state.  So a promise that *resolves* a promise that rejects will
 	      itself reject, and a promise that *resolves* a promise that fulfills will
 	      itself fulfill.
-
-
+	
+	
 	      Basic Usage:
 	      ------------
-
+	
 	      ```js
 	      var promise = new Promise(function(resolve, reject) {
 	        // on success
 	        resolve(value);
-
+	
 	        // on failure
 	        reject(reason);
 	      });
-
+	
 	      promise.then(function(value) {
 	        // on fulfillment
 	      }, function(reason) {
 	        // on rejection
 	      });
 	      ```
-
+	
 	      Advanced Usage:
 	      ---------------
-
+	
 	      Promises shine when abstracting away asynchronous interactions such as
 	      `XMLHttpRequest`s.
-
+	
 	      ```js
 	      function getJSON(url) {
 	        return new Promise(function(resolve, reject){
 	          var xhr = new XMLHttpRequest();
-
+	
 	          xhr.open('GET', url);
 	          xhr.onreadystatechange = handler;
 	          xhr.responseType = 'json';
 	          xhr.setRequestHeader('Accept', 'application/json');
 	          xhr.send();
-
+	
 	          function handler() {
 	            if (this.readyState === this.DONE) {
 	              if (this.status === 200) {
@@ -2849,16 +2849,16 @@
 	          };
 	        });
 	      }
-
+	
 	      getJSON('/posts.json').then(function(json) {
 	        // on fulfillment
 	      }, function(reason) {
 	        // on rejection
 	      });
 	      ```
-
+	
 	      Unlike callbacks, promises are great composable primitives.
-
+	
 	      ```js
 	      Promise.all([
 	        getJSON('/posts'),
@@ -2866,11 +2866,11 @@
 	      ]).then(function(values){
 	        values[0] // => postsJSON
 	        values[1] // => commentsJSON
-
+	
 	        return values;
 	      });
 	      ```
-
+	
 	      @class Promise
 	      @param {function} resolver
 	      Useful for tooling.
@@ -2881,20 +2881,20 @@
 	      this._state = undefined;
 	      this._result = undefined;
 	      this._subscribers = [];
-
+	
 	      if (lib$es6$promise$$internal$$noop !== resolver) {
 	        if (!lib$es6$promise$utils$$isFunction(resolver)) {
 	          lib$es6$promise$promise$$needsResolver();
 	        }
-
+	
 	        if (!(this instanceof lib$es6$promise$promise$$Promise)) {
 	          lib$es6$promise$promise$$needsNew();
 	        }
-
+	
 	        lib$es6$promise$$internal$$initializePromise(this, resolver);
 	      }
 	    }
-
+	
 	    lib$es6$promise$promise$$Promise.all = lib$es6$promise$promise$all$$default;
 	    lib$es6$promise$promise$$Promise.race = lib$es6$promise$promise$race$$default;
 	    lib$es6$promise$promise$$Promise.resolve = lib$es6$promise$promise$resolve$$default;
@@ -2902,15 +2902,15 @@
 	    lib$es6$promise$promise$$Promise._setScheduler = lib$es6$promise$asap$$setScheduler;
 	    lib$es6$promise$promise$$Promise._setAsap = lib$es6$promise$asap$$setAsap;
 	    lib$es6$promise$promise$$Promise._asap = lib$es6$promise$asap$$asap;
-
+	
 	    lib$es6$promise$promise$$Promise.prototype = {
 	      constructor: lib$es6$promise$promise$$Promise,
-
+	
 	    /**
 	      The primary way of interacting with a promise is through its `then` method,
 	      which registers callbacks to receive either a promise's eventual value or the
 	      reason why the promise cannot be fulfilled.
-
+	
 	      ```js
 	      findUser().then(function(user){
 	        // user is available
@@ -2918,14 +2918,14 @@
 	        // user is unavailable, and you are given the reason why
 	      });
 	      ```
-
+	
 	      Chaining
 	      --------
-
+	
 	      The return value of `then` is itself a promise.  This second, 'downstream'
 	      promise is resolved with the return value of the first promise's fulfillment
 	      or rejection handler, or rejected if the handler throws an exception.
-
+	
 	      ```js
 	      findUser().then(function (user) {
 	        return user.name;
@@ -2935,7 +2935,7 @@
 	        // If `findUser` fulfilled, `userName` will be the user's name, otherwise it
 	        // will be `'default name'`
 	      });
-
+	
 	      findUser().then(function (user) {
 	        throw new Error('Found user, but still unhappy');
 	      }, function (reason) {
@@ -2948,7 +2948,7 @@
 	      });
 	      ```
 	      If the downstream promise does not specify a rejection handler, rejection reasons will be propagated further downstream.
-
+	
 	      ```js
 	      findUser().then(function (user) {
 	        throw new PedagogicalException('Upstream error');
@@ -2960,15 +2960,15 @@
 	        // The `PedgagocialException` is propagated all the way down to here
 	      });
 	      ```
-
+	
 	      Assimilation
 	      ------------
-
+	
 	      Sometimes the value you want to propagate to a downstream promise can only be
 	      retrieved asynchronously. This can be achieved by returning a promise in the
 	      fulfillment or rejection handler. The downstream promise will then be pending
 	      until the returned promise is settled. This is called *assimilation*.
-
+	
 	      ```js
 	      findUser().then(function (user) {
 	        return findCommentsByAuthor(user);
@@ -2976,9 +2976,9 @@
 	        // The user's comments are now available
 	      });
 	      ```
-
+	
 	      If the assimliated promise rejects, then the downstream promise will also reject.
-
+	
 	      ```js
 	      findUser().then(function (user) {
 	        return findCommentsByAuthor(user);
@@ -2988,15 +2988,15 @@
 	        // If `findCommentsByAuthor` rejects, we'll have the reason here
 	      });
 	      ```
-
+	
 	      Simple Example
 	      --------------
-
+	
 	      Synchronous Example
-
+	
 	      ```javascript
 	      var result;
-
+	
 	      try {
 	        result = findResult();
 	        // success
@@ -3004,9 +3004,9 @@
 	        // failure
 	      }
 	      ```
-
+	
 	      Errback Example
-
+	
 	      ```js
 	      findResult(function(result, err){
 	        if (err) {
@@ -3016,9 +3016,9 @@
 	        }
 	      });
 	      ```
-
+	
 	      Promise Example;
-
+	
 	      ```javascript
 	      findResult().then(function(result){
 	        // success
@@ -3026,15 +3026,15 @@
 	        // failure
 	      });
 	      ```
-
+	
 	      Advanced Example
 	      --------------
-
+	
 	      Synchronous Example
-
+	
 	      ```javascript
 	      var author, books;
-
+	
 	      try {
 	        author = findAuthor();
 	        books  = findBooksByAuthor(author);
@@ -3043,19 +3043,19 @@
 	        // failure
 	      }
 	      ```
-
+	
 	      Errback Example
-
+	
 	      ```js
-
+	
 	      function foundBooks(books) {
-
+	
 	      }
-
+	
 	      function failure(reason) {
-
+	
 	      }
-
+	
 	      findAuthor(function(author, err){
 	        if (err) {
 	          failure(err);
@@ -3080,9 +3080,9 @@
 	        }
 	      });
 	      ```
-
+	
 	      Promise Example;
-
+	
 	      ```javascript
 	      findAuthor().
 	        then(findBooksByAuthor).
@@ -3092,7 +3092,7 @@
 	        // something went wrong
 	      });
 	      ```
-
+	
 	      @method then
 	      @param {Function} onFulfilled
 	      @param {Function} onRejected
@@ -3102,14 +3102,14 @@
 	      then: function(onFulfillment, onRejection) {
 	        var parent = this;
 	        var state = parent._state;
-
+	
 	        if (state === lib$es6$promise$$internal$$FULFILLED && !onFulfillment || state === lib$es6$promise$$internal$$REJECTED && !onRejection) {
 	          return this;
 	        }
-
+	
 	        var child = new this.constructor(lib$es6$promise$$internal$$noop);
 	        var result = parent._result;
-
+	
 	        if (state) {
 	          var callback = arguments[state - 1];
 	          lib$es6$promise$asap$$asap(function(){
@@ -3118,32 +3118,32 @@
 	        } else {
 	          lib$es6$promise$$internal$$subscribe(parent, child, onFulfillment, onRejection);
 	        }
-
+	
 	        return child;
 	      },
-
+	
 	    /**
 	      `catch` is simply sugar for `then(undefined, onRejection)` which makes it the same
 	      as the catch block of a try/catch statement.
-
+	
 	      ```js
 	      function findAuthor(){
 	        throw new Error('couldn't find that author');
 	      }
-
+	
 	      // synchronous
 	      try {
 	        findAuthor();
 	      } catch(reason) {
 	        // something went wrong
 	      }
-
+	
 	      // async with promises
 	      findAuthor().catch(function(reason){
 	        // something went wrong
 	      });
 	      ```
-
+	
 	      @method catch
 	      @param {Function} onRejection
 	      Useful for tooling.
@@ -3155,7 +3155,7 @@
 	    };
 	    function lib$es6$promise$polyfill$$polyfill() {
 	      var local;
-
+	
 	      if (typeof global !== 'undefined') {
 	          local = global;
 	      } else if (typeof self !== 'undefined') {
@@ -3167,22 +3167,22 @@
 	              throw new Error('polyfill failed because global object is unavailable in this environment');
 	          }
 	      }
-
+	
 	      var P = local.Promise;
-
+	
 	      if (P && Object.prototype.toString.call(P.resolve()) === '[object Promise]' && !P.cast) {
 	        return;
 	      }
-
+	
 	      local.Promise = lib$es6$promise$promise$$default;
 	    }
 	    var lib$es6$promise$polyfill$$default = lib$es6$promise$polyfill$$polyfill;
-
+	
 	    var lib$es6$promise$umd$$ES6Promise = {
 	      'Promise': lib$es6$promise$promise$$default,
 	      'polyfill': lib$es6$promise$polyfill$$default
 	    };
-
+	
 	    /* global define:true module:true window: true */
 	    if (typeof define === 'function' && define['amd']) {
 	      define(function() { return lib$es6$promise$umd$$ES6Promise; });
@@ -3191,11 +3191,11 @@
 	    } else if (typeof this !== 'undefined') {
 	      this['ES6Promise'] = lib$es6$promise$umd$$ES6Promise;
 	    }
-
+	
 	    lib$es6$promise$polyfill$$default();
 	}).call(this);
-
-
+	
+	
 	}).call(this,{},typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 	},{}]},{},[1]);
 
@@ -3215,9 +3215,9 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var ionic_2 = __webpack_require__(6);
-	var menus_1 = __webpack_require__(353);
-	var actionSheets = __webpack_require__(356);
-	var helpers = __webpack_require__(355);
+	var menus_1 = __webpack_require__(350);
+	var actionSheets = __webpack_require__(353);
+	var helpers = __webpack_require__(352);
 	var DemoApp = (function () {
 	    function DemoApp(app, platform, config) {
 	        var _this = this;
@@ -3326,23 +3326,23 @@
 	__export(__webpack_require__(270));
 	__export(__webpack_require__(285));
 	__export(__webpack_require__(315));
-	__export(__webpack_require__(337));
-	__export(__webpack_require__(338));
-	__export(__webpack_require__(339));
+	__export(__webpack_require__(333));
+	__export(__webpack_require__(334));
+	__export(__webpack_require__(335));
 	__export(__webpack_require__(271));
-	__export(__webpack_require__(343));
+	__export(__webpack_require__(340));
 	__export(__webpack_require__(274));
 	__export(__webpack_require__(277));
 	__export(__webpack_require__(276));
 	__export(__webpack_require__(284));
 	__export(__webpack_require__(279));
-	__export(__webpack_require__(347));
+	__export(__webpack_require__(344));
 	// these modules don't export anything
+	__webpack_require__(345);
+	__webpack_require__(346);
+	__webpack_require__(347);
 	__webpack_require__(348);
 	__webpack_require__(349);
-	__webpack_require__(350);
-	__webpack_require__(351);
-	__webpack_require__(352);
 
 /***/ },
 /* 7 */
@@ -3374,9 +3374,9 @@
 	    if (!(config instanceof config_1.Config)) {
 	        config = new config_1.Config(config);
 	    }
-	    platform.setUrl(window.location.href);
-	    platform.setUserAgent(window.navigator.userAgent);
-	    platform.setNavigatorPlatform(window.navigator.platform);
+	    platform.url(window.location.href);
+	    platform.userAgent(window.navigator.userAgent);
+	    platform.navigatorPlatform(window.navigator.platform);
 	    platform.load();
 	    config.setPlatform(platform);
 	    var clickBlock = new click_block_1.ClickBlock(config.get('clickBlock'));
@@ -5256,7 +5256,7 @@
 	    return _symbolIterator;
 	}
 	exports.getSymbolIterator = getSymbolIterator;
-
+	
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
@@ -8534,7 +8534,7 @@
 	 * }
 	 *
 	 * var injector = Injector.resolveAndCreate([A]);
-
+	
 	 * try {
 	 *   injector.get(A);
 	 * } catch (e) {
@@ -18261,7 +18261,7 @@
 	 * `RenderProtoViewRef` is a counterpart to {@link ProtoViewRef} available in the Application
 	 * Context. But unlike `ProtoViewRef`, `RenderProtoViewRef` contains all static nested Proto Views
 	 * that are recursively merged into a single Render Proto View.
-
+	
 	 *
 	 * <!-- TODO: this is created by Renderer#createProtoView in the new compiler -->
 	 */
@@ -18283,8 +18283,8 @@
 	/*
 	  <div>foo</div>
 	  {{bar}}
-
-
+	
+	
 	  <div>foo</div> -> view 1 / fragment 1
 	  <ul>
 	    <template ngFor>
@@ -18292,8 +18292,8 @@
 	    </template>
 	  </ul>
 	  {{bar}}
-
-
+	
+	
 	  <div>foo</div> -> view 1 / fragment 1
 	  <ul>
 	    <template ngIf>
@@ -25187,7 +25187,7 @@
 	 * The RouterLink directive lets you link to specific parts of your app.
 	 *
 	 * Consider the following route configuration:
-
+	
 	 * ```
 	 * @RouteConfig([
 	 *   { path: '/user', component: UserCmp, as: 'User' }
@@ -25871,7 +25871,7 @@
 	 *       connection.mockRespond(response);
 	 *     });
 	 *   });
-
+	
 	 * jsonp.get('people.json').observer({
 	 *   next: res => {
 	 *     // Response came from mock backend
@@ -30139,7 +30139,7 @@
 	 * Creates and binds a control with a specified name to a DOM element.
 	 *
 	 * This directive can only be used as a child of {@link NgForm} or {@link NgFormModel}.
-
+	
 	 * ### Example
 	 *
 	 * In this example, we create the login and password controls.
@@ -36714,103 +36714,103 @@
 	/*
 	  This is a limited shim for ShadowDOM css styling.
 	  https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html#styles
-
+	
 	  The intention here is to support only the styling features which can be
 	  relatively simply implemented. The goal is to allow users to avoid the
 	  most obvious pitfalls and do so without compromising performance significantly.
 	  For ShadowDOM styling that's not covered here, a set of best practices
 	  can be provided that should allow users to accomplish more complex styling.
-
+	
 	  The following is a list of specific ShadowDOM styling features and a brief
 	  discussion of the approach used to shim.
-
+	
 	  Shimmed features:
-
+	
 	  * :host, :host-context: ShadowDOM allows styling of the shadowRoot's host
 	  element using the :host rule. To shim this feature, the :host styles are
 	  reformatted and prefixed with a given scope name and promoted to a
 	  document level stylesheet.
 	  For example, given a scope name of .foo, a rule like this:
-
+	
 	    :host {
 	        background: red;
 	      }
 	    }
-
+	
 	  becomes:
-
+	
 	    .foo {
 	      background: red;
 	    }
-
+	
 	  * encapsultion: Styles defined within ShadowDOM, apply only to
 	  dom inside the ShadowDOM. Polymer uses one of two techniques to imlement
 	  this feature.
-
+	
 	  By default, rules are prefixed with the host element tag name
 	  as a descendant selector. This ensures styling does not leak out of the 'top'
 	  of the element's ShadowDOM. For example,
-
+	
 	  div {
 	      font-weight: bold;
 	    }
-
+	
 	  becomes:
-
+	
 	  x-foo div {
 	      font-weight: bold;
 	    }
-
+	
 	  becomes:
-
-
+	
+	
 	  Alternatively, if WebComponents.ShadowCSS.strictStyling is set to true then
 	  selectors are scoped by adding an attribute selector suffix to each
 	  simple selector that contains the host element tag name. Each element
 	  in the element's ShadowDOM template is also given the scope attribute.
 	  Thus, these rules match only elements that have the scope attribute.
 	  For example, given a scope name of x-foo, a rule like this:
-
+	
 	    div {
 	      font-weight: bold;
 	    }
-
+	
 	  becomes:
-
+	
 	    div[x-foo] {
 	      font-weight: bold;
 	    }
-
+	
 	  Note that elements that are dynamically added to a scope must have the scope
 	  selector added to them manually.
-
+	
 	  * upper/lower bound encapsulation: Styles which are defined outside a
 	  shadowRoot should not cross the ShadowDOM boundary and should not apply
 	  inside a shadowRoot.
-
+	
 	  This styling behavior is not emulated. Some possible ways to do this that
 	  were rejected due to complexity and/or performance concerns include: (1) reset
 	  every possible property for every possible selector for a given scope name;
 	  (2) re-implement css in javascript.
-
+	
 	  As an alternative, users should make sure to use selectors
 	  specific to the scope in which they are working.
-
+	
 	  * ::distributed: This behavior is not emulated. It's often not necessary
 	  to style the contents of a specific insertion point and instead, descendants
 	  of the host element can be styled selectively. Users can also create an
 	  extra node around an insertion point and style that node's contents
 	  via descendent selectors. For example, with a shadowRoot like this:
-
+	
 	    <style>
 	      ::content(div) {
 	        background: red;
 	      }
 	    </style>
 	    <content></content>
-
+	
 	  could become:
-
+	
 	    <style>
 	      / *@polyfill .content-container div * /
 	      ::content(div) {
@@ -36820,7 +36820,7 @@
 	    <div class="content-container">
 	      <content></content>
 	    </div>
-
+	
 	  Note the use of @polyfill in the comment above a ShadowDOM specific style
 	  declaration. This is a directive to the styling shim to use the selector
 	  in comments in lieu of the next selector when running under polyfill.
@@ -40003,9 +40003,8 @@
 	**/
 	var Config = (function () {
 	    function Config(config) {
-	        this._c = {};
-	        this._s = {};
 	        this._s = config && util_1.isObject(config) && !util_1.isArray(config) ? config : {};
+	        this._c = {}; // cached values
 	    }
 	    /**
 	     * For setting and getting multiple config values
@@ -40199,9 +40198,11 @@
 	    function Platform(platforms) {
 	        var _this = this;
 	        if (platforms === void 0) { platforms = []; }
-	        this._versions = {};
-	        this._onResizes = [];
 	        this._platforms = platforms;
+	        this._versions = {};
+	        this._dir = null;
+	        this._lang = null;
+	        this._onResizes = [];
 	        this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
 	    }
 	    // Methods
@@ -40419,14 +40420,11 @@
 	    /**
 	    * @private
 	    */
-	    Platform.prototype.setUrl = function (url) {
-	        this._url = url;
-	        this._qs = util_1.getQuerystring(url);
-	    };
-	    /**
-	    * @private
-	    */
 	    Platform.prototype.url = function (val) {
+	        if (arguments.length) {
+	            this._url = val;
+	            this._qs = util_1.getQuerystring(val);
+	        }
 	        return this._url;
 	    };
 	    /**
@@ -40438,25 +40436,19 @@
 	    /**
 	    * @private
 	    */
-	    Platform.prototype.setUserAgent = function (userAgent) {
-	        this._ua = userAgent;
-	    };
-	    /**
-	    * @private
-	    */
 	    Platform.prototype.userAgent = function (val) {
+	        if (arguments.length) {
+	            this._ua = val;
+	        }
 	        return this._ua || '';
 	    };
 	    /**
 	    * @private
 	    */
-	    Platform.prototype.setNavigatorPlatform = function (navigatorPlatform) {
-	        this._bPlt = navigatorPlatform;
-	    };
-	    /**
-	    * @private
-	    */
 	    Platform.prototype.navigatorPlatform = function (val) {
+	        if (arguments.length) {
+	            this._bPlt = val;
+	        }
 	        return this._bPlt || '';
 	    };
 	    /**
@@ -40620,27 +40612,27 @@
 	                // add the engine to the first in the platform hierarchy
 	                // the original rootPlatformNode now becomes a child
 	                // of the engineNode, which is not the new root
-	                engineNode.child = rootPlatformNode;
-	                rootPlatformNode.parent = engineNode;
+	                engineNode.child(rootPlatformNode);
+	                rootPlatformNode.parent(engineNode);
 	                rootPlatformNode = engineNode;
 	                // add any events which the engine would provide
 	                // for example, Cordova provides its own ready event
 	                var engineMethods = engineNode.methods();
 	                engineMethods._engineReady = engineMethods.ready;
 	                delete engineMethods.ready;
-	                util_1.assign(this, engineMethods);
+	                util_1.extend(this, engineMethods);
 	            }
 	            var platformNode = rootPlatformNode;
 	            while (platformNode) {
 	                insertSuperset(platformNode);
-	                platformNode = platformNode.child;
+	                platformNode = platformNode.child();
 	            }
 	            // make sure the root noot is actually the root
 	            // incase a node was inserted before the root
-	            platformNode = rootPlatformNode.parent;
+	            platformNode = rootPlatformNode.parent();
 	            while (platformNode) {
 	                rootPlatformNode = platformNode;
-	                platformNode = platformNode.parent;
+	                platformNode = platformNode.parent();
 	            }
 	            platformNode = rootPlatformNode;
 	            while (platformNode) {
@@ -40650,7 +40642,7 @@
 	                // get the platforms version if a version parser was provided
 	                this._versions[platformNode.name()] = platformNode.version(this);
 	                // go to the next platform child
-	                platformNode = platformNode.child;
+	                platformNode = platformNode.child();
 	            }
 	        }
 	        if (this._platforms.indexOf('mobile') > -1 && this._platforms.indexOf('cordova') === -1) {
@@ -40665,13 +40657,13 @@
 	        // use it's getRoot method to build up its hierarchy
 	        // depending on which platforms match
 	        var platformNode = new PlatformNode(platformName);
-	        var rootNode = platformNode.getRoot(this);
+	        var rootNode = platformNode.getRoot(this, 0);
 	        if (rootNode) {
 	            rootNode.depth = 0;
-	            var childPlatform = rootNode.child;
+	            var childPlatform = rootNode.child();
 	            while (childPlatform) {
 	                rootNode.depth++;
-	                childPlatform = childPlatform.child;
+	                childPlatform = childPlatform.child();
 	            }
 	        }
 	        return rootNode;
@@ -40685,12 +40677,12 @@
 	        // add a platform in between two exist platforms
 	        // so we can build the correct hierarchy of active platforms
 	        var supersetPlatform = new PlatformNode(supersetPlaformName);
-	        supersetPlatform.parent = platformNode.parent;
-	        supersetPlatform.child = platformNode;
-	        if (supersetPlatform.parent) {
-	            supersetPlatform.parent.child = supersetPlatform;
+	        supersetPlatform.parent(platformNode.parent());
+	        supersetPlatform.child(platformNode);
+	        if (supersetPlatform.parent()) {
+	            supersetPlatform.parent().child(supersetPlatform);
 	        }
-	        platformNode.parent = supersetPlatform;
+	        platformNode.parent(supersetPlatform);
 	    }
 	}
 	var PlatformNode = (function () {
@@ -40709,6 +40701,18 @@
 	    };
 	    PlatformNode.prototype.methods = function () {
 	        return this.c.methods || {};
+	    };
+	    PlatformNode.prototype.parent = function (val) {
+	        if (arguments.length) {
+	            this._parent = val;
+	        }
+	        return this._parent;
+	    };
+	    PlatformNode.prototype.child = function (val) {
+	        if (arguments.length) {
+	            this._child = val;
+	        }
+	        return this._child;
 	    };
 	    PlatformNode.prototype.isMatch = function (p) {
 	        if (p.platformOverride && !this.isEngine) {
@@ -40743,10 +40747,10 @@
 	            var rootPlatform = null;
 	            for (var i = 0; i < parents.length; i++) {
 	                platform = new PlatformNode(parents[i]);
-	                platform.child = this;
+	                platform.child(this);
 	                rootPlatform = platform.getRoot(p);
 	                if (rootPlatform) {
-	                    this.parent = platform;
+	                    this.parent(platform);
 	                    return rootPlatform;
 	                }
 	            }
@@ -40790,36 +40794,20 @@
 	}
 	exports.clamp = clamp;
 	/**
-	 * The assign() method is used to copy the values of all enumerable own
-	 * properties from one or more source objects to a target object. It will
-	 * return the target object. When available, this method will use
-	 * `Object.assign()` under-the-hood.
-	 * @param target  The target object
-	 * @param source(s)  The source object
+	 * Extend the destination with an arbitrary number of other objects.
+	 * @param dst the destination
+	 * @param ... the param objects
 	 */
-	function assign() {
-	    var args = [];
-	    for (var _i = 0; _i < arguments.length; _i++) {
-	        args[_i - 0] = arguments[_i];
-	    }
-	    if (typeof Object.assign !== 'function') {
-	        // use the old-school shallow extend method
-	        return _baseExtend(args[0], [].slice.call(args, 1), false);
-	    }
-	    // use the built in ES6 Object.assign method
-	    return Object.assign.apply(null, args);
+	function extend(dst) {
+	    return _baseExtend(dst, [].slice.call(arguments, 1), false);
 	}
-	exports.assign = assign;
+	exports.extend = extend;
 	/**
 	 * Do a deep extend (merge).
 	 * @param dst the destination
 	 * @param ... the param objects
 	 */
 	function merge(dst) {
-	    var args = [];
-	    for (var _i = 1; _i < arguments.length; _i++) {
-	        args[_i - 1] = arguments[_i];
-	    }
 	    return _baseExtend(dst, [].slice.call(arguments, 1), true);
 	}
 	exports.merge = merge;
@@ -40849,9 +40837,9 @@
 	    return function () {
 	        context = this;
 	        args = arguments;
-	        timestamp = Date.now();
+	        timestamp = new Date();
 	        var later = function () {
-	            var last = Date.now() - timestamp;
+	            var last = (new Date()) - timestamp;
 	            if (last < wait) {
 	                timeout = setTimeout(later, wait - last);
 	            }
@@ -40877,10 +40865,6 @@
 	 * @param the destination to apply defaults to.
 	 */
 	function defaults(dest) {
-	    var args = [];
-	    for (var _i = 1; _i < arguments.length; _i++) {
-	        args[_i - 1] = arguments[_i];
-	    }
 	    for (var i = arguments.length - 1; i >= 1; i--) {
 	        var source = arguments[i] || {};
 	        for (var key in source) {
@@ -40940,10 +40924,10 @@
 	    }
 	};
 	/**
-	 * Grab all query strings keys and values.
-	 * @param url
+	 * Grab the query string param value for the given key.
+	 * @param key the key to look for
 	 */
-	function getQuerystring(url) {
+	function getQuerystring(url, key) {
 	    var queryParams = {};
 	    if (url) {
 	        var startIndex = url.indexOf('?');
@@ -40953,6 +40937,9 @@
 	                var split = param.split('=');
 	                queryParams[split[0].toLowerCase()] = split[1].split('#')[0];
 	            });
+	        }
+	        if (key) {
+	            return queryParams[key] || '';
 	        }
 	    }
 	    return queryParams;
@@ -40997,12 +40984,9 @@
 /* 273 */
 /***/ function(module, exports) {
 
-	var win = window;
-	var doc = document;
-	var docEle = doc.documentElement;
 	// requestAnimationFrame is polyfilled for old Android
 	// within the web-animations polyfill
-	exports.raf = win.requestAnimationFrame;
+	exports.raf = window.requestAnimationFrame;
 	function rafFrames(framesToWait, callback) {
 	    framesToWait = Math.ceil(framesToWait);
 	    if (framesToWait < 2) {
@@ -41021,7 +41005,7 @@
 	    var i, keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
 	        '-moz-transform', 'moz-transform', 'MozTransform', 'mozTransform', 'msTransform'];
 	    for (i = 0; i < keys.length; i++) {
-	        if (docEle.style[keys[i]] !== undefined) {
+	        if (document.documentElement.style[keys[i]] !== undefined) {
 	            exports.CSS.transform = keys[i];
 	            break;
 	        }
@@ -41029,23 +41013,26 @@
 	    // transition
 	    keys = ['webkitTransition', 'mozTransition', 'msTransition', 'transition'];
 	    for (i = 0; i < keys.length; i++) {
-	        if (docEle.style[keys[i]] !== undefined) {
+	        if (document.documentElement.style[keys[i]] !== undefined) {
 	            exports.CSS.transition = keys[i];
 	            break;
 	        }
 	    }
 	    // The only prefix we care about is webkit for transitions.
 	    var isWebkit = exports.CSS.transition.indexOf('webkit') > -1;
+	    exports.CSS.prefix = isWebkit ? '-webkit-' : '';
 	    // transition duration
 	    exports.CSS.transitionDuration = (isWebkit ? '-webkit-' : '') + 'transition-duration';
 	    // To be sure transitionend works everywhere, include *both* the webkit and non-webkit events
 	    exports.CSS.transitionEnd = (isWebkit ? 'webkitTransitionEnd ' : '') + 'transitionend';
 	})();
-	if (win.onanimationend === undefined && win.onwebkitanimationend !== undefined) {
+	if (window.onanimationend === undefined && window.onwebkitanimationend !== undefined) {
+	    exports.CSS.animation = 'WebkitAnimation';
 	    exports.CSS.animationStart = 'webkitAnimationStart animationstart';
 	    exports.CSS.animationEnd = 'webkitAnimationEnd animationend';
 	}
 	else {
+	    exports.CSS.animation = 'animation';
 	    exports.CSS.animationStart = 'animationstart';
 	    exports.CSS.animationEnd = 'animationend';
 	}
@@ -41093,17 +41080,17 @@
 	        // a callback wasn't provided, so let's return a promise instead
 	        promise = new Promise(function (resolve) { callback = resolve; });
 	    }
-	    if (doc.readyState === 'complete' || doc.readyState === 'interactive') {
+	    if (document.readyState === 'complete' || document.readyState === 'interactive') {
 	        callback();
 	    }
 	    else {
 	        function completed() {
-	            doc.removeEventListener('DOMContentLoaded', completed, false);
-	            win.removeEventListener('load', completed, false);
+	            document.removeEventListener('DOMContentLoaded', completed, false);
+	            window.removeEventListener('load', completed, false);
 	            callback();
 	        }
-	        doc.addEventListener('DOMContentLoaded', completed, false);
-	        win.addEventListener('load', completed, false);
+	        document.addEventListener('DOMContentLoaded', completed, false);
+	        window.addEventListener('load', completed, false);
 	    }
 	    return promise;
 	}
@@ -41114,15 +41101,15 @@
 	        // a callback wasn't provided, so let's return a promise instead
 	        promise = new Promise(function (resolve) { callback = resolve; });
 	    }
-	    if (doc.readyState === 'complete') {
+	    if (document.readyState === 'complete') {
 	        callback();
 	    }
 	    else {
 	        function completed() {
-	            win.removeEventListener('load', completed, false);
+	            window.removeEventListener('load', completed, false);
 	            callback();
 	        }
-	        win.addEventListener('load', completed, false);
+	        window.addEventListener('load', completed, false);
 	    }
 	    return promise;
 	}
@@ -41148,7 +41135,7 @@
 	}
 	exports.hasPointerMoved = hasPointerMoved;
 	function isActive(ele) {
-	    return !!(ele && (doc.activeElement === ele));
+	    return !!(ele && (document.activeElement === ele));
 	}
 	exports.isActive = isActive;
 	function hasFocus(ele) {
@@ -41163,7 +41150,7 @@
 	}
 	exports.isTextInput = isTextInput;
 	function hasFocusedTextInput() {
-	    var ele = doc.activeElement;
+	    var ele = document.activeElement;
 	    if (isTextInput(ele)) {
 	        return (ele.parentElement.querySelector(':focus') === ele);
 	    }
@@ -41171,11 +41158,9 @@
 	}
 	exports.hasFocusedTextInput = hasFocusedTextInput;
 	var matchesFn;
-	var matchesMethods = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'];
-	matchesMethods.some(function (fn) {
-	    if (typeof docEle[fn] == 'function') {
+	['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'].some(function (fn) {
+	    if (typeof document.documentElement[fn] == 'function') {
 	        matchesFn = fn;
-	        return true;
 	    }
 	});
 	function closest(ele, selector, checkSelf) {
@@ -41232,10 +41217,10 @@
 	function windowDimensions() {
 	    if (!dimensionCache.win) {
 	        // make sure we got good values before caching
-	        if (win.innerWidth && win.innerHeight) {
+	        if (window.innerWidth && window.innerHeight) {
 	            dimensionCache.win = {
-	                width: win.innerWidth,
-	                height: win.innerHeight
+	                width: window.innerWidth,
+	                height: window.innerHeight
 	            };
 	        }
 	        else {
@@ -41260,11 +41245,11 @@
 	 * @param element
 	 */
 	function parentOffsetEl(element) {
-	    var offsetParent = element.offsetParent || doc;
-	    while (offsetParent && offsetParent !== doc && isStaticPositioned(offsetParent)) {
+	    var offsetParent = element.offsetParent || document;
+	    while (offsetParent && offsetParent !== document && isStaticPositioned(offsetParent)) {
 	        offsetParent = offsetParent.offsetParent;
 	    }
-	    return offsetParent || doc;
+	    return offsetParent || document;
 	}
 	exports.parentOffsetEl = parentOffsetEl;
 	;
@@ -41278,7 +41263,7 @@
 	    var elBCR = offset(element);
 	    var offsetParentBCR = { top: 0, left: 0 };
 	    var offsetParentEl = parentOffsetEl(element);
-	    if (offsetParentEl != doc) {
+	    if (offsetParentEl != document) {
 	        offsetParentBCR = offset(offsetParentEl);
 	        offsetParentBCR.top += offsetParentEl.clientTop - offsetParentEl.scrollTop;
 	        offsetParentBCR.left += offsetParentEl.clientLeft - offsetParentEl.scrollLeft;
@@ -41293,7 +41278,7 @@
 	}
 	exports.position = position;
 	/**
-	* Get the current coordinates of the element, relative to the doc.
+	* Get the current coordinates of the element, relative to the document.
 	* Read-only equivalent of [jQuery's offset function](http://api.jquery.com/offset/).
 	* @param {element} element The element to get the offset of.
 	* @returns {object} Returns an object containing the properties top, left, width and height.
@@ -41303,8 +41288,8 @@
 	    return {
 	        width: boundingClientRect.width || element.offsetWidth,
 	        height: boundingClientRect.height || element.offsetHeight,
-	        top: boundingClientRect.top + (win.pageYOffset || docEle.scrollTop),
-	        left: boundingClientRect.left + (win.pageXOffset || docEle.scrollLeft)
+	        top: boundingClientRect.top + (window.pageYOffset || document.documentElement.scrollTop),
+	        left: boundingClientRect.left + (window.pageXOffset || document.documentElement.scrollLeft)
 	    };
 	}
 	exports.offset = offset;
@@ -41322,7 +41307,6 @@
 	 */
 	var ClickBlock = (function () {
 	    function ClickBlock() {
-	        this._enabled = false;
 	    }
 	    ClickBlock.prototype.enable = function () {
 	        cbEle = document.createElement('click-block');
@@ -41389,9 +41373,9 @@
 	 */
 	var Form = (function () {
 	    function Form() {
-	        this._focused = null;
-	        this._ids = -1;
 	        this._inputs = [];
+	        this._ids = -1;
+	        this._focused = null;
 	        this.focusCtrl(document);
 	    }
 	    Form.prototype.register = function (input) {
@@ -41417,10 +41401,7 @@
 	    };
 	    Form.prototype.focusOut = function () {
 	        console.debug('focusOut');
-	        var activeElement = document.activeElement;
-	        if (activeElement) {
-	            activeElement.blur();
-	        }
+	        document.activeElement && document.activeElement.blur();
 	        this._blur.focus();
 	    };
 	    Form.prototype.setAsFocused = function (input) {
@@ -41490,11 +41471,11 @@
 	 * ```
 	 */
 	var Keyboard = (function () {
-	    function Keyboard(config, _form, _zone) {
+	    function Keyboard(config, form, zone) {
 	        var _this = this;
-	        this._form = _form;
-	        this._zone = _zone;
-	        _zone.runOutsideAngular(function () {
+	        this.form = form;
+	        this.zone = zone;
+	        zone.runOutsideAngular(function () {
 	            _this.focusOutline(config.get('focusOutline'), document);
 	        });
 	    }
@@ -41547,12 +41528,12 @@
 	            // a callback wasn't provided, so let's return a promise instead
 	            promise = new Promise(function (resolve) { callback = resolve; });
 	        }
-	        self._zone.runOutsideAngular(function () {
+	        self.zone.runOutsideAngular(function () {
 	            function checkKeyboard() {
 	                console.debug('keyboard isOpen', self.isOpen(), checks);
 	                if (!self.isOpen() || checks > 100) {
 	                    dom_1.rafFrames(30, function () {
-	                        self._zone.run(function () {
+	                        self.zone.run(function () {
 	                            console.debug('keyboard closed');
 	                            callback();
 	                        });
@@ -41577,7 +41558,7 @@
 	        dom_1.raf(function () {
 	            if (dom_1.hasFocusedTextInput()) {
 	                // only focus out when a text input has focus
-	                _this._form.focusOut();
+	                _this.form.focusOut();
 	            }
 	        });
 	    };
@@ -41623,7 +41604,7 @@
 	        }
 	        function enableKeyInput() {
 	            cssClass();
-	            self._zone.runOutsideAngular(function () {
+	            self.zone.runOutsideAngular(function () {
 	                document.removeEventListener('mousedown', pointerDown);
 	                document.removeEventListener('touchstart', pointerDown);
 	                if (isKeyInputEnabled) {
@@ -41646,8 +41627,18 @@
 
 /***/ },
 /* 277 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
 	/**
 	 * Events is a pub/sub style event system for sending and responding to application-level
 	 * events across your app.
@@ -41668,6 +41659,7 @@
 	 */
 	var Events = (function () {
 	    function Events() {
+	        this.channels = [];
 	    }
 	    /**
 	     * Subscribe to an event topic. Events that get posted to that topic
@@ -41682,11 +41674,11 @@
 	        for (var _i = 1; _i < arguments.length; _i++) {
 	            handlers[_i - 1] = arguments[_i];
 	        }
-	        if (!this._channels[topic]) {
-	            this._channels[topic] = [];
+	        if (!this.channels[topic]) {
+	            this.channels[topic] = [];
 	        }
 	        handlers.forEach(function (handler) {
-	            _this._channels[topic].push(handler);
+	            _this.channels[topic].push(handler);
 	        });
 	    };
 	    /**
@@ -41699,14 +41691,14 @@
 	     * @return true if a handler was removed
 	     */
 	    Events.prototype.unsubscribe = function (topic, handler) {
-	        var t = this._channels[topic];
+	        var t = this.channels[topic];
 	        if (!t) {
 	            // Wasn't found, wasn't removed
 	            return false;
 	        }
 	        if (!handler) {
 	            // Remove all handlers for this topic
-	            delete this._channels[topic];
+	            delete this.channels[topic];
 	            return true;
 	        }
 	        // We need to find and remove a specific handler
@@ -41718,7 +41710,7 @@
 	        t.splice(i, 1);
 	        // If the channel is empty now, remove it from the channel map
 	        if (!t.length) {
-	            delete this._channels[topic];
+	            delete this.channels[topic];
 	        }
 	        return true;
 	    };
@@ -41733,7 +41725,7 @@
 	        for (var _i = 1; _i < arguments.length; _i++) {
 	            args[_i - 1] = arguments[_i];
 	        }
-	        var t = this._channels[topic];
+	        var t = this.channels[topic];
 	        if (!t) {
 	            return null;
 	        }
@@ -41743,6 +41735,10 @@
 	        });
 	        return responses;
 	    };
+	    Events = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [])
+	    ], Events);
 	    return Events;
 	})();
 	exports.Events = Events;
@@ -41772,17 +41768,23 @@
 
 /***/ },
 /* 279 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
 	/**
 	 * @private
 	 * Provide multi-language and i18n support in your app. Translate works by
-	 * mapping full strings to language translated ones. That means that you don't
-	 * need to provide strings for your default language, just new languages.
-	 *
-	 * Note: The Angular team will be building an
-	 * [Localization/Internationalization](https://docs.google.com/document/d/1mwyOFsAD-bPoXTk3Hthq0CAcGXCUw-BtTJMR4nGTY-0/view#heading=h.ixg45w3363q)
-	 * provider, so this Translation provider may not be further developed.
+	 * mapping full strings to language translated ones. That means that you don't need
+	 * to provide strings for your default language, just new languages.
 	 *
 	 * @usage
 	 * ```js
@@ -41806,7 +41808,6 @@
 	var Translate = (function () {
 	    function Translate() {
 	        this._transMap = {};
-	        this._language = {};
 	    }
 	    Translate.prototype.translations = function (lang, map) {
 	        this._transMap[lang] = map;
@@ -41833,6 +41834,10 @@
 	    Translate.prototype._getTranslation = function (map, key) {
 	        return map && map[key] || '';
 	    };
+	    Translate = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [])
+	    ], Translate);
 	    return Translate;
 	})();
 	exports.Translate = Translate;
@@ -41843,9 +41848,9 @@
 
 	var FeatureDetect = (function () {
 	    function FeatureDetect() {
-	        this._results = {};
 	    }
 	    FeatureDetect.prototype.run = function (window, document) {
+	        this._results = {};
 	        for (var name in featureDetects) {
 	            this._results[name] = featureDetects[name](window, document, document.body);
 	        }
@@ -42313,11 +42318,10 @@
 
 	var dom_1 = __webpack_require__(273);
 	var util_1 = __webpack_require__(272);
-	var doc = document;
 	/**
 	  Animation Steps/Process
 	  -----------------------
-
+	
 	 - Construct animation (doesn't start)
 	 - Client play()'s animation, returns promise
 	 - Add before classes to elements
@@ -42341,11 +42345,11 @@
 	    function Animation(ele, opts) {
 	        if (opts === void 0) { opts = {}; }
 	        this.reset();
-	        this._opts = util_1.assign({
+	        this._opts = util_1.extend({
 	            renderDelay: 16
 	        }, opts);
 	        this.elements(ele);
-	        if (!doc.documentElement.animate) {
+	        if (!document.documentElement.animate) {
 	            console.error('Web Animations polyfill missing');
 	        }
 	    }
@@ -42353,8 +42357,8 @@
 	        this._el = [];
 	        this._chld = [];
 	        this._ani = [];
-	        this._bfSty = {};
 	        this._bfAdd = [];
+	        this._bfSty = {};
 	        this._bfRmv = [];
 	        this._afAdd = [];
 	        this._afRmv = [];
@@ -42366,7 +42370,7 @@
 	        if (ele) {
 	            if (typeof ele === 'string') {
 	                // string query selector
-	                ele = doc.querySelectorAll(ele);
+	                ele = document.querySelectorAll(ele);
 	            }
 	            if (ele.length) {
 	                // array of elements
@@ -42730,7 +42734,7 @@
 	    Animation.prototype.clone = function () {
 	        function copy(dest, src) {
 	            // undo what stage() may have already done
-	            util_1.assign(dest, src);
+	            util_1.extend(dest, src);
 	            dest._isFinished = dest._isStaged = dest.isProgress = false;
 	            dest._chld = [];
 	            dest._ani = [];
@@ -43111,26 +43115,23 @@
 	var tabs_1 = __webpack_require__(313);
 	var tab_1 = __webpack_require__(316);
 	var list_1 = __webpack_require__(317);
-	var input_1 = __webpack_require__(320);
-	var item_1 = __webpack_require__(323);
-	var item_sliding_1 = __webpack_require__(324);
+	var item_1 = __webpack_require__(320);
+	var item_sliding_1 = __webpack_require__(321);
 	var toolbar_1 = __webpack_require__(303);
 	var icon_1 = __webpack_require__(302);
-	var checkbox_1 = __webpack_require__(325);
-	var select_1 = __webpack_require__(326);
-	var option_1 = __webpack_require__(328);
-	var toggle_1 = __webpack_require__(329);
-	var text_input_1 = __webpack_require__(322);
-	var label_1 = __webpack_require__(321);
-	var segment_1 = __webpack_require__(330);
-	var radio_1 = __webpack_require__(331);
-	var searchbar_1 = __webpack_require__(332);
-	var nav_1 = __webpack_require__(333);
-	var nav_push_1 = __webpack_require__(334);
-	var nav_router_1 = __webpack_require__(335);
+	var checkbox_1 = __webpack_require__(322);
+	var toggle_1 = __webpack_require__(323);
+	var text_input_1 = __webpack_require__(324);
+	var label_1 = __webpack_require__(325);
+	var segment_1 = __webpack_require__(326);
+	var radio_1 = __webpack_require__(327);
+	var searchbar_1 = __webpack_require__(328);
+	var nav_1 = __webpack_require__(329);
+	var nav_push_1 = __webpack_require__(330);
+	var nav_router_1 = __webpack_require__(331);
 	var navbar_1 = __webpack_require__(301);
 	var id_1 = __webpack_require__(314);
-	var show_hide_when_1 = __webpack_require__(336);
+	var show_hide_when_1 = __webpack_require__(332);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @private
@@ -43183,11 +43184,9 @@
 	 * -  Checkbox
 	 * -  RadioGroup
 	 * -  RadioButton
-	 * -  Select
-	 * -  Option
 	 * -  Toggle
-	 * -  ItemInput
 	 * -  TextInput
+	 * -  TextInputElement
 	 * -  Label
 	 *
 	 * **Nav**
@@ -43242,11 +43241,9 @@
 	    checkbox_1.Checkbox,
 	    radio_1.RadioGroup,
 	    radio_1.RadioButton,
-	    select_1.Select,
-	    option_1.Option,
 	    toggle_1.Toggle,
-	    input_1.ItemInput,
 	    text_input_1.TextInput,
+	    text_input_1.TextInputElement,
 	    label_1.Label,
 	    // Nav
 	    nav_1.Nav,
@@ -43686,8 +43683,7 @@
 	                'content',
 	                'id',
 	                'side',
-	                'type',
-	                'maxEdgeStart'
+	                'type'
 	            ],
 	            defaultInputs: {
 	                'side': 'left',
@@ -43811,16 +43807,15 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var slide_edge_gesture_1 = __webpack_require__(290);
-	var util_1 = __webpack_require__(272);
+	var util = __webpack_require__(294);
 	var MenuContentGesture = (function (_super) {
 	    __extends(MenuContentGesture, _super);
 	    function MenuContentGesture(menu, targetEl, options) {
 	        if (options === void 0) { options = {}; }
-	        _super.call(this, targetEl, util_1.assign({
+	        _super.call(this, targetEl, util.extend({
 	            direction: (menu.side === 'left' || menu.side === 'right') ? 'x' : 'y',
 	            edge: menu.side,
-	            threshold: 0,
-	            maxEdgeStart: menu.maxEdgeStart || 75
+	            threshold: 75
 	        }, options));
 	        this.menu = menu;
 	        this.listen();
@@ -43858,7 +43853,7 @@
 	    __extends(TargetGesture, _super);
 	    function TargetGesture(menu) {
 	        _super.call(this, menu, menu.getNativeElement(), {
-	            maxEdgeStart: 0
+	            threshold: 0
 	        });
 	    }
 	    return TargetGesture;
@@ -43911,12 +43906,12 @@
 	        if (opts === void 0) { opts = {}; }
 	        util_1.defaults(opts, {
 	            edge: 'left',
-	            maxEdgeStart: 50
+	            threshold: 50
 	        });
 	        _super.call(this, element, opts);
 	        // Can check corners through use of eg 'left top'
 	        this.edges = opts.edge.split(' ');
-	        this.maxEdgeStart = opts.maxEdgeStart;
+	        this.threshold = opts.threshold;
 	    }
 	    SlideEdgeGesture.prototype.canStart = function (ev) {
 	        var _this = this;
@@ -43933,10 +43928,10 @@
 	    };
 	    SlideEdgeGesture.prototype._checkEdge = function (edge, pos) {
 	        switch (edge) {
-	            case 'left': return pos.x <= this._d.left + this.maxEdgeStart;
-	            case 'right': return pos.x >= this._d.width - this.maxEdgeStart;
-	            case 'top': return pos.y <= this._d.top + this.maxEdgeStart;
-	            case 'bottom': return pos.y >= this._d.height - this.maxEdgeStart;
+	            case 'left': return pos.x <= this._d.left + this.threshold;
+	            case 'right': return pos.x >= this._d.width - this.threshold;
+	            case 'top': return pos.y <= this._d.top + this.threshold;
+	            case 'bottom': return pos.y >= this._d.height - this.threshold;
 	        }
 	    };
 	    return SlideEdgeGesture;
@@ -43953,13 +43948,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var drag_gesture_1 = __webpack_require__(292);
-	var util_1 = __webpack_require__(294);
+	var util = __webpack_require__(294);
 	var SlideGesture = (function (_super) {
 	    __extends(SlideGesture, _super);
 	    function SlideGesture(element, opts) {
 	        if (opts === void 0) { opts = {}; }
 	        _super.call(this, element, opts);
-	        this.slide = null;
 	        this.element = element;
 	    }
 	    /*
@@ -44005,7 +43999,7 @@
 	        if (!this.slide || !this.slide.started)
 	            return;
 	        this.slide.pos = ev.center[this.direction];
-	        this.slide.distance = util_1.clamp(this.slide.min, this.slide.pos - this.slide.pointerStartPos + this.slide.elementStartPos, this.slide.max);
+	        this.slide.distance = util.clamp(this.slide.min, this.slide.pos - this.slide.pointerStartPos + this.slide.elementStartPos, this.slide.max);
 	        this.slide.delta = this.slide.pos - this.slide.pointerStartPos;
 	        this.onSlide(this.slide, ev);
 	    };
@@ -44033,12 +44027,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var gesture_1 = __webpack_require__(293);
-	var util_1 = __webpack_require__(294);
+	var util = __webpack_require__(294);
 	var DragGesture = (function (_super) {
 	    __extends(DragGesture, _super);
 	    function DragGesture(element, opts) {
 	        if (opts === void 0) { opts = {}; }
-	        util_1.defaults(opts, {});
+	        util.defaults(opts, {});
 	        _super.call(this, element, opts);
 	    }
 	    DragGesture.prototype.listen = function () {
@@ -44062,7 +44056,7 @@
 	            _this.onDragEnd(ev);
 	            _this.dragging = false;
 	        });
-	        //this.hammertime.get('pan').set(this._options);
+	        this.hammertime.get('pan').set(this._options);
 	    };
 	    DragGesture.prototype.onDrag = function () { };
 	    DragGesture.prototype.onDragStart = function () { };
@@ -44075,7 +44069,7 @@
 /* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var util_1 = __webpack_require__(294);
+	var util = __webpack_require__(294);
 	var hammer_1 = __webpack_require__(295);
 	/**
 	 * A gesture recognizer class.
@@ -44085,7 +44079,7 @@
 	var Gesture = (function () {
 	    function Gesture(element, opts) {
 	        if (opts === void 0) { opts = {}; }
-	        util_1.defaults(opts, {
+	        util.defaults(opts, {
 	            domEvents: true
 	        });
 	        this.element = element;
@@ -44099,7 +44093,7 @@
 	    }
 	    Gesture.prototype.options = function (opts) {
 	        if (opts === void 0) { opts = {}; }
-	        util_1.assign(this._options, opts);
+	        util.extend(this._options, opts);
 	    };
 	    Gesture.prototype.on = function (type, cb) {
 	        if (type == 'pinch' || type == 'rotate') {
@@ -44112,7 +44106,7 @@
 	        this.hammertime.off(type, this._callbacks[type] ? cb : null);
 	    };
 	    Gesture.prototype.listen = function () {
-	        this.hammertime = new hammer_1.Hammer(this.element, this._options);
+	        this.hammertime = hammer_1.Hammer(this.element, this._options);
 	    };
 	    Gesture.prototype.unlisten = function () {
 	        if (this.hammertime) {
@@ -44146,15 +44140,14 @@
 
 /***/ },
 /* 295 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var util_1 = __webpack_require__(272);
-	/*! Hammer.JS - v2.0.6 - 2015-12-23
+	/*! Hammer.JS - v2.0.4 - 2014-09-28
 	 * http://hammerjs.github.io/
 	 *
-	 * Copyright (c) 2015 Jorik Tangelder;
-	 * Licensed under the  license */
-	var VENDOR_PREFIXES = ['', 'webkit', 'Moz', 'MS', 'ms', 'o'];
+	 * Copyright (c) 2014 Jorik Tangelder;
+	 * Licensed under the MIT license */
+	var VENDOR_PREFIXES = ['', 'webkit', 'moz', 'MS', 'ms', 'o'];
 	var TEST_ELEMENT = document.createElement('div');
 	var TYPE_FUNCTION = 'function';
 	var round = Math.round;
@@ -44214,6 +44207,35 @@
 	    }
 	}
 	/**
+	 * extend object.
+	 * means that properties in dest will be overwritten by the ones in src.
+	 * @param {Object} dest
+	 * @param {Object} src
+	 * @param {Boolean} [merge]
+	 * @returns {Object} dest
+	 */
+	function extend(dest, src, merge) {
+	    var keys = Object.keys(src);
+	    var i = 0;
+	    while (i < keys.length) {
+	        if (!merge || (merge && dest[keys[i]] === undefined)) {
+	            dest[keys[i]] = src[keys[i]];
+	        }
+	        i++;
+	    }
+	    return dest;
+	}
+	/**
+	 * merge the values from src in the dest.
+	 * means that properties that exist in dest will not be overwritten by src
+	 * @param {Object} dest
+	 * @param {Object} src
+	 * @returns {Object} dest
+	 */
+	function merge(dest, src) {
+	    return extend(dest, src, true);
+	}
+	/**
 	 * simple class inheritance
 	 * @param {Function} child
 	 * @param {Function} base
@@ -44225,7 +44247,7 @@
 	    childP.constructor = child;
 	    childP._super = baseP;
 	    if (properties) {
-	        util_1.assign(childP, properties);
+	        extend(childP, properties);
 	    }
 	}
 	/**
@@ -44269,6 +44291,7 @@
 	 */
 	function addEventListeners(target, types, handler) {
 	    each(splitStr(types), function (type) {
+	        //console.debug('hammer addEventListener', type, target.tagName);
 	        target.addEventListener(type, handler, false);
 	    });
 	}
@@ -44280,6 +44303,7 @@
 	 */
 	function removeEventListeners(target, types, handler) {
 	    each(splitStr(types), function (type) {
+	        //console.debug('hammer removeEventListener', type, target.tagName);
 	        target.removeEventListener(type, handler, false);
 	    });
 	}
@@ -44411,8 +44435,8 @@
 	 * @returns {DocumentView|Window}
 	 */
 	function getWindowForElement(element) {
-	    var doc = element.ownerDocument || element;
-	    return (doc.defaultView || doc.parentWindow || window);
+	    var doc = element.ownerDocument;
+	    return (doc.defaultView || doc.parentWindow);
 	}
 	var MOBILE_REGEX = /mobile|tablet|ip(ad|hone|od)|android/i;
 	var SUPPORT_TOUCH = ('ontouchstart' in window);
@@ -44469,6 +44493,7 @@
 	     * bind the events
 	     */
 	    init: function () {
+	        //console.debug('hammer Input init')
 	        this.evEl && addEventListeners(this.element, this.evEl, this.domHandler);
 	        this.evTarget && addEventListeners(this.target, this.evTarget, this.domHandler);
 	        this.evWin && addEventListeners(getWindowForElement(this.element), this.evWin, this.domHandler);
@@ -44564,14 +44589,8 @@
 	    input.distance = getDistance(offsetCenter, center);
 	    computeDeltaXY(session, input);
 	    input.offsetDirection = getDirection(input.deltaX, input.deltaY);
-	    var overallVelocity = getVelocity(input.deltaTime, input.deltaX, input.deltaY);
-	    input.overallVelocityX = overallVelocity.x;
-	    input.overallVelocityY = overallVelocity.y;
-	    input.overallVelocity = (abs(overallVelocity.x) > abs(overallVelocity.y)) ? overallVelocity.x : overallVelocity.y;
 	    input.scale = firstMultiple ? getScale(firstMultiple.pointers, pointers) : 1;
 	    input.rotation = firstMultiple ? getRotation(firstMultiple.pointers, pointers) : 0;
-	    input.maxPointers = !session.prevInput ? input.pointers.length : ((input.pointers.length >
-	        session.prevInput.maxPointers) ? input.pointers.length : session.prevInput.maxPointers);
 	    computeIntervalInputData(session, input);
 	    // find the correct target
 	    var target = manager.element;
@@ -44606,8 +44625,8 @@
 	function computeIntervalInputData(session, input) {
 	    var last = session.lastInterval || input, deltaTime = input.timeStamp - last.timeStamp, velocity, velocityX, velocityY, direction;
 	    if (input.eventType != INPUT_CANCEL && (deltaTime > COMPUTE_INTERVAL || last.velocity === undefined)) {
-	        var deltaX = input.deltaX - last.deltaX;
-	        var deltaY = input.deltaY - last.deltaY;
+	        var deltaX = last.deltaX - input.deltaX;
+	        var deltaY = last.deltaY - input.deltaY;
 	        var v = getVelocity(deltaTime, deltaX, deltaY);
 	        velocityX = v.x;
 	        velocityY = v.y;
@@ -44701,9 +44720,9 @@
 	        return DIRECTION_NONE;
 	    }
 	    if (abs(x) >= abs(y)) {
-	        return x < 0 ? DIRECTION_LEFT : DIRECTION_RIGHT;
+	        return x > 0 ? DIRECTION_LEFT : DIRECTION_RIGHT;
 	    }
-	    return y < 0 ? DIRECTION_UP : DIRECTION_DOWN;
+	    return y > 0 ? DIRECTION_UP : DIRECTION_DOWN;
 	}
 	/**
 	 * calculate the absolute distance between two points
@@ -44740,7 +44759,7 @@
 	 * @return {Number} rotation
 	 */
 	function getRotation(start, end) {
-	    return getAngle(end[1], end[0], PROPS_CLIENT_XY) + getAngle(start[1], start[0], PROPS_CLIENT_XY);
+	    return getAngle(end[1], end[0], PROPS_CLIENT_XY) - getAngle(start[1], start[0], PROPS_CLIENT_XY);
 	}
 	/**
 	 * calculate the scale factor between two pointersets
@@ -44817,7 +44836,7 @@
 	var POINTER_ELEMENT_EVENTS = 'pointerdown';
 	var POINTER_WINDOW_EVENTS = 'pointermove pointerup pointercancel';
 	// IE10 has prefixed support, and case-sensitive
-	if (window.MSPointerEvent && !window.PointerEvent) {
+	if (window.MSPointerEvent) {
 	    POINTER_ELEMENT_EVENTS = 'MSPointerDown';
 	    POINTER_WINDOW_EVENTS = 'MSPointerMove MSPointerUp MSPointerCancel';
 	}
@@ -45086,7 +45105,7 @@
 	        if (value == TOUCH_ACTION_COMPUTE) {
 	            value = this.compute();
 	        }
-	        if (NATIVE_TOUCH_ACTION && this.manager.element.style) {
+	        if (NATIVE_TOUCH_ACTION) {
 	            this.manager.element.style[PREFIXED_TOUCH_ACTION] = value;
 	        }
 	        this.actions = value.toLowerCase().trim();
@@ -45130,19 +45149,6 @@
 	        var hasNone = inStr(actions, TOUCH_ACTION_NONE);
 	        var hasPanY = inStr(actions, TOUCH_ACTION_PAN_Y);
 	        var hasPanX = inStr(actions, TOUCH_ACTION_PAN_X);
-	        if (hasNone) {
-	            //do not prevent defaults if this is a tap gesture
-	            var isTapPointer = input.pointers.length === 1;
-	            var isTapMovement = input.distance < 2;
-	            var isTapTouchTime = input.deltaTime < 250;
-	            if (isTapPointer && isTapMovement && isTapTouchTime) {
-	                return;
-	            }
-	        }
-	        if (hasPanX && hasPanY) {
-	            // `pan-x pan-y` means browser handles all scrolling/panning, do not prevent
-	            return;
-	        }
 	        if (hasNone ||
 	            (hasPanY && direction & DIRECTION_HORIZONTAL) ||
 	            (hasPanX && direction & DIRECTION_VERTICAL)) {
@@ -45170,12 +45176,9 @@
 	    }
 	    var hasPanX = inStr(actions, TOUCH_ACTION_PAN_X);
 	    var hasPanY = inStr(actions, TOUCH_ACTION_PAN_Y);
-	    // if both pan-x and pan-y are set (different recognizers
-	    // for different directions, e.g. horizontal pan but vertical swipe?)
-	    // we need none (as otherwise with pan-x pan-y combined none of these
-	    // recognizers will work, since the browser would handle all panning
+	    // pan-x and pan-y can be combined
 	    if (hasPanX && hasPanY) {
-	        return TOUCH_ACTION_NONE;
+	        return TOUCH_ACTION_PAN_X + ' ' + TOUCH_ACTION_PAN_Y;
 	    }
 	    // pan-x OR pan-y
 	    if (hasPanX || hasPanY) {
@@ -45228,9 +45231,9 @@
 	 * @param {Object} options
 	 */
 	function Recognizer(options) {
-	    this.options = util_1.assign({}, this.defaults, options || {});
 	    this.id = uniqueId();
 	    this.manager = null;
+	    this.options = merge(options || {}, this.defaults);
 	    // default is enable true
 	    this.options.enable = ifUndefined(this.options.enable, true);
 	    this.state = STATE_POSSIBLE;
@@ -45249,7 +45252,7 @@
 	     * @return {Recognizer}
 	     */
 	    set: function (options) {
-	        util_1.assign(this.options, options);
+	        extend(this.options, options);
 	        // also update the touchAction, in case something changed about the directions/enabled state
 	        this.manager && this.manager.touchAction.update();
 	        return this;
@@ -45340,20 +45343,17 @@
 	    emit: function (input) {
 	        var self = this;
 	        var state = this.state;
-	        function emit(event) {
-	            self.manager.emit(event, input);
+	        function emit(withState) {
+	            self.manager.emit(self.options.event + (withState ? stateStr(state) : ''), input);
 	        }
 	        // 'panstart' and 'panmove'
 	        if (state < STATE_ENDED) {
-	            emit(self.options.event + stateStr(state));
+	            emit(true);
 	        }
-	        emit(self.options.event); // simple 'eventName' events
-	        if (input.additionalEvent) {
-	            emit(input.additionalEvent);
-	        }
+	        emit(); // simple 'eventName' events
 	        // panend and pancancel
 	        if (state >= STATE_ENDED) {
-	            emit(self.options.event + stateStr(state));
+	            emit(true);
 	        }
 	    },
 	    /**
@@ -45390,7 +45390,7 @@
 	    recognize: function (inputData) {
 	        // make a new copy of the inputData
 	        // so we can change the inputData without messing up the other recognizers
-	        var inputDataClone = util_1.assign({}, inputData);
+	        var inputDataClone = extend({}, inputData);
 	        // is is enabled and allow recognizing?
 	        if (!boolOrFn(this.options.enable, [this, inputDataClone])) {
 	            this.reset();
@@ -45604,7 +45604,7 @@
 	        this.pY = input.deltaY;
 	        var direction = directionStr(input.direction);
 	        if (direction) {
-	            input.additionalEvent = this.options.event + direction;
+	            this.manager.emit(this.options.event + direction, input);
 	        }
 	        this._super.emit.call(this, input);
 	    }
@@ -45636,11 +45636,11 @@
 	            (Math.abs(input.scale - 1) > this.options.threshold || this.state & STATE_BEGAN);
 	    },
 	    emit: function (input) {
+	        this._super.emit.call(this, input);
 	        if (input.scale !== 1) {
 	            var inOut = input.scale < 1 ? 'in' : 'out';
-	            input.additionalEvent = this.options.event + inOut;
+	            this.manager.emit(this.options.event + inOut, input);
 	        }
-	        this._super.emit.call(this, input);
 	    }
 	});
 	/**
@@ -45662,8 +45662,8 @@
 	    defaults: {
 	        event: 'press',
 	        pointers: 1,
-	        time: 251,
-	        threshold: 9 // a minimal movement is ok, but keep it low
+	        time: 500,
+	        threshold: 5 // a minimal movement is ok, but keep it low
 	    },
 	    getTouchAction: function () {
 	        return [TOUCH_ACTION_AUTO];
@@ -45751,7 +45751,7 @@
 	    defaults: {
 	        event: 'swipe',
 	        threshold: 10,
-	        velocity: 0.3,
+	        velocity: 0.65,
 	        direction: DIRECTION_HORIZONTAL | DIRECTION_VERTICAL,
 	        pointers: 1
 	    },
@@ -45762,22 +45762,21 @@
 	        var direction = this.options.direction;
 	        var velocity;
 	        if (direction & (DIRECTION_HORIZONTAL | DIRECTION_VERTICAL)) {
-	            velocity = input.overallVelocity;
+	            velocity = input.velocity;
 	        }
 	        else if (direction & DIRECTION_HORIZONTAL) {
-	            velocity = input.overallVelocityX;
+	            velocity = input.velocityX;
 	        }
 	        else if (direction & DIRECTION_VERTICAL) {
-	            velocity = input.overallVelocityY;
+	            velocity = input.velocityY;
 	        }
 	        return this._super.attrTest.call(this, input) &&
-	            direction & input.offsetDirection &&
+	            direction & input.direction &&
 	            input.distance > this.options.threshold &&
-	            input.maxPointers == this.options.pointers &&
 	            abs(velocity) > this.options.velocity && input.eventType & INPUT_END;
 	    },
 	    emit: function (input) {
-	        var direction = directionStr(input.offsetDirection);
+	        var direction = directionStr(input.direction);
 	        if (direction) {
 	            this.manager.emit(this.options.event + direction, input);
 	        }
@@ -45815,7 +45814,7 @@
 	        taps: 1,
 	        interval: 300,
 	        time: 250,
-	        threshold: 9,
+	        threshold: 2,
 	        posThreshold: 10 // a multi-tap can be a bit off the initial position
 	    },
 	    getTouchAction: function () {
@@ -45884,7 +45883,7 @@
 	    }
 	});
 	/**
-	 * Simple way to create a manager with a default set of recognizers.
+	 * Simple way to create an manager with a default set of recognizers.
 	 * @param {HTMLElement} element
 	 * @param {Object} [options]
 	 * @constructor
@@ -45898,7 +45897,7 @@
 	/**
 	 * @const {string}
 	 */
-	Hammer.VERSION = '2.0.6';
+	Hammer.VERSION = '2.0.4';
 	/**
 	 * default settings
 	 * @namespace
@@ -46008,7 +46007,8 @@
 	 * @constructor
 	 */
 	function Manager(element, options) {
-	    this.options = util_1.assign({}, Hammer.defaults, options || {});
+	    options = options || {};
+	    this.options = merge(options, Hammer.defaults);
 	    this.options.inputTarget = this.options.inputTarget || element;
 	    this.handlers = {};
 	    this.session = {};
@@ -46017,7 +46017,7 @@
 	    this.input = createInputInstance(this);
 	    this.touchAction = new TouchAction(this, this.options.touchAction);
 	    toggleCssProps(this, true);
-	    each(this.options.recognizers, function (item) {
+	    each(options.recognizers, function (item) {
 	        var recognizer = this.add(new (item[0])(item[1]));
 	        item[2] && recognizer.recognizeWith(item[2]);
 	        item[3] && recognizer.requireFailure(item[3]);
@@ -46030,7 +46030,7 @@
 	     * @returns {Manager}
 	     */
 	    set: function (options) {
-	        util_1.assign(this.options, options);
+	        extend(this.options, options);
 	        // Options that need a little more setup
 	        if (options.touchAction) {
 	            this.touchAction.update();
@@ -46146,16 +46146,10 @@
 	        if (invokeArrayArg(recognizer, 'remove', this)) {
 	            return this;
 	        }
+	        var recognizers = this.recognizers;
 	        recognizer = this.get(recognizer);
-	        // let's make sure this recognizer exists
-	        if (recognizer) {
-	            var recognizers = this.recognizers;
-	            var index = inArray(recognizers, recognizer);
-	            if (index !== -1) {
-	                recognizers.splice(index, 1);
-	                this.touchAction.update();
-	            }
-	        }
+	        recognizers.splice(inArray(recognizers, recognizer), 1);
+	        this.touchAction.update();
 	        return this;
 	    },
 	    /**
@@ -46185,7 +46179,7 @@
 	                delete handlers[event];
 	            }
 	            else {
-	                handlers[event] && handlers[event].splice(inArray(handlers[event], handler), 1);
+	                handlers[event].splice(inArray(handlers[event], handler), 1);
 	            }
 	        });
 	        return this;
@@ -46234,9 +46228,6 @@
 	 */
 	function toggleCssProps(manager, add) {
 	    var element = manager.element;
-	    if (!element.style) {
-	        return;
-	    }
 	    each(manager.options.cssProps, function (value, name) {
 	        element.style[prefixed(element.style, name)] = add ? value : '';
 	    });
@@ -46252,7 +46243,7 @@
 	    gestureEvent.gesture = data;
 	    data.target.dispatchEvent(gestureEvent);
 	}
-	util_1.assign(Hammer, {
+	extend(Hammer, {
 	    INPUT_START: INPUT_START,
 	    INPUT_MOVE: INPUT_MOVE,
 	    INPUT_END: INPUT_END,
@@ -46291,10 +46282,13 @@
 	    on: addEventListeners,
 	    off: removeEventListeners,
 	    each: each,
+	    merge: merge,
+	    extend: extend,
 	    inherit: inherit,
 	    bindFn: bindFn,
 	    prefixed: prefixed
 	});
+	// attach to window for angular2 gesture listeners
 	window.Hammer = Hammer;
 
 /***/ },
@@ -47078,14 +47072,8 @@
 	     */
 	    NavController.prototype.present = function (enteringView, opts) {
 	        if (opts === void 0) { opts = {}; }
-	        var nav = this.rootNav;
-	        if (nav._tabs) {
-	            // TODO: must have until this goes in
-	            // https://github.com/angular/angular/issues/5481
-	            console.error('A parent <ion-nav> is required for ActionSheet/Alert/Modal');
-	            return;
-	        }
-	        enteringView.setNav(nav);
+	        var rootNav = this.rootNav;
+	        enteringView.setNav(rootNav);
 	        var resolve;
 	        var promise = new Promise(function (res) { resolve = res; });
 	        opts.keyboardClose = false;
@@ -47101,16 +47089,16 @@
 	            animation: enteringView.getTransitionName('back')
 	        });
 	        // the active view is going to be the leaving one (if one exists)
-	        var leavingView = nav.getActive() || new view_controller_1.ViewController();
+	        var leavingView = rootNav.getActive() || new view_controller_1.ViewController();
 	        leavingView.shouldCache = (util_1.isBoolean(opts.cacheLeavingView) ? opts.cacheLeavingView : true);
 	        leavingView.shouldDestroy = !leavingView.shouldCache;
 	        if (leavingView.shouldDestroy) {
 	            leavingView.willUnload();
 	        }
 	        // add the view to the stack
-	        nav._add(enteringView);
+	        rootNav._add(enteringView);
 	        // start the transition
-	        nav._transition(enteringView, leavingView, opts, resolve);
+	        rootNav._transition(enteringView, leavingView, opts, resolve);
 	        return promise;
 	    };
 	    /**
@@ -48525,7 +48513,7 @@
 	 *
 	 * <!-- always use the same icon, no matter what the mode -->
 	 * <ion-icon name="ios-clock"></ion-icon>
-	 * <ion-icon name="logo-twitter"></ion-icon>
+	 * <ion-icon name="twitter-logo"></ion-icon>
 	 * ```
 	 *
 	 * @property {string} [name] - Use the appropriate icon for the mode.
@@ -48563,7 +48551,7 @@
 	         * @private
 	         */
 	        set: function (val) {
-	            if (!(/^md-|^ios-|^logo-/.test(val))) {
+	            if (!(/^md-|^ios-|-logo$/.test(val))) {
 	                // this does not have one of the defaults
 	                // so lets auto add in the mode prefix for them
 	                val = this.mode + '-' + val;
@@ -48922,7 +48910,7 @@
 	  * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
 	  * @demo /docs/v2/demos/buttons/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
-
+	
 	 */
 	var Button = (function () {
 	    function Button(config, _elementRef, _renderer, ionItem) {
@@ -49745,7 +49733,7 @@
 	 *    </ion-refresher>
 	 *
 	 *  </ion-content>
-
+	
 	 *  ```
 	 *
 	 *  ```ts
@@ -55890,778 +55878,6 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
-	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(169);
-	var nav_controller_1 = __webpack_require__(298);
-	var config_1 = __webpack_require__(270);
-	var form_1 = __webpack_require__(275);
-	var label_1 = __webpack_require__(321);
-	var text_input_1 = __webpack_require__(322);
-	var app_1 = __webpack_require__(165);
-	var content_1 = __webpack_require__(307);
-	var dom_1 = __webpack_require__(273);
-	var platform_1 = __webpack_require__(271);
-	var button_1 = __webpack_require__(304);
-	var icon_1 = __webpack_require__(302);
-	/**
-	 * @name Input
-	 * @module ionic
-	 * @description
-	 *
-	 * `ion-input` is a generic wrapper for both inputs and textareas. You can give `ion-input` attributes to tell it how to handle a child `ion-label` component.
-	 *
-	 * @property [fixed-label] - a persistant label that sits next the the input
-	 * @property [floating-label] - a label that will float about the input if the input is empty of looses focus
-	 * @property [stacked-label] - A stacked label will always appear on top of the input
-	 * @property [inset] - The input will be inset
-	 * @property [clearInput] - A clear icon will appear in the input which clears it
-	 *
-	 * @usage
-	 * ```html
-	 *  <ion-input>
-	 *    <ion-label>Username</ion-label>
-	 *    <input type="text" value="">
-	 *  </ion-input>
-	 *
-	 *  <ion-input clearInput>
-	 *    <input type="text" placeholder="Username">
-	 *  </ion-input>
-	 *
-	 *  <ion-input fixed-label>
-	 *    <ion-label>Username</ion-label>
-	 *    <input type="text" value="">
-	 *  </ion-input>
-	 *
-	 *  <ion-input floating-label>
-	 *    <ion-label>Username</ion-label>
-	 *    <input type="text" value="">
-	 *  </ion-input>
-	 * ```
-	 *
-	 */
-	var ItemInput = (function () {
-	    function ItemInput(config, _form, _renderer, _elementRef, _app, _platform, _scrollView, _nav, isFloating, isStacked, isFixed, isInset) {
-	        this._form = _form;
-	        this._renderer = _renderer;
-	        this._elementRef = _elementRef;
-	        this._app = _app;
-	        this._platform = _platform;
-	        this._scrollView = _scrollView;
-	        this._nav = _nav;
-	        this.value = '';
-	        _form.register(this);
-	        this.type = null;
-	        this.lastTouch = 0;
-	        // make more gud with pending @Attributes API
-	        this.displayType = (isFloating === '' ? 'floating' : (isStacked === '' ? 'stacked' : (isFixed === '' ? 'fixed' : (isInset === '' ? 'inset' : null))));
-	        this._assist = config.get('scrollAssist');
-	        this.keyboardHeight = config.get('keyboardHeight');
-	    }
-	    Object.defineProperty(ItemInput.prototype, "_setInput", {
-	        /**
-	         * @private
-	         */
-	        set: function (textInput) {
-	            var _this = this;
-	            if (textInput) {
-	                textInput.addClass('item-input');
-	                if (this.displayType) {
-	                    textInput.addClass(this.displayType + '-input');
-	                }
-	                this.input = textInput;
-	                this.type = textInput.type;
-	                this.hasValue(this.input.value);
-	                textInput.valueChange.subscribe(function (inputValue) {
-	                    _this.hasValue(inputValue);
-	                });
-	                this.focusChange(this.hasFocus());
-	                textInput.focusChange.subscribe(function (textInputHasFocus) {
-	                    _this.focusChange(textInputHasFocus);
-	                });
-	            }
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(ItemInput.prototype, "_setLabel", {
-	        /**
-	         * @private
-	         */
-	        set: function (label) {
-	            if (label && this.displayType) {
-	                label.addClass(this.displayType + '-label');
-	            }
-	            this.label = label;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(ItemInput.prototype, "_buttons", {
-	        /**
-	         * @private
-	         */
-	        set: function (buttons) {
-	            buttons.toArray().forEach(function (button) {
-	                if (!button.isItem) {
-	                    button.addClass('item-button');
-	                }
-	            });
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(ItemInput.prototype, "_icons", {
-	        /**
-	         * @private
-	         */
-	        set: function (icons) {
-	            icons.toArray().forEach(function (icon) {
-	                icon.addClass('item-icon');
-	            });
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @private
-	     * On Initialization check for attributes
-	     */
-	    ItemInput.prototype.ngOnInit = function () {
-	        var clearInput = this.clearInput;
-	        if (typeof clearInput === 'string') {
-	            this.clearInput = (clearInput === '' || clearInput === 'true');
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemInput.prototype.ngAfterViewInit = function () {
-	        var self = this;
-	        if (self.input && self.label) {
-	            // if there is an input and a label
-	            // then give the label an ID
-	            // and tell the input the ID of who it's labelled by
-	            self.input.labelledBy(self.label.id);
-	        }
-	        self.scrollMove = function (ev) {
-	            if (!(self._nav && self._nav.isTransitioning())) {
-	                self.deregMove();
-	                if (self.hasFocus()) {
-	                    self.input.hideFocus(true);
-	                    self._scrollView.onScrollEnd(function () {
-	                        self.input.hideFocus(false);
-	                        if (self.hasFocus()) {
-	                            self.regMove();
-	                        }
-	                    });
-	                }
-	            }
-	        };
-	    };
-	    /**
-	      * @private
-	     */
-	    ItemInput.prototype.clearTextInput = function () {
-	        console.log("Should clear input");
-	        //console.log(this.textInput.value);
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemInput.prototype.pointerStart = function (ev) {
-	        if (this._assist && this._app.isEnabled()) {
-	            // remember where the touchstart/mousedown started
-	            this.startCoord = dom_1.pointerCoord(ev);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemInput.prototype.pointerEnd = function (ev) {
-	        if (!this._app.isEnabled()) {
-	            ev.preventDefault();
-	            ev.stopPropagation();
-	        }
-	        else if (this._assist && ev.type === 'touchend') {
-	            // get where the touchend/mouseup ended
-	            var endCoord = dom_1.pointerCoord(ev);
-	            // focus this input if the pointer hasn't moved XX pixels
-	            // and the input doesn't already have focus
-	            if (!dom_1.hasPointerMoved(8, this.startCoord, endCoord) && !this.hasFocus()) {
-	                ev.preventDefault();
-	                ev.stopPropagation();
-	                this.initFocus();
-	                // temporarily prevent mouseup's from focusing
-	                this.lastTouch = Date.now();
-	            }
-	        }
-	        else if (this.lastTouch + 999 < Date.now()) {
-	            ev.preventDefault();
-	            ev.stopPropagation();
-	            this.setFocus();
-	            this.regMove();
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemInput.prototype.initFocus = function () {
-	        // begin the process of setting focus to the inner input element
-	        var _this = this;
-	        var scrollView = this._scrollView;
-	        if (scrollView && this._assist) {
-	            // this input is inside of a scroll view
-	            // find out if text input should be manually scrolled into view
-	            var ele = this._elementRef.nativeElement;
-	            var scrollData = ItemInput.getScrollData(ele.offsetTop, ele.offsetHeight, scrollView.getDimensions(), this.keyboardHeight, this._platform.height());
-	            if (scrollData.scrollAmount > -3 && scrollData.scrollAmount < 3) {
-	                // the text input is in a safe position that doesn't require
-	                // it to be scrolled into view, just set focus now
-	                this.setFocus();
-	                this.regMove();
-	                return;
-	            }
-	            // add padding to the bottom of the scroll view (if needed)
-	            scrollView.addScrollPadding(scrollData.scrollPadding);
-	            // manually scroll the text input to the top
-	            // do not allow any clicks while it's scrolling
-	            var scrollDuration = getScrollAssistDuration(scrollData.scrollAmount);
-	            this._app.setEnabled(false, scrollDuration);
-	            this._nav && this._nav.setTransitioning(true, scrollDuration);
-	            // temporarily move the focus to the focus holder so the browser
-	            // doesn't freak out while it's trying to get the input in place
-	            // at this point the native text input still does not have focus
-	            this.input.relocate(true, scrollData.inputSafeY);
-	            // scroll the input into place
-	            scrollView.scrollTo(0, scrollData.scrollTo, scrollDuration).then(function () {
-	                // the scroll view is in the correct position now
-	                // give the native text input focus
-	                _this.input.relocate(false);
-	                // all good, allow clicks again
-	                _this._app.setEnabled(true);
-	                _this._nav && _this._nav.setTransitioning(false);
-	                _this.regMove();
-	            });
-	        }
-	        else {
-	            // not inside of a scroll view, just focus it
-	            this.setFocus();
-	            this.regMove();
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemInput.prototype.setFocus = function () {
-	        if (this.input) {
-	            this._form.setAsFocused(this);
-	            // set focus on the actual input element
-	            this.input.setFocus();
-	            // ensure the body hasn't scrolled down
-	            document.body.scrollTop = 0;
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemInput.prototype.regMove = function () {
-	        var _this = this;
-	        if (this._assist && this._scrollView) {
-	            setTimeout(function () {
-	                _this.deregMove();
-	                _this.deregScroll = _this._scrollView.addScrollEventListener(_this.scrollMove);
-	            }, 80);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemInput.prototype.deregMove = function () {
-	        this.deregScroll && this.deregScroll();
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemInput.prototype.focusChange = function (inputHasFocus) {
-	        this._renderer.setElementClass(this._elementRef, 'input-focused', inputHasFocus);
-	        if (!inputHasFocus) {
-	            this.deregMove();
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemInput.prototype.hasFocus = function () {
-	        return !!this.input && this.input.hasFocus();
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemInput.prototype.hasValue = function (inputValue) {
-	        var inputHasValue = !!(inputValue && inputValue !== '');
-	        this._renderer.setElementClass(this._elementRef, 'input-has-value', inputHasValue);
-	    };
-	    /**
-	     * @private
-	     * This function is used to add the Angular css classes associated with inputs in forms
-	     */
-	    ItemInput.prototype.hasClass = function (className) {
-	        this.input && this.input.hasClass(className);
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemInput.prototype.ngOnDestroy = function () {
-	        this.deregMove();
-	        this._form.deregister(this);
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemInput.getScrollData = function (inputOffsetTop, inputOffsetHeight, scrollViewDimensions, keyboardHeight, plaformHeight) {
-	        // compute input's Y values relative to the body
-	        var inputTop = (inputOffsetTop + scrollViewDimensions.contentTop - scrollViewDimensions.scrollTop);
-	        var inputBottom = (inputTop + inputOffsetHeight);
-	        // compute the safe area which is the viewable content area when the soft keyboard is up
-	        var safeAreaTop = scrollViewDimensions.contentTop;
-	        var safeAreaHeight = plaformHeight - keyboardHeight - safeAreaTop;
-	        safeAreaHeight /= 2;
-	        var safeAreaBottom = safeAreaTop + safeAreaHeight;
-	        var inputTopWithinSafeArea = (inputTop >= safeAreaTop && inputTop <= safeAreaBottom);
-	        var inputTopAboveSafeArea = (inputTop < safeAreaTop);
-	        var inputTopBelowSafeArea = (inputTop > safeAreaBottom);
-	        var inputBottomWithinSafeArea = (inputBottom >= safeAreaTop && inputBottom <= safeAreaBottom);
-	        var inputBottomBelowSafeArea = (inputBottom > safeAreaBottom);
-	        /*
-	        Text Input Scroll To Scenarios
-	        ---------------------------------------
-	        1) Input top within safe area, bottom within safe area
-	        2) Input top within safe area, bottom below safe area, room to scroll
-	        3) Input top above safe area, bottom within safe area, room to scroll
-	        4) Input top below safe area, no room to scroll, input smaller than safe area
-	        5) Input top within safe area, bottom below safe area, no room to scroll, input smaller than safe area
-	        6) Input top within safe area, bottom below safe area, no room to scroll, input larger than safe area
-	        7) Input top below safe area, no room to scroll, input larger than safe area
-	        */
-	        var scrollData = {
-	            scrollAmount: 0,
-	            scrollTo: 0,
-	            scrollPadding: 0,
-	            inputSafeY: 0
-	        };
-	        if (inputTopWithinSafeArea && inputBottomWithinSafeArea) {
-	            // Input top within safe area, bottom within safe area
-	            // no need to scroll to a position, it's good as-is
-	            return scrollData;
-	        }
-	        // looks like we'll have to do some auto-scrolling
-	        if (inputTopBelowSafeArea || inputBottomBelowSafeArea) {
-	            // Input top and bottom below safe area
-	            // auto scroll the input up so at least the top of it shows
-	            if (safeAreaHeight > inputOffsetHeight) {
-	                // safe area height is taller than the input height, so we
-	                // can bring it up the input just enough to show the input bottom
-	                scrollData.scrollAmount = Math.round(safeAreaBottom - inputBottom);
-	            }
-	            else {
-	                // safe area height is smaller than the input height, so we can
-	                // only scroll it up so the input top is at the top of the safe area
-	                // however the input bottom will be below the safe area
-	                scrollData.scrollAmount = Math.round(safeAreaTop - inputTop);
-	            }
-	            scrollData.inputSafeY = -(inputTop - safeAreaTop) + 4;
-	        }
-	        else if (inputTopAboveSafeArea) {
-	            // Input top above safe area
-	            // auto scroll the input down so at least the top of it shows
-	            scrollData.scrollAmount = Math.round(safeAreaTop - inputTop);
-	            scrollData.inputSafeY = (safeAreaTop - inputTop) + 4;
-	        }
-	        // figure out where it should scroll to for the best position to the input
-	        scrollData.scrollTo = (scrollViewDimensions.scrollTop - scrollData.scrollAmount);
-	        if (scrollData.scrollAmount < 0) {
-	            // when auto-scrolling up, there also needs to be enough
-	            // content padding at the bottom of the scroll view
-	            // manually add it if there isn't enough scrollable area
-	            // figure out how many scrollable area is left to scroll up
-	            var availablePadding = (scrollViewDimensions.scrollHeight - scrollViewDimensions.scrollTop) - scrollViewDimensions.contentHeight;
-	            var paddingSpace = availablePadding + scrollData.scrollAmount;
-	            if (paddingSpace < 0) {
-	                // there's not enough scrollable area at the bottom, so manually add more
-	                scrollData.scrollPadding = (scrollViewDimensions.contentHeight - safeAreaHeight);
-	            }
-	        }
-	        // if (!window.safeAreaEle) {
-	        //   window.safeAreaEle = document.createElement('div');
-	        //   window.safeAreaEle.style.position = 'absolute';
-	        //   window.safeAreaEle.style.background = 'rgba(0, 128, 0, 0.7)';
-	        //   window.safeAreaEle.style.padding = '2px 5px';
-	        //   window.safeAreaEle.style.textShadow = '1px 1px white';
-	        //   window.safeAreaEle.style.left = '0px';
-	        //   window.safeAreaEle.style.right = '0px';
-	        //   window.safeAreaEle.style.fontWeight = 'bold';
-	        //   window.safeAreaEle.style.pointerEvents = 'none';
-	        //   document.body.appendChild(window.safeAreaEle);
-	        // }
-	        // window.safeAreaEle.style.top = safeAreaTop + 'px';
-	        // window.safeAreaEle.style.height = safeAreaHeight + 'px';
-	        // window.safeAreaEle.innerHTML = `
-	        //   <div>scrollTo: ${scrollData.scrollTo}</div>
-	        //   <div>scrollAmount: ${scrollData.scrollAmount}</div>
-	        //   <div>scrollPadding: ${scrollData.scrollPadding}</div>
-	        //   <div>inputSafeY: ${scrollData.inputSafeY}</div>
-	        //   <div>scrollHeight: ${scrollViewDimensions.scrollHeight}</div>
-	        //   <div>scrollTop: ${scrollViewDimensions.scrollTop}</div>
-	        //   <div>contentHeight: ${scrollViewDimensions.contentHeight}</div>
-	        // `;
-	        return scrollData;
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], ItemInput.prototype, "clearInput", void 0);
-	    __decorate([
-	        core_1.ContentChild(text_input_1.TextInput), 
-	        __metadata('design:type', Object), 
-	        __metadata('design:paramtypes', [Object])
-	    ], ItemInput.prototype, "_setInput", null);
-	    __decorate([
-	        core_1.ContentChild(label_1.Label), 
-	        __metadata('design:type', Object), 
-	        __metadata('design:paramtypes', [Object])
-	    ], ItemInput.prototype, "_setLabel", null);
-	    __decorate([
-	        core_1.ContentChildren(button_1.Button), 
-	        __metadata('design:type', Object), 
-	        __metadata('design:paramtypes', [Object])
-	    ], ItemInput.prototype, "_buttons", null);
-	    __decorate([
-	        core_1.ContentChildren(icon_1.Icon), 
-	        __metadata('design:type', Object), 
-	        __metadata('design:paramtypes', [Object])
-	    ], ItemInput.prototype, "_icons", null);
-	    ItemInput = __decorate([
-	        core_1.Component({
-	            selector: 'ion-input',
-	            host: {
-	                '(touchstart)': 'pointerStart($event)',
-	                '(touchend)': 'pointerEnd($event)',
-	                '(mouseup)': 'pointerEnd($event)',
-	                'class': 'item',
-	                '[class.ng-untouched]': 'hasClass("ng-untouched")',
-	                '[class.ng-touched]': 'hasClass("ng-touched")',
-	                '[class.ng-pristine]': 'hasClass("ng-pristine")',
-	                '[class.ng-dirty]': 'hasClass("ng-dirty")',
-	                '[class.ng-valid]': 'hasClass("ng-valid")',
-	                '[class.ng-invalid]': 'hasClass("ng-invalid")'
-	            },
-	            template: '<div class="item-inner">' +
-	                '<ng-content></ng-content>' +
-	                '<input [type]="type" aria-hidden="true" scroll-assist *ngIf="_assist">' +
-	                '<button clear *ngIf="clearInput && value" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
-	                '</div>',
-	            directives: [common_1.NgIf, core_1.forwardRef(function () { return InputScrollAssist; }), text_input_1.TextInput, button_1.Button]
-	        }),
-	        __param(6, core_1.Optional()),
-	        __param(6, core_1.Host()),
-	        __param(7, core_1.Optional()),
-	        __param(8, core_1.Attribute('floating-label')),
-	        __param(9, core_1.Attribute('stacked-label')),
-	        __param(10, core_1.Attribute('fixed-label')),
-	        __param(11, core_1.Attribute('inset')), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _e) || Object, (typeof (_f = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _f) || Object, (typeof (_g = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, String, String, String, String])
-	    ], ItemInput);
-	    return ItemInput;
-	    var _a, _b, _c, _d, _e, _f, _g, _h;
-	})();
-	exports.ItemInput = ItemInput;
-	/**
-	 * @private
-	 */
-	var InputScrollAssist = (function () {
-	    function InputScrollAssist(_form, _input) {
-	        this._form = _form;
-	        this._input = _input;
-	    }
-	    InputScrollAssist.prototype.receivedFocus = function () {
-	        this._form.focusNext(this._input);
-	    };
-	    __decorate([
-	        core_1.HostListener('focus'), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', []), 
-	        __metadata('design:returntype', void 0)
-	    ], InputScrollAssist.prototype, "receivedFocus", null);
-	    InputScrollAssist = __decorate([
-	        core_1.Directive({
-	            selector: '[scroll-assist]'
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, ItemInput])
-	    ], InputScrollAssist);
-	    return InputScrollAssist;
-	    var _a;
-	})();
-	var SCROLL_ASSIST_SPEED = 0.4;
-	function getScrollAssistDuration(distanceToScroll) {
-	    //return 3000;
-	    distanceToScroll = Math.abs(distanceToScroll);
-	    var duration = distanceToScroll / SCROLL_ASSIST_SPEED;
-	    return Math.min(400, Math.max(100, duration));
-	}
-
-/***/ },
-/* 321 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var form_1 = __webpack_require__(275);
-	/**
-	 * @name Label
-	 * @description
-	 * Labels describe the data that the user should enter in to an input element.
-	 * @usage
-	 * ```html
-	 * <ion-input>
-	 *   <ion-label>Username</ion-label>
-	 *   <input type="text" value="">
-	 * </ion-input>
-	 * ```
-	 *
-	 * @demo /docs/v2/demos/label/
-	 * @see {@link ../../../../components#inputs Input Component Docs}
-	 * @see {@link ../Input Input API Docs}
-	 *
-	 */
-	var Label = (function () {
-	    function Label(_form, _elementRef, _renderer) {
-	        this._form = _form;
-	        this._elementRef = _elementRef;
-	        this._renderer = _renderer;
-	    }
-	    /**
-	     * @private
-	     */
-	    Label.prototype.ngOnInit = function () {
-	        if (!this.id) {
-	            this.id = 'lbl-' + this._form.nextId();
-	        }
-	    };
-	    Object.defineProperty(Label.prototype, "text", {
-	        get: function () {
-	            return this._elementRef.nativeElement.textContent;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @private
-	     */
-	    Label.prototype.addClass = function (className) {
-	        this._renderer.setElementClass(this._elementRef, className, true);
-	    };
-	    Label = __decorate([
-	        core_1.Directive({
-	            selector: 'ion-label',
-	            inputs: [
-	                'id'
-	            ],
-	            host: {
-	                '[attr.id]': 'id'
-	            }
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
-	    ], Label);
-	    return Label;
-	    var _a, _b, _c;
-	})();
-	exports.Label = Label;
-
-/***/ },
-/* 322 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
-	var core_1 = __webpack_require__(8);
-	var dom_1 = __webpack_require__(273);
-	/**
-	 * @private
-	 */
-	var TextInput = (function () {
-	    function TextInput(type, _elementRef, _renderer) {
-	        this._elementRef = _elementRef;
-	        this._renderer = _renderer;
-	        this.valueChange = new core_1.EventEmitter();
-	        this.focusChange = new core_1.EventEmitter();
-	        this.type = type || 'text';
-	    }
-	    TextInput.prototype.ngOnInit = function () {
-	        if (this.ngModel) {
-	            this.value = this.ngModel;
-	        }
-	        else {
-	            this.value = this._elementRef.nativeElement.value;
-	        }
-	    };
-	    TextInput.prototype._keyup = function (ev) {
-	        this.valueChange.emit(ev.target.value);
-	    };
-	    TextInput.prototype._focus = function () {
-	        this.focusChange.emit(true);
-	    };
-	    TextInput.prototype._blur = function () {
-	        this.focusChange.emit(false);
-	        this.hideFocus(false);
-	    };
-	    TextInput.prototype.labelledBy = function (val) {
-	        this._renderer.setElementAttribute(this._elementRef, 'aria-labelledby', val);
-	    };
-	    TextInput.prototype.setFocus = function () {
-	        this.element().focus();
-	    };
-	    TextInput.prototype.relocate = function (shouldRelocate, inputRelativeY) {
-	        if (this._relocated !== shouldRelocate) {
-	            var focusedInputEle = this.element();
-	            if (shouldRelocate) {
-	                var clonedInputEle = cloneInput(focusedInputEle, 'cloned-input');
-	                focusedInputEle.classList.add('hide-focused-input');
-	                focusedInputEle.style[dom_1.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
-	                focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
-	                this.setFocus();
-	            }
-	            else {
-	                focusedInputEle.classList.remove('hide-focused-input');
-	                focusedInputEle.style[dom_1.CSS.transform] = '';
-	                var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-input');
-	                if (clonedInputEle) {
-	                    clonedInputEle.parentNode.removeChild(clonedInputEle);
-	                }
-	            }
-	            this._relocated = shouldRelocate;
-	        }
-	    };
-	    TextInput.prototype.hideFocus = function (shouldHideFocus) {
-	        var focusedInputEle = this.element();
-	        if (shouldHideFocus) {
-	            var clonedInputEle = cloneInput(focusedInputEle, 'cloned-hidden');
-	            focusedInputEle.classList.add('hide-focused-input');
-	            focusedInputEle.style[dom_1.CSS.transform] = 'translate3d(-9999px,0,0)';
-	            focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
-	        }
-	        else {
-	            focusedInputEle.classList.remove('hide-focused-input');
-	            focusedInputEle.style[dom_1.CSS.transform] = '';
-	            var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-hidden');
-	            if (clonedInputEle) {
-	                clonedInputEle.parentNode.removeChild(clonedInputEle);
-	            }
-	        }
-	    };
-	    TextInput.prototype.hasFocus = function () {
-	        return dom_1.hasFocus(this.element());
-	    };
-	    TextInput.prototype.addClass = function (className) {
-	        this._renderer.setElementClass(this._elementRef, className, true);
-	    };
-	    TextInput.prototype.hasClass = function (className) {
-	        this._elementRef.nativeElement.classList.contains(className);
-	    };
-	    TextInput.prototype.element = function () {
-	        return this._elementRef.nativeElement;
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], TextInput.prototype, "value", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], TextInput.prototype, "ngModel", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], TextInput.prototype, "valueChange", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], TextInput.prototype, "focusChange", void 0);
-	    __decorate([
-	        core_1.HostListener('keyup', ['$event']), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
-	        __metadata('design:returntype', void 0)
-	    ], TextInput.prototype, "_keyup", null);
-	    __decorate([
-	        core_1.HostListener('focus'), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', []), 
-	        __metadata('design:returntype', void 0)
-	    ], TextInput.prototype, "_focus", null);
-	    __decorate([
-	        core_1.HostListener('blur'), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', []), 
-	        __metadata('design:returntype', void 0)
-	    ], TextInput.prototype, "_blur", null);
-	    TextInput = __decorate([
-	        core_1.Directive({
-	            selector: 'textarea,input[type=text],input[type=password],input[type=number],input[type=search],input[type=email],input[type=url],input[type=tel],input[type=date],input[type=datetime],input[type=datetime-local],input[type=week],input[type=time]',
-	            host: {
-	                'class': 'text-input'
-	            }
-	        }),
-	        __param(0, core_1.Attribute('type')), 
-	        __metadata('design:paramtypes', [String, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object])
-	    ], TextInput);
-	    return TextInput;
-	    var _a, _b, _c, _d;
-	})();
-	exports.TextInput = TextInput;
-	function cloneInput(srcInput, addCssClass) {
-	    var clonedInputEle = srcInput.cloneNode(true);
-	    clonedInputEle.classList.add(addCssClass);
-	    clonedInputEle.classList.remove('hide-focused-input');
-	    clonedInputEle.setAttribute('aria-hidden', true);
-	    clonedInputEle.removeAttribute('aria-labelledby');
-	    clonedInputEle.tabIndex = -1;
-	    return clonedInputEle;
-	}
-
-/***/ },
-/* 323 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
 	var core_1 = __webpack_require__(8);
 	var button_1 = __webpack_require__(304);
 	var icon_1 = __webpack_require__(302);
@@ -56761,7 +55977,7 @@
 	exports.Item = Item;
 
 /***/ },
-/* 324 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56829,7 +56045,7 @@
 	var slideIds = 0;
 
 /***/ },
-/* 325 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57008,877 +56224,7 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 326 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
-	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(169);
-	var alert_1 = __webpack_require__(327);
-	var form_1 = __webpack_require__(275);
-	var label_1 = __webpack_require__(321);
-	var util_1 = __webpack_require__(272);
-	var nav_controller_1 = __webpack_require__(298);
-	var option_1 = __webpack_require__(328);
-	/**
-	 * @name Select
-	 * @description
-	 * The `ion-select` component is similar to an HTML `<select>` element, however,
-	 * Ionic's select component makes it easier for users to sort through and select
-	 * the preferred option or options. When users tap the select component, a
-	 * dialog will appear with all of the options in a large, easy to select list
-	 * for users.
-	 *
-	 * Under-the-hood the `ion-select` actually uses the
-	 * {@link ../../alert/Alert Alert API} to open up the overlay of options
-	 * which the user is presented with. Select takes one child `ion-label`
-	 * component, and numerous child `ion-option` components. Each `ion-option`
-	 * should be given a `value` attribute.
-	 *
-	 * ### Single Value: Radio Buttons
-	 *
-	 * The standard `ion-select` component allows the user to select only one
-	 * option. When selecting only one option the alert overlay presents users with
-	 * a radio button styled list of options. The `ion-select` component's value
-	 * receives the value of the selected option's value.
-	 *
-	 * ```html
-	 * <ion-select [(ngModel)]="gender">
-	 *   <ion-label>Gender</ion-label>
-	 *   <ion-option value="f" checked="true">Female</ion-option>
-	 *   <ion-option value="m">Male</ion-option>
-	 * </ion-select>
-	 * ```
-	 *
-	 * ### Multiple Value: Checkboxes
-	 *
-	 * By adding the `multiple="true"` attribute to `ion-select`, users are able
-	 * to select multiple options. When multiple options can be selected, the alert
-	 * overlay presents users with a checkbox styled list of options. The
-	 * `ion-select multiple="true"` component's value receives an array of all the
-	 * selected option values.
-	 *
-	 * ```html
-	 * <ion-select [(ngModel)]="toppings" multiple="true">
-	 *   <ion-label>Toppings</ion-label>
-	 *   <ion-option value="bacon">Bacon</ion-option>
-	 *   <ion-option value="olives">Black Olives</ion-option>
-	 *   <ion-option value="xcheese">Extra Cheese</ion-option>
-	 *   <ion-option value="mushrooms">Mushrooms</ion-option>
-	 *   <ion-option value="pepperoni">Pepperoni</ion-option>
-	 *   <ion-option value="sausage">Sausage</ion-option>
-	 * </ion-select>
-	 * ```
-	 *
-	 * ### Alert Buttons
-	 * By default, the two buttons read `Cancel` and `OK`. The each button's text
-	 * can be customized using the `cancelText` and `okText` attributes:
-	 *
-	 * ```html
-	 * <ion-select okText="Okay" cancelText="Dismiss">
-	 *   ...
-	 * </ion-select>
-	 * ```
-	 *
-	 * ### Alert Options
-	 *
-	 * Remember how `ion-select` is really just a wrapper to `Alert`? By using
-	 * the `alertOptions` property you can pass custom options to the alert
-	 * overlay. This would be useful if there is a custom alert title,
-	 * subtitle or message. {@link ../../alert/Alert Alert API}
-	 *
-	 * ```html
-	 * <ion-select [alertOptions]="alertOptions">
-	 *   ...
-	 * </ion-select>
-	 * ```
-	 *
-	 * ```ts
-	 * this.alertOptions = {
-	 *   title: 'Pizza Toppings',
-	 *   subTitle: 'Select your toppings'
-	 * };
-	 * ```
-	 *
-	 */
-	var Select = (function () {
-	    function Select(_form, _elementRef, _renderer, _navCtrl, ngControl) {
-	        this._form = _form;
-	        this._elementRef = _elementRef;
-	        this._renderer = _renderer;
-	        this._navCtrl = _navCtrl;
-	        this.cancelText = 'Cancel';
-	        this.okText = 'OK';
-	        this.value = '';
-	        this.alertOptions = {};
-	        this.checked = false;
-	        this.disabled = false;
-	        this.id = '';
-	        this.multiple = '';
-	        _form.register(this);
-	        this.selectedText = '';
-	        if (ngControl) {
-	            ngControl.valueAccessor = this;
-	        }
-	        if (!_navCtrl) {
-	            console.error('parent <ion-nav> required for <ion-select>');
-	        }
-	    }
-	    /**
-	     * @private
-	     */
-	    Select.prototype.ngOnInit = function () {
-	        if (!this.id) {
-	            this.id = 'sel-' + this._form.nextId();
-	            this._renderer.setElementAttribute(this._elementRef, 'id', this.id);
-	        }
-	        this.labelId = 'lbl-' + this.id;
-	        this._renderer.setElementAttribute(this._elementRef, 'aria-labelledby', this.labelId);
-	    };
-	    /**
-	     * @private
-	     */
-	    Select.prototype.ngAfterContentInit = function () {
-	        var _this = this;
-	        var selectedOption = this.options.toArray().find(function (o) { return o.checked; });
-	        if (!selectedOption) {
-	            this.options.toArray().forEach(function (o) {
-	                o.checked = o.value === _this.value + '';
-	                if (o.checked) {
-	                    selectedOption = o;
-	                }
-	            });
-	        }
-	        if (selectedOption) {
-	            this.value = selectedOption.value;
-	            this.selectedText = selectedOption.text;
-	            setTimeout(function () {
-	                _this.onChange(_this.value);
-	            });
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Select.prototype._click = function () {
-	        var _this = this;
-	        var isMulti = (this.multiple === true || this.multiple === 'true');
-	        // the user may have assigned some options specifically for the alert
-	        var alertOptions = util_1.merge({}, this.alertOptions);
-	        // make sure their buttons array is removed from the options
-	        // and we create a new array for the alert's two buttons
-	        alertOptions.buttons = [this.cancelText];
-	        // if the alertOptions didn't provide an title then use the label's text
-	        if (!alertOptions.title) {
-	            alertOptions.title = this.label.text;
-	        }
-	        // user cannot provide inputs from alertOptions
-	        // alert inputs must be created by ionic from ion-options
-	        alertOptions.inputs = this.options.toArray().map(function (input) {
-	            return {
-	                type: (isMulti ? 'checkbox' : 'radio'),
-	                label: input.text,
-	                value: input.value,
-	                checked: !!input.checked
-	            };
-	        });
-	        // create the alert instance from our built up alertOptions
-	        var alert = alert_1.Alert.create(alertOptions);
-	        if (isMulti) {
-	            // use checkboxes
-	            alert.setCssClass('select-alert multiple-select-alert');
-	            alert.addButton({
-	                text: this.okText,
-	                handler: function (selectedValues) {
-	                    // passed an array of all the values which were checked
-	                    _this.value = selectedValues;
-	                    // keep a list of all the selected texts
-	                    var selectedTexts = [];
-	                    _this.options.toArray().forEach(function (option) {
-	                        if (selectedValues.indexOf(option.value) > -1) {
-	                            // this option is one that was checked
-	                            option.checked = true;
-	                            selectedTexts.push(option.text);
-	                        }
-	                        else {
-	                            // this option was not checked
-	                            option.checked = false;
-	                        }
-	                    });
-	                    _this.selectedText = selectedTexts.join(', ');
-	                    _this.onChange(selectedValues);
-	                }
-	            });
-	        }
-	        else {
-	            // use radio buttons
-	            alert.setCssClass('select-alert single-select-alert');
-	            alert.addButton({
-	                text: this.okText,
-	                handler: function (selectedValue) {
-	                    // passed the single value that was checked
-	                    // or undefined if nothing was checked
-	                    _this.value = selectedValue;
-	                    _this.selectedText = '';
-	                    _this.options.toArray().forEach(function (option) {
-	                        if (option.value === selectedValue) {
-	                            // this option was the one that was checked
-	                            option.checked = true;
-	                            _this.selectedText = option.text;
-	                        }
-	                        else {
-	                            // this option was not checked
-	                            option.checked = false;
-	                        }
-	                    });
-	                    _this.onChange(selectedValue);
-	                }
-	            });
-	        }
-	        this._navCtrl.present(alert);
-	    };
-	    /**
-	     * @private
-	     * Angular2 Forms API method called by the model (Control) on change to update
-	     * the checked value.
-	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L34
-	     */
-	    Select.prototype.writeValue = function (value) {
-	        this.value = value;
-	    };
-	    /**
-	     * @private
-	     */
-	    Select.prototype.onChange = function (val) {
-	        // TODO: figure the whys and the becauses
-	    };
-	    /**
-	     * @private
-	     */
-	    Select.prototype.onTouched = function (val) {
-	        // TODO: figure the whys and the becauses
-	    };
-	    /**
-	     * @private
-	     * Angular2 Forms API method called by the view (NgControl) to register the
-	     * onChange event handler that updates the model (Control).
-	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
-	     * @param {Function} fn  the onChange event handler.
-	     */
-	    Select.prototype.registerOnChange = function (fn) { this.onChange = fn; };
-	    /**
-	     * @private
-	     * Angular2 Forms API method called by the the view (NgControl) to register
-	     * the onTouched event handler that marks model (Control) as touched.
-	     * @param {Function} fn  onTouched event handler.
-	     */
-	    Select.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
-	    /**
-	     * @private
-	     */
-	    Select.prototype.ngOnDestroy = function () {
-	        this._form.deregister(this);
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Select.prototype, "cancelText", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Select.prototype, "okText", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Select.prototype, "value", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Select.prototype, "alertOptions", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Select.prototype, "checked", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean)
-	    ], Select.prototype, "disabled", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Select.prototype, "id", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Select.prototype, "multiple", void 0);
-	    __decorate([
-	        core_1.ContentChild(label_1.Label), 
-	        __metadata('design:type', (typeof (_a = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _a) || Object)
-	    ], Select.prototype, "label", void 0);
-	    __decorate([
-	        core_1.ContentChildren(option_1.Option), 
-	        __metadata('design:type', Object)
-	    ], Select.prototype, "options", void 0);
-	    __decorate([
-	        core_1.HostListener('click'), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', []), 
-	        __metadata('design:returntype', void 0)
-	    ], Select.prototype, "_click", null);
-	    Select = __decorate([
-	        core_1.Component({
-	            selector: 'ion-select',
-	            host: {
-	                'class': 'item',
-	                'tappable': '',
-	                'tabindex': 0,
-	                '[attr.aria-disabled]': 'disabled'
-	            },
-	            template: '<ng-content select="[item-left]"></ng-content>' +
-	                '<div class="item-inner">' +
-	                '<ion-item-content id="{{labelId}}">' +
-	                '<ng-content select="ion-label"></ng-content>' +
-	                '</ion-item-content>' +
-	                '<div class="select-text-value" item-right>{{selectedText}}</div>' +
-	                '<div class="select-icon" item-right></div>' +
-	                '</div>'
-	        }),
-	        __param(3, core_1.Optional()),
-	        __param(4, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _e) || Object, (typeof (_f = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _f) || Object])
-	    ], Select);
-	    return Select;
-	    var _a, _b, _c, _d, _e, _f;
-	})();
-	exports.Select = Select;
-
-/***/ },
-/* 327 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(169);
-	var nav_controller_1 = __webpack_require__(298);
-	var view_controller_1 = __webpack_require__(297);
-	var config_1 = __webpack_require__(270);
-	var animation_1 = __webpack_require__(284);
-	var util_1 = __webpack_require__(272);
-	/**
-	 * @name Alert
-	 * @description
-	 * An Alert is a dialog that presents users with either information, or used
-	 * to receive information from the user using inputs. An alert appears on top
-	 * of the app's content, and must be manually dismissed by the user before
-	 * they can resume interaction with the app.
-	 *
-	 * An alert is created from an array of `buttons` and optionally an array of
-	 * `inputs`. Each button includes properties for its `text`, and optionally a
-	 * `handler`. If a handler returns `false` then the alert will not be dismissed.
-	 * An alert can also optionally have a `title`, `subTitle` and `message`.
-	 *
-	 * All buttons will show up in the order they have been added to the `buttons`
-	 * array, from left to right. Note: The right most button (the last one in the
-	 * array) is the main button.
-	 *
-	 * Alerts can also include inputs whos data can be passed back to the app.
-	 * Inputs can be used to prompt users for information.
-	 *
-	 * Its shorthand is to add all the alert's options from within the
-	 * `Alert.create(opts)` first argument. Otherwise the alert's
-	 * instance has methods to add options, such as `setTitle()` or `addButton()`.
-	 *
-	 * @usage
-	 * ```ts
-	 * constructor(nav: NavController) {
-	 *   this.nav = nav;
-	 * }
-	 *
-	 * presentAlert() {
-	 *   let alert = Alert.create({
-	 *     title: 'Low battery',
-	 *     subTitle: '10% of battery remaining',
-	 *     buttons: ['Dismiss']
-	 *   });
-	 *   this.nav.present(alert);
-	 * }
-	 *
-	 * presentConfirm() {
-	 *   let alert = Alert.create({
-	 *     title: 'Confirm purchase',
-	 *     message: 'Do you want to buy this book?',
-	 *     buttons: [
-	 *       {
-	 *         text: 'Cancel',
-	 *         handler: () => {
-	 *           console.log('Cancel clicked');
-	 *         }
-	 *       },
-	 *       {
-	 *         text: 'Buy',
-	 *         handler: () => {
-	 *           console.log('Buy clicked');
-	 *         }
-	 *       }
-	 *     ]
-	 *   });
-	 *   this.nav.present(alert);
-	 * }
-	 *
-	 * presentPrompt() {
-	 *   let alert = Alert.create({
-	 *     title: 'Login',
-	 *     inputs: [
-	 *       {
-	 *         name: 'username',
-	 *         placeholder: 'Username'
-	 *       },
-	 *       {
-	 *         name: 'password',
-	 *         placeholder: 'Password',
-	 *         type: 'password'
-	 *       }
-	 *     ],
-	 *     buttons: [
-	 *       {
-	 *         text: 'Cancel',
-	 *         handler: data => {
-	 *           console.log('Cancel clicked');
-	 *         }
-	 *       },
-	 *       {
-	 *         text: 'Login',
-	 *         handler: data => {
-	 *           if (User.isValid(data.username, data.password)) {
-	 *             // logged in!
-	 *           } else {
-	 *             // invalid login
-	 *             return false;
-	 *           }
-	 *         }
-	 *       }
-	 *     ]
-	 *   });
-	 *   this.nav.present(alert);
-	 * }
-	 * ```
-	 *
-	 */
-	var Alert = (function (_super) {
-	    __extends(Alert, _super);
-	    function Alert(opts) {
-	        if (opts === void 0) { opts = {}; }
-	        opts.inputs = opts.inputs || [];
-	        opts.buttons = opts.buttons || [];
-	        _super.call(this, AlertCmp, opts);
-	        this.viewType = 'alert';
-	    }
-	    /**
-	    * @private
-	    */
-	    Alert.prototype.getTransitionName = function (direction) {
-	        var key = (direction === 'back' ? 'alertLeave' : 'alertEnter');
-	        return this._nav && this._nav.config.get(key);
-	    };
-	    /**
-	     * @param {string} title Alert title
-	     */
-	    Alert.prototype.setTitle = function (title) {
-	        this.data.title = title;
-	    };
-	    /**
-	     * @param {string} subTitle Alert subtitle
-	     */
-	    Alert.prototype.setSubTitle = function (subTitle) {
-	        this.data.subTitle = subTitle;
-	    };
-	    /**
-	     * @private
-	     */
-	    Alert.prototype.setBody = function (message) {
-	        // deprecated warning
-	        console.warn('Alert setBody() has been renamed to setMessage()');
-	        this.setMessage(message);
-	    };
-	    /**
-	     * @param {string} message  Alert message content
-	     */
-	    Alert.prototype.setMessage = function (message) {
-	        this.data.message = message;
-	    };
-	    /**
-	     * @param {Object} input Alert input
-	     */
-	    Alert.prototype.addInput = function (input) {
-	        this.data.inputs.push(input);
-	    };
-	    /**
-	     * @param {Object} button Alert button
-	     */
-	    Alert.prototype.addButton = function (button) {
-	        this.data.buttons.push(button);
-	    };
-	    /**
-	     * @param {string} className CSS class name to add to the alert's outer wrapper
-	     */
-	    Alert.prototype.setCssClass = function (className) {
-	        this.data.cssClass = className;
-	    };
-	    /**
-	     * @param {Object} opts Alert options
-	     */
-	    Alert.create = function (opts) {
-	        if (opts === void 0) { opts = {}; }
-	        return new Alert(opts);
-	    };
-	    return Alert;
-	})(view_controller_1.ViewController);
-	exports.Alert = Alert;
-	/**
-	* @private
-	*/
-	var AlertCmp = (function () {
-	    function AlertCmp(_viewCtrl, _elementRef, _config, params, renderer) {
-	        this._viewCtrl = _viewCtrl;
-	        this._elementRef = _elementRef;
-	        this._config = _config;
-	        this.d = params.data;
-	        this.cssClass = this.d.cssClass || '';
-	        this.id = (++alertIds);
-	        this.descId = '';
-	        this.hdrId = 'alert-hdr-' + this.id;
-	        this.subHdrId = 'alert-subhdr-' + this.id;
-	        this.msgId = 'alert-msg-' + this.id;
-	        this.activeId = '';
-	        if (this.d.message) {
-	            this.descId = this.msgId;
-	        }
-	        else if (this.d.subTitle) {
-	            this.descId = this.subHdrId;
-	        }
-	    }
-	    AlertCmp.prototype.btnClick = function (button) {
-	        var _this = this;
-	        var shouldDismiss = true;
-	        if (button.handler) {
-	            // a handler has been provided, execute it
-	            // pass the handler the values from the inputs
-	            if (button.handler(this.getValues()) === false) {
-	                // if the return value of the handler is false then do not dismiss
-	                shouldDismiss = false;
-	            }
-	        }
-	        if (shouldDismiss) {
-	            setTimeout(function () {
-	                _this.dismiss();
-	            }, this._config.get('pageTransitionDelay'));
-	        }
-	    };
-	    AlertCmp.prototype.rbClick = function (checkedInput) {
-	        this.d.inputs.forEach(function (input) {
-	            input.checked = (checkedInput === input);
-	        });
-	        this.activeId = checkedInput.id;
-	    };
-	    AlertCmp.prototype.cbClick = function (checkedInput) {
-	        checkedInput.checked = !checkedInput.checked;
-	    };
-	    AlertCmp.prototype.dismiss = function () {
-	        this._viewCtrl.dismiss(this.getValues());
-	    };
-	    AlertCmp.prototype.getValues = function () {
-	        if (this.inputType === 'radio') {
-	            // this is an alert with radio buttons (single value select)
-	            // return the one value which is checked, otherwise undefined
-	            var checkedInput = this.d.inputs.find(function (i) { return i.checked; });
-	            return checkedInput ? checkedInput.value : undefined;
-	        }
-	        if (this.inputType === 'checkbox') {
-	            // this is an alert with checkboxes (multiple value select)
-	            // return an array of all the checked values
-	            return this.d.inputs.filter(function (i) { return i.checked; }).map(function (i) { return i.value; });
-	        }
-	        // this is an alert with text inputs
-	        // return an object of all the values with the input name as the key
-	        var values = {};
-	        this.d.inputs.forEach(function (i) {
-	            values[i.name] = i.value;
-	        });
-	        return values;
-	    };
-	    AlertCmp.prototype.onPageLoaded = function () {
-	        var _this = this;
-	        // normalize the data
-	        var data = this.d;
-	        if (data.body) {
-	            // deprecated warning
-	            console.warn('Alert `body` property has been renamed to `message`');
-	            data.message = data.body;
-	        }
-	        data.buttons = data.buttons.map(function (button) {
-	            if (typeof button === 'string') {
-	                return { text: button };
-	            }
-	            return button;
-	        });
-	        data.inputs = data.inputs.map(function (input, index) {
-	            return {
-	                type: input.type || 'text',
-	                name: util_1.isDefined(input.name) ? input.name : index,
-	                placeholder: util_1.isDefined(input.placeholder) ? input.placeholder : '',
-	                value: util_1.isDefined(input.value) ? input.value : '',
-	                label: input.label,
-	                checked: !!input.checked,
-	                id: 'alert-input-' + _this.id + '-' + index
-	            };
-	        });
-	        this.inputType = (data.inputs.length ? data.inputs[0].type : null);
-	        var checkedInput = this.d.inputs.find(function (input) { return input.checked; });
-	        if (checkedInput) {
-	            this.activeId = checkedInput.id;
-	        }
-	        var self = this;
-	        self.keyUp = function (ev) {
-	            if (ev.keyCode === 13) {
-	                // enter
-	                console.debug('alert enter');
-	                var button = self.d.buttons[self.d.buttons.length - 1];
-	                self.click(button);
-	            }
-	            else if (ev.keyCode === 27) {
-	                console.debug('alert escape');
-	                self.dismiss();
-	            }
-	        };
-	        document.addEventListener('keyup', this.keyUp);
-	    };
-	    AlertCmp.prototype.onPageDidEnter = function () {
-	        document.activeElement && document.activeElement.blur();
-	        if (this.d.inputs.length) {
-	            var firstInput = this._elementRef.nativeElement.querySelector('input');
-	            if (firstInput) {
-	                firstInput.focus();
-	            }
-	        }
-	    };
-	    AlertCmp.prototype.onPageDidLeave = function () {
-	        document.removeEventListener('keyup', this.keyUp);
-	    };
-	    AlertCmp = __decorate([
-	        core_1.Component({
-	            selector: 'ion-alert',
-	            template: '<div (click)="dismiss()" tappable disable-activated class="backdrop" role="presentation"></div>' +
-	                '<div class="alert-wrapper">' +
-	                '<div class="alert-head">' +
-	                '<h2 id="{{hdrId}}" class="alert-title" *ngIf="d.title" [innerHTML]="d.title"></h2>' +
-	                '<h3 id="{{subHdrId}}" class="alert-sub-title" *ngIf="d.subTitle" [innerHTML]="d.subTitle"></h3>' +
-	                '</div>' +
-	                '<div id="{{msgId}}" class="alert-message" *ngIf="d.message" [innerHTML]="d.message"></div>' +
-	                '<div *ngIf="d.inputs.length" [ngSwitch]="inputType">' +
-	                '<template ngSwitchWhen="radio">' +
-	                '<div class="alert-radio-group" role="radiogroup" [attr.aria-labelledby]="hdrId" [attr.aria-activedescendant]="activeId">' +
-	                '<div *ngFor="#i of d.inputs" (click)="rbClick(i)" [attr.aria-checked]="i.checked" [attr.id]="i.id" class="alert-tappable alert-radio" tappable role="radio">' +
-	                '<div class="alert-radio-icon"></div>' +
-	                '<div class="alert-radio-label">' +
-	                '{{i.label}}' +
-	                '</div>' +
-	                '</div>' +
-	                '</div>' +
-	                '</template>' +
-	                '<template ngSwitchWhen="checkbox">' +
-	                '<div class="alert-checkbox-group">' +
-	                '<div *ngFor="#i of d.inputs" (click)="cbClick(i)" [attr.aria-checked]="i.checked" class="alert-tappable alert-checkbox" tappable role="checkbox">' +
-	                '<div class="alert-checkbox-icon"></div>' +
-	                '<div class="alert-checkbox-label">' +
-	                '{{i.label}}' +
-	                '</div>' +
-	                '</div>' +
-	                '</div>' +
-	                '</template>' +
-	                '<template ngSwitchDefault>' +
-	                '<div class="alert-input-group">' +
-	                '<div *ngFor="#i of d.inputs" class="alert-input-wrapper">' +
-	                '<input [placeholder]="i.placeholder" [(ngModel)]="i.value" [type]="i.type" class="alert-input">' +
-	                '</div>' +
-	                '</div>' +
-	                '</template>' +
-	                '</div>' +
-	                '<div class="alert-button-group">' +
-	                '<button *ngFor="#b of d.buttons" (click)="btnClick(b)" [ngClass]="b.cssClass" class="alert-button">' +
-	                '{{b.text}}' +
-	                '</button>' +
-	                '</div>' +
-	                '</div>',
-	            host: {
-	                'role': 'dialog',
-	                '[attr.aria-labelledby]': 'hdrId',
-	                '[attr.aria-describedby]': 'descId',
-	                '[class]': 'cssClass'
-	            },
-	            directives: [common_1.NgClass, common_1.NgSwitch, common_1.NgIf, common_1.NgFor]
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavParams !== 'undefined' && nav_controller_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
-	    ], AlertCmp);
-	    return AlertCmp;
-	    var _a, _b, _c, _d, _e;
-	})();
-	/**
-	 * Animations for alerts
-	 */
-	var AlertPopIn = (function (_super) {
-	    __extends(AlertPopIn, _super);
-	    function AlertPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.3');
-	        this
-	            .easing('ease-in-out')
-	            .duration(200)
-	            .add(backdrop, wrapper);
-	    }
-	    return AlertPopIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-pop-in', AlertPopIn);
-	var AlertPopOut = (function (_super) {
-	    __extends(AlertPopOut, _super);
-	    function AlertPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
-	        backdrop.fromTo('opacity', '0.3', '0');
-	        this
-	            .easing('ease-in-out')
-	            .duration(200)
-	            .add(backdrop, wrapper);
-	    }
-	    return AlertPopOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-pop-out', AlertPopOut);
-	var AlertMdPopIn = (function (_super) {
-	    __extends(AlertMdPopIn, _super);
-	    function AlertMdPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.5');
-	        this
-	            .easing('ease-in-out')
-	            .duration(200)
-	            .add(backdrop, wrapper);
-	    }
-	    return AlertMdPopIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-md-pop-in', AlertMdPopIn);
-	var AlertMdPopOut = (function (_super) {
-	    __extends(AlertMdPopOut, _super);
-	    function AlertMdPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
-	        backdrop.fromTo('opacity', '0.5', '0');
-	        this
-	            .easing('ease-in-out')
-	            .duration(200)
-	            .add(backdrop, wrapper);
-	    }
-	    return AlertMdPopOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-md-pop-out', AlertMdPopOut);
-	var alertIds = -1;
-
-/***/ },
-/* 328 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	/**
-	 * @name Option
-	 */
-	var Option = (function () {
-	    function Option(_elementRef) {
-	        this._elementRef = _elementRef;
-	        this._checked = false;
-	    }
-	    Object.defineProperty(Option.prototype, "checked", {
-	        get: function () {
-	            return this._checked;
-	        },
-	        set: function (val) {
-	            this._checked = (val === 'true' || val === true || val === '');
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Option.prototype, "text", {
-	        get: function () {
-	            return this._elementRef.nativeElement.textContent;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Option.prototype, "value", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Option.prototype, "checked", void 0);
-	    Option = __decorate([
-	        core_1.Directive({
-	            selector: 'ion-option'
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
-	    ], Option);
-	    return Option;
-	    var _a;
-	})();
-	exports.Option = Option;
-
-/***/ },
-/* 329 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58140,7 +56486,755 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 330 */
+/* 324 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(169);
+	var nav_controller_1 = __webpack_require__(298);
+	var config_1 = __webpack_require__(270);
+	var form_1 = __webpack_require__(275);
+	var label_1 = __webpack_require__(325);
+	var app_1 = __webpack_require__(165);
+	var content_1 = __webpack_require__(307);
+	var dom_1 = __webpack_require__(273);
+	var platform_1 = __webpack_require__(271);
+	var button_1 = __webpack_require__(304);
+	var icon_1 = __webpack_require__(302);
+	/**
+	 * @private
+	 */
+	var TextInputElement = (function () {
+	    function TextInputElement(type, _elementRef, _renderer) {
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	        this.valueChange = new core_1.EventEmitter();
+	        this.focusChange = new core_1.EventEmitter();
+	        this.type = type || 'text';
+	    }
+	    TextInputElement.prototype.ngOnInit = function () {
+	        if (this.ngModel) {
+	            this.value = this.ngModel;
+	        }
+	        else {
+	            this.value = this._elementRef.nativeElement.value;
+	        }
+	    };
+	    TextInputElement.prototype._keyup = function (ev) {
+	        this.valueChange.emit(ev.target.value);
+	    };
+	    TextInputElement.prototype._focus = function () {
+	        this.focusChange.emit(true);
+	    };
+	    TextInputElement.prototype._blur = function () {
+	        this.focusChange.emit(false);
+	        this.hideFocus(false);
+	    };
+	    TextInputElement.prototype.labelledBy = function (val) {
+	        this._renderer.setElementAttribute(this._elementRef, 'aria-labelledby', val);
+	    };
+	    TextInputElement.prototype.setFocus = function () {
+	        this.element().focus();
+	    };
+	    TextInputElement.prototype.relocate = function (shouldRelocate, inputRelativeY) {
+	        if (this._relocated !== shouldRelocate) {
+	            var focusedInputEle = this.element();
+	            if (shouldRelocate) {
+	                var clonedInputEle = cloneInput(focusedInputEle, 'cloned-input');
+	                focusedInputEle.classList.add('hide-focused-input');
+	                focusedInputEle.style[dom_1.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
+	                focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
+	                this.setFocus();
+	            }
+	            else {
+	                focusedInputEle.classList.remove('hide-focused-input');
+	                focusedInputEle.style[dom_1.CSS.transform] = '';
+	                var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-input');
+	                if (clonedInputEle) {
+	                    clonedInputEle.parentNode.removeChild(clonedInputEle);
+	                }
+	            }
+	            this._relocated = shouldRelocate;
+	        }
+	    };
+	    TextInputElement.prototype.hideFocus = function (shouldHideFocus) {
+	        var focusedInputEle = this.element();
+	        if (shouldHideFocus) {
+	            var clonedInputEle = cloneInput(focusedInputEle, 'cloned-hidden');
+	            focusedInputEle.classList.add('hide-focused-input');
+	            focusedInputEle.style[dom_1.CSS.transform] = 'translate3d(-9999px,0,0)';
+	            focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
+	        }
+	        else {
+	            focusedInputEle.classList.remove('hide-focused-input');
+	            focusedInputEle.style[dom_1.CSS.transform] = '';
+	            var clonedInputEle = focusedInputEle.parentNode.querySelector('.cloned-hidden');
+	            if (clonedInputEle) {
+	                clonedInputEle.parentNode.removeChild(clonedInputEle);
+	            }
+	        }
+	    };
+	    TextInputElement.prototype.hasFocus = function () {
+	        return dom_1.hasFocus(this.element());
+	    };
+	    TextInputElement.prototype.addClass = function (className) {
+	        this._renderer.setElementClass(this._elementRef, className, true);
+	    };
+	    TextInputElement.prototype.hasClass = function (className) {
+	        this._elementRef.nativeElement.classList.contains(className);
+	    };
+	    TextInputElement.prototype.element = function () {
+	        return this._elementRef.nativeElement;
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], TextInputElement.prototype, "value", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], TextInputElement.prototype, "ngModel", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], TextInputElement.prototype, "valueChange", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], TextInputElement.prototype, "focusChange", void 0);
+	    __decorate([
+	        core_1.HostListener('keyup', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], TextInputElement.prototype, "_keyup", null);
+	    __decorate([
+	        core_1.HostListener('focus'), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', []), 
+	        __metadata('design:returntype', void 0)
+	    ], TextInputElement.prototype, "_focus", null);
+	    __decorate([
+	        core_1.HostListener('blur'), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', []), 
+	        __metadata('design:returntype', void 0)
+	    ], TextInputElement.prototype, "_blur", null);
+	    TextInputElement = __decorate([
+	        core_1.Directive({
+	            selector: 'textarea,input[type=text],input[type=password],input[type=number],input[type=search],input[type=email],input[type=url],input[type=tel],input[type=date],input[type=datetime],input[type=datetime-local],input[type=week],input[type=time]',
+	            host: {
+	                'class': 'text-input'
+	            }
+	        }),
+	        __param(0, core_1.Attribute('type')), 
+	        __metadata('design:paramtypes', [String, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object])
+	    ], TextInputElement);
+	    return TextInputElement;
+	    var _a, _b, _c, _d;
+	})();
+	exports.TextInputElement = TextInputElement;
+	/**
+	 * @name Input
+	 * @module ionic
+	 * @description
+	 *
+	 * `ion-input` is a generic wrapper for both inputs and textareas. You can give `ion-input` attributes to tell it how to handle a child `ion-label` component.
+	 *
+	 * @property [fixed-label] - a persistant label that sits next the the input
+	 * @property [floating-label] - a label that will float about the input if the input is empty of looses focus
+	 * @property [stacked-label] - A stacked label will always appear on top of the input
+	 * @property [inset] - The input will be inset
+	 * @property [clearInput] - A clear icon will appear in the input which clears it
+	 *
+	 * @usage
+	 * ```html
+	 *  <ion-input>
+	 *    <ion-label>Username</ion-label>
+	 *    <input type="text" value="">
+	 *  </ion-input>
+	 *
+	 *  <ion-input clearInput>
+	 *    <input type="text" placeholder="Username">
+	 *  </ion-input>
+	 *
+	 *  <ion-input fixed-label>
+	 *    <ion-label>Username</ion-label>
+	 *    <input type="text" value="">
+	 *  </ion-input>
+	 *
+	 *  <ion-input floating-label>
+	 *    <ion-label>Username</ion-label>
+	 *    <input type="text" value="">
+	 *  </ion-input>
+	 * ```
+	 *
+	 */
+	var TextInput = (function () {
+	    function TextInput(config, _form, _renderer, _elementRef, _app, _platform, _scrollView, _nav, isFloating, isStacked, isFixed, isInset) {
+	        this._form = _form;
+	        this._renderer = _renderer;
+	        this._elementRef = _elementRef;
+	        this._app = _app;
+	        this._platform = _platform;
+	        this._scrollView = _scrollView;
+	        this._nav = _nav;
+	        this.value = '';
+	        _form.register(this);
+	        this.type = 'text';
+	        this.lastTouch = 0;
+	        // make more gud with pending @Attributes API
+	        this.displayType = (isFloating === '' ? 'floating' : (isStacked === '' ? 'stacked' : (isFixed === '' ? 'fixed' : (isInset === '' ? 'inset' : null))));
+	        this._assist = config.get('scrollAssist');
+	        this.keyboardHeight = config.get('keyboardHeight');
+	    }
+	    Object.defineProperty(TextInput.prototype, "_setInput", {
+	        /**
+	         * @private
+	         */
+	        set: function (textInputElement) {
+	            var _this = this;
+	            if (textInputElement) {
+	                textInputElement.addClass('item-input');
+	                if (this.displayType) {
+	                    textInputElement.addClass(this.displayType + '-input');
+	                }
+	                this.input = textInputElement;
+	                this.type = textInputElement.type;
+	                this.hasValue(this.input.value);
+	                textInputElement.valueChange.subscribe(function (inputValue) {
+	                    _this.hasValue(inputValue);
+	                });
+	                this.focusChange(this.hasFocus());
+	                textInputElement.focusChange.subscribe(function (hasFocus) {
+	                    _this.focusChange(hasFocus);
+	                });
+	            }
+	            else {
+	                console.error('<input> or <textarea> elements required within <ion-input>');
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(TextInput.prototype, "_setLabel", {
+	        /**
+	         * @private
+	         */
+	        set: function (label) {
+	            if (label && this.displayType) {
+	                label.addClass(this.displayType + '-label');
+	            }
+	            this.label = label;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(TextInput.prototype, "_buttons", {
+	        /**
+	         * @private
+	         */
+	        set: function (buttons) {
+	            buttons.toArray().forEach(function (button) {
+	                if (!button.isItem) {
+	                    button.addClass('item-button');
+	                }
+	            });
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(TextInput.prototype, "_icons", {
+	        /**
+	         * @private
+	         */
+	        set: function (icons) {
+	            icons.toArray().forEach(function (icon) {
+	                icon.addClass('item-icon');
+	            });
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     * On Initialization check for attributes
+	     */
+	    TextInput.prototype.ngOnInit = function () {
+	        var clearInput = this.clearInput;
+	        if (typeof clearInput === 'string') {
+	            this.clearInput = (clearInput === '' || clearInput === 'true');
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.ngAfterViewInit = function () {
+	        var self = this;
+	        if (self.input && self.label) {
+	            // if there is an input and a label
+	            // then give the label an ID
+	            // and tell the input the ID of who it's labelled by
+	            self.input.labelledBy(self.label.id);
+	        }
+	        self.scrollMove = function (ev) {
+	            if (!(self._nav && self._nav.isTransitioning())) {
+	                self.deregMove();
+	                if (self.hasFocus()) {
+	                    self.input.hideFocus(true);
+	                    self._scrollView.onScrollEnd(function () {
+	                        self.input.hideFocus(false);
+	                        if (self.hasFocus()) {
+	                            self.regMove();
+	                        }
+	                    });
+	                }
+	            }
+	        };
+	    };
+	    /**
+	      * @private
+	     */
+	    TextInput.prototype.clearTextInput = function () {
+	        console.log("Should clear input");
+	        console.log(this.textInputElement.value);
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.pointerStart = function (ev) {
+	        if (this._assist && this._app.isEnabled()) {
+	            // remember where the touchstart/mousedown started
+	            this.startCoord = dom_1.pointerCoord(ev);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.pointerEnd = function (ev) {
+	        if (!this._app.isEnabled()) {
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	        }
+	        else if (this._assist && ev.type === 'touchend') {
+	            // get where the touchend/mouseup ended
+	            var endCoord = dom_1.pointerCoord(ev);
+	            // focus this input if the pointer hasn't moved XX pixels
+	            // and the input doesn't already have focus
+	            if (!dom_1.hasPointerMoved(8, this.startCoord, endCoord) && !this.hasFocus()) {
+	                ev.preventDefault();
+	                ev.stopPropagation();
+	                this.initFocus();
+	                // temporarily prevent mouseup's from focusing
+	                this.lastTouch = Date.now();
+	            }
+	        }
+	        else if (this.lastTouch + 999 < Date.now()) {
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	            this.setFocus();
+	            this.regMove();
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.initFocus = function () {
+	        // begin the process of setting focus to the inner input element
+	        var _this = this;
+	        var scrollView = this._scrollView;
+	        if (scrollView && this._assist) {
+	            // this input is inside of a scroll view
+	            // find out if text input should be manually scrolled into view
+	            var ele = this._elementRef.nativeElement;
+	            var scrollData = TextInput.getScrollData(ele.offsetTop, ele.offsetHeight, scrollView.getDimensions(), this.keyboardHeight, this._platform.height());
+	            if (scrollData.scrollAmount > -3 && scrollData.scrollAmount < 3) {
+	                // the text input is in a safe position that doesn't require
+	                // it to be scrolled into view, just set focus now
+	                this.setFocus();
+	                this.regMove();
+	                return;
+	            }
+	            // add padding to the bottom of the scroll view (if needed)
+	            scrollView.addScrollPadding(scrollData.scrollPadding);
+	            // manually scroll the text input to the top
+	            // do not allow any clicks while it's scrolling
+	            var scrollDuration = getScrollAssistDuration(scrollData.scrollAmount);
+	            this._app.setEnabled(false, scrollDuration);
+	            this._nav && this._nav.setTransitioning(true, scrollDuration);
+	            // temporarily move the focus to the focus holder so the browser
+	            // doesn't freak out while it's trying to get the input in place
+	            // at this point the native text input still does not have focus
+	            this.input.relocate(true, scrollData.inputSafeY);
+	            // scroll the input into place
+	            scrollView.scrollTo(0, scrollData.scrollTo, scrollDuration).then(function () {
+	                // the scroll view is in the correct position now
+	                // give the native text input focus
+	                _this.input.relocate(false);
+	                // all good, allow clicks again
+	                _this._app.setEnabled(true);
+	                _this._nav && _this._nav.setTransitioning(false);
+	                _this.regMove();
+	            });
+	        }
+	        else {
+	            // not inside of a scroll view, just focus it
+	            this.setFocus();
+	            this.regMove();
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.setFocus = function () {
+	        if (this.input) {
+	            this._form.setAsFocused(this);
+	            // set focus on the actual input element
+	            this.input.setFocus();
+	            // ensure the body hasn't scrolled down
+	            document.body.scrollTop = 0;
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.regMove = function () {
+	        var _this = this;
+	        if (this._assist && this._scrollView) {
+	            setTimeout(function () {
+	                _this.deregMove();
+	                _this.deregScroll = _this._scrollView.addScrollEventListener(_this.scrollMove);
+	            }, 80);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.deregMove = function () {
+	        this.deregScroll && this.deregScroll();
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.focusChange = function (hasFocus) {
+	        this._renderer.setElementClass(this._elementRef, 'input-focused', hasFocus);
+	        if (!hasFocus) {
+	            this.deregMove();
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.hasFocus = function () {
+	        return !!this.input && this.input.hasFocus();
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.hasValue = function (inputValue) {
+	        var inputHasValue = !!(inputValue && inputValue !== '');
+	        this._renderer.setElementClass(this._elementRef, 'input-has-value', inputHasValue);
+	    };
+	    /**
+	     * @private
+	     * This function is used to add the Angular css classes associated with inputs in forms
+	     */
+	    TextInput.prototype.hasClass = function (className) {
+	        this.input && this.input.hasClass(className);
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.ngOnDestroy = function () {
+	        this.deregMove();
+	        this._form.deregister(this);
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.getScrollData = function (inputOffsetTop, inputOffsetHeight, scrollViewDimensions, keyboardHeight, plaformHeight) {
+	        // compute input's Y values relative to the body
+	        var inputTop = (inputOffsetTop + scrollViewDimensions.contentTop - scrollViewDimensions.scrollTop);
+	        var inputBottom = (inputTop + inputOffsetHeight);
+	        // compute the safe area which is the viewable content area when the soft keyboard is up
+	        var safeAreaTop = scrollViewDimensions.contentTop;
+	        var safeAreaHeight = plaformHeight - keyboardHeight - safeAreaTop;
+	        safeAreaHeight /= 2;
+	        var safeAreaBottom = safeAreaTop + safeAreaHeight;
+	        var inputTopWithinSafeArea = (inputTop >= safeAreaTop && inputTop <= safeAreaBottom);
+	        var inputTopAboveSafeArea = (inputTop < safeAreaTop);
+	        var inputTopBelowSafeArea = (inputTop > safeAreaBottom);
+	        var inputBottomWithinSafeArea = (inputBottom >= safeAreaTop && inputBottom <= safeAreaBottom);
+	        var inputBottomBelowSafeArea = (inputBottom > safeAreaBottom);
+	        /*
+	        Text Input Scroll To Scenarios
+	        ---------------------------------------
+	        1) Input top within safe area, bottom within safe area
+	        2) Input top within safe area, bottom below safe area, room to scroll
+	        3) Input top above safe area, bottom within safe area, room to scroll
+	        4) Input top below safe area, no room to scroll, input smaller than safe area
+	        5) Input top within safe area, bottom below safe area, no room to scroll, input smaller than safe area
+	        6) Input top within safe area, bottom below safe area, no room to scroll, input larger than safe area
+	        7) Input top below safe area, no room to scroll, input larger than safe area
+	        */
+	        var scrollData = {
+	            scrollAmount: 0,
+	            scrollTo: 0,
+	            scrollPadding: 0,
+	            inputSafeY: 0
+	        };
+	        if (inputTopWithinSafeArea && inputBottomWithinSafeArea) {
+	            // Input top within safe area, bottom within safe area
+	            // no need to scroll to a position, it's good as-is
+	            return scrollData;
+	        }
+	        // looks like we'll have to do some auto-scrolling
+	        if (inputTopBelowSafeArea || inputBottomBelowSafeArea) {
+	            // Input top and bottom below safe area
+	            // auto scroll the input up so at least the top of it shows
+	            if (safeAreaHeight > inputOffsetHeight) {
+	                // safe area height is taller than the input height, so we
+	                // can bring it up the input just enough to show the input bottom
+	                scrollData.scrollAmount = Math.round(safeAreaBottom - inputBottom);
+	            }
+	            else {
+	                // safe area height is smaller than the input height, so we can
+	                // only scroll it up so the input top is at the top of the safe area
+	                // however the input bottom will be below the safe area
+	                scrollData.scrollAmount = Math.round(safeAreaTop - inputTop);
+	            }
+	            scrollData.inputSafeY = -(inputTop - safeAreaTop) + 4;
+	        }
+	        else if (inputTopAboveSafeArea) {
+	            // Input top above safe area
+	            // auto scroll the input down so at least the top of it shows
+	            scrollData.scrollAmount = Math.round(safeAreaTop - inputTop);
+	            scrollData.inputSafeY = (safeAreaTop - inputTop) + 4;
+	        }
+	        // figure out where it should scroll to for the best position to the input
+	        scrollData.scrollTo = (scrollViewDimensions.scrollTop - scrollData.scrollAmount);
+	        if (scrollData.scrollAmount < 0) {
+	            // when auto-scrolling up, there also needs to be enough
+	            // content padding at the bottom of the scroll view
+	            // manually add it if there isn't enough scrollable area
+	            // figure out how many scrollable area is left to scroll up
+	            var availablePadding = (scrollViewDimensions.scrollHeight - scrollViewDimensions.scrollTop) - scrollViewDimensions.contentHeight;
+	            var paddingSpace = availablePadding + scrollData.scrollAmount;
+	            if (paddingSpace < 0) {
+	                // there's not enough scrollable area at the bottom, so manually add more
+	                scrollData.scrollPadding = (scrollViewDimensions.contentHeight - safeAreaHeight);
+	            }
+	        }
+	        // if (!window.safeAreaEle) {
+	        //   window.safeAreaEle = document.createElement('div');
+	        //   window.safeAreaEle.style.position = 'absolute';
+	        //   window.safeAreaEle.style.background = 'rgba(0, 128, 0, 0.7)';
+	        //   window.safeAreaEle.style.padding = '2px 5px';
+	        //   window.safeAreaEle.style.textShadow = '1px 1px white';
+	        //   window.safeAreaEle.style.left = '0px';
+	        //   window.safeAreaEle.style.right = '0px';
+	        //   window.safeAreaEle.style.fontWeight = 'bold';
+	        //   window.safeAreaEle.style.pointerEvents = 'none';
+	        //   document.body.appendChild(window.safeAreaEle);
+	        // }
+	        // window.safeAreaEle.style.top = safeAreaTop + 'px';
+	        // window.safeAreaEle.style.height = safeAreaHeight + 'px';
+	        // window.safeAreaEle.innerHTML = `
+	        //   <div>scrollTo: ${scrollData.scrollTo}</div>
+	        //   <div>scrollAmount: ${scrollData.scrollAmount}</div>
+	        //   <div>scrollPadding: ${scrollData.scrollPadding}</div>
+	        //   <div>inputSafeY: ${scrollData.inputSafeY}</div>
+	        //   <div>scrollHeight: ${scrollViewDimensions.scrollHeight}</div>
+	        //   <div>scrollTop: ${scrollViewDimensions.scrollTop}</div>
+	        //   <div>contentHeight: ${scrollViewDimensions.contentHeight}</div>
+	        // `;
+	        return scrollData;
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], TextInput.prototype, "clearInput", void 0);
+	    __decorate([
+	        core_1.ContentChild(TextInputElement), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], TextInput.prototype, "_setInput", null);
+	    __decorate([
+	        core_1.ContentChild(label_1.Label), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], TextInput.prototype, "_setLabel", null);
+	    __decorate([
+	        core_1.ContentChildren(button_1.Button), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], TextInput.prototype, "_buttons", null);
+	    __decorate([
+	        core_1.ContentChildren(icon_1.Icon), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], TextInput.prototype, "_icons", null);
+	    TextInput = __decorate([
+	        core_1.Component({
+	            selector: 'ion-input',
+	            host: {
+	                '(touchstart)': 'pointerStart($event)',
+	                '(touchend)': 'pointerEnd($event)',
+	                '(mouseup)': 'pointerEnd($event)',
+	                'class': 'item',
+	                '[class.ng-untouched]': 'hasClass("ng-untouched")',
+	                '[class.ng-touched]': 'hasClass("ng-touched")',
+	                '[class.ng-pristine]': 'hasClass("ng-pristine")',
+	                '[class.ng-dirty]': 'hasClass("ng-dirty")',
+	                '[class.ng-valid]': 'hasClass("ng-valid")',
+	                '[class.ng-invalid]': 'hasClass("ng-invalid")'
+	            },
+	            template: '<div class="item-inner">' +
+	                '<ng-content></ng-content>' +
+	                '<input [type]="type" aria-hidden="true" scroll-assist *ngIf="_assist">' +
+	                '<button clear *ngIf="clearInput && value" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
+	                '</div>',
+	            directives: [common_1.NgIf, core_1.forwardRef(function () { return InputScrollAssist; }), core_1.forwardRef(function () { return TextInputElement; }), button_1.Button]
+	        }),
+	        __param(6, core_1.Optional()),
+	        __param(6, core_1.Host()),
+	        __param(7, core_1.Optional()),
+	        __param(8, core_1.Attribute('floating-label')),
+	        __param(9, core_1.Attribute('stacked-label')),
+	        __param(10, core_1.Attribute('fixed-label')),
+	        __param(11, core_1.Attribute('inset')), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _e) || Object, (typeof (_f = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _f) || Object, (typeof (_g = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, String, String, String, String])
+	    ], TextInput);
+	    return TextInput;
+	    var _a, _b, _c, _d, _e, _f, _g, _h;
+	})();
+	exports.TextInput = TextInput;
+	/**
+	 * @private
+	 */
+	var InputScrollAssist = (function () {
+	    function InputScrollAssist(_form, _input) {
+	        this._form = _form;
+	        this._input = _input;
+	    }
+	    InputScrollAssist.prototype.receivedFocus = function () {
+	        this._form.focusNext(this._input);
+	    };
+	    __decorate([
+	        core_1.HostListener('focus'), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', []), 
+	        __metadata('design:returntype', void 0)
+	    ], InputScrollAssist.prototype, "receivedFocus", null);
+	    InputScrollAssist = __decorate([
+	        core_1.Directive({
+	            selector: '[scroll-assist]'
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, TextInput])
+	    ], InputScrollAssist);
+	    return InputScrollAssist;
+	    var _a;
+	})();
+	function cloneInput(srcInput, addCssClass) {
+	    var clonedInputEle = srcInput.cloneNode(true);
+	    clonedInputEle.classList.add(addCssClass);
+	    clonedInputEle.classList.remove('hide-focused-input');
+	    clonedInputEle.setAttribute('aria-hidden', true);
+	    clonedInputEle.removeAttribute('aria-labelledby');
+	    clonedInputEle.tabIndex = -1;
+	    return clonedInputEle;
+	}
+	var SCROLL_ASSIST_SPEED = 0.4;
+	function getScrollAssistDuration(distanceToScroll) {
+	    //return 3000;
+	    distanceToScroll = Math.abs(distanceToScroll);
+	    var duration = distanceToScroll / SCROLL_ASSIST_SPEED;
+	    return Math.min(400, Math.max(100, duration));
+	}
+
+/***/ },
+/* 325 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var form_1 = __webpack_require__(275);
+	/**
+	 * @name Label
+	 * @description
+	 * Labels describe the data that the user should enter in to an input element.
+	 * @usage
+	 * ```html
+	 * <ion-input>
+	 *   <ion-label>Username</ion-label>
+	 *   <input type="text" value="">
+	 * </ion-input>
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/label/
+	 * @see {@link ../../../../components#inputs Input Component Docs}
+	 * @see {@link ../Input Input API Docs}
+	 *
+	 */
+	var Label = (function () {
+	    function Label(_form, _elementRef, _renderer) {
+	        this._form = _form;
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	    }
+	    /**
+	     * @private
+	     */
+	    Label.prototype.ngOnInit = function () {
+	        if (!this.id) {
+	            this.id = 'lbl-' + this._form.nextId();
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Label.prototype.addClass = function (className) {
+	        this._renderer.setElementClass(this._elementRef, className, true);
+	    };
+	    Label = __decorate([
+	        core_1.Directive({
+	            selector: 'ion-label',
+	            inputs: [
+	                'id'
+	            ],
+	            host: {
+	                '[attr.id]': 'id'
+	            }
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+	    ], Label);
+	    return Label;
+	    var _a, _b, _c;
+	})();
+	exports.Label = Label;
+
+/***/ },
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58371,7 +57465,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 331 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58671,7 +57765,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 332 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59007,7 +58101,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 333 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59173,7 +58267,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 334 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59335,7 +58429,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 335 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59357,7 +58451,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var router_1 = __webpack_require__(125);
-	var nav_1 = __webpack_require__(333);
+	var nav_1 = __webpack_require__(329);
 	/**
 	 * @private
 	 */
@@ -59468,7 +58562,7 @@
 	})(router_1.Instruction);
 
 /***/ },
-/* 336 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59618,7 +58712,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 337 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(8);
@@ -59677,7 +58771,7 @@
 	exports.App = App;
 
 /***/ },
-/* 338 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(8);
@@ -59726,7 +58820,7 @@
 	 * })
 	 * class MyCustomCheckbox {}
 	 *```
-
+	
 	 * Alternatively, you could:
 	 *
 	 * ```ts
@@ -59766,7 +58860,7 @@
 	exports.Page = Page;
 
 /***/ },
-/* 339 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
@@ -59774,48 +58868,45 @@
 	}
 	__export(__webpack_require__(165));
 	__export(__webpack_require__(314));
-	__export(__webpack_require__(340));
-	__export(__webpack_require__(327));
+	__export(__webpack_require__(336));
+	__export(__webpack_require__(337));
 	__export(__webpack_require__(306));
 	__export(__webpack_require__(304));
-	__export(__webpack_require__(325));
+	__export(__webpack_require__(322));
 	__export(__webpack_require__(307));
 	__export(__webpack_require__(302));
 	__export(__webpack_require__(320));
-	__export(__webpack_require__(323));
-	__export(__webpack_require__(324));
+	__export(__webpack_require__(321));
 	__export(__webpack_require__(287));
-	__export(__webpack_require__(341));
+	__export(__webpack_require__(338));
 	__export(__webpack_require__(296));
 	__export(__webpack_require__(305));
-	__export(__webpack_require__(321));
+	__export(__webpack_require__(324));
+	__export(__webpack_require__(325));
 	__export(__webpack_require__(317));
-	__export(__webpack_require__(336));
-	__export(__webpack_require__(342));
-	__export(__webpack_require__(333));
+	__export(__webpack_require__(332));
+	__export(__webpack_require__(339));
+	__export(__webpack_require__(329));
 	__export(__webpack_require__(298));
 	__export(__webpack_require__(297));
-	__export(__webpack_require__(334));
-	__export(__webpack_require__(335));
+	__export(__webpack_require__(330));
+	__export(__webpack_require__(331));
 	__export(__webpack_require__(301));
-	__export(__webpack_require__(328));
 	__export(__webpack_require__(286));
 	__export(__webpack_require__(311));
-	__export(__webpack_require__(331));
+	__export(__webpack_require__(327));
 	__export(__webpack_require__(309));
 	__export(__webpack_require__(310));
-	__export(__webpack_require__(332));
-	__export(__webpack_require__(330));
+	__export(__webpack_require__(328));
 	__export(__webpack_require__(326));
 	__export(__webpack_require__(313));
 	__export(__webpack_require__(316));
 	__export(__webpack_require__(281));
-	__export(__webpack_require__(322));
-	__export(__webpack_require__(329));
+	__export(__webpack_require__(323));
 	__export(__webpack_require__(303));
 
 /***/ },
-/* 340 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60103,7 +59194,374 @@
 	animation_1.Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
 
 /***/ },
-/* 341 */
+/* 337 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(169);
+	var nav_controller_1 = __webpack_require__(298);
+	var view_controller_1 = __webpack_require__(297);
+	var config_1 = __webpack_require__(270);
+	var animation_1 = __webpack_require__(284);
+	var util_1 = __webpack_require__(272);
+	/**
+	 * @name Alert
+	 * @description
+	 * An Alert is a dialog that presents users with either information, or used
+	 * to receive information from the user using inputs. An alert appears on top
+	 * of the app's content, and must be manually dismissed by the user before
+	 * they can resume interaction with the app.
+	 *
+	 * An alert is created from an array of `buttons` and optionally an array of
+	 * `inputs`. Each button includes properties for its `text`, and optionally a
+	 * `handler`. If a handler returns `false` then the alert will not be dismissed.
+	 * An alert can also optionally have a `title`, `subTitle` and `body`.
+	 *
+	 * All buttons will show up in the order they have been added to the `buttons`
+	 * array, from left to right. Note: The right most button (the last one in the
+	 * array) is the main button.
+	 *
+	 * Alerts can also include inputs whos data can be passed back to the app.
+	 * Inputs can be used to prompt users for information.
+	 *
+	 * Its shorthand is to add all the alert's options from within the
+	 * `Alert.create(opts)` first argument. Otherwise the alert's
+	 * instance has methods to add options, such as `setTitle()` or `addButton()`.
+	 *
+	 * @usage
+	 * ```ts
+	 * constructor(nav: NavController) {
+	 *   this.nav = nav;
+	 * }
+	 *
+	 * presentAlert() {
+	 *   let alert = Alert.create({
+	 *     title: 'Low battery',
+	 *     subTitle: '10% of battery remaining',
+	 *     buttons: ['Dismiss']
+	 *   });
+	 *   this.nav.present(alert);
+	 * }
+	 *
+	 * presentConfirm() {
+	 *   let alert = Alert.create({
+	 *     title: 'Confirm purchase',
+	 *     body: 'Do you want to buy this book?',
+	 *     buttons: [
+	 *       {
+	 *         text: 'Cancel',
+	 *         handler: () => {
+	 *           console.log('Cancel clicked');
+	 *         }
+	 *       },
+	 *       {
+	 *         text: 'Buy',
+	 *         handler: () => {
+	 *           console.log('Buy clicked');
+	 *         }
+	 *       }
+	 *     ]
+	 *   });
+	 *   this.nav.present(alert);
+	 * }
+	 *
+	 * presentPrompt() {
+	 *   let alert = Alert.create({
+	 *     title: 'Login',
+	 *     inputs: [
+	 *       {
+	 *         name: 'username',
+	 *         placeholder: 'Username'
+	 *       },
+	 *       {
+	 *         name: 'password',
+	 *         placeholder: 'Password',
+	 *         type: 'password'
+	 *       }
+	 *     ],
+	 *     buttons: [
+	 *       {
+	 *         text: 'Cancel',
+	 *         handler: data => {
+	 *           console.log('Cancel clicked');
+	 *         }
+	 *       },
+	 *       {
+	 *         text: 'Login',
+	 *         handler: data => {
+	 *           if (User.isValid(data.username, data.password)) {
+	 *             // logged in!
+	 *           } else {
+	 *             // invalid login
+	 *             return false;
+	 *           }
+	 *         }
+	 *       }
+	 *     ]
+	 *   });
+	 *   this.nav.present(alert);
+	 * }
+	 * ```
+	 *
+	 */
+	var Alert = (function (_super) {
+	    __extends(Alert, _super);
+	    function Alert(opts) {
+	        if (opts === void 0) { opts = {}; }
+	        opts.inputs = opts.inputs || [];
+	        opts.buttons = opts.buttons || [];
+	        _super.call(this, AlertCmp, opts);
+	        this.viewType = 'alert';
+	    }
+	    /**
+	    * @private
+	    */
+	    Alert.prototype.getTransitionName = function (direction) {
+	        var key = (direction === 'back' ? 'alertLeave' : 'alertEnter');
+	        return this._nav && this._nav.config.get(key);
+	    };
+	    /**
+	     * @param {string} title Alert title
+	     */
+	    Alert.prototype.setTitle = function (title) {
+	        this.data.title = title;
+	    };
+	    /**
+	     * @param {string} subTitle Alert subtitle
+	     */
+	    Alert.prototype.setSubTitle = function (subTitle) {
+	        this.data.subTitle = subTitle;
+	    };
+	    /**
+	     * @param {string} body Alert body content
+	     */
+	    Alert.prototype.setBody = function (body) {
+	        this.data.body = body;
+	    };
+	    /**
+	     * @param {Object} input Alert input
+	     */
+	    Alert.prototype.addInput = function (input) {
+	        this.data.inputs.push(input);
+	    };
+	    /**
+	     * @param {Object} button Alert button
+	     */
+	    Alert.prototype.addButton = function (button) {
+	        this.data.buttons.push(button);
+	    };
+	    /**
+	     * @param {Object} opts Alert options
+	     */
+	    Alert.create = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        return new Alert(opts);
+	    };
+	    return Alert;
+	})(view_controller_1.ViewController);
+	exports.Alert = Alert;
+	/**
+	* @private
+	*/
+	var AlertCmp = (function () {
+	    function AlertCmp(_viewCtrl, _elementRef, _config, params, renderer) {
+	        this._viewCtrl = _viewCtrl;
+	        this._elementRef = _elementRef;
+	        this._config = _config;
+	        this.d = params.data;
+	        if (this.d.cssClass) {
+	            renderer.setElementClass(_elementRef, this.d.cssClass, true);
+	        }
+	    }
+	    AlertCmp.prototype.click = function (button) {
+	        var _this = this;
+	        var shouldDismiss = true;
+	        if (button.handler) {
+	            // a handler has been provided, execute it
+	            // pass the handler the values from the inputs
+	            if (button.handler(this.getValues()) === false) {
+	                // if the return value of the handler is false then do not dismiss
+	                shouldDismiss = false;
+	            }
+	        }
+	        if (shouldDismiss) {
+	            setTimeout(function () {
+	                _this.dismiss();
+	            }, this._config.get('pageTransitionDelay'));
+	        }
+	    };
+	    AlertCmp.prototype.dismiss = function () {
+	        this._viewCtrl.dismiss(this.getValues());
+	    };
+	    AlertCmp.prototype.getValues = function () {
+	        var values = {};
+	        this.d.inputs.forEach(function (input) {
+	            values[input.name] = input.value;
+	        });
+	        return values;
+	    };
+	    AlertCmp.prototype.onPageLoaded = function () {
+	        // normalize the data
+	        this.d.buttons = this.d.buttons.map(function (button) {
+	            if (typeof button === 'string') {
+	                return { text: button };
+	            }
+	            return button;
+	        });
+	        this.d.inputs = this.d.inputs.map(function (input, index) {
+	            return {
+	                name: util_1.isDefined(input.name) ? input.name : index,
+	                placeholder: util_1.isDefined(input.placeholder) ? input.placeholder : '',
+	                type: input.type || 'text',
+	                value: util_1.isDefined(input.value) ? input.value : ''
+	            };
+	        });
+	        var self = this;
+	        self.keyUp = function (ev) {
+	            if (ev.keyCode === 13) {
+	                // enter
+	                console.debug('alert enter');
+	                var button = self.d.buttons[self.d.buttons.length - 1];
+	                self.click(button);
+	            }
+	            else if (ev.keyCode === 27) {
+	                console.debug('alert escape');
+	                self.dismiss();
+	            }
+	        };
+	        document.addEventListener('keyup', this.keyUp);
+	    };
+	    AlertCmp.prototype.onPageDidEnter = function () {
+	        document.activeElement && document.activeElement.blur();
+	        if (this.d.inputs.length) {
+	            var firstInput = this._elementRef.nativeElement.querySelector('input');
+	            if (firstInput) {
+	                firstInput.focus();
+	            }
+	        }
+	    };
+	    AlertCmp.prototype.onPageDidLeave = function () {
+	        document.removeEventListener('keyup', this.keyUp);
+	    };
+	    AlertCmp = __decorate([
+	        core_1.Component({
+	            selector: 'ion-alert',
+	            template: '<div (click)="dismiss()" tappable disable-activated class="backdrop" role="presentation"></div>' +
+	                '<div class="alert-wrapper">' +
+	                '<div class="alert-head">' +
+	                '<h2 class="alert-title" *ngIf="d.title">{{d.title}}</h2>' +
+	                '<h3 class="alert-sub-title" *ngIf="d.subTitle">{{d.subTitle}}</h3>' +
+	                '</div>' +
+	                '<div class="alert-body" *ngIf="d.body">{{d.body}}</div>' +
+	                '<div class="alert-body alert-inputs" *ngIf="d.inputs.length">' +
+	                '<div class="alert-input-wrapper" *ngFor="#i of d.inputs">' +
+	                '<input [placeholder]="i.placeholder" [(ngModel)]="i.value" [type]="i.type" class="alert-input">' +
+	                '</div>' +
+	                '</div>' +
+	                '<div class="alert-buttons">' +
+	                '<button *ngFor="#b of d.buttons" (click)="click(b)" [ngClass]="b.cssClass" class="alert-button">' +
+	                '{{b.text}}' +
+	                '</button>' +
+	                '</div>' +
+	                '</div>',
+	            host: {
+	                'role': 'dialog'
+	            },
+	            directives: [common_1.NgClass, common_1.NgIf, common_1.NgFor]
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavParams !== 'undefined' && nav_controller_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
+	    ], AlertCmp);
+	    return AlertCmp;
+	    var _a, _b, _c, _d, _e;
+	})();
+	/**
+	 * Animations for alerts
+	 */
+	var AlertPopIn = (function (_super) {
+	    __extends(AlertPopIn, _super);
+	    function AlertPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
+	        backdrop.fromTo('opacity', '0.01', '0.3');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop, wrapper);
+	    }
+	    return AlertPopIn;
+	})(animation_1.Animation);
+	animation_1.Animation.register('alert-pop-in', AlertPopIn);
+	var AlertPopOut = (function (_super) {
+	    __extends(AlertPopOut, _super);
+	    function AlertPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
+	        backdrop.fromTo('opacity', '0.3', '0');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop, wrapper);
+	    }
+	    return AlertPopOut;
+	})(animation_1.Animation);
+	animation_1.Animation.register('alert-pop-out', AlertPopOut);
+	var AlertMdPopIn = (function (_super) {
+	    __extends(AlertMdPopIn, _super);
+	    function AlertMdPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
+	        backdrop.fromTo('opacity', '0.01', '0.5');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop, wrapper);
+	    }
+	    return AlertMdPopIn;
+	})(animation_1.Animation);
+	animation_1.Animation.register('alert-md-pop-in', AlertMdPopIn);
+	var AlertMdPopOut = (function (_super) {
+	    __extends(AlertMdPopOut, _super);
+	    function AlertMdPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, null, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
+	        backdrop.fromTo('opacity', '0.5', '0');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop, wrapper);
+	    }
+	    return AlertMdPopOut;
+	})(animation_1.Animation);
+	animation_1.Animation.register('alert-md-pop-out', AlertMdPopOut);
+
+/***/ },
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60289,7 +59747,7 @@
 	var TRANSLATE_X = 'translateX';
 
 /***/ },
-/* 342 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60313,8 +59771,8 @@
 	 * When a modal (or any other overlay such as an alert or actionsheet) is
 	 * "presented" to a nav controller, the overlay is added to the app's root nav.
 	 * After the modal has been presented, from within the component instance The
-	 * modal can later be closed or "dismissed" by using the ViewController's
-	 * `dismiss` method. Additionally, you can dismiss any overlay by using `pop`
+	 * modal can later be closed or "dimsissed" by using the ViewController's
+	 * `dismiss` method. Additinoally, you can dismiss any overlay by using `pop`
 	 * on the root nav controller.
 	 *
 	 * A modal can also emit data, which is useful when it is used to add or edit
@@ -60459,18 +59917,18 @@
 	animation_1.Animation.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 343 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(344));
-	__export(__webpack_require__(345));
-	__export(__webpack_require__(346));
+	__export(__webpack_require__(341));
+	__export(__webpack_require__(342));
+	__export(__webpack_require__(343));
 
 /***/ },
-/* 344 */
+/* 341 */
 /***/ function(module, exports) {
 
 	/**
@@ -60487,7 +59945,6 @@
 	*/
 	var Storage = (function () {
 	    function Storage(strategyCls, options) {
-	        this._strategy = {};
 	        this._strategy = new strategyCls(options);
 	    }
 	    Storage.prototype.get = function (key) {
@@ -60537,7 +59994,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 345 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60545,7 +60002,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(344);
+	var storage_1 = __webpack_require__(341);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -60630,7 +60087,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 346 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60638,10 +60095,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(344);
-	var util_1 = __webpack_require__(272);
+	var storage_1 = __webpack_require__(341);
+	var util = __webpack_require__(294);
 	var DB_NAME = '__ionicstorage';
-	var win = window;
 	/**
 	 * SqlStorage uses SQLite or WebSQL (development only!) to store data in a
 	 * persistent SQL store on the filesystem.
@@ -60677,14 +60133,14 @@
 	    function SqlStorage(options) {
 	        if (options === void 0) { options = {}; }
 	        _super.call(this);
-	        var dbOptions = util_1.defaults(options, {
+	        var dbOptions = util.defaults(options, {
 	            name: DB_NAME,
 	            backupFlag: SqlStorage.BACKUP_LOCAL,
 	            existingDatabase: false
 	        });
-	        if (win.sqlitePlugin) {
+	        if (window.sqlitePlugin) {
 	            var location = this._getBackupLocation(dbOptions.backupFlag);
-	            this._db = win.sqlitePlugin.openDatabase(util_1.assign({
+	            this._db = window.sqlitePlugin.openDatabase(util.extend({
 	                name: dbOptions.name,
 	                location: location,
 	                createFromLocation: dbOptions.existingDatabase ? 1 : 0
@@ -60692,7 +60148,7 @@
 	        }
 	        else {
 	            console.warn('Storage: SQLite plugin not installed, falling back to WebSQL. Make sure to install cordova-sqlite-storage in production!');
-	            this._db = win.openDatabase(dbOptions.name, '1.0', 'database', 5 * 1024 * 1024);
+	            this._db = window.openDatabase(dbOptions.name, '1.0', 'database', 5 * 1024 * 1024);
 	        }
 	        this._tryInit();
 	    }
@@ -60847,7 +60303,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 347 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60874,7 +60330,6 @@
 	 */
 	var TranslatePipe = (function () {
 	    function TranslatePipe(translate) {
-	        this.translate = {};
 	        this.translate = translate;
 	    }
 	    TranslatePipe.prototype.transform = function (value, args) {
@@ -60896,7 +60351,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 348 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var config_1 = __webpack_require__(270);
@@ -60908,7 +60363,7 @@
 	    alertEnter: 'alert-pop-in',
 	    alertLeave: 'alert-pop-out',
 	    backButtonText: 'Back',
-	    backButtonIcon: 'ios-arrow-back',
+	    backButtonIcon: 'ion-ios-arrow-back',
 	    iconMode: 'ios',
 	    menuType: 'reveal',
 	    modalEnter: 'modal-slide-in',
@@ -60925,7 +60380,7 @@
 	    alertEnter: 'alert-md-pop-in',
 	    alertLeave: 'alert-md-pop-out',
 	    backButtonText: '',
-	    backButtonIcon: 'md-arrow-back',
+	    backButtonIcon: 'ion-md-arrow-back',
 	    iconMode: 'md',
 	    menuType: 'overlay',
 	    modalEnter: 'modal-md-slide-in',
@@ -60938,13 +60393,11 @@
 	});
 
 /***/ },
-/* 349 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var platform_1 = __webpack_require__(271);
 	var dom_1 = __webpack_require__(273);
-	var win = window;
-	var doc = document;
 	platform_1.Platform.register({
 	    name: 'core',
 	    settings: {
@@ -61079,16 +60532,16 @@
 	    methods: {
 	        ready: function (resolve) {
 	            function isReady() {
-	                doc.removeEventListener('deviceready', isReady);
+	                document.removeEventListener('deviceready', isReady);
 	                resolve();
 	            }
 	            dom_1.windowLoad(function () {
-	                doc.addEventListener('deviceready', isReady);
+	                document.addEventListener('deviceready', isReady);
 	            });
 	        }
 	    },
 	    isMatch: function () {
-	        return !!(win.cordova || win.PhoneGap || win.phonegap);
+	        return !!(window.cordova || window.PhoneGap || window.phonegap);
 	    }
 	});
 	function isIOSDevice(p) {
@@ -61100,7 +60553,7 @@
 	}
 
 /***/ },
-/* 350 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61159,7 +60612,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 351 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61331,7 +60784,7 @@
 	animation_1.Animation.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 352 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61393,17 +60846,17 @@
 	animation_1.Animation.register('md-transition', MDTransition);
 
 /***/ },
-/* 353 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(354));
+	__export(__webpack_require__(351));
 
 
 /***/ },
-/* 354 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61417,7 +60870,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers = __webpack_require__(355);
+	var helpers = __webpack_require__(352);
 	var BasicPage = (function () {
 	    function BasicPage(app) {
 	        this.app = app;
@@ -61475,7 +60928,7 @@
 
 
 /***/ },
-/* 355 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61489,21 +60942,21 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var ionic_1 = __webpack_require__(6);
-	var actionSheets = __webpack_require__(356);
-	var badges = __webpack_require__(358);
-	var buttons = __webpack_require__(360);
-	var cards = __webpack_require__(371);
-	var grid = __webpack_require__(380);
-	var labels = __webpack_require__(382);
-	var icons = __webpack_require__(390);
-	var inputs = __webpack_require__(392);
-	var lists = __webpack_require__(400);
-	var menus = __webpack_require__(353);
-	var modals = __webpack_require__(409);
-	var navigation = __webpack_require__(411);
-	var alerts = __webpack_require__(413);
-	var slides = __webpack_require__(415);
-	var tabs = __webpack_require__(417);
+	var actionSheets = __webpack_require__(353);
+	var badges = __webpack_require__(355);
+	var buttons = __webpack_require__(357);
+	var cards = __webpack_require__(368);
+	var grid = __webpack_require__(377);
+	var labels = __webpack_require__(379);
+	var icons = __webpack_require__(387);
+	var inputs = __webpack_require__(389);
+	var lists = __webpack_require__(397);
+	var menus = __webpack_require__(350);
+	var modals = __webpack_require__(406);
+	var navigation = __webpack_require__(408);
+	var alerts = __webpack_require__(410);
+	var slides = __webpack_require__(412);
+	var tabs = __webpack_require__(414);
 	var AndroidAttribute = (function () {
 	    function AndroidAttribute(platform, elementRef, renderer) {
 	        this.isAndroid = platform.is('android');
@@ -61578,7 +61031,7 @@
 	        'select': inputs.SelectPage,
 	        'searchbar': inputs.SearchPage,
 	        'toggle': inputs.TogglePage,
-	        'inputs': labels.FixedInlinePage,
+	        'inputs': labels.BasicPage,
 	        'fixed-inline-labels': labels.FixedInlinePage,
 	        'floating-labels': labels.FloatingPage,
 	        'inline-labels': labels.InlinePage,
@@ -61631,17 +61084,17 @@
 
 
 /***/ },
-/* 356 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(357));
+	__export(__webpack_require__(354));
 
 
 /***/ },
-/* 357 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61655,11 +61108,11 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
+	var helpers_1 = __webpack_require__(352);
 	var BasicPage = (function () {
 	    function BasicPage(platform, nav) {
-	        this.nav = nav;
 	        this.platform = platform;
+	        this.nav = nav;
 	    }
 	    BasicPage.prototype.openMenu = function () {
 	        var buttonHandler = function (index) {
@@ -61688,7 +61141,6 @@
 	                    {
 	                        text: 'Delete',
 	                        style: 'destructive',
-	                        icon: 'trash',
 	                        handler: function () {
 	                            console.log('Destructive clicked');
 	                        }
@@ -61696,7 +61148,6 @@
 	                    {
 	                        text: 'Cancel',
 	                        style: 'cancel',
-	                        icon: 'close',
 	                        handler: function () {
 	                            console.log('Cancel clicked');
 	                        }
@@ -61758,13 +61209,94 @@
 
 
 /***/ },
-/* 358 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
+	__export(__webpack_require__(356));
+
+
+/***/ },
+/* 356 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(352);
+	var BasicPage = (function () {
+	    function BasicPage() {
+	    }
+	    BasicPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/badge/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], BasicPage);
+	    return BasicPage;
+	})();
+	exports.BasicPage = BasicPage;
+
+
+/***/ },
+/* 357 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(358));
 	__export(__webpack_require__(359));
+	__export(__webpack_require__(360));
+	__export(__webpack_require__(361));
+	__export(__webpack_require__(362));
+	__export(__webpack_require__(363));
+	__export(__webpack_require__(364));
+	__export(__webpack_require__(365));
+	__export(__webpack_require__(366));
+	__export(__webpack_require__(367));
+
+
+/***/ },
+/* 358 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(352);
+	var BasicPage = (function () {
+	    function BasicPage() {
+	    }
+	    BasicPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/buttons/basic/basic.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], BasicPage);
+	    return BasicPage;
+	})();
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
@@ -61782,39 +61314,51 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var BasicPage = (function () {
-	    function BasicPage() {
+	var helpers_1 = __webpack_require__(352);
+	var BlockPage = (function () {
+	    function BlockPage() {
 	    }
-	    BasicPage = __decorate([
+	    BlockPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/badge/basic/template.html',
+	            templateUrl: './build/buttons/block/block.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
+	    ], BlockPage);
+	    return BlockPage;
 	})();
-	exports.BasicPage = BasicPage;
+	exports.BlockPage = BlockPage;
 
 
 /***/ },
 /* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(361));
-	__export(__webpack_require__(362));
-	__export(__webpack_require__(363));
-	__export(__webpack_require__(364));
-	__export(__webpack_require__(365));
-	__export(__webpack_require__(366));
-	__export(__webpack_require__(367));
-	__export(__webpack_require__(368));
-	__export(__webpack_require__(369));
-	__export(__webpack_require__(370));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(352);
+	var ClearPage = (function () {
+	    function ClearPage() {
+	    }
+	    ClearPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/buttons/clear/clear.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], ClearPage);
+	    return ClearPage;
+	})();
+	exports.ClearPage = ClearPage;
 
 
 /***/ },
@@ -61832,20 +61376,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var BasicPage = (function () {
-	    function BasicPage() {
+	var helpers_1 = __webpack_require__(352);
+	var ComponentsPage = (function () {
+	    function ComponentsPage() {
 	    }
-	    BasicPage = __decorate([
+	    ComponentsPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/basic/basic.html',
+	            templateUrl: './build/buttons/components/components.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
+	    ], ComponentsPage);
+	    return ComponentsPage;
 	})();
-	exports.BasicPage = BasicPage;
+	exports.ComponentsPage = ComponentsPage;
 
 
 /***/ },
@@ -61863,20 +61407,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var BlockPage = (function () {
-	    function BlockPage() {
+	var helpers_1 = __webpack_require__(352);
+	var FabPage = (function () {
+	    function FabPage() {
 	    }
-	    BlockPage = __decorate([
+	    FabPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/block/block.html',
+	            templateUrl: './build/buttons/fab/fab.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BlockPage);
-	    return BlockPage;
+	    ], FabPage);
+	    return FabPage;
 	})();
-	exports.BlockPage = BlockPage;
+	exports.FabPage = FabPage;
 
 
 /***/ },
@@ -61894,20 +61438,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var ClearPage = (function () {
-	    function ClearPage() {
+	var helpers_1 = __webpack_require__(352);
+	var FullPage = (function () {
+	    function FullPage() {
 	    }
-	    ClearPage = __decorate([
+	    FullPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/clear/clear.html',
+	            templateUrl: './build/buttons/full/full.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], ClearPage);
-	    return ClearPage;
+	    ], FullPage);
+	    return FullPage;
 	})();
-	exports.ClearPage = ClearPage;
+	exports.FullPage = FullPage;
 
 
 /***/ },
@@ -61925,20 +61469,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var ComponentsPage = (function () {
-	    function ComponentsPage() {
+	var helpers_1 = __webpack_require__(352);
+	var IconsPage = (function () {
+	    function IconsPage() {
 	    }
-	    ComponentsPage = __decorate([
+	    IconsPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/components/components.html',
+	            templateUrl: './build/buttons/icons/icons.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], ComponentsPage);
-	    return ComponentsPage;
+	    ], IconsPage);
+	    return IconsPage;
 	})();
-	exports.ComponentsPage = ComponentsPage;
+	exports.IconsPage = IconsPage;
 
 
 /***/ },
@@ -61956,20 +61500,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var FabPage = (function () {
-	    function FabPage() {
+	var helpers_1 = __webpack_require__(352);
+	var OutlinePage = (function () {
+	    function OutlinePage() {
 	    }
-	    FabPage = __decorate([
+	    OutlinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/fab/fab.html',
+	            templateUrl: './build/buttons/outline/outline.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], FabPage);
-	    return FabPage;
+	    ], OutlinePage);
+	    return OutlinePage;
 	})();
-	exports.FabPage = FabPage;
+	exports.OutlinePage = OutlinePage;
 
 
 /***/ },
@@ -61987,20 +61531,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var FullPage = (function () {
-	    function FullPage() {
+	var helpers_1 = __webpack_require__(352);
+	var RoundPage = (function () {
+	    function RoundPage() {
 	    }
-	    FullPage = __decorate([
+	    RoundPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/full/full.html',
+	            templateUrl: './build/buttons/round/round.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], FullPage);
-	    return FullPage;
+	    ], RoundPage);
+	    return RoundPage;
 	})();
-	exports.FullPage = FullPage;
+	exports.RoundPage = RoundPage;
 
 
 /***/ },
@@ -62018,51 +61562,37 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var IconsPage = (function () {
-	    function IconsPage() {
+	var helpers_1 = __webpack_require__(352);
+	var SizesPage = (function () {
+	    function SizesPage() {
 	    }
-	    IconsPage = __decorate([
+	    SizesPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/icons/icons.html',
+	            templateUrl: './build/buttons/sizes/sizes.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], IconsPage);
-	    return IconsPage;
+	    ], SizesPage);
+	    return SizesPage;
 	})();
-	exports.IconsPage = IconsPage;
+	exports.SizesPage = SizesPage;
 
 
 /***/ },
 /* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var OutlinePage = (function () {
-	    function OutlinePage() {
-	    }
-	    OutlinePage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/buttons/outline/outline.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], OutlinePage);
-	    return OutlinePage;
-	})();
-	exports.OutlinePage = OutlinePage;
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(369));
+	__export(__webpack_require__(370));
+	__export(__webpack_require__(371));
+	__export(__webpack_require__(372));
+	__export(__webpack_require__(373));
+	__export(__webpack_require__(374));
+	__export(__webpack_require__(375));
+	__export(__webpack_require__(376));
 
 
 /***/ },
@@ -62080,20 +61610,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var RoundPage = (function () {
-	    function RoundPage() {
+	var helpers_1 = __webpack_require__(352);
+	var AdvancedMapPage = (function () {
+	    function AdvancedMapPage() {
 	    }
-	    RoundPage = __decorate([
+	    AdvancedMapPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/round/round.html',
+	            templateUrl: './build/cards/advanced-map/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], RoundPage);
-	    return RoundPage;
+	    ], AdvancedMapPage);
+	    return AdvancedMapPage;
 	})();
-	exports.RoundPage = RoundPage;
+	exports.AdvancedMapPage = AdvancedMapPage;
 
 
 /***/ },
@@ -62111,37 +61641,51 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var SizesPage = (function () {
-	    function SizesPage() {
+	var helpers_1 = __webpack_require__(352);
+	var AdvancedSocialPage = (function () {
+	    function AdvancedSocialPage() {
 	    }
-	    SizesPage = __decorate([
+	    AdvancedSocialPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/sizes/sizes.html',
+	            templateUrl: './build/cards/advanced-social/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], SizesPage);
-	    return SizesPage;
+	    ], AdvancedSocialPage);
+	    return AdvancedSocialPage;
 	})();
-	exports.SizesPage = SizesPage;
+	exports.AdvancedSocialPage = AdvancedSocialPage;
 
 
 /***/ },
 /* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(372));
-	__export(__webpack_require__(373));
-	__export(__webpack_require__(374));
-	__export(__webpack_require__(375));
-	__export(__webpack_require__(376));
-	__export(__webpack_require__(377));
-	__export(__webpack_require__(378));
-	__export(__webpack_require__(379));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(352);
+	var AdvancedWeatherPage = (function () {
+	    function AdvancedWeatherPage() {
+	    }
+	    AdvancedWeatherPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/cards/advanced-weather/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], AdvancedWeatherPage);
+	    return AdvancedWeatherPage;
+	})();
+	exports.AdvancedWeatherPage = AdvancedWeatherPage;
 
 
 /***/ },
@@ -62159,20 +61703,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var AdvancedMapPage = (function () {
-	    function AdvancedMapPage() {
+	var helpers_1 = __webpack_require__(352);
+	var BackgroundPage = (function () {
+	    function BackgroundPage() {
 	    }
-	    AdvancedMapPage = __decorate([
+	    BackgroundPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/advanced-map/template.html',
+	            templateUrl: './build/cards/background/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], AdvancedMapPage);
-	    return AdvancedMapPage;
+	    ], BackgroundPage);
+	    return BackgroundPage;
 	})();
-	exports.AdvancedMapPage = AdvancedMapPage;
+	exports.BackgroundPage = BackgroundPage;
 
 
 /***/ },
@@ -62190,20 +61734,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var AdvancedSocialPage = (function () {
-	    function AdvancedSocialPage() {
+	var helpers_1 = __webpack_require__(352);
+	var BasicPage = (function () {
+	    function BasicPage() {
 	    }
-	    AdvancedSocialPage = __decorate([
+	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/advanced-social/template.html',
+	            templateUrl: './build/cards/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], AdvancedSocialPage);
-	    return AdvancedSocialPage;
+	    ], BasicPage);
+	    return BasicPage;
 	})();
-	exports.AdvancedSocialPage = AdvancedSocialPage;
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
@@ -62221,20 +61765,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var AdvancedWeatherPage = (function () {
-	    function AdvancedWeatherPage() {
+	var helpers_1 = __webpack_require__(352);
+	var HeaderPage = (function () {
+	    function HeaderPage() {
 	    }
-	    AdvancedWeatherPage = __decorate([
+	    HeaderPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/advanced-weather/template.html',
+	            templateUrl: './build/cards/header/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], AdvancedWeatherPage);
-	    return AdvancedWeatherPage;
+	    ], HeaderPage);
+	    return HeaderPage;
 	})();
-	exports.AdvancedWeatherPage = AdvancedWeatherPage;
+	exports.HeaderPage = HeaderPage;
 
 
 /***/ },
@@ -62252,20 +61796,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var BackgroundPage = (function () {
-	    function BackgroundPage() {
+	var helpers_1 = __webpack_require__(352);
+	var ImagePage = (function () {
+	    function ImagePage() {
 	    }
-	    BackgroundPage = __decorate([
+	    ImagePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/background/template.html',
+	            templateUrl: './build/cards/image/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BackgroundPage);
-	    return BackgroundPage;
+	    ], ImagePage);
+	    return ImagePage;
 	})();
-	exports.BackgroundPage = BackgroundPage;
+	exports.ImagePage = ImagePage;
 
 
 /***/ },
@@ -62283,51 +61827,30 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var BasicPage = (function () {
-	    function BasicPage() {
+	var helpers_1 = __webpack_require__(352);
+	var ListPage = (function () {
+	    function ListPage() {
 	    }
-	    BasicPage = __decorate([
+	    ListPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/basic/template.html',
+	            templateUrl: './build/cards/list/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
+	    ], ListPage);
+	    return ListPage;
 	})();
-	exports.BasicPage = BasicPage;
+	exports.ListPage = ListPage;
 
 
 /***/ },
 /* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var HeaderPage = (function () {
-	    function HeaderPage() {
-	    }
-	    HeaderPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/cards/header/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], HeaderPage);
-	    return HeaderPage;
-	})();
-	exports.HeaderPage = HeaderPage;
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(378));
 
 
 /***/ },
@@ -62345,79 +61868,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var ImagePage = (function () {
-	    function ImagePage() {
-	    }
-	    ImagePage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/cards/image/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], ImagePage);
-	    return ImagePage;
-	})();
-	exports.ImagePage = ImagePage;
-
-
-/***/ },
-/* 379 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var ListPage = (function () {
-	    function ListPage() {
-	    }
-	    ListPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/cards/list/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], ListPage);
-	    return ListPage;
-	})();
-	exports.ListPage = ListPage;
-
-
-/***/ },
-/* 380 */
-/***/ function(module, exports, __webpack_require__) {
-
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(381));
-
-
-/***/ },
-/* 381 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
+	var helpers_1 = __webpack_require__(352);
 	var BasicPage = (function () {
 	    function BasicPage() {
 	    }
@@ -62434,23 +61885,23 @@
 
 
 /***/ },
-/* 382 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
+	__export(__webpack_require__(380));
+	__export(__webpack_require__(381));
+	__export(__webpack_require__(382));
 	__export(__webpack_require__(383));
 	__export(__webpack_require__(384));
 	__export(__webpack_require__(385));
 	__export(__webpack_require__(386));
-	__export(__webpack_require__(387));
-	__export(__webpack_require__(388));
-	__export(__webpack_require__(389));
 
 
 /***/ },
-/* 383 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62465,7 +61916,7 @@
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(169);
 	var ionic_1 = __webpack_require__(6);
-	var helpers_1 = __webpack_require__(355);
+	var helpers_1 = __webpack_require__(352);
 	var BasicPage = (function () {
 	    function BasicPage() {
 	        this.form = new common_1.ControlGroup({
@@ -62491,6 +61942,99 @@
 
 
 /***/ },
+/* 381 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(352);
+	var FixedInlinePage = (function () {
+	    function FixedInlinePage() {
+	    }
+	    FixedInlinePage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/labels/fixed-inline/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], FixedInlinePage);
+	    return FixedInlinePage;
+	})();
+	exports.FixedInlinePage = FixedInlinePage;
+
+
+/***/ },
+/* 382 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(352);
+	var FloatingPage = (function () {
+	    function FloatingPage() {
+	    }
+	    FloatingPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/labels/floating/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], FloatingPage);
+	    return FloatingPage;
+	})();
+	exports.FloatingPage = FloatingPage;
+
+
+/***/ },
+/* 383 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(352);
+	var InlinePage = (function () {
+	    function InlinePage() {
+	    }
+	    InlinePage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/labels/inline/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], InlinePage);
+	    return InlinePage;
+	})();
+	exports.InlinePage = InlinePage;
+
+
+/***/ },
 /* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -62505,20 +62049,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var FixedInlinePage = (function () {
-	    function FixedInlinePage() {
+	var helpers_1 = __webpack_require__(352);
+	var InsetPage = (function () {
+	    function InsetPage() {
 	    }
-	    FixedInlinePage = __decorate([
+	    InsetPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/labels/fixed-inline/template.html',
+	            templateUrl: './build/labels/inset/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], FixedInlinePage);
-	    return FixedInlinePage;
+	    ], InsetPage);
+	    return InsetPage;
 	})();
-	exports.FixedInlinePage = FixedInlinePage;
+	exports.InsetPage = InsetPage;
 
 
 /***/ },
@@ -62536,20 +62080,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var FloatingPage = (function () {
-	    function FloatingPage() {
+	var helpers_1 = __webpack_require__(352);
+	var PlaceholderPage = (function () {
+	    function PlaceholderPage() {
 	    }
-	    FloatingPage = __decorate([
+	    PlaceholderPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/labels/floating/template.html',
+	            templateUrl: './build/labels/placeholder/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], FloatingPage);
-	    return FloatingPage;
+	    ], PlaceholderPage);
+	    return PlaceholderPage;
 	})();
-	exports.FloatingPage = FloatingPage;
+	exports.PlaceholderPage = PlaceholderPage;
 
 
 /***/ },
@@ -62567,51 +62111,30 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var InlinePage = (function () {
-	    function InlinePage() {
+	var helpers_1 = __webpack_require__(352);
+	var StackedPage = (function () {
+	    function StackedPage() {
 	    }
-	    InlinePage = __decorate([
+	    StackedPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/labels/inline/template.html',
+	            templateUrl: './build/labels/stacked/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], InlinePage);
-	    return InlinePage;
+	    ], StackedPage);
+	    return StackedPage;
 	})();
-	exports.InlinePage = InlinePage;
+	exports.StackedPage = StackedPage;
 
 
 /***/ },
 /* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var InsetPage = (function () {
-	    function InsetPage() {
-	    }
-	    InsetPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/labels/inset/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], InsetPage);
-	    return InsetPage;
-	})();
-	exports.InsetPage = InsetPage;
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(388));
 
 
 /***/ },
@@ -62629,24 +62152,40 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var PlaceholderPage = (function () {
-	    function PlaceholderPage() {
+	var helpers_1 = __webpack_require__(352);
+	var BasicPage = (function () {
+	    function BasicPage() {
 	    }
-	    PlaceholderPage = __decorate([
+	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/labels/placeholder/template.html',
+	            templateUrl: './build/icons/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], PlaceholderPage);
-	    return PlaceholderPage;
+	    ], BasicPage);
+	    return BasicPage;
 	})();
-	exports.PlaceholderPage = PlaceholderPage;
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
 /* 389 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(390));
+	__export(__webpack_require__(391));
+	__export(__webpack_require__(392));
+	__export(__webpack_require__(393));
+	__export(__webpack_require__(394));
+	__export(__webpack_require__(395));
+	__export(__webpack_require__(396));
+
+
+/***/ },
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62660,30 +62199,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var StackedPage = (function () {
-	    function StackedPage() {
+	var helpers_1 = __webpack_require__(352);
+	var CheckboxPage = (function () {
+	    function CheckboxPage() {
 	    }
-	    StackedPage = __decorate([
+	    CheckboxPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/labels/stacked/template.html',
+	            templateUrl: './build/inputs/checkbox/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], StackedPage);
-	    return StackedPage;
+	    ], CheckboxPage);
+	    return CheckboxPage;
 	})();
-	exports.StackedPage = StackedPage;
-
-
-/***/ },
-/* 390 */
-/***/ function(module, exports, __webpack_require__) {
-
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(391));
+	exports.CheckboxPage = CheckboxPage;
 
 
 /***/ },
@@ -62701,36 +62230,60 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var BasicPage = (function () {
-	    function BasicPage() {
+	var common_1 = __webpack_require__(169);
+	var helpers = __webpack_require__(352);
+	var RadioPage = (function () {
+	    function RadioPage() {
+	        this.langs = new common_1.Control("");
+	        this.langForm = new common_1.ControlGroup({
+	            "langs": this.langs
+	        });
 	    }
-	    BasicPage = __decorate([
+	    RadioPage.prototype.doSubmit = function (event) {
+	        console.log('Submitting form', this.langeForm.value);
+	        event.preventDefault();
+	    };
+	    RadioPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/icons/basic/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	            templateUrl: './build/inputs/radio/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
+	    ], RadioPage);
+	    return RadioPage;
 	})();
-	exports.BasicPage = BasicPage;
+	exports.RadioPage = RadioPage;
 
 
 /***/ },
 /* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(393));
-	__export(__webpack_require__(394));
-	__export(__webpack_require__(395));
-	__export(__webpack_require__(396));
-	__export(__webpack_require__(397));
-	__export(__webpack_require__(398));
-	__export(__webpack_require__(399));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(352);
+	var RangePage = (function () {
+	    function RangePage() {
+	    }
+	    RangePage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/inputs/range/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], RangePage);
+	    return RangePage;
+	})();
+	exports.RangePage = RangePage;
 
 
 /***/ },
@@ -62748,109 +62301,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var CheckboxPage = (function () {
-	    function CheckboxPage() {
-	    }
-	    CheckboxPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/inputs/checkbox/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], CheckboxPage);
-	    return CheckboxPage;
-	})();
-	exports.CheckboxPage = CheckboxPage;
-
-
-/***/ },
-/* 394 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(169);
-	var helpers = __webpack_require__(355);
-	var RadioPage = (function () {
-	    function RadioPage() {
-	        this.langs = new common_1.Control("");
-	        this.langForm = new common_1.ControlGroup({
-	            "langs": this.langs
-	        });
-	    }
-	    RadioPage.prototype.doSubmit = function (event) {
-	        console.log('Submitting form', this.langForm.value);
-	        event.preventDefault();
-	    };
-	    RadioPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/inputs/radio/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], RadioPage);
-	    return RadioPage;
-	})();
-	exports.RadioPage = RadioPage;
-
-
-/***/ },
-/* 395 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var RangePage = (function () {
-	    function RangePage() {
-	    }
-	    RangePage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/inputs/range/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], RangePage);
-	    return RangePage;
-	})();
-	exports.RangePage = RangePage;
-
-
-/***/ },
-/* 396 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
+	var helpers_1 = __webpack_require__(352);
 	var SearchPage = (function () {
 	    function SearchPage() {
 	        this.searchQuery = '';
@@ -62926,7 +62377,7 @@
 
 
 /***/ },
-/* 397 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62940,7 +62391,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
+	var helpers_1 = __webpack_require__(352);
 	var SegmentPage = (function () {
 	    function SegmentPage(platform) {
 	        this.platform = platform;
@@ -62960,6 +62411,85 @@
 
 
 /***/ },
+/* 395 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(352);
+	var SelectPage = (function () {
+	    function SelectPage() {
+	    }
+	    SelectPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/inputs/select/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], SelectPage);
+	    return SelectPage;
+	})();
+	exports.SelectPage = SelectPage;
+
+
+/***/ },
+/* 396 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(352);
+	var TogglePage = (function () {
+	    function TogglePage() {
+	    }
+	    TogglePage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/inputs/toggle/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], TogglePage);
+	    return TogglePage;
+	})();
+	exports.TogglePage = TogglePage;
+
+
+/***/ },
+/* 397 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(398));
+	__export(__webpack_require__(399));
+	__export(__webpack_require__(400));
+	__export(__webpack_require__(401));
+	__export(__webpack_require__(402));
+	__export(__webpack_require__(403));
+	__export(__webpack_require__(404));
+	__export(__webpack_require__(405));
+
+
+/***/ },
 /* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -62974,20 +62504,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var SelectPage = (function () {
-	    function SelectPage() {
+	var helpers_1 = __webpack_require__(352);
+	var AvatarPage = (function () {
+	    function AvatarPage() {
 	    }
-	    SelectPage = __decorate([
+	    AvatarPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/select/template.html',
+	            templateUrl: './build/lists/avatar/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], SelectPage);
-	    return SelectPage;
+	    ], AvatarPage);
+	    return AvatarPage;
 	})();
-	exports.SelectPage = SelectPage;
+	exports.AvatarPage = AvatarPage;
 
 
 /***/ },
@@ -63005,37 +62535,51 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var TogglePage = (function () {
-	    function TogglePage() {
+	var helpers_1 = __webpack_require__(352);
+	var BasicPage = (function () {
+	    function BasicPage() {
 	    }
-	    TogglePage = __decorate([
+	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/toggle/template.html',
+	            templateUrl: './build/lists/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], TogglePage);
-	    return TogglePage;
+	    ], BasicPage);
+	    return BasicPage;
 	})();
-	exports.TogglePage = TogglePage;
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
 /* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(401));
-	__export(__webpack_require__(402));
-	__export(__webpack_require__(403));
-	__export(__webpack_require__(404));
-	__export(__webpack_require__(405));
-	__export(__webpack_require__(406));
-	__export(__webpack_require__(407));
-	__export(__webpack_require__(408));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(352);
+	var HeadersPage = (function () {
+	    function HeadersPage() {
+	    }
+	    HeadersPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/lists/headers/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], HeadersPage);
+	    return HeadersPage;
+	})();
+	exports.HeadersPage = HeadersPage;
 
 
 /***/ },
@@ -63053,20 +62597,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var AvatarPage = (function () {
-	    function AvatarPage() {
+	var helpers_1 = __webpack_require__(352);
+	var IconPage = (function () {
+	    function IconPage() {
 	    }
-	    AvatarPage = __decorate([
+	    IconPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/avatar/template.html',
+	            templateUrl: './build/lists/icon/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], AvatarPage);
-	    return AvatarPage;
+	    ], IconPage);
+	    return IconPage;
 	})();
-	exports.AvatarPage = AvatarPage;
+	exports.IconPage = IconPage;
 
 
 /***/ },
@@ -63084,20 +62628,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var BasicPage = (function () {
-	    function BasicPage() {
+	var helpers_1 = __webpack_require__(352);
+	var InsetPage = (function () {
+	    function InsetPage() {
 	    }
-	    BasicPage = __decorate([
+	    InsetPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/basic/template.html',
+	            templateUrl: './build/lists/inset/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
+	    ], InsetPage);
+	    return InsetPage;
 	})();
-	exports.BasicPage = BasicPage;
+	exports.InsetPage = InsetPage;
 
 
 /***/ },
@@ -63115,20 +62659,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var HeadersPage = (function () {
-	    function HeadersPage() {
+	var helpers_1 = __webpack_require__(352);
+	var NoLinesPage = (function () {
+	    function NoLinesPage() {
 	    }
-	    HeadersPage = __decorate([
+	    NoLinesPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/headers/template.html',
+	            templateUrl: './build/lists/no-lines/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], HeadersPage);
-	    return HeadersPage;
+	    ], NoLinesPage);
+	    return NoLinesPage;
 	})();
-	exports.HeadersPage = HeadersPage;
+	exports.NoLinesPage = NoLinesPage;
 
 
 /***/ },
@@ -63146,20 +62690,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var IconPage = (function () {
-	    function IconPage() {
+	var helpers_1 = __webpack_require__(352);
+	var MultilinePage = (function () {
+	    function MultilinePage() {
 	    }
-	    IconPage = __decorate([
+	    MultilinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/icon/template.html',
+	            templateUrl: './build/lists/multiline/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], IconPage);
-	    return IconPage;
+	    ], MultilinePage);
+	    return MultilinePage;
 	})();
-	exports.IconPage = IconPage;
+	exports.MultilinePage = MultilinePage;
 
 
 /***/ },
@@ -63177,51 +62721,30 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var InsetPage = (function () {
-	    function InsetPage() {
+	var helpers_1 = __webpack_require__(352);
+	var ThumbnailPage = (function () {
+	    function ThumbnailPage() {
 	    }
-	    InsetPage = __decorate([
+	    ThumbnailPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/inset/template.html',
+	            templateUrl: './build/lists/thumbnail/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], InsetPage);
-	    return InsetPage;
+	    ], ThumbnailPage);
+	    return ThumbnailPage;
 	})();
-	exports.InsetPage = InsetPage;
+	exports.ThumbnailPage = ThumbnailPage;
 
 
 /***/ },
 /* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var NoLinesPage = (function () {
-	    function NoLinesPage() {
-	    }
-	    NoLinesPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/lists/no-lines/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], NoLinesPage);
-	    return NoLinesPage;
-	})();
-	exports.NoLinesPage = NoLinesPage;
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(407));
 
 
 /***/ },
@@ -63239,80 +62762,8 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var MultilinePage = (function () {
-	    function MultilinePage() {
-	    }
-	    MultilinePage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/lists/multiline/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], MultilinePage);
-	    return MultilinePage;
-	})();
-	exports.MultilinePage = MultilinePage;
-
-
-/***/ },
-/* 408 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var ThumbnailPage = (function () {
-	    function ThumbnailPage() {
-	    }
-	    ThumbnailPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/lists/thumbnail/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], ThumbnailPage);
-	    return ThumbnailPage;
-	})();
-	exports.ThumbnailPage = ThumbnailPage;
-
-
-/***/ },
-/* 409 */
-/***/ function(module, exports, __webpack_require__) {
-
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(410));
-
-
-/***/ },
-/* 410 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(169);
-	var helpers = __webpack_require__(355);
+	var helpers = __webpack_require__(352);
 	var ModalsInitialPage = (function () {
 	    function ModalsInitialPage(nav) {
 	        this.nav = nav;
@@ -63406,17 +62857,17 @@
 
 
 /***/ },
-/* 411 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(412));
+	__export(__webpack_require__(409));
 
 
 /***/ },
-/* 412 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63431,7 +62882,7 @@
 	var ionic_1 = __webpack_require__(6);
 	var ionic_2 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers = __webpack_require__(355);
+	var helpers = __webpack_require__(352);
 	var NavigationDetailsPage = (function () {
 	    function NavigationDetailsPage(nav, params) {
 	        this.nav = nav;
@@ -63480,17 +62931,17 @@
 
 
 /***/ },
-/* 413 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(414));
+	__export(__webpack_require__(411));
 
 
 /***/ },
-/* 414 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63503,7 +62954,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(6);
-	var helpers_1 = __webpack_require__(355);
+	var helpers_1 = __webpack_require__(352);
 	var core_1 = __webpack_require__(8);
 	var BasicPage = (function () {
 	    function BasicPage(nav) {
@@ -63578,17 +63029,17 @@
 
 
 /***/ },
-/* 415 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(416));
+	__export(__webpack_require__(413));
 
 
 /***/ },
-/* 416 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63602,7 +63053,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
+	var helpers_1 = __webpack_require__(352);
 	var BasicPage = (function () {
 	    function BasicPage() {
 	    }
@@ -63619,19 +63070,19 @@
 
 
 /***/ },
-/* 417 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(418));
-	__export(__webpack_require__(419));
-	__export(__webpack_require__(420));
+	__export(__webpack_require__(415));
+	__export(__webpack_require__(416));
+	__export(__webpack_require__(417));
 
 
 /***/ },
-/* 418 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63645,7 +63096,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers = __webpack_require__(355);
+	var helpers = __webpack_require__(352);
 	var TabTextPage = (function () {
 	    function TabTextPage(platform) {
 	        this.platform = platform;
@@ -63687,7 +63138,7 @@
 
 
 /***/ },
-/* 419 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63701,7 +63152,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers = __webpack_require__(355);
+	var helpers = __webpack_require__(352);
 	var TabIconPage = (function () {
 	    function TabIconPage(platform) {
 	        this.platform = platform;
@@ -63753,7 +63204,7 @@
 
 
 /***/ },
-/* 420 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63767,7 +63218,7 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var helpers = __webpack_require__(355);
+	var helpers = __webpack_require__(352);
 	var TabIconTextPage = (function () {
 	    function TabIconTextPage(platform) {
 	        this.platform = platform;
@@ -63821,3 +63272,4 @@
 
 /***/ }
 /******/ ]);
+//# sourceMappingURL=app.bundle.js.map

@@ -6,4 +6,48 @@
 
 Ionic's grid system is based on [flexbox](http://www.w3.org/TR/css3-flexbox/), a CSS feature supported by all devices that Ionic supports. The grid is composed of two units &mdash; _rows_ and _columns_. Columns will expand to fill their row, and will resize to fit additional columns.
 
-Use the `offset` attribute on a column to set its percent offset from the left (eg: `offset-25`). To change how columns in a row align vertically, add the `center` or `baseline` attribute to an `<ion-row>`.
+To vertically align the columns, assign one of the following attributes: `baseline`, `center`, `top`, `bottom` or `stretch`.
+
+You can also assign specific widths in percentage of the total width using the `width` attribute (e.g. `width-10`, `width-33`, `width-50` and so on), or you can offset the column with the `offset` attribute.
+
+```html
+  <ion-row>
+    <ion-col><div>col</div></ion-col>
+    <ion-col><div>col</div></ion-col>
+    <ion-col><div>col</div></ion-col>
+    <ion-col>
+      <div>
+        col<br>
+        3 lines<br>
+        of text<br>
+      </div>
+    </ion-col>
+  </ion-row>
+  
+  <!-- Vertically centered -->
+  <ion-row center>
+    <!-- Offset the first column by a quarter of the width-->
+    <ion-col offset-25><div>col</div></ion-col>
+    <ion-col><div>col</div></ion-col>
+    <ion-col>
+      <div>
+        col<br>
+        3 lines<br>
+        center<br>
+      </div>
+    </ion-col>
+  </ion-row>
+  
+  <!-- Aligned with baseline with specified widths -->
+  <ion-row baseline>
+    <!--First column takes a third of the width-->
+    <ion-col width-33><div>col</div></ion-col>
+    <ion-col>
+      <div>
+        col<br>
+        3 lines<br>
+        baseline<br>   
+      </div>
+    </ion-col>
+  </ion-row>
+```

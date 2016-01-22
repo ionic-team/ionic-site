@@ -9,10 +9,9 @@ import {AndroidAttribute} from '../../helpers';
 })
 export class BasicPage {
 
-  constructor(platform: Platform, nav: NavController) {
-    this.nav = nav;
-    this.platform = platform;
-  }
+  constructor(
+    public platform: Platform,
+    public nav: NavController) {}
 
   openMenu() {
     let buttonHandler = (index) => {
@@ -40,7 +39,6 @@ export class BasicPage {
           {
             text: 'Delete',
             style: 'destructive',
-            icon: 'trash',
             handler: () => {
               console.log('Destructive clicked');
             }
@@ -48,7 +46,6 @@ export class BasicPage {
           {
             text: 'Cancel',
             style: 'cancel',
-            icon: 'close',
             handler: () => {
               console.log('Cancel clicked');
             }

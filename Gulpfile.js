@@ -1,6 +1,7 @@
 var gulp        = require('gulp');
 var $           = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
+var cache       = require('gulp-cache');
 var concat      = require('gulp-concat');
 var cp          = require('child_process');
 var footer      = require('gulp-footer');
@@ -80,10 +81,10 @@ gulp.task('styles:v1', function(done) {
 // Optimize images
 gulp.task('images', function() {
   return gulp.src('_img/**/*')
-    .pipe($.imagemin({
+    .pipe(cache($.imagemin({
       progressive: true,
       interlaced: true
-    }))
+    })))
     .pipe(gulp.dest('img'))
     .pipe(gulp.dest('_site/img'))
     .pipe($.size({title: 'images'}));

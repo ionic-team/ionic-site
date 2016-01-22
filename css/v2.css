@@ -5165,7 +5165,7 @@ ul.docs-example {
       background-image: url(/img/docs-thumbnail-api.png); }
     .docs-home .sections .section.theming:before {
       background-image: url(/img/docs-thumbnail-theming.png); }
-    .docs-home .sections .section.ionicons:before {
+    .docs-home .sections .section.ionicons-link:before {
       background-image: url(/img/docs-thumbnail-ionicons.png); }
     .docs-home .sections .section.forum:before {
       background-image: url(/img/docs-thumbnail-forum.png); }

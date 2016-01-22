@@ -32,7 +32,7 @@ title: Ionic 2 Documentation - Welcome
       <h3>Theming</h3>
       <p>Learn how to easily customize and modify your app’s design to fit your brand.</p>
     </a>
-    <a class="section ionicons"
+    <a class="section ionicons-link"
        href="/docs/v2/resources/ionicons/">
       <h3>Ionicons</h3>
       <p>Over 900 custom designed font/svg icons MIT licensed & ready to use with ionic.</p>

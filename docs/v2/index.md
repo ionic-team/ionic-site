@@ -1,46 +1,24 @@
 ---
 layout: v2_fluid/docs_base
-category: home
-id: home
+category: getting-started
+id: welcome
 title: Ionic 2 Documentation - Welcome
 ---
-<div class="docs-home text-center">
-  <img src="/img/ionic-docs-logo-lg.png" class="docs-home-logo">
-  <form class="form-group search" role="search">
-    <input type="text"
-           class="form-control search-input"
-           placeholder="Search Ionic Docs...">
-  </form>
-  <div class="sections">
-    <a class="section getting-started"
-       href="/docs/v2/getting-started">
-      <h3>Get Started</h3>
-      <p>Everything you need to know to get started with Ionic Framework.</p>
-    </a>
-    <a class="section ui"
-       href="/docs/v2/components">
-      <h3>UI Components</h3>
-      <p>A comprehensive preview of our mobile UI components - everything you’ll need.</p>
-    </a>
-    <a class="section api"
-       href="/docs/v2/api">
-      <h3>API</h3>
-      <p>Explore our API for info on component methods, properties and events.</p>
-    </a>
-    <a class="section theming"
-       href="/docs/v2/theming/">
-      <h3>Theming</h3>
-      <p>Learn how to easily customize and modify your app’s design to fit your brand.</p>
-    </a>
-    <a class="section ionicons-link"
-       href="/docs/v2/resources/ionicons/">
-      <h3>Ionicons</h3>
-      <p>Over 900 custom designed font/svg icons MIT licensed & ready to use with ionic.</p>
-    </a>
-    <a class="section forum"
-       href="https://forum.ionicframework.com/">
-      <h3>Community Forum</h3>
-      <p>Drop by and say Hi. Ask a question or share something interesting.</p>
-    </a>
-  </div>
-</div>
+
+# Welcome to Ionic
+
+We designed Ionic to be as natural as possible for a web developer to build great mobile apps for the app stores. That means we focus on taking the standard HTML, CSS, and Javascript, just like you'd use to build a website, and we help you turn it into mobile magic. These technologies have served developers well for the last twenty years, and we think that makes them a pretty great bet for the next twenty.
+
+Many developers will find their Ionic apps can be built almost entirely with a standard web browser and any old computer. And once you're ready to turn on a sensor, or use a new device feature, the mobile toolkit is just an install away. We think that's pretty neat.
+
+We're proud to say that Ionic has been used by millions of developers to build millions of apps in more countries than we will ever visit in our lifetime. Over those two years, we've been listening to your feedback on how to build a better way to build better apps.
+
+Ionic Two represents that collective learning about how to make the web do more on mobile. We've overhauled nearly every part, from the way that users navigate through your pages, to how we help you wield the true powers of the underlying device.
+
+We hope you find that Ionic Two not only makes app development easier and faster, but we hope it makes it more *fun*. Because mobile is all about finding new ways to change forever the way humans interact with the world, and we couldn't think of anything more fun than that.
+
+<h3 style="text-align:right;">
+ <a href="getting-started/installation/">
+    Install the new CLI
+ </a>
+</h3>

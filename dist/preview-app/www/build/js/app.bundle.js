@@ -3300,7 +3300,7 @@
 	        ionic_1.App({
 	            templateUrl: './build/app.html',
 	            config: {
-	                production: true,
+	                production: false,
 	                platforms: {
 	                    android: {
 	                        activator: 'ripple',

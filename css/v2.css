@@ -4570,8 +4570,7 @@ body {
   float: right; }
 
 .docs-container .side-nav {
-  width: 230px;
-  padding-top: 73px; }
+  width: 230px; }
 
 .docs-container > main {
   margin-left: 230px; }
@@ -4817,7 +4816,7 @@ body {
         font-size: 14px;
         box-shadow: none;
         transition: .2s border-color, .2s box-shadow; }
-        .side-nav .form-group.search input:focus {
+        .side-nav .form-group.search input:focus, .side-nav .form-group.search input:hover {
           box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
           border-color: #4f8ff7; }
     .side-nav .form-group select {

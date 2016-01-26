@@ -139,19 +139,19 @@ To add icons to a button, add an icon component inside of it:
 ```html
 <!-- Float the icon left -->
 <button>
-  <icon home></icon>
+  <ion-icon name="home"></ion-icon>
   Left Icon
 </button>
 
 <!-- Float the icon right -->
 <button>
   Right Icon
-  <icon home></icon>
+  <ion-icon name="home"></ion-icon>
 </button>
 
 <!-- Only icon (no text) -->
 <button>
-  <icon home></icon>
+  <ion-icon name="home"></ion-icon>
 </button>
 ```
 
@@ -171,14 +171,28 @@ Adding `fab` to a button will turn it into a floating action button. This is a m
   Demo Source
 </a>
 
-Although buttons can be used on their own, they can easily be used within other components. For example, buttons can be added to a list item:
+Although buttons can be used on their own, they can easily be used within other components. For example, buttons can be added to a list item or a navbar.
 
 ```html
+<ion-navbar>
+  <ion-buttons start>
+    <button>
+      <ion-icon name="contanct"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-buttons end>
+    <button>
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-navbar>
+
 <ion-list>
   <ion-item>
     Left Icon Button
     <button outline item-right>
-      <icon star></icon>
+      <ion-icon name="star"></ion-icon>
       Left Icon
     </button>
   </ion-item>

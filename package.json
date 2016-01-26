@@ -51,7 +51,8 @@
     "tiny-lr": "0.0.5"
   },
   "dependencies": {
+    "compression": "^1.4.6",
     "express": "^4.12.3",
-    "compression": "^1.4.6"
+    "ionicons": "^3.0.0-alpha.3"
   }
 }

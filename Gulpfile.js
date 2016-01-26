@@ -133,8 +133,9 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('server', ['server:stylesv1', 'server:stylesv2', 'images',
-                     'jekyll-build'], function() {
+gulp.task('server', ['server:ionicons','server:stylesv1', 'server:stylesv2', 'images',
+  'jekyll-build'
+], function() {
   browserSync({
     server: {
       baseDir: '_site'
@@ -142,6 +143,10 @@ gulp.task('server', ['server:stylesv1', 'server:stylesv2', 'images',
   });
 });
 
+gulp.task('server:ionicons', ['ionicons'], function() {
+  console.log("ionicons built")
+  browserSync.reload();
+});
 gulp.task('server:stylesv1', ['styles:v1'], function() {
   browserSync.reload();
 });
@@ -158,20 +163,17 @@ gulp.task('server:js', ['js'], function() {
   browserSync.reload();
 });
 
-gulp.task('watch', ['server'],function() {
+gulp.task('watch', ['server'], function() {
   gulp.watch('scss/**.scss', ['server:stylesv1']);
   gulp.watch(['_scss/*.scss', '_scss/docs/*.scss'], ['server:stylesv2']);
-  gulp.watch(['_img/*','_img/*/*'], ['server:images']);
+  gulp.watch(['_img/*', '_img/*/*'], ['server:images']);
   gulp.watch(['_js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
   gulp.watch(['*.html', 'submit-issue/*.html', '_layouts/*', '_layouts/*/*',
-              '_posts/*', '_includes/**/*', 'docs/v2/**/*.{md,html,js,css}',
-              '!docs/v2/2*', '!docs/v2/nightly'],
-             ['server:jekyll']);
+    '_posts/*', '_includes/**/*', 'docs/v2/**/*.{md,html,js,css}',
+    '!docs/v2/2*', '!docs/v2/nightly'
+  ], ['server:jekyll']);
 
 });
-
-gulp.task('build', ['cli-docs','styles:v1', 'styles:v2', 'jekyll-build', 'images', 'js']);
-gulp.task('default', ['build']);
 
 gulp.task('cli-docs', function() {
   try {
@@ -323,3 +325,25 @@ gulp.task('docs.index', function() {
     );
   });
 });
+
+gulp.task('ionicons', function() {
+  gulp.src('node_modules/ionicons/dist/css/ionicons.min.css')
+    .pipe(gulp.dest('./css/v2-demos/ionicons/'));
+
+  gulp.src('node_modules/ionicons/dist/fonts/*{eot,svg,ttf,woff}')
+    .pipe(gulp.dest('./css/v2-demos/fonts/'));
+
+  gulp.src('node_modules/ionicons/dist/data/ionicons.json')
+    .pipe(rename('site_data.json'))
+    .pipe(gulp.dest('./docs/v2/resources/ionicons/'));
+
+  gulp.src('node_modules/ionicons/dist/data/mode-icons.json')
+    .pipe(gulp.dest('./docs/v2/resources/ionicons/data/'));
+
+  gulp.src('node_modules/ionicons/dist/data/logo-icons.json')
+    .pipe(rename('generic-icons.json'))
+    .pipe(gulp.dest('./docs/v2/resources/ionicons/data/'));
+});
+
+gulp.task('build', ['ionicons', 'cli-docs', 'styles:v1', 'styles:v2', 'jekyll-build', 'images', 'js']);
+gulp.task('default', ['build']);

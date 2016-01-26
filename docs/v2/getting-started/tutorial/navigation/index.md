@@ -52,7 +52,7 @@ Navigation in Ionic 2 works like a simple stack, where we `push` new pages onto 
 </button>
 
 <div id="v1-changes" class="collapse well">
-When it comes to URLs, Ionic 2 works a bit differently than Ionic 1. Instead of using URLs to navigate, we use them to make sure we can always come back to a page (on app launch, for example).  This means we aren't not limited to using `href` to navigate around. However,  we still have the option to use a URL to navigate to a page when necessary.
+When it comes to URLs, Ionic 2 works a bit differently than Ionic 1. Instead of using URLs to navigate, we use them to make sure we can always come back to a page (on app launch, for example).  This means we aren't limited to using `href` to navigate around. However,  we still have the option to use a URL to navigate to a page when necessary.
 </div>
 
 

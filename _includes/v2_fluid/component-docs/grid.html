@@ -5,5 +5,57 @@
 </a>
 
 Ionic's grid system is based on [flexbox](http://www.w3.org/TR/css3-flexbox/), a CSS feature supported by all devices that Ionic supports. The grid is composed of two units &mdash; _rows_ and _columns_. Columns will expand to fill their row, and will resize to fit additional columns.
+In order to set with use `width` attribute on ion-col tag. 
+```html
+<ion-col width-10>This column will take 10% of space</ion-col>
+```
+
+<table class="table">
+    <thead>
+      <tr>
+        <th colspan="2">
+          Explicit Column Percentage Attributes
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>width-10</th>
+        <td>10%</td>
+      </tr>
+      <tr>
+        <th>width-20</th>
+        <td>20%</td>
+      </tr>
+      <tr>
+        <th>width-25</th>
+        <td>25%</td>
+      </tr>
+      <tr>
+        <th>width-33</th>
+        <td>33.3333%</td>
+      </tr>
+      <tr>
+        <th>width-50</th>
+        <td>50%</td>
+      </tr>
+      <tr>
+        <th>width-67</th>
+        <td>66.6666%</td>
+      </tr>
+      <tr>
+        <th>width-75</th>
+        <td>75%</td>
+      </tr>
+      <tr>
+        <th>width-80</th>
+        <td>80%</td>
+      </tr>
+      <tr>
+        <th>width-90</th>
+        <td>90%</td>
+      </tr>
+    </tbody>
+  </table>
 
 Use the `offset` attribute on a column to set its percent offset from the left (eg: `offset-25`). To change how columns in a row align vertically, add the `center` or `baseline` attribute to an `<ion-row>`.

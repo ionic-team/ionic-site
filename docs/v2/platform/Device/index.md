@@ -1,0 +1,65 @@
+---
+layout: "v2_fluid/docs_base"
+version: "1.0.8"
+versionHref: "/docs/v2/platform"
+path: ""
+category: platform
+id: "{{Device | slugify}}"
+title: "Device"
+header_sub_title: "Class in module "
+doc: "Device"
+docType: "class"
+---
+
+
+
+
+
+
+
+
+<h1 class="api-title">
+
+
+Device
+
+
+
+
+
+
+</h1>
+
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/device.ts#L2'>
+Improve this doc
+</a>
+
+
+
+
+
+
+<!-- description -->
+<h2>Description</h2>
+
+<p>Access information about the underlying device and platform.</p>
+
+<!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-js">let info = Device.getDevice();
+// Device sits below
+</code></pre>
+
+
+
+
+<!-- @property tags -->
+
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
+

@@ -132,23 +132,7 @@
         {% if page.category == 'platform' %}
           ng-init="showPlatform = true"
         {% endif %}>
-      {% comment %}
-      <li><a href="/docs/v2/platform/applinks/">App Links</a></li>
-      <li><a href="/docs/v2/platform/barcode/">Barcode</a></li>
-      <li><a href="/docs/v2/platform/battery/">Battery</a></li>
-      <li><a href="/docs/v2/platform/camera/">Camera</a></li>
-      <li><a href="/docs/v2/platform/contacts/">Contacts</a></li>
-      <li><a href="/docs/v2/platform/device/">Device</a></li>
-      <li><a href="/docs/v2/platform/device-motion/">Device Motion</a></li>
-      <li><a href="/docs/v2/platform/device-orientation/">Device Orientation</a></li>
-      <li><a href="/docs/v2/platform/dialogs/">Dialogs</a></li>
-      <li><a href="/docs/v2/platform/geolocation/">Geolocation</a></li>
-      <li><a href="/docs/v2/platform/keyboard/">Keyboard</a></li>
-      <li><a href="/docs/v2/platform/statusbar/">Status Bar</a></li>
-      <li><a href="/docs/v2/platform/storage/">Storage</a></li>
-      <li><a href="/docs/v2/platform/vibration/">Vibration</a></li>
-      {% endcomment %}
-      <li><a href="/docs/v2/platform/storage/">Storage</a></li>
+      {% include v2_fluid/platform_menu.html %}
     </ul>
   </li>
 

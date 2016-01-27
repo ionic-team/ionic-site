@@ -9,7 +9,9 @@ title: Ionic 2 Documentation - Welcome
   <form class="form-group search" role="search">
     <input type="text"
            class="form-control search-input"
-           placeholder="Search Ionic Docs...">
+           placeholder="Search Ionic Docs..."
+           data-searchpos="index"
+           ng-model="searchTerm">
   </form>
   <div class="sections">
     <a class="section getting-started"

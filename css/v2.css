@@ -4702,8 +4702,7 @@ body {
   float: right; }
 
 .docs-container .side-nav {
-  width: 230px;
-  padding-top: 73px; }
+  width: 230px; }
 
 .docs-container > main {
   margin-left: 230px; }
@@ -4885,6 +4884,7 @@ body {
   overflow-y: scroll;
   top: 0;
   bottom: 0;
+  z-index: 1;
   overflow-y: -moz-scrollbars-none;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch;
@@ -4949,7 +4949,7 @@ body {
         font-size: 14px;
         box-shadow: none;
         transition: .2s border-color, .2s box-shadow; }
-        .side-nav .form-group.search input:focus {
+        .side-nav .form-group.search input:focus, .side-nav .form-group.search input:hover {
           box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
           border-color: #4f8ff7; }
     .side-nav .form-group select {
@@ -5312,6 +5312,87 @@ ul.docs-example {
       font-size: 14px;
       color: #a0a5b0;
       margin-top: 11px; }
+
+#search-results {
+  display: none;
+  position: fixed;
+  top: 77px;
+  left: 233px;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px 0 30px 40px;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  opacity: 0;
+  -webkit-transform: translate3d(0, -50px, 0);
+          transform: translate3d(0, -50px, 0);
+  transition: all .3s; }
+  #search-results.sidebar {
+    top: 0;
+    -webkit-transform: translate3d(-50px, 0, 0);
+            transform: translate3d(-50px, 0, 0); }
+  #search-results.index {
+    top: 320px;
+    position: absolute; }
+  #search-results.ready {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+  #search-results.active {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+  #search-results > div {
+    -webkit-flex: 1 0 245px;
+        -ms-flex: 1 0 245px;
+            flex: 1 0 245px;
+    margin-right: 40px; }
+    #search-results > div:first-child {
+      -webkit-flex: 1 0 560px;
+          -ms-flex: 1 0 560px;
+              flex: 1 0 560px; }
+      #search-results > div:first-child ul {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap; }
+        #search-results > div:first-child ul li {
+          -webkit-flex: 1 0 150px;
+              -ms-flex: 1 0 150px;
+                  flex: 1 0 150px;
+          margin-right: 5px; }
+  #search-results h3 {
+    color: #4f8ff7;
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase; }
+    #search-results h3:after {
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #4f8ff7;
+      height: 2px;
+      content: ''; }
+  #search-results ul {
+    list-style: none;
+    padding: 2px 0 0; }
+    #search-results ul li {
+      margin-top: 20px; }
+      #search-results ul li a {
+        color: #898989;
+        font-weight: 500;
+        line-height: 1.4em; }
 
 .docs-ionicons .download {
   margin-top: 60px;

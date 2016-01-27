@@ -1,25 +1,25 @@
 $(document).ready(function() {
-  var searchInput = $('.search-input');
-
-  var searchResultsDiv = $('#search-results');
+  var $searchInput = $('.search-input');
+  var $searchResultsDiv = $('#search-results');
+  var activeSearchInputPos;
 
   setTimeout(function() {
     // check if there if there is recent search data in local storage
     try {
-      var localData = JSON.parse(localStorage.getItem('v2search-index'));
+      var localData = JSON.parse(localStorage.getItem('search-index'));
       if (localData && (localData.ts + 86400000) > Date.now()) {
         searchReady(localData);
         return;
       }
-    } catch(e) {}
+    } catch (e) {}
 
-    $.getJSON('/docs/v2/data/v2-index.json', function(requestData) {
+    $.getJSON('/docs/v2/data/index.json', function(requestData) {
       searchReady(requestData);
       setTimeout(function() {
         try {
           requestData.ts = Date.now();
-          localStorage.setItem('v2search-index', JSON.stringify(requestData));
-        } catch(e) {}
+          localStorage.setItem('search-index', JSON.stringify(requestData));
+        } catch (e) {}
       }, 100);
     });
 
@@ -28,22 +28,33 @@ $(document).ready(function() {
   var debounce = function(fn) {
     var timeout;
     return function() {
-      var args = Array.prototype.slice.call(arguments),
-          ctx = this;
+      var args = Array.prototype.slice.call(arguments);
+      var ctx = this;
 
       clearTimeout(timeout);
       timeout = setTimeout(function() {
         fn.apply(ctx, args);
       }, 50);
     };
-  }
+  };
 
   function searchReady(data) {
-    if(!searchInput.length || $(window).width() < 768) return;
+    if (!$searchInput.length || $(window).width() < 768) {
+      return;
+    }
     var idx = lunr.Index.load(data.index);
 
-    searchInput.closest('.search-bar').css({visibility: 'visible'});
-    searchInput.on('keyup', debounce(function() {
+    $searchInput.closest('.search-bar').css({visibility: 'visible'});
+    $searchInput.on('keyup', debounce(function(e) {
+      // identify which input this is so we can position the input accordingly
+      if (activeSearchInputPos) {
+        $searchResultsDiv.removeClass(activeSearchInputPos);
+      }
+      if (e.target.dataset && e.target.dataset.searchpos) {
+        activeSearchInputPos = e.target.dataset.searchpos;
+        $searchResultsDiv.addClass(activeSearchInputPos);
+      }
+
       var query = $(this).val();
 
       if (!query || query.length < 2 || query == 'Search') {
@@ -54,8 +65,8 @@ $(document).ready(function() {
       var
       results = {
         api: {},
-        css: {},
-        content: {}
+        platform: {},
+        other: {}
       },
       queryResult,
       queryResultId,
@@ -63,15 +74,15 @@ $(document).ready(function() {
       queryResults = idx.search(query);
 
       // categorize results based on URL
-      console.log('search results', queryResults)
       for (queryResultId in queryResults) {
         queryResult = queryResults[queryResultId];
         queryData = data.ref[ queryResult.ref ];
-        console.log(queryData);
-        if (queryData.l == 'v2/docs_api') {
+        if (queryData.p.indexOf('/api/') === 0) {
           results.api[ queryResult.ref ] = queryData;
+        } else if (queryData.p.indexOf('/platform/') === 0) {
+          results.platform[ queryResult.ref ] = queryData;
         } else {
-          results.content[ queryResult.ref ] = queryData;
+          results.other[ queryResult.ref ] = queryData;
         }
       }
       showResults(results);
@@ -79,61 +90,61 @@ $(document).ready(function() {
   }
 
   function showResults(resultsData) {
-    console.log('Got Results!', resultsData);
     addResults('#results-api', resultsData.api, 42);
-    addResults('#results-css', resultsData.css, 14);
-    addResults('#results-content', resultsData.content, 14);
+    addResults('#results-platform', resultsData.platform, 14);
+    addResults('#results-other', resultsData.other, 14);
 
     clearTimeout(removeOverlay);
-    searchResultsDiv.show();
+    $searchResultsDiv.addClass('ready');
 
     if (!$('#search-overlay').length) {
       $(document.body).append('<div id="search-overlay"></div>');
     }
-
-    setTimeout(function() {
-      $(document.body).addClass('search-open');
-    }, 16);
   }
 
   function addResults(sectionId, data, limit) {
     var links = '';
-    var section = searchResultsDiv.find(sectionId);
+    var section = $searchResultsDiv.find(sectionId + ' ul');
     var total = 0;
 
     for (var i in data) {
-      links += '<li><a href="' + data[i].p + '">' + data[i].t + '</a></li>';
+      links += '<li><a href="/docs/v2' + data[i].p + '">';
+      links += data[i].t + '</a></li>';
       total++;
-      if(total >= limit) break;
+      if (total >= limit) {
+        break;
+      }
     }
 
     section.html(links);
+    window.requestAnimationFrame(function() {
+      $searchResultsDiv.addClass('active');
+    });
   }
 
   var removeOverlay;
   function hideResults() {
-    $(document.body).removeClass('search-open');
+    $searchResultsDiv.removeClass('active');
     removeOverlay = setTimeout(function() {
       $('#search-overlay').remove();
-      searchResultsDiv.hide();
+      $searchResultsDiv.removeClass('ready');
     }, 200);
   }
 
   $(document).keyup(function(e) {
     if (e.keyCode == 27) {
-      searchInput.val('');
+      $searchInput.val('');
       hideResults();
     }
   });
 
-  searchInput.focus(function() {
-    $(this).closest('.search-bar').addClass('active');
+  $searchInput.focus(function() {
+    // do nothing
   });
 
-  searchInput.blur(function() {
-    $(this).closest('.search-bar').removeClass('active');
+  $searchInput.blur(function() {
     setTimeout(function() {
       hideResults();
-    }, 200);
+    }, 300);
   });
 });

@@ -20,7 +20,9 @@
         <form class="form-group search" role="search">
           <input type="text"
                  class="form-control search-input"
-                 placeholder="Search">
+                 placeholder="Search"
+                 data-searchpos="sidebar"
+                 ng-model="searchTerm">
         </form>
         {% if page.category == 'api' %}
           {% include v2_fluid/docs_side_nav_api.html %}
@@ -63,5 +65,19 @@
       </main>
     </div>
     {% include v2_fluid/footer_tags.html %}
+    <div id="search-results">
+      <div id="results-api">
+        <h3>API</h3>
+        <ul></ul>
+      </div>
+      <div id="results-platform">
+        <h3>Platform</h3>
+        <ul></ul>
+      </div>
+      <div id="results-other">
+        <h3>General</h3>
+        <ul></ul>
+      </div>
+    </div>
   </body>
 </html>

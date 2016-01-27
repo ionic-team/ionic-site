@@ -6,6 +6,7 @@ markdown: kramdown
 kramdown:
   input: GFM
 timezone: "US/Central"
+highlighter: rouge
 
 # Default news if the page didnt enter news
 news: Check out our <a href="/docs/guide/">Guide</a>, which covers all the basics of setting up.

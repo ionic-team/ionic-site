@@ -6,7 +6,8 @@
               class="navbar-toggle collapsed"
               data-toggle="collapse"
               data-target="#navbar-collapse"
-              aria-expanded="false">
+              aria-expanded="false"
+              ng-model="searchTerm">
         <span class="sr-only">Toggle navigation</span>
         <i class="ion-md-more"></i>
       </button>
@@ -24,11 +25,14 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-collapse">
-      <form class="navbar-form navbar-left" role="search">
+      <form class="navbar-form navbar-left"
+            role="search"
+            data-searchpos="header">
         <div class="form-group">
           <input type="text"
                  class="form-control search-input"
-                 placeholder="Search">
+                 placeholder="Search"
+                 data-searchpos="header">
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">

@@ -9,7 +9,7 @@ machine:
     version: 2.2.3
 dependencies:
   post:
-    - gem install jekyll && gem install kramdown
+    - gem install jekyll && gem install kramdown && gem install rouge
     - ./_scripts/prepare.sh
 test:
   override:

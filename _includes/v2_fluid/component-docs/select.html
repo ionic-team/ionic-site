@@ -4,4 +4,43 @@
   Improve this Doc
 </a>
 
-*Coming soon.*
+The `ion-select` component is similar to an HTML `<select>` element, however, Ionic's select component makes it easier for users to sort through and select the preferred option or options. When users tap the select component, a  dialog will appear with all of the options in a large, easy to select list for users.
+
+
+```html
+
+<ion-list>
+  <ion-label>Gaming</ion-label>
+  <ion-select [(ngModel)]="gaming">
+    <ion-option value="nes">NES</ion-option>
+    <ion-option value="n64">Nintendo64</ion-option>
+    <ion-option value="ps">PlayStation</ion-option>
+    <ion-option value="genesis">Sega Genesis</ion-option>
+    <ion-option value="saturn">Sega Saturn</ion-option>
+    <ion-option value="snes">SNES</ion-option>
+  </ion-select>
+</ion-list>
+
+```
+
+You can make multiple selection with `<ion-select>` by adding `multiple="true"` to the element
+
+```
+<ion-list>
+  <ion-item>
+  <ion-label>Toppings</ion-label>
+  <ion-select [(ngModel)]="toppings" multiple="true" cancelText="Nah" okText="Okay!">
+    <ion-option value="bacon" checked="true">Bacon</ion-option>
+    <ion-option value="olives">Black Olives</ion-option>
+    <ion-option value="xcheese" checked="true">Extra Cheese</ion-option>
+    <ion-option value="peppers">Green Peppers</ion-option>
+    <ion-option value="mushrooms">Mushrooms</ion-option>
+    <ion-option value="onions">Onions</ion-option>
+    <ion-option value="pepperoni">Pepperoni</ion-option>
+    <ion-option value="pineapple">Pineapple</ion-option>
+    <ion-option value="sausage">Sausage</ion-option>
+    <ion-option value="Spinach">Spinach</ion-option>
+  </ion-select>
+</ion-item>
+</ion-list>
+```

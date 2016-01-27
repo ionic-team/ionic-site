@@ -1,46 +1,70 @@
 ---
-layout: v2_fluid/docs_base
+layout: "v2_fluid/docs_base"
+version: "1.0.8"
+versionHref: "/docs/v2/platform"
+path: ""
 category: platform
-id: camera
-title: Camera | Ionic Native Plugins
-header_title: Camera Support
-header_sub_title: Take photos and video
+id: "{{Camera | slugify}}"
+title: "Camera"
+header_sub_title: "Class in module "
+doc: "Camera"
+docType: "class"
 ---
 
-<h1 class="title">Camera</h1>
 
-<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/platform/camera/index.md'>
-  Improve this doc
+
+
+
+
+
+
+<h1 class="api-title">
+
+
+Camera
+
+
+
+
+
+
+</h1>
+
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/camera.ts#L0'>
+Improve this doc
 </a>
 
-```bash
-$ ionic plugin add cordova-plugin-camera
-```
 
-To take pictures in your Ionic app, use the `Camera` utility:
 
-```javascript
-import {Camera} from 'ionic/ionic'
 
-class PhotoTaker {
-  takePhoto() {
-    Camera.getPicture({
-      quality: 50,
-      destinationType: Camera.DestinationType.DATA_URL,
-      sourceType: Camera.PictureSourceType.CAMERA,
-      allowEdit: true,
-      encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 100,
-      targetHeight: 100,
-      popoverOptions: CameraPopoverOptions,
-      saveToPhotoAlbum: false
-    }).then((data) => {
-      // Camera data
-      //let base64Image = "data:image/jpeg;base64," + data;
-      // this.imageData = base64Image;
-      //
-      // Use this in your view: <img src="{{imageData}}">
-    })
-  }
-}
-```
+
+
+<!-- description -->
+<h2>Description</h2>
+
+<p>Take a photo or capture video.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
+
+<!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-js">Camera.getPicture(options).then((imageData) =&gt; {
+ // imageData is either a base64 encoded string or a file URI
+ // If it&#39;s base64:
+ let base64Image = &quot;data:image/jpeg;base64,&quot; + imageData;
+}, (err) =&gt; {
+});
+</code></pre>
+
+
+
+
+<!-- @property tags -->
+
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
+

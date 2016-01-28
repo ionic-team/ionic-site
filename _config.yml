@@ -14,7 +14,7 @@ v2news: Check out our <a href="/docs/v2/guide/">Guide</a>, which covers all the 
 exclude: [node_modules, scss, README.md, Gulpfile.js]
 
 # Latest Version Config
-latest_download: http://code.ionicframework.com/1.2.2/ionic-v1.2.4.zip
+latest_download: http://code.ionicframework.com/1.2.4/ionic-v1.2.4.zip
 latest_version: 1.2.4 "Copenhagen"
 latest_release_date: 2016-01-02
 

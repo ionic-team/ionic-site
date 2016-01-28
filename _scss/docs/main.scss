@@ -163,29 +163,32 @@ body {
 
     .form-group {
       position: relative;
-      padding-left: 15px;
+      padding-left: 50px;
 
       input {
-        background: transparent;
+        background: lighten($blue, 2);
         box-shadow: none;
         border: none;
         color: white;
         font-size: 14px;
+        border-radius: 800px;
+        padding-left: 38px;
+
 
         &::-webkit-input-placeholder {
-          color: lighten($blue, 15);
+          color: lighten($blue, 20);
         }
 
         &:-moz-placeholder {
-          color: lighten($blue, 15);
+          color: lighten($blue, 20);
         }
 
         &::-moz-placeholder {
-          color: lighten($blue, 15);
+          color: lighten($blue, 20);
         }
 
         &:-ms-input-placeholder {
-          color: lighten($blue, 15);
+          color: lighten($blue, 20);
         }
       }
 
@@ -198,7 +201,7 @@ body {
         color: lighten($blue, 15);
         position: absolute;
         top: 4px;
-        left: 0;
+        left: 65px;
       }
     }
   }

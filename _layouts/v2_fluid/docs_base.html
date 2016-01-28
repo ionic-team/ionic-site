@@ -9,10 +9,10 @@
   <body id="docs-page-{{page.id}}"
         class="v2 docs page-{{page.id}}"
         data-spy="scroll"
-        data-target="#components-index">
+        data-target="#components-index"
+        ng-app="IonicDocs">
     {% include v2_fluid/io_header.html %}
     <div class="docs-container"
-         ng-app="IonicDocs"
          {% if page.angular_controller %}
            ng-controller="{{ page.angular_controller }}"
          {% endif %}>

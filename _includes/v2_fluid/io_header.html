@@ -6,8 +6,7 @@
               class="navbar-toggle collapsed"
               data-toggle="collapse"
               data-target="#navbar-collapse"
-              aria-expanded="false"
-              ng-model="searchTerm">
+              aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <i class="ion-md-more"></i>
       </button>
@@ -32,7 +31,8 @@
           <input type="text"
                  class="form-control search-input"
                  placeholder="Search"
-                 data-searchpos="header">
+                 data-searchpos="header"
+                 ng-model="searchTerm">
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">

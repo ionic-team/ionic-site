@@ -44,17 +44,17 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Place <code>menuClose</code> on a button to automatically close an open menu. Note that the menu&#39;s id must be either
 <code>leftMenu</code> or <code>rightMenu</code></p>
 
 
-<h3>Directive</h3>
+<h2>Directive</h2>
 <h3>selector: <code>[menuClose]</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot; id=&quot;leftMenu&quot;&gt;
   &lt;ion-content&gt;
@@ -73,9 +73,30 @@ Improve this doc
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link -->
+<!-- methods on the class -->
 
-<h3>Related</h3>
+<h2>Methods</h2>
+
+<div id="menuClose"></div>
+
+<h3>
+<code>menuClose()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
+
+<h2>Related</h2>
 
 <a href='/docs/v2/components#menus'>Menu Component Docs</a>
 <a href='../../menu/Menu'>Menu API Docs</a><!-- end content block -->

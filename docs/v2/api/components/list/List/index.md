@@ -44,6 +44,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>The List is a widely used interface element in almost any mobile app, and can include
 content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.</p>
@@ -53,7 +54,7 @@ element.</p>
 interaction modes such as swipe to edit, drag to reorder, and removing items.</p>
 
 
-<h3>Directive</h3>
+<h2>Directive</h2>
 <h3>selector: <code>ion-list</code></h3>
 <!-- @usage tag -->
 
@@ -63,7 +64,121 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
+
+<div id="ele"></div>
+
+<h3>
+<code>ele()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="itemTemplate"></div>
+
+<h3>
+<code>itemTemplate()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="slidingGesture"></div>
+
+<h3>
+<code>slidingGesture()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="items"></div>
+
+<h3>
+<code>items()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="virtual"></div>
+
+<h3>
+<code>virtual()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="content"></div>
+
+<h3>
+<code>content()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="zone"></div>
 
@@ -178,7 +293,7 @@ export class MyClass {
 
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#lists'>List Component Docs</a><!-- end content block -->
 

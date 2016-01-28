@@ -42,6 +42,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p><em>For basic Tabs usage, see the <a href="../../../../components/#tabs">Tabs section</a>
 of the Component docs.</em></p>
@@ -50,12 +51,11 @@ individual Tab components. On iOS, the TabBar is placed on the bottom of
 the screen, while on Android it is at the top.</p>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-tabs</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-tabs&gt;
   &lt;ion-tab [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
@@ -67,7 +67,7 @@ the screen, while on Android it is at the top.</p>
 
 <!-- @property tags -->
 
-<h3>Attributes:</h3>
+<h2>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -150,50 +150,31 @@ sets whether to preload all the tabs, true or false
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
-
-<div id="id"></div>
-
-<h3>
-<code>id()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="navbarContainerRef"></div>
-
-<h3>
-<code>navbarContainerRef()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
+<h2>Methods</h2>
 
 <div id="subPages"></div>
 
 <h3>
 <code>subPages()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="selectedIndex"></div>
+
+<h3>
+<code>selectedIndex()</code>
   
 
 </h3>
@@ -455,7 +436,7 @@ within a NavController.
 
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#tabs'>Tabs Component Docs</a>
 <a href='../Tab'>Tab API Docs</a><!-- end content block -->

@@ -44,16 +44,16 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Directive for declaratively pop the current page off from the navigation stack.</p>
 
 
-<h3>Directive</h3>
+<h2>Directive</h2>
 <h3>selector: <code>[nav-pop]</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
  &lt;div block button nav-pop&gt;go back&lt;/div&gt;
@@ -70,7 +70,7 @@ Improve this doc
 
 <!-- methods on the class --><!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
 <a href='../NavPush'>NavPush API Docs</a><!-- end content block -->

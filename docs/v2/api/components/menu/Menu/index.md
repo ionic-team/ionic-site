@@ -44,18 +44,18 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p><em>For basic Menu usage, see the <a href="../../../../components/#menus">Menu section</a>
 of the Component docs.</em></p>
 <p>Menu is a side-menu navigation that can be dragged out or toggled to show.</p>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-menu</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <p>In order to use Menu, you must specify a <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">reference</a>
 to the content element that Menu should listen on for drag events, using the <code>content</code> property:</p>
@@ -119,26 +119,7 @@ export class MyClass{
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
-
-<div id="opening"></div>
-
-<h3>
-<code>opening()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
+<h2>Methods</h2>
 
 <div id="isOpen"></div>
 
@@ -163,6 +144,25 @@ export class MyClass{
 
 <h3>
 <code>isEnabled()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isSwipeEnabled"></div>
+
+<h3>
+<code>isSwipeEnabled()</code>
   
 
 </h3>
@@ -292,6 +292,25 @@ export class MyClass{
 
 
 
+<div id="swipeEnabled"></div>
+
+<h3>
+<code>swipeEnabled()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="maxEdgeStart"></div>
 
 <h3>
@@ -311,67 +330,10 @@ export class MyClass{
 
 
 
-<div id="app"></div>
+<div id="opening"></div>
 
 <h3>
-<code>app()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="platform"></div>
-
-<h3>
-<code>platform()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="keyboard"></div>
-
-<h3>
-<code>keyboard()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="zone"></div>
-
-<h3>
-<code>zone()</code>
+<code>opening()</code>
   
 
 </h3>
@@ -566,9 +528,63 @@ left menus, but only one of them should be able to be dragged open.
 </div>
 
 
+
+
+<div id="swipeEnable"></div>
+
+<h3>
+<code>swipeEnable(shouldEnable)</code>
+  
+
+</h3>
+
+Used to enable or disable the ability to swipe open the menu.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        shouldEnable
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>True if it should be swipe-able, false if not.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
+</div>
+
+
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#menus'>Menu Component Docs</a>
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>

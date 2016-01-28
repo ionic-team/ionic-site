@@ -42,6 +42,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Icons can be used on their own, or inside of a number of Ionic components.
 For a full list of available icons, check out the
@@ -54,12 +55,11 @@ automatically apply <code>md-alarm</code>. This allow the developer to write the
 markup once, and let Ionic automatically apply the appropriate icon.</p>
 
 
-<h3>Directive</h3>
+<h2>Directive</h2>
 <h3>selector: <code>ion-icon,icon</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;!-- automatically uses the correct &quot;star&quot; icon depending on the mode --&gt;
 &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
@@ -77,7 +77,7 @@ markup once, and let Ionic automatically apply the appropriate icon.</p>
 
 <!-- @property tags -->
 
-<h3>Attributes:</h3>
+<h2>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -184,7 +184,7 @@ or not. The `isActive` property is largely used by the tabbar.
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="mode"></div>
 
@@ -285,7 +285,7 @@ or not. The `isActive` property is largely used by the tabbar.
 
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#icons'>Icon Component Docs</a><!-- end content block -->
 

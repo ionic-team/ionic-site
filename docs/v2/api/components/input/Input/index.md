@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "{{Input | slugify}}"
 title: "Input"
-header_sub_title: "Class in module ionic"
+header_sub_title: "Class in module "
 doc: "Input"
 docType: "class"
 
@@ -42,35 +42,48 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
-<p><code>ion-input</code> is a generic wrapper for both inputs and textareas. You can give <code>ion-input</code> attributes to tell it how to handle a child <code>ion-label</code> component.</p>
+<p><code>ion-input</code> is meant for text type inputs only, such as <code>text</code>,
+<code>password</code>, <code>email</code>, <code>number</code>, <code>search</code>, <code>tel</code>, and <code>url</code>. Ionic
+still uses an actual <code>&lt;input type=&quot;text&quot;&gt;</code> HTML element within the
+component, however, with Ionic wrapping the native HTML input
+element it&#39;s able to better handle the user experience and
+interactivity.</p>
+<p>Similarily, <code>&lt;ion-textarea&gt;</code> should be used in place of <code>&lt;textarea&gt;</code>.</p>
+<p>An <code>ion-input</code> is <strong>not</strong> used for non-text type inputs, such as a
+<code>checkbox</code>, <code>radio</code>, <code>toggle</code>, <code>range</code>, <code>select</code>, etc.</p>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-input</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
+<h2>Usage</h2>
 
-
-<pre><code class="lang-html">&lt;ion-input&gt;
+<pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Username&lt;/ion-label&gt;
-  &lt;input type=&quot;text&quot; value=&quot;&quot;&gt;
-&lt;/ion-input&gt;
+  &lt;ion-input&gt;&lt;/ion-input&gt;
+&lt;/ion-item&gt;
 
-&lt;ion-input clearInput&gt;
-  &lt;input type=&quot;text&quot; placeholder=&quot;Username&quot;&gt;
-&lt;/ion-input&gt;
+&lt;ion-item&gt;
+  &lt;ion-labe fixed&gt;Website&lt;/ion-label&gt;
+  &lt;ion-input type=&quot;url&quot;&gt;&lt;/ion-input&gt;
+&lt;/ion-item&gt;
 
-&lt;ion-input fixed-label&gt;
-  &lt;ion-label&gt;Username&lt;/ion-label&gt;
-  &lt;input type=&quot;text&quot; value=&quot;&quot;&gt;
-&lt;/ion-input&gt;
+&lt;ion-item&gt;
+  &lt;ion-label floating&gt;Email&lt;/ion-label&gt;
+  &lt;ion-input type=&quot;email&quot;&gt;&lt;/ion-input&gt;
+&lt;/ion-item&gt;
 
-&lt;ion-input floating-label&gt;
-  &lt;ion-label&gt;Username&lt;/ion-label&gt;
-  &lt;input type=&quot;text&quot; value=&quot;&quot;&gt;
-&lt;/ion-input&gt;
+&lt;ion-item&gt;
+  &lt;ion-label stacked&gt;Phone&lt;/ion-label&gt;
+  &lt;ion-input type=&quot;tel&quot;&gt;&lt;/ion-input&gt;
+&lt;/ion-item&gt;
+
+&lt;ion-item clearInput&gt;
+  &lt;ion-input placeholder=&quot;Username&quot;&gt;&lt;/ion-input&gt;
+&lt;/ion-item&gt;
 </code></pre>
 
 
@@ -78,7 +91,7 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h3>Attributes:</h3>
+<h2>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -92,52 +105,10 @@ Improve this doc
 
 
 
-
-
-
-
-
-
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-
-<tr>
-<td>
-fixed-label
-</td>
-
-
-
-<td>
-a persistant label that sits next the the input
-</td>
-</tr>
-
-<tr>
-<td>
-floating-label
-</td>
-
-
-
-<td>
-a label that will float about the input if the input is empty of looses focus
-</td>
-</tr>
-
-<tr>
-<td>
-stacked-label
-</td>
-
-
-
-<td>
-A stacked label will always appear on top of the input
-</td>
-</tr>
 
 <tr>
 <td>
@@ -168,218 +139,7 @@ A clear icon will appear in the input which clears it
 </table>
 
 
-<!-- methods on the class -->
-
-<h3>Methods</h3>
-
-<div id="input"></div>
-
-<h3>
-<code>input()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="label"></div>
-
-<h3>
-<code>label()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="scrollMove"></div>
-
-<h3>
-<code>scrollMove()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="startCoord"></div>
-
-<h3>
-<code>startCoord()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="deregScroll"></div>
-
-<h3>
-<code>deregScroll()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="keyboardHeight"></div>
-
-<h3>
-<code>keyboardHeight()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="value"></div>
-
-<h3>
-<code>value()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="type"></div>
-
-<h3>
-<code>type()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="lastTouch"></div>
-
-<h3>
-<code>lastTouch()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="displayType"></div>
-
-<h3>
-<code>displayType()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="clearInput"></div>
-
-<h3>
-<code>clearInput()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link --><!-- end content block -->
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

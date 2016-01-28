@@ -42,6 +42,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>SqlStorage uses SQLite or WebSQL (development only!) to store data in a
 persistent SQL store on the filesystem.</p>
@@ -52,8 +53,7 @@ storage. The full SQL engine is exposed underneath through the <code>query</code
 
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-js">let storage = new Storage(SqlStorage, options);
 storage.set(&#39;name&#39;, &#39;Max&#39;);
@@ -79,7 +79,7 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="query"></div>
 

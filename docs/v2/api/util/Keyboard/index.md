@@ -42,13 +42,13 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>The <code>Keyboard</code> class allows you to work with the keyboard events provide by the Ionic keyboard plugin.</p>
 
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-ts">export class MyClass{
  constructor(keyboard: Keyboard){
@@ -65,7 +65,7 @@ Improve this doc
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="isOpen"></div>
 

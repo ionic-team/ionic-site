@@ -32,7 +32,7 @@ ViewController
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/view-controller.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/view-controller.ts#L4'>
 Improve this doc
 </a>
 
@@ -42,13 +42,13 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Access various features and information about the current view</p>
 
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-ts">import {Page, ViewController} from &#39;ionic/ionic&#39;;
 @Page....
@@ -67,140 +67,7 @@ export class MyPage{
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
-
-<div id="id"></div>
-
-<h3>
-<code>id()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="instance"></div>
-
-<h3>
-<code>instance()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="state"></div>
-
-<h3>
-<code>state()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="shouldDestroy"></div>
-
-<h3>
-<code>shouldDestroy()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="shouldCache"></div>
-
-<h3>
-<code>shouldCache()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="viewType"></div>
-
-<h3>
-<code>viewType()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onReady"></div>
-
-<h3>
-<code>onReady()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
+<h2>Methods</h2>
 
 <div id="componentType"></div>
 
@@ -259,25 +126,6 @@ export class MyPage{
 
 
 
-<div id="emit"></div>
-
-<h3>
-<code>emit()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="onDismiss"></div>
 
 <h3>
@@ -301,82 +149,6 @@ export class MyPage{
 
 <h3>
 <code>dismiss()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setNav"></div>
-
-<h3>
-<code>setNav()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getTransitionName"></div>
-
-<h3>
-<code>getTransitionName()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getNavParams"></div>
-
-<h3>
-<code>getNavParams()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setLeavingOpts"></div>
-
-<h3>
-<code>setLeavingOpts()</code>
   
 
 </h3>

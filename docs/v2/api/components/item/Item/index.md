@@ -32,7 +32,7 @@ Item
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/item/item.ts#L3'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/item/item.ts#L6'>
 Improve this doc
 </a>
 
@@ -42,6 +42,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Creates a list-item that can easily be swiped, deleted, reordered, edited, and more.</p>
 <p>There are three common ways to use an item:</p>
@@ -53,29 +54,19 @@ Improve this doc
 <p>By default, <code>&lt;button ion-item&gt;</code> and <code>&lt;a ion-item&gt;</code> will receive a right arrow icon on iOS to signal that tapping the item will reveal more information.
 To hide this icon, add the <code>detail-none</code> attribute to the item (eg: <code>&lt;button ion-item detail-none&gt;</code>). To add the icon when it is not displayed by default,
 add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&gt;</code>).</p>
-<p>To break an item up into multiple columns, add multiple <code>&lt;ion-item-content&gt;</code> components inside of the item. By default,
-this component will automatically be added inside of an <code>&lt;ion-item&gt;</code>, giving it a single column.</p>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-item,[ion-item]</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
 
   // default item
   &lt;ion-item&gt;
     {{item.title}}
-  &lt;/ion-item&gt;
-
-  // multiple item-content containers
-  &lt;ion-item&gt;
-    &lt;ion-item-content&gt;First Column&lt;/ion-item-content&gt;
-    &lt;ion-item-content&gt;Second Column&lt;/ion-item-content&gt;
-    &lt;ion-item-content&gt;Third Column&lt;/ion-item-content&gt;
   &lt;/ion-item&gt;
 
 &lt;/ion-list&gt;
@@ -87,9 +78,87 @@ this component will automatically be added inside of an <code>&lt;ion-item&gt;</
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link -->
+<!-- methods on the class -->
 
-<h3>Related</h3>
+<h2>Methods</h2>
+
+<div id="id"></div>
+
+<h3>
+<code>id()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="labelId"></div>
+
+<h3>
+<code>labelId()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="contentLabel"></div>
+
+<h3>
+<code>contentLabel()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="viewLabel"></div>
+
+<h3>
+<code>viewLabel()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+<!-- related link -->
+
+<h2>Related</h2>
 
 <a href='/docs/v2/components#lists'>List Component Docs</a>
 <a href='../../list/List'>List API Docs</a><!-- end content block -->

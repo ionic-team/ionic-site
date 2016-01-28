@@ -42,18 +42,18 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>The Content component provides an easy to use content area that can be configured to use Ionic&#39;s custom Scroll View, or the built in overflow scrolling of the browser.</p>
 <p>While we recommend using the custom Scroll features in Ionic in most cases, sometimes (for performance reasons) only the browser&#39;s native overflow scrolling will suffice, and so we&#39;ve made it easy to toggle between the Ionic scroll implementation and overflow scrolling.</p>
 <p>You can implement pull-to-refresh with the <a href="../../scroll/Refresher">Refresher</a> component.</p>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-content</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content id=&quot;myContent&quot;&gt;
   Add your content here!
@@ -68,12 +68,12 @@ Improve this doc
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
-<div id="ngOnDestroy"></div>
+<div id="scrollElement"></div>
 
 <h3>
-<code>ngOnDestroy()</code>
+<code>scrollElement()</code>
   
 
 </h3>
@@ -178,80 +178,6 @@ export class MyPage{
 
 
 
-
-
-
-
-<div id="addTouchMoveListener"></div>
-
-<h3>
-<code>addTouchMoveListener(handler)</code>
-  
-
-</h3>
-
-Adds the specified touchmove handler to the content's scroll element.
-
-```ts
-@Page({
-  template: `<ion-content id="my-content"></ion-content>`
-)}
-export class MyPage{
-   constructor(app: IonicApp){
-       this.app = app;
-   }
-  // Need to wait until the component has been initialized
-  ngAfterViewInit() {
-    // Here 'my-content' is the ID of my ion-content
-    this.content = this.app.getComponent('my-content');
-    this.content.addTouchMoveListener(this.touchHandler);
-  }
-   touchHandler() {
-     console.log("I'm touching all the magazines!!");
-   }
-}
-```
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        handler
-        
-        
-      </td>
-      <td>
-        
-  <code>Function</code>
-      </td>
-      <td>
-        <p>The method you want to perform when touchmove is firing</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Function</code> A function that removes the touchmove handler.
-</div>
 
 
 

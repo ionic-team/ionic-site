@@ -44,6 +44,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>The LocalStorage storage engine uses the browser&#39;s local storage system for
 storing key/value pairs.</p>
@@ -54,8 +55,7 @@ by the operating system (iOS).</p>
 
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-ts">import {Page, Storage, LocalStorage} from &#39;ionic/ionic&#39;;
 @Page({
@@ -77,7 +77,7 @@ export class MyClass{
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="get"></div>
 
@@ -240,7 +240,7 @@ Remove a key from LocalStorage
 
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/platform/storage/'>Storage Platform Docs</a><!-- end content block -->
 

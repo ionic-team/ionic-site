@@ -32,7 +32,7 @@ NavController
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/nav-controller.ts#L11'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/nav-controller.ts#L13'>
 Improve this doc
 </a>
 
@@ -42,6 +42,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p><em>For examples on the basic usage of NavController, check out the
 <a href="../../../../components/#navigation">Navigation section</a> of the Component
@@ -120,7 +121,7 @@ class HelloWorld {
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="id"></div>
 
@@ -274,10 +275,236 @@ class HelloWorld {
 
 
 
+<div id="setRoot"></div>
+
+<h3>
+<code>setRoot(page,&nbsp;params,&nbsp;opts)</code>
+  
+
+</h3>
+
+Set the root for the current navigation stack
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        page
+        
+        
+      </td>
+      <td>
+        
+  <code>Type</code>
+      </td>
+      <td>
+        <p>The name of the component you want to push on the navigation stack</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        params
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Any nav-params you want to pass along to the next view</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Any options you want to use pass to transtion</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise when done
+</div>
+
+
+
+
+<div id="setPages"></div>
+
+<h3>
+<code>setPages(pages,&nbsp;opts)</code>
+  
+
+</h3>
+
+You can set the views of the current navigation stack and navigate to the last view past
+
+
+```typescript
+import {Page, NavController} from 'ionic/ionic'
+import {Detail} from '../detail/detail'
+import {Info} from '../info/info'
+
+ export class Home {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   setPages() {
+     this.nav.setPages([ {page: List}, {page: Detail}, {page:Info} ]);
+   }
+ }
+```
+
+
+In this example, we're giving the current nav stack an array of pages. Then the navigation stack will navigate to the last view in the array and remove the orignal view you came from.
+
+By default, animations are disabled, but they can be enabled by passing options to the navigation controller
+
+
+```typescript
+import {Page, NavController} from 'ionic/ionic'
+import {Detail} from '../detail/detail'
+
+ export class Home {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   setPages() {
+     this.nav.setPages([ {page: List}, {page: Detail} ], {
+       animate: true
+     });
+   }
+ }
+```
+
+
+You can also pass any navigation params to the individual pages in the array.
+
+
+```typescript
+import {Page, NavController} from 'ionic/ionic';
+import {Info} from '../info/info';
+import {List} from '../list/list';
+import {Detail} from '../detail/detail';
+
+ export class Home {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   setPages() {
+     this.nav.setPages([{
+       page: Info
+     }, {
+       page: List,
+       params: {tags: 'css'}
+     }, {
+       page: Detail,
+       params: {id: 325}
+     }]);
+   }
+ }
+```
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        pages
+        
+        
+      </td>
+      <td>
+        
+  <code>Array&lt;Type&gt;</code>
+      </td>
+      <td>
+        <p>An arry of page components and their params to load in the stack</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Any options you want to use pass</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise when the pages are set
+</div>
+
+
+
+
 <div id="push"></div>
 
 <h3>
-<code>push(componentType,&nbsp;params,&nbsp;opts)</code>
+<code>push(page,&nbsp;params,&nbsp;opts)</code>
   
 
 </h3>
@@ -355,7 +582,7 @@ class MyClass{
     
     <tr>
       <td>
-        componentType
+        page
         
         
       </td>
@@ -378,7 +605,7 @@ class MyClass{
       </td>
       <td>
         
-  <code>Object</code>
+  <code>object</code>
       </td>
       <td>
         <p>Any nav-params you want to pass along to the next view</p>
@@ -395,7 +622,7 @@ class MyClass{
       </td>
       <td>
         
-  <code>Object</code>
+  <code>object</code>
       </td>
       <td>
         <p>Any options you want to use pass to transtion</p>
@@ -485,7 +712,7 @@ class MyClass{
       </td>
       <td>
         
-  <code>Object</code>
+  <code>object</code>
       </td>
       <td>
         <p>Any options you want to use pass to transtion</p>
@@ -505,6 +732,235 @@ class MyClass{
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise, which resolves when the transition has completed
+</div>
+
+
+
+
+<div id="insert"></div>
+
+<h3>
+<code>insert(insertIndex,&nbsp;page,&nbsp;params,&nbsp;opts)</code>
+  
+
+</h3>
+
+Inserts a view into the nav stack at the specified index.
+This is useful if you need to add a view at any point in your navigation stack
+
+```typescript
+export class Detail {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   insertPage(){
+     this.nav.insert(1, Info);
+   }
+ }
+```
+
+This will insert the `Info` page into the second slot of our navigation stack
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        insertIndex
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The index where you want to insert the page</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        page
+        
+        
+      </td>
+      <td>
+        
+  <code>Type</code>
+      </td>
+      <td>
+        <p>The name of the component you want to insert into the nav stack</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        params
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Any nav-params you want to pass along to the next page</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Any options you want to use pass to transtion</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise when the page has been inserted into the navigation stack
+</div>
+
+
+
+
+<div id="insertPages"></div>
+
+<h3>
+<code>insertPages(insertIndex,&nbsp;insertPages,&nbsp;opts)</code>
+  
+
+</h3>
+
+Inserts multiple pages into the nav stack at the specified index.
+
+```typescript
+export class Detail {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   insertPages(){
+     let pages = [
+       { page: Info },
+       { page: ProfileList },
+       { page: ProfileDetail, params: {userId:5} }
+     ];
+     this.nav.insertPages(2, pages);
+   }
+ }
+```
+
+This will insert each of the pages in the array, starting at the third slot
+(second index) of the nav stack. The last page in the array will animate
+in and become the active page.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        insertIndex
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The index where you want to insert the page</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        insertPages
+        
+        
+      </td>
+      <td>
+        
+  <code>Array&lt;{page: Type, params=: any}&gt;</code>
+      </td>
+      <td>
+        <p>An array of objects, each with a <code>page</code> and optionally <code>params</code> property</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Any options you want to use pass to transtion</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise when the pages have been inserted into the navigation stack
 </div>
 
 
@@ -552,7 +1008,7 @@ class SecondView{
       </td>
       <td>
         
-  <code>Object</code>
+  <code>object</code>
       </td>
       <td>
         <p>Any options you want to use pass to transtion</p>
@@ -606,7 +1062,7 @@ Similar to `pop()`, this method let's you navigate back to the root of the stack
       </td>
       <td>
         
-  <code>Object</code>
+  <code>object</code>
       </td>
       <td>
         <p>Any options you want to use pass to transtion</p>
@@ -625,30 +1081,15 @@ Similar to `pop()`, this method let's you navigate back to the root of the stack
 
 
 
-<div id="insert"></div>
+<div id="popTo"></div>
 
 <h3>
-<code>insert(index,&nbsp;componentType)</code>
+<code>popTo(view,&nbsp;opts)</code>
   
 
 </h3>
 
-Inserts a view into the nav stack at the specified index.
-This is useful if you need to add a view at any point in your navigation stack
-
-```typescript
-export class Detail {
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-   insertView(){
-     this.nav.insert(1,Info)
-   }
- }
-```
-
-This will insert the `Info` view into the second slot of our navigation stack
-
+Pop to a specific view in the history stack
 
 
 <table class="table param-table" style="margin:0;">
@@ -663,99 +1104,16 @@ This will insert the `Info` view into the second slot of our navigation stack
     
     <tr>
       <td>
-        index
+        view
         
         
       </td>
       <td>
         
-  <code>number</code>
+  <code>ViewController</code>
       </td>
       <td>
-        <p>The index where you want to insert the view</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        componentType
-        
-        
-      </td>
-      <td>
-        
-  <code>Type</code>
-      </td>
-      <td>
-        <p>The name of the component you want to insert into the nav stack</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> Returns a promise when the view has been inserted into the navigation stack
-</div>
-
-
-
-
-<div id="remove"></div>
-
-<h3>
-<code>remove(index,&nbsp;opts)</code>
-  
-
-</h3>
-
-Removes a view from the nav stack at the specified index.
-
-```typescript
-export class Detail {
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-   removeView(){
-     this.nav.remove(1)
-   }
- }
-```
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        index
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>Remove the view from the nav stack at that index</p>
+        <p>to pop to</p>
 
         
       </td>
@@ -769,7 +1127,101 @@ export class Detail {
       </td>
       <td>
         
-  <code>Object</code>
+  <code>object</code>
+      </td>
+      <td>
+        <p>Any options you want to use pass to transtion</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="remove"></div>
+
+<h3>
+<code>remove(startIndex,&nbsp;opts,&nbsp;opts)</code>
+  
+
+</h3>
+
+Removes a view from the nav stack at the specified index.
+
+```typescript
+export class Detail {
+   constructor(nav: NavController) {
+     this.nav = nav;
+   }
+   removeView(){
+     this.nav.remove(1);
+   }
+ }
+```
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        startIndex
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>The starting index to remove views from the nav stack</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>removeCount</code>
+      </td>
+      <td>
+        <p>The number of views to remove, defaults to remove <code>1</code>.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
       </td>
       <td>
         <p>Any options you want to use pass to transtion</p>
@@ -794,237 +1246,10 @@ export class Detail {
 
 
 
-<div id="setPages"></div>
-
-<h3>
-<code>setPages(componentTypes,&nbsp;opts)</code>
-  
-
-</h3>
-
-You can set the views of the current navigation stack and navigate to the last view past
-
-
-```typescript
-import {Page, NavController} from 'ionic/ionic'
-import {Detail} from '../detail/detail'
-import {Info} from '../info/info'
-
- export class Home {
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-   setPages() {
-     this.nav.setPages([List,Detail, Info]);
-   }
- }
-```
-
-
-In this example, we're giving the current nav stack an array of pages. Then the navigation stack will navigate to the last view in the array and remove the orignal view you came from.
-
-By default, animations are disabled, but they can be enabled by passing options to the navigation controller
-
-
-```typescript
-import {Page, NavController} from 'ionic/ionic'
-import {Detail} from '../detail/detail'
-import {Info} from '../info/info'
-
- export class Home {
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-   setPages() {
-     this.nav.setPages([List,Detail, Info],{
-       animate: true
-     });
-   }
- }
-```
-
-
-You can also pass any navigation params to the individual pages in the array.
-
-
-```typescript
-import {Page, NavController} from 'ionic/ionic'
-import {Detail} from '../detail/detail'
-import {Info} from '../info/info'
-
- export class Home {
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-   setPages() {
-     this.nav.setPages([{
-       componentType: List,
-       params: {id: 43}
-     }, {
-       componentType: Detail,
-       params: {id: 45}
-     },{
-       componentType: Info,
-       params: {id: 5}
-     }]);
-   }
- }
-```
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        componentTypes
-        
-        
-      </td>
-      <td>
-        
-  <code>Array&lt;Type&gt;</code>
-      </td>
-      <td>
-        <p>an arry of components to load in the stack</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        opts
-        
-        
-      </td>
-      <td>
-        
-  <code>Object</code>
-      </td>
-      <td>
-        <p>Any options you want to use pass</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> Returns a promise when the pages are set
-</div>
-
-
-
-
-<div id="setRoot"></div>
-
-<h3>
-<code>setRoot(The,&nbsp;params,&nbsp;opts)</code>
-  
-
-</h3>
-
-Set the root for the current navigation stack
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        The
-        
-        
-      </td>
-      <td>
-        
-  <code>Component</code>
-      </td>
-      <td>
-        <p>name of the component you want to push on the navigation stack</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        params
-        
-        
-      </td>
-      <td>
-        
-  <code>Object</code>
-      </td>
-      <td>
-        <p>Any nav-params you want to pass along to the next view</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        opts
-        
-        
-      </td>
-      <td>
-        
-  <code>Object</code>
-      </td>
-      <td>
-        <p>Any options you want to use pass to transtion</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> Returns a promise when done
-</div>
-
-
-
-
 <div id="isSwipeBackEnabled"></div>
 
 <h3>
-<code>isSwipeBackEnabled([isSwipeBackEnabled])</code>
+<code>isSwipeBackEnabled(isSwipeBackEnabled)</code>
   
 
 </h3>
@@ -1046,7 +1271,7 @@ Check to see if swipe-to-go-back is enabled
       <td>
         isSwipeBackEnabled
         
-        <div><em>(optional)</em></div>
+        
       </td>
       <td>
         
@@ -1130,7 +1355,7 @@ Otherwise returns false.
 <div id="getByIndex"></div>
 
 <h3>
-<code>getByIndex(The)</code>
+<code>getByIndex(index)</code>
   
 
 </h3>
@@ -1150,16 +1375,16 @@ Otherwise returns false.
     
     <tr>
       <td>
-        The
+        index
         
         
       </td>
       <td>
         
-  <code>Index</code>
+  <code>number</code>
       </td>
       <td>
-        <p>index of the page you want to get</p>
+        <p>The index of the page you want to get</p>
 
         
       </td>
@@ -1175,7 +1400,138 @@ Otherwise returns false.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Component</code> Returns the component that matches the index given
+  <code>ViewController</code> Returns the component that matches the index given
+</div>
+
+
+
+
+<div id="getActive"></div>
+
+<h3>
+<code>getActive()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>ViewController</code> Returns the active page's view controller.
+</div>
+
+
+
+
+<div id="isActive"></div>
+
+<h3>
+<code>isActive(view)</code>
+  
+
+</h3>
+
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        view
+        
+        
+      </td>
+      <td>
+        
+  <code>ViewController</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> 
+</div>
+
+
+
+
+<div id="getPrevious"></div>
+
+<h3>
+<code>getPrevious(view)</code>
+  
+
+</h3>
+
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        view
+        
+        
+      </td>
+      <td>
+        
+  <code>ViewController</code>
+      </td>
+      <td>
+        <p>The ViewController to get the previous view to</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>ViewController</code> 
 </div>
 
 
@@ -1189,7 +1545,7 @@ Otherwise returns false.
 
 </h3>
 
-First page in this nav controller's stack. This would not return a page which is about to be destroyed.
+First page in this nav controller's stack.
 
 
 
@@ -1199,7 +1555,7 @@ First page in this nav controller's stack. This would not return a page which is
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Component</code> Returns the first component page in the current stack
+  <code>ViewController</code> Returns the first component page in the current stack
 </div>
 
 
@@ -1223,7 +1579,60 @@ Last page in this nav controller's stack. This would not return a page which is 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Component</code> Returns the last component page in the current stack
+  <code>ViewController</code> Returns the last component page in the current stack
+</div>
+
+
+
+
+<div id="indexOf"></div>
+
+<h3>
+<code>indexOf(view)</code>
+  
+
+</h3>
+
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        view
+        
+        
+      </td>
+      <td>
+        
+  <code>ViewController</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> Returns the index number of the view
 </div>
 
 
@@ -1237,8 +1646,7 @@ Last page in this nav controller's stack. This would not return a page which is 
 
 </h3>
 
-Number of sibling views in the nav controller. This does
-not include views which are about to be destroyed.
+Number of sibling views in the nav controller.
 
 
 
@@ -1278,7 +1686,7 @@ Returns the root NavController.
 
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 

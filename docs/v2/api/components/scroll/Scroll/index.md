@@ -44,24 +44,24 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Scroll is a non-flexboxed scroll area that can scroll horizontally or vertically. <code>ion-Scroll</code> Can be used in places were you may not need a full page scroller, but a highly customized one, such as image scubber or comment scroller.</p>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-scroll</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
+<h2>Usage</h2>
 
-
-<pre><code class="lang-html">&lt;ion-scroll scroll-x=&quot;true&quot;&gt;
+<pre><code class="lang-html">&lt;ion-scroll scrollX=&quot;true&quot;&gt;
 &lt;/ion-scroll&gt;
 
-&lt;ion-scroll scroll-y=&quot;true&quot;&gt;
+&lt;ion-scroll scrollY=&quot;true&quot;&gt;
 &lt;/ion-scroll&gt;
 
-&lt;ion-scroll scroll-x=&quot;true&quot; scroll-y=&quot;true&quot;&gt;
+&lt;ion-scroll scrollX=&quot;true&quot; scrollY=&quot;true&quot;&gt;
 &lt;/ion-scroll&gt;
 </code></pre>
 
@@ -70,7 +70,7 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h3>Attributes:</h3>
+<h2>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -105,7 +105,7 @@ Improve this doc
 
 <tr>
 <td>
-scroll-x
+scrollX
 </td>
 
 
@@ -121,7 +121,7 @@ whether to enable scrolling along the X axis
 
 <tr>
 <td>
-scroll-y
+scrollY
 </td>
 
 
@@ -153,7 +153,7 @@ whether to enable zooming
 
 <tr>
 <td>
-max-zoom
+maxZoom
 </td>
 
 
@@ -173,7 +173,7 @@ set the max zoom amount for ion-scroll
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="maxScale"></div>
 

@@ -42,16 +42,16 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Manages the display of a Searchbar which can be used to search or filter items.</p>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-searchbar</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-searchbar [(ngModel)]=&quot;defaultSearch&quot; (input)=&quot;triggerInput($event)&quot; (cancel)=&quot;onCancelSearchbar($event)&quot; (clear)=&quot;onClearSearchbar($event)&quot;&gt;&lt;/ion-searchbar&gt;
 </code></pre>
@@ -61,7 +61,7 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h3>Attributes:</h3>
+<h2>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -304,7 +304,7 @@ Expression to evaluate when the clear input button is clicked
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="searchbarInput"></div>
 
@@ -456,47 +456,9 @@ Expression to evaluate when the clear input button is clicked
 
 
 
-
-
-<div id="onChange"></div>
-
-<h3>
-<code>onChange()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onTouched"></div>
-
-<h3>
-<code>onTouched()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#searchbar'>Searchbar Component Docs</a><!-- end content block -->
 

@@ -34,7 +34,7 @@ Segment
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/segment/segment.ts#L82'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/segment/segment.ts#L88'>
 Improve this doc
 </a>
 
@@ -44,18 +44,18 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>A Segment is a group of buttons, sometimes known as Segmented Controls, that allow the user to interact with a compact group of a number of controls.
 Segments provide functionality similar to tabs, selecting one will unselect all others. You should use a tab bar instead of a segmented control when you want to let the user move back and forth between distinct pages in your app.
 You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> API. For an overview on how <code>FormBuilder</code> works, checkout <a href="http://learnangular2.com/forms/">Angular 2 Forms</a>, or <a href="https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html">Angular FormBuilder</a></p>
 
 
-<h3>Directive</h3>
+<h2>Directive</h2>
 <h3>selector: <code>ion-segment</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; (change)=&quot;onSegmentChanged($event)&quot; danger&gt;
   &lt;ion-segment-button value=&quot;friends&quot;&gt;
@@ -87,7 +87,7 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
 
 <!-- @property tags -->
 
-<h3>Attributes:</h3>
+<h2>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -130,50 +130,12 @@ expression to evaluate when a segment button has been changed
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="value"></div>
 
 <h3>
 <code>value()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onChange"></div>
-
-<h3>
-<code>onChange()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onTouched"></div>
-
-<h3>
-<code>onTouched()</code>
   
 
 </h3>
@@ -208,7 +170,7 @@ expression to evaluate when a segment button has been changed
 
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#segment'>Segment Component Docs</a>
 [Angular 2 Forms](http://learnangular2.com/forms/)<!-- end content block -->

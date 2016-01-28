@@ -34,7 +34,7 @@ Platform
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/platform/platform.ts#L1'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/platform/platform.ts#L2'>
 Improve this doc
 </a>
 
@@ -44,6 +44,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Platform returns the availble information about your current platform.
 Platforms in Ionic 2 are much more complex then in V1, returns not just a single platform,
@@ -52,8 +53,7 @@ With this information you can completely custimize your app to fit any device an
 
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-ts">import {Platform} &#39;ionic/ionic&#39;;
 export MyClass {
@@ -71,26 +71,7 @@ export MyClass {
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
-
-<div id="platformOverride"></div>
-
-<h3>
-<code>platformOverride()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
+<h2>Methods</h2>
 
 <div id="is"></div>
 

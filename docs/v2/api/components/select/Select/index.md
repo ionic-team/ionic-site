@@ -42,6 +42,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>The <code>ion-select</code> component is similar to an HTML <code>&lt;select&gt;</code> element, however,
 Ionic&#39;s select component makes it easier for users to sort through and select
@@ -50,35 +51,40 @@ dialog will appear with all of the options in a large, easy to select list
 for users.</p>
 <p>Under-the-hood the <code>ion-select</code> actually uses the
 <a href='../../alert/Alert'>Alert API</a> to open up the overlay of options
-which the user is presented with. Select takes one child <code>ion-label</code>
-component, and numerous child <code>ion-option</code> components. Each <code>ion-option</code>
-should be given a <code>value</code> attribute.</p>
+which the user is presented with. Select can take numerous child
+<code>ion-option</code> components. If <code>ion-option</code> is not given a <code>value</code> attribute
+then it will use its text as the value.</p>
 <h3 id="single-value-radio-buttons">Single Value: Radio Buttons</h3>
 <p>The standard <code>ion-select</code> component allows the user to select only one
 option. When selecting only one option the alert overlay presents users with
 a radio button styled list of options. The <code>ion-select</code> component&#39;s value
 receives the value of the selected option&#39;s value.</p>
-<pre><code class="lang-html">&lt;ion-select [(ngModel)]=&quot;gender&quot;&gt;
+<pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Gender&lt;/ion-label&gt;
-  &lt;ion-option value=&quot;f&quot; checked=&quot;true&quot;&gt;Female&lt;/ion-option&gt;
-  &lt;ion-option value=&quot;m&quot;&gt;Male&lt;/ion-option&gt;
-&lt;/ion-select&gt;
+  &lt;ion-select [(ngModel)]=&quot;gender&quot;&gt;
+    &lt;ion-option value=&quot;f&quot; checked=&quot;true&quot;&gt;Female&lt;/ion-option&gt;
+    &lt;ion-option value=&quot;m&quot;&gt;Male&lt;/ion-option&gt;
+  &lt;/ion-select&gt;
+&lt;/ion-item&gt;
 </code></pre>
 <h3 id="multiple-value-checkboxes">Multiple Value: Checkboxes</h3>
 <p>By adding the <code>multiple=&quot;true&quot;</code> attribute to <code>ion-select</code>, users are able
 to select multiple options. When multiple options can be selected, the alert
 overlay presents users with a checkbox styled list of options. The
 <code>ion-select multiple=&quot;true&quot;</code> component&#39;s value receives an array of all the
-selected option values.</p>
-<pre><code class="lang-html">&lt;ion-select [(ngModel)]=&quot;toppings&quot; multiple=&quot;true&quot;&gt;
+selected option values. In the example below, because each option is not given
+a <code>value</code>, then it&#39;ll use its text as the value instead.</p>
+<pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Toppings&lt;/ion-label&gt;
-  &lt;ion-option value=&quot;bacon&quot;&gt;Bacon&lt;/ion-option&gt;
-  &lt;ion-option value=&quot;olives&quot;&gt;Black Olives&lt;/ion-option&gt;
-  &lt;ion-option value=&quot;xcheese&quot;&gt;Extra Cheese&lt;/ion-option&gt;
-  &lt;ion-option value=&quot;mushrooms&quot;&gt;Mushrooms&lt;/ion-option&gt;
-  &lt;ion-option value=&quot;pepperoni&quot;&gt;Pepperoni&lt;/ion-option&gt;
-  &lt;ion-option value=&quot;sausage&quot;&gt;Sausage&lt;/ion-option&gt;
-&lt;/ion-select&gt;
+  &lt;ion-select [(ngModel)]=&quot;toppings&quot; multiple=&quot;true&quot;&gt;
+    &lt;ion-option&gt;Bacon&lt;/ion-option&gt;
+    &lt;ion-option&gt;Black Olives&lt;/ion-option&gt;
+    &lt;ion-option&gt;Extra Cheese&lt;/ion-option&gt;
+    &lt;ion-option&gt;Mushrooms&lt;/ion-option&gt;
+    &lt;ion-option&gt;Pepperoni&lt;/ion-option&gt;
+    &lt;ion-option&gt;Sausage&lt;/ion-option&gt;
+  &lt;/ion-select&gt;
+&lt;ion-item&gt;
 </code></pre>
 <h3 id="alert-buttons">Alert Buttons</h3>
 <p>By default, the two buttons read <code>Cancel</code> and <code>OK</code>. The each button&#39;s text
@@ -103,7 +109,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 </code></pre>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-select</code></h3>
 <!-- @usage tag -->
 
@@ -113,45 +119,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
-
-<div id="selectedText"></div>
-
-<h3>
-<code>selectedText()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="labelId"></div>
-
-<h3>
-<code>labelId()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
+<h2>Methods</h2>
 
 <div id="cancelText"></div>
 
@@ -176,25 +144,6 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>okText()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="value"></div>
-
-<h3>
-<code>value()</code>
   
 
 </h3>
@@ -248,29 +197,10 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 
 
-<div id="disabled"></div>
+<div id="change"></div>
 
 <h3>
-<code>disabled()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="id"></div>
-
-<h3>
-<code>id()</code>
+<code>change()</code>
   
 
 </h3>
@@ -305,10 +235,31 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 
 
-<div id="label"></div>
+
+<div id="value"></div>
 
 <h3>
-<code>label()</code>
+<code>value()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="text"></div>
+
+<h3>
+<code>text()</code>
   
 
 </h3>
@@ -343,10 +294,10 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 
 
-<div id="form"></div>
+<div id="updateOptions"></div>
 
 <h3>
-<code>form()</code>
+<code>updateOptions()</code>
   
 
 </h3>
@@ -362,10 +313,10 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 
 
-<div id="elementRef"></div>
+<div id="ngAfterContentInit"></div>
 
 <h3>
-<code>elementRef()</code>
+<code>ngAfterContentInit()</code>
   
 
 </h3>
@@ -381,32 +332,14 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 
 
-<div id="renderer"></div>
+<div id="disabled"></div>
 
 <h3>
-<code>renderer()</code>
+<code>disabled()</code>
   
 
 </h3>
 
-
-
-
-
-
-
-
-
-
-
-
-<div id="navCtrl"></div>
-
-<h3>
-<code>navCtrl()</code>
-  
-
-</h3>
 
 
 

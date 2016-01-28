@@ -44,18 +44,19 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.</p>
 
 
-<h3>Directive</h3>
+<h2>Directive</h2>
 <h3>selector: <code>button,[button]</code></h3>
 <!-- @usage tag -->
 
 
 <!-- @property tags -->
 
-<h3>Attributes:</h3>
+<h2>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -286,26 +287,7 @@ Dynamically set which color attribute this button should use.
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
-
-<div id="isItem"></div>
-
-<h3>
-<code>isItem()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
+<h2>Methods</h2>
 
 <div id="color"></div>
 
@@ -326,7 +308,7 @@ Dynamically set which color attribute this button should use.
 
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#buttons'>Button Component Docs</a><!-- end content block -->
 

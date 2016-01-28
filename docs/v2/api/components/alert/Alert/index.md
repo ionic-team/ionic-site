@@ -42,6 +42,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>An Alert is a dialog that presents users with either information, or used
 to receive information from the user using inputs. An alert appears on top
@@ -62,8 +63,7 @@ instance has methods to add options, such as <code>setTitle()</code> or <code>ad
 
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-ts">constructor(nav: NavController) {
   this.nav = nav;
@@ -146,7 +146,7 @@ presentPrompt() {
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="setTitle"></div>
 

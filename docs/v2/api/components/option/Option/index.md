@@ -32,7 +32,7 @@ Option
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/option/option.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/option/option.ts#L2'>
 Improve this doc
 </a>
 
@@ -42,10 +42,11 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 
 
-<h3>Directive</h3>
+<h2>Directive</h2>
 <h3>selector: <code>ion-option</code></h3>
 <!-- @usage tag -->
 
@@ -55,12 +56,12 @@ Improve this doc
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
-<div id="value"></div>
+<div id="select"></div>
 
 <h3>
-<code>value()</code>
+<code>select()</code>
   
 
 </h3>
@@ -80,6 +81,26 @@ Improve this doc
 
 <h3>
 <code>checked()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="value"></div>
+
+<h3>
+<code>value()</code>
   
 
 </h3>

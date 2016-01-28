@@ -42,14 +42,14 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>App is an Ionic decorator that bootstraps an application. It can be passed a number of arguments, that act as global config variables for the app.
 App can accept a <code>template</code> property that has an inline template or a <code>templateUrl</code> property that points to an external html template.</p>
 
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-ts">import {App} from &#39;ionic/ionic&#39;;
 

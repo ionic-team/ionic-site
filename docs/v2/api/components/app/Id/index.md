@@ -42,6 +42,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>IdRef is an easy way to identify unique components in an app and access them
 no matter where in the UI heirarchy you are. For example, this makes toggling
@@ -50,12 +51,11 @@ a global side menu feasible from any place in the application.</p>
 the Component docs for an example of how Menus rely on ID&#39;s.</p>
 
 
-<h3>Directive</h3>
+<h2>Directive</h2>
 <h3>selector: <code>[id]</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <p>To give any component an ID, simply set its <code>id</code> property:</p>
 <pre><code class="lang-html">&lt;ion-checkbox id=&quot;myCheckbox&quot;&gt;&lt;/ion-checkbox&gt;
@@ -84,26 +84,7 @@ has been navigated away from.</p>
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
-
-<div id="component"></div>
-
-<h3>
-<code>component()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
+<h2>Methods</h2>
 
 <div id="id"></div>
 

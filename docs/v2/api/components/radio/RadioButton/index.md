@@ -34,7 +34,7 @@ RadioButton
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/radio/radio.ts#L5'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/radio/radio-button.ts#L6'>
 Improve this doc
 </a>
 
@@ -44,23 +44,26 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
-<p>A radio button with a unique value. Note that all <code>&lt;ion-radio&gt;</code> components
-must be wrapped within a <code>&lt;ion-list radio-group&gt;</code>, and there must be at
-least two <code>&lt;ion-radio&gt;</code> components within the radio group.</p>
-<p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
+<p>A radio button with a unique value. Note that all <code>&lt;ion-radio&gt;</code>
+components must be wrapped within a <code>&lt;ion-list radio-group&gt;</code>,
+and there must be at least two <code>&lt;ion-radio&gt;</code> components within
+the radio group.</p>
+<p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for
+more info on forms and input.</p>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-radio</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
+<h2>Usage</h2>
 
-
-<pre><code class="lang-html">&lt;ion-radio value=&quot;my-value&quot; checked=&quot;true&quot;&gt;
-  Radio Label
-&lt;/ion-radio&gt;
+<pre><code class="lang-html">&lt;ion-item&gt;
+  &lt;ion-label&gt;Radio Label&lt;/ion-label&gt;
+  &lt;ion-radio value=&quot;radio-value&quot;&gt;&lt;/ion-radio&gt;
+&lt;/ion-item&gt;
 </code></pre>
 
 
@@ -71,64 +74,7 @@ least two <code>&lt;ion-radio&gt;</code> components within the radio group.</p>
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
-
-<div id="value"></div>
-
-<h3>
-<code>value()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="checked"></div>
-
-<h3>
-<code>checked()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="disabled"></div>
-
-<h3>
-<code>disabled()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
+<h2>Methods</h2>
 
 <div id="id"></div>
 
@@ -168,10 +114,10 @@ least two <code>&lt;ion-radio&gt;</code> components within the radio group.</p>
 
 
 
-<div id="labelId"></div>
+<div id="value"></div>
 
 <h3>
-<code>labelId()</code>
+<code>value()</code>
   
 
 </h3>
@@ -187,13 +133,35 @@ least two <code>&lt;ion-radio&gt;</code> components within the radio group.</p>
 
 
 
-<div id="isChecked"></div>
+
+<div id="checked"></div>
 
 <h3>
-<code>isChecked()</code>
+<code>checked()</code>
   
 
 </h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="disabled"></div>
+
+<h3>
+<code>disabled()</code>
+  
+
+</h3>
+
 
 
 
@@ -206,7 +174,7 @@ least two <code>&lt;ion-radio&gt;</code> components within the radio group.</p>
 
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#radio'>Radio Component Docs</a><!-- end content block -->
 

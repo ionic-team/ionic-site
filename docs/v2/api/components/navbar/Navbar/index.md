@@ -42,17 +42,17 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Navbar is a global level toolbar that gets updated every time a page gets
 loaded. You can pass the navbar a <code>ion-title</code> or any number of buttons.</p>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-navbar</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
 
@@ -82,7 +82,7 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="hideBackButton"></div>
 
@@ -122,7 +122,7 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
 
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='../../toolbar/Toolbar/'>Toolbar API Docs</a><!-- end content block -->
 

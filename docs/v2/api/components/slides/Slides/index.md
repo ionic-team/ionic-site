@@ -44,6 +44,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Slides is a slide box implementation based on Swiper.js</p>
 <p>Swiper.js:
@@ -55,12 +56,11 @@ The iDangero.us
 <p>Licensed under MIT</p>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-slides</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-ts">@Page({
  template: `
@@ -95,7 +95,7 @@ The iDangero.us
 
 <!-- @property tags -->
 
-<h3>Attributes:</h3>
+<h2>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -236,7 +236,7 @@ expression to evaluate when a slide has been changed
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="rapidUpdate"></div>
 
@@ -675,7 +675,7 @@ expression to evaluate when a slide has been changed
 
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#slides'>Slides Component Docs</a><!-- end content block -->
 

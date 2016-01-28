@@ -42,6 +42,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p><em>For basic Tabs usage, see the <a href="../../../../components/#tabs">Tabs section</a>
 of the Component docs.</em></p>
@@ -85,12 +86,11 @@ class. Below is an example of presenting a modal from one of the tabs.</p>
 </code></pre>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-tab</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-tabs&gt;
      &lt;ion-tab tabTitle=&quot;Home&quot; tabIcon=&quot;home&quot; [root]=&quot;tabOneRoot&quot;&gt;&lt;/ion-tab&gt;
@@ -103,11 +103,19 @@ class. Below is an example of presenting a modal from one of the tabs.</p>
 
 <!-- @property tags -->
 
-<h3>Attributes:</h3>
+<h2>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
 <th>Attribute</th>
+
+
+
+
+
+
+
+
 
 
 
@@ -186,6 +194,38 @@ set the icon for this tab
 
 <tr>
 <td>
+tabBadge
+</td>
+
+
+<td>
+any
+</td>
+
+
+<td>
+set the badge for this tab
+</td>
+</tr>
+
+<tr>
+<td>
+tabBadgeStyle
+</td>
+
+
+<td>
+any
+</td>
+
+
+<td>
+set the badge color for this tab
+</td>
+</tr>
+
+<tr>
+<td>
 select
 </td>
 
@@ -206,31 +246,12 @@ method to call when the current tab is selected
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="isSelected"></div>
 
 <h3>
 <code>isSelected()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="btn"></div>
-
-<h3>
-<code>btn()</code>
   
 
 </h3>
@@ -303,10 +324,67 @@ method to call when the current tab is selected
 
 
 
+<div id="tabBadge"></div>
+
+<h3>
+<code>tabBadge()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="tabBadgeStyle"></div>
+
+<h3>
+<code>tabBadgeStyle()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="select"></div>
 
 <h3>
 <code>select()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="preload"></div>
+
+<h3>
+<code>preload()</code>
   
 
 </h3>

@@ -44,18 +44,18 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Allows you to add pull-to-refresh to an Content component.
 Place it as the first child of your Content or Scroll element.</p>
 <p>When refreshing is complete, call <code>refresher.complete()</code> from your controller.</p>
 
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-refresher</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
   &lt;ion-refresher (starting)=&quot;doStarting()&quot;
@@ -91,7 +91,7 @@ constructor(){}
 
 <!-- @property tags -->
 
-<h3>Attributes:</h3>
+<h2>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -254,12 +254,31 @@ the methond on your class you want to perform when you are pulling down
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="ele"></div>
 
 <h3>
 <code>ele()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isActive"></div>
+
+<h3>
+<code>isActive()</code>
   
 
 </h3>
@@ -412,6 +431,158 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>canOverscroll()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="startY"></div>
+
+<h3>
+<code>startY()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="deltaY"></div>
+
+<h3>
+<code>deltaY()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="scrollHost"></div>
+
+<h3>
+<code>scrollHost()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="scrollChild"></div>
+
+<h3>
+<code>scrollChild()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="showIcon"></div>
+
+<h3>
+<code>showIcon()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="showSpinner"></div>
+
+<h3>
+<code>showSpinner()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isRefreshing"></div>
+
+<h3>
+<code>isRefreshing()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="isRefreshingTail"></div>
+
+<h3>
+<code>isRefreshingTail()</code>
   
 
 </h3>

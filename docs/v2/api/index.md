@@ -11,10 +11,11 @@ header_sub_title: Extend Ionic even further with the power of AngularJS
 searchable: false
 ---
 
-# API Overview
+# AngularJS Extensions
 
-The Ionic API documentation covers two types of items — *components* and *injectables*. Excluding the source code, this is the lowest level documentation available for these two topics. If you’re looking for a higher level introduction on either of these topics, check out the [Component Documentation](../components).
+Ionic is both a CSS framework and a Javascript UI library. Many components need Javascript in order to produce magic, though often components
+can easily be used without coding through framework extensions such as our AngularIonic extensions.
 
-The *component* documentation includes a description and a basic usage section for each component. Each component will also list its selector and available attributes. Attributes affect the styling (HTML/CSS) and/or the functionality (JS) of the component. If it’s possible to select the component, the methods available to the selected instance will be listed in this section.
+Ionic follows the View Controller pattern popularized in such frameworks as Cocoa Touch. In the View Controller pattern, we treat different sections of the interface as child Views or even child View Controllers that contain other views. View Controllers then "power" the Views inside of them to provide interaction and UI functionality. A great example is the Tab Bar View Controller which processes taps on a Tab Bar to switch between a set of viewable panes.
 
-An *injectable* is a singleton that can be injected into an [App](decorators/app) or a [Page](decorators/page). Put simply, it is an object that contains functions that perform an action, or change the behavior of your application. Injectables can be used to do anything from programmatically selecting a checkbox, to navigating to a new page. The API documentation on injectables covers basic usage, available methods, and the parameters those methods expect.
+Explore our API docs for detailed information on the View Controllers and Javascript utilities available in Ionic.

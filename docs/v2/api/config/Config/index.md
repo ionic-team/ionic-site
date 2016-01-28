@@ -44,6 +44,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.</p>
 <pre><code class="lang-ts">@App({
@@ -172,7 +173,7 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 <td>top</td>
 </tr>
 <tr>
-<td>tabSubPage</td>
+<td>tabSubPages</td>
 <td></td>
 <td>true</td>
 </tr>
@@ -187,26 +188,7 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
-
-<div id="platform"></div>
-
-<h3>
-<code>platform()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
+<h2>Methods</h2>
 
 <div id="set"></div>
 
@@ -341,14 +323,43 @@ Returns a single config value, given a key.
 <div id="getBoolean"></div>
 
 <h3>
-<code>getBoolean()</code>
+<code>getBoolean(key)</code>
   
 
 </h3>
 
+Same as `get()`, however always returns a boolean value.
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        key
+        
+        
+      </td>
+      <td>
+        
+  <code>String</code>
+      </td>
+      <td>
+        <p>the key for the config value</p>
 
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

@@ -42,6 +42,7 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p><em>For a quick walkthrough of navigation in Ionic, check out the
 <a href="../../../../components/#navigation">Navigation section</a> of the Component
@@ -121,7 +122,7 @@ swipe to go back:</p>
   </pre>
 </div>
 
-<h3>Component</h3>
+<h2>Component</h2>
 <h3>selector: <code>ion-nav</code></h3>
 <!-- @usage tag -->
 
@@ -131,7 +132,7 @@ swipe to go back:</p>
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="root"></div>
 
@@ -171,7 +172,7 @@ swipe to go back:</p>
 
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 

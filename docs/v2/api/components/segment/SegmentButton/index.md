@@ -44,16 +44,16 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>The child buttons of the <code>ion-segment</code> component. Each <code>ion-segment-button</code> must have a value.</p>
 
 
-<h3>Directive</h3>
+<h2>Directive</h2>
 <h3>selector: <code>ion-segment-button</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; primary&gt;
   &lt;ion-segment-button value=&quot;friends&quot; (select)=&quot;selectedFriends()&quot;&gt;
@@ -85,7 +85,7 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h3>Attributes:</h3>
+<h2>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -148,7 +148,7 @@ expression to evaluate when a segment button has been clicked
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="value"></div>
 
@@ -186,47 +186,9 @@ expression to evaluate when a segment button has been clicked
 
 
 
-
-
-<div id="ngOnInit"></div>
-
-<h3>
-<code>ngOnInit()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="isActive"></div>
-
-<h3>
-<code>isActive()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#segment'>Segment Component Docs</a>
 <a href='/docs/v2/api/components/segment/Segment/'>Segment API Docs</a><!-- end content block -->

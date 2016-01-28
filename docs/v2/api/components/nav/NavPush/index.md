@@ -44,17 +44,17 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>Directive for declaratively linking to a new page instead of using
 <a href='../NavController/#push'>NavController.push</a>. Similar to ui-router&#39;s <code>ui-sref</code>.</p>
 
 
-<h3>Directive</h3>
+<h2>Directive</h2>
 <h3>selector: <code>[navPush]</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;button [navPush]=&quot;pushPage&quot;&gt;&lt;/button&gt;
 </code></pre>
@@ -88,7 +88,7 @@ NavPush:</p>
 
 <!-- methods on the class -->
 
-<h3>Methods</h3>
+<h2>Methods</h2>
 
 <div id="navPush"></div>
 
@@ -147,7 +147,7 @@ NavPush:</p>
 
 <!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
 <a href='../NavPop'>NavPop API Docs</a><!-- end content block -->

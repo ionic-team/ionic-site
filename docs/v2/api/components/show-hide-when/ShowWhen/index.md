@@ -44,18 +44,18 @@ Improve this doc
 
 
 <!-- description -->
+<h2>Description</h2>
 
 <p>The <code>showWhen</code> attribute takes a string that represents a plaform or screen orientation.
 The element the attribute is added to will only be shown when that platform or screen orientation is active.
 Complements the <a href="../HideWhen">hideWhen attribute</a>.</p>
 
 
-<h3>Directive</h3>
+<h2>Directive</h2>
 <h3>selector: <code>[showWhen]</code></h3>
 <!-- @usage tag -->
 
-<h3 style="margin-bottom: 7px">Usage</h3>
-
+<h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;div showWhen=&quot;ios&quot;&gt;I am only visible on iOS!&lt;/div&gt;
 </code></pre>
@@ -68,7 +68,7 @@ Complements the <a href="../HideWhen">hideWhen attribute</a>.</p>
 
 <!-- methods on the class --><!-- related link -->
 
-<h3>Related</h3>
+<h2>Related</h2>
 
 <a href='../HideWhen'>HideWhen API Docs</a><!-- end content block -->
 

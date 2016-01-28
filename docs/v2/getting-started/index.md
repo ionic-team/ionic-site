@@ -18,7 +18,7 @@ Ionic Two represents that collective learning about how to make the web do more 
 We hope you find that Ionic Two not only makes app development easier and faster, but we hope it makes it more *fun*. Because mobile is all about finding new ways to change forever the way humans interact with the world, and we couldn't think of anything more fun than that.
 
 <h3 style="text-align:right;">
- <a href="getting-started/installation/">
+ <a href="installation/">
     Install the new CLI
  </a>
 </h3>

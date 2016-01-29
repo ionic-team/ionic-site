@@ -4792,16 +4792,10 @@ body {
         -ms-transform: scaleY(1);
             transform: scaleY(1); }
   .navbar-default .navbar-form {
-    margin: 22px 0 0 100px; }
-    @media (max-width: 991px) {
-      .navbar-default .navbar-form {
-        margin-left: 25px; } }
-    @media (max-width: 767px) {
-      .navbar-default .navbar-form {
-        margin-left: 0; } }
+    margin: 22px 0 0 110px; }
     .navbar-default .navbar-form .form-group {
       position: relative;
-      padding-left: 50px; }
+      padding-left: 0; }
       .navbar-default .navbar-form .form-group input {
         background: #5995f7;
         box-shadow: none;
@@ -4809,7 +4803,12 @@ body {
         color: white;
         font-size: 14px;
         border-radius: 800px;
-        padding-left: 38px; }
+        padding-left: 38px;
+        width: 150px;
+        transition: all 0.3s cubic-bezier(0.2, 0.85, 0.2, 1.1); }
+        .navbar-default .navbar-form .form-group input:focus {
+          width: 270px;
+          background: #679ff8; }
         .navbar-default .navbar-form .form-group input::-webkit-input-placeholder {
           color: #b1cdfb; }
         .navbar-default .navbar-form .form-group input:-moz-placeholder {
@@ -4827,7 +4826,12 @@ body {
         color: #98befa;
         position: absolute;
         top: 4px;
-        left: 65px; }
+        left: 14px; }
+    @media (max-width: 991px) {
+      .navbar-default .navbar-form {
+        margin-left: 25px; }
+        .navbar-default .navbar-form .form-group input:focus {
+          width: 200px; } }
   .navbar-default .navbar-toggle,
   .navbar-default .sidebar-toggle {
     border: none;
@@ -5025,6 +5029,8 @@ body {
         letter-spacing: 0;
         height: 34px;
         transition: height cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, padding cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, color 0.2s; }
+        .side-nav ul ul a:empty, .side-nav ul .capitalize a:empty {
+          display: none; }
       .side-nav ul ul.ng-hide-add, .side-nav ul ul.ng-hide-remove, .side-nav ul .capitalize.ng-hide-add, .side-nav ul .capitalize.ng-hide-remove {
         transition: opacity cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s; }
       .side-nav ul ul.ng-hide, .side-nav ul .capitalize.ng-hide {
@@ -5230,13 +5236,13 @@ ul.docs-example {
     font-weight: 800;
     color: #576070;
     position: absolute;
-    top: 5px;
+    top: 9px;
     left: 22px; }
   .docs-home form input {
-    border-radius: 24px;
+    border-radius: 35px;
     border-color: #e6e9ee;
     padding: 5px 5px 5px 52px;
-    height: 48px;
+    height: 56px;
     font-size: 18px;
     box-shadow: none; }
     .docs-home form input::-webkit-input-placeholder {
@@ -5322,7 +5328,7 @@ ul.docs-example {
   left: 233px;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   padding: 30px 0 30px 40px;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
@@ -5394,7 +5400,13 @@ ul.docs-example {
       #search-results ul li a {
         color: #898989;
         font-weight: 500;
-        line-height: 1.4em; }
+        line-height: 1.4em;
+        text-decoration: none;
+        transition: color .2s;
+        font-size: 1.05em; }
+        #search-results ul li a:hover, #search-results ul li a:active {
+          text-decoration: none;
+          color: #4f8ff7; }
 
 .docs-ionicons .download {
   margin-top: 60px;

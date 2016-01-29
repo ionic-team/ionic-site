@@ -29,7 +29,7 @@ var MyApp = (function () {
             });
         }, function (err) { return console.log(err); }, function () { return console.log('complete'); });
     }
-    MyApp.prototype.onInit = function () {
+    MyApp.prototype.ngOnInit = function () {
         var _this = this;
         setTimeout(function () {
             _this.slider = _this.app.getComponent('slider');

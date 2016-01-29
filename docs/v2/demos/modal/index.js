@@ -61,7 +61,7 @@ var ModalContentPage = (function () {
         this.viewCtrl = viewCtrl;
         this.myParam = params.get('myParam');
     }
-    ModalContentPage.prototype.closeModal = function () {
+    ModalContentPage.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
     };
     ModalContentPage = __decorate([

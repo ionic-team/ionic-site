@@ -151,19 +151,11 @@ body {
   }
 
   .navbar-form {
-    margin: 22px 0 0 100px;
-
-    @media (max-width: $screen-sm-max) {
-      margin-left: 25px;
-    }
-
-    @media (max-width: $screen-xs-max) {
-      margin-left: 0;
-    }
+    margin: 22px 0 0 110px;
 
     .form-group {
       position: relative;
-      padding-left: 50px;
+      padding-left: 0;
 
       input {
         background: lighten($blue, 2);
@@ -173,8 +165,12 @@ body {
         font-size: 14px;
         border-radius: 800px;
         padding-left: 38px;
-
-
+        width: 150px;
+        transition: all .3s cubic-bezier(0.2, 0.85, 0.2, 1.1);
+        &:focus {
+          width: 270px;
+          background: lighten($blue, 5);
+        }
         &::-webkit-input-placeholder {
           color: lighten($blue, 20);
         }
@@ -201,7 +197,13 @@ body {
         color: lighten($blue, 15);
         position: absolute;
         top: 4px;
-        left: 65px;
+        left: 14px;
+      }
+    }
+    @media (max-width: $screen-sm-max) {
+      margin-left: 25px;
+      .form-group input:focus {
+        width: 200px;
       }
     }
   }
@@ -447,6 +449,9 @@ body {
         letter-spacing: 0;
         height: 34px;
         transition: height cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, padding cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, color 0.2s;
+        &:empty {
+          display: none;
+        }
       }
 
       &.ng-hide-add,

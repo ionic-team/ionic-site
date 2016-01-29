@@ -35,37 +35,59 @@ var TabPage = (function () {
 })();
 exports.TabPage = TabPage;
 var InitialPage = (function () {
-    function InitialPage(platform) {
+    function InitialPage(platform, nav) {
         this.platform = platform;
+        this.nav = nav;
         if (window.localStorage.getItem('configDemo') !== null) {
             this.config = JSON.parse(window.localStorage.getItem('configDemo'));
         }
         else if (platform.is('ios')) {
             this.config = {
-                'backButtonIcon': 'ion-ios-arrow-back',
+                'backButtonIcon': 'ios-arrow-back',
                 'iconMode': 'ios',
                 'tabbarPlacement': 'bottom'
             };
         }
         else {
             this.config = {
-                'backButtonIcon': 'ion-md-arrow-back',
+                'backButtonIcon': 'md-arrow-back',
                 'iconMode': 'md',
                 'tabbarPlacement': 'top'
             };
         }
+        this.initialConfig = JSON.parse(JSON.stringify(this.config));
     }
     InitialPage.prototype.load = function () {
         window.localStorage.setItem('configDemo', JSON.stringify(this.config));
         window.location.reload();
     };
+    InitialPage.prototype.push = function () {
+        this.nav.push(AnotherPage);
+    };
     InitialPage = __decorate([
         ionic_1.Page({
             templateUrl: 'main.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _b) || Object])
     ], InitialPage);
     return InitialPage;
-    var _a;
+    var _a, _b;
 })();
 exports.InitialPage = InitialPage;
+var AnotherPage = (function () {
+    function AnotherPage(nav) {
+        this.nav = nav;
+    }
+    AnotherPage.prototype.pop = function () {
+        this.nav.pop();
+    };
+    AnotherPage = __decorate([
+        ionic_1.Page({
+            templateUrl: 'page.html'
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object])
+    ], AnotherPage);
+    return AnotherPage;
+    var _a;
+})();
+exports.AnotherPage = AnotherPage;

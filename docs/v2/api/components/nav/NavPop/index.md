@@ -4,7 +4,7 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{NavPop | slugify}}"
+id: "navpop"
 title: "NavPop"
 header_sub_title: "Class in module "
 doc: "NavPop"

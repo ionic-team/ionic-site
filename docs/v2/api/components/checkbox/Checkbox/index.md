@@ -4,7 +4,7 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{Checkbox | slugify}}"
+id: "checkbox"
 title: "Checkbox"
 header_sub_title: "Class in module "
 doc: "Checkbox"

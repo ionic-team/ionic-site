@@ -4,7 +4,7 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{HideWhen | slugify}}"
+id: "hidewhen"
 title: "HideWhen"
 header_sub_title: "Class in module "
 doc: "HideWhen"

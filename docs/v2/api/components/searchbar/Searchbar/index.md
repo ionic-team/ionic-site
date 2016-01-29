@@ -4,7 +4,7 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{Searchbar | slugify}}"
+id: "searchbar"
 title: "Searchbar"
 header_sub_title: "Class in module ionic"
 doc: "Searchbar"

@@ -4,7 +4,7 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{Nav | slugify}}"
+id: "nav"
 title: "Nav"
 header_sub_title: "Class in module "
 doc: "Nav"

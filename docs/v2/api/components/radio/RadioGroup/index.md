@@ -4,7 +4,7 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{RadioGroup | slugify}}"
+id: "radiogroup"
 title: "RadioGroup"
 header_sub_title: "Class in module "
 doc: "RadioGroup"

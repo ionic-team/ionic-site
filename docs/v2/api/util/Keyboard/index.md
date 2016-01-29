@@ -4,7 +4,7 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{Keyboard | slugify}}"
+id: "keyboard"
 title: "Keyboard"
 header_sub_title: "Class in module "
 doc: "Keyboard"

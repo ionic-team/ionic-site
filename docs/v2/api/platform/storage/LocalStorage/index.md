@@ -4,7 +4,7 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{LocalStorage | slugify}}"
+id: "localstorage"
 title: "LocalStorage"
 header_sub_title: "Class in module "
 doc: "LocalStorage"

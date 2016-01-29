@@ -21,19 +21,20 @@ class DemoApp {
 
   rootPage: any;
   androidAttribute: any;
-
-
-  constructor(app: IonicApp, platform: Platform, config: Config) {
-    this.app = app;
-    this.config = config;
-    this.platform = platform;
+  nextPage;
+  isProductionMode;
+  currentPageIndex;
+  pages = [
+    { title: 'Home', component: PageOne },
+    { title: 'Friends', component: PageTwo },
+    { title: 'Events', component: PageThree }
+  ];
+  constructor(
+    public app: IonicApp,
+    public platform: Platform,
+    public config: Config) {
     this.androidAttribute = helpers.AndroidAttribute;
 
-    this.pages = [
-      { title: 'Home', component: PageOne },
-      { title: 'Friends', component: PageTwo },
-      { title: 'Events', component: PageThree }
-    ];
 
     this.platform.ready().then(() => {
 
@@ -72,10 +73,10 @@ class DemoApp {
           }, 500);
         }
       } else {
-          this.isProductionMode = false;
-          this.currentPageIndex = 1;
-          let nav = this.app.getComponent('nav');
-          nav.setRoot(actionSheets.BasicPage);
+        this.isProductionMode = false;
+        this.currentPageIndex = 1;
+        let nav = this.app.getComponent('nav');
+        nav.setRoot(actionSheets.BasicPage);
       }
 
     });
@@ -85,14 +86,14 @@ class DemoApp {
   previousSection() {
     let pageName = Object.keys(helpers.getPages())[this.currentPageIndex - 1];
     let nav = this.app.getComponent('nav');
-    nav.setRoot(helpers.getPageFor(pageName));
+    nav.setRoot(helpers.getPageFor(pageName), {}, { animate: false });
     this.currentPageIndex = this.currentPageIndex - 1;
   }
 
   nextSection() {
     let pageName = Object.keys(helpers.getPages())[this.currentPageIndex + 1];
     let nav = this.app.getComponent('nav');
-    nav.setRoot(helpers.getPageFor(pageName));
+    nav.setRoot(helpers.getPageFor(pageName), {}, { animate: false });
     this.currentPageIndex = this.currentPageIndex + 1;
   }
 

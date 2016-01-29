@@ -55,11 +55,15 @@ An alert can also optionally have a <code>title</code>, <code>subTitle</code> an
 <p>All buttons will show up in the order they have been added to the <code>buttons</code>
 array, from left to right. Note: The right most button (the last one in the
 array) is the main button.</p>
+<p>Optionally, a <code>role</code> property can be added to a button, such as <code>cancel</code>.
+If a <code>cancel</code> role is on one of the buttons, then if the alert is dismissed
+by tapping the backdrop, then it will fire the handler from the button
+with a cancel role.</p>
 <p>Alerts can also include inputs whos data can be passed back to the app.
 Inputs can be used to prompt users for information.</p>
 <p>Its shorthand is to add all the alert&#39;s options from within the
-<code>Alert.create(opts)</code> first argument. Otherwise the alert&#39;s
-instance has methods to add options, such as <code>setTitle()</code> or <code>addButton()</code>.</p>
+<code>Alert.create(opts)</code> first argument. Otherwise the alert&#39;s instance
+has methods to add options, such as <code>setTitle()</code> or <code>addButton()</code>.</p>
 
 <!-- @usage tag -->
 
@@ -85,6 +89,7 @@ presentConfirm() {
     buttons: [
       {
         text: &#39;Cancel&#39;,
+        role: &#39;cancel&#39;,
         handler: () =&gt; {
           console.log(&#39;Cancel clicked&#39;);
         }
@@ -117,6 +122,7 @@ presentPrompt() {
     buttons: [
       {
         text: &#39;Cancel&#39;,
+        role: &#39;cancel&#39;,
         handler: data =&gt; {
           console.log(&#39;Cancel clicked&#39;);
         }

@@ -4,7 +4,7 @@ version: "nightly"
 versionHref: "/docs/v2/nightly"
 path: ""
 category: api
-id: "{{initTapClick | slugify}}"
+id: "inittapclick"
 title: "initTapClick"
 header_sub_title: "Function in module "
 doc: "initTapClick"

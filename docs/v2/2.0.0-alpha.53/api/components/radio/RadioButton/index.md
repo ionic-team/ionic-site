@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{RadioButton | slugify}}"
+id: "radiobutton"
 title: "RadioButton"
 header_sub_title: "Class in module "
 doc: "RadioButton"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/radio/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -80,7 +80,7 @@ more info on forms and input.</p>
 
 <h3>
 <code>id()</code>
-  
+
 
 </h3>
 
@@ -99,7 +99,7 @@ more info on forms and input.</p>
 
 <h3>
 <code>select()</code>
-  
+
 
 </h3>
 
@@ -118,7 +118,7 @@ more info on forms and input.</p>
 
 <h3>
 <code>value()</code>
-  
+
 
 </h3>
 
@@ -138,7 +138,7 @@ more info on forms and input.</p>
 
 <h3>
 <code>checked()</code>
-  
+
 
 </h3>
 
@@ -158,7 +158,7 @@ more info on forms and input.</p>
 
 <h3>
 <code>disabled()</code>
-  
+
 
 </h3>
 
@@ -180,4 +180,3 @@ more info on forms and input.</p>
 
 
 <!-- end body block -->
-

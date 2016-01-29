@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Label | slugify}}"
+id: "label"
 title: "Label"
 header_sub_title: "Class in module "
 doc: "Label"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/label/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -155,7 +155,7 @@ A stacked label will always appear on top of the input
 
 <h3>
 <code>type()</code>
-  
+
 
 </h3>
 
@@ -174,7 +174,7 @@ A stacked label will always appear on top of the input
 
 <h3>
 <code>id()</code>
-  
+
 
 </h3>
 
@@ -194,7 +194,7 @@ A stacked label will always appear on top of the input
 
 <h3>
 <code>text()</code>
-  
+
 
 </h3>
 
@@ -216,4 +216,3 @@ A stacked label will always appear on top of the input
 
 
 <!-- end body block -->
-

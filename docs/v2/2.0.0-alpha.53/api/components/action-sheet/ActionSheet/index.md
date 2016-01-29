@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{ActionSheet | slugify}}"
+id: "actionsheet"
 title: "ActionSheet"
 header_sub_title: "Class in module "
 doc: "ActionSheet"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/action-sheet/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -119,7 +119,7 @@ presentActionSheet() {
 
 <h3>
 <code>setTitle(title)</code>
-  
+
 
 </h3>
 
@@ -135,24 +135,24 @@ presentActionSheet() {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         title
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Action sheet title</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -167,7 +167,7 @@ presentActionSheet() {
 
 <h3>
 <code>setSubTitle(subTitle)</code>
-  
+
 
 </h3>
 
@@ -183,24 +183,24 @@ presentActionSheet() {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         subTitle
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Action sheet subtitle</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -215,7 +215,7 @@ presentActionSheet() {
 
 <h3>
 <code>addButton(button)</code>
-  
+
 
 </h3>
 
@@ -231,24 +231,24 @@ presentActionSheet() {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         button
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>object</code>
       </td>
       <td>
         <p>Action sheet button</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -265,4 +265,3 @@ presentActionSheet() {
 
 
 <!-- end body block -->
-

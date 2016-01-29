@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{NavRouter | slugify}}"
+id: "navrouter"
 title: "NavRouter"
 header_sub_title: "Class in module "
 doc: "NavRouter"
@@ -86,41 +86,41 @@ TODO
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         type
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>TODO</code>
       </td>
       <td>
         <p>TODO</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         viewCtrl
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>TODO</code>
       </td>
       <td>
         <p>TODO</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -151,24 +151,24 @@ TODO
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         componentType
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>TODO</code>
       </td>
       <td>
         <p>TODO</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -177,9 +177,5 @@ TODO
 
 
 
-* Returns: 
+* Returns:
   <code>TODO</code> TODO
-
-
-
-

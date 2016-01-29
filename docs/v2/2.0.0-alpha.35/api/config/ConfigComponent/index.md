@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{ConfigComponent | slugify}}"
+id: "configcomponent"
 title: "ConfigComponent"
 header_sub_title: "Function in module "
 doc: "ConfigComponent"
@@ -43,4 +43,3 @@ docType: "function"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/decorators.ts#L79-L91">ionic/config/decorators.ts (line 79)</a>
 </p>
-

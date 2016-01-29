@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Checkbox | slugify}}"
+id: "checkbox"
 title: "Checkbox"
 header_sub_title: "Class in module "
 doc: "Checkbox"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/checkbox/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -153,7 +153,7 @@ whether or not the checkbox is disabled or not.
 
 <h3>
 <code>value()</code>
-  
+
 
 </h3>
 
@@ -172,7 +172,7 @@ whether or not the checkbox is disabled or not.
 
 <h3>
 <code>checked()</code>
-  
+
 
 </h3>
 
@@ -192,7 +192,7 @@ whether or not the checkbox is disabled or not.
 
 <h3>
 <code>disabled()</code>
-  
+
 
 </h3>
 
@@ -214,4 +214,3 @@ whether or not the checkbox is disabled or not.
 
 
 <!-- end body block -->
-

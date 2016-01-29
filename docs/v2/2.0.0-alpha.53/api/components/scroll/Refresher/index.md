@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Refresher | slugify}}"
+id: "refresher"
 title: "Refresher"
 header_sub_title: "Class in module "
 doc: "Refresher"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/refresher/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -260,7 +260,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>ele()</code>
-  
+
 
 </h3>
 
@@ -279,7 +279,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>isActive()</code>
-  
+
 
 </h3>
 
@@ -298,7 +298,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>isDragging()</code>
-  
+
 
 </h3>
 
@@ -317,7 +317,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>isOverscrolling()</code>
-  
+
 
 </h3>
 
@@ -336,7 +336,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>dragOffset()</code>
-  
+
 
 </h3>
 
@@ -355,7 +355,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>lastOverscroll()</code>
-  
+
 
 </h3>
 
@@ -374,7 +374,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>ptrThreshold()</code>
-  
+
 
 </h3>
 
@@ -393,7 +393,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>activated()</code>
-  
+
 
 </h3>
 
@@ -412,7 +412,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>scrollTime()</code>
-  
+
 
 </h3>
 
@@ -431,7 +431,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>canOverscroll()</code>
-  
+
 
 </h3>
 
@@ -450,7 +450,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>startY()</code>
-  
+
 
 </h3>
 
@@ -469,7 +469,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>deltaY()</code>
-  
+
 
 </h3>
 
@@ -488,7 +488,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>scrollHost()</code>
-  
+
 
 </h3>
 
@@ -507,7 +507,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>scrollChild()</code>
-  
+
 
 </h3>
 
@@ -526,7 +526,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>showIcon()</code>
-  
+
 
 </h3>
 
@@ -545,7 +545,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>showSpinner()</code>
-  
+
 
 </h3>
 
@@ -564,7 +564,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>isRefreshing()</code>
-  
+
 
 </h3>
 
@@ -583,7 +583,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>isRefreshingTail()</code>
-  
+
 
 </h3>
 
@@ -602,7 +602,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>pullingIcon()</code>
-  
+
 
 </h3>
 
@@ -621,7 +621,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>pullingText()</code>
-  
+
 
 </h3>
 
@@ -640,7 +640,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>refreshingIcon()</code>
-  
+
 
 </h3>
 
@@ -659,7 +659,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>refreshingText()</code>
-  
+
 
 </h3>
 
@@ -678,7 +678,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>spinner()</code>
-  
+
 
 </h3>
 
@@ -697,7 +697,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>pulling()</code>
-  
+
 
 </h3>
 
@@ -716,7 +716,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>refresh()</code>
-  
+
 
 </h3>
 
@@ -735,7 +735,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>starting()</code>
-  
+
 
 </h3>
 
@@ -754,7 +754,7 @@ the methond on your class you want to perform when you are pulling down
 
 <h3>
 <code>content()</code>
-  
+
 
 </h3>
 
@@ -771,4 +771,3 @@ the methond on your class you want to perform when you are pulling down
 
 
 <!-- end body block -->
-

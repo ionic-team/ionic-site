@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{isActivatable | slugify}}"
+id: "isactivatable"
 title: "isActivatable"
 header_sub_title: "Function in module "
 doc: "isActivatable"
@@ -43,4 +43,3 @@ docType: "function"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tap-click/tap-click.ts#L189-L207">ionic/components/tap-click/tap-click.ts (line 189)</a>
 </p>
-

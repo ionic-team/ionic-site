@@ -4,7 +4,7 @@ version: "2.0.0-alpha.38"
 versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
-id: "{{Slide | slugify}}"
+id: "slide"
 title: "Slide"
 header_sub_title: "Class in module "
 doc: "Slide"

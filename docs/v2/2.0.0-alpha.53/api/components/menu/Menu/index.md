@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Menu | slugify}}"
+id: "menu"
 title: "Menu"
 header_sub_title: "Class in module "
 doc: "Menu"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/menu/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -125,7 +125,7 @@ export class MyClass{
 
 <h3>
 <code>isOpen()</code>
-  
+
 
 </h3>
 
@@ -144,7 +144,7 @@ export class MyClass{
 
 <h3>
 <code>isEnabled()</code>
-  
+
 
 </h3>
 
@@ -163,7 +163,7 @@ export class MyClass{
 
 <h3>
 <code>isSwipeEnabled()</code>
-  
+
 
 </h3>
 
@@ -182,7 +182,7 @@ export class MyClass{
 
 <h3>
 <code>backdrop()</code>
-  
+
 
 </h3>
 
@@ -201,7 +201,7 @@ export class MyClass{
 
 <h3>
 <code>onContentClick()</code>
-  
+
 
 </h3>
 
@@ -220,7 +220,7 @@ export class MyClass{
 
 <h3>
 <code>content()</code>
-  
+
 
 </h3>
 
@@ -239,7 +239,7 @@ export class MyClass{
 
 <h3>
 <code>id()</code>
-  
+
 
 </h3>
 
@@ -258,7 +258,7 @@ export class MyClass{
 
 <h3>
 <code>side()</code>
-  
+
 
 </h3>
 
@@ -277,7 +277,7 @@ export class MyClass{
 
 <h3>
 <code>type()</code>
-  
+
 
 </h3>
 
@@ -296,7 +296,7 @@ export class MyClass{
 
 <h3>
 <code>swipeEnabled()</code>
-  
+
 
 </h3>
 
@@ -315,7 +315,7 @@ export class MyClass{
 
 <h3>
 <code>maxEdgeStart()</code>
-  
+
 
 </h3>
 
@@ -334,7 +334,7 @@ export class MyClass{
 
 <h3>
 <code>opening()</code>
-  
+
 
 </h3>
 
@@ -353,7 +353,7 @@ export class MyClass{
 
 <h3>
 <code>setOpen(isOpen)</code>
-  
+
 
 </h3>
 
@@ -369,24 +369,24 @@ Sets the state of the Menu to open or not.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         isOpen
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>boolean</code>
       </td>
       <td>
         <p>If the Menu is open or not.</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -396,7 +396,7 @@ Sets the state of the Menu to open or not.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> returns a promise once set
 </div>
 
@@ -407,7 +407,7 @@ Sets the state of the Menu to open or not.
 
 <h3>
 <code>open()</code>
-  
+
 
 </h3>
 
@@ -420,7 +420,7 @@ Progamatically open the Menu
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> returns a promise when the menu is fully opened
 </div>
 
@@ -431,7 +431,7 @@ Progamatically open the Menu
 
 <h3>
 <code>close()</code>
-  
+
 
 </h3>
 
@@ -444,7 +444,7 @@ Progamatically close the Menu
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> returns a promise when the menu is fully closed
 </div>
 
@@ -455,7 +455,7 @@ Progamatically close the Menu
 
 <h3>
 <code>toggle()</code>
-  
+
 
 </h3>
 
@@ -468,7 +468,7 @@ Toggle the menu. If it's closed, it will open, and if opened, it will close
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> returns a promise when the menu has been toggled
 </div>
 
@@ -479,7 +479,7 @@ Toggle the menu. If it's closed, it will open, and if opened, it will close
 
 <h3>
 <code>enable(shouldEnable)</code>
-  
+
 
 </h3>
 
@@ -496,24 +496,24 @@ left menus, but only one of them should be able to be dragged open.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         shouldEnable
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>boolean</code>
       </td>
       <td>
         <p>True if it should be enabled, false if not.</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -523,7 +523,7 @@ left menus, but only one of them should be able to be dragged open.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
 </div>
 
@@ -534,7 +534,7 @@ left menus, but only one of them should be able to be dragged open.
 
 <h3>
 <code>swipeEnable(shouldEnable)</code>
-  
+
 
 </h3>
 
@@ -550,24 +550,24 @@ Used to enable or disable the ability to swipe open the menu.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         shouldEnable
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>boolean</code>
       </td>
       <td>
         <p>True if it should be swipe-able, false if not.</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -577,7 +577,7 @@ Used to enable or disable the ability to swipe open the menu.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
 </div>
 
@@ -592,4 +592,3 @@ Used to enable or disable the ability to swipe open the menu.
 
 
 <!-- end body block -->
-

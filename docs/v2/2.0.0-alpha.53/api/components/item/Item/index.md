@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Item | slugify}}"
+id: "item"
 title: "Item"
 header_sub_title: "Class in module "
 doc: "Item"
@@ -86,7 +86,7 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 
 <h3>
 <code>id()</code>
-  
+
 
 </h3>
 
@@ -105,7 +105,7 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 
 <h3>
 <code>labelId()</code>
-  
+
 
 </h3>
 
@@ -124,7 +124,7 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 
 <h3>
 <code>contentLabel()</code>
-  
+
 
 </h3>
 
@@ -143,7 +143,7 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 
 <h3>
 <code>viewLabel()</code>
-  
+
 
 </h3>
 
@@ -165,4 +165,3 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 
 
 <!-- end body block -->
-

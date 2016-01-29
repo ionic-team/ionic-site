@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{TranslatePipe | slugify}}"
+id: "translatepipe"
 title: "TranslatePipe"
 header_sub_title: "Class in module "
 doc: "TranslatePipe"
@@ -68,15 +68,3 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/transla
   <code>supports()</code>
 
 </h2>
-
-
-
-
-
-
-
-
-
-
-
-

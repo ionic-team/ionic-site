@@ -4,7 +4,7 @@ version: "2.0.0-alpha.42"
 versionHref: "/docs/v2/2.0.0-alpha.42"
 path: ""
 category: api
-id: "{{ShowWhen | slugify}}"
+id: "showwhen"
 title: "ShowWhen"
 header_sub_title: "Class in module "
 doc: "ShowWhen"

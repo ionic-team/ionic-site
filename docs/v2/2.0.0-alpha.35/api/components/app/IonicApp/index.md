@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{IonicApp | slugify}}"
+id: "ionicapp"
 title: "IonicApp"
 header_sub_title: "Class in module "
 doc: "IonicApp"
@@ -66,24 +66,24 @@ Sets the document title.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         val
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Value to set the document title to.</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -117,31 +117,31 @@ slides up, etc. After the transition completes it is set back to `true`.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         isEnabled
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>bool</code>
       </td>
       <td>
-        
-        
+
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         fallback
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>bool</code>
       </td>
       <td>
@@ -150,10 +150,10 @@ is used to set the maximum number of milliseconds that app will wait until
 it will automatically enable the app again. It&#39;s basically a fallback incase
 something goes wrong during a transition and the app wasn&#39;t re-enabled correctly.</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -178,8 +178,8 @@ Boolean if the app is actively enabled or not.
 
 
 
-* Returns: 
-  <code>bool</code> 
+* Returns:
+  <code>bool</code>
 
 
 
@@ -214,8 +214,8 @@ Boolean if the app is actively transitioning or not.
 
 
 
-* Returns: 
-  <code>bool</code> 
+* Returns:
+  <code>bool</code>
 
 
 
@@ -239,41 +239,41 @@ Register a known component with a key, for easy lookups later.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         id
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>TODO</code>
       </td>
       <td>
         <p>The id to use to register the component</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         component
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>TODO</code>
       </td>
       <td>
         <p>The component to register</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -304,24 +304,24 @@ Unregister a known component with a key.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         id
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>TODO</code>
       </td>
       <td>
         <p>The id to use to unregister</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -352,24 +352,24 @@ Get a registered component with the given type (returns the first)
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         cls
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>Object</code>
       </td>
       <td>
         <p>the type to search for</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -378,7 +378,7 @@ Get a registered component with the given type (returns the first)
 
 
 
-* Returns: 
+* Returns:
    the matching component, or undefined if none was found
 
 
@@ -405,24 +405,24 @@ Get the component for the given key.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>TODO</code>
       </td>
       <td>
         <p>TODO</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -431,9 +431,5 @@ Get the component for the given key.
 
 
 
-* Returns: 
+* Returns:
   <code>TODO</code> TODO
-
-
-
-

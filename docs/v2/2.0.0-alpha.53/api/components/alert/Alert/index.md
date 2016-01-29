@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Alert | slugify}}"
+id: "alert"
 title: "Alert"
 header_sub_title: "Class in module "
 doc: "Alert"
@@ -152,7 +152,7 @@ presentPrompt() {
 
 <h3>
 <code>setTitle(title)</code>
-  
+
 
 </h3>
 
@@ -168,24 +168,24 @@ presentPrompt() {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         title
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Alert title</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -200,7 +200,7 @@ presentPrompt() {
 
 <h3>
 <code>setSubTitle(subTitle)</code>
-  
+
 
 </h3>
 
@@ -216,24 +216,24 @@ presentPrompt() {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         subTitle
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Alert subtitle</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -248,7 +248,7 @@ presentPrompt() {
 
 <h3>
 <code>setMessage(message)</code>
-  
+
 
 </h3>
 
@@ -264,24 +264,24 @@ presentPrompt() {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         message
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Alert message content</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -296,7 +296,7 @@ presentPrompt() {
 
 <h3>
 <code>addInput(input)</code>
-  
+
 
 </h3>
 
@@ -312,24 +312,24 @@ presentPrompt() {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         input
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>object</code>
       </td>
       <td>
         <p>Alert input</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -344,7 +344,7 @@ presentPrompt() {
 
 <h3>
 <code>addButton(button)</code>
-  
+
 
 </h3>
 
@@ -360,24 +360,24 @@ presentPrompt() {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         button
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>object</code>
       </td>
       <td>
         <p>Alert button</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -392,7 +392,7 @@ presentPrompt() {
 
 <h3>
 <code>setCssClass(cssClass)</code>
-  
+
 
 </h3>
 
@@ -408,24 +408,24 @@ presentPrompt() {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         cssClass
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>CSS class name to add to the alert&#39;s outer wrapper</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -438,4 +438,3 @@ presentPrompt() {
 
 
 <!-- end body block -->
-

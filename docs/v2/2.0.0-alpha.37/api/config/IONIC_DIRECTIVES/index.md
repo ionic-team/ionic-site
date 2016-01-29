@@ -4,7 +4,7 @@ version: "2.0.0-alpha.37"
 versionHref: "/docs/v2/2.0.0-alpha.37"
 path: ""
 category: api
-id: "{{IONIC_DIRECTIVES | slugify}}"
+id: "ionic_directives"
 title: "IONIC_DIRECTIVES"
 header_sub_title: "Let in module "
 doc: "IONIC_DIRECTIVES"

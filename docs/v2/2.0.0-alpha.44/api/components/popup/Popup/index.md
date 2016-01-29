@@ -4,14 +4,14 @@ version: "2.0.0-alpha.44"
 versionHref: "/docs/v2/2.0.0-alpha.44"
 path: ""
 category: api
-id: "{{Popup | slugify}}"
+id: "popup"
 title: "Popup"
 header_sub_title: "Class in module "
 doc: "Popup"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/popup/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -118,7 +118,7 @@ Popup
 
 <h3>
 <code>alert(opts)</code>
-  
+
 
 </h3>
 
@@ -135,15 +135,15 @@ that the user can tap to close the popup.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         opts
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>object</code>
       </td>
       <td>
@@ -156,10 +156,10 @@ that the user can tap to close the popup.
 <li><code>{String}</code> <code>okText</code> (default: &#39;OK&#39;). The text of the OK button.</li>
 </ul>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -167,7 +167,7 @@ that the user can tap to close the popup.
 
 
 
-* Returns: 
+* Returns:
   <code>object</code> A promise which is resolved when the popup is closed.
 
 
@@ -177,7 +177,7 @@ that the user can tap to close the popup.
 
 <h3>
 <code>confirm(opts)</code>
-  
+
 
 </h3>
 
@@ -196,15 +196,15 @@ Resolves the promise with true if the user presses the OK button, and false if t
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         opts
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>object</code>
       </td>
       <td>
@@ -218,10 +218,10 @@ Resolves the promise with true if the user presses the OK button, and false if t
 <li><code>{String}</code> <code>cancelText</code> (default: &#39;Cancel&#39;). The text of the OK button.</li>
 </ul>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -229,7 +229,7 @@ Resolves the promise with true if the user presses the OK button, and false if t
 
 
 
-* Returns: 
+* Returns:
   <code>object</code> A promise which is resolved when the popup is closed.
 
 
@@ -239,7 +239,7 @@ Resolves the promise with true if the user presses the OK button, and false if t
 
 <h3>
 <code>prompt(opts)</code>
-  
+
 
 </h3>
 
@@ -258,15 +258,15 @@ Resolves the promise with the value of the input if the user presses OK, and wit
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         opts
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>object</code>
       </td>
       <td>
@@ -282,10 +282,10 @@ Resolves the promise with the value of the input if the user presses OK, and wit
 <li><code>{String}</code> <code>cancelText</code> (default: &#39;Cancel&#39;). The text of the OK button.</li>
 </ul>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -293,7 +293,7 @@ Resolves the promise with the value of the input if the user presses OK, and wit
 
 
 
-* Returns: 
+* Returns:
   <code>object</code> A promise which is resolved when the popup is closed.
 
 
@@ -305,4 +305,3 @@ Resolves the promise with the value of the input if the user presses OK, and wit
 
 
 <!-- end body block -->
-

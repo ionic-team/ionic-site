@@ -4,14 +4,14 @@ version: "2.0.0-alpha.44"
 versionHref: "/docs/v2/2.0.0-alpha.44"
 path: ""
 category: api
-id: "{{Blur | slugify}}"
+id: "blur"
 title: "Blur"
 header_sub_title: "Class in module "
 doc: "Blur"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/blur/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -80,7 +80,7 @@ it will fall back to applying a semi-transparent background color to the element
 
 <h3>
 <code>elementRef()</code>
-  
+
 
 </h3>
 
@@ -99,7 +99,7 @@ it will fall back to applying a semi-transparent background color to the element
 
 <h3>
 <code>renderer()</code>
-  
+
 
 </h3>
 
@@ -116,4 +116,3 @@ it will fall back to applying a semi-transparent background color to the element
 
 
 <!-- end body block -->
-

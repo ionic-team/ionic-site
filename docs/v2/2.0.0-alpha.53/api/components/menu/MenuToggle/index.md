@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{MenuToggle | slugify}}"
+id: "menutoggle"
 title: "MenuToggle"
 header_sub_title: "Class in module "
 doc: "MenuToggle"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/menu/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -76,7 +76,7 @@ Note that the menu&#39;s id must be either <code>leftMenu</code> or <code>rightM
 
 <h3>
 <code>menuToggle()</code>
-  
+
 
 </h3>
 
@@ -95,7 +95,7 @@ Note that the menu&#39;s id must be either <code>leftMenu</code> or <code>rightM
 
 <h3>
 <code>withinNavbar()</code>
-  
+
 
 </h3>
 
@@ -114,7 +114,7 @@ Note that the menu&#39;s id must be either <code>leftMenu</code> or <code>rightM
 
 <h3>
 <code>app()</code>
-  
+
 
 </h3>
 
@@ -133,7 +133,7 @@ Note that the menu&#39;s id must be either <code>leftMenu</code> or <code>rightM
 
 <h3>
 <code>viewCtrl()</code>
-  
+
 
 </h3>
 
@@ -152,7 +152,7 @@ Note that the menu&#39;s id must be either <code>leftMenu</code> or <code>rightM
 
 <h3>
 <code>navbar()</code>
-  
+
 
 </h3>
 
@@ -174,4 +174,3 @@ Note that the menu&#39;s id must be either <code>leftMenu</code> or <code>rightM
 
 
 <!-- end body block -->
-

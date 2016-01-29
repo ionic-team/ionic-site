@@ -4,7 +4,7 @@ version: "2.0.0-alpha.37"
 versionHref: "/docs/v2/2.0.0-alpha.37"
 path: ""
 category: api
-id: "{{IonicApp | slugify}}"
+id: "ionicapp"
 title: "IonicApp"
 header_sub_title: "Class in module "
 doc: "IonicApp"

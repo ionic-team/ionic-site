@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{IdRef | slugify}}"
+id: "idref"
 title: "IdRef"
 header_sub_title: "Class in module "
 doc: "IdRef"
@@ -108,15 +108,3 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <code>appViewManager()</code>
 
 </h2>
-
-
-
-
-
-
-
-
-
-
-
-

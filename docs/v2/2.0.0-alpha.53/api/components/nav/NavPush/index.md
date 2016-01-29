@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{NavPush | slugify}}"
+id: "navpush"
 title: "NavPush"
 header_sub_title: "Class in module "
 doc: "NavPush"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/nav-push-pop/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -94,7 +94,7 @@ NavPush:</p>
 
 <h3>
 <code>navPush()</code>
-  
+
 
 </h3>
 
@@ -113,7 +113,7 @@ NavPush:</p>
 
 <h3>
 <code>navParams()</code>
-  
+
 
 </h3>
 
@@ -132,7 +132,7 @@ NavPush:</p>
 
 <h3>
 <code>registry()</code>
-  
+
 
 </h3>
 
@@ -154,4 +154,3 @@ NavPush:</p>
 
 
 <!-- end body block -->
-

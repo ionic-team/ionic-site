@@ -4,7 +4,7 @@ version: "2.0.0-alpha.40"
 versionHref: "/docs/v2/2.0.0-alpha.40"
 path: ""
 category: api
-id: "{{App | slugify}}"
+id: "app"
 title: "App"
 header_sub_title: "Function in module ionic"
 doc: "App"

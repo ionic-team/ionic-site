@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{SqlStorage | slugify}}"
+id: "sqlstorage"
 title: "SqlStorage"
 header_sub_title: "Class in module "
 doc: "SqlStorage"

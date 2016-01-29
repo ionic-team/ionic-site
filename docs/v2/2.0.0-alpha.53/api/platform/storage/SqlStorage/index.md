@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{SqlStorage | slugify}}"
+id: "sqlstorage"
 title: "SqlStorage"
 header_sub_title: "Class in module "
 doc: "SqlStorage"
@@ -85,7 +85,7 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 <h3>
 <code>query(query,&nbsp;params)</code>
-  
+
 
 </h3>
 
@@ -104,41 +104,41 @@ like SELECT, INSERT, and UPDATE.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         query
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>the query to run</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         params
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>array</code>
       </td>
       <td>
         <p>the additional params to use for query placeholders</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -148,7 +148,7 @@ like SELECT, INSERT, and UPDATE.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 </div>
 
@@ -159,7 +159,7 @@ like SELECT, INSERT, and UPDATE.
 
 <h3>
 <code>get(key)</code>
-  
+
 
 </h3>
 
@@ -175,24 +175,24 @@ Get the value in the database identified by the given key.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>the key</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -202,7 +202,7 @@ Get the value in the database identified by the given key.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 </div>
 
@@ -213,7 +213,7 @@ Get the value in the database identified by the given key.
 
 <h3>
 <code>set(key,&nbsp;value)</code>
-  
+
 
 </h3>
 
@@ -229,41 +229,41 @@ Set the value in the database for the given key. Existing values will be overwri
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>the key</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         value
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>The value (as a string)</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -273,7 +273,7 @@ Set the value in the database for the given key. Existing values will be overwri
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 </div>
 
@@ -284,7 +284,7 @@ Set the value in the database for the given key. Existing values will be overwri
 
 <h3>
 <code>remove(key,&nbsp;value)</code>
-  
+
 
 </h3>
 
@@ -300,41 +300,41 @@ Remove the value in the database for the given key.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>the key</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         value
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>The value (as a string)</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -344,7 +344,7 @@ Remove the value in the database for the given key.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 </div>
 
@@ -353,4 +353,3 @@ Remove the value in the database for the given key.
 
 
 <!-- end body block -->
-

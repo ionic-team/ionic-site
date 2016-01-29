@@ -4,7 +4,7 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{MenuType | slugify}}"
+id: "menutype"
 title: "MenuType"
 header_sub_title: "Class in module "
 doc: "MenuType"

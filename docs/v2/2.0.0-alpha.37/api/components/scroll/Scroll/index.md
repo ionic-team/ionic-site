@@ -4,7 +4,7 @@ version: "2.0.0-alpha.37"
 versionHref: "/docs/v2/2.0.0-alpha.37"
 path: ""
 category: api
-id: "{{Scroll | slugify}}"
+id: "scroll"
 title: "Scroll"
 header_sub_title: "Class in module "
 doc: "Scroll"

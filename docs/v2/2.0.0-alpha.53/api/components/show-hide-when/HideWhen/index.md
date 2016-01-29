@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{HideWhen | slugify}}"
+id: "hidewhen"
 title: "HideWhen"
 header_sub_title: "Class in module "
 doc: "HideWhen"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/hide-when/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -74,4 +74,3 @@ Complements the <a href="../ShowWhen">showWhen attribute</a>.</p>
 
 
 <!-- end body block -->
-

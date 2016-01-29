@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{MenuClose | slugify}}"
+id: "menuclose"
 title: "MenuClose"
 header_sub_title: "Class in module "
 doc: "MenuClose"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/menu/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -81,7 +81,7 @@ Improve this doc
 
 <h3>
 <code>menuClose()</code>
-  
+
 
 </h3>
 
@@ -103,4 +103,3 @@ Improve this doc
 
 
 <!-- end body block -->
-

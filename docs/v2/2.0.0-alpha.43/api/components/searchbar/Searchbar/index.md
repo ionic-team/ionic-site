@@ -4,7 +4,7 @@ version: "2.0.0-alpha.43"
 versionHref: "/docs/v2/2.0.0-alpha.43"
 path: ""
 category: api
-id: "{{Searchbar | slugify}}"
+id: "searchbar"
 title: "Searchbar"
 header_sub_title: "Class in module ionic"
 doc: "Searchbar"

@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{Transition | slugify}}"
+id: "transition"
 title: "Transition"
 header_sub_title: "Class in module "
 doc: "Transition"
@@ -43,4 +43,3 @@ docType: "class"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/transitions/transition.ts#L1-L20">ionic/transitions/transition.ts (line 1)</a>
 </p>
-

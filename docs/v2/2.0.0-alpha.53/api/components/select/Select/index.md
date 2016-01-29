@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Select | slugify}}"
+id: "select"
 title: "Select"
 header_sub_title: "Class in module "
 doc: "Select"
@@ -125,7 +125,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>cancelText()</code>
-  
+
 
 </h3>
 
@@ -144,7 +144,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>okText()</code>
-  
+
 
 </h3>
 
@@ -163,7 +163,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>alertOptions()</code>
-  
+
 
 </h3>
 
@@ -182,7 +182,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>checked()</code>
-  
+
 
 </h3>
 
@@ -201,7 +201,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>change()</code>
-  
+
 
 </h3>
 
@@ -220,7 +220,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>multiple()</code>
-  
+
 
 </h3>
 
@@ -240,7 +240,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>value()</code>
-  
+
 
 </h3>
 
@@ -260,7 +260,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>text()</code>
-  
+
 
 </h3>
 
@@ -279,7 +279,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>options()</code>
-  
+
 
 </h3>
 
@@ -298,7 +298,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>updateOptions()</code>
-  
+
 
 </h3>
 
@@ -317,7 +317,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>ngAfterContentInit()</code>
-  
+
 
 </h3>
 
@@ -336,7 +336,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <h3>
 <code>disabled()</code>
-  
+
 
 </h3>
 
@@ -354,4 +354,3 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 
 <!-- end body block -->
-

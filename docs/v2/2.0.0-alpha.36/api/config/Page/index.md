@@ -4,7 +4,7 @@ version: "2.0.0-alpha.36"
 versionHref: "/docs/v2/2.0.0-alpha.36"
 path: ""
 category: api
-id: "{{Page | slugify}}"
+id: "page"
 title: "Page"
 header_sub_title: "Function in module "
 doc: "Page"

@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{NavParams | slugify}}"
+id: "navparams"
 title: "NavParams"
 header_sub_title: "Class in module "
 doc: "NavParams"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/nav-params/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -77,7 +77,7 @@ option with a simple <code>get</code> method.</p>
 
 <h3>
 <code>data()</code>
-  
+
 
 </h3>
 
@@ -96,7 +96,7 @@ option with a simple <code>get</code> method.</p>
 
 <h3>
 <code>get(parameter)</code>
-  
+
 
 </h3>
 
@@ -124,24 +124,24 @@ export class MyClass{
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         parameter
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Which param you want to look up</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -161,4 +161,3 @@ export class MyClass{
 
 
 <!-- end body block -->
-

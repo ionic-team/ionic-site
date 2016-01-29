@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Searchbar | slugify}}"
+id: "searchbar"
 title: "Searchbar"
 header_sub_title: "Class in module ionic"
 doc: "Searchbar"
@@ -310,7 +310,7 @@ Expression to evaluate when the clear input button is clicked
 
 <h3>
 <code>searchbarInput()</code>
-  
+
 
 </h3>
 
@@ -329,7 +329,7 @@ Expression to evaluate when the clear input button is clicked
 
 <h3>
 <code>value()</code>
-  
+
 
 </h3>
 
@@ -348,7 +348,7 @@ Expression to evaluate when the clear input button is clicked
 
 <h3>
 <code>blurInput()</code>
-  
+
 
 </h3>
 
@@ -367,7 +367,7 @@ Expression to evaluate when the clear input button is clicked
 
 <h3>
 <code>inputElement()</code>
-  
+
 
 </h3>
 
@@ -386,7 +386,7 @@ Expression to evaluate when the clear input button is clicked
 
 <h3>
 <code>searchIconElement()</code>
-  
+
 
 </h3>
 
@@ -405,7 +405,7 @@ Expression to evaluate when the clear input button is clicked
 
 <h3>
 <code>mode()</code>
-  
+
 
 </h3>
 
@@ -424,7 +424,7 @@ Expression to evaluate when the clear input button is clicked
 
 <h3>
 <code>isFocused()</code>
-  
+
 
 </h3>
 
@@ -443,7 +443,7 @@ Expression to evaluate when the clear input button is clicked
 
 <h3>
 <code>shouldLeftAlign()</code>
-  
+
 
 </h3>
 
@@ -464,4 +464,3 @@ Expression to evaluate when the clear input button is clicked
 
 
 <!-- end body block -->
-

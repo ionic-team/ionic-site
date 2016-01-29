@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{Switch | slugify}}"
+id: "switch"
 title: "Switch"
 header_sub_title: "Class in module "
 doc: "Switch"
@@ -90,24 +90,24 @@ Set checked state of this switch.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         value
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>boolean</code>
       </td>
       <td>
         <p>Boolean to set this switch&#39;s checked state to.</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -126,14 +126,3 @@ Set checked state of this switch.
 </h2>
 
 Toggle the checked state of this switch.
-
-
-
-
-
-
-
-
-
-
-

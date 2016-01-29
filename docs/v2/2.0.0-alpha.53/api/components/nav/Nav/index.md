@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Nav | slugify}}"
+id: "nav"
 title: "Nav"
 header_sub_title: "Class in module "
 doc: "Nav"
@@ -138,7 +138,7 @@ swipe to go back:</p>
 
 <h3>
 <code>root()</code>
-  
+
 
 </h3>
 
@@ -157,7 +157,7 @@ swipe to go back:</p>
 
 <h3>
 <code>swipeBackEnabled()</code>
-  
+
 
 </h3>
 
@@ -178,4 +178,3 @@ swipe to go back:</p>
 
 
 <!-- end body block -->
-

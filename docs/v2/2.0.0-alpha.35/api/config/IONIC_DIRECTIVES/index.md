@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{IONIC_DIRECTIVES | slugify}}"
+id: "ionic_directives"
 title: "IONIC_DIRECTIVES"
 header_sub_title: "Let in module "
 doc: "IONIC_DIRECTIVES"
@@ -45,4 +45,3 @@ FORM_DIRECTIVES.  Automatically available in every <a href="../Page/">@Page</a> 
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/directives.ts#L39-L105">ionic/config/directives.ts (line 39)</a>
 </p>
-

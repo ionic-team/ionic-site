@@ -4,7 +4,7 @@ version: "2.0.0-alpha.43"
 versionHref: "/docs/v2/2.0.0-alpha.43"
 path: ""
 category: api
-id: "{{ToolbarTitle | slugify}}"
+id: "toolbartitle"
 title: "ToolbarTitle"
 header_sub_title: "Class in module "
 doc: "ToolbarTitle"

@@ -4,7 +4,7 @@ version: "2.0.0-alpha.36"
 versionHref: "/docs/v2/2.0.0-alpha.36"
 path: ""
 category: api
-id: "{{Nav | slugify}}"
+id: "nav"
 title: "Nav"
 header_sub_title: "Class in module "
 doc: "Nav"

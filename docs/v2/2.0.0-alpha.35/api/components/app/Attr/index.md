@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{Attr | slugify}}"
+id: "attr"
 title: "Attr"
 header_sub_title: "Class in module "
 doc: "Attr"
@@ -73,15 +73,3 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
   <code>elementRef()</code>
 
 </h2>
-
-
-
-
-
-
-
-
-
-
-
-

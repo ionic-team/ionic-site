@@ -4,7 +4,7 @@ version: "2.0.0-alpha.38"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{NavbarTemplate | slugify}}"
+id: "navbartemplate"
 title: "NavbarTemplate"
 header_sub_title: "Class in module "
 doc: "NavbarTemplate"

@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Config | slugify}}"
+id: "config"
 title: "Config"
 header_sub_title: "Class in module "
 doc: "Config"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/config/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -194,7 +194,7 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 
 <h3>
 <code>set(platform,&nbsp;key,&nbsp;value)</code>
-  
+
 
 </h3>
 
@@ -210,58 +210,58 @@ Sets a single config value.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         platform
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>String</code>
       </td>
       <td>
         <p>The platform (either &#39;ios&#39; or &#39;android&#39;) that the config value should apply to. Leaving this blank will apply the config value to all platforms.</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>String</code>
       </td>
       <td>
         <p>The key used to look up the value at a later point in time.</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         value
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>String</code>
       </td>
       <td>
         <p>The config value being stored.</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -276,7 +276,7 @@ Sets a single config value.
 
 <h3>
 <code>get(key)</code>
-  
+
 
 </h3>
 
@@ -292,24 +292,24 @@ Returns a single config value, given a key.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>String</code>
       </td>
       <td>
         <p>the key for the config value</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -324,7 +324,7 @@ Returns a single config value, given a key.
 
 <h3>
 <code>getBoolean(key)</code>
-  
+
 
 </h3>
 
@@ -340,24 +340,24 @@ Same as `get()`, however always returns a boolean value.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>String</code>
       </td>
       <td>
         <p>the key for the config value</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -370,4 +370,3 @@ Same as `get()`, however always returns a boolean value.
 
 
 <!-- end body block -->
-

@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{LocalStorage | slugify}}"
+id: "localstorage"
 title: "LocalStorage"
 header_sub_title: "Class in module "
 doc: "LocalStorage"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/local-storage/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -83,7 +83,7 @@ export class MyClass{
 
 <h3>
 <code>get(key)</code>
-  
+
 
 </h3>
 
@@ -99,24 +99,24 @@ Get the value of a key in LocalStorage
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>String</code>
       </td>
       <td>
         <p>the key you want to lookup in LocalStorage</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -131,7 +131,7 @@ Get the value of a key in LocalStorage
 
 <h3>
 <code>set(key,&nbsp;value)</code>
-  
+
 
 </h3>
 
@@ -147,41 +147,41 @@ Set a key value pair and save it to LocalStorage
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>String</code>
       </td>
       <td>
         <p>the key you want to save to LocalStorage</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         value
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>Any</code>
       </td>
       <td>
         <p>the value of the key you&#39;re saving</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -196,7 +196,7 @@ Set a key value pair and save it to LocalStorage
 
 <h3>
 <code>remove(key)</code>
-  
+
 
 </h3>
 
@@ -212,24 +212,24 @@ Remove a key from LocalStorage
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         key
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>String</code>
       </td>
       <td>
         <p>the key you want to remove from LocalStorage</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -246,4 +246,3 @@ Remove a key from LocalStorage
 
 
 <!-- end body block -->
-

@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{TextArea | slugify}}"
+id: "textarea"
 title: "TextArea"
 header_sub_title: "Class in module "
 doc: "TextArea"
@@ -125,7 +125,7 @@ The textarea will be inset
 
 <h3>
 <code>ngOnInit()</code>
-  
+
 
 </h3>
 
@@ -142,4 +142,3 @@ The textarea will be inset
 
 
 <!-- end body block -->
-

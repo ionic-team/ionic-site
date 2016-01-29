@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Navbar | slugify}}"
+id: "navbar"
 title: "Navbar"
 header_sub_title: "Class in module "
 doc: "Navbar"
@@ -88,7 +88,7 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
 
 <h3>
 <code>hideBackButton()</code>
-  
+
 
 </h3>
 
@@ -107,7 +107,7 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
 
 <h3>
 <code>setBackButtonText()</code>
-  
+
 
 </h3>
 
@@ -128,4 +128,3 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
 
 
 <!-- end body block -->
-

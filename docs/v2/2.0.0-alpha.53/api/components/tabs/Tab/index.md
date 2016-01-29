@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Tab | slugify}}"
+id: "tab"
 title: "Tab"
 header_sub_title: "Class in module "
 doc: "Tab"
@@ -252,7 +252,7 @@ method to call when the current tab is selected
 
 <h3>
 <code>isSelected()</code>
-  
+
 
 </h3>
 
@@ -271,7 +271,7 @@ method to call when the current tab is selected
 
 <h3>
 <code>root()</code>
-  
+
 
 </h3>
 
@@ -290,7 +290,7 @@ method to call when the current tab is selected
 
 <h3>
 <code>tabTitle()</code>
-  
+
 
 </h3>
 
@@ -309,7 +309,7 @@ method to call when the current tab is selected
 
 <h3>
 <code>tabIcon()</code>
-  
+
 
 </h3>
 
@@ -328,7 +328,7 @@ method to call when the current tab is selected
 
 <h3>
 <code>tabBadge()</code>
-  
+
 
 </h3>
 
@@ -347,7 +347,7 @@ method to call when the current tab is selected
 
 <h3>
 <code>tabBadgeStyle()</code>
-  
+
 
 </h3>
 
@@ -366,7 +366,7 @@ method to call when the current tab is selected
 
 <h3>
 <code>select()</code>
-  
+
 
 </h3>
 
@@ -385,7 +385,7 @@ method to call when the current tab is selected
 
 <h3>
 <code>preload()</code>
-  
+
 
 </h3>
 
@@ -404,7 +404,7 @@ method to call when the current tab is selected
 
 <h3>
 <code>index()</code>
-  
+
 
 </h3>
 
@@ -425,7 +425,7 @@ export class MyClass{
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>number</code> Returns the index of this page within its NavController.
 </div>
 
@@ -434,4 +434,3 @@ export class MyClass{
 
 
 <!-- end body block -->
-

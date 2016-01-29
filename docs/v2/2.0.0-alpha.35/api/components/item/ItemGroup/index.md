@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{ItemGroup | slugify}}"
+id: "itemgroup"
 title: "ItemGroup"
 header_sub_title: "Class in module "
 doc: "ItemGroup"
@@ -46,6 +46,3 @@ defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/compone
 </p>
 <h2>Directive</h2>
   <span>selector: ion-item-group</span>
-
-
-

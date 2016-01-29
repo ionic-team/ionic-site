@@ -4,7 +4,7 @@ version: "2.0.0-alpha.36"
 versionHref: "/docs/v2/2.0.0-alpha.36"
 path: ""
 category: api
-id: "{{Keyboard | slugify}}"
+id: "keyboard"
 title: "Keyboard"
 header_sub_title: "Class in module "
 doc: "Keyboard"

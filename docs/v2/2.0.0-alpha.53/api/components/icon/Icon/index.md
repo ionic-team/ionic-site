@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Icon | slugify}}"
+id: "icon"
 title: "Icon"
 header_sub_title: "Class in module "
 doc: "Icon"
@@ -190,7 +190,7 @@ or not. The `isActive` property is largely used by the tabbar.
 
 <h3>
 <code>mode()</code>
-  
+
 
 </h3>
 
@@ -209,7 +209,7 @@ or not. The `isActive` property is largely used by the tabbar.
 
 <h3>
 <code>name()</code>
-  
+
 
 </h3>
 
@@ -229,7 +229,7 @@ or not. The `isActive` property is largely used by the tabbar.
 
 <h3>
 <code>ios()</code>
-  
+
 
 </h3>
 
@@ -249,7 +249,7 @@ or not. The `isActive` property is largely used by the tabbar.
 
 <h3>
 <code>md()</code>
-  
+
 
 </h3>
 
@@ -269,7 +269,7 @@ or not. The `isActive` property is largely used by the tabbar.
 
 <h3>
 <code>isActive()</code>
-  
+
 
 </h3>
 
@@ -291,4 +291,3 @@ or not. The `isActive` property is largely used by the tabbar.
 
 
 <!-- end body block -->
-

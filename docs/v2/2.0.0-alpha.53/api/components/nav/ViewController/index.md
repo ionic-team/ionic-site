@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{ViewController | slugify}}"
+id: "viewcontroller"
 title: "ViewController"
 header_sub_title: "Class in module "
 doc: "ViewController"
@@ -73,7 +73,7 @@ export class MyPage{
 
 <h3>
 <code>componentType()</code>
-  
+
 
 </h3>
 
@@ -92,7 +92,7 @@ export class MyPage{
 
 <h3>
 <code>data()</code>
-  
+
 
 </h3>
 
@@ -111,7 +111,7 @@ export class MyPage{
 
 <h3>
 <code>subscribe()</code>
-  
+
 
 </h3>
 
@@ -130,7 +130,7 @@ export class MyPage{
 
 <h3>
 <code>onDismiss()</code>
-  
+
 
 </h3>
 
@@ -149,7 +149,7 @@ export class MyPage{
 
 <h3>
 <code>dismiss()</code>
-  
+
 
 </h3>
 
@@ -168,7 +168,7 @@ export class MyPage{
 
 <h3>
 <code>enableBack(Check)</code>
-  
+
 
 </h3>
 
@@ -184,24 +184,24 @@ Check to see if you can go back in the navigation stack
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         Check
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>boolean</code>
       </td>
       <td>
         <p>whether or not you can go back from this page</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -211,7 +211,7 @@ Check to see if you can go back in the navigation stack
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>boolean</code> Returns if it's possible to go back from this Page.
 </div>
 
@@ -222,7 +222,7 @@ Check to see if you can go back in the navigation stack
 
 <h3>
 <code>index()</code>
-  
+
 
 </h3>
 
@@ -246,7 +246,7 @@ You can find out the index of the current view is in the current navigation stac
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>number</code> Returns the index of this page within its NavController.
 </div>
 
@@ -257,7 +257,7 @@ You can find out the index of the current view is in the current navigation stac
 
 <h3>
 <code>isRoot()</code>
-  
+
 
 </h3>
 
@@ -270,7 +270,7 @@ You can find out the index of the current view is in the current navigation stac
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>boolean</code> Returns if this Page is the root page of the NavController.
 </div>
 
@@ -281,7 +281,7 @@ You can find out the index of the current view is in the current navigation stac
 
 <h3>
 <code>hasNavbar()</code>
-  
+
 
 </h3>
 
@@ -306,7 +306,7 @@ export class Page1 {
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>boolean</code> Returns a boolean if this Page has a navbar or not.
 </div>
 
@@ -317,7 +317,7 @@ export class Page1 {
 
 <h3>
 <code>setBackButtonText(backButtonText)</code>
-  
+
 
 </h3>
 
@@ -346,24 +346,24 @@ Make sure you use the view events when calling this method, otherwise the back-b
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         backButtonText
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>string</code>
       </td>
       <td>
         <p>Set the back button text.</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -378,7 +378,7 @@ Make sure you use the view events when calling this method, otherwise the back-b
 
 <h3>
 <code>showBackButton(Set)</code>
-  
+
 
 </h3>
 
@@ -394,24 +394,24 @@ Set if the back button for the current view is visible or not. Be sure to wrap t
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         Set
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>boolean</code>
       </td>
       <td>
         <p>if this Page&#39;s back button should show or not.</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -424,4 +424,3 @@ Set if the back button for the current view is visible or not. Be sure to wrap t
 
 
 <!-- end body block -->
-

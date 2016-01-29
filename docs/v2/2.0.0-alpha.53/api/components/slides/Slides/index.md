@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Slides | slugify}}"
+id: "slides"
 title: "Slides"
 header_sub_title: "Class in module "
 doc: "Slides"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/slides/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -242,7 +242,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>rapidUpdate()</code>
-  
+
 
 </h3>
 
@@ -261,7 +261,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>showPager()</code>
-  
+
 
 </h3>
 
@@ -280,7 +280,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>slider()</code>
-  
+
 
 </h3>
 
@@ -299,7 +299,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>maxScale()</code>
-  
+
 
 </h3>
 
@@ -318,7 +318,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>zoomElement()</code>
-  
+
 
 </h3>
 
@@ -337,7 +337,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>zoomGesture()</code>
-  
+
 
 </h3>
 
@@ -356,7 +356,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>scale()</code>
-  
+
 
 </h3>
 
@@ -375,7 +375,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>zoomLastPosX()</code>
-  
+
 
 </h3>
 
@@ -394,7 +394,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>zoomLastPosY()</code>
-  
+
 
 </h3>
 
@@ -413,7 +413,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>viewportWidth()</code>
-  
+
 
 </h3>
 
@@ -432,7 +432,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>viewportHeight()</code>
-  
+
 
 </h3>
 
@@ -451,7 +451,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>enableZoom()</code>
-  
+
 
 </h3>
 
@@ -470,7 +470,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>touch()</code>
-  
+
 
 </h3>
 
@@ -489,7 +489,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>autoplay()</code>
-  
+
 
 </h3>
 
@@ -508,7 +508,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>loop()</code>
-  
+
 
 </h3>
 
@@ -527,7 +527,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>index()</code>
-  
+
 
 </h3>
 
@@ -546,7 +546,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>bounce()</code>
-  
+
 
 </h3>
 
@@ -565,7 +565,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>pager()</code>
-  
+
 
 </h3>
 
@@ -584,7 +584,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>options()</code>
-  
+
 
 </h3>
 
@@ -603,7 +603,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>zoom()</code>
-  
+
 
 </h3>
 
@@ -622,7 +622,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>zoomDuration()</code>
-  
+
 
 </h3>
 
@@ -641,7 +641,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>zoomMax()</code>
-  
+
 
 </h3>
 
@@ -660,7 +660,7 @@ expression to evaluate when a slide has been changed
 
 <h3>
 <code>change()</code>
-  
+
 
 </h3>
 
@@ -681,4 +681,3 @@ expression to evaluate when a slide has been changed
 
 
 <!-- end body block -->
-

@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Content | slugify}}"
+id: "content"
 title: "Content"
 header_sub_title: "Class in module "
 doc: "Content"
@@ -74,7 +74,7 @@ Improve this doc
 
 <h3>
 <code>scrollElement()</code>
-  
+
 
 </h3>
 
@@ -93,7 +93,7 @@ Improve this doc
 
 <h3>
 <code>addScrollEventListener(handler)</code>
-  
+
 
 </h3>
 
@@ -129,24 +129,24 @@ export class MyPage{
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         handler
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>Function</code>
       </td>
       <td>
         <p>The method you want perform when scrolling</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -156,7 +156,7 @@ export class MyPage{
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Function</code> A function that removes the scroll handler.
 </div>
 
@@ -167,7 +167,7 @@ export class MyPage{
 
 <h3>
 <code>onScrollEnd()</code>
-  
+
 
 </h3>
 
@@ -186,7 +186,7 @@ export class MyPage{
 
 <h3>
 <code>scrollTo(x,&nbsp;y,&nbsp;duration,&nbsp;tolerance)</code>
-  
+
 
 </h3>
 
@@ -223,75 +223,75 @@ export class MyPage{
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         x
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>Number</code>
       </td>
       <td>
         <p>The x-value to scroll to.</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         y
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>Number</code>
       </td>
       <td>
         <p>The y-value to scroll to.</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         duration
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>Number</code>
       </td>
       <td>
         <p>Duration of the scroll animation in ms.</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         tolerance
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>TODO</code>
       </td>
       <td>
         <p>TODO</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -301,7 +301,7 @@ export class MyPage{
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> Returns a promise when done
 </div>
 
@@ -312,7 +312,7 @@ export class MyPage{
 
 <h3>
 <code>scrollToTop()</code>
-  
+
 
 </h3>
 
@@ -346,7 +346,7 @@ export class MyPage{
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Promise</code> Returns a promise when done
 </div>
 
@@ -355,4 +355,3 @@ export class MyPage{
 
 
 <!-- end body block -->
-

@@ -4,7 +4,7 @@ version: "2.0.0-alpha.38"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{isActivatable | slugify}}"
+id: "isactivatable"
 title: "isActivatable"
 header_sub_title: "Function in module "
 doc: "isActivatable"

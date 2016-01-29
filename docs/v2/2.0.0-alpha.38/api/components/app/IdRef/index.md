@@ -4,7 +4,7 @@ version: "2.0.0-alpha.38"
 versionHref: "/docs/v2/2.0.0-alpha.38"
 path: ""
 category: api
-id: "{{IdRef | slugify}}"
+id: "idref"
 title: "IdRef"
 header_sub_title: "Class in module "
 doc: "IdRef"

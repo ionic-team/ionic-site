@@ -4,7 +4,7 @@ version: "2.0.0-alpha.44"
 versionHref: "/docs/v2/2.0.0-alpha.44"
 path: ""
 category: api
-id: "{{SegmentButton | slugify}}"
+id: "segmentbutton"
 title: "SegmentButton"
 header_sub_title: "Class in module "
 doc: "SegmentButton"

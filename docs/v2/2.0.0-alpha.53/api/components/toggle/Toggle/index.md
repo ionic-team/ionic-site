@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Toggle | slugify}}"
+id: "toggle"
 title: "Toggle"
 header_sub_title: "Class in module "
 doc: "Toggle"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/toggle/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -193,7 +193,7 @@ a unique ID for a toggle
 
 <h3>
 <code>id()</code>
-  
+
 
 </h3>
 
@@ -212,7 +212,7 @@ a unique ID for a toggle
 
 <h3>
 <code>value()</code>
-  
+
 
 </h3>
 
@@ -231,7 +231,7 @@ a unique ID for a toggle
 
 <h3>
 <code>checked()</code>
-  
+
 
 </h3>
 
@@ -251,7 +251,7 @@ a unique ID for a toggle
 
 <h3>
 <code>disabled()</code>
-  
+
 
 </h3>
 
@@ -273,4 +273,3 @@ a unique ID for a toggle
 
 
 <!-- end body block -->
-

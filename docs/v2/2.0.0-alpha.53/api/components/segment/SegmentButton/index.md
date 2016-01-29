@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{SegmentButton | slugify}}"
+id: "segmentbutton"
 title: "SegmentButton"
 header_sub_title: "Class in module "
 doc: "SegmentButton"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/segment/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -154,7 +154,7 @@ expression to evaluate when a segment button has been clicked
 
 <h3>
 <code>value()</code>
-  
+
 
 </h3>
 
@@ -173,7 +173,7 @@ expression to evaluate when a segment button has been clicked
 
 <h3>
 <code>select()</code>
-  
+
 
 </h3>
 
@@ -195,4 +195,3 @@ expression to evaluate when a segment button has been clicked
 
 
 <!-- end body block -->
-

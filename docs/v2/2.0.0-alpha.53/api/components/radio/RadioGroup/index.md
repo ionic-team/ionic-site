@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{RadioGroup | slugify}}"
+id: "radiogroup"
 title: "RadioGroup"
 header_sub_title: "Class in module "
 doc: "RadioGroup"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/radio/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -106,7 +106,7 @@ in the group unselects all others in the group.</p>
 
 <h3>
 <code>id()</code>
-  
+
 
 </h3>
 
@@ -125,7 +125,7 @@ in the group unselects all others in the group.</p>
 
 <h3>
 <code>value()</code>
-  
+
 
 </h3>
 
@@ -144,7 +144,7 @@ in the group unselects all others in the group.</p>
 
 <h3>
 <code>change()</code>
-  
+
 
 </h3>
 
@@ -163,7 +163,7 @@ in the group unselects all others in the group.</p>
 
 <h3>
 <code>ngAfterContentInit()</code>
-  
+
 
 </h3>
 
@@ -182,7 +182,7 @@ in the group unselects all others in the group.</p>
 
 <h3>
 <code>updateValue()</code>
-  
+
 
 </h3>
 
@@ -201,7 +201,7 @@ in the group unselects all others in the group.</p>
 
 <h3>
 <code>register()</code>
-  
+
 
 </h3>
 
@@ -222,4 +222,3 @@ in the group unselects all others in the group.</p>
 
 
 <!-- end body block -->
-

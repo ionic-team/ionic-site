@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{ToolbarBase | slugify}}"
+id: "toolbarbase"
 title: "ToolbarBase"
 header_sub_title: "Class in module "
 doc: "ToolbarBase"
@@ -44,4 +44,3 @@ docType: "class"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/toolbar/toolbar.ts#L6-L61">ionic/components/toolbar/toolbar.ts (line 6)</a>
 </p>
-

@@ -4,14 +4,14 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{List | slugify}}"
+id: "list"
 title: "List"
 header_sub_title: "Class in module "
 doc: "List"
 docType: "class"
 show_preview_device: true
 preview_device_url: "/docs/v2/demos/list/"
-angular_controller: APIDemoCtrl 
+angular_controller: APIDemoCtrl
 ---
 
 
@@ -70,7 +70,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>ele()</code>
-  
+
 
 </h3>
 
@@ -89,7 +89,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>itemTemplate()</code>
-  
+
 
 </h3>
 
@@ -108,7 +108,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>slidingGesture()</code>
-  
+
 
 </h3>
 
@@ -127,7 +127,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>items()</code>
-  
+
 
 </h3>
 
@@ -146,7 +146,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>virtual()</code>
-  
+
 
 </h3>
 
@@ -165,7 +165,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>content()</code>
-  
+
 
 </h3>
 
@@ -184,7 +184,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>zone()</code>
-  
+
 
 </h3>
 
@@ -203,7 +203,7 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 
 <h3>
 <code>enableSlidingItems(shouldEnable)</code>
-  
+
 
 </h3>
 
@@ -231,24 +231,24 @@ export class MyClass {
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         shouldEnable
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>Boolean</code>
       </td>
       <td>
         <p>whether the item-sliding should be enabled or not</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -263,7 +263,7 @@ export class MyClass {
 
 <h3>
 <code>closeSlidingItems()</code>
-  
+
 
 </h3>
 
@@ -299,4 +299,3 @@ export class MyClass {
 
 
 <!-- end body block -->
-

@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Platform | slugify}}"
+id: "platform"
 title: "Platform"
 header_sub_title: "Class in module "
 doc: "Platform"

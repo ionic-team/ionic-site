@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{ionicProviders | slugify}}"
+id: "ionicproviders"
 title: "ionicProviders"
 header_sub_title: "Function in module "
 doc: "ionicProviders"
@@ -43,4 +43,3 @@ docType: "function"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/config/bootstrap.ts#L20-L69">ionic/config/bootstrap.ts (line 20)</a>
 </p>
-

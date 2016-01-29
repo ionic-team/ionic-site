@@ -4,7 +4,7 @@ version: "2.0.0-alpha.40"
 versionHref: "/docs/v2/2.0.0-alpha.40"
 path: ""
 category: api
-id: "{{NavPush | slugify}}"
+id: "navpush"
 title: "NavPush"
 header_sub_title: "Class in module "
 doc: "NavPush"

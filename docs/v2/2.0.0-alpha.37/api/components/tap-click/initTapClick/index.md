@@ -4,7 +4,7 @@ version: "2.0.0-alpha.37"
 versionHref: "/docs/v2/2.0.0-alpha.37"
 path: ""
 category: api
-id: "{{initTapClick | slugify}}"
+id: "inittapclick"
 title: "initTapClick"
 header_sub_title: "Function in module "
 doc: "initTapClick"

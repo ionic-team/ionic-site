@@ -4,7 +4,7 @@ version: "2.0.0-alpha.35"
 versionHref: "/docs/v2/2.0.0-alpha.35"
 path: ""
 category: api
-id: "{{initTapClick | slugify}}"
+id: "inittapclick"
 title: "initTapClick"
 header_sub_title: "Function in module "
 doc: "initTapClick"
@@ -43,4 +43,3 @@ docType: "function"
 <p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
 defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/tap-click/tap-click.ts#L16-L44">ionic/components/tap-click/tap-click.ts (line 16)</a>
 </p>
-

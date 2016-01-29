@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Events | slugify}}"
+id: "events"
 title: "Events"
 header_sub_title: "Class in module "
 doc: "Events"
@@ -77,7 +77,7 @@ events.subscribe(&#39;user:created&#39;, (user) =&gt; {
 
 <h3>
 <code>subscribe(topic,&nbsp;handler)</code>
-  
+
 
 </h3>
 
@@ -95,41 +95,41 @@ will trigger the provided handler.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         topic
-        
-        
+
+
       </td>
       <td>
-        
-  
+
+
       </td>
       <td>
         <p>the topic to subscribe to</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         handler
-        
-        
+
+
       </td>
       <td>
-        
-  
+
+
       </td>
       <td>
         <p>the event handler</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -144,7 +144,7 @@ will trigger the provided handler.
 
 <h3>
 <code>unsubscribe(topic,&nbsp;handler)</code>
-  
+
 
 </h3>
 
@@ -162,41 +162,41 @@ no longer receive events published to this topic.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         topic
-        
-        
+
+
       </td>
       <td>
-        
-  
+
+
       </td>
       <td>
         <p>the topic to unsubscribe from</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         handler
-        
-        
+
+
       </td>
       <td>
-        
-  
+
+
       </td>
       <td>
         <p>the event handler</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -206,7 +206,7 @@ no longer receive events published to this topic.
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
    true if a handler was removed
 
 
@@ -219,7 +219,7 @@ no longer receive events published to this topic.
 
 <h3>
 <code>publish(topic,&nbsp;eventData)</code>
-  
+
 
 </h3>
 
@@ -236,41 +236,41 @@ Publish an event to the given topic.
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         topic
-        
-        
+
+
       </td>
       <td>
-        
-  
+
+
       </td>
       <td>
         <p>the topic to publish to</p>
 
-        
+
       </td>
     </tr>
-    
+
     <tr>
       <td>
         eventData
-        
-        
+
+
       </td>
       <td>
-        
-  
+
+
       </td>
       <td>
         <p>the data to send as the event</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -283,4 +283,3 @@ Publish an event to the given topic.
 
 
 <!-- end body block -->
-

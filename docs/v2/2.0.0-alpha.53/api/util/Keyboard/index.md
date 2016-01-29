@@ -4,7 +4,7 @@ version: "2.0.0-alpha.53"
 versionHref: "/docs/v2/2.0.0-alpha.53"
 path: ""
 category: api
-id: "{{Keyboard | slugify}}"
+id: "keyboard"
 title: "Keyboard"
 header_sub_title: "Class in module "
 doc: "Keyboard"
@@ -71,7 +71,7 @@ Improve this doc
 
 <h3>
 <code>isOpen()</code>
-  
+
 
 </h3>
 
@@ -97,7 +97,7 @@ export class MyClass{
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Bool</code> returns a true or flase value if the keyboard is open or not
 </div>
 
@@ -108,7 +108,7 @@ export class MyClass{
 
 <h3>
 <code>onClose(callback)</code>
-  
+
 
 </h3>
 
@@ -138,24 +138,24 @@ export class MyClass{
     </tr>
   </thead>
   <tbody>
-    
+
     <tr>
       <td>
         callback
-        
-        
+
+
       </td>
       <td>
-        
+
   <code>Function</code>
       </td>
       <td>
         <p>method you want to call when the keyboard has been closed</p>
 
-        
+
       </td>
     </tr>
-    
+
   </tbody>
 </table>
 
@@ -165,7 +165,7 @@ export class MyClass{
 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
+<b>Returns:</b>
   <code>Function</code> returns a callback that gets fired when the keyboard is closed
 </div>
 
@@ -176,7 +176,7 @@ export class MyClass{
 
 <h3>
 <code>close()</code>
-  
+
 
 </h3>
 
@@ -194,4 +194,3 @@ Progamatically close they keyboard
 
 
 <!-- end body block -->
-

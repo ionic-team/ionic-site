@@ -3227,23 +3227,77 @@
 	    return ApiDemoApp;
 	})();
 	var InitialPage = (function () {
-	    function InitialPage(nav) {
+	    function InitialPage(nav, platform) {
 	        this.nav = nav;
+	        this.platform = platform;
 	    }
 	    InitialPage.prototype.present = function () {
-	        var actionSheet = ionic_1.ActionSheet.create({
+	        if (this.platform.is('android')) {
+	            var androidSheet = {
+	                title: 'Albums',
+	                buttons: [
+	                    { text: 'Share',
+	                        icon: 'share',
+	                        handler: function () {
+	                            console.log('Share clicked');
+	                        }
+	                    },
+	                    { text: 'Play',
+	                        icon: 'arrow-dropright-circle',
+	                        handler: function () {
+	                            console.log('Play clicked');
+	                        }
+	                    },
+	                    { text: 'Favorite',
+	                        icon: 'md-heart-outline',
+	                        handler: function () {
+	                            console.log('Favorite clicked');
+	                        }
+	                    },
+	                    {
+	                        text: 'Delete',
+	                        style: 'destructive',
+	                        icon: 'md-trash',
+	                        handler: function () {
+	                            console.log('Destructive clicked');
+	                        }
+	                    },
+	                    {
+	                        text: 'Cancel',
+	                        style: 'cancel',
+	                        icon: 'md-close',
+	                        handler: function () {
+	                            console.log('Cancel clicked');
+	                        }
+	                    }
+	                ],
+	            };
+	        }
+	        var actionSheet = ionic_1.ActionSheet.create(androidSheet || {
 	            buttons: [
 	                {
-	                    text: 'Destructive',
-	                    style: 'destructive',
+	                    text: 'Share',
 	                    handler: function () {
-	                        console.log('Destructive clicked');
+	                        console.log('Share clicked');
 	                    }
 	                },
 	                {
-	                    text: 'Archive',
+	                    text: 'Play',
 	                    handler: function () {
-	                        console.log('Archive clicked');
+	                        console.log('Play clicked');
+	                    }
+	                },
+	                {
+	                    text: 'Favorite',
+	                    handler: function () {
+	                        console.log('Favorite clicked');
+	                    }
+	                },
+	                {
+	                    text: 'Delete',
+	                    style: 'destructive',
+	                    handler: function () {
+	                        console.log('Destructive clicked');
 	                    }
 	                },
 	                {
@@ -3261,10 +3315,10 @@
 	        ionic_1.Page({
 	            templateUrl: 'main.html'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _b) || Object])
 	    ], InitialPage);
 	    return InitialPage;
-	    var _a;
+	    var _a, _b;
 	})();
 	exports.InitialPage = InitialPage;
 

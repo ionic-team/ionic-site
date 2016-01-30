@@ -19,7 +19,7 @@ Now that we have [Ionic and its dependencies installed](../installation), let's 
 
 ### Starting a New Ionic 2 App
 
-If you don't already have an app started from the [previous section](../installation), let's create a new app! Use the `start` command to initialize a new Ionic app. We specify that we want it to be an Ionic 2 app by passing in the `--v2` option.
+Let's create a new app! Use the `start` command to initialize a new Ionic app. We specify that we want it to be an Ionic 2 app by passing in the `--v2` option. We also specify that the `tutorial` template should be used.
 
 ```bash
 $ ionic start MyIonic2Project tutorial --v2

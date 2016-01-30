@@ -3216,8 +3216,9 @@
 	var ionic_1 = __webpack_require__(6);
 	var ionic_2 = __webpack_require__(6);
 	var menus_1 = __webpack_require__(353);
-	var actionSheets = __webpack_require__(356);
 	var helpers = __webpack_require__(355);
+	// Change the import if you want to change the first page
+	var rootPage = __webpack_require__(356);
 	var DemoApp = (function () {
 	    function DemoApp(app, platform, config) {
 	        var _this = this;
@@ -3248,7 +3249,7 @@
 	                            }
 	                        }
 	                        else {
-	                            _this.nextPage = actionSheets.BasicPage;
+	                            _this.nextPage = rootPage.BasicPage;
 	                        }
 	                        setTimeout(function () {
 	                            var nav = _this.app.getComponent('nav');
@@ -3271,7 +3272,7 @@
 	                _this.isProductionMode = false;
 	                _this.currentPageIndex = 1;
 	                var nav = _this.app.getComponent('nav');
-	                nav.setRoot(actionSheets.BasicPage);
+	                nav.setRoot(rootPage.BasicPage);
 	            }
 	        });
 	    }
@@ -6143,9 +6144,7 @@
 	        var bd = providers.map(function (b) { return new ProviderWithVisibility(b, Visibility.Public); });
 	        return new ProtoInjector(bd);
 	    };
-	    ProtoInjector.prototype.getProviderAtIndex = function (index) {
-	        return this._strategy.getProviderAtIndex(index);
-	    };
+	    ProtoInjector.prototype.getProviderAtIndex = function (index) { return this._strategy.getProviderAtIndex(index); };
 	    return ProtoInjector;
 	})();
 	exports.ProtoInjector = ProtoInjector;
@@ -12611,7 +12610,7 @@
 	var DehydratedException = (function (_super) {
 	    __extends(DehydratedException, _super);
 	    function DehydratedException() {
-	        _super.call(this, 'Attempt to use a dehydrated detector.');
+	        _super.call(this, 'Attempt to detect changes on a dehydrated detector.');
 	    }
 	    return DehydratedException;
 	})(exceptions_1.BaseException);
@@ -12789,7 +12788,7 @@
 	var directive_record_1 = __webpack_require__(47);
 	var event_binding_1 = __webpack_require__(75);
 	var coalesce_1 = __webpack_require__(76);
-	var proto_record_1 = __webpack_require__(74);
+	var proto_record_1 = __webpack_require__(54);
 	var DynamicProtoChangeDetector = (function () {
 	    function DynamicProtoChangeDetector(_definition) {
 	        this._definition = _definition;
@@ -13553,9 +13552,9 @@
 	var abstract_change_detector_1 = __webpack_require__(49);
 	var change_detection_util_1 = __webpack_require__(44);
 	var constants_1 = __webpack_require__(42);
-	var proto_record_1 = __webpack_require__(74);
+	var proto_record_1 = __webpack_require__(54);
 	var reflection_1 = __webpack_require__(22);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var DynamicChangeDetector = (function (_super) {
 	    __extends(DynamicChangeDetector, _super);
 	    function DynamicChangeDetector(id, numberOfPropertyProtoRecords, propertyBindingTargets, directiveIndices, strategy, _records, _eventBindings, _directiveRecords, _genConfig) {
@@ -13640,7 +13639,6 @@
 	                _super.prototype.observeDirective.call(this, this._getDirectiveFor(index), i);
 	            }
 	        }
-	        this.outputSubscriptions = [];
 	        for (var i = 0; i < this._directiveRecords.length; ++i) {
 	            var r = this._directiveRecords[i];
 	            if (lang_1.isPresent(r.outputs)) {
@@ -13648,7 +13646,7 @@
 	                    var eventHandler = _this._createEventHandler(r.directiveIndex.elementIndex, output[1]);
 	                    var directive = _this._getDirectiveFor(r.directiveIndex);
 	                    var getter = reflection_1.reflector.getter(output[0]);
-	                    _this.outputSubscriptions.push(async_1.ObservableWrapper.subscribe(getter(directive), eventHandler));
+	                    async_1.ObservableWrapper.subscribe(getter(directive), eventHandler);
 	                });
 	            }
 	        }
@@ -13986,7 +13984,6 @@
 	var constants_1 = __webpack_require__(42);
 	var profile_1 = __webpack_require__(51);
 	var observable_facade_1 = __webpack_require__(53);
-	var async_1 = __webpack_require__(54);
 	var _scope_check = profile_1.wtfCreateScope("ChangeDetector#check(ascii id, bool throwOnChange)");
 	var _Context = (function () {
 	    function _Context(element, componentElement, context, locals, injector, expression) {
@@ -14029,7 +14026,7 @@
 	    AbstractChangeDetector.prototype.remove = function () { this.parent.removeContentChild(this); };
 	    AbstractChangeDetector.prototype.handleEvent = function (eventName, elIndex, event) {
 	        if (!this.hydrated()) {
-	            this.throwDehydratedError();
+	            return true;
 	        }
 	        try {
 	            var locals = new Map();
@@ -14122,7 +14119,6 @@
 	        if (this.strategy === constants_1.ChangeDetectionStrategy.OnPushObserve) {
 	            this._unsubsribeFromObservables();
 	        }
-	        this._unsubscribeFromOutputs();
 	        this.dispatcher = null;
 	        this.context = null;
 	        this.locals = null;
@@ -14186,14 +14182,6 @@
 	                    s.cancel();
 	                    this.subscriptions[i] = null;
 	                }
-	            }
-	        }
-	    };
-	    AbstractChangeDetector.prototype._unsubscribeFromOutputs = function () {
-	        if (lang_1.isPresent(this.outputSubscriptions)) {
-	            for (var i = 0; i < this.outputSubscriptions.length; ++i) {
-	                async_1.ObservableWrapper.dispose(this.outputSubscriptions[i]);
-	                this.outputSubscriptions[i] = null;
 	            }
 	        }
 	    };
@@ -14451,6 +14439,72 @@
 
 /***/ },
 /* 54 */
+/***/ function(module, exports) {
+
+	'use strict';(function (RecordType) {
+	    RecordType[RecordType["Self"] = 0] = "Self";
+	    RecordType[RecordType["Const"] = 1] = "Const";
+	    RecordType[RecordType["PrimitiveOp"] = 2] = "PrimitiveOp";
+	    RecordType[RecordType["PropertyRead"] = 3] = "PropertyRead";
+	    RecordType[RecordType["PropertyWrite"] = 4] = "PropertyWrite";
+	    RecordType[RecordType["Local"] = 5] = "Local";
+	    RecordType[RecordType["InvokeMethod"] = 6] = "InvokeMethod";
+	    RecordType[RecordType["InvokeClosure"] = 7] = "InvokeClosure";
+	    RecordType[RecordType["KeyedRead"] = 8] = "KeyedRead";
+	    RecordType[RecordType["KeyedWrite"] = 9] = "KeyedWrite";
+	    RecordType[RecordType["Pipe"] = 10] = "Pipe";
+	    RecordType[RecordType["Interpolate"] = 11] = "Interpolate";
+	    RecordType[RecordType["SafeProperty"] = 12] = "SafeProperty";
+	    RecordType[RecordType["CollectionLiteral"] = 13] = "CollectionLiteral";
+	    RecordType[RecordType["SafeMethodInvoke"] = 14] = "SafeMethodInvoke";
+	    RecordType[RecordType["DirectiveLifecycle"] = 15] = "DirectiveLifecycle";
+	    RecordType[RecordType["Chain"] = 16] = "Chain";
+	    RecordType[RecordType["SkipRecordsIf"] = 17] = "SkipRecordsIf";
+	    RecordType[RecordType["SkipRecordsIfNot"] = 18] = "SkipRecordsIfNot";
+	    RecordType[RecordType["SkipRecords"] = 19] = "SkipRecords"; // Skip records unconditionally
+	})(exports.RecordType || (exports.RecordType = {}));
+	var RecordType = exports.RecordType;
+	var ProtoRecord = (function () {
+	    function ProtoRecord(mode, name, funcOrValue, args, fixedArgs, contextIndex, directiveIndex, selfIndex, bindingRecord, lastInBinding, lastInDirective, argumentToPureFunction, referencedBySelf, propertyBindingIndex) {
+	        this.mode = mode;
+	        this.name = name;
+	        this.funcOrValue = funcOrValue;
+	        this.args = args;
+	        this.fixedArgs = fixedArgs;
+	        this.contextIndex = contextIndex;
+	        this.directiveIndex = directiveIndex;
+	        this.selfIndex = selfIndex;
+	        this.bindingRecord = bindingRecord;
+	        this.lastInBinding = lastInBinding;
+	        this.lastInDirective = lastInDirective;
+	        this.argumentToPureFunction = argumentToPureFunction;
+	        this.referencedBySelf = referencedBySelf;
+	        this.propertyBindingIndex = propertyBindingIndex;
+	    }
+	    ProtoRecord.prototype.isPureFunction = function () {
+	        return this.mode === RecordType.Interpolate || this.mode === RecordType.CollectionLiteral;
+	    };
+	    ProtoRecord.prototype.isUsedByOtherRecord = function () { return !this.lastInBinding || this.referencedBySelf; };
+	    ProtoRecord.prototype.shouldBeChecked = function () {
+	        return this.argumentToPureFunction || this.lastInBinding || this.isPureFunction() ||
+	            this.isPipeRecord();
+	    };
+	    ProtoRecord.prototype.isPipeRecord = function () { return this.mode === RecordType.Pipe; };
+	    ProtoRecord.prototype.isConditionalSkipRecord = function () {
+	        return this.mode === RecordType.SkipRecordsIfNot || this.mode === RecordType.SkipRecordsIf;
+	    };
+	    ProtoRecord.prototype.isUnconditionalSkipRecord = function () { return this.mode === RecordType.SkipRecords; };
+	    ProtoRecord.prototype.isSkipRecord = function () {
+	        return this.isConditionalSkipRecord() || this.isUnconditionalSkipRecord();
+	    };
+	    ProtoRecord.prototype.isLifeCycleRecord = function () { return this.mode === RecordType.DirectiveLifecycle; };
+	    return ProtoRecord;
+	})();
+	exports.ProtoRecord = ProtoRecord;
+
+
+/***/ },
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -14459,15 +14513,15 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var lang_1 = __webpack_require__(11);
-	var promise_1 = __webpack_require__(55);
+	var promise_1 = __webpack_require__(56);
 	exports.PromiseWrapper = promise_1.PromiseWrapper;
 	exports.Promise = promise_1.Promise;
-	var Subject_1 = __webpack_require__(56);
-	var fromPromise_1 = __webpack_require__(68);
-	var toPromise_1 = __webpack_require__(73);
-	var Observable_1 = __webpack_require__(57);
+	var Subject_1 = __webpack_require__(57);
+	var fromPromise_1 = __webpack_require__(69);
+	var toPromise_1 = __webpack_require__(74);
+	var Observable_1 = __webpack_require__(58);
 	exports.Observable = Observable_1.Observable;
-	var Subject_2 = __webpack_require__(56);
+	var Subject_2 = __webpack_require__(57);
 	exports.Subject = Subject_2.Subject;
 	var TimerWrapper = (function () {
 	    function TimerWrapper() {
@@ -14604,7 +14658,7 @@
 
 
 /***/ },
-/* 55 */
+/* 56 */
 /***/ function(module, exports) {
 
 	'use strict';// Promises are put into their own facade file so that they can be used without
@@ -14656,7 +14710,7 @@
 
 
 /***/ },
-/* 56 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -14664,11 +14718,11 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Observable_1 = __webpack_require__(57);
-	var Subscriber_1 = __webpack_require__(58);
-	var Subscription_1 = __webpack_require__(62);
-	var SubjectSubscription_1 = __webpack_require__(67);
-	var rxSubscriber_1 = __webpack_require__(63);
+	var Observable_1 = __webpack_require__(58);
+	var Subscriber_1 = __webpack_require__(59);
+	var Subscription_1 = __webpack_require__(63);
+	var SubjectSubscription_1 = __webpack_require__(68);
+	var rxSubscriber_1 = __webpack_require__(64);
 	var subscriptionAdd = Subscription_1.Subscription.prototype.add;
 	var subscriptionRemove = Subscription_1.Subscription.prototype.remove;
 	var subscriptionUnsubscribe = Subscription_1.Subscription.prototype.unsubscribe;
@@ -14833,13 +14887,13 @@
 	//# sourceMappingURL=Subject.js.map
 
 /***/ },
-/* 57 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Subscriber_1 = __webpack_require__(58);
-	var root_1 = __webpack_require__(65);
-	var SymbolShim_1 = __webpack_require__(64);
-	var rxSubscriber_1 = __webpack_require__(63);
+	var Subscriber_1 = __webpack_require__(59);
+	var root_1 = __webpack_require__(66);
+	var SymbolShim_1 = __webpack_require__(65);
+	var rxSubscriber_1 = __webpack_require__(64);
 	/**
 	 * A representation of any set of values over any amount of time. This the most basic building block
 	 * of RxJS.
@@ -14973,7 +15027,7 @@
 	//# sourceMappingURL=Observable.js.map
 
 /***/ },
-/* 58 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -14981,11 +15035,11 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var noop_1 = __webpack_require__(59);
-	var throwError_1 = __webpack_require__(60);
-	var tryOrOnError_1 = __webpack_require__(61);
-	var Subscription_1 = __webpack_require__(62);
-	var rxSubscriber_1 = __webpack_require__(63);
+	var noop_1 = __webpack_require__(60);
+	var throwError_1 = __webpack_require__(61);
+	var tryOrOnError_1 = __webpack_require__(62);
+	var Subscription_1 = __webpack_require__(63);
+	var rxSubscriber_1 = __webpack_require__(64);
 	var Subscriber = (function (_super) {
 	    __extends(Subscriber, _super);
 	    function Subscriber(destination) {
@@ -15108,7 +15162,7 @@
 	//# sourceMappingURL=Subscriber.js.map
 
 /***/ },
-/* 59 */
+/* 60 */
 /***/ function(module, exports) {
 
 	/* tslint:disable:no-empty */
@@ -15117,7 +15171,7 @@
 	//# sourceMappingURL=noop.js.map
 
 /***/ },
-/* 60 */
+/* 61 */
 /***/ function(module, exports) {
 
 	function throwError(e) { throw e; }
@@ -15125,7 +15179,7 @@
 	//# sourceMappingURL=throwError.js.map
 
 /***/ },
-/* 61 */
+/* 62 */
 /***/ function(module, exports) {
 
 	function tryOrOnError(target) {
@@ -15144,10 +15198,10 @@
 	//# sourceMappingURL=tryOrOnError.js.map
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var noop_1 = __webpack_require__(59);
+	var noop_1 = __webpack_require__(60);
 	var Subscription = (function () {
 	    function Subscription(_unsubscribe) {
 	        this.isUnsubscribed = false;
@@ -15231,10 +15285,10 @@
 	//# sourceMappingURL=Subscription.js.map
 
 /***/ },
-/* 63 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var SymbolShim_1 = __webpack_require__(64);
+	var SymbolShim_1 = __webpack_require__(65);
 	/**
 	 * rxSubscriber symbol is a symbol for retreiving an "Rx safe" Observer from an object
 	 * "Rx safety" can be defined as an object that has all of the traits of an Rx Subscriber,
@@ -15245,10 +15299,10 @@
 	//# sourceMappingURL=rxSubscriber.js.map
 
 /***/ },
-/* 64 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root_1 = __webpack_require__(65);
+	var root_1 = __webpack_require__(66);
 	function polyfillSymbol(root) {
 	    var Symbol = ensureSymbol(root);
 	    ensureIterator(Symbol, root);
@@ -15318,7 +15372,7 @@
 	//# sourceMappingURL=SymbolShim.js.map
 
 /***/ },
-/* 65 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module, global) {var objectTypes = {
@@ -15338,10 +15392,10 @@
 	    exports.root = freeGlobal;
 	}
 	//# sourceMappingURL=root.js.map
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(66)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(67)(module), (function() { return this; }())))
 
 /***/ },
-/* 66 */
+/* 67 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -15357,7 +15411,7 @@
 
 
 /***/ },
-/* 67 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -15365,8 +15419,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscription_1 = __webpack_require__(62);
-	var Subscriber_1 = __webpack_require__(58);
+	var Subscription_1 = __webpack_require__(63);
+	var Subscriber_1 = __webpack_require__(59);
 	var SubjectSubscription = (function (_super) {
 	    __extends(SubjectSubscription, _super);
 	    function SubjectSubscription(subject, observer) {
@@ -15400,7 +15454,7 @@
 	//# sourceMappingURL=SubjectSubscription.js.map
 
 /***/ },
-/* 68 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -15408,9 +15462,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Observable_1 = __webpack_require__(57);
-	var Subscription_1 = __webpack_require__(62);
-	var queue_1 = __webpack_require__(69);
+	var Observable_1 = __webpack_require__(58);
+	var Subscription_1 = __webpack_require__(63);
+	var queue_1 = __webpack_require__(70);
 	var PromiseObservable = (function (_super) {
 	    __extends(PromiseObservable, _super);
 	    function PromiseObservable(promise, scheduler) {
@@ -15481,19 +15535,19 @@
 	//# sourceMappingURL=fromPromise.js.map
 
 /***/ },
-/* 69 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var QueueScheduler_1 = __webpack_require__(70);
+	var QueueScheduler_1 = __webpack_require__(71);
 	exports.queue = new QueueScheduler_1.QueueScheduler();
 	//# sourceMappingURL=queue.js.map
 
 /***/ },
-/* 70 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var QueueAction_1 = __webpack_require__(71);
-	var FutureAction_1 = __webpack_require__(72);
+	var QueueAction_1 = __webpack_require__(72);
+	var FutureAction_1 = __webpack_require__(73);
 	var QueueScheduler = (function () {
 	    function QueueScheduler() {
 	        this.actions = [];
@@ -15532,7 +15586,7 @@
 	//# sourceMappingURL=QueueScheduler.js.map
 
 /***/ },
-/* 71 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -15540,7 +15594,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscription_1 = __webpack_require__(62);
+	var Subscription_1 = __webpack_require__(63);
 	var QueueAction = (function (_super) {
 	    __extends(QueueAction, _super);
 	    function QueueAction(scheduler, work) {
@@ -15582,7 +15636,7 @@
 	//# sourceMappingURL=QueueAction.js.map
 
 /***/ },
-/* 72 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -15590,7 +15644,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var QueueAction_1 = __webpack_require__(71);
+	var QueueAction_1 = __webpack_require__(72);
 	var FutureAction = (function (_super) {
 	    __extends(FutureAction, _super);
 	    function FutureAction(scheduler, work) {
@@ -15633,10 +15687,10 @@
 	//# sourceMappingURL=FutureAction.js.map
 
 /***/ },
-/* 73 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root_1 = __webpack_require__(65);
+	var root_1 = __webpack_require__(66);
 	function toPromise(PromiseCtor) {
 	    var _this = this;
 	    if (!PromiseCtor) {
@@ -15657,72 +15711,6 @@
 	}
 	exports.toPromise = toPromise;
 	//# sourceMappingURL=toPromise.js.map
-
-/***/ },
-/* 74 */
-/***/ function(module, exports) {
-
-	'use strict';(function (RecordType) {
-	    RecordType[RecordType["Self"] = 0] = "Self";
-	    RecordType[RecordType["Const"] = 1] = "Const";
-	    RecordType[RecordType["PrimitiveOp"] = 2] = "PrimitiveOp";
-	    RecordType[RecordType["PropertyRead"] = 3] = "PropertyRead";
-	    RecordType[RecordType["PropertyWrite"] = 4] = "PropertyWrite";
-	    RecordType[RecordType["Local"] = 5] = "Local";
-	    RecordType[RecordType["InvokeMethod"] = 6] = "InvokeMethod";
-	    RecordType[RecordType["InvokeClosure"] = 7] = "InvokeClosure";
-	    RecordType[RecordType["KeyedRead"] = 8] = "KeyedRead";
-	    RecordType[RecordType["KeyedWrite"] = 9] = "KeyedWrite";
-	    RecordType[RecordType["Pipe"] = 10] = "Pipe";
-	    RecordType[RecordType["Interpolate"] = 11] = "Interpolate";
-	    RecordType[RecordType["SafeProperty"] = 12] = "SafeProperty";
-	    RecordType[RecordType["CollectionLiteral"] = 13] = "CollectionLiteral";
-	    RecordType[RecordType["SafeMethodInvoke"] = 14] = "SafeMethodInvoke";
-	    RecordType[RecordType["DirectiveLifecycle"] = 15] = "DirectiveLifecycle";
-	    RecordType[RecordType["Chain"] = 16] = "Chain";
-	    RecordType[RecordType["SkipRecordsIf"] = 17] = "SkipRecordsIf";
-	    RecordType[RecordType["SkipRecordsIfNot"] = 18] = "SkipRecordsIfNot";
-	    RecordType[RecordType["SkipRecords"] = 19] = "SkipRecords"; // Skip records unconditionally
-	})(exports.RecordType || (exports.RecordType = {}));
-	var RecordType = exports.RecordType;
-	var ProtoRecord = (function () {
-	    function ProtoRecord(mode, name, funcOrValue, args, fixedArgs, contextIndex, directiveIndex, selfIndex, bindingRecord, lastInBinding, lastInDirective, argumentToPureFunction, referencedBySelf, propertyBindingIndex) {
-	        this.mode = mode;
-	        this.name = name;
-	        this.funcOrValue = funcOrValue;
-	        this.args = args;
-	        this.fixedArgs = fixedArgs;
-	        this.contextIndex = contextIndex;
-	        this.directiveIndex = directiveIndex;
-	        this.selfIndex = selfIndex;
-	        this.bindingRecord = bindingRecord;
-	        this.lastInBinding = lastInBinding;
-	        this.lastInDirective = lastInDirective;
-	        this.argumentToPureFunction = argumentToPureFunction;
-	        this.referencedBySelf = referencedBySelf;
-	        this.propertyBindingIndex = propertyBindingIndex;
-	    }
-	    ProtoRecord.prototype.isPureFunction = function () {
-	        return this.mode === RecordType.Interpolate || this.mode === RecordType.CollectionLiteral;
-	    };
-	    ProtoRecord.prototype.isUsedByOtherRecord = function () { return !this.lastInBinding || this.referencedBySelf; };
-	    ProtoRecord.prototype.shouldBeChecked = function () {
-	        return this.argumentToPureFunction || this.lastInBinding || this.isPureFunction() ||
-	            this.isPipeRecord();
-	    };
-	    ProtoRecord.prototype.isPipeRecord = function () { return this.mode === RecordType.Pipe; };
-	    ProtoRecord.prototype.isConditionalSkipRecord = function () {
-	        return this.mode === RecordType.SkipRecordsIfNot || this.mode === RecordType.SkipRecordsIf;
-	    };
-	    ProtoRecord.prototype.isUnconditionalSkipRecord = function () { return this.mode === RecordType.SkipRecords; };
-	    ProtoRecord.prototype.isSkipRecord = function () {
-	        return this.isConditionalSkipRecord() || this.isUnconditionalSkipRecord();
-	    };
-	    ProtoRecord.prototype.isLifeCycleRecord = function () { return this.mode === RecordType.DirectiveLifecycle; };
-	    return ProtoRecord;
-	})();
-	exports.ProtoRecord = ProtoRecord;
-
 
 /***/ },
 /* 75 */
@@ -15746,7 +15734,7 @@
 
 	'use strict';var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
-	var proto_record_1 = __webpack_require__(74);
+	var proto_record_1 = __webpack_require__(54);
 	/**
 	 * Removes "duplicate" records. It assumes that record evaluation does not have side-effects.
 	 *
@@ -15921,7 +15909,7 @@
 	var collection_1 = __webpack_require__(18);
 	var abstract_change_detector_1 = __webpack_require__(49);
 	var change_detection_util_1 = __webpack_require__(44);
-	var proto_record_1 = __webpack_require__(74);
+	var proto_record_1 = __webpack_require__(54);
 	var codegen_name_util_1 = __webpack_require__(79);
 	var codegen_logic_util_1 = __webpack_require__(80);
 	var codegen_facade_1 = __webpack_require__(81);
@@ -16436,7 +16424,7 @@
 
 	'use strict';var lang_1 = __webpack_require__(11);
 	var codegen_facade_1 = __webpack_require__(81);
-	var proto_record_1 = __webpack_require__(74);
+	var proto_record_1 = __webpack_require__(54);
 	var constants_1 = __webpack_require__(42);
 	var exceptions_1 = __webpack_require__(20);
 	/**
@@ -16519,7 +16507,7 @@
 	                rhs = context + "[" + getLocalName(protoRec.args[0]) + "] = " + getLocalName(protoRec.args[1]);
 	                break;
 	            case proto_record_1.RecordType.Chain:
-	                rhs = "" + getLocalName(protoRec.args[protoRec.args.length - 1]);
+	                rhs = 'null';
 	                break;
 	            default:
 	                throw new exceptions_1.BaseException("Unknown operation " + protoRec.mode);
@@ -16566,7 +16554,6 @@
 	    CodegenLogicUtil.prototype.genHydrateDirectives = function (directiveRecords) {
 	        var _this = this;
 	        var res = [];
-	        var outputCount = 0;
 	        for (var i = 0; i < directiveRecords.length; ++i) {
 	            var r = directiveRecords[i];
 	            var dirVarName = this._names.getDirectiveName(r.directiveIndex);
@@ -16574,23 +16561,13 @@
 	            if (lang_1.isPresent(r.outputs)) {
 	                r.outputs.forEach(function (output) {
 	                    var eventHandlerExpr = _this._genEventHandler(r.directiveIndex.elementIndex, output[1]);
-	                    var statementStart = "this.outputSubscriptions[" + outputCount++ + "] = " + dirVarName + "." + output[0];
 	                    if (lang_1.IS_DART) {
-	                        res.push(statementStart + ".listen(" + eventHandlerExpr + ");");
+	                        res.push(dirVarName + "." + output[0] + ".listen(" + eventHandlerExpr + ");");
 	                    }
 	                    else {
-	                        res.push(statementStart + ".subscribe({next: " + eventHandlerExpr + "});");
+	                        res.push(dirVarName + "." + output[0] + ".subscribe({next: " + eventHandlerExpr + "});");
 	                    }
 	                });
-	            }
-	        }
-	        if (outputCount > 0) {
-	            var statementStart = 'this.outputSubscriptions';
-	            if (lang_1.IS_DART) {
-	                res.unshift(statementStart + " = new List(" + outputCount + ");");
-	            }
-	            else {
-	                res.unshift(statementStart + " = new Array(" + outputCount + ");");
 	            }
 	        }
 	        return res.join("\n");
@@ -16811,7 +16788,7 @@
 	'use strict';// Public API for Facade
 	var lang_1 = __webpack_require__(11);
 	exports.Type = lang_1.Type;
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	exports.EventEmitter = async_1.EventEmitter;
 	var exceptions_1 = __webpack_require__(20);
 	exports.WrappedException = exceptions_1.WrappedException;
@@ -16832,7 +16809,7 @@
 	var lang_1 = __webpack_require__(11);
 	var di_1 = __webpack_require__(12);
 	var application_tokens_1 = __webpack_require__(88);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var collection_1 = __webpack_require__(18);
 	var testability_1 = __webpack_require__(89);
 	var dynamic_component_loader_1 = __webpack_require__(90);
@@ -16976,29 +16953,20 @@
 	    });
 	    PlatformRef_.prototype.application = function (providers) {
 	        var app = this._initApp(createNgZone(), providers);
-	        if (async_1.PromiseWrapper.isPromise(app)) {
-	            throw new exceptions_1.BaseException("Cannot use asyncronous app initializers with application. Use asyncApplication instead.");
-	        }
 	        return app;
 	    };
 	    PlatformRef_.prototype.asyncApplication = function (bindingFn, additionalProviders) {
 	        var _this = this;
 	        var zone = createNgZone();
 	        var completer = async_1.PromiseWrapper.completer();
-	        if (bindingFn === null) {
-	            completer.resolve(this._initApp(zone, additionalProviders));
-	        }
-	        else {
-	            zone.run(function () {
-	                async_1.PromiseWrapper.then(bindingFn(zone), function (providers) {
-	                    if (lang_1.isPresent(additionalProviders)) {
-	                        providers = collection_1.ListWrapper.concat(providers, additionalProviders);
-	                    }
-	                    var promise = _this._initApp(zone, providers);
-	                    completer.resolve(promise);
-	                });
+	        zone.run(function () {
+	            async_1.PromiseWrapper.then(bindingFn(zone), function (providers) {
+	                if (lang_1.isPresent(additionalProviders)) {
+	                    providers = collection_1.ListWrapper.concat(providers, additionalProviders);
+	                }
+	                completer.resolve(_this._initApp(zone, providers));
 	            });
-	        }
+	        });
 	        return completer.promise;
 	    };
 	    PlatformRef_.prototype._initApp = function (zone, providers) {
@@ -17027,13 +16995,8 @@
 	        });
 	        app = new ApplicationRef_(this, zone, injector);
 	        this._applications.push(app);
-	        var promise = _runAppInitializers(injector);
-	        if (promise !== null) {
-	            return async_1.PromiseWrapper.then(promise, function (_) { return app; });
-	        }
-	        else {
-	            return app;
-	        }
+	        _runAppInitializers(injector);
+	        return app;
 	    };
 	    PlatformRef_.prototype.dispose = function () {
 	        collection_1.ListWrapper.clone(this._applications).forEach(function (app) { return app.dispose(); });
@@ -17047,21 +17010,8 @@
 	exports.PlatformRef_ = PlatformRef_;
 	function _runAppInitializers(injector) {
 	    var inits = injector.getOptional(application_tokens_1.APP_INITIALIZER);
-	    var promises = [];
-	    if (lang_1.isPresent(inits)) {
-	        inits.forEach(function (init) {
-	            var retVal = init();
-	            if (async_1.PromiseWrapper.isPromise(retVal)) {
-	                promises.push(retVal);
-	            }
-	        });
-	    }
-	    if (promises.length > 0) {
-	        return async_1.PromiseWrapper.all(promises);
-	    }
-	    else {
-	        return null;
-	    }
+	    if (lang_1.isPresent(inits))
+	        inits.forEach(function (init) { return init(); });
 	}
 	/**
 	 * A reference to an Angular application running on a page.
@@ -17246,7 +17196,7 @@
 
 	'use strict';var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var profile_1 = __webpack_require__(51);
 	/**
 	 * Stores error information; delivered via [NgZone.onError] stream.
@@ -17766,7 +17716,7 @@
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
 	var ng_zone_1 = __webpack_require__(87);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	/**
 	 * The Testability service provides testing hooks that can be accessed from
 	 * the browser and by services such as Protractor. Each bootstrapped Angular
@@ -17776,13 +17726,6 @@
 	    function Testability(_ngZone) {
 	        /** @internal */
 	        this._pendingCount = 0;
-	        /**
-	         * Whether any work was done since the last 'whenStable' callback. This is
-	         * useful to detect if this could have potentially destabilized another
-	         * component while it is stabilizing.
-	         * @internal
-	         */
-	        this._didWork = false;
 	        /** @internal */
 	        this._callbacks = [];
 	        /** @internal */
@@ -17792,10 +17735,7 @@
 	    /** @internal */
 	    Testability.prototype._watchAngularEvents = function (_ngZone) {
 	        var _this = this;
-	        async_1.ObservableWrapper.subscribe(_ngZone.onTurnStart, function (_) {
-	            _this._didWork = true;
-	            _this._isAngularEventPending = true;
-	        });
+	        async_1.ObservableWrapper.subscribe(_ngZone.onTurnStart, function (_) { _this._isAngularEventPending = true; });
 	        _ngZone.runOutsideAngular(function () {
 	            async_1.ObservableWrapper.subscribe(_ngZone.onEventDone, function (_) {
 	                if (!_ngZone.hasPendingTimers) {
@@ -17807,7 +17747,6 @@
 	    };
 	    Testability.prototype.increasePendingRequestCount = function () {
 	        this._pendingCount += 1;
-	        this._didWork = true;
 	        return this._pendingCount;
 	    };
 	    Testability.prototype.decreasePendingRequestCount = function () {
@@ -17823,15 +17762,13 @@
 	    Testability.prototype._runCallbacksIfReady = function () {
 	        var _this = this;
 	        if (!this.isStable()) {
-	            this._didWork = true;
 	            return; // Not ready
 	        }
 	        // Schedules the call backs in a new frame so that it is always async.
 	        async_1.PromiseWrapper.resolve(null).then(function (_) {
 	            while (_this._callbacks.length !== 0) {
-	                (_this._callbacks.pop())(_this._didWork);
+	                (_this._callbacks.pop())();
 	            }
-	            _this._didWork = false;
 	        });
 	    };
 	    Testability.prototype.whenStable = function (callback) {
@@ -18075,7 +18012,7 @@
 	var di_1 = __webpack_require__(12);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var reflection_1 = __webpack_require__(22);
 	var view_1 = __webpack_require__(92);
 	var view_ref_1 = __webpack_require__(101);
@@ -19500,23 +19437,6 @@
 	var TemplateRef = (function () {
 	    function TemplateRef() {
 	    }
-	    Object.defineProperty(TemplateRef.prototype, "elementRef", {
-	        /**
-	         * The location in the View where the Embedded View logically belongs to.
-	         *
-	         * The data-binding and injection contexts of Embedded Views created from this `TemplateRef`
-	         * inherit from the contexts of this location.
-	         *
-	         * Typically new Embedded Views are attached to the View Container of this location, but in
-	         * advanced use-cases, the View can be attached to a different container while keeping the
-	         * data-binding and injection context from the original location.
-	         *
-	         */
-	        // TODO(i): rename to anchor or location
-	        get: function () { return null; },
-	        enumerable: true,
-	        configurable: true
-	    });
 	    return TemplateRef;
 	})();
 	exports.TemplateRef = TemplateRef;
@@ -19542,7 +19462,7 @@
 
 	'use strict';var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	/**
 	 * An unmodifiable list of items that Angular keeps up to date when the state
 	 * of the application changes.
@@ -20027,11 +19947,10 @@
 	    AppViewManager_.prototype.createHostViewInContainer = function (viewContainerLocation, index, hostViewFactoryRef, dynamicallyCreatedProviders, projectableNodes) {
 	        var s = this._createHostViewInContainerScope();
 	        // TODO(tbosch): This should be specifiable via an additional argument!
-	        var viewContainerLocation_ = viewContainerLocation;
-	        var contextEl = viewContainerLocation_.internalElement;
+	        var contextEl = viewContainerLocation.internalElement;
 	        var hostViewFactory = hostViewFactoryRef.internalHostViewFactory;
 	        var view = hostViewFactory.viewFactory(contextEl.parentView.renderer, contextEl.parentView.viewManager, contextEl, projectableNodes, null, dynamicallyCreatedProviders, null);
-	        this._attachViewToContainer(view, viewContainerLocation_.internalElement, index);
+	        this._attachViewToContainer(view, viewContainerLocation.internalElement, index);
 	        return profile_1.wtfLeave(s, view.ref);
 	    };
 	    AppViewManager_.prototype.destroyViewInContainer = function (viewContainerLocation, index) {
@@ -20042,10 +19961,9 @@
 	    };
 	    // TODO(i): refactor detachViewInContainer+attachViewInContainer to moveViewInContainer
 	    AppViewManager_.prototype.attachViewInContainer = function (viewContainerLocation, index, viewRef) {
-	        var viewRef_ = viewRef;
 	        var s = this._attachViewInContainerScope();
-	        this._attachViewToContainer(viewRef_.internalView, viewContainerLocation.internalElement, index);
-	        return profile_1.wtfLeave(s, viewRef_);
+	        this._attachViewToContainer(viewRef.internalView, viewContainerLocation.internalElement, index);
+	        return profile_1.wtfLeave(s, viewRef);
 	    };
 	    // TODO(i): refactor detachViewInContainer+attachViewInContainer to moveViewInContainer
 	    AppViewManager_.prototype.detachViewInContainer = function (viewContainerLocation, index) {
@@ -20271,12 +20189,12 @@
 	            var metadata = typeMetadata.find(_isDirectiveMetadata);
 	            if (lang_1.isPresent(metadata)) {
 	                var propertyMetadata = reflection_1.reflector.propMetadata(type);
-	                return this._mergeWithPropertyMetadata(metadata, propertyMetadata, type);
+	                return this._mergeWithPropertyMetadata(metadata, propertyMetadata);
 	            }
 	        }
 	        throw new exceptions_1.BaseException("No Directive annotation found on " + lang_1.stringify(type));
 	    };
-	    DirectiveResolver.prototype._mergeWithPropertyMetadata = function (dm, propertyMetadata, directiveType) {
+	    DirectiveResolver.prototype._mergeWithPropertyMetadata = function (dm, propertyMetadata) {
 	        var inputs = [];
 	        var outputs = [];
 	        var host = {};
@@ -20325,22 +20243,11 @@
 	                }
 	            });
 	        });
-	        return this._merge(dm, inputs, outputs, host, queries, directiveType);
+	        return this._merge(dm, inputs, outputs, host, queries);
 	    };
-	    DirectiveResolver.prototype._merge = function (dm, inputs, outputs, host, queries, directiveType) {
+	    DirectiveResolver.prototype._merge = function (dm, inputs, outputs, host, queries) {
 	        var mergedInputs = lang_1.isPresent(dm.inputs) ? collection_1.ListWrapper.concat(dm.inputs, inputs) : inputs;
-	        var mergedOutputs;
-	        if (lang_1.isPresent(dm.outputs)) {
-	            dm.outputs.forEach(function (propName) {
-	                if (collection_1.ListWrapper.contains(outputs, propName)) {
-	                    throw new exceptions_1.BaseException("Output event '" + propName + "' defined multiple times in '" + lang_1.stringify(directiveType) + "'");
-	                }
-	            });
-	            mergedOutputs = collection_1.ListWrapper.concat(dm.outputs, outputs);
-	        }
-	        else {
-	            mergedOutputs = outputs;
-	        }
+	        var mergedOutputs = lang_1.isPresent(dm.outputs) ? collection_1.ListWrapper.concat(dm.outputs, outputs) : outputs;
 	        var mergedHost = lang_1.isPresent(dm.host) ? collection_1.StringMapWrapper.merge(dm.host, host) : host;
 	        var mergedQueries = lang_1.isPresent(dm.queries) ? collection_1.StringMapWrapper.merge(dm.queries, queries) : queries;
 	        if (dm instanceof metadata_1.ComponentMetadata) {
@@ -21120,7 +21027,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
@@ -21615,7 +21522,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var collection_1 = __webpack_require__(18);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
 	var reflection_1 = __webpack_require__(22);
@@ -22262,7 +22169,7 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
-	var promise_1 = __webpack_require__(55);
+	var promise_1 = __webpack_require__(56);
 	var collection_1 = __webpack_require__(18);
 	var instruction_1 = __webpack_require__(124);
 	var path_recognizer_1 = __webpack_require__(125);
@@ -22377,7 +22284,7 @@
 	};
 	var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	/**
 	 * `RouteParams` is an immutable map of parameters for the given route
 	 * based on the url matcher and optional parameters for that route.
@@ -22486,10 +22393,8 @@
 	 * ```
 	 */
 	var Instruction = (function () {
-	    function Instruction(component, child, auxInstruction) {
-	        this.component = component;
-	        this.child = child;
-	        this.auxInstruction = auxInstruction;
+	    function Instruction() {
+	        this.auxInstruction = {};
 	    }
 	    Object.defineProperty(Instruction.prototype, "urlPath", {
 	        get: function () { return lang_1.isPresent(this.component) ? this.component.urlPath : ''; },
@@ -22589,7 +22494,10 @@
 	var ResolvedInstruction = (function (_super) {
 	    __extends(ResolvedInstruction, _super);
 	    function ResolvedInstruction(component, child, auxInstruction) {
-	        _super.call(this, component, child, auxInstruction);
+	        _super.call(this);
+	        this.component = component;
+	        this.child = child;
+	        this.auxInstruction = auxInstruction;
 	    }
 	    ResolvedInstruction.prototype.resolveComponent = function () {
 	        return async_1.PromiseWrapper.resolve(this.component);
@@ -22603,7 +22511,9 @@
 	var DefaultInstruction = (function (_super) {
 	    __extends(DefaultInstruction, _super);
 	    function DefaultInstruction(component, child) {
-	        _super.call(this, component, child, {});
+	        _super.call(this);
+	        this.component = component;
+	        this.child = child;
 	    }
 	    DefaultInstruction.prototype.resolveComponent = function () {
 	        return async_1.PromiseWrapper.resolve(this.component);
@@ -22622,7 +22532,7 @@
 	    function UnresolvedInstruction(_resolver, _urlPath, _urlParams) {
 	        if (_urlPath === void 0) { _urlPath = ''; }
 	        if (_urlParams === void 0) { _urlParams = lang_1.CONST_EXPR([]); }
-	        _super.call(this, null, null, {});
+	        _super.call(this);
 	        this._resolver = _resolver;
 	        this._urlPath = _urlPath;
 	        this._urlParams = _urlParams;
@@ -23179,7 +23089,7 @@
 	'use strict';var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
 	var collection_1 = __webpack_require__(18);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var route_recognizer_1 = __webpack_require__(123);
 	var route_config_impl_1 = __webpack_require__(122);
 	var async_route_handler_1 = __webpack_require__(128);
@@ -23338,7 +23248,7 @@
 /* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var async_1 = __webpack_require__(54);
+	'use strict';var async_1 = __webpack_require__(55);
 	var lang_1 = __webpack_require__(11);
 	var instruction_1 = __webpack_require__(124);
 	var SyncRouteHandler = (function () {
@@ -23486,7 +23396,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var location_strategy_1 = __webpack_require__(133);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var core_1 = __webpack_require__(8);
 	/**
 	 * `Location` is a service that applications can use to interact with a browser's URL.
@@ -23796,7 +23706,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
@@ -24178,18 +24088,6 @@
 	var DomAdapter = (function () {
 	    function DomAdapter() {
 	    }
-	    Object.defineProperty(DomAdapter.prototype, "attrToPropMap", {
-	        /**
-	         * Maps attribute names to their corresponding property names for cases
-	         * where attribute name doesn't match property name.
-	         */
-	        get: function () { return this._attrToPropMap; },
-	        set: function (value) { this._attrToPropMap = value; },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    ;
-	    ;
 	    return DomAdapter;
 	})();
 	exports.DomAdapter = DomAdapter;
@@ -25574,7 +25472,7 @@
 	var core_1 = __webpack_require__(8);
 	var browser_xhr_1 = __webpack_require__(156);
 	var lang_1 = __webpack_require__(11);
-	var Observable_1 = __webpack_require__(57);
+	var Observable_1 = __webpack_require__(58);
 	var http_utils_1 = __webpack_require__(149);
 	/**
 	* Creates connections using `XMLHttpRequest`. Given a fully-qualified
@@ -25968,7 +25866,7 @@
 	var browser_jsonp_1 = __webpack_require__(158);
 	var exceptions_1 = __webpack_require__(20);
 	var lang_1 = __webpack_require__(11);
-	var Observable_1 = __webpack_require__(57);
+	var Observable_1 = __webpack_require__(58);
 	var JSONP_ERR_NO_CALLBACK = 'JSONP injected script did not invoke callback.';
 	var JSONP_ERR_WRONG_METHOD = 'JSONP requests must use GET request method.';
 	/**
@@ -26618,7 +26516,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var core_1 = __webpack_require__(8);
 	var invalid_pipe_argument_exception_1 = __webpack_require__(166);
 	var ObservableStrategy = (function () {
@@ -28013,7 +27911,6 @@
 	var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
 	var _WHEN_DEFAULT = lang_1.CONST_EXPR(new Object());
-	/** @internal */
 	var SwitchView = (function () {
 	    function SwitchView(_viewContainerRef, _templateRef) {
 	        this._viewContainerRef = _viewContainerRef;
@@ -28023,7 +27920,6 @@
 	    SwitchView.prototype.destroy = function () { this._viewContainerRef.clear(); };
 	    return SwitchView;
 	})();
-	exports.SwitchView = SwitchView;
 	/**
 	 * Adds or removes DOM sub-trees when their match expressions match the switch expression.
 	 *
@@ -28361,8 +28257,8 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(54);
-	var promise_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(55);
+	var promise_1 = __webpack_require__(56);
 	var collection_1 = __webpack_require__(18);
 	/**
 	 * Indicates that a Control is valid, i.e. that no errors exist in the input value.
@@ -28974,7 +28870,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var core_1 = __webpack_require__(8);
 	var control_container_1 = __webpack_require__(185);
 	var ng_control_1 = __webpack_require__(187);
@@ -29275,8 +29171,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
-	var promise_1 = __webpack_require__(55);
-	var async_1 = __webpack_require__(54);
+	var promise_1 = __webpack_require__(56);
+	var async_1 = __webpack_require__(55);
 	var collection_1 = __webpack_require__(18);
 	var core_1 = __webpack_require__(8);
 	/**
@@ -29570,7 +29466,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var control_value_accessor_1 = __webpack_require__(188);
 	var lang_1 = __webpack_require__(11);
 	var SELECT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new core_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return SelectControlValueAccessor; }), multi: true }));
@@ -29668,7 +29564,7 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var core_1 = __webpack_require__(8);
 	var ng_control_1 = __webpack_require__(187);
 	var validators_1 = __webpack_require__(190);
@@ -29814,7 +29710,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var core_1 = __webpack_require__(8);
 	var control_value_accessor_1 = __webpack_require__(188);
 	var ng_control_1 = __webpack_require__(187);
@@ -30079,7 +29975,7 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var core_1 = __webpack_require__(8);
 	var control_container_1 = __webpack_require__(185);
 	var shared_1 = __webpack_require__(189);
@@ -30268,7 +30164,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
 	var core_1 = __webpack_require__(8);
@@ -30948,7 +30844,7 @@
 	    DomEventsPlugin.prototype.addEventListener = function (element, eventName, handler) {
 	        var zone = this.manager.getZone();
 	        var outsideHandler = function (event) { return zone.run(function () { return handler(event); }); };
-	        return this.manager.getZone().runOutsideAngular(function () { return dom_adapter_1.DOM.onAndCancel(element, eventName, outsideHandler); });
+	        this.manager.getZone().runOutsideAngular(function () { dom_adapter_1.DOM.on(element, eventName, outsideHandler); });
 	    };
 	    DomEventsPlugin.prototype.addGlobalEventListener = function (target, eventName, handler) {
 	        var element = dom_adapter_1.DOM.getGlobalEventTarget(target);
@@ -30996,7 +30892,7 @@
 	    }
 	    EventManager.prototype.addEventListener = function (element, eventName, handler) {
 	        var plugin = this._findPluginFor(eventName);
-	        return plugin.addEventListener(element, eventName, handler);
+	        plugin.addEventListener(element, eventName, handler);
 	    };
 	    EventManager.prototype.addGlobalEventListener = function (target, eventName, handler) {
 	        var plugin = this._findPluginFor(eventName);
@@ -31079,8 +30975,8 @@
 	    KeyEventsPlugin.prototype.addEventListener = function (element, eventName, handler) {
 	        var parsedEvent = KeyEventsPlugin.parseEventName(eventName);
 	        var outsideHandler = KeyEventsPlugin.eventCallback(element, collection_1.StringMapWrapper.get(parsedEvent, 'fullKey'), handler, this.manager.getZone());
-	        return this.manager.getZone().runOutsideAngular(function () {
-	            return dom_adapter_1.DOM.onAndCancel(element, collection_1.StringMapWrapper.get(parsedEvent, 'domEventName'), outsideHandler);
+	        this.manager.getZone().runOutsideAngular(function () {
+	            dom_adapter_1.DOM.on(element, collection_1.StringMapWrapper.get(parsedEvent, 'domEventName'), outsideHandler);
 	        });
 	    };
 	    KeyEventsPlugin.parseEventName = function (eventName) {
@@ -31194,14 +31090,12 @@
 	    HammerGesturesPlugin.prototype.addEventListener = function (element, eventName, handler) {
 	        var zone = this.manager.getZone();
 	        eventName = eventName.toLowerCase();
-	        return zone.runOutsideAngular(function () {
+	        zone.runOutsideAngular(function () {
 	            // Creating the manager bind events, must be done outside of angular
 	            var mc = new Hammer(element);
 	            mc.get('pinch').set({ enable: true });
 	            mc.get('rotate').set({ enable: true });
-	            var handler = function (eventObj) { zone.run(function () { handler(eventObj); }); };
-	            mc.on(eventName, handler);
-	            return function () { mc.off(eventName, handler); };
+	            mc.on(eventName, function (eventObj) { zone.run(function () { handler(eventObj); }); });
 	        });
 	    };
 	    HammerGesturesPlugin = __decorate([
@@ -31451,7 +31345,7 @@
 	        }
 	    };
 	    DomRenderer.prototype.listen = function (renderElement, name, callback) {
-	        return this._rootRenderer.eventManager.addEventListener(renderElement, name, decoratePreventDefault(callback));
+	        this._rootRenderer.eventManager.addEventListener(renderElement, name, decoratePreventDefault(callback));
 	    };
 	    DomRenderer.prototype.listenGlobal = function (target, name, callback) {
 	        return this._rootRenderer.eventManager.addGlobalEventListener(target, name, decoratePreventDefault(callback));
@@ -32610,7 +32504,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var promise_1 = __webpack_require__(55);
+	var promise_1 = __webpack_require__(56);
 	var lang_1 = __webpack_require__(11);
 	var xhr_1 = __webpack_require__(224);
 	var XHRImpl = (function (_super) {
@@ -32673,8 +32567,7 @@
 /* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var collection_1 = __webpack_require__(18);
-	var lang_1 = __webpack_require__(11);
+	'use strict';var lang_1 = __webpack_require__(11);
 	var dom_adapter_1 = __webpack_require__(140);
 	var core_1 = __webpack_require__(8);
 	var PublicTestability = (function () {
@@ -32708,23 +32601,6 @@
 	            var testabilities = registry.getAllTestabilities();
 	            return testabilities.map(function (testability) { return new PublicTestability(testability); });
 	        };
-	        var whenAllStable = function (callback) {
-	            var testabilities = lang_1.global.getAllAngularTestabilities();
-	            var count = testabilities.length;
-	            var didWork = false;
-	            var decrement = function (didWork_) {
-	                didWork = didWork || didWork_;
-	                count--;
-	                if (count == 0) {
-	                    callback(didWork);
-	                }
-	            };
-	            testabilities.forEach(function (testability) { testability.whenStable(decrement); });
-	        };
-	        if (!lang_1.global.frameworkStabilizers) {
-	            lang_1.global.frameworkStabilizers = collection_1.ListWrapper.createGrowableSize(0);
-	        }
-	        lang_1.global.frameworkStabilizers.push(whenAllStable);
 	    };
 	    BrowserGetTestability.prototype.findTestabilityInTree = function (registry, elem, findInAncestors) {
 	        if (elem == null) {
@@ -33582,7 +33458,7 @@
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
 	var collection_1 = __webpack_require__(18);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var directive_metadata_1 = __webpack_require__(239);
 	var template_ast_1 = __webpack_require__(243);
 	var di_1 = __webpack_require__(12);
@@ -33649,7 +33525,7 @@
 	            this._hostCacheKeys.set(type, hostCacheKey);
 	            assertComponent(compMeta);
 	            var hostMeta = directive_metadata_1.createHostComponentMeta(compMeta.type, compMeta.selector);
-	            this._compileComponentRuntime(hostCacheKey, hostMeta, [compMeta], [], []);
+	            this._compileComponentRuntime(hostCacheKey, hostMeta, [compMeta], [], new Set());
 	        }
 	        return this._compiledTemplateDone.get(hostCacheKey)
 	            .then(function (compiledTemplate) {
@@ -33687,7 +33563,7 @@
 	    TemplateCompiler.prototype.compileStylesheetCodeGen = function (stylesheetUrl, cssText) {
 	        return this._styleCompiler.compileStylesheetCodeGen(stylesheetUrl, cssText);
 	    };
-	    TemplateCompiler.prototype._compileComponentRuntime = function (cacheKey, compMeta, viewDirectives, pipes, compilingComponentsPath) {
+	    TemplateCompiler.prototype._compileComponentRuntime = function (cacheKey, compMeta, viewDirectives, pipes, compilingComponentCacheKeys) {
 	        var _this = this;
 	        var uniqViewDirectives = removeDuplicates(viewDirectives);
 	        var uniqViewPipes = removeDuplicates(pipes);
@@ -33696,6 +33572,7 @@
 	        if (lang_1.isBlank(compiledTemplate)) {
 	            compiledTemplate = new CompiledTemplate();
 	            this._compiledTemplateCache.set(cacheKey, compiledTemplate);
+	            compilingComponentCacheKeys.add(cacheKey);
 	            done = async_1.PromiseWrapper
 	                .all([this._styleCompiler.compileComponentRuntime(compMeta.template)].concat(uniqViewDirectives.map(function (dirMeta) { return _this.normalizeDirectiveMetadata(dirMeta); })))
 	                .then(function (stylesAndNormalizedViewDirMetas) {
@@ -33704,11 +33581,12 @@
 	                var parsedTemplate = _this._templateParser.parse(compMeta.template.template, normalizedViewDirMetas, uniqViewPipes, compMeta.type.name);
 	                var childPromises = [];
 	                var usedDirectives = DirectiveCollector.findUsedDirectives(parsedTemplate);
-	                usedDirectives.components.forEach(function (component) { return _this._compileNestedComponentRuntime(component, compilingComponentsPath, childPromises); });
+	                usedDirectives.components.forEach(function (component) { return _this._compileNestedComponentRuntime(component, compilingComponentCacheKeys, childPromises); });
 	                return async_1.PromiseWrapper.all(childPromises)
 	                    .then(function (_) {
 	                    var filteredPipes = filterPipes(parsedTemplate, uniqViewPipes);
 	                    compiledTemplate.init(_this._createViewFactoryRuntime(compMeta, parsedTemplate, usedDirectives.directives, styles, filteredPipes));
+	                    collection_1.SetWrapper.delete(compilingComponentCacheKeys, cacheKey);
 	                    return compiledTemplate;
 	                });
 	            });
@@ -33716,14 +33594,12 @@
 	        }
 	        return compiledTemplate;
 	    };
-	    TemplateCompiler.prototype._compileNestedComponentRuntime = function (childComponentDir, parentCompilingComponentsPath, childPromises) {
-	        var compilingComponentsPath = collection_1.ListWrapper.clone(parentCompilingComponentsPath);
+	    TemplateCompiler.prototype._compileNestedComponentRuntime = function (childComponentDir, compilingComponentCacheKeys, childPromises) {
 	        var childCacheKey = childComponentDir.type.runtime;
 	        var childViewDirectives = this._runtimeMetadataResolver.getViewDirectivesMetadata(childComponentDir.type.runtime);
 	        var childViewPipes = this._runtimeMetadataResolver.getViewPipesMetadata(childComponentDir.type.runtime);
-	        var childIsRecursive = collection_1.ListWrapper.contains(compilingComponentsPath, childCacheKey);
-	        compilingComponentsPath.push(childCacheKey);
-	        this._compileComponentRuntime(childCacheKey, childComponentDir, childViewDirectives, childViewPipes, compilingComponentsPath);
+	        var childIsRecursive = collection_1.SetWrapper.has(compilingComponentCacheKeys, childCacheKey);
+	        this._compileComponentRuntime(childCacheKey, childComponentDir, childViewDirectives, childViewPipes, compilingComponentCacheKeys);
 	        if (!childIsRecursive) {
 	            // Only wait for a child if it is not a cycle
 	            childPromises.push(this._compiledTemplateDone.get(childCacheKey));
@@ -35388,7 +35264,7 @@
 	var view_1 = __webpack_require__(82);
 	var xhr_1 = __webpack_require__(224);
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var shadow_css_1 = __webpack_require__(249);
 	var url_resolver_1 = __webpack_require__(235);
 	var style_url_resolver_1 = __webpack_require__(250);
@@ -36119,10 +35995,8 @@
 	        return new util_1.Expression(disposableVar);
 	    };
 	    CodeGenViewFactory.prototype.createElementEventListener = function (renderer, appView, boundElementIndex, renderNode, eventAst, targetStatements) {
-	        var disposableVar = this._nextDisposableVar();
 	        var eventHandlerExpr = codeGenEventHandler(appView, boundElementIndex, eventAst.fullName);
-	        targetStatements.push(new util_1.Statement("var " + disposableVar + " = " + renderer.expression + ".listen(" + renderNode.expression + ", " + util_1.escapeValue(eventAst.name) + ", " + eventHandlerExpr + ");"));
-	        return new util_1.Expression(disposableVar);
+	        targetStatements.push(new util_1.Statement(renderer.expression + ".listen(" + renderNode.expression + ", " + util_1.escapeValue(eventAst.name) + ", " + eventHandlerExpr + ");"));
 	    };
 	    CodeGenViewFactory.prototype.setElementAttribute = function (renderer, renderNode, attrName, attrValue, targetStatements) {
 	        targetStatements.push(new util_1.Statement(renderer.expression + ".setElementAttribute(" + renderNode.expression + ", " + util_1.escapeSingleQuoteString(attrName) + ", " + util_1.escapeSingleQuoteString(attrValue) + ");"));
@@ -36213,7 +36087,7 @@
 	        return renderer.listenGlobal(eventAst.target, eventAst.name, function (event) { return appView.triggerEventHandlers(eventAst.fullName, event, boundElementIndex); });
 	    };
 	    RuntimeViewFactory.prototype.createElementEventListener = function (renderer, appView, boundElementIndex, renderNode, eventAst, targetStatements) {
-	        return renderer.listen(renderNode, eventAst.name, function (event) { return appView.triggerEventHandlers(eventAst.fullName, event, boundElementIndex); });
+	        renderer.listen(renderNode, eventAst.name, function (event) { return appView.triggerEventHandlers(eventAst.fullName, event, boundElementIndex); });
 	    };
 	    RuntimeViewFactory.prototype.setElementAttribute = function (renderer, renderNode, attrName, attrValue, targetStatements) {
 	        renderer.setElementAttribute(renderNode, attrName, attrValue);
@@ -36362,14 +36236,13 @@
 	        var elementIndex = this.elementCount++;
 	        var protoEl = this.protoView.protoElements[elementIndex];
 	        protoEl.renderEvents.forEach(function (eventAst) {
-	            var disposable;
 	            if (lang_1.isPresent(eventAst.target)) {
-	                disposable = _this.factory.createGlobalEventListener(_this.renderer, _this.view, protoEl.boundElementIndex, eventAst, _this.renderStmts);
+	                var disposable = _this.factory.createGlobalEventListener(_this.renderer, _this.view, protoEl.boundElementIndex, eventAst, _this.renderStmts);
+	                _this.appDisposables.push(disposable);
 	            }
 	            else {
-	                disposable = _this.factory.createElementEventListener(_this.renderer, _this.view, protoEl.boundElementIndex, renderNode, eventAst, _this.renderStmts);
+	                _this.factory.createElementEventListener(_this.renderer, _this.view, protoEl.boundElementIndex, renderNode, eventAst, _this.renderStmts);
 	            }
-	            _this.appDisposables.push(disposable);
 	        });
 	        for (var i = 0; i < protoEl.attrNameAndValues.length; i++) {
 	            var attrName = protoEl.attrNameAndValues[i][0];
@@ -36782,8 +36655,8 @@
 	// Group 3 = "on-"
 	// Group 4 = "bindon-"
 	// Group 5 = the identifier after "bind-", "var-/#", or "on-"
-	// Group 6 = identifier inside [()]
-	// Group 7 = identifier inside []
+	// Group 6 = identifer inside [()]
+	// Group 7 = identifer inside []
 	// Group 8 = identifier inside ()
 	var BIND_NAME_REGEXP = /^(?:(?:(?:(bind-)|(var-|#)|(on-)|(bindon-))(.+))|\[\(([^\)]+)\)\]|\[([^\]]+)\]|\(([^\)]+)\))$/g;
 	var TEMPLATE_ELEMENT = 'template';
@@ -37789,12 +37662,10 @@
 	var $EQ = 61;
 	var $GT = 62;
 	var $QUESTION = 63;
+	var $A = 65;
+	var $Z = 90;
 	var $LBRACKET = 91;
 	var $RBRACKET = 93;
-	var $A = 65;
-	var $F = 70;
-	var $X = 88;
-	var $Z = 90;
 	var $a = 97;
 	var $f = 102;
 	var $z = 122;
@@ -37826,6 +37697,7 @@
 	        this.tokens = [];
 	        this.errors = [];
 	        this.input = file.content;
+	        this.inputLowercase = file.content.toLowerCase();
 	        this.length = file.content.length;
 	        this._advance();
 	    }
@@ -37839,19 +37711,19 @@
 	        while (this.peek !== $EOF) {
 	            var start = this._getLocation();
 	            try {
-	                if (this._attemptCharCode($LT)) {
-	                    if (this._attemptCharCode($BANG)) {
-	                        if (this._attemptCharCode($LBRACKET)) {
+	                if (this._attemptChar($LT)) {
+	                    if (this._attemptChar($BANG)) {
+	                        if (this._attemptChar($LBRACKET)) {
 	                            this._consumeCdata(start);
 	                        }
-	                        else if (this._attemptCharCode($MINUS)) {
+	                        else if (this._attemptChar($MINUS)) {
 	                            this._consumeComment(start);
 	                        }
 	                        else {
 	                            this._consumeDocType(start);
 	                        }
 	                    }
-	                    else if (this._attemptCharCode($SLASH)) {
+	                    else if (this._attemptChar($SLASH)) {
 	                        this._consumeTagClose(start);
 	                    }
 	                    else {
@@ -37915,58 +37787,43 @@
 	            this.column++;
 	        }
 	        this.index++;
-	        this.peek = this.index >= this.length ? $EOF : lang_1.StringWrapper.charCodeAt(this.input, this.index);
+	        this.peek = this.index >= this.length ? $EOF : lang_1.StringWrapper.charCodeAt(this.inputLowercase, this.index);
 	    };
-	    _HtmlTokenizer.prototype._attemptCharCode = function (charCode) {
+	    _HtmlTokenizer.prototype._attemptChar = function (charCode) {
 	        if (this.peek === charCode) {
 	            this._advance();
 	            return true;
 	        }
 	        return false;
 	    };
-	    _HtmlTokenizer.prototype._attemptCharCodeCaseInsensitive = function (charCode) {
-	        if (compareCharCodeCaseInsensitive(this.peek, charCode)) {
-	            this._advance();
-	            return true;
-	        }
-	        return false;
-	    };
-	    _HtmlTokenizer.prototype._requireCharCode = function (charCode) {
+	    _HtmlTokenizer.prototype._requireChar = function (charCode) {
 	        var location = this._getLocation();
-	        if (!this._attemptCharCode(charCode)) {
+	        if (!this._attemptChar(charCode)) {
 	            throw this._createError(unexpectedCharacterErrorMsg(this.peek), location);
 	        }
 	    };
-	    _HtmlTokenizer.prototype._attemptStr = function (chars) {
+	    _HtmlTokenizer.prototype._attemptChars = function (chars) {
 	        for (var i = 0; i < chars.length; i++) {
-	            if (!this._attemptCharCode(lang_1.StringWrapper.charCodeAt(chars, i))) {
+	            if (!this._attemptChar(lang_1.StringWrapper.charCodeAt(chars, i))) {
 	                return false;
 	            }
 	        }
 	        return true;
 	    };
-	    _HtmlTokenizer.prototype._attemptStrCaseInsensitive = function (chars) {
-	        for (var i = 0; i < chars.length; i++) {
-	            if (!this._attemptCharCodeCaseInsensitive(lang_1.StringWrapper.charCodeAt(chars, i))) {
-	                return false;
-	            }
-	        }
-	        return true;
-	    };
-	    _HtmlTokenizer.prototype._requireStr = function (chars) {
+	    _HtmlTokenizer.prototype._requireChars = function (chars) {
 	        var location = this._getLocation();
-	        if (!this._attemptStr(chars)) {
+	        if (!this._attemptChars(chars)) {
 	            throw this._createError(unexpectedCharacterErrorMsg(this.peek), location);
 	        }
 	    };
-	    _HtmlTokenizer.prototype._attemptCharCodeUntilFn = function (predicate) {
+	    _HtmlTokenizer.prototype._attemptUntilFn = function (predicate) {
 	        while (!predicate(this.peek)) {
 	            this._advance();
 	        }
 	    };
-	    _HtmlTokenizer.prototype._requireCharCodeUntilFn = function (predicate, len) {
+	    _HtmlTokenizer.prototype._requireUntilFn = function (predicate, len) {
 	        var start = this._getLocation();
-	        this._attemptCharCodeUntilFn(predicate);
+	        this._attemptUntilFn(predicate);
 	        if (this.index - start.offset < len) {
 	            throw this._createError(unexpectedCharacterErrorMsg(this.peek), start);
 	        }
@@ -37989,10 +37846,10 @@
 	    _HtmlTokenizer.prototype._decodeEntity = function () {
 	        var start = this._getLocation();
 	        this._advance();
-	        if (this._attemptCharCode($HASH)) {
-	            var isHex = this._attemptCharCode($x) || this._attemptCharCode($X);
+	        if (this._attemptChar($HASH)) {
+	            var isHex = this._attemptChar($x);
 	            var numberStart = this._getLocation().offset;
-	            this._attemptCharCodeUntilFn(isDigitEntityEnd);
+	            this._attemptUntilFn(isDigitEntityEnd);
 	            if (this.peek != $SEMICOLON) {
 	                throw this._createError(unexpectedCharacterErrorMsg(this.peek), this._getLocation());
 	            }
@@ -38009,7 +37866,7 @@
 	        }
 	        else {
 	            var startPosition = this._savePosition();
-	            this._attemptCharCodeUntilFn(isNamedEntityEnd);
+	            this._attemptUntilFn(isNamedEntityEnd);
 	            if (this.peek != $SEMICOLON) {
 	                this._restorePosition(startPosition);
 	                return '&';
@@ -38030,7 +37887,7 @@
 	        var parts = [];
 	        while (true) {
 	            tagCloseStart = this._getLocation();
-	            if (this._attemptCharCode(firstCharOfEnd) && attemptEndRest()) {
+	            if (this._attemptChar(firstCharOfEnd) && attemptEndRest()) {
 	                break;
 	            }
 	            if (this.index > tagCloseStart.offset) {
@@ -38045,18 +37902,18 @@
 	    _HtmlTokenizer.prototype._consumeComment = function (start) {
 	        var _this = this;
 	        this._beginToken(HtmlTokenType.COMMENT_START, start);
-	        this._requireCharCode($MINUS);
+	        this._requireChar($MINUS);
 	        this._endToken([]);
-	        var textToken = this._consumeRawText(false, $MINUS, function () { return _this._attemptStr('->'); });
+	        var textToken = this._consumeRawText(false, $MINUS, function () { return _this._attemptChars('->'); });
 	        this._beginToken(HtmlTokenType.COMMENT_END, textToken.sourceSpan.end);
 	        this._endToken([]);
 	    };
 	    _HtmlTokenizer.prototype._consumeCdata = function (start) {
 	        var _this = this;
 	        this._beginToken(HtmlTokenType.CDATA_START, start);
-	        this._requireStr('CDATA[');
+	        this._requireChars('cdata[');
 	        this._endToken([]);
-	        var textToken = this._consumeRawText(false, $RBRACKET, function () { return _this._attemptStr(']>'); });
+	        var textToken = this._consumeRawText(false, $RBRACKET, function () { return _this._attemptChars(']>'); });
 	        this._beginToken(HtmlTokenType.CDATA_END, textToken.sourceSpan.end);
 	        this._endToken([]);
 	    };
@@ -38081,7 +37938,7 @@
 	        else {
 	            nameStart = nameOrPrefixStart;
 	        }
-	        this._requireCharCodeUntilFn(isNameEnd, this.index === nameStart ? 1 : 0);
+	        this._requireUntilFn(isNameEnd, this.index === nameStart ? 1 : 0);
 	        var name = this.input.substring(nameStart, this.index);
 	        return [prefix, name];
 	    };
@@ -38094,16 +37951,16 @@
 	            }
 	            var nameStart = this.index;
 	            this._consumeTagOpenStart(start);
-	            lowercaseTagName = this.input.substring(nameStart, this.index).toLowerCase();
-	            this._attemptCharCodeUntilFn(isNotWhitespace);
+	            lowercaseTagName = this.inputLowercase.substring(nameStart, this.index);
+	            this._attemptUntilFn(isNotWhitespace);
 	            while (this.peek !== $SLASH && this.peek !== $GT) {
 	                this._consumeAttributeName();
-	                this._attemptCharCodeUntilFn(isNotWhitespace);
-	                if (this._attemptCharCode($EQ)) {
-	                    this._attemptCharCodeUntilFn(isNotWhitespace);
+	                this._attemptUntilFn(isNotWhitespace);
+	                if (this._attemptChar($EQ)) {
+	                    this._attemptUntilFn(isNotWhitespace);
 	                    this._consumeAttributeValue();
 	                }
-	                this._attemptCharCodeUntilFn(isNotWhitespace);
+	                this._attemptUntilFn(isNotWhitespace);
 	            }
 	            this._consumeTagOpenEnd();
 	        }
@@ -38129,13 +37986,13 @@
 	    _HtmlTokenizer.prototype._consumeRawTextWithTagClose = function (lowercaseTagName, decodeEntities) {
 	        var _this = this;
 	        var textToken = this._consumeRawText(decodeEntities, $LT, function () {
-	            if (!_this._attemptCharCode($SLASH))
+	            if (!_this._attemptChar($SLASH))
 	                return false;
-	            _this._attemptCharCodeUntilFn(isNotWhitespace);
-	            if (!_this._attemptStrCaseInsensitive(lowercaseTagName))
+	            _this._attemptUntilFn(isNotWhitespace);
+	            if (!_this._attemptChars(lowercaseTagName))
 	                return false;
-	            _this._attemptCharCodeUntilFn(isNotWhitespace);
-	            if (!_this._attemptCharCode($GT))
+	            _this._attemptUntilFn(isNotWhitespace);
+	            if (!_this._attemptChar($GT))
 	                return false;
 	            return true;
 	        });
@@ -38167,25 +38024,24 @@
 	        }
 	        else {
 	            var valueStart = this.index;
-	            this._requireCharCodeUntilFn(isNameEnd, 1);
+	            this._requireUntilFn(isNameEnd, 1);
 	            value = this.input.substring(valueStart, this.index);
 	        }
 	        this._endToken([this._processCarriageReturns(value)]);
 	    };
 	    _HtmlTokenizer.prototype._consumeTagOpenEnd = function () {
-	        var tokenType = this._attemptCharCode($SLASH) ? HtmlTokenType.TAG_OPEN_END_VOID :
-	            HtmlTokenType.TAG_OPEN_END;
+	        var tokenType = this._attemptChar($SLASH) ? HtmlTokenType.TAG_OPEN_END_VOID : HtmlTokenType.TAG_OPEN_END;
 	        this._beginToken(tokenType);
-	        this._requireCharCode($GT);
+	        this._requireChar($GT);
 	        this._endToken([]);
 	    };
 	    _HtmlTokenizer.prototype._consumeTagClose = function (start) {
 	        this._beginToken(HtmlTokenType.TAG_CLOSE, start);
-	        this._attemptCharCodeUntilFn(isNotWhitespace);
+	        this._attemptUntilFn(isNotWhitespace);
 	        var prefixAndName;
 	        prefixAndName = this._consumePrefixAndName();
-	        this._attemptCharCodeUntilFn(isNotWhitespace);
-	        this._requireCharCode($GT);
+	        this._attemptUntilFn(isNotWhitespace);
+	        this._requireChar($GT);
 	        this._endToken(prefixAndName);
 	    };
 	    _HtmlTokenizer.prototype._consumeText = function () {
@@ -38236,16 +38092,10 @@
 	    return code === $LT || code === $EOF;
 	}
 	function isAsciiLetter(code) {
-	    return code >= $a && code <= $z || code >= $A && code <= $Z;
+	    return code >= $a && code <= $z;
 	}
 	function isAsciiHexDigit(code) {
-	    return code >= $a && code <= $f || code >= $A && code <= $F || code >= $0 && code <= $9;
-	}
-	function compareCharCodeCaseInsensitive(code1, code2) {
-	    return toUpperCaseCharCode(code1) == toUpperCaseCharCode(code2);
-	}
-	function toUpperCaseCharCode(code) {
-	    return code >= $a && code <= $z ? code - $a + $A : code;
+	    return code >= $a && code <= $f || code >= $0 && code <= $9;
 	}
 	function mergeTextTokens(srcTokens) {
 	    var dstTokens = [];
@@ -38852,7 +38702,7 @@
 	var directive_metadata_1 = __webpack_require__(239);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
-	var async_1 = __webpack_require__(54);
+	var async_1 = __webpack_require__(55);
 	var xhr_1 = __webpack_require__(224);
 	var url_resolver_1 = __webpack_require__(235);
 	var style_url_resolver_1 = __webpack_require__(250);
@@ -38947,10 +38797,6 @@
 	                break;
 	            case template_preparser_1.PreparsedElementType.STYLESHEET:
 	                this.styleUrls.push(preparsedElement.hrefAttr);
-	                break;
-	            default:
-	                // DDC reports this as error. See:
-	                // https://github.com/dart-lang/dev_compiler/issues/428
 	                break;
 	        }
 	        if (preparsedElement.nonBindable) {
@@ -61657,20 +61503,26 @@
 	var core_1 = __webpack_require__(8);
 	var ionic_1 = __webpack_require__(6);
 	var actionSheets = __webpack_require__(356);
-	var badges = __webpack_require__(358);
-	var buttons = __webpack_require__(360);
-	var cards = __webpack_require__(371);
-	var grid = __webpack_require__(380);
-	var labels = __webpack_require__(382);
+	var alerts = __webpack_require__(358);
+	var badges = __webpack_require__(364);
+	var buttons = __webpack_require__(366);
+	var cards = __webpack_require__(377);
+	var checkboxes = __webpack_require__(386);
+	var grid = __webpack_require__(388);
 	var icons = __webpack_require__(390);
 	var inputs = __webpack_require__(392);
 	var lists = __webpack_require__(400);
 	var menus = __webpack_require__(353);
 	var modals = __webpack_require__(409);
 	var navigation = __webpack_require__(411);
-	var alerts = __webpack_require__(413);
-	var slides = __webpack_require__(415);
-	var tabs = __webpack_require__(417);
+	var radios = __webpack_require__(413);
+	var ranges = __webpack_require__(415);
+	var searchbars = __webpack_require__(417);
+	var segments = __webpack_require__(419);
+	var selects = __webpack_require__(421);
+	var slides = __webpack_require__(423);
+	var tabs = __webpack_require__(425);
+	var toggles = __webpack_require__(429);
 	var AndroidAttribute = (function () {
 	    function AndroidAttribute(platform, elementRef, renderer) {
 	        this.platform = platform;
@@ -61721,6 +61573,9 @@
 	        'overview': actionSheets.BasicPage,
 	        'action-sheets': actionSheets.BasicPage,
 	        'alert': alerts.BasicPage,
+	        'alert-confirm': alerts.ConfirmPage,
+	        'alert-prompt': alerts.PromptPage,
+	        'alert-radio': alerts.RadioPage,
 	        'badges': badges.BasicPage,
 	        'buttons': buttons.BasicPage,
 	        'block-buttons': buttons.BlockPage,
@@ -61741,20 +61596,20 @@
 	        'card-advanced-map': cards.AdvancedMapPage,
 	        'card-advanced-social': cards.AdvancedSocialPage,
 	        'card-advanced-weather': cards.AdvancedWeatherPage,
-	        'checkbox': inputs.CheckboxPage,
-	        'radio': inputs.RadioPage,
-	        'range': inputs.RangePage,
-	        'segment': inputs.SegmentPage,
-	        'select': inputs.SelectPage,
-	        'searchbar': inputs.SearchPage,
-	        'toggle': inputs.TogglePage,
-	        'inputs': labels.BasicPage,
-	        'fixed-inline-labels': labels.FixedInlinePage,
-	        'floating-labels': labels.FloatingPage,
-	        'inline-labels': labels.InlinePage,
-	        'inset-labels': labels.InsetPage,
-	        'placeholder-labels': labels.PlaceholderPage,
-	        'stacked-labels': labels.StackedPage,
+	        'checkbox': checkboxes.CheckboxPage,
+	        'radio': radios.RadioPage,
+	        'range': ranges.RangePage,
+	        'segment': segments.SegmentPage,
+	        'select': selects.SelectPage,
+	        'searchbar': searchbars.SearchPage,
+	        'toggle': toggles.TogglePage,
+	        'inputs': inputs.BasicPage,
+	        'fixed-inline-labels': inputs.FixedInlinePage,
+	        'floating-labels': inputs.FloatingPage,
+	        'inline-labels': inputs.InlinePage,
+	        'inset-labels': inputs.InsetPage,
+	        'placeholder-labels': inputs.PlaceholderPage,
+	        'stacked-labels': inputs.StackedPage,
 	        'icons': icons.BasicPage,
 	        'grid': grid.BasicPage,
 	        'lists': lists.BasicPage,
@@ -61858,6 +61713,7 @@
 	                    {
 	                        text: 'Delete',
 	                        style: 'destructive',
+	                        icon: 'md-trash',
 	                        handler: function () {
 	                            console.log('Destructive clicked');
 	                        }
@@ -61865,6 +61721,7 @@
 	                    {
 	                        text: 'Cancel',
 	                        style: 'cancel',
+	                        icon: 'md-close',
 	                        handler: function () {
 	                            console.log('Cancel clicked');
 	                        }
@@ -61933,10 +61790,356 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(359));
+	__export(__webpack_require__(360));
+	__export(__webpack_require__(361));
+	__export(__webpack_require__(362));
+	__export(__webpack_require__(363));
 
 
 /***/ },
 /* 359 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var helpers_1 = __webpack_require__(355);
+	var core_1 = __webpack_require__(8);
+	var BasicPage = (function () {
+	    function BasicPage(nav) {
+	        this.nav = nav;
+	    }
+	    BasicPage.prototype.doAlert = function () {
+	        var alert = ionic_1.Alert.create({
+	            title: 'New Friend!',
+	            subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
+	            buttons: ['Ok']
+	        });
+	        this.nav.present(alert);
+	    };
+	    BasicPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/alerts/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [ionic_1.NavController])
+	    ], BasicPage);
+	    return BasicPage;
+	})();
+	exports.BasicPage = BasicPage;
+
+
+/***/ },
+/* 360 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var helpers_1 = __webpack_require__(355);
+	var core_1 = __webpack_require__(8);
+	var ConfirmPage = (function () {
+	    function ConfirmPage(nav) {
+	        this.nav = nav;
+	    }
+	    ConfirmPage.prototype.doConfirm = function () {
+	        var confirm = ionic_1.Alert.create({
+	            title: 'Use this lightsaber?',
+	            body: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+	            buttons: [
+	                {
+	                    text: 'Disagree',
+	                    handler: function () {
+	                        console.log('Disagree clicked');
+	                    }
+	                },
+	                {
+	                    text: 'Agree',
+	                    handler: function () {
+	                        console.log('Agree clicked');
+	                    }
+	                }
+	            ]
+	        });
+	        this.nav.present(confirm);
+	    };
+	    ConfirmPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/alerts/confirm/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [ionic_1.NavController])
+	    ], ConfirmPage);
+	    return ConfirmPage;
+	})();
+	exports.ConfirmPage = ConfirmPage;
+
+
+/***/ },
+/* 361 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var helpers_1 = __webpack_require__(355);
+	var core_1 = __webpack_require__(8);
+	var PromptPage = (function () {
+	    function PromptPage(nav) {
+	        this.nav = nav;
+	    }
+	    PromptPage.prototype.doPrompt = function () {
+	        var prompt = ionic_1.Alert.create({
+	            title: 'Login',
+	            body: "Enter a name for this new album you're so keen on adding",
+	            inputs: [
+	                {
+	                    name: 'title',
+	                    placeholder: 'Title'
+	                },
+	            ],
+	            buttons: [
+	                {
+	                    text: 'Cancel',
+	                    handler: function (data) {
+	                        console.log('Cancel clicked');
+	                    }
+	                },
+	                {
+	                    text: 'Save',
+	                    handler: function (data) {
+	                        console.log('Saved clicked');
+	                    }
+	                }
+	            ]
+	        });
+	        this.nav.present(prompt);
+	    };
+	    PromptPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/alerts/prompt/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [ionic_1.NavController])
+	    ], PromptPage);
+	    return PromptPage;
+	})();
+	exports.PromptPage = PromptPage;
+
+
+/***/ },
+/* 362 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var helpers_1 = __webpack_require__(355);
+	var core_1 = __webpack_require__(8);
+	var RadioPage = (function () {
+	    function RadioPage(nav) {
+	        this.nav = nav;
+	    }
+	    RadioPage.prototype.doRadio = function () {
+	        var _this = this;
+	        var alert = ionic_1.Alert.create();
+	        alert.setTitle('Lightsaber color');
+	        alert.addInput({
+	            type: 'radio',
+	            label: 'Blue',
+	            value: 'blue',
+	            checked: true
+	        });
+	        alert.addInput({
+	            type: 'radio',
+	            label: 'Green',
+	            value: 'green'
+	        });
+	        alert.addInput({
+	            type: 'radio',
+	            label: 'Red',
+	            value: 'red'
+	        });
+	        alert.addInput({
+	            type: 'radio',
+	            label: 'Yellow',
+	            value: 'yellow'
+	        });
+	        alert.addInput({
+	            type: 'radio',
+	            label: 'Purple',
+	            value: 'purple'
+	        });
+	        alert.addInput({
+	            type: 'radio',
+	            label: 'White',
+	            value: 'white'
+	        });
+	        alert.addInput({
+	            type: 'radio',
+	            label: 'Black',
+	            value: 'black'
+	        });
+	        alert.addButton('Cancel');
+	        alert.addButton({
+	            text: 'Ok',
+	            handler: function (data) {
+	                console.log('Radio data:', data);
+	                _this.testRadioOpen = false;
+	                _this.testRadioResult = data;
+	            }
+	        });
+	        this.nav.present(alert).then(function () {
+	            _this.testRadioOpen = true;
+	        });
+	    };
+	    RadioPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/alerts/radio/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [ionic_1.NavController])
+	    ], RadioPage);
+	    return RadioPage;
+	})();
+	exports.RadioPage = RadioPage;
+
+
+/***/ },
+/* 363 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var helpers_1 = __webpack_require__(355);
+	var core_1 = __webpack_require__(8);
+	var CheckboxPage = (function () {
+	    function CheckboxPage(nav) {
+	        this.nav = nav;
+	    }
+	    CheckboxPage.prototype.doCheckbox = function () {
+	        var _this = this;
+	        var alert = ionic_1.Alert.create();
+	        alert.setTitle('Which planets have you visited?');
+	        alert.addInput({
+	            type: 'checkbox',
+	            label: 'Alderaan',
+	            value: 'value1',
+	            checked: true
+	        });
+	        alert.addInput({
+	            type: 'checkbox',
+	            label: 'Bespin',
+	            value: 'value2'
+	        });
+	        alert.addInput({
+	            type: 'checkbox',
+	            label: 'Coruscant',
+	            value: 'value3'
+	        });
+	        alert.addInput({
+	            type: 'checkbox',
+	            label: 'Endor',
+	            value: 'value4'
+	        });
+	        alert.addInput({
+	            type: 'checkbox',
+	            label: 'Hoth',
+	            value: 'value5'
+	        });
+	        alert.addInput({
+	            type: 'checkbox',
+	            label: 'Jakku',
+	            value: 'value6'
+	        });
+	        alert.addInput({
+	            type: 'checkbox',
+	            label: 'Naboo',
+	            value: 'value6'
+	        });
+	        alert.addInput({
+	            type: 'checkbox',
+	            label: 'Takodana',
+	            value: 'value6'
+	        });
+	        alert.addInput({
+	            type: 'checkbox',
+	            label: 'Tatooine',
+	            value: 'value6'
+	        });
+	        alert.addButton('Cancel');
+	        alert.addButton({
+	            text: 'Okay',
+	            handler: function (data) {
+	                console.log('Checkbox data:', data);
+	                _this.testCheckboxOpen = false;
+	                _this.testCheckboxResult = data;
+	            }
+	        });
+	        this.nav.present(alert).then(function () {
+	            _this.testCheckOpen = true;
+	        });
+	    };
+	    CheckboxPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/alerts/checkbox/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [ionic_1.NavController])
+	    ], CheckboxPage);
+	    return CheckboxPage;
+	})();
+	exports.CheckboxPage = CheckboxPage;
+
+
+/***/ },
+/* 364 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(365));
+
+
+/***/ },
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61956,7 +62159,7 @@
 	    }
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/badge/basic/template.html',
+	            templateUrl: './build/badges/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -61967,26 +62170,26 @@
 
 
 /***/ },
-/* 360 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(361));
-	__export(__webpack_require__(362));
-	__export(__webpack_require__(363));
-	__export(__webpack_require__(364));
-	__export(__webpack_require__(365));
-	__export(__webpack_require__(366));
 	__export(__webpack_require__(367));
 	__export(__webpack_require__(368));
 	__export(__webpack_require__(369));
 	__export(__webpack_require__(370));
+	__export(__webpack_require__(371));
+	__export(__webpack_require__(372));
+	__export(__webpack_require__(373));
+	__export(__webpack_require__(374));
+	__export(__webpack_require__(375));
+	__export(__webpack_require__(376));
 
 
 /***/ },
-/* 361 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62017,7 +62220,7 @@
 
 
 /***/ },
-/* 362 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62048,7 +62251,7 @@
 
 
 /***/ },
-/* 363 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62079,7 +62282,7 @@
 
 
 /***/ },
-/* 364 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62110,7 +62313,7 @@
 
 
 /***/ },
-/* 365 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62141,7 +62344,7 @@
 
 
 /***/ },
-/* 366 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62172,7 +62375,7 @@
 
 
 /***/ },
-/* 367 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62203,7 +62406,7 @@
 
 
 /***/ },
-/* 368 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62234,7 +62437,7 @@
 
 
 /***/ },
-/* 369 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62265,7 +62468,7 @@
 
 
 /***/ },
-/* 370 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62296,24 +62499,24 @@
 
 
 /***/ },
-/* 371 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(372));
-	__export(__webpack_require__(373));
-	__export(__webpack_require__(374));
-	__export(__webpack_require__(375));
-	__export(__webpack_require__(376));
-	__export(__webpack_require__(377));
 	__export(__webpack_require__(378));
 	__export(__webpack_require__(379));
+	__export(__webpack_require__(380));
+	__export(__webpack_require__(381));
+	__export(__webpack_require__(382));
+	__export(__webpack_require__(383));
+	__export(__webpack_require__(384));
+	__export(__webpack_require__(385));
 
 
 /***/ },
-/* 372 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62344,7 +62547,7 @@
 
 
 /***/ },
-/* 373 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62375,7 +62578,7 @@
 
 
 /***/ },
-/* 374 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62406,7 +62609,7 @@
 
 
 /***/ },
-/* 375 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62437,7 +62640,7 @@
 
 
 /***/ },
-/* 376 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62468,7 +62671,7 @@
 
 
 /***/ },
-/* 377 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62499,7 +62702,7 @@
 
 
 /***/ },
-/* 378 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62530,7 +62733,7 @@
 
 
 /***/ },
-/* 379 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62561,17 +62764,58 @@
 
 
 /***/ },
-/* 380 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(381));
+	__export(__webpack_require__(387));
 
 
 /***/ },
-/* 381 */
+/* 387 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var CheckboxPage = (function () {
+	    function CheckboxPage() {
+	    }
+	    CheckboxPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/checkboxes/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], CheckboxPage);
+	    return CheckboxPage;
+	})();
+	exports.CheckboxPage = CheckboxPage;
+
+
+/***/ },
+/* 388 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(389));
+
+
+/***/ },
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62599,249 +62843,6 @@
 	    return BasicPage;
 	})();
 	exports.BasicPage = BasicPage;
-
-
-/***/ },
-/* 382 */
-/***/ function(module, exports, __webpack_require__) {
-
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(383));
-	__export(__webpack_require__(384));
-	__export(__webpack_require__(385));
-	__export(__webpack_require__(386));
-	__export(__webpack_require__(387));
-	__export(__webpack_require__(388));
-	__export(__webpack_require__(389));
-
-
-/***/ },
-/* 383 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var ionic_1 = __webpack_require__(6);
-	var helpers_1 = __webpack_require__(355);
-	var BasicPage = (function () {
-	    function BasicPage() {
-	        this.form = new common_1.ControlGroup({
-	            firstName: new common_1.Control("", common_1.Validators.required),
-	            lastName: new common_1.Control("", common_1.Validators.required)
-	        });
-	    }
-	    BasicPage.prototype.processForm = function (event) {
-	        // TODO: display input in a popup
-	        console.log(event);
-	    };
-	    BasicPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/labels/basic/template.html',
-	            providers: [common_1.FormBuilder],
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
-	})();
-	exports.BasicPage = BasicPage;
-
-
-/***/ },
-/* 384 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var FixedInlinePage = (function () {
-	    function FixedInlinePage() {
-	    }
-	    FixedInlinePage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/labels/fixed-inline/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], FixedInlinePage);
-	    return FixedInlinePage;
-	})();
-	exports.FixedInlinePage = FixedInlinePage;
-
-
-/***/ },
-/* 385 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var FloatingPage = (function () {
-	    function FloatingPage() {
-	    }
-	    FloatingPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/labels/floating/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], FloatingPage);
-	    return FloatingPage;
-	})();
-	exports.FloatingPage = FloatingPage;
-
-
-/***/ },
-/* 386 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var InlinePage = (function () {
-	    function InlinePage() {
-	    }
-	    InlinePage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/labels/inline/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], InlinePage);
-	    return InlinePage;
-	})();
-	exports.InlinePage = InlinePage;
-
-
-/***/ },
-/* 387 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var InsetPage = (function () {
-	    function InsetPage() {
-	    }
-	    InsetPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/labels/inset/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], InsetPage);
-	    return InsetPage;
-	})();
-	exports.InsetPage = InsetPage;
-
-
-/***/ },
-/* 388 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var PlaceholderPage = (function () {
-	    function PlaceholderPage() {
-	    }
-	    PlaceholderPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/labels/placeholder/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], PlaceholderPage);
-	    return PlaceholderPage;
-	})();
-	exports.PlaceholderPage = PlaceholderPage;
-
-
-/***/ },
-/* 389 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(6);
-	var core_1 = __webpack_require__(8);
-	var helpers_1 = __webpack_require__(355);
-	var StackedPage = (function () {
-	    function StackedPage() {
-	    }
-	    StackedPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/labels/stacked/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], StackedPage);
-	    return StackedPage;
-	})();
-	exports.StackedPage = StackedPage;
 
 
 /***/ },
@@ -62914,22 +62915,32 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(163);
+	var ionic_1 = __webpack_require__(6);
 	var helpers_1 = __webpack_require__(355);
-	var CheckboxPage = (function () {
-	    function CheckboxPage() {
+	var BasicPage = (function () {
+	    function BasicPage() {
+	        this.form = new common_1.ControlGroup({
+	            firstName: new common_1.Control("", common_1.Validators.required),
+	            lastName: new common_1.Control("", common_1.Validators.required)
+	        });
 	    }
-	    CheckboxPage = __decorate([
+	    BasicPage.prototype.processForm = function (event) {
+	        // TODO: display input in a popup
+	        console.log(event);
+	    };
+	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/checkbox/template.html',
+	            templateUrl: './build/inputs/basic/template.html',
+	            providers: [common_1.FormBuilder],
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], CheckboxPage);
-	    return CheckboxPage;
+	    ], BasicPage);
+	    return BasicPage;
 	})();
-	exports.CheckboxPage = CheckboxPage;
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
@@ -62947,29 +62958,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var helpers = __webpack_require__(355);
-	var RadioPage = (function () {
-	    function RadioPage() {
-	        this.langs = new common_1.Control("");
-	        this.langForm = new common_1.ControlGroup({
-	            "langs": this.langs
-	        });
+	var helpers_1 = __webpack_require__(355);
+	var FixedInlinePage = (function () {
+	    function FixedInlinePage() {
 	    }
-	    RadioPage.prototype.doSubmit = function (event) {
-	        console.log('Submitting form', this.langeForm.value);
-	        event.preventDefault();
-	    };
-	    RadioPage = __decorate([
+	    FixedInlinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/radio/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
+	            templateUrl: './build/inputs/fixed-inline/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], RadioPage);
-	    return RadioPage;
+	    ], FixedInlinePage);
+	    return FixedInlinePage;
 	})();
-	exports.RadioPage = RadioPage;
+	exports.FixedInlinePage = FixedInlinePage;
 
 
 /***/ },
@@ -62988,19 +62990,19 @@
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
 	var helpers_1 = __webpack_require__(355);
-	var RangePage = (function () {
-	    function RangePage() {
+	var FloatingPage = (function () {
+	    function FloatingPage() {
 	    }
-	    RangePage = __decorate([
+	    FloatingPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/range/template.html',
+	            templateUrl: './build/inputs/floating/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], RangePage);
-	    return RangePage;
+	    ], FloatingPage);
+	    return FloatingPage;
 	})();
-	exports.RangePage = RangePage;
+	exports.FloatingPage = FloatingPage;
 
 
 /***/ },
@@ -63019,78 +63021,19 @@
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
 	var helpers_1 = __webpack_require__(355);
-	var SearchPage = (function () {
-	    function SearchPage() {
-	        this.searchQuery = '';
-	        this.initializeItems();
+	var InlinePage = (function () {
+	    function InlinePage() {
 	    }
-	    SearchPage.prototype.initializeItems = function () {
-	        this.items = [
-	            'Amsterdam',
-	            'Bogota',
-	            'Buenos Aires',
-	            'Cairo',
-	            'Dhaka',
-	            'Edinburgh',
-	            'Geneva',
-	            'Genoa',
-	            'Glasglow',
-	            'Hanoi',
-	            'Hong Kong',
-	            'Islamabad',
-	            'Istanbul',
-	            'Jakarta',
-	            'Kiel',
-	            'Kyoto',
-	            'Le Havre',
-	            'Lebanon',
-	            'Lhasa',
-	            'Lima',
-	            'London',
-	            'Los Angeles',
-	            'Madrid',
-	            'Manila',
-	            'New York',
-	            'Olympia',
-	            'Oslo',
-	            'Panama City',
-	            'Peking',
-	            'Philadelphia',
-	            'San Francisco',
-	            'Seoul',
-	            'Taipeh',
-	            'Tel Aviv',
-	            'Tokio',
-	            'Uelzen',
-	            'Washington'
-	        ];
-	    };
-	    SearchPage.prototype.getItems = function (searchbar) {
-	        // Reset items back to all of the items
-	        this.initializeItems();
-	        // set q to the value of the searchbar
-	        var q = searchbar.value;
-	        // if the value is an empty string don't filter the items
-	        if (q.trim() == '') {
-	            return;
-	        }
-	        this.items = this.items.filter(function (v) {
-	            if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
-	                return true;
-	            }
-	            return false;
-	        });
-	    };
-	    SearchPage = __decorate([
+	    InlinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/search/template.html',
+	            templateUrl: './build/inputs/inline/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], SearchPage);
-	    return SearchPage;
+	    ], InlinePage);
+	    return InlinePage;
 	})();
-	exports.SearchPage = SearchPage;
+	exports.InlinePage = InlinePage;
 
 
 /***/ },
@@ -63109,22 +63052,19 @@
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
 	var helpers_1 = __webpack_require__(355);
-	var SegmentPage = (function () {
-	    function SegmentPage(platform) {
-	        this.platform = platform;
-	        this.pet = "puppies";
-	        this.isAndroid = platform.is('android');
+	var InsetPage = (function () {
+	    function InsetPage() {
 	    }
-	    SegmentPage = __decorate([
+	    InsetPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/segment/template.html',
+	            templateUrl: './build/inputs/inset/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
-	        __metadata('design:paramtypes', [ionic_1.Platform])
-	    ], SegmentPage);
-	    return SegmentPage;
+	        __metadata('design:paramtypes', [])
+	    ], InsetPage);
+	    return InsetPage;
 	})();
-	exports.SegmentPage = SegmentPage;
+	exports.InsetPage = InsetPage;
 
 
 /***/ },
@@ -63143,19 +63083,19 @@
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
 	var helpers_1 = __webpack_require__(355);
-	var SelectPage = (function () {
-	    function SelectPage() {
+	var PlaceholderPage = (function () {
+	    function PlaceholderPage() {
 	    }
-	    SelectPage = __decorate([
+	    PlaceholderPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/select/template.html',
+	            templateUrl: './build/inputs/placeholder/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], SelectPage);
-	    return SelectPage;
+	    ], PlaceholderPage);
+	    return PlaceholderPage;
 	})();
-	exports.SelectPage = SelectPage;
+	exports.PlaceholderPage = PlaceholderPage;
 
 
 /***/ },
@@ -63174,19 +63114,19 @@
 	var ionic_1 = __webpack_require__(6);
 	var core_1 = __webpack_require__(8);
 	var helpers_1 = __webpack_require__(355);
-	var TogglePage = (function () {
-	    function TogglePage() {
+	var StackedPage = (function () {
+	    function StackedPage() {
 	    }
-	    TogglePage = __decorate([
+	    StackedPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/toggle/template.html',
+	            templateUrl: './build/inputs/stacked/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], TogglePage);
-	    return TogglePage;
+	    ], StackedPage);
+	    return StackedPage;
 	})();
-	exports.TogglePage = TogglePage;
+	exports.StackedPage = StackedPage;
 
 
 /***/ },
@@ -63671,78 +63611,30 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(6);
-	var helpers_1 = __webpack_require__(355);
 	var core_1 = __webpack_require__(8);
-	var BasicPage = (function () {
-	    function BasicPage(nav) {
-	        this.nav = nav;
+	var common_1 = __webpack_require__(163);
+	var helpers = __webpack_require__(355);
+	var RadioPage = (function () {
+	    function RadioPage() {
+	        this.langs = new common_1.Control("");
+	        this.langForm = new common_1.ControlGroup({
+	            "langs": this.langs
+	        });
 	    }
-	    BasicPage.prototype.doAlert = function () {
-	        var alert = ionic_1.Alert.create({
-	            title: 'New Friend!',
-	            subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
-	            buttons: ['Ok']
-	        });
-	        this.nav.present(alert);
+	    RadioPage.prototype.doSubmit = function (event) {
+	        console.log('Submitting form', this.langeForm.value);
+	        event.preventDefault();
 	    };
-	    BasicPage.prototype.doPrompt = function () {
-	        var prompt = ionic_1.Alert.create({
-	            title: 'Login',
-	            body: "Enter a name for this new album you're so keen on adding",
-	            inputs: [
-	                {
-	                    name: 'title',
-	                    placeholder: 'Title'
-	                },
-	            ],
-	            buttons: [
-	                {
-	                    text: 'Cancel',
-	                    handler: function (data) {
-	                        console.log('Cancel clicked');
-	                    }
-	                },
-	                {
-	                    text: 'Save',
-	                    handler: function (data) {
-	                        console.log('Saved clicked');
-	                    }
-	                }
-	            ]
-	        });
-	        this.nav.present(prompt);
-	    };
-	    BasicPage.prototype.doConfirm = function () {
-	        var confirm = ionic_1.Alert.create({
-	            title: 'Use this lightsaber?',
-	            body: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
-	            buttons: [
-	                {
-	                    text: 'Disagree',
-	                    handler: function () {
-	                        console.log('Disagree clicked');
-	                    }
-	                },
-	                {
-	                    text: 'Agree',
-	                    handler: function () {
-	                        console.log('Agree clicked');
-	                    }
-	                }
-	            ]
-	        });
-	        this.nav.present(confirm);
-	    };
-	    BasicPage = __decorate([
+	    RadioPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/alerts/basic/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	            templateUrl: './build/radios/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
 	        }), 
-	        __metadata('design:paramtypes', [ionic_1.NavController])
-	    ], BasicPage);
-	    return BasicPage;
+	        __metadata('design:paramtypes', [])
+	    ], RadioPage);
+	    return RadioPage;
 	})();
-	exports.BasicPage = BasicPage;
+	exports.RadioPage = RadioPage;
 
 
 /***/ },
@@ -63757,6 +63649,232 @@
 
 /***/ },
 /* 416 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var RangePage = (function () {
+	    function RangePage() {
+	    }
+	    RangePage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/ranges/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], RangePage);
+	    return RangePage;
+	})();
+	exports.RangePage = RangePage;
+
+
+/***/ },
+/* 417 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(418));
+
+
+/***/ },
+/* 418 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var SearchPage = (function () {
+	    function SearchPage() {
+	        this.searchQuery = '';
+	        this.initializeItems();
+	    }
+	    SearchPage.prototype.initializeItems = function () {
+	        this.items = [
+	            'Amsterdam',
+	            'Bogota',
+	            'Buenos Aires',
+	            'Cairo',
+	            'Dhaka',
+	            'Edinburgh',
+	            'Geneva',
+	            'Genoa',
+	            'Glasglow',
+	            'Hanoi',
+	            'Hong Kong',
+	            'Islamabad',
+	            'Istanbul',
+	            'Jakarta',
+	            'Kiel',
+	            'Kyoto',
+	            'Le Havre',
+	            'Lebanon',
+	            'Lhasa',
+	            'Lima',
+	            'London',
+	            'Los Angeles',
+	            'Madrid',
+	            'Manila',
+	            'New York',
+	            'Olympia',
+	            'Oslo',
+	            'Panama City',
+	            'Peking',
+	            'Philadelphia',
+	            'San Francisco',
+	            'Seoul',
+	            'Taipeh',
+	            'Tel Aviv',
+	            'Tokio',
+	            'Uelzen',
+	            'Washington'
+	        ];
+	    };
+	    SearchPage.prototype.getItems = function (searchbar) {
+	        // Reset items back to all of the items
+	        this.initializeItems();
+	        // set q to the value of the searchbar
+	        var q = searchbar.value;
+	        // if the value is an empty string don't filter the items
+	        if (q.trim() == '') {
+	            return;
+	        }
+	        this.items = this.items.filter(function (v) {
+	            if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+	                return true;
+	            }
+	            return false;
+	        });
+	    };
+	    SearchPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/searchbars/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], SearchPage);
+	    return SearchPage;
+	})();
+	exports.SearchPage = SearchPage;
+
+
+/***/ },
+/* 419 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(420));
+
+
+/***/ },
+/* 420 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var SegmentPage = (function () {
+	    function SegmentPage(platform) {
+	        this.platform = platform;
+	        this.pet = "puppies";
+	        this.isAndroid = platform.is('android');
+	    }
+	    SegmentPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/segments/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [ionic_1.Platform])
+	    ], SegmentPage);
+	    return SegmentPage;
+	})();
+	exports.SegmentPage = SegmentPage;
+
+
+/***/ },
+/* 421 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(422));
+
+
+/***/ },
+/* 422 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var SelectPage = (function () {
+	    function SelectPage() {
+	    }
+	    SelectPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/selects/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], SelectPage);
+	    return SelectPage;
+	})();
+	exports.SelectPage = SelectPage;
+
+
+/***/ },
+/* 423 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(424));
+
+
+/***/ },
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63787,19 +63905,19 @@
 
 
 /***/ },
-/* 417 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(418));
-	__export(__webpack_require__(419));
-	__export(__webpack_require__(420));
+	__export(__webpack_require__(426));
+	__export(__webpack_require__(427));
+	__export(__webpack_require__(428));
 
 
 /***/ },
-/* 418 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63855,7 +63973,7 @@
 
 
 /***/ },
-/* 419 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63921,7 +64039,7 @@
 
 
 /***/ },
-/* 420 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63985,6 +64103,47 @@
 	    return IconTextPage;
 	})();
 	exports.IconTextPage = IconTextPage;
+
+
+/***/ },
+/* 429 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(430));
+
+
+/***/ },
+/* 430 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(8);
+	var helpers_1 = __webpack_require__(355);
+	var TogglePage = (function () {
+	    function TogglePage() {
+	    }
+	    TogglePage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/toggles/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], TogglePage);
+	    return TogglePage;
+	})();
+	exports.TogglePage = TogglePage;
 
 
 /***/ }

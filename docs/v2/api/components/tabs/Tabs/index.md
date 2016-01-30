@@ -88,6 +88,10 @@ the screen, while on Android it is at the top.</p>
 
 
 
+
+
+
+
 <th>Type</th>
 
 
@@ -95,6 +99,22 @@ the screen, while on Android it is at the top.</p>
 </tr>
 </thead>
 <tbody>
+
+<tr>
+<td>
+selectedIndex
+</td>
+
+
+<td>
+any
+</td>
+
+
+<td>
+The default selected tab index when first loaded. If a selected index wasn't provided then it'll use `0`, the first tab.
+</td>
+</tr>
 
 <tr>
 <td>

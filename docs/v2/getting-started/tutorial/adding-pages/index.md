@@ -61,7 +61,7 @@ We see that `this.rootPage` is set to `HelloIonicPage`, so `HelloIonicPage` will
 
 ### Creating a Page
 
-Next, let's check out the `HelloIonicPage` that we are importing. Inside the `app/hello-ionic/` folder, let's open up `hello-ionic.js`.
+Next, let's check out the `HelloIonicPage` that we are importing. Inside the `app/pages/hello-ionic/` folder, let's open up `hello-ionic.js`.
 
 <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#naming-conventions">
   Naming conventions
@@ -78,7 +78,7 @@ Below, you will see the `HelloIonicPage` class which has a `Page` [decorator](..
 import {Page, NavController} from 'ionic/ionic';
 
 @Page({
-  templateUrl: 'app/hello-ionic/hello-ionic.html'
+  templateUrl: 'build/pages/hello-ionic/hello-ionic.html'
 })
 export class HelloIonicPage {
   constructor(nav: NavController) {

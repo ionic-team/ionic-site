@@ -1149,7 +1149,7 @@ Pop to a specific view in the history stack
 <div id="remove"></div>
 
 <h3>
-<code>remove(startIndex,&nbsp;opts,&nbsp;opts)</code>
+<code>remove(startIndex,&nbsp;removeCount,&nbsp;opts)</code>
   
 
 </h3>
@@ -1190,7 +1190,7 @@ export class Detail {
   <code>number</code>
       </td>
       <td>
-        <p>The starting index to remove views from the nav stack</p>
+        <p>The starting index to remove pages from the stack. Default is the index of the last page.</p>
 
         
       </td>
@@ -1198,16 +1198,16 @@ export class Detail {
     
     <tr>
       <td>
-        opts
+        removeCount
         
         
       </td>
       <td>
         
-  <code>removeCount</code>
+  <code>number</code>
       </td>
       <td>
-        <p>The number of views to remove, defaults to remove <code>1</code>.</p>
+        <p>The number of pages to remove, defaults to remove <code>1</code>.</p>
 
         
       </td>
@@ -1224,7 +1224,7 @@ export class Detail {
   <code>object</code>
       </td>
       <td>
-        <p>Any options you want to use pass to transtion</p>
+        <p>Any options you want to use pass to transtion.</p>
 
         
       </td>
@@ -1240,7 +1240,7 @@ export class Detail {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise when the view has been removed
+  <code>Promise</code> Returns a promise when the page has been removed.
 </div>
 
 

@@ -4,7 +4,7 @@ version: "1.0.8"
 versionHref: "/docs/v2/platform"
 path: ""
 category: platform
-id: "{{Facebook | slugify}}"
+id: "facebook"
 title: "Facebook"
 header_sub_title: "Class in module "
 doc: "Facebook"
@@ -53,4 +53,3 @@ Improve this doc
 
 
 <!-- end body block -->
-

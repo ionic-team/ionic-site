@@ -4,7 +4,7 @@ version: "1.0.8"
 versionHref: "/docs/v2/platform"
 path: ""
 category: platform
-id: "{{TouchID | slugify}}"
+id: "touchid"
 title: "TouchID"
 header_sub_title: "Class in module "
 doc: "TouchID"
@@ -57,7 +57,7 @@ Improve this doc
 
 <h3>
 <code>isAvailable()</code>
-  
+
 
 </h3>
 
@@ -74,4 +74,3 @@ Improve this doc
 
 
 <!-- end body block -->
-

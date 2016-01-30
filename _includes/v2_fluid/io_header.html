@@ -24,6 +24,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-collapse">
+      {% if page.hide_header_search != true %}
       <form class="navbar-form navbar-left"
             role="search"
             data-searchpos="header">
@@ -35,6 +36,7 @@
                  ng-model="searchTerm">
         </div>
       </form>
+      {% endif %}
       <ul class="nav navbar-nav navbar-right">
         <li><a href="getting-started/installation/">Getting Started</a></li>
         <li class="active"><a href="/docs/v2/">Docs</a></li>

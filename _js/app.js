@@ -25,6 +25,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     var $iosIframe = $('iframe#demo-ios');
     var $buttons = $('#components-buttons');
     var $cards = $('#components-cards');
+    var $alerts = $('#components-alerts');
     var $forms = $('#components-forms');
     var $lists = $('#components-lists');
 
@@ -38,6 +39,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     (function setSubSections() {
       var sections = {
         'components-buttons': null,
+        'components-alerts': null,
         'components-cards': null,
         'components-forms': null,
         'components-lists': null
@@ -98,6 +100,9 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
         }
         if ($scope.subSections[hash] === 'components-lists') {
           $lists.addClass('active');
+        }
+        if ($scope.subSections[hash] === 'components-alerts') {
+          $alerts.addClass('active');
         }
       }
     }

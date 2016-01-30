@@ -61819,7 +61819,7 @@
 	    BasicPage.prototype.doAlert = function () {
 	        var alert = ionic_1.Alert.create({
 	            title: 'New Friend!',
-	            subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
+	            body: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
 	            buttons: ['Ok']
 	        });
 	        this.nav.present(alert);

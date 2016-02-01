@@ -70,25 +70,6 @@ Improve this doc
 
 <h2>Methods</h2>
 
-<div id="scrollElement"></div>
-
-<h3>
-<code>scrollElement()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="addScrollEventListener"></div>
 
 <h3>
@@ -166,14 +147,44 @@ export class MyPage{
 <div id="onScrollEnd"></div>
 
 <h3>
-<code>onScrollEnd()</code>
+<code>onScrollEnd(callback)</code>
   
 
 </h3>
 
+Call a method when scrolling has stopped
 
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        callback
+        
+        
+      </td>
+      <td>
+        
+  <code>Function</code>
+      </td>
+      <td>
+        <p>The method you want perform when scrolling has ended</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 

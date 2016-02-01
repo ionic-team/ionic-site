@@ -54,7 +54,8 @@ App can accept a <code>template</code> property that has an inline template or a
 <pre><code class="lang-ts">import {App} from &#39;ionic/ionic&#39;;
 
 @App({
-  templateUrl: &#39;app/app.html&#39;
+  templateUrl: &#39;app/app.html&#39;,
+  providers: [DataService]
 })
 
 export class MyApp{
@@ -66,6 +67,106 @@ export class MyApp{
 
 
 <!-- @property tags -->
+
+<h2>Attributes:</h2>
+<table class="table" style="margin:0;">
+<thead>
+<tr>
+<th>Attribute</th>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<th>Type</th>
+
+
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>
+config
+</td>
+
+
+<td>
+Object
+</td>
+
+
+<td>
+the app's <a href='docs/v2/api/config/Config/'>Config</a> object
+</td>
+</tr>
+
+<tr>
+<td>
+providers
+</td>
+
+
+<td>
+Array
+</td>
+
+
+<td>
+any providers for your app
+</td>
+</tr>
+
+<tr>
+<td>
+template
+</td>
+
+
+<td>
+String
+</td>
+
+
+<td>
+the template to use for the app root
+</td>
+</tr>
+
+<tr>
+<td>
+templateUrl
+</td>
+
+
+<td>
+String
+</td>
+
+
+<td>
+a relative URL pointing to the template to use for the app root
+</td>
+</tr>
+
+</tbody>
+</table>
 
 
 <!-- methods on the class --><!-- related link --><!-- end content block -->

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  * Ionic v2
  *
@@ -5408,81 +5409,69 @@ ul.docs-example {
           text-decoration: none;
           color: #4f8ff7; }
 
-.docs-ionicons .download {
-  margin-top: 60px;
-  margin-bottom: 10px; }
-
-.docs-ionicons .download, .docs-ionicons .search {
+#docs-page-ionicons main .download-link, #docs-page-ionicons main .search {
   margin-right: auto;
   margin-left: auto;
   max-width: 200px;
   width: 100%; }
 
-.docs-ionicons .download a {
-  display: block;
-  padding: 12px 0;
-  border: 2px solid #4F8EF7;
-  border-radius: 4px;
-  background-color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 22px; }
+#docs-page-ionicons main .download-link {
+  margin-top: 60px;
+  margin-bottom: 10px; }
+  #docs-page-ionicons main .download-link a {
+    display: block;
+    padding: 12px 0;
+    border: 2px solid #4F8EF7;
+    border-radius: 4px;
+    background-color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px; }
+    #docs-page-ionicons main .download-link a:hover {
+      background: #4F8EF7;
+      color: white; }
 
-.docs-ionicons .download a:hover {
-  background: #4F8EF7;
-  color: white; }
-
-.docs-ionicons .version {
+#docs-page-ionicons main .version {
   margin: 2px auto;
   color: #ccc;
-  font-size: 12px;
-  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-size: 12px; }
 
-.docs-ionicons input {
-  font-weight: normal;
-  font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  -webkit-appearance: none; }
+#docs-page-ionicons main form.search {
+  margin: 53px auto 92px;
+  position: relative; }
+  #docs-page-ionicons main form.search:before {
+    font-family: "Ionicons";
+    -webkit-font-smoothing: antialiased;
+    content: "\f4a5";
+    font-size: 20px;
+    font-weight: 800;
+    color: #576070;
+    position: absolute;
+    top: 3px;
+    left: 15px; }
+  #docs-page-ionicons main form.search input {
+    border-radius: 35px;
+    border: 1px solid #e6e9ee;
+    padding: 5px 5px 5px 42px;
+    color: #4C555A;
+    font-size: 16px;
+    box-shadow: none; }
+    #docs-page-ionicons main form.search input::-webkit-input-placeholder {
+      /* WebKit, Blink, Edge */
+      color: #9da5b3; }
+    #docs-page-ionicons main form.search input::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      color: #9da5b3; }
+    #docs-page-ionicons main form.search input:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #9da5b3; }
+    #docs-page-ionicons main form.search input:focus, #docs-page-ionicons main form.search input:hover, #docs-page-ionicons main form.search input:active {
+      border-color: #4f8ff7;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+      background: #fdfdfd;
+      outline: none; }
 
-.docs-ionicons input:focus {
-  outline: none; }
-
-.docs-ionicons ::-webkit-input-placeholder {
-  padding-left: 26px;
-  color: #999; }
-
-.docs-ionicons :-moz-placeholder {
-  color: #999; }
-
-.docs-ionicons ::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #999; }
-
-.docs-ionicons :-ms-input-placeholder {
-  color: #999; }
-
-.docs-ionicons .search {
-  position: relative;
-  background: #F5F5F5; }
-
-.docs-ionicons .search input {
-  padding: 4px 6px;
-  width: 175px;
-  border: 0;
-  border-radius: 4px;
-  background: #F5F5F5;
-  text-align: center;
-  font-size: 14px; }
-
-.docs-ionicons .search input.has-text + i {
-  display: none; }
-
-.docs-ionicons .search i {
-  position: absolute;
-  top: 3px;
-  left: 63px;
-  color: #999; }
-
-.docs-ionicons #icon-panel {
+#docs-page-ionicons main #icon-panel {
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -5497,7 +5486,7 @@ ul.docs-example {
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   opacity: .96; }
 
-.docs-ionicons #icon-name {
+#docs-page-ionicons main #icon-name {
   display: block;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   font-size: 14px;
@@ -5505,125 +5494,136 @@ ul.docs-example {
   width: 100%;
   border: 0; }
 
-.docs-ionicons #icon-code {
+#docs-page-ionicons main #icon-code {
   padding-top: 10px;
   font-size: 12px; }
 
-.docs-ionicons #icons {
+#docs-page-ionicons main #icons {
   transition: opacity .2s ease-in-out; }
 
-.docs-ionicons section.search-matches {
-  all: initial !important; }
+#docs-page-ionicons main section.search-matches {
+  all: initial; }
 
-.docs-ionicons section.search-init {
+#docs-page-ionicons main section.search-init {
   all: initial;
   opacity: 0.15; }
 
-.docs-ionicons section.search-nil {
+#docs-page-ionicons main section.search-nil {
   all: initial; }
 
-.docs-ionicons section#icons ul {
+#docs-page-ionicons main section#icons a {
+  color: #373737; }
+
+#docs-page-ionicons main section#icons ul {
   display: block;
   list-style-type: none;
   cursor: pointer;
   border: 2px solid #fff; }
+  #docs-page-ionicons main section#icons ul:hover {
+    border: 2px solid #EBF0F6;
+    border-radius: 2px; }
+  #docs-page-ionicons main section#icons ul.icon-labels {
+    border: none;
+    cursor: default; }
+    #docs-page-ionicons main section#icons ul.icon-labels li,
+    #docs-page-ionicons main section#icons ul.icon-labels li:first-child {
+      font-size: 16px;
+      font-weight: 500;
+      font-family: "Avenir Next", "Nunito", "Helvetica Neue", Helvetica, sans-serif; }
+  #docs-page-ionicons main section#icons ul li {
+    display: inline-block;
+    width: 23%;
+    position: relative;
+    z-index: 0;
+    padding: 22px 10px;
+    border-radius: 4px;
+    list-style: none;
+    text-align: center;
+    font-weight: normal;
+    font-size: 40px;
+    cursor: pointer; }
+    #docs-page-ionicons main section#icons ul li:first-child {
+      font-size: 14px;
+      font-weight: 400;
+      font-family: "Avenir Next", "Nunito", "Helvetica Neue", Helvetica, sans-serif; }
 
-.docs-ionicons section#icons a {
-  color: #373737; }
-
-.docs-ionicons section#icons ul:hover {
-  border: 2px solid #EBF0F6;
-  border-radius: 2px; }
-
-.docs-ionicons ul.icon-labels {
-  border: none !important;
-  cursor: default !important; }
-
-.docs-ionicons ul.icon-labels li {
-  font-size: 16px !important; }
-
-.docs-ionicons section#icons ul li {
-  display: inline-block;
-  width: 23%;
-  position: relative;
-  z-index: 0;
-  padding: 22px 10px;
-  border-radius: 4px;
-  list-style: none;
-  text-align: center;
-  font-weight: normal;
-  font-size: 32px;
-  cursor: pointer; }
-
-.docs-ionicons section#icons ul li:first-child {
-  font-size: 12px;
-  font-weight: 300;
-  font-family: "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
-.docs-ionicons .modal {
-  all: initial; }
-
-.docs-ionicons ul.modal-icons {
-  display: block;
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 25px; }
-
-.docs-ionicons ul.modal-icons li {
-  width: 31%;
-  display: inline-block; }
-
-.docs-ionicons ul.modal-icons li code, .docs-ionicons i {
-  display: block;
-  text-align: center; }
-
-.docs-ionicons ul.modal-icons li code {
-  width: auto; }
-
-.docs-ionicons ul.modal-icons li i {
-  font-size: 32px; }
-
-.docs-ionicons h4.modal-subtitle {
-  display: block;
-  line-height: 22px;
-  height: 22px;
-  vertical-align: middle;
-  margin: 30px 0; }
-
-.docs-ionicons .modal.current {
-  all: initial;
-  display: none;
+#docs-page-ionicons main .modal {
   width: 600px;
   margin: 0 auto;
   background: #fff;
-  padding: 15px 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #000; }
+  padding: 30px 45px;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: 12 !important;
+  -webkit-transform: scale3d(0.5, 0.5, 1);
+          transform: scale3d(0.5, 0.5, 1);
+  transition: opacity 0.2s, -webkit-transform 0.4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
+  transition: opacity 0.2s, transform 0.4s cubic-bezier(0.155, 1.105, 0.295, 1.12); }
+  #docs-page-ionicons main .modal.current {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1); }
+  #docs-page-ionicons main .modal .modal-dialog {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+  #docs-page-ionicons main .modal a.close-modal {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    outline: none;
+    color: rgba(255, 255, 255, 0); }
+    #docs-page-ionicons main .modal a.close-modal:before {
+      font-size: 28px;
+      top: -6px;
+      right: -6px;
+      position: relative;
+      content: '×';
+      color: black; }
+  #docs-page-ionicons main .modal h2 {
+    margin: 0;
+    font-size: 24px;
+    padding-top: 10px; }
+  #docs-page-ionicons main .modal h4 {
+    margin: 50px 0 20px;
+    font-size: 18px;
+    display: block;
+    line-height: 22px;
+    height: 22px;
+    vertical-align: middle; }
+  #docs-page-ionicons main .modal ul.modal-icons {
+    display: block;
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 25px; }
+    #docs-page-ionicons main .modal ul.modal-icons li {
+      width: 170px;
+      display: inline-block;
+      padding-right: 15px; }
+      #docs-page-ionicons main .modal ul.modal-icons li:last-child {
+        padding-right: 0; }
+      #docs-page-ionicons main .modal ul.modal-icons li code,
+      #docs-page-ionicons main .modal ul.modal-icons li i {
+        display: block;
+        text-align: center; }
+      #docs-page-ionicons main .modal ul.modal-icons li code {
+        width: auto; }
+      #docs-page-ionicons main .modal ul.modal-icons li i {
+        font-size: 32px; }
+  #docs-page-ionicons main .modal pre code {
+    margin: -60px -10px; }
 
-.docs-ionicons .modal a.close-modal {
-  all: initial;
-  position: absolute;
-  top: -12.5px;
-  right: -12.5px;
-  display: block;
-  width: 30px;
-  height: 30px;
-  text-indent: -9999px;
-  background: url(../img/close.png) no-repeat 0 0; }
-
-.docs-ionicons section#icons a {
+#docs-page-ionicons main a {
   display: block;
   height: auto;
   width: auto; }
 
-.docs-ionicons .modal-spinner {
-  display: none;
-  width: 64px;
-  height: 64px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-right: -32px;
-  margin-top: -32px;
-  background: url(spinner.gif) #111 no-repeat center center;
-  border-radius: 8px; }
+.jquery-modal.blocker {
+  z-index: 11 !important;
+  background-color: #0f1e37 !important; }

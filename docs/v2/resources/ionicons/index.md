@@ -36,7 +36,7 @@ header_sub_title: Ionic 2 Developer Preview
   {% endraw %}
 
     <form class="search">
-      <input id="search-ionicons" type="search" placeholder="Search">
+      <input id="search-ionicons" type="search" placeholder="Search Ionicons">
     </form>
 
     <section id="icons" class="search-nil">

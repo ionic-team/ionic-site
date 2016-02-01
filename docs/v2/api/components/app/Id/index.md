@@ -82,28 +82,7 @@ has been navigated away from.</p>
 <!-- @property tags -->
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="id"></div>
-
-<h3>
-<code>id()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link --><!-- end content block -->
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

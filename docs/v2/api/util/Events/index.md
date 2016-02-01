@@ -81,8 +81,7 @@ events.subscribe(&#39;user:created&#39;, (user) =&gt; {
 
 </h3>
 
-Subscribe to an event topic. Events that get posted to that topic
-will trigger the provided handler.
+Subscribe to an event topic. Events that get posted to that topic will trigger the provided handler.
 
 
 
@@ -104,7 +103,7 @@ will trigger the provided handler.
       </td>
       <td>
         
-  
+  <code>String</code>
       </td>
       <td>
         <p>the topic to subscribe to</p>
@@ -121,7 +120,7 @@ will trigger the provided handler.
       </td>
       <td>
         
-  
+  <code>Function</code>
       </td>
       <td>
         <p>the event handler</p>
@@ -148,8 +147,7 @@ will trigger the provided handler.
 
 </h3>
 
-Unsubscribe from the given topic. Your handler will
-no longer receive events published to this topic.
+Unsubscribe from the given topic. Your handler will no longer receive events published to this topic.
 
 
 
@@ -171,7 +169,7 @@ no longer receive events published to this topic.
       </td>
       <td>
         
-  
+  <code>String</code>
       </td>
       <td>
         <p>the topic to unsubscribe from</p>
@@ -188,7 +186,7 @@ no longer receive events published to this topic.
       </td>
       <td>
         
-  
+  <code>Function</code>
       </td>
       <td>
         <p>the event handler</p>
@@ -245,7 +243,7 @@ Publish an event to the given topic.
       </td>
       <td>
         
-  
+  <code>String</code>
       </td>
       <td>
         <p>the topic to publish to</p>
@@ -262,7 +260,7 @@ Publish an event to the given topic.
       </td>
       <td>
         
-  
+  <code>Any</code>
       </td>
       <td>
         <p>the data to send as the event</p>

@@ -147,67 +147,7 @@ A stacked label will always appear on top of the input
 </table>
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="type"></div>
-
-<h3>
-<code>type()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="id"></div>
-
-<h3>
-<code>id()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="text"></div>
-
-<h3>
-<code>text()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link -->
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

@@ -285,28 +285,7 @@ Dynamically set which color attribute this button should use.
 </table>
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="color"></div>
-
-<h3>
-<code>color()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link -->
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

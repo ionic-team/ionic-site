@@ -41030,6 +41030,8 @@
 /***/ function(module, exports) {
 
 	/**
+	 * @name Events
+	 * @description
 	 * Events is a pub/sub style event system for sending and responding to application-level
 	 * events across your app.
 	 * @usage
@@ -41052,11 +41054,10 @@
 	        this._channels = [];
 	    }
 	    /**
-	     * Subscribe to an event topic. Events that get posted to that topic
-	     * will trigger the provided handler.
+	     * Subscribe to an event topic. Events that get posted to that topic will trigger the provided handler.
 	     *
-	     * @param topic the topic to subscribe to
-	     * @param handler the event handler
+	     * @param {String} topic the topic to subscribe to
+	     * @param {Function} handler the event handler
 	     */
 	    Events.prototype.subscribe = function (topic) {
 	        var _this = this;
@@ -41072,11 +41073,10 @@
 	        });
 	    };
 	    /**
-	     * Unsubscribe from the given topic. Your handler will
-	     * no longer receive events published to this topic.
+	     * Unsubscribe from the given topic. Your handler will no longer receive events published to this topic.
 	     *
-	     * @param topic the topic to unsubscribe from
-	     * @param handler the event handler
+	     * @param {String} topic the topic to unsubscribe from
+	     * @param {Function} handler the event handler
 	     *
 	     * @return true if a handler was removed
 	     */
@@ -41107,8 +41107,8 @@
 	    /**
 	     * Publish an event to the given topic.
 	     *
-	     * @param topic the topic to publish to
-	     * @param eventData the data to send as the event
+	     * @param {String} topic the topic to publish to
+	     * @param {Any} eventData the data to send as the event
 	     */
 	    Events.prototype.publish = function (topic) {
 	        var args = [];
@@ -42801,9 +42801,21 @@
 	        this._keyboard = _keyboard;
 	        this._zone = _zone;
 	        this._preventTime = 0;
+	        /**
+	         * @private
+	         */
 	        this.isOpen = false;
+	        /**
+	         * @private
+	         */
 	        this.isEnabled = true;
+	        /**
+	         * @private
+	         */
 	        this.isSwipeEnabled = true;
+	        /**
+	         * @private
+	         */
 	        this.opening = new core_1.EventEmitter();
 	    }
 	    /**
@@ -42887,7 +42899,7 @@
 	    };
 	    /**
 	     * Sets the state of the Menu to open or not.
-	     * @param {boolean} isOpen  If the Menu is open or not.
+	     * @param {boolean} shouldOpen  If the Menu is open or not.
 	     * @return {Promise} returns a promise once set
 	     */
 	    Menu.prototype.setOpen = function (shouldOpen) {
@@ -45736,11 +45748,11 @@
 	* @see {@link ../../menu/Menu Menu API Docs}
 	*/
 	var MenuToggle = (function () {
-	    function MenuToggle(app, elementRef, viewCtrl, navbar) {
-	        this.app = app;
-	        this.viewCtrl = viewCtrl;
-	        this.navbar = navbar;
-	        this.withinNavbar = !!navbar;
+	    function MenuToggle(_app, elementRef, _viewCtrl, _navbar) {
+	        this._app = _app;
+	        this._viewCtrl = _viewCtrl;
+	        this._navbar = _navbar;
+	        this.withinNavbar = !!_navbar;
 	        // Deprecation warning
 	        if (this.withinNavbar && elementRef.nativeElement.tagName === 'A') {
 	            console.warn('Menu toggles within a navbar should use <button menuToggle> instead of <a menu-toggle>');
@@ -45750,7 +45762,7 @@
 	    * @private
 	    */
 	    MenuToggle.prototype.toggle = function () {
-	        var menu = menu_1.Menu.getById(this.app, this.menuToggle);
+	        var menu = menu_1.Menu.getById(this._app, this.menuToggle);
 	        menu && menu.toggle();
 	    };
 	    Object.defineProperty(MenuToggle.prototype, "isHidden", {
@@ -45758,8 +45770,8 @@
 	        * @private
 	        */
 	        get: function () {
-	            if (this.withinNavbar && this.viewCtrl) {
-	                return !this.viewCtrl.isRoot();
+	            if (this.withinNavbar && this._viewCtrl) {
+	                return !this._viewCtrl.isRoot();
 	            }
 	            return false;
 	        },
@@ -46625,6 +46637,9 @@
 	        }
 	    };
 	    Object.defineProperty(Icon.prototype, "name", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._name;
 	        },
@@ -46641,6 +46656,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Icon.prototype, "ios", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._ios;
 	        },
@@ -46652,6 +46670,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Icon.prototype, "md", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._md;
 	        },
@@ -46663,6 +46684,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Icon.prototype, "isActive", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return (this._isActive === undefined || this._isActive === true || this._isActive === 'true');
 	        },
@@ -47794,16 +47818,20 @@
 	     *  }
 	     * ```
 	     *
-	     * @param {number} startIndex  The starting index to remove views from the nav stack
-	     * @param {removeCount} [opts={}]  The number of views to remove, defaults to remove `1`.
-	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {Promise} Returns a promise when the view has been removed
+	     * @param {number} [startIndex]  The starting index to remove pages from the stack. Default is the index of the last page.
+	     * @param {number} [removeCount]  The number of pages to remove, defaults to remove `1`.
+	     * @param {object} [opts={}] Any options you want to use pass to transtion.
+	     * @returns {Promise} Returns a promise when the page has been removed.
 	     */
 	    NavController.prototype.remove = function (startIndex, removeCount, opts) {
 	        var _this = this;
+	        if (startIndex === void 0) { startIndex = -1; }
 	        if (removeCount === void 0) { removeCount = 1; }
 	        if (opts === void 0) { opts = {}; }
-	        if (startIndex < 0 || startIndex >= this._views.length) {
+	        if (startIndex === -1) {
+	            startIndex = this._views.length - 1;
+	        }
+	        else if (startIndex < 0 || startIndex >= this._views.length) {
 	            return Promise.reject("remove index out of range");
 	        }
 	        // default the direction to "back"
@@ -48949,6 +48977,11 @@
 	            _this.scrollElement.removeEventListener('scroll', handler);
 	        };
 	    };
+	    /**
+	     * Call a method when scrolling has stopped
+	     *
+	     * @param {Function} callback The method you want perform when scrolling has ended
+	     */
 	    Content.prototype.onScrollEnd = function (callback) {
 	        var lastScrollTop = null;
 	        var framesUnchanged = 0;
@@ -54252,6 +54285,7 @@
 	var util_1 = __webpack_require__(267);
 	/**
 	 * @name Tabs
+	 * @property {any} [selectedIndex] - The default selected tab index when first loaded. If a selected index wasn't provided then it'll use `0`, the first tab.
 	 * @property {any} [tabbarPlacement] - set position of the tabbar, top or bottom
 	 * @property {any} [tabbarIcons] - set the position of the tabbar's icons: top, bottom, left, right, hide
 	 * @property {any} [preloadTabs] - sets whether to preload all the tabs, true or false
@@ -54967,9 +55001,9 @@
 	 */
 	var List = (function (_super) {
 	    __extends(List, _super);
-	    function List(elementRef, zone) {
+	    function List(elementRef, _zone) {
 	        _super.call(this, elementRef);
-	        this.zone = zone;
+	        this._zone = _zone;
 	        this._enableSliding = false;
 	        this.ele = elementRef.nativeElement;
 	    }
@@ -55028,7 +55062,7 @@
 	            this._enableSliding = shouldEnable;
 	            if (shouldEnable) {
 	                console.debug('enableSlidingItems');
-	                this.zone.runOutsideAngular(function () {
+	                this._zone.runOutsideAngular(function () {
 	                    setTimeout(function () {
 	                        _this.slidingGesture = new item_sliding_gesture_1.ItemSlidingGesture(_this, _this.ele);
 	                    });
@@ -55483,6 +55517,9 @@
 	        this._ids = -1;
 	        this._inputs = [];
 	        this._viewLabel = true;
+	        /**
+	       * @private
+	       */
 	        this.labelId = null;
 	        this.id = form.nextId().toString();
 	    }
@@ -55518,6 +55555,9 @@
 	        return this._label ? this._label.text : '';
 	    };
 	    Object.defineProperty(Item.prototype, "contentLabel", {
+	        /**
+	         * @private
+	         */
 	        set: function (label) {
 	            if (label) {
 	                this._label = label;
@@ -55532,6 +55572,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Item.prototype, "viewLabel", {
+	        /**
+	         * @private
+	         */
 	        set: function (label) {
 	            if (!this._label) {
 	                this._label = label;
@@ -55675,6 +55718,9 @@
 	        this.type = (isFloating === '' ? 'floating' : (isStacked === '' ? 'stacked' : (isFixed === '' ? 'fixed' : (isInset === '' ? 'inset' : null))));
 	    }
 	    Object.defineProperty(Label.prototype, "id", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._id;
 	        },
@@ -55688,6 +55734,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Label.prototype, "text", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._elementRef.nativeElement.textContent || '';
 	        },
@@ -55832,7 +55881,7 @@
 	 *
 	 *    <ion-item>
 	 *      <ion-label>Sausage</ion-label>
-	 *      <ion-checkbox value="sausage"></ion-checkbox>
+	 *      <ion-checkbox value="sausage" disabled="true"></ion-checkbox>
 	 *    </ion-item>
 	 *
 	 *    <ion-item>
@@ -55851,6 +55900,9 @@
 	        this._item = _item;
 	        this._checked = false;
 	        this._disabled = false;
+	        /**
+	         * @private
+	         */
 	        this.value = '';
 	        _form.register(this);
 	        if (ngControl) {
@@ -55870,6 +55922,9 @@
 	        this.checked = !this.checked;
 	    };
 	    Object.defineProperty(Checkbox.prototype, "checked", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._checked;
 	        },
@@ -55884,6 +55939,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Checkbox.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._disabled;
 	        },
@@ -56263,9 +56321,7 @@
 	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L34
 	     */
 	    Select.prototype.writeValue = function (val) {
-	        if (!util_1.isBlank(val)) {
-	            this.value = val;
-	        }
+	        this.value = val;
 	    };
 	    /**
 	     * @private
@@ -56738,7 +56794,7 @@
 	                '<template ngSwitchWhen="checkbox">' +
 	                '<div class="alert-checkbox-group">' +
 	                '<div *ngFor="#i of d.inputs" (click)="cbClick(i)" [attr.aria-checked]="i.checked" class="alert-tappable alert-checkbox" tappable role="checkbox">' +
-	                '<div class="alert-checkbox-icon"></div>' +
+	                '<div class="alert-checkbox-icon"><div class="alert-checkbox-inner"></div></div>' +
 	                '<div class="alert-checkbox-label">' +
 	                '{{i.label}}' +
 	                '</div>' +
@@ -56753,7 +56809,7 @@
 	                '</div>' +
 	                '</template>' +
 	                '</div>' +
-	                '<div class="alert-button-group">' +
+	                '<div class="alert-button-group" [ngClass]="{vertical: d.buttons.length>2}">' +
 	                '<button *ngFor="#b of d.buttons" (click)="btnClick(b)" [ngClass]="b.cssClass" class="alert-button">' +
 	                '{{b.text}}' +
 	                '</button>' +
@@ -57226,7 +57282,7 @@
 	 * An `ion-input` is **not** used for non-text type inputs, such as a
 	 * `checkbox`, `radio`, `toggle`, `range`, `select`, etc.
 	 *
-	 * @property [inset] - The input will be inset
+	 * @property [type] - The HTML input type (text, password, email, number, search, tel, or url)
 	 * @property [clearInput] - A clear icon will appear in the input which clears it
 	 *
 	 * @usage
@@ -57276,6 +57332,7 @@
 	                button_1.Button
 	            ]
 	        }),
+	        __param(2, core_1.Optional()),
 	        __param(6, core_1.Optional()),
 	        __param(7, core_1.Optional()),
 	        __param(8, core_1.Optional()), 
@@ -57302,8 +57359,6 @@
 	 * When requiring only a single-line text input it's recommended
 	 * to use `<ion-input>` instead.
 	 *
-	 * @property [inset] - The textarea will be inset
-	 *
 	 * @usage
 	 * ```html
 	 *  <ion-item>
@@ -57312,12 +57367,12 @@
 	 *  </ion-item>
 	 *
 	 *  <ion-item>
-	 *    <ion-labe stacked>Message</ion-label>
+	 *    <ion-label stacked>Message</ion-label>
 	 *    <ion-textarea [(ngModel)]="msg"></ion-textarea>
 	 *  </ion-item>
 	 *
 	 *  <ion-item>
-	 *    <ion-labe floating>Description</ion-label>
+	 *    <ion-label floating>Description</ion-label>
 	 *    <ion-textarea></ion-textarea>
 	 *  </ion-item>
 	 * ```
@@ -57328,6 +57383,9 @@
 	    function TextArea(config, form, item, app, platform, elementRef, scrollView, nav, ngControl) {
 	        _super.call(this, config, form, item, app, platform, elementRef, scrollView, nav, ngControl);
 	    }
+	    /**
+	     * @private
+	     */
 	    TextArea.prototype.ngOnInit = function () {
 	        _super.prototype.ngOnInit.call(this);
 	        if (this._item) {
@@ -57346,6 +57404,7 @@
 	                native_input_1.NativeInput
 	            ]
 	        }),
+	        __param(2, core_1.Optional()),
 	        __param(6, core_1.Optional()),
 	        __param(7, core_1.Optional()),
 	        __param(8, core_1.Optional()), 
@@ -57370,6 +57429,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
+	var util_1 = __webpack_require__(267);
 	var dom_1 = __webpack_require__(268);
 	var native_input_1 = __webpack_require__(327);
 	var InputBase = (function () {
@@ -57381,6 +57441,7 @@
 	        this._elementRef = _elementRef;
 	        this._scrollView = _scrollView;
 	        this._nav = _nav;
+	        this._disabled = false;
 	        this._type = 'text';
 	        this._useAssist = true;
 	        this._value = '';
@@ -57466,6 +57527,18 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    Object.defineProperty(InputBase.prototype, "disabled", {
+	        get: function () {
+	            return this._disabled;
+	        },
+	        set: function (val) {
+	            this._disabled = util_1.isTrueProperty(val);
+	            this._item && this._item.setCssClass('item-input-disabled', this._disabled);
+	            this._native && this._native.isDisabled(this._disabled);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(InputBase.prototype, "_nativeInput", {
 	        /**
 	         * @private
@@ -57488,6 +57561,7 @@
 	                }
 	            });
 	            this.checkHasValue(nativeInput.getValue());
+	            this.disabled = this._disabled;
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -57817,6 +57891,10 @@
 	        __metadata('design:type', Object)
 	    ], InputBase.prototype, "type", null);
 	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], InputBase.prototype, "disabled", null);
+	    __decorate([
 	        core_1.ViewChild(native_input_1.NativeInput), 
 	        __metadata('design:type', (typeof (_b = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _b) || Object), 
 	        __metadata('design:paramtypes', [(typeof (_c = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _c) || Object])
@@ -57886,6 +57964,9 @@
 	    };
 	    NativeInput.prototype.labelledBy = function (val) {
 	        this._renderer.setElementAttribute(this._elementRef.nativeElement, 'aria-labelledby', val);
+	    };
+	    NativeInput.prototype.isDisabled = function (val) {
+	        this._renderer.setElementAttribute(this._elementRef.nativeElement, 'disabled', val ? '' : null);
 	    };
 	    /**
 	     * @private
@@ -59620,6 +59701,8 @@
 	exports.DisplayWhen = DisplayWhen;
 	/**
 	 *
+	 * @name ShowWhen
+	 * @description
 	 * The `showWhen` attribute takes a string that represents a plaform or screen orientation.
 	 * The element the attribute is added to will only be shown when that platform or screen orientation is active.
 	 * Complements the [hideWhen attribute](../HideWhen).
@@ -59660,7 +59743,8 @@
 	})(DisplayWhen);
 	exports.ShowWhen = ShowWhen;
 	/**
-	 *
+	 * @name HideWhen
+	 * @description
 	 * The `hideWhen` attribute takes a string that represents a plaform or screen orientation.
 	 * The element the attribute is added to will only be hidden when that platform or screen orientation is active.
 	 * Complements the [showWhen attribute](../ShowWhen).
@@ -59722,7 +59806,8 @@
 	* import {App} from 'ionic/ionic';
 	*
 	* @App({
-	*   templateUrl: 'app/app.html'
+	*   templateUrl: 'app/app.html',
+	*   providers: [DataService]
 	* })
 	*
 	* export class MyApp{
@@ -59730,9 +59815,10 @@
 	* }
 	* ```
 	*
-	* @param {Object} [config] - the app's [../Config](Config) object
-	* @param {String} [template] - the template to use for the app root
-	* @param {String} [templateUrl] - a relative URL pointing to the template to use for the app root
+	* @property {Object} [config] - the app's {@link docs/v2/api/config/Config/ Config} object
+	* @property {Array}  [providers] - any providers for your app
+	* @property {String} [template] - the template to use for the app root
+	* @property {String} [templateUrl] - a relative URL pointing to the template to use for the app root
 	*
 	*/
 	function App(args) {

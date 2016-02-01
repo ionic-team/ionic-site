@@ -68,12 +68,12 @@ to use <code>&lt;ion-input&gt;</code> instead.</p>
 &lt;/ion-item&gt;
 
 &lt;ion-item&gt;
-  &lt;ion-labe stacked&gt;Message&lt;/ion-label&gt;
+  &lt;ion-label stacked&gt;Message&lt;/ion-label&gt;
   &lt;ion-textarea [(ngModel)]=&quot;msg&quot;&gt;&lt;/ion-textarea&gt;
 &lt;/ion-item&gt;
 
 &lt;ion-item&gt;
-  &lt;ion-labe floating&gt;Description&lt;/ion-label&gt;
+  &lt;ion-label floating&gt;Description&lt;/ion-label&gt;
   &lt;ion-textarea&gt;&lt;/ion-textarea&gt;
 &lt;/ion-item&gt;
 </code></pre>
@@ -82,39 +82,6 @@ to use <code>&lt;ion-input&gt;</code> instead.</p>
 
 
 <!-- @property tags -->
-
-<h2>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
-
-
-
-
-
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-inset
-</td>
-
-
-
-<td>
-The textarea will be inset
-
-</td>
-</tr>
-
-</tbody>
-</table>
 
 
 <!-- methods on the class -->

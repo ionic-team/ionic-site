@@ -112,13 +112,13 @@ interactivity.</p>
 
 <tr>
 <td>
-inset
+type
 </td>
 
 
 
 <td>
-The input will be inset
+The HTML input type (text, password, email, number, search, tel, or url)
 </td>
 </tr>
 

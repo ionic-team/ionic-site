@@ -67,7 +67,7 @@ as iOS or Material Design.</p>
 
   &lt;ion-item&gt;
     &lt;ion-label&gt;Sausage&lt;/ion-label&gt;
-    &lt;ion-checkbox value=&quot;sausage&quot;&gt;&lt;/ion-checkbox&gt;
+    &lt;ion-checkbox value=&quot;sausage&quot; disabled=&quot;true&quot;&gt;&lt;/ion-checkbox&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
@@ -145,68 +145,7 @@ whether or not the checkbox is disabled or not.
 </table>
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="value"></div>
-
-<h3>
-<code>value()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="checked"></div>
-
-<h3>
-<code>checked()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="disabled"></div>
-
-<h3>
-<code>disabled()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<!-- related link -->
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

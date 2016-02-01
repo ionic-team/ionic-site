@@ -18,7 +18,7 @@ header_sub_title: Ionic 2 Developer Preview
         <code>{{ivalue['name']}}</code>
       </li>
     </ul>
-  
+
     <h4 class="modal-subtitle">Usage:</h4>
       <figure class="highlight">
         <delayed-pre>
@@ -35,10 +35,9 @@ header_sub_title: Ionic 2 Developer Preview
   </div>
   {% endraw %}
 
-    <p class="search">
+    <form class="search">
       <input id="search-ionicons" type="search" placeholder="Search">
-      <i class="ion-ios-search"></i>
-    </p>
+    </form>
 
     <section id="icons" class="search-nil">
 

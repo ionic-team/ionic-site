@@ -54752,14 +54752,6 @@
 	var tabs_1 = __webpack_require__(310);
 	/**
 	 * @name Tab
-	 * @usage
-	 * ```html
-	 * <ion-tabs>
-	 * 	 <ion-tab tabTitle="Home" tabIcon="home" [root]="tabOneRoot"></ion-tab>
-	 * 	 <ion-tab tabTitle="Login" tabIcon="star" [root]="tabTwoRoot"></ion-tab>
-	 * </ion-tabs>
-	 * ```
-	 *
 	 * @description
 	 * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
 	 * of the Component docs._
@@ -54774,11 +54766,12 @@
 	 * See the [Tabs API reference](../Tabs/) for more details on configuring Tabs
 	 * and the TabBar.
 	 *
+	 * @usage
 	 * For most cases, you can give tab a `[root]` property along with the component you want to load.
 	 *
 	 * ```html
 	 * <ion-tabs>
-	 *  <ion-tab [root]="chatRoot"><ion-tab>
+	 *  <ion-tab [root]="chatRoot" tabTitle="Chat" tabIcon="chat"><ion-tab>
 	 * </ion-tabs>
 	 * ```
 	 *
@@ -54816,12 +54809,12 @@
 	 * ```
 	 *
 	 *
-	 * @property {any} [root] - set the root page for this tab
-	 * @property {any} [tabTitle] - set the title of this tab
-	 * @property {any} [tabIcon] - set the icon for this tab
-	 * @property {any} [tabBadge] - set the badge for this tab
-	 * @property {any} [tabBadgeStyle] - set the badge color for this tab
-	 * @property {any} [select] - method to call when the current tab is selected
+	 * @property {Page} [root] - set the root page for this tab
+	 * @property {String} [tabTitle] - set the title of this tab
+	 * @property {String} [tabIcon] - set the icon for this tab
+	 * @property {Any} [tabBadge] - set the badge for this tab
+	 * @property {String} [tabBadgeStyle] - set the badge color for this tab
+	 * @property {Any} (select) - method to call when the current tab is selected
 	 *
 	 */
 	var Tab = (function (_super) {
@@ -54829,6 +54822,9 @@
 	    function Tab(parentTabs, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer) {
 	        // A Tab is a NavController for its child pages
 	        _super.call(this, parentTabs, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer);
+	        /**
+	         * @private
+	         */
 	        this.select = new core_2.EventEmitter();
 	        parentTabs.add(this);
 	        this._panelId = 'tabpanel-' + this.id;
@@ -54854,6 +54850,9 @@
 	            done();
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    Tab.prototype.preload = function (wait) {
 	        var _this = this;
 	        this._loadTimer = setTimeout(function () {
@@ -54906,18 +54905,7 @@
 	    };
 	    Object.defineProperty(Tab.prototype, "index", {
 	        /**
-	         *
-	         * ```ts
-	         * export class MyClass{
-	         *  constructor(tab: Tab){
-	         *    this.tab = tab;
-	         *    console.log(this.tab.index);
-	         *  }
-	         * }
-	         * ```
-	         *
-	         * @returns {number} Returns the index of this page within its NavController.
-	         *
+	         * @private
 	         */
 	        get: function () {
 	            return this.parent.getIndex(this);

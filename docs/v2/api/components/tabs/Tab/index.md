@@ -53,9 +53,17 @@ to pages in and manipulate the navigation stack of a particular tab.</p>
 take a look at the <a href="../NavController/">NavController API reference</a>.</p>
 <p>See the <a href="../Tabs/">Tabs API reference</a> for more details on configuring Tabs
 and the TabBar.</p>
+
+
+<h2>Component</h2>
+<h3>selector: <code>ion-tab</code></h3>
+<!-- @usage tag -->
+
+<h2>Usage</h2>
+
 <p>For most cases, you can give tab a <code>[root]</code> property along with the component you want to load.</p>
 <pre><code class="lang-html">&lt;ion-tabs&gt;
- &lt;ion-tab [root]=&quot;chatRoot&quot;&gt;&lt;ion-tab&gt;
+ &lt;ion-tab [root]=&quot;chatRoot&quot; tabTitle=&quot;Chat&quot; tabIcon=&quot;chat&quot;&gt;&lt;ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <pre><code class="lang-ts">import {Chat} from &#39;../chat/chat&#39;;
@@ -83,19 +91,6 @@ class. Below is an example of presenting a modal from one of the tabs.</p>
     this.nav.present(modal);
   }
 }
-</code></pre>
-
-
-<h2>Component</h2>
-<h3>selector: <code>ion-tab</code></h3>
-<!-- @usage tag -->
-
-<h2>Usage</h2>
-
-<pre><code class="lang-html">&lt;ion-tabs&gt;
-     &lt;ion-tab tabTitle=&quot;Home&quot; tabIcon=&quot;home&quot; [root]=&quot;tabOneRoot&quot;&gt;&lt;/ion-tab&gt;
-     &lt;ion-tab tabTitle=&quot;Login&quot; tabIcon=&quot;star&quot; [root]=&quot;tabTwoRoot&quot;&gt;&lt;/ion-tab&gt;
-&lt;/ion-tabs&gt;
 </code></pre>
 
 
@@ -151,7 +146,7 @@ root
 
 
 <td>
-any
+Page
 </td>
 
 
@@ -167,7 +162,7 @@ tabTitle
 
 
 <td>
-any
+String
 </td>
 
 
@@ -183,7 +178,7 @@ tabIcon
 
 
 <td>
-any
+String
 </td>
 
 
@@ -199,7 +194,7 @@ tabBadge
 
 
 <td>
-any
+Any
 </td>
 
 
@@ -215,7 +210,7 @@ tabBadgeStyle
 
 
 <td>
-any
+String
 </td>
 
 
@@ -226,12 +221,12 @@ set the badge color for this tab
 
 <tr>
 <td>
-select
+(select)
 </td>
 
 
 <td>
-any
+Any
 </td>
 
 
@@ -244,193 +239,7 @@ method to call when the current tab is selected
 </table>
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="isSelected"></div>
-
-<h3>
-<code>isSelected()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="root"></div>
-
-<h3>
-<code>root()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="tabTitle"></div>
-
-<h3>
-<code>tabTitle()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="tabIcon"></div>
-
-<h3>
-<code>tabIcon()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="tabBadge"></div>
-
-<h3>
-<code>tabBadge()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="tabBadgeStyle"></div>
-
-<h3>
-<code>tabBadgeStyle()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="select"></div>
-
-<h3>
-<code>select()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="preload"></div>
-
-<h3>
-<code>preload()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="index"></div>
-
-<h3>
-<code>index()</code>
-  
-
-</h3>
-
-```ts
-export class MyClass{
- constructor(tab: Tab){
-   this.tab = tab;
-   console.log(this.tab.index);
- }
-}
-```
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>number</code> Returns the index of this page within its NavController.
-</div>
-
-
-<!-- related link --><!-- end content block -->
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

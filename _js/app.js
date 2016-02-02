@@ -54,14 +54,23 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       $scope.subSections = sections;
     }());
 
+    var $hash;
+    var $node;
+    var updateIframe =  debounce(function() {
+      $iosIframe[0].contentWindow.postMessage(JSON.stringify({
+        hash: $hash
+      }), '*');
+      $androidIframe[0].contentWindow.postMessage(JSON.stringify({
+        hash: $hash
+      }), '*');
+    }, 500);
 
     function onScrollSpyChange(e) {
 
       if (e.target.id === 'components-index') {
         return;
       }
-      var $hash;
-      var $node;
+
       $hash = $('a[href^="#"]', e.target).attr('href').replace(/^#/, '');
       $node = $('#' + $hash);
 
@@ -74,17 +83,29 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
         $node.attr('id', '');
       }
       document.location.hash = $hash;
-      $iosIframe[0].contentWindow.postMessage(JSON.stringify({
-        hash: $hash
-      }), '*');
-      $androidIframe[0].contentWindow.postMessage(JSON.stringify({
-        hash: $hash
-      }), '*');
+
+      updateIframe();
 
       if ($node.length) {
         return $node.attr('id', $hash);
       }
     }
+
+    function debounce(func, wait, immediate) {
+      var timeout;
+      return function() {
+        var context = this;
+        var args = arguments;
+        var later = function() {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+      };
+    };
 
     function setActive(hash) {
       // given a url hash, set the correct section to 'active'
@@ -203,7 +224,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       if (iconObj.key.icons.length === 2) {
         return iconObj.key.icons[1]['name']
       }
-      
+
       return iconObj.key.icons[2]['name']
     }
   }])

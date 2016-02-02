@@ -47334,12 +47334,10 @@
 	 */
 	var NavController = (function (_super) {
 	    __extends(NavController, _super);
-	    function NavController(parent, app, config, keyboard, elementRef, _anchorName, _compiler, _viewManager, _zone, _renderer) {
+	    function NavController(parent, _app, config, _keyboard, elementRef, _anchorName, _compiler, _viewManager, _zone, _renderer) {
 	        _super.call(this, elementRef);
-	        this.parent = parent;
-	        this.app = app;
-	        this.config = config;
-	        this.keyboard = keyboard;
+	        this._app = _app;
+	        this._keyboard = _keyboard;
 	        this._anchorName = _anchorName;
 	        this._compiler = _compiler;
 	        this._viewManager = _viewManager;
@@ -47351,6 +47349,8 @@
 	        this._sbTrans = null;
 	        this._trnsTime = 0;
 	        this._views = [];
+	        this.parent = parent;
+	        this.config = config;
 	        this._trnsDelay = config.get('pageTransitionDelay');
 	        this._sbEnabled = config.get('swipeBackEnabled') || false;
 	        this._sbThreshold = config.get('swipeBackThreshold') || 40;
@@ -48149,7 +48149,7 @@
 	            var enableApp = (duration < 64);
 	            // block any clicks during the transition and provide a
 	            // fallback to remove the clickblock if something goes wrong
-	            _this.app.setEnabled(enableApp, duration);
+	            _this._app.setEnabled(enableApp, duration);
 	            _this.setTransitioning(!enableApp, duration);
 	            if (enteringView.viewType) {
 	                transAnimation.before.addClass(enteringView.viewType);
@@ -48182,11 +48182,11 @@
 	                // transition must be canceled, so don't continue
 	                return done();
 	            }
-	            if (opts.keyboardClose !== false && _this.keyboard.isOpen()) {
+	            if (opts.keyboardClose !== false && _this._keyboard.isOpen()) {
 	                // the keyboard is still open!
 	                // no problem, let's just close for them
-	                _this.keyboard.close();
-	                _this.keyboard.onClose(function () {
+	                _this._keyboard.close();
+	                _this._keyboard.onClose(function () {
 	                    // keyboard has finished closing, transition complete
 	                    done();
 	                }, 32);
@@ -48231,7 +48231,7 @@
 	                this._renderer.setElementClass(this.elementRef.nativeElement, 'has-views', true);
 	            }
 	            // allow clicks and enable the app again
-	            this.app && this.app.setEnabled(true);
+	            this._app && this._app.setEnabled(true);
 	            this.setTransitioning(false);
 	            if (this.router && direction !== null) {
 	                // notify router of the state change if a direction was provided
@@ -48335,11 +48335,11 @@
 	    NavController.prototype.swipeBackStart = function () {
 	        var _this = this;
 	        return;
-	        if (!this.app.isEnabled() || !this.canSwipeBack()) {
+	        if (!this._app.isEnabled() || !this.canSwipeBack()) {
 	            return;
 	        }
 	        // disables the app during the transition
-	        this.app.setEnabled(false);
+	        this._app.setEnabled(false);
 	        this.setTransitioning(true);
 	        // default the direction to "back"
 	        var opts = {
@@ -48373,7 +48373,7 @@
 	        return;
 	        if (this._sbTrans) {
 	            // continue to disable the app while actively dragging
-	            this.app.setEnabled(false, 4000);
+	            this._app.setEnabled(false, 4000);
 	            this.setTransitioning(true, 4000);
 	            // set the transition animation's progress
 	            this._sbTrans.progress(value);
@@ -48388,7 +48388,7 @@
 	        if (!this._sbTrans)
 	            return;
 	        // disables the app during the transition
-	        this.app.setEnabled(false);
+	        this._app.setEnabled(false);
 	        this.setTransitioning(true);
 	        this._sbTrans.progressEnd(completeSwipeBack, rate).then(function () {
 	            _this._zone.run(function () {

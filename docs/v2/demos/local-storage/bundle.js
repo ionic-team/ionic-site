@@ -49358,28 +49358,61 @@
 	 *
 	 */
 	var Refresher = (function () {
-	    function Refresher(content, element) {
-	        this.content = content;
+	    function Refresher(_content, _element) {
+	        this._content = _content;
+	        /**
+	         * @private
+	         */
 	        this.isDragging = false;
+	        /**
+	         * @private
+	         */
 	        this.isOverscrolling = false;
+	        /**
+	         * @private
+	         */
 	        this.dragOffset = 0;
+	        /**
+	         * @private
+	         */
 	        this.lastOverscroll = 0;
+	        /**
+	         * @private
+	         */
 	        this.ptrThreshold = 0;
+	        /**
+	         * @private
+	         */
 	        this.activated = false;
+	        /**
+	         * @private
+	         */
 	        this.scrollTime = 500;
+	        /**
+	         * @private
+	         */
 	        this.canOverscroll = true;
+	        /**
+	         * @private
+	         */
 	        this.pulling = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.refresh = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.starting = new core_1.EventEmitter();
-	        this.ele = element.nativeElement;
-	        this.ele.classList.add('content');
+	        this._ele = _element.nativeElement;
+	        this._ele.classList.add('content');
 	    }
 	    /**
 	     * @private
 	     */
 	    Refresher.prototype.ngOnInit = function () {
-	        var sp = this.content.getNativeElement();
-	        var sc = this.content.scrollElement;
+	        var sp = this._content.getNativeElement();
+	        var sc = this._content.scrollElement;
 	        this.startY = null;
 	        this.deltaY = null;
 	        this.scrollHost = sp;
@@ -49401,7 +49434,7 @@
 	     * @private
 	     */
 	    Refresher.prototype.ngOnDestroy = function () {
-	        var sc = this.content.scrollElement;
+	        var sc = this._content.scrollElement;
 	        sc.removeEventListener('touchmove', this._touchMoveListener);
 	        sc.removeEventListener('touchend', this._touchEndListener);
 	        sc.removeEventListener('scroll', this._handleScrollListener);
@@ -49486,21 +49519,21 @@
 	     */
 	    Refresher.prototype.show = function () {
 	        // showCallback
-	        this.ele.classList.remove('invisible');
+	        this._ele.classList.remove('invisible');
 	    };
 	    /**
 	     * @private
 	     */
 	    Refresher.prototype.hide = function () {
 	        // showCallback
-	        this.ele.classList.add('invisible');
+	        this._ele.classList.add('invisible');
 	    };
 	    /**
 	     * @private
 	     */
 	    Refresher.prototype.tail = function () {
 	        // tailCallback
-	        this.ele.classList.add('refreshing-tail');
+	        this._ele.classList.add('refreshing-tail');
 	    };
 	    /**
 	     * @private

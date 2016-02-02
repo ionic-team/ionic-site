@@ -102,6 +102,10 @@ Improve this doc
 
 
 
+
+
+
+
 <th>Type</th>
 
 
@@ -142,51 +146,27 @@ expression to evaluate when a segment button has been clicked
 </td>
 </tr>
 
+<tr>
+<td>
+(select)
+</td>
+
+
+<td>
+Any
+</td>
+
+
+<td>
+expression to evaluate when a segment selection has been changed
+</td>
+</tr>
+
 </tbody>
 </table>
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="value"></div>
-
-<h3>
-<code>value()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="select"></div>
-
-<h3>
-<code>select()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link -->
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

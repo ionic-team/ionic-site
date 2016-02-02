@@ -58255,7 +58255,6 @@
 	 * @name SegmentButton
 	 * @description
 	 * The child buttons of the `ion-segment` component. Each `ion-segment-button` must have a value.
-	 * @property {string} [value] - the value of the segment-button. Required.
 	 * @usage
 	 * ```html
 	 * <ion-segment [(ngModel)]="relationship" primary>
@@ -58286,7 +58285,9 @@
 	 * </form>
 	 * ```
 	 *
+	 * @property {string} [value] - the value of the segment-button. Required.
 	 * @property {Any} [click] - expression to evaluate when a segment button has been clicked
+	 * @property {Any} (select) - expression to evaluate when a segment selection has been changed
 	 *
 	 * @demo /docs/v2/demos/segment/
 	 * @see {@link /docs/v2/components#segment Segment Component Docs}
@@ -58296,6 +58297,9 @@
 	    function SegmentButton(_renderer, _elementRef) {
 	        this._renderer = _renderer;
 	        this._elementRef = _elementRef;
+	        /**
+	         * @private
+	         */
 	        this.select = new core_1.EventEmitter();
 	    }
 	    /**
@@ -58400,6 +58404,9 @@
 	 */
 	var Segment = (function () {
 	    function Segment(ngControl) {
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        /**
 	         * @private

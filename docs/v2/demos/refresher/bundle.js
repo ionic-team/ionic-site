@@ -58596,6 +58596,8 @@
 	var list_1 = __webpack_require__(314);
 	var util_1 = __webpack_require__(267);
 	/**
+	 * @name RadioGroup
+	 * @description
 	 * A radio group is a group of radio components, and its value comes
 	 * from the selected radio button's value. Selecting a radio button
 	 * in the group unselects all others in the group.
@@ -58647,6 +58649,9 @@
 	        this._buttons = [];
 	        this._ids = -1;
 	        this._init = false;
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        this.id = ++radioGroupIds;
 	        if (ngControl) {
@@ -58672,6 +58677,9 @@
 	            this._init = true;
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    RadioGroup.prototype.ngAfterContentInit = function () {
 	        var _this = this;
 	        // in a setTimeout to prevent
@@ -58682,6 +58690,9 @@
 	            _this.updateValue();
 	        });
 	    };
+	    /**
+	     * @private
+	     */
 	    RadioGroup.prototype.updateValue = function () {
 	        var _this = this;
 	        if (util_1.isDefined(this.value)) {
@@ -58699,6 +58710,9 @@
 	            });
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    RadioGroup.prototype.register = function (button) {
 	        var _this = this;
 	        this._buttons.push(button);

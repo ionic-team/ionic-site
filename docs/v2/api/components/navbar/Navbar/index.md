@@ -56,7 +56,7 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
 
 <pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
 
-  &lt;ion-buttons&gt;
+  &lt;ion-buttons start&gt;
     &lt;button (click)=&quot;toggleItems()&quot;&gt;
       toggle
     &lt;/button&gt;
@@ -66,7 +66,7 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
     Page Title
   &lt;/ion-title&gt;
 
-  &lt;ion-buttons&gt;
+  &lt;ion-buttons end&gt;
     &lt;button (click)=&quot;openModal()&quot;&gt;
       Modal
     &lt;/button&gt;
@@ -80,47 +80,7 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
 <!-- @property tags -->
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="hideBackButton"></div>
-
-<h3>
-<code>hideBackButton()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="setBackButtonText"></div>
-
-<h3>
-<code>setBackButtonText()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link -->
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

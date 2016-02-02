@@ -92,6 +92,10 @@ the screen, while on Android it is at the top.</p>
 
 
 
+
+
+
+
 <th>Type</th>
 
 
@@ -164,6 +168,22 @@ sets whether to preload all the tabs, true or false
 </td>
 </tr>
 
+<tr>
+<td>
+(change)
+</td>
+
+
+<td>
+any
+</td>
+
+
+<td>
+expression you want to evaluate when the tabs chage
+</td>
+</tr>
+
 </tbody>
 </table>
 
@@ -171,120 +191,6 @@ sets whether to preload all the tabs, true or false
 <!-- methods on the class -->
 
 <h2>Methods</h2>
-
-<div id="subPages"></div>
-
-<h3>
-<code>subPages()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="selectedIndex"></div>
-
-<h3>
-<code>selectedIndex()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="preloadTabs"></div>
-
-<h3>
-<code>preloadTabs()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="tabbarIcons"></div>
-
-<h3>
-<code>tabbarIcons()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="tabbarPlacement"></div>
-
-<h3>
-<code>tabbarPlacement()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="change"></div>
-
-<h3>
-<code>change()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="parent"></div>
 

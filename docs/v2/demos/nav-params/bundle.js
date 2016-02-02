@@ -54360,6 +54360,7 @@
 	 * @property {any} [tabbarPlacement] - set position of the tabbar, top or bottom
 	 * @property {any} [tabbarIcons] - set the position of the tabbar's icons: top, bottom, left, right, hide
 	 * @property {any} [preloadTabs] - sets whether to preload all the tabs, true or false
+	 * @property {any} (change) - expression you want to evaluate when the tabs chage
 	 * @usage
 	* ```html
 	 * <ion-tabs>
@@ -54391,6 +54392,9 @@
 	        this._ids = -1;
 	        this._tabs = [];
 	        this._onReady = null;
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        this.id = ++tabIds;
 	        this.subPages = _config.getBoolean('tabSubPages');

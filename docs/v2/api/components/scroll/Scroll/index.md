@@ -175,63 +175,6 @@ set the max zoom amount for ion-scroll
 
 <h2>Methods</h2>
 
-<div id="maxScale"></div>
-
-<h3>
-<code>maxScale()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="zoomDuration"></div>
-
-<h3>
-<code>zoomDuration()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="scrollElement"></div>
-
-<h3>
-<code>scrollElement()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="addScrollEventListener"></div>
 
 <h3>

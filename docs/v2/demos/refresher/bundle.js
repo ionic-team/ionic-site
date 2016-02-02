@@ -49230,7 +49230,13 @@
 	    __extends(Scroll, _super);
 	    function Scroll(elementRef) {
 	        _super.call(this, elementRef);
+	        /**
+	         * @private
+	         */
 	        this.maxScale = 3;
+	        /**
+	         * @private
+	         */
 	        this.zoomDuration = 250;
 	    }
 	    /**
@@ -58925,7 +58931,13 @@
 	         * @private
 	         */
 	        this.clear = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.value = '';
+	        /**
+	         * @private
+	         */
 	        this.blurInput = true;
 	        /**
 	         * @private

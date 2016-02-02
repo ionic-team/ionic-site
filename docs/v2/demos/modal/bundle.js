@@ -49888,10 +49888,14 @@
 	 *```
 	 * @property {Boolean} [autoplay] - whether or not the slides should automatically change
 	 * @property {Boolean} [loop] - whether the slides should loop from the last slide back to the first
-	 * @property {Boolean} [bounce] - whether the slides should bounce
 	 * @property {Number} [index] - The slide index to start on
-	 * @property [pager] - add this property to enable the slide pager
-	 * @property {Any} [change] - expression to evaluate when a slide has been changed
+	 * @property {Boolean} [bounce] - whether the slides should bounce
+	 * @property {Boolean} [pager] - Whether the slide should show the page or not
+	 * @property {Any} [options] - Any additional slider options you want to pass
+	 * @property {Number} [zoom] - Whether or not the slider can zoom in or out
+	 * @property {Number} [zoomDuration] - how long it should take to zoom a slide
+	 * @property {Number} [zoomMax] - the max scale an slide can be zoomed
+	 * @property {Any} (change) - expression to evaluate when a slide has been changed
 	 * @demo /docs/v2/demos/slides/
 	 * @see {@link /docs/v2/components#slides Slides Component Docs}
 	 */
@@ -49904,6 +49908,9 @@
 	    function Slides(elementRef) {
 	        var _this = this;
 	        _super.call(this, elementRef);
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        this.rapidUpdate = util_2.debounce(function () {
 	            _this.update();
@@ -50354,7 +50361,11 @@
 	})(ion_1.Ion);
 	exports.Slides = Slides;
 	/**
-	 * @private
+	 * @name Slide
+	 * @description
+	 * `ion-slide` is a child component of `ion-slides` and is where all your individule slide content will be rendered too.
+	 *
+	 * @see {@link /docs/v2/api/components/slides/Slides/ Slides API Docs}
 	 */
 	var Slide = (function () {
 	    function Slide(elementRef, slides) {

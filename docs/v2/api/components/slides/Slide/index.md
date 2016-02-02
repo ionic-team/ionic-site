@@ -8,21 +8,14 @@ id: "slide"
 title: "Slide"
 header_sub_title: "Class in module "
 doc: "Slide"
-docType: "class"---
+docType: "class"
+
+---
 
 
 
 
-<div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L451'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L451'>
-    Improve this doc
-  </a>
 
-</div>
 
 
 
@@ -39,22 +32,34 @@ Slide
 
 </h1>
 
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/slides/slides.ts#L688'>
+Improve this doc
+</a>
 
 
 
 
 
+
+<!-- description -->
 <h2>Description</h2>
 
-<p>TODO</p>
+<p><code>ion-slide</code> is a child component of <code>ion-slides</code> and is where all your individule slide content will be rendered too.</p>
 
 
 <h2>Component</h2>
 <h3>selector: <code>ion-slide</code></h3>
+<!-- @usage tag -->
 
 
+<!-- @property tags -->
 
-<!-- end content block -->
+
+<!-- methods on the class --><!-- related link -->
+
+<h2>Related</h2>
+
+<a href='/docs/v2/api/components/slides/Slides/'>Slides API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

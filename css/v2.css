@@ -4711,10 +4711,10 @@ body {
 .docs-container > aside {
   width: 467px; }
   .docs-container > aside + main {
-    margin-right: 467px;
+    margin-right: 400px;
     min-height: 777px; }
 
-@media (max-width: 991px) {
+@media (max-width: 1100px) {
   .docs-container aside {
     display: none; }
     .docs-container aside + main {
@@ -5108,7 +5108,8 @@ body {
 .platform-preview {
   position: absolute;
   right: 0;
-  text-align: center; }
+  text-align: center;
+  right: -20px; }
   .platform-preview.fixey {
     position: fixed;
     top: 0; }

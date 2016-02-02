@@ -59129,6 +59129,7 @@
 	 * component) to be loaded initially by any Nav you create, using
 	 * the 'root' property:
 	 *
+	 * @usage
 	 * ```ts
 	 * import {GettingStartedPage} from 'getting-started';
 	 * @App({

@@ -55,6 +55,14 @@ take a look at the <a href="../NavController/">NavController API reference</a>.<
 <p>You must set a root page (where page is any <a href="../../config/Page/">@Page</a>
 component) to be loaded initially by any Nav you create, using
 the &#39;root&#39; property:</p>
+
+
+<h2>Component</h2>
+<h3>selector: <code>ion-nav</code></h3>
+<!-- @usage tag -->
+
+<h2>Usage</h2>
+
 <pre><code class="lang-ts">import {GettingStartedPage} from &#39;getting-started&#39;;
 @App({
   template: `&lt;ion-nav [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;`
@@ -122,55 +130,12 @@ swipe to go back:</p>
   </pre>
 </div>
 
-<h2>Component</h2>
-<h3>selector: <code>ion-nav</code></h3>
-<!-- @usage tag -->
 
 
 <!-- @property tags -->
 
 
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="root"></div>
-
-<h3>
-<code>root()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="swipeBackEnabled"></div>
-
-<h3>
-<code>swipeBackEnabled()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link -->
+<!-- methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

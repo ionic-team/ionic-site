@@ -4797,7 +4797,8 @@ ion-icon {
     border-radius: 64px; }
   .ios .button-full.button-outline {
     border-left-width: 0;
-    border-right-width: 0; }
+    border-right-width: 0;
+    border-radius: 0; }
   .ios .button {
     margin: 0.4rem 0.2rem;
     padding: 0 1em;
@@ -7535,7 +7536,8 @@ ion-icon {
     border-radius: 64px; }
   .md .button-full.button-outline {
     border-left-width: 0;
-    border-right-width: 0; }
+    border-right-width: 0;
+    border-radius: 0; }
   .md .button {
     margin: 0.4rem 0.2rem;
     padding: 0 1.1em;

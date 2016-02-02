@@ -4860,7 +4860,8 @@ a.button {
 
 .button-full.button-outline {
   border-left-width: 0;
-  border-right-width: 0; }
+  border-right-width: 0;
+  border-radius: 0; }
 
 .button {
   margin: 0.4rem 0.2rem;

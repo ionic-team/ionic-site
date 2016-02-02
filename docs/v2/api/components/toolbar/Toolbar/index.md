@@ -118,7 +118,7 @@ any
 
 
 <td>
-set position of the toolbar, top or bottom
+set position of the toolbar, top or bottom. If not set, defautls to top.
 </td>
 </tr>
 

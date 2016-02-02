@@ -46923,7 +46923,7 @@
 	 *
 	 *  ```
 	 *
-	 * @property {any} [placement] - set position of the toolbar, top or bottom
+	 * @property {any} [placement] - set position of the toolbar, top or bottom. If not set, defautls to top.
 	 * @demo /docs/v2/demos/toolbar/
 	 * @see {@link ../../navbar/Navbar/ Navbar API Docs}
 	 */

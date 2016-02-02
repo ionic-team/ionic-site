@@ -266,19 +266,17 @@ ion-toolbar[position=bottom] {
   position: sticky;
   top: 0; }
 
-::-webkit-scrollbar {
+.css-scrollbars ::-webkit-scrollbar {
   width: 9px; }
 
-::-webkit-scrollbar-thumb:vertical,
-::-webkit-scrollbar-thumb:horizontal {
+.css-scrollbars ::-webkit-scrollbar-thumb:vertical {
   background: rgba(0, 0, 0, 0.4);
   border: 2px solid transparent;
   border-radius: 20px;
   background-clip: padding-box;
   min-height: 10px; }
 
-::-webkit-scrollbar-thumb:vertical:active,
-::-webkit-scrollbar-thumb:horizontal:active {
+.css-scrollbars ::-webkit-scrollbar-thumb:vertical:active {
   background: rgba(0, 0, 0, 0.6);
   border: 2px solid transparent;
   border-radius: 20px;

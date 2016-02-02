@@ -56975,14 +56975,26 @@
 	var util_1 = __webpack_require__(267);
 	/**
 	 * @name Option
+	 * @description
+	 * `ion-option` is a child component of `ion-select`. Similar to the native option element, `ion-option` can take a value and a checked property.
+	 *
+	 * @property [value] - the value of the option
+	 * @property [checked] - whether or not the option is already checked and selected
+	 *
 	 */
 	var Option = (function () {
 	    function Option(_elementRef) {
 	        this._elementRef = _elementRef;
 	        this._checked = false;
+	        /**
+	         * @private
+	         */
 	        this.select = new core_1.EventEmitter();
 	    }
 	    Object.defineProperty(Option.prototype, "checked", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._checked;
 	        },
@@ -56993,6 +57005,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Option.prototype, "value", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            if (util_1.isDefined(this._value)) {
 	                return this._value;
@@ -57006,6 +57021,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Option.prototype, "text", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._elementRef.nativeElement.textContent;
 	        },

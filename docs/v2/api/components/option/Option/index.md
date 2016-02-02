@@ -44,6 +44,7 @@ Improve this doc
 <!-- description -->
 <h2>Description</h2>
 
+<p><code>ion-option</code> is a child component of <code>ion-select</code>. Similar to the native option element, <code>ion-option</code> can take a value and a checked property.</p>
 
 
 <h2>Directive</h2>
@@ -53,18 +54,11 @@ Improve this doc
 
 <!-- @property tags -->
 
-
-<!-- methods on the class -->
-
-<h2>Methods</h2>
-
-<div id="select"></div>
-
-<h3>
-<code>select()</code>
-  
-
-</h3>
+<h2>Attributes:</h2>
+<table class="table" style="margin:0;">
+<thead>
+<tr>
+<th>Attribute</th>
 
 
 
@@ -74,67 +68,42 @@ Improve this doc
 
 
 
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>
+value
+</td>
 
 
 
-<div id="checked"></div>
+<td>
+the value of the option
+</td>
+</tr>
 
-<h3>
-<code>checked()</code>
-  
-
-</h3>
-
-
-
-
+<tr>
+<td>
+checked
+</td>
 
 
 
+<td>
+whether or not the option is already checked and selected
 
 
+</td>
+</tr>
+
+</tbody>
+</table>
 
 
-
-
-<div id="value"></div>
-
-<h3>
-<code>value()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="text"></div>
-
-<h3>
-<code>text()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link --><!-- end content block -->
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

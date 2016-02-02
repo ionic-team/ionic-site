@@ -42961,7 +42961,7 @@
 	        var _this = this;
 	        // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
 	        // or swiping open the menu while pressing down on the menuToggle button
-	        if (shouldOpen === this.isOpen || this._isPrevented()) {
+	        if ((shouldOpen && this.isOpen) || this._isPrevented()) {
 	            return Promise.resolve();
 	        }
 	        this._before();
@@ -43291,8 +43291,31 @@
 	        this.listen();
 	    }
 	    MenuContentGesture.prototype.canStart = function (ev) {
-	        var validAngle = ((-35 <= ev.angle && ev.angle <= 35) || (180 >= ev.angle && ev.angle >= 145) || (-180 <= ev.angle && ev.angle <= -145));
-	        return this.menu.isOpen && this.menu.isEnabled && validAngle ? true : _super.prototype.canStart.call(this, ev);
+	        var menu = this.menu;
+	        console.debug('menu canStart, id', menu.id, 'angle', ev.angle, 'distance', ev.distance);
+	        if (!menu.isEnabled || !menu.isSwipeEnabled) {
+	            console.debug('menu canStart, isEnabled', menu.isEnabled, 'isSwipeEnabled', menu.isSwipeEnabled, 'id', menu.id);
+	            return false;
+	        }
+	        if (ev.distance > 50) {
+	            // the distance is longer than you'd expect a side menu swipe to be
+	            console.debug('menu canStart, distance too far', ev.distance, 'id', menu.id);
+	            return false;
+	        }
+	        if (menu.side === 'left') {
+	            // left side menu
+	            if (ev.angle > -40 && ev.angle < 40) {
+	                return _super.prototype.canStart.call(this, ev);
+	            }
+	        }
+	        else if (menu.side === 'right') {
+	            // right side menu
+	            if ((ev.angle > 140 && ev.angle <= 180) || (ev.angle > -140 && ev.angle <= -180)) {
+	                return _super.prototype.canStart.call(this, ev);
+	            }
+	        }
+	        // didn't pass the test, don't open this menu
+	        return false;
 	    };
 	    // Set CSS, then wait one frame for it to apply before sliding starts
 	    MenuContentGesture.prototype.onSlideBeforeStart = function (slide, ev) {
@@ -49377,20 +49400,20 @@
 	 *  export class MyClass {
 	 *  constructor(){}
 	 *    doRefresh(refresher) {
-	 *      console.log('Refreshing!', refresher);
+	 *      console.debug('Refreshing!', refresher);
 	 *
 	 *      setTimeout(() => {
-	 *        console.log('Pull to refresh complete!', refresher);
+	 *        console.debug('Pull to refresh complete!', refresher);
 	 *        refresher.complete();
 	 *      })
 	 *    }
 	 *
 	 *    doStarting() {
-	 *      console.log('Pull started!');
+	 *      console.debug('Pull started!');
 	 *    }
 	 *
 	 *    doPulling(amt) {
-	 *      console.log('You have pulled', amt);
+	 *      console.debug('You have pulled', amt);
 	 *    }
 	 *  }
 	 *  ```
@@ -49647,7 +49670,7 @@
 	     * @param {Event} e  TODO
 	     */
 	    Refresher.prototype._handleTouchMove = function (e) {
-	        //console.log('TOUCHMOVE', e);
+	        //console.debug('TOUCHMOVE', e);
 	        // if multitouch or regular scroll event, get out immediately
 	        if (!this.canOverscroll || e.touches.length > 1) {
 	            return;
@@ -49705,7 +49728,7 @@
 	     * @param {Event} e  TODO
 	     */
 	    Refresher.prototype._handleTouchEnd = function (e) {
-	        console.log('TOUCHEND', e);
+	        console.debug('TOUCHEND', e);
 	        // if this wasn't an overscroll, get out immediately
 	        if (!this.canOverscroll && !this.isDragging) {
 	            return;
@@ -49738,7 +49761,7 @@
 	     * @param {Event} e  TODO
 	     */
 	    Refresher.prototype._handleScroll = function (e) {
-	        console.log('SCROLL', e.target.scrollTop);
+	        console.debug('SCROLL', e.target.scrollTop);
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -50037,11 +50060,11 @@
 	        });
 	        this.zoomGesture.on('pinchstart', function (e) {
 	            last_scale = _this.scale;
-	            console.log('Last scale', e.scale);
+	            console.debug('Last scale', e.scale);
 	        });
 	        this.zoomGesture.on('pinch', function (e) {
 	            _this.scale = Math.max(1, Math.min(last_scale * e.scale, 10));
-	            console.log('Scaling', _this.scale);
+	            console.debug('Scaling', _this.scale);
 	            _this.zoomElement.style[dom_1.CSS.transform] = 'scale(' + _this.scale + ')';
 	            zoomRect = _this.zoomElement.getBoundingClientRect();
 	        });
@@ -50074,11 +50097,11 @@
 	     * @private
 	     */
 	    Slides.prototype.toggleZoom = function (swiper, e) {
-	        console.log('Try toggle zoom');
+	        console.debug('Try toggle zoom');
 	        if (!this.enableZoom) {
 	            return;
 	        }
-	        console.log('Toggling zoom', e);
+	        console.debug('Toggling zoom', e);
 	        /*
 	        let x = e.pointers[0].clientX;
 	        let y = e.pointers[0].clientY;
@@ -50101,7 +50124,7 @@
 	          ty = y-my;
 	        }
 	    
-	        console.log(y);
+	        console.debug(y);
 	        */
 	        var zi = new animation_1.Animation(this.touch.target.children[0])
 	            .duration(this.zoomDuration)
@@ -50149,7 +50172,7 @@
 	     * @private
 	     */
 	    Slides.prototype.onTouchStart = function (e) {
-	        console.log('Touch start', e);
+	        console.debug('Touch start', e);
 	        //TODO: Support mice as well
 	        var target = util_1.dom.closest(e.target, '.slide').children[0].children[0];
 	        this.touch = {
@@ -50166,7 +50189,7 @@
 	            zoomableWidth: target.offsetWidth,
 	            zoomableHeight: target.offsetHeight
 	        };
-	        console.log('Target', this.touch.target);
+	        console.debug('Target', this.touch.target);
 	        //TODO: android prevent default
 	    };
 	    /**
@@ -50182,27 +50205,27 @@
 	        var x2 = -x1;
 	        var y1 = Math.min((this.viewportHeight / 2) - zoomableScaledHeight / 2, 0);
 	        var y2 = -y1;
-	        console.log('BOUNDS', x1, x2, y1, y2);
+	        console.debug('BOUNDS', x1, x2, y1, y2);
 	        if (this.scale <= 1) {
 	            return;
 	        }
-	        console.log('PAN', e);
+	        console.debug('PAN', e);
 	        // Move image
 	        this.touch.x = this.touch.deltaX + this.touch.lastX;
 	        this.touch.y = this.touch.deltaY + this.touch.lastY;
-	        console.log(this.touch.x, this.touch.y);
+	        console.debug(this.touch.x, this.touch.y);
 	        if (this.touch.x < x1) {
-	            console.log('OUT ON LEFT');
+	            console.debug('OUT ON LEFT');
 	        }
 	        if (this.touch.x > x2) {
-	            console.log('OUT ON RIGHT');
+	            console.debug('OUT ON RIGHT');
 	        }
 	        if (this.touch.x > this.viewportWidth) {
 	        }
 	        else if (-this.touch.x > this.viewportWidth) {
 	        }
 	        else {
-	            console.log('TRANSFORM', this.touch.x, this.touch.y, this.touch.target);
+	            console.debug('TRANSFORM', this.touch.x, this.touch.y, this.touch.target);
 	            //this.touch.target.style[CSS.transform] = 'translateX(' + this.touch.x + 'px) translateY(' + this.touch.y + 'px)';
 	            this.touch.target.style[dom_1.CSS.transform] = 'translateX(' + this.touch.x + 'px) translateY(' + this.touch.y + 'px)';
 	            e.preventDefault();
@@ -50214,12 +50237,12 @@
 	     * @private
 	     */
 	    Slides.prototype.onTouchEnd = function (e) {
-	        console.log('PANEND', e);
+	        console.debug('PANEND', e);
 	        if (this.scale > 1) {
 	            if (Math.abs(this.touch.x) > this.viewportWidth) {
 	                // TODO what is posX?
 	                var posX = posX > 0 ? this.viewportWidth - 1 : -(this.viewportWidth - 1);
-	                console.log('Setting on posx', this.touch.x);
+	                console.debug('Setting on posx', this.touch.x);
 	            }
 	            /*
 	            if (posY > this.viewportHeight/2) {
@@ -55112,9 +55135,9 @@
 	     */
 	    List.prototype.ngOnInit = function () {
 	        if (util_1.isDefined(this.virtual)) {
-	            console.log('Content', this.content);
-	            console.log('Virtual?', this.virtual);
-	            console.log('Items?', this.items.length, 'of \'em');
+	            console.debug('Content', this.content);
+	            console.debug('Virtual?', this.virtual);
+	            console.debug('Items?', this.items.length, 'of \'em');
 	            this._initVirtualScrolling();
 	        }
 	    };
@@ -55279,7 +55302,7 @@
 	        this.viewportScrollHeight = this.content.scrollElement.scrollHeight;
 	        this.virtualHeight = this.list.items.length * this.itemHeight;
 	        this.itemsPerScreen = this.viewportHeight / this.itemHeight;
-	        console.log('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
+	        console.debug('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
 	    };
 	    ListVirtualScroll.prototype._handleVirtualScroll = function (event) {
 	        var item;
@@ -55305,7 +55328,7 @@
 	        // virtual items we draw
 	        for (var i = topIndex, realIndex_1 = 0; i < bottomIndex && i < items.length; i++, realIndex_1++) {
 	            item = items[i];
-	            console.log('Drawing item', i, item.title);
+	            console.debug('Drawing item', i, item.title);
 	            shownItemRef = this.shownItems[i];
 	            // Is this a new item?
 	            if (!shownItemRef) {
@@ -55319,11 +55342,11 @@
 	        }
 	        while (this.leavingItems.length) {
 	            var itemRef = this.leavingItems.pop();
-	            console.log('Removing item', itemRef.item, itemRef.realIndex);
+	            console.debug('Removing item', itemRef.item, itemRef.realIndex);
 	            this.viewContainer.remove(itemRef.realIndex);
 	        }
-	        console.log('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
-	        console.log('Container has', this.list.getNativeElement().children.length, 'children');
+	        console.debug('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
+	        console.debug('Container has', this.list.getNativeElement().children.length, 'children');
 	    };
 	    ListVirtualScroll.prototype.cellAtIndex = function (index) {
 	    };
@@ -57889,7 +57912,7 @@
 	      * @private
 	     */
 	    InputBase.prototype.clearTextInput = function () {
-	        console.log("Should clear input");
+	        console.debug("Should clear input");
 	    };
 	    /**
 	     * @private

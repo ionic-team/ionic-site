@@ -68,20 +68,20 @@ Place it as the first child of your Content or Scroll element.</p>
 <pre><code class="lang-ts">export class MyClass {
 constructor(){}
   doRefresh(refresher) {
-    console.log(&#39;Refreshing!&#39;, refresher);
+    console.debug(&#39;Refreshing!&#39;, refresher);
 
     setTimeout(() =&gt; {
-      console.log(&#39;Pull to refresh complete!&#39;, refresher);
+      console.debug(&#39;Pull to refresh complete!&#39;, refresher);
       refresher.complete();
     })
   }
 
   doStarting() {
-    console.log(&#39;Pull started!&#39;);
+    console.debug(&#39;Pull started!&#39;);
   }
 
   doPulling(amt) {
-    console.log(&#39;You have pulled&#39;, amt);
+    console.debug(&#39;You have pulled&#39;, amt);
   }
 }
 </code></pre>

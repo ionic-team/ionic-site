@@ -56184,7 +56184,13 @@
 	 *   subTitle: 'Select your toppings'
 	 * };
 	 * ```
-	 *
+	 * @property [cancelText] - The text of the cancel button. Defatuls to 'cancel'
+	 * @property [okText] - The text of the ok button. Defatuls to 'OK'
+	 * @property [alertOptions] - Any addition options that an alert can take. Title, Subtitle, etc.
+	 * @property [multiple] - Whether or not the select component can accept multipl selections
+	 * @property [disabled] - Whether or not the select component is disabled or not
+	 * @property (change) - Any expression you want to evaluate when the selection has changed
+
 	 */
 	var Select = (function () {
 	    function Select(_form, _elementRef, _renderer, _item, _nav, ngControl) {
@@ -56198,10 +56204,25 @@
 	        this._values = [];
 	        this._texts = [];
 	        this._text = '';
+	        /**
+	         * @private
+	         */
 	        this.cancelText = 'Cancel';
+	        /**
+	         * @private
+	         */
 	        this.okText = 'OK';
+	        /**
+	         * @private
+	         */
 	        this.alertOptions = {};
+	        /**
+	         * @private
+	         */
 	        this.checked = false;
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        this._form.register(this);
 	        if (ngControl) {
@@ -56266,6 +56287,9 @@
 	        this._nav.present(alert, alertOptions);
 	    };
 	    Object.defineProperty(Select.prototype, "multiple", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._multi;
 	        },
@@ -56276,6 +56300,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Select.prototype, "value", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return (this._multi ? this._values : this._values.join());
 	        },
@@ -56288,6 +56315,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Select.prototype, "text", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return (this._multi ? this._texts : this._texts.join());
 	        },
@@ -56295,6 +56325,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Select.prototype, "options", {
+	        /**
+	         * @private
+	         */
 	        set: function (val) {
 	            this._options = val;
 	            if (!this._values.length) {
@@ -56307,6 +56340,9 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /**
+	     * @private
+	     */
 	    Select.prototype.updateOptions = function () {
 	        var _this = this;
 	        this._texts = [];
@@ -56321,6 +56357,9 @@
 	        }
 	        this._text = this._texts.join(', ');
 	    };
+	    /**
+	     * @private
+	     */
 	    Select.prototype.ngAfterContentInit = function () {
 	        var _this = this;
 	        // using a setTimeout here to prevent
@@ -56331,6 +56370,9 @@
 	        });
 	    };
 	    Object.defineProperty(Select.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._disabled;
 	        },

@@ -116,18 +116,16 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <!-- @property tags -->
 
+<h2>Attributes:</h2>
+<table class="table" style="margin:0;">
+<thead>
+<tr>
+<th>Attribute</th>
 
-<!-- methods on the class -->
 
-<h2>Methods</h2>
 
-<div id="cancelText"></div>
 
-<h3>
-<code>cancelText()</code>
-  
 
-</h3>
 
 
 
@@ -140,217 +138,90 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 
 
-<div id="okText"></div>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 
-<h3>
-<code>okText()</code>
-  
+<tr>
+<td>
+cancelText
+</td>
 
-</h3>
 
 
+<td>
+The text of the cancel button. Defatuls to 'cancel'
+</td>
+</tr>
 
+<tr>
+<td>
+okText
+</td>
 
 
 
+<td>
+The text of the ok button. Defatuls to 'OK'
+</td>
+</tr>
 
+<tr>
+<td>
+alertOptions
+</td>
 
 
 
+<td>
+Any addition options that an alert can take. Title, Subtitle, etc.
+</td>
+</tr>
 
+<tr>
+<td>
+multiple
+</td>
 
-<div id="alertOptions"></div>
 
-<h3>
-<code>alertOptions()</code>
-  
 
-</h3>
+<td>
+Whether or not the select component can accept multipl selections
+</td>
+</tr>
 
+<tr>
+<td>
+disabled
+</td>
 
 
 
+<td>
+Whether or not the select component is disabled or not
+</td>
+</tr>
 
+<tr>
+<td>
+(change)
+</td>
 
 
 
+<td>
+Any expression you want to evaluate when the selection has changed
 
 
+</td>
+</tr>
 
+</tbody>
+</table>
 
-<div id="checked"></div>
 
-<h3>
-<code>checked()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="change"></div>
-
-<h3>
-<code>change()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="multiple"></div>
-
-<h3>
-<code>multiple()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="value"></div>
-
-<h3>
-<code>value()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="text"></div>
-
-<h3>
-<code>text()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="options"></div>
-
-<h3>
-<code>options()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="updateOptions"></div>
-
-<h3>
-<code>updateOptions()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="ngAfterContentInit"></div>
-
-<h3>
-<code>ngAfterContentInit()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="disabled"></div>
-
-<h3>
-<code>disabled()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<!-- related link --><!-- end content block -->
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

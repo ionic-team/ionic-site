@@ -133,15 +133,15 @@
   </li>
 
   {% comment %} ### Platform ### {% endcomment %}
-  <li class="{% if page.category == 'platform' %}active{% endif %}">
-    <a ng-click="showPlatform = !showPlatform">Platform</a>
-    <ul ng-show="showPlatform"
-        {% if page.category == 'platform' %}
-          ng-init="showPlatform = true"
-        {% endif %}>
-      {% include v2_fluid/platform_menu.html %}
-    </ul>
-  </li>
+  <!-- <li class="{% if page.category == 'platform' %}active{% endif %}"> -->
+  <!--   <a ng&#45;click="showPlatform = !showPlatform">Platform</a> -->
+  <!--   <ul ng&#45;show="showPlatform" -->
+  <!--       {% if page.category == 'platform' %} -->
+  <!--         ng&#45;init="showPlatform = true" -->
+  <!--       {% endif %}> -->
+  <!--     {% include v2_fluid/platform_menu.html %} -->
+  <!--   </ul> -->
+  <!-- </li> -->
 
   {% comment %} ### Theming ### {% endcomment %}
   <li class="{% if page.category == 'theming' %}active{% endif %}">

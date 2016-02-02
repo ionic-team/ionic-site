@@ -24,7 +24,7 @@ To generate a release build for Android, we can use the following cordova cli co
 $ cordova build --release android
 ```
 
-This will generate a release build based on the settings in your `config.xml`. Your Ionic app will have preset default values in this file, but if you need to customize how your app is built, you can edit this file to fit your preferences. Check out [the config.xml file](http://cordova.apache.org/docs/en/4.0.0/guide_platforms_android_config.md.html#Android%20Configuration) documentation for more information.
+This will generate a release build based on the settings in your `config.xml`. Your Ionic app will have preset default values in this file, but if you need to customize how your app is built, you can edit this file to fit your preferences. Check out [the config.xml file](http://cordova.apache.org/docs/en/latest/guide/platforms/android/config.html) documentation for more information.
 
 Next, we can find our *unsigned* APK file in `platforms/android/build/outputs/apk`. In our example, the file was `platforms/android/build/outputs/apk/HelloWorld-release-unsigned.apk`. Now, we need to sign the unsigned APK and run an alignment utility on it to optimize it and prepare it for the app store. If you already have a signing key, skip these steps and use that one instead.
 

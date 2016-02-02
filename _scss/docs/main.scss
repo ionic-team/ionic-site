@@ -47,12 +47,12 @@ body {
     width: $platform-preview-width;
 
     + main {
-      margin-right: $platform-preview-width;
+      margin-right: $platform-preview-width - 67px;
       min-height: 777px;
     }
   }
 
-  @media (max-width: $screen-sm-max) {
+  @media (max-width: 1100px) {
     aside {
       display: none;
 
@@ -575,6 +575,7 @@ body {
   position: absolute;
   right: 0;
   text-align: center;
+  right: -20px;
 
   &.fixey {
     position: fixed;

@@ -57140,6 +57140,9 @@
 	        this._disabled = false;
 	        this._activated = false;
 	        this._touched = 0;
+	        /**
+	         * @private
+	         */
 	        this.value = '';
 	        // deprecated warning
 	        if (_elementRef.nativeElement.tagName == 'ION-SWITCH') {
@@ -57164,6 +57167,9 @@
 	        this.checked = !this.checked;
 	    };
 	    Object.defineProperty(Toggle.prototype, "checked", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._checked;
 	        },
@@ -57178,6 +57184,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Toggle.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._disabled;
 	        },

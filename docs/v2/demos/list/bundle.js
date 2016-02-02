@@ -58487,6 +58487,9 @@
 	        this._checked = false;
 	        this._disabled = false;
 	        this._value = null;
+	        /**
+	         * @private
+	         */
 	        this.select = new core_1.EventEmitter();
 	        _form.register(this);
 	        if (_group) {
@@ -58502,6 +58505,9 @@
 	        }
 	    }
 	    Object.defineProperty(RadioButton.prototype, "value", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            // if the value is not defined then use it's unique id
 	            return util_1.isBlank(this._value) ? this.id : this._value;
@@ -58513,6 +58519,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(RadioButton.prototype, "checked", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._checked;
 	        },
@@ -58541,6 +58550,9 @@
 	        }
 	    };
 	    Object.defineProperty(RadioButton.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._disabled;
 	        },

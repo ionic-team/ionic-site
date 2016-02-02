@@ -40439,6 +40439,20 @@
 	    return false;
 	}
 	exports.hasFocusedTextInput = hasFocusedTextInput;
+	var skipInputAttrsReg = /^(value|checked|disabled|type|class|style|id)$/i;
+	function copyInputAttributes(srcElement, destElement) {
+	    // copy attributes from one element to another
+	    // however, skip over a few of them as they're already
+	    // handled in the angular world
+	    var attrs = srcElement.attributes;
+	    for (var i = 0; i < attrs.length; i++) {
+	        var attr = attrs[i];
+	        if (!skipInputAttrsReg.test(attr.name)) {
+	            destElement.setAttribute(attr.name, attr.value);
+	        }
+	    }
+	}
+	exports.copyInputAttributes = copyInputAttributes;
 	var matchesFn;
 	var matchesMethods = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'];
 	matchesMethods.some(function (fn) {
@@ -57493,7 +57507,7 @@
 	            this._type = 'text';
 	            if (val) {
 	                val = val.toLowerCase();
-	                if (/password|email|number|search|tel|url|date|datetime|datetime-local|month|time|week/.test(val)) {
+	                if (/password|email|number|search|tel|url|date|month|time|week/.test(val)) {
 	                    this._type = val;
 	                }
 	            }
@@ -57536,6 +57550,8 @@
 	            });
 	            this.checkHasValue(nativeInput.getValue());
 	            this.disabled = this._disabled;
+	            // copy ion-input attributes to the native input element
+	            dom_1.copyInputAttributes(this._elementRef.nativeElement, nativeInput.element());
 	        },
 	        enumerable: true,
 	        configurable: true

@@ -19,9 +19,9 @@ To install the Ionic SDK and create Ionic 2 projects, we need to install the lat
 $ npm install -g ionic@beta
 ```
 
-(Note: do not type the dollar sign, that is a placeholder for your shell prompt).
+> Unfamiliar with NPM? Learn more about it and what packages we use [here](/docs/v2/resources/using-npm/)
 
-> Worried about your V1 Ionic projects? Don't worry! The beta release has all the functionality to work with both V1 projects and V2 projects.
+Worried about your V1 Ionic projects? Don't worry! The beta release has all the functionality to work with both V1 projects and V2 projects.
 
 Once that's done, create your first Ionic app:
 

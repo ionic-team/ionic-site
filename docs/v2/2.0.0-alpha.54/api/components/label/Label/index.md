@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Labels describe the data that the user should enter in to an input
 element. You can give <code>ion-label</code> attributes to tell it how to
 handle its display type, which is especially useful for an

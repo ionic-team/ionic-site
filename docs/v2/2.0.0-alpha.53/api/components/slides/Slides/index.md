@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Slides is a slide box implementation based on Swiper.js</p>
 <p>Swiper.js:
 The most modern mobile touch slider and framework with hardware accelerated transitions</p>

@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>A toggle technically is the same thing as an HTML checkbox input,
 except it looks different and is easier to use on a touch device.
 Toggles can also have colors assigned to them, by adding any color

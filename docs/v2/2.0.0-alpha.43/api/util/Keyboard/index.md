@@ -46,9 +46,6 @@ Keyboard
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The <code>Keyboard</code> class allows you to work with the keyboard events provide by the Ionic keyboard plugin.</p>
 
 <!-- @usage tag -->

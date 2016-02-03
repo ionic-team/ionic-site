@@ -48,9 +48,6 @@ Checkbox
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The checkbox is no different than the HTML checkbox input, except it&#39;s styled differently.</p>
 <p>See the <a href="https://angular.io/docs/js/latest/api/core/Form-interface.html">Angular 2 Docs</a> for more info on forms and input.</p>
 

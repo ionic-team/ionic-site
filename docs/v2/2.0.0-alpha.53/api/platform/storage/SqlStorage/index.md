@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>SqlStorage uses SQLite or WebSQL (development only!) to store data in a
 persistent SQL store on the filesystem.</p>
 <p>This is the preferred storage engine, as data will be stored in appropriate

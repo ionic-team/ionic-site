@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The List is a widely used interface element in almost any mobile app, and can include
 content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.</p>
 <p>Both the list, which contains items, and the list items themselves can be any HTML

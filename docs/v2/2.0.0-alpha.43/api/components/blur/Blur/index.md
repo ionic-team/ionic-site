@@ -48,9 +48,6 @@ Blur
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The blur attribute applies the CSS blur attribute to an element. If the CSS attribute is not supported,
 it will fall back to applying a semi-transparent background color to the element.</p>
 

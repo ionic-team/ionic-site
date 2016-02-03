@@ -48,9 +48,6 @@ Attr
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Attr allows you to dynamically add or remove an attribute based on the value of an expression or variable.</p>
 
 

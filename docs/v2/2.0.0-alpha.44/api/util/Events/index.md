@@ -46,9 +46,6 @@ Events
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Events is a pub/sub style event system for sending and responding to application-level
 events across your app.</p>
 

@@ -48,9 +48,6 @@ Platform
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Platform returns the availble information about your current platform.</p>
 
 <!-- @usage tag -->

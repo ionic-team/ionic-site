@@ -46,9 +46,6 @@ SearchbarInput
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 
 
 <h2>Directive</h2>

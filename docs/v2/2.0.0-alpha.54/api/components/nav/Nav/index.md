@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p><em>For a quick walkthrough of navigation in Ionic, check out the
 <a href="../../../../components/#navigation">Navigation section</a> of the Component
 docs.</em></p>

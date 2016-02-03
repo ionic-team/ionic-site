@@ -48,9 +48,6 @@ Label
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Labels describe the data that the user should enter in to an input element.</p>
 
 

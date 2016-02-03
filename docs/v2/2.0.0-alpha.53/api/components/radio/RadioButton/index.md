@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>A radio button with a unique value. Note that all <code>&lt;ion-radio&gt;</code>
 components must be wrapped within a <code>&lt;ion-list radio-group&gt;</code>,
 and there must be at least two <code>&lt;ion-radio&gt;</code> components within

@@ -46,9 +46,6 @@ Navbar
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Navbar is a global level toolbar that gets updated every time a page gets
 loaded. You can pass the navbar a <code>ion-title</code> or any number of buttons.</p>
 

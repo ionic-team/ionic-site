@@ -48,9 +48,6 @@ ToolbarTitle
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p><code>ion-title</code> is a component that sets the title of the <code>Toolbar</code> or <code>Navbar</code></p>
 
 

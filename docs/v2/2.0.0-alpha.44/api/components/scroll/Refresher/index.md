@@ -48,9 +48,6 @@ Refresher
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Allows you to add pull-to-refresh to an Content component.
 Place it as the first child of your Content or Scroll element.</p>
 <p>When refreshing is complete, call <code>refresher.complete()</code> from your controller.</p>

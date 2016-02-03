@@ -48,9 +48,6 @@ MenuToggle
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>TODO</p>
 
 

@@ -48,9 +48,6 @@ RadioGroup
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>A radio group is a group of radio components.</p>
 <p>Selecting a radio button in the group unselects all others in the group.</p>
 <p>New radios can be registered dynamically.</p>

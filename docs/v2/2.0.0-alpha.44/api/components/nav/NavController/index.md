@@ -46,9 +46,6 @@ NavController
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p><em>For examples on the basic usage of NavController, check out the
 <a href="../../../../components/#navigation">Navigation section</a> of the Component
 docs.</em></p>

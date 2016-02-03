@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>For more information on how pages are created, see the <a href="../../components/nav/NavController/#creating_pages">NavController API reference</a></p>
 <p>The Page decorator indicates that the decorated class is an Ionic
 navigation component, meaning it can be navigated to using a NavController.</p>

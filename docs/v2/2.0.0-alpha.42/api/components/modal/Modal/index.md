@@ -48,9 +48,6 @@ Modal
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The Modal is a content pane that can go over the user&#39;s current page.
 Usually used for making a choice or editing an item. A modal can be opened
 similar to how NavController#push works, where it is passed a Page component,

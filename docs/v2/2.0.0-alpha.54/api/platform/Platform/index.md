@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Platform returns the availble information about your current platform.
 Platforms in Ionic 2 are much more complex then in V1, returns not just a single platform,
 but a hierarchy of information, such as a devices OS, phone vs tablet, or mobile vs browser.

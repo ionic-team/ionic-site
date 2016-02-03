@@ -48,9 +48,6 @@ LocalStorage
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The LocalStorage storage engine uses the browser&#39;s local storage system for
 storing key/value pairs.</p>
 <p>Note: LocalStorage should ONLY be used for temporary data that you can afford to lose.

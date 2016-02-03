@@ -48,9 +48,6 @@ MenuToggle
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Toggle a menu by placing this directive on any item.
 Note that the menu&#39;s id must be either <code>leftMenu</code> or <code>rightMenu</code></p>
 

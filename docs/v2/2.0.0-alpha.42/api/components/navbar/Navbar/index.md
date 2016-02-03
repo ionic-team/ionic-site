@@ -46,9 +46,6 @@ Navbar
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 
 
 <h2>Component</h2>

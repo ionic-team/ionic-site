@@ -48,9 +48,6 @@ ActionSheet
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
 There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.</p>
 

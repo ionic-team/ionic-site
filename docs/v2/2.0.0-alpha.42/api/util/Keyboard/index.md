@@ -46,9 +46,6 @@ Keyboard
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 
 <!-- @usage tag -->
 

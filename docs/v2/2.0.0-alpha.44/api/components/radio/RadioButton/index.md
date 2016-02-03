@@ -48,9 +48,6 @@ RadioButton
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>A single radio component.</p>
 <p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
 

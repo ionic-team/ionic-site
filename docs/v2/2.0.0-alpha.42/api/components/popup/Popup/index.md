@@ -48,9 +48,6 @@ Popup
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The Ionic Popup service allows the creation of popup windows that require the user to respond in order to continue.</p>
 <p>The popup service has support for more flexible versions of the built in <code>alert()</code>, <code>prompt()</code>, and <code>confirm()</code> functions that users are used to, in addition to allowing popups with completely custom content and look.</p>
 

@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>A radio group is a group of radio components, and its value comes
 from the selected radio button&#39;s value. Selecting a radio button
 in the group unselects all others in the group.</p>

@@ -46,9 +46,6 @@ Input
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p><code>ionInput</code> is a generic wrapper for both inputs and textareas. You can give <code>ion-input</code> to tell it how to handle a chile <code>ion-label</code> component</p>
 
 

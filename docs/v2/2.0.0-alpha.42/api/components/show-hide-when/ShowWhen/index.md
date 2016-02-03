@@ -48,9 +48,6 @@ ShowWhen
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The <code>show-when</code> attribute takes a string that represents a plaform or screen orientation.
 The element the attribute is added to will only be shown when that platform or screen orientation is active.
 Complements the <a href="../HideWhen">hide-when attribute</a>.</p>

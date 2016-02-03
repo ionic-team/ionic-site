@@ -46,9 +46,6 @@ Item
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Creates a list-item that can easily be swiped, deleted, reordered, edited, and more.</p>
 <p>There are three common ways to use an item:</p>
 <ul>

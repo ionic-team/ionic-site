@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p><code>ion-input</code> is meant for text type inputs only, such as <code>text</code>,
 <code>password</code>, <code>email</code>, <code>number</code>, <code>search</code>, <code>tel</code>, and <code>url</code>. Ionic
 still uses an actual <code>&lt;input type=&quot;text&quot;&gt;</code> HTML element within the

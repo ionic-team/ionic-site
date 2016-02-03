@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>An Action Sheet is a dialog that lets the user choose from a set of
 options. It appears on top of the app&#39;s content, and must be manually
 dismissed by the user before they can resume interaction with the app.

@@ -9,30 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_1 = require('ionic/ionic');
 var ApiDemoApp = (function () {
-    function ApiDemoApp() {
-        this.rootPage = InitialPage;
-    }
-    ApiDemoApp = __decorate([
-        ionic_1.App({
-            templateUrl: 'app.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ApiDemoApp);
-    return ApiDemoApp;
-})();
-var InitialPage = (function () {
-    function InitialPage(platform) {
+    function ApiDemoApp(platform) {
         this.isIos = platform.is('ios');
         this.isAndroid = platform.is('android');
         this.userAgent = platform.userAgent();
     }
-    InitialPage = __decorate([
-        ionic_1.Page({
+    ApiDemoApp = __decorate([
+        ionic_1.App({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _a) || Object])
-    ], InitialPage);
-    return InitialPage;
+    ], ApiDemoApp);
+    return ApiDemoApp;
     var _a;
 })();
-exports.InitialPage = InitialPage;

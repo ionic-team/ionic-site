@@ -3216,28 +3216,15 @@
 	var ionic_1 = __webpack_require__(6);
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
-	        this.rootPage = InitialPage;
 	    }
 	    ApiDemoApp = __decorate([
 	        ionic_1.App({
-	            templateUrl: 'app.html'
+	            templateUrl: 'main.html'
 	        }), 
 	        __metadata('design:paramtypes', [])
 	    ], ApiDemoApp);
 	    return ApiDemoApp;
 	})();
-	var InitialPage = (function () {
-	    function InitialPage() {
-	    }
-	    InitialPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: 'main.html'
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], InitialPage);
-	    return InitialPage;
-	})();
-	exports.InitialPage = InitialPage;
 
 /***/ },
 /* 6 */
@@ -47065,7 +47052,7 @@
 	  * @property [color] - Dynamically set which color attribute this button should use.
 	  * @description
 	  * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
-	  * @demo /docs/v2/demos/buttons/
+	  * @demo /docs/v2/demos/button/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
 
 	 */
@@ -56670,6 +56657,7 @@
 	 * }
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/alert/
 	 */
 	var Alert = (function (_super) {
 	    __extends(Alert, _super);

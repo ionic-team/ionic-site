@@ -47097,7 +47097,7 @@
 	  * @property [color] - Dynamically set which color attribute this button should use.
 	  * @description
 	  * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
-	  * @demo /docs/v2/demos/buttons/
+	  * @demo /docs/v2/demos/button/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
 
 	 */
@@ -56702,6 +56702,7 @@
 	 * }
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/alert/
 	 */
 	var Alert = (function (_super) {
 	    __extends(Alert, _super);

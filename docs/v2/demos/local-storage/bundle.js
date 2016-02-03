@@ -3217,43 +3217,30 @@
 	var ionic_2 = __webpack_require__(6);
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
-	        this.rootPage = InitialPage;
-	    }
-	    ApiDemoApp = __decorate([
-	        ionic_1.App({
-	            templateUrl: 'app.html'
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], ApiDemoApp);
-	    return ApiDemoApp;
-	})();
-	var InitialPage = (function () {
-	    function InitialPage() {
 	        this.local = new ionic_2.Storage(ionic_2.LocalStorage);
 	        this.myItem = {};
 	        this.delKey = '';
 	        this.localStorageDemo = '{}';
 	        window.localStorage.clear();
 	    }
-	    InitialPage.prototype.set = function () {
+	    ApiDemoApp.prototype.set = function () {
 	        this.local.set(this.myItem.key, this.myItem.value);
 	        this.localStorageDemo = JSON.stringify(window.localStorage, null, 2);
 	        this.myItem = {};
 	    };
-	    InitialPage.prototype.remove = function () {
+	    ApiDemoApp.prototype.remove = function () {
 	        this.local.remove(this.delKey);
 	        this.localStorageDemo = JSON.stringify(window.localStorage, null, 2);
 	        this.delKey = '';
 	    };
-	    InitialPage = __decorate([
-	        ionic_1.Page({
+	    ApiDemoApp = __decorate([
+	        ionic_1.App({
 	            templateUrl: 'main.html'
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], InitialPage);
-	    return InitialPage;
+	    ], ApiDemoApp);
+	    return ApiDemoApp;
 	})();
-	exports.InitialPage = InitialPage;
 
 /***/ },
 /* 6 */
@@ -47081,7 +47068,7 @@
 	  * @property [color] - Dynamically set which color attribute this button should use.
 	  * @description
 	  * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
-	  * @demo /docs/v2/demos/buttons/
+	  * @demo /docs/v2/demos/button/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
 
 	 */
@@ -56686,6 +56673,7 @@
 	 * }
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/alert/
 	 */
 	var Alert = (function (_super) {
 	    __extends(Alert, _super);

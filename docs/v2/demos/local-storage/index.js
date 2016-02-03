@@ -11,40 +11,27 @@ var ionic_1 = require('ionic/ionic');
 var ionic_2 = require('ionic/ionic');
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
-        this.rootPage = InitialPage;
-    }
-    ApiDemoApp = __decorate([
-        ionic_1.App({
-            templateUrl: 'app.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ApiDemoApp);
-    return ApiDemoApp;
-})();
-var InitialPage = (function () {
-    function InitialPage() {
         this.local = new ionic_2.Storage(ionic_2.LocalStorage);
         this.myItem = {};
         this.delKey = '';
         this.localStorageDemo = '{}';
         window.localStorage.clear();
     }
-    InitialPage.prototype.set = function () {
+    ApiDemoApp.prototype.set = function () {
         this.local.set(this.myItem.key, this.myItem.value);
         this.localStorageDemo = JSON.stringify(window.localStorage, null, 2);
         this.myItem = {};
     };
-    InitialPage.prototype.remove = function () {
+    ApiDemoApp.prototype.remove = function () {
         this.local.remove(this.delKey);
         this.localStorageDemo = JSON.stringify(window.localStorage, null, 2);
         this.delKey = '';
     };
-    InitialPage = __decorate([
-        ionic_1.Page({
+    ApiDemoApp = __decorate([
+        ionic_1.App({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], InitialPage);
-    return InitialPage;
+    ], ApiDemoApp);
+    return ApiDemoApp;
 })();
-exports.InitialPage = InitialPage;

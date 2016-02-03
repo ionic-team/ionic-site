@@ -3215,33 +3215,20 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var ApiDemoApp = (function () {
-	    function ApiDemoApp() {
-	        this.rootPage = InitialPage;
-	    }
-	    ApiDemoApp = __decorate([
-	        ionic_1.App({
-	            templateUrl: 'app.html'
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], ApiDemoApp);
-	    return ApiDemoApp;
-	})();
-	var InitialPage = (function () {
-	    function InitialPage(platform) {
+	    function ApiDemoApp(platform) {
 	        this.isIos = platform.is('ios');
 	        this.isAndroid = platform.is('android');
 	        this.userAgent = platform.userAgent();
 	    }
-	    InitialPage = __decorate([
-	        ionic_1.Page({
+	    ApiDemoApp = __decorate([
+	        ionic_1.App({
 	            templateUrl: 'main.html'
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _a) || Object])
-	    ], InitialPage);
-	    return InitialPage;
+	    ], ApiDemoApp);
+	    return ApiDemoApp;
 	    var _a;
 	})();
-	exports.InitialPage = InitialPage;
 
 /***/ },
 /* 6 */
@@ -47069,7 +47056,7 @@
 	  * @property [color] - Dynamically set which color attribute this button should use.
 	  * @description
 	  * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
-	  * @demo /docs/v2/demos/buttons/
+	  * @demo /docs/v2/demos/button/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
 
 	 */
@@ -56674,6 +56661,7 @@
 	 * }
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/alert/
 	 */
 	var Alert = (function (_super) {
 	    __extends(Alert, _super);

@@ -10,25 +10,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ionic_1 = require('ionic/ionic');
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
-        this.rootPage = InitialPage;
     }
     ApiDemoApp = __decorate([
         ionic_1.App({
-            templateUrl: 'app.html'
+            templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);
     return ApiDemoApp;
 })();
-var InitialPage = (function () {
-    function InitialPage() {
-    }
-    InitialPage = __decorate([
-        ionic_1.Page({
-            templateUrl: 'main.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], InitialPage);
-    return InitialPage;
-})();
-exports.InitialPage = InitialPage;

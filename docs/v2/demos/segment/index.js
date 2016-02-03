@@ -8,18 +8,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_1 = require('ionic/ionic');
-var DemoApp = (function () {
-    function DemoApp(platform) {
+var ApiDemoApp = (function () {
+    function ApiDemoApp(platform) {
         this.platform = platform;
         this.pet = "puppies";
         this.isAndroid = platform.is('android');
     }
-    DemoApp = __decorate([
+    ApiDemoApp = __decorate([
         ionic_1.App({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _a) || Object])
-    ], DemoApp);
-    return DemoApp;
+    ], ApiDemoApp);
+    return ApiDemoApp;
     var _a;
 })();

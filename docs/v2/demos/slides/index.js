@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_1 = require('ionic/ionic');
 var http_1 = require('angular2/http');
-var MyApp = (function () {
-    function MyApp(app, http) {
+var ApiDemoApp = (function () {
+    function ApiDemoApp(app, http) {
         var _this = this;
         this.app = app;
         this.http = http;
@@ -29,25 +29,25 @@ var MyApp = (function () {
             });
         }, function (err) { return console.log(err); }, function () { return console.log('complete'); });
     }
-    MyApp.prototype.ngOnInit = function () {
+    ApiDemoApp.prototype.ngOnInit = function () {
         var _this = this;
         setTimeout(function () {
             _this.slider = _this.app.getComponent('slider');
             console.log('Got slider', _this.slider);
         });
     };
-    MyApp.prototype.getImageUrl = function (item) {
+    ApiDemoApp.prototype.getImageUrl = function (item) {
         return "http://farm" + item.farm + ".static.flickr.com/" + item.server + "/" + item.id + "_" + item.secret + "_z.jpg";
     };
-    MyApp.prototype.doRefresh = function () {
+    ApiDemoApp.prototype.doRefresh = function () {
         console.log('DOREFRESH');
     };
-    MyApp = __decorate([
+    ApiDemoApp = __decorate([
         ionic_1.App({
             templateUrl: 'main.html',
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof http_1.Http !== 'undefined' && http_1.Http) === 'function' && _b) || Object])
-    ], MyApp);
-    return MyApp;
+    ], ApiDemoApp);
+    return ApiDemoApp;
     var _a, _b;
 })();

@@ -10,7 +10,7 @@ header_sub_title: "Class in module ionic"
 doc: "Button"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/buttons/"
+preview_device_url: "/docs/v2/demos/button/"
 angular_controller: APIDemoCtrl 
 ---
 

@@ -9,7 +9,9 @@ title: "Alert"
 header_sub_title: "Class in module "
 doc: "Alert"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/alert/"
+angular_controller: APIDemoCtrl 
 ---
 
 

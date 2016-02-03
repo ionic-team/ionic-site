@@ -26,8 +26,8 @@ var Page2 = (function () {
     ], Page2);
     return Page2;
 })();
-var E2EApp = (function () {
-    function E2EApp(app) {
+var ApiDemoApp = (function () {
+    function ApiDemoApp(app) {
         this.app = app;
         this.rootView = Page1;
         this.pages = [
@@ -35,18 +35,18 @@ var E2EApp = (function () {
             { title: 'Page 2', component: Page2 },
         ];
     }
-    E2EApp.prototype.openPage = function (menu, page) {
+    ApiDemoApp.prototype.openPage = function (menu, page) {
         // Reset the content nav to have just this page
         // we wouldn't want the back button to show in this scenario
         var nav = this.app.getComponent('nav');
         nav.setRoot(page.component);
     };
-    E2EApp = __decorate([
+    ApiDemoApp = __decorate([
         ionic_1.App({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object])
-    ], E2EApp);
-    return E2EApp;
+    ], ApiDemoApp);
+    return ApiDemoApp;
     var _a;
 })();

@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>NavParams are an object that exists on a page and can contain data for that particular view.
 Similar to how data was pass to a view in V1 with <code>$stateParams</code>, NavParams offer a much more flexible
 option with a simple <code>get</code> method.</p>

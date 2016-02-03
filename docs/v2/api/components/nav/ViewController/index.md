@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Access various features and information about the current view</p>
 
 <!-- @usage tag -->

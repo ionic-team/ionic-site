@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The toolbar is generic bar that sits above or below content.
 Unlike an <code>Navbar</code>, <code>Toolbar</code> can be used for a subheader as well.
 Since it&#39;s based on flexbox, you can place the toolbar where you

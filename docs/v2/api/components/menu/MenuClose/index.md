@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Place <code>menuClose</code> on a button to automatically close an open menu. Note that the menu&#39;s id must be either
 <code>leftMenu</code> or <code>rightMenu</code></p>
 

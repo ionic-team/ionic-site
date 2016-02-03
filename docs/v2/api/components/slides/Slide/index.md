@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p><code>ion-slide</code> is a child component of <code>ion-slides</code> and is where all your individule slide content will be rendered too.</p>
 
 

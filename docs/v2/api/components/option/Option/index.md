@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p><code>ion-option</code> is a child component of <code>ion-select</code>. Similar to the native option element, <code>ion-option</code> can take a value and a checked property.</p>
 
 

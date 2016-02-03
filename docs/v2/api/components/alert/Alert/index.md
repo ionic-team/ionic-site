@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>An Alert is a dialog that presents users with either information, or used
 to receive information from the user using inputs. An alert appears on top
 of the app&#39;s content, and must be manually dismissed by the user before

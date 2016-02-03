@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p><code>ion-textarea</code> is is used for multi-line text inputs. Ionic still
 uses an actual <code>&lt;textarea&gt;</code> HTML element within the component,
 however, with Ionic wrapping the native HTML textarea element then

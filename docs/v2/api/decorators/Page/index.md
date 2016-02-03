@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The Page decorator indicates that the decorated class is an Ionic
 navigation component, meaning it can be navigated to using a NavController.</p>
 <p>Pages have all <code>IONIC_DIRECTIVES</code>, which include all Ionic components and directives,

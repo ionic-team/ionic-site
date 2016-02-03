@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>IdRef is an easy way to identify unique components in an app and access them
 no matter where in the UI heirarchy you are. For example, this makes toggling
 a global side menu feasible from any place in the application.</p>

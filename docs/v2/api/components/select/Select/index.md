@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The <code>ion-select</code> component is similar to an HTML <code>&lt;select&gt;</code> element, however,
 Ionic&#39;s select component makes it easier for users to sort through and select
 the preferred option or options. When users tap the select component, a

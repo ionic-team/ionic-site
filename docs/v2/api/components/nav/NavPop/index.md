@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Directive for declaratively pop the current page off from the navigation stack.</p>
 
 

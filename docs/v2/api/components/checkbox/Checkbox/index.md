@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>The checkbox is no different than the HTML checkbox input, except
 it&#39;s styled accordingly to the the platform and design mode, such
 as iOS or Material Design.</p>

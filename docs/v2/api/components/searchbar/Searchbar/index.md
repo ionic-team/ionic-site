@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>Manages the display of a Searchbar which can be used to search or filter items.</p>
 
 

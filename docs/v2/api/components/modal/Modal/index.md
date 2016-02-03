@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p>A Modal is a content pane that goes over the user&#39;s current page.
 Usually it is used for making a choice or editing an item. A modal uses the
 <code>NavController</code> to

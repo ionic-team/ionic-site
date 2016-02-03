@@ -43,9 +43,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p><em>For basic Menu usage, see the <a href="../../../../components/#menus">Menu section</a>
 of the Component docs.</em></p>
 <p>Menu is a side-menu navigation that can be dragged out or toggled to show.</p>

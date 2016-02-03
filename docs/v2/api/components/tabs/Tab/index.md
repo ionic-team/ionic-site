@@ -41,9 +41,6 @@ Improve this doc
 
 
 
-<!-- description -->
-<h2>Description</h2>
-
 <p><em>For basic Tabs usage, see the <a href="../../../../components/#tabs">Tabs section</a>
 of the Component docs.</em></p>
 <p>Tab components are basic navigation controllers used with Tabs.  Much like

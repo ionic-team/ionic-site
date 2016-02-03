@@ -11,7 +11,7 @@ header_sub_title: Extend Ionic even further with the power of AngularJS
 searchable: false
 ---
 
-# AngularJS Extensions
+# Ionic API
 
 Ionic is both a CSS framework and a Javascript UI library. Many components need Javascript in order to produce magic, though often components
 can easily be used without coding through framework extensions such as our AngularIonic extensions.

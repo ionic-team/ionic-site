@@ -7509,7 +7509,7 @@ pre {
 body {
   font-family: "Avenir Next", "Nunito", "Helvetica Neue", Helvetica, sans-serif;
   position: relative;
-  background: linear-gradient(90deg, #f9fafb, #f9fafb 235px, white 235px, white 100%); }
+  background: linear-gradient(90deg, #f9fafb, #f9fafb 230px, white 230px, white 100%); }
   @media (max-width: 767px) {
     body {
       width: 100%;
@@ -7757,9 +7757,9 @@ body {
       padding-right: 5px;
       top: 2px; }
     .side-nav .back-to-main a:hover {
-      border-color: #4f8ff7;
+      border-color: #DFE3E8;
       color: #4f8ff7;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06);
       background: #fdfdfd; }
     .side-nav .back-to-main a:focus:after {
       border-right-color: transparent; }
@@ -7937,6 +7937,11 @@ body {
   .docs-container main .nav a {
     padding-top: 5px;
     padding-bottom: 5px; }
+  .docs-container main blockquote {
+    padding: 0px 15px;
+    margin: 40px 0 40px;
+    font-size: 16px;
+    border-left: 4px solid #eeeeee; }
 
 .platform-preview {
   position: absolute;
@@ -8281,12 +8286,12 @@ ul.docs-example {
     font-weight: 800;
     color: #576070;
     position: absolute;
-    top: 3px;
-    left: 15px; }
+    top: 6px;
+    left: 26px; }
   #docs-page-ionicons main form.search input {
     border-radius: 35px;
     border: 1px solid #e6e9ee;
-    padding: 5px 5px 5px 42px;
+    padding: 8px 8px 8px 56px;
     color: #4C555A;
     font-size: 16px;
     box-shadow: none; }

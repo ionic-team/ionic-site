@@ -49815,17 +49815,6 @@
 	 * @description
 	 * Slides is a slide box implementation based on Swiper.js
 	 *
-	 * Swiper.js:
-	 * The most modern mobile touch slider and framework with hardware accelerated transitions
-	 *
-	 * http://www.idangero.us/swiper/
-	 *
-	 * Copyright 2015, Vladimir Kharlampidi
-	 * The iDangero.us
-	 * http://www.idangero.us/
-	 *
-	 * Licensed under MIT
-	 *
 	 * @usage
 	 * ```ts
 	 * @Page({
@@ -49868,6 +49857,17 @@
 	 * @property {Any} (change) - expression to evaluate when a slide has been changed
 	 * @demo /docs/v2/demos/slides/
 	 * @see {@link /docs/v2/components#slides Slides Component Docs}
+	 *
+	 * Swiper.js:
+	 * The most modern mobile touch slider and framework with hardware accelerated transitions
+	 *
+	 * http://www.idangero.us/swiper/
+	 *
+	 * Copyright 2015, Vladimir Kharlampidi
+	 * The iDangero.us
+	 * http://www.idangero.us/
+	 *
+	 * Licensed under MIT
 	 */
 	var Slides = (function (_super) {
 	    __extends(Slides, _super);
@@ -60048,7 +60048,6 @@
 	/**
 	 * @name Page
 	 * @description
-	 *For more information on how pages are created, see the [NavController API reference](../../components/nav/NavController/#creating_pages)
 	 *
 	 * The Page decorator indicates that the decorated class is an Ionic
 	 * navigation component, meaning it can be navigated to using a NavController.
@@ -60111,6 +60110,8 @@
 	 * Pages have their content automatically wrapped in `<ion-view>`, so although
 	 * you may see these tags if you inspect your markup, you don't need to include
 	 * them in your templates.
+	 *
+	 * For more information on how pages are created, see the [NavController API reference](../../components/nav/NavController/#creating_pages)
 	 */
 	function Page(config) {
 	    if (config === void 0) { config = {}; }

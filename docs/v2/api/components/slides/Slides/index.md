@@ -47,13 +47,6 @@ Improve this doc
 <h2>Description</h2>
 
 <p>Slides is a slide box implementation based on Swiper.js</p>
-<p>Swiper.js:
-The most modern mobile touch slider and framework with hardware accelerated transitions</p>
-<p><a href="http://www.idangero.us/swiper/">http://www.idangero.us/swiper/</a></p>
-<p>Copyright 2015, Vladimir Kharlampidi
-The iDangero.us
-<a href="http://www.idangero.us/">http://www.idangero.us/</a></p>
-<p>Licensed under MIT</p>
 
 
 <h2>Component</h2>
@@ -320,7 +313,18 @@ expression to evaluate when a slide has been changed
 
 <h2>Related</h2>
 
-<a href='/docs/v2/components#slides'>Slides Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#slides'>Slides Component Docs</a>
+
+Swiper.js:
+The most modern mobile touch slider and framework with hardware accelerated transitions
+
+http://www.idangero.us/swiper/
+
+Copyright 2015, Vladimir Kharlampidi
+The iDangero.us
+http://www.idangero.us/
+
+Licensed under MIT<!-- end content block -->
 
 
 <!-- end body block -->

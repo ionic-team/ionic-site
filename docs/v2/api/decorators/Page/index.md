@@ -44,7 +44,6 @@ Improve this doc
 <!-- description -->
 <h2>Description</h2>
 
-<p>For more information on how pages are created, see the <a href="../../components/nav/NavController/#creating_pages">NavController API reference</a></p>
 <p>The Page decorator indicates that the decorated class is an Ionic
 navigation component, meaning it can be navigated to using a NavController.</p>
 <p>Pages have all <code>IONIC_DIRECTIVES</code>, which include all Ionic components and directives,
@@ -93,6 +92,7 @@ performance overhead, so there is really no reason to not always use it.</p>
 <p>Pages have their content automatically wrapped in <code>&lt;ion-view&gt;</code>, so although
 you may see these tags if you inspect your markup, you don&#39;t need to include
 them in your templates.</p>
+<p>For more information on how pages are created, see the <a href="../../components/nav/NavController/#creating_pages">NavController API reference</a></p>
 
 
 

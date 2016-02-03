@@ -59363,6 +59363,7 @@
 	 *   </pre>
 	 * </div>
 	 *
+	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 */
 	var Nav = (function (_super) {
@@ -59466,7 +59467,7 @@
 	 * ```html
 	 * <button [navPush]="[pushPage, params]"></button>
 	 * ```
-	 * @demo /docs/v2/demos/nav-push-pop/
+	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 * @see {@link ../NavPop NavPop API Docs}
 	 */
@@ -59536,7 +59537,7 @@
 	 * This will go back one page in the navigation stack
 	 *
 	 * Similar to {@link /docs/v2/api/components/nav/NavPush/ `NavPush` }
-	 * @demo /docs/v2/demos/nav-push-pop/
+	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 * @see {@link ../NavPush NavPush API Docs}
 	 */

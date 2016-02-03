@@ -3215,99 +3215,61 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var ionic_2 = __webpack_require__(6);
-	var ionic_3 = __webpack_require__(6);
-	var FirstPage = (function () {
-	    function FirstPage(nav, app, config) {
-	        this.nav = nav;
-	        this.title = 'First Page';
-	        this.pushPage = SecondPage;
-	        this.pushData = {
-	            id: 420
-	        };
+	var PAGE_NUM = 2;
+	var ApiDemoApp = (function () {
+	    function ApiDemoApp() {
+	        this.rootPage = InitialPage;
 	    }
-	    FirstPage.prototype.setPages = function () {
-	        var items = [
-	            ThirdPage
-	        ];
-	        this.nav.setPages(items);
-	    };
-	    FirstPage.prototype.push = function () {
-	        this.nav.push(SecondPage, { id: 8675309, myData: [1, 2, 3, 4] });
-	    };
-	    FirstPage = __decorate([
-	        ionic_2.IonicView({
-	            template: '' +
-	                '<ion-navbar *navbar primary>' +
-	                '<ion-title>{{title}}</ion-title>' +
-	                '</ion-navbar>' +
-	                '<ion-content padding>' +
-	                '<h1>{{title}}</h1>' +
-	                '<p><button id="from1To2" secondary (click)="push()">(Push) Go to Second Page</button></p>' +
-	                '<p><button secondary [nav-push]="pushPage" [nav-params]="pushData">(Nav-Push) Go to Second Page</button></p>' +
-	                '<p><button danger (click)="setPages()">(setPages) Go to Third Page</button></p>' +
-	                '</ion-content>'
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_2.IonicApp !== 'undefined' && ionic_2.IonicApp) === 'function' && _b) || Object, (typeof (_c = typeof ionic_2.Config !== 'undefined' && ionic_2.Config) === 'function' && _c) || Object])
-	    ], FirstPage);
-	    return FirstPage;
-	    var _a, _b, _c;
-	})();
-	var SecondPage = (function () {
-	    function SecondPage(nav, params) {
-	        this.nav = nav;
-	        this.params = params;
-	        console.log('Second page params:', params);
-	    }
-	    SecondPage.prototype.setPages = function () {
-	        var items = [
-	            FirstPage,
-	            ThirdPage
-	        ];
-	        this.nav.setPages(items);
-	    };
-	    SecondPage.prototype.pop = function () {
-	        this.nav.pop();
-	    };
-	    SecondPage.prototype.push = function () {
-	        this.nav.push(ThirdPage);
-	    };
-	    SecondPage = __decorate([
-	        ionic_2.IonicView({
-	            template: "\n    <ion-navbar secondary *navbar>\n      <ion-title>{{title}}</ion-title>\n    </ion-navbar>\n    <ion-content padding>\n      <h1>Second page</h1>\n      <p><button (click)=\"pop()\">(Pop) Go back to First Page</button></p>\n      <p><button id=\"from2To1\" nav-pop>(NavPop) Go back to First Page</button></p>\n      <p><button danger id=\"from2To3\" (click)=\"push()\">(Push) Go to Third Page</button></p>\n      <p><button danger (click)=\"setPages()\">(setPages) Go to Third Page</button></p>\n    </ion-content>\n  "
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_3.NavParams !== 'undefined' && ionic_3.NavParams) === 'function' && _b) || Object])
-	    ], SecondPage);
-	    return SecondPage;
-	    var _a, _b;
-	})();
-	var ThirdPage = (function () {
-	    function ThirdPage(nav) {
-	        this.nav = nav;
-	    }
-	    ThirdPage.prototype.pop = function () {
-	        this.nav.pop();
-	    };
-	    ThirdPage = __decorate([
-	        ionic_2.IonicView({
-	            template: "\n    <ion-navbar danger *navbar>\n      <ion-title>Third Page Header</ion-title>\n    </ion-navbar>\n    <ion-content padding>\n      <p>\n        <button secondary id=\"from3To2\" (click)=\"pop()\">(Pop) Go back to Second Page</button>\n      </p>\n    </ion-content>\n  "
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object])
-	    ], ThirdPage);
-	    return ThirdPage;
-	    var _a;
-	})();
-	var DemoApp = (function () {
-	    function DemoApp() {
-	        this.root = FirstPage;
-	    }
-	    DemoApp = __decorate([
+	    ApiDemoApp = __decorate([
 	        ionic_1.App({
-	            template: '<ion-nav [root]="root"></ion-nav>'
+	            templateUrl: 'app.html'
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], DemoApp);
-	    return DemoApp;
+	    ], ApiDemoApp);
+	    return ApiDemoApp;
 	})();
+	var InitialPage = (function () {
+	    function InitialPage(nav) {
+	        this.nav = nav;
+	    }
+	    InitialPage.prototype.push = function () {
+	        this.nav.push(Page2);
+	    };
+	    InitialPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: 'main.html'
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_2.NavController !== 'undefined' && ionic_2.NavController) === 'function' && _a) || Object])
+	    ], InitialPage);
+	    return InitialPage;
+	    var _a;
+	})();
+	exports.InitialPage = InitialPage;
+	var Page2 = (function () {
+	    function Page2(nav) {
+	        this.nav = nav;
+	        this.pageNum = PAGE_NUM;
+	    }
+	    Page2.prototype.push = function () {
+	        PAGE_NUM++;
+	        this.nav.push(Page2);
+	    };
+	    Page2.prototype.pop = function () {
+	        if (PAGE_NUM > 2) {
+	            PAGE_NUM--;
+	        }
+	        this.nav.pop();
+	    };
+	    Page2 = __decorate([
+	        ionic_1.Page({
+	            templateUrl: "page-2.html"
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_2.NavController !== 'undefined' && ionic_2.NavController) === 'function' && _a) || Object])
+	    ], Page2);
+	    return Page2;
+	    var _a;
+	})();
+	exports.Page2 = Page2;
 
 /***/ },
 /* 6 */
@@ -39265,6 +39227,17 @@
 	 * })
 	 * ```
 	 *
+	 * Or change the whole mode
+	 *
+	 * ```ts
+	 * @App({
+	 *   template: `<ion-nav [root]="root"></ion-nav>`
+	 *   config: {
+	 *     mode: md
+	 *   }
+	 * })
+	 * ```
+	 *
 	 * Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.
 	 * ```ts
 	 * @App({
@@ -40520,6 +40493,20 @@
 	    return false;
 	}
 	exports.hasFocusedTextInput = hasFocusedTextInput;
+	var skipInputAttrsReg = /^(value|checked|disabled|type|class|style|id)$/i;
+	function copyInputAttributes(srcElement, destElement) {
+	    // copy attributes from one element to another
+	    // however, skip over a few of them as they're already
+	    // handled in the angular world
+	    var attrs = srcElement.attributes;
+	    for (var i = 0; i < attrs.length; i++) {
+	        var attr = attrs[i];
+	        if (!skipInputAttrsReg.test(attr.name)) {
+	            destElement.setAttribute(attr.name, attr.value);
+	        }
+	    }
+	}
+	exports.copyInputAttributes = copyInputAttributes;
 	var matchesFn;
 	var matchesMethods = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'];
 	matchesMethods.some(function (fn) {
@@ -42958,7 +42945,7 @@
 	        var _this = this;
 	        // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
 	        // or swiping open the menu while pressing down on the menuToggle button
-	        if (shouldOpen === this.isOpen || this._isPrevented()) {
+	        if ((shouldOpen && this.isOpen) || this._isPrevented()) {
 	            return Promise.resolve();
 	        }
 	        this._before();
@@ -43288,8 +43275,31 @@
 	        this.listen();
 	    }
 	    MenuContentGesture.prototype.canStart = function (ev) {
-	        var validAngle = ((-35 <= ev.angle && ev.angle <= 35) || (180 >= ev.angle && ev.angle >= 145) || (-180 <= ev.angle && ev.angle <= -145));
-	        return this.menu.isOpen && this.menu.isEnabled && validAngle ? true : _super.prototype.canStart.call(this, ev);
+	        var menu = this.menu;
+	        console.debug('menu canStart, id', menu.id, 'angle', ev.angle, 'distance', ev.distance);
+	        if (!menu.isEnabled || !menu.isSwipeEnabled) {
+	            console.debug('menu canStart, isEnabled', menu.isEnabled, 'isSwipeEnabled', menu.isSwipeEnabled, 'id', menu.id);
+	            return false;
+	        }
+	        if (ev.distance > 50) {
+	            // the distance is longer than you'd expect a side menu swipe to be
+	            console.debug('menu canStart, distance too far', ev.distance, 'id', menu.id);
+	            return false;
+	        }
+	        if (menu.side === 'left') {
+	            // left side menu
+	            if (ev.angle > -40 && ev.angle < 40) {
+	                return _super.prototype.canStart.call(this, ev);
+	            }
+	        }
+	        else if (menu.side === 'right') {
+	            // right side menu
+	            if ((ev.angle > 140 && ev.angle <= 180) || (ev.angle > -140 && ev.angle <= -180)) {
+	                return _super.prototype.canStart.call(this, ev);
+	            }
+	        }
+	        // didn't pass the test, don't open this menu
+	        return false;
 	    };
 	    // Set CSS, then wait one frame for it to apply before sliding starts
 	    MenuContentGesture.prototype.onSlideBeforeStart = function (slide, ev) {
@@ -46458,7 +46468,7 @@
 	 * ```html
 	 * <ion-navbar *navbar>
 	 *
-	 *   <ion-buttons>
+	 *   <ion-buttons start>
 	 *     <button (click)="toggleItems()">
 	 *       toggle
 	 *     </button>
@@ -46468,7 +46478,7 @@
 	 *     Page Title
 	 *   </ion-title>
 	 *
-	 *   <ion-buttons>
+	 *   <ion-buttons end>
 	 *     <button (click)="openModal()">
 	 *       Modal
 	 *     </button>
@@ -46497,6 +46507,9 @@
 	            this.hideBackButton = (hideBackButton === '' || hideBackButton === 'true');
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    Navbar.prototype.setBackButtonText = function (text) {
 	        this._bbText = text;
 	    };
@@ -46661,6 +46674,7 @@
 	 * inactive icon on iOS will use an outlined version of the icon same icon.
 	 * Material Design icons do not change appearance depending if they're active
 	 * or not. The `isActive` property is largely used by the tabbar.
+	 * @demo /docs/v2/demos/icon/
 	 * @see {@link /docs/v2/components#icons Icon Component Docs}
 	 *
 	 */
@@ -46917,7 +46931,7 @@
 	 *
 	 *  ```
 	 *
-	 * @property {any} [placement] - set position of the toolbar, top or bottom
+	 * @property {any} [placement] - set position of the toolbar, top or bottom. If not set, defautls to top.
 	 * @demo /docs/v2/demos/toolbar/
 	 * @see {@link ../../navbar/Navbar/ Navbar API Docs}
 	 */
@@ -47084,7 +47098,7 @@
 	  * @property [color] - Dynamically set which color attribute this button should use.
 	  * @description
 	  * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
-	  * @demo /docs/v2/demos/buttons/
+	  * @demo /docs/v2/demos/button/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
 
 	 */
@@ -47383,12 +47397,10 @@
 	 */
 	var NavController = (function (_super) {
 	    __extends(NavController, _super);
-	    function NavController(parent, app, config, keyboard, elementRef, _anchorName, _compiler, _viewManager, _zone, _renderer) {
+	    function NavController(parent, _app, config, _keyboard, elementRef, _anchorName, _compiler, _viewManager, _zone, _renderer) {
 	        _super.call(this, elementRef);
-	        this.parent = parent;
-	        this.app = app;
-	        this.config = config;
-	        this.keyboard = keyboard;
+	        this._app = _app;
+	        this._keyboard = _keyboard;
 	        this._anchorName = _anchorName;
 	        this._compiler = _compiler;
 	        this._viewManager = _viewManager;
@@ -47400,6 +47412,8 @@
 	        this._sbTrans = null;
 	        this._trnsTime = 0;
 	        this._views = [];
+	        this.parent = parent;
+	        this.config = config;
 	        this._trnsDelay = config.get('pageTransitionDelay');
 	        this._sbEnabled = config.get('swipeBackEnabled') || false;
 	        this._sbThreshold = config.get('swipeBackThreshold') || 40;
@@ -48198,7 +48212,7 @@
 	            var enableApp = (duration < 64);
 	            // block any clicks during the transition and provide a
 	            // fallback to remove the clickblock if something goes wrong
-	            _this.app.setEnabled(enableApp, duration);
+	            _this._app.setEnabled(enableApp, duration);
 	            _this.setTransitioning(!enableApp, duration);
 	            if (enteringView.viewType) {
 	                transAnimation.before.addClass(enteringView.viewType);
@@ -48231,11 +48245,11 @@
 	                // transition must be canceled, so don't continue
 	                return done();
 	            }
-	            if (opts.keyboardClose !== false && _this.keyboard.isOpen()) {
+	            if (opts.keyboardClose !== false && _this._keyboard.isOpen()) {
 	                // the keyboard is still open!
 	                // no problem, let's just close for them
-	                _this.keyboard.close();
-	                _this.keyboard.onClose(function () {
+	                _this._keyboard.close();
+	                _this._keyboard.onClose(function () {
 	                    // keyboard has finished closing, transition complete
 	                    done();
 	                }, 32);
@@ -48280,7 +48294,7 @@
 	                this._renderer.setElementClass(this.elementRef.nativeElement, 'has-views', true);
 	            }
 	            // allow clicks and enable the app again
-	            this.app && this.app.setEnabled(true);
+	            this._app && this._app.setEnabled(true);
 	            this.setTransitioning(false);
 	            if (this.router && direction !== null) {
 	                // notify router of the state change if a direction was provided
@@ -48384,11 +48398,11 @@
 	    NavController.prototype.swipeBackStart = function () {
 	        var _this = this;
 	        return;
-	        if (!this.app.isEnabled() || !this.canSwipeBack()) {
+	        if (!this._app.isEnabled() || !this.canSwipeBack()) {
 	            return;
 	        }
 	        // disables the app during the transition
-	        this.app.setEnabled(false);
+	        this._app.setEnabled(false);
 	        this.setTransitioning(true);
 	        // default the direction to "back"
 	        var opts = {
@@ -48422,7 +48436,7 @@
 	        return;
 	        if (this._sbTrans) {
 	            // continue to disable the app while actively dragging
-	            this.app.setEnabled(false, 4000);
+	            this._app.setEnabled(false, 4000);
 	            this.setTransitioning(true, 4000);
 	            // set the transition animation's progress
 	            this._sbTrans.progress(value);
@@ -48437,7 +48451,7 @@
 	        if (!this._sbTrans)
 	            return;
 	        // disables the app during the transition
-	        this.app.setEnabled(false);
+	        this._app.setEnabled(false);
 	        this.setTransitioning(true);
 	        this._sbTrans.progressEnd(completeSwipeBack, rate).then(function () {
 	            _this._zone.run(function () {
@@ -49271,7 +49285,13 @@
 	    __extends(Scroll, _super);
 	    function Scroll(elementRef) {
 	        _super.call(this, elementRef);
+	        /**
+	         * @private
+	         */
 	        this.maxScale = 3;
+	        /**
+	         * @private
+	         */
 	        this.zoomDuration = 250;
 	    }
 	    /**
@@ -49365,20 +49385,20 @@
 	 *  export class MyClass {
 	 *  constructor(){}
 	 *    doRefresh(refresher) {
-	 *      console.log('Refreshing!', refresher);
+	 *      console.debug('Refreshing!', refresher);
 	 *
 	 *      setTimeout(() => {
-	 *        console.log('Pull to refresh complete!', refresher);
+	 *        console.debug('Pull to refresh complete!', refresher);
 	 *        refresher.complete();
 	 *      })
 	 *    }
 	 *
 	 *    doStarting() {
-	 *      console.log('Pull started!');
+	 *      console.debug('Pull started!');
 	 *    }
 	 *
 	 *    doPulling(amt) {
-	 *      console.log('You have pulled', amt);
+	 *      console.debug('You have pulled', amt);
 	 *    }
 	 *  }
 	 *  ```
@@ -49395,28 +49415,61 @@
 	 *
 	 */
 	var Refresher = (function () {
-	    function Refresher(content, element) {
-	        this.content = content;
+	    function Refresher(_content, _element) {
+	        this._content = _content;
+	        /**
+	         * @private
+	         */
 	        this.isDragging = false;
+	        /**
+	         * @private
+	         */
 	        this.isOverscrolling = false;
+	        /**
+	         * @private
+	         */
 	        this.dragOffset = 0;
+	        /**
+	         * @private
+	         */
 	        this.lastOverscroll = 0;
+	        /**
+	         * @private
+	         */
 	        this.ptrThreshold = 0;
+	        /**
+	         * @private
+	         */
 	        this.activated = false;
+	        /**
+	         * @private
+	         */
 	        this.scrollTime = 500;
+	        /**
+	         * @private
+	         */
 	        this.canOverscroll = true;
+	        /**
+	         * @private
+	         */
 	        this.pulling = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.refresh = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.starting = new core_1.EventEmitter();
-	        this.ele = element.nativeElement;
-	        this.ele.classList.add('content');
+	        this._ele = _element.nativeElement;
+	        this._ele.classList.add('content');
 	    }
 	    /**
 	     * @private
 	     */
 	    Refresher.prototype.ngOnInit = function () {
-	        var sp = this.content.getNativeElement();
-	        var sc = this.content.scrollElement;
+	        var sp = this._content.getNativeElement();
+	        var sc = this._content.scrollElement;
 	        this.startY = null;
 	        this.deltaY = null;
 	        this.scrollHost = sp;
@@ -49438,7 +49491,7 @@
 	     * @private
 	     */
 	    Refresher.prototype.ngOnDestroy = function () {
-	        var sc = this.content.scrollElement;
+	        var sc = this._content.scrollElement;
 	        sc.removeEventListener('touchmove', this._touchMoveListener);
 	        sc.removeEventListener('touchend', this._touchEndListener);
 	        sc.removeEventListener('scroll', this._handleScrollListener);
@@ -49523,21 +49576,21 @@
 	     */
 	    Refresher.prototype.show = function () {
 	        // showCallback
-	        this.ele.classList.remove('invisible');
+	        this._ele.classList.remove('invisible');
 	    };
 	    /**
 	     * @private
 	     */
 	    Refresher.prototype.hide = function () {
 	        // showCallback
-	        this.ele.classList.add('invisible');
+	        this._ele.classList.add('invisible');
 	    };
 	    /**
 	     * @private
 	     */
 	    Refresher.prototype.tail = function () {
 	        // tailCallback
-	        this.ele.classList.add('refreshing-tail');
+	        this._ele.classList.add('refreshing-tail');
 	    };
 	    /**
 	     * @private
@@ -49602,7 +49655,7 @@
 	     * @param {Event} e  TODO
 	     */
 	    Refresher.prototype._handleTouchMove = function (e) {
-	        //console.log('TOUCHMOVE', e);
+	        //console.debug('TOUCHMOVE', e);
 	        // if multitouch or regular scroll event, get out immediately
 	        if (!this.canOverscroll || e.touches.length > 1) {
 	            return;
@@ -49660,7 +49713,7 @@
 	     * @param {Event} e  TODO
 	     */
 	    Refresher.prototype._handleTouchEnd = function (e) {
-	        console.log('TOUCHEND', e);
+	        console.debug('TOUCHEND', e);
 	        // if this wasn't an overscroll, get out immediately
 	        if (!this.canOverscroll && !this.isDragging) {
 	            return;
@@ -49693,7 +49746,7 @@
 	     * @param {Event} e  TODO
 	     */
 	    Refresher.prototype._handleScroll = function (e) {
-	        console.log('SCROLL', e.target.scrollTop);
+	        console.debug('SCROLL', e.target.scrollTop);
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -49790,17 +49843,6 @@
 	 * @description
 	 * Slides is a slide box implementation based on Swiper.js
 	 *
-	 * Swiper.js:
-	 * The most modern mobile touch slider and framework with hardware accelerated transitions
-	 *
-	 * http://www.idangero.us/swiper/
-	 *
-	 * Copyright 2015, Vladimir Kharlampidi
-	 * The iDangero.us
-	 * http://www.idangero.us/
-	 *
-	 * Licensed under MIT
-	 *
 	 * @usage
 	 * ```ts
 	 * @Page({
@@ -49833,12 +49875,27 @@
 	 *```
 	 * @property {Boolean} [autoplay] - whether or not the slides should automatically change
 	 * @property {Boolean} [loop] - whether the slides should loop from the last slide back to the first
-	 * @property {Boolean} [bounce] - whether the slides should bounce
 	 * @property {Number} [index] - The slide index to start on
-	 * @property [pager] - add this property to enable the slide pager
-	 * @property {Any} [change] - expression to evaluate when a slide has been changed
+	 * @property {Boolean} [bounce] - whether the slides should bounce
+	 * @property {Boolean} [pager] - Whether the slide should show the page or not
+	 * @property {Any} [options] - Any additional slider options you want to pass
+	 * @property {Number} [zoom] - Whether or not the slider can zoom in or out
+	 * @property {Number} [zoomDuration] - how long it should take to zoom a slide
+	 * @property {Number} [zoomMax] - the max scale an slide can be zoomed
+	 * @property {Any} (change) - expression to evaluate when a slide has been changed
 	 * @demo /docs/v2/demos/slides/
 	 * @see {@link /docs/v2/components#slides Slides Component Docs}
+	 *
+	 * Swiper.js:
+	 * The most modern mobile touch slider and framework with hardware accelerated transitions
+	 *
+	 * http://www.idangero.us/swiper/
+	 *
+	 * Copyright 2015, Vladimir Kharlampidi
+	 * The iDangero.us
+	 * http://www.idangero.us/
+	 *
+	 * Licensed under MIT
 	 */
 	var Slides = (function (_super) {
 	    __extends(Slides, _super);
@@ -49849,6 +49906,9 @@
 	    function Slides(elementRef) {
 	        var _this = this;
 	        _super.call(this, elementRef);
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        this.rapidUpdate = util_2.debounce(function () {
 	            _this.update();
@@ -49985,11 +50045,11 @@
 	        });
 	        this.zoomGesture.on('pinchstart', function (e) {
 	            last_scale = _this.scale;
-	            console.log('Last scale', e.scale);
+	            console.debug('Last scale', e.scale);
 	        });
 	        this.zoomGesture.on('pinch', function (e) {
 	            _this.scale = Math.max(1, Math.min(last_scale * e.scale, 10));
-	            console.log('Scaling', _this.scale);
+	            console.debug('Scaling', _this.scale);
 	            _this.zoomElement.style[dom_1.CSS.transform] = 'scale(' + _this.scale + ')';
 	            zoomRect = _this.zoomElement.getBoundingClientRect();
 	        });
@@ -50022,11 +50082,11 @@
 	     * @private
 	     */
 	    Slides.prototype.toggleZoom = function (swiper, e) {
-	        console.log('Try toggle zoom');
+	        console.debug('Try toggle zoom');
 	        if (!this.enableZoom) {
 	            return;
 	        }
-	        console.log('Toggling zoom', e);
+	        console.debug('Toggling zoom', e);
 	        /*
 	        let x = e.pointers[0].clientX;
 	        let y = e.pointers[0].clientY;
@@ -50049,7 +50109,7 @@
 	          ty = y-my;
 	        }
 	    
-	        console.log(y);
+	        console.debug(y);
 	        */
 	        var zi = new animation_1.Animation(this.touch.target.children[0])
 	            .duration(this.zoomDuration)
@@ -50097,7 +50157,7 @@
 	     * @private
 	     */
 	    Slides.prototype.onTouchStart = function (e) {
-	        console.log('Touch start', e);
+	        console.debug('Touch start', e);
 	        //TODO: Support mice as well
 	        var target = util_1.dom.closest(e.target, '.slide').children[0].children[0];
 	        this.touch = {
@@ -50114,7 +50174,7 @@
 	            zoomableWidth: target.offsetWidth,
 	            zoomableHeight: target.offsetHeight
 	        };
-	        console.log('Target', this.touch.target);
+	        console.debug('Target', this.touch.target);
 	        //TODO: android prevent default
 	    };
 	    /**
@@ -50130,27 +50190,27 @@
 	        var x2 = -x1;
 	        var y1 = Math.min((this.viewportHeight / 2) - zoomableScaledHeight / 2, 0);
 	        var y2 = -y1;
-	        console.log('BOUNDS', x1, x2, y1, y2);
+	        console.debug('BOUNDS', x1, x2, y1, y2);
 	        if (this.scale <= 1) {
 	            return;
 	        }
-	        console.log('PAN', e);
+	        console.debug('PAN', e);
 	        // Move image
 	        this.touch.x = this.touch.deltaX + this.touch.lastX;
 	        this.touch.y = this.touch.deltaY + this.touch.lastY;
-	        console.log(this.touch.x, this.touch.y);
+	        console.debug(this.touch.x, this.touch.y);
 	        if (this.touch.x < x1) {
-	            console.log('OUT ON LEFT');
+	            console.debug('OUT ON LEFT');
 	        }
 	        if (this.touch.x > x2) {
-	            console.log('OUT ON RIGHT');
+	            console.debug('OUT ON RIGHT');
 	        }
 	        if (this.touch.x > this.viewportWidth) {
 	        }
 	        else if (-this.touch.x > this.viewportWidth) {
 	        }
 	        else {
-	            console.log('TRANSFORM', this.touch.x, this.touch.y, this.touch.target);
+	            console.debug('TRANSFORM', this.touch.x, this.touch.y, this.touch.target);
 	            //this.touch.target.style[CSS.transform] = 'translateX(' + this.touch.x + 'px) translateY(' + this.touch.y + 'px)';
 	            this.touch.target.style[dom_1.CSS.transform] = 'translateX(' + this.touch.x + 'px) translateY(' + this.touch.y + 'px)';
 	            e.preventDefault();
@@ -50162,12 +50222,12 @@
 	     * @private
 	     */
 	    Slides.prototype.onTouchEnd = function (e) {
-	        console.log('PANEND', e);
+	        console.debug('PANEND', e);
 	        if (this.scale > 1) {
 	            if (Math.abs(this.touch.x) > this.viewportWidth) {
 	                // TODO what is posX?
 	                var posX = posX > 0 ? this.viewportWidth - 1 : -(this.viewportWidth - 1);
-	                console.log('Setting on posx', this.touch.x);
+	                console.debug('Setting on posx', this.touch.x);
 	            }
 	            /*
 	            if (posY > this.viewportHeight/2) {
@@ -50299,7 +50359,11 @@
 	})(ion_1.Ion);
 	exports.Slides = Slides;
 	/**
-	 * @private
+	 * @name Slide
+	 * @description
+	 * `ion-slide` is a child component of `ion-slides` and is where all your individule slide content will be rendered too.
+	 *
+	 * @see {@link /docs/v2/api/components/slides/Slides/ Slides API Docs}
 	 */
 	var Slide = (function () {
 	    function Slide(elementRef, slides) {
@@ -54341,6 +54405,7 @@
 	 * @property {any} [tabbarPlacement] - set position of the tabbar, top or bottom
 	 * @property {any} [tabbarIcons] - set the position of the tabbar's icons: top, bottom, left, right, hide
 	 * @property {any} [preloadTabs] - sets whether to preload all the tabs, true or false
+	 * @property {any} (change) - expression you want to evaluate when the tabs chage
 	 * @usage
 	* ```html
 	 * <ion-tabs>
@@ -54372,6 +54437,9 @@
 	        this._ids = -1;
 	        this._tabs = [];
 	        this._onReady = null;
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        this.id = ++tabIds;
 	        this.subPages = _config.getBoolean('tabSubPages');
@@ -54743,14 +54811,6 @@
 	var tabs_1 = __webpack_require__(310);
 	/**
 	 * @name Tab
-	 * @usage
-	 * ```html
-	 * <ion-tabs>
-	 * 	 <ion-tab tabTitle="Home" tabIcon="home" [root]="tabOneRoot"></ion-tab>
-	 * 	 <ion-tab tabTitle="Login" tabIcon="star" [root]="tabTwoRoot"></ion-tab>
-	 * </ion-tabs>
-	 * ```
-	 *
 	 * @description
 	 * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
 	 * of the Component docs._
@@ -54765,11 +54825,12 @@
 	 * See the [Tabs API reference](../Tabs/) for more details on configuring Tabs
 	 * and the TabBar.
 	 *
+	 * @usage
 	 * For most cases, you can give tab a `[root]` property along with the component you want to load.
 	 *
 	 * ```html
 	 * <ion-tabs>
-	 *  <ion-tab [root]="chatRoot"><ion-tab>
+	 *  <ion-tab [root]="chatRoot" tabTitle="Chat" tabIcon="chat"><ion-tab>
 	 * </ion-tabs>
 	 * ```
 	 *
@@ -54807,12 +54868,12 @@
 	 * ```
 	 *
 	 *
-	 * @property {any} [root] - set the root page for this tab
-	 * @property {any} [tabTitle] - set the title of this tab
-	 * @property {any} [tabIcon] - set the icon for this tab
-	 * @property {any} [tabBadge] - set the badge for this tab
-	 * @property {any} [tabBadgeStyle] - set the badge color for this tab
-	 * @property {any} [select] - method to call when the current tab is selected
+	 * @property {Page} [root] - set the root page for this tab
+	 * @property {String} [tabTitle] - set the title of this tab
+	 * @property {String} [tabIcon] - set the icon for this tab
+	 * @property {Any} [tabBadge] - set the badge for this tab
+	 * @property {String} [tabBadgeStyle] - set the badge color for this tab
+	 * @property {Any} (select) - method to call when the current tab is selected
 	 *
 	 */
 	var Tab = (function (_super) {
@@ -54820,6 +54881,9 @@
 	    function Tab(parentTabs, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer) {
 	        // A Tab is a NavController for its child pages
 	        _super.call(this, parentTabs, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer);
+	        /**
+	         * @private
+	         */
 	        this.select = new core_2.EventEmitter();
 	        parentTabs.add(this);
 	        this._panelId = 'tabpanel-' + this.id;
@@ -54845,6 +54909,9 @@
 	            done();
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    Tab.prototype.preload = function (wait) {
 	        var _this = this;
 	        this._loadTimer = setTimeout(function () {
@@ -54897,18 +54964,7 @@
 	    };
 	    Object.defineProperty(Tab.prototype, "index", {
 	        /**
-	         *
-	         * ```ts
-	         * export class MyClass{
-	         *  constructor(tab: Tab){
-	         *    this.tab = tab;
-	         *    console.log(this.tab.index);
-	         *  }
-	         * }
-	         * ```
-	         *
-	         * @returns {number} Returns the index of this page within its NavController.
-	         *
+	         * @private
 	         */
 	        get: function () {
 	            return this.parent.getIndex(this);
@@ -55064,9 +55120,9 @@
 	     */
 	    List.prototype.ngOnInit = function () {
 	        if (util_1.isDefined(this.virtual)) {
-	            console.log('Content', this.content);
-	            console.log('Virtual?', this.virtual);
-	            console.log('Items?', this.items.length, 'of \'em');
+	            console.debug('Content', this.content);
+	            console.debug('Virtual?', this.virtual);
+	            console.debug('Items?', this.items.length, 'of \'em');
 	            this._initVirtualScrolling();
 	        }
 	    };
@@ -55231,7 +55287,7 @@
 	        this.viewportScrollHeight = this.content.scrollElement.scrollHeight;
 	        this.virtualHeight = this.list.items.length * this.itemHeight;
 	        this.itemsPerScreen = this.viewportHeight / this.itemHeight;
-	        console.log('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
+	        console.debug('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
 	    };
 	    ListVirtualScroll.prototype._handleVirtualScroll = function (event) {
 	        var item;
@@ -55257,7 +55313,7 @@
 	        // virtual items we draw
 	        for (var i = topIndex, realIndex_1 = 0; i < bottomIndex && i < items.length; i++, realIndex_1++) {
 	            item = items[i];
-	            console.log('Drawing item', i, item.title);
+	            console.debug('Drawing item', i, item.title);
 	            shownItemRef = this.shownItems[i];
 	            // Is this a new item?
 	            if (!shownItemRef) {
@@ -55271,11 +55327,11 @@
 	        }
 	        while (this.leavingItems.length) {
 	            var itemRef = this.leavingItems.pop();
-	            console.log('Removing item', itemRef.item, itemRef.realIndex);
+	            console.debug('Removing item', itemRef.item, itemRef.realIndex);
 	            this.viewContainer.remove(itemRef.realIndex);
 	        }
-	        console.log('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
-	        console.log('Container has', this.list.getNativeElement().children.length, 'children');
+	        console.debug('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
+	        console.debug('Container has', this.list.getNativeElement().children.length, 'children');
 	    };
 	    ListVirtualScroll.prototype.cellAtIndex = function (index) {
 	    };
@@ -56209,7 +56265,13 @@
 	 *   subTitle: 'Select your toppings'
 	 * };
 	 * ```
-	 *
+	 * @property [cancelText] - The text of the cancel button. Defatuls to 'cancel'
+	 * @property [okText] - The text of the ok button. Defatuls to 'OK'
+	 * @property [alertOptions] - Any addition options that an alert can take. Title, Subtitle, etc.
+	 * @property [multiple] - Whether or not the select component can accept multipl selections
+	 * @property [disabled] - Whether or not the select component is disabled or not
+	 * @property (change) - Any expression you want to evaluate when the selection has changed
+
 	 */
 	var Select = (function () {
 	    function Select(_form, _elementRef, _renderer, _item, _nav, ngControl) {
@@ -56223,10 +56285,25 @@
 	        this._values = [];
 	        this._texts = [];
 	        this._text = '';
+	        /**
+	         * @private
+	         */
 	        this.cancelText = 'Cancel';
+	        /**
+	         * @private
+	         */
 	        this.okText = 'OK';
+	        /**
+	         * @private
+	         */
 	        this.alertOptions = {};
+	        /**
+	         * @private
+	         */
 	        this.checked = false;
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        this._form.register(this);
 	        if (ngControl) {
@@ -56291,6 +56368,9 @@
 	        this._nav.present(alert, alertOptions);
 	    };
 	    Object.defineProperty(Select.prototype, "multiple", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._multi;
 	        },
@@ -56301,6 +56381,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Select.prototype, "value", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return (this._multi ? this._values : this._values.join());
 	        },
@@ -56313,6 +56396,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Select.prototype, "text", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return (this._multi ? this._texts : this._texts.join());
 	        },
@@ -56320,6 +56406,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Select.prototype, "options", {
+	        /**
+	         * @private
+	         */
 	        set: function (val) {
 	            this._options = val;
 	            if (!this._values.length) {
@@ -56332,6 +56421,9 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /**
+	     * @private
+	     */
 	    Select.prototype.updateOptions = function () {
 	        var _this = this;
 	        this._texts = [];
@@ -56346,6 +56438,9 @@
 	        }
 	        this._text = this._texts.join(', ');
 	    };
+	    /**
+	     * @private
+	     */
 	    Select.prototype.ngAfterContentInit = function () {
 	        var _this = this;
 	        // using a setTimeout here to prevent
@@ -56356,6 +56451,9 @@
 	        });
 	    };
 	    Object.defineProperty(Select.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._disabled;
 	        },
@@ -56605,6 +56703,7 @@
 	 * }
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/alert/
 	 */
 	var Alert = (function (_super) {
 	    __extends(Alert, _super);
@@ -56969,14 +57068,26 @@
 	var util_1 = __webpack_require__(267);
 	/**
 	 * @name Option
+	 * @description
+	 * `ion-option` is a child component of `ion-select`. Similar to the native option element, `ion-option` can take a value and a checked property.
+	 *
+	 * @property [value] - the value of the option
+	 * @property [checked] - whether or not the option is already checked and selected
+	 *
 	 */
 	var Option = (function () {
 	    function Option(_elementRef) {
 	        this._elementRef = _elementRef;
 	        this._checked = false;
+	        /**
+	         * @private
+	         */
 	        this.select = new core_1.EventEmitter();
 	    }
 	    Object.defineProperty(Option.prototype, "checked", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._checked;
 	        },
@@ -56987,6 +57098,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Option.prototype, "value", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            if (util_1.isDefined(this._value)) {
 	                return this._value;
@@ -57000,6 +57114,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Option.prototype, "text", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._elementRef.nativeElement.textContent;
 	        },
@@ -57100,6 +57217,9 @@
 	        this._disabled = false;
 	        this._activated = false;
 	        this._touched = 0;
+	        /**
+	         * @private
+	         */
 	        this.value = '';
 	        // deprecated warning
 	        if (_elementRef.nativeElement.tagName == 'ION-SWITCH') {
@@ -57124,6 +57244,9 @@
 	        this.checked = !this.checked;
 	    };
 	    Object.defineProperty(Toggle.prototype, "checked", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._checked;
 	        },
@@ -57138,6 +57261,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Toggle.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._disabled;
 	        },
@@ -57571,7 +57697,7 @@
 	            this._type = 'text';
 	            if (val) {
 	                val = val.toLowerCase();
-	                if (/password|email|number|search|tel|url|date|datetime|datetime-local|month|time|week/.test(val)) {
+	                if (/password|email|number|search|tel|url|date|month|time|week/.test(val)) {
 	                    this._type = val;
 	                }
 	            }
@@ -57614,6 +57740,8 @@
 	            });
 	            this.checkHasValue(nativeInput.getValue());
 	            this.disabled = this._disabled;
+	            // copy ion-input attributes to the native input element
+	            dom_1.copyInputAttributes(this._elementRef.nativeElement, nativeInput.element());
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -57770,7 +57898,7 @@
 	      * @private
 	     */
 	    InputBase.prototype.clearTextInput = function () {
-	        console.log("Should clear input");
+	        console.debug("Should clear input");
 	    };
 	    /**
 	     * @private
@@ -58186,7 +58314,6 @@
 	 * @name SegmentButton
 	 * @description
 	 * The child buttons of the `ion-segment` component. Each `ion-segment-button` must have a value.
-	 * @property {string} [value] - the value of the segment-button. Required.
 	 * @usage
 	 * ```html
 	 * <ion-segment [(ngModel)]="relationship" primary>
@@ -58217,7 +58344,9 @@
 	 * </form>
 	 * ```
 	 *
+	 * @property {string} [value] - the value of the segment-button. Required.
 	 * @property {Any} [click] - expression to evaluate when a segment button has been clicked
+	 * @property {Any} (select) - expression to evaluate when a segment selection has been changed
 	 *
 	 * @demo /docs/v2/demos/segment/
 	 * @see {@link /docs/v2/components#segment Segment Component Docs}
@@ -58227,6 +58356,9 @@
 	    function SegmentButton(_renderer, _elementRef) {
 	        this._renderer = _renderer;
 	        this._elementRef = _elementRef;
+	        /**
+	         * @private
+	         */
 	        this.select = new core_1.EventEmitter();
 	    }
 	    /**
@@ -58331,6 +58463,9 @@
 	 */
 	var Segment = (function () {
 	    function Segment(ngControl) {
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        /**
 	         * @private
@@ -58457,6 +58592,9 @@
 	        this._checked = false;
 	        this._disabled = false;
 	        this._value = null;
+	        /**
+	         * @private
+	         */
 	        this.select = new core_1.EventEmitter();
 	        _form.register(this);
 	        if (_group) {
@@ -58472,6 +58610,9 @@
 	        }
 	    }
 	    Object.defineProperty(RadioButton.prototype, "value", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            // if the value is not defined then use it's unique id
 	            return util_1.isBlank(this._value) ? this.id : this._value;
@@ -58483,6 +58624,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(RadioButton.prototype, "checked", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._checked;
 	        },
@@ -58511,6 +58655,9 @@
 	        }
 	    };
 	    Object.defineProperty(RadioButton.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._disabled;
 	        },
@@ -58605,6 +58752,8 @@
 	var list_1 = __webpack_require__(314);
 	var util_1 = __webpack_require__(267);
 	/**
+	 * @name RadioGroup
+	 * @description
 	 * A radio group is a group of radio components, and its value comes
 	 * from the selected radio button's value. Selecting a radio button
 	 * in the group unselects all others in the group.
@@ -58656,6 +58805,9 @@
 	        this._buttons = [];
 	        this._ids = -1;
 	        this._init = false;
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        this.id = ++radioGroupIds;
 	        if (ngControl) {
@@ -58681,6 +58833,9 @@
 	            this._init = true;
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    RadioGroup.prototype.ngAfterContentInit = function () {
 	        var _this = this;
 	        // in a setTimeout to prevent
@@ -58691,6 +58846,9 @@
 	            _this.updateValue();
 	        });
 	    };
+	    /**
+	     * @private
+	     */
 	    RadioGroup.prototype.updateValue = function () {
 	        var _this = this;
 	        if (util_1.isDefined(this.value)) {
@@ -58708,6 +58866,9 @@
 	            });
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    RadioGroup.prototype.register = function (button) {
 	        var _this = this;
 	        this._buttons.push(button);
@@ -58887,7 +59048,13 @@
 	         * @private
 	         */
 	        this.clear = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.value = '';
+	        /**
+	         * @private
+	         */
 	        this.blurInput = true;
 	        /**
 	         * @private
@@ -59108,7 +59275,7 @@
 	                '<ion-icon name="arrow-back"></ion-icon>' +
 	                '</button>' +
 	                '<div class="searchbar-search-icon"></div>' +
-	                '<input [value]="value" (keyup)="inputChanged($event)" (blur)="inputBlurred()" (focus)="inputFocused()" class="searchbar-input" type="search" [attr.placeholder]="placeholder">' +
+	                '<input [value]="value" (keyup)="inputChanged($event)" (blur)="inputBlurred()" (focus)="inputFocused()" class="searchbar-input" type="search" [attr.placeholder]="placeholder" autocomplete="off">' +
 	                '<button clear *ngIf="value" class="searchbar-clear-icon" (click)="clearInput()" (mousedown)="clearInput()"></button>' +
 	                '</div>' +
 	                '<button clear (click)="cancelSearchbar()" (mousedown)="cancelSearchbar()" [hidden]="hideCancelButton" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
@@ -59167,6 +59334,7 @@
 	 * component) to be loaded initially by any Nav you create, using
 	 * the 'root' property:
 	 *
+	 * @usage
 	 * ```ts
 	 * import {GettingStartedPage} from 'getting-started';
 	 * @App({
@@ -59240,6 +59408,7 @@
 	 *   </pre>
 	 * </div>
 	 *
+	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 */
 	var Nav = (function (_super) {
@@ -59343,7 +59512,7 @@
 	 * ```html
 	 * <button [navPush]="[pushPage, params]"></button>
 	 * ```
-	 * @demo /docs/v2/demos/nav-push-pop/
+	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 * @see {@link ../NavPop NavPop API Docs}
 	 */
@@ -59413,7 +59582,7 @@
 	 * This will go back one page in the navigation stack
 	 *
 	 * Similar to {@link /docs/v2/api/components/nav/NavPush/ `NavPush` }
-	 * @demo /docs/v2/demos/nav-push-pop/
+	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 * @see {@link ../NavPush NavPush API Docs}
 	 */
@@ -59909,7 +60078,6 @@
 	/**
 	 * @name Page
 	 * @description
-	 *For more information on how pages are created, see the [NavController API reference](../../components/nav/NavController/#creating_pages)
 	 *
 	 * The Page decorator indicates that the decorated class is an Ionic
 	 * navigation component, meaning it can be navigated to using a NavController.
@@ -59972,6 +60140,8 @@
 	 * Pages have their content automatically wrapped in `<ion-view>`, so although
 	 * you may see these tags if you inspect your markup, you don't need to include
 	 * them in your templates.
+	 *
+	 * For more information on how pages are created, see the [NavController API reference](../../components/nav/NavController/#creating_pages)
 	 */
 	function Page(config) {
 	    if (config === void 0) { config = {}; }
@@ -60199,20 +60369,14 @@
 	                button.cssClass = '';
 	            }
 	            // deprecated warning
-	            if (button.style === 'cancel') {
+	            if (button.style) {
 	                console.warn('Alert "style" property has been renamed to "role"');
-	                button.role = 'cancel';
-	                _this.d.cancelButton = button;
+	                button.role = button.style;
 	            }
 	            if (button.role === 'cancel') {
 	                _this.d.cancelButton = button;
 	            }
 	            else {
-	                // deprecated warning
-	                if (button.style === 'destructive') {
-	                    button.role = 'destructive';
-	                    button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive';
-	                }
 	                if (button.role === 'destructive') {
 	                    button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive';
 	                }

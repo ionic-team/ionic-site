@@ -9,7 +9,9 @@ title: "Icon"
 header_sub_title: "Class in module "
 doc: "Icon"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/icon/"
+angular_controller: APIDemoCtrl 
 ---
 
 

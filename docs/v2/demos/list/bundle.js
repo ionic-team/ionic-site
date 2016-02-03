@@ -3215,92 +3215,16 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var ApiDemoApp = (function () {
-	    function ApiDemoApp(app, platform) {
-	        this.app = app;
-	        this.platform = platform;
-	        this.rootPage = PageOne;
-	        this.pages = [
-	            { title: 'Basic List', component: PageOne },
-	            { title: 'Inset List', component: PageTwo },
-	            { title: 'No-lines List', component: PageThree },
-	            { title: 'List Headers', component: PageFour },
-	            { title: 'Sliding Items', component: PageFive },
-	        ];
+	    function ApiDemoApp() {
 	    }
-	    ApiDemoApp.prototype.openPage = function (page) {
-	        this.app.getComponent('leftMenu').close();
-	        var nav = this.app.getComponent('nav');
-	        nav.setRoot(page.component);
-	    };
 	    ApiDemoApp = __decorate([
 	        ionic_1.App({
-	            templateUrl: 'app.html'
+	            templateUrl: 'main.html'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [])
 	    ], ApiDemoApp);
 	    return ApiDemoApp;
-	    var _a, _b;
 	})();
-	var PageOne = (function () {
-	    function PageOne() {
-	    }
-	    PageOne = __decorate([
-	        ionic_1.Page({
-	            templateUrl: 'basic-list.html',
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], PageOne);
-	    return PageOne;
-	})();
-	exports.PageOne = PageOne;
-	var PageTwo = (function () {
-	    function PageTwo() {
-	    }
-	    PageTwo = __decorate([
-	        ionic_1.Page({
-	            templateUrl: 'inset-list.html',
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], PageTwo);
-	    return PageTwo;
-	})();
-	exports.PageTwo = PageTwo;
-	var PageThree = (function () {
-	    function PageThree() {
-	    }
-	    PageThree = __decorate([
-	        ionic_1.Page({
-	            templateUrl: 'no-lines-list.html',
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], PageThree);
-	    return PageThree;
-	})();
-	exports.PageThree = PageThree;
-	var PageFour = (function () {
-	    function PageFour() {
-	    }
-	    PageFour = __decorate([
-	        ionic_1.Page({
-	            templateUrl: 'list-headers.html',
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], PageFour);
-	    return PageFour;
-	})();
-	exports.PageFour = PageFour;
-	var PageFive = (function () {
-	    function PageFive() {
-	    }
-	    PageFive = __decorate([
-	        ionic_1.Page({
-	            templateUrl: 'sliding-items.html',
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], PageFive);
-	    return PageFive;
-	})();
-	exports.PageFive = PageFive;
 
 /***/ },
 /* 6 */

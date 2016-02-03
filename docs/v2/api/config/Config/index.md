@@ -56,6 +56,14 @@ Improve this doc
   }
 })
 </code></pre>
+<p>Or change the whole mode</p>
+<pre><code class="lang-ts">@App({
+  template: `&lt;ion-nav [root]=&quot;root&quot;&gt;&lt;/ion-nav&gt;`
+  config: {
+    mode: md
+  }
+})
+</code></pre>
 <p>Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.</p>
 <pre><code class="lang-ts">@App({
   template: `&lt;ion-nav [root]=&quot;root&quot;&gt;&lt;/ion-nav&gt;`

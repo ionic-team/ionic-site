@@ -41087,6 +41087,7 @@
 	 * });
 	 *
 	 * ```
+	 * @demo /docs/v2/demos/events/
 	 */
 	var Events = (function () {
 	    function Events() {
@@ -43064,7 +43065,7 @@
 	     */
 	    Menu.prototype.enable = function (shouldEnable) {
 	        this.isEnabled = shouldEnable;
-	        if (!shouldEnable) {
+	        if (!shouldEnable && this.isOpen) {
 	            this.close();
 	        }
 	        return this;
@@ -59789,6 +59790,8 @@
 	 * *NOTE:* It is not recommended to use ID's across Pages, as there is often no
 	 * guarantee that the registered component has not been destroyed if its Page
 	 * has been navigated away from.
+	 *
+	 * @demo /docs/v2/demos/id/
 	 */
 	var IdRef = (function () {
 	    function IdRef(_app, elementRef, appViewManager) {

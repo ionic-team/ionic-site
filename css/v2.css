@@ -7628,6 +7628,26 @@ body {
     -webkit-transform: scaleY(1);
         -ms-transform: scaleY(1);
             transform: scaleY(1); }
+  @media (min-width: 768px) {
+    .navbar-default .dropdown .dropdown-menu {
+      display: block;
+      position: absolute;
+      visibility: 0;
+      right: -500px;
+      opacity: 0;
+      -webkit-transform: translate3d(0, -10px, 0);
+              transform: translate3d(0, -10px, 0);
+      -webkit-transform-origin: top;
+          -ms-transform-origin: top;
+              transform-origin: top;
+      transition: opacity 0.5s, -webkit-transform 0.3s cubic-bezier(0.425, 0.845, 0.225, 1.85);
+      transition: opacity 0.5s, transform 0.3s cubic-bezier(0.425, 0.845, 0.225, 1.85); }
+    .navbar-default .dropdown.open .dropdown-menu {
+      visibility: 1;
+      right: 0;
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0); } }
   .navbar-default .navbar-form {
     margin: 22px 0 0 110px; }
     .navbar-default .navbar-form .form-group {

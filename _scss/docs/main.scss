@@ -133,6 +133,7 @@ body {
     }
   }
 
+  // mobile width animation & default styles
   .dropdown {
     .dropdown-menu {
       display: block;
@@ -147,6 +148,29 @@ body {
       visibility: 1;
       opacity: 1;
       transform: scaleY(1);
+    }
+  }
+  // desktop width animation
+  @media (min-width: $screen-sm-min) {
+    .dropdown {
+      .dropdown-menu {
+        display: block;
+        position: absolute;
+        visibility: 0;
+        right: -500px;
+        opacity: 0;
+        transform: translate3d(0, -10px, 0);
+        transform-origin: top;
+        transition: opacity .5s,
+                    transform .3s cubic-bezier(0.425, 0.845, 0.225, 1.85);
+      }
+
+      &.open .dropdown-menu {
+        visibility: 1;
+        right: 0;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
     }
   }
 

@@ -50053,7 +50053,6 @@
 	        this.rapidUpdate = util_2.debounce(function () {
 	            _this.update();
 	        }, 10);
-	        console.warn("(slideChanged) deprecated. Use (change) to track slide changes.");
 	    }
 	    /**
 	     * @private

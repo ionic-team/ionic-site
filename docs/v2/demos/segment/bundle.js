@@ -41052,6 +41052,7 @@
 	 * });
 	 *
 	 * ```
+	 * @demo /docs/v2/demos/events/
 	 */
 	var Events = (function () {
 	    function Events() {

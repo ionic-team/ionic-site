@@ -9,7 +9,9 @@ title: "Events"
 header_sub_title: "Class in module "
 doc: "Events"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/events/"
+angular_controller: APIDemoCtrl 
 ---
 
 

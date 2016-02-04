@@ -5008,9 +5008,7 @@ ion-icon {
       pointer-events: none; }
   .ios ion-card {
     display: block;
-    overflow: hidden;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0); }
+    overflow: hidden; }
   .ios ion-card img {
     display: block;
     width: 100%; }
@@ -5021,6 +5019,12 @@ ion-icon {
     text-overflow: ellipsis; }
   .ios ion-card-content {
     display: block; }
+  .ios ion-card > :first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit; }
+  .ios ion-card > :last-child {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit; }
   .ios ion-card {
     margin: 12px 12px 12px 12px;
     font-size: 1.4rem;
@@ -7806,9 +7810,7 @@ ion-icon {
   src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
   .md ion-card {
     display: block;
-    overflow: hidden;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0); }
+    overflow: hidden; }
   .md ion-card img {
     display: block;
     width: 100%; }
@@ -7819,6 +7821,12 @@ ion-icon {
     text-overflow: ellipsis; }
   .md ion-card-content {
     display: block; }
+  .md ion-card > :first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit; }
+  .md ion-card > :last-child {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit; }
   .md ion-card {
     margin: 10px 10px 10px 10px;
     font-size: 1.4rem;

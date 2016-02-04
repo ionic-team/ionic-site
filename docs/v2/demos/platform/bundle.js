@@ -3238,25 +3238,25 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(7));
-	__export(__webpack_require__(265));
-	__export(__webpack_require__(281));
-	__export(__webpack_require__(337));
+	__export(__webpack_require__(160));
+	__export(__webpack_require__(282));
 	__export(__webpack_require__(338));
 	__export(__webpack_require__(339));
-	__export(__webpack_require__(266));
-	__export(__webpack_require__(343));
-	__export(__webpack_require__(269));
+	__export(__webpack_require__(340));
+	__export(__webpack_require__(161));
+	__export(__webpack_require__(344));
+	__export(__webpack_require__(159));
+	__export(__webpack_require__(164));
 	__export(__webpack_require__(273));
-	__export(__webpack_require__(271));
 	__export(__webpack_require__(280));
-	__export(__webpack_require__(275));
-	__export(__webpack_require__(347));
+	__export(__webpack_require__(281));
+	__export(__webpack_require__(348));
 	// these modules don't export anything
-	__webpack_require__(348);
 	__webpack_require__(349);
 	__webpack_require__(350);
 	__webpack_require__(351);
 	__webpack_require__(352);
+	__webpack_require__(353);
 
 /***/ },
 /* 7 */
@@ -3265,19 +3265,20 @@
 	var core_1 = __webpack_require__(8);
 	var router_1 = __webpack_require__(119);
 	var http_1 = __webpack_require__(144);
-	var app_1 = __webpack_require__(159);
-	var config_1 = __webpack_require__(265);
-	var platform_1 = __webpack_require__(266);
-	var form_1 = __webpack_require__(270);
-	var keyboard_1 = __webpack_require__(271);
-	var scroll_to_1 = __webpack_require__(272);
-	var events_1 = __webpack_require__(273);
-	var nav_registry_1 = __webpack_require__(274);
-	var translate_1 = __webpack_require__(275);
-	var click_block_1 = __webpack_require__(269);
-	var feature_detect_1 = __webpack_require__(276);
+	var click_block_1 = __webpack_require__(159);
+	var config_1 = __webpack_require__(160);
+	var events_1 = __webpack_require__(164);
+	var feature_detect_1 = __webpack_require__(165);
+	var form_1 = __webpack_require__(166);
+	var app_1 = __webpack_require__(167);
+	var keyboard_1 = __webpack_require__(273);
+	var menu_controller_1 = __webpack_require__(274);
+	var nav_registry_1 = __webpack_require__(275);
+	var platform_1 = __webpack_require__(161);
+	var dom_1 = __webpack_require__(163);
+	var scroll_to_1 = __webpack_require__(276);
 	var tap_click_1 = __webpack_require__(277);
-	var dom_1 = __webpack_require__(268);
+	var translate_1 = __webpack_require__(281);
 	/**
 	 * @private
 	 */
@@ -3312,6 +3313,7 @@
 	        tap_click_1.TapClick,
 	        form_1.Form,
 	        keyboard_1.Keyboard,
+	        menu_controller_1.MenuController,
 	        translate_1.Translate,
 	        router_1.ROUTER_PROVIDERS,
 	        core_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy }),
@@ -26068,6 +26070,1656 @@
 
 /***/ },
 /* 159 */
+/***/ function(module, exports) {
+
+	var CSS_CLICK_BLOCK = 'click-block-active';
+	var DEFAULT_EXPIRE = 330;
+	var cbEle, fallbackTimerId;
+	var isShowing = false;
+	/**
+	 * @private
+	 */
+	var ClickBlock = (function () {
+	    function ClickBlock() {
+	        this._enabled = false;
+	    }
+	    ClickBlock.prototype.enable = function () {
+	        cbEle = document.createElement('click-block');
+	        document.body.appendChild(cbEle);
+	        cbEle.addEventListener('touchmove', function (ev) {
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	        });
+	        this._enabled = true;
+	    };
+	    ClickBlock.prototype.show = function (shouldShow, expire) {
+	        if (this._enabled) {
+	            if (shouldShow) {
+	                show(expire);
+	            }
+	            else {
+	                hide();
+	            }
+	        }
+	    };
+	    return ClickBlock;
+	})();
+	exports.ClickBlock = ClickBlock;
+	function show(expire) {
+	    clearTimeout(fallbackTimerId);
+	    fallbackTimerId = setTimeout(hide, expire || DEFAULT_EXPIRE);
+	    if (!isShowing) {
+	        cbEle.classList.add(CSS_CLICK_BLOCK);
+	        isShowing = true;
+	    }
+	}
+	function hide() {
+	    clearTimeout(fallbackTimerId);
+	    if (isShowing) {
+	        cbEle.classList.remove(CSS_CLICK_BLOCK);
+	        isShowing = false;
+	    }
+	}
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	* @ngdoc service
+	* @name Config
+	* @module ionic
+	* @description
+	* Config allows you to set the modes of your components
+	*/
+	var platform_1 = __webpack_require__(161);
+	var util_1 = __webpack_require__(162);
+	/**
+	 * @name Config
+	 * @demo /docs/v2/demos/config/
+	 * @description
+	 * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
+	 *
+	 * ```ts
+	 * @App({
+	 *   template: `<ion-nav [root]="root"></ion-nav>`
+	 *   config: {
+	 *     backButtonText: 'Go Back',
+	 *     iconMode: 'ios',
+	 *     modalEnter: 'modal-slide-in',
+	 *     modalLeave: 'modal-slide-out',
+	 *     tabbarPlacement: 'bottom',
+	 *     pageTransition: 'ios',
+	 *   }
+	 * })
+	 * ```
+	 *
+	 * Or change the whole mode
+	 *
+	 * ```ts
+	 * @App({
+	 *   template: `<ion-nav [root]="root"></ion-nav>`
+	 *   config: {
+	 *     mode: md
+	 *   }
+	 * })
+	 * ```
+	 *
+	 * Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.
+	 * ```ts
+	 * @App({
+	 *   template: `<ion-nav [root]="root"></ion-nav>`
+	 *   config: {
+	 *     tabbarPlacement: 'bottom',
+	 *     platforms: {
+	 *      ios: {
+	 *        tabbarPlacement: 'top',
+	 *      }
+	 *     }
+	 *   }
+	 * })
+	 * ```
+	 *
+	 * We could also configure these values at a component level. Take `tabbarPlacement`, we can configure this as a property on our `ion-tabs`.
+	 *
+	 * ```html
+	 * <ion-tabs tabbarPlacement="top">
+	 *    <ion-tab tabTitle="Dash" tabIcon="pulse" [root]="tabRoot"></ion-tab>
+	 *  </ion-tabs>
+	 * ```
+	 *
+	 * The property will override anything else set in the apps.
+	 *
+	 * The last way we could configure is through URL query strings. This is useful for testing while in the browser.
+	 * Simply add `?ionic<PROPERTYNAME>=<value>` to the url.
+	 *
+	 * ```bash
+	 * http://localhost:8100/?ionicTabbarPlacement=bottom
+	 * ```
+	 *
+	 * Custom values can be added to config, and looked up at a later point in time.
+	 *
+	 * ``` javascript
+	 * config.set('ios', 'favoriteColor', 'green');
+	 * // from any page in your app:
+	 * config.get('favoriteColor'); // 'green'
+	 * ```
+	 *
+	 *
+	 * A config value can come from anywhere and be anything, but there are a default set of values.
+	 *
+	 *
+	 * | Config property            | Default iOS Value      | Default MD Value          |
+	 * |----------------------------|------------------------|---------------------------|
+	 * | activator                  | highlight              | ripple                    |
+	 * | actionSheetEnter           | action-sheet-slide-in  | action-sheet-md-slide-in  |
+	 * | actionSheetLeave           | action-sheet-slide-out | action-sheet-md-slide-out |
+	 * | alertEnter                 | alert-pop-in           | alert-md-pop-in           |
+	 * | alertLeave                 | alert-pop-out          | alert-md-pop-out          |
+	 * | backButtonText             | Back                   |                           |
+	 * | backButtonIcon             | ion-ios-arrow-back     | ion-md-arrow-back         |
+	 * | iconMode                   | ios                    | md                        |
+	 * | menuType                   | reveal                 | overlay                   |
+	 * | modalEnter                 | modal-slide-in         | modal-md-slide-in         |
+	 * | modalLeave                 | modal-slide-out        | modal-md-slide-out        |
+	 * | pageTransition             | ios-transition         | md-transition             |
+	 * | pageTransitionDelay        | 16                     | 120                       |
+	 * | tabbarPlacement            | bottom                 | top                       |
+	 * | tabbarHighlight            |                        | top                       |
+	 * | tabSubPages                |                        | true                      |
+	 *
+	**/
+	var Config = (function () {
+	    function Config(config) {
+	        this._c = {};
+	        this._s = {};
+	        this._s = config && util_1.isObject(config) && !util_1.isArray(config) ? config : {};
+	    }
+	    /**
+	     * For setting and getting multiple config values
+	     */
+	    /**
+	     * @private
+	     * @name settings()
+	     * @description
+	     */
+	    Config.prototype.settings = function () {
+	        var args = arguments;
+	        switch (args.length) {
+	            case 0:
+	                return this._s;
+	            case 1:
+	                // settings({...})
+	                this._s = args[0];
+	                this._c = {}; // clear cache
+	                break;
+	            case 2:
+	                // settings('ios', {...})
+	                this._s.platforms = this._s.platforms || {};
+	                this._s.platforms[args[0]] = args[1];
+	                this._c = {}; // clear cache
+	                break;
+	        }
+	        return this;
+	    };
+	    /**
+	     * @name set
+	     * @description
+	     * Sets a single config value.
+	     *
+	     * @param {String} [platform] - The platform (either 'ios' or 'android') that the config value should apply to. Leaving this blank will apply the config value to all platforms.
+	     * @param {String} [key] - The key used to look up the value at a later point in time.
+	     * @param {String} [value] - The config value being stored.
+	     */
+	    Config.prototype.set = function () {
+	        var args = arguments;
+	        var arg0 = args[0];
+	        var arg1 = args[1];
+	        switch (args.length) {
+	            case 2:
+	                // set('key', 'value') = set key/value pair
+	                // arg1 = value
+	                this._s[arg0] = arg1;
+	                delete this._c[arg0]; // clear cache
+	                break;
+	            case 3:
+	                // setting('ios', 'key', 'value') = set key/value pair for platform
+	                // arg0 = platform
+	                // arg1 = key
+	                // arg2 = value
+	                this._s.platforms = this._s.platforms || {};
+	                this._s.platforms[arg0] = this._s.platforms[arg0] || {};
+	                this._s.platforms[arg0][arg1] = args[2];
+	                delete this._c[arg1]; // clear cache
+	                break;
+	        }
+	        return this;
+	    };
+	    /**
+	     * @name get
+	     * @description
+	     * Returns a single config value, given a key.
+	     *
+	     * @param {String} [key] - the key for the config value
+	     */
+	    Config.prototype.get = function (key) {
+	        if (!util_1.isDefined(this._c[key])) {
+	            if (!util_1.isDefined(key)) {
+	                throw 'config key is not defined';
+	            }
+	            // if the value was already set this will all be skipped
+	            // if there was no user config then it'll check each of
+	            // the user config's platforms, which already contains
+	            // settings from default platform configs
+	            var userPlatformValue = undefined;
+	            var userDefaultValue = this._s[key];
+	            var userPlatformModeValue = undefined;
+	            var userDefaultModeValue = undefined;
+	            var platformValue = undefined;
+	            var platformModeValue = undefined;
+	            var configObj = null;
+	            if (this.platform) {
+	                var queryStringValue = this.platform.query('ionic' + key.toLowerCase());
+	                if (util_1.isDefined(queryStringValue)) {
+	                    return this._c[key] = (queryStringValue === 'true' ? true : queryStringValue === 'false' ? false : queryStringValue);
+	                }
+	                // check the platform settings object for this value
+	                // loop though each of the active platforms
+	                // array of active platforms, which also knows the hierarchy,
+	                // with the last one the most important
+	                var activePlatformKeys = this.platform.platforms();
+	                // loop through all of the active platforms we're on
+	                for (var i = 0, l = activePlatformKeys.length; i < l; i++) {
+	                    // get user defined platform values
+	                    if (this._s.platforms) {
+	                        configObj = this._s.platforms[activePlatformKeys[i]];
+	                        if (configObj) {
+	                            if (util_1.isDefined(configObj[key])) {
+	                                userPlatformValue = configObj[key];
+	                            }
+	                            configObj = Config.getModeConfig(configObj.mode);
+	                            if (configObj && util_1.isDefined(configObj[key])) {
+	                                userPlatformModeValue = configObj[key];
+	                            }
+	                        }
+	                    }
+	                    // get default platform's setting
+	                    configObj = platform_1.Platform.get(activePlatformKeys[i]);
+	                    if (configObj && configObj.settings) {
+	                        if (util_1.isDefined(configObj.settings[key])) {
+	                            // found a setting for this platform
+	                            platformValue = configObj.settings[key];
+	                        }
+	                        configObj = Config.getModeConfig(configObj.settings.mode);
+	                        if (configObj && util_1.isDefined(configObj[key])) {
+	                            // found setting for this platform's mode
+	                            platformModeValue = configObj[key];
+	                        }
+	                    }
+	                }
+	            }
+	            configObj = Config.getModeConfig(this._s.mode);
+	            if (configObj && util_1.isDefined(configObj[key])) {
+	                userDefaultModeValue = configObj[key];
+	            }
+	            // cache the value
+	            this._c[key] = util_1.isDefined(userPlatformValue) ? userPlatformValue :
+	                util_1.isDefined(userDefaultValue) ? userDefaultValue :
+	                    util_1.isDefined(userPlatformModeValue) ? userPlatformModeValue :
+	                        util_1.isDefined(userDefaultModeValue) ? userDefaultModeValue :
+	                            util_1.isDefined(platformValue) ? platformValue :
+	                                util_1.isDefined(platformModeValue) ? platformModeValue :
+	                                    null;
+	        }
+	        // return key's value
+	        // either it came directly from the user config
+	        // or it was from the users platform configs
+	        // or it was from the default platform configs
+	        // in that order
+	        if (util_1.isFunction(this._c[key])) {
+	            return this._c[key](this.platform);
+	        }
+	        return this._c[key];
+	    };
+	    /**
+	     * @name getBoolean
+	     * @description
+	     * Same as `get()`, however always returns a boolean value.
+	     *
+	     * @param {String} [key] - the key for the config value
+	     */
+	    Config.prototype.getBoolean = function (key) {
+	        var val = this.get(key);
+	        return (val || val === 'true') ? true : false;
+	    };
+	    /**
+	     * @private
+	     */
+	    Config.prototype.setPlatform = function (platform) {
+	        this.platform = platform;
+	    };
+	    Config.setModeConfig = function (mode, config) {
+	        modeConfigs[mode] = config;
+	    };
+	    Config.getModeConfig = function (mode) {
+	        return modeConfigs[mode] || null;
+	    };
+	    return Config;
+	})();
+	exports.Config = Config;
+	var modeConfigs = {};
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var util_1 = __webpack_require__(162);
+	var dom_1 = __webpack_require__(163);
+	/**
+	 * @name Platform
+	 * @description
+	 * Platform returns the availble information about your current platform.
+	 * Platforms in Ionic 2 are much more complex then in V1, returns not just a single platform,
+	 * but a hierarchy of information, such as a devices OS, phone vs tablet, or mobile vs browser.
+	 * With this information you can completely custimize your app to fit any device and platform.
+	 *
+	 * @usage
+	 * ```ts
+	 * import {Platform} 'ionic/ionic';
+	 * export MyClass {
+	 *    constructor(platform: Platform){
+	 *      this.platform = platform;
+	 *    }
+	 * }
+	 * ```
+	 * @demo /docs/v2/demos/platform/
+	 */
+	var Platform = (function () {
+	    function Platform(platforms) {
+	        var _this = this;
+	        if (platforms === void 0) { platforms = []; }
+	        this._versions = {};
+	        this._onResizes = [];
+	        this._platforms = platforms;
+	        this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
+	    }
+	    // Methods
+	    // **********************************************
+	    /**
+	     * @param {string} platformName
+	     * @returns {bool} returns true/false based on platform you place
+	     * @description
+	     * Depending on the platform name, isPlatform will return true or flase
+	     *
+	     * ```
+	     * import {Platform} 'ionic/ionic';
+	     * export MyClass {
+	     *    constructor(platform: Platform){
+	     *      this.platform = platform;
+	     *      if(this.platform.is('ios'){
+	     *        // what ever you need to do for
+	     *        // if the platfomr is ios
+	     *      }
+	     *    }
+	     * }
+	     * ```
+	     */
+	    Platform.prototype.is = function (platformName) {
+	        return (this._platforms.indexOf(platformName) > -1);
+	    };
+	    /**
+	     * @returns {array} the array of platforms
+	     * @description
+	     * Depending on what device you are on, `platforms` can return multiple values.
+	     * Each possible value is a hierarchy of platforms. For example, on an iPhone,
+	     * it would return mobile, ios, and iphone.
+	     *
+	     * ```
+	     * import {Platform} 'ionic/ionic';
+	     * export MyClass {
+	     *    constructor(platform: Platform){
+	     *      this.platform = platform;
+	     *      console.log(this.platform.platforms());
+	     *      // This will return an array of all the availble platforms
+	     *      // From if your on mobile, to mobile os, and device name
+	     *    }
+	     * }
+	     * ```
+	     */
+	    Platform.prototype.platforms = function () {
+	        // get the array of active platforms, which also knows the hierarchy,
+	        // with the last one the most important
+	        return this._platforms;
+	    };
+	    /**
+	     * Returns an object containing information about the paltform
+	     *
+	     * ```
+	     * import {Platform} 'ionic/ionic';
+	     * export MyClass {
+	     *    constructor(platform: Platform){
+	     *      this.platform = platform;
+	     *      console.log(this.platform.versions());
+	     *    }
+	     * }
+	     * ```
+	  
+	     * @param {string} [platformName] optional platformName
+	     * @returns {object} An object with various platform info
+	     *
+	     */
+	    Platform.prototype.versions = function (platformName) {
+	        if (arguments.length) {
+	            // get a specific platform's version
+	            return this._versions[platformName];
+	        }
+	        // get all the platforms that have a valid parsed version
+	        return this._versions;
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.version = function () {
+	        for (var platformName in this._versions) {
+	            if (this._versions[platformName]) {
+	                return this._versions[platformName];
+	            }
+	        }
+	        return {};
+	    };
+	    /**
+	     * Returns a promise when the platform is ready and native functionality can be called
+	     *
+	     * ```
+	     * import {Platform} 'ionic/ionic';
+	     * export MyClass {
+	     *    constructor(platform: Platform){
+	     *      this.platform = platform;
+	     *      this.platform.ready().then(() => {
+	     *        console.log('Platform ready');
+	     *        // The platform is now ready, execute any native code you want
+	     *       });
+	     *    }
+	     * }
+	     * ```
+	     * @returns {promise} Returns a promsie when device ready has fired
+	     */
+	    Platform.prototype.ready = function () {
+	        return this._readyPromise;
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.prepareReady = function (config) {
+	        var self = this;
+	        function resolve() {
+	            self._readyResolve(config);
+	        }
+	        if (this._engineReady) {
+	            // the engine provide a ready promise, use this instead
+	            this._engineReady(resolve);
+	        }
+	        else {
+	            // there is no custom ready method from the engine
+	            // use the default dom ready
+	            dom_1.ready(resolve);
+	        }
+	    };
+	    /**
+	    * Set the app's language direction, which will update the `dir` attribute
+	    * on the app's root `<html>` element. We recommend the app's `index.html`
+	    * file already has the correct `dir` attribute value set, such as
+	    * `<html dir="ltr">` or `<html dir="rtl">`. This method is useful if the
+	    * direction needs to be dynamically changed per user/session.
+	    * [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
+	    * @param {string} dir  Examples: `rtl`, `ltr`
+	    */
+	    Platform.prototype.setDir = function (dir, updateDocument) {
+	        this._dir = (dir || '').toLowerCase();
+	        if (updateDocument !== false) {
+	            document.documentElement.setAttribute('dir', dir);
+	        }
+	    };
+	    /**
+	     * Returns app's language direction.
+	     * We recommend the app's `index.html` file already has the correct `dir`
+	     * attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
+	     * [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
+	     * @returns {string}
+	     */
+	    Platform.prototype.dir = function () {
+	        return this._dir;
+	    };
+	    /**
+	     * Returns if this app is using right-to-left language direction or not.
+	     * We recommend the app's `index.html` file already has the correct `dir`
+	     * attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
+	     * [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
+	     * @returns {boolean}
+	     */
+	    Platform.prototype.isRTL = function () {
+	        return (this._dir === 'rtl');
+	    };
+	    /**
+	    * Set the app's language and optionally the country code, which will update
+	    * the `lang` attribute on the app's root `<html>` element.
+	    * We recommend the app's `index.html` file already has the correct `lang`
+	    * attribute value set, such as `<html lang="en">`. This method is useful if
+	    * the language needs to be dynamically changed per user/session.
+	    * [W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
+	    * @param {string} language  Examples: `en-US`, `en-GB`, `ar`, `de`, `zh`, `es-MX`
+	    */
+	    Platform.prototype.setLang = function (language, updateDocument) {
+	        this._lang = language;
+	        if (updateDocument !== false) {
+	            document.documentElement.setAttribute('lang', language);
+	        }
+	    };
+	    /**
+	     * Returns app's language and optional country code.
+	     * We recommend the app's `index.html` file already has the correct `lang`
+	     * attribute value set, such as `<html lang="en">`.
+	     * [W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
+	     * @returns {string}
+	     */
+	    Platform.prototype.lang = function () {
+	        return this._lang;
+	    };
+	    // Methods meant to be overridden by the engine
+	    // **********************************************
+	    // Provided NOOP methods so they do not error when
+	    // called by engines (the browser) doesn't provide them
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.on = function () { };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.onHardwareBackButton = function () { };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.registerBackButtonAction = function () { };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.exitApp = function () { };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.fullScreen = function () { };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.showStatusBar = function () { };
+	    // Getter/Setter Methods
+	    // **********************************************
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.setUrl = function (url) {
+	        this._url = url;
+	        this._qs = util_1.getQuerystring(url);
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.url = function () {
+	        return this._url;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.query = function (key) {
+	        return (this._qs || {})[key];
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.setUserAgent = function (userAgent) {
+	        this._ua = userAgent;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.userAgent = function () {
+	        return this._ua || '';
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.setNavigatorPlatform = function (navigatorPlatform) {
+	        this._bPlt = navigatorPlatform;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.navigatorPlatform = function () {
+	        return this._bPlt || '';
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.width = function () {
+	        return dom_1.windowDimensions().width;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.height = function () {
+	        return dom_1.windowDimensions().height;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.isPortrait = function () {
+	        return this.width() < this.height();
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.isLandscape = function () {
+	        return !this.isPortrait();
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.windowResize = function () {
+	        var self = this;
+	        clearTimeout(self._resizeTimer);
+	        self._resizeTimer = setTimeout(function () {
+	            dom_1.flushDimensionCache();
+	            for (var i = 0; i < self._onResizes.length; i++) {
+	                try {
+	                    self._onResizes[i]();
+	                }
+	                catch (e) {
+	                    console.error(e);
+	                }
+	            }
+	        }, 250);
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.onResize = function (cb) {
+	        this._onResizes.push(cb);
+	    };
+	    // Platform Registry
+	    // **********************************************
+	    /**
+	     * @private
+	     */
+	    Platform.register = function (platformConfig) {
+	        platformRegistry[platformConfig.name] = platformConfig;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.registry = function () {
+	        return platformRegistry;
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.get = function (platformName) {
+	        return platformRegistry[platformName] || {};
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.setDefault = function (platformName) {
+	        platformDefault = platformName;
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.testQuery = function (queryValue, queryTestValue) {
+	        var valueSplit = queryValue.toLowerCase().split(';');
+	        return valueSplit.indexOf(queryTestValue) > -1;
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.testUserAgent = function (userAgentExpression) {
+	        var rgx = new RegExp(userAgentExpression, 'i');
+	        return rgx.test(this._ua || '');
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.testNavigatorPlatform = function (navigatorPlatformExpression) {
+	        var rgx = new RegExp(navigatorPlatformExpression, 'i');
+	        return rgx.test(this._bPlt);
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.matchUserAgentVersion = function (userAgentExpression) {
+	        if (this._ua && userAgentExpression) {
+	            var val = this._ua.match(userAgentExpression);
+	            if (val) {
+	                return {
+	                    major: val[1],
+	                    minor: val[2]
+	                };
+	            }
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.isPlatform = function (queryTestValue, userAgentExpression) {
+	        if (!userAgentExpression) {
+	            userAgentExpression = queryTestValue;
+	        }
+	        var queryValue = this.query('ionicplatform');
+	        if (queryValue) {
+	            return this.testQuery(queryValue, queryTestValue);
+	        }
+	        return this.testUserAgent(userAgentExpression);
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.load = function (platformOverride) {
+	        var rootPlatformNode = null;
+	        var engineNode = null;
+	        var self = this;
+	        this.platformOverride = platformOverride;
+	        // figure out the most specific platform and active engine
+	        var tmpPlatform = null;
+	        for (var platformName in platformRegistry) {
+	            tmpPlatform = this.matchPlatform(platformName);
+	            if (tmpPlatform) {
+	                // we found a platform match!
+	                // check if its more specific than the one we already have
+	                if (tmpPlatform.isEngine) {
+	                    // because it matched then this should be the active engine
+	                    // you cannot have more than one active engine
+	                    engineNode = tmpPlatform;
+	                }
+	                else if (!rootPlatformNode || tmpPlatform.depth > rootPlatformNode.depth) {
+	                    // only find the root node for platforms that are not engines
+	                    // set this node as the root since we either don't already
+	                    // have one, or this one is more specific that the current one
+	                    rootPlatformNode = tmpPlatform;
+	                }
+	            }
+	        }
+	        if (!rootPlatformNode) {
+	            rootPlatformNode = new PlatformNode(platformDefault);
+	        }
+	        // build a Platform instance filled with the
+	        // hierarchy of active platforms and settings
+	        if (rootPlatformNode) {
+	            // check if we found an engine node (cordova/node-webkit/etc)
+	            if (engineNode) {
+	                // add the engine to the first in the platform hierarchy
+	                // the original rootPlatformNode now becomes a child
+	                // of the engineNode, which is not the new root
+	                engineNode.child = rootPlatformNode;
+	                rootPlatformNode.parent = engineNode;
+	                rootPlatformNode = engineNode;
+	                // add any events which the engine would provide
+	                // for example, Cordova provides its own ready event
+	                var engineMethods = engineNode.methods();
+	                engineMethods._engineReady = engineMethods.ready;
+	                delete engineMethods.ready;
+	                util_1.assign(this, engineMethods);
+	            }
+	            var platformNode = rootPlatformNode;
+	            while (platformNode) {
+	                insertSuperset(platformNode);
+	                platformNode = platformNode.child;
+	            }
+	            // make sure the root noot is actually the root
+	            // incase a node was inserted before the root
+	            platformNode = rootPlatformNode.parent;
+	            while (platformNode) {
+	                rootPlatformNode = platformNode;
+	                platformNode = platformNode.parent;
+	            }
+	            platformNode = rootPlatformNode;
+	            while (platformNode) {
+	                // set the array of active platforms with
+	                // the last one in the array the most important
+	                this._platforms.push(platformNode.name());
+	                // get the platforms version if a version parser was provided
+	                this._versions[platformNode.name()] = platformNode.version(this);
+	                // go to the next platform child
+	                platformNode = platformNode.child;
+	            }
+	        }
+	        if (this._platforms.indexOf('mobile') > -1 && this._platforms.indexOf('cordova') === -1) {
+	            this._platforms.push('mobileweb');
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.matchPlatform = function (platformName) {
+	        // build a PlatformNode and assign config data to it
+	        // use it's getRoot method to build up its hierarchy
+	        // depending on which platforms match
+	        var platformNode = new PlatformNode(platformName);
+	        var rootNode = platformNode.getRoot(this);
+	        if (rootNode) {
+	            rootNode.depth = 0;
+	            var childPlatform = rootNode.child;
+	            while (childPlatform) {
+	                rootNode.depth++;
+	                childPlatform = childPlatform.child;
+	            }
+	        }
+	        return rootNode;
+	    };
+	    return Platform;
+	})();
+	exports.Platform = Platform;
+	function insertSuperset(platformNode) {
+	    var supersetPlaformName = platformNode.superset();
+	    if (supersetPlaformName) {
+	        // add a platform in between two exist platforms
+	        // so we can build the correct hierarchy of active platforms
+	        var supersetPlatform = new PlatformNode(supersetPlaformName);
+	        supersetPlatform.parent = platformNode.parent;
+	        supersetPlatform.child = platformNode;
+	        if (supersetPlatform.parent) {
+	            supersetPlatform.parent.child = supersetPlatform;
+	        }
+	        platformNode.parent = supersetPlatform;
+	    }
+	}
+	var PlatformNode = (function () {
+	    function PlatformNode(platformName) {
+	        this.c = Platform.get(platformName);
+	        this.isEngine = this.c.isEngine;
+	    }
+	    PlatformNode.prototype.name = function () {
+	        return this.c.name;
+	    };
+	    PlatformNode.prototype.settings = function () {
+	        return this.c.settings || {};
+	    };
+	    PlatformNode.prototype.superset = function () {
+	        return this.c.superset;
+	    };
+	    PlatformNode.prototype.methods = function () {
+	        return this.c.methods || {};
+	    };
+	    PlatformNode.prototype.isMatch = function (p) {
+	        if (p.platformOverride && !this.isEngine) {
+	            return (p.platformOverride === this.c.name);
+	        }
+	        else if (!this.c.isMatch) {
+	            return false;
+	        }
+	        return this.c.isMatch(p);
+	    };
+	    PlatformNode.prototype.version = function (p) {
+	        if (this.c.versionParser) {
+	            var v = this.c.versionParser(p);
+	            if (v) {
+	                var str = v.major + '.' + v.minor;
+	                return {
+	                    str: str,
+	                    num: parseFloat(str),
+	                    major: parseInt(v.major, 10),
+	                    minor: parseInt(v.minor, 10)
+	                };
+	            }
+	        }
+	    };
+	    PlatformNode.prototype.getRoot = function (p) {
+	        if (this.isMatch(p)) {
+	            var parents = this.getSubsetParents(this.name());
+	            if (!parents.length) {
+	                return this;
+	            }
+	            var platform = null;
+	            var rootPlatform = null;
+	            for (var i = 0; i < parents.length; i++) {
+	                platform = new PlatformNode(parents[i]);
+	                platform.child = this;
+	                rootPlatform = platform.getRoot(p);
+	                if (rootPlatform) {
+	                    this.parent = platform;
+	                    return rootPlatform;
+	                }
+	            }
+	        }
+	        return null;
+	    };
+	    PlatformNode.prototype.getSubsetParents = function (subsetPlatformName) {
+	        var platformRegistry = Platform.registry();
+	        var parentPlatformNames = [];
+	        var platform = null;
+	        for (var platformName in platformRegistry) {
+	            platform = platformRegistry[platformName];
+	            if (platform.subsets && platform.subsets.indexOf(subsetPlatformName) > -1) {
+	                parentPlatformNames.push(platformName);
+	            }
+	        }
+	        return parentPlatformNames;
+	    };
+	    return PlatformNode;
+	})();
+	var platformRegistry = {};
+	var platformDefault = null;
+
+/***/ },
+/* 162 */
+/***/ function(module, exports) {
+
+	// Simple noop function
+	function noop() { }
+	exports.noop = noop;
+	;
+	/**
+	 * Given a min and max, restrict the given number
+	 * to the range.
+	 * @param min the minimum
+	 * @param n the value
+	 * @param max the maximum
+	 */
+	function clamp(min, n, max) {
+	    return Math.max(min, Math.min(n, max));
+	}
+	exports.clamp = clamp;
+	/**
+	 * The assign() method is used to copy the values of all enumerable own
+	 * properties from one or more source objects to a target object. It will
+	 * return the target object. When available, this method will use
+	 * `Object.assign()` under-the-hood.
+	 * @param target  The target object
+	 * @param source(s)  The source object
+	 */
+	function assign() {
+	    var args = [];
+	    for (var _i = 0; _i < arguments.length; _i++) {
+	        args[_i - 0] = arguments[_i];
+	    }
+	    if (typeof Object.assign !== 'function') {
+	        // use the old-school shallow extend method
+	        return _baseExtend(args[0], [].slice.call(args, 1), false);
+	    }
+	    // use the built in ES6 Object.assign method
+	    return Object.assign.apply(null, args);
+	}
+	exports.assign = assign;
+	/**
+	 * Do a deep extend (merge).
+	 * @param dst the destination
+	 * @param ... the param objects
+	 */
+	function merge(dst) {
+	    var args = [];
+	    for (var _i = 1; _i < arguments.length; _i++) {
+	        args[_i - 1] = arguments[_i];
+	    }
+	    return _baseExtend(dst, [].slice.call(arguments, 1), true);
+	}
+	exports.merge = merge;
+	function _baseExtend(dst, objs, deep) {
+	    for (var i = 0, ii = objs.length; i < ii; ++i) {
+	        var obj = objs[i];
+	        if (!obj || !exports.isObject(obj) && !exports.isFunction(obj))
+	            continue;
+	        var keys = Object.keys(obj);
+	        for (var j = 0, jj = keys.length; j < jj; j++) {
+	            var key = keys[j];
+	            var src = obj[key];
+	            if (deep && exports.isObject(src)) {
+	                if (!exports.isObject(dst[key]))
+	                    dst[key] = exports.isArray(src) ? [] : {};
+	                _baseExtend(dst[key], [src], true);
+	            }
+	            else {
+	                dst[key] = src;
+	            }
+	        }
+	    }
+	    return dst;
+	}
+	function debounce(func, wait, immediate) {
+	    if (immediate === void 0) { immediate = false; }
+	    var timeout, args, context, timestamp, result;
+	    return function () {
+	        context = this;
+	        args = arguments;
+	        timestamp = Date.now();
+	        var later = function () {
+	            var last = Date.now() - timestamp;
+	            if (last < wait) {
+	                timeout = setTimeout(later, wait - last);
+	            }
+	            else {
+	                timeout = null;
+	                if (!immediate)
+	                    result = func.apply(context, args);
+	            }
+	        };
+	        var callNow = immediate && !timeout;
+	        if (!timeout) {
+	            timeout = setTimeout(later, wait);
+	        }
+	        if (callNow)
+	            result = func.apply(context, args);
+	        return result;
+	    };
+	}
+	exports.debounce = debounce;
+	/**
+	 * Apply default arguments if they don't exist in
+	 * the first object.
+	 * @param the destination to apply defaults to.
+	 */
+	function defaults(dest) {
+	    var args = [];
+	    for (var _i = 1; _i < arguments.length; _i++) {
+	        args[_i - 1] = arguments[_i];
+	    }
+	    for (var i = arguments.length - 1; i >= 1; i--) {
+	        var source = arguments[i] || {};
+	        for (var key in source) {
+	            if (source.hasOwnProperty(key) && !dest.hasOwnProperty(key)) {
+	                dest[key] = source[key];
+	            }
+	        }
+	    }
+	    return dest;
+	}
+	exports.defaults = defaults;
+	exports.isBoolean = function (val) { return typeof val === 'boolean'; };
+	exports.isString = function (val) { return typeof val === 'string'; };
+	exports.isNumber = function (val) { return typeof val === 'number'; };
+	exports.isFunction = function (val) { return typeof val === 'function'; };
+	exports.isDefined = function (val) { return typeof val !== 'undefined'; };
+	exports.isUndefined = function (val) { return typeof val === 'undefined'; };
+	exports.isBlank = function (val) { return val === undefined || val === null; };
+	exports.isObject = function (val) { return typeof val === 'object'; };
+	exports.isArray = Array.isArray;
+	exports.isTrueProperty = function (val) {
+	    if (typeof val === 'boolean')
+	        return val;
+	    if (typeof val === 'string') {
+	        val = val.toLowerCase().trim();
+	        return (val === 'true' || val === '');
+	    }
+	    if (typeof val === 'number')
+	        return (val > 0);
+	    return !!val;
+	};
+	/**
+	 * Convert a string in the format thisIsAString to a slug format this-is-a-string
+	 */
+	function pascalCaseToDashCase(str) {
+	    if (str === void 0) { str = ''; }
+	    return str.charAt(0).toLowerCase() + str.substring(1).replace(/[A-Z]/g, function (match) {
+	        return '-' + match.toLowerCase();
+	    });
+	}
+	exports.pascalCaseToDashCase = pascalCaseToDashCase;
+	var uid = 0;
+	function nextUid() {
+	    return ++uid;
+	}
+	exports.nextUid = nextUid;
+	exports.array = {
+	    find: function (arr, cb) {
+	        for (var i = 0, ii = arr.length; i < ii; i++) {
+	            if (cb(arr[i], i))
+	                return arr[i];
+	        }
+	    },
+	    remove: function (arr, itemOrIndex) {
+	        var index = -1;
+	        if (exports.isNumber(itemOrIndex)) {
+	            index = itemOrIndex;
+	        }
+	        else {
+	            index = arr.indexOf(itemOrIndex);
+	        }
+	        if (index < 0) {
+	            return false;
+	        }
+	        arr.splice(index, 1);
+	        return true;
+	    }
+	};
+	/**
+	 * Grab all query strings keys and values.
+	 * @param url
+	 */
+	function getQuerystring(url) {
+	    var queryParams = {};
+	    if (url) {
+	        var startIndex = url.indexOf('?');
+	        if (startIndex !== -1) {
+	            var queries = url.slice(startIndex + 1).split('&');
+	            queries.forEach(function (param) {
+	                var split = param.split('=');
+	                queryParams[split[0].toLowerCase()] = split[1].split('#')[0];
+	            });
+	        }
+	    }
+	    return queryParams;
+	}
+	exports.getQuerystring = getQuerystring;
+	/**
+	 * Throttle the given fun, only allowing it to be
+	 * called at most every `wait` ms.
+	 */
+	function throttle(func, wait, options) {
+	    var context, args, result;
+	    var timeout = null;
+	    var previous = 0;
+	    options || (options = {});
+	    var later = function () {
+	        previous = options.leading === false ? 0 : Date.now();
+	        timeout = null;
+	        result = func.apply(context, args);
+	    };
+	    return function () {
+	        var now = Date.now();
+	        if (!previous && options.leading === false)
+	            previous = now;
+	        var remaining = wait - (now - previous);
+	        context = this;
+	        args = arguments;
+	        if (remaining <= 0) {
+	            clearTimeout(timeout);
+	            timeout = null;
+	            previous = now;
+	            result = func.apply(context, args);
+	        }
+	        else if (!timeout && options.trailing !== false) {
+	            timeout = setTimeout(later, remaining);
+	        }
+	        return result;
+	    };
+	}
+	exports.throttle = throttle;
+
+/***/ },
+/* 163 */
+/***/ function(module, exports) {
+
+	var win = window;
+	var doc = document;
+	var docEle = doc.documentElement;
+	// requestAnimationFrame is polyfilled for old Android
+	// within the web-animations polyfill
+	exports.raf = win.requestAnimationFrame;
+	function rafFrames(framesToWait, callback) {
+	    framesToWait = Math.ceil(framesToWait);
+	    if (framesToWait < 2) {
+	        exports.raf(callback);
+	    }
+	    else {
+	        setTimeout(function () {
+	            exports.raf(callback);
+	        }, (framesToWait - 1) * 17);
+	    }
+	}
+	exports.rafFrames = rafFrames;
+	exports.CSS = {};
+	(function () {
+	    // transform
+	    var i, keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
+	        '-moz-transform', 'moz-transform', 'MozTransform', 'mozTransform', 'msTransform'];
+	    for (i = 0; i < keys.length; i++) {
+	        if (docEle.style[keys[i]] !== undefined) {
+	            exports.CSS.transform = keys[i];
+	            break;
+	        }
+	    }
+	    // transition
+	    keys = ['webkitTransition', 'mozTransition', 'msTransition', 'transition'];
+	    for (i = 0; i < keys.length; i++) {
+	        if (docEle.style[keys[i]] !== undefined) {
+	            exports.CSS.transition = keys[i];
+	            break;
+	        }
+	    }
+	    // The only prefix we care about is webkit for transitions.
+	    var isWebkit = exports.CSS.transition.indexOf('webkit') > -1;
+	    // transition duration
+	    exports.CSS.transitionDuration = (isWebkit ? '-webkit-' : '') + 'transition-duration';
+	    // To be sure transitionend works everywhere, include *both* the webkit and non-webkit events
+	    exports.CSS.transitionEnd = (isWebkit ? 'webkitTransitionEnd ' : '') + 'transitionend';
+	})();
+	if (win.onanimationend === undefined && win.onwebkitanimationend !== undefined) {
+	    exports.CSS.animationStart = 'webkitAnimationStart animationstart';
+	    exports.CSS.animationEnd = 'webkitAnimationEnd animationend';
+	}
+	else {
+	    exports.CSS.animationStart = 'animationstart';
+	    exports.CSS.animationEnd = 'animationend';
+	}
+	function transitionEnd(el) {
+	    return cssPromise(el, exports.CSS.transitionEnd);
+	}
+	exports.transitionEnd = transitionEnd;
+	function animationStart(el, animationName) {
+	    return cssPromise(el, exports.CSS.animationStart, animationName);
+	}
+	exports.animationStart = animationStart;
+	function animationEnd(el, animationName) {
+	    return cssPromise(el, exports.CSS.animationEnd, animationName);
+	}
+	exports.animationEnd = animationEnd;
+	function cssPromise(el, eventNames, animationName) {
+	    return new Promise(function (resolve) {
+	        eventNames.split(' ').forEach(function (eventName) {
+	            el.addEventListener(eventName, onEvent);
+	        });
+	        function onEvent(ev) {
+	            if (ev.animationName && animationName) {
+	                // do not resolve if a bubbled up ev.animationName
+	                // is not the same as the passed in animationName arg
+	                if (ev.animationName !== animationName) {
+	                    return;
+	                }
+	            }
+	            else if (ev.target !== el) {
+	                // do not resolve if the event's target element is not
+	                // the same as the element the listener was added to
+	                return;
+	            }
+	            ev.stopPropagation();
+	            eventNames.split(' ').forEach(function (eventName) {
+	                el.removeEventListener(eventName, onEvent);
+	            });
+	            resolve(ev);
+	        }
+	    });
+	}
+	function ready(callback) {
+	    var promise = null;
+	    if (!callback) {
+	        // a callback wasn't provided, so let's return a promise instead
+	        promise = new Promise(function (resolve) { callback = resolve; });
+	    }
+	    if (doc.readyState === 'complete' || doc.readyState === 'interactive') {
+	        callback();
+	    }
+	    else {
+	        function completed() {
+	            doc.removeEventListener('DOMContentLoaded', completed, false);
+	            win.removeEventListener('load', completed, false);
+	            callback();
+	        }
+	        doc.addEventListener('DOMContentLoaded', completed, false);
+	        win.addEventListener('load', completed, false);
+	    }
+	    return promise;
+	}
+	exports.ready = ready;
+	function windowLoad(callback) {
+	    var promise = null;
+	    if (!callback) {
+	        // a callback wasn't provided, so let's return a promise instead
+	        promise = new Promise(function (resolve) { callback = resolve; });
+	    }
+	    if (doc.readyState === 'complete') {
+	        callback();
+	    }
+	    else {
+	        function completed() {
+	            win.removeEventListener('load', completed, false);
+	            callback();
+	        }
+	        win.addEventListener('load', completed, false);
+	    }
+	    return promise;
+	}
+	exports.windowLoad = windowLoad;
+	function pointerCoord(ev) {
+	    // get coordinates for either a mouse click
+	    // or a touch depending on the given event
+	    var c = { x: 0, y: 0 };
+	    if (ev) {
+	        var touches = ev.touches && ev.touches.length ? ev.touches : [ev];
+	        var e = (ev.changedTouches && ev.changedTouches[0]) || touches[0];
+	        if (e) {
+	            c.x = e.clientX || e.pageX || 0;
+	            c.y = e.clientY || e.pageY || 0;
+	        }
+	    }
+	    return c;
+	}
+	exports.pointerCoord = pointerCoord;
+	function hasPointerMoved(threshold, startCoord, endCoord) {
+	    return startCoord && endCoord &&
+	        (Math.abs(startCoord.x - endCoord.x) > threshold || Math.abs(startCoord.y - endCoord.y) > threshold);
+	}
+	exports.hasPointerMoved = hasPointerMoved;
+	function isActive(ele) {
+	    return !!(ele && (doc.activeElement === ele));
+	}
+	exports.isActive = isActive;
+	function hasFocus(ele) {
+	    return isActive(ele) && (ele.parentElement.querySelector(':focus') === ele);
+	}
+	exports.hasFocus = hasFocus;
+	function isTextInput(ele) {
+	    return !!ele &&
+	        (ele.tagName == 'TEXTAREA' ||
+	            ele.contentEditable === 'true' ||
+	            (ele.tagName == 'INPUT' && !(/^(radio|checkbox|range|file|submit|reset|color|image|button)$/i).test(ele.type)));
+	}
+	exports.isTextInput = isTextInput;
+	function hasFocusedTextInput() {
+	    var ele = doc.activeElement;
+	    if (isTextInput(ele)) {
+	        return (ele.parentElement.querySelector(':focus') === ele);
+	    }
+	    return false;
+	}
+	exports.hasFocusedTextInput = hasFocusedTextInput;
+	var skipInputAttrsReg = /^(value|checked|disabled|type|class|style|id)$/i;
+	function copyInputAttributes(srcElement, destElement) {
+	    // copy attributes from one element to another
+	    // however, skip over a few of them as they're already
+	    // handled in the angular world
+	    var attrs = srcElement.attributes;
+	    for (var i = 0; i < attrs.length; i++) {
+	        var attr = attrs[i];
+	        if (!skipInputAttrsReg.test(attr.name)) {
+	            destElement.setAttribute(attr.name, attr.value);
+	        }
+	    }
+	}
+	exports.copyInputAttributes = copyInputAttributes;
+	var matchesFn;
+	var matchesMethods = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'];
+	matchesMethods.some(function (fn) {
+	    if (typeof docEle[fn] == 'function') {
+	        matchesFn = fn;
+	        return true;
+	    }
+	});
+	function closest(ele, selector, checkSelf) {
+	    if (ele && matchesFn) {
+	        // traverse parents
+	        ele = (checkSelf ? ele : ele.parentElement);
+	        while (ele !== null) {
+	            if (ele[matchesFn](selector)) {
+	                return ele;
+	            }
+	            ele = ele.parentElement;
+	        }
+	    }
+	    return null;
+	}
+	exports.closest = closest;
+	function removeElement(ele) {
+	    ele && ele.parentNode && ele.parentNode.removeChild(ele);
+	}
+	exports.removeElement = removeElement;
+	/**
+	 * Get the element offsetWidth and offsetHeight. Values are cached
+	 * to reduce DOM reads. Cache is cleared on a window resize.
+	 * @param {TODO} ele  TODO
+	 */
+	function getDimensions(ele, id) {
+	    var dimensions = dimensionCache[id];
+	    if (!dimensions) {
+	        // make sure we got good values before caching
+	        if (ele.offsetWidth && ele.offsetHeight) {
+	            dimensions = dimensionCache[id] = {
+	                width: ele.offsetWidth,
+	                height: ele.offsetHeight,
+	                left: ele.offsetLeft,
+	                top: ele.offsetTop
+	            };
+	        }
+	        else {
+	            // do not cache bad values
+	            return { width: 0, height: 0, left: 0, top: 0 };
+	        }
+	    }
+	    return dimensions;
+	}
+	exports.getDimensions = getDimensions;
+	function windowDimensions() {
+	    if (!dimensionCache.win) {
+	        // make sure we got good values before caching
+	        if (win.innerWidth && win.innerHeight) {
+	            dimensionCache.win = {
+	                width: win.innerWidth,
+	                height: win.innerHeight
+	            };
+	        }
+	        else {
+	            // do not cache bad values
+	            return { width: 0, height: 0 };
+	        }
+	    }
+	    return dimensionCache.win;
+	}
+	exports.windowDimensions = windowDimensions;
+	function flushDimensionCache() {
+	    dimensionCache = {};
+	}
+	exports.flushDimensionCache = flushDimensionCache;
+	var dimensionCache = {};
+	function isStaticPositioned(element) {
+	    return (element.style.position || 'static') === 'static';
+	}
+	/**
+	 * returns the closest, non-statically positioned parentOffset of a given element
+	 * @param element
+	 */
+	function parentOffsetEl(element) {
+	    var offsetParent = element.offsetParent || doc;
+	    while (offsetParent && offsetParent !== doc && isStaticPositioned(offsetParent)) {
+	        offsetParent = offsetParent.offsetParent;
+	    }
+	    return offsetParent || doc;
+	}
+	exports.parentOffsetEl = parentOffsetEl;
+	;
+	/**
+	 * Get the current coordinates of the element, relative to the offset parent.
+	 * Read-only equivalent of [jQuery's position function](http://api.jquery.com/position/).
+	 * @param {element} element The element to get the position of.
+	 * @returns {object} Returns an object containing the properties top, left, width and height.
+	 */
+	function position(element) {
+	    var elBCR = offset(element);
+	    var offsetParentBCR = { top: 0, left: 0 };
+	    var offsetParentEl = parentOffsetEl(element);
+	    if (offsetParentEl != doc) {
+	        offsetParentBCR = offset(offsetParentEl);
+	        offsetParentBCR.top += offsetParentEl.clientTop - offsetParentEl.scrollTop;
+	        offsetParentBCR.left += offsetParentEl.clientLeft - offsetParentEl.scrollLeft;
+	    }
+	    var boundingClientRect = element.getBoundingClientRect();
+	    return {
+	        width: boundingClientRect.width || element.offsetWidth,
+	        height: boundingClientRect.height || element.offsetHeight,
+	        top: elBCR.top - offsetParentBCR.top,
+	        left: elBCR.left - offsetParentBCR.left
+	    };
+	}
+	exports.position = position;
+	/**
+	* Get the current coordinates of the element, relative to the doc.
+	* Read-only equivalent of [jQuery's offset function](http://api.jquery.com/offset/).
+	* @param {element} element The element to get the offset of.
+	* @returns {object} Returns an object containing the properties top, left, width and height.
+	*/
+	function offset(element) {
+	    var boundingClientRect = element.getBoundingClientRect();
+	    return {
+	        width: boundingClientRect.width || element.offsetWidth,
+	        height: boundingClientRect.height || element.offsetHeight,
+	        top: boundingClientRect.top + (win.pageYOffset || docEle.scrollTop),
+	        left: boundingClientRect.left + (win.pageXOffset || docEle.scrollLeft)
+	    };
+	}
+	exports.offset = offset;
+
+/***/ },
+/* 164 */
+/***/ function(module, exports) {
+
+	/**
+	 * @name Events
+	 * @description
+	 * Events is a pub/sub style event system for sending and responding to application-level
+	 * events across your app.
+	 * @usage
+	 * ```ts
+	 * // first page (publish an event when a user is created)
+	 * function createUser(user) {
+	 *   console.log('User created!')
+	 *   events.publish('user:created', user);
+	 * }
+	 *
+	 * // second page (listen for the user created event)
+	 * events.subscribe('user:created', (user) => {
+	 *   console.log('Welcome', user);
+	 * });
+	 *
+	 * ```
+	 * @demo /docs/v2/demos/events/
+	 */
+	var Events = (function () {
+	    function Events() {
+	        this._channels = [];
+	    }
+	    /**
+	     * Subscribe to an event topic. Events that get posted to that topic will trigger the provided handler.
+	     *
+	     * @param {String} topic the topic to subscribe to
+	     * @param {Function} handler the event handler
+	     */
+	    Events.prototype.subscribe = function (topic) {
+	        var _this = this;
+	        var handlers = [];
+	        for (var _i = 1; _i < arguments.length; _i++) {
+	            handlers[_i - 1] = arguments[_i];
+	        }
+	        if (!this._channels[topic]) {
+	            this._channels[topic] = [];
+	        }
+	        handlers.forEach(function (handler) {
+	            _this._channels[topic].push(handler);
+	        });
+	    };
+	    /**
+	     * Unsubscribe from the given topic. Your handler will no longer receive events published to this topic.
+	     *
+	     * @param {String} topic the topic to unsubscribe from
+	     * @param {Function} handler the event handler
+	     *
+	     * @return true if a handler was removed
+	     */
+	    Events.prototype.unsubscribe = function (topic, handler) {
+	        var t = this._channels[topic];
+	        if (!t) {
+	            // Wasn't found, wasn't removed
+	            return false;
+	        }
+	        if (!handler) {
+	            // Remove all handlers for this topic
+	            delete this._channels[topic];
+	            return true;
+	        }
+	        // We need to find and remove a specific handler
+	        var i = t.indexOf(handler);
+	        if (i < 0) {
+	            // Wasn't found, wasn't removed
+	            return false;
+	        }
+	        t.splice(i, 1);
+	        // If the channel is empty now, remove it from the channel map
+	        if (!t.length) {
+	            delete this._channels[topic];
+	        }
+	        return true;
+	    };
+	    /**
+	     * Publish an event to the given topic.
+	     *
+	     * @param {String} topic the topic to publish to
+	     * @param {Any} eventData the data to send as the event
+	     */
+	    Events.prototype.publish = function (topic) {
+	        var args = [];
+	        for (var _i = 1; _i < arguments.length; _i++) {
+	            args[_i - 1] = arguments[_i];
+	        }
+	        var t = this._channels[topic];
+	        if (!t) {
+	            return null;
+	        }
+	        var responses = [];
+	        t.forEach(function (handler) {
+	            responses.push(handler(args));
+	        });
+	        return responses;
+	    };
+	    return Events;
+	})();
+	exports.Events = Events;
+
+/***/ },
+/* 165 */
+/***/ function(module, exports) {
+
+	var FeatureDetect = (function () {
+	    function FeatureDetect() {
+	        this._results = {};
+	    }
+	    FeatureDetect.prototype.run = function (window, document) {
+	        for (var name in featureDetects) {
+	            this._results[name] = featureDetects[name](window, document, document.body);
+	        }
+	    };
+	    FeatureDetect.prototype.has = function (featureName) {
+	        return !!this._results[featureName];
+	    };
+	    FeatureDetect.add = function (name, fn) {
+	        featureDetects[name] = fn;
+	    };
+	    return FeatureDetect;
+	})();
+	exports.FeatureDetect = FeatureDetect;
+	var featureDetects = {};
+	// FeatureDetect.add('sticky', function(window, document) {
+	//   // css position sticky
+	//   let ele = document.createElement('div');
+	//   ele.style.cssText = 'position:-webkit-sticky;position:sticky';
+	//   return ele.style.position.indexOf('sticky') > -1;
+	// });
+	FeatureDetect.add('hairlines', function (window, document, body) {
+	    /**
+	    * Hairline Shim
+	    * Add the "hairline" CSS class name to the body tag
+	    * if the browser supports subpixels.
+	    */
+	    var canDo = false;
+	    if (window.devicePixelRatio >= 2) {
+	        var hairlineEle = document.createElement('div');
+	        hairlineEle.style.border = '.5px solid transparent';
+	        body.appendChild(hairlineEle);
+	        if (hairlineEle.offsetHeight === 1) {
+	            body.classList.add('hairlines');
+	            canDo = true;
+	        }
+	        body.removeChild(hairlineEle);
+	    }
+	    return canDo;
+	});
+
+/***/ },
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26080,10 +27732,98 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var browser_1 = __webpack_require__(160);
-	var config_1 = __webpack_require__(265);
-	var click_block_1 = __webpack_require__(269);
-	var dom_1 = __webpack_require__(268);
+	/**
+	 * @private
+	 */
+	var Form = (function () {
+	    function Form() {
+	        this._focused = null;
+	        this._ids = -1;
+	        this._inputs = [];
+	        this.focusCtrl(document);
+	    }
+	    Form.prototype.register = function (input) {
+	        this._inputs.push(input);
+	    };
+	    Form.prototype.deregister = function (input) {
+	        var index = this._inputs.indexOf(input);
+	        if (index > -1) {
+	            this._inputs.splice(index, 1);
+	        }
+	        if (input === this._focused) {
+	            this._focused = null;
+	        }
+	    };
+	    Form.prototype.focusCtrl = function (document) {
+	        // raw DOM fun
+	        var focusCtrl = document.createElement('focus-ctrl');
+	        focusCtrl.setAttribute('aria-hidden', true);
+	        this._blur = document.createElement('button');
+	        this._blur.tabIndex = -1;
+	        focusCtrl.appendChild(this._blur);
+	        document.body.appendChild(focusCtrl);
+	    };
+	    Form.prototype.focusOut = function () {
+	        console.debug('focusOut');
+	        var activeElement = document.activeElement;
+	        if (activeElement) {
+	            activeElement.blur();
+	        }
+	        this._blur.focus();
+	    };
+	    Form.prototype.setAsFocused = function (input) {
+	        this._focused = input;
+	    };
+	    /**
+	     * Focuses the next input element, if it exists.
+	     */
+	    Form.prototype.tabFocus = function (currentInput) {
+	        var index = this._inputs.indexOf(currentInput);
+	        if (index > -1 && (index + 1) < this._inputs.length) {
+	            var nextInput = this._inputs[index + 1];
+	            if (nextInput !== this._focused) {
+	                console.debug('tabFocus, next');
+	                return nextInput.initFocus();
+	            }
+	        }
+	        index = this._inputs.indexOf(this._focused);
+	        if (index > 0) {
+	            var previousInput = this._inputs[index - 1];
+	            if (previousInput) {
+	                console.debug('tabFocus, previous');
+	                previousInput.initFocus();
+	            }
+	        }
+	    };
+	    Form.prototype.nextId = function () {
+	        return ++this._ids;
+	    };
+	    Form = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [])
+	    ], Form);
+	    return Form;
+	})();
+	exports.Form = Form;
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var browser_1 = __webpack_require__(168);
+	var config_1 = __webpack_require__(160);
+	var click_block_1 = __webpack_require__(159);
+	var dom_1 = __webpack_require__(163);
 	/**
 	 * @private
 	 * Component registry service.  For more information on registering
@@ -26166,8 +27906,6 @@
 	     * @param {Object} component  The component to register
 	     */
 	    IonicApp.prototype.register = function (id, component) {
-	        if (this.components[id] && this.components[id] !== component) {
-	        }
 	        this.components[id] = component;
 	    };
 	    /**
@@ -26199,6 +27937,20 @@
 	     * @return {Object} TODO
 	     */
 	    IonicApp.prototype.getComponent = function (id) {
+	        // deprecated warning
+	        if (/menu/i.test(id)) {
+	            console.warn('Using app.getComponent(menuId) to control menus has been deprecated as of alpha55.\n' +
+	                'Instead inject MenuController, for example:\n\n' +
+	                'constructor(menu: MenuController) {\n' +
+	                '  this.menu = menu;\n' +
+	                '}\n' +
+	                'toggleMenu() {\n' +
+	                '  this.menu.toggle();\n' +
+	                '}\n' +
+	                'openRightMenu() {\n' +
+	                '  this.menu.open("right");\n' +
+	                '}');
+	        }
 	        return this.components[id];
 	    };
 	    IonicApp = __decorate([
@@ -26211,12 +27963,12 @@
 	exports.IonicApp = IonicApp;
 
 /***/ },
-/* 160 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var angular_entrypoint_1 = __webpack_require__(161);
+	'use strict';var angular_entrypoint_1 = __webpack_require__(169);
 	exports.AngularEntrypoint = angular_entrypoint_1.AngularEntrypoint;
-	var browser_common_1 = __webpack_require__(162);
+	var browser_common_1 = __webpack_require__(170);
 	exports.BROWSER_PROVIDERS = browser_common_1.BROWSER_PROVIDERS;
 	exports.ELEMENT_PROBE_BINDINGS = browser_common_1.ELEMENT_PROBE_BINDINGS;
 	exports.ELEMENT_PROBE_PROVIDERS = browser_common_1.ELEMENT_PROBE_PROVIDERS;
@@ -26228,12 +27980,12 @@
 	exports.enableDebugTools = browser_common_1.enableDebugTools;
 	exports.disableDebugTools = browser_common_1.disableDebugTools;
 	var lang_1 = __webpack_require__(11);
-	var browser_common_2 = __webpack_require__(162);
-	var compiler_1 = __webpack_require__(234);
+	var browser_common_2 = __webpack_require__(170);
+	var compiler_1 = __webpack_require__(242);
 	var core_1 = __webpack_require__(8);
 	var reflection_capabilities_1 = __webpack_require__(24);
-	var xhr_impl_1 = __webpack_require__(223);
-	var compiler_2 = __webpack_require__(234);
+	var xhr_impl_1 = __webpack_require__(231);
+	var compiler_2 = __webpack_require__(242);
 	var di_1 = __webpack_require__(12);
 	/**
 	 * An array of providers that should be passed into `application()` when bootstrapping a component.
@@ -26320,7 +28072,7 @@
 
 
 /***/ },
-/* 161 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26364,41 +28116,41 @@
 
 
 /***/ },
-/* 162 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
 	var di_1 = __webpack_require__(12);
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
+	var common_1 = __webpack_require__(171);
 	var testability_1 = __webpack_require__(89);
 	var dom_adapter_1 = __webpack_require__(140);
-	var dom_events_1 = __webpack_require__(206);
-	var key_events_1 = __webpack_require__(208);
-	var hammer_gestures_1 = __webpack_require__(209);
-	var dom_tokens_1 = __webpack_require__(211);
-	var dom_renderer_1 = __webpack_require__(212);
-	var shared_styles_host_1 = __webpack_require__(220);
-	var shared_styles_host_2 = __webpack_require__(220);
-	var browser_details_1 = __webpack_require__(219);
-	var animation_builder_1 = __webpack_require__(213);
-	var browser_adapter_1 = __webpack_require__(221);
-	var testability_2 = __webpack_require__(225);
-	var wtf_init_1 = __webpack_require__(226);
-	var event_manager_1 = __webpack_require__(207);
-	var dom_tokens_2 = __webpack_require__(211);
+	var dom_events_1 = __webpack_require__(214);
+	var key_events_1 = __webpack_require__(216);
+	var hammer_gestures_1 = __webpack_require__(217);
+	var dom_tokens_1 = __webpack_require__(219);
+	var dom_renderer_1 = __webpack_require__(220);
+	var shared_styles_host_1 = __webpack_require__(228);
+	var shared_styles_host_2 = __webpack_require__(228);
+	var browser_details_1 = __webpack_require__(227);
+	var animation_builder_1 = __webpack_require__(221);
+	var browser_adapter_1 = __webpack_require__(229);
+	var testability_2 = __webpack_require__(233);
+	var wtf_init_1 = __webpack_require__(234);
+	var event_manager_1 = __webpack_require__(215);
+	var dom_tokens_2 = __webpack_require__(219);
 	exports.DOCUMENT = dom_tokens_2.DOCUMENT;
-	var title_1 = __webpack_require__(227);
+	var title_1 = __webpack_require__(235);
 	exports.Title = title_1.Title;
-	var common_dom_1 = __webpack_require__(228);
+	var common_dom_1 = __webpack_require__(236);
 	exports.DebugElementViewListener = common_dom_1.DebugElementViewListener;
 	exports.ELEMENT_PROBE_PROVIDERS = common_dom_1.ELEMENT_PROBE_PROVIDERS;
 	exports.ELEMENT_PROBE_BINDINGS = common_dom_1.ELEMENT_PROBE_BINDINGS;
 	exports.inspectNativeElement = common_dom_1.inspectNativeElement;
 	exports.By = common_dom_1.By;
-	var browser_adapter_2 = __webpack_require__(221);
+	var browser_adapter_2 = __webpack_require__(229);
 	exports.BrowserDomAdapter = browser_adapter_2.BrowserDomAdapter;
-	var tools_1 = __webpack_require__(231);
+	var tools_1 = __webpack_require__(239);
 	exports.enableDebugTools = tools_1.enableDebugTools;
 	exports.disableDebugTools = tools_1.disableDebugTools;
 	/**
@@ -26451,20 +28203,20 @@
 
 
 /***/ },
-/* 163 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(164));
-	__export(__webpack_require__(174));
+	__export(__webpack_require__(172));
 	__export(__webpack_require__(182));
-	__export(__webpack_require__(205));
+	__export(__webpack_require__(190));
+	__export(__webpack_require__(213));
 
 
 /***/ },
-/* 164 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/**
@@ -26472,30 +28224,30 @@
 	 * @description
 	 * This module provides a set of common Pipes.
 	 */
-	var async_pipe_1 = __webpack_require__(165);
-	var uppercase_pipe_1 = __webpack_require__(167);
-	var lowercase_pipe_1 = __webpack_require__(168);
-	var json_pipe_1 = __webpack_require__(169);
-	var slice_pipe_1 = __webpack_require__(170);
-	var date_pipe_1 = __webpack_require__(171);
-	var number_pipe_1 = __webpack_require__(173);
+	var async_pipe_1 = __webpack_require__(173);
+	var uppercase_pipe_1 = __webpack_require__(175);
+	var lowercase_pipe_1 = __webpack_require__(176);
+	var json_pipe_1 = __webpack_require__(177);
+	var slice_pipe_1 = __webpack_require__(178);
+	var date_pipe_1 = __webpack_require__(179);
+	var number_pipe_1 = __webpack_require__(181);
 	var lang_1 = __webpack_require__(11);
-	var async_pipe_2 = __webpack_require__(165);
+	var async_pipe_2 = __webpack_require__(173);
 	exports.AsyncPipe = async_pipe_2.AsyncPipe;
-	var date_pipe_2 = __webpack_require__(171);
+	var date_pipe_2 = __webpack_require__(179);
 	exports.DatePipe = date_pipe_2.DatePipe;
-	var json_pipe_2 = __webpack_require__(169);
+	var json_pipe_2 = __webpack_require__(177);
 	exports.JsonPipe = json_pipe_2.JsonPipe;
-	var slice_pipe_2 = __webpack_require__(170);
+	var slice_pipe_2 = __webpack_require__(178);
 	exports.SlicePipe = slice_pipe_2.SlicePipe;
-	var lowercase_pipe_2 = __webpack_require__(168);
+	var lowercase_pipe_2 = __webpack_require__(176);
 	exports.LowerCasePipe = lowercase_pipe_2.LowerCasePipe;
-	var number_pipe_2 = __webpack_require__(173);
+	var number_pipe_2 = __webpack_require__(181);
 	exports.NumberPipe = number_pipe_2.NumberPipe;
 	exports.DecimalPipe = number_pipe_2.DecimalPipe;
 	exports.PercentPipe = number_pipe_2.PercentPipe;
 	exports.CurrencyPipe = number_pipe_2.CurrencyPipe;
-	var uppercase_pipe_2 = __webpack_require__(167);
+	var uppercase_pipe_2 = __webpack_require__(175);
 	exports.UpperCasePipe = uppercase_pipe_2.UpperCasePipe;
 	/**
 	 * A collection of Angular core pipes that are likely to be used in each and every
@@ -26518,7 +28270,7 @@
 
 
 /***/ },
-/* 165 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26533,7 +28285,7 @@
 	var lang_1 = __webpack_require__(11);
 	var async_1 = __webpack_require__(54);
 	var core_1 = __webpack_require__(8);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(166);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(174);
 	var ObservableStrategy = (function () {
 	    function ObservableStrategy() {
 	    }
@@ -26657,7 +28409,7 @@
 
 
 /***/ },
-/* 166 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -26678,7 +28430,7 @@
 
 
 /***/ },
-/* 167 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26692,7 +28444,7 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var core_1 = __webpack_require__(8);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(166);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(174);
 	/**
 	 * Implements uppercase transforms to text.
 	 *
@@ -26724,7 +28476,7 @@
 
 
 /***/ },
-/* 168 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26738,7 +28490,7 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var core_1 = __webpack_require__(8);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(166);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(174);
 	/**
 	 * Transforms text to lowercase.
 	 *
@@ -26770,7 +28522,7 @@
 
 
 /***/ },
-/* 169 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26809,7 +28561,7 @@
 
 
 /***/ },
-/* 170 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26825,7 +28577,7 @@
 	var exceptions_1 = __webpack_require__(20);
 	var collection_1 = __webpack_require__(18);
 	var core_1 = __webpack_require__(8);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(166);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(174);
 	/**
 	 * Creates a new List or String containing only a subset (slice) of the
 	 * elements.
@@ -26909,7 +28661,7 @@
 
 
 /***/ },
-/* 171 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26922,10 +28674,10 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var lang_1 = __webpack_require__(11);
-	var intl_1 = __webpack_require__(172);
+	var intl_1 = __webpack_require__(180);
 	var core_1 = __webpack_require__(8);
 	var collection_1 = __webpack_require__(18);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(166);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(174);
 	// TODO: move to a global configurable location along with other i18n components.
 	var defaultLocale = 'en-US';
 	/**
@@ -27036,7 +28788,7 @@
 
 
 /***/ },
-/* 172 */
+/* 180 */
 /***/ function(module, exports) {
 
 	'use strict';(function (NumberFormatStyle) {
@@ -27145,7 +28897,7 @@
 
 
 /***/ },
-/* 173 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -27164,10 +28916,10 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
-	var intl_1 = __webpack_require__(172);
+	var intl_1 = __webpack_require__(180);
 	var core_1 = __webpack_require__(8);
 	var collection_1 = __webpack_require__(18);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(166);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(174);
 	var defaultLocale = 'en-US';
 	var _re = lang_1.RegExpWrapper.create('^(\\d+)?\\.((\\d+)(\\-(\\d+))?)?$');
 	/**
@@ -27338,7 +29090,7 @@
 
 
 /***/ },
-/* 174 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';function __export(m) {
@@ -27349,25 +29101,25 @@
 	 * @description
 	 * Common directives shipped with Angular.
 	 */
-	var ng_class_1 = __webpack_require__(175);
+	var ng_class_1 = __webpack_require__(183);
 	exports.NgClass = ng_class_1.NgClass;
-	var ng_for_1 = __webpack_require__(176);
+	var ng_for_1 = __webpack_require__(184);
 	exports.NgFor = ng_for_1.NgFor;
-	var ng_if_1 = __webpack_require__(177);
+	var ng_if_1 = __webpack_require__(185);
 	exports.NgIf = ng_if_1.NgIf;
-	var ng_style_1 = __webpack_require__(178);
+	var ng_style_1 = __webpack_require__(186);
 	exports.NgStyle = ng_style_1.NgStyle;
-	var ng_switch_1 = __webpack_require__(179);
+	var ng_switch_1 = __webpack_require__(187);
 	exports.NgSwitch = ng_switch_1.NgSwitch;
 	exports.NgSwitchWhen = ng_switch_1.NgSwitchWhen;
 	exports.NgSwitchDefault = ng_switch_1.NgSwitchDefault;
-	__export(__webpack_require__(180));
-	var core_directives_1 = __webpack_require__(181);
+	__export(__webpack_require__(188));
+	var core_directives_1 = __webpack_require__(189);
 	exports.CORE_DIRECTIVES = core_directives_1.CORE_DIRECTIVES;
 
 
 /***/ },
-/* 175 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27561,7 +29313,7 @@
 
 
 /***/ },
-/* 176 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27733,7 +29485,7 @@
 
 
 /***/ },
-/* 177 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27799,7 +29551,7 @@
 
 
 /***/ },
-/* 178 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27907,7 +29659,7 @@
 
 
 /***/ },
-/* 179 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -28138,22 +29890,22 @@
 
 
 /***/ },
-/* 180 */
+/* 188 */
 /***/ function(module, exports) {
 
 	'use strict';// TS does not have Observables
 
 
 /***/ },
-/* 181 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
-	var ng_class_1 = __webpack_require__(175);
-	var ng_for_1 = __webpack_require__(176);
-	var ng_if_1 = __webpack_require__(177);
-	var ng_style_1 = __webpack_require__(178);
-	var ng_switch_1 = __webpack_require__(179);
+	var ng_class_1 = __webpack_require__(183);
+	var ng_for_1 = __webpack_require__(184);
+	var ng_if_1 = __webpack_require__(185);
+	var ng_style_1 = __webpack_require__(186);
+	var ng_switch_1 = __webpack_require__(187);
 	/**
 	 * A collection of Angular core directives that are likely to be used in each and every Angular
 	 * application.
@@ -28198,7 +29950,7 @@
 
 
 /***/ },
-/* 182 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/**
@@ -28214,58 +29966,58 @@
 	 * explicitly.
 	 *
 	 */
-	var model_1 = __webpack_require__(183);
+	var model_1 = __webpack_require__(191);
 	exports.AbstractControl = model_1.AbstractControl;
 	exports.Control = model_1.Control;
 	exports.ControlGroup = model_1.ControlGroup;
 	exports.ControlArray = model_1.ControlArray;
-	var abstract_control_directive_1 = __webpack_require__(184);
+	var abstract_control_directive_1 = __webpack_require__(192);
 	exports.AbstractControlDirective = abstract_control_directive_1.AbstractControlDirective;
-	var control_container_1 = __webpack_require__(185);
+	var control_container_1 = __webpack_require__(193);
 	exports.ControlContainer = control_container_1.ControlContainer;
-	var ng_control_name_1 = __webpack_require__(186);
+	var ng_control_name_1 = __webpack_require__(194);
 	exports.NgControlName = ng_control_name_1.NgControlName;
-	var ng_form_control_1 = __webpack_require__(196);
+	var ng_form_control_1 = __webpack_require__(204);
 	exports.NgFormControl = ng_form_control_1.NgFormControl;
-	var ng_model_1 = __webpack_require__(197);
+	var ng_model_1 = __webpack_require__(205);
 	exports.NgModel = ng_model_1.NgModel;
-	var ng_control_1 = __webpack_require__(187);
+	var ng_control_1 = __webpack_require__(195);
 	exports.NgControl = ng_control_1.NgControl;
-	var ng_control_group_1 = __webpack_require__(198);
+	var ng_control_group_1 = __webpack_require__(206);
 	exports.NgControlGroup = ng_control_group_1.NgControlGroup;
-	var ng_form_model_1 = __webpack_require__(199);
+	var ng_form_model_1 = __webpack_require__(207);
 	exports.NgFormModel = ng_form_model_1.NgFormModel;
-	var ng_form_1 = __webpack_require__(200);
+	var ng_form_1 = __webpack_require__(208);
 	exports.NgForm = ng_form_1.NgForm;
-	var control_value_accessor_1 = __webpack_require__(188);
+	var control_value_accessor_1 = __webpack_require__(196);
 	exports.NG_VALUE_ACCESSOR = control_value_accessor_1.NG_VALUE_ACCESSOR;
-	var default_value_accessor_1 = __webpack_require__(191);
+	var default_value_accessor_1 = __webpack_require__(199);
 	exports.DefaultValueAccessor = default_value_accessor_1.DefaultValueAccessor;
-	var ng_control_status_1 = __webpack_require__(201);
+	var ng_control_status_1 = __webpack_require__(209);
 	exports.NgControlStatus = ng_control_status_1.NgControlStatus;
-	var checkbox_value_accessor_1 = __webpack_require__(193);
+	var checkbox_value_accessor_1 = __webpack_require__(201);
 	exports.CheckboxControlValueAccessor = checkbox_value_accessor_1.CheckboxControlValueAccessor;
-	var select_control_value_accessor_1 = __webpack_require__(194);
+	var select_control_value_accessor_1 = __webpack_require__(202);
 	exports.NgSelectOption = select_control_value_accessor_1.NgSelectOption;
 	exports.SelectControlValueAccessor = select_control_value_accessor_1.SelectControlValueAccessor;
-	var directives_1 = __webpack_require__(202);
+	var directives_1 = __webpack_require__(210);
 	exports.FORM_DIRECTIVES = directives_1.FORM_DIRECTIVES;
-	var validators_1 = __webpack_require__(190);
+	var validators_1 = __webpack_require__(198);
 	exports.NG_VALIDATORS = validators_1.NG_VALIDATORS;
 	exports.NG_ASYNC_VALIDATORS = validators_1.NG_ASYNC_VALIDATORS;
 	exports.Validators = validators_1.Validators;
-	var validators_2 = __webpack_require__(203);
+	var validators_2 = __webpack_require__(211);
 	exports.RequiredValidator = validators_2.RequiredValidator;
 	exports.MinLengthValidator = validators_2.MinLengthValidator;
 	exports.MaxLengthValidator = validators_2.MaxLengthValidator;
-	var form_builder_1 = __webpack_require__(204);
+	var form_builder_1 = __webpack_require__(212);
 	exports.FormBuilder = form_builder_1.FormBuilder;
 	exports.FORM_PROVIDERS = form_builder_1.FORM_PROVIDERS;
 	exports.FORM_BINDINGS = form_builder_1.FORM_BINDINGS;
 
 
 /***/ },
-/* 183 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -28759,7 +30511,7 @@
 
 
 /***/ },
-/* 184 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
@@ -28825,7 +30577,7 @@
 
 
 /***/ },
-/* 185 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -28833,7 +30585,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var abstract_control_directive_1 = __webpack_require__(184);
+	var abstract_control_directive_1 = __webpack_require__(192);
 	/**
 	 * A directive that contains multiple {@link NgControl}s.
 	 *
@@ -28866,7 +30618,7 @@
 
 
 /***/ },
-/* 186 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -28889,11 +30641,11 @@
 	var lang_1 = __webpack_require__(11);
 	var async_1 = __webpack_require__(54);
 	var core_1 = __webpack_require__(8);
-	var control_container_1 = __webpack_require__(185);
-	var ng_control_1 = __webpack_require__(187);
-	var control_value_accessor_1 = __webpack_require__(188);
-	var shared_1 = __webpack_require__(189);
-	var validators_1 = __webpack_require__(190);
+	var control_container_1 = __webpack_require__(193);
+	var ng_control_1 = __webpack_require__(195);
+	var control_value_accessor_1 = __webpack_require__(196);
+	var shared_1 = __webpack_require__(197);
+	var validators_1 = __webpack_require__(198);
 	var controlNameBinding = lang_1.CONST_EXPR(new core_1.Provider(ng_control_1.NgControl, { useExisting: core_1.forwardRef(function () { return NgControlName; }) }));
 	/**
 	 * Creates and binds a control with a specified name to a DOM element.
@@ -29029,7 +30781,7 @@
 
 
 /***/ },
-/* 187 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29037,7 +30789,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var abstract_control_directive_1 = __webpack_require__(184);
+	var abstract_control_directive_1 = __webpack_require__(192);
 	var exceptions_1 = __webpack_require__(20);
 	/**
 	 * A base class that all control directive extend.
@@ -29068,7 +30820,7 @@
 
 
 /***/ },
-/* 188 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var core_1 = __webpack_require__(8);
@@ -29082,18 +30834,18 @@
 
 
 /***/ },
-/* 189 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
-	var validators_1 = __webpack_require__(190);
-	var default_value_accessor_1 = __webpack_require__(191);
-	var number_value_accessor_1 = __webpack_require__(192);
-	var checkbox_value_accessor_1 = __webpack_require__(193);
-	var select_control_value_accessor_1 = __webpack_require__(194);
-	var normalize_validator_1 = __webpack_require__(195);
+	var validators_1 = __webpack_require__(198);
+	var default_value_accessor_1 = __webpack_require__(199);
+	var number_value_accessor_1 = __webpack_require__(200);
+	var checkbox_value_accessor_1 = __webpack_require__(201);
+	var select_control_value_accessor_1 = __webpack_require__(202);
+	var normalize_validator_1 = __webpack_require__(203);
 	function controlPath(name, parent) {
 	    var p = collection_1.ListWrapper.clone(parent.path);
 	    p.push(name);
@@ -29184,7 +30936,7 @@
 
 
 /***/ },
-/* 190 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
@@ -29305,7 +31057,7 @@
 
 
 /***/ },
-/* 191 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29318,7 +31070,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var control_value_accessor_1 = __webpack_require__(188);
+	var control_value_accessor_1 = __webpack_require__(196);
 	var lang_1 = __webpack_require__(11);
 	var DEFAULT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new core_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return DefaultValueAccessor; }), multi: true }));
 	/**
@@ -29360,7 +31112,7 @@
 
 
 /***/ },
-/* 192 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29373,7 +31125,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var control_value_accessor_1 = __webpack_require__(188);
+	var control_value_accessor_1 = __webpack_require__(196);
 	var lang_1 = __webpack_require__(11);
 	var NUMBER_VALUE_ACCESSOR = lang_1.CONST_EXPR(new core_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return NumberValueAccessor; }), multi: true }));
 	/**
@@ -29417,7 +31169,7 @@
 
 
 /***/ },
-/* 193 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29430,7 +31182,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var control_value_accessor_1 = __webpack_require__(188);
+	var control_value_accessor_1 = __webpack_require__(196);
 	var lang_1 = __webpack_require__(11);
 	var CHECKBOX_VALUE_ACCESSOR = lang_1.CONST_EXPR(new core_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return CheckboxControlValueAccessor; }), multi: true }));
 	/**
@@ -29467,7 +31219,7 @@
 
 
 /***/ },
-/* 194 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29484,7 +31236,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var async_1 = __webpack_require__(54);
-	var control_value_accessor_1 = __webpack_require__(188);
+	var control_value_accessor_1 = __webpack_require__(196);
 	var lang_1 = __webpack_require__(11);
 	var SELECT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new core_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return SelectControlValueAccessor; }), multi: true }));
 	/**
@@ -29544,7 +31296,7 @@
 
 
 /***/ },
-/* 195 */
+/* 203 */
 /***/ function(module, exports) {
 
 	'use strict';function normalizeValidator(validator) {
@@ -29559,7 +31311,7 @@
 
 
 /***/ },
-/* 196 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29583,10 +31335,10 @@
 	var collection_1 = __webpack_require__(18);
 	var async_1 = __webpack_require__(54);
 	var core_1 = __webpack_require__(8);
-	var ng_control_1 = __webpack_require__(187);
-	var validators_1 = __webpack_require__(190);
-	var control_value_accessor_1 = __webpack_require__(188);
-	var shared_1 = __webpack_require__(189);
+	var ng_control_1 = __webpack_require__(195);
+	var validators_1 = __webpack_require__(198);
+	var control_value_accessor_1 = __webpack_require__(196);
+	var shared_1 = __webpack_require__(197);
 	var formControlBinding = lang_1.CONST_EXPR(new core_1.Provider(ng_control_1.NgControl, { useExisting: core_1.forwardRef(function () { return NgFormControl; }) }));
 	/**
 	 * Binds an existing {@link Control} to a DOM element.
@@ -29706,7 +31458,7 @@
 
 
 /***/ },
-/* 197 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29729,11 +31481,11 @@
 	var lang_1 = __webpack_require__(11);
 	var async_1 = __webpack_require__(54);
 	var core_1 = __webpack_require__(8);
-	var control_value_accessor_1 = __webpack_require__(188);
-	var ng_control_1 = __webpack_require__(187);
-	var model_1 = __webpack_require__(183);
-	var validators_1 = __webpack_require__(190);
-	var shared_1 = __webpack_require__(189);
+	var control_value_accessor_1 = __webpack_require__(196);
+	var ng_control_1 = __webpack_require__(195);
+	var model_1 = __webpack_require__(191);
+	var validators_1 = __webpack_require__(198);
+	var shared_1 = __webpack_require__(197);
 	var formControlBinding = lang_1.CONST_EXPR(new core_1.Provider(ng_control_1.NgControl, { useExisting: core_1.forwardRef(function () { return NgModel; }) }));
 	/**
 	 * Binds a domain model to a form control.
@@ -29829,7 +31581,7 @@
 
 
 /***/ },
-/* 198 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29851,9 +31603,9 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var lang_1 = __webpack_require__(11);
-	var control_container_1 = __webpack_require__(185);
-	var shared_1 = __webpack_require__(189);
-	var validators_1 = __webpack_require__(190);
+	var control_container_1 = __webpack_require__(193);
+	var shared_1 = __webpack_require__(197);
+	var validators_1 = __webpack_require__(198);
 	var controlGroupProvider = lang_1.CONST_EXPR(new core_1.Provider(control_container_1.ControlContainer, { useExisting: core_1.forwardRef(function () { return NgControlGroup; }) }));
 	/**
 	 * Creates and binds a control group to a DOM element.
@@ -29970,7 +31722,7 @@
 
 
 /***/ },
-/* 199 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29994,9 +31746,9 @@
 	var collection_1 = __webpack_require__(18);
 	var async_1 = __webpack_require__(54);
 	var core_1 = __webpack_require__(8);
-	var control_container_1 = __webpack_require__(185);
-	var shared_1 = __webpack_require__(189);
-	var validators_1 = __webpack_require__(190);
+	var control_container_1 = __webpack_require__(193);
+	var shared_1 = __webpack_require__(197);
+	var validators_1 = __webpack_require__(198);
 	var formDirectiveProvider = lang_1.CONST_EXPR(new core_1.Provider(control_container_1.ControlContainer, { useExisting: core_1.forwardRef(function () { return NgFormModel; }) }));
 	/**
 	 * Binds an existing control group to a DOM element.
@@ -30161,7 +31913,7 @@
 
 
 /***/ },
-/* 200 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -30185,10 +31937,10 @@
 	var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
 	var core_1 = __webpack_require__(8);
-	var control_container_1 = __webpack_require__(185);
-	var model_1 = __webpack_require__(183);
-	var shared_1 = __webpack_require__(189);
-	var validators_1 = __webpack_require__(190);
+	var control_container_1 = __webpack_require__(193);
+	var model_1 = __webpack_require__(191);
+	var shared_1 = __webpack_require__(197);
+	var validators_1 = __webpack_require__(198);
 	var formDirectiveProvider = lang_1.CONST_EXPR(new core_1.Provider(control_container_1.ControlContainer, { useExisting: core_1.forwardRef(function () { return NgForm; }) }));
 	/**
 	 * If `NgForm` is bound in a component, `<form>` elements in that component will be
@@ -30360,7 +32112,7 @@
 
 
 /***/ },
-/* 201 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -30376,7 +32128,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var ng_control_1 = __webpack_require__(187);
+	var ng_control_1 = __webpack_require__(195);
 	var lang_1 = __webpack_require__(11);
 	/**
 	 * Directive automatically applied to Angular forms that sets CSS classes
@@ -30449,50 +32201,50 @@
 
 
 /***/ },
-/* 202 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
-	var ng_control_name_1 = __webpack_require__(186);
-	var ng_form_control_1 = __webpack_require__(196);
-	var ng_model_1 = __webpack_require__(197);
-	var ng_control_group_1 = __webpack_require__(198);
-	var ng_form_model_1 = __webpack_require__(199);
-	var ng_form_1 = __webpack_require__(200);
-	var default_value_accessor_1 = __webpack_require__(191);
-	var checkbox_value_accessor_1 = __webpack_require__(193);
-	var number_value_accessor_1 = __webpack_require__(192);
-	var ng_control_status_1 = __webpack_require__(201);
-	var select_control_value_accessor_1 = __webpack_require__(194);
-	var validators_1 = __webpack_require__(203);
-	var ng_control_name_2 = __webpack_require__(186);
+	var ng_control_name_1 = __webpack_require__(194);
+	var ng_form_control_1 = __webpack_require__(204);
+	var ng_model_1 = __webpack_require__(205);
+	var ng_control_group_1 = __webpack_require__(206);
+	var ng_form_model_1 = __webpack_require__(207);
+	var ng_form_1 = __webpack_require__(208);
+	var default_value_accessor_1 = __webpack_require__(199);
+	var checkbox_value_accessor_1 = __webpack_require__(201);
+	var number_value_accessor_1 = __webpack_require__(200);
+	var ng_control_status_1 = __webpack_require__(209);
+	var select_control_value_accessor_1 = __webpack_require__(202);
+	var validators_1 = __webpack_require__(211);
+	var ng_control_name_2 = __webpack_require__(194);
 	exports.NgControlName = ng_control_name_2.NgControlName;
-	var ng_form_control_2 = __webpack_require__(196);
+	var ng_form_control_2 = __webpack_require__(204);
 	exports.NgFormControl = ng_form_control_2.NgFormControl;
-	var ng_model_2 = __webpack_require__(197);
+	var ng_model_2 = __webpack_require__(205);
 	exports.NgModel = ng_model_2.NgModel;
-	var ng_control_group_2 = __webpack_require__(198);
+	var ng_control_group_2 = __webpack_require__(206);
 	exports.NgControlGroup = ng_control_group_2.NgControlGroup;
-	var ng_form_model_2 = __webpack_require__(199);
+	var ng_form_model_2 = __webpack_require__(207);
 	exports.NgFormModel = ng_form_model_2.NgFormModel;
-	var ng_form_2 = __webpack_require__(200);
+	var ng_form_2 = __webpack_require__(208);
 	exports.NgForm = ng_form_2.NgForm;
-	var default_value_accessor_2 = __webpack_require__(191);
+	var default_value_accessor_2 = __webpack_require__(199);
 	exports.DefaultValueAccessor = default_value_accessor_2.DefaultValueAccessor;
-	var checkbox_value_accessor_2 = __webpack_require__(193);
+	var checkbox_value_accessor_2 = __webpack_require__(201);
 	exports.CheckboxControlValueAccessor = checkbox_value_accessor_2.CheckboxControlValueAccessor;
-	var number_value_accessor_2 = __webpack_require__(192);
+	var number_value_accessor_2 = __webpack_require__(200);
 	exports.NumberValueAccessor = number_value_accessor_2.NumberValueAccessor;
-	var ng_control_status_2 = __webpack_require__(201);
+	var ng_control_status_2 = __webpack_require__(209);
 	exports.NgControlStatus = ng_control_status_2.NgControlStatus;
-	var select_control_value_accessor_2 = __webpack_require__(194);
+	var select_control_value_accessor_2 = __webpack_require__(202);
 	exports.SelectControlValueAccessor = select_control_value_accessor_2.SelectControlValueAccessor;
 	exports.NgSelectOption = select_control_value_accessor_2.NgSelectOption;
-	var validators_2 = __webpack_require__(203);
+	var validators_2 = __webpack_require__(211);
 	exports.RequiredValidator = validators_2.RequiredValidator;
 	exports.MinLengthValidator = validators_2.MinLengthValidator;
 	exports.MaxLengthValidator = validators_2.MaxLengthValidator;
-	var ng_control_1 = __webpack_require__(187);
+	var ng_control_1 = __webpack_require__(195);
 	exports.NgControl = ng_control_1.NgControl;
 	/**
 	 *
@@ -30530,7 +32282,7 @@
 
 
 /***/ },
-/* 203 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -30547,7 +32299,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var lang_1 = __webpack_require__(11);
-	var validators_1 = __webpack_require__(190);
+	var validators_1 = __webpack_require__(198);
 	var lang_2 = __webpack_require__(11);
 	var REQUIRED_VALIDATOR = lang_1.CONST_EXPR(new core_1.Provider(validators_1.NG_VALIDATORS, { useValue: validators_1.Validators.required, multi: true }));
 	/**
@@ -30632,7 +32384,7 @@
 
 
 /***/ },
-/* 204 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -30647,7 +32399,7 @@
 	var core_1 = __webpack_require__(8);
 	var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
-	var modelModule = __webpack_require__(183);
+	var modelModule = __webpack_require__(191);
 	/**
 	 * Creates a form object from a user-specified configuration.
 	 *
@@ -30777,12 +32529,12 @@
 
 
 /***/ },
-/* 205 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
-	var forms_1 = __webpack_require__(182);
-	var directives_1 = __webpack_require__(174);
+	var forms_1 = __webpack_require__(190);
+	var directives_1 = __webpack_require__(182);
 	/**
 	 * A collection of Angular core directives that are likely to be used in each and every Angular
 	 * application. This includes core directives (e.g., NgIf and NgFor), and forms directives (e.g.,
@@ -30830,7 +32582,7 @@
 
 
 /***/ },
-/* 206 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -30849,7 +32601,7 @@
 	};
 	var dom_adapter_1 = __webpack_require__(140);
 	var core_1 = __webpack_require__(8);
-	var event_manager_1 = __webpack_require__(207);
+	var event_manager_1 = __webpack_require__(215);
 	var DomEventsPlugin = (function (_super) {
 	    __extends(DomEventsPlugin, _super);
 	    function DomEventsPlugin() {
@@ -30879,7 +32631,7 @@
 
 
 /***/ },
-/* 207 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -30952,7 +32704,7 @@
 
 
 /***/ },
-/* 208 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -30972,7 +32724,7 @@
 	var dom_adapter_1 = __webpack_require__(140);
 	var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
-	var event_manager_1 = __webpack_require__(207);
+	var event_manager_1 = __webpack_require__(215);
 	var di_1 = __webpack_require__(12);
 	var modifierKeys = ['alt', 'control', 'meta', 'shift'];
 	var modifierKeyGetters = {
@@ -31070,7 +32822,7 @@
 
 
 /***/ },
-/* 209 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -31087,7 +32839,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var hammer_common_1 = __webpack_require__(210);
+	var hammer_common_1 = __webpack_require__(218);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
 	var di_1 = __webpack_require__(12);
@@ -31127,7 +32879,7 @@
 
 
 /***/ },
-/* 210 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -31135,7 +32887,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var event_manager_1 = __webpack_require__(207);
+	var event_manager_1 = __webpack_require__(215);
 	var collection_1 = __webpack_require__(18);
 	var _eventNames = {
 	    // pan
@@ -31189,7 +32941,7 @@
 
 
 /***/ },
-/* 211 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var di_1 = __webpack_require__(12);
@@ -31204,7 +32956,7 @@
 
 
 /***/ },
-/* 212 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -31225,15 +32977,15 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var di_1 = __webpack_require__(12);
-	var animation_builder_1 = __webpack_require__(213);
+	var animation_builder_1 = __webpack_require__(221);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
-	var shared_styles_host_1 = __webpack_require__(220);
-	var event_manager_1 = __webpack_require__(207);
-	var dom_tokens_1 = __webpack_require__(211);
+	var shared_styles_host_1 = __webpack_require__(228);
+	var event_manager_1 = __webpack_require__(215);
+	var dom_tokens_1 = __webpack_require__(219);
 	var metadata_1 = __webpack_require__(9);
 	var dom_adapter_1 = __webpack_require__(140);
-	var util_1 = __webpack_require__(218);
+	var util_1 = __webpack_require__(226);
 	var NAMESPACE_URIS = lang_1.CONST_EXPR({ 'xlink': 'http://www.w3.org/1999/xlink', 'svg': 'http://www.w3.org/2000/svg' });
 	var TEMPLATE_COMMENT_TEXT = 'template bindings={}';
 	var TEMPLATE_BINDINGS_EXP = /^template bindings=(.*)$/g;
@@ -31523,7 +33275,7 @@
 
 
 /***/ },
-/* 213 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -31536,8 +33288,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var di_1 = __webpack_require__(12);
-	var css_animation_builder_1 = __webpack_require__(214);
-	var browser_details_1 = __webpack_require__(219);
+	var css_animation_builder_1 = __webpack_require__(222);
+	var browser_details_1 = __webpack_require__(227);
 	var AnimationBuilder = (function () {
 	    /**
 	     * Used for DI
@@ -31561,11 +33313,11 @@
 
 
 /***/ },
-/* 214 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var css_animation_options_1 = __webpack_require__(215);
-	var animation_1 = __webpack_require__(216);
+	'use strict';var css_animation_options_1 = __webpack_require__(223);
+	var animation_1 = __webpack_require__(224);
 	var CssAnimationBuilder = (function () {
 	    /**
 	     * Accepts public properties for CssAnimationBuilder
@@ -31652,7 +33404,7 @@
 
 
 /***/ },
-/* 215 */
+/* 223 */
 /***/ function(module, exports) {
 
 	'use strict';var CssAnimationOptions = (function () {
@@ -31670,12 +33422,12 @@
 
 
 /***/ },
-/* 216 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
-	var math_1 = __webpack_require__(217);
-	var util_1 = __webpack_require__(218);
+	var math_1 = __webpack_require__(225);
+	var util_1 = __webpack_require__(226);
 	var collection_1 = __webpack_require__(18);
 	var dom_adapter_1 = __webpack_require__(140);
 	var Animation = (function () {
@@ -31857,7 +33609,7 @@
 
 
 /***/ },
-/* 217 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
@@ -31866,7 +33618,7 @@
 
 
 /***/ },
-/* 218 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
@@ -31883,7 +33635,7 @@
 
 
 /***/ },
-/* 219 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -31896,7 +33648,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var di_1 = __webpack_require__(12);
-	var math_1 = __webpack_require__(217);
+	var math_1 = __webpack_require__(225);
 	var dom_adapter_1 = __webpack_require__(140);
 	var BrowserDetails = (function () {
 	    function BrowserDetails() {
@@ -31961,7 +33713,7 @@
 
 
 /***/ },
-/* 220 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -31984,7 +33736,7 @@
 	var dom_adapter_1 = __webpack_require__(140);
 	var di_1 = __webpack_require__(12);
 	var collection_1 = __webpack_require__(18);
-	var dom_tokens_1 = __webpack_require__(211);
+	var dom_tokens_1 = __webpack_require__(219);
 	var SharedStylesHost = (function () {
 	    function SharedStylesHost() {
 	        /** @internal */
@@ -32047,7 +33799,7 @@
 
 
 /***/ },
-/* 221 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -32058,7 +33810,7 @@
 	var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
 	var dom_adapter_1 = __webpack_require__(140);
-	var generic_browser_adapter_1 = __webpack_require__(222);
+	var generic_browser_adapter_1 = __webpack_require__(230);
 	var _attrToPropMap = {
 	    'class': 'className',
 	    'innerHtml': 'innerHTML',
@@ -32440,7 +34192,7 @@
 
 
 /***/ },
-/* 222 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -32451,7 +34203,7 @@
 	var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
 	var dom_adapter_1 = __webpack_require__(140);
-	var xhr_impl_1 = __webpack_require__(223);
+	var xhr_impl_1 = __webpack_require__(231);
 	/**
 	 * Provides DOM operations in any browser environment.
 	 */
@@ -32515,7 +34267,7 @@
 
 
 /***/ },
-/* 223 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -32525,7 +34277,7 @@
 	};
 	var promise_1 = __webpack_require__(55);
 	var lang_1 = __webpack_require__(11);
-	var xhr_1 = __webpack_require__(224);
+	var xhr_1 = __webpack_require__(232);
 	var XHRImpl = (function (_super) {
 	    __extends(XHRImpl, _super);
 	    function XHRImpl() {
@@ -32565,7 +34317,7 @@
 
 
 /***/ },
-/* 224 */
+/* 232 */
 /***/ function(module, exports) {
 
 	'use strict';// TODO: vsavkin rename it into TemplateLoader
@@ -32583,7 +34335,7 @@
 
 
 /***/ },
-/* 225 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(18);
@@ -32661,7 +34413,7 @@
 
 
 /***/ },
-/* 226 */
+/* 234 */
 /***/ function(module, exports) {
 
 	'use strict';/**
@@ -32672,7 +34424,7 @@
 
 
 /***/ },
-/* 227 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var dom_adapter_1 = __webpack_require__(140);
@@ -32703,7 +34455,7 @@
 
 
 /***/ },
-/* 228 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';function __export(m) {
@@ -32716,25 +34468,25 @@
 	exports.DOM = dom_adapter_1.DOM;
 	exports.setRootDomAdapter = dom_adapter_1.setRootDomAdapter;
 	exports.DomAdapter = dom_adapter_1.DomAdapter;
-	var dom_renderer_1 = __webpack_require__(212);
+	var dom_renderer_1 = __webpack_require__(220);
 	exports.DomRenderer = dom_renderer_1.DomRenderer;
-	var dom_tokens_1 = __webpack_require__(211);
+	var dom_tokens_1 = __webpack_require__(219);
 	exports.DOCUMENT = dom_tokens_1.DOCUMENT;
-	var shared_styles_host_1 = __webpack_require__(220);
+	var shared_styles_host_1 = __webpack_require__(228);
 	exports.SharedStylesHost = shared_styles_host_1.SharedStylesHost;
 	exports.DomSharedStylesHost = shared_styles_host_1.DomSharedStylesHost;
-	var dom_events_1 = __webpack_require__(206);
+	var dom_events_1 = __webpack_require__(214);
 	exports.DomEventsPlugin = dom_events_1.DomEventsPlugin;
-	var event_manager_1 = __webpack_require__(207);
+	var event_manager_1 = __webpack_require__(215);
 	exports.EVENT_MANAGER_PLUGINS = event_manager_1.EVENT_MANAGER_PLUGINS;
 	exports.EventManager = event_manager_1.EventManager;
 	exports.EventManagerPlugin = event_manager_1.EventManagerPlugin;
-	__export(__webpack_require__(229));
-	__export(__webpack_require__(230));
+	__export(__webpack_require__(237));
+	__export(__webpack_require__(238));
 
 
 /***/ },
-/* 229 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
@@ -32783,7 +34535,7 @@
 
 
 /***/ },
-/* 230 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -32883,11 +34635,11 @@
 
 
 /***/ },
-/* 231 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
-	var common_tools_1 = __webpack_require__(232);
+	var common_tools_1 = __webpack_require__(240);
 	var context = lang_1.global;
 	/**
 	 * Enabled Angular 2 debug tools that are accessible via your browser's
@@ -32914,12 +34666,12 @@
 
 
 /***/ },
-/* 232 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var application_ref_1 = __webpack_require__(86);
 	var lang_1 = __webpack_require__(11);
-	var browser_1 = __webpack_require__(233);
+	var browser_1 = __webpack_require__(241);
 	var dom_adapter_1 = __webpack_require__(140);
 	/**
 	 * Entry point for all Angular debug tools. This object corresponds to the `ng`
@@ -32988,7 +34740,7 @@
 
 
 /***/ },
-/* 233 */
+/* 241 */
 /***/ function(module, exports) {
 
 	'use strict';/**
@@ -33010,7 +34762,7 @@
 
 
 /***/ },
-/* 234 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';function __export(m) {
@@ -33021,13 +34773,13 @@
 	 * @description
 	 * Starting point to import all compiler APIs.
 	 */
-	__export(__webpack_require__(235));
-	__export(__webpack_require__(224));
-	__export(__webpack_require__(236));
+	__export(__webpack_require__(243));
+	__export(__webpack_require__(232));
+	__export(__webpack_require__(244));
 
 
 /***/ },
-/* 235 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -33357,45 +35109,45 @@
 
 
 /***/ },
-/* 236 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	var runtime_compiler_1 = __webpack_require__(237);
-	var template_compiler_1 = __webpack_require__(238);
+	var runtime_compiler_1 = __webpack_require__(245);
+	var template_compiler_1 = __webpack_require__(246);
 	exports.TemplateCompiler = template_compiler_1.TemplateCompiler;
-	var directive_metadata_1 = __webpack_require__(239);
+	var directive_metadata_1 = __webpack_require__(247);
 	exports.CompileDirectiveMetadata = directive_metadata_1.CompileDirectiveMetadata;
 	exports.CompileTypeMetadata = directive_metadata_1.CompileTypeMetadata;
 	exports.CompileTemplateMetadata = directive_metadata_1.CompileTemplateMetadata;
-	var source_module_1 = __webpack_require__(244);
+	var source_module_1 = __webpack_require__(252);
 	exports.SourceModule = source_module_1.SourceModule;
 	exports.SourceWithImports = source_module_1.SourceWithImports;
 	var platform_directives_and_pipes_1 = __webpack_require__(114);
 	exports.PLATFORM_DIRECTIVES = platform_directives_and_pipes_1.PLATFORM_DIRECTIVES;
 	exports.PLATFORM_PIPES = platform_directives_and_pipes_1.PLATFORM_PIPES;
-	__export(__webpack_require__(243));
-	var template_parser_1 = __webpack_require__(253);
+	__export(__webpack_require__(251));
+	var template_parser_1 = __webpack_require__(261);
 	exports.TEMPLATE_TRANSFORMS = template_parser_1.TEMPLATE_TRANSFORMS;
 	var lang_1 = __webpack_require__(11);
 	var di_1 = __webpack_require__(12);
-	var template_parser_2 = __webpack_require__(253);
-	var html_parser_1 = __webpack_require__(254);
-	var template_normalizer_1 = __webpack_require__(261);
-	var runtime_metadata_1 = __webpack_require__(262);
-	var change_detector_compiler_1 = __webpack_require__(245);
-	var style_compiler_1 = __webpack_require__(248);
-	var view_compiler_1 = __webpack_require__(251);
-	var proto_view_compiler_1 = __webpack_require__(252);
-	var template_compiler_2 = __webpack_require__(238);
+	var template_parser_2 = __webpack_require__(261);
+	var html_parser_1 = __webpack_require__(262);
+	var template_normalizer_1 = __webpack_require__(269);
+	var runtime_metadata_1 = __webpack_require__(270);
+	var change_detector_compiler_1 = __webpack_require__(253);
+	var style_compiler_1 = __webpack_require__(256);
+	var view_compiler_1 = __webpack_require__(259);
+	var proto_view_compiler_1 = __webpack_require__(260);
+	var template_compiler_2 = __webpack_require__(246);
 	var change_detection_1 = __webpack_require__(31);
 	var compiler_1 = __webpack_require__(91);
-	var runtime_compiler_2 = __webpack_require__(237);
-	var element_schema_registry_1 = __webpack_require__(259);
-	var dom_element_schema_registry_1 = __webpack_require__(264);
-	var url_resolver_1 = __webpack_require__(235);
+	var runtime_compiler_2 = __webpack_require__(245);
+	var element_schema_registry_1 = __webpack_require__(267);
+	var dom_element_schema_registry_1 = __webpack_require__(272);
+	var url_resolver_1 = __webpack_require__(243);
 	var change_detection_2 = __webpack_require__(31);
 	function _createChangeDetectorGenConfig() {
 	    return new change_detection_1.ChangeDetectorGenConfig(lang_1.assertionsEnabled(), false, true);
@@ -33427,7 +35179,7 @@
 
 
 /***/ },
-/* 237 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -33446,7 +35198,7 @@
 	};
 	var compiler_1 = __webpack_require__(91);
 	var view_ref_1 = __webpack_require__(101);
-	var template_compiler_1 = __webpack_require__(238);
+	var template_compiler_1 = __webpack_require__(246);
 	var di_1 = __webpack_require__(12);
 	var RuntimeCompiler = (function (_super) {
 	    __extends(RuntimeCompiler, _super);
@@ -33480,7 +35232,7 @@
 
 
 /***/ },
-/* 238 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -33496,21 +35248,21 @@
 	var exceptions_1 = __webpack_require__(20);
 	var collection_1 = __webpack_require__(18);
 	var async_1 = __webpack_require__(54);
-	var directive_metadata_1 = __webpack_require__(239);
-	var template_ast_1 = __webpack_require__(243);
+	var directive_metadata_1 = __webpack_require__(247);
+	var template_ast_1 = __webpack_require__(251);
 	var di_1 = __webpack_require__(12);
-	var source_module_1 = __webpack_require__(244);
-	var change_detector_compiler_1 = __webpack_require__(245);
-	var style_compiler_1 = __webpack_require__(248);
-	var view_compiler_1 = __webpack_require__(251);
-	var proto_view_compiler_1 = __webpack_require__(252);
-	var template_parser_1 = __webpack_require__(253);
-	var template_normalizer_1 = __webpack_require__(261);
-	var runtime_metadata_1 = __webpack_require__(262);
+	var source_module_1 = __webpack_require__(252);
+	var change_detector_compiler_1 = __webpack_require__(253);
+	var style_compiler_1 = __webpack_require__(256);
+	var view_compiler_1 = __webpack_require__(259);
+	var proto_view_compiler_1 = __webpack_require__(260);
+	var template_parser_1 = __webpack_require__(261);
+	var template_normalizer_1 = __webpack_require__(269);
+	var runtime_metadata_1 = __webpack_require__(270);
 	var view_1 = __webpack_require__(92);
 	var change_detection_1 = __webpack_require__(31);
 	var resolved_metadata_cache_1 = __webpack_require__(117);
-	var util_1 = __webpack_require__(241);
+	var util_1 = __webpack_require__(249);
 	exports.METADATA_CACHE_MODULE_REF = source_module_1.moduleRef('package:angular2/src/core/linker/resolved_metadata_cache' + util_1.MODULE_SUFFIX);
 	/**
 	 * An internal module of the Angular compiler that begins with component types,
@@ -33831,7 +35583,7 @@
 
 
 /***/ },
-/* 239 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
@@ -33839,9 +35591,9 @@
 	var collection_1 = __webpack_require__(18);
 	var change_detection_1 = __webpack_require__(31);
 	var view_1 = __webpack_require__(82);
-	var selector_1 = __webpack_require__(240);
-	var util_1 = __webpack_require__(241);
-	var interfaces_1 = __webpack_require__(242);
+	var selector_1 = __webpack_require__(248);
+	var util_1 = __webpack_require__(249);
+	var interfaces_1 = __webpack_require__(250);
 	// group 1: "property" from "[property]"
 	// group 2: "event" from "(event)"
 	var HOST_REG_EXP = /^(?:(?:\[([^\]]+)\])|(?:\(([^\)]+)\)))$/g;
@@ -34093,7 +35845,7 @@
 
 
 /***/ },
-/* 240 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(18);
@@ -34455,7 +36207,7 @@
 
 
 /***/ },
-/* 241 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
@@ -34649,7 +36401,7 @@
 
 
 /***/ },
-/* 242 */
+/* 250 */
 /***/ function(module, exports) {
 
 	'use strict';(function (LifecycleHooks) {
@@ -34679,7 +36431,7 @@
 
 
 /***/ },
-/* 243 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
@@ -34928,7 +36680,7 @@
 
 
 /***/ },
-/* 244 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
@@ -35002,7 +36754,7 @@
 
 
 /***/ },
-/* 245 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -35014,16 +36766,16 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var source_module_1 = __webpack_require__(244);
+	var source_module_1 = __webpack_require__(252);
 	var change_detection_jit_generator_1 = __webpack_require__(78);
 	var abstract_change_detector_1 = __webpack_require__(49);
 	var change_detection_util_1 = __webpack_require__(44);
 	var constants_1 = __webpack_require__(42);
-	var change_definition_factory_1 = __webpack_require__(246);
+	var change_definition_factory_1 = __webpack_require__(254);
 	var lang_1 = __webpack_require__(11);
 	var change_detection_1 = __webpack_require__(31);
-	var change_detector_codegen_1 = __webpack_require__(247);
-	var util_1 = __webpack_require__(241);
+	var change_detector_codegen_1 = __webpack_require__(255);
+	var util_1 = __webpack_require__(249);
 	var di_1 = __webpack_require__(12);
 	var ABSTRACT_CHANGE_DETECTOR = "AbstractChangeDetector";
 	var UTIL = "ChangeDetectionUtil";
@@ -35092,15 +36844,15 @@
 
 
 /***/ },
-/* 246 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
 	var reflection_1 = __webpack_require__(22);
 	var change_detection_1 = __webpack_require__(31);
-	var template_ast_1 = __webpack_require__(243);
-	var interfaces_1 = __webpack_require__(242);
+	var template_ast_1 = __webpack_require__(251);
+	var interfaces_1 = __webpack_require__(250);
 	function createChangeDetectorDefinitions(componentType, componentStrategy, genConfig, parsedTemplate) {
 	    var pvVisitors = [];
 	    var visitor = new ProtoViewVisitor(null, pvVisitors, componentStrategy);
@@ -35265,7 +37017,7 @@
 
 
 /***/ },
-/* 247 */
+/* 255 */
 /***/ function(module, exports) {
 
 	'use strict';// Note: This class is only here so that we can reference it from TypeScript code.
@@ -35285,7 +37037,7 @@
 
 
 /***/ },
-/* 248 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -35297,15 +37049,15 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var source_module_1 = __webpack_require__(244);
+	var source_module_1 = __webpack_require__(252);
 	var view_1 = __webpack_require__(82);
-	var xhr_1 = __webpack_require__(224);
+	var xhr_1 = __webpack_require__(232);
 	var lang_1 = __webpack_require__(11);
 	var async_1 = __webpack_require__(54);
-	var shadow_css_1 = __webpack_require__(249);
-	var url_resolver_1 = __webpack_require__(235);
-	var style_url_resolver_1 = __webpack_require__(250);
-	var util_1 = __webpack_require__(241);
+	var shadow_css_1 = __webpack_require__(257);
+	var url_resolver_1 = __webpack_require__(243);
+	var style_url_resolver_1 = __webpack_require__(258);
+	var util_1 = __webpack_require__(249);
 	var di_1 = __webpack_require__(12);
 	var COMPONENT_VARIABLE = '%COMP%';
 	var HOST_ATTR = "_nghost-" + COMPONENT_VARIABLE;
@@ -35385,7 +37137,7 @@
 
 
 /***/ },
-/* 249 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(18);
@@ -35887,7 +37639,7 @@
 
 
 /***/ },
-/* 250 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';// Some of the code comes from WebComponents.JS
@@ -35933,7 +37685,7 @@
 
 
 /***/ },
-/* 251 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -35947,15 +37699,15 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
-	var template_ast_1 = __webpack_require__(243);
-	var source_module_1 = __webpack_require__(244);
+	var template_ast_1 = __webpack_require__(251);
+	var source_module_1 = __webpack_require__(252);
 	var view_1 = __webpack_require__(92);
 	var view_type_1 = __webpack_require__(94);
 	var element_1 = __webpack_require__(93);
 	var view_2 = __webpack_require__(82);
-	var util_1 = __webpack_require__(241);
+	var util_1 = __webpack_require__(249);
 	var di_1 = __webpack_require__(12);
-	var proto_view_compiler_1 = __webpack_require__(252);
+	var proto_view_compiler_1 = __webpack_require__(260);
 	exports.VIEW_JIT_IMPORTS = lang_1.CONST_EXPR({
 	    'AppView': view_1.AppView,
 	    'AppElement': element_1.AppElement,
@@ -36337,7 +38089,7 @@
 
 
 /***/ },
-/* 252 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -36356,12 +38108,12 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
-	var template_ast_1 = __webpack_require__(243);
-	var source_module_1 = __webpack_require__(244);
+	var template_ast_1 = __webpack_require__(251);
+	var source_module_1 = __webpack_require__(252);
 	var view_1 = __webpack_require__(92);
 	var view_type_1 = __webpack_require__(94);
 	var element_1 = __webpack_require__(93);
-	var util_1 = __webpack_require__(241);
+	var util_1 = __webpack_require__(249);
 	var di_1 = __webpack_require__(12);
 	exports.PROTO_VIEW_JIT_IMPORTS = lang_1.CONST_EXPR({ 'AppProtoView': view_1.AppProtoView, 'AppProtoElement': element_1.AppProtoElement, 'ViewType': view_type_1.ViewType });
 	// TODO: have a single file that reexports everything needed for
@@ -36653,7 +38405,7 @@
 
 
 /***/ },
-/* 253 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -36679,17 +38431,17 @@
 	var lang_2 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
 	var change_detection_1 = __webpack_require__(31);
-	var html_parser_1 = __webpack_require__(254);
-	var html_tags_1 = __webpack_require__(258);
-	var parse_util_1 = __webpack_require__(257);
+	var html_parser_1 = __webpack_require__(262);
+	var html_tags_1 = __webpack_require__(266);
+	var parse_util_1 = __webpack_require__(265);
 	var ast_1 = __webpack_require__(36);
-	var template_ast_1 = __webpack_require__(243);
-	var selector_1 = __webpack_require__(240);
-	var element_schema_registry_1 = __webpack_require__(259);
-	var template_preparser_1 = __webpack_require__(260);
-	var style_url_resolver_1 = __webpack_require__(250);
-	var html_ast_1 = __webpack_require__(255);
-	var util_1 = __webpack_require__(241);
+	var template_ast_1 = __webpack_require__(251);
+	var selector_1 = __webpack_require__(248);
+	var element_schema_registry_1 = __webpack_require__(267);
+	var template_preparser_1 = __webpack_require__(268);
+	var style_url_resolver_1 = __webpack_require__(258);
+	var html_ast_1 = __webpack_require__(263);
+	var util_1 = __webpack_require__(249);
 	// Group 1 = "bind-"
 	// Group 2 = "var-" or "#"
 	// Group 3 = "on-"
@@ -37318,7 +39070,7 @@
 
 
 /***/ },
-/* 254 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -37337,11 +39089,11 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
-	var html_ast_1 = __webpack_require__(255);
+	var html_ast_1 = __webpack_require__(263);
 	var di_1 = __webpack_require__(12);
-	var html_lexer_1 = __webpack_require__(256);
-	var parse_util_1 = __webpack_require__(257);
-	var html_tags_1 = __webpack_require__(258);
+	var html_lexer_1 = __webpack_require__(264);
+	var parse_util_1 = __webpack_require__(265);
+	var html_tags_1 = __webpack_require__(266);
 	var HtmlTreeError = (function (_super) {
 	    __extends(HtmlTreeError, _super);
 	    function HtmlTreeError(elementName, location, msg) {
@@ -37571,7 +39323,7 @@
 
 
 /***/ },
-/* 255 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
@@ -37620,7 +39372,7 @@
 
 
 /***/ },
-/* 256 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -37630,8 +39382,8 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
-	var parse_util_1 = __webpack_require__(257);
-	var html_tags_1 = __webpack_require__(258);
+	var parse_util_1 = __webpack_require__(265);
+	var html_tags_1 = __webpack_require__(266);
 	(function (HtmlTokenType) {
 	    HtmlTokenType[HtmlTokenType["TAG_OPEN_START"] = 0] = "TAG_OPEN_START";
 	    HtmlTokenType[HtmlTokenType["TAG_OPEN_END"] = 1] = "TAG_OPEN_END";
@@ -38180,7 +39932,7 @@
 
 
 /***/ },
-/* 257 */
+/* 265 */
 /***/ function(module, exports) {
 
 	'use strict';var ParseLocation = (function () {
@@ -38257,7 +40009,7 @@
 
 
 /***/ },
-/* 258 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
@@ -38657,7 +40409,7 @@
 
 
 /***/ },
-/* 259 */
+/* 267 */
 /***/ function(module, exports) {
 
 	'use strict';var ElementSchemaRegistry = (function () {
@@ -38671,11 +40423,11 @@
 
 
 /***/ },
-/* 260 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
-	var html_tags_1 = __webpack_require__(258);
+	var html_tags_1 = __webpack_require__(266);
 	var NG_CONTENT_SELECT_ATTR = 'select';
 	var NG_CONTENT_ELEMENT = 'ng-content';
 	var LINK_ELEMENT = 'link';
@@ -38750,7 +40502,7 @@
 
 
 /***/ },
-/* 261 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -38762,18 +40514,18 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var directive_metadata_1 = __webpack_require__(239);
+	var directive_metadata_1 = __webpack_require__(247);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
 	var async_1 = __webpack_require__(54);
-	var xhr_1 = __webpack_require__(224);
-	var url_resolver_1 = __webpack_require__(235);
-	var style_url_resolver_1 = __webpack_require__(250);
+	var xhr_1 = __webpack_require__(232);
+	var url_resolver_1 = __webpack_require__(243);
+	var style_url_resolver_1 = __webpack_require__(258);
 	var di_1 = __webpack_require__(12);
 	var view_1 = __webpack_require__(82);
-	var html_ast_1 = __webpack_require__(255);
-	var html_parser_1 = __webpack_require__(254);
-	var template_preparser_1 = __webpack_require__(260);
+	var html_ast_1 = __webpack_require__(263);
+	var html_parser_1 = __webpack_require__(262);
+	var template_preparser_1 = __webpack_require__(268);
 	var TemplateNormalizer = (function () {
 	    function TemplateNormalizer(_xhr, _urlResolver, _htmlParser) {
 	        this._xhr = _xhr;
@@ -38882,7 +40634,7 @@
 
 
 /***/ },
-/* 262 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -38900,18 +40652,18 @@
 	var di_1 = __webpack_require__(12);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
-	var cpl = __webpack_require__(239);
+	var cpl = __webpack_require__(247);
 	var md = __webpack_require__(29);
 	var directive_resolver_1 = __webpack_require__(111);
 	var pipe_resolver_1 = __webpack_require__(118);
 	var view_resolver_1 = __webpack_require__(112);
-	var directive_lifecycle_reflector_1 = __webpack_require__(263);
-	var interfaces_1 = __webpack_require__(242);
+	var directive_lifecycle_reflector_1 = __webpack_require__(271);
+	var interfaces_1 = __webpack_require__(250);
 	var reflection_1 = __webpack_require__(22);
 	var di_2 = __webpack_require__(12);
 	var platform_directives_and_pipes_1 = __webpack_require__(114);
-	var util_1 = __webpack_require__(241);
-	var url_resolver_1 = __webpack_require__(235);
+	var util_1 = __webpack_require__(249);
+	var url_resolver_1 = __webpack_require__(243);
 	var RuntimeMetadataResolver = (function () {
 	    function RuntimeMetadataResolver(_directiveResolver, _pipeResolver, _viewResolver, _platformDirectives, _platformPipes) {
 	        this._directiveResolver = _directiveResolver;
@@ -39054,11 +40806,11 @@
 
 
 /***/ },
-/* 263 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
-	var interfaces_1 = __webpack_require__(242);
+	var interfaces_1 = __webpack_require__(250);
 	function hasLifecycleHook(lcInterface, token) {
 	    if (!(token instanceof lang_1.Type))
 	        return false;
@@ -39088,7 +40840,7 @@
 
 
 /***/ },
-/* 264 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -39109,8 +40861,8 @@
 	var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
 	var dom_adapter_1 = __webpack_require__(140);
-	var html_tags_1 = __webpack_require__(258);
-	var element_schema_registry_1 = __webpack_require__(259);
+	var html_tags_1 = __webpack_require__(266);
+	var element_schema_registry_1 = __webpack_require__(267);
 	var NAMESPACE_URIS = lang_1.CONST_EXPR({ 'xlink': 'http://www.w3.org/1999/xlink', 'svg': 'http://www.w3.org/2000/svg' });
 	var DomElementSchemaRegistry = (function (_super) {
 	    __extends(DomElementSchemaRegistry, _super);
@@ -39154,1503 +40906,7 @@
 
 
 /***/ },
-/* 265 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	* @ngdoc service
-	* @name Config
-	* @module ionic
-	* @description
-	* Config allows you to set the modes of your components
-	*/
-	var platform_1 = __webpack_require__(266);
-	var util_1 = __webpack_require__(267);
-	/**
-	 * @name Config
-	 * @demo /docs/v2/demos/config/
-	 * @description
-	 * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
-	 *
-	 * ```ts
-	 * @App({
-	 *   template: `<ion-nav [root]="root"></ion-nav>`
-	 *   config: {
-	 *     backButtonText: 'Go Back',
-	 *     iconMode: 'ios',
-	 *     modalEnter: 'modal-slide-in',
-	 *     modalLeave: 'modal-slide-out',
-	 *     tabbarPlacement: 'bottom',
-	 *     pageTransition: 'ios',
-	 *   }
-	 * })
-	 * ```
-	 *
-	 * Or change the whole mode
-	 *
-	 * ```ts
-	 * @App({
-	 *   template: `<ion-nav [root]="root"></ion-nav>`
-	 *   config: {
-	 *     mode: md
-	 *   }
-	 * })
-	 * ```
-	 *
-	 * Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.
-	 * ```ts
-	 * @App({
-	 *   template: `<ion-nav [root]="root"></ion-nav>`
-	 *   config: {
-	 *     tabbarPlacement: 'bottom',
-	 *     platforms: {
-	 *      ios: {
-	 *        tabbarPlacement: 'top',
-	 *      }
-	 *     }
-	 *   }
-	 * })
-	 * ```
-	 *
-	 * We could also configure these values at a component level. Take `tabbarPlacement`, we can configure this as a property on our `ion-tabs`.
-	 *
-	 * ```html
-	 * <ion-tabs tabbarPlacement="top">
-	 *    <ion-tab tabTitle="Dash" tabIcon="pulse" [root]="tabRoot"></ion-tab>
-	 *  </ion-tabs>
-	 * ```
-	 *
-	 * The property will override anything else set in the apps.
-	 *
-	 * The last way we could configure is through URL query strings. This is useful for testing while in the browser.
-	 * Simply add `?ionic<PROPERTYNAME>=<value>` to the url.
-	 *
-	 * ```bash
-	 * http://localhost:8100/?ionicTabbarPlacement=bottom
-	 * ```
-	 *
-	 * Custom values can be added to config, and looked up at a later point in time.
-	 *
-	 * ``` javascript
-	 * config.set('ios', 'favoriteColor', 'green');
-	 * // from any page in your app:
-	 * config.get('favoriteColor'); // 'green'
-	 * ```
-	 *
-	 *
-	 * A config value can come from anywhere and be anything, but there are a default set of values.
-	 *
-	 *
-	 * | Config property            | Default iOS Value      | Default MD Value          |
-	 * |----------------------------|------------------------|---------------------------|
-	 * | activator                  | highlight              | ripple                    |
-	 * | actionSheetEnter           | action-sheet-slide-in  | action-sheet-md-slide-in  |
-	 * | actionSheetLeave           | action-sheet-slide-out | action-sheet-md-slide-out |
-	 * | alertEnter                 | alert-pop-in           | alert-md-pop-in           |
-	 * | alertLeave                 | alert-pop-out          | alert-md-pop-out          |
-	 * | backButtonText             | Back                   |                           |
-	 * | backButtonIcon             | ion-ios-arrow-back     | ion-md-arrow-back         |
-	 * | iconMode                   | ios                    | md                        |
-	 * | menuType                   | reveal                 | overlay                   |
-	 * | modalEnter                 | modal-slide-in         | modal-md-slide-in         |
-	 * | modalLeave                 | modal-slide-out        | modal-md-slide-out        |
-	 * | pageTransition             | ios-transition         | md-transition             |
-	 * | pageTransitionDelay        | 16                     | 120                       |
-	 * | tabbarPlacement            | bottom                 | top                       |
-	 * | tabbarHighlight            |                        | top                       |
-	 * | tabSubPages                |                        | true                      |
-	 *
-	**/
-	var Config = (function () {
-	    function Config(config) {
-	        this._c = {};
-	        this._s = {};
-	        this._s = config && util_1.isObject(config) && !util_1.isArray(config) ? config : {};
-	    }
-	    /**
-	     * For setting and getting multiple config values
-	     */
-	    /**
-	     * @private
-	     * @name settings()
-	     * @description
-	     */
-	    Config.prototype.settings = function () {
-	        var args = arguments;
-	        switch (args.length) {
-	            case 0:
-	                return this._s;
-	            case 1:
-	                // settings({...})
-	                this._s = args[0];
-	                this._c = {}; // clear cache
-	                break;
-	            case 2:
-	                // settings('ios', {...})
-	                this._s.platforms = this._s.platforms || {};
-	                this._s.platforms[args[0]] = args[1];
-	                this._c = {}; // clear cache
-	                break;
-	        }
-	        return this;
-	    };
-	    /**
-	     * @name set
-	     * @description
-	     * Sets a single config value.
-	     *
-	     * @param {String} [platform] - The platform (either 'ios' or 'android') that the config value should apply to. Leaving this blank will apply the config value to all platforms.
-	     * @param {String} [key] - The key used to look up the value at a later point in time.
-	     * @param {String} [value] - The config value being stored.
-	     */
-	    Config.prototype.set = function () {
-	        var args = arguments;
-	        var arg0 = args[0];
-	        var arg1 = args[1];
-	        switch (args.length) {
-	            case 2:
-	                // set('key', 'value') = set key/value pair
-	                // arg1 = value
-	                this._s[arg0] = arg1;
-	                delete this._c[arg0]; // clear cache
-	                break;
-	            case 3:
-	                // setting('ios', 'key', 'value') = set key/value pair for platform
-	                // arg0 = platform
-	                // arg1 = key
-	                // arg2 = value
-	                this._s.platforms = this._s.platforms || {};
-	                this._s.platforms[arg0] = this._s.platforms[arg0] || {};
-	                this._s.platforms[arg0][arg1] = args[2];
-	                delete this._c[arg1]; // clear cache
-	                break;
-	        }
-	        return this;
-	    };
-	    /**
-	     * @name get
-	     * @description
-	     * Returns a single config value, given a key.
-	     *
-	     * @param {String} [key] - the key for the config value
-	     */
-	    Config.prototype.get = function (key) {
-	        if (!util_1.isDefined(this._c[key])) {
-	            if (!util_1.isDefined(key)) {
-	                throw 'config key is not defined';
-	            }
-	            // if the value was already set this will all be skipped
-	            // if there was no user config then it'll check each of
-	            // the user config's platforms, which already contains
-	            // settings from default platform configs
-	            var userPlatformValue = undefined;
-	            var userDefaultValue = this._s[key];
-	            var userPlatformModeValue = undefined;
-	            var userDefaultModeValue = undefined;
-	            var platformValue = undefined;
-	            var platformModeValue = undefined;
-	            var configObj = null;
-	            if (this.platform) {
-	                var queryStringValue = this.platform.query('ionic' + key.toLowerCase());
-	                if (util_1.isDefined(queryStringValue)) {
-	                    return this._c[key] = (queryStringValue === 'true' ? true : queryStringValue === 'false' ? false : queryStringValue);
-	                }
-	                // check the platform settings object for this value
-	                // loop though each of the active platforms
-	                // array of active platforms, which also knows the hierarchy,
-	                // with the last one the most important
-	                var activePlatformKeys = this.platform.platforms();
-	                // loop through all of the active platforms we're on
-	                for (var i = 0, l = activePlatformKeys.length; i < l; i++) {
-	                    // get user defined platform values
-	                    if (this._s.platforms) {
-	                        configObj = this._s.platforms[activePlatformKeys[i]];
-	                        if (configObj) {
-	                            if (util_1.isDefined(configObj[key])) {
-	                                userPlatformValue = configObj[key];
-	                            }
-	                            configObj = Config.getModeConfig(configObj.mode);
-	                            if (configObj && util_1.isDefined(configObj[key])) {
-	                                userPlatformModeValue = configObj[key];
-	                            }
-	                        }
-	                    }
-	                    // get default platform's setting
-	                    configObj = platform_1.Platform.get(activePlatformKeys[i]);
-	                    if (configObj && configObj.settings) {
-	                        if (util_1.isDefined(configObj.settings[key])) {
-	                            // found a setting for this platform
-	                            platformValue = configObj.settings[key];
-	                        }
-	                        configObj = Config.getModeConfig(configObj.settings.mode);
-	                        if (configObj && util_1.isDefined(configObj[key])) {
-	                            // found setting for this platform's mode
-	                            platformModeValue = configObj[key];
-	                        }
-	                    }
-	                }
-	            }
-	            configObj = Config.getModeConfig(this._s.mode);
-	            if (configObj && util_1.isDefined(configObj[key])) {
-	                userDefaultModeValue = configObj[key];
-	            }
-	            // cache the value
-	            this._c[key] = util_1.isDefined(userPlatformValue) ? userPlatformValue :
-	                util_1.isDefined(userDefaultValue) ? userDefaultValue :
-	                    util_1.isDefined(userPlatformModeValue) ? userPlatformModeValue :
-	                        util_1.isDefined(userDefaultModeValue) ? userDefaultModeValue :
-	                            util_1.isDefined(platformValue) ? platformValue :
-	                                util_1.isDefined(platformModeValue) ? platformModeValue :
-	                                    null;
-	        }
-	        // return key's value
-	        // either it came directly from the user config
-	        // or it was from the users platform configs
-	        // or it was from the default platform configs
-	        // in that order
-	        if (util_1.isFunction(this._c[key])) {
-	            return this._c[key](this.platform);
-	        }
-	        return this._c[key];
-	    };
-	    /**
-	     * @name getBoolean
-	     * @description
-	     * Same as `get()`, however always returns a boolean value.
-	     *
-	     * @param {String} [key] - the key for the config value
-	     */
-	    Config.prototype.getBoolean = function (key) {
-	        var val = this.get(key);
-	        return (val || val === 'true') ? true : false;
-	    };
-	    /**
-	     * @private
-	     */
-	    Config.prototype.setPlatform = function (platform) {
-	        this.platform = platform;
-	    };
-	    Config.setModeConfig = function (mode, config) {
-	        modeConfigs[mode] = config;
-	    };
-	    Config.getModeConfig = function (mode) {
-	        return modeConfigs[mode] || null;
-	    };
-	    return Config;
-	})();
-	exports.Config = Config;
-	var modeConfigs = {};
-
-/***/ },
-/* 266 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var util_1 = __webpack_require__(267);
-	var dom_1 = __webpack_require__(268);
-	/**
-	 * @name Platform
-	 * @description
-	 * Platform returns the availble information about your current platform.
-	 * Platforms in Ionic 2 are much more complex then in V1, returns not just a single platform,
-	 * but a hierarchy of information, such as a devices OS, phone vs tablet, or mobile vs browser.
-	 * With this information you can completely custimize your app to fit any device and platform.
-	 *
-	 * @usage
-	 * ```ts
-	 * import {Platform} 'ionic/ionic';
-	 * export MyClass {
-	 *    constructor(platform: Platform){
-	 *      this.platform = platform;
-	 *    }
-	 * }
-	 * ```
-	 * @demo /docs/v2/demos/platform/
-	 */
-	var Platform = (function () {
-	    function Platform(platforms) {
-	        var _this = this;
-	        if (platforms === void 0) { platforms = []; }
-	        this._versions = {};
-	        this._onResizes = [];
-	        this._platforms = platforms;
-	        this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
-	    }
-	    // Methods
-	    // **********************************************
-	    /**
-	     * @param {string} platformName
-	     * @returns {bool} returns true/false based on platform you place
-	     * @description
-	     * Depending on the platform name, isPlatform will return true or flase
-	     *
-	     * ```
-	     * import {Platform} 'ionic/ionic';
-	     * export MyClass {
-	     *    constructor(platform: Platform){
-	     *      this.platform = platform;
-	     *      if(this.platform.is('ios'){
-	     *        // what ever you need to do for
-	     *        // if the platfomr is ios
-	     *      }
-	     *    }
-	     * }
-	     * ```
-	     */
-	    Platform.prototype.is = function (platformName) {
-	        return (this._platforms.indexOf(platformName) > -1);
-	    };
-	    /**
-	     * @returns {array} the array of platforms
-	     * @description
-	     * Depending on what device you are on, `platforms` can return multiple values.
-	     * Each possible value is a hierarchy of platforms. For example, on an iPhone,
-	     * it would return mobile, ios, and iphone.
-	     *
-	     * ```
-	     * import {Platform} 'ionic/ionic';
-	     * export MyClass {
-	     *    constructor(platform: Platform){
-	     *      this.platform = platform;
-	     *      console.log(this.platform.platforms());
-	     *      // This will return an array of all the availble platforms
-	     *      // From if your on mobile, to mobile os, and device name
-	     *    }
-	     * }
-	     * ```
-	     */
-	    Platform.prototype.platforms = function () {
-	        // get the array of active platforms, which also knows the hierarchy,
-	        // with the last one the most important
-	        return this._platforms;
-	    };
-	    /**
-	     * Returns an object containing information about the paltform
-	     *
-	     * ```
-	     * import {Platform} 'ionic/ionic';
-	     * export MyClass {
-	     *    constructor(platform: Platform){
-	     *      this.platform = platform;
-	     *      console.log(this.platform.versions());
-	     *    }
-	     * }
-	     * ```
-	  
-	     * @param {string} [platformName] optional platformName
-	     * @returns {object} An object with various platform info
-	     *
-	     */
-	    Platform.prototype.versions = function (platformName) {
-	        if (arguments.length) {
-	            // get a specific platform's version
-	            return this._versions[platformName];
-	        }
-	        // get all the platforms that have a valid parsed version
-	        return this._versions;
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.version = function () {
-	        for (var platformName in this._versions) {
-	            if (this._versions[platformName]) {
-	                return this._versions[platformName];
-	            }
-	        }
-	        return {};
-	    };
-	    /**
-	     * Returns a promise when the platform is ready and native functionality can be called
-	     *
-	     * ```
-	     * import {Platform} 'ionic/ionic';
-	     * export MyClass {
-	     *    constructor(platform: Platform){
-	     *      this.platform = platform;
-	     *      this.platform.ready().then(() => {
-	     *        console.log('Platform ready');
-	     *        // The platform is now ready, execute any native code you want
-	     *       });
-	     *    }
-	     * }
-	     * ```
-	     * @returns {promise} Returns a promsie when device ready has fired
-	     */
-	    Platform.prototype.ready = function () {
-	        return this._readyPromise;
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.prepareReady = function (config) {
-	        var self = this;
-	        function resolve() {
-	            self._readyResolve(config);
-	        }
-	        if (this._engineReady) {
-	            // the engine provide a ready promise, use this instead
-	            this._engineReady(resolve);
-	        }
-	        else {
-	            // there is no custom ready method from the engine
-	            // use the default dom ready
-	            dom_1.ready(resolve);
-	        }
-	    };
-	    /**
-	    * Set the app's language direction, which will update the `dir` attribute
-	    * on the app's root `<html>` element. We recommend the app's `index.html`
-	    * file already has the correct `dir` attribute value set, such as
-	    * `<html dir="ltr">` or `<html dir="rtl">`. This method is useful if the
-	    * direction needs to be dynamically changed per user/session.
-	    * [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
-	    * @param {string} dir  Examples: `rtl`, `ltr`
-	    */
-	    Platform.prototype.setDir = function (dir, updateDocument) {
-	        this._dir = (dir || '').toLowerCase();
-	        if (updateDocument !== false) {
-	            document.documentElement.setAttribute('dir', dir);
-	        }
-	    };
-	    /**
-	     * Returns app's language direction.
-	     * We recommend the app's `index.html` file already has the correct `dir`
-	     * attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
-	     * [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
-	     * @returns {string}
-	     */
-	    Platform.prototype.dir = function () {
-	        return this._dir;
-	    };
-	    /**
-	     * Returns if this app is using right-to-left language direction or not.
-	     * We recommend the app's `index.html` file already has the correct `dir`
-	     * attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
-	     * [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
-	     * @returns {boolean}
-	     */
-	    Platform.prototype.isRTL = function () {
-	        return (this._dir === 'rtl');
-	    };
-	    /**
-	    * Set the app's language and optionally the country code, which will update
-	    * the `lang` attribute on the app's root `<html>` element.
-	    * We recommend the app's `index.html` file already has the correct `lang`
-	    * attribute value set, such as `<html lang="en">`. This method is useful if
-	    * the language needs to be dynamically changed per user/session.
-	    * [W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
-	    * @param {string} language  Examples: `en-US`, `en-GB`, `ar`, `de`, `zh`, `es-MX`
-	    */
-	    Platform.prototype.setLang = function (language, updateDocument) {
-	        this._lang = language;
-	        if (updateDocument !== false) {
-	            document.documentElement.setAttribute('lang', language);
-	        }
-	    };
-	    /**
-	     * Returns app's language and optional country code.
-	     * We recommend the app's `index.html` file already has the correct `lang`
-	     * attribute value set, such as `<html lang="en">`.
-	     * [W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
-	     * @returns {string}
-	     */
-	    Platform.prototype.lang = function () {
-	        return this._lang;
-	    };
-	    // Methods meant to be overridden by the engine
-	    // **********************************************
-	    // Provided NOOP methods so they do not error when
-	    // called by engines (the browser) doesn't provide them
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.on = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.onHardwareBackButton = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.registerBackButtonAction = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.exitApp = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.fullScreen = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.showStatusBar = function () { };
-	    // Getter/Setter Methods
-	    // **********************************************
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.setUrl = function (url) {
-	        this._url = url;
-	        this._qs = util_1.getQuerystring(url);
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.url = function () {
-	        return this._url;
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.query = function (key) {
-	        return (this._qs || {})[key];
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.setUserAgent = function (userAgent) {
-	        this._ua = userAgent;
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.userAgent = function () {
-	        return this._ua || '';
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.setNavigatorPlatform = function (navigatorPlatform) {
-	        this._bPlt = navigatorPlatform;
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.navigatorPlatform = function () {
-	        return this._bPlt || '';
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.width = function () {
-	        return dom_1.windowDimensions().width;
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.height = function () {
-	        return dom_1.windowDimensions().height;
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.isPortrait = function () {
-	        return this.width() < this.height();
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.isLandscape = function () {
-	        return !this.isPortrait();
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.windowResize = function () {
-	        var self = this;
-	        clearTimeout(self._resizeTimer);
-	        self._resizeTimer = setTimeout(function () {
-	            dom_1.flushDimensionCache();
-	            for (var i = 0; i < self._onResizes.length; i++) {
-	                try {
-	                    self._onResizes[i]();
-	                }
-	                catch (e) {
-	                    console.error(e);
-	                }
-	            }
-	        }, 250);
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.onResize = function (cb) {
-	        this._onResizes.push(cb);
-	    };
-	    // Platform Registry
-	    // **********************************************
-	    /**
-	     * @private
-	     */
-	    Platform.register = function (platformConfig) {
-	        platformRegistry[platformConfig.name] = platformConfig;
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.registry = function () {
-	        return platformRegistry;
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.get = function (platformName) {
-	        return platformRegistry[platformName] || {};
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.setDefault = function (platformName) {
-	        platformDefault = platformName;
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.testQuery = function (queryValue, queryTestValue) {
-	        var valueSplit = queryValue.toLowerCase().split(';');
-	        return valueSplit.indexOf(queryTestValue) > -1;
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.testUserAgent = function (userAgentExpression) {
-	        var rgx = new RegExp(userAgentExpression, 'i');
-	        return rgx.test(this._ua || '');
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.testNavigatorPlatform = function (navigatorPlatformExpression) {
-	        var rgx = new RegExp(navigatorPlatformExpression, 'i');
-	        return rgx.test(this._bPlt);
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.matchUserAgentVersion = function (userAgentExpression) {
-	        if (this._ua && userAgentExpression) {
-	            var val = this._ua.match(userAgentExpression);
-	            if (val) {
-	                return {
-	                    major: val[1],
-	                    minor: val[2]
-	                };
-	            }
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.isPlatform = function (queryTestValue, userAgentExpression) {
-	        if (!userAgentExpression) {
-	            userAgentExpression = queryTestValue;
-	        }
-	        var queryValue = this.query('ionicplatform');
-	        if (queryValue) {
-	            return this.testQuery(queryValue, queryTestValue);
-	        }
-	        return this.testUserAgent(userAgentExpression);
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.load = function (platformOverride) {
-	        var rootPlatformNode = null;
-	        var engineNode = null;
-	        var self = this;
-	        this.platformOverride = platformOverride;
-	        // figure out the most specific platform and active engine
-	        var tmpPlatform = null;
-	        for (var platformName in platformRegistry) {
-	            tmpPlatform = this.matchPlatform(platformName);
-	            if (tmpPlatform) {
-	                // we found a platform match!
-	                // check if its more specific than the one we already have
-	                if (tmpPlatform.isEngine) {
-	                    // because it matched then this should be the active engine
-	                    // you cannot have more than one active engine
-	                    engineNode = tmpPlatform;
-	                }
-	                else if (!rootPlatformNode || tmpPlatform.depth > rootPlatformNode.depth) {
-	                    // only find the root node for platforms that are not engines
-	                    // set this node as the root since we either don't already
-	                    // have one, or this one is more specific that the current one
-	                    rootPlatformNode = tmpPlatform;
-	                }
-	            }
-	        }
-	        if (!rootPlatformNode) {
-	            rootPlatformNode = new PlatformNode(platformDefault);
-	        }
-	        // build a Platform instance filled with the
-	        // hierarchy of active platforms and settings
-	        if (rootPlatformNode) {
-	            // check if we found an engine node (cordova/node-webkit/etc)
-	            if (engineNode) {
-	                // add the engine to the first in the platform hierarchy
-	                // the original rootPlatformNode now becomes a child
-	                // of the engineNode, which is not the new root
-	                engineNode.child = rootPlatformNode;
-	                rootPlatformNode.parent = engineNode;
-	                rootPlatformNode = engineNode;
-	                // add any events which the engine would provide
-	                // for example, Cordova provides its own ready event
-	                var engineMethods = engineNode.methods();
-	                engineMethods._engineReady = engineMethods.ready;
-	                delete engineMethods.ready;
-	                util_1.assign(this, engineMethods);
-	            }
-	            var platformNode = rootPlatformNode;
-	            while (platformNode) {
-	                insertSuperset(platformNode);
-	                platformNode = platformNode.child;
-	            }
-	            // make sure the root noot is actually the root
-	            // incase a node was inserted before the root
-	            platformNode = rootPlatformNode.parent;
-	            while (platformNode) {
-	                rootPlatformNode = platformNode;
-	                platformNode = platformNode.parent;
-	            }
-	            platformNode = rootPlatformNode;
-	            while (platformNode) {
-	                // set the array of active platforms with
-	                // the last one in the array the most important
-	                this._platforms.push(platformNode.name());
-	                // get the platforms version if a version parser was provided
-	                this._versions[platformNode.name()] = platformNode.version(this);
-	                // go to the next platform child
-	                platformNode = platformNode.child;
-	            }
-	        }
-	        if (this._platforms.indexOf('mobile') > -1 && this._platforms.indexOf('cordova') === -1) {
-	            this._platforms.push('mobileweb');
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.matchPlatform = function (platformName) {
-	        // build a PlatformNode and assign config data to it
-	        // use it's getRoot method to build up its hierarchy
-	        // depending on which platforms match
-	        var platformNode = new PlatformNode(platformName);
-	        var rootNode = platformNode.getRoot(this);
-	        if (rootNode) {
-	            rootNode.depth = 0;
-	            var childPlatform = rootNode.child;
-	            while (childPlatform) {
-	                rootNode.depth++;
-	                childPlatform = childPlatform.child;
-	            }
-	        }
-	        return rootNode;
-	    };
-	    return Platform;
-	})();
-	exports.Platform = Platform;
-	function insertSuperset(platformNode) {
-	    var supersetPlaformName = platformNode.superset();
-	    if (supersetPlaformName) {
-	        // add a platform in between two exist platforms
-	        // so we can build the correct hierarchy of active platforms
-	        var supersetPlatform = new PlatformNode(supersetPlaformName);
-	        supersetPlatform.parent = platformNode.parent;
-	        supersetPlatform.child = platformNode;
-	        if (supersetPlatform.parent) {
-	            supersetPlatform.parent.child = supersetPlatform;
-	        }
-	        platformNode.parent = supersetPlatform;
-	    }
-	}
-	var PlatformNode = (function () {
-	    function PlatformNode(platformName) {
-	        this.c = Platform.get(platformName);
-	        this.isEngine = this.c.isEngine;
-	    }
-	    PlatformNode.prototype.name = function () {
-	        return this.c.name;
-	    };
-	    PlatformNode.prototype.settings = function () {
-	        return this.c.settings || {};
-	    };
-	    PlatformNode.prototype.superset = function () {
-	        return this.c.superset;
-	    };
-	    PlatformNode.prototype.methods = function () {
-	        return this.c.methods || {};
-	    };
-	    PlatformNode.prototype.isMatch = function (p) {
-	        if (p.platformOverride && !this.isEngine) {
-	            return (p.platformOverride === this.c.name);
-	        }
-	        else if (!this.c.isMatch) {
-	            return false;
-	        }
-	        return this.c.isMatch(p);
-	    };
-	    PlatformNode.prototype.version = function (p) {
-	        if (this.c.versionParser) {
-	            var v = this.c.versionParser(p);
-	            if (v) {
-	                var str = v.major + '.' + v.minor;
-	                return {
-	                    str: str,
-	                    num: parseFloat(str),
-	                    major: parseInt(v.major, 10),
-	                    minor: parseInt(v.minor, 10)
-	                };
-	            }
-	        }
-	    };
-	    PlatformNode.prototype.getRoot = function (p) {
-	        if (this.isMatch(p)) {
-	            var parents = this.getSubsetParents(this.name());
-	            if (!parents.length) {
-	                return this;
-	            }
-	            var platform = null;
-	            var rootPlatform = null;
-	            for (var i = 0; i < parents.length; i++) {
-	                platform = new PlatformNode(parents[i]);
-	                platform.child = this;
-	                rootPlatform = platform.getRoot(p);
-	                if (rootPlatform) {
-	                    this.parent = platform;
-	                    return rootPlatform;
-	                }
-	            }
-	        }
-	        return null;
-	    };
-	    PlatformNode.prototype.getSubsetParents = function (subsetPlatformName) {
-	        var platformRegistry = Platform.registry();
-	        var parentPlatformNames = [];
-	        var platform = null;
-	        for (var platformName in platformRegistry) {
-	            platform = platformRegistry[platformName];
-	            if (platform.subsets && platform.subsets.indexOf(subsetPlatformName) > -1) {
-	                parentPlatformNames.push(platformName);
-	            }
-	        }
-	        return parentPlatformNames;
-	    };
-	    return PlatformNode;
-	})();
-	var platformRegistry = {};
-	var platformDefault = null;
-
-/***/ },
-/* 267 */
-/***/ function(module, exports) {
-
-	// Simple noop function
-	function noop() { }
-	exports.noop = noop;
-	;
-	/**
-	 * Given a min and max, restrict the given number
-	 * to the range.
-	 * @param min the minimum
-	 * @param n the value
-	 * @param max the maximum
-	 */
-	function clamp(min, n, max) {
-	    return Math.max(min, Math.min(n, max));
-	}
-	exports.clamp = clamp;
-	/**
-	 * The assign() method is used to copy the values of all enumerable own
-	 * properties from one or more source objects to a target object. It will
-	 * return the target object. When available, this method will use
-	 * `Object.assign()` under-the-hood.
-	 * @param target  The target object
-	 * @param source(s)  The source object
-	 */
-	function assign() {
-	    var args = [];
-	    for (var _i = 0; _i < arguments.length; _i++) {
-	        args[_i - 0] = arguments[_i];
-	    }
-	    if (typeof Object.assign !== 'function') {
-	        // use the old-school shallow extend method
-	        return _baseExtend(args[0], [].slice.call(args, 1), false);
-	    }
-	    // use the built in ES6 Object.assign method
-	    return Object.assign.apply(null, args);
-	}
-	exports.assign = assign;
-	/**
-	 * Do a deep extend (merge).
-	 * @param dst the destination
-	 * @param ... the param objects
-	 */
-	function merge(dst) {
-	    var args = [];
-	    for (var _i = 1; _i < arguments.length; _i++) {
-	        args[_i - 1] = arguments[_i];
-	    }
-	    return _baseExtend(dst, [].slice.call(arguments, 1), true);
-	}
-	exports.merge = merge;
-	function _baseExtend(dst, objs, deep) {
-	    for (var i = 0, ii = objs.length; i < ii; ++i) {
-	        var obj = objs[i];
-	        if (!obj || !exports.isObject(obj) && !exports.isFunction(obj))
-	            continue;
-	        var keys = Object.keys(obj);
-	        for (var j = 0, jj = keys.length; j < jj; j++) {
-	            var key = keys[j];
-	            var src = obj[key];
-	            if (deep && exports.isObject(src)) {
-	                if (!exports.isObject(dst[key]))
-	                    dst[key] = exports.isArray(src) ? [] : {};
-	                _baseExtend(dst[key], [src], true);
-	            }
-	            else {
-	                dst[key] = src;
-	            }
-	        }
-	    }
-	    return dst;
-	}
-	function debounce(func, wait, immediate) {
-	    if (immediate === void 0) { immediate = false; }
-	    var timeout, args, context, timestamp, result;
-	    return function () {
-	        context = this;
-	        args = arguments;
-	        timestamp = Date.now();
-	        var later = function () {
-	            var last = Date.now() - timestamp;
-	            if (last < wait) {
-	                timeout = setTimeout(later, wait - last);
-	            }
-	            else {
-	                timeout = null;
-	                if (!immediate)
-	                    result = func.apply(context, args);
-	            }
-	        };
-	        var callNow = immediate && !timeout;
-	        if (!timeout) {
-	            timeout = setTimeout(later, wait);
-	        }
-	        if (callNow)
-	            result = func.apply(context, args);
-	        return result;
-	    };
-	}
-	exports.debounce = debounce;
-	/**
-	 * Apply default arguments if they don't exist in
-	 * the first object.
-	 * @param the destination to apply defaults to.
-	 */
-	function defaults(dest) {
-	    var args = [];
-	    for (var _i = 1; _i < arguments.length; _i++) {
-	        args[_i - 1] = arguments[_i];
-	    }
-	    for (var i = arguments.length - 1; i >= 1; i--) {
-	        var source = arguments[i] || {};
-	        for (var key in source) {
-	            if (source.hasOwnProperty(key) && !dest.hasOwnProperty(key)) {
-	                dest[key] = source[key];
-	            }
-	        }
-	    }
-	    return dest;
-	}
-	exports.defaults = defaults;
-	exports.isBoolean = function (val) { return typeof val === 'boolean'; };
-	exports.isString = function (val) { return typeof val === 'string'; };
-	exports.isNumber = function (val) { return typeof val === 'number'; };
-	exports.isFunction = function (val) { return typeof val === 'function'; };
-	exports.isDefined = function (val) { return typeof val !== 'undefined'; };
-	exports.isUndefined = function (val) { return typeof val === 'undefined'; };
-	exports.isBlank = function (val) { return val === undefined || val === null; };
-	exports.isObject = function (val) { return typeof val === 'object'; };
-	exports.isArray = Array.isArray;
-	exports.isTrueProperty = function (val) {
-	    if (typeof val === 'boolean')
-	        return val;
-	    if (typeof val === 'string') {
-	        val = val.toLowerCase().trim();
-	        return (val === 'true' || val === '');
-	    }
-	    if (typeof val === 'number')
-	        return (val > 0);
-	    return !!val;
-	};
-	/**
-	 * Convert a string in the format thisIsAString to a slug format this-is-a-string
-	 */
-	function pascalCaseToDashCase(str) {
-	    if (str === void 0) { str = ''; }
-	    return str.charAt(0).toLowerCase() + str.substring(1).replace(/[A-Z]/g, function (match) {
-	        return '-' + match.toLowerCase();
-	    });
-	}
-	exports.pascalCaseToDashCase = pascalCaseToDashCase;
-	var uid = 0;
-	function nextUid() {
-	    return ++uid;
-	}
-	exports.nextUid = nextUid;
-	exports.array = {
-	    find: function (arr, cb) {
-	        for (var i = 0, ii = arr.length; i < ii; i++) {
-	            if (cb(arr[i], i))
-	                return arr[i];
-	        }
-	    },
-	    remove: function (arr, itemOrIndex) {
-	        var index = -1;
-	        if (exports.isNumber(itemOrIndex)) {
-	            index = itemOrIndex;
-	        }
-	        else {
-	            index = arr.indexOf(itemOrIndex);
-	        }
-	        if (index < 0) {
-	            return false;
-	        }
-	        arr.splice(index, 1);
-	        return true;
-	    }
-	};
-	/**
-	 * Grab all query strings keys and values.
-	 * @param url
-	 */
-	function getQuerystring(url) {
-	    var queryParams = {};
-	    if (url) {
-	        var startIndex = url.indexOf('?');
-	        if (startIndex !== -1) {
-	            var queries = url.slice(startIndex + 1).split('&');
-	            queries.forEach(function (param) {
-	                var split = param.split('=');
-	                queryParams[split[0].toLowerCase()] = split[1].split('#')[0];
-	            });
-	        }
-	    }
-	    return queryParams;
-	}
-	exports.getQuerystring = getQuerystring;
-	/**
-	 * Throttle the given fun, only allowing it to be
-	 * called at most every `wait` ms.
-	 */
-	function throttle(func, wait, options) {
-	    var context, args, result;
-	    var timeout = null;
-	    var previous = 0;
-	    options || (options = {});
-	    var later = function () {
-	        previous = options.leading === false ? 0 : Date.now();
-	        timeout = null;
-	        result = func.apply(context, args);
-	    };
-	    return function () {
-	        var now = Date.now();
-	        if (!previous && options.leading === false)
-	            previous = now;
-	        var remaining = wait - (now - previous);
-	        context = this;
-	        args = arguments;
-	        if (remaining <= 0) {
-	            clearTimeout(timeout);
-	            timeout = null;
-	            previous = now;
-	            result = func.apply(context, args);
-	        }
-	        else if (!timeout && options.trailing !== false) {
-	            timeout = setTimeout(later, remaining);
-	        }
-	        return result;
-	    };
-	}
-	exports.throttle = throttle;
-
-/***/ },
-/* 268 */
-/***/ function(module, exports) {
-
-	var win = window;
-	var doc = document;
-	var docEle = doc.documentElement;
-	// requestAnimationFrame is polyfilled for old Android
-	// within the web-animations polyfill
-	exports.raf = win.requestAnimationFrame;
-	function rafFrames(framesToWait, callback) {
-	    framesToWait = Math.ceil(framesToWait);
-	    if (framesToWait < 2) {
-	        exports.raf(callback);
-	    }
-	    else {
-	        setTimeout(function () {
-	            exports.raf(callback);
-	        }, (framesToWait - 1) * 17);
-	    }
-	}
-	exports.rafFrames = rafFrames;
-	exports.CSS = {};
-	(function () {
-	    // transform
-	    var i, keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
-	        '-moz-transform', 'moz-transform', 'MozTransform', 'mozTransform', 'msTransform'];
-	    for (i = 0; i < keys.length; i++) {
-	        if (docEle.style[keys[i]] !== undefined) {
-	            exports.CSS.transform = keys[i];
-	            break;
-	        }
-	    }
-	    // transition
-	    keys = ['webkitTransition', 'mozTransition', 'msTransition', 'transition'];
-	    for (i = 0; i < keys.length; i++) {
-	        if (docEle.style[keys[i]] !== undefined) {
-	            exports.CSS.transition = keys[i];
-	            break;
-	        }
-	    }
-	    // The only prefix we care about is webkit for transitions.
-	    var isWebkit = exports.CSS.transition.indexOf('webkit') > -1;
-	    // transition duration
-	    exports.CSS.transitionDuration = (isWebkit ? '-webkit-' : '') + 'transition-duration';
-	    // To be sure transitionend works everywhere, include *both* the webkit and non-webkit events
-	    exports.CSS.transitionEnd = (isWebkit ? 'webkitTransitionEnd ' : '') + 'transitionend';
-	})();
-	if (win.onanimationend === undefined && win.onwebkitanimationend !== undefined) {
-	    exports.CSS.animationStart = 'webkitAnimationStart animationstart';
-	    exports.CSS.animationEnd = 'webkitAnimationEnd animationend';
-	}
-	else {
-	    exports.CSS.animationStart = 'animationstart';
-	    exports.CSS.animationEnd = 'animationend';
-	}
-	function transitionEnd(el) {
-	    return cssPromise(el, exports.CSS.transitionEnd);
-	}
-	exports.transitionEnd = transitionEnd;
-	function animationStart(el, animationName) {
-	    return cssPromise(el, exports.CSS.animationStart, animationName);
-	}
-	exports.animationStart = animationStart;
-	function animationEnd(el, animationName) {
-	    return cssPromise(el, exports.CSS.animationEnd, animationName);
-	}
-	exports.animationEnd = animationEnd;
-	function cssPromise(el, eventNames, animationName) {
-	    return new Promise(function (resolve) {
-	        eventNames.split(' ').forEach(function (eventName) {
-	            el.addEventListener(eventName, onEvent);
-	        });
-	        function onEvent(ev) {
-	            if (ev.animationName && animationName) {
-	                // do not resolve if a bubbled up ev.animationName
-	                // is not the same as the passed in animationName arg
-	                if (ev.animationName !== animationName) {
-	                    return;
-	                }
-	            }
-	            else if (ev.target !== el) {
-	                // do not resolve if the event's target element is not
-	                // the same as the element the listener was added to
-	                return;
-	            }
-	            ev.stopPropagation();
-	            eventNames.split(' ').forEach(function (eventName) {
-	                el.removeEventListener(eventName, onEvent);
-	            });
-	            resolve(ev);
-	        }
-	    });
-	}
-	function ready(callback) {
-	    var promise = null;
-	    if (!callback) {
-	        // a callback wasn't provided, so let's return a promise instead
-	        promise = new Promise(function (resolve) { callback = resolve; });
-	    }
-	    if (doc.readyState === 'complete' || doc.readyState === 'interactive') {
-	        callback();
-	    }
-	    else {
-	        function completed() {
-	            doc.removeEventListener('DOMContentLoaded', completed, false);
-	            win.removeEventListener('load', completed, false);
-	            callback();
-	        }
-	        doc.addEventListener('DOMContentLoaded', completed, false);
-	        win.addEventListener('load', completed, false);
-	    }
-	    return promise;
-	}
-	exports.ready = ready;
-	function windowLoad(callback) {
-	    var promise = null;
-	    if (!callback) {
-	        // a callback wasn't provided, so let's return a promise instead
-	        promise = new Promise(function (resolve) { callback = resolve; });
-	    }
-	    if (doc.readyState === 'complete') {
-	        callback();
-	    }
-	    else {
-	        function completed() {
-	            win.removeEventListener('load', completed, false);
-	            callback();
-	        }
-	        win.addEventListener('load', completed, false);
-	    }
-	    return promise;
-	}
-	exports.windowLoad = windowLoad;
-	function pointerCoord(ev) {
-	    // get coordinates for either a mouse click
-	    // or a touch depending on the given event
-	    var c = { x: 0, y: 0 };
-	    if (ev) {
-	        var touches = ev.touches && ev.touches.length ? ev.touches : [ev];
-	        var e = (ev.changedTouches && ev.changedTouches[0]) || touches[0];
-	        if (e) {
-	            c.x = e.clientX || e.pageX || 0;
-	            c.y = e.clientY || e.pageY || 0;
-	        }
-	    }
-	    return c;
-	}
-	exports.pointerCoord = pointerCoord;
-	function hasPointerMoved(threshold, startCoord, endCoord) {
-	    return startCoord && endCoord &&
-	        (Math.abs(startCoord.x - endCoord.x) > threshold || Math.abs(startCoord.y - endCoord.y) > threshold);
-	}
-	exports.hasPointerMoved = hasPointerMoved;
-	function isActive(ele) {
-	    return !!(ele && (doc.activeElement === ele));
-	}
-	exports.isActive = isActive;
-	function hasFocus(ele) {
-	    return isActive(ele) && (ele.parentElement.querySelector(':focus') === ele);
-	}
-	exports.hasFocus = hasFocus;
-	function isTextInput(ele) {
-	    return !!ele &&
-	        (ele.tagName == 'TEXTAREA' ||
-	            ele.contentEditable === 'true' ||
-	            (ele.tagName == 'INPUT' && !(/^(radio|checkbox|range|file|submit|reset|color|image|button)$/i).test(ele.type)));
-	}
-	exports.isTextInput = isTextInput;
-	function hasFocusedTextInput() {
-	    var ele = doc.activeElement;
-	    if (isTextInput(ele)) {
-	        return (ele.parentElement.querySelector(':focus') === ele);
-	    }
-	    return false;
-	}
-	exports.hasFocusedTextInput = hasFocusedTextInput;
-	var skipInputAttrsReg = /^(value|checked|disabled|type|class|style|id)$/i;
-	function copyInputAttributes(srcElement, destElement) {
-	    // copy attributes from one element to another
-	    // however, skip over a few of them as they're already
-	    // handled in the angular world
-	    var attrs = srcElement.attributes;
-	    for (var i = 0; i < attrs.length; i++) {
-	        var attr = attrs[i];
-	        if (!skipInputAttrsReg.test(attr.name)) {
-	            destElement.setAttribute(attr.name, attr.value);
-	        }
-	    }
-	}
-	exports.copyInputAttributes = copyInputAttributes;
-	var matchesFn;
-	var matchesMethods = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'];
-	matchesMethods.some(function (fn) {
-	    if (typeof docEle[fn] == 'function') {
-	        matchesFn = fn;
-	        return true;
-	    }
-	});
-	function closest(ele, selector, checkSelf) {
-	    if (ele && matchesFn) {
-	        // traverse parents
-	        ele = (checkSelf ? ele : ele.parentElement);
-	        while (ele !== null) {
-	            if (ele[matchesFn](selector)) {
-	                return ele;
-	            }
-	            ele = ele.parentElement;
-	        }
-	    }
-	    return null;
-	}
-	exports.closest = closest;
-	function removeElement(ele) {
-	    ele && ele.parentNode && ele.parentNode.removeChild(ele);
-	}
-	exports.removeElement = removeElement;
-	/**
-	 * Get the element offsetWidth and offsetHeight. Values are cached
-	 * to reduce DOM reads. Cache is cleared on a window resize.
-	 * @param {TODO} ele  TODO
-	 */
-	function getDimensions(ele, id) {
-	    var dimensions = dimensionCache[id];
-	    if (!dimensions) {
-	        // make sure we got good values before caching
-	        if (ele.offsetWidth && ele.offsetHeight) {
-	            dimensions = dimensionCache[id] = {
-	                width: ele.offsetWidth,
-	                height: ele.offsetHeight,
-	                left: ele.offsetLeft,
-	                top: ele.offsetTop
-	            };
-	        }
-	        else {
-	            // do not cache bad values
-	            return { width: 0, height: 0, left: 0, top: 0 };
-	        }
-	    }
-	    return dimensions;
-	}
-	exports.getDimensions = getDimensions;
-	function windowDimensions() {
-	    if (!dimensionCache.win) {
-	        // make sure we got good values before caching
-	        if (win.innerWidth && win.innerHeight) {
-	            dimensionCache.win = {
-	                width: win.innerWidth,
-	                height: win.innerHeight
-	            };
-	        }
-	        else {
-	            // do not cache bad values
-	            return { width: 0, height: 0 };
-	        }
-	    }
-	    return dimensionCache.win;
-	}
-	exports.windowDimensions = windowDimensions;
-	function flushDimensionCache() {
-	    dimensionCache = {};
-	}
-	exports.flushDimensionCache = flushDimensionCache;
-	var dimensionCache = {};
-	function isStaticPositioned(element) {
-	    return (element.style.position || 'static') === 'static';
-	}
-	/**
-	 * returns the closest, non-statically positioned parentOffset of a given element
-	 * @param element
-	 */
-	function parentOffsetEl(element) {
-	    var offsetParent = element.offsetParent || doc;
-	    while (offsetParent && offsetParent !== doc && isStaticPositioned(offsetParent)) {
-	        offsetParent = offsetParent.offsetParent;
-	    }
-	    return offsetParent || doc;
-	}
-	exports.parentOffsetEl = parentOffsetEl;
-	;
-	/**
-	 * Get the current coordinates of the element, relative to the offset parent.
-	 * Read-only equivalent of [jQuery's position function](http://api.jquery.com/position/).
-	 * @param {element} element The element to get the position of.
-	 * @returns {object} Returns an object containing the properties top, left, width and height.
-	 */
-	function position(element) {
-	    var elBCR = offset(element);
-	    var offsetParentBCR = { top: 0, left: 0 };
-	    var offsetParentEl = parentOffsetEl(element);
-	    if (offsetParentEl != doc) {
-	        offsetParentBCR = offset(offsetParentEl);
-	        offsetParentBCR.top += offsetParentEl.clientTop - offsetParentEl.scrollTop;
-	        offsetParentBCR.left += offsetParentEl.clientLeft - offsetParentEl.scrollLeft;
-	    }
-	    var boundingClientRect = element.getBoundingClientRect();
-	    return {
-	        width: boundingClientRect.width || element.offsetWidth,
-	        height: boundingClientRect.height || element.offsetHeight,
-	        top: elBCR.top - offsetParentBCR.top,
-	        left: elBCR.left - offsetParentBCR.left
-	    };
-	}
-	exports.position = position;
-	/**
-	* Get the current coordinates of the element, relative to the doc.
-	* Read-only equivalent of [jQuery's offset function](http://api.jquery.com/offset/).
-	* @param {element} element The element to get the offset of.
-	* @returns {object} Returns an object containing the properties top, left, width and height.
-	*/
-	function offset(element) {
-	    var boundingClientRect = element.getBoundingClientRect();
-	    return {
-	        width: boundingClientRect.width || element.offsetWidth,
-	        height: boundingClientRect.height || element.offsetHeight,
-	        top: boundingClientRect.top + (win.pageYOffset || docEle.scrollTop),
-	        left: boundingClientRect.left + (win.pageXOffset || docEle.scrollLeft)
-	    };
-	}
-	exports.offset = offset;
-
-/***/ },
-/* 269 */
-/***/ function(module, exports) {
-
-	var CSS_CLICK_BLOCK = 'click-block-active';
-	var DEFAULT_EXPIRE = 330;
-	var cbEle, fallbackTimerId;
-	var isShowing = false;
-	/**
-	 * @private
-	 */
-	var ClickBlock = (function () {
-	    function ClickBlock() {
-	        this._enabled = false;
-	    }
-	    ClickBlock.prototype.enable = function () {
-	        cbEle = document.createElement('click-block');
-	        document.body.appendChild(cbEle);
-	        cbEle.addEventListener('touchmove', function (ev) {
-	            ev.preventDefault();
-	            ev.stopPropagation();
-	        });
-	        this._enabled = true;
-	    };
-	    ClickBlock.prototype.show = function (shouldShow, expire) {
-	        if (this._enabled) {
-	            if (shouldShow) {
-	                show(expire);
-	            }
-	            else {
-	                hide();
-	            }
-	        }
-	    };
-	    return ClickBlock;
-	})();
-	exports.ClickBlock = ClickBlock;
-	function show(expire) {
-	    clearTimeout(fallbackTimerId);
-	    fallbackTimerId = setTimeout(hide, expire || DEFAULT_EXPIRE);
-	    if (!isShowing) {
-	        cbEle.classList.add(CSS_CLICK_BLOCK);
-	        isShowing = true;
-	    }
-	}
-	function hide() {
-	    clearTimeout(fallbackTimerId);
-	    if (isShowing) {
-	        cbEle.classList.remove(CSS_CLICK_BLOCK);
-	        isShowing = false;
-	    }
-	}
-
-/***/ },
-/* 270 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -40663,97 +40919,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	/**
-	 * @private
-	 */
-	var Form = (function () {
-	    function Form() {
-	        this._focused = null;
-	        this._ids = -1;
-	        this._inputs = [];
-	        this.focusCtrl(document);
-	    }
-	    Form.prototype.register = function (input) {
-	        this._inputs.push(input);
-	    };
-	    Form.prototype.deregister = function (input) {
-	        var index = this._inputs.indexOf(input);
-	        if (index > -1) {
-	            this._inputs.splice(index, 1);
-	        }
-	        if (input === this._focused) {
-	            this._focused = null;
-	        }
-	    };
-	    Form.prototype.focusCtrl = function (document) {
-	        // raw DOM fun
-	        var focusCtrl = document.createElement('focus-ctrl');
-	        focusCtrl.setAttribute('aria-hidden', true);
-	        this._blur = document.createElement('button');
-	        this._blur.tabIndex = -1;
-	        focusCtrl.appendChild(this._blur);
-	        document.body.appendChild(focusCtrl);
-	    };
-	    Form.prototype.focusOut = function () {
-	        console.debug('focusOut');
-	        var activeElement = document.activeElement;
-	        if (activeElement) {
-	            activeElement.blur();
-	        }
-	        this._blur.focus();
-	    };
-	    Form.prototype.setAsFocused = function (input) {
-	        this._focused = input;
-	    };
-	    /**
-	     * Focuses the next input element, if it exists.
-	     */
-	    Form.prototype.tabFocus = function (currentInput) {
-	        var index = this._inputs.indexOf(currentInput);
-	        if (index > -1 && (index + 1) < this._inputs.length) {
-	            var nextInput = this._inputs[index + 1];
-	            if (nextInput !== this._focused) {
-	                console.debug('tabFocus, next');
-	                return nextInput.initFocus();
-	            }
-	        }
-	        index = this._inputs.indexOf(this._focused);
-	        if (index > 0) {
-	            var previousInput = this._inputs[index - 1];
-	            if (previousInput) {
-	                console.debug('tabFocus, previous');
-	                previousInput.initFocus();
-	            }
-	        }
-	    };
-	    Form.prototype.nextId = function () {
-	        return ++this._ids;
-	    };
-	    Form = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [])
-	    ], Form);
-	    return Form;
-	})();
-	exports.Form = Form;
-
-/***/ },
-/* 271 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var config_1 = __webpack_require__(265);
-	var form_1 = __webpack_require__(270);
-	var dom_1 = __webpack_require__(268);
+	var config_1 = __webpack_require__(160);
+	var form_1 = __webpack_require__(166);
+	var dom_1 = __webpack_require__(163);
 	/**
 	 * @name Keyboard
 	 * @description
@@ -40925,10 +41093,235 @@
 	var KEYBOARD_CLOSE_POLLING = 150;
 
 /***/ },
-/* 272 */
+/* 274 */
+/***/ function(module, exports) {
+
+	/**
+	 * @name Menu
+	 * @description
+	 * _For basic Menu usage, see the [Menu section](../../../../components/#menus)
+	 * of the Component docs._
+	 *
+	 * Menu is a side-menu interface that can be dragged out or toggled to open or closed.
+	 * An Ionic app can have numerous menus, all of which can be controlled within
+	 * template HTML, or programmatically.
+	 *
+	 * @usage
+	 * In order to use Menu, you must specify a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables)
+	 * to the content element that Menu should listen on for drag events, using the `content` property.
+	 * This is telling the menu which content the menu is attached to, so it knows which element to
+	 * move over, and to respond to drag events. Note that a **menu is a sibling to its content**.
+	 *
+	 * ```html
+	 * <ion-menu [content]="mycontent">
+	 *   <ion-content>
+	 *     <ion-list>
+	 *     ...
+	 *     </ion-list>
+	 *   </ion-content>
+	 * </ion-menu>
+	 *
+	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * ```
+	 *
+	 * By default, Menus are on the left, but this can be overridden with the `side`
+	 * property:
+	 *
+	 * ```html
+	 * <ion-menu side="right" [content]="mycontent">...</ion-menu>
+	 * ```
+	 *
+	 *
+	 * ### Programmatic Interaction
+	 *
+	 * To programmatically interact with any menu, you can inject the `MenuController`
+	 * provider into any component or directive. This makes it easy get ahold of and
+	 * control the correct menu instance. By default Ionic will find the app's menu
+	 * without requiring a menu ID.
+	 *
+	 * ```ts
+	 * @Page({...})
+	 * export class MyPage {
+	 *  constructor(menu: MenuController) {
+	 *    this.menu = menu;
+	 *  }
+	 *
+	 *  openMenu() {
+	 *    this.menu.open();
+	 *  }
+	 *
+	 * }
+	 * ```
+	 *
+	 * Note that if you want to easily toggle or close a menu just from a page's
+	 * template, you can use `menuToggle` and/or `menuClose` to accomplish the same
+	 * tasks as above.
+	 *
+	 *
+	 * ### Apps With Left And Right Menus
+	 *
+	 * For apps with a left and right menu, you can control the desired
+	 * menu by passing in the side of the menu.
+	 *
+	 * ```html
+	 * <ion-menu side="left" [content]="mycontent">...</ion-menu>
+	 * <ion-menu side="right" [content]="mycontent">...</ion-menu>
+	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * ```
+	 *
+	 * ```ts
+	 *  openLeftMenu() {
+	 *    this.menu.open('left');
+	 *  }
+	 *
+	 *  closeRightMenu() {
+	 *    this.menu.close('right');
+	 *  }
+	 * ```
+	 *
+	 *
+	 * ### Apps With Multiple, Same Side Menus
+	 *
+	 * Since more than one menu on a the same side is possible, and you wouldn't want
+	 * both to be open at the same time, an app can decide which menu should be enabled.
+	 * For apps with multiple menus on the same side, it's required to give each menu a
+	 * unique ID. In the example below, we're saying that the left menu with the
+	 * `authenticated` id should be enabled, and the left menu with the `unauthenticated`
+	 * id be disabled.
+	 *
+	 * ```html
+	 * <ion-menu id="authenticated" side="left" [content]="mycontent">...</ion-menu>
+	 * <ion-menu id="unauthenticated" side="left" [content]="mycontent">...</ion-menu>
+	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * ```
+	 *
+	 * ```ts
+	 *  enableAuthenticatedMenu() {
+	 *    this.menu.enable(true, 'authenticated');
+	 *    this.menu.enable(false, 'unauthenticated');
+	 *  }
+	 * ```
+	 *
+	 * Note that if an app only had one menu, there is no reason to pass a menu id.
+	 *
+	 *
+	 * ### Menu Types
+	 *
+	 * Menu supports two display types: `overlay`, `reveal` and `push`. Overlay
+	 * is the traditional Material Design drawer type, and Reveal is the traditional
+	 * iOS type. By default, menus will use to the correct type for the platform,
+	 * but this can be overriden using the `type` property:
+	 *
+	 * ```html
+	 * <ion-menu type="overlay" [content]="mycontent"></ion-menu>
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/menu/
+	 *
+	 * @see {@link /docs/v2/components#menus Menu Component Docs}
+	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+	 * @see {@link ../../nav/Nav Nav API Docs}
+	 *
+	 */
+	var MenuController = (function () {
+	    function MenuController() {
+	        this._menus = [];
+	    }
+	    MenuController.prototype.open = function (menuId) {
+	        var menu = this.get(menuId);
+	        menu && menu.open();
+	    };
+	    MenuController.prototype.close = function (menuId) {
+	        var menu = this.get(menuId);
+	        menu && menu.close();
+	    };
+	    MenuController.prototype.enable = function (shouldEnable, menuId) {
+	        var menu = this.get(menuId);
+	        menu && menu.enable(shouldEnable);
+	    };
+	    MenuController.prototype.swipeEnable = function (shouldEnable, menuId) {
+	        var menu = this.get(menuId);
+	        menu && menu.swipeEnable(shouldEnable);
+	    };
+	    MenuController.prototype.get = function (menuId) {
+	        if (menuId) {
+	            // first try by "id"
+	            var menu = this._menus.find(function (m) { return m.id === menuId; });
+	            if (menu)
+	                return menu;
+	            // not found by "id", next try by "side"
+	            menu = this._menus.find(function (m) { return m.side === menuId; });
+	            if (menu)
+	                return menu;
+	        }
+	        // get the first menu in the array, if one exists
+	        return (this._menus.length ? this._menus[0] : null);
+	    };
+	    /**
+	     * @private
+	     */
+	    MenuController.prototype.register = function (menu) {
+	        this._menus.push(menu);
+	    };
+	    /**
+	     * @private
+	     */
+	    MenuController.prototype.unregister = function (menu) {
+	        var index = this._menus.indexOf(menu);
+	        if (index > -1) {
+	            this._menus.splice(index, 1);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    MenuController.registerType = function (name, cls) {
+	        menuTypes[name] = cls;
+	    };
+	    /**
+	     * @private
+	     */
+	    MenuController.create = function (type, menuCmp) {
+	        return new menuTypes[type](menuCmp);
+	    };
+	    return MenuController;
+	})();
+	exports.MenuController = MenuController;
+	var menuTypes = {};
+
+/***/ },
+/* 275 */
+/***/ function(module, exports) {
+
+	/**
+	 * @private
+	 * Map of possible pages that can be navigated to using an Ionic NavController
+	 */
+	var NavRegistry = (function () {
+	    function NavRegistry(pages) {
+	        if (pages === void 0) { pages = []; }
+	        var pagePairs = pages.map(function (page) { return [page['name'], page]; });
+	        this._pages = new Map();
+	        for (var i = 0; i < pagePairs.length; i++) {
+	            var pair = pagePairs[i];
+	            this._pages.set(pair[0], pair[1]);
+	        }
+	    }
+	    NavRegistry.prototype.get = function (pageName) {
+	        return this._pages.get(pageName);
+	    };
+	    NavRegistry.prototype.set = function (page) {
+	        this._pages.set(page.name, page);
+	    };
+	    return NavRegistry;
+	})();
+	exports.NavRegistry = NavRegistry;
+
+/***/ },
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dom_1 = __webpack_require__(268);
+	var dom_1 = __webpack_require__(163);
 	var ScrollTo = (function () {
 	    function ScrollTo(ele) {
 	        if (typeof ele === 'string') {
@@ -41024,255 +41417,6 @@
 	}
 
 /***/ },
-/* 273 */
-/***/ function(module, exports) {
-
-	/**
-	 * @name Events
-	 * @description
-	 * Events is a pub/sub style event system for sending and responding to application-level
-	 * events across your app.
-	 * @usage
-	 * ```ts
-	 * // first page (publish an event when a user is created)
-	 * function createUser(user) {
-	 *   console.log('User created!')
-	 *   events.publish('user:created', user);
-	 * }
-	 *
-	 * // second page (listen for the user created event)
-	 * events.subscribe('user:created', (user) => {
-	 *   console.log('Welcome', user);
-	 * });
-	 *
-	 * ```
-	 * @demo /docs/v2/demos/events/
-	 */
-	var Events = (function () {
-	    function Events() {
-	        this._channels = [];
-	    }
-	    /**
-	     * Subscribe to an event topic. Events that get posted to that topic will trigger the provided handler.
-	     *
-	     * @param {String} topic the topic to subscribe to
-	     * @param {Function} handler the event handler
-	     */
-	    Events.prototype.subscribe = function (topic) {
-	        var _this = this;
-	        var handlers = [];
-	        for (var _i = 1; _i < arguments.length; _i++) {
-	            handlers[_i - 1] = arguments[_i];
-	        }
-	        if (!this._channels[topic]) {
-	            this._channels[topic] = [];
-	        }
-	        handlers.forEach(function (handler) {
-	            _this._channels[topic].push(handler);
-	        });
-	    };
-	    /**
-	     * Unsubscribe from the given topic. Your handler will no longer receive events published to this topic.
-	     *
-	     * @param {String} topic the topic to unsubscribe from
-	     * @param {Function} handler the event handler
-	     *
-	     * @return true if a handler was removed
-	     */
-	    Events.prototype.unsubscribe = function (topic, handler) {
-	        var t = this._channels[topic];
-	        if (!t) {
-	            // Wasn't found, wasn't removed
-	            return false;
-	        }
-	        if (!handler) {
-	            // Remove all handlers for this topic
-	            delete this._channels[topic];
-	            return true;
-	        }
-	        // We need to find and remove a specific handler
-	        var i = t.indexOf(handler);
-	        if (i < 0) {
-	            // Wasn't found, wasn't removed
-	            return false;
-	        }
-	        t.splice(i, 1);
-	        // If the channel is empty now, remove it from the channel map
-	        if (!t.length) {
-	            delete this._channels[topic];
-	        }
-	        return true;
-	    };
-	    /**
-	     * Publish an event to the given topic.
-	     *
-	     * @param {String} topic the topic to publish to
-	     * @param {Any} eventData the data to send as the event
-	     */
-	    Events.prototype.publish = function (topic) {
-	        var args = [];
-	        for (var _i = 1; _i < arguments.length; _i++) {
-	            args[_i - 1] = arguments[_i];
-	        }
-	        var t = this._channels[topic];
-	        if (!t) {
-	            return null;
-	        }
-	        var responses = [];
-	        t.forEach(function (handler) {
-	            responses.push(handler(args));
-	        });
-	        return responses;
-	    };
-	    return Events;
-	})();
-	exports.Events = Events;
-
-/***/ },
-/* 274 */
-/***/ function(module, exports) {
-
-	/**
-	 * @private
-	 * Map of possible pages that can be navigated to using an Ionic NavController
-	 */
-	var NavRegistry = (function () {
-	    function NavRegistry(pages) {
-	        if (pages === void 0) { pages = []; }
-	        var pagePairs = pages.map(function (page) { return [page['name'], page]; });
-	        this._pages = new Map();
-	        for (var i = 0; i < pagePairs.length; i++) {
-	            var pair = pagePairs[i];
-	            this._pages.set(pair[0], pair[1]);
-	        }
-	    }
-	    NavRegistry.prototype.get = function (pageName) {
-	        return this._pages.get(pageName);
-	    };
-	    NavRegistry.prototype.set = function (page) {
-	        this._pages.set(page.name, page);
-	    };
-	    return NavRegistry;
-	})();
-	exports.NavRegistry = NavRegistry;
-
-/***/ },
-/* 275 */
-/***/ function(module, exports) {
-
-	/**
-	 * @private
-	 * Provide multi-language and i18n support in your app. Translate works by
-	 * mapping full strings to language translated ones. That means that you don't
-	 * need to provide strings for your default language, just new languages.
-	 *
-	 * Note: The Angular team will be building an
-	 * [Localization/Internationalization](https://docs.google.com/document/d/1mwyOFsAD-bPoXTk3Hthq0CAcGXCUw-BtTJMR4nGTY-0/view#heading=h.ixg45w3363q)
-	 * provider, so this Translation provider may not be further developed.
-	 *
-	 * @usage
-	 * ```js
-	 * Translate.translations({
-	 *   'de': {
-	 *     'Welcome to MyApp': 'Willkommen auf'
-	 *   }
-	 * })
-	 *
-	 * Changing the default language:
-	 *
-	 * Translate.setLanguage('de');
-	 * ```
-	 *
-	 * Usage in a template:
-	 *
-	 * ```js
-	 * <span>{{ 'Welcome to MyApp' | translate }}
-	 * ```
-	 */
-	var Translate = (function () {
-	    function Translate() {
-	        this._transMap = {};
-	        this._language = {};
-	    }
-	    Translate.prototype.translations = function (lang, map) {
-	        this._transMap[lang] = map;
-	    };
-	    Translate.prototype.setLanguage = function (lang) {
-	        this._language = lang;
-	    };
-	    Translate.prototype.getTranslations = function (lang) {
-	        return this._transMap[lang];
-	    };
-	    Translate.prototype.translate = function (key, lang) {
-	        // If the language isn't specified and we have no overridden one, return the string passed.
-	        if (!lang && !this._language) {
-	            return key;
-	        }
-	        var setLanguage = lang || this._language;
-	        var map = this.getTranslations(setLanguage);
-	        if (!map) {
-	            console.warn('I18N: No translation for key', key, 'using language', setLanguage);
-	            return '';
-	        }
-	        return this._getTranslation(map, key);
-	    };
-	    Translate.prototype._getTranslation = function (map, key) {
-	        return map && map[key] || '';
-	    };
-	    return Translate;
-	})();
-	exports.Translate = Translate;
-
-/***/ },
-/* 276 */
-/***/ function(module, exports) {
-
-	var FeatureDetect = (function () {
-	    function FeatureDetect() {
-	        this._results = {};
-	    }
-	    FeatureDetect.prototype.run = function (window, document) {
-	        for (var name in featureDetects) {
-	            this._results[name] = featureDetects[name](window, document, document.body);
-	        }
-	    };
-	    FeatureDetect.prototype.has = function (featureName) {
-	        return !!this._results[featureName];
-	    };
-	    FeatureDetect.add = function (name, fn) {
-	        featureDetects[name] = fn;
-	    };
-	    return FeatureDetect;
-	})();
-	exports.FeatureDetect = FeatureDetect;
-	var featureDetects = {};
-	// FeatureDetect.add('sticky', function(window, document) {
-	//   // css position sticky
-	//   let ele = document.createElement('div');
-	//   ele.style.cssText = 'position:-webkit-sticky;position:sticky';
-	//   return ele.style.position.indexOf('sticky') > -1;
-	// });
-	FeatureDetect.add('hairlines', function (window, document, body) {
-	    /**
-	    * Hairline Shim
-	    * Add the "hairline" CSS class name to the body tag
-	    * if the browser supports subpixels.
-	    */
-	    var canDo = false;
-	    if (window.devicePixelRatio >= 2) {
-	        var hairlineEle = document.createElement('div');
-	        hairlineEle.style.border = '.5px solid transparent';
-	        body.appendChild(hairlineEle);
-	        if (hairlineEle.offsetHeight === 1) {
-	            body.classList.add('hairlines');
-	            canDo = true;
-	        }
-	        body.removeChild(hairlineEle);
-	    }
-	    return canDo;
-	});
-
-/***/ },
 /* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -41286,9 +41430,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var app_1 = __webpack_require__(159);
-	var config_1 = __webpack_require__(265);
-	var dom_1 = __webpack_require__(268);
+	var app_1 = __webpack_require__(167);
+	var config_1 = __webpack_require__(160);
+	var dom_1 = __webpack_require__(163);
 	var activator_1 = __webpack_require__(278);
 	var ripple_1 = __webpack_require__(279);
 	/**
@@ -41472,7 +41616,7 @@
 /* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dom_1 = __webpack_require__(268);
+	var dom_1 = __webpack_require__(163);
 	var Activator = (function () {
 	    function Activator(app, config, zone) {
 	        this.app = app;
@@ -41577,7 +41721,7 @@
 	};
 	var activator_1 = __webpack_require__(278);
 	var animation_1 = __webpack_require__(280);
-	var dom_1 = __webpack_require__(268);
+	var dom_1 = __webpack_require__(163);
 	var RippleActivator = (function (_super) {
 	    __extends(RippleActivator, _super);
 	    function RippleActivator(app, config, zone) {
@@ -41693,8 +41837,8 @@
 /* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dom_1 = __webpack_require__(268);
-	var util_1 = __webpack_require__(267);
+	var dom_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(162);
 	var doc = document;
 	/**
 	  Animation Steps/Process
@@ -42479,43 +42623,110 @@
 
 /***/ },
 /* 281 */
+/***/ function(module, exports) {
+
+	/**
+	 * @private
+	 * Provide multi-language and i18n support in your app. Translate works by
+	 * mapping full strings to language translated ones. That means that you don't
+	 * need to provide strings for your default language, just new languages.
+	 *
+	 * Note: The Angular team will be building an
+	 * [Localization/Internationalization](https://docs.google.com/document/d/1mwyOFsAD-bPoXTk3Hthq0CAcGXCUw-BtTJMR4nGTY-0/view#heading=h.ixg45w3363q)
+	 * provider, so this Translation provider may not be further developed.
+	 *
+	 * @usage
+	 * ```js
+	 * Translate.translations({
+	 *   'de': {
+	 *     'Welcome to MyApp': 'Willkommen auf'
+	 *   }
+	 * })
+	 *
+	 * Changing the default language:
+	 *
+	 * Translate.setLanguage('de');
+	 * ```
+	 *
+	 * Usage in a template:
+	 *
+	 * ```js
+	 * <span>{{ 'Welcome to MyApp' | translate }}
+	 * ```
+	 */
+	var Translate = (function () {
+	    function Translate() {
+	        this._transMap = {};
+	        this._language = {};
+	    }
+	    Translate.prototype.translations = function (lang, map) {
+	        this._transMap[lang] = map;
+	    };
+	    Translate.prototype.setLanguage = function (lang) {
+	        this._language = lang;
+	    };
+	    Translate.prototype.getTranslations = function (lang) {
+	        return this._transMap[lang];
+	    };
+	    Translate.prototype.translate = function (key, lang) {
+	        // If the language isn't specified and we have no overridden one, return the string passed.
+	        if (!lang && !this._language) {
+	            return key;
+	        }
+	        var setLanguage = lang || this._language;
+	        var map = this.getTranslations(setLanguage);
+	        if (!map) {
+	            console.warn('I18N: No translation for key', key, 'using language', setLanguage);
+	            return '';
+	        }
+	        return this._getTranslation(map, key);
+	    };
+	    Translate.prototype._getTranslation = function (map, key) {
+	        return map && map[key] || '';
+	    };
+	    return Translate;
+	})();
+	exports.Translate = Translate;
+
+/***/ },
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var common_1 = __webpack_require__(163);
-	var overlay_1 = __webpack_require__(282);
-	var menu_1 = __webpack_require__(283);
-	var menu_toggle_1 = __webpack_require__(292);
-	var menu_close_1 = __webpack_require__(302);
-	var badge_1 = __webpack_require__(303);
-	var button_1 = __webpack_require__(298);
-	var blur_1 = __webpack_require__(304);
-	var content_1 = __webpack_require__(305);
-	var scroll_1 = __webpack_require__(306);
-	var pull_to_refresh_1 = __webpack_require__(307);
-	var slides_1 = __webpack_require__(308);
-	var tabs_1 = __webpack_require__(310);
-	var tab_1 = __webpack_require__(312);
-	var list_1 = __webpack_require__(314);
-	var item_1 = __webpack_require__(317);
-	var item_sliding_1 = __webpack_require__(319);
-	var toolbar_1 = __webpack_require__(297);
-	var icon_1 = __webpack_require__(296);
-	var checkbox_1 = __webpack_require__(320);
-	var select_1 = __webpack_require__(321);
-	var option_1 = __webpack_require__(323);
-	var toggle_1 = __webpack_require__(324);
-	var input_1 = __webpack_require__(325);
-	var label_1 = __webpack_require__(318);
-	var segment_1 = __webpack_require__(328);
-	var radio_button_1 = __webpack_require__(329);
-	var radio_group_1 = __webpack_require__(330);
-	var searchbar_1 = __webpack_require__(331);
-	var nav_1 = __webpack_require__(332);
-	var nav_push_1 = __webpack_require__(333);
-	var nav_router_1 = __webpack_require__(334);
-	var navbar_1 = __webpack_require__(295);
-	var id_1 = __webpack_require__(335);
-	var show_hide_when_1 = __webpack_require__(336);
+	var common_1 = __webpack_require__(171);
+	var overlay_1 = __webpack_require__(283);
+	var menu_1 = __webpack_require__(284);
+	var menu_toggle_1 = __webpack_require__(293);
+	var menu_close_1 = __webpack_require__(303);
+	var badge_1 = __webpack_require__(304);
+	var button_1 = __webpack_require__(299);
+	var blur_1 = __webpack_require__(305);
+	var content_1 = __webpack_require__(306);
+	var scroll_1 = __webpack_require__(307);
+	var pull_to_refresh_1 = __webpack_require__(308);
+	var slides_1 = __webpack_require__(309);
+	var tabs_1 = __webpack_require__(311);
+	var tab_1 = __webpack_require__(313);
+	var list_1 = __webpack_require__(315);
+	var item_1 = __webpack_require__(318);
+	var item_sliding_1 = __webpack_require__(320);
+	var toolbar_1 = __webpack_require__(298);
+	var icon_1 = __webpack_require__(297);
+	var checkbox_1 = __webpack_require__(321);
+	var select_1 = __webpack_require__(322);
+	var option_1 = __webpack_require__(324);
+	var toggle_1 = __webpack_require__(325);
+	var input_1 = __webpack_require__(326);
+	var label_1 = __webpack_require__(319);
+	var segment_1 = __webpack_require__(329);
+	var radio_button_1 = __webpack_require__(330);
+	var radio_group_1 = __webpack_require__(331);
+	var searchbar_1 = __webpack_require__(332);
+	var nav_1 = __webpack_require__(333);
+	var nav_push_1 = __webpack_require__(334);
+	var nav_router_1 = __webpack_require__(335);
+	var navbar_1 = __webpack_require__(296);
+	var id_1 = __webpack_require__(336);
+	var show_hide_when_1 = __webpack_require__(337);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @private
@@ -42646,7 +42857,7 @@
 	];
 
 /***/ },
-/* 282 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -42680,7 +42891,7 @@
 	exports.OverlayNav = OverlayNav;
 
 /***/ },
-/* 283 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -42701,100 +42912,19 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var ion_1 = __webpack_require__(284);
-	var app_1 = __webpack_require__(159);
-	var config_1 = __webpack_require__(265);
-	var platform_1 = __webpack_require__(266);
-	var keyboard_1 = __webpack_require__(271);
-	var gestures = __webpack_require__(285);
-	/**
-	 * @name Menu
-	 * @description
-	 * _For basic Menu usage, see the [Menu section](../../../../components/#menus)
-	 * of the Component docs._
-	 *
-	 * Menu is a side-menu navigation that can be dragged out or toggled to show.
-	 *
-	 * @usage
-	 * In order to use Menu, you must specify a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables)
-	 * to the content element that Menu should listen on for drag events, using the `content` property:
-	 *
-	 * ```html
-	 * <ion-menu [content]="mycontent">
-	 *   <ion-content>
-	 *     <ion-list>
-	 *     ...
-	 *     </ion-list>
-	 *   </ion-content>
-	 * </ion-menu>
-	 *
-	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
-	 * ```
-	 *
-	 * By default, Menus are on the left, but this can be overriden with the `side`
-	 * property:
-	 * ```html
-	 * <ion-menu [content]="mycontent" side="right"></ion-menu>
-	 * ```
-	 *
-	 * Menus can optionally be given an `id` attribute which allows the app to
-	 * to get ahold of menu references. If no `id` is given then the menu
-	 * automatically receives an `id` created from the side it is on, such as
-	 * `leftMenu` or `rightMenu`. When using more than one menu it is always
-	 * recommended to give each menu a unique `id`. Additionally menuToggle and
-	 * menuClose directives should be given menu id values of their respective
-	 * menu.
-	 *
-	 * Menu supports two display styles: overlay, and reveal. Overlay
-	 * is the traditional Android drawer style, and Reveal is the traditional iOS
-	 * style. By default, Menu will adjust to the correct style for the platform,
-	 * but this can be overriden using the `type` property:
-	 * ```html
-	 * <ion-menu [content]="mycontent" type="overlay"></ion-menu>
-	 * ```
-	 *
-	 * To programatically interact with the menu, you first get the menu component.
-	 *
-	 * ```ts
-	 * @Page({
-	 * `<ion-menu [content]="mycontent" id="leftMenu"></ion-menu>
-	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>`
-	 * )}
-	 * export class MyClass{
-	 *  constructor(app: IonicApp){
-	 *    this.app = app;
-	 *    this.menu;
-	 *  }
-	 *
-	 *  // Wait until the page is ready
-	 *  ngAfterViewInit(){
-	 *    this.menu = this.app.getComponent('leftMenu');
-	 *  }
-	 *
-	 *  // Open the menu programatically
-	 *  openMenu(){
-	 *    this.menu.open();
-	 *  }
-	 *
-	 * }
-	 * ```
-	 *
-	 * If you want to use any of the APIs down below, make sure to grabe the menu component by it's ID
-	 *
-	 * @demo /docs/v2/demos/menu/
-	 *
-	 * @see {@link /docs/v2/components#menus Menu Component Docs}
-	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
-	 * @see {@link ../../nav/Nav Nav API Docs}
-	 *
-	 */
+	var ion_1 = __webpack_require__(285);
+	var config_1 = __webpack_require__(160);
+	var platform_1 = __webpack_require__(161);
+	var keyboard_1 = __webpack_require__(273);
+	var gestures = __webpack_require__(286);
+	var menu_controller_1 = __webpack_require__(274);
 	var Menu = (function (_super) {
 	    __extends(Menu, _super);
-	    function Menu(_elementRef, _config, _app, _platform, _renderer, _keyboard, _zone) {
+	    function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone) {
 	        _super.call(this, _elementRef);
+	        this._menuCtrl = _menuCtrl;
 	        this._elementRef = _elementRef;
 	        this._config = _config;
-	        this._app = _app;
 	        this._platform = _platform;
 	        this._renderer = _renderer;
 	        this._keyboard = _keyboard;
@@ -42834,15 +42964,7 @@
 	        if (self.swipeEnabled === 'false') {
 	            self.isSwipeEnabled = false;
 	        }
-	        if (!self.id) {
-	            // Auto register
-	            self.id = self.side + 'Menu';
-	            if (self._app.getComponent(self.id)) {
-	                // id already exists, make sure this one is unique
-	                self.id += (++menuIds);
-	            }
-	            self._app.register(self.id, self);
-	        }
+	        this._menuCtrl.register(self);
 	        self._initGesture();
 	        self._initType(self.type);
 	        self._cntEle.classList.add('menu-content');
@@ -42888,7 +43010,7 @@
 	     */
 	    Menu.prototype._getType = function () {
 	        if (!this._type) {
-	            this._type = new menuTypes[this.type](this);
+	            this._type = menu_controller_1.MenuController.create(this.type, this);
 	            if (this._config.get('animate') === false) {
 	                this._type.open.duration(33);
 	                this._type.close.duration(33);
@@ -43059,40 +43181,12 @@
 	    /**
 	     * @private
 	     */
-	    Menu.register = function (name, cls) {
-	        menuTypes[name] = cls;
-	    };
-	    //static register(name:string , cls: typeof MenuType) {
-	    /**
-	     * @private
-	     */
 	    Menu.prototype.ngOnDestroy = function () {
-	        this._app.unregister(this.id);
+	        this._menuCtrl.unregister(this);
 	        this._gesture && this._gesture.destroy();
 	        this._targetGesture && this._targetGesture.destroy();
 	        this._type && this._type.ngOnDestroy();
 	        this._cntEle = null;
-	    };
-	    Menu.getById = function (app, menuId) {
-	        var menu = null;
-	        if (menuId) {
-	            menu = app.getComponent(menuId);
-	            if (!menu) {
-	                console.error('Menu with id "' + menuId + '" cannot be found for menuToggle');
-	                return;
-	            }
-	        }
-	        else {
-	            menu = app.getComponent('leftMenu');
-	            if (!menu) {
-	                menu = app.getComponent('rightMenu');
-	            }
-	            if (!menu) {
-	                console.error('Menu with id "leftMenu" or "rightMenu" cannot be found for menuToggle');
-	                return;
-	            }
-	        }
-	        return menu;
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -43112,7 +43206,7 @@
 	    ], Menu.prototype, "type", void 0);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', String)
+	        __metadata('design:type', Object)
 	    ], Menu.prototype, "swipeEnabled", void 0);
 	    __decorate([
 	        core_1.Input(), 
@@ -43134,22 +43228,20 @@
 	            template: '<ng-content></ng-content><div tappable disable-activated class="backdrop"></div>',
 	            directives: [core_1.forwardRef(function () { return MenuBackdrop; })]
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _h) || Object])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof menu_controller_1.MenuController !== 'undefined' && menu_controller_1.MenuController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _h) || Object])
 	    ], Menu);
 	    return Menu;
 	    var _a, _b, _c, _d, _e, _f, _g, _h;
 	})(ion_1.Ion);
 	exports.Menu = Menu;
-	var menuTypes = {};
-	var menuIds = 0;
 	/**
 	 * @private
 	 */
 	var MenuBackdrop = (function () {
-	    function MenuBackdrop(menu, elementRef) {
-	        this.menu = menu;
+	    function MenuBackdrop(_menuCtrl, elementRef) {
+	        this._menuCtrl = _menuCtrl;
 	        this.elementRef = elementRef;
-	        menu.backdrop = this;
+	        _menuCtrl.backdrop = this;
 	    }
 	    /**
 	     * @private
@@ -43158,13 +43250,13 @@
 	        console.debug('backdrop clicked');
 	        ev.preventDefault();
 	        ev.stopPropagation();
-	        this.menu.close();
+	        this._menuCtrl.close();
 	    };
 	    MenuBackdrop = __decorate([
 	        core_1.Directive({
 	            selector: '.backdrop',
 	            host: {
-	                '(click)': 'clicked($event)'
+	                '(click)': 'clicked($event)',
 	            }
 	        }),
 	        __param(0, core_1.Host()), 
@@ -43176,10 +43268,10 @@
 	exports.MenuBackdrop = MenuBackdrop;
 
 /***/ },
-/* 284 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dom = __webpack_require__(268);
+	var dom = __webpack_require__(163);
 	var ids = 0;
 	/**
 	 * Base class for all Ionic components. Exposes some common functionality
@@ -43211,7 +43303,7 @@
 	exports.Ion = Ion;
 
 /***/ },
-/* 285 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -43219,8 +43311,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var slide_edge_gesture_1 = __webpack_require__(286);
-	var util_1 = __webpack_require__(267);
+	var slide_edge_gesture_1 = __webpack_require__(287);
+	var util_1 = __webpack_require__(162);
 	var MenuContentGesture = (function (_super) {
 	    __extends(MenuContentGesture, _super);
 	    function MenuContentGesture(menu, targetEl, options) {
@@ -43236,26 +43328,40 @@
 	    }
 	    MenuContentGesture.prototype.canStart = function (ev) {
 	        var menu = this.menu;
-	        console.debug('menu canStart, id', menu.id, 'angle', ev.angle, 'distance', ev.distance);
+	        console.debug('menu canStart,', menu.side, 'isOpen', menu.isOpen, 'angle', ev.angle, 'distance', ev.distance);
 	        if (!menu.isEnabled || !menu.isSwipeEnabled) {
-	            console.debug('menu canStart, isEnabled', menu.isEnabled, 'isSwipeEnabled', menu.isSwipeEnabled, 'id', menu.id);
+	            console.debug('menu canStart, isEnabled', menu.isEnabled, 'isSwipeEnabled', menu.isSwipeEnabled, 'side', menu.side);
 	            return false;
 	        }
 	        if (ev.distance > 50) {
 	            // the distance is longer than you'd expect a side menu swipe to be
-	            console.debug('menu canStart, distance too far', ev.distance, 'id', menu.id);
+	            console.debug('menu canStart, distance too far', ev.distance, 'side', menu.side);
 	            return false;
 	        }
 	        if (menu.side === 'left') {
-	            // left side menu
-	            if (ev.angle > -40 && ev.angle < 40) {
-	                return _super.prototype.canStart.call(this, ev);
+	            // left side
+	            if (menu.isOpen) {
+	                // left side, opened
+	                return true;
+	            }
+	            else {
+	                // left side, closed
+	                if (ev.angle > -40 && ev.angle < 40) {
+	                    return _super.prototype.canStart.call(this, ev);
+	                }
 	            }
 	        }
 	        else if (menu.side === 'right') {
-	            // right side menu
-	            if ((ev.angle > 140 && ev.angle <= 180) || (ev.angle > -140 && ev.angle <= -180)) {
-	                return _super.prototype.canStart.call(this, ev);
+	            // right side
+	            if (menu.isOpen) {
+	                // right side, opened
+	                return true;
+	            }
+	            else {
+	                // right side, closed
+	                if ((ev.angle > 140 && ev.angle <= 180) || (ev.angle > -140 && ev.angle <= -180)) {
+	                    return _super.prototype.canStart.call(this, ev);
+	                }
 	            }
 	        }
 	        // didn't pass the test, don't open this menu
@@ -43327,7 +43433,7 @@
 	exports.RightMenuGesture = RightMenuGesture;
 
 /***/ },
-/* 286 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -43335,9 +43441,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var slide_gesture_1 = __webpack_require__(287);
-	var util_1 = __webpack_require__(267);
-	var dom_1 = __webpack_require__(268);
+	var slide_gesture_1 = __webpack_require__(288);
+	var util_1 = __webpack_require__(162);
+	var dom_1 = __webpack_require__(163);
 	var SlideEdgeGesture = (function (_super) {
 	    __extends(SlideEdgeGesture, _super);
 	    function SlideEdgeGesture(element, opts) {
@@ -43377,7 +43483,7 @@
 	exports.SlideEdgeGesture = SlideEdgeGesture;
 
 /***/ },
-/* 287 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -43385,8 +43491,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var drag_gesture_1 = __webpack_require__(288);
-	var util_1 = __webpack_require__(290);
+	var drag_gesture_1 = __webpack_require__(289);
+	var util_1 = __webpack_require__(291);
 	var SlideGesture = (function (_super) {
 	    __extends(SlideGesture, _super);
 	    function SlideGesture(element, opts) {
@@ -43456,7 +43562,7 @@
 	exports.SlideGesture = SlideGesture;
 
 /***/ },
-/* 288 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -43464,8 +43570,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var gesture_1 = __webpack_require__(289);
-	var util_1 = __webpack_require__(290);
+	var gesture_1 = __webpack_require__(290);
+	var util_1 = __webpack_require__(291);
 	var DragGesture = (function (_super) {
 	    __extends(DragGesture, _super);
 	    function DragGesture(element, opts) {
@@ -43503,11 +43609,11 @@
 	exports.DragGesture = DragGesture;
 
 /***/ },
-/* 289 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var util_1 = __webpack_require__(290);
-	var hammer_1 = __webpack_require__(291);
+	var util_1 = __webpack_require__(291);
+	var hammer_1 = __webpack_require__(292);
 	/**
 	 * A gesture recognizer class.
 	 *
@@ -43565,21 +43671,21 @@
 	exports.Gesture = Gesture;
 
 /***/ },
-/* 290 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	var domUtil = __webpack_require__(268);
+	var domUtil = __webpack_require__(163);
 	exports.dom = domUtil;
-	__export(__webpack_require__(267));
+	__export(__webpack_require__(162));
 
 /***/ },
-/* 291 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var util_1 = __webpack_require__(267);
+	var util_1 = __webpack_require__(162);
 	var win = window;
 	var doc = document;
 	/*! Hammer.JS - v2.0.6 - 2015-12-23
@@ -45731,7 +45837,7 @@
 	win.Hammer = Hammer;
 
 /***/ },
-/* 292 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -45747,10 +45853,9 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var app_1 = __webpack_require__(159);
-	var view_controller_1 = __webpack_require__(293);
-	var navbar_1 = __webpack_require__(295);
-	var menu_1 = __webpack_require__(283);
+	var view_controller_1 = __webpack_require__(294);
+	var navbar_1 = __webpack_require__(296);
+	var menu_controller_1 = __webpack_require__(274);
 	/**
 	* @name MenuToggle
 	* @description
@@ -45770,13 +45875,13 @@
 	* @see {@link ../../menu/Menu Menu API Docs}
 	*/
 	var MenuToggle = (function () {
-	    function MenuToggle(_app, elementRef, _viewCtrl, _navbar) {
-	        this._app = _app;
+	    function MenuToggle(_menu, elementRef, _viewCtrl, _navbar) {
+	        this._menu = _menu;
 	        this._viewCtrl = _viewCtrl;
 	        this._navbar = _navbar;
-	        this.withinNavbar = !!_navbar;
+	        this._inNavbar = !!_navbar;
 	        // Deprecation warning
-	        if (this.withinNavbar && elementRef.nativeElement.tagName === 'A') {
+	        if (this._inNavbar && elementRef.nativeElement.tagName === 'A') {
 	            console.warn('Menu toggles within a navbar should use <button menuToggle> instead of <a menu-toggle>');
 	        }
 	    }
@@ -45784,7 +45889,7 @@
 	    * @private
 	    */
 	    MenuToggle.prototype.toggle = function () {
-	        var menu = menu_1.Menu.getById(this._app, this.menuToggle);
+	        var menu = this._menu.get(this.menuToggle);
 	        menu && menu.toggle();
 	    };
 	    Object.defineProperty(MenuToggle.prototype, "isHidden", {
@@ -45792,7 +45897,7 @@
 	        * @private
 	        */
 	        get: function () {
-	            if (this.withinNavbar && this._viewCtrl) {
+	            if (this._inNavbar && this._viewCtrl) {
 	                return !this._viewCtrl.isRoot();
 	            }
 	            return false;
@@ -45820,7 +45925,7 @@
 	        }),
 	        __param(2, core_1.Optional()),
 	        __param(3, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof navbar_1.Navbar !== 'undefined' && navbar_1.Navbar) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof menu_controller_1.MenuController !== 'undefined' && menu_controller_1.MenuController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof navbar_1.Navbar !== 'undefined' && navbar_1.Navbar) === 'function' && _d) || Object])
 	    ], MenuToggle);
 	    return MenuToggle;
 	    var _a, _b, _c, _d;
@@ -45828,7 +45933,7 @@
 	exports.MenuToggle = MenuToggle;
 
 /***/ },
-/* 293 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -45841,7 +45946,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var nav_params_1 = __webpack_require__(294);
+	var nav_params_1 = __webpack_require__(295);
 	/**
 	 * @name ViewController
 	 * @description
@@ -46276,7 +46381,7 @@
 	}
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports) {
 
 	/**
@@ -46335,7 +46440,7 @@
 	exports.NavParams = NavParams;
 
 /***/ },
-/* 295 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -46356,13 +46461,13 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var ion_1 = __webpack_require__(284);
-	var icon_1 = __webpack_require__(296);
-	var toolbar_1 = __webpack_require__(297);
-	var config_1 = __webpack_require__(265);
-	var app_1 = __webpack_require__(159);
-	var view_controller_1 = __webpack_require__(293);
-	var nav_controller_1 = __webpack_require__(299);
+	var ion_1 = __webpack_require__(285);
+	var icon_1 = __webpack_require__(297);
+	var toolbar_1 = __webpack_require__(298);
+	var config_1 = __webpack_require__(160);
+	var app_1 = __webpack_require__(167);
+	var view_controller_1 = __webpack_require__(294);
+	var nav_controller_1 = __webpack_require__(300);
 	var BackButton = (function (_super) {
 	    __extends(BackButton, _super);
 	    function BackButton(_nav, elementRef, navbar) {
@@ -46585,7 +46690,7 @@
 	exports.NavbarTemplate = NavbarTemplate;
 
 /***/ },
-/* 296 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -46598,7 +46703,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var config_1 = __webpack_require__(265);
+	var config_1 = __webpack_require__(160);
 	/**
 	 * @name Icon
 	 * @description
@@ -46787,7 +46892,7 @@
 	exports.Icon = Icon;
 
 /***/ },
-/* 297 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -46808,9 +46913,9 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var ion_1 = __webpack_require__(284);
-	var navbar_1 = __webpack_require__(295);
-	var button_1 = __webpack_require__(298);
+	var ion_1 = __webpack_require__(285);
+	var navbar_1 = __webpack_require__(296);
+	var button_1 = __webpack_require__(299);
 	/**
 	 * @private
 	 */
@@ -47021,7 +47126,7 @@
 	exports.ToolbarItem = ToolbarItem;
 
 /***/ },
-/* 298 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -47037,7 +47142,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var config_1 = __webpack_require__(265);
+	var config_1 = __webpack_require__(160);
 	/**
 	  * @name Button
 	  * @module ionic
@@ -47250,7 +47355,7 @@
 	var ICON = 2;
 
 /***/ },
-/* 299 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -47259,14 +47364,14 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(8);
-	var instrumentation_1 = __webpack_require__(300);
+	var instrumentation_1 = __webpack_require__(301);
 	var animation_1 = __webpack_require__(280);
-	var ion_1 = __webpack_require__(284);
-	var util_1 = __webpack_require__(267);
-	var nav_params_1 = __webpack_require__(294);
-	var dom_1 = __webpack_require__(268);
-	var swipe_back_1 = __webpack_require__(301);
-	var view_controller_1 = __webpack_require__(293);
+	var ion_1 = __webpack_require__(285);
+	var util_1 = __webpack_require__(162);
+	var nav_params_1 = __webpack_require__(295);
+	var dom_1 = __webpack_require__(163);
+	var swipe_back_1 = __webpack_require__(302);
+	var view_controller_1 = __webpack_require__(294);
 	/**
 	 * _For examples on the basic usage of NavController, check out the
 	 * [Navigation section](../../../../components/#navigation) of the Component
@@ -48658,7 +48763,7 @@
 	var ctrlIds = -1;
 
 /***/ },
-/* 300 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var profile_1 = __webpack_require__(51);
@@ -48669,7 +48774,7 @@
 
 
 /***/ },
-/* 301 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -48677,7 +48782,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var slide_edge_gesture_1 = __webpack_require__(286);
+	var slide_edge_gesture_1 = __webpack_require__(287);
 	var SwipeBackGesture = (function (_super) {
 	    __extends(SwipeBackGesture, _super);
 	    function SwipeBackGesture(element, opts, _nav) {
@@ -48704,7 +48809,7 @@
 	exports.SwipeBackGesture = SwipeBackGesture;
 
 /***/ },
-/* 302 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -48717,17 +48822,15 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var app_1 = __webpack_require__(159);
-	var menu_1 = __webpack_require__(283);
+	var menu_controller_1 = __webpack_require__(274);
 	/**
 	* @name MenuClose
 	* @description
-	* Place `menuClose` on a button to automatically close an open menu. Note that the menu's id must be either
-	* `leftMenu` or `rightMenu`
+	* Place `menuClose` on a button to automatically close an open menu.
 	*
 	* @usage
 	 * ```html
-	 * <ion-menu [content]="mycontent" id="leftMenu">
+	 * <ion-menu [content]="mycontent">
 	 *   <ion-content>
 	 *     <ion-list>
 	 *     <ion-item menuClose>Close the menu</ion-item>
@@ -48742,14 +48845,14 @@
 	* @see {@link ../../menu/Menu Menu API Docs}
 	*/
 	var MenuClose = (function () {
-	    function MenuClose(_app) {
-	        this._app = _app;
+	    function MenuClose(_menu) {
+	        this._menu = _menu;
 	    }
 	    /**
 	    * @private
 	    */
 	    MenuClose.prototype.close = function () {
-	        var menu = menu_1.Menu.getById(this._app, this.menuClose);
+	        var menu = this._menu.get(this.menuClose);
 	        menu && menu.close();
 	    };
 	    __decorate([
@@ -48766,7 +48869,7 @@
 	        core_1.Directive({
 	            selector: '[menuClose]'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof menu_controller_1.MenuController !== 'undefined' && menu_controller_1.MenuController) === 'function' && _a) || Object])
 	    ], MenuClose);
 	    return MenuClose;
 	    var _a;
@@ -48774,7 +48877,7 @@
 	exports.MenuClose = MenuClose;
 
 /***/ },
-/* 303 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -48787,7 +48890,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var config_1 = __webpack_require__(265);
+	var config_1 = __webpack_require__(160);
 	/**
 	  * @name Badge
 	  * @module ionic
@@ -48837,7 +48940,7 @@
 	exports.Badge = Badge;
 
 /***/ },
-/* 304 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -48883,7 +48986,7 @@
 	exports.Blur = Blur;
 
 /***/ },
-/* 305 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -48904,12 +49007,12 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var ion_1 = __webpack_require__(284);
-	var app_1 = __webpack_require__(159);
-	var config_1 = __webpack_require__(265);
-	var dom_1 = __webpack_require__(268);
-	var view_controller_1 = __webpack_require__(293);
-	var scroll_to_1 = __webpack_require__(272);
+	var ion_1 = __webpack_require__(285);
+	var app_1 = __webpack_require__(167);
+	var config_1 = __webpack_require__(160);
+	var dom_1 = __webpack_require__(163);
+	var view_controller_1 = __webpack_require__(294);
+	var scroll_to_1 = __webpack_require__(276);
 	/**
 	 * @name Content
 	 * @description
@@ -49201,7 +49304,7 @@
 	exports.Content = Content;
 
 /***/ },
-/* 306 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -49219,7 +49322,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var ion_1 = __webpack_require__(284);
+	var ion_1 = __webpack_require__(285);
 	/**
 	 * @name Scroll
 	 * @description
@@ -49300,7 +49403,7 @@
 	exports.Scroll = Scroll;
 
 /***/ },
-/* 307 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -49316,11 +49419,11 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var content_1 = __webpack_require__(305);
-	var icon_1 = __webpack_require__(296);
-	var util_1 = __webpack_require__(267);
-	var dom_1 = __webpack_require__(268);
+	var common_1 = __webpack_require__(171);
+	var content_1 = __webpack_require__(306);
+	var icon_1 = __webpack_require__(297);
+	var util_1 = __webpack_require__(162);
+	var dom_1 = __webpack_require__(163);
 	/**
 	 * @name Refresher
 	 * @description
@@ -49769,7 +49872,7 @@
 	exports.Refresher = Refresher;
 
 /***/ },
-/* 308 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -49790,14 +49893,14 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var ion_1 = __webpack_require__(284);
+	var common_1 = __webpack_require__(171);
+	var ion_1 = __webpack_require__(285);
 	var animation_1 = __webpack_require__(280);
-	var gesture_1 = __webpack_require__(289);
-	var util_1 = __webpack_require__(290);
-	var dom_1 = __webpack_require__(268);
-	var util_2 = __webpack_require__(267);
-	var swiper_widget_1 = __webpack_require__(309);
+	var gesture_1 = __webpack_require__(290);
+	var util_1 = __webpack_require__(291);
+	var dom_1 = __webpack_require__(163);
+	var util_2 = __webpack_require__(162);
+	var swiper_widget_1 = __webpack_require__(310);
 	/**
 	 * @name Slides
 	 * @description
@@ -50365,7 +50468,7 @@
 	exports.SlideLazy = SlideLazy;
 
 /***/ },
-/* 309 */
+/* 310 */
 /***/ function(module, exports) {
 
 	/**
@@ -54325,7 +54428,7 @@
 
 
 /***/ },
-/* 310 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -54346,17 +54449,17 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var app_1 = __webpack_require__(159);
-	var config_1 = __webpack_require__(265);
-	var tab_button_1 = __webpack_require__(311);
-	var tab_highlight_1 = __webpack_require__(313);
-	var ion_1 = __webpack_require__(284);
-	var platform_1 = __webpack_require__(266);
-	var nav_controller_1 = __webpack_require__(299);
-	var view_controller_1 = __webpack_require__(293);
-	var icon_1 = __webpack_require__(296);
-	var util_1 = __webpack_require__(267);
+	var common_1 = __webpack_require__(171);
+	var app_1 = __webpack_require__(167);
+	var config_1 = __webpack_require__(160);
+	var tab_button_1 = __webpack_require__(312);
+	var tab_highlight_1 = __webpack_require__(314);
+	var ion_1 = __webpack_require__(285);
+	var platform_1 = __webpack_require__(161);
+	var nav_controller_1 = __webpack_require__(300);
+	var view_controller_1 = __webpack_require__(294);
+	var icon_1 = __webpack_require__(297);
+	var util_1 = __webpack_require__(162);
 	/**
 	 * @name Tabs
 	 * @property {any} [selectedIndex] - The default selected tab index when first loaded. If a selected index wasn't provided then it'll use `0`, the first tab.
@@ -54661,7 +54764,7 @@
 	})();
 
 /***/ },
-/* 311 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -54679,9 +54782,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var tab_1 = __webpack_require__(312);
-	var ion_1 = __webpack_require__(284);
-	var config_1 = __webpack_require__(265);
+	var tab_1 = __webpack_require__(313);
+	var ion_1 = __webpack_require__(285);
+	var config_1 = __webpack_require__(160);
 	/**
 	 * @private
 	 */
@@ -54740,7 +54843,7 @@
 	exports.TabButton = TabButton;
 
 /***/ },
-/* 312 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -54762,11 +54865,11 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var core_2 = __webpack_require__(8);
-	var app_1 = __webpack_require__(159);
-	var config_1 = __webpack_require__(265);
-	var keyboard_1 = __webpack_require__(271);
-	var nav_controller_1 = __webpack_require__(299);
-	var tabs_1 = __webpack_require__(310);
+	var app_1 = __webpack_require__(167);
+	var config_1 = __webpack_require__(160);
+	var keyboard_1 = __webpack_require__(273);
+	var nav_controller_1 = __webpack_require__(300);
+	var tabs_1 = __webpack_require__(311);
 	/**
 	 * @name Tab
 	 * @description
@@ -54980,7 +55083,7 @@
 	exports.Tab = Tab;
 
 /***/ },
-/* 313 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -54993,7 +55096,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var dom_1 = __webpack_require__(268);
+	var dom_1 = __webpack_require__(163);
 	/**
 	 * @private
 	 */
@@ -55027,7 +55130,7 @@
 	exports.TabHighlight = TabHighlight;
 
 /***/ },
-/* 314 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -55048,10 +55151,10 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var ion_1 = __webpack_require__(284);
-	var virtual_1 = __webpack_require__(315);
-	var item_sliding_gesture_1 = __webpack_require__(316);
-	var util_1 = __webpack_require__(290);
+	var ion_1 = __webpack_require__(285);
+	var virtual_1 = __webpack_require__(316);
+	var item_sliding_gesture_1 = __webpack_require__(317);
+	var util_1 = __webpack_require__(291);
 	/**
 	 * The List is a widely used interface element in almost any mobile app, and can include
 	 * content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
@@ -55214,7 +55317,7 @@
 	exports.ListHeader = ListHeader;
 
 /***/ },
-/* 315 */
+/* 316 */
 /***/ function(module, exports) {
 
 	var ListVirtualScroll = (function () {
@@ -55307,7 +55410,7 @@
 	})();
 
 /***/ },
-/* 316 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -55315,8 +55418,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var drag_gesture_1 = __webpack_require__(288);
-	var dom_1 = __webpack_require__(268);
+	var drag_gesture_1 = __webpack_require__(289);
+	var dom_1 = __webpack_require__(163);
 	var ItemSlidingGesture = (function (_super) {
 	    __extends(ItemSlidingGesture, _super);
 	    function ItemSlidingGesture(list, listEle) {
@@ -55527,7 +55630,7 @@
 	var DRAG_THRESHOLD = 20;
 
 /***/ },
-/* 317 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55540,11 +55643,11 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var button_1 = __webpack_require__(298);
-	var form_1 = __webpack_require__(270);
-	var icon_1 = __webpack_require__(296);
-	var label_1 = __webpack_require__(318);
+	var common_1 = __webpack_require__(171);
+	var button_1 = __webpack_require__(299);
+	var form_1 = __webpack_require__(166);
+	var icon_1 = __webpack_require__(297);
+	var label_1 = __webpack_require__(319);
 	/**
 	 * @name Item
 	 * @description
@@ -55719,7 +55822,7 @@
 	exports.Item = Item;
 
 /***/ },
-/* 318 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55836,7 +55939,7 @@
 	exports.Label = Label;
 
 /***/ },
-/* 319 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55852,7 +55955,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var list_1 = __webpack_require__(314);
+	var list_1 = __webpack_require__(315);
 	/**
 	 * @name ItemSliding
 	 *
@@ -55904,7 +56007,7 @@
 	var slideIds = 0;
 
 /***/ },
-/* 320 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55920,10 +56023,10 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var form_1 = __webpack_require__(270);
-	var item_1 = __webpack_require__(317);
-	var util_1 = __webpack_require__(267);
+	var common_1 = __webpack_require__(171);
+	var form_1 = __webpack_require__(166);
+	var item_1 = __webpack_require__(318);
+	var util_1 = __webpack_require__(162);
 	/**
 	 * The checkbox is no different than the HTML checkbox input, except
 	 * it's styled accordingly to the the platform and design mode, such
@@ -56116,7 +56219,7 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 321 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56132,13 +56235,13 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var alert_1 = __webpack_require__(322);
-	var form_1 = __webpack_require__(270);
-	var item_1 = __webpack_require__(317);
-	var util_1 = __webpack_require__(267);
-	var nav_controller_1 = __webpack_require__(299);
-	var option_1 = __webpack_require__(323);
+	var common_1 = __webpack_require__(171);
+	var alert_1 = __webpack_require__(323);
+	var form_1 = __webpack_require__(166);
+	var item_1 = __webpack_require__(318);
+	var util_1 = __webpack_require__(162);
+	var nav_controller_1 = __webpack_require__(300);
+	var option_1 = __webpack_require__(324);
 	/**
 	 * @name Select
 	 * @description
@@ -56531,7 +56634,7 @@
 	exports.Select = Select;
 
 /***/ },
-/* 322 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -56549,12 +56652,12 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
+	var common_1 = __webpack_require__(171);
 	var animation_1 = __webpack_require__(280);
-	var config_1 = __webpack_require__(265);
-	var util_1 = __webpack_require__(267);
-	var nav_params_1 = __webpack_require__(294);
-	var view_controller_1 = __webpack_require__(293);
+	var config_1 = __webpack_require__(160);
+	var util_1 = __webpack_require__(162);
+	var nav_params_1 = __webpack_require__(295);
+	var view_controller_1 = __webpack_require__(294);
 	/**
 	 * @name Alert
 	 * @description
@@ -57010,7 +57113,7 @@
 	var alertIds = -1;
 
 /***/ },
-/* 323 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57023,7 +57126,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var util_1 = __webpack_require__(267);
+	var util_1 = __webpack_require__(162);
 	/**
 	 * @name Option
 	 * @description
@@ -57105,7 +57208,7 @@
 	exports.Option = Option;
 
 /***/ },
-/* 324 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57121,12 +57224,12 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var form_1 = __webpack_require__(270);
-	var config_1 = __webpack_require__(265);
-	var util_1 = __webpack_require__(267);
-	var item_1 = __webpack_require__(317);
-	var dom_1 = __webpack_require__(268);
+	var common_1 = __webpack_require__(171);
+	var form_1 = __webpack_require__(166);
+	var config_1 = __webpack_require__(160);
+	var util_1 = __webpack_require__(162);
+	var item_1 = __webpack_require__(318);
+	var dom_1 = __webpack_require__(163);
 	/**
 	 * @name Toggle
 	 * @description
@@ -57370,7 +57473,7 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 325 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -57391,17 +57494,17 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var button_1 = __webpack_require__(298);
-	var config_1 = __webpack_require__(265);
-	var content_1 = __webpack_require__(305);
-	var form_1 = __webpack_require__(270);
-	var input_base_1 = __webpack_require__(326);
-	var app_1 = __webpack_require__(159);
-	var item_1 = __webpack_require__(317);
-	var native_input_1 = __webpack_require__(327);
-	var nav_controller_1 = __webpack_require__(299);
-	var platform_1 = __webpack_require__(266);
+	var common_1 = __webpack_require__(171);
+	var button_1 = __webpack_require__(299);
+	var config_1 = __webpack_require__(160);
+	var content_1 = __webpack_require__(306);
+	var form_1 = __webpack_require__(166);
+	var input_base_1 = __webpack_require__(327);
+	var app_1 = __webpack_require__(167);
+	var item_1 = __webpack_require__(318);
+	var native_input_1 = __webpack_require__(328);
+	var nav_controller_1 = __webpack_require__(300);
+	var platform_1 = __webpack_require__(161);
 	/**
 	 * @name Input
 	 * @description
@@ -57552,7 +57655,7 @@
 	exports.TextArea = TextArea;
 
 /***/ },
-/* 326 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57565,9 +57668,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var util_1 = __webpack_require__(267);
-	var dom_1 = __webpack_require__(268);
-	var native_input_1 = __webpack_require__(327);
+	var util_1 = __webpack_require__(162);
+	var dom_1 = __webpack_require__(163);
+	var native_input_1 = __webpack_require__(328);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
 	        this._form = _form;
@@ -58055,7 +58158,7 @@
 	}
 
 /***/ },
-/* 327 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58068,8 +58171,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var dom_1 = __webpack_require__(268);
+	var common_1 = __webpack_require__(171);
+	var dom_1 = __webpack_require__(163);
 	/**
 	 * @private
 	 */
@@ -58250,7 +58353,7 @@
 	exports.NextInput = NextInput;
 
 /***/ },
-/* 328 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58266,8 +58369,8 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var util_1 = __webpack_require__(267);
+	var common_1 = __webpack_require__(171);
+	var util_1 = __webpack_require__(162);
 	/**
 	 * @name SegmentButton
 	 * @description
@@ -58499,7 +58602,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 329 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58515,10 +58618,10 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var form_1 = __webpack_require__(270);
-	var util_1 = __webpack_require__(267);
-	var item_1 = __webpack_require__(317);
-	var radio_group_1 = __webpack_require__(330);
+	var form_1 = __webpack_require__(166);
+	var util_1 = __webpack_require__(162);
+	var item_1 = __webpack_require__(318);
+	var radio_group_1 = __webpack_require__(331);
 	/**
 	 * @description
 	 * A radio button with a unique value. Note that all `<ion-radio>`
@@ -58689,7 +58792,7 @@
 	exports.RadioButton = RadioButton;
 
 /***/ },
-/* 330 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58705,9 +58808,9 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var list_1 = __webpack_require__(314);
-	var util_1 = __webpack_require__(267);
+	var common_1 = __webpack_require__(171);
+	var list_1 = __webpack_require__(315);
+	var util_1 = __webpack_require__(162);
 	/**
 	 * @name RadioGroup
 	 * @description
@@ -58899,7 +59002,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58920,12 +59023,12 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
-	var ion_1 = __webpack_require__(284);
-	var config_1 = __webpack_require__(265);
-	var icon_1 = __webpack_require__(296);
-	var button_1 = __webpack_require__(298);
-	var util_1 = __webpack_require__(267);
+	var common_1 = __webpack_require__(171);
+	var ion_1 = __webpack_require__(285);
+	var config_1 = __webpack_require__(160);
+	var icon_1 = __webpack_require__(297);
+	var button_1 = __webpack_require__(299);
+	var util_1 = __webpack_require__(162);
 	/**
 	* @private
 	*/
@@ -59248,7 +59351,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59269,11 +59372,11 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var app_1 = __webpack_require__(159);
-	var config_1 = __webpack_require__(265);
-	var keyboard_1 = __webpack_require__(271);
-	var nav_controller_1 = __webpack_require__(299);
-	var view_controller_1 = __webpack_require__(293);
+	var app_1 = __webpack_require__(167);
+	var config_1 = __webpack_require__(160);
+	var keyboard_1 = __webpack_require__(273);
+	var nav_controller_1 = __webpack_require__(300);
+	var view_controller_1 = __webpack_require__(294);
 	/**
 	 * @name Nav
 	 * @description
@@ -59416,7 +59519,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 333 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59432,8 +59535,8 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var nav_controller_1 = __webpack_require__(299);
-	var nav_registry_1 = __webpack_require__(274);
+	var nav_controller_1 = __webpack_require__(300);
+	var nav_registry_1 = __webpack_require__(275);
 	/**
 	 * @name NavPush
 	 * @description
@@ -59578,7 +59681,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 334 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59600,7 +59703,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var router_1 = __webpack_require__(119);
-	var nav_1 = __webpack_require__(332);
+	var nav_1 = __webpack_require__(333);
 	/**
 	 * @private
 	 */
@@ -59702,7 +59805,7 @@
 	})(router_1.Instruction);
 
 /***/ },
-/* 335 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59715,7 +59818,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var app_1 = __webpack_require__(159);
+	var app_1 = __webpack_require__(167);
 	/**
 	 * @name Id
 	 * @description
@@ -59814,7 +59917,7 @@
 	exports.Attr = Attr;
 
 /***/ },
-/* 336 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59835,7 +59938,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var platform_1 = __webpack_require__(266);
+	var platform_1 = __webpack_require__(161);
 	/**
 	 * @private
 	 */
@@ -59967,14 +60070,14 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 337 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(8);
-	var browser_1 = __webpack_require__(160);
+	var browser_1 = __webpack_require__(168);
 	var tap_click_1 = __webpack_require__(277);
 	var bootstrap_1 = __webpack_require__(7);
-	var directives_1 = __webpack_require__(281);
+	var directives_1 = __webpack_require__(282);
 	var _reflect = Reflect;
 	/**
 	* @name App
@@ -60029,11 +60132,11 @@
 	exports.App = App;
 
 /***/ },
-/* 338 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(8);
-	var directives_1 = __webpack_require__(281);
+	var directives_1 = __webpack_require__(282);
 	var _reflect = Reflect;
 	/**
 	 * @name Page
@@ -60120,57 +60223,58 @@
 	exports.Page = Page;
 
 /***/ },
-/* 339 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(159));
-	__export(__webpack_require__(335));
-	__export(__webpack_require__(340));
-	__export(__webpack_require__(322));
-	__export(__webpack_require__(304));
-	__export(__webpack_require__(298));
-	__export(__webpack_require__(320));
-	__export(__webpack_require__(305));
-	__export(__webpack_require__(296));
-	__export(__webpack_require__(325));
-	__export(__webpack_require__(317));
-	__export(__webpack_require__(319));
-	__export(__webpack_require__(283));
-	__export(__webpack_require__(341));
-	__export(__webpack_require__(292));
-	__export(__webpack_require__(302));
-	__export(__webpack_require__(318));
-	__export(__webpack_require__(314));
+	__export(__webpack_require__(167));
 	__export(__webpack_require__(336));
-	__export(__webpack_require__(342));
-	__export(__webpack_require__(332));
-	__export(__webpack_require__(299));
-	__export(__webpack_require__(293));
-	__export(__webpack_require__(294));
-	__export(__webpack_require__(333));
-	__export(__webpack_require__(334));
-	__export(__webpack_require__(295));
+	__export(__webpack_require__(341));
 	__export(__webpack_require__(323));
-	__export(__webpack_require__(282));
-	__export(__webpack_require__(308));
-	__export(__webpack_require__(329));
-	__export(__webpack_require__(330));
-	__export(__webpack_require__(306));
-	__export(__webpack_require__(307));
-	__export(__webpack_require__(331));
-	__export(__webpack_require__(328));
+	__export(__webpack_require__(305));
+	__export(__webpack_require__(299));
 	__export(__webpack_require__(321));
-	__export(__webpack_require__(310));
-	__export(__webpack_require__(312));
-	__export(__webpack_require__(277));
-	__export(__webpack_require__(324));
+	__export(__webpack_require__(306));
 	__export(__webpack_require__(297));
+	__export(__webpack_require__(326));
+	__export(__webpack_require__(318));
+	__export(__webpack_require__(320));
+	__export(__webpack_require__(274));
+	__export(__webpack_require__(284));
+	__export(__webpack_require__(342));
+	__export(__webpack_require__(293));
+	__export(__webpack_require__(303));
+	__export(__webpack_require__(319));
+	__export(__webpack_require__(315));
+	__export(__webpack_require__(337));
+	__export(__webpack_require__(343));
+	__export(__webpack_require__(333));
+	__export(__webpack_require__(300));
+	__export(__webpack_require__(294));
+	__export(__webpack_require__(295));
+	__export(__webpack_require__(334));
+	__export(__webpack_require__(335));
+	__export(__webpack_require__(296));
+	__export(__webpack_require__(324));
+	__export(__webpack_require__(283));
+	__export(__webpack_require__(309));
+	__export(__webpack_require__(330));
+	__export(__webpack_require__(331));
+	__export(__webpack_require__(307));
+	__export(__webpack_require__(308));
+	__export(__webpack_require__(332));
+	__export(__webpack_require__(329));
+	__export(__webpack_require__(322));
+	__export(__webpack_require__(311));
+	__export(__webpack_require__(313));
+	__export(__webpack_require__(277));
+	__export(__webpack_require__(325));
+	__export(__webpack_require__(298));
 
 /***/ },
-/* 340 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60188,12 +60292,12 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(163);
+	var common_1 = __webpack_require__(171);
 	var animation_1 = __webpack_require__(280);
-	var config_1 = __webpack_require__(265);
-	var icon_1 = __webpack_require__(296);
-	var nav_params_1 = __webpack_require__(294);
-	var view_controller_1 = __webpack_require__(293);
+	var config_1 = __webpack_require__(160);
+	var icon_1 = __webpack_require__(297);
+	var nav_params_1 = __webpack_require__(295);
+	var view_controller_1 = __webpack_require__(294);
 	/**
 	 * @name ActionSheet
 	 * @description
@@ -60473,7 +60577,7 @@
 	animation_1.Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60481,7 +60585,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var menu_1 = __webpack_require__(283);
+	var menu_controller_1 = __webpack_require__(274);
 	var animation_1 = __webpack_require__(280);
 	/**
 	 * Menu Type
@@ -60572,7 +60676,7 @@
 	    }
 	    return MenuRevealType;
 	})(MenuType);
-	menu_1.Menu.register('reveal', MenuRevealType);
+	menu_controller_1.MenuController.registerType('reveal', MenuRevealType);
 	/**
 	 * Menu Push Type
 	 * The content slides over to reveal the menu underneath.
@@ -60613,7 +60717,7 @@
 	    }
 	    return MenuPushType;
 	})(MenuType);
-	menu_1.Menu.register('push', MenuPushType);
+	menu_controller_1.MenuController.registerType('push', MenuPushType);
 	/**
 	 * Menu Overlay Type
 	 * The menu slides over the content. The content
@@ -60654,12 +60758,12 @@
 	    }
 	    return MenuOverlayType;
 	})(MenuType);
-	menu_1.Menu.register('overlay', MenuOverlayType);
+	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 	var OPACITY = 'opacity';
 	var TRANSLATE_X = 'translateX';
 
 /***/ },
-/* 342 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60667,7 +60771,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var view_controller_1 = __webpack_require__(293);
+	var view_controller_1 = __webpack_require__(294);
 	var animation_1 = __webpack_require__(280);
 	/**
 	 * @name Modal
@@ -60829,18 +60933,18 @@
 	animation_1.Animation.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(344));
 	__export(__webpack_require__(345));
 	__export(__webpack_require__(346));
+	__export(__webpack_require__(347));
 
 /***/ },
-/* 344 */
+/* 345 */
 /***/ function(module, exports) {
 
 	/**
@@ -60917,7 +61021,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 345 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60925,7 +61029,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(344);
+	var storage_1 = __webpack_require__(345);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -61011,7 +61115,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 346 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61019,8 +61123,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(344);
-	var util_1 = __webpack_require__(267);
+	var storage_1 = __webpack_require__(345);
+	var util_1 = __webpack_require__(162);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
 	/**
@@ -61228,7 +61332,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 347 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61241,7 +61345,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var translate_1 = __webpack_require__(275);
+	var translate_1 = __webpack_require__(281);
 	/**
 	 * @private
 	 * The Translate pipe makes it easy to translate strings.
@@ -61277,10 +61381,10 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var config_1 = __webpack_require__(265);
+	var config_1 = __webpack_require__(160);
 	// iOS Mode Settings
 	config_1.Config.setModeConfig('ios', {
 	    activator: 'highlight',
@@ -61319,11 +61423,11 @@
 	});
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var platform_1 = __webpack_require__(266);
-	var dom_1 = __webpack_require__(268);
+	var platform_1 = __webpack_require__(161);
+	var dom_1 = __webpack_require__(163);
 	var win = window;
 	var doc = document;
 	platform_1.Platform.register({
@@ -61481,7 +61585,7 @@
 	}
 
 /***/ },
-/* 350 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61540,7 +61644,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61712,7 +61816,7 @@
 	animation_1.Animation.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {

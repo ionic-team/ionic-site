@@ -592,6 +592,7 @@ Tell the scrollView to recalculate the size of its container.
   <code>object</code> The scroll position of this view, with the following properties:
  - `{number}` `left` The distance the user has scrolled from the left (starts at 0).
  - `{number}` `top` The distance the user has scrolled from the top (starts at 0).
+ - `{number}` `zoom` The current zoom level.
 
 
 

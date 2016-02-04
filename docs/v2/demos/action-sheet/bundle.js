@@ -58393,9 +58393,8 @@
 	 * </form>
 	 * ```
 	 *
-	 * @property {string} [value] - the value of the segment-button. Required.
-	 * @property {Any} [click] - expression to evaluate when a segment button has been clicked
-	 * @property {Any} (select) - expression to evaluate when a segment selection has been changed
+	 * @property {string} [value] - the value of the segment button. Required.
+	 * @property {Any} (select) - expression to evaluate when a segment button has been clicked
 	 *
 	 * @demo /docs/v2/demos/segment/
 	 * @see {@link /docs/v2/components#segment Segment Component Docs}
@@ -58504,7 +58503,7 @@
 	 * </form>
 	 * ```
 	 *
-	 * @property {Any} [change] - expression to evaluate when a segment button has been changed
+	 * @property {Any} (change) - expression to evaluate when a segment button has been changed
 	 *
 	 * @demo /docs/v2/demos/segment/
 	 * @see {@link /docs/v2/components#segment Segment Component Docs}
@@ -59069,6 +59068,7 @@
 	 * @property {Any} [cancel] - Expression to evaluate when the cancel button is clicked
 	 * @property {Any} [clear] - Expression to evaluate when the clear input button is clicked
 	 *
+	 * @demo /docs/v2/demos/searchbar/
 	 * @see {@link /docs/v2/components#searchbar Searchbar Component Docs}
 	 */
 	var Searchbar = (function (_super) {

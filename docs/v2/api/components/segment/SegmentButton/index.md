@@ -99,10 +99,6 @@ Improve this doc
 
 
 
-
-
-
-
 <th>Type</th>
 
 
@@ -123,23 +119,7 @@ string
 
 
 <td>
-the value of the segment-button. Required.
-</td>
-</tr>
-
-<tr>
-<td>
-click
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-expression to evaluate when a segment button has been clicked
+the value of the segment button. Required.
 </td>
 </tr>
 
@@ -155,7 +135,7 @@ Any
 
 
 <td>
-expression to evaluate when a segment selection has been changed
+expression to evaluate when a segment button has been clicked
 </td>
 </tr>
 

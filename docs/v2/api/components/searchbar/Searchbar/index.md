@@ -9,7 +9,9 @@ title: "Searchbar"
 header_sub_title: "Class in module ionic"
 doc: "Searchbar"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/searchbar/"
+angular_controller: APIDemoCtrl 
 ---
 
 

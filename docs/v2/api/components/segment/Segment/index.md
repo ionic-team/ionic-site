@@ -34,7 +34,7 @@ Segment
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/segment/segment.ts#L97'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/segment/segment.ts#L96'>
 Improve this doc
 </a>
 
@@ -107,7 +107,7 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
 
 <tr>
 <td>
-change
+(change)
 </td>
 
 

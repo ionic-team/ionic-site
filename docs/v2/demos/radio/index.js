@@ -8,16 +8,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_1 = require('ionic/ionic');
-var DemoApp = (function () {
-    function DemoApp() {
+var ApiDemoApp = (function () {
+    function ApiDemoApp() {
     }
-    DemoApp.prototype.blur = function () {
-    };
-    DemoApp = __decorate([
+    ApiDemoApp = __decorate([
         ionic_1.App({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], DemoApp);
-    return DemoApp;
+    ], ApiDemoApp);
+    return ApiDemoApp;
 })();

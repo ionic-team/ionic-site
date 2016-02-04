@@ -9,7 +9,9 @@ title: "Nav"
 header_sub_title: "Class in module "
 doc: "Nav"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/navigation/"
+angular_controller: APIDemoCtrl 
 ---
 
 

@@ -10,37 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ionic_1 = require('ionic/ionic');
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
-        this.rootPage = InitialPage;
     }
-    ApiDemoApp = __decorate([
-        ionic_1.App({
-            templateUrl: 'app.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ApiDemoApp);
-    return ApiDemoApp;
-})();
-var InitialPage = (function () {
-    function InitialPage() {
-    }
-    InitialPage.prototype.doRefresh = function (refresher) {
+    ApiDemoApp.prototype.doRefresh = function (refresher) {
         console.log('DOREFRESH', refresher);
         setTimeout(function () {
             refresher.complete();
         });
     };
-    InitialPage.prototype.doStarting = function () {
+    ApiDemoApp.prototype.doStarting = function () {
         console.log('DOSTARTING');
     };
-    InitialPage.prototype.doPulling = function (amt) {
+    ApiDemoApp.prototype.doPulling = function (amt) {
         console.log('DOPULLING', amt);
     };
-    InitialPage = __decorate([
-        ionic_1.Page({
+    ApiDemoApp = __decorate([
+        ionic_1.App({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], InitialPage);
-    return InitialPage;
+    ], ApiDemoApp);
+    return ApiDemoApp;
 })();
-exports.InitialPage = InitialPage;

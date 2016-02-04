@@ -5106,9 +5106,7 @@ a.button {
 
 ion-card {
   display: block;
-  overflow: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0); }
+  overflow: hidden; }
 
 ion-card img {
   display: block;
@@ -5122,6 +5120,14 @@ ion-card-header {
 
 ion-card-content {
   display: block; }
+
+ion-card > :first-child {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit; }
+
+ion-card > :last-child {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit; }
 
 ion-card {
   margin: 12px 12px 12px 12px;

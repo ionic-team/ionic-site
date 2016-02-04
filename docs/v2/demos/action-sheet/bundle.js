@@ -39278,6 +39278,17 @@
 	 * })
 	 * ```
 	 *
+	 * Or change the whole mode
+	 *
+	 * ```ts
+	 * @App({
+	 *   template: `<ion-nav [root]="root"></ion-nav>`
+	 *   config: {
+	 *     mode: md
+	 *   }
+	 * })
+	 * ```
+	 *
 	 * Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.
 	 * ```ts
 	 * @App({
@@ -46714,6 +46725,7 @@
 	 * inactive icon on iOS will use an outlined version of the icon same icon.
 	 * Material Design icons do not change appearance depending if they're active
 	 * or not. The `isActive` property is largely used by the tabbar.
+	 * @demo /docs/v2/demos/icon/
 	 * @see {@link /docs/v2/components#icons Icon Component Docs}
 	 *
 	 */
@@ -47137,7 +47149,7 @@
 	  * @property [color] - Dynamically set which color attribute this button should use.
 	  * @description
 	  * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
-	  * @demo /docs/v2/demos/buttons/
+	  * @demo /docs/v2/demos/button/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
 
 	 */
@@ -49952,7 +49964,6 @@
 	        this.rapidUpdate = util_2.debounce(function () {
 	            _this.update();
 	        }, 10);
-	        console.warn("(slideChanged) deprecated. Use (change) to track slide changes.");
 	    }
 	    /**
 	     * @private
@@ -50237,7 +50248,6 @@
 	        // Move image
 	        this.touch.x = this.touch.deltaX + this.touch.lastX;
 	        this.touch.y = this.touch.deltaY + this.touch.lastY;
-	        console.debug(this.touch.x, this.touch.y);
 	        if (this.touch.x < x1) {
 	            console.debug('OUT ON LEFT');
 	        }
@@ -56742,6 +56752,7 @@
 	 * }
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/alert/
 	 */
 	var Alert = (function (_super) {
 	    __extends(Alert, _super);
@@ -59446,6 +59457,7 @@
 	 *   </pre>
 	 * </div>
 	 *
+	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 */
 	var Nav = (function (_super) {
@@ -59549,7 +59561,7 @@
 	 * ```html
 	 * <button [navPush]="[pushPage, params]"></button>
 	 * ```
-	 * @demo /docs/v2/demos/nav-push-pop/
+	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 * @see {@link ../NavPop NavPop API Docs}
 	 */
@@ -59619,7 +59631,7 @@
 	 * This will go back one page in the navigation stack
 	 *
 	 * Similar to {@link /docs/v2/api/components/nav/NavPush/ `NavPush` }
-	 * @demo /docs/v2/demos/nav-push-pop/
+	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 * @see {@link ../NavPush NavPush API Docs}
 	 */

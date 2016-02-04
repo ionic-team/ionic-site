@@ -3214,89 +3214,42 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(6);
+	var Page1 = (function () {
+	    function Page1(app) {
+	        this.app = app;
+	        this.menu1Active();
+	    }
+	    Page1.prototype.menu1Active = function () {
+	        this.activeMenu = 'menu1';
+	        this.app.getComponent('menu1').enable(true);
+	        this.app.getComponent('menu2').enable(false);
+	    };
+	    Page1.prototype.menu2Active = function () {
+	        this.activeMenu = 'menu2';
+	        this.app.getComponent('menu1').enable(false);
+	        this.app.getComponent('menu2').enable(true);
+	    };
+	    Page1 = __decorate([
+	        ionic_1.Page({ templateUrl: 'page1.html' }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object])
+	    ], Page1);
+	    return Page1;
+	    var _a;
+	})();
 	var ApiDemoApp = (function () {
-	    function ApiDemoApp() {
-	        this.rootPage = TabPage;
+	    function ApiDemoApp(app) {
+	        this.app = app;
+	        this.rootView = Page1;
 	    }
 	    ApiDemoApp = __decorate([
 	        ionic_1.App({
-	            templateUrl: 'app.html',
-	            config: CONFIG_DEMO || {}
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], ApiDemoApp);
-	    return ApiDemoApp;
-	})();
-	var TabPage = (function () {
-	    function TabPage() {
-	        this.tabOne = InitialPage;
-	    }
-	    TabPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: 'tabs.html'
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], TabPage);
-	    return TabPage;
-	})();
-	exports.TabPage = TabPage;
-	var InitialPage = (function () {
-	    function InitialPage(platform, nav) {
-	        this.platform = platform;
-	        this.nav = nav;
-	        if (window.localStorage.getItem('configDemo') !== null) {
-	            this.config = JSON.parse(window.localStorage.getItem('configDemo'));
-	        }
-	        else if (platform.is('ios')) {
-	            this.config = {
-	                'backButtonIcon': 'ios-arrow-back',
-	                'iconMode': 'ios',
-	                'tabbarPlacement': 'bottom'
-	            };
-	        }
-	        else {
-	            this.config = {
-	                'backButtonIcon': 'md-arrow-back',
-	                'iconMode': 'md',
-	                'tabbarPlacement': 'top'
-	            };
-	        }
-	        this.initialConfig = JSON.parse(JSON.stringify(this.config));
-	    }
-	    InitialPage.prototype.load = function () {
-	        window.localStorage.setItem('configDemo', JSON.stringify(this.config));
-	        window.location.reload();
-	    };
-	    InitialPage.prototype.push = function () {
-	        this.nav.push(AnotherPage);
-	    };
-	    InitialPage = __decorate([
-	        ionic_1.Page({
 	            templateUrl: 'main.html'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _b) || Object])
-	    ], InitialPage);
-	    return InitialPage;
-	    var _a, _b;
-	})();
-	exports.InitialPage = InitialPage;
-	var AnotherPage = (function () {
-	    function AnotherPage(nav) {
-	        this.nav = nav;
-	    }
-	    AnotherPage.prototype.pop = function () {
-	        this.nav.pop();
-	    };
-	    AnotherPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: 'page.html'
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object])
-	    ], AnotherPage);
-	    return AnotherPage;
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object])
+	    ], ApiDemoApp);
+	    return ApiDemoApp;
 	    var _a;
 	})();
-	exports.AnotherPage = AnotherPage;
 
 /***/ },
 /* 6 */

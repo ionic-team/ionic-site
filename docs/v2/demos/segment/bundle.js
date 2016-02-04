@@ -43029,7 +43029,7 @@
 	     */
 	    Menu.prototype.enable = function (shouldEnable) {
 	        this.isEnabled = shouldEnable;
-	        if (!shouldEnable) {
+	        if (!shouldEnable && this.isOpen) {
 	            this.close();
 	        }
 	        return this;

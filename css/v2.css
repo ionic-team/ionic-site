@@ -7945,6 +7945,9 @@ body {
     margin: 40px 0 40px;
     font-size: 16px;
     border-left: 4px solid #eeeeee; }
+  .docs-container main img.section-header {
+    width: 100%;
+    margin: 10% 0 5%; }
 
 .platform-preview {
   position: absolute;

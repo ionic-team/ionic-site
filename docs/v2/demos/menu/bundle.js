@@ -3215,38 +3215,32 @@
 	};
 	var ionic_1 = __webpack_require__(6);
 	var Page1 = (function () {
-	    function Page1() {
+	    function Page1(app) {
+	        this.app = app;
+	        this.menu1Active();
 	    }
+	    Page1.prototype.menu1Active = function () {
+	        this.activeMenu = 'menu1';
+	        this.app.getComponent('menu1').enable(true);
+	        this.app.getComponent('menu2').enable(false);
+	    };
+	    Page1.prototype.menu2Active = function () {
+	        this.activeMenu = 'menu2';
+	        this.app.getComponent('menu1').enable(false);
+	        this.app.getComponent('menu2').enable(true);
+	    };
 	    Page1 = __decorate([
 	        ionic_1.Page({ templateUrl: 'page1.html' }), 
-	        __metadata('design:paramtypes', [])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object])
 	    ], Page1);
 	    return Page1;
-	})();
-	var Page2 = (function () {
-	    function Page2() {
-	    }
-	    Page2 = __decorate([
-	        ionic_1.Page({ templateUrl: 'page2.html' }), 
-	        __metadata('design:paramtypes', [])
-	    ], Page2);
-	    return Page2;
+	    var _a;
 	})();
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp(app) {
 	        this.app = app;
 	        this.rootView = Page1;
-	        this.pages = [
-	            { title: 'Page 1', component: Page1 },
-	            { title: 'Page 2', component: Page2 },
-	        ];
 	    }
-	    ApiDemoApp.prototype.openPage = function (menu, page) {
-	        // Reset the content nav to have just this page
-	        // we wouldn't want the back button to show in this scenario
-	        var nav = this.app.getComponent('nav');
-	        nav.setRoot(page.component);
-	    };
 	    ApiDemoApp = __decorate([
 	        ionic_1.App({
 	            templateUrl: 'main.html'

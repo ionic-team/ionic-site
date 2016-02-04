@@ -5927,8 +5927,8 @@ h1 + h2 + p {
   font-weight: normal;
   font-style: normal;
   font-family: "Ionicons";
-  src: url("../fonts/ionicons.eot?v=1.3.0");
-  src: url("../fonts/ionicons.eot?v=1.3.0#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=1.3.0") format("truetype"), url("../fonts/ionicons.woff?v=1.3.0") format("woff"), url("../fonts/ionicons.svg?v=1.3.0#Ionicons") format("svg"); }
+  src: url("../fonts/ionicons-v2.eot?v=1.3.0");
+  src: url("../fonts/ionicons-v2.eot?v=1.3.0#iefix") format("embedded-opentype"), url("../fonts/ionicons-v2.ttf?v=1.3.0") format("truetype"), url("../fonts/ionicons-v2.woff?v=1.3.0") format("woff"), url("../fonts/ionicons-v2.svg?v=1.3.0#Ionicons") format("svg"); }
 
 .fixed-menu {
   position: fixed;

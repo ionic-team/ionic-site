@@ -16,6 +16,7 @@ Alerts are quite flexible, and can easily be customized. Check out the [API docs
   <li class="docs-content-item"><a href="#alert-prompt">Prompt Alerts</a></li>
   <li class="docs-content-item"><a href="#alert-confirm">Confirmation Alerts</a></li>
   <li class="docs-content-item"><a href="#alert-radio">Radio Alerts</a></li>
+  <li class="docs-content-item"><a href="#alert-checkbox">Checkbox Alerts</a></li>
 </ul>
 
 <h3 class="section-nav" id="alerts">Basic Usage:</h3>
@@ -130,4 +131,43 @@ Radio Alerts are simply another type of Confirmation Alert, but use the [Radio](
         this.testRadioResult = data;
       }
     });
+```
+
+
+<h3 class="section-nav" id="alert-checkbox">Checkbox</h3>
+
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/alerts/checkbox">
+  Demo Source
+</a>
+
+Checkbox Alerts are simply another type of Confirmation Alert, but use the [Checkbox](/docs/v2/components/#checkbox) component to offer several choices. They offer the user a set of options to choose from.
+
+```
+  doCheckbox() {
+    let alert = Alert.create();
+    alert.setTitle('Which planets have you visited?');
+
+    alert.addInput({
+      type: 'checkbox',
+      label: 'Alderaan',
+      value: 'value1',
+      checked: true
+    });
+
+    alert.addInput({
+      type: 'checkbox',
+      label: 'Bespin',
+      value: 'value2'
+    });
+
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'Okay',
+      handler: data => {
+        console.log('Checkbox data:', data);
+        this.testCheckboxOpen = false;
+        this.testCheckboxResult = data;
+      }
+    });
+  }
 ```

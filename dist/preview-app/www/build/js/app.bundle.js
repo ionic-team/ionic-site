@@ -3217,8 +3217,9 @@
 	var ionic_2 = __webpack_require__(6);
 	var menus_1 = __webpack_require__(353);
 	var helpers = __webpack_require__(355);
-	// Change the import if you want to change the first page
-	var rootPage = __webpack_require__(356);
+	// Change the import if you want to change the first page, for example:
+	// import { ImagePage as rootPage } from './pages/cards/cards';
+	var action_sheets_1 = __webpack_require__(356);
 	var DemoApp = (function () {
 	    function DemoApp(app, platform, config) {
 	        var _this = this;
@@ -3249,7 +3250,7 @@
 	                            }
 	                        }
 	                        else {
-	                            _this.nextPage = rootPage.BasicPage;
+	                            _this.nextPage = action_sheets_1.BasicPage;
 	                        }
 	                        setTimeout(function () {
 	                            var nav = _this.app.getComponent('nav');
@@ -3272,7 +3273,7 @@
 	                _this.isProductionMode = false;
 	                _this.currentPageIndex = 1;
 	                var nav = _this.app.getComponent('nav');
-	                nav.setRoot(rootPage.BasicPage);
+	                nav.setRoot(action_sheets_1.BasicPage);
 	            }
 	        });
 	    }
@@ -3343,7 +3344,6 @@
 	__webpack_require__(350);
 	__webpack_require__(351);
 	__webpack_require__(352);
-
 
 /***/ },
 /* 7 */
@@ -3481,7 +3481,6 @@
 	        });
 	    }, 2000);
 	}
-
 
 /***/ },
 /* 8 */
@@ -6144,7 +6143,9 @@
 	        var bd = providers.map(function (b) { return new ProviderWithVisibility(b, Visibility.Public); });
 	        return new ProtoInjector(bd);
 	    };
-	    ProtoInjector.prototype.getProviderAtIndex = function (index) { return this._strategy.getProviderAtIndex(index); };
+	    ProtoInjector.prototype.getProviderAtIndex = function (index) {
+	        return this._strategy.getProviderAtIndex(index);
+	    };
 	    return ProtoInjector;
 	})();
 	exports.ProtoInjector = ProtoInjector;
@@ -12610,7 +12611,7 @@
 	var DehydratedException = (function (_super) {
 	    __extends(DehydratedException, _super);
 	    function DehydratedException() {
-	        _super.call(this, 'Attempt to detect changes on a dehydrated detector.');
+	        _super.call(this, 'Attempt to use a dehydrated detector.');
 	    }
 	    return DehydratedException;
 	})(exceptions_1.BaseException);
@@ -12788,7 +12789,7 @@
 	var directive_record_1 = __webpack_require__(47);
 	var event_binding_1 = __webpack_require__(75);
 	var coalesce_1 = __webpack_require__(76);
-	var proto_record_1 = __webpack_require__(54);
+	var proto_record_1 = __webpack_require__(74);
 	var DynamicProtoChangeDetector = (function () {
 	    function DynamicProtoChangeDetector(_definition) {
 	        this._definition = _definition;
@@ -13552,9 +13553,9 @@
 	var abstract_change_detector_1 = __webpack_require__(49);
 	var change_detection_util_1 = __webpack_require__(44);
 	var constants_1 = __webpack_require__(42);
-	var proto_record_1 = __webpack_require__(54);
+	var proto_record_1 = __webpack_require__(74);
 	var reflection_1 = __webpack_require__(22);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var DynamicChangeDetector = (function (_super) {
 	    __extends(DynamicChangeDetector, _super);
 	    function DynamicChangeDetector(id, numberOfPropertyProtoRecords, propertyBindingTargets, directiveIndices, strategy, _records, _eventBindings, _directiveRecords, _genConfig) {
@@ -13639,6 +13640,7 @@
 	                _super.prototype.observeDirective.call(this, this._getDirectiveFor(index), i);
 	            }
 	        }
+	        this.outputSubscriptions = [];
 	        for (var i = 0; i < this._directiveRecords.length; ++i) {
 	            var r = this._directiveRecords[i];
 	            if (lang_1.isPresent(r.outputs)) {
@@ -13646,7 +13648,7 @@
 	                    var eventHandler = _this._createEventHandler(r.directiveIndex.elementIndex, output[1]);
 	                    var directive = _this._getDirectiveFor(r.directiveIndex);
 	                    var getter = reflection_1.reflector.getter(output[0]);
-	                    async_1.ObservableWrapper.subscribe(getter(directive), eventHandler);
+	                    _this.outputSubscriptions.push(async_1.ObservableWrapper.subscribe(getter(directive), eventHandler));
 	                });
 	            }
 	        }
@@ -13984,6 +13986,7 @@
 	var constants_1 = __webpack_require__(42);
 	var profile_1 = __webpack_require__(51);
 	var observable_facade_1 = __webpack_require__(53);
+	var async_1 = __webpack_require__(54);
 	var _scope_check = profile_1.wtfCreateScope("ChangeDetector#check(ascii id, bool throwOnChange)");
 	var _Context = (function () {
 	    function _Context(element, componentElement, context, locals, injector, expression) {
@@ -14026,7 +14029,7 @@
 	    AbstractChangeDetector.prototype.remove = function () { this.parent.removeContentChild(this); };
 	    AbstractChangeDetector.prototype.handleEvent = function (eventName, elIndex, event) {
 	        if (!this.hydrated()) {
-	            return true;
+	            this.throwDehydratedError();
 	        }
 	        try {
 	            var locals = new Map();
@@ -14119,6 +14122,7 @@
 	        if (this.strategy === constants_1.ChangeDetectionStrategy.OnPushObserve) {
 	            this._unsubsribeFromObservables();
 	        }
+	        this._unsubscribeFromOutputs();
 	        this.dispatcher = null;
 	        this.context = null;
 	        this.locals = null;
@@ -14182,6 +14186,14 @@
 	                    s.cancel();
 	                    this.subscriptions[i] = null;
 	                }
+	            }
+	        }
+	    };
+	    AbstractChangeDetector.prototype._unsubscribeFromOutputs = function () {
+	        if (lang_1.isPresent(this.outputSubscriptions)) {
+	            for (var i = 0; i < this.outputSubscriptions.length; ++i) {
+	                async_1.ObservableWrapper.dispose(this.outputSubscriptions[i]);
+	                this.outputSubscriptions[i] = null;
 	            }
 	        }
 	    };
@@ -14439,72 +14451,6 @@
 
 /***/ },
 /* 54 */
-/***/ function(module, exports) {
-
-	'use strict';(function (RecordType) {
-	    RecordType[RecordType["Self"] = 0] = "Self";
-	    RecordType[RecordType["Const"] = 1] = "Const";
-	    RecordType[RecordType["PrimitiveOp"] = 2] = "PrimitiveOp";
-	    RecordType[RecordType["PropertyRead"] = 3] = "PropertyRead";
-	    RecordType[RecordType["PropertyWrite"] = 4] = "PropertyWrite";
-	    RecordType[RecordType["Local"] = 5] = "Local";
-	    RecordType[RecordType["InvokeMethod"] = 6] = "InvokeMethod";
-	    RecordType[RecordType["InvokeClosure"] = 7] = "InvokeClosure";
-	    RecordType[RecordType["KeyedRead"] = 8] = "KeyedRead";
-	    RecordType[RecordType["KeyedWrite"] = 9] = "KeyedWrite";
-	    RecordType[RecordType["Pipe"] = 10] = "Pipe";
-	    RecordType[RecordType["Interpolate"] = 11] = "Interpolate";
-	    RecordType[RecordType["SafeProperty"] = 12] = "SafeProperty";
-	    RecordType[RecordType["CollectionLiteral"] = 13] = "CollectionLiteral";
-	    RecordType[RecordType["SafeMethodInvoke"] = 14] = "SafeMethodInvoke";
-	    RecordType[RecordType["DirectiveLifecycle"] = 15] = "DirectiveLifecycle";
-	    RecordType[RecordType["Chain"] = 16] = "Chain";
-	    RecordType[RecordType["SkipRecordsIf"] = 17] = "SkipRecordsIf";
-	    RecordType[RecordType["SkipRecordsIfNot"] = 18] = "SkipRecordsIfNot";
-	    RecordType[RecordType["SkipRecords"] = 19] = "SkipRecords"; // Skip records unconditionally
-	})(exports.RecordType || (exports.RecordType = {}));
-	var RecordType = exports.RecordType;
-	var ProtoRecord = (function () {
-	    function ProtoRecord(mode, name, funcOrValue, args, fixedArgs, contextIndex, directiveIndex, selfIndex, bindingRecord, lastInBinding, lastInDirective, argumentToPureFunction, referencedBySelf, propertyBindingIndex) {
-	        this.mode = mode;
-	        this.name = name;
-	        this.funcOrValue = funcOrValue;
-	        this.args = args;
-	        this.fixedArgs = fixedArgs;
-	        this.contextIndex = contextIndex;
-	        this.directiveIndex = directiveIndex;
-	        this.selfIndex = selfIndex;
-	        this.bindingRecord = bindingRecord;
-	        this.lastInBinding = lastInBinding;
-	        this.lastInDirective = lastInDirective;
-	        this.argumentToPureFunction = argumentToPureFunction;
-	        this.referencedBySelf = referencedBySelf;
-	        this.propertyBindingIndex = propertyBindingIndex;
-	    }
-	    ProtoRecord.prototype.isPureFunction = function () {
-	        return this.mode === RecordType.Interpolate || this.mode === RecordType.CollectionLiteral;
-	    };
-	    ProtoRecord.prototype.isUsedByOtherRecord = function () { return !this.lastInBinding || this.referencedBySelf; };
-	    ProtoRecord.prototype.shouldBeChecked = function () {
-	        return this.argumentToPureFunction || this.lastInBinding || this.isPureFunction() ||
-	            this.isPipeRecord();
-	    };
-	    ProtoRecord.prototype.isPipeRecord = function () { return this.mode === RecordType.Pipe; };
-	    ProtoRecord.prototype.isConditionalSkipRecord = function () {
-	        return this.mode === RecordType.SkipRecordsIfNot || this.mode === RecordType.SkipRecordsIf;
-	    };
-	    ProtoRecord.prototype.isUnconditionalSkipRecord = function () { return this.mode === RecordType.SkipRecords; };
-	    ProtoRecord.prototype.isSkipRecord = function () {
-	        return this.isConditionalSkipRecord() || this.isUnconditionalSkipRecord();
-	    };
-	    ProtoRecord.prototype.isLifeCycleRecord = function () { return this.mode === RecordType.DirectiveLifecycle; };
-	    return ProtoRecord;
-	})();
-	exports.ProtoRecord = ProtoRecord;
-
-
-/***/ },
-/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -14513,15 +14459,15 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var lang_1 = __webpack_require__(11);
-	var promise_1 = __webpack_require__(56);
+	var promise_1 = __webpack_require__(55);
 	exports.PromiseWrapper = promise_1.PromiseWrapper;
 	exports.Promise = promise_1.Promise;
-	var Subject_1 = __webpack_require__(57);
-	var fromPromise_1 = __webpack_require__(69);
-	var toPromise_1 = __webpack_require__(74);
-	var Observable_1 = __webpack_require__(58);
+	var Subject_1 = __webpack_require__(56);
+	var fromPromise_1 = __webpack_require__(68);
+	var toPromise_1 = __webpack_require__(73);
+	var Observable_1 = __webpack_require__(57);
 	exports.Observable = Observable_1.Observable;
-	var Subject_2 = __webpack_require__(57);
+	var Subject_2 = __webpack_require__(56);
 	exports.Subject = Subject_2.Subject;
 	var TimerWrapper = (function () {
 	    function TimerWrapper() {
@@ -14658,7 +14604,7 @@
 
 
 /***/ },
-/* 56 */
+/* 55 */
 /***/ function(module, exports) {
 
 	'use strict';// Promises are put into their own facade file so that they can be used without
@@ -14710,7 +14656,7 @@
 
 
 /***/ },
-/* 57 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -14718,11 +14664,11 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Observable_1 = __webpack_require__(58);
-	var Subscriber_1 = __webpack_require__(59);
-	var Subscription_1 = __webpack_require__(63);
-	var SubjectSubscription_1 = __webpack_require__(68);
-	var rxSubscriber_1 = __webpack_require__(64);
+	var Observable_1 = __webpack_require__(57);
+	var Subscriber_1 = __webpack_require__(58);
+	var Subscription_1 = __webpack_require__(62);
+	var SubjectSubscription_1 = __webpack_require__(67);
+	var rxSubscriber_1 = __webpack_require__(63);
 	var subscriptionAdd = Subscription_1.Subscription.prototype.add;
 	var subscriptionRemove = Subscription_1.Subscription.prototype.remove;
 	var subscriptionUnsubscribe = Subscription_1.Subscription.prototype.unsubscribe;
@@ -14887,13 +14833,13 @@
 	//# sourceMappingURL=Subject.js.map
 
 /***/ },
-/* 58 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Subscriber_1 = __webpack_require__(59);
-	var root_1 = __webpack_require__(66);
-	var SymbolShim_1 = __webpack_require__(65);
-	var rxSubscriber_1 = __webpack_require__(64);
+	var Subscriber_1 = __webpack_require__(58);
+	var root_1 = __webpack_require__(65);
+	var SymbolShim_1 = __webpack_require__(64);
+	var rxSubscriber_1 = __webpack_require__(63);
 	/**
 	 * A representation of any set of values over any amount of time. This the most basic building block
 	 * of RxJS.
@@ -15027,7 +14973,7 @@
 	//# sourceMappingURL=Observable.js.map
 
 /***/ },
-/* 59 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -15035,11 +14981,11 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var noop_1 = __webpack_require__(60);
-	var throwError_1 = __webpack_require__(61);
-	var tryOrOnError_1 = __webpack_require__(62);
-	var Subscription_1 = __webpack_require__(63);
-	var rxSubscriber_1 = __webpack_require__(64);
+	var noop_1 = __webpack_require__(59);
+	var throwError_1 = __webpack_require__(60);
+	var tryOrOnError_1 = __webpack_require__(61);
+	var Subscription_1 = __webpack_require__(62);
+	var rxSubscriber_1 = __webpack_require__(63);
 	var Subscriber = (function (_super) {
 	    __extends(Subscriber, _super);
 	    function Subscriber(destination) {
@@ -15162,7 +15108,7 @@
 	//# sourceMappingURL=Subscriber.js.map
 
 /***/ },
-/* 60 */
+/* 59 */
 /***/ function(module, exports) {
 
 	/* tslint:disable:no-empty */
@@ -15171,7 +15117,7 @@
 	//# sourceMappingURL=noop.js.map
 
 /***/ },
-/* 61 */
+/* 60 */
 /***/ function(module, exports) {
 
 	function throwError(e) { throw e; }
@@ -15179,7 +15125,7 @@
 	//# sourceMappingURL=throwError.js.map
 
 /***/ },
-/* 62 */
+/* 61 */
 /***/ function(module, exports) {
 
 	function tryOrOnError(target) {
@@ -15198,10 +15144,10 @@
 	//# sourceMappingURL=tryOrOnError.js.map
 
 /***/ },
-/* 63 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var noop_1 = __webpack_require__(60);
+	var noop_1 = __webpack_require__(59);
 	var Subscription = (function () {
 	    function Subscription(_unsubscribe) {
 	        this.isUnsubscribed = false;
@@ -15285,10 +15231,10 @@
 	//# sourceMappingURL=Subscription.js.map
 
 /***/ },
-/* 64 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var SymbolShim_1 = __webpack_require__(65);
+	var SymbolShim_1 = __webpack_require__(64);
 	/**
 	 * rxSubscriber symbol is a symbol for retreiving an "Rx safe" Observer from an object
 	 * "Rx safety" can be defined as an object that has all of the traits of an Rx Subscriber,
@@ -15299,10 +15245,10 @@
 	//# sourceMappingURL=rxSubscriber.js.map
 
 /***/ },
-/* 65 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root_1 = __webpack_require__(66);
+	var root_1 = __webpack_require__(65);
 	function polyfillSymbol(root) {
 	    var Symbol = ensureSymbol(root);
 	    ensureIterator(Symbol, root);
@@ -15372,7 +15318,7 @@
 	//# sourceMappingURL=SymbolShim.js.map
 
 /***/ },
-/* 66 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module, global) {var objectTypes = {
@@ -15392,10 +15338,10 @@
 	    exports.root = freeGlobal;
 	}
 	//# sourceMappingURL=root.js.map
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(67)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(66)(module), (function() { return this; }())))
 
 /***/ },
-/* 67 */
+/* 66 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -15411,7 +15357,7 @@
 
 
 /***/ },
-/* 68 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -15419,8 +15365,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscription_1 = __webpack_require__(63);
-	var Subscriber_1 = __webpack_require__(59);
+	var Subscription_1 = __webpack_require__(62);
+	var Subscriber_1 = __webpack_require__(58);
 	var SubjectSubscription = (function (_super) {
 	    __extends(SubjectSubscription, _super);
 	    function SubjectSubscription(subject, observer) {
@@ -15454,7 +15400,7 @@
 	//# sourceMappingURL=SubjectSubscription.js.map
 
 /***/ },
-/* 69 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -15462,9 +15408,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Observable_1 = __webpack_require__(58);
-	var Subscription_1 = __webpack_require__(63);
-	var queue_1 = __webpack_require__(70);
+	var Observable_1 = __webpack_require__(57);
+	var Subscription_1 = __webpack_require__(62);
+	var queue_1 = __webpack_require__(69);
 	var PromiseObservable = (function (_super) {
 	    __extends(PromiseObservable, _super);
 	    function PromiseObservable(promise, scheduler) {
@@ -15535,19 +15481,19 @@
 	//# sourceMappingURL=fromPromise.js.map
 
 /***/ },
-/* 70 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var QueueScheduler_1 = __webpack_require__(71);
+	var QueueScheduler_1 = __webpack_require__(70);
 	exports.queue = new QueueScheduler_1.QueueScheduler();
 	//# sourceMappingURL=queue.js.map
 
 /***/ },
-/* 71 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var QueueAction_1 = __webpack_require__(72);
-	var FutureAction_1 = __webpack_require__(73);
+	var QueueAction_1 = __webpack_require__(71);
+	var FutureAction_1 = __webpack_require__(72);
 	var QueueScheduler = (function () {
 	    function QueueScheduler() {
 	        this.actions = [];
@@ -15586,7 +15532,7 @@
 	//# sourceMappingURL=QueueScheduler.js.map
 
 /***/ },
-/* 72 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -15594,7 +15540,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscription_1 = __webpack_require__(63);
+	var Subscription_1 = __webpack_require__(62);
 	var QueueAction = (function (_super) {
 	    __extends(QueueAction, _super);
 	    function QueueAction(scheduler, work) {
@@ -15636,7 +15582,7 @@
 	//# sourceMappingURL=QueueAction.js.map
 
 /***/ },
-/* 73 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -15644,7 +15590,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var QueueAction_1 = __webpack_require__(72);
+	var QueueAction_1 = __webpack_require__(71);
 	var FutureAction = (function (_super) {
 	    __extends(FutureAction, _super);
 	    function FutureAction(scheduler, work) {
@@ -15687,10 +15633,10 @@
 	//# sourceMappingURL=FutureAction.js.map
 
 /***/ },
-/* 74 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root_1 = __webpack_require__(66);
+	var root_1 = __webpack_require__(65);
 	function toPromise(PromiseCtor) {
 	    var _this = this;
 	    if (!PromiseCtor) {
@@ -15711,6 +15657,72 @@
 	}
 	exports.toPromise = toPromise;
 	//# sourceMappingURL=toPromise.js.map
+
+/***/ },
+/* 74 */
+/***/ function(module, exports) {
+
+	'use strict';(function (RecordType) {
+	    RecordType[RecordType["Self"] = 0] = "Self";
+	    RecordType[RecordType["Const"] = 1] = "Const";
+	    RecordType[RecordType["PrimitiveOp"] = 2] = "PrimitiveOp";
+	    RecordType[RecordType["PropertyRead"] = 3] = "PropertyRead";
+	    RecordType[RecordType["PropertyWrite"] = 4] = "PropertyWrite";
+	    RecordType[RecordType["Local"] = 5] = "Local";
+	    RecordType[RecordType["InvokeMethod"] = 6] = "InvokeMethod";
+	    RecordType[RecordType["InvokeClosure"] = 7] = "InvokeClosure";
+	    RecordType[RecordType["KeyedRead"] = 8] = "KeyedRead";
+	    RecordType[RecordType["KeyedWrite"] = 9] = "KeyedWrite";
+	    RecordType[RecordType["Pipe"] = 10] = "Pipe";
+	    RecordType[RecordType["Interpolate"] = 11] = "Interpolate";
+	    RecordType[RecordType["SafeProperty"] = 12] = "SafeProperty";
+	    RecordType[RecordType["CollectionLiteral"] = 13] = "CollectionLiteral";
+	    RecordType[RecordType["SafeMethodInvoke"] = 14] = "SafeMethodInvoke";
+	    RecordType[RecordType["DirectiveLifecycle"] = 15] = "DirectiveLifecycle";
+	    RecordType[RecordType["Chain"] = 16] = "Chain";
+	    RecordType[RecordType["SkipRecordsIf"] = 17] = "SkipRecordsIf";
+	    RecordType[RecordType["SkipRecordsIfNot"] = 18] = "SkipRecordsIfNot";
+	    RecordType[RecordType["SkipRecords"] = 19] = "SkipRecords"; // Skip records unconditionally
+	})(exports.RecordType || (exports.RecordType = {}));
+	var RecordType = exports.RecordType;
+	var ProtoRecord = (function () {
+	    function ProtoRecord(mode, name, funcOrValue, args, fixedArgs, contextIndex, directiveIndex, selfIndex, bindingRecord, lastInBinding, lastInDirective, argumentToPureFunction, referencedBySelf, propertyBindingIndex) {
+	        this.mode = mode;
+	        this.name = name;
+	        this.funcOrValue = funcOrValue;
+	        this.args = args;
+	        this.fixedArgs = fixedArgs;
+	        this.contextIndex = contextIndex;
+	        this.directiveIndex = directiveIndex;
+	        this.selfIndex = selfIndex;
+	        this.bindingRecord = bindingRecord;
+	        this.lastInBinding = lastInBinding;
+	        this.lastInDirective = lastInDirective;
+	        this.argumentToPureFunction = argumentToPureFunction;
+	        this.referencedBySelf = referencedBySelf;
+	        this.propertyBindingIndex = propertyBindingIndex;
+	    }
+	    ProtoRecord.prototype.isPureFunction = function () {
+	        return this.mode === RecordType.Interpolate || this.mode === RecordType.CollectionLiteral;
+	    };
+	    ProtoRecord.prototype.isUsedByOtherRecord = function () { return !this.lastInBinding || this.referencedBySelf; };
+	    ProtoRecord.prototype.shouldBeChecked = function () {
+	        return this.argumentToPureFunction || this.lastInBinding || this.isPureFunction() ||
+	            this.isPipeRecord();
+	    };
+	    ProtoRecord.prototype.isPipeRecord = function () { return this.mode === RecordType.Pipe; };
+	    ProtoRecord.prototype.isConditionalSkipRecord = function () {
+	        return this.mode === RecordType.SkipRecordsIfNot || this.mode === RecordType.SkipRecordsIf;
+	    };
+	    ProtoRecord.prototype.isUnconditionalSkipRecord = function () { return this.mode === RecordType.SkipRecords; };
+	    ProtoRecord.prototype.isSkipRecord = function () {
+	        return this.isConditionalSkipRecord() || this.isUnconditionalSkipRecord();
+	    };
+	    ProtoRecord.prototype.isLifeCycleRecord = function () { return this.mode === RecordType.DirectiveLifecycle; };
+	    return ProtoRecord;
+	})();
+	exports.ProtoRecord = ProtoRecord;
+
 
 /***/ },
 /* 75 */
@@ -15734,7 +15746,7 @@
 
 	'use strict';var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
-	var proto_record_1 = __webpack_require__(54);
+	var proto_record_1 = __webpack_require__(74);
 	/**
 	 * Removes "duplicate" records. It assumes that record evaluation does not have side-effects.
 	 *
@@ -15909,7 +15921,7 @@
 	var collection_1 = __webpack_require__(18);
 	var abstract_change_detector_1 = __webpack_require__(49);
 	var change_detection_util_1 = __webpack_require__(44);
-	var proto_record_1 = __webpack_require__(54);
+	var proto_record_1 = __webpack_require__(74);
 	var codegen_name_util_1 = __webpack_require__(79);
 	var codegen_logic_util_1 = __webpack_require__(80);
 	var codegen_facade_1 = __webpack_require__(81);
@@ -16424,7 +16436,7 @@
 
 	'use strict';var lang_1 = __webpack_require__(11);
 	var codegen_facade_1 = __webpack_require__(81);
-	var proto_record_1 = __webpack_require__(54);
+	var proto_record_1 = __webpack_require__(74);
 	var constants_1 = __webpack_require__(42);
 	var exceptions_1 = __webpack_require__(20);
 	/**
@@ -16507,7 +16519,7 @@
 	                rhs = context + "[" + getLocalName(protoRec.args[0]) + "] = " + getLocalName(protoRec.args[1]);
 	                break;
 	            case proto_record_1.RecordType.Chain:
-	                rhs = 'null';
+	                rhs = "" + getLocalName(protoRec.args[protoRec.args.length - 1]);
 	                break;
 	            default:
 	                throw new exceptions_1.BaseException("Unknown operation " + protoRec.mode);
@@ -16554,6 +16566,7 @@
 	    CodegenLogicUtil.prototype.genHydrateDirectives = function (directiveRecords) {
 	        var _this = this;
 	        var res = [];
+	        var outputCount = 0;
 	        for (var i = 0; i < directiveRecords.length; ++i) {
 	            var r = directiveRecords[i];
 	            var dirVarName = this._names.getDirectiveName(r.directiveIndex);
@@ -16561,13 +16574,23 @@
 	            if (lang_1.isPresent(r.outputs)) {
 	                r.outputs.forEach(function (output) {
 	                    var eventHandlerExpr = _this._genEventHandler(r.directiveIndex.elementIndex, output[1]);
+	                    var statementStart = "this.outputSubscriptions[" + outputCount++ + "] = " + dirVarName + "." + output[0];
 	                    if (lang_1.IS_DART) {
-	                        res.push(dirVarName + "." + output[0] + ".listen(" + eventHandlerExpr + ");");
+	                        res.push(statementStart + ".listen(" + eventHandlerExpr + ");");
 	                    }
 	                    else {
-	                        res.push(dirVarName + "." + output[0] + ".subscribe({next: " + eventHandlerExpr + "});");
+	                        res.push(statementStart + ".subscribe({next: " + eventHandlerExpr + "});");
 	                    }
 	                });
+	            }
+	        }
+	        if (outputCount > 0) {
+	            var statementStart = 'this.outputSubscriptions';
+	            if (lang_1.IS_DART) {
+	                res.unshift(statementStart + " = new List(" + outputCount + ");");
+	            }
+	            else {
+	                res.unshift(statementStart + " = new Array(" + outputCount + ");");
 	            }
 	        }
 	        return res.join("\n");
@@ -16788,7 +16811,7 @@
 	'use strict';// Public API for Facade
 	var lang_1 = __webpack_require__(11);
 	exports.Type = lang_1.Type;
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	exports.EventEmitter = async_1.EventEmitter;
 	var exceptions_1 = __webpack_require__(20);
 	exports.WrappedException = exceptions_1.WrappedException;
@@ -16809,7 +16832,7 @@
 	var lang_1 = __webpack_require__(11);
 	var di_1 = __webpack_require__(12);
 	var application_tokens_1 = __webpack_require__(88);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var collection_1 = __webpack_require__(18);
 	var testability_1 = __webpack_require__(89);
 	var dynamic_component_loader_1 = __webpack_require__(90);
@@ -16953,20 +16976,29 @@
 	    });
 	    PlatformRef_.prototype.application = function (providers) {
 	        var app = this._initApp(createNgZone(), providers);
+	        if (async_1.PromiseWrapper.isPromise(app)) {
+	            throw new exceptions_1.BaseException("Cannot use asyncronous app initializers with application. Use asyncApplication instead.");
+	        }
 	        return app;
 	    };
 	    PlatformRef_.prototype.asyncApplication = function (bindingFn, additionalProviders) {
 	        var _this = this;
 	        var zone = createNgZone();
 	        var completer = async_1.PromiseWrapper.completer();
-	        zone.run(function () {
-	            async_1.PromiseWrapper.then(bindingFn(zone), function (providers) {
-	                if (lang_1.isPresent(additionalProviders)) {
-	                    providers = collection_1.ListWrapper.concat(providers, additionalProviders);
-	                }
-	                completer.resolve(_this._initApp(zone, providers));
+	        if (bindingFn === null) {
+	            completer.resolve(this._initApp(zone, additionalProviders));
+	        }
+	        else {
+	            zone.run(function () {
+	                async_1.PromiseWrapper.then(bindingFn(zone), function (providers) {
+	                    if (lang_1.isPresent(additionalProviders)) {
+	                        providers = collection_1.ListWrapper.concat(providers, additionalProviders);
+	                    }
+	                    var promise = _this._initApp(zone, providers);
+	                    completer.resolve(promise);
+	                });
 	            });
-	        });
+	        }
 	        return completer.promise;
 	    };
 	    PlatformRef_.prototype._initApp = function (zone, providers) {
@@ -16995,8 +17027,13 @@
 	        });
 	        app = new ApplicationRef_(this, zone, injector);
 	        this._applications.push(app);
-	        _runAppInitializers(injector);
-	        return app;
+	        var promise = _runAppInitializers(injector);
+	        if (promise !== null) {
+	            return async_1.PromiseWrapper.then(promise, function (_) { return app; });
+	        }
+	        else {
+	            return app;
+	        }
 	    };
 	    PlatformRef_.prototype.dispose = function () {
 	        collection_1.ListWrapper.clone(this._applications).forEach(function (app) { return app.dispose(); });
@@ -17010,8 +17047,21 @@
 	exports.PlatformRef_ = PlatformRef_;
 	function _runAppInitializers(injector) {
 	    var inits = injector.getOptional(application_tokens_1.APP_INITIALIZER);
-	    if (lang_1.isPresent(inits))
-	        inits.forEach(function (init) { return init(); });
+	    var promises = [];
+	    if (lang_1.isPresent(inits)) {
+	        inits.forEach(function (init) {
+	            var retVal = init();
+	            if (async_1.PromiseWrapper.isPromise(retVal)) {
+	                promises.push(retVal);
+	            }
+	        });
+	    }
+	    if (promises.length > 0) {
+	        return async_1.PromiseWrapper.all(promises);
+	    }
+	    else {
+	        return null;
+	    }
 	}
 	/**
 	 * A reference to an Angular application running on a page.
@@ -17196,7 +17246,7 @@
 
 	'use strict';var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var profile_1 = __webpack_require__(51);
 	/**
 	 * Stores error information; delivered via [NgZone.onError] stream.
@@ -17716,7 +17766,7 @@
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
 	var ng_zone_1 = __webpack_require__(87);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	/**
 	 * The Testability service provides testing hooks that can be accessed from
 	 * the browser and by services such as Protractor. Each bootstrapped Angular
@@ -17726,6 +17776,13 @@
 	    function Testability(_ngZone) {
 	        /** @internal */
 	        this._pendingCount = 0;
+	        /**
+	         * Whether any work was done since the last 'whenStable' callback. This is
+	         * useful to detect if this could have potentially destabilized another
+	         * component while it is stabilizing.
+	         * @internal
+	         */
+	        this._didWork = false;
 	        /** @internal */
 	        this._callbacks = [];
 	        /** @internal */
@@ -17735,7 +17792,10 @@
 	    /** @internal */
 	    Testability.prototype._watchAngularEvents = function (_ngZone) {
 	        var _this = this;
-	        async_1.ObservableWrapper.subscribe(_ngZone.onTurnStart, function (_) { _this._isAngularEventPending = true; });
+	        async_1.ObservableWrapper.subscribe(_ngZone.onTurnStart, function (_) {
+	            _this._didWork = true;
+	            _this._isAngularEventPending = true;
+	        });
 	        _ngZone.runOutsideAngular(function () {
 	            async_1.ObservableWrapper.subscribe(_ngZone.onEventDone, function (_) {
 	                if (!_ngZone.hasPendingTimers) {
@@ -17747,6 +17807,7 @@
 	    };
 	    Testability.prototype.increasePendingRequestCount = function () {
 	        this._pendingCount += 1;
+	        this._didWork = true;
 	        return this._pendingCount;
 	    };
 	    Testability.prototype.decreasePendingRequestCount = function () {
@@ -17762,13 +17823,15 @@
 	    Testability.prototype._runCallbacksIfReady = function () {
 	        var _this = this;
 	        if (!this.isStable()) {
+	            this._didWork = true;
 	            return; // Not ready
 	        }
 	        // Schedules the call backs in a new frame so that it is always async.
 	        async_1.PromiseWrapper.resolve(null).then(function (_) {
 	            while (_this._callbacks.length !== 0) {
-	                (_this._callbacks.pop())();
+	                (_this._callbacks.pop())(_this._didWork);
 	            }
+	            _this._didWork = false;
 	        });
 	    };
 	    Testability.prototype.whenStable = function (callback) {
@@ -18012,7 +18075,7 @@
 	var di_1 = __webpack_require__(12);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var reflection_1 = __webpack_require__(22);
 	var view_1 = __webpack_require__(92);
 	var view_ref_1 = __webpack_require__(101);
@@ -19437,6 +19500,23 @@
 	var TemplateRef = (function () {
 	    function TemplateRef() {
 	    }
+	    Object.defineProperty(TemplateRef.prototype, "elementRef", {
+	        /**
+	         * The location in the View where the Embedded View logically belongs to.
+	         *
+	         * The data-binding and injection contexts of Embedded Views created from this `TemplateRef`
+	         * inherit from the contexts of this location.
+	         *
+	         * Typically new Embedded Views are attached to the View Container of this location, but in
+	         * advanced use-cases, the View can be attached to a different container while keeping the
+	         * data-binding and injection context from the original location.
+	         *
+	         */
+	        // TODO(i): rename to anchor or location
+	        get: function () { return null; },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    return TemplateRef;
 	})();
 	exports.TemplateRef = TemplateRef;
@@ -19462,7 +19542,7 @@
 
 	'use strict';var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	/**
 	 * An unmodifiable list of items that Angular keeps up to date when the state
 	 * of the application changes.
@@ -19947,10 +20027,11 @@
 	    AppViewManager_.prototype.createHostViewInContainer = function (viewContainerLocation, index, hostViewFactoryRef, dynamicallyCreatedProviders, projectableNodes) {
 	        var s = this._createHostViewInContainerScope();
 	        // TODO(tbosch): This should be specifiable via an additional argument!
-	        var contextEl = viewContainerLocation.internalElement;
+	        var viewContainerLocation_ = viewContainerLocation;
+	        var contextEl = viewContainerLocation_.internalElement;
 	        var hostViewFactory = hostViewFactoryRef.internalHostViewFactory;
 	        var view = hostViewFactory.viewFactory(contextEl.parentView.renderer, contextEl.parentView.viewManager, contextEl, projectableNodes, null, dynamicallyCreatedProviders, null);
-	        this._attachViewToContainer(view, viewContainerLocation.internalElement, index);
+	        this._attachViewToContainer(view, viewContainerLocation_.internalElement, index);
 	        return profile_1.wtfLeave(s, view.ref);
 	    };
 	    AppViewManager_.prototype.destroyViewInContainer = function (viewContainerLocation, index) {
@@ -19961,9 +20042,10 @@
 	    };
 	    // TODO(i): refactor detachViewInContainer+attachViewInContainer to moveViewInContainer
 	    AppViewManager_.prototype.attachViewInContainer = function (viewContainerLocation, index, viewRef) {
+	        var viewRef_ = viewRef;
 	        var s = this._attachViewInContainerScope();
-	        this._attachViewToContainer(viewRef.internalView, viewContainerLocation.internalElement, index);
-	        return profile_1.wtfLeave(s, viewRef);
+	        this._attachViewToContainer(viewRef_.internalView, viewContainerLocation.internalElement, index);
+	        return profile_1.wtfLeave(s, viewRef_);
 	    };
 	    // TODO(i): refactor detachViewInContainer+attachViewInContainer to moveViewInContainer
 	    AppViewManager_.prototype.detachViewInContainer = function (viewContainerLocation, index) {
@@ -20189,12 +20271,12 @@
 	            var metadata = typeMetadata.find(_isDirectiveMetadata);
 	            if (lang_1.isPresent(metadata)) {
 	                var propertyMetadata = reflection_1.reflector.propMetadata(type);
-	                return this._mergeWithPropertyMetadata(metadata, propertyMetadata);
+	                return this._mergeWithPropertyMetadata(metadata, propertyMetadata, type);
 	            }
 	        }
 	        throw new exceptions_1.BaseException("No Directive annotation found on " + lang_1.stringify(type));
 	    };
-	    DirectiveResolver.prototype._mergeWithPropertyMetadata = function (dm, propertyMetadata) {
+	    DirectiveResolver.prototype._mergeWithPropertyMetadata = function (dm, propertyMetadata, directiveType) {
 	        var inputs = [];
 	        var outputs = [];
 	        var host = {};
@@ -20243,11 +20325,22 @@
 	                }
 	            });
 	        });
-	        return this._merge(dm, inputs, outputs, host, queries);
+	        return this._merge(dm, inputs, outputs, host, queries, directiveType);
 	    };
-	    DirectiveResolver.prototype._merge = function (dm, inputs, outputs, host, queries) {
+	    DirectiveResolver.prototype._merge = function (dm, inputs, outputs, host, queries, directiveType) {
 	        var mergedInputs = lang_1.isPresent(dm.inputs) ? collection_1.ListWrapper.concat(dm.inputs, inputs) : inputs;
-	        var mergedOutputs = lang_1.isPresent(dm.outputs) ? collection_1.ListWrapper.concat(dm.outputs, outputs) : outputs;
+	        var mergedOutputs;
+	        if (lang_1.isPresent(dm.outputs)) {
+	            dm.outputs.forEach(function (propName) {
+	                if (collection_1.ListWrapper.contains(outputs, propName)) {
+	                    throw new exceptions_1.BaseException("Output event '" + propName + "' defined multiple times in '" + lang_1.stringify(directiveType) + "'");
+	                }
+	            });
+	            mergedOutputs = collection_1.ListWrapper.concat(dm.outputs, outputs);
+	        }
+	        else {
+	            mergedOutputs = outputs;
+	        }
 	        var mergedHost = lang_1.isPresent(dm.host) ? collection_1.StringMapWrapper.merge(dm.host, host) : host;
 	        var mergedQueries = lang_1.isPresent(dm.queries) ? collection_1.StringMapWrapper.merge(dm.queries, queries) : queries;
 	        if (dm instanceof metadata_1.ComponentMetadata) {
@@ -21027,7 +21120,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
@@ -21522,7 +21615,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var collection_1 = __webpack_require__(18);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
 	var reflection_1 = __webpack_require__(22);
@@ -22169,7 +22262,7 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
-	var promise_1 = __webpack_require__(56);
+	var promise_1 = __webpack_require__(55);
 	var collection_1 = __webpack_require__(18);
 	var instruction_1 = __webpack_require__(124);
 	var path_recognizer_1 = __webpack_require__(125);
@@ -22284,7 +22377,7 @@
 	};
 	var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	/**
 	 * `RouteParams` is an immutable map of parameters for the given route
 	 * based on the url matcher and optional parameters for that route.
@@ -22393,8 +22486,10 @@
 	 * ```
 	 */
 	var Instruction = (function () {
-	    function Instruction() {
-	        this.auxInstruction = {};
+	    function Instruction(component, child, auxInstruction) {
+	        this.component = component;
+	        this.child = child;
+	        this.auxInstruction = auxInstruction;
 	    }
 	    Object.defineProperty(Instruction.prototype, "urlPath", {
 	        get: function () { return lang_1.isPresent(this.component) ? this.component.urlPath : ''; },
@@ -22494,10 +22589,7 @@
 	var ResolvedInstruction = (function (_super) {
 	    __extends(ResolvedInstruction, _super);
 	    function ResolvedInstruction(component, child, auxInstruction) {
-	        _super.call(this);
-	        this.component = component;
-	        this.child = child;
-	        this.auxInstruction = auxInstruction;
+	        _super.call(this, component, child, auxInstruction);
 	    }
 	    ResolvedInstruction.prototype.resolveComponent = function () {
 	        return async_1.PromiseWrapper.resolve(this.component);
@@ -22511,9 +22603,7 @@
 	var DefaultInstruction = (function (_super) {
 	    __extends(DefaultInstruction, _super);
 	    function DefaultInstruction(component, child) {
-	        _super.call(this);
-	        this.component = component;
-	        this.child = child;
+	        _super.call(this, component, child, {});
 	    }
 	    DefaultInstruction.prototype.resolveComponent = function () {
 	        return async_1.PromiseWrapper.resolve(this.component);
@@ -22532,7 +22622,7 @@
 	    function UnresolvedInstruction(_resolver, _urlPath, _urlParams) {
 	        if (_urlPath === void 0) { _urlPath = ''; }
 	        if (_urlParams === void 0) { _urlParams = lang_1.CONST_EXPR([]); }
-	        _super.call(this);
+	        _super.call(this, null, null, {});
 	        this._resolver = _resolver;
 	        this._urlPath = _urlPath;
 	        this._urlParams = _urlParams;
@@ -23089,7 +23179,7 @@
 	'use strict';var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
 	var collection_1 = __webpack_require__(18);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var route_recognizer_1 = __webpack_require__(123);
 	var route_config_impl_1 = __webpack_require__(122);
 	var async_route_handler_1 = __webpack_require__(128);
@@ -23248,7 +23338,7 @@
 /* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var async_1 = __webpack_require__(55);
+	'use strict';var async_1 = __webpack_require__(54);
 	var lang_1 = __webpack_require__(11);
 	var instruction_1 = __webpack_require__(124);
 	var SyncRouteHandler = (function () {
@@ -23396,7 +23486,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var location_strategy_1 = __webpack_require__(133);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var core_1 = __webpack_require__(8);
 	/**
 	 * `Location` is a service that applications can use to interact with a browser's URL.
@@ -23706,7 +23796,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
@@ -24088,6 +24178,18 @@
 	var DomAdapter = (function () {
 	    function DomAdapter() {
 	    }
+	    Object.defineProperty(DomAdapter.prototype, "attrToPropMap", {
+	        /**
+	         * Maps attribute names to their corresponding property names for cases
+	         * where attribute name doesn't match property name.
+	         */
+	        get: function () { return this._attrToPropMap; },
+	        set: function (value) { this._attrToPropMap = value; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    ;
+	    ;
 	    return DomAdapter;
 	})();
 	exports.DomAdapter = DomAdapter;
@@ -25472,7 +25574,7 @@
 	var core_1 = __webpack_require__(8);
 	var browser_xhr_1 = __webpack_require__(156);
 	var lang_1 = __webpack_require__(11);
-	var Observable_1 = __webpack_require__(58);
+	var Observable_1 = __webpack_require__(57);
 	var http_utils_1 = __webpack_require__(149);
 	/**
 	* Creates connections using `XMLHttpRequest`. Given a fully-qualified
@@ -25866,7 +25968,7 @@
 	var browser_jsonp_1 = __webpack_require__(158);
 	var exceptions_1 = __webpack_require__(20);
 	var lang_1 = __webpack_require__(11);
-	var Observable_1 = __webpack_require__(58);
+	var Observable_1 = __webpack_require__(57);
 	var JSONP_ERR_NO_CALLBACK = 'JSONP injected script did not invoke callback.';
 	var JSONP_ERR_WRONG_METHOD = 'JSONP requests must use GET request method.';
 	/**
@@ -26188,12 +26290,12 @@
 	    };
 	    IonicApp = __decorate([
 	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [config_1.Config, click_block_1.ClickBlock, core_1.NgZone])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof click_block_1.ClickBlock !== 'undefined' && click_block_1.ClickBlock) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
 	    ], IonicApp);
 	    return IonicApp;
+	    var _a, _b, _c;
 	})();
 	exports.IonicApp = IonicApp;
-
 
 /***/ },
 /* 160 */
@@ -26516,7 +26618,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var core_1 = __webpack_require__(8);
 	var invalid_pipe_argument_exception_1 = __webpack_require__(166);
 	var ObservableStrategy = (function () {
@@ -27911,6 +28013,7 @@
 	var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
 	var _WHEN_DEFAULT = lang_1.CONST_EXPR(new Object());
+	/** @internal */
 	var SwitchView = (function () {
 	    function SwitchView(_viewContainerRef, _templateRef) {
 	        this._viewContainerRef = _viewContainerRef;
@@ -27920,6 +28023,7 @@
 	    SwitchView.prototype.destroy = function () { this._viewContainerRef.clear(); };
 	    return SwitchView;
 	})();
+	exports.SwitchView = SwitchView;
 	/**
 	 * Adds or removes DOM sub-trees when their match expressions match the switch expression.
 	 *
@@ -28257,8 +28361,8 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(55);
-	var promise_1 = __webpack_require__(56);
+	var async_1 = __webpack_require__(54);
+	var promise_1 = __webpack_require__(55);
 	var collection_1 = __webpack_require__(18);
 	/**
 	 * Indicates that a Control is valid, i.e. that no errors exist in the input value.
@@ -28870,7 +28974,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var core_1 = __webpack_require__(8);
 	var control_container_1 = __webpack_require__(185);
 	var ng_control_1 = __webpack_require__(187);
@@ -29171,8 +29275,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(11);
-	var promise_1 = __webpack_require__(56);
-	var async_1 = __webpack_require__(55);
+	var promise_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var collection_1 = __webpack_require__(18);
 	var core_1 = __webpack_require__(8);
 	/**
@@ -29466,7 +29570,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var control_value_accessor_1 = __webpack_require__(188);
 	var lang_1 = __webpack_require__(11);
 	var SELECT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new core_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return SelectControlValueAccessor; }), multi: true }));
@@ -29564,7 +29668,7 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var core_1 = __webpack_require__(8);
 	var ng_control_1 = __webpack_require__(187);
 	var validators_1 = __webpack_require__(190);
@@ -29710,7 +29814,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var core_1 = __webpack_require__(8);
 	var control_value_accessor_1 = __webpack_require__(188);
 	var ng_control_1 = __webpack_require__(187);
@@ -29975,7 +30079,7 @@
 	};
 	var lang_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(18);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var core_1 = __webpack_require__(8);
 	var control_container_1 = __webpack_require__(185);
 	var shared_1 = __webpack_require__(189);
@@ -30164,7 +30268,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var collection_1 = __webpack_require__(18);
 	var lang_1 = __webpack_require__(11);
 	var core_1 = __webpack_require__(8);
@@ -30844,7 +30948,7 @@
 	    DomEventsPlugin.prototype.addEventListener = function (element, eventName, handler) {
 	        var zone = this.manager.getZone();
 	        var outsideHandler = function (event) { return zone.run(function () { return handler(event); }); };
-	        this.manager.getZone().runOutsideAngular(function () { dom_adapter_1.DOM.on(element, eventName, outsideHandler); });
+	        return this.manager.getZone().runOutsideAngular(function () { return dom_adapter_1.DOM.onAndCancel(element, eventName, outsideHandler); });
 	    };
 	    DomEventsPlugin.prototype.addGlobalEventListener = function (target, eventName, handler) {
 	        var element = dom_adapter_1.DOM.getGlobalEventTarget(target);
@@ -30892,7 +30996,7 @@
 	    }
 	    EventManager.prototype.addEventListener = function (element, eventName, handler) {
 	        var plugin = this._findPluginFor(eventName);
-	        plugin.addEventListener(element, eventName, handler);
+	        return plugin.addEventListener(element, eventName, handler);
 	    };
 	    EventManager.prototype.addGlobalEventListener = function (target, eventName, handler) {
 	        var plugin = this._findPluginFor(eventName);
@@ -30975,8 +31079,8 @@
 	    KeyEventsPlugin.prototype.addEventListener = function (element, eventName, handler) {
 	        var parsedEvent = KeyEventsPlugin.parseEventName(eventName);
 	        var outsideHandler = KeyEventsPlugin.eventCallback(element, collection_1.StringMapWrapper.get(parsedEvent, 'fullKey'), handler, this.manager.getZone());
-	        this.manager.getZone().runOutsideAngular(function () {
-	            dom_adapter_1.DOM.on(element, collection_1.StringMapWrapper.get(parsedEvent, 'domEventName'), outsideHandler);
+	        return this.manager.getZone().runOutsideAngular(function () {
+	            return dom_adapter_1.DOM.onAndCancel(element, collection_1.StringMapWrapper.get(parsedEvent, 'domEventName'), outsideHandler);
 	        });
 	    };
 	    KeyEventsPlugin.parseEventName = function (eventName) {
@@ -31090,12 +31194,14 @@
 	    HammerGesturesPlugin.prototype.addEventListener = function (element, eventName, handler) {
 	        var zone = this.manager.getZone();
 	        eventName = eventName.toLowerCase();
-	        zone.runOutsideAngular(function () {
+	        return zone.runOutsideAngular(function () {
 	            // Creating the manager bind events, must be done outside of angular
 	            var mc = new Hammer(element);
 	            mc.get('pinch').set({ enable: true });
 	            mc.get('rotate').set({ enable: true });
-	            mc.on(eventName, function (eventObj) { zone.run(function () { handler(eventObj); }); });
+	            var handler = function (eventObj) { zone.run(function () { handler(eventObj); }); };
+	            mc.on(eventName, handler);
+	            return function () { mc.off(eventName, handler); };
 	        });
 	    };
 	    HammerGesturesPlugin = __decorate([
@@ -31345,7 +31451,7 @@
 	        }
 	    };
 	    DomRenderer.prototype.listen = function (renderElement, name, callback) {
-	        this._rootRenderer.eventManager.addEventListener(renderElement, name, decoratePreventDefault(callback));
+	        return this._rootRenderer.eventManager.addEventListener(renderElement, name, decoratePreventDefault(callback));
 	    };
 	    DomRenderer.prototype.listenGlobal = function (target, name, callback) {
 	        return this._rootRenderer.eventManager.addGlobalEventListener(target, name, decoratePreventDefault(callback));
@@ -32504,7 +32610,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var promise_1 = __webpack_require__(56);
+	var promise_1 = __webpack_require__(55);
 	var lang_1 = __webpack_require__(11);
 	var xhr_1 = __webpack_require__(224);
 	var XHRImpl = (function (_super) {
@@ -32567,7 +32673,8 @@
 /* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var lang_1 = __webpack_require__(11);
+	'use strict';var collection_1 = __webpack_require__(18);
+	var lang_1 = __webpack_require__(11);
 	var dom_adapter_1 = __webpack_require__(140);
 	var core_1 = __webpack_require__(8);
 	var PublicTestability = (function () {
@@ -32601,6 +32708,23 @@
 	            var testabilities = registry.getAllTestabilities();
 	            return testabilities.map(function (testability) { return new PublicTestability(testability); });
 	        };
+	        var whenAllStable = function (callback) {
+	            var testabilities = lang_1.global.getAllAngularTestabilities();
+	            var count = testabilities.length;
+	            var didWork = false;
+	            var decrement = function (didWork_) {
+	                didWork = didWork || didWork_;
+	                count--;
+	                if (count == 0) {
+	                    callback(didWork);
+	                }
+	            };
+	            testabilities.forEach(function (testability) { testability.whenStable(decrement); });
+	        };
+	        if (!lang_1.global.frameworkStabilizers) {
+	            lang_1.global.frameworkStabilizers = collection_1.ListWrapper.createGrowableSize(0);
+	        }
+	        lang_1.global.frameworkStabilizers.push(whenAllStable);
 	    };
 	    BrowserGetTestability.prototype.findTestabilityInTree = function (registry, elem, findInAncestors) {
 	        if (elem == null) {
@@ -33458,7 +33582,7 @@
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
 	var collection_1 = __webpack_require__(18);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var directive_metadata_1 = __webpack_require__(239);
 	var template_ast_1 = __webpack_require__(243);
 	var di_1 = __webpack_require__(12);
@@ -33525,7 +33649,7 @@
 	            this._hostCacheKeys.set(type, hostCacheKey);
 	            assertComponent(compMeta);
 	            var hostMeta = directive_metadata_1.createHostComponentMeta(compMeta.type, compMeta.selector);
-	            this._compileComponentRuntime(hostCacheKey, hostMeta, [compMeta], [], new Set());
+	            this._compileComponentRuntime(hostCacheKey, hostMeta, [compMeta], [], []);
 	        }
 	        return this._compiledTemplateDone.get(hostCacheKey)
 	            .then(function (compiledTemplate) {
@@ -33563,7 +33687,7 @@
 	    TemplateCompiler.prototype.compileStylesheetCodeGen = function (stylesheetUrl, cssText) {
 	        return this._styleCompiler.compileStylesheetCodeGen(stylesheetUrl, cssText);
 	    };
-	    TemplateCompiler.prototype._compileComponentRuntime = function (cacheKey, compMeta, viewDirectives, pipes, compilingComponentCacheKeys) {
+	    TemplateCompiler.prototype._compileComponentRuntime = function (cacheKey, compMeta, viewDirectives, pipes, compilingComponentsPath) {
 	        var _this = this;
 	        var uniqViewDirectives = removeDuplicates(viewDirectives);
 	        var uniqViewPipes = removeDuplicates(pipes);
@@ -33572,7 +33696,6 @@
 	        if (lang_1.isBlank(compiledTemplate)) {
 	            compiledTemplate = new CompiledTemplate();
 	            this._compiledTemplateCache.set(cacheKey, compiledTemplate);
-	            compilingComponentCacheKeys.add(cacheKey);
 	            done = async_1.PromiseWrapper
 	                .all([this._styleCompiler.compileComponentRuntime(compMeta.template)].concat(uniqViewDirectives.map(function (dirMeta) { return _this.normalizeDirectiveMetadata(dirMeta); })))
 	                .then(function (stylesAndNormalizedViewDirMetas) {
@@ -33581,12 +33704,11 @@
 	                var parsedTemplate = _this._templateParser.parse(compMeta.template.template, normalizedViewDirMetas, uniqViewPipes, compMeta.type.name);
 	                var childPromises = [];
 	                var usedDirectives = DirectiveCollector.findUsedDirectives(parsedTemplate);
-	                usedDirectives.components.forEach(function (component) { return _this._compileNestedComponentRuntime(component, compilingComponentCacheKeys, childPromises); });
+	                usedDirectives.components.forEach(function (component) { return _this._compileNestedComponentRuntime(component, compilingComponentsPath, childPromises); });
 	                return async_1.PromiseWrapper.all(childPromises)
 	                    .then(function (_) {
 	                    var filteredPipes = filterPipes(parsedTemplate, uniqViewPipes);
 	                    compiledTemplate.init(_this._createViewFactoryRuntime(compMeta, parsedTemplate, usedDirectives.directives, styles, filteredPipes));
-	                    collection_1.SetWrapper.delete(compilingComponentCacheKeys, cacheKey);
 	                    return compiledTemplate;
 	                });
 	            });
@@ -33594,12 +33716,14 @@
 	        }
 	        return compiledTemplate;
 	    };
-	    TemplateCompiler.prototype._compileNestedComponentRuntime = function (childComponentDir, compilingComponentCacheKeys, childPromises) {
+	    TemplateCompiler.prototype._compileNestedComponentRuntime = function (childComponentDir, parentCompilingComponentsPath, childPromises) {
+	        var compilingComponentsPath = collection_1.ListWrapper.clone(parentCompilingComponentsPath);
 	        var childCacheKey = childComponentDir.type.runtime;
 	        var childViewDirectives = this._runtimeMetadataResolver.getViewDirectivesMetadata(childComponentDir.type.runtime);
 	        var childViewPipes = this._runtimeMetadataResolver.getViewPipesMetadata(childComponentDir.type.runtime);
-	        var childIsRecursive = collection_1.SetWrapper.has(compilingComponentCacheKeys, childCacheKey);
-	        this._compileComponentRuntime(childCacheKey, childComponentDir, childViewDirectives, childViewPipes, compilingComponentCacheKeys);
+	        var childIsRecursive = collection_1.ListWrapper.contains(compilingComponentsPath, childCacheKey);
+	        compilingComponentsPath.push(childCacheKey);
+	        this._compileComponentRuntime(childCacheKey, childComponentDir, childViewDirectives, childViewPipes, compilingComponentsPath);
 	        if (!childIsRecursive) {
 	            // Only wait for a child if it is not a cycle
 	            childPromises.push(this._compiledTemplateDone.get(childCacheKey));
@@ -35264,7 +35388,7 @@
 	var view_1 = __webpack_require__(82);
 	var xhr_1 = __webpack_require__(224);
 	var lang_1 = __webpack_require__(11);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var shadow_css_1 = __webpack_require__(249);
 	var url_resolver_1 = __webpack_require__(235);
 	var style_url_resolver_1 = __webpack_require__(250);
@@ -35995,8 +36119,10 @@
 	        return new util_1.Expression(disposableVar);
 	    };
 	    CodeGenViewFactory.prototype.createElementEventListener = function (renderer, appView, boundElementIndex, renderNode, eventAst, targetStatements) {
+	        var disposableVar = this._nextDisposableVar();
 	        var eventHandlerExpr = codeGenEventHandler(appView, boundElementIndex, eventAst.fullName);
-	        targetStatements.push(new util_1.Statement(renderer.expression + ".listen(" + renderNode.expression + ", " + util_1.escapeValue(eventAst.name) + ", " + eventHandlerExpr + ");"));
+	        targetStatements.push(new util_1.Statement("var " + disposableVar + " = " + renderer.expression + ".listen(" + renderNode.expression + ", " + util_1.escapeValue(eventAst.name) + ", " + eventHandlerExpr + ");"));
+	        return new util_1.Expression(disposableVar);
 	    };
 	    CodeGenViewFactory.prototype.setElementAttribute = function (renderer, renderNode, attrName, attrValue, targetStatements) {
 	        targetStatements.push(new util_1.Statement(renderer.expression + ".setElementAttribute(" + renderNode.expression + ", " + util_1.escapeSingleQuoteString(attrName) + ", " + util_1.escapeSingleQuoteString(attrValue) + ");"));
@@ -36087,7 +36213,7 @@
 	        return renderer.listenGlobal(eventAst.target, eventAst.name, function (event) { return appView.triggerEventHandlers(eventAst.fullName, event, boundElementIndex); });
 	    };
 	    RuntimeViewFactory.prototype.createElementEventListener = function (renderer, appView, boundElementIndex, renderNode, eventAst, targetStatements) {
-	        renderer.listen(renderNode, eventAst.name, function (event) { return appView.triggerEventHandlers(eventAst.fullName, event, boundElementIndex); });
+	        return renderer.listen(renderNode, eventAst.name, function (event) { return appView.triggerEventHandlers(eventAst.fullName, event, boundElementIndex); });
 	    };
 	    RuntimeViewFactory.prototype.setElementAttribute = function (renderer, renderNode, attrName, attrValue, targetStatements) {
 	        renderer.setElementAttribute(renderNode, attrName, attrValue);
@@ -36236,13 +36362,14 @@
 	        var elementIndex = this.elementCount++;
 	        var protoEl = this.protoView.protoElements[elementIndex];
 	        protoEl.renderEvents.forEach(function (eventAst) {
+	            var disposable;
 	            if (lang_1.isPresent(eventAst.target)) {
-	                var disposable = _this.factory.createGlobalEventListener(_this.renderer, _this.view, protoEl.boundElementIndex, eventAst, _this.renderStmts);
-	                _this.appDisposables.push(disposable);
+	                disposable = _this.factory.createGlobalEventListener(_this.renderer, _this.view, protoEl.boundElementIndex, eventAst, _this.renderStmts);
 	            }
 	            else {
-	                _this.factory.createElementEventListener(_this.renderer, _this.view, protoEl.boundElementIndex, renderNode, eventAst, _this.renderStmts);
+	                disposable = _this.factory.createElementEventListener(_this.renderer, _this.view, protoEl.boundElementIndex, renderNode, eventAst, _this.renderStmts);
 	            }
+	            _this.appDisposables.push(disposable);
 	        });
 	        for (var i = 0; i < protoEl.attrNameAndValues.length; i++) {
 	            var attrName = protoEl.attrNameAndValues[i][0];
@@ -36655,8 +36782,8 @@
 	// Group 3 = "on-"
 	// Group 4 = "bindon-"
 	// Group 5 = the identifier after "bind-", "var-/#", or "on-"
-	// Group 6 = identifer inside [()]
-	// Group 7 = identifer inside []
+	// Group 6 = identifier inside [()]
+	// Group 7 = identifier inside []
 	// Group 8 = identifier inside ()
 	var BIND_NAME_REGEXP = /^(?:(?:(?:(bind-)|(var-|#)|(on-)|(bindon-))(.+))|\[\(([^\)]+)\)\]|\[([^\]]+)\]|\(([^\)]+)\))$/g;
 	var TEMPLATE_ELEMENT = 'template';
@@ -37662,10 +37789,12 @@
 	var $EQ = 61;
 	var $GT = 62;
 	var $QUESTION = 63;
-	var $A = 65;
-	var $Z = 90;
 	var $LBRACKET = 91;
 	var $RBRACKET = 93;
+	var $A = 65;
+	var $F = 70;
+	var $X = 88;
+	var $Z = 90;
 	var $a = 97;
 	var $f = 102;
 	var $z = 122;
@@ -37697,7 +37826,6 @@
 	        this.tokens = [];
 	        this.errors = [];
 	        this.input = file.content;
-	        this.inputLowercase = file.content.toLowerCase();
 	        this.length = file.content.length;
 	        this._advance();
 	    }
@@ -37711,19 +37839,19 @@
 	        while (this.peek !== $EOF) {
 	            var start = this._getLocation();
 	            try {
-	                if (this._attemptChar($LT)) {
-	                    if (this._attemptChar($BANG)) {
-	                        if (this._attemptChar($LBRACKET)) {
+	                if (this._attemptCharCode($LT)) {
+	                    if (this._attemptCharCode($BANG)) {
+	                        if (this._attemptCharCode($LBRACKET)) {
 	                            this._consumeCdata(start);
 	                        }
-	                        else if (this._attemptChar($MINUS)) {
+	                        else if (this._attemptCharCode($MINUS)) {
 	                            this._consumeComment(start);
 	                        }
 	                        else {
 	                            this._consumeDocType(start);
 	                        }
 	                    }
-	                    else if (this._attemptChar($SLASH)) {
+	                    else if (this._attemptCharCode($SLASH)) {
 	                        this._consumeTagClose(start);
 	                    }
 	                    else {
@@ -37787,43 +37915,58 @@
 	            this.column++;
 	        }
 	        this.index++;
-	        this.peek = this.index >= this.length ? $EOF : lang_1.StringWrapper.charCodeAt(this.inputLowercase, this.index);
+	        this.peek = this.index >= this.length ? $EOF : lang_1.StringWrapper.charCodeAt(this.input, this.index);
 	    };
-	    _HtmlTokenizer.prototype._attemptChar = function (charCode) {
+	    _HtmlTokenizer.prototype._attemptCharCode = function (charCode) {
 	        if (this.peek === charCode) {
 	            this._advance();
 	            return true;
 	        }
 	        return false;
 	    };
-	    _HtmlTokenizer.prototype._requireChar = function (charCode) {
+	    _HtmlTokenizer.prototype._attemptCharCodeCaseInsensitive = function (charCode) {
+	        if (compareCharCodeCaseInsensitive(this.peek, charCode)) {
+	            this._advance();
+	            return true;
+	        }
+	        return false;
+	    };
+	    _HtmlTokenizer.prototype._requireCharCode = function (charCode) {
 	        var location = this._getLocation();
-	        if (!this._attemptChar(charCode)) {
+	        if (!this._attemptCharCode(charCode)) {
 	            throw this._createError(unexpectedCharacterErrorMsg(this.peek), location);
 	        }
 	    };
-	    _HtmlTokenizer.prototype._attemptChars = function (chars) {
+	    _HtmlTokenizer.prototype._attemptStr = function (chars) {
 	        for (var i = 0; i < chars.length; i++) {
-	            if (!this._attemptChar(lang_1.StringWrapper.charCodeAt(chars, i))) {
+	            if (!this._attemptCharCode(lang_1.StringWrapper.charCodeAt(chars, i))) {
 	                return false;
 	            }
 	        }
 	        return true;
 	    };
-	    _HtmlTokenizer.prototype._requireChars = function (chars) {
+	    _HtmlTokenizer.prototype._attemptStrCaseInsensitive = function (chars) {
+	        for (var i = 0; i < chars.length; i++) {
+	            if (!this._attemptCharCodeCaseInsensitive(lang_1.StringWrapper.charCodeAt(chars, i))) {
+	                return false;
+	            }
+	        }
+	        return true;
+	    };
+	    _HtmlTokenizer.prototype._requireStr = function (chars) {
 	        var location = this._getLocation();
-	        if (!this._attemptChars(chars)) {
+	        if (!this._attemptStr(chars)) {
 	            throw this._createError(unexpectedCharacterErrorMsg(this.peek), location);
 	        }
 	    };
-	    _HtmlTokenizer.prototype._attemptUntilFn = function (predicate) {
+	    _HtmlTokenizer.prototype._attemptCharCodeUntilFn = function (predicate) {
 	        while (!predicate(this.peek)) {
 	            this._advance();
 	        }
 	    };
-	    _HtmlTokenizer.prototype._requireUntilFn = function (predicate, len) {
+	    _HtmlTokenizer.prototype._requireCharCodeUntilFn = function (predicate, len) {
 	        var start = this._getLocation();
-	        this._attemptUntilFn(predicate);
+	        this._attemptCharCodeUntilFn(predicate);
 	        if (this.index - start.offset < len) {
 	            throw this._createError(unexpectedCharacterErrorMsg(this.peek), start);
 	        }
@@ -37846,10 +37989,10 @@
 	    _HtmlTokenizer.prototype._decodeEntity = function () {
 	        var start = this._getLocation();
 	        this._advance();
-	        if (this._attemptChar($HASH)) {
-	            var isHex = this._attemptChar($x);
+	        if (this._attemptCharCode($HASH)) {
+	            var isHex = this._attemptCharCode($x) || this._attemptCharCode($X);
 	            var numberStart = this._getLocation().offset;
-	            this._attemptUntilFn(isDigitEntityEnd);
+	            this._attemptCharCodeUntilFn(isDigitEntityEnd);
 	            if (this.peek != $SEMICOLON) {
 	                throw this._createError(unexpectedCharacterErrorMsg(this.peek), this._getLocation());
 	            }
@@ -37866,7 +38009,7 @@
 	        }
 	        else {
 	            var startPosition = this._savePosition();
-	            this._attemptUntilFn(isNamedEntityEnd);
+	            this._attemptCharCodeUntilFn(isNamedEntityEnd);
 	            if (this.peek != $SEMICOLON) {
 	                this._restorePosition(startPosition);
 	                return '&';
@@ -37887,7 +38030,7 @@
 	        var parts = [];
 	        while (true) {
 	            tagCloseStart = this._getLocation();
-	            if (this._attemptChar(firstCharOfEnd) && attemptEndRest()) {
+	            if (this._attemptCharCode(firstCharOfEnd) && attemptEndRest()) {
 	                break;
 	            }
 	            if (this.index > tagCloseStart.offset) {
@@ -37902,18 +38045,18 @@
 	    _HtmlTokenizer.prototype._consumeComment = function (start) {
 	        var _this = this;
 	        this._beginToken(HtmlTokenType.COMMENT_START, start);
-	        this._requireChar($MINUS);
+	        this._requireCharCode($MINUS);
 	        this._endToken([]);
-	        var textToken = this._consumeRawText(false, $MINUS, function () { return _this._attemptChars('->'); });
+	        var textToken = this._consumeRawText(false, $MINUS, function () { return _this._attemptStr('->'); });
 	        this._beginToken(HtmlTokenType.COMMENT_END, textToken.sourceSpan.end);
 	        this._endToken([]);
 	    };
 	    _HtmlTokenizer.prototype._consumeCdata = function (start) {
 	        var _this = this;
 	        this._beginToken(HtmlTokenType.CDATA_START, start);
-	        this._requireChars('cdata[');
+	        this._requireStr('CDATA[');
 	        this._endToken([]);
-	        var textToken = this._consumeRawText(false, $RBRACKET, function () { return _this._attemptChars(']>'); });
+	        var textToken = this._consumeRawText(false, $RBRACKET, function () { return _this._attemptStr(']>'); });
 	        this._beginToken(HtmlTokenType.CDATA_END, textToken.sourceSpan.end);
 	        this._endToken([]);
 	    };
@@ -37938,7 +38081,7 @@
 	        else {
 	            nameStart = nameOrPrefixStart;
 	        }
-	        this._requireUntilFn(isNameEnd, this.index === nameStart ? 1 : 0);
+	        this._requireCharCodeUntilFn(isNameEnd, this.index === nameStart ? 1 : 0);
 	        var name = this.input.substring(nameStart, this.index);
 	        return [prefix, name];
 	    };
@@ -37951,16 +38094,16 @@
 	            }
 	            var nameStart = this.index;
 	            this._consumeTagOpenStart(start);
-	            lowercaseTagName = this.inputLowercase.substring(nameStart, this.index);
-	            this._attemptUntilFn(isNotWhitespace);
+	            lowercaseTagName = this.input.substring(nameStart, this.index).toLowerCase();
+	            this._attemptCharCodeUntilFn(isNotWhitespace);
 	            while (this.peek !== $SLASH && this.peek !== $GT) {
 	                this._consumeAttributeName();
-	                this._attemptUntilFn(isNotWhitespace);
-	                if (this._attemptChar($EQ)) {
-	                    this._attemptUntilFn(isNotWhitespace);
+	                this._attemptCharCodeUntilFn(isNotWhitespace);
+	                if (this._attemptCharCode($EQ)) {
+	                    this._attemptCharCodeUntilFn(isNotWhitespace);
 	                    this._consumeAttributeValue();
 	                }
-	                this._attemptUntilFn(isNotWhitespace);
+	                this._attemptCharCodeUntilFn(isNotWhitespace);
 	            }
 	            this._consumeTagOpenEnd();
 	        }
@@ -37986,13 +38129,13 @@
 	    _HtmlTokenizer.prototype._consumeRawTextWithTagClose = function (lowercaseTagName, decodeEntities) {
 	        var _this = this;
 	        var textToken = this._consumeRawText(decodeEntities, $LT, function () {
-	            if (!_this._attemptChar($SLASH))
+	            if (!_this._attemptCharCode($SLASH))
 	                return false;
-	            _this._attemptUntilFn(isNotWhitespace);
-	            if (!_this._attemptChars(lowercaseTagName))
+	            _this._attemptCharCodeUntilFn(isNotWhitespace);
+	            if (!_this._attemptStrCaseInsensitive(lowercaseTagName))
 	                return false;
-	            _this._attemptUntilFn(isNotWhitespace);
-	            if (!_this._attemptChar($GT))
+	            _this._attemptCharCodeUntilFn(isNotWhitespace);
+	            if (!_this._attemptCharCode($GT))
 	                return false;
 	            return true;
 	        });
@@ -38024,24 +38167,25 @@
 	        }
 	        else {
 	            var valueStart = this.index;
-	            this._requireUntilFn(isNameEnd, 1);
+	            this._requireCharCodeUntilFn(isNameEnd, 1);
 	            value = this.input.substring(valueStart, this.index);
 	        }
 	        this._endToken([this._processCarriageReturns(value)]);
 	    };
 	    _HtmlTokenizer.prototype._consumeTagOpenEnd = function () {
-	        var tokenType = this._attemptChar($SLASH) ? HtmlTokenType.TAG_OPEN_END_VOID : HtmlTokenType.TAG_OPEN_END;
+	        var tokenType = this._attemptCharCode($SLASH) ? HtmlTokenType.TAG_OPEN_END_VOID :
+	            HtmlTokenType.TAG_OPEN_END;
 	        this._beginToken(tokenType);
-	        this._requireChar($GT);
+	        this._requireCharCode($GT);
 	        this._endToken([]);
 	    };
 	    _HtmlTokenizer.prototype._consumeTagClose = function (start) {
 	        this._beginToken(HtmlTokenType.TAG_CLOSE, start);
-	        this._attemptUntilFn(isNotWhitespace);
+	        this._attemptCharCodeUntilFn(isNotWhitespace);
 	        var prefixAndName;
 	        prefixAndName = this._consumePrefixAndName();
-	        this._attemptUntilFn(isNotWhitespace);
-	        this._requireChar($GT);
+	        this._attemptCharCodeUntilFn(isNotWhitespace);
+	        this._requireCharCode($GT);
 	        this._endToken(prefixAndName);
 	    };
 	    _HtmlTokenizer.prototype._consumeText = function () {
@@ -38092,10 +38236,16 @@
 	    return code === $LT || code === $EOF;
 	}
 	function isAsciiLetter(code) {
-	    return code >= $a && code <= $z;
+	    return code >= $a && code <= $z || code >= $A && code <= $Z;
 	}
 	function isAsciiHexDigit(code) {
-	    return code >= $a && code <= $f || code >= $0 && code <= $9;
+	    return code >= $a && code <= $f || code >= $A && code <= $F || code >= $0 && code <= $9;
+	}
+	function compareCharCodeCaseInsensitive(code1, code2) {
+	    return toUpperCaseCharCode(code1) == toUpperCaseCharCode(code2);
+	}
+	function toUpperCaseCharCode(code) {
+	    return code >= $a && code <= $z ? code - $a + $A : code;
 	}
 	function mergeTextTokens(srcTokens) {
 	    var dstTokens = [];
@@ -38702,7 +38852,7 @@
 	var directive_metadata_1 = __webpack_require__(239);
 	var lang_1 = __webpack_require__(11);
 	var exceptions_1 = __webpack_require__(20);
-	var async_1 = __webpack_require__(55);
+	var async_1 = __webpack_require__(54);
 	var xhr_1 = __webpack_require__(224);
 	var url_resolver_1 = __webpack_require__(235);
 	var style_url_resolver_1 = __webpack_require__(250);
@@ -38797,6 +38947,10 @@
 	                break;
 	            case template_preparser_1.PreparsedElementType.STYLESHEET:
 	                this.styleUrls.push(preparsedElement.hrefAttr);
+	                break;
+	            default:
+	                // DDC reports this as error. See:
+	                // https://github.com/dart-lang/dev_compiler/issues/428
 	                break;
 	        }
 	        if (preparsedElement.nonBindable) {
@@ -39362,7 +39516,6 @@
 	})();
 	exports.Config = Config;
 	var modeConfigs = {};
-
 
 /***/ },
 /* 266 */
@@ -39964,7 +40117,6 @@
 	var platformRegistry = {};
 	var platformDefault = null;
 
-
 /***/ },
 /* 267 */
 /***/ function(module, exports) {
@@ -40198,7 +40350,6 @@
 	    };
 	}
 	exports.throttle = throttle;
-
 
 /***/ },
 /* 268 */
@@ -40507,7 +40658,6 @@
 	}
 	exports.offset = offset;
 
-
 /***/ },
 /* 269 */
 /***/ function(module, exports) {
@@ -40560,7 +40710,6 @@
 	        isShowing = false;
 	    }
 	}
-
 
 /***/ },
 /* 270 */
@@ -40649,7 +40798,6 @@
 	    return Form;
 	})();
 	exports.Form = Form;
-
 
 /***/ },
 /* 271 */
@@ -40830,13 +40978,13 @@
 	    };
 	    Keyboard = __decorate([
 	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [config_1.Config, form_1.Form, core_1.NgZone])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
 	    ], Keyboard);
 	    return Keyboard;
+	    var _a, _b, _c;
 	})();
 	exports.Keyboard = Keyboard;
 	var KEYBOARD_CLOSE_POLLING = 150;
-
 
 /***/ },
 /* 272 */
@@ -40937,12 +41085,13 @@
 	    return (--t) * t * t + 1;
 	}
 
-
 /***/ },
 /* 273 */
 /***/ function(module, exports) {
 
 	/**
+	 * @name Events
+	 * @description
 	 * Events is a pub/sub style event system for sending and responding to application-level
 	 * events across your app.
 	 * @usage
@@ -40965,11 +41114,10 @@
 	        this._channels = [];
 	    }
 	    /**
-	     * Subscribe to an event topic. Events that get posted to that topic
-	     * will trigger the provided handler.
+	     * Subscribe to an event topic. Events that get posted to that topic will trigger the provided handler.
 	     *
-	     * @param topic the topic to subscribe to
-	     * @param handler the event handler
+	     * @param {String} topic the topic to subscribe to
+	     * @param {Function} handler the event handler
 	     */
 	    Events.prototype.subscribe = function (topic) {
 	        var _this = this;
@@ -40985,11 +41133,10 @@
 	        });
 	    };
 	    /**
-	     * Unsubscribe from the given topic. Your handler will
-	     * no longer receive events published to this topic.
+	     * Unsubscribe from the given topic. Your handler will no longer receive events published to this topic.
 	     *
-	     * @param topic the topic to unsubscribe from
-	     * @param handler the event handler
+	     * @param {String} topic the topic to unsubscribe from
+	     * @param {Function} handler the event handler
 	     *
 	     * @return true if a handler was removed
 	     */
@@ -41020,8 +41167,8 @@
 	    /**
 	     * Publish an event to the given topic.
 	     *
-	     * @param topic the topic to publish to
-	     * @param eventData the data to send as the event
+	     * @param {String} topic the topic to publish to
+	     * @param {Any} eventData the data to send as the event
 	     */
 	    Events.prototype.publish = function (topic) {
 	        var args = [];
@@ -41041,7 +41188,6 @@
 	    return Events;
 	})();
 	exports.Events = Events;
-
 
 /***/ },
 /* 274 */
@@ -41070,7 +41216,6 @@
 	    return NavRegistry;
 	})();
 	exports.NavRegistry = NavRegistry;
-
 
 /***/ },
 /* 275 */
@@ -41139,7 +41284,6 @@
 	})();
 	exports.Translate = Translate;
 
-
 /***/ },
 /* 276 */
 /***/ function(module, exports) {
@@ -41149,8 +41293,8 @@
 	        this._results = {};
 	    }
 	    FeatureDetect.prototype.run = function (window, document) {
-	        for (var name_1 in featureDetects) {
-	            this._results[name_1] = featureDetects[name_1](window, document, document.body);
+	        for (var name in featureDetects) {
+	            this._results[name] = featureDetects[name](window, document, document.body);
 	        }
 	    };
 	    FeatureDetect.prototype.has = function (featureName) {
@@ -41188,7 +41332,6 @@
 	    }
 	    return canDo;
 	});
-
 
 /***/ },
 /* 277 */
@@ -41341,9 +41484,10 @@
 	    };
 	    TapClick = __decorate([
 	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [config_1.Config, app_1.IonicApp, core_1.NgZone])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
 	    ], TapClick);
 	    return TapClick;
+	    var _a, _b, _c;
 	})();
 	exports.TapClick = TapClick;
 	function getActivatableTarget(ele) {
@@ -41384,7 +41528,6 @@
 	var POINTER_TOLERANCE = 4;
 	var POINTER_MOVE_UNTIL_CANCEL = 10;
 	var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
-
 
 /***/ },
 /* 278 */
@@ -41483,7 +41626,6 @@
 	})();
 	exports.Activator = Activator;
 	var CLEAR_STATE_DEFERS = 5;
-
 
 /***/ },
 /* 279 */
@@ -41607,7 +41749,6 @@
 	var EXPAND_DOWN_PLAYBACK_RATE = 0.35;
 	var EXPAND_OUT_PLAYBACK_RATE = 3;
 	var FADE_OUT_DURATION = 700;
-
 
 /***/ },
 /* 280 */
@@ -42397,7 +42538,6 @@
 	    }
 	}
 
-
 /***/ },
 /* 281 */
 /***/ function(module, exports, __webpack_require__) {
@@ -42566,7 +42706,6 @@
 	    show_hide_when_1.HideWhen
 	];
 
-
 /***/ },
 /* 282 */
 /***/ function(module, exports, __webpack_require__) {
@@ -42600,7 +42739,6 @@
 	    return OverlayNav;
 	})();
 	exports.OverlayNav = OverlayNav;
-
 
 /***/ },
 /* 283 */
@@ -42723,9 +42861,21 @@
 	        this._keyboard = _keyboard;
 	        this._zone = _zone;
 	        this._preventTime = 0;
+	        /**
+	         * @private
+	         */
 	        this.isOpen = false;
+	        /**
+	         * @private
+	         */
 	        this.isEnabled = true;
+	        /**
+	         * @private
+	         */
 	        this.isSwipeEnabled = true;
+	        /**
+	         * @private
+	         */
 	        this.opening = new core_1.EventEmitter();
 	    }
 	    /**
@@ -42809,7 +42959,7 @@
 	    };
 	    /**
 	     * Sets the state of the Menu to open or not.
-	     * @param {boolean} isOpen  If the Menu is open or not.
+	     * @param {boolean} shouldOpen  If the Menu is open or not.
 	     * @return {Promise} returns a promise once set
 	     */
 	    Menu.prototype.setOpen = function (shouldOpen) {
@@ -43031,7 +43181,7 @@
 	    ], Menu.prototype, "maxEdgeStart", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Menu.prototype, "opening", void 0);
 	    Menu = __decorate([
 	        core_1.Component({
@@ -43045,9 +43195,10 @@
 	            template: '<ng-content></ng-content><div tappable disable-activated class="backdrop"></div>',
 	            directives: [core_1.forwardRef(function () { return MenuBackdrop; })]
 	        }), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, config_1.Config, app_1.IonicApp, platform_1.Platform, core_1.Renderer, keyboard_1.Keyboard, core_1.NgZone])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _h) || Object])
 	    ], Menu);
 	    return Menu;
+	    var _a, _b, _c, _d, _e, _f, _g, _h;
 	})(ion_1.Ion);
 	exports.Menu = Menu;
 	var menuTypes = {};
@@ -43078,12 +43229,12 @@
 	            }
 	        }),
 	        __param(0, core_1.Host()), 
-	        __metadata('design:paramtypes', [Menu, core_1.ElementRef])
+	        __metadata('design:paramtypes', [Menu, (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
 	    ], MenuBackdrop);
 	    return MenuBackdrop;
+	    var _a;
 	})();
 	exports.MenuBackdrop = MenuBackdrop;
-
 
 /***/ },
 /* 284 */
@@ -43119,7 +43270,6 @@
 	    return Ion;
 	})();
 	exports.Ion = Ion;
-
 
 /***/ },
 /* 285 */
@@ -43214,7 +43364,6 @@
 	})(MenuContentGesture);
 	exports.RightMenuGesture = RightMenuGesture;
 
-
 /***/ },
 /* 286 */
 /***/ function(module, exports, __webpack_require__) {
@@ -43264,7 +43413,6 @@
 	    return SlideEdgeGesture;
 	})(slide_gesture_1.SlideGesture);
 	exports.SlideEdgeGesture = SlideEdgeGesture;
-
 
 /***/ },
 /* 287 */
@@ -43345,7 +43493,6 @@
 	})(drag_gesture_1.DragGesture);
 	exports.SlideGesture = SlideGesture;
 
-
 /***/ },
 /* 288 */
 /***/ function(module, exports, __webpack_require__) {
@@ -43392,7 +43539,6 @@
 	    return DragGesture;
 	})(gesture_1.Gesture);
 	exports.DragGesture = DragGesture;
-
 
 /***/ },
 /* 289 */
@@ -43456,7 +43602,6 @@
 	})();
 	exports.Gesture = Gesture;
 
-
 /***/ },
 /* 290 */
 /***/ function(module, exports, __webpack_require__) {
@@ -43467,7 +43612,6 @@
 	var domUtil = __webpack_require__(268);
 	exports.dom = domUtil;
 	__export(__webpack_require__(267));
-
 
 /***/ },
 /* 291 */
@@ -45624,7 +45768,6 @@
 	});
 	win.Hammer = Hammer;
 
-
 /***/ },
 /* 292 */
 /***/ function(module, exports, __webpack_require__) {
@@ -45665,11 +45808,11 @@
 	* @see {@link ../../menu/Menu Menu API Docs}
 	*/
 	var MenuToggle = (function () {
-	    function MenuToggle(app, elementRef, viewCtrl, navbar) {
-	        this.app = app;
-	        this.viewCtrl = viewCtrl;
-	        this.navbar = navbar;
-	        this.withinNavbar = !!navbar;
+	    function MenuToggle(_app, elementRef, _viewCtrl, _navbar) {
+	        this._app = _app;
+	        this._viewCtrl = _viewCtrl;
+	        this._navbar = _navbar;
+	        this.withinNavbar = !!_navbar;
 	        // Deprecation warning
 	        if (this.withinNavbar && elementRef.nativeElement.tagName === 'A') {
 	            void 0;
@@ -45679,7 +45822,7 @@
 	    * @private
 	    */
 	    MenuToggle.prototype.toggle = function () {
-	        var menu = menu_1.Menu.getById(this.app, this.menuToggle);
+	        var menu = menu_1.Menu.getById(this._app, this.menuToggle);
 	        menu && menu.toggle();
 	    };
 	    Object.defineProperty(MenuToggle.prototype, "isHidden", {
@@ -45687,8 +45830,8 @@
 	        * @private
 	        */
 	        get: function () {
-	            if (this.withinNavbar && this.viewCtrl) {
-	                return !this.viewCtrl.isRoot();
+	            if (this.withinNavbar && this._viewCtrl) {
+	                return !this._viewCtrl.isRoot();
 	            }
 	            return false;
 	        },
@@ -45715,12 +45858,12 @@
 	        }),
 	        __param(2, core_1.Optional()),
 	        __param(3, core_1.Optional()), 
-	        __metadata('design:paramtypes', [app_1.IonicApp, core_1.ElementRef, view_controller_1.ViewController, navbar_1.Navbar])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof navbar_1.Navbar !== 'undefined' && navbar_1.Navbar) === 'function' && _d) || Object])
 	    ], MenuToggle);
 	    return MenuToggle;
+	    var _a, _b, _c, _d;
 	})();
 	exports.MenuToggle = MenuToggle;
-
 
 /***/ },
 /* 293 */
@@ -45788,8 +45931,8 @@
 	    ViewController.prototype.onDismiss = function (callback) {
 	        this._onDismiss = callback;
 	    };
-	    ViewController.prototype.dismiss = function (data) {
-	        this._onDismiss && this._onDismiss(data);
+	    ViewController.prototype.dismiss = function (data, role) {
+	        this._onDismiss && this._onDismiss(data, role);
 	        return this._nav.remove(this._nav.indexOf(this), 1, this._leavingOpts);
 	    };
 	    /**
@@ -46153,9 +46296,10 @@
 	    };
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], ViewController.prototype, "_emitter", void 0);
 	    return ViewController;
+	    var _a;
 	})();
 	exports.ViewController = ViewController;
 	function ctrlFn(viewCtrl, fnName) {
@@ -46168,7 +46312,6 @@
 	        }
 	    }
 	}
-
 
 /***/ },
 /* 294 */
@@ -46229,7 +46372,6 @@
 	})();
 	exports.NavParams = NavParams;
 
-
 /***/ },
 /* 295 */
 /***/ function(module, exports, __webpack_require__) {
@@ -46281,9 +46423,10 @@
 	        __param(0, core_1.Optional()),
 	        __param(2, core_1.Optional()),
 	        __param(2, core_1.Inject(core_1.forwardRef(function () { return Navbar; }))), 
-	        __metadata('design:paramtypes', [nav_controller_1.NavController, core_1.ElementRef, Navbar])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, Navbar])
 	    ], BackButton);
 	    return BackButton;
+	    var _a, _b;
 	})(ion_1.Ion);
 	var BackButtonText = (function () {
 	    function BackButtonText(elementRef, navbar) {
@@ -46294,9 +46437,10 @@
 	            selector: '.back-button-text'
 	        }),
 	        __param(1, core_1.Inject(core_1.forwardRef(function () { return Navbar; }))), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, Navbar])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Navbar])
 	    ], BackButtonText);
 	    return BackButtonText;
+	    var _a;
 	})();
 	var ToolbarBackground = (function () {
 	    function ToolbarBackground(elementRef, navbar) {
@@ -46307,9 +46451,10 @@
 	            selector: '.toolbar-background'
 	        }),
 	        __param(1, core_1.Inject(core_1.forwardRef(function () { return Navbar; }))), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, Navbar])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Navbar])
 	    ], ToolbarBackground);
 	    return ToolbarBackground;
+	    var _a;
 	})();
 	/**
 	 * @name Navbar
@@ -46443,9 +46588,10 @@
 	            directives: [BackButton, BackButtonText, icon_1.Icon, ToolbarBackground]
 	        }),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [app_1.IonicApp, view_controller_1.ViewController, core_1.ElementRef, config_1.Config, core_1.Renderer])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
 	    ], Navbar);
 	    return Navbar;
+	    var _a, _b, _c, _d, _e;
 	})(toolbar_1.ToolbarBase);
 	exports.Navbar = Navbar;
 	/**
@@ -46466,12 +46612,12 @@
 	            selector: 'template[navbar]'
 	        }),
 	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.TemplateRef, view_controller_1.ViewController])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.TemplateRef !== 'undefined' && core_1.TemplateRef) === 'function' && _b) || Object, (typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object])
 	    ], NavbarTemplate);
 	    return NavbarTemplate;
+	    var _a, _b, _c;
 	})();
 	exports.NavbarTemplate = NavbarTemplate;
-
 
 /***/ },
 /* 296 */
@@ -46551,6 +46697,9 @@
 	        }
 	    };
 	    Object.defineProperty(Icon.prototype, "name", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._name;
 	        },
@@ -46567,6 +46716,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Icon.prototype, "ios", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._ios;
 	        },
@@ -46578,6 +46730,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Icon.prototype, "md", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._md;
 	        },
@@ -46589,6 +46744,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Icon.prototype, "isActive", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return (this._isActive === undefined || this._isActive === true || this._isActive === 'true');
 	        },
@@ -46655,12 +46813,12 @@
 	                'role': 'img'
 	            }
 	        }), 
-	        __metadata('design:paramtypes', [config_1.Config, core_1.ElementRef, core_1.Renderer])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
 	    ], Icon);
 	    return Icon;
+	    var _a, _b, _c;
 	})();
 	exports.Icon = Icon;
-
 
 /***/ },
 /* 297 */
@@ -46790,9 +46948,10 @@
 	                'class': 'toolbar'
 	            }
 	        }), 
-	        __metadata('design:paramtypes', [core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
 	    ], Toolbar);
 	    return Toolbar;
+	    var _a;
 	})(ToolbarBase);
 	exports.Toolbar = Toolbar;
 	/**
@@ -46838,9 +46997,10 @@
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()),
 	        __param(2, core_1.Inject(core_1.forwardRef(function () { return navbar_1.Navbar; }))), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, Toolbar, navbar_1.Navbar])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Toolbar, (typeof (_b = typeof navbar_1.Navbar !== 'undefined' && navbar_1.Navbar) === 'function' && _b) || Object])
 	    ], ToolbarTitle);
 	    return ToolbarTitle;
+	    var _a, _b;
 	})(ion_1.Ion);
 	exports.ToolbarTitle = ToolbarTitle;
 	/**
@@ -46887,12 +47047,12 @@
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()),
 	        __param(2, core_1.Inject(core_1.forwardRef(function () { return navbar_1.Navbar; }))), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, Toolbar, navbar_1.Navbar])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Toolbar, (typeof (_b = typeof navbar_1.Navbar !== 'undefined' && navbar_1.Navbar) === 'function' && _b) || Object])
 	    ], ToolbarItem);
 	    return ToolbarItem;
+	    var _a, _b;
 	})();
 	exports.ToolbarItem = ToolbarItem;
-
 
 /***/ },
 /* 298 */
@@ -47109,9 +47269,10 @@
 	            selector: 'button,[button]'
 	        }),
 	        __param(3, core_1.Attribute('ion-item')), 
-	        __metadata('design:paramtypes', [config_1.Config, core_1.ElementRef, core_1.Renderer, String])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, String])
 	    ], Button);
 	    return Button;
+	    var _a, _b, _c;
 	})();
 	exports.Button = Button;
 	var BUTTON_SIZE_ATTRS = ['large', 'small'];
@@ -47121,7 +47282,6 @@
 	var IGNORE_ATTRS = /_ng|button|left|right/;
 	var TEXT = 1;
 	var ICON = 2;
-
 
 /***/ },
 /* 299 */
@@ -47716,16 +47876,20 @@
 	     *  }
 	     * ```
 	     *
-	     * @param {number} startIndex  The starting index to remove views from the nav stack
-	     * @param {removeCount} [opts={}]  The number of views to remove, defaults to remove `1`.
-	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {Promise} Returns a promise when the view has been removed
+	     * @param {number} [startIndex]  The starting index to remove pages from the stack. Default is the index of the last page.
+	     * @param {number} [removeCount]  The number of pages to remove, defaults to remove `1`.
+	     * @param {object} [opts={}] Any options you want to use pass to transtion.
+	     * @returns {Promise} Returns a promise when the page has been removed.
 	     */
 	    NavController.prototype.remove = function (startIndex, removeCount, opts) {
 	        var _this = this;
+	        if (startIndex === void 0) { startIndex = -1; }
 	        if (removeCount === void 0) { removeCount = 1; }
 	        if (opts === void 0) { opts = {}; }
-	        if (startIndex < 0 || startIndex >= this._views.length) {
+	        if (startIndex === -1) {
+	            startIndex = this._views.length - 1;
+	        }
+	        else if (startIndex < 0 || startIndex >= this._views.length) {
 	            return Promise.reject("remove index out of range");
 	        }
 	        // default the direction to "back"
@@ -48525,7 +48689,6 @@
 	var INIT_ZINDEX = 10;
 	var ctrlIds = -1;
 
-
 /***/ },
 /* 300 */
 /***/ function(module, exports, __webpack_require__) {
@@ -48571,7 +48734,6 @@
 	    return SwipeBackGesture;
 	})(slide_edge_gesture_1.SlideEdgeGesture);
 	exports.SwipeBackGesture = SwipeBackGesture;
-
 
 /***/ },
 /* 302 */
@@ -48636,12 +48798,12 @@
 	        core_1.Directive({
 	            selector: '[menuClose]'
 	        }), 
-	        __metadata('design:paramtypes', [app_1.IonicApp])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object])
 	    ], MenuClose);
 	    return MenuClose;
+	    var _a;
 	})();
 	exports.MenuClose = MenuClose;
-
 
 /***/ },
 /* 303 */
@@ -48699,12 +48861,12 @@
 	        core_1.Directive({
 	            selector: 'ion-badge'
 	        }), 
-	        __metadata('design:paramtypes', [config_1.Config, core_1.ElementRef, core_1.Renderer])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
 	    ], Badge);
 	    return Badge;
+	    var _a, _b, _c;
 	})();
 	exports.Badge = Badge;
-
 
 /***/ },
 /* 304 */
@@ -48745,12 +48907,12 @@
 	        core_1.Directive({
 	            selector: '[blur]'
 	        }), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object])
 	    ], Blur);
 	    return Blur;
+	    var _a, _b;
 	})();
 	exports.Blur = Blur;
-
 
 /***/ },
 /* 305 */
@@ -48873,6 +49035,11 @@
 	            _this.scrollElement.removeEventListener('scroll', handler);
 	        };
 	    };
+	    /**
+	     * Call a method when scrolling has stopped
+	     *
+	     * @param {Function} callback The method you want perform when scrolling has ended
+	     */
 	    Content.prototype.onScrollEnd = function (callback) {
 	        var lastScrollTop = null;
 	        var framesUnchanged = 0;
@@ -49058,12 +49225,12 @@
 	                '</scroll-content>'
 	        }),
 	        __param(4, core_1.Optional()), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, config_1.Config, app_1.IonicApp, core_1.NgZone, view_controller_1.ViewController])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _c) || Object, (typeof (_d = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _d) || Object, (typeof (_e = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _e) || Object])
 	    ], Content);
 	    return Content;
+	    var _a, _b, _c, _d, _e;
 	})(ion_1.Ion);
 	exports.Content = Content;
-
 
 /***/ },
 /* 306 */
@@ -49151,12 +49318,12 @@
 	                '</div>' +
 	                '</scroll-content>'
 	        }), 
-	        __metadata('design:paramtypes', [core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
 	    ], Scroll);
 	    return Scroll;
+	    var _a;
 	})(ion_1.Ion);
 	exports.Scroll = Scroll;
-
 
 /***/ },
 /* 307 */
@@ -49556,15 +49723,15 @@
 	    ], Refresher.prototype, "spinner", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Refresher.prototype, "pulling", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
 	    ], Refresher.prototype, "refresh", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
 	    ], Refresher.prototype, "starting", void 0);
 	    Refresher = __decorate([
 	        core_1.Component({
@@ -49587,12 +49754,12 @@
 	            directives: [common_1.NgIf, common_1.NgClass, icon_1.Icon]
 	        }),
 	        __param(0, core_1.Host()), 
-	        __metadata('design:paramtypes', [content_1.Content, core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_d = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _d) || Object, (typeof (_e = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _e) || Object])
 	    ], Refresher);
 	    return Refresher;
+	    var _a, _b, _c, _d, _e;
 	})();
 	exports.Refresher = Refresher;
-
 
 /***/ },
 /* 308 */
@@ -50118,7 +50285,7 @@
 	    ], Slides.prototype, "zoomMax", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Slides.prototype, "change", void 0);
 	    Slides = __decorate([
 	        core_1.Component({
@@ -50131,9 +50298,10 @@
 	                '</div>',
 	            directives: [common_1.NgClass]
 	        }), 
-	        __metadata('design:paramtypes', [core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
 	    ], Slides);
 	    return Slides;
+	    var _a, _b;
 	})(ion_1.Ion);
 	exports.Slides = Slides;
 	/**
@@ -50155,9 +50323,10 @@
 	            template: '<div class="slide-zoom"><ng-content></ng-content></div>'
 	        }),
 	        __param(1, core_1.Host()), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, Slides])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Slides])
 	    ], Slide);
 	    return Slide;
+	    var _a;
 	})();
 	exports.Slide = Slide;
 	/**
@@ -50178,7 +50347,6 @@
 	    return SlideLazy;
 	})();
 	exports.SlideLazy = SlideLazy;
-
 
 /***/ },
 /* 309 */
@@ -54175,6 +54343,7 @@
 	var util_1 = __webpack_require__(267);
 	/**
 	 * @name Tabs
+	 * @property {any} [selectedIndex] - The default selected tab index when first loaded. If a selected index wasn't provided then it'll use `0`, the first tab.
 	 * @property {any} [tabbarPlacement] - set position of the tabbar, top or bottom
 	 * @property {any} [tabbarIcons] - set the position of the tabbar's icons: top, bottom, left, right, hide
 	 * @property {any} [preloadTabs] - sets whether to preload all the tabs, true or false
@@ -54408,11 +54577,11 @@
 	    ], Tabs.prototype, "tabbarPlacement", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Tabs.prototype, "change", void 0);
 	    __decorate([
 	        core_1.ViewChild(tab_highlight_1.TabHighlight), 
-	        __metadata('design:type', tab_highlight_1.TabHighlight)
+	        __metadata('design:type', (typeof (_b = typeof tab_highlight_1.TabHighlight !== 'undefined' && tab_highlight_1.TabHighlight) === 'function' && _b) || Object)
 	    ], Tabs.prototype, "_highlight", void 0);
 	    __decorate([
 	        core_1.ViewChildren(tab_button_1.TabButton), 
@@ -54448,9 +54617,10 @@
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [view_controller_1.ViewController, nav_controller_1.NavController, app_1.IonicApp, config_1.Config, core_1.ElementRef, platform_1.Platform, core_1.Renderer])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _d) || Object, (typeof (_e = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _h) || Object, (typeof (_j = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _j) || Object])
 	    ], Tabs);
 	    return Tabs;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 	})(ion_1.Ion);
 	exports.Tabs = Tabs;
 	var tabIds = -1;
@@ -54464,11 +54634,11 @@
 	    TabNavBarAnchor = __decorate([
 	        core_1.Directive({ selector: 'template[navbar-anchor]' }),
 	        __param(0, core_1.Host()), 
-	        __metadata('design:paramtypes', [Tabs, core_1.ViewContainerRef])
+	        __metadata('design:paramtypes', [Tabs, (typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object])
 	    ], TabNavBarAnchor);
 	    return TabNavBarAnchor;
+	    var _a;
 	})();
-
 
 /***/ },
 /* 311 */
@@ -54515,11 +54685,11 @@
 	    };
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', tab_1.Tab)
+	        __metadata('design:type', (typeof (_a = typeof tab_1.Tab !== 'undefined' && tab_1.Tab) === 'function' && _a) || Object)
 	    ], TabButton.prototype, "tab", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
 	    ], TabButton.prototype, "select", void 0);
 	    __decorate([
 	        core_1.HostListener('click'), 
@@ -54542,12 +54712,12 @@
 	                '[class.disable-hover]': 'disHover'
 	            }
 	        }), 
-	        __metadata('design:paramtypes', [config_1.Config, core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object])
 	    ], TabButton);
 	    return TabButton;
+	    var _a, _b, _c, _d;
 	})(ion_1.Ion);
 	exports.TabButton = TabButton;
-
 
 /***/ },
 /* 312 */
@@ -54760,7 +54930,7 @@
 	    };
 	    __decorate([
 	        core_2.Input(), 
-	        __metadata('design:type', core_1.Type)
+	        __metadata('design:type', (typeof (_a = typeof core_1.Type !== 'undefined' && core_1.Type) === 'function' && _a) || Object)
 	    ], Tab.prototype, "root", void 0);
 	    __decorate([
 	        core_2.Input(), 
@@ -54780,7 +54950,7 @@
 	    ], Tab.prototype, "tabBadgeStyle", void 0);
 	    __decorate([
 	        core_2.Output(), 
-	        __metadata('design:type', core_2.EventEmitter)
+	        __metadata('design:type', (typeof (_b = typeof core_2.EventEmitter !== 'undefined' && core_2.EventEmitter) === 'function' && _b) || Object)
 	    ], Tab.prototype, "select", void 0);
 	    Tab = __decorate([
 	        core_1.Component({
@@ -54794,12 +54964,12 @@
 	            template: '<div #contents></div>'
 	        }),
 	        __param(0, core_1.Inject(core_1.forwardRef(function () { return tabs_1.Tabs; }))), 
-	        __metadata('design:paramtypes', [tabs_1.Tabs, app_1.IonicApp, config_1.Config, keyboard_1.Keyboard, core_1.ElementRef, core_1.Compiler, core_1.AppViewManager, core_1.NgZone, core_1.Renderer])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Compiler !== 'undefined' && core_1.Compiler) === 'function' && _h) || Object, (typeof (_j = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object])
 	    ], Tab);
 	    return Tab;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 	})(nav_controller_1.NavController);
 	exports.Tab = Tab;
-
 
 /***/ },
 /* 313 */
@@ -54841,12 +55011,12 @@
 	        core_1.Directive({
 	            selector: 'tab-highlight'
 	        }), 
-	        __metadata('design:paramtypes', [core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
 	    ], TabHighlight);
 	    return TabHighlight;
+	    var _a;
 	})();
 	exports.TabHighlight = TabHighlight;
-
 
 /***/ },
 /* 314 */
@@ -54889,9 +55059,9 @@
 	 */
 	var List = (function (_super) {
 	    __extends(List, _super);
-	    function List(elementRef, zone) {
+	    function List(elementRef, _zone) {
 	        _super.call(this, elementRef);
-	        this.zone = zone;
+	        this._zone = _zone;
 	        this._enableSliding = false;
 	        this.ele = elementRef.nativeElement;
 	    }
@@ -54950,7 +55120,7 @@
 	            this._enableSliding = shouldEnable;
 	            if (shouldEnable) {
 	                void 0;
-	                this.zone.runOutsideAngular(function () {
+	                this._zone.runOutsideAngular(function () {
 	                    setTimeout(function () {
 	                        _this.slidingGesture = new item_sliding_gesture_1.ItemSlidingGesture(_this, _this.ele);
 	                    });
@@ -54997,9 +55167,10 @@
 	        core_1.Directive({
 	            selector: 'ion-list'
 	        }), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, core_1.NgZone])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _b) || Object])
 	    ], List);
 	    return List;
+	    var _a, _b;
 	})(ion_1.Ion);
 	exports.List = List;
 	/**
@@ -55027,12 +55198,12 @@
 	            selector: 'ion-list-header'
 	        }),
 	        __param(2, core_1.Attribute('id')), 
-	        __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef, String])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, String])
 	    ], ListHeader);
 	    return ListHeader;
+	    var _a, _b;
 	})();
 	exports.ListHeader = ListHeader;
-
 
 /***/ },
 /* 315 */
@@ -55126,7 +55297,6 @@
 	    }
 	    return VirtualItemRef;
 	})();
-
 
 /***/ },
 /* 316 */
@@ -55348,7 +55518,6 @@
 	}
 	var DRAG_THRESHOLD = 20;
 
-
 /***/ },
 /* 317 */
 /***/ function(module, exports, __webpack_require__) {
@@ -55406,6 +55575,9 @@
 	        this._ids = -1;
 	        this._inputs = [];
 	        this._viewLabel = true;
+	        /**
+	       * @private
+	       */
 	        this.labelId = null;
 	        this.id = form.nextId().toString();
 	    }
@@ -55441,6 +55613,9 @@
 	        return this._label ? this._label.text : '';
 	    };
 	    Object.defineProperty(Item.prototype, "contentLabel", {
+	        /**
+	         * @private
+	         */
 	        set: function (label) {
 	            if (label) {
 	                this._label = label;
@@ -55455,6 +55630,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Item.prototype, "viewLabel", {
+	        /**
+	         * @private
+	         */
 	        set: function (label) {
 	            if (!this._label) {
 	                this._label = label;
@@ -55491,13 +55669,13 @@
 	    });
 	    __decorate([
 	        core_1.ContentChild(label_1.Label), 
-	        __metadata('design:type', label_1.Label), 
-	        __metadata('design:paramtypes', [label_1.Label])
+	        __metadata('design:type', (typeof (_a = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _a) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_b = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _b) || Object])
 	    ], Item.prototype, "contentLabel", null);
 	    __decorate([
 	        core_1.ViewChild(label_1.Label), 
-	        __metadata('design:type', label_1.Label), 
-	        __metadata('design:paramtypes', [label_1.Label])
+	        __metadata('design:type', (typeof (_c = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _c) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_d = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _d) || Object])
 	    ], Item.prototype, "viewLabel", null);
 	    __decorate([
 	        core_1.ContentChildren(button_1.Button), 
@@ -55525,12 +55703,12 @@
 	            },
 	            directives: [common_1.NgIf, label_1.Label]
 	        }), 
-	        __metadata('design:paramtypes', [form_1.Form, core_1.Renderer, core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_e = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object])
 	    ], Item);
 	    return Item;
+	    var _a, _b, _c, _d, _e, _f, _g;
 	})();
 	exports.Item = Item;
-
 
 /***/ },
 /* 318 */
@@ -55598,6 +55776,9 @@
 	        this.type = (isFloating === '' ? 'floating' : (isStacked === '' ? 'stacked' : (isFixed === '' ? 'fixed' : (isInset === '' ? 'inset' : null))));
 	    }
 	    Object.defineProperty(Label.prototype, "id", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._id;
 	        },
@@ -55611,6 +55792,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Label.prototype, "text", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._elementRef.nativeElement.textContent || '';
 	        },
@@ -55636,12 +55820,12 @@
 	        __param(3, core_1.Attribute('stacked')),
 	        __param(4, core_1.Attribute('fixed')),
 	        __param(5, core_1.Attribute('inset')), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, String, String, String, String])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object, String, String, String, String])
 	    ], Label);
 	    return Label;
+	    var _a, _b;
 	})();
 	exports.Label = Label;
-
 
 /***/ },
 /* 319 */
@@ -55703,13 +55887,13 @@
 	                '<ng-content select="ion-item-options"></ng-content>'
 	        }),
 	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [list_1.List, core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof list_1.List !== 'undefined' && list_1.List) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
 	    ], ItemSliding);
 	    return ItemSliding;
+	    var _a, _b;
 	})();
 	exports.ItemSliding = ItemSliding;
 	var slideIds = 0;
-
 
 /***/ },
 /* 320 */
@@ -55755,7 +55939,7 @@
 	 *
 	 *    <ion-item>
 	 *      <ion-label>Sausage</ion-label>
-	 *      <ion-checkbox value="sausage"></ion-checkbox>
+	 *      <ion-checkbox value="sausage" disabled="true"></ion-checkbox>
 	 *    </ion-item>
 	 *
 	 *    <ion-item>
@@ -55774,6 +55958,9 @@
 	        this._item = _item;
 	        this._checked = false;
 	        this._disabled = false;
+	        /**
+	         * @private
+	         */
 	        this.value = '';
 	        _form.register(this);
 	        if (ngControl) {
@@ -55793,6 +55980,9 @@
 	        this.checked = !this.checked;
 	    };
 	    Object.defineProperty(Checkbox.prototype, "checked", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._checked;
 	        },
@@ -55807,6 +55997,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Checkbox.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._disabled;
 	        },
@@ -55907,12 +56100,12 @@
 	        }),
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [form_1.Form, item_1.Item, common_1.NgControl])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _b) || Object, (typeof (_c = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _c) || Object])
 	    ], Checkbox);
 	    return Checkbox;
+	    var _a, _b, _c;
 	})();
 	exports.Checkbox = Checkbox;
-
 
 /***/ },
 /* 321 */
@@ -56119,10 +56312,8 @@
 	        },
 	        set: function (val) {
 	            // passed in value could be either an array, undefined or a string
-	            if (this._disabled) {
-	                this._values = (Array.isArray(val) ? val : util_1.isBlank(val) ? [] : [val]);
-	                this.updateOptions();
-	            }
+	            this._values = (Array.isArray(val) ? val : util_1.isBlank(val) ? [] : [val]);
+	            this.updateOptions();
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -56188,9 +56379,7 @@
 	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L34
 	     */
 	    Select.prototype.writeValue = function (val) {
-	        if (!util_1.isBlank(val)) {
-	            this.value = val;
-	        }
+	        this.value = val;
 	    };
 	    /**
 	     * @private
@@ -56239,7 +56428,7 @@
 	    ], Select.prototype, "checked", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Select.prototype, "change", void 0);
 	    __decorate([
 	        core_1.HostListener('click', ['$event']), 
@@ -56257,8 +56446,8 @@
 	    ], Select.prototype, "value", null);
 	    __decorate([
 	        core_1.ContentChildren(option_1.Option), 
-	        __metadata('design:type', core_1.QueryList), 
-	        __metadata('design:paramtypes', [core_1.QueryList])
+	        __metadata('design:type', (typeof (_b = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _b) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _c) || Object])
 	    ], Select.prototype, "options", null);
 	    __decorate([
 	        core_1.Input(), 
@@ -56284,12 +56473,12 @@
 	        __param(3, core_1.Optional()),
 	        __param(4, core_1.Optional()),
 	        __param(5, core_1.Optional()), 
-	        __metadata('design:paramtypes', [form_1.Form, core_1.ElementRef, core_1.Renderer, item_1.Item, nav_controller_1.NavController, common_1.NgControl])
+	        __metadata('design:paramtypes', [(typeof (_d = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _d) || Object, (typeof (_e = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, (typeof (_j = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _j) || Object])
 	    ], Select);
 	    return Select;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 	})();
 	exports.Select = Select;
-
 
 /***/ },
 /* 322 */
@@ -56333,12 +56522,17 @@
 	 * array, from left to right. Note: The right most button (the last one in the
 	 * array) is the main button.
 	 *
+	 * Optionally, a `role` property can be added to a button, such as `cancel`.
+	 * If a `cancel` role is on one of the buttons, then if the alert is dismissed
+	 * by tapping the backdrop, then it will fire the handler from the button
+	 * with a cancel role.
+	 *
 	 * Alerts can also include inputs whos data can be passed back to the app.
 	 * Inputs can be used to prompt users for information.
 	 *
 	 * Its shorthand is to add all the alert's options from within the
-	 * `Alert.create(opts)` first argument. Otherwise the alert's
-	 * instance has methods to add options, such as `setTitle()` or `addButton()`.
+	 * `Alert.create(opts)` first argument. Otherwise the alert's instance
+	 * has methods to add options, such as `setTitle()` or `addButton()`.
 	 *
 	 * @usage
 	 * ```ts
@@ -56362,6 +56556,7 @@
 	 *     buttons: [
 	 *       {
 	 *         text: 'Cancel',
+	 *         role: 'cancel',
 	 *         handler: () => {
 	 *           console.log('Cancel clicked');
 	 *         }
@@ -56394,6 +56589,7 @@
 	 *     buttons: [
 	 *       {
 	 *         text: 'Cancel',
+	 *         role: 'cancel',
 	 *         handler: data => {
 	 *           console.log('Cancel clicked');
 	 *         }
@@ -56554,7 +56750,7 @@
 	            }
 	            else if (ev.keyCode === 27) {
 	                void 0;
-	                self.dismiss();
+	                self.bdClick();
 	            }
 	        };
 	        document.addEventListener('keyup', this.keyUp);
@@ -56571,7 +56767,7 @@
 	            }
 	        }
 	    };
-	    AlertCmp.prototype.btnClick = function (button) {
+	    AlertCmp.prototype.btnClick = function (button, dismissDelay) {
 	        var _this = this;
 	        var shouldDismiss = true;
 	        if (button.handler) {
@@ -56584,8 +56780,8 @@
 	        }
 	        if (shouldDismiss) {
 	            setTimeout(function () {
-	                _this.dismiss();
-	            }, this._config.get('pageTransitionDelay'));
+	                _this.dismiss(button.role);
+	            }, dismissDelay || this._config.get('pageTransitionDelay'));
 	        }
 	    };
 	    AlertCmp.prototype.rbClick = function (checkedInput) {
@@ -56597,8 +56793,17 @@
 	    AlertCmp.prototype.cbClick = function (checkedInput) {
 	        checkedInput.checked = !checkedInput.checked;
 	    };
-	    AlertCmp.prototype.dismiss = function () {
-	        return this._viewCtrl.dismiss(this.getValues());
+	    AlertCmp.prototype.bdClick = function () {
+	        var cancelBtn = this.d.buttons.find(function (b) { return b.role === 'cancel'; });
+	        if (cancelBtn) {
+	            this.btnClick(cancelBtn, 1);
+	        }
+	        else {
+	            this.dismiss('backdrop');
+	        }
+	    };
+	    AlertCmp.prototype.dismiss = function (role) {
+	        return this._viewCtrl.dismiss(this.getValues(), role);
 	    };
 	    AlertCmp.prototype.getValues = function () {
 	        if (this.inputType === 'radio') {
@@ -56626,7 +56831,7 @@
 	    AlertCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-alert',
-	            template: '<div (click)="dismiss()" tappable disable-activated class="backdrop" role="presentation"></div>' +
+	            template: '<div (click)="bdClick()" tappable disable-activated class="backdrop" role="presentation"></div>' +
 	                '<div class="alert-wrapper">' +
 	                '<div class="alert-head">' +
 	                '<h2 id="{{hdrId}}" class="alert-title" *ngIf="d.title" [innerHTML]="d.title"></h2>' +
@@ -56647,7 +56852,7 @@
 	                '<template ngSwitchWhen="checkbox">' +
 	                '<div class="alert-checkbox-group">' +
 	                '<div *ngFor="#i of d.inputs" (click)="cbClick(i)" [attr.aria-checked]="i.checked" class="alert-tappable alert-checkbox" tappable role="checkbox">' +
-	                '<div class="alert-checkbox-icon"></div>' +
+	                '<div class="alert-checkbox-icon"><div class="alert-checkbox-inner"></div></div>' +
 	                '<div class="alert-checkbox-label">' +
 	                '{{i.label}}' +
 	                '</div>' +
@@ -56662,7 +56867,7 @@
 	                '</div>' +
 	                '</template>' +
 	                '</div>' +
-	                '<div class="alert-button-group">' +
+	                '<div class="alert-button-group" [ngClass]="{vertical: d.buttons.length>2}">' +
 	                '<button *ngFor="#b of d.buttons" (click)="btnClick(b)" [ngClass]="b.cssClass" class="alert-button">' +
 	                '{{b.text}}' +
 	                '</button>' +
@@ -56675,9 +56880,10 @@
 	            },
 	            directives: [common_1.NgClass, common_1.NgSwitch, common_1.NgIf, common_1.NgFor]
 	        }), 
-	        __metadata('design:paramtypes', [view_controller_1.ViewController, core_1.ElementRef, config_1.Config, nav_params_1.NavParams, core_1.Renderer])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
 	    ], AlertCmp);
 	    return AlertCmp;
+	    var _a, _b, _c, _d, _e;
 	})();
 	/**
 	 * Animations for alerts
@@ -56752,7 +56958,6 @@
 	animation_1.Animation.register('alert-md-pop-out', AlertMdPopOut);
 	var alertIds = -1;
 
-
 /***/ },
 /* 323 */
 /***/ function(module, exports, __webpack_require__) {
@@ -56809,7 +57014,7 @@
 	    });
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Option.prototype, "select", void 0);
 	    __decorate([
 	        core_1.Input(), 
@@ -56823,12 +57028,12 @@
 	        core_1.Directive({
 	            selector: 'ion-option'
 	        }), 
-	        __metadata('design:paramtypes', [core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
 	    ], Option);
 	    return Option;
+	    var _a, _b;
 	})();
 	exports.Option = Option;
-
 
 /***/ },
 /* 324 */
@@ -57079,12 +57284,12 @@
 	        }),
 	        __param(4, core_1.Optional()),
 	        __param(5, core_1.Optional()), 
-	        __metadata('design:paramtypes', [form_1.Form, core_1.ElementRef, core_1.Renderer, config_1.Config, common_1.NgControl, item_1.Item])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _e) || Object, (typeof (_f = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _f) || Object])
 	    ], Toggle);
 	    return Toggle;
+	    var _a, _b, _c, _d, _e, _f;
 	})();
 	exports.Toggle = Toggle;
-
 
 /***/ },
 /* 325 */
@@ -57135,7 +57340,7 @@
 	 * An `ion-input` is **not** used for non-text type inputs, such as a
 	 * `checkbox`, `radio`, `toggle`, `range`, `select`, etc.
 	 *
-	 * @property [inset] - The input will be inset
+	 * @property [type] - The HTML input type (text, password, email, number, search, tel, or url)
 	 * @property [clearInput] - A clear icon will appear in the input which clears it
 	 *
 	 * @usage
@@ -57185,12 +57390,14 @@
 	                button_1.Button
 	            ]
 	        }),
+	        __param(2, core_1.Optional()),
 	        __param(6, core_1.Optional()),
 	        __param(7, core_1.Optional()),
 	        __param(8, core_1.Optional()), 
-	        __metadata('design:paramtypes', [config_1.Config, form_1.Form, item_1.Item, app_1.IonicApp, platform_1.Platform, core_1.ElementRef, content_1.Content, nav_controller_1.NavController, common_1.NgControl])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, (typeof (_j = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _j) || Object])
 	    ], TextInput);
 	    return TextInput;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 	})(input_base_1.InputBase);
 	exports.TextInput = TextInput;
 	/**
@@ -57210,8 +57417,6 @@
 	 * When requiring only a single-line text input it's recommended
 	 * to use `<ion-input>` instead.
 	 *
-	 * @property [inset] - The textarea will be inset
-	 *
 	 * @usage
 	 * ```html
 	 *  <ion-item>
@@ -57220,12 +57425,12 @@
 	 *  </ion-item>
 	 *
 	 *  <ion-item>
-	 *    <ion-labe stacked>Message</ion-label>
+	 *    <ion-label stacked>Message</ion-label>
 	 *    <ion-textarea [(ngModel)]="msg"></ion-textarea>
 	 *  </ion-item>
 	 *
 	 *  <ion-item>
-	 *    <ion-labe floating>Description</ion-label>
+	 *    <ion-label floating>Description</ion-label>
 	 *    <ion-textarea></ion-textarea>
 	 *  </ion-item>
 	 * ```
@@ -57236,6 +57441,9 @@
 	    function TextArea(config, form, item, app, platform, elementRef, scrollView, nav, ngControl) {
 	        _super.call(this, config, form, item, app, platform, elementRef, scrollView, nav, ngControl);
 	    }
+	    /**
+	     * @private
+	     */
 	    TextArea.prototype.ngOnInit = function () {
 	        _super.prototype.ngOnInit.call(this);
 	        if (this._item) {
@@ -57254,15 +57462,16 @@
 	                native_input_1.NativeInput
 	            ]
 	        }),
+	        __param(2, core_1.Optional()),
 	        __param(6, core_1.Optional()),
 	        __param(7, core_1.Optional()),
 	        __param(8, core_1.Optional()), 
-	        __metadata('design:paramtypes', [config_1.Config, form_1.Form, item_1.Item, app_1.IonicApp, platform_1.Platform, core_1.ElementRef, content_1.Content, nav_controller_1.NavController, common_1.NgControl])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, (typeof (_j = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _j) || Object])
 	    ], TextArea);
 	    return TextArea;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 	})(input_base_1.InputBase);
 	exports.TextArea = TextArea;
-
 
 /***/ },
 /* 326 */
@@ -57278,6 +57487,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
+	var util_1 = __webpack_require__(267);
 	var dom_1 = __webpack_require__(268);
 	var native_input_1 = __webpack_require__(327);
 	var InputBase = (function () {
@@ -57289,6 +57499,7 @@
 	        this._elementRef = _elementRef;
 	        this._scrollView = _scrollView;
 	        this._nav = _nav;
+	        this._disabled = false;
 	        this._type = 'text';
 	        this._useAssist = true;
 	        this._value = '';
@@ -57374,6 +57585,18 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    Object.defineProperty(InputBase.prototype, "disabled", {
+	        get: function () {
+	            return this._disabled;
+	        },
+	        set: function (val) {
+	            this._disabled = util_1.isTrueProperty(val);
+	            this._item && this._item.setCssClass('item-input-disabled', this._disabled);
+	            this._native && this._native.isDisabled(this._disabled);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(InputBase.prototype, "_nativeInput", {
 	        /**
 	         * @private
@@ -57396,6 +57619,7 @@
 	                }
 	            });
 	            this.checkHasValue(nativeInput.getValue());
+	            this.disabled = this._disabled;
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -57421,8 +57645,9 @@
 	     * the checked value.
 	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L34
 	     */
-	    InputBase.prototype.writeValue = function (value) {
-	        this._value = value;
+	    InputBase.prototype.writeValue = function (val) {
+	        this._value = val;
+	        this.checkHasValue(val);
 	    };
 	    /**
 	     * @private
@@ -57713,7 +57938,7 @@
 	    ], InputBase.prototype, "placeholder", void 0);
 	    __decorate([
 	        core_1.ViewChild(native_input_1.NativeInput), 
-	        __metadata('design:type', native_input_1.NativeInput)
+	        __metadata('design:type', (typeof (_a = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _a) || Object)
 	    ], InputBase.prototype, "_native", void 0);
 	    __decorate([
 	        core_1.Input(), 
@@ -57724,16 +57949,21 @@
 	        __metadata('design:type', Object)
 	    ], InputBase.prototype, "type", null);
 	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], InputBase.prototype, "disabled", null);
+	    __decorate([
 	        core_1.ViewChild(native_input_1.NativeInput), 
-	        __metadata('design:type', native_input_1.NativeInput), 
-	        __metadata('design:paramtypes', [native_input_1.NativeInput])
+	        __metadata('design:type', (typeof (_b = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _b) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_c = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _c) || Object])
 	    ], InputBase.prototype, "_nativeInput", null);
 	    __decorate([
 	        core_1.ViewChild(native_input_1.NextInput), 
-	        __metadata('design:type', native_input_1.NextInput), 
-	        __metadata('design:paramtypes', [native_input_1.NextInput])
+	        __metadata('design:type', (typeof (_d = typeof native_input_1.NextInput !== 'undefined' && native_input_1.NextInput) === 'function' && _d) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_e = typeof native_input_1.NextInput !== 'undefined' && native_input_1.NextInput) === 'function' && _e) || Object])
 	    ], InputBase.prototype, "_nextInput", null);
 	    return InputBase;
+	    var _a, _b, _c, _d, _e;
 	})();
 	exports.InputBase = InputBase;
 	var SCROLL_ASSIST_SPEED = 0.3;
@@ -57743,7 +57973,6 @@
 	    var duration = distanceToScroll / SCROLL_ASSIST_SPEED;
 	    return Math.min(400, Math.max(150, duration));
 	}
-
 
 /***/ },
 /* 327 */
@@ -57793,6 +58022,9 @@
 	    };
 	    NativeInput.prototype.labelledBy = function (val) {
 	        this._renderer.setElementAttribute(this._elementRef.nativeElement, 'aria-labelledby', val);
+	    };
+	    NativeInput.prototype.isDisabled = function (val) {
+	        this._renderer.setElementAttribute(this._elementRef.nativeElement, 'disabled', val ? '' : null);
 	    };
 	    /**
 	     * @private
@@ -57856,11 +58088,11 @@
 	    };
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], NativeInput.prototype, "focusChange", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
 	    ], NativeInput.prototype, "valueChange", void 0);
 	    __decorate([
 	        core_1.HostListener('input', ['$event']), 
@@ -57884,9 +58116,10 @@
 	        core_1.Directive({
 	            selector: '.text-input'
 	        }), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, common_1.NgControl])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _e) || Object])
 	    ], NativeInput);
 	    return NativeInput;
+	    var _a, _b, _c, _d, _e;
 	})();
 	exports.NativeInput = NativeInput;
 	function cloneInput(focusedInputEle, addCssClass) {
@@ -57917,7 +58150,7 @@
 	    };
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], NextInput.prototype, "focused", void 0);
 	    __decorate([
 	        core_1.HostListener('focus'), 
@@ -57932,9 +58165,9 @@
 	        __metadata('design:paramtypes', [])
 	    ], NextInput);
 	    return NextInput;
+	    var _a;
 	})();
 	exports.NextInput = NextInput;
-
 
 /***/ },
 /* 328 */
@@ -58035,7 +58268,7 @@
 	    ], SegmentButton.prototype, "value", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], SegmentButton.prototype, "select", void 0);
 	    __decorate([
 	        core_1.HostListener('click', ['$event']), 
@@ -58052,9 +58285,10 @@
 	                'role': 'button'
 	            }
 	        }), 
-	        __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object])
 	    ], SegmentButton);
 	    return SegmentButton;
+	    var _a, _b, _c;
 	})();
 	exports.SegmentButton = SegmentButton;
 	/**
@@ -58160,23 +58394,23 @@
 	    Segment.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Segment.prototype, "change", void 0);
 	    __decorate([
 	        core_1.ContentChildren(SegmentButton), 
-	        __metadata('design:type', core_1.QueryList)
+	        __metadata('design:type', (typeof (_b = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _b) || Object)
 	    ], Segment.prototype, "_buttons", void 0);
 	    Segment = __decorate([
 	        core_1.Directive({
 	            selector: 'ion-segment'
 	        }),
 	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [common_1.NgControl])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _c) || Object])
 	    ], Segment);
 	    return Segment;
+	    var _a, _b, _c;
 	})();
 	exports.Segment = Segment;
-
 
 /***/ },
 /* 329 */
@@ -58310,7 +58544,7 @@
 	    };
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], RadioButton.prototype, "select", void 0);
 	    __decorate([
 	        core_1.Input(), 
@@ -58349,12 +58583,12 @@
 	        }),
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [form_1.Form, item_1.Item, radio_group_1.RadioGroup])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _c) || Object, (typeof (_d = typeof radio_group_1.RadioGroup !== 'undefined' && radio_group_1.RadioGroup) === 'function' && _d) || Object])
 	    ], RadioButton);
 	    return RadioButton;
+	    var _a, _b, _c, _d;
 	})();
 	exports.RadioButton = RadioButton;
-
 
 /***/ },
 /* 330 */
@@ -58528,7 +58762,7 @@
 	    RadioGroup.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], RadioGroup.prototype, "change", void 0);
 	    __decorate([
 	        core_1.ContentChild(list_1.ListHeader), 
@@ -58544,13 +58778,13 @@
 	            }
 	        }),
 	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [common_1.NgControl, core_1.Renderer, core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object])
 	    ], RadioGroup);
 	    return RadioGroup;
+	    var _a, _b, _c, _d;
 	})();
 	exports.RadioGroup = RadioGroup;
 	var radioGroupIds = -1;
-
 
 /***/ },
 /* 331 */
@@ -58601,9 +58835,10 @@
 	        core_1.Directive({
 	            selector: '.searchbar-input',
 	        }), 
-	        __metadata('design:paramtypes', [core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
 	    ], SearchbarInput);
 	    return SearchbarInput;
+	    var _a;
 	})();
 	exports.SearchbarInput = SearchbarInput;
 	/**
@@ -58845,23 +59080,23 @@
 	    ], Searchbar.prototype, "ngModel", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Searchbar.prototype, "input", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
 	    ], Searchbar.prototype, "blur", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
 	    ], Searchbar.prototype, "focus", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_d = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _d) || Object)
 	    ], Searchbar.prototype, "cancel", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', core_1.EventEmitter)
+	        __metadata('design:type', (typeof (_e = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _e) || Object)
 	    ], Searchbar.prototype, "clear", void 0);
 	    __decorate([
 	        core_1.HostBinding('class.searchbar-focused'), 
@@ -58886,12 +59121,12 @@
 	            directives: [common_1.FORM_DIRECTIVES, common_1.NgIf, common_1.NgClass, icon_1.Icon, button_1.Button, SearchbarInput]
 	        }),
 	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, config_1.Config, common_1.NgControl])
+	        __metadata('design:paramtypes', [(typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _g) || Object, (typeof (_h = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _h) || Object])
 	    ], Searchbar);
 	    return Searchbar;
+	    var _a, _b, _c, _d, _e, _f, _g, _h;
 	})(ion_1.Ion);
 	exports.Searchbar = Searchbar;
-
 
 /***/ },
 /* 332 */
@@ -59039,7 +59274,7 @@
 	    };
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', core_1.Type)
+	        __metadata('design:type', (typeof (_a = typeof core_1.Type !== 'undefined' && core_1.Type) === 'function' && _a) || Object)
 	    ], Nav.prototype, "root", void 0);
 	    __decorate([
 	        core_1.Input(), 
@@ -59052,12 +59287,12 @@
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [nav_controller_1.NavController, view_controller_1.ViewController, app_1.IonicApp, config_1.Config, keyboard_1.Keyboard, core_1.ElementRef, core_1.Compiler, core_1.AppViewManager, core_1.NgZone, core_1.Renderer])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _b) || Object, (typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Compiler !== 'undefined' && core_1.Compiler) === 'function' && _h) || Object, (typeof (_j = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object])
 	    ], Nav);
 	    return Nav;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 	})(nav_controller_1.NavController);
 	exports.Nav = Nav;
-
 
 /***/ },
 /* 333 */
@@ -59164,9 +59399,10 @@
 	            }
 	        }),
 	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [nav_controller_1.NavController, nav_registry_1.NavRegistry])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof nav_registry_1.NavRegistry !== 'undefined' && nav_registry_1.NavRegistry) === 'function' && _b) || Object])
 	    ], NavPush);
 	    return NavPush;
+	    var _a, _b;
 	})();
 	exports.NavPush = NavPush;
 	/**
@@ -59213,12 +59449,12 @@
 	            }
 	        }),
 	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [nav_controller_1.NavController])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object])
 	    ], NavPop);
 	    return NavPop;
+	    var _a;
 	})();
 	exports.NavPop = NavPop;
-
 
 /***/ },
 /* 334 */
@@ -59322,9 +59558,10 @@
 	            selector: 'ion-nav'
 	        }),
 	        __param(3, core_1.Attribute('name')), 
-	        __metadata('design:paramtypes', [core_1.ElementRef, core_1.DynamicComponentLoader, router_1.Router, String, nav_1.Nav])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.DynamicComponentLoader !== 'undefined' && core_1.DynamicComponentLoader) === 'function' && _b) || Object, (typeof (_c = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _c) || Object, String, (typeof (_d = typeof nav_1.Nav !== 'undefined' && nav_1.Nav) === 'function' && _d) || Object])
 	    ], NavRouter);
 	    return NavRouter;
+	    var _a, _b, _c, _d;
 	})(router_1.RouterOutlet);
 	exports.NavRouter = NavRouter;
 	// TODO: hacked from
@@ -59332,7 +59569,7 @@
 	var ResolvedInstruction = (function (_super) {
 	    __extends(ResolvedInstruction, _super);
 	    function ResolvedInstruction(component, child, auxInstruction) {
-	        _super.call(this);
+	        _super.call(this, component, child, auxInstruction);
 	        this.component = component;
 	        this.child = child;
 	        this.auxInstruction = auxInstruction;
@@ -59342,7 +59579,6 @@
 	    };
 	    return ResolvedInstruction;
 	})(router_1.Instruction);
-
 
 /***/ },
 /* 335 */
@@ -59419,9 +59655,10 @@
 	        core_1.Directive({
 	            selector: '[id]'
 	        }), 
-	        __metadata('design:paramtypes', [app_1.IonicApp, core_1.ElementRef, core_1.AppViewManager])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _c) || Object])
 	    ], IdRef);
 	    return IdRef;
+	    var _a, _b, _c;
 	})();
 	exports.IdRef = IdRef;
 	/**
@@ -59446,12 +59683,12 @@
 	        core_1.Directive({
 	            selector: '[attr]'
 	        }), 
-	        __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
 	    ], Attr);
 	    return Attr;
+	    var _a, _b;
 	})();
 	exports.Attr = Attr;
-
 
 /***/ },
 /* 336 */
@@ -59522,6 +59759,8 @@
 	exports.DisplayWhen = DisplayWhen;
 	/**
 	 *
+	 * @name ShowWhen
+	 * @description
 	 * The `showWhen` attribute takes a string that represents a plaform or screen orientation.
 	 * The element the attribute is added to will only be shown when that platform or screen orientation is active.
 	 * Complements the [hideWhen attribute](../HideWhen).
@@ -59555,13 +59794,15 @@
 	            }
 	        }),
 	        __param(0, core_1.Attribute('showWhen')), 
-	        __metadata('design:paramtypes', [String, platform_1.Platform, core_1.NgZone])
+	        __metadata('design:paramtypes', [String, (typeof (_a = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _b) || Object])
 	    ], ShowWhen);
 	    return ShowWhen;
+	    var _a, _b;
 	})(DisplayWhen);
 	exports.ShowWhen = ShowWhen;
 	/**
-	 *
+	 * @name HideWhen
+	 * @description
 	 * The `hideWhen` attribute takes a string that represents a plaform or screen orientation.
 	 * The element the attribute is added to will only be hidden when that platform or screen orientation is active.
 	 * Complements the [showWhen attribute](../ShowWhen).
@@ -59595,12 +59836,12 @@
 	            }
 	        }),
 	        __param(0, core_1.Attribute('hideWhen')), 
-	        __metadata('design:paramtypes', [String, platform_1.Platform, core_1.NgZone])
+	        __metadata('design:paramtypes', [String, (typeof (_a = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _b) || Object])
 	    ], HideWhen);
 	    return HideWhen;
+	    var _a, _b;
 	})(DisplayWhen);
 	exports.HideWhen = HideWhen;
-
 
 /***/ },
 /* 337 */
@@ -59623,7 +59864,8 @@
 	* import {App} from 'ionic/ionic';
 	*
 	* @App({
-	*   templateUrl: 'app/app.html'
+	*   templateUrl: 'app/app.html',
+	*   providers: [DataService]
 	* })
 	*
 	* export class MyApp{
@@ -59631,9 +59873,10 @@
 	* }
 	* ```
 	*
-	* @param {Object} [config] - the app's [../Config](Config) object
-	* @param {String} [template] - the template to use for the app root
-	* @param {String} [templateUrl] - a relative URL pointing to the template to use for the app root
+	* @property {Object} [config] - the app's {@link docs/v2/api/config/Config/ Config} object
+	* @property {Array}  [providers] - any providers for your app
+	* @property {String} [template] - the template to use for the app root
+	* @property {String} [templateUrl] - a relative URL pointing to the template to use for the app root
 	*
 	*/
 	function App(args) {
@@ -59661,7 +59904,6 @@
 	    };
 	}
 	exports.App = App;
-
 
 /***/ },
 /* 338 */
@@ -59753,7 +59995,6 @@
 	}
 	exports.Page = Page;
 
-
 /***/ },
 /* 339 */
 /***/ function(module, exports, __webpack_require__) {
@@ -59804,7 +60045,6 @@
 	__export(__webpack_require__(324));
 	__export(__webpack_require__(297));
 
-
 /***/ },
 /* 340 */
 /***/ function(module, exports, __webpack_require__) {
@@ -59841,16 +60081,18 @@
 	 * hitting the escape key on desktop.
 	 *
 	 * An action sheet is created from an array of `buttons`, with each button
-	 * including properties for its `text`, and optionally a `style` and `handler`.
+	 * including properties for its `text`, and optionally a `handler` and `role`.
 	 * If a handler returns `false` then the action sheet will not be dismissed. An
 	 * action sheet can also optionally have a `title` and a `subTitle`.
 	 *
-	 * A button's `style` property can either be `destructive` or `cancel`. Buttons
-	 * without a style property will have a default style for its platform. Buttons
-	 * with the `cancel` style will always load as the bottom button, no matter where
+	 * A button's `role` property can either be `destructive` or `cancel`. Buttons
+	 * without a role property will have a default look for its platform. Buttons
+	 * with the `cancel` role will always load as the bottom button, no matter where
 	 * it shows up in the array. All other buttons will show up in the order they
 	 * have been added to the `buttons` array. Note: We recommend that `destructive`
 	 * buttons show be the first button in the array, making it the button on top.
+	 * Additionally, if the action sheet is dismissed by tapping the backdrop, then
+	 * it will fire the handler from the button with the cancel role.
 	 *
 	 * Its shorthand is to add all the action sheet's options from within the
 	 * `ActionSheet.create(opts)` first argument. Otherwise the action sheet's
@@ -59868,7 +60110,7 @@
 	 *     buttons: [
 	 *       {
 	 *         text: 'Destructive',
-	 *         style: 'destructive',
+	 *         role: 'destructive',
 	 *         handler: () => {
 	 *           console.log('Destructive clicked');
 	 *         }
@@ -59881,7 +60123,7 @@
 	 *       },
 	 *       {
 	 *         text: 'Cancel',
-	 *         style: 'cancel',
+	 *         role: 'cancel',
 	 *         handler: () => {
 	 *           console.log('Cancel clicked');
 	 *         }
@@ -59951,25 +60193,6 @@
 	            renderer.setElementClass(elementRef.nativeElement, this.d.cssClass, true);
 	        }
 	    }
-	    ActionSheetCmp.prototype.click = function (button) {
-	        var _this = this;
-	        var shouldDismiss = true;
-	        if (button.handler) {
-	            // a handler has been provided, execute it
-	            if (button.handler() === false) {
-	                // if the return value of the handler is false then do not dismiss
-	                shouldDismiss = false;
-	            }
-	        }
-	        if (shouldDismiss) {
-	            setTimeout(function () {
-	                _this.dismiss();
-	            }, this._config.get('pageTransitionDelay'));
-	        }
-	    };
-	    ActionSheetCmp.prototype.dismiss = function () {
-	        return this._viewCtrl.dismiss(null);
-	    };
 	    ActionSheetCmp.prototype.onPageLoaded = function () {
 	        var _this = this;
 	        // normalize the data
@@ -59981,11 +60204,22 @@
 	            if (!button.cssClass) {
 	                button.cssClass = '';
 	            }
+	            // deprecated warning
 	            if (button.style === 'cancel') {
+	                void 0;
+	                button.role = 'cancel';
+	                _this.d.cancelButton = button;
+	            }
+	            if (button.role === 'cancel') {
 	                _this.d.cancelButton = button;
 	            }
 	            else {
+	                // deprecated warning
 	                if (button.style === 'destructive') {
+	                    button.role = 'destructive';
+	                    button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive';
+	                }
+	                if (button.role === 'destructive') {
 	                    button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive';
 	                }
 	                buttons.push(button);
@@ -59996,10 +60230,37 @@
 	        self.keyUp = function (ev) {
 	            if (ev.keyCode === 27) {
 	                void 0;
-	                self.dismiss();
+	                self.bdClick();
 	            }
 	        };
 	        document.addEventListener('keyup', this.keyUp);
+	    };
+	    ActionSheetCmp.prototype.click = function (button, dismissDelay) {
+	        var _this = this;
+	        var shouldDismiss = true;
+	        if (button.handler) {
+	            // a handler has been provided, execute it
+	            if (button.handler() === false) {
+	                // if the return value of the handler is false then do not dismiss
+	                shouldDismiss = false;
+	            }
+	        }
+	        if (shouldDismiss) {
+	            setTimeout(function () {
+	                _this.dismiss(button.role);
+	            }, dismissDelay || this._config.get('pageTransitionDelay'));
+	        }
+	    };
+	    ActionSheetCmp.prototype.bdClick = function () {
+	        if (this.d.cancelButton) {
+	            this.click(this.d.cancelButton, 1);
+	        }
+	        else {
+	            this.dismiss('backdrop');
+	        }
+	    };
+	    ActionSheetCmp.prototype.dismiss = function (role) {
+	        return this._viewCtrl.dismiss(null, role);
 	    };
 	    ActionSheetCmp.prototype.onPageDidLeave = function () {
 	        document.removeEventListener('keyup', this.keyUp);
@@ -60007,7 +60268,7 @@
 	    ActionSheetCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-action-sheet',
-	            template: '<div (click)="dismiss()" tappable disable-activated class="backdrop" role="presentation"></div>' +
+	            template: '<div (click)="bdClick()" tappable disable-activated class="backdrop" role="presentation"></div>' +
 	                '<div class="action-sheet-wrapper">' +
 	                '<div class="action-sheet-container">' +
 	                '<div class="action-sheet-group">' +
@@ -60031,9 +60292,10 @@
 	            },
 	            directives: [common_1.NgFor, common_1.NgIf, icon_1.Icon]
 	        }), 
-	        __metadata('design:paramtypes', [view_controller_1.ViewController, config_1.Config, core_1.ElementRef, nav_params_1.NavParams, core_1.Renderer])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
 	    ], ActionSheetCmp);
 	    return ActionSheetCmp;
+	    var _a, _b, _c, _d, _e;
 	})();
 	var ActionSheetSlideIn = (function (_super) {
 	    __extends(ActionSheetSlideIn, _super);
@@ -60091,7 +60353,6 @@
 	    return ActionSheetMdSlideOut;
 	})(animation_1.Animation);
 	animation_1.Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
-
 
 /***/ },
 /* 341 */
@@ -60279,7 +60540,6 @@
 	var OPACITY = 'opacity';
 	var TRANSLATE_X = 'translateX';
 
-
 /***/ },
 /* 342 */
 /***/ function(module, exports, __webpack_require__) {
@@ -60450,7 +60710,6 @@
 	})(animation_1.Animation);
 	animation_1.Animation.register('modal-md-slide-out', ModalMDSlideOut);
 
-
 /***/ },
 /* 343 */
 /***/ function(module, exports, __webpack_require__) {
@@ -60461,7 +60720,6 @@
 	__export(__webpack_require__(344));
 	__export(__webpack_require__(345));
 	__export(__webpack_require__(346));
-
 
 /***/ },
 /* 344 */
@@ -60539,7 +60797,6 @@
 	    return StorageEngine;
 	})();
 	exports.StorageEngine = StorageEngine;
-
 
 /***/ },
 /* 345 */
@@ -60635,7 +60892,6 @@
 	})(storage_1.StorageEngine);
 	exports.LocalStorage = LocalStorage;
 
-
 /***/ },
 /* 346 */
 /***/ function(module, exports, __webpack_require__) {
@@ -60690,10 +60946,10 @@
 	            existingDatabase: false
 	        });
 	        if (win.sqlitePlugin) {
-	            var location_1 = this._getBackupLocation(dbOptions.backupFlag);
+	            var location = this._getBackupLocation(dbOptions.backupFlag);
 	            this._db = win.sqlitePlugin.openDatabase(util_1.assign({
 	                name: dbOptions.name,
-	                location: location_1,
+	                location: location,
 	                createFromLocation: dbOptions.existingDatabase ? 1 : 0
 	            }, dbOptions));
 	        }
@@ -60853,7 +61109,6 @@
 	})(storage_1.StorageEngine);
 	exports.SqlStorage = SqlStorage;
 
-
 /***/ },
 /* 347 */
 /***/ function(module, exports, __webpack_require__) {
@@ -60896,12 +61151,12 @@
 	    TranslatePipe = __decorate([
 	        core_1.Pipe({ name: 'translate' }),
 	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [translate_1.Translate])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof translate_1.Translate !== 'undefined' && translate_1.Translate) === 'function' && _a) || Object])
 	    ], TranslatePipe);
 	    return TranslatePipe;
+	    var _a;
 	})();
 	exports.TranslatePipe = TranslatePipe;
-
 
 /***/ },
 /* 348 */
@@ -60944,7 +61199,6 @@
 	    tabbarPlacement: 'top',
 	    tabSubPages: true,
 	});
-
 
 /***/ },
 /* 349 */
@@ -61108,7 +61362,6 @@
 	    return p.testNavigatorPlatform('iphone|ipad|ipod');
 	}
 
-
 /***/ },
 /* 350 */
 /***/ function(module, exports, __webpack_require__) {
@@ -61167,7 +61420,6 @@
 	    return FadeOut;
 	})(animation_1.Animation);
 	animation_1.Animation.register('fade-out', FadeOut);
-
 
 /***/ },
 /* 351 */
@@ -61341,7 +61593,6 @@
 	})(animation_1.Animation);
 	animation_1.Animation.register('ios-transition', IOSTransition);
 
-
 /***/ },
 /* 352 */
 /***/ function(module, exports, __webpack_require__) {
@@ -61404,7 +61655,6 @@
 	})(animation_1.Animation);
 	animation_1.Animation.register('md-transition', MDTransition);
 
-
 /***/ },
 /* 353 */
 /***/ function(module, exports, __webpack_require__) {
@@ -61438,7 +61688,7 @@
 	    }
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/menus/basic/menu-home.html',
+	            templateUrl: './build/pages/menus/basic/menu-home.html',
 	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [ionic_1.IonicApp])
@@ -61451,7 +61701,7 @@
 	    }
 	    PageOne = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/menus/basic/menu-home.html',
+	            templateUrl: './build/pages/menus/basic/menu-home.html',
 	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -61464,7 +61714,7 @@
 	    }
 	    PageTwo = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/menus/basic/menu-friends.html',
+	            templateUrl: './build/pages/menus/basic/menu-friends.html',
 	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -61477,7 +61727,7 @@
 	    }
 	    PageThree = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/menus/basic/menu-events.html',
+	            templateUrl: './build/pages/menus/basic/menu-events.html',
 	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -61529,7 +61779,7 @@
 	        this.elementRef = elementRef;
 	        this.renderer = renderer;
 	        this.isAndroid = platform.is('android');
-	        renderer.setElementAttribute(elementRef.nativeElement, 'primary', this.isAndroid ? true : null);
+	        renderer.setElementAttribute(elementRef.nativeElement, 'primary', this.isAndroid ? '' : null);
 	    }
 	    AndroidAttribute = __decorate([
 	        core_1.Directive({
@@ -61576,6 +61826,7 @@
 	        'alert-confirm': alerts.ConfirmPage,
 	        'alert-prompt': alerts.PromptPage,
 	        'alert-radio': alerts.RadioPage,
+	        'alert-checkbox': alerts.CheckboxPage,
 	        'badges': badges.BasicPage,
 	        'buttons': buttons.BasicPage,
 	        'block-buttons': buttons.BlockPage,
@@ -61772,7 +62023,7 @@
 	    };
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/action-sheets/basic/basic.html',
+	            templateUrl: './build/pages/action-sheets/basic/basic.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [ionic_1.Platform, ionic_1.NavController])
@@ -61826,7 +62077,7 @@
 	    };
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/alerts/basic/template.html',
+	            templateUrl: './build/pages/alerts/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [ionic_1.NavController])
@@ -61879,7 +62130,7 @@
 	    };
 	    ConfirmPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/alerts/confirm/template.html',
+	            templateUrl: './build/pages/alerts/confirm/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [ionic_1.NavController])
@@ -61938,7 +62189,7 @@
 	    };
 	    PromptPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/alerts/prompt/template.html',
+	            templateUrl: './build/pages/alerts/prompt/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [ionic_1.NavController])
@@ -62023,7 +62274,7 @@
 	    };
 	    RadioPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/alerts/radio/template.html',
+	            templateUrl: './build/pages/alerts/radio/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [ionic_1.NavController])
@@ -62118,7 +62369,7 @@
 	    };
 	    CheckboxPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/alerts/checkbox/template.html',
+	            templateUrl: './build/pages/alerts/checkbox/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [ionic_1.NavController])
@@ -62159,7 +62410,7 @@
 	    }
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/badges/basic/template.html',
+	            templateUrl: './build/pages/badges/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62209,7 +62460,7 @@
 	    }
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/basic/basic.html',
+	            templateUrl: './build/pages/buttons/basic/basic.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62240,7 +62491,7 @@
 	    }
 	    BlockPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/block/block.html',
+	            templateUrl: './build/pages/buttons/block/block.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62271,7 +62522,7 @@
 	    }
 	    ClearPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/clear/clear.html',
+	            templateUrl: './build/pages/buttons/clear/clear.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62302,7 +62553,7 @@
 	    }
 	    ComponentsPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/components/components.html',
+	            templateUrl: './build/pages/buttons/components/components.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62333,7 +62584,7 @@
 	    }
 	    FabPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/fab/fab.html',
+	            templateUrl: './build/pages/buttons/fab/fab.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62364,7 +62615,7 @@
 	    }
 	    FullPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/full/full.html',
+	            templateUrl: './build/pages/buttons/full/full.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62395,7 +62646,7 @@
 	    }
 	    IconsPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/icons/icons.html',
+	            templateUrl: './build/pages/buttons/icons/icons.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62426,7 +62677,7 @@
 	    }
 	    OutlinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/outline/outline.html',
+	            templateUrl: './build/pages/buttons/outline/outline.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62457,7 +62708,7 @@
 	    }
 	    RoundPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/round/round.html',
+	            templateUrl: './build/pages/buttons/round/round.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62488,7 +62739,7 @@
 	    }
 	    SizesPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/buttons/sizes/sizes.html',
+	            templateUrl: './build/pages/buttons/sizes/sizes.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62536,7 +62787,7 @@
 	    }
 	    AdvancedMapPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/advanced-map/template.html',
+	            templateUrl: './build/pages/cards/advanced-map/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62567,7 +62818,7 @@
 	    }
 	    AdvancedSocialPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/advanced-social/template.html',
+	            templateUrl: './build/pages/cards/advanced-social/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62598,7 +62849,7 @@
 	    }
 	    AdvancedWeatherPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/advanced-weather/template.html',
+	            templateUrl: './build/pages/cards/advanced-weather/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62629,7 +62880,7 @@
 	    }
 	    BackgroundPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/background/template.html',
+	            templateUrl: './build/pages/cards/background/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62660,7 +62911,7 @@
 	    }
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/basic/template.html',
+	            templateUrl: './build/pages/cards/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62691,7 +62942,7 @@
 	    }
 	    HeaderPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/header/template.html',
+	            templateUrl: './build/pages/cards/header/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62722,7 +62973,7 @@
 	    }
 	    ImagePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/image/template.html',
+	            templateUrl: './build/pages/cards/image/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62753,7 +63004,7 @@
 	    }
 	    ListPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/cards/list/template.html',
+	            templateUrl: './build/pages/cards/list/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62794,7 +63045,7 @@
 	    }
 	    CheckboxPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/checkboxes/basic/template.html',
+	            templateUrl: './build/pages/checkboxes/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62835,7 +63086,7 @@
 	    }
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/grid/basic/template.html',
+	            templateUrl: './build/pages/grid/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62876,7 +63127,7 @@
 	    }
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/icons/basic/template.html',
+	            templateUrl: './build/pages/icons/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62932,7 +63183,7 @@
 	    };
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/basic/template.html',
+	            templateUrl: './build/pages/inputs/basic/template.html',
 	            providers: [common_1.FormBuilder],
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
@@ -62964,7 +63215,7 @@
 	    }
 	    FixedInlinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/fixed-inline/template.html',
+	            templateUrl: './build/pages/inputs/fixed-inline/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62995,7 +63246,7 @@
 	    }
 	    FloatingPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/floating/template.html',
+	            templateUrl: './build/pages/inputs/floating/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63026,7 +63277,7 @@
 	    }
 	    InlinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/inline/template.html',
+	            templateUrl: './build/pages/inputs/inline/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63057,7 +63308,7 @@
 	    }
 	    InsetPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/inset/template.html',
+	            templateUrl: './build/pages/inputs/inset/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63088,7 +63339,7 @@
 	    }
 	    PlaceholderPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/placeholder/template.html',
+	            templateUrl: './build/pages/inputs/placeholder/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63119,7 +63370,7 @@
 	    }
 	    StackedPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/inputs/stacked/template.html',
+	            templateUrl: './build/pages/inputs/stacked/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63167,7 +63418,7 @@
 	    }
 	    AvatarPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/avatar/template.html',
+	            templateUrl: './build/pages/lists/avatar/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63198,7 +63449,7 @@
 	    }
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/basic/template.html',
+	            templateUrl: './build/pages/lists/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63229,7 +63480,7 @@
 	    }
 	    HeadersPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/headers/template.html',
+	            templateUrl: './build/pages/lists/headers/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63260,7 +63511,7 @@
 	    }
 	    IconPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/icon/template.html',
+	            templateUrl: './build/pages/lists/icon/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63291,7 +63542,7 @@
 	    }
 	    InsetPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/inset/template.html',
+	            templateUrl: './build/pages/lists/inset/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63322,7 +63573,7 @@
 	    }
 	    NoLinesPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/no-lines/template.html',
+	            templateUrl: './build/pages/lists/no-lines/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63353,7 +63604,7 @@
 	    }
 	    MultilinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/multiline/template.html',
+	            templateUrl: './build/pages/lists/multiline/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63384,7 +63635,7 @@
 	    }
 	    ThumbnailPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/lists/thumbnail/template.html',
+	            templateUrl: './build/pages/lists/thumbnail/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63431,7 +63682,7 @@
 	    };
 	    ModalsInitialPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/modals/basic/template.html',
+	            templateUrl: './build/pages/modals/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [ionic_1.NavController])
@@ -63487,7 +63738,7 @@
 	    };
 	    ModalsContentPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/modals/basic/modal-content.html',
+	            templateUrl: './build/pages/modals/basic/modal-content.html',
 	            directives: [common_1.NgFor, core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [ionic_1.Platform, ionic_1.NavParams, ionic_1.ViewController])
@@ -63561,7 +63812,7 @@
 	    }
 	    NavigationDetailsPage = __decorate([
 	        ionic_2.Page({
-	            templateUrl: './build/navigation/basic/navigation-details.html',
+	            templateUrl: './build/pages/navigation/basic/navigation-details.html',
 	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [ionic_1.NavController, ionic_1.NavParams])
@@ -63577,7 +63828,7 @@
 	    };
 	    BasicPage = __decorate([
 	        ionic_2.Page({
-	            templateUrl: './build/navigation/basic/navigation.html',
+	            templateUrl: './build/pages/navigation/basic/navigation.html',
 	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [ionic_1.NavController])
@@ -63627,7 +63878,7 @@
 	    };
 	    RadioPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/radios/basic/template.html',
+	            templateUrl: './build/pages/radios/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63668,7 +63919,7 @@
 	    }
 	    RangePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/ranges/basic/template.html',
+	            templateUrl: './build/pages/ranges/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63768,7 +64019,7 @@
 	    };
 	    SearchPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/searchbars/basic/template.html',
+	            templateUrl: './build/pages/searchbars/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63812,7 +64063,7 @@
 	    }
 	    SegmentPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/segments/basic/template.html',
+	            templateUrl: './build/pages/segments/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [ionic_1.Platform])
@@ -63850,10 +64101,19 @@
 	var helpers_1 = __webpack_require__(355);
 	var SelectPage = (function () {
 	    function SelectPage() {
+	        this.gaming = "n64";
+	        this.gender = "f";
+	        this.musicAlertOpts = {
+	            title: '1994 Music',
+	            subTitle: 'Select your favorite'
+	        };
 	    }
+	    SelectPage.prototype.stpSelect = function () {
+	        console.log('STP selected');
+	    };
 	    SelectPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/selects/basic/template.html',
+	            templateUrl: './build/pages/selects/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63894,7 +64154,7 @@
 	    }
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/slides/basic/template.html',
+	            templateUrl: './build/pages/slides/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -64136,7 +64396,7 @@
 	    }
 	    TogglePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/toggles/basic/template.html',
+	            templateUrl: './build/pages/toggles/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])

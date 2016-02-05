@@ -63,13 +63,7 @@ We see that `this.rootPage` is set to `HelloIonicPage`, so `HelloIonicPage` will
 
 Next, let's check out the `HelloIonicPage` that we are importing. Inside the `app/hello-ionic/` folder, let's open up `hello-ionic.js`.
 
-<button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#naming-conventions">
-  Naming conventions
-</button>
-
-<div id="naming-conventions" class="collapse well">
-You may have noticed that each page has its own folder that is named after the page. Inside each folder, we also see a <code>.html</code> and a <code>.scss</code> file with the same name. For example, inside of <code>hello-ionic/</code> we will find <code>hello-ionic.js</code>, <code>hello-ionic.html</code>, and <code>hello-ionic.scss</code>. Although using this pattern is not required, it can be helpful to keep things organized.
-</div>
+> You may have noticed that each page has its own folder that is named after the page. Inside each folder, we also see a `.html` and a `.scss` file with the same name. For example, inside of `hello-ionic/` we will find`hello-ionic.js`, `hello-ionic.html`, and `hello-ionic.scss`. Although using this pattern is not required, it can be helpful to keep things organized.
 
 
 Below, you will see the `HelloIonicPage` class which has a `Page` [decorator](../../../resources/what-is/#decorators). This creates a Page - an Angular component and an Angular view configured with all the necessary directives already that is meant to be loaded dynamically, so it does not use a tag selector:
@@ -149,7 +143,7 @@ export class ListPage {
 This page will create a basic list page containing a number of items. Notice that we are also defining an `itemTapped` function that logs the title of an item to the console. Let's go check out how this function gets called. Open up `app/list/list.html`:
 
 ```html
-<ion-item *ng-for="#item of items" (click)="itemTapped($event, item)">
+<ion-item *ngFor="#item of items" (click)="itemTapped($event, item)">
 ```
 
 This will add each item to the list, and register a click handler on each of those items. When the item is tapped or clicked, it will call our `itemTapped` function that logs the title of the item to the console. Also note that we pass this function the click event, as well as the item that was tapped.

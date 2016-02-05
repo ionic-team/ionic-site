@@ -3225,6 +3225,7 @@
 	    ], ApiDemoApp);
 	    return ApiDemoApp;
 	})();
+	document.body.innerHTML += '<link href="style.css" rel="stylesheet">';
 
 /***/ },
 /* 6 */

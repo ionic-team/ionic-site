@@ -9,38 +9,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_1 = require('ionic/ionic');
 var Page1 = (function () {
-    function Page1(app) {
-        this.app = app;
+    function Page1(menu) {
+        this.menu = menu;
         this.menu1Active();
     }
     Page1.prototype.menu1Active = function () {
         this.activeMenu = 'menu1';
-        this.app.getComponent('menu1').enable(true);
-        this.app.getComponent('menu2').enable(false);
+        this.menu.enable(true, 'menu1');
+        this.menu.enable(false, 'menu2');
     };
     Page1.prototype.menu2Active = function () {
         this.activeMenu = 'menu2';
-        this.app.getComponent('menu1').enable(false);
-        this.app.getComponent('menu2').enable(true);
+        this.menu.enable(false, 'menu1');
+        this.menu.enable(true, 'menu2');
     };
     Page1 = __decorate([
         ionic_1.Page({ templateUrl: 'page1.html' }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.MenuController !== 'undefined' && ionic_1.MenuController) === 'function' && _a) || Object])
     ], Page1);
     return Page1;
     var _a;
 })();
 var ApiDemoApp = (function () {
-    function ApiDemoApp(app) {
-        this.app = app;
+    function ApiDemoApp() {
         this.rootView = Page1;
     }
     ApiDemoApp = __decorate([
         ionic_1.App({
             templateUrl: 'main.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [])
     ], ApiDemoApp);
     return ApiDemoApp;
-    var _a;
 })();

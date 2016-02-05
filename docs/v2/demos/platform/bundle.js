@@ -46682,10 +46682,6 @@
 	    Navbar.prototype.setHidden = function (isHidden) {
 	        // used to display none/block the navbar
 	        this._hidden = isHidden;
-	        // on the very first load, the navbar may load quicker than
-	        // the tab content, which looks weird. This makes sure that
-	        // the tab's navbar doesn't show before the tab has fully loaded
-	        this._showNavbar = !isHidden;
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -46709,7 +46705,6 @@
 	                '</div>',
 	            host: {
 	                '[hidden]': '_hidden',
-	                '[class.show-tab-navbar]': '_showNavbar',
 	                'class': 'toolbar'
 	            },
 	            directives: [BackButton, BackButtonText, icon_1.Icon, ToolbarBackground]

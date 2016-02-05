@@ -46644,6 +46644,7 @@
 	 * </ion-navbar>
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/navbar/
 	 * @see {@link ../../toolbar/Toolbar/ Toolbar API Docs}
 	 */
 	var Navbar = (function (_super) {

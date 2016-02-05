@@ -3216,6 +3216,9 @@
 	var ionic_1 = __webpack_require__(6);
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
+	        this.demo = "Toolbar";
+	        this.favorites = "recent";
+	        this.apps = "free";
 	    }
 	    ApiDemoApp = __decorate([
 	        ionic_1.App({
@@ -46597,6 +46600,7 @@
 	 * </ion-navbar>
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/navbar/
 	 * @see {@link ../../toolbar/Toolbar/ Toolbar API Docs}
 	 */
 	var Navbar = (function (_super) {

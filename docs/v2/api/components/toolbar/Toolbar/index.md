@@ -48,7 +48,7 @@ Unlike an <code>Navbar</code>, <code>Toolbar</code> can be used for a subheader 
 Since it&#39;s based on flexbox, you can place the toolbar where you
 need it and flexbox will handle everything else. Toolbars will automatically
 assume they should be placed before an <code>ion-content</code>, so to specify that you want it
-below, you can add the property <code>placement=&quot;bottom&quot;</code>. This will change the flex order
+below, you can add the property <code>position=&quot;bottom&quot;</code>. This will change the flex order
 property.</p>
 
 
@@ -68,11 +68,11 @@ property.</p>
 
  &lt;ion-content&gt;&lt;/ion-content&gt;
 
-&lt;ion-toolbar position=&quot;bottom&gt;
+&lt;ion-toolbar position=&quot;bottom&quot;&gt;
   &lt;ion-title&gt;I&#39;m a subfooter&lt;/ion-title&gt;
 &lt;/ion-toolbar&gt;
 
-&lt;ion-toolbar position=&quot;bottom&gt;
+&lt;ion-toolbar position=&quot;bottom&quot;&gt;
   &lt;ion-title&gt;I&#39;m a footer&lt;/ion-title&gt;
 &lt;/ion-toolbar&gt;
 </code></pre>
@@ -105,7 +105,7 @@ property.</p>
 
 <tr>
 <td>
-placement
+position
 </td>
 
 

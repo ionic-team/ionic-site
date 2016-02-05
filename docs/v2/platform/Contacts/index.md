@@ -4,7 +4,7 @@ version: "1.0.8"
 versionHref: "/docs/v2/platform"
 path: ""
 category: platform
-id: "{{Contacts | slugify}}"
+id: "contacts"
 title: "Contacts"
 header_sub_title: "Class in module "
 doc: "Contacts"

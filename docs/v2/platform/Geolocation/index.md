@@ -4,7 +4,7 @@ version: "1.0.8"
 versionHref: "/docs/v2/platform"
 path: ""
 category: platform
-id: "{{Geolocation | slugify}}"
+id: "geolocation"
 title: "Geolocation"
 header_sub_title: "Class in module "
 doc: "Geolocation"

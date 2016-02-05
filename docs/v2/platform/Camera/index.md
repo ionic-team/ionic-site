@@ -4,7 +4,7 @@ version: "1.0.8"
 versionHref: "/docs/v2/platform"
 path: ""
 category: platform
-id: "{{Camera | slugify}}"
+id: "camera"
 title: "Camera"
 header_sub_title: "Class in module "
 doc: "Camera"

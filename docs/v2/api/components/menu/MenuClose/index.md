@@ -43,7 +43,8 @@ Improve this doc
 
 
 
-<p>Place <code>menuClose</code> on a button to automatically close an open menu.</p>
+<p>The <code>menuClose</code> directive can be placed on any button to
+automatically close an open menu.</p>
 
 
 <h2>Directive</h2>
@@ -52,15 +53,11 @@ Improve this doc
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot;&gt;
-  &lt;ion-content&gt;
-    &lt;ion-list&gt;
-    &lt;ion-item menuClose&gt;Close the menu&lt;/ion-item&gt;
-    &lt;/ion-list&gt;
-  &lt;/ion-content&gt;
-&lt;/ion-menu&gt;
-
-&lt;ion-nav #mycontent [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
+<pre><code class="lang-html">&lt;button menuClose&gt;Close Menu&lt;/button&gt;
+</code></pre>
+<p>To close a certain menu by its id or side, give the <code>menuClose</code>
+directive a value.</p>
+<pre><code class="lang-html">&lt;button menuClose=&quot;left&quot;&gt;Close Left Menu&lt;/button&gt;
 </code></pre>
 
 

@@ -43,8 +43,8 @@ Improve this doc
 
 
 
-<p>Toggle a menu by placing this directive on any item.
-Note that the menu&#39;s id must be either <code>leftMenu</code> or <code>rightMenu</code></p>
+<p>The <code>menuToggle</code> directive can be placed on any button to
+automatically close an open menu.</p>
 
 
 <h2>Directive</h2>
@@ -53,10 +53,11 @@ Note that the menu&#39;s id must be either <code>leftMenu</code> or <code>rightM
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-content&gt;
- &lt;h3&gt;Page 1&lt;/h3&gt;
- &lt;button menuToggle&gt;Toggle Menu&lt;/button&gt;
-&lt;/ion-content&gt;
+<pre><code class="lang-html">&lt;button menuToggle&gt;Toggle Menu&lt;/button&gt;
+</code></pre>
+<p>To toggle a certain menu by its id or side, give the <code>menuToggle</code>
+directive a value.</p>
+<pre><code class="lang-html">&lt;button menuToggle=&quot;right&quot;&gt;Toggle Right Menu&lt;/button&gt;
 </code></pre>
 
 

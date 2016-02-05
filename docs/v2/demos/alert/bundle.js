@@ -46088,33 +46088,33 @@
 	var navbar_1 = __webpack_require__(296);
 	var menu_controller_1 = __webpack_require__(274);
 	/**
-	* @name MenuToggle
-	* @description
-	* Toggle a menu by placing this directive on any item.
-	* Note that the menu's id must be either `leftMenu` or `rightMenu`
-	*
-	* @usage
-	 * ```html
-	 *<ion-content>
-	 *  <h3>Page 1</h3>
-	 *  <button menuToggle>Toggle Menu</button>
-	 *</ion-content>
+	 * @name MenuToggle
+	 * @description
+	 * The `menuToggle` directive can be placed on any button to
+	 * automatically close an open menu.
 	 *
+	 * @usage
+	 * ```html
+	 * <button menuToggle>Toggle Menu</button>
 	 * ```
-	* @demo /docs/v2/demos/menu/
-	* @see {@link /docs/v2/components#menus Menu Component Docs}
-	* @see {@link ../../menu/Menu Menu API Docs}
-	*/
+	 *
+	 * To toggle a certain menu by its id or side, give the `menuToggle`
+	 * directive a value.
+	 *
+	 * ```html
+	 * <button menuToggle="right">Toggle Right Menu</button>
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/menu/
+	 * @see {@link /docs/v2/components#menus Menu Component Docs}
+	 * @see {@link ../../menu/Menu Menu API Docs}
+	 */
 	var MenuToggle = (function () {
 	    function MenuToggle(_menu, elementRef, _viewCtrl, _navbar) {
 	        this._menu = _menu;
 	        this._viewCtrl = _viewCtrl;
 	        this._navbar = _navbar;
 	        this._inNavbar = !!_navbar;
-	        // Deprecation warning
-	        if (this._inNavbar && elementRef.nativeElement.tagName === 'A') {
-	            console.warn('Menu toggles within a navbar should use <button menuToggle> instead of <a menu-toggle>');
-	        }
 	    }
 	    /**
 	    * @private
@@ -49055,26 +49055,27 @@
 	var core_1 = __webpack_require__(8);
 	var menu_controller_1 = __webpack_require__(274);
 	/**
-	* @name MenuClose
-	* @description
-	* Place `menuClose` on a button to automatically close an open menu.
-	*
-	* @usage
-	 * ```html
-	 * <ion-menu [content]="mycontent">
-	 *   <ion-content>
-	 *     <ion-list>
-	 *     <ion-item menuClose>Close the menu</ion-item>
-	 *     </ion-list>
-	 *   </ion-content>
-	 * </ion-menu>
+	 * @name MenuClose
+	 * @description
+	 * The `menuClose` directive can be placed on any button to
+	 * automatically close an open menu.
 	 *
-	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * @usage
+	 * ```html
+	 * <button menuClose>Close Menu</button>
 	 * ```
-	* @demo /docs/v2/demos/menu/
-	* @see {@link /docs/v2/components#menus Menu Component Docs}
-	* @see {@link ../../menu/Menu Menu API Docs}
-	*/
+	 *
+	 * To close a certain menu by its id or side, give the `menuClose`
+	 * directive a value.
+	 *
+	 * ```html
+	 * <button menuClose="left">Close Left Menu</button>
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/menu/
+	 * @see {@link /docs/v2/components#menus Menu Component Docs}
+	 * @see {@link ../../menu/Menu Menu API Docs}
+	 */
 	var MenuClose = (function () {
 	    function MenuClose(_menu) {
 	        this._menu = _menu;

@@ -208,6 +208,25 @@ expression you want to evaluate when the tabs chage
 
 
 
+<div id="ngAfterContentInit"></div>
+
+<h3>
+<code>ngAfterContentInit()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="select"></div>
 
 <h3>

@@ -46757,7 +46757,12 @@
 	     * @private
 	     */
 	    Navbar.prototype.setHidden = function (isHidden) {
+	        // used to display none/block the navbar
 	        this._hidden = isHidden;
+	        // on the very first load, the navbar may load quicker than
+	        // the tab content, which looks weird. This makes sure that
+	        // the tab's navbar doesn't show before the tab has fully loaded
+	        this._showNavbar = !isHidden;
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -46781,6 +46786,7 @@
 	                '</div>',
 	            host: {
 	                '[hidden]': '_hidden',
+	                '[class.show-tab-navbar]': '_showNavbar',
 	                'class': 'toolbar'
 	            },
 	            directives: [BackButton, BackButtonText, icon_1.Icon, ToolbarBackground]
@@ -54625,6 +54631,7 @@
 	        this._platform = _platform;
 	        this._renderer = _renderer;
 	        this._ids = -1;
+	        this._preloadTabs = null;
 	        this._tabs = [];
 	        this._onReady = null;
 	        /**
@@ -54650,10 +54657,8 @@
 	     */
 	    Tabs.prototype.ngAfterViewInit = function () {
 	        var _this = this;
-	        this.preloadTabs = (this.preloadTabs !== "false" && this.preloadTabs !== false);
 	        this._setConfig('tabbarPlacement', 'bottom');
 	        this._setConfig('tabbarIcons', 'top');
-	        this._setConfig('preloadTabs', false);
 	        if (this._useHighlight) {
 	            this._platform.onResize(function () {
 	                _this._highlight.select(_this.getSelected());
@@ -54664,12 +54669,16 @@
 	                _this.select(tab);
 	            });
 	        });
+	    };
+	    Tabs.prototype.ngAfterContentInit = function () {
+	        var _this = this;
 	        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
+	        var preloadTabs = (util_1.isUndefined(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
 	        this._tabs.forEach(function (tab, index) {
 	            if (index === selectedIndex) {
 	                _this.select(tab);
 	            }
-	            else if (_this.preloadTabs) {
+	            else if (preloadTabs) {
 	                tab.preload(1000 * index);
 	            }
 	        });
@@ -54705,7 +54714,7 @@
 	            // no change
 	            return this._touchActive(selectedTab);
 	        }
-	        console.time('Tabs#select ' + selectedTab.id);
+	        console.debug('Tabs, select', selectedTab.id);
 	        var opts = {
 	            animate: false
 	        };
@@ -54737,7 +54746,6 @@
 	                _this._onReady();
 	                _this._onReady = null;
 	            }
-	            console.time('Tabs#select ' + selectedTab.id);
 	        });
 	    };
 	    /**
@@ -55106,6 +55114,7 @@
 	        var _this = this;
 	        this._loadTimer = setTimeout(function () {
 	            if (!_this._loaded) {
+	                console.debug('Tabs, preload', _this.id);
 	                _this.load({
 	                    animate: false,
 	                    preload: true,

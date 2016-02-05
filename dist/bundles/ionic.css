@@ -6165,6 +6165,10 @@ ion-icon {
     -webkit-order: -30;
     -ms-flex-order: -30;
     order: -30; }
+  .ios ion-tabs > ion-navbar-section ion-navbar.toolbar.show-navbar {
+    opacity: 0; }
+  .ios ion-tabs > ion-navbar-section ion-navbar.toolbar.show-navbar.show-tab-navbar {
+    opacity: 1; }
   .ios ion-tabbar-section {
     position: relative;
     -webkit-box-ordinal-group: 21;
@@ -9337,6 +9341,10 @@ ion-icon {
     -webkit-order: -30;
     -ms-flex-order: -30;
     order: -30; }
+  .md ion-tabs > ion-navbar-section ion-navbar.toolbar.show-navbar {
+    opacity: 0; }
+  .md ion-tabs > ion-navbar-section ion-navbar.toolbar.show-navbar.show-tab-navbar {
+    opacity: 1; }
   .md ion-tabbar-section {
     position: relative;
     -webkit-box-ordinal-group: 21;

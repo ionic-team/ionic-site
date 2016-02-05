@@ -41305,22 +41305,69 @@
 	    function MenuController() {
 	        this._menus = [];
 	    }
+	    /**
+	     * Progamatically open the Menu.
+	     * @return {Promise} returns a promise when the menu is fully opened
+	     */
 	    MenuController.prototype.open = function (menuId) {
 	        var menu = this.get(menuId);
-	        menu && menu.open();
+	        if (menu) {
+	            return menu.open();
+	        }
 	    };
+	    /**
+	     * Progamatically close the Menu.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Promise} returns a promise when the menu is fully closed
+	     */
 	    MenuController.prototype.close = function (menuId) {
 	        var menu = this.get(menuId);
-	        menu && menu.close();
+	        if (menu) {
+	            return menu.close();
+	        }
 	    };
+	    /**
+	     * Toggle the menu. If it's closed, it will open, and if opened, it will
+	     * close.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Promise} returns a promise when the menu has been toggled
+	     */
+	    MenuController.prototype.toggle = function (menuId) {
+	        var menu = this.get(menuId);
+	        if (menu) {
+	            return menu.toggle();
+	        }
+	    };
+	    /**
+	     * Used to enable or disable a menu. For example, there could be multiple
+	     * left menus, but only one of them should be able to be dragged open.
+	     * @param {boolean} shouldEnable  True if it should be enabled, false if not.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
+	     */
 	    MenuController.prototype.enable = function (shouldEnable, menuId) {
 	        var menu = this.get(menuId);
-	        menu && menu.enable(shouldEnable);
+	        if (menu) {
+	            return menu.enable(shouldEnable);
+	        }
 	    };
+	    /**
+	     * Used to enable or disable the ability to swipe open the menu.
+	     * @param {boolean} shouldEnable  True if it should be swipe-able, false if not.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
+	     */
 	    MenuController.prototype.swipeEnable = function (shouldEnable, menuId) {
 	        var menu = this.get(menuId);
-	        menu && menu.swipeEnable(shouldEnable);
+	        if (menu) {
+	            return menu.swipeEnable(shouldEnable);
+	        }
 	    };
+	    /**
+	     * Used to get a menu instance.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Menu}  Returns the instance of the menu if found, otherwise `null`.
+	     */
 	    MenuController.prototype.get = function (menuId) {
 	        if (menuId) {
 	            // first try by "id"
@@ -42996,6 +43043,9 @@
 	var keyboard_1 = __webpack_require__(273);
 	var gestures = __webpack_require__(286);
 	var menu_controller_1 = __webpack_require__(274);
+	/**
+	 * @private
+	 */
 	var Menu = (function (_super) {
 	    __extends(Menu, _super);
 	    function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone) {

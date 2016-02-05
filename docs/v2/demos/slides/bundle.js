@@ -47096,7 +47096,7 @@
 	 *   <ion-title>SubHeader</ion-title>
 	 * </ion-toolbar>
 	 *  ```
-	 * @demo /docs/v2/demos/toolbar/
+	 * @demo /docs/v2/demos/title/
 	 */
 	var ToolbarTitle = (function (_super) {
 	    __extends(ToolbarTitle, _super);

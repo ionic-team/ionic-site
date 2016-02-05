@@ -3214,74 +3214,21 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(6);
-	var Login = (function () {
-	    function Login(events) {
-	        this.events = events;
-	        this.user = {
-	            name: "Administrator",
-	            username: "admin"
-	        };
-	    }
-	    Login.prototype.login = function () {
-	        this.events.publish('user:login');
-	    };
-	    Login = __decorate([
-	        ionic_1.Page({ templateUrl: 'login.html' }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Events !== 'undefined' && ionic_1.Events) === 'function' && _a) || Object])
-	    ], Login);
-	    return Login;
-	    var _a;
-	})();
-	var Logout = (function () {
-	    function Logout(events) {
-	        this.events = events;
-	    }
-	    Logout.prototype.logout = function () {
-	        this.events.publish('user:logout');
-	    };
-	    Logout = __decorate([
-	        ionic_1.Page({ templateUrl: 'logout.html' }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Events !== 'undefined' && ionic_1.Events) === 'function' && _a) || Object])
-	    ], Logout);
-	    return Logout;
-	    var _a;
-	})();
+	// Use the toolbar demo but pass in the demo name to change the title
+	// this will also hide some of the toolbars that don't use `ion-title`
 	var ApiDemoApp = (function () {
-	    function ApiDemoApp(app, events) {
-	        this.app = app;
-	        this.events = events;
-	        this.rootView = Login;
-	        this.loggedIn = false;
-	        this.pages = [
-	            { title: 'Logout', component: Logout, showLoggedIn: true },
-	            { title: 'Login', component: Login, showLoggedIn: false },
-	        ];
-	        this.listenToLoginEvents();
+	    function ApiDemoApp() {
+	        this.demo = "Title";
+	        this.favorites = "recent";
+	        this.apps = "free";
 	    }
-	    ApiDemoApp.prototype.openPage = function (menu, page) {
-	        // find the nav component and set what the root page should be
-	        // reset the nav to remove previous pages and only have this page
-	        // we wouldn't want the back button to show in this scenario
-	        var nav = this.app.getComponent('nav');
-	        nav.setRoot(page.component);
-	    };
-	    ApiDemoApp.prototype.listenToLoginEvents = function () {
-	        var _this = this;
-	        this.events.subscribe('user:login', function () {
-	            _this.loggedIn = true;
-	        });
-	        this.events.subscribe('user:logout', function () {
-	            _this.loggedIn = false;
-	        });
-	    };
 	    ApiDemoApp = __decorate([
 	        ionic_1.App({
-	            templateUrl: 'main.html'
+	            templateUrl: '../toolbar/main.html'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.Events !== 'undefined' && ionic_1.Events) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [])
 	    ], ApiDemoApp);
 	    return ApiDemoApp;
-	    var _a, _b;
 	})();
 
 /***/ },

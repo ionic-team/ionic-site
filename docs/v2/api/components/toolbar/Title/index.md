@@ -10,7 +10,7 @@ header_sub_title: "Class in module "
 doc: "Title"
 docType: "class"
 show_preview_device: true
-preview_device_url: "/docs/v2/demos/toolbar/"
+preview_device_url: "/docs/v2/demos/title/"
 angular_controller: APIDemoCtrl 
 ---
 

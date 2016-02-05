@@ -41232,6 +41232,7 @@
 	 * without requiring a menu ID.
 	 *
 	 * ```ts
+	 * import{Page, MenuController} from 'ionic/ionic';
 	 * @Page({...})
 	 * export class MyPage {
 	 *  constructor(menu: MenuController) {

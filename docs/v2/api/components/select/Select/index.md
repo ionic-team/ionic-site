@@ -9,7 +9,9 @@ title: "Select"
 header_sub_title: "Class in module "
 doc: "Select"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/select/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -209,7 +211,6 @@ Whether or not the select component is disabled or not
 
 <td>
 Any expression you want to evaluate when the selection has changed
-
 
 </td>
 </tr>

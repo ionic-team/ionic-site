@@ -6939,12 +6939,6 @@ ion-tabs > ion-navbar-section {
   -ms-flex-order: -30;
   order: -30; }
 
-ion-tabs > ion-navbar-section ion-navbar.toolbar.show-navbar {
-  opacity: 0; }
-
-ion-tabs > ion-navbar-section ion-navbar.toolbar.show-navbar.show-tab-navbar {
-  opacity: 1; }
-
 ion-tabbar-section {
   position: relative;
   -webkit-box-ordinal-group: 21;

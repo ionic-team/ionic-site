@@ -41140,6 +41140,7 @@
 	 * without requiring a menu ID.
 	 *
 	 * ```ts
+	 * import{Page, MenuController} from 'ionic/ionic';
 	 * @Page({...})
 	 * export class MyPage {
 	 *  constructor(menu: MenuController) {
@@ -46682,10 +46683,6 @@
 	    Navbar.prototype.setHidden = function (isHidden) {
 	        // used to display none/block the navbar
 	        this._hidden = isHidden;
-	        // on the very first load, the navbar may load quicker than
-	        // the tab content, which looks weird. This makes sure that
-	        // the tab's navbar doesn't show before the tab has fully loaded
-	        this._showNavbar = !isHidden;
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -46709,7 +46706,6 @@
 	                '</div>',
 	            host: {
 	                '[hidden]': '_hidden',
-	                '[class.show-tab-navbar]': '_showNavbar',
 	                'class': 'toolbar'
 	            },
 	            directives: [BackButton, BackButtonText, icon_1.Icon, ToolbarBackground]
@@ -54539,6 +54535,7 @@
 	 * individual Tab components. On iOS, the TabBar is placed on the bottom of
 	 * the screen, while on Android it is at the top.
 	 *
+	 * @demo /docs/v2/demos/tabs/
 	 * @see {@link /docs/v2/components#tabs Tabs Component Docs}
 	 * @see {@link ../Tab Tab API Docs}
 	 */
@@ -54996,6 +54993,7 @@
 	 * @property {String} [tabBadgeStyle] - set the badge color for this tab
 	 * @property {Any} (select) - method to call when the current tab is selected
 	 *
+	 * @demo /docs/v2/demos/tabs/
 	 */
 	var Tab = (function (_super) {
 	    __extends(Tab, _super);
@@ -56393,7 +56391,8 @@
 	 * @property [multiple] - Whether or not the select component can accept multipl selections
 	 * @property [disabled] - Whether or not the select component is disabled or not
 	 * @property (change) - Any expression you want to evaluate when the selection has changed
-
+	 *
+	 * @demo /docs/v2/demos/select/
 	 */
 	var Select = (function () {
 	    function Select(_form, _elementRef, _renderer, _item, _nav, ngControl) {

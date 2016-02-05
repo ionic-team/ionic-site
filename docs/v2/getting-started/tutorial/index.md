@@ -29,13 +29,7 @@ This will pull Ionic 2 down, install [npm modules](../../resources/what-is/#npm)
 
 **Want to use Typescript instead? pass the `--ts` flag and get a project set up for TypeScript instead.**
 
-<button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#starter-templates">
-  Ionic starter templates
-</button>
-
-<div id="starter-templates" class="collapse well">
-You may have noticed that we passed in <b>tutorial</b> to the <code>ionic start</code> command. This tells Ionic to bootstrap your application using the <a href="https://github.com/driftyco/ionic2-starter-tutorial">tutorial template</a>. If you do not specify a template by running <code>ionic start MyIonic2Project --v2</code>, the <a href="https://github.com/driftyco/ionic2-starter-tabs">tabs starter</a> will be used.
-</div>
+> You may have noticed that we passed in **tutorial** to the `ionic start` command. This tells Ionic to bootstrap your application using [tutorial template](https://github.com/driftyco/ionic2-starter-tutorial). If you do not specify a template by running `ionic start MyIonic2Project --v2`, the [tabs starter](https://github.com/driftyco/ionic2-starter-tabs) will be used.
 
 
 ### Viewing the app in a browser

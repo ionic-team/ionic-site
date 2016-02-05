@@ -57,7 +57,7 @@ Improve this doc
 
 <h3>
 <code>isAvailable()</code>
-
+  
 
 </h3>
 
@@ -74,3 +74,4 @@ Improve this doc
 
 
 <!-- end body block -->
+

@@ -56851,6 +56851,7 @@
 	        if (opts === void 0) { opts = {}; }
 	        opts.inputs = opts.inputs || [];
 	        opts.buttons = opts.buttons || [];
+	        opts.enableBackdropDismiss = (opts.enableBackdropDismiss === false ? false : true);
 	        _super.call(this, AlertCmp, opts);
 	        this.viewType = 'alert';
 	    }
@@ -56976,13 +56977,12 @@
 	        var self = this;
 	        self.keyUp = function (ev) {
 	            if (ev.keyCode === 13) {
-	                // enter
-	                console.debug('alert enter');
+	                console.debug('alert, enter button');
 	                var button = self.d.buttons[self.d.buttons.length - 1];
 	                self.btnClick(button);
 	            }
 	            else if (ev.keyCode === 27) {
-	                console.debug('alert escape');
+	                console.debug('alert, escape button');
 	                self.bdClick();
 	            }
 	        };
@@ -57027,12 +57027,14 @@
 	        checkedInput.checked = !checkedInput.checked;
 	    };
 	    AlertCmp.prototype.bdClick = function () {
-	        var cancelBtn = this.d.buttons.find(function (b) { return b.role === 'cancel'; });
-	        if (cancelBtn) {
-	            this.btnClick(cancelBtn, 1);
-	        }
-	        else {
-	            this.dismiss('backdrop');
+	        if (this.d.enableBackdropDismiss) {
+	            var cancelBtn = this.d.buttons.find(function (b) { return b.role === 'cancel'; });
+	            if (cancelBtn) {
+	                this.btnClick(cancelBtn, 1);
+	            }
+	            else {
+	                this.dismiss('backdrop');
+	            }
 	        }
 	    };
 	    AlertCmp.prototype.dismiss = function (role) {
@@ -57058,7 +57060,7 @@
 	        });
 	        return values;
 	    };
-	    AlertCmp.prototype.onPageDidLeave = function () {
+	    AlertCmp.prototype.onPageWillLeave = function () {
 	        document.removeEventListener('keyup', this.keyUp);
 	    };
 	    AlertCmp = __decorate([

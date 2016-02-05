@@ -57612,6 +57612,7 @@
 	 *  </ion-item>
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/input/
 	 */
 	var TextInput = (function (_super) {
 	    __extends(TextInput, _super);
@@ -57677,6 +57678,7 @@
 	 *  </ion-item>
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/textarea/
 	 */
 	var TextArea = (function (_super) {
 	    __extends(TextArea, _super);

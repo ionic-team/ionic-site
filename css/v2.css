@@ -7967,7 +7967,9 @@ body {
     border-left: 4px solid #eeeeee; }
   .docs-container main img.section-header {
     width: 100%;
-    margin: 10% 0 5%; }
+    margin: 50px auto;
+    max-width: 1037px;
+    display: block; }
 
 .platform-preview {
   position: absolute;

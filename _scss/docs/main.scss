@@ -600,7 +600,9 @@ body {
     }
     img.section-header {
       width: 100%;
-      margin: 10% 0 5%;
+      margin: 50px auto;
+      max-width: 1037px;
+      display: block;
     }
   }
 }

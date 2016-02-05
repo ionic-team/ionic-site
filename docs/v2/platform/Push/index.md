@@ -4,7 +4,7 @@ version: "1.0.8"
 versionHref: "/docs/v2/platform"
 path: ""
 category: platform
-id: "push"
+id: "{{Push | slugify}}"
 title: "Push"
 header_sub_title: "Class in module "
 doc: "Push"
@@ -53,3 +53,4 @@ Improve this doc
 
 
 <!-- end body block -->
+

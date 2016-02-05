@@ -4,7 +4,7 @@ version: "1.0.8"
 versionHref: "/docs/v2/platform"
 path: ""
 category: platform
-id: "geolocation"
+id: "{{Geolocation | slugify}}"
 title: "Geolocation"
 header_sub_title: "Class in module "
 doc: "Geolocation"
@@ -70,3 +70,4 @@ watch.source.subscribe((data) =&gt; {
 
 
 <!-- end body block -->
+

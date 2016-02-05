@@ -4,7 +4,7 @@ version: "1.0.8"
 versionHref: "/docs/v2/platform"
 path: ""
 category: platform
-id: "device"
+id: "{{Device | slugify}}"
 title: "Device"
 header_sub_title: "Class in module "
 doc: "Device"
@@ -62,3 +62,4 @@ Improve this doc
 
 
 <!-- end body block -->
+

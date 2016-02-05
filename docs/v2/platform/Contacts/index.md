@@ -4,7 +4,7 @@ version: "1.0.8"
 versionHref: "/docs/v2/platform"
 path: ""
 category: platform
-id: "contacts"
+id: "{{Contacts | slugify}}"
 title: "Contacts"
 header_sub_title: "Class in module "
 doc: "Contacts"
@@ -66,3 +66,4 @@ For full info, please see the <a href="https://github.com/apache/cordova-plugin-
 
 
 <!-- end body block -->
+

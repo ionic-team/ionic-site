@@ -165,25 +165,37 @@
   }
 
   .modal {
-    width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 30px 45px;
-    border-radius: 4px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
     opacity: 0;
-    z-index: 12 !important;
     transform: scale3d(.5,.5,1);
     transition: opacity .2s,
                 transform .4s cubic-bezier(0.155, 1.105, 0.295, 1.12);
-    &.current {
+    &:before {
+      display: inline-block;
+      vertical-align: middle;
+      content: " ";
+      height: 100%;
+    }
+    .modal-dialog {
+      display: inline-block;
+      vertical-align: middle;
+      text-align: left;
+      margin: 30px auto;
+      transform: translate3d(0, 0, 0);
+    }
+    &.in {
       opacity: 1;
       transform: scale3d(1,1,1);
     }
-    .modal-dialog {
-      transform: translate3d(0, 0, 0);
+    .modal-content {
+      border-radius: 4px;
+      border: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     }
-    a.close-modal {
+    .modal-body {
+      padding: 15px 30px;
+    }
+    button.close {
       position: absolute;
       top: -10px;
       right: -10px;
@@ -194,13 +206,11 @@
       width: 30px;
       box-shadow: 1px 1px 5px rgba(0,0,0,.5);
       outline: none;
-      color: rgba(white, 0);
-      &:before {
+      span{
         font-size: 28px;
-        top: -6px;
-        right: -6px;
+        top: -7px;
+        right: 0;
         position: relative;
-        content: '×';
         color: black;
       }
     }
@@ -223,7 +233,7 @@
       padding-left: 0;
       margin-top: 25px;
       li{
-        width: 170px;
+        width: 180px;
         display: inline-block;
         padding-right: 15px;
         &:last-child {
@@ -245,6 +255,9 @@
     pre code {
       margin: -60px -10px;
     }
+    code.hljs {
+      white-space: pre-wrap;
+    }
   }
 
 
@@ -260,7 +273,6 @@
 
 
 }
-.jquery-modal.blocker {
-  z-index: 11 !important;
-  background-color: #0f1e37 !important;
+.modal-backdrop{
+  background-color: #0f1e37;
 }

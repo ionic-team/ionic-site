@@ -56840,7 +56840,7 @@
 	        if (opts === void 0) { opts = {}; }
 	        opts.inputs = opts.inputs || [];
 	        opts.buttons = opts.buttons || [];
-	        opts.enableBackdropDismiss = (opts.enableBackdropDismiss === false ? false : true);
+	        opts.enableBackdropDismiss = util_1.isDefined(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, AlertCmp, opts);
 	        this.viewType = 'alert';
 	    }
@@ -60369,6 +60369,7 @@
 	var animation_1 = __webpack_require__(280);
 	var config_1 = __webpack_require__(160);
 	var icon_1 = __webpack_require__(297);
+	var util_1 = __webpack_require__(162);
 	var nav_params_1 = __webpack_require__(295);
 	var view_controller_1 = __webpack_require__(294);
 	/**
@@ -60444,6 +60445,7 @@
 	    function ActionSheet(opts) {
 	        if (opts === void 0) { opts = {}; }
 	        opts.buttons = opts.buttons || [];
+	        opts.enableBackdropDismiss = util_1.isDefined(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, ActionSheetCmp, opts);
 	        this.viewType = 'action-sheet';
 	    }
@@ -60547,17 +60549,22 @@
 	        }
 	    };
 	    ActionSheetCmp.prototype.bdClick = function () {
-	        if (this.d.cancelButton) {
-	            this.click(this.d.cancelButton, 1);
-	        }
-	        else {
-	            this.dismiss('backdrop');
+	        if (this.d.enableBackdropDismiss) {
+	            if (this.d.cancelButton) {
+	                this.click(this.d.cancelButton, 1);
+	            }
+	            else {
+	                this.dismiss('backdrop');
+	            }
 	        }
 	    };
 	    ActionSheetCmp.prototype.dismiss = function (role) {
 	        return this._viewCtrl.dismiss(null, role);
 	    };
-	    ActionSheetCmp.prototype.onPageDidLeave = function () {
+	    ActionSheetCmp.prototype.onPageWillLeave = function () {
+	        document.removeEventListener('keyup', this.keyUp);
+	    };
+	    ActionSheetCmp.prototype.ngOnDestroy = function () {
 	        document.removeEventListener('keyup', this.keyUp);
 	    };
 	    ActionSheetCmp = __decorate([

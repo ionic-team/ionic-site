@@ -3214,21 +3214,39 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(6);
-	// Use the toolbar demo but pass in the demo name to change the title
-	// this will also hide some of the toolbars that don't use `ion-title`
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
-	        this.demo = "Title";
-	        this.favorites = "recent";
-	        this.apps = "free";
+	        this.root = MainPage;
 	    }
 	    ApiDemoApp = __decorate([
 	        ionic_1.App({
-	            templateUrl: '../toolbar/main.html'
+	            template: '<ion-nav [root]="root"></ion-nav>'
 	        }), 
 	        __metadata('design:paramtypes', [])
 	    ], ApiDemoApp);
 	    return ApiDemoApp;
+	})();
+	var MainPage = (function () {
+	    function MainPage() {
+	        this.musicAlertOpts = {
+	            title: '1994 Music',
+	            subTitle: 'Select your favorite'
+	        };
+	        this.petOptions = [
+	            { text: 'Bird', value: 'bird' },
+	            { text: 'Cat', value: 'cat', checked: true },
+	            { text: 'Dog', value: 'dog', checked: true },
+	            { text: 'Honey Badger', value: 'honeybadger' },
+	            { text: 'Pig', value: 'pig' },
+	        ];
+	    }
+	    MainPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: 'main.html'
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], MainPage);
+	    return MainPage;
 	})();
 
 /***/ },

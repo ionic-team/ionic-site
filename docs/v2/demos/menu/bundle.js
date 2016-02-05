@@ -56412,7 +56412,8 @@
 	 * @property [multiple] - Whether or not the select component can accept multipl selections
 	 * @property [disabled] - Whether or not the select component is disabled or not
 	 * @property (change) - Any expression you want to evaluate when the selection has changed
-
+	 *
+	 * @demo /docs/v2/demos/select/
 	 */
 	var Select = (function () {
 	    function Select(_form, _elementRef, _renderer, _item, _nav, ngControl) {

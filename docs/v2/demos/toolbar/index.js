@@ -10,6 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ionic_1 = require('ionic/ionic');
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
+        this.demo = "Toolbar";
+        this.favorites = "recent";
+        this.apps = "free";
     }
     ApiDemoApp = __decorate([
         ionic_1.App({

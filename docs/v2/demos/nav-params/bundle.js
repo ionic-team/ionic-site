@@ -41258,22 +41258,69 @@
 	    function MenuController() {
 	        this._menus = [];
 	    }
+	    /**
+	     * Progamatically open the Menu.
+	     * @return {Promise} returns a promise when the menu is fully opened
+	     */
 	    MenuController.prototype.open = function (menuId) {
 	        var menu = this.get(menuId);
-	        menu && menu.open();
+	        if (menu) {
+	            return menu.open();
+	        }
 	    };
+	    /**
+	     * Progamatically close the Menu.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Promise} returns a promise when the menu is fully closed
+	     */
 	    MenuController.prototype.close = function (menuId) {
 	        var menu = this.get(menuId);
-	        menu && menu.close();
+	        if (menu) {
+	            return menu.close();
+	        }
 	    };
+	    /**
+	     * Toggle the menu. If it's closed, it will open, and if opened, it will
+	     * close.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Promise} returns a promise when the menu has been toggled
+	     */
+	    MenuController.prototype.toggle = function (menuId) {
+	        var menu = this.get(menuId);
+	        if (menu) {
+	            return menu.toggle();
+	        }
+	    };
+	    /**
+	     * Used to enable or disable a menu. For example, there could be multiple
+	     * left menus, but only one of them should be able to be dragged open.
+	     * @param {boolean} shouldEnable  True if it should be enabled, false if not.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
+	     */
 	    MenuController.prototype.enable = function (shouldEnable, menuId) {
 	        var menu = this.get(menuId);
-	        menu && menu.enable(shouldEnable);
+	        if (menu) {
+	            return menu.enable(shouldEnable);
+	        }
 	    };
+	    /**
+	     * Used to enable or disable the ability to swipe open the menu.
+	     * @param {boolean} shouldEnable  True if it should be swipe-able, false if not.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
+	     */
 	    MenuController.prototype.swipeEnable = function (shouldEnable, menuId) {
 	        var menu = this.get(menuId);
-	        menu && menu.swipeEnable(shouldEnable);
+	        if (menu) {
+	            return menu.swipeEnable(shouldEnable);
+	        }
 	    };
+	    /**
+	     * Used to get a menu instance.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Menu}  Returns the instance of the menu if found, otherwise `null`.
+	     */
 	    MenuController.prototype.get = function (menuId) {
 	        if (menuId) {
 	            // first try by "id"
@@ -42949,6 +42996,9 @@
 	var keyboard_1 = __webpack_require__(273);
 	var gestures = __webpack_require__(286);
 	var menu_controller_1 = __webpack_require__(274);
+	/**
+	 * @private
+	 */
 	var Menu = (function (_super) {
 	    __extends(Menu, _super);
 	    function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone) {
@@ -45888,33 +45938,33 @@
 	var navbar_1 = __webpack_require__(296);
 	var menu_controller_1 = __webpack_require__(274);
 	/**
-	* @name MenuToggle
-	* @description
-	* Toggle a menu by placing this directive on any item.
-	* Note that the menu's id must be either `leftMenu` or `rightMenu`
-	*
-	* @usage
-	 * ```html
-	 *<ion-content>
-	 *  <h3>Page 1</h3>
-	 *  <button menuToggle>Toggle Menu</button>
-	 *</ion-content>
+	 * @name MenuToggle
+	 * @description
+	 * The `menuToggle` directive can be placed on any button to
+	 * automatically close an open menu.
 	 *
+	 * @usage
+	 * ```html
+	 * <button menuToggle>Toggle Menu</button>
 	 * ```
-	* @demo /docs/v2/demos/menu/
-	* @see {@link /docs/v2/components#menus Menu Component Docs}
-	* @see {@link ../../menu/Menu Menu API Docs}
-	*/
+	 *
+	 * To toggle a certain menu by its id or side, give the `menuToggle`
+	 * directive a value.
+	 *
+	 * ```html
+	 * <button menuToggle="right">Toggle Right Menu</button>
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/menu/
+	 * @see {@link /docs/v2/components#menus Menu Component Docs}
+	 * @see {@link ../../menu/Menu Menu API Docs}
+	 */
 	var MenuToggle = (function () {
 	    function MenuToggle(_menu, elementRef, _viewCtrl, _navbar) {
 	        this._menu = _menu;
 	        this._viewCtrl = _viewCtrl;
 	        this._navbar = _navbar;
 	        this._inNavbar = !!_navbar;
-	        // Deprecation warning
-	        if (this._inNavbar && elementRef.nativeElement.tagName === 'A') {
-	            console.warn('Menu toggles within a navbar should use <button menuToggle> instead of <a menu-toggle>');
-	        }
 	    }
 	    /**
 	    * @private
@@ -46582,6 +46632,7 @@
 	 * </ion-navbar>
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/navbar/
 	 * @see {@link ../../toolbar/Toolbar/ Toolbar API Docs}
 	 */
 	var Navbar = (function (_super) {
@@ -46660,7 +46711,12 @@
 	     * @private
 	     */
 	    Navbar.prototype.setHidden = function (isHidden) {
+	        // used to display none/block the navbar
 	        this._hidden = isHidden;
+	        // on the very first load, the navbar may load quicker than
+	        // the tab content, which looks weird. This makes sure that
+	        // the tab's navbar doesn't show before the tab has fully loaded
+	        this._showNavbar = !isHidden;
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -46684,6 +46740,7 @@
 	                '</div>',
 	            host: {
 	                '[hidden]': '_hidden',
+	                '[class.show-tab-navbar]': '_showNavbar',
 	                'class': 'toolbar'
 	            },
 	            directives: [BackButton, BackButtonText, icon_1.Icon, ToolbarBackground]
@@ -47002,7 +47059,7 @@
 	 * Since it's based on flexbox, you can place the toolbar where you
 	 * need it and flexbox will handle everything else. Toolbars will automatically
 	 * assume they should be placed before an `ion-content`, so to specify that you want it
-	 * below, you can add the property `placement="bottom"`. This will change the flex order
+	 * below, you can add the property `position="bottom"`. This will change the flex order
 	 * property.
 	 *
 	 * @usage
@@ -47017,17 +47074,17 @@
 	 *
 	 *  <ion-content></ion-content>
 	 *
-	 * <ion-toolbar position="bottom>
+	 * <ion-toolbar position="bottom">
 	 *   <ion-title>I'm a subfooter</ion-title>
 	 * </ion-toolbar>
 	 *
-	 * <ion-toolbar position="bottom>
+	 * <ion-toolbar position="bottom">
 	 *   <ion-title>I'm a footer</ion-title>
 	 * </ion-toolbar>
 	 *
 	 *  ```
 	 *
-	 * @property {any} [placement] - set position of the toolbar, top or bottom. If not set, defautls to top.
+	 * @property {any} [position] - set position of the toolbar, top or bottom. If not set, defautls to top.
 	 * @demo /docs/v2/demos/toolbar/
 	 * @see {@link ../../navbar/Navbar/ Navbar API Docs}
 	 */
@@ -47074,7 +47131,7 @@
 	 *   <ion-title>SubHeader</ion-title>
 	 * </ion-toolbar>
 	 *  ```
-	 * @demo /docs/v2/demos/toolbar/
+	 * @demo /docs/v2/demos/title/
 	 */
 	var ToolbarTitle = (function (_super) {
 	    __extends(ToolbarTitle, _super);
@@ -48855,26 +48912,27 @@
 	var core_1 = __webpack_require__(8);
 	var menu_controller_1 = __webpack_require__(274);
 	/**
-	* @name MenuClose
-	* @description
-	* Place `menuClose` on a button to automatically close an open menu.
-	*
-	* @usage
-	 * ```html
-	 * <ion-menu [content]="mycontent">
-	 *   <ion-content>
-	 *     <ion-list>
-	 *     <ion-item menuClose>Close the menu</ion-item>
-	 *     </ion-list>
-	 *   </ion-content>
-	 * </ion-menu>
+	 * @name MenuClose
+	 * @description
+	 * The `menuClose` directive can be placed on any button to
+	 * automatically close an open menu.
 	 *
-	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * @usage
+	 * ```html
+	 * <button menuClose>Close Menu</button>
 	 * ```
-	* @demo /docs/v2/demos/menu/
-	* @see {@link /docs/v2/components#menus Menu Component Docs}
-	* @see {@link ../../menu/Menu Menu API Docs}
-	*/
+	 *
+	 * To close a certain menu by its id or side, give the `menuClose`
+	 * directive a value.
+	 *
+	 * ```html
+	 * <button menuClose="left">Close Left Menu</button>
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/menu/
+	 * @see {@link /docs/v2/components#menus Menu Component Docs}
+	 * @see {@link ../../menu/Menu Menu API Docs}
+	 */
 	var MenuClose = (function () {
 	    function MenuClose(_menu) {
 	        this._menu = _menu;
@@ -54527,6 +54585,7 @@
 	        this._platform = _platform;
 	        this._renderer = _renderer;
 	        this._ids = -1;
+	        this._preloadTabs = null;
 	        this._tabs = [];
 	        this._onReady = null;
 	        /**
@@ -54552,10 +54611,8 @@
 	     */
 	    Tabs.prototype.ngAfterViewInit = function () {
 	        var _this = this;
-	        this.preloadTabs = (this.preloadTabs !== "false" && this.preloadTabs !== false);
 	        this._setConfig('tabbarPlacement', 'bottom');
 	        this._setConfig('tabbarIcons', 'top');
-	        this._setConfig('preloadTabs', false);
 	        if (this._useHighlight) {
 	            this._platform.onResize(function () {
 	                _this._highlight.select(_this.getSelected());
@@ -54566,12 +54623,16 @@
 	                _this.select(tab);
 	            });
 	        });
+	    };
+	    Tabs.prototype.ngAfterContentInit = function () {
+	        var _this = this;
 	        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
+	        var preloadTabs = (util_1.isUndefined(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
 	        this._tabs.forEach(function (tab, index) {
 	            if (index === selectedIndex) {
 	                _this.select(tab);
 	            }
-	            else if (_this.preloadTabs) {
+	            else if (preloadTabs) {
 	                tab.preload(1000 * index);
 	            }
 	        });
@@ -54607,7 +54668,7 @@
 	            // no change
 	            return this._touchActive(selectedTab);
 	        }
-	        console.time('Tabs#select ' + selectedTab.id);
+	        console.debug('Tabs, select', selectedTab.id);
 	        var opts = {
 	            animate: false
 	        };
@@ -54639,7 +54700,6 @@
 	                _this._onReady();
 	                _this._onReady = null;
 	            }
-	            console.time('Tabs#select ' + selectedTab.id);
 	        });
 	    };
 	    /**
@@ -55008,6 +55068,7 @@
 	        var _this = this;
 	        this._loadTimer = setTimeout(function () {
 	            if (!_this._loaded) {
+	                console.debug('Tabs, preload', _this.id);
 	                _this.load({
 	                    animate: false,
 	                    preload: true,
@@ -56803,6 +56864,7 @@
 	        if (opts === void 0) { opts = {}; }
 	        opts.inputs = opts.inputs || [];
 	        opts.buttons = opts.buttons || [];
+	        opts.enableBackdropDismiss = util_1.isDefined(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, AlertCmp, opts);
 	        this.viewType = 'alert';
 	    }
@@ -56928,13 +56990,12 @@
 	        var self = this;
 	        self.keyUp = function (ev) {
 	            if (ev.keyCode === 13) {
-	                // enter
-	                console.debug('alert enter');
+	                console.debug('alert, enter button');
 	                var button = self.d.buttons[self.d.buttons.length - 1];
 	                self.btnClick(button);
 	            }
 	            else if (ev.keyCode === 27) {
-	                console.debug('alert escape');
+	                console.debug('alert, escape button');
 	                self.bdClick();
 	            }
 	        };
@@ -56979,12 +57040,14 @@
 	        checkedInput.checked = !checkedInput.checked;
 	    };
 	    AlertCmp.prototype.bdClick = function () {
-	        var cancelBtn = this.d.buttons.find(function (b) { return b.role === 'cancel'; });
-	        if (cancelBtn) {
-	            this.btnClick(cancelBtn, 1);
-	        }
-	        else {
-	            this.dismiss('backdrop');
+	        if (this.d.enableBackdropDismiss) {
+	            var cancelBtn = this.d.buttons.find(function (b) { return b.role === 'cancel'; });
+	            if (cancelBtn) {
+	                this.btnClick(cancelBtn, 1);
+	            }
+	            else {
+	                this.dismiss('backdrop');
+	            }
 	        }
 	    };
 	    AlertCmp.prototype.dismiss = function (role) {
@@ -57010,7 +57073,10 @@
 	        });
 	        return values;
 	    };
-	    AlertCmp.prototype.onPageDidLeave = function () {
+	    AlertCmp.prototype.onPageWillLeave = function () {
+	        document.removeEventListener('keyup', this.keyUp);
+	    };
+	    AlertCmp.prototype.ngOnDestroy = function () {
 	        document.removeEventListener('keyup', this.keyUp);
 	    };
 	    AlertCmp = __decorate([
@@ -57582,6 +57648,7 @@
 	 *  </ion-item>
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/input/
 	 */
 	var TextInput = (function (_super) {
 	    __extends(TextInput, _super);
@@ -57647,6 +57714,7 @@
 	 *  </ion-item>
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/textarea/
 	 */
 	var TextArea = (function (_super) {
 	    __extends(TextArea, _super);
@@ -60327,6 +60395,7 @@
 	var animation_1 = __webpack_require__(280);
 	var config_1 = __webpack_require__(160);
 	var icon_1 = __webpack_require__(297);
+	var util_1 = __webpack_require__(162);
 	var nav_params_1 = __webpack_require__(295);
 	var view_controller_1 = __webpack_require__(294);
 	/**
@@ -60402,6 +60471,7 @@
 	    function ActionSheet(opts) {
 	        if (opts === void 0) { opts = {}; }
 	        opts.buttons = opts.buttons || [];
+	        opts.enableBackdropDismiss = util_1.isDefined(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, ActionSheetCmp, opts);
 	        this.viewType = 'action-sheet';
 	    }
@@ -60505,17 +60575,22 @@
 	        }
 	    };
 	    ActionSheetCmp.prototype.bdClick = function () {
-	        if (this.d.cancelButton) {
-	            this.click(this.d.cancelButton, 1);
-	        }
-	        else {
-	            this.dismiss('backdrop');
+	        if (this.d.enableBackdropDismiss) {
+	            if (this.d.cancelButton) {
+	                this.click(this.d.cancelButton, 1);
+	            }
+	            else {
+	                this.dismiss('backdrop');
+	            }
 	        }
 	    };
 	    ActionSheetCmp.prototype.dismiss = function (role) {
 	        return this._viewCtrl.dismiss(null, role);
 	    };
-	    ActionSheetCmp.prototype.onPageDidLeave = function () {
+	    ActionSheetCmp.prototype.onPageWillLeave = function () {
+	        document.removeEventListener('keyup', this.keyUp);
+	    };
+	    ActionSheetCmp.prototype.ngOnDestroy = function () {
 	        document.removeEventListener('keyup', this.keyUp);
 	    };
 	    ActionSheetCmp = __decorate([
@@ -60821,6 +60896,40 @@
 	 * modal can later be closed or "dismissed" by using the ViewController's
 	 * `dismiss` method. Additionally, you can dismiss any overlay by using `pop`
 	 * on the root nav controller.
+	 *
+	 * Data can be passed to a new modal through `Modal.create()` as the second
+	 * argument. The data can gen be accessed from the opened page by injecting
+	 * `NavParams`. Note that the page, which opened as a modal, has no special
+	 * "modal" logic within it, but uses `NavParams` no differently than a
+	 * standard page.
+	 *
+	 *  * @usage
+	 * ```ts
+	 * import {Modal, NavController, NavParams} from 'ionic/ionic';
+	 *
+	 * @Page(...)
+	 * class HomePage {
+	 *
+	 *  constructor(nav: NavController) {
+	 *    this.nav = nav;
+	 *  }
+	 *
+	 *  presentProfileModal() {
+	 *    let profileModal = Modal.create(Profile, { userId: 8675309 });
+	 *    this.nav.present(profileModal);
+	 *  }
+	 *
+	 * }
+	 *
+	 * @Page(...)
+	 * class Profile {
+	 *
+	 *  constructor(params: NavParams) {
+	 *    console.log('UserId', params.get('userId'));
+	 *  }
+	 *
+	 * }
+	 * ```
 	 *
 	 * A modal can also emit data, which is useful when it is used to add or edit
 	 * data. For example, a profile page could slide up in a modal, and on submit,

@@ -11,27 +11,58 @@ var ionic_1 = require('ionic/ionic');
 var ionic_2 = require('ionic/ionic');
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
-        this.local = new ionic_2.Storage(ionic_2.LocalStorage);
-        this.myItem = {};
-        this.delKey = '';
-        this.localStorageDemo = '{}';
-        window.localStorage.clear();
+        this.root = MainPage;
     }
-    ApiDemoApp.prototype.set = function () {
-        this.local.set(this.myItem.key, this.myItem.value);
-        this.localStorageDemo = JSON.stringify(window.localStorage, null, 2);
-        this.myItem = {};
-    };
-    ApiDemoApp.prototype.remove = function () {
-        this.local.remove(this.delKey);
-        this.localStorageDemo = JSON.stringify(window.localStorage, null, 2);
-        this.delKey = '';
-    };
     ApiDemoApp = __decorate([
         ionic_1.App({
-            templateUrl: 'main.html'
+            template: '<ion-nav [root]="root"></ion-nav>'
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);
     return ApiDemoApp;
+})();
+var MainPage = (function () {
+    function MainPage() {
+        this.local = new ionic_2.Storage(ionic_2.LocalStorage);
+        this.localStorageDemo = '{}';
+        window.localStorage.clear();
+        this.myItem = {
+            key: 'username',
+            value: 'admin'
+        };
+        this.keys = ['username', 'name', 'email', 'address'];
+        this.values = ['admin', 'Administrator', 'admin@administrator.com', '123 Admin St'];
+        this.addedKeys = [];
+    }
+    MainPage.prototype.set = function () {
+        if (this.myItem.key) {
+            var added = false;
+            for (var i = 0; i < this.addedKeys.length; i++) {
+                if (this.addedKeys[i] == this.myItem.key)
+                    added = true;
+            }
+            if (added == false) {
+                console.log("Adding key", this.myItem.key);
+                this.addedKeys.push(this.myItem.key);
+                this.delKey = this.myItem.key;
+                this.local.set(this.myItem.key, this.myItem.value);
+                this.localStorageDemo = JSON.stringify(window.localStorage, null, 2);
+            }
+        }
+    };
+    MainPage.prototype.remove = function () {
+        this.local.remove(this.delKey);
+        this.localStorageDemo = JSON.stringify(window.localStorage, null, 2);
+        var index = this.addedKeys.indexOf(this.delKey);
+        if (index > -1) {
+            this.addedKeys.splice(index, 1);
+        }
+    };
+    MainPage = __decorate([
+        ionic_1.Page({
+            templateUrl: 'main.html'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], MainPage);
+    return MainPage;
 })();

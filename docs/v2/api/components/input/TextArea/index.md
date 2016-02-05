@@ -9,7 +9,9 @@ title: "TextArea"
 header_sub_title: "Class in module "
 doc: "TextArea"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/textarea/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -32,7 +34,7 @@ TextArea
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/input/input.ts#L91'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/input/input.ts#L92'>
 Improve this doc
 </a>
 

@@ -57085,6 +57085,9 @@
 	    AlertCmp.prototype.onPageWillLeave = function () {
 	        document.removeEventListener('keyup', this.keyUp);
 	    };
+	    AlertCmp.prototype.ngOnDestroy = function () {
+	        document.removeEventListener('keyup', this.keyUp);
+	    };
 	    AlertCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-alert',

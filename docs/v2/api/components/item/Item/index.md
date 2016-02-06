@@ -9,7 +9,9 @@ title: "Item"
 header_sub_title: "Class in module "
 doc: "Item"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/item/"
+angular_controller: APIDemoCtrl 
 ---
 
 

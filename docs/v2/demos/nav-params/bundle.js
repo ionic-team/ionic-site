@@ -55766,6 +55766,7 @@
 	 * </ion-list>
 	 *
 	 *  ```
+	 * @demo /docs/v2/demos/item/
 	 * @see {@link /docs/v2/components#lists List Component Docs}
 	 * @see {@link ../../list/List List API Docs}
 	 */
@@ -56056,9 +56057,9 @@
 	 * ```html
 	 * <ion-list>
 	 *   <ion-item-sliding *ngFor="#item of items">
-	 *     <ion-item (click)="itemTapped(item)">
+	 *     <button ion-item (click)="itemTapped(item)">
 	 *       {{item.title}}
-	 *     </ion-item>
+	 *     </button>
 	 *     <ion-item-options>
 	 *       <button (click)="favorite(item)">Favorite</button>
 	 *       <button (click)="share(item)">Share</button>
@@ -56066,6 +56067,7 @@
 	 *   </ion-item-sliding>
 	 * </ion-list>
 	 * ```
+	 * @demo /docs/v2/demos/item-sliding/
 	 * @see {@link /docs/v2/components#lists List Component Docs}
 	 * @see {@link ../../list/List List API Docs}
 	 */
@@ -57231,6 +57233,7 @@
 	 * @property [value] - the value of the option
 	 * @property [checked] - whether or not the option is already checked and selected
 	 *
+	 * @demo /docs/v2/demos/item-sliding/
 	 */
 	var Option = (function () {
 	    function Option(_elementRef) {

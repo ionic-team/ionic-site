@@ -9,7 +9,9 @@ title: "ItemSliding"
 header_sub_title: "Class in module "
 doc: "ItemSliding"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/item-sliding/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -52,9 +54,9 @@ Improve this doc
 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item-sliding *ngFor=&quot;#item of items&quot;&gt;
-    &lt;ion-item (click)=&quot;itemTapped(item)&quot;&gt;
+    &lt;button ion-item (click)=&quot;itemTapped(item)&quot;&gt;
       {{item.title}}
-    &lt;/ion-item&gt;
+    &lt;/button&gt;
     &lt;ion-item-options&gt;
       &lt;button (click)=&quot;favorite(item)&quot;&gt;Favorite&lt;/button&gt;
       &lt;button (click)=&quot;share(item)&quot;&gt;Share&lt;/button&gt;

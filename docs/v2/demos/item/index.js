@@ -8,13 +8,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_1 = require('ionic/ionic');
+// Uses the list's demo but passes the demo var to change the title
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
-        this.demo = "List";
+        this.demo = "Item";
     }
     ApiDemoApp = __decorate([
         ionic_1.App({
-            templateUrl: 'main.html'
+            templateUrl: '../list/main.html'
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);

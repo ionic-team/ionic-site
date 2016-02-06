@@ -42,6 +42,7 @@ Improve this doc
 <!-- description -->
 <h2>Description</h2>
 
+<p>The ActionSheet plugin shows a native list of options the user can choose from.</p>
 
 <!-- @usage tag -->
 

@@ -9,7 +9,9 @@ title: "Slide"
 header_sub_title: "Class in module "
 doc: "Slide"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/slides/"
+angular_controller: APIDemoCtrl 
 ---
 
 

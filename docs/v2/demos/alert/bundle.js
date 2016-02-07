@@ -47428,7 +47428,6 @@
 	            this._disabled = true;
 	        }
 	        this._readAttrs(element);
-	        this._readIcon(element);
 	    }
 	    /**
 	     * @private
@@ -47438,6 +47437,7 @@
 	        if (this.color) {
 	            this._colors = [this.color];
 	        }
+	        this._readIcon(this._elementRef.nativeElement);
 	        this._assignCss(true);
 	    };
 	    /**
@@ -47469,6 +47469,9 @@
 	    Button.prototype._readIcon = function (element) {
 	        // figure out if and where the icon lives in the button
 	        var childNodes = element.childNodes;
+	        if (childNodes.length == 1) {
+	            childNodes = childNodes[0].childNodes;
+	        }
 	        var childNode;
 	        var nodes = [];
 	        for (var i = 0, l = childNodes.length; i < l; i++) {
@@ -47570,8 +47573,9 @@
 	        __metadata('design:type', String)
 	    ], Button.prototype, "color", void 0);
 	    Button = __decorate([
-	        core_1.Directive({
-	            selector: 'button,[button]'
+	        core_1.Component({
+	            selector: 'button:not([ion-item]),[button]',
+	            template: '<span class="button-inner"><ng-content></ng-content></span>'
 	        }),
 	        __param(3, core_1.Attribute('ion-item')), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, String])

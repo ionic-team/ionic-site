@@ -4404,7 +4404,7 @@ ion-icon {
   .ios .action-sheet-destructive {
     color: #f53d3d; }
   .ios .action-sheet-cancel {
-    font-weight: bold;
+    font-weight: 600;
     background: #fff; }
   .ios.hairlines .action-sheet-title,
   .ios.hairlines .action-sheet-button {
@@ -4527,7 +4527,7 @@ ion-icon {
   .ios .item ion-checkbox {
     position: static;
     display: block;
-    margin: 10px 16px 10px 2px; }
+    margin: 8px 16px 8px 2px; }
   .ios ion-checkbox[primary] .checkbox-checked {
     background-color: #327eff;
     border-color: #327eff; }
@@ -4685,7 +4685,7 @@ ion-icon {
     flex: 1 1 auto;
     min-width: 50%;
     font-size: 17px;
-    min-height: 44px;
+    height: 44px;
     border-radius: 0;
     border-top: 1px solid #dbdbdf;
     border-right: 1px solid #dbdbdf;
@@ -4740,10 +4740,33 @@ ion-icon {
     color: white; }
   .ios .button {
     position: relative;
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+    display: inline-block;
+    -webkit-transition: background-color, opacity 100ms linear;
+    transition: background-color, opacity 100ms linear;
+    z-index: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    text-transform: none;
+    -webkit-font-kerning: none;
+    font-kerning: none;
+    vertical-align: top;
+    vertical-align: -webkit-baseline-middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; }
+  .ios span.button-inner {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -4757,24 +4780,7 @@ ion-icon {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-transition: background-color, opacity 100ms linear;
-    transition: background-color, opacity 100ms linear;
-    z-index: 0;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    text-align: center;
-    text-transform: none;
-    vertical-align: top;
-    vertical-align: -webkit-baseline-middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-appearance: none;
-    -moz-appearance: none; }
+    justify-content: center; }
   .ios a.button {
     text-decoration: none; }
   .ios .button[disabled] {
@@ -4802,7 +4808,7 @@ ion-icon {
   .ios .button {
     margin: 0.4rem 0.2rem;
     padding: 0 1em;
-    min-height: 2.8em;
+    height: 2.8em;
     font-size: 1.6rem;
     border-radius: 4px;
     color: white;
@@ -4815,17 +4821,15 @@ ion-icon {
       background-color: #2e74eb; }
   .ios .button-large {
     padding: 0 1em;
-    min-height: 2.8em;
+    height: 2.8em;
     font-size: 2rem; }
   .ios .button-small {
     padding: 0 0.9em;
-    min-height: 2.1em;
+    height: 2.1em;
     font-size: 1.3rem; }
   .ios .button-small.button-icon-only ion-icon {
     font-size: 1.3em; }
   .ios .button-block {
-    display: block;
-    line-height: 2.8em;
     margin-left: 0;
     margin-right: 0; }
   .ios .button-full {
@@ -5119,7 +5123,7 @@ ion-icon {
   .ios .item ion-checkbox {
     position: static;
     display: block;
-    margin: 10px 16px 10px 2px; }
+    margin: 8px 16px 8px 2px; }
   .ios ion-checkbox[primary] .checkbox-checked {
     background-color: #327eff;
     border-color: #327eff; }
@@ -5509,9 +5513,9 @@ ion-icon {
   .ios.hairlines .item-inner {
     border-bottom-width: 0.55px; }
   .ios [item-left] {
-    margin: 10px 16px 10px 0; }
+    margin: 8px 16px 8px 0; }
   .ios [item-right] {
-    margin: 10px 8px 10px 8px; }
+    margin: 8px 8px 8px 8px; }
   .ios ion-icon[item-left],
   .ios ion-icon[item-right] {
     margin-top: 10px;
@@ -5526,7 +5530,7 @@ ion-icon {
   .ios .item-button {
     padding: 0 0.5em;
     font-size: 1.3rem;
-    min-height: 24px; }
+    height: 24px; }
   .ios .item-button.button-icon-only ion-icon,
   .ios .item-button.button-icon-only {
     padding: 0 1px; }
@@ -5791,7 +5795,7 @@ ion-icon {
   .ios .item ion-radio {
     position: static;
     display: block;
-    margin: 10px 8px 10px 8px; }
+    margin: 8px 8px 8px 8px; }
   .ios .item-radio ion-label {
     margin-left: 0; }
   .ios .item-radio-checked ion-label {
@@ -5897,7 +5901,7 @@ ion-icon {
   .ios .searchbar-ios-cancel {
     -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
     transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
-    min-height: 30px;
+    height: 30px;
     margin-left: 0;
     margin-right: 0;
     padding: 0;
@@ -7491,10 +7495,33 @@ ion-icon {
   src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
   .md .button {
     position: relative;
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+    display: inline-block;
+    -webkit-transition: background-color, opacity 100ms linear;
+    transition: background-color, opacity 100ms linear;
+    z-index: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    text-transform: none;
+    -webkit-font-kerning: none;
+    font-kerning: none;
+    vertical-align: top;
+    vertical-align: -webkit-baseline-middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; }
+  .md span.button-inner {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -7508,24 +7535,7 @@ ion-icon {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-transition: background-color, opacity 100ms linear;
-    transition: background-color, opacity 100ms linear;
-    z-index: 0;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    text-align: center;
-    text-transform: none;
-    vertical-align: top;
-    vertical-align: -webkit-baseline-middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-appearance: none;
-    -moz-appearance: none; }
+    justify-content: center; }
   .md a.button {
     text-decoration: none; }
   .md .button[disabled] {
@@ -7553,7 +7563,7 @@ ion-icon {
   .md .button {
     margin: 0.4rem 0.2rem;
     padding: 0 1.1em;
-    min-height: 3.6rem;
+    height: 3.6rem;
     border-radius: 2px;
     font-weight: 500;
     font-size: 1.4rem;
@@ -7570,11 +7580,11 @@ ion-icon {
       background-color: #2e74eb; }
   .md .button-large {
     padding: 0 1em;
-    min-height: 2.8em;
+    height: 2.8em;
     font-size: 2rem; }
   .md .button-small {
     padding: 0 0.9em;
-    min-height: 2.1em;
+    height: 2.1em;
     font-size: 1.3rem; }
   .md .button-small.button-icon-only ion-icon {
     font-size: 1.4em; }
@@ -8478,7 +8488,7 @@ ion-icon {
     margin-left: 0; }
   .md .item-button {
     padding: 0 0.6em;
-    min-height: 25px;
+    height: 25px;
     font-size: 1.2rem; }
   .md .item-button.button-icon-only ion-icon,
   .md .item-button.button-icon-only {

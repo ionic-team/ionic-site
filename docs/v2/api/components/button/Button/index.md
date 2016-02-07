@@ -46,8 +46,8 @@ Improve this doc
 <p>Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.</p>
 
 
-<h2>Directive</h2>
-<h3>selector: <code>button,[button]</code></h3>
+<h2>Component</h2>
+<h3>selector: <code>button:not([ion-item]),[button]</code></h3>
 <!-- @usage tag -->
 
 

@@ -4847,10 +4847,34 @@ ion-badge {
 
 .button {
   position: relative;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: inline-block;
+  -webkit-transition: background-color, opacity 100ms linear;
+  transition: background-color, opacity 100ms linear;
+  z-index: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+  text-transform: none;
+  -webkit-font-kerning: none;
+  font-kerning: none;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+span.button-inner {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -4864,24 +4888,7 @@ ion-badge {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: background-color, opacity 100ms linear;
-  transition: background-color, opacity 100ms linear;
-  z-index: 0;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  text-align: center;
-  text-transform: none;
-  vertical-align: top;
-  vertical-align: -webkit-baseline-middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-appearance: none;
-  -moz-appearance: none; }
+  justify-content: center; }
 
 a.button {
   text-decoration: none; }
@@ -4916,7 +4923,7 @@ a.button {
 .button {
   margin: 0.4rem 0.2rem;
   padding: 0 1.1em;
-  min-height: 3.6rem;
+  height: 3.6rem;
   border-radius: 2px;
   font-weight: 500;
   font-size: 1.4rem;
@@ -4934,12 +4941,12 @@ a.button {
 
 .button-large {
   padding: 0 1em;
-  min-height: 2.8em;
+  height: 2.8em;
   font-size: 2rem; }
 
 .button-small {
   padding: 0 0.9em;
-  min-height: 2.1em;
+  height: 2.1em;
   font-size: 1.3rem; }
 
 .button-small.button-icon-only ion-icon {
@@ -5960,7 +5967,7 @@ ion-icon[item-right] {
 
 .item-button {
   padding: 0 0.6em;
-  min-height: 25px;
+  height: 25px;
   font-size: 1.2rem; }
 
 .item-button.button-icon-only ion-icon,

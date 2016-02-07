@@ -4413,7 +4413,7 @@ ion-action-sheet {
   color: #f53d3d; }
 
 .action-sheet-cancel {
-  font-weight: bold;
+  font-weight: 600;
   background: #fff; }
 
 .hairlines .action-sheet-title,
@@ -4551,7 +4551,7 @@ ion-checkbox {
 .item ion-checkbox {
   position: static;
   display: block;
-  margin: 10px 16px 10px 2px; }
+  margin: 8px 16px 8px 2px; }
 
 ion-checkbox[primary] .checkbox-checked {
   background-color: #327eff;
@@ -4731,7 +4731,7 @@ ion-alert {
   flex: 1 1 auto;
   min-width: 50%;
   font-size: 17px;
-  min-height: 44px;
+  height: 44px;
   border-radius: 0;
   border-top: 1px solid #dbdbdf;
   border-right: 1px solid #dbdbdf;
@@ -4797,10 +4797,34 @@ ion-badge {
 
 .button {
   position: relative;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: inline-block;
+  -webkit-transition: background-color, opacity 100ms linear;
+  transition: background-color, opacity 100ms linear;
+  z-index: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+  text-transform: none;
+  -webkit-font-kerning: none;
+  font-kerning: none;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+span.button-inner {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -4814,24 +4838,7 @@ ion-badge {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-transition: background-color, opacity 100ms linear;
-  transition: background-color, opacity 100ms linear;
-  z-index: 0;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  text-align: center;
-  text-transform: none;
-  vertical-align: top;
-  vertical-align: -webkit-baseline-middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-appearance: none;
-  -moz-appearance: none; }
+  justify-content: center; }
 
 a.button {
   text-decoration: none; }
@@ -4866,7 +4873,7 @@ a.button {
 .button {
   margin: 0.4rem 0.2rem;
   padding: 0 1em;
-  min-height: 2.8em;
+  height: 2.8em;
   font-size: 1.6rem;
   border-radius: 4px;
   color: white;
@@ -4880,20 +4887,18 @@ a.button {
 
 .button-large {
   padding: 0 1em;
-  min-height: 2.8em;
+  height: 2.8em;
   font-size: 2rem; }
 
 .button-small {
   padding: 0 0.9em;
-  min-height: 2.1em;
+  height: 2.1em;
   font-size: 1.3rem; }
 
 .button-small.button-icon-only ion-icon {
   font-size: 1.3em; }
 
 .button-block {
-  display: block;
-  line-height: 2.8em;
   margin-left: 0;
   margin-right: 0; }
 
@@ -5231,7 +5236,7 @@ ion-checkbox {
 .item ion-checkbox {
   position: static;
   display: block;
-  margin: 10px 16px 10px 2px; }
+  margin: 8px 16px 8px 2px; }
 
 ion-checkbox[primary] .checkbox-checked {
   background-color: #327eff;
@@ -5678,10 +5683,10 @@ ion-item-sliding.active-slide.active-options ion-item-options {
   border-bottom-width: 0.55px; }
 
 [item-left] {
-  margin: 10px 16px 10px 0; }
+  margin: 8px 16px 8px 0; }
 
 [item-right] {
-  margin: 10px 8px 10px 8px; }
+  margin: 8px 8px 8px 8px; }
 
 ion-icon[item-left],
 ion-icon[item-right] {
@@ -5700,7 +5705,7 @@ ion-thumbnail[item-right] {
 .item-button {
   padding: 0 0.5em;
   font-size: 1.3rem;
-  min-height: 24px; }
+  height: 24px; }
 
 .item-button.button-icon-only ion-icon,
 .item-button.button-icon-only {
@@ -6030,7 +6035,7 @@ ion-radio {
 .item ion-radio {
   position: static;
   display: block;
-  margin: 10px 8px 10px 8px; }
+  margin: 8px 8px 8px 8px; }
 
 .item-radio ion-label {
   margin-left: 0; }
@@ -6153,7 +6158,7 @@ ion-searchbar {
 .searchbar-ios-cancel {
   -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
   transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
-  min-height: 30px;
+  height: 30px;
   margin-left: 0;
   margin-right: 0;
   padding: 0;

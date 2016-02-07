@@ -4845,6 +4845,8 @@ ion-icon {
       opacity: 1;
       color: #fff;
       background-color: #327eff; }
+  .ios.hairlines .button-outline {
+    border-width: 0.55px; }
   .ios .button-clear {
     border-color: transparent;
     color: #327eff;

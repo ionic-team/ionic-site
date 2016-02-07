@@ -4916,6 +4916,9 @@ a.button {
     color: #fff;
     background-color: #327eff; }
 
+.hairlines .button-outline {
+  border-width: 0.55px; }
+
 .button-clear {
   border-color: transparent;
   color: #327eff;

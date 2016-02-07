@@ -6286,7 +6286,13 @@ ion-segment {
     -webkit-transition: 100ms all linear;
     transition: 100ms all linear; }
   .segment-button:hover:not(.segment-activated) {
-    background-color: rgba(50, 126, 255, 0.16); }
+    background-color: rgba(50, 126, 255, 0.1);
+    -webkit-transition: 100ms all linear;
+    transition: 100ms all linear; }
+  .segment-button:active:not(.segment-activated) {
+    background-color: rgba(50, 126, 255, 0.16);
+    -webkit-transition: 100ms all linear;
+    transition: 100ms all linear; }
   .segment-button:first-of-type {
     border-radius: 4px 0 0 4px;
     margin-right: 0; }
@@ -6314,7 +6320,7 @@ ion-segment[primary] .segment-button {
   border-color: #327eff;
   color: #327eff; }
   ion-segment[primary] .segment-button:hover:not(.segment-activated) {
-    background-color: rgba(50, 126, 255, 0.16); }
+    background-color: rgba(50, 126, 255, 0.1); }
   ion-segment[primary] .segment-button.activated, ion-segment[primary] .segment-button.segment-activated {
     color: white;
     background-color: #327eff; }
@@ -6326,7 +6332,7 @@ ion-segment[secondary] .segment-button {
   border-color: #32db64;
   color: #32db64; }
   ion-segment[secondary] .segment-button:hover:not(.segment-activated) {
-    background-color: rgba(50, 219, 100, 0.16); }
+    background-color: rgba(50, 219, 100, 0.1); }
   ion-segment[secondary] .segment-button.activated, ion-segment[secondary] .segment-button.segment-activated {
     color: white;
     background-color: #32db64; }
@@ -6338,7 +6344,7 @@ ion-segment[danger] .segment-button {
   border-color: #f53d3d;
   color: #f53d3d; }
   ion-segment[danger] .segment-button:hover:not(.segment-activated) {
-    background-color: rgba(245, 61, 61, 0.16); }
+    background-color: rgba(245, 61, 61, 0.1); }
   ion-segment[danger] .segment-button.activated, ion-segment[danger] .segment-button.segment-activated {
     color: white;
     background-color: #f53d3d; }
@@ -6350,7 +6356,7 @@ ion-segment[light] .segment-button {
   border-color: #f4f4f4;
   color: #f4f4f4; }
   ion-segment[light] .segment-button:hover:not(.segment-activated) {
-    background-color: rgba(244, 244, 244, 0.16); }
+    background-color: rgba(244, 244, 244, 0.1); }
   ion-segment[light] .segment-button.activated, ion-segment[light] .segment-button.segment-activated {
     color: black;
     background-color: #f4f4f4; }
@@ -6362,7 +6368,7 @@ ion-segment[dark] .segment-button {
   border-color: #222;
   color: #222; }
   ion-segment[dark] .segment-button:hover:not(.segment-activated) {
-    background-color: rgba(34, 34, 34, 0.16); }
+    background-color: rgba(34, 34, 34, 0.1); }
   ion-segment[dark] .segment-button.activated, ion-segment[dark] .segment-button.segment-activated {
     color: white;
     background-color: #222; }

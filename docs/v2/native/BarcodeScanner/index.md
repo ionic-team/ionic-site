@@ -43,13 +43,13 @@ Improve this doc
 <h2>Description</h2>
 
 <p>The Barcode Scanner Plugin opens a camera view and automatically scans a barcode, returning the data back to you.</p>
-<p>Requires Cordova plugin: <code>phonegap-plugin-barcodescanner</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">BardcodeScanner plugin docs</a>.</p>
+<p>Requires Cordova plugin: <code>phonegap-plugin-barcodescanner</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">BarcodeScanner plugin docs</a>.</p>
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">BarcodeScanner.scan(options).then((barcodeData) =&gt; {
+<pre><code class="lang-js">BarcodeScanner.scan().then((barcodeData) =&gt; {
  // Success! Barcode data is here
 }, (err) =&gt; {
     // An error occurred

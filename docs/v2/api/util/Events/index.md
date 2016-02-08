@@ -68,9 +68,10 @@ events.subscribe(&#39;user:created&#39;, (user) =&gt; {
 <!-- @property tags -->
 
 
-<!-- methods on the class -->
 
-<h2>Methods</h2>
+<!-- instance methods on the class -->
+
+<h2>Instance Methods</h2>
 
 <div id="subscribe"></div>
 

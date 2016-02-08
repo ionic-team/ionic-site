@@ -301,7 +301,8 @@ Expression to evaluate when the clear input button is clicked
 </table>
 
 
-<!-- methods on the class --><!-- related link -->
+
+<!-- instance methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

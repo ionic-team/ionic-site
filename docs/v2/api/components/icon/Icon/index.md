@@ -181,7 +181,8 @@ or not. The `isActive` property is largely used by the tabbar.
 </table>
 
 
-<!-- methods on the class --><!-- related link -->
+
+<!-- instance methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

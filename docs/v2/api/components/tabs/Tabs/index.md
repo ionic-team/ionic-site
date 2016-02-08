@@ -187,9 +187,10 @@ expression you want to evaluate when the tabs chage
 </table>
 
 
-<!-- methods on the class -->
 
-<h2>Methods</h2>
+<!-- instance methods on the class -->
+
+<h2>Instance Methods</h2>
 
 <div id="parent"></div>
 

@@ -101,7 +101,8 @@ whether or not the option is already checked and selected
 </table>
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+
+<!-- instance methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

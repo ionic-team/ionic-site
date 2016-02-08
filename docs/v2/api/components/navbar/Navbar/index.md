@@ -79,7 +79,8 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link -->
+
+<!-- instance methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

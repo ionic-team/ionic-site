@@ -147,11 +147,56 @@ presentPrompt() {
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="create"></div>
+<h3><code>create(opts)</code>
+  
+</h3>
 
 
-<!-- methods on the class -->
 
-<h2>Methods</h2>
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>Object</code>
+      </td>
+      <td>
+        <p>Alert options</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<!-- instance methods on the class -->
+
+<h2>Instance Methods</h2>
 
 <div id="setTitle"></div>
 

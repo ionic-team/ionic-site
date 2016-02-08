@@ -59,9 +59,10 @@ interaction modes such as swipe to edit, drag to reorder, and removing items.</p
 <!-- @property tags -->
 
 
-<!-- methods on the class -->
 
-<h2>Methods</h2>
+<!-- instance methods on the class -->
+
+<h2>Instance Methods</h2>
 
 <div id="enableSlidingItems"></div>
 

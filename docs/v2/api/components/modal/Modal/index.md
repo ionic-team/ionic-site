@@ -135,9 +135,71 @@ class Profile {
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="create"></div>
+<h3><code>create(componentType,&nbsp;data)</code>
+  
+</h3>
 
 
-<!-- methods on the class --><!-- related link -->
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        componentType
+        
+        
+      </td>
+      <td>
+        
+  <code>Any</code>
+      </td>
+      <td>
+        <p>Modal</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        data
+        
+        
+      </td>
+      <td>
+        
+  <code>Object</code>
+      </td>
+      <td>
+        <p>Modal options</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<!-- instance methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

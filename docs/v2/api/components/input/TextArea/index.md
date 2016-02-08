@@ -83,7 +83,8 @@ to use <code>&lt;ion-input&gt;</code> instead.</p>
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+
+<!-- instance methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

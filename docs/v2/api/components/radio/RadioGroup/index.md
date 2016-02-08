@@ -95,7 +95,8 @@ in the group unselects all others in the group.</p>
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link -->
+
+<!-- instance methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

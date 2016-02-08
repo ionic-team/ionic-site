@@ -189,11 +189,42 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="setModeConfig"></div>
+<h3><code>setModeConfig()</code>
+  
+</h3>
 
 
-<!-- methods on the class -->
 
-<h2>Methods</h2>
+
+
+
+
+
+
+
+
+<div id="getModeConfig"></div>
+<h3><code>getModeConfig()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- instance methods on the class -->
+
+<h2>Instance Methods</h2>
 
 <div id="set"></div>
 

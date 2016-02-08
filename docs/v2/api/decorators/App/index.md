@@ -166,7 +166,8 @@ a relative URL pointing to the template to use for the app root
 </table>
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+
+<!-- instance methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

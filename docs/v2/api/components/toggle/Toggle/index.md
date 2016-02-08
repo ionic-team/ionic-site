@@ -182,7 +182,8 @@ a unique ID for a toggle
 </table>
 
 
-<!-- methods on the class --><!-- related link -->
+
+<!-- instance methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

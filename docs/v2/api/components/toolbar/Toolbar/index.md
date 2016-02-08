@@ -123,7 +123,8 @@ set position of the toolbar, top or bottom. If not set, defautls to top.
 </table>
 
 
-<!-- methods on the class --><!-- related link -->
+
+<!-- instance methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

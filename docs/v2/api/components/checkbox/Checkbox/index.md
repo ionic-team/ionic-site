@@ -142,7 +142,8 @@ whether or not the checkbox is disabled or not.
 </table>
 
 
-<!-- methods on the class --><!-- related link -->
+
+<!-- instance methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

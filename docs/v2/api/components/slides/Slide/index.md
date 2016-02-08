@@ -54,7 +54,8 @@ Improve this doc
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link -->
+
+<!-- instance methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

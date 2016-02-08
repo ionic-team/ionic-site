@@ -77,7 +77,8 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link -->
+
+<!-- instance methods on the class --><!-- related link -->
 
 <h2>Related</h2>
 

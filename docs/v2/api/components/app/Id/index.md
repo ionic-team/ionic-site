@@ -81,7 +81,8 @@ has been navigated away from.</p>
 <!-- @property tags -->
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+
+<!-- instance methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

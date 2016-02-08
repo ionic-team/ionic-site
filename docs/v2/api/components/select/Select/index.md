@@ -219,7 +219,8 @@ Any expression you want to evaluate when the selection has changed
 </table>
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+
+<!-- instance methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

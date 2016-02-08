@@ -238,7 +238,8 @@ method to call when the current tab is selected
 </table>
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+
+<!-- instance methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

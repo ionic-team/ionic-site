@@ -138,7 +138,8 @@ A clear icon will appear in the input which clears it
 </table>
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+
+<!-- instance methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

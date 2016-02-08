@@ -72,11 +72,57 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="BACKUP_LOCAL"></div>
+<h3><code>BACKUP_LOCAL()</code>
+  
+</h3>
 
 
-<!-- methods on the class -->
 
-<h2>Methods</h2>
+
+
+
+
+
+
+
+
+<div id="BACKUP_LIBRARY"></div>
+<h3><code>BACKUP_LIBRARY()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="BACKUP_DOCUMENTS"></div>
+<h3><code>BACKUP_DOCUMENTS()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- instance methods on the class -->
+
+<h2>Instance Methods</h2>
 
 <div id="query"></div>
 

@@ -54,7 +54,7 @@ Improve this doc
 })
 
 let watch = Geolocation.watchPosition();
-watch.source.subscribe((data) =&gt; {
+watch.subscribe((data) =&gt; {
  //data.coords.latitude
  //data.coords.longitude
 })

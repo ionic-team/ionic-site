@@ -8046,23 +8046,31 @@ button[fab].fab-map {
 body.md ion-menu#leftMenu {
   width: 304px; }
 
-.preview-slides .slide-contents {
-  display: block;
-  height: 100%;
-  padding: 500px 0;
-  width: 100%;
-  font-weight: bold;
-  font-size: 2.5em;
-  color: #fff; }
+.tutorial-page .toolbar-background {
+  background: #fff;
+  border-color: transparent; }
 
-.preview-slides #slide-1 {
-  background-color: #32db64; }
+.tutorial-page .slide-zoom {
+  height: 100%; }
 
-.preview-slides #slide-2 {
-  background-color: #387ef5; }
+.tutorial-page .slide-title {
+  margin-top: 2.8rem; }
 
-.preview-slides #slide-3 {
-  background-color: #f53d3d; }
+.tutorial-page .slide-image {
+  max-height: 50%;
+  max-width: 60%;
+  margin: 36px 0; }
+
+.tutorial-page b {
+  font-weight: 500; }
+
+.tutorial-page p {
+  padding: 0 40px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #60646B; }
+  .tutorial-page p b {
+    color: #000000; }
 
 body.md .tabs-basic tabbar {
   background-color: #387EF5; }

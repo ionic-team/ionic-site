@@ -7747,13 +7747,19 @@ body {
       visibility: 0;
       right: -500px;
       opacity: 0;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+      padding: 8px 0;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
       -webkit-transform: translate3d(0, -10px, 0);
               transform: translate3d(0, -10px, 0);
       -webkit-transform-origin: top;
           -ms-transform-origin: top;
               transform-origin: top;
-      transition: opacity 0.5s, -webkit-transform 0.3s cubic-bezier(0.425, 0.845, 0.225, 1.85);
-      transition: opacity 0.5s, transform 0.3s cubic-bezier(0.425, 0.845, 0.225, 1.85); }
+      transition: opacity 0.5s, -webkit-transform 0.5s cubic-bezier(0.425, 0.845, 0.225, 1.85);
+      transition: opacity 0.5s, transform 0.5s cubic-bezier(0.425, 0.845, 0.225, 1.85); }
+      .navbar-default .dropdown .dropdown-menu a {
+        padding: 10px 20px; }
     .navbar-default .dropdown.open .dropdown-menu {
       visibility: 1;
       right: 0;

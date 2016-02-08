@@ -159,10 +159,17 @@ body {
         visibility: 0;
         right: -500px;
         opacity: 0;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+        padding: 8px 0;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
         transform: translate3d(0, -10px, 0);
         transform-origin: top;
         transition: opacity .5s,
-                    transform .3s cubic-bezier(0.425, 0.845, 0.225, 1.85);
+                    transform .5s cubic-bezier(0.425, 0.845, 0.225, 1.85);
+        a {
+          padding: 10px 20px;
+        }
       }
 
       &.open .dropdown-menu {

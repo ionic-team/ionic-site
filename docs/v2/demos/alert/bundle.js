@@ -27433,7 +27433,7 @@
 	var docEle = doc.documentElement;
 	// requestAnimationFrame is polyfilled for old Android
 	// within the web-animations polyfill
-	exports.raf = win.requestAnimationFrame;
+	exports.raf = win.requestAnimationFrame.bind(win);
 	function rafFrames(framesToWait, callback) {
 	    framesToWait = Math.ceil(framesToWait);
 	    if (framesToWait < 2) {

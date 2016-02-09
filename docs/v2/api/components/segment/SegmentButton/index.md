@@ -46,7 +46,7 @@ Improve this doc
 <p>The child buttons of the <code>ion-segment</code> component. Each <code>ion-segment-button</code> must have a value.</p>
 
 
-<h2>Directive</h2>
+<h2>Component</h2>
 <h3>selector: <code>ion-segment-button</code></h3>
 <!-- @usage tag -->
 

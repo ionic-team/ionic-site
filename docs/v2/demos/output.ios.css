@@ -4939,6 +4939,9 @@ a.button {
   padding: 0 2.6rem;
   border-radius: 64px; }
 
+ion-button-effect {
+  display: none; }
+
 .button-primary {
   color: white;
   background-color: #327eff; }

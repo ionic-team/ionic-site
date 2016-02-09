@@ -4938,6 +4938,8 @@ a.button {
   .button.activated {
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21);
     background-color: #2e74eb; }
+  .button ion-button-effect {
+    background-color: white; }
 
 .button-large {
   padding: 0 1em;
@@ -4974,8 +4976,8 @@ a.button {
     opacity: 1;
     box-shadow: none;
     background-color: transparent; }
-  .button-outline md-ripple {
-    background-color: rgba(50, 126, 255, 0.25); }
+  .button-outline ion-button-effect {
+    background-color: #327eff; }
 
 .button-clear {
   border-color: transparent;
@@ -4988,6 +4990,8 @@ a.button {
     box-shadow: none; }
   .button-clear:hover:not(.disable-hover) {
     color: #327eff; }
+  .button-clear ion-button-effect {
+    background-color: #999; }
 
 .button-round {
   padding: 0 2.6rem;
@@ -5004,12 +5008,25 @@ a.button {
 .button-icon-only {
   padding: 0; }
 
+ion-button-effect {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  border-radius: 50%;
+  background-color: #555;
+  opacity: 0.2;
+  pointer-events: none;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out; }
+
 .button-primary {
   color: white;
   background-color: #327eff; }
   .button-primary.activated {
     opacity: 1;
     background-color: #2e74eb; }
+  .button-primary ion-button-effect {
+    background-color: white; }
 
 .button-outline-primary {
   border-color: #3078f2;
@@ -5017,8 +5034,8 @@ a.button {
   color: #3078f2; }
   .button-outline-primary.activated {
     background-color: transparent; }
-  .button-outline-primary md-ripple {
-    background-color: rgba(48, 120, 242, 0.25); }
+  .button-outline-primary ion-button-effect {
+    background-color: #3078f2; }
 
 .button-clear-primary {
   border-color: transparent;
@@ -5036,6 +5053,8 @@ a.button {
   .button-secondary.activated {
     opacity: 1;
     background-color: #2ec95c; }
+  .button-secondary ion-button-effect {
+    background-color: white; }
 
 .button-outline-secondary {
   border-color: #30d05f;
@@ -5043,8 +5062,8 @@ a.button {
   color: #30d05f; }
   .button-outline-secondary.activated {
     background-color: transparent; }
-  .button-outline-secondary md-ripple {
-    background-color: rgba(48, 208, 95, 0.25); }
+  .button-outline-secondary ion-button-effect {
+    background-color: #30d05f; }
 
 .button-clear-secondary {
   border-color: transparent;
@@ -5062,6 +5081,8 @@ a.button {
   .button-danger.activated {
     opacity: 1;
     background-color: #e13838; }
+  .button-danger ion-button-effect {
+    background-color: white; }
 
 .button-outline-danger {
   border-color: #e93a3a;
@@ -5069,8 +5090,8 @@ a.button {
   color: #e93a3a; }
   .button-outline-danger.activated {
     background-color: transparent; }
-  .button-outline-danger md-ripple {
-    background-color: rgba(233, 58, 58, 0.25); }
+  .button-outline-danger ion-button-effect {
+    background-color: #e93a3a; }
 
 .button-clear-danger {
   border-color: transparent;
@@ -5088,6 +5109,8 @@ a.button {
   .button-light.activated {
     opacity: 1;
     background-color: #e0e0e0; }
+  .button-light ion-button-effect {
+    background-color: black; }
 
 .button-outline-light {
   border-color: #e8e8e8;
@@ -5095,8 +5118,8 @@ a.button {
   color: #e8e8e8; }
   .button-outline-light.activated {
     background-color: transparent; }
-  .button-outline-light md-ripple {
-    background-color: rgba(232, 232, 232, 0.25); }
+  .button-outline-light ion-button-effect {
+    background-color: #e8e8e8; }
 
 .button-clear-light {
   border-color: transparent;
@@ -5114,6 +5137,8 @@ a.button {
   .button-dark.activated {
     opacity: 1;
     background-color: #343434; }
+  .button-dark ion-button-effect {
+    background-color: white; }
 
 .button-outline-dark {
   border-color: #2d2d2d;
@@ -5121,8 +5146,8 @@ a.button {
   color: #2d2d2d; }
   .button-outline-dark.activated {
     background-color: transparent; }
-  .button-outline-dark md-ripple {
-    background-color: rgba(45, 45, 45, 0.25); }
+  .button-outline-dark ion-button-effect {
+    background-color: #2d2d2d; }
 
 .button-clear-dark {
   border-color: transparent;
@@ -6509,47 +6534,6 @@ ion-radio[dark] .radio-inner {
   font-weight: 700;
   src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
-md-ripple {
-  position: absolute;
-  z-index: 0;
-  display: block;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  pointer-events: none;
-  -webkit-transform: scale(0.001) translateZ(0);
-  transform: scale(0.001) translateZ(0); }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
-
 ion-searchbar {
   position: relative;
   display: -webkit-box;
@@ -7679,10 +7663,14 @@ ion-buttons[right] {
 .toolbar[primary] .toolbar-background {
   background: #327eff; }
 
-.toolbar[primary] .toolbar-title,
 .toolbar[primary] .bar-button-default,
-.toolbar[primary] .bar-button-outline {
+.toolbar[primary] .bar-button-outline,
+.toolbar[primary] .toolbar-title {
   color: white; }
+
+.toolbar[primary] .bar-button-default ion-button-effect,
+.toolbar[primary] .bar-button-outline ion-button-effect {
+  background-color: white; }
 
 .toolbar[primary] .bar-button-outline {
   border-color: white; }
@@ -7810,10 +7798,14 @@ ion-buttons[right] {
 .toolbar[secondary] .toolbar-background {
   background: #32db64; }
 
-.toolbar[secondary] .toolbar-title,
 .toolbar[secondary] .bar-button-default,
-.toolbar[secondary] .bar-button-outline {
+.toolbar[secondary] .bar-button-outline,
+.toolbar[secondary] .toolbar-title {
   color: white; }
+
+.toolbar[secondary] .bar-button-default ion-button-effect,
+.toolbar[secondary] .bar-button-outline ion-button-effect {
+  background-color: white; }
 
 .toolbar[secondary] .bar-button-outline {
   border-color: white; }
@@ -7941,10 +7933,14 @@ ion-buttons[right] {
 .toolbar[danger] .toolbar-background {
   background: #f53d3d; }
 
-.toolbar[danger] .toolbar-title,
 .toolbar[danger] .bar-button-default,
-.toolbar[danger] .bar-button-outline {
+.toolbar[danger] .bar-button-outline,
+.toolbar[danger] .toolbar-title {
   color: white; }
+
+.toolbar[danger] .bar-button-default ion-button-effect,
+.toolbar[danger] .bar-button-outline ion-button-effect {
+  background-color: white; }
 
 .toolbar[danger] .bar-button-outline {
   border-color: white; }
@@ -8072,10 +8068,14 @@ ion-buttons[right] {
 .toolbar[light] .toolbar-background {
   background: #f4f4f4; }
 
-.toolbar[light] .toolbar-title,
 .toolbar[light] .bar-button-default,
-.toolbar[light] .bar-button-outline {
+.toolbar[light] .bar-button-outline,
+.toolbar[light] .toolbar-title {
   color: #424242; }
+
+.toolbar[light] .bar-button-default ion-button-effect,
+.toolbar[light] .bar-button-outline ion-button-effect {
+  background-color: #424242; }
 
 .toolbar[light] .bar-button-outline {
   border-color: #424242; }
@@ -8203,10 +8203,14 @@ ion-buttons[right] {
 .toolbar[dark] .toolbar-background {
   background: #222; }
 
-.toolbar[dark] .toolbar-title,
 .toolbar[dark] .bar-button-default,
-.toolbar[dark] .bar-button-outline {
+.toolbar[dark] .bar-button-outline,
+.toolbar[dark] .toolbar-title {
   color: white; }
+
+.toolbar[dark] .bar-button-default ion-button-effect,
+.toolbar[dark] .bar-button-outline ion-button-effect {
+  background-color: white; }
 
 .toolbar[dark] .bar-button-outline {
   border-color: white; }

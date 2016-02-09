@@ -8088,6 +8088,42 @@ body {
     margin: 50px auto;
     max-width: 1037px;
     display: block; }
+  .docs-container main a.footer-link {
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    position: absolute;
+    right: 80px;
+    text-align: right;
+    transition: color .2s; }
+    .docs-container main a.footer-link.prev {
+      right: auto;
+      left: 80px;
+      text-align: left; }
+      .docs-container main a.footer-link.prev:before {
+        content: 'Previous'; }
+      .docs-container main a.footer-link.prev:after {
+        right: auto;
+        left: -25px;
+        content: "\f117"; }
+    .docs-container main a.footer-link:hover {
+      color: #4f8ff7; }
+    .docs-container main a.footer-link:before {
+      display: block;
+      content: 'Next';
+      font-size: 13px;
+      color: #9da5b3;
+      font-weight: 400; }
+    .docs-container main a.footer-link:after {
+      content: "\f119";
+      font-family: Ionicons;
+      display: block;
+      position: absolute;
+      right: -25px;
+      font-size: 32px;
+      font-weight: 600;
+      bottom: -10px; }
 
 .platform-preview {
   position: absolute;

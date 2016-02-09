@@ -62,6 +62,14 @@
       {% endif %}
       <main>
         {{ content }}
+        {% if page.prev_page_title && page.prev_page_link %}
+          <a class="footer-link prev" href="{{page.prev_page_link}}">
+            {{page.prev_page_title}}</a>
+        {% endif %}
+        {% if page.next_page_title && page.next_page_link %}
+          <a class="footer-link next" href="{{page.next_page_link}}">
+            {{page.next_page_title}}</a>
+        {% endif %}
       </main>
     </div>
     {% include v2_fluid/footer_tags.html %}

@@ -61,38 +61,41 @@ argument. The data can gen be accessed from the opened page by injecting
 <code>NavParams</code>. Note that the page, which opened as a modal, has no special
 &quot;modal&quot; logic within it, but uses <code>NavParams</code> no differently than a
 standard page.</p>
-<ul>
-<li>@usage
-```ts
-import {Modal, NavController, NavParams} from &#39;ionic/ionic&#39;;</li>
-</ul>
-<p>@Page(...)
-class HomePage {</p>
-<p> constructor(nav: NavController) {
-   this.nav = nav;
- }</p>
-<p> presentProfileModal() {
-   let profileModal = Modal.create(Profile, { userId: 8675309 });
-   this.nav.present(profileModal);
- }</p>
-<p>}</p>
-<p>@Page(...)
-class Profile {</p>
-<p> constructor(params: NavParams) {
-   console.log(&#39;UserId&#39;, params.get(&#39;userId&#39;));
- }</p>
-<p>}
-```</p>
-<p>A modal can also emit data, which is useful when it is used to add or edit
-data. For example, a profile page could slide up in a modal, and on submit,
-the submit button could pass the updated profile data, then dismiss the
-modal.</p>
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {Modal, NavController} from &#39;ionic/ionic&#39;;
+<pre><code class="lang-ts">import {Page, Modal, NavController, NavParams} from &#39;ionic/ionic&#39;;
+
+@Page(...)
+class HomePage {
+
+ constructor(nav: NavController) {
+   this.nav = nav;
+ }
+
+ presentProfileModal() {
+   let profileModal = Modal.create(Profile, { userId: 8675309 });
+   this.nav.present(profileModal);
+ }
+
+}
+
+@Page(...)
+class Profile {
+
+ constructor(params: NavParams) {
+   console.log(&#39;UserId&#39;, params.get(&#39;userId&#39;));
+ }
+
+}
+</code></pre>
+<p>A modal can also emit data, which is useful when it is used to add or edit
+data. For example, a profile page could slide up in a modal, and on submit,
+the submit button could pass the updated profile data, then dismiss the
+modal.</p>
+<pre><code class="lang-ts">import {Page, Modal, NavController} from &#39;ionic/ionic&#39;;
 
 @Page(...)
 class HomePage {

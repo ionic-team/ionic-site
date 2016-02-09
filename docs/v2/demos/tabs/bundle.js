@@ -60876,9 +60876,9 @@
 	 * "modal" logic within it, but uses `NavParams` no differently than a
 	 * standard page.
 	 *
-	 *  * @usage
+	 * @usage
 	 * ```ts
-	 * import {Modal, NavController, NavParams} from 'ionic/ionic';
+	 * import {Page, Modal, NavController, NavParams} from 'ionic/ionic';
 	 *
 	 * @Page(...)
 	 * class HomePage {
@@ -60909,9 +60909,8 @@
 	 * the submit button could pass the updated profile data, then dismiss the
 	 * modal.
 	 *
-	 * @usage
 	 * ```ts
-	 * import {Modal, NavController} from 'ionic/ionic';
+	 * import {Page, Modal, NavController} from 'ionic/ionic';
 	 *
 	 * @Page(...)
 	 * class HomePage {

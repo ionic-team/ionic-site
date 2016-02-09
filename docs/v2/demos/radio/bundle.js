@@ -47426,6 +47426,8 @@
 	var swipe_back_1 = __webpack_require__(302);
 	var view_controller_1 = __webpack_require__(294);
 	/**
+	 * @name NavController
+	 * @description
 	 * _For examples on the basic usage of NavController, check out the
 	 * [Navigation section](../../../../components/#navigation) of the Component
 	 * docs._

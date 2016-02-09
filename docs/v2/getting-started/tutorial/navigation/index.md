@@ -6,6 +6,8 @@ subid: tutorial
 title: Ionic 2 Guide | Navigating
 header_title: Navigating - Ionic 2 Guide
 header_sub_title: Ionic 2 Developer Preview
+next_page_title: Component Docs
+next_page_link: /docs/v2/components
 ---
 
 <h1 class="title">Navigating to Pages</h1>

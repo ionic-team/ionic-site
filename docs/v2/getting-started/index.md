@@ -3,6 +3,8 @@ layout: v2_fluid/docs_base
 category: getting-started
 id: welcome
 title: Ionic 2 Documentation - Welcome
+next_page_title: Installing the new CLI
+next_page_link: /docs/v2/getting-started/installation/
 ---
 
 # Welcome to Ionic
@@ -13,12 +15,6 @@ Many developers will find their Ionic apps can be built almost entirely with a s
 
 We're proud to say that Ionic has been used by millions of developers to build millions of apps in more countries than we will ever visit in our lifetime. Over those two years, we've been listening to your feedback on how to build a better way to build better apps.
 
-Ionic Two represents that collective learning about how to make the web do more on mobile. We've overhauled nearly every part, from the way that users navigate through your pages, to how we help you wield the true powers of the underlying device.
+Ionic 2 represents that collective learning about how to make the web do more on mobile. We've overhauled nearly every part, from the way that users navigate through your pages, to how we help you wield the true powers of the underlying device.
 
-We hope you find that Ionic Two not only makes app development easier and faster, but we hope it makes it more *fun*. Because mobile is all about finding new ways to change forever the way humans interact with the world, and we couldn't think of anything more fun than that.
-
-<h3 style="text-align:right;">
- <a href="installation/">
-    Install the new CLI
- </a>
-</h3>
+We hope you find that Ionic 2 not only makes app development easier and faster, but we hope it makes it more *fun*. Because mobile is all about finding new ways to change forever the way humans interact with the world, and we couldn't think of anything more fun than that.

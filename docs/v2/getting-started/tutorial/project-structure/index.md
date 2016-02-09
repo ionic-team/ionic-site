@@ -6,6 +6,10 @@ subid: tutorial
 title: Ionic 2 | Getting Started | Tutorial
 header_title: Getting Started - Tutorial
 header_sub_title: Ionic 2 Developer Preview
+prev_page_title: Learn the basics
+prev_page_link: /docs/v2/getting-started/tutorial/
+next_page_title: Adding Pages
+next_page_link: /docs/v2/getting-started/tutorial/adding-pages
 ---
 
 # Project Structure
@@ -89,8 +93,3 @@ to act as the main content area. The `ion-menu` takes a property of `content`, a
 This will let the menu know what element should be the main content. The app will let the user select sections from the side menu which will change what they see in the content area. The user will be able to navigate inside the content menu if the section has other pages to navigate to.
 
 Let's go and see how to create more pages and perform basic navigation.
-
-<h3 style="text-align:right;">
-  <a href="../adding-pages/" role="button">Adding Pages</a>
-</h3>
-

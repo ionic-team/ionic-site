@@ -6,6 +6,10 @@ subid: tutorial
 title: Ionic 2 | Getting Started | Tutorial
 header_title: Getting Started - Tutorial
 header_sub_title: Ionic 2 Developer Preview
+prev_page_title: Installing Ionic
+prev_page_link: /docs/v2/getting-started/installation/
+next_page_title: Project Structure
+next_page_link: /docs/v2/getting-started/tutorial/project-structure/
 ---
 
 # Ionic 2 Tutorial
@@ -45,11 +49,3 @@ $ ionic serve
 You should see the welcome message shown above if everything was installed successfully.
 
 In the next section, let's go over the project structure created by the `ionic start` command.
-
-
-<h3 style="text-align:right;">
- <a href="project-structure/" role="button">
- Project Structure
- </a>
-</h3>
-

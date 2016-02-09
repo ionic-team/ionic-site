@@ -6,6 +6,10 @@ subid: tutorial
 title: Ionic 2 Guide | Adding Pages
 header_title: Adding Pages - Ionic 2 Guide
 header_sub_title: Ionic 2 Developer Preview
+prev_page_title: Project Structure
+prev_page_link: /docs/v2/getting-started/tutorial/project-structure
+next_page_title: Navigating to Pages
+next_page_link: /docs/v2/getting-started/tutorial/navigation
 ---
 
 <h1 class="title">Adding Pages</h1>
@@ -149,11 +153,3 @@ This page will create a basic list page containing a number of items. Notice tha
 This will add each item to the list, and register a click handler on each of those items. When the item is tapped or clicked, it will call our `itemTapped` function that logs the title of the item to the console. Also note that we pass this function the click event, as well as the item that was tapped.
 
 Overall, this page is very similar to the `HelloIonicPage` we saw earlier. Currently, when you tap an item, our app will log a message to the console. In the next section, we will learn about how we can improve this by navigating to a new page!
-
-<h3 style="text-align:right;">
- <a href="../navigation/" role="button">
- Navigation
- </a>
-</h3>
-
-

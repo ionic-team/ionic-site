@@ -7,6 +7,8 @@ header_title: Ionic 2 Components
 header_sub_title: Ionic 2 Developer Preview
 show_preview_device: true
 angular_controller: ComponentsCtrl
+next_page_title: API Docs
+next_page_link: /docs/v2/api
 ---
 
 <h1 id="overview">Components</h1>

@@ -5,6 +5,10 @@ id: installation
 title: Ionic 2 | Installing
 header_title: Developer Tips - Building to a Device
 header_sub_title: Ionic 2 Developer Preview
+prev_page_title: Welcome to Ionic
+prev_page_link: /docs/v2/getting-started/
+next_page_title: Learn the basics
+next_page_link: /docs/v2/getting-started/tutorial
 ---
 
 # Installing Ionic
@@ -76,10 +80,3 @@ Next, we will need to install the <a href="../../resources/what-is/#android-sdk"
 ```bash
 $ ionic run android
 ```
-
-<h3 style="text-align:right;">
- <a href="/docs/v2/getting-started/tutorial" role="button">
-    Learn the basics
-  </a>
-</h3>
-

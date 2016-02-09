@@ -7745,7 +7745,7 @@ body {
       display: block;
       position: absolute;
       visibility: 0;
-      right: -500px;
+      top: -500px;
       opacity: 0;
       border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 4px;
@@ -7762,7 +7762,7 @@ body {
         padding: 10px 20px; }
     .navbar-default .dropdown.open .dropdown-menu {
       visibility: 1;
-      right: 0;
+      top: 77px;
       opacity: 1;
       -webkit-transform: translate3d(0, 0, 0);
               transform: translate3d(0, 0, 0); } }
@@ -8101,6 +8101,9 @@ body {
       right: auto;
       left: 80px;
       text-align: left; }
+      @media (max-width: 500px) {
+        .docs-container main a.footer-link.prev {
+          display: none; } }
       .docs-container main a.footer-link.prev:before {
         content: 'Previous'; }
       .docs-container main a.footer-link.prev:after {

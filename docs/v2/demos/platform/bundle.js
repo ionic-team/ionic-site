@@ -54732,6 +54732,7 @@
 	    };
 	    Object.defineProperty(Tabs.prototype, "rootNav", {
 	        /**
+	         * @private
 	         * Returns the root NavController. Returns `null` if Tabs is not
 	         * within a NavController.
 	         * @returns {NavController}

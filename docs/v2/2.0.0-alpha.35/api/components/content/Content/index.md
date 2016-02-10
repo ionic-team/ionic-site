@@ -37,8 +37,8 @@ docType: "class"
 
 
 
-<p>The Content component provides an easy to use content area that can be configured to use Ionic&#39;s custom Scroll View, or the built in overflow scrolling of the browser.</p>
-<p>While we recommend using the custom Scroll features in Ionic in most cases, sometimes (for performance reasons) only the browser&#39;s native overflow scrolling will suffice, and so we&#39;ve made it easy to toggle between the Ionic scroll implementation and overflow scrolling.</p>
+<p>The Content component provides an easy-to-use content area that can be configured to use Ionic&#39;s custom Scroll View or the built-in overflow scrolling of the browser.</p>
+<p>While in most cases we recommend using the custom Scroll features in Ionic, sometimes (for performance reasons), only the browser&#39;s native overflow scrolling will suffice, and so we&#39;ve made it easy to toggle between the Ionic scroll implementation and overflow scrolling.</p>
 <p>You can implement pull-to-refresh with the <a href="../../scroll/Refresher">Refresher</a> component.</p>
 
 

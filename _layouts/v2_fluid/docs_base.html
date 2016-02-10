@@ -62,8 +62,9 @@
       {% endif %}
       <main>
         {{ content }}
-
+        {% if page.prev_page_title  or page.next_page_title %}
         <hr>
+        {% endif %}
         {% if page.prev_page_title && page.prev_page_link %}
           <a class="footer-link prev" href="{{page.prev_page_link}}">
             {{page.prev_page_title}}</a>

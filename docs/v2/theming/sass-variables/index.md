@@ -19,7 +19,7 @@ Sass Variables allow you to define a value once and use it in multiple places. V
 $control-height: 40px;
 ```
 
-Then, you can use this variable in multiple places. For simplicity's sake, we are going to assign `$control-height` to the `height` attribute of two selectors:
+Then, you can use this variable in multiple places. For simplicity's sake, let's assign `$control-height` to the `height` attribute of two selectors:
 
 ```scss
 .header {

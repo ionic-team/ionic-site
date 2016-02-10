@@ -34,7 +34,7 @@ Modal
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/modal/modal.ts#L1'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/modal/modal.ts#L2'>
 Improve this doc
 </a>
 

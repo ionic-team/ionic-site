@@ -48,7 +48,7 @@
 	__webpack_require__(2);
 	__webpack_require__(3);
 	__webpack_require__(4);
-	module.exports = __webpack_require__(353);
+	module.exports = __webpack_require__(354);
 
 
 /***/ },
@@ -3311,23 +3311,23 @@
 	__export(__webpack_require__(6));
 	__export(__webpack_require__(159));
 	__export(__webpack_require__(280));
-	__export(__webpack_require__(337));
 	__export(__webpack_require__(338));
 	__export(__webpack_require__(339));
+	__export(__webpack_require__(340));
 	__export(__webpack_require__(160));
-	__export(__webpack_require__(343));
+	__export(__webpack_require__(344));
 	__export(__webpack_require__(158));
 	__export(__webpack_require__(163));
 	__export(__webpack_require__(272));
-	__export(__webpack_require__(300));
+	__export(__webpack_require__(302));
 	__export(__webpack_require__(279));
-	__export(__webpack_require__(347));
+	__export(__webpack_require__(348));
 	// these modules don't export anything
-	__webpack_require__(348);
 	__webpack_require__(349);
 	__webpack_require__(350);
 	__webpack_require__(351);
 	__webpack_require__(352);
+	__webpack_require__(353);
 
 /***/ },
 /* 6 */
@@ -27395,21 +27395,21 @@
 	})();
 	function transitionEnd(el, callback) {
 	    if (el) {
-	        function deregister() {
+	        function unregister() {
 	            exports.CSS.transitionEnd.split(' ').forEach(function (eventName) {
 	                el.removeEventListener(eventName, onEvent);
 	            });
 	        }
 	        function onEvent(ev) {
 	            if (el === ev.target) {
-	                deregister();
+	                unregister();
 	                callback(ev);
 	            }
 	        }
 	        exports.CSS.transitionEnd.split(' ').forEach(function (eventName) {
 	            el.addEventListener(eventName, onEvent);
 	        });
-	        return deregister;
+	        return unregister;
 	    }
 	}
 	exports.transitionEnd = transitionEnd;
@@ -41955,37 +41955,37 @@
 	var overlay_1 = __webpack_require__(281);
 	var menu_1 = __webpack_require__(282);
 	var menu_toggle_1 = __webpack_require__(291);
-	var menu_close_1 = __webpack_require__(302);
-	var badge_1 = __webpack_require__(303);
+	var menu_close_1 = __webpack_require__(303);
+	var badge_1 = __webpack_require__(304);
 	var button_1 = __webpack_require__(297);
-	var blur_1 = __webpack_require__(304);
-	var content_1 = __webpack_require__(305);
-	var scroll_1 = __webpack_require__(306);
-	var pull_to_refresh_1 = __webpack_require__(307);
-	var slides_1 = __webpack_require__(308);
-	var tabs_1 = __webpack_require__(310);
-	var tab_1 = __webpack_require__(312);
-	var list_1 = __webpack_require__(314);
-	var item_1 = __webpack_require__(317);
-	var item_sliding_1 = __webpack_require__(319);
+	var blur_1 = __webpack_require__(305);
+	var content_1 = __webpack_require__(306);
+	var scroll_1 = __webpack_require__(307);
+	var pull_to_refresh_1 = __webpack_require__(308);
+	var slides_1 = __webpack_require__(309);
+	var tabs_1 = __webpack_require__(311);
+	var tab_1 = __webpack_require__(313);
+	var list_1 = __webpack_require__(315);
+	var item_1 = __webpack_require__(318);
+	var item_sliding_1 = __webpack_require__(320);
 	var toolbar_1 = __webpack_require__(296);
 	var icon_1 = __webpack_require__(295);
-	var checkbox_1 = __webpack_require__(320);
-	var select_1 = __webpack_require__(321);
-	var option_1 = __webpack_require__(323);
-	var toggle_1 = __webpack_require__(324);
-	var input_1 = __webpack_require__(325);
-	var label_1 = __webpack_require__(318);
-	var segment_1 = __webpack_require__(328);
-	var radio_button_1 = __webpack_require__(329);
-	var radio_group_1 = __webpack_require__(330);
-	var searchbar_1 = __webpack_require__(331);
-	var nav_1 = __webpack_require__(332);
-	var nav_push_1 = __webpack_require__(333);
-	var nav_router_1 = __webpack_require__(334);
+	var checkbox_1 = __webpack_require__(321);
+	var select_1 = __webpack_require__(322);
+	var option_1 = __webpack_require__(324);
+	var toggle_1 = __webpack_require__(325);
+	var input_1 = __webpack_require__(326);
+	var label_1 = __webpack_require__(319);
+	var segment_1 = __webpack_require__(329);
+	var radio_button_1 = __webpack_require__(330);
+	var radio_group_1 = __webpack_require__(331);
+	var searchbar_1 = __webpack_require__(332);
+	var nav_1 = __webpack_require__(333);
+	var nav_push_1 = __webpack_require__(334);
+	var nav_router_1 = __webpack_require__(335);
 	var navbar_1 = __webpack_require__(294);
-	var id_1 = __webpack_require__(335);
-	var show_hide_when_1 = __webpack_require__(336);
+	var id_1 = __webpack_require__(336);
+	var show_hide_when_1 = __webpack_require__(337);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @private
@@ -46621,12 +46621,12 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var instrumentation_1 = __webpack_require__(299);
-	var animation_1 = __webpack_require__(300);
 	var ion_1 = __webpack_require__(283);
-	var util_1 = __webpack_require__(161);
 	var nav_params_1 = __webpack_require__(293);
+	var util_1 = __webpack_require__(161);
 	var dom_1 = __webpack_require__(162);
-	var swipe_back_1 = __webpack_require__(301);
+	var swipe_back_1 = __webpack_require__(300);
+	var transition_1 = __webpack_require__(301);
 	var view_controller_1 = __webpack_require__(292);
 	/**
 	 * @name NavController
@@ -46981,14 +46981,12 @@
 	            return;
 	        }
 	        opts.keyboardClose = false;
-	        opts.skipCache = true;
 	        opts.direction = 'forward';
 	        if (!opts.animation) {
 	            opts.animation = enteringView.getTransitionName('forward');
 	        }
 	        enteringView.setLeavingOpts({
 	            keyboardClose: false,
-	            skipCache: true,
 	            direction: 'back',
 	            animation: enteringView.getTransitionName('back')
 	        });
@@ -47238,13 +47236,16 @@
 	                    opts.animation = forcedActive.getTransitionName(opts.direction);
 	                }
 	                if (this._lastTrans) {
-	                    this._lastTrans.playbackRate(100).onFinish(function () {
+	                    this._lastTrans
+	                        .onFinish(function () {
 	                        opts.animate = false;
 	                        _this._transition(forcedActive, null, opts, function () {
 	                            // transition has completed!!
 	                            resolve();
 	                        });
-	                    });
+	                    }, false, true)
+	                        .stop();
+	                    this._lastTrans.destroy();
 	                    this._lastTrans = null;
 	                }
 	                else {
@@ -47521,10 +47522,16 @@
 	        // everything during the transition should runOutsideAngular
 	        this._zone.runOutsideAngular(function () {
 	            // init the transition animation
-	            opts.renderDelay = opts.transitionDelay || _this._trnsDelay;
-	            // set if this app is right-to-left or not
-	            opts.isRTL = _this.config.platform.isRTL();
-	            var transAnimation = animation_1.Animation.createTransition(enteringView, leavingView, opts);
+	            var transitionOpts = {
+	                animation: opts.animation,
+	                direction: opts.direction,
+	                duration: opts.duration,
+	                easing: opts.easing,
+	                renderDelay: opts.transitionDelay || _this._trnsDelay,
+	                isRTL: _this.config.platform.isRTL()
+	            };
+	            var transAnimation = transition_1.Transition.createTransition(enteringView, leavingView, transitionOpts);
+	            _this._lastTrans && _this._lastTrans.destroy();
 	            _this._lastTrans = transAnimation;
 	            if (opts.animate === false) {
 	                // force it to not animate the elements, just apply the "to" styles
@@ -47720,7 +47727,6 @@
 	     * @private
 	     */
 	    NavController.prototype.swipeBackStart = function () {
-	        var _this = this;
 	        return;
 	        if (!this._app.isEnabled() || !this.canSwipeBack()) {
 	            return;
@@ -47742,15 +47748,6 @@
 	        enteringView.willEnter();
 	        // wait for the new view to complete setup
 	        this._render(0, enteringView, leavingView, {}, function () {
-	            _this._zone.runOutsideAngular(function () {
-	                // set that the new view pushed on the stack is staged to be entering/leaving
-	                // staged state is important for the transition to find the correct view
-	                // enteringView.state = STATE_RENDERED_ENTER;
-	                // leavingView.state = STATE_RENDERED_LEAVE;
-	                // init the swipe back transition animation
-	                _this._sbTrans = animation_1.Animation.createTransition(enteringView, leavingView, opts);
-	                _this._sbTrans.easing('linear').progressStart();
-	            });
 	        });
 	    };
 	    /**
@@ -47763,7 +47760,7 @@
 	            this._app.setEnabled(false, 4000);
 	            this.setTransitioning(true, 4000);
 	            // set the transition animation's progress
-	            this._sbTrans.progress(value);
+	            this._sbTrans.progressStep(value);
 	        }
 	    };
 	    /**
@@ -47777,7 +47774,7 @@
 	        // disables the app during the transition
 	        this._app.setEnabled(false);
 	        this.setTransitioning(true);
-	        this._sbTrans.progressEnd(completeSwipeBack, rate).then(function () {
+	        this._sbTrans.onFinish(function () {
 	            _this._zone.run(function () {
 	                // find the views that were entering and leaving
 	                var enteringView = null; // this._getStagedEntering();
@@ -47809,12 +47806,13 @@
 	                    }
 	                }
 	                // empty out and dispose the swipe back transition animation
-	                _this._sbTrans && _this._sbTrans.dispose();
+	                _this._sbTrans && _this._sbTrans.destroy();
 	                _this._sbTrans = null;
 	                // all done!
 	                //this._transComplete();
 	            });
-	        });
+	        }, true);
+	        this._sbTrans.progressEnd(completeSwipeBack, 0.5);
 	    };
 	    /**
 	     * @private
@@ -48036,6 +48034,77 @@
 /* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var slide_edge_gesture_1 = __webpack_require__(285);
+	var SwipeBackGesture = (function (_super) {
+	    __extends(SwipeBackGesture, _super);
+	    function SwipeBackGesture(element, opts, _nav) {
+	        if (opts === void 0) { opts = {}; }
+	        _super.call(this, element, opts);
+	        this._nav = _nav;
+	        // Can check corners through use of eg 'left top'
+	        this.edges = opts.edge.split(' ');
+	        this.threshold = opts.threshold;
+	    }
+	    SwipeBackGesture.prototype.onSlideStart = function () {
+	        this._nav.swipeBackStart();
+	    };
+	    SwipeBackGesture.prototype.onSlide = function (slide, ev) {
+	        this._nav.swipeBackProgress(slide.distance / slide.max);
+	    };
+	    SwipeBackGesture.prototype.onSlideEnd = function (slide, ev) {
+	        var shouldComplete = (Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
+	        // TODO: calculate a better playback rate depending on velocity and distance
+	        this._nav.swipeBackEnd(shouldComplete, 1);
+	    };
+	    return SwipeBackGesture;
+	})(slide_edge_gesture_1.SlideEdgeGesture);
+	exports.SwipeBackGesture = SwipeBackGesture;
+
+/***/ },
+/* 301 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var animation_1 = __webpack_require__(302);
+	/**
+	 * @private
+	 **/
+	var Transition = (function (_super) {
+	    __extends(Transition, _super);
+	    function Transition(opts) {
+	        _super.call(this, null, {
+	            renderDelay: opts.renderDelay
+	        });
+	    }
+	    Transition.createTransition = function (enteringView, leavingView, opts) {
+	        var TransitionClass = TransitionRegistry[opts.animation];
+	        if (!TransitionClass) {
+	            // didn't find a transition animation, default to ios-transition
+	            TransitionClass = TransitionRegistry['ios-transition'];
+	        }
+	        return new TransitionClass(enteringView, leavingView, opts);
+	    };
+	    Transition.register = function (name, TransitionClass) {
+	        TransitionRegistry[name] = TransitionClass;
+	    };
+	    return Transition;
+	})(animation_1.Animation);
+	exports.Transition = Transition;
+	var TransitionRegistry = {};
+
+/***/ },
+/* 302 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var dom_1 = __webpack_require__(162);
 	var util_1 = __webpack_require__(161);
 	/**
@@ -48063,6 +48132,7 @@
 	        this._pFns = [];
 	        this._fFns = [];
 	        this._fOnceFns = [];
+	        this._clearAsync();
 	        this.isPlaying = this.hasTween = this._rv = false;
 	        this._el = this._easing = this._dur = null;
 	    };
@@ -48192,10 +48262,12 @@
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Animation.prototype.play = function () {
+	    Animation.prototype.play = function (opts) {
+	        if (opts === void 0) { opts = {}; }
 	        var self = this;
-	        var i, fallbackTimerId, deregTransEnd;
-	        console.debug('Animation, play, duration', self._dur, 'easing', self._easing);
+	        var i;
+	        var duration = util_1.isDefined(opts.duration) ? opts.duration : self._dur;
+	        console.debug('Animation, play, duration', duration, 'easing', self._easing);
 	        // always default that an animation does not tween
 	        // a tween requires that an Animation class has an element
 	        // and that it has at least one FROM/TO effect
@@ -48215,21 +48287,23 @@
 	        // stage all of the before css classes and inline styles
 	        // will recursively stage all child elements
 	        self._before();
-	        if (self._dur > 30) {
+	        // ensure all past transition end events have been cleared
+	        this._clearAsync();
+	        if (duration > 30) {
 	            // this animation has a duration, so it should animate
 	            // place all the elements with their FROM properties
 	            // set the FROM properties
 	            self._progress(0);
 	            self._willChange(true);
-	            // set the TRANSITION END event
+	            // set the async TRANSITION END event
 	            // and run onFinishes when the transition ends
-	            self._asyncEnd(self._dur);
+	            self._asyncEnd(duration);
 	            // begin each animation when everything is rendered in their place
 	            // and the transition duration/easing is ready to go
 	            dom_1.rafFrames(self._opts.renderDelay / 16, function () {
 	                // there's been a moment and the elements are in place
 	                // now set the TRANSITION duration/easing
-	                self._setTrans(self._dur, false);
+	                self._setTrans(duration, false);
 	                // wait a few moments again to wait for the transition
 	                // info to take hold in the DOM
 	                dom_1.raf(function () {
@@ -48245,38 +48319,59 @@
 	            // this animation does not have a duration, so it should not animate
 	            // just go straight to the TO properties and call it done
 	            self._progress(1);
-	            // so there was no animation, immediately run the after
+	            // since there was no animation, immediately run the after
 	            self._after();
-	            // so there was no animation, it's done
+	            // since there was no animation, it's done
+	            // fire off all the onFinishes
+	            self._onFinish();
+	        }
+	    };
+	    Animation.prototype.stop = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        var self = this;
+	        var duration = util_1.isDefined(opts.duration) ? opts.duration : 0;
+	        var stepValue = util_1.isDefined(opts.stepValue) ? opts.stepValue : 1;
+	        // ensure all past transition end events have been cleared
+	        this._clearAsync();
+	        // set the TO properties
+	        self._progress(stepValue);
+	        if (duration > 30) {
+	            // this animation has a duration, so it should animate
+	            // place all the elements with their TO properties
+	            // now set the TRANSITION duration
+	            self._setTrans(duration, true);
+	            // set the async TRANSITION END event
+	            // and run onFinishes when the transition ends
+	            self._asyncEnd(duration);
+	        }
+	        else {
+	            // this animation does not have a duration, so it should not animate
+	            // just go straight to the TO properties and call it done
+	            self._after();
+	            // since there was no animation, it's done
 	            // fire off all the onFinishes
 	            self._onFinish();
 	        }
 	    };
 	    Animation.prototype._asyncEnd = function (duration) {
 	        var self = this;
-	        var deregTransEnd, fallbackTimerId;
-	        // set the TRANSITION END event
-	        deregTransEnd = dom_1.transitionEnd(self._transEl(), function () {
-	            // transition has completed
-	            console.debug('Animation, transition end');
-	            // cancel the fallback timer so it doesn't fire also
-	            clearTimeout(fallbackTimerId);
+	        function onTransitionEnd(ev) {
+	            console.debug('Animation async end,', (ev ? 'transitionEnd event' : 'fallback timeout'));
+	            // ensure transition end events and timeouts have been cleared
+	            self._clearAsync();
 	            // set the after styles
 	            self._after();
 	            self._willChange(false);
 	            self._onFinish();
-	        });
+	        }
+	        // set the TRANSITION END event on one of the transition elements
+	        self._unregTrans = dom_1.transitionEnd(self._transEl(), onTransitionEnd);
 	        // set a fallback timeout if the transition end event never fires
-	        fallbackTimerId = setTimeout(function () {
-	            // fallback timeout fired instead of the transition end
-	            console.debug('Animation, fallback end');
-	            // deregister the transition end event listener
-	            deregTransEnd();
-	            // set the after styles
-	            self._after();
-	            self._willChange(false);
-	            self._onFinish();
-	        }, duration + 300);
+	        self._tmr = setTimeout(onTransitionEnd, duration + 300);
+	    };
+	    Animation.prototype._clearAsync = function () {
+	        this._unregTrans && this._unregTrans();
+	        clearTimeout(this._tmr);
 	    };
 	    Animation.prototype._progress = function (stepValue) {
 	        // bread 'n butter
@@ -48489,8 +48584,13 @@
 	        this._pFns.push(callback);
 	        return this;
 	    };
-	    Animation.prototype.onFinish = function (callback, onceTimeCallback) {
+	    Animation.prototype.onFinish = function (callback, onceTimeCallback, clearOnFinishCallacks) {
 	        if (onceTimeCallback === void 0) { onceTimeCallback = false; }
+	        if (clearOnFinishCallacks === void 0) { clearOnFinishCallacks = false; }
+	        if (clearOnFinishCallacks) {
+	            this._fFns = [];
+	            this._fOnceFns = [];
+	        }
 	        if (onceTimeCallback) {
 	            this._fOnceFns.push(callback);
 	        }
@@ -48541,23 +48641,15 @@
 	    /*
 	     STATIC CLASSES
 	     */
-	    Animation.create = function (name) {
+	    Animation.create = function (name, opts) {
+	        if (opts === void 0) { opts = {}; }
 	        var AnimationClass = AnimationRegistry[name];
 	        if (!AnimationClass) {
 	            // couldn't find an animation by the given name
 	            // fallback to just the base Animation class
 	            AnimationClass = Animation;
 	        }
-	        return new AnimationClass();
-	    };
-	    Animation.createTransition = function (enteringView, leavingView, opts) {
-	        if (opts === void 0) { opts = {}; }
-	        var TransitionClass = AnimationRegistry[opts.animation];
-	        if (!TransitionClass) {
-	            // didn't find a transition animation, default to ios-transition
-	            TransitionClass = AnimationRegistry['ios-transition'];
-	        }
-	        return new TransitionClass(enteringView, leavingView, opts);
+	        return new AnimationClass(null, opts);
 	    };
 	    Animation.register = function (name, AnimationClass) {
 	        AnimationRegistry[name] = AnimationClass;
@@ -48572,42 +48664,7 @@
 	var AnimationRegistry = {};
 
 /***/ },
-/* 301 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var slide_edge_gesture_1 = __webpack_require__(285);
-	var SwipeBackGesture = (function (_super) {
-	    __extends(SwipeBackGesture, _super);
-	    function SwipeBackGesture(element, opts, _nav) {
-	        if (opts === void 0) { opts = {}; }
-	        _super.call(this, element, opts);
-	        this._nav = _nav;
-	        // Can check corners through use of eg 'left top'
-	        this.edges = opts.edge.split(' ');
-	        this.threshold = opts.threshold;
-	    }
-	    SwipeBackGesture.prototype.onSlideStart = function () {
-	        this._nav.swipeBackStart();
-	    };
-	    SwipeBackGesture.prototype.onSlide = function (slide, ev) {
-	        this._nav.swipeBackProgress(slide.distance / slide.max);
-	    };
-	    SwipeBackGesture.prototype.onSlideEnd = function (slide, ev) {
-	        var shouldComplete = (Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
-	        // TODO: calculate a better playback rate depending on velocity and distance
-	        this._nav.swipeBackEnd(shouldComplete, 1);
-	    };
-	    return SwipeBackGesture;
-	})(slide_edge_gesture_1.SlideEdgeGesture);
-	exports.SwipeBackGesture = SwipeBackGesture;
-
-/***/ },
-/* 302 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -48676,7 +48733,7 @@
 	exports.MenuClose = MenuClose;
 
 /***/ },
-/* 303 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -48739,7 +48796,7 @@
 	exports.Badge = Badge;
 
 /***/ },
-/* 304 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -48785,7 +48842,7 @@
 	exports.Blur = Blur;
 
 /***/ },
-/* 305 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -49103,7 +49160,7 @@
 	exports.Content = Content;
 
 /***/ },
-/* 306 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -49202,7 +49259,7 @@
 	exports.Scroll = Scroll;
 
 /***/ },
-/* 307 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -49219,7 +49276,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(170);
-	var content_1 = __webpack_require__(305);
+	var content_1 = __webpack_require__(306);
 	var icon_1 = __webpack_require__(295);
 	var util_1 = __webpack_require__(161);
 	var dom_1 = __webpack_require__(162);
@@ -49671,7 +49728,7 @@
 	exports.Refresher = Refresher;
 
 /***/ },
-/* 308 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -49694,12 +49751,12 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(170);
 	var ion_1 = __webpack_require__(283);
-	var animation_1 = __webpack_require__(300);
+	var animation_1 = __webpack_require__(302);
 	var gesture_1 = __webpack_require__(288);
 	var util_1 = __webpack_require__(289);
 	var dom_1 = __webpack_require__(162);
 	var util_2 = __webpack_require__(161);
-	var swiper_widget_1 = __webpack_require__(309);
+	var swiper_widget_1 = __webpack_require__(310);
 	/**
 	 * @name Slides
 	 * @description
@@ -49974,8 +50031,7 @@
 	        */
 	        var zi = new animation_1.Animation(this.touch.target.children[0])
 	            .duration(this.zoomDuration)
-	            .easing('linear')
-	            .fill('none');
+	            .easing('linear');
 	        var zw = new animation_1.Animation(this.touch.target.children[0])
 	            .duration(this.zoomDuration)
 	            .easing('linear');
@@ -50268,7 +50324,7 @@
 	exports.SlideLazy = SlideLazy;
 
 /***/ },
-/* 309 */
+/* 310 */
 /***/ function(module, exports) {
 
 	/**
@@ -54228,7 +54284,7 @@
 
 
 /***/ },
-/* 310 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -54252,8 +54308,8 @@
 	var common_1 = __webpack_require__(170);
 	var app_1 = __webpack_require__(166);
 	var config_1 = __webpack_require__(159);
-	var tab_button_1 = __webpack_require__(311);
-	var tab_highlight_1 = __webpack_require__(313);
+	var tab_button_1 = __webpack_require__(312);
+	var tab_highlight_1 = __webpack_require__(314);
 	var ion_1 = __webpack_require__(283);
 	var platform_1 = __webpack_require__(160);
 	var nav_controller_1 = __webpack_require__(298);
@@ -54569,7 +54625,7 @@
 	})();
 
 /***/ },
-/* 311 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -54587,7 +54643,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var tab_1 = __webpack_require__(312);
+	var tab_1 = __webpack_require__(313);
 	var ion_1 = __webpack_require__(283);
 	var config_1 = __webpack_require__(159);
 	/**
@@ -54648,7 +54704,7 @@
 	exports.TabButton = TabButton;
 
 /***/ },
-/* 312 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -54674,7 +54730,7 @@
 	var config_1 = __webpack_require__(159);
 	var keyboard_1 = __webpack_require__(272);
 	var nav_controller_1 = __webpack_require__(298);
-	var tabs_1 = __webpack_require__(310);
+	var tabs_1 = __webpack_require__(311);
 	/**
 	 * @name Tab
 	 * @description
@@ -54890,7 +54946,7 @@
 	exports.Tab = Tab;
 
 /***/ },
-/* 313 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -54937,7 +54993,7 @@
 	exports.TabHighlight = TabHighlight;
 
 /***/ },
-/* 314 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -54959,8 +55015,8 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var ion_1 = __webpack_require__(283);
-	var virtual_1 = __webpack_require__(315);
-	var item_sliding_gesture_1 = __webpack_require__(316);
+	var virtual_1 = __webpack_require__(316);
+	var item_sliding_gesture_1 = __webpack_require__(317);
 	var util_1 = __webpack_require__(289);
 	/**
 	 * The List is a widely used interface element in almost any mobile app, and can include
@@ -55124,7 +55180,7 @@
 	exports.ListHeader = ListHeader;
 
 /***/ },
-/* 315 */
+/* 316 */
 /***/ function(module, exports) {
 
 	var ListVirtualScroll = (function () {
@@ -55217,7 +55273,7 @@
 	})();
 
 /***/ },
-/* 316 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -55437,7 +55493,7 @@
 	var DRAG_THRESHOLD = 20;
 
 /***/ },
-/* 317 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55454,7 +55510,7 @@
 	var button_1 = __webpack_require__(297);
 	var form_1 = __webpack_require__(165);
 	var icon_1 = __webpack_require__(295);
-	var label_1 = __webpack_require__(318);
+	var label_1 = __webpack_require__(319);
 	/**
 	 * @name Item
 	 * @description
@@ -55631,7 +55687,7 @@
 	exports.Item = Item;
 
 /***/ },
-/* 318 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55748,7 +55804,7 @@
 	exports.Label = Label;
 
 /***/ },
-/* 319 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55764,7 +55820,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var list_1 = __webpack_require__(314);
+	var list_1 = __webpack_require__(315);
 	/**
 	 * @name ItemSliding
 	 *
@@ -55817,7 +55873,7 @@
 	var slideIds = 0;
 
 /***/ },
-/* 320 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55835,7 +55891,7 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(170);
 	var form_1 = __webpack_require__(165);
-	var item_1 = __webpack_require__(317);
+	var item_1 = __webpack_require__(318);
 	var util_1 = __webpack_require__(161);
 	/**
 	 * The checkbox is no different than the HTML checkbox input, except
@@ -56029,7 +56085,7 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 321 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56046,12 +56102,12 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(170);
-	var alert_1 = __webpack_require__(322);
+	var alert_1 = __webpack_require__(323);
 	var form_1 = __webpack_require__(165);
-	var item_1 = __webpack_require__(317);
+	var item_1 = __webpack_require__(318);
 	var util_1 = __webpack_require__(161);
 	var nav_controller_1 = __webpack_require__(298);
-	var option_1 = __webpack_require__(323);
+	var option_1 = __webpack_require__(324);
 	/**
 	 * @name Select
 	 * @description
@@ -56445,7 +56501,7 @@
 	exports.Select = Select;
 
 /***/ },
-/* 322 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -56464,7 +56520,8 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(170);
-	var animation_1 = __webpack_require__(300);
+	var animation_1 = __webpack_require__(302);
+	var transition_1 = __webpack_require__(301);
 	var config_1 = __webpack_require__(159);
 	var util_1 = __webpack_require__(161);
 	var nav_params_1 = __webpack_require__(293);
@@ -56862,7 +56919,7 @@
 	var AlertPopIn = (function (_super) {
 	    __extends(AlertPopIn, _super);
 	    function AlertPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
@@ -56875,12 +56932,12 @@
 	            .add(wrapper);
 	    }
 	    return AlertPopIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-pop-in', AlertPopIn);
+	})(transition_1.Transition);
+	transition_1.Transition.register('alert-pop-in', AlertPopIn);
 	var AlertPopOut = (function (_super) {
 	    __extends(AlertPopOut, _super);
 	    function AlertPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
@@ -56893,12 +56950,12 @@
 	            .add(wrapper);
 	    }
 	    return AlertPopOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-pop-out', AlertPopOut);
+	})(transition_1.Transition);
+	transition_1.Transition.register('alert-pop-out', AlertPopOut);
 	var AlertMdPopIn = (function (_super) {
 	    __extends(AlertMdPopIn, _super);
 	    function AlertMdPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
@@ -56911,12 +56968,12 @@
 	            .add(wrapper);
 	    }
 	    return AlertMdPopIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-md-pop-in', AlertMdPopIn);
+	})(transition_1.Transition);
+	transition_1.Transition.register('alert-md-pop-in', AlertMdPopIn);
 	var AlertMdPopOut = (function (_super) {
 	    __extends(AlertMdPopOut, _super);
 	    function AlertMdPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
@@ -56929,12 +56986,12 @@
 	            .add(wrapper);
 	    }
 	    return AlertMdPopOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-md-pop-out', AlertMdPopOut);
+	})(transition_1.Transition);
+	transition_1.Transition.register('alert-md-pop-out', AlertMdPopOut);
 	var alertIds = -1;
 
 /***/ },
-/* 323 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57030,7 +57087,7 @@
 	exports.Option = Option;
 
 /***/ },
-/* 324 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57050,7 +57107,7 @@
 	var form_1 = __webpack_require__(165);
 	var config_1 = __webpack_require__(159);
 	var util_1 = __webpack_require__(161);
-	var item_1 = __webpack_require__(317);
+	var item_1 = __webpack_require__(318);
 	var dom_1 = __webpack_require__(162);
 	/**
 	 * @name Toggle
@@ -57295,7 +57352,7 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 325 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -57319,12 +57376,12 @@
 	var common_1 = __webpack_require__(170);
 	var button_1 = __webpack_require__(297);
 	var config_1 = __webpack_require__(159);
-	var content_1 = __webpack_require__(305);
+	var content_1 = __webpack_require__(306);
 	var form_1 = __webpack_require__(165);
-	var input_base_1 = __webpack_require__(326);
+	var input_base_1 = __webpack_require__(327);
 	var app_1 = __webpack_require__(166);
-	var item_1 = __webpack_require__(317);
-	var native_input_1 = __webpack_require__(327);
+	var item_1 = __webpack_require__(318);
+	var native_input_1 = __webpack_require__(328);
 	var nav_controller_1 = __webpack_require__(298);
 	var platform_1 = __webpack_require__(160);
 	/**
@@ -57479,7 +57536,7 @@
 	exports.TextArea = TextArea;
 
 /***/ },
-/* 326 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57494,7 +57551,7 @@
 	var core_1 = __webpack_require__(7);
 	var util_1 = __webpack_require__(161);
 	var dom_1 = __webpack_require__(162);
-	var native_input_1 = __webpack_require__(327);
+	var native_input_1 = __webpack_require__(328);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
 	        this._form = _form;
@@ -57982,7 +58039,7 @@
 	}
 
 /***/ },
-/* 327 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58177,7 +58234,7 @@
 	exports.NextInput = NextInput;
 
 /***/ },
-/* 328 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58428,7 +58485,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 329 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58446,8 +58503,8 @@
 	var core_1 = __webpack_require__(7);
 	var form_1 = __webpack_require__(165);
 	var util_1 = __webpack_require__(161);
-	var item_1 = __webpack_require__(317);
-	var radio_group_1 = __webpack_require__(330);
+	var item_1 = __webpack_require__(318);
+	var radio_group_1 = __webpack_require__(331);
 	/**
 	 * @description
 	 * A radio button with a unique value. Note that all `<ion-radio>`
@@ -58618,7 +58675,7 @@
 	exports.RadioButton = RadioButton;
 
 /***/ },
-/* 330 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58635,7 +58692,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(170);
-	var list_1 = __webpack_require__(314);
+	var list_1 = __webpack_require__(315);
 	var util_1 = __webpack_require__(161);
 	/**
 	 * @name RadioGroup
@@ -58828,7 +58885,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59177,7 +59234,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59345,7 +59402,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 333 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59507,7 +59564,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 334 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59529,7 +59586,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var router_1 = __webpack_require__(118);
-	var nav_1 = __webpack_require__(332);
+	var nav_1 = __webpack_require__(333);
 	/**
 	 * @private
 	 */
@@ -59631,7 +59688,7 @@
 	})(router_1.Instruction);
 
 /***/ },
-/* 335 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59743,7 +59800,7 @@
 	exports.Attr = Attr;
 
 /***/ },
-/* 336 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59896,7 +59953,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 337 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(7);
@@ -59958,7 +60015,7 @@
 	exports.App = App;
 
 /***/ },
-/* 338 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(7);
@@ -60049,58 +60106,58 @@
 	exports.Page = Page;
 
 /***/ },
-/* 339 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(166));
-	__export(__webpack_require__(335));
-	__export(__webpack_require__(340));
-	__export(__webpack_require__(322));
-	__export(__webpack_require__(304));
-	__export(__webpack_require__(297));
-	__export(__webpack_require__(320));
+	__export(__webpack_require__(336));
+	__export(__webpack_require__(341));
+	__export(__webpack_require__(323));
 	__export(__webpack_require__(305));
+	__export(__webpack_require__(297));
+	__export(__webpack_require__(321));
+	__export(__webpack_require__(306));
 	__export(__webpack_require__(295));
-	__export(__webpack_require__(325));
-	__export(__webpack_require__(317));
-	__export(__webpack_require__(319));
+	__export(__webpack_require__(326));
+	__export(__webpack_require__(318));
+	__export(__webpack_require__(320));
 	__export(__webpack_require__(273));
 	__export(__webpack_require__(282));
-	__export(__webpack_require__(341));
-	__export(__webpack_require__(291));
-	__export(__webpack_require__(302));
-	__export(__webpack_require__(318));
-	__export(__webpack_require__(314));
-	__export(__webpack_require__(336));
 	__export(__webpack_require__(342));
-	__export(__webpack_require__(332));
+	__export(__webpack_require__(291));
+	__export(__webpack_require__(303));
+	__export(__webpack_require__(319));
+	__export(__webpack_require__(315));
+	__export(__webpack_require__(337));
+	__export(__webpack_require__(343));
+	__export(__webpack_require__(333));
 	__export(__webpack_require__(298));
 	__export(__webpack_require__(292));
 	__export(__webpack_require__(293));
-	__export(__webpack_require__(333));
 	__export(__webpack_require__(334));
+	__export(__webpack_require__(335));
 	__export(__webpack_require__(294));
-	__export(__webpack_require__(323));
-	__export(__webpack_require__(281));
-	__export(__webpack_require__(308));
-	__export(__webpack_require__(329));
-	__export(__webpack_require__(330));
-	__export(__webpack_require__(306));
-	__export(__webpack_require__(307));
-	__export(__webpack_require__(331));
-	__export(__webpack_require__(328));
-	__export(__webpack_require__(321));
-	__export(__webpack_require__(310));
-	__export(__webpack_require__(312));
-	__export(__webpack_require__(276));
 	__export(__webpack_require__(324));
+	__export(__webpack_require__(281));
+	__export(__webpack_require__(309));
+	__export(__webpack_require__(330));
+	__export(__webpack_require__(331));
+	__export(__webpack_require__(307));
+	__export(__webpack_require__(308));
+	__export(__webpack_require__(332));
+	__export(__webpack_require__(329));
+	__export(__webpack_require__(322));
+	__export(__webpack_require__(311));
+	__export(__webpack_require__(313));
+	__export(__webpack_require__(276));
+	__export(__webpack_require__(325));
 	__export(__webpack_require__(296));
 
 /***/ },
-/* 340 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60119,7 +60176,8 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(170);
-	var animation_1 = __webpack_require__(300);
+	var animation_1 = __webpack_require__(302);
+	var transition_1 = __webpack_require__(301);
 	var config_1 = __webpack_require__(159);
 	var icon_1 = __webpack_require__(295);
 	var util_1 = __webpack_require__(161);
@@ -60357,7 +60415,7 @@
 	var ActionSheetSlideIn = (function (_super) {
 	    __extends(ActionSheetSlideIn, _super);
 	    function ActionSheetSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
@@ -60366,12 +60424,12 @@
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetSlideIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('action-sheet-slide-in', ActionSheetSlideIn);
+	})(transition_1.Transition);
+	transition_1.Transition.register('action-sheet-slide-in', ActionSheetSlideIn);
 	var ActionSheetSlideOut = (function (_super) {
 	    __extends(ActionSheetSlideOut, _super);
 	    function ActionSheetSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
@@ -60380,12 +60438,12 @@
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetSlideOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('action-sheet-slide-out', ActionSheetSlideOut);
+	})(transition_1.Transition);
+	transition_1.Transition.register('action-sheet-slide-out', ActionSheetSlideOut);
 	var ActionSheetMdSlideIn = (function (_super) {
 	    __extends(ActionSheetMdSlideIn, _super);
 	    function ActionSheetMdSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
@@ -60394,12 +60452,12 @@
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetMdSlideIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
+	})(transition_1.Transition);
+	transition_1.Transition.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
 	var ActionSheetMdSlideOut = (function (_super) {
 	    __extends(ActionSheetMdSlideOut, _super);
 	    function ActionSheetMdSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
@@ -60408,11 +60466,11 @@
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetMdSlideOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
+	})(transition_1.Transition);
+	transition_1.Transition.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60421,7 +60479,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var menu_controller_1 = __webpack_require__(273);
-	var animation_1 = __webpack_require__(300);
+	var animation_1 = __webpack_require__(302);
 	/**
 	 * Menu Type
 	 * Base class which is extended by the various types. Each
@@ -60556,7 +60614,7 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 342 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60565,7 +60623,8 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var view_controller_1 = __webpack_require__(292);
-	var animation_1 = __webpack_require__(300);
+	var animation_1 = __webpack_require__(302);
+	var transition_1 = __webpack_require__(301);
 	/**
 	 * @name Modal
 	 * @description
@@ -60696,8 +60755,9 @@
 	var ModalSlideIn = (function (_super) {
 	    __extends(ModalSlideIn, _super);
 	    function ModalSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, enteringView.pageRef(), opts);
+	        _super.call(this, opts);
 	        this
+	            .element(enteringView.pageRef())
 	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
 	            .duration(400)
 	            .fromTo('translateY', '100%', '0%')
@@ -60710,25 +60770,27 @@
 	        }
 	    }
 	    return ModalSlideIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('modal-slide-in', ModalSlideIn);
+	})(transition_1.Transition);
+	transition_1.Transition.register('modal-slide-in', ModalSlideIn);
 	var ModalSlideOut = (function (_super) {
 	    __extends(ModalSlideOut, _super);
 	    function ModalSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, leavingView.pageRef(), opts);
+	        _super.call(this, opts);
 	        this
+	            .element(leavingView.pageRef())
 	            .easing('ease-out')
 	            .duration(250)
 	            .fromTo('translateY', '0%', '100%');
 	    }
 	    return ModalSlideOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('modal-slide-out', ModalSlideOut);
+	})(transition_1.Transition);
+	transition_1.Transition.register('modal-slide-out', ModalSlideOut);
 	var ModalMDSlideIn = (function (_super) {
 	    __extends(ModalMDSlideIn, _super);
 	    function ModalMDSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, enteringView.pageRef(), opts);
+	        _super.call(this, opts);
 	        this
+	            .element(enteringView.pageRef())
 	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
 	            .duration(280)
 	            .fromTo('translateY', '40px', '0px')
@@ -60742,35 +60804,36 @@
 	        }
 	    }
 	    return ModalMDSlideIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('modal-md-slide-in', ModalMDSlideIn);
+	})(transition_1.Transition);
+	transition_1.Transition.register('modal-md-slide-in', ModalMDSlideIn);
 	var ModalMDSlideOut = (function (_super) {
 	    __extends(ModalMDSlideOut, _super);
 	    function ModalMDSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, leavingView.pageRef(), opts);
+	        _super.call(this, opts);
 	        this
+	            .element(leavingView.pageRef())
 	            .duration(200)
 	            .easing('cubic-bezier(0.47,0,0.745,0.715)')
 	            .fromTo('translateY', '0px', '40px')
 	            .fadeOut();
 	    }
 	    return ModalMDSlideOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('modal-md-slide-out', ModalMDSlideOut);
+	})(transition_1.Transition);
+	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(344));
 	__export(__webpack_require__(345));
 	__export(__webpack_require__(346));
+	__export(__webpack_require__(347));
 
 /***/ },
-/* 344 */
+/* 345 */
 /***/ function(module, exports) {
 
 	/**
@@ -60847,7 +60910,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 345 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60855,7 +60918,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(344);
+	var storage_1 = __webpack_require__(345);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -60941,7 +61004,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 346 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60949,7 +61012,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(344);
+	var storage_1 = __webpack_require__(345);
 	var util_1 = __webpack_require__(161);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -61158,7 +61221,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 347 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61207,7 +61270,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var config_1 = __webpack_require__(159);
@@ -61249,7 +61312,7 @@
 	});
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var platform_1 = __webpack_require__(160);
@@ -61411,7 +61474,7 @@
 	}
 
 /***/ },
-/* 350 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61419,7 +61482,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(300);
+	var animation_1 = __webpack_require__(302);
 	var SlideIn = (function (_super) {
 	    __extends(SlideIn, _super);
 	    function SlideIn(element) {
@@ -61470,7 +61533,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61478,7 +61541,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(300);
+	var animation_1 = __webpack_require__(302);
+	var transition_1 = __webpack_require__(301);
 	var DURATION = 500;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	var OPACITY = 'opacity';
@@ -61491,7 +61555,7 @@
 	var IOSTransition = (function (_super) {
 	    __extends(IOSTransition, _super);
 	    function IOSTransition(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        this.duration(opts.duration || DURATION);
 	        this.easing(opts.easing || EASING);
 	        // what direction is the transition going
@@ -61638,11 +61702,11 @@
 	        }
 	    }
 	    return IOSTransition;
-	})(animation_1.Animation);
-	animation_1.Animation.register('ios-transition', IOSTransition);
+	})(transition_1.Transition);
+	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61650,7 +61714,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(300);
+	var animation_1 = __webpack_require__(302);
+	var transition_1 = __webpack_require__(301);
 	var TRANSLATEY = 'translateY';
 	var OFF_BOTTOM = '40px';
 	var CENTER = '0px';
@@ -61658,7 +61723,7 @@
 	var MDTransition = (function (_super) {
 	    __extends(MDTransition, _super);
 	    function MDTransition(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        // what direction is the transition going
 	        var backDirection = (opts.direction === 'back');
 	        // do they have navbars?
@@ -61700,11 +61765,11 @@
 	        }
 	    }
 	    return MDTransition;
-	})(animation_1.Animation);
-	animation_1.Animation.register('md-transition', MDTransition);
+	})(transition_1.Transition);
+	transition_1.Transition.register('md-transition', MDTransition);
 
 /***/ },
-/* 353 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {

@@ -34,7 +34,7 @@ ActionSheet
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/action-sheet/action-sheet.ts#L8'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/action-sheet/action-sheet.ts#L9'>
 Improve this doc
 </a>
 

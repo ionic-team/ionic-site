@@ -8659,3 +8659,22 @@ ul.docs-example {
 
 .modal-backdrop {
   background-color: #0f1e37; }
+
+.docs-container main .four-oh-four {
+  text-align: center; }
+  .docs-container main .four-oh-four img {
+    width: 100%;
+    max-width: 336px; }
+  .docs-container main .four-oh-four p {
+    color: #9da5b3;
+    font-size: 18px; }
+  .docs-container main .four-oh-four a {
+    font-size: 16px;
+    font-weight: 500; }
+    .docs-container main .four-oh-four a:after {
+      font-family: Ionicons;
+      content: "\f287";
+      display: inline-block;
+      margin-left: 10px;
+      position: relative;
+      top: 2px; }

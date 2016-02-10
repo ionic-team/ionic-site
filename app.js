@@ -50,6 +50,11 @@ app.use(function(req, res, next) {
 
 app.use(express.static(process.env.PWD));
 
+app.use(function(req, res, next) {
+  res.status(404);
+  res.sendFile(__dirname + '/404.html');
+});
+
 // bind the app to listen for connections on a specified port
 var port = process.env.PORT || 3000;
 app.listen(port);

@@ -165,7 +165,8 @@ gulp.task('server:js', ['js'], function() {
 
 gulp.task('watch', ['server'], function() {
   gulp.watch('scss/**.scss', ['server:stylesv1']);
-  gulp.watch(['_scss/*.scss', '_scss/docs/*.scss'], ['server:stylesv2']);
+  gulp.watch(['_scss/*.scss', '_scss/docs/*.scss', '_scss/pages/*.scss'],
+             ['server:stylesv2']);
   gulp.watch(['_img/*', '_img/*/*'], ['server:images']);
   gulp.watch(['_js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
   gulp.watch(['*.html', 'submit-issue/*.html', '_layouts/*', '_layouts/*/*',

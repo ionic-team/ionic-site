@@ -4864,6 +4864,8 @@ ion-icon {
   .ios .button-round {
     padding: 0 2.6rem;
     border-radius: 64px; }
+  .ios ion-button-effect {
+    display: none; }
   .ios .button-primary {
     color: white;
     background-color: #327eff; }
@@ -7578,6 +7580,8 @@ ion-icon {
     .md .button.activated {
       box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21);
       background-color: #2e74eb; }
+    .md .button ion-button-effect {
+      background-color: white; }
   .md .button-large {
     padding: 0 1em;
     height: 2.8em;
@@ -7608,8 +7612,8 @@ ion-icon {
       opacity: 1;
       box-shadow: none;
       background-color: transparent; }
-    .md .button-outline md-ripple {
-      background-color: rgba(50, 126, 255, 0.25); }
+    .md .button-outline ion-button-effect {
+      background-color: #327eff; }
   .md .button-clear {
     border-color: transparent;
     opacity: 1;
@@ -7621,6 +7625,8 @@ ion-icon {
       box-shadow: none; }
     .md .button-clear:hover:not(.disable-hover) {
       color: #327eff; }
+    .md .button-clear ion-button-effect {
+      background-color: #999; }
   .md .button-round {
     padding: 0 2.6rem;
     border-radius: 64px; }
@@ -7633,20 +7639,32 @@ ion-icon {
       box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4), 0 4px 7px 0 rgba(0, 0, 0, 0.1); }
   .md .button-icon-only {
     padding: 0; }
+  .md ion-button-effect {
+    position: absolute;
+    z-index: 0;
+    display: block;
+    border-radius: 50%;
+    background-color: #555;
+    opacity: 0.2;
+    pointer-events: none;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out; }
   .md .button-primary {
     color: white;
     background-color: #327eff; }
     .md .button-primary.activated {
       opacity: 1;
       background-color: #2e74eb; }
+    .md .button-primary ion-button-effect {
+      background-color: white; }
   .md .button-outline-primary {
     border-color: #3078f2;
     background-color: transparent;
     color: #3078f2; }
     .md .button-outline-primary.activated {
       background-color: transparent; }
-    .md .button-outline-primary md-ripple {
-      background-color: rgba(48, 120, 242, 0.25); }
+    .md .button-outline-primary ion-button-effect {
+      background-color: #3078f2; }
   .md .button-clear-primary {
     border-color: transparent;
     background-color: transparent;
@@ -7662,14 +7680,16 @@ ion-icon {
     .md .button-secondary.activated {
       opacity: 1;
       background-color: #2ec95c; }
+    .md .button-secondary ion-button-effect {
+      background-color: white; }
   .md .button-outline-secondary {
     border-color: #30d05f;
     background-color: transparent;
     color: #30d05f; }
     .md .button-outline-secondary.activated {
       background-color: transparent; }
-    .md .button-outline-secondary md-ripple {
-      background-color: rgba(48, 208, 95, 0.25); }
+    .md .button-outline-secondary ion-button-effect {
+      background-color: #30d05f; }
   .md .button-clear-secondary {
     border-color: transparent;
     background-color: transparent;
@@ -7685,14 +7705,16 @@ ion-icon {
     .md .button-danger.activated {
       opacity: 1;
       background-color: #e13838; }
+    .md .button-danger ion-button-effect {
+      background-color: white; }
   .md .button-outline-danger {
     border-color: #e93a3a;
     background-color: transparent;
     color: #e93a3a; }
     .md .button-outline-danger.activated {
       background-color: transparent; }
-    .md .button-outline-danger md-ripple {
-      background-color: rgba(233, 58, 58, 0.25); }
+    .md .button-outline-danger ion-button-effect {
+      background-color: #e93a3a; }
   .md .button-clear-danger {
     border-color: transparent;
     background-color: transparent;
@@ -7708,14 +7730,16 @@ ion-icon {
     .md .button-light.activated {
       opacity: 1;
       background-color: #e0e0e0; }
+    .md .button-light ion-button-effect {
+      background-color: black; }
   .md .button-outline-light {
     border-color: #e8e8e8;
     background-color: transparent;
     color: #e8e8e8; }
     .md .button-outline-light.activated {
       background-color: transparent; }
-    .md .button-outline-light md-ripple {
-      background-color: rgba(232, 232, 232, 0.25); }
+    .md .button-outline-light ion-button-effect {
+      background-color: #e8e8e8; }
   .md .button-clear-light {
     border-color: transparent;
     background-color: transparent;
@@ -7731,14 +7755,16 @@ ion-icon {
     .md .button-dark.activated {
       opacity: 1;
       background-color: #343434; }
+    .md .button-dark ion-button-effect {
+      background-color: white; }
   .md .button-outline-dark {
     border-color: #2d2d2d;
     background-color: transparent;
     color: #2d2d2d; }
     .md .button-outline-dark.activated {
       background-color: transparent; }
-    .md .button-outline-dark md-ripple {
-      background-color: rgba(45, 45, 45, 0.25); }
+    .md .button-outline-dark ion-button-effect {
+      background-color: #2d2d2d; }
   .md .button-clear-dark {
     border-color: transparent;
     background-color: transparent;
@@ -8956,46 +8982,6 @@ ion-icon {
   font-style: normal;
   font-weight: 700;
   src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
-  .md md-ripple {
-    position: absolute;
-    z-index: 0;
-    display: block;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    pointer-events: none;
-    -webkit-transform: scale(0.001) translateZ(0);
-    transform: scale(0.001) translateZ(0); }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
   .md ion-searchbar {
     position: relative;
     display: -webkit-box;
@@ -10000,10 +9986,13 @@ ion-icon {
       color: #424242; }
   .md .toolbar[primary] .toolbar-background {
     background: #327eff; }
-  .md .toolbar[primary] .toolbar-title,
   .md .toolbar[primary] .bar-button-default,
-  .md .toolbar[primary] .bar-button-outline {
+  .md .toolbar[primary] .bar-button-outline,
+  .md .toolbar[primary] .toolbar-title {
     color: white; }
+  .md .toolbar[primary] .bar-button-default ion-button-effect,
+  .md .toolbar[primary] .bar-button-outline ion-button-effect {
+    background-color: white; }
   .md .toolbar[primary] .bar-button-outline {
     border-color: white; }
   .md .toolbar[primary] .bar-button-primary {
@@ -10110,10 +10099,13 @@ ion-icon {
       background-color: #2e74eb; }
   .md .toolbar[secondary] .toolbar-background {
     background: #32db64; }
-  .md .toolbar[secondary] .toolbar-title,
   .md .toolbar[secondary] .bar-button-default,
-  .md .toolbar[secondary] .bar-button-outline {
+  .md .toolbar[secondary] .bar-button-outline,
+  .md .toolbar[secondary] .toolbar-title {
     color: white; }
+  .md .toolbar[secondary] .bar-button-default ion-button-effect,
+  .md .toolbar[secondary] .bar-button-outline ion-button-effect {
+    background-color: white; }
   .md .toolbar[secondary] .bar-button-outline {
     border-color: white; }
   .md .toolbar[secondary] .bar-button-primary {
@@ -10220,10 +10212,13 @@ ion-icon {
       background-color: #2ec95c; }
   .md .toolbar[danger] .toolbar-background {
     background: #f53d3d; }
-  .md .toolbar[danger] .toolbar-title,
   .md .toolbar[danger] .bar-button-default,
-  .md .toolbar[danger] .bar-button-outline {
+  .md .toolbar[danger] .bar-button-outline,
+  .md .toolbar[danger] .toolbar-title {
     color: white; }
+  .md .toolbar[danger] .bar-button-default ion-button-effect,
+  .md .toolbar[danger] .bar-button-outline ion-button-effect {
+    background-color: white; }
   .md .toolbar[danger] .bar-button-outline {
     border-color: white; }
   .md .toolbar[danger] .bar-button-primary {
@@ -10330,10 +10325,13 @@ ion-icon {
       background-color: #e13838; }
   .md .toolbar[light] .toolbar-background {
     background: #f4f4f4; }
-  .md .toolbar[light] .toolbar-title,
   .md .toolbar[light] .bar-button-default,
-  .md .toolbar[light] .bar-button-outline {
+  .md .toolbar[light] .bar-button-outline,
+  .md .toolbar[light] .toolbar-title {
     color: #424242; }
+  .md .toolbar[light] .bar-button-default ion-button-effect,
+  .md .toolbar[light] .bar-button-outline ion-button-effect {
+    background-color: #424242; }
   .md .toolbar[light] .bar-button-outline {
     border-color: #424242; }
   .md .toolbar[light] .bar-button-primary {
@@ -10440,10 +10438,13 @@ ion-icon {
       background-color: #e0e0e0; }
   .md .toolbar[dark] .toolbar-background {
     background: #222; }
-  .md .toolbar[dark] .toolbar-title,
   .md .toolbar[dark] .bar-button-default,
-  .md .toolbar[dark] .bar-button-outline {
+  .md .toolbar[dark] .bar-button-outline,
+  .md .toolbar[dark] .toolbar-title {
     color: white; }
+  .md .toolbar[dark] .bar-button-default ion-button-effect,
+  .md .toolbar[dark] .bar-button-outline ion-button-effect {
+    background-color: white; }
   .md .toolbar[dark] .bar-button-outline {
     border-color: white; }
   .md .toolbar[dark] .bar-button-primary {

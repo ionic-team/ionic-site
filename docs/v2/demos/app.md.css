@@ -4847,34 +4847,10 @@ ion-badge {
 
 .button {
   position: relative;
-  display: inline-block;
-  -webkit-transition: background-color, opacity 100ms linear;
-  transition: background-color, opacity 100ms linear;
-  z-index: 0;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  text-align: center;
-  text-transform: none;
-  -webkit-font-kerning: none;
-  font-kerning: none;
-  vertical-align: top;
-  vertical-align: -webkit-baseline-middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-appearance: none;
-  -moz-appearance: none; }
-
-span.button-inner {
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -4888,7 +4864,24 @@ span.button-inner {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  -webkit-transition: background-color, opacity 100ms linear;
+  transition: background-color, opacity 100ms linear;
+  z-index: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+  text-transform: none;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
 
 a.button {
   text-decoration: none; }
@@ -4923,7 +4916,7 @@ a.button {
 .button {
   margin: 0.4rem 0.2rem;
   padding: 0 1.1em;
-  height: 3.6rem;
+  min-height: 3.6rem;
   border-radius: 2px;
   font-weight: 500;
   font-size: 1.4rem;
@@ -4938,17 +4931,15 @@ a.button {
   .button.activated {
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21);
     background-color: #2e74eb; }
-  .button ion-button-effect {
-    background-color: white; }
 
 .button-large {
   padding: 0 1em;
-  height: 2.8em;
+  min-height: 2.8em;
   font-size: 2rem; }
 
 .button-small {
   padding: 0 0.9em;
-  height: 2.1em;
+  min-height: 2.1em;
   font-size: 1.3rem; }
 
 .button-small.button-icon-only ion-icon {
@@ -4976,8 +4967,8 @@ a.button {
     opacity: 1;
     box-shadow: none;
     background-color: transparent; }
-  .button-outline ion-button-effect {
-    background-color: #327eff; }
+  .button-outline md-ripple {
+    background-color: rgba(50, 126, 255, 0.25); }
 
 .button-clear {
   border-color: transparent;
@@ -4990,8 +4981,6 @@ a.button {
     box-shadow: none; }
   .button-clear:hover:not(.disable-hover) {
     color: #327eff; }
-  .button-clear ion-button-effect {
-    background-color: #999; }
 
 .button-round {
   padding: 0 2.6rem;
@@ -5008,25 +4997,12 @@ a.button {
 .button-icon-only {
   padding: 0; }
 
-ion-button-effect {
-  position: absolute;
-  z-index: 0;
-  display: block;
-  border-radius: 50%;
-  background-color: #555;
-  opacity: 0.2;
-  pointer-events: none;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out; }
-
 .button-primary {
   color: white;
   background-color: #327eff; }
   .button-primary.activated {
     opacity: 1;
     background-color: #2e74eb; }
-  .button-primary ion-button-effect {
-    background-color: white; }
 
 .button-outline-primary {
   border-color: #3078f2;
@@ -5034,8 +5010,8 @@ ion-button-effect {
   color: #3078f2; }
   .button-outline-primary.activated {
     background-color: transparent; }
-  .button-outline-primary ion-button-effect {
-    background-color: #3078f2; }
+  .button-outline-primary md-ripple {
+    background-color: rgba(48, 120, 242, 0.25); }
 
 .button-clear-primary {
   border-color: transparent;
@@ -5053,8 +5029,6 @@ ion-button-effect {
   .button-secondary.activated {
     opacity: 1;
     background-color: #2ec95c; }
-  .button-secondary ion-button-effect {
-    background-color: white; }
 
 .button-outline-secondary {
   border-color: #30d05f;
@@ -5062,8 +5036,8 @@ ion-button-effect {
   color: #30d05f; }
   .button-outline-secondary.activated {
     background-color: transparent; }
-  .button-outline-secondary ion-button-effect {
-    background-color: #30d05f; }
+  .button-outline-secondary md-ripple {
+    background-color: rgba(48, 208, 95, 0.25); }
 
 .button-clear-secondary {
   border-color: transparent;
@@ -5081,8 +5055,6 @@ ion-button-effect {
   .button-danger.activated {
     opacity: 1;
     background-color: #e13838; }
-  .button-danger ion-button-effect {
-    background-color: white; }
 
 .button-outline-danger {
   border-color: #e93a3a;
@@ -5090,8 +5062,8 @@ ion-button-effect {
   color: #e93a3a; }
   .button-outline-danger.activated {
     background-color: transparent; }
-  .button-outline-danger ion-button-effect {
-    background-color: #e93a3a; }
+  .button-outline-danger md-ripple {
+    background-color: rgba(233, 58, 58, 0.25); }
 
 .button-clear-danger {
   border-color: transparent;
@@ -5109,8 +5081,6 @@ ion-button-effect {
   .button-light.activated {
     opacity: 1;
     background-color: #e0e0e0; }
-  .button-light ion-button-effect {
-    background-color: black; }
 
 .button-outline-light {
   border-color: #e8e8e8;
@@ -5118,8 +5088,8 @@ ion-button-effect {
   color: #e8e8e8; }
   .button-outline-light.activated {
     background-color: transparent; }
-  .button-outline-light ion-button-effect {
-    background-color: #e8e8e8; }
+  .button-outline-light md-ripple {
+    background-color: rgba(232, 232, 232, 0.25); }
 
 .button-clear-light {
   border-color: transparent;
@@ -5137,8 +5107,6 @@ ion-button-effect {
   .button-dark.activated {
     opacity: 1;
     background-color: #343434; }
-  .button-dark ion-button-effect {
-    background-color: white; }
 
 .button-outline-dark {
   border-color: #2d2d2d;
@@ -5146,8 +5114,8 @@ ion-button-effect {
   color: #2d2d2d; }
   .button-outline-dark.activated {
     background-color: transparent; }
-  .button-outline-dark ion-button-effect {
-    background-color: #2d2d2d; }
+  .button-outline-dark md-ripple {
+    background-color: rgba(45, 45, 45, 0.25); }
 
 .button-clear-dark {
   border-color: transparent;
@@ -5992,7 +5960,7 @@ ion-icon[item-right] {
 
 .item-button {
   padding: 0 0.6em;
-  height: 25px;
+  min-height: 25px;
   font-size: 1.2rem; }
 
 .item-button.button-icon-only ion-icon,
@@ -6503,6 +6471,47 @@ ion-radio[dark] .radio-checked {
 
 ion-radio[dark] .radio-inner {
   background-color: #222; }
+
+/**
+  Roboto Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+
+md-ripple {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-transform: scale(0.001) translateZ(0);
+  transform: scale(0.001) translateZ(0); }
 
 /**
   Roboto Font
@@ -7663,14 +7672,10 @@ ion-buttons[right] {
 .toolbar[primary] .toolbar-background {
   background: #327eff; }
 
+.toolbar[primary] .toolbar-title,
 .toolbar[primary] .bar-button-default,
-.toolbar[primary] .bar-button-outline,
-.toolbar[primary] .toolbar-title {
+.toolbar[primary] .bar-button-outline {
   color: white; }
-
-.toolbar[primary] .bar-button-default ion-button-effect,
-.toolbar[primary] .bar-button-outline ion-button-effect {
-  background-color: white; }
 
 .toolbar[primary] .bar-button-outline {
   border-color: white; }
@@ -7798,14 +7803,10 @@ ion-buttons[right] {
 .toolbar[secondary] .toolbar-background {
   background: #32db64; }
 
+.toolbar[secondary] .toolbar-title,
 .toolbar[secondary] .bar-button-default,
-.toolbar[secondary] .bar-button-outline,
-.toolbar[secondary] .toolbar-title {
+.toolbar[secondary] .bar-button-outline {
   color: white; }
-
-.toolbar[secondary] .bar-button-default ion-button-effect,
-.toolbar[secondary] .bar-button-outline ion-button-effect {
-  background-color: white; }
 
 .toolbar[secondary] .bar-button-outline {
   border-color: white; }
@@ -7933,14 +7934,10 @@ ion-buttons[right] {
 .toolbar[danger] .toolbar-background {
   background: #f53d3d; }
 
+.toolbar[danger] .toolbar-title,
 .toolbar[danger] .bar-button-default,
-.toolbar[danger] .bar-button-outline,
-.toolbar[danger] .toolbar-title {
+.toolbar[danger] .bar-button-outline {
   color: white; }
-
-.toolbar[danger] .bar-button-default ion-button-effect,
-.toolbar[danger] .bar-button-outline ion-button-effect {
-  background-color: white; }
 
 .toolbar[danger] .bar-button-outline {
   border-color: white; }
@@ -8068,14 +8065,10 @@ ion-buttons[right] {
 .toolbar[light] .toolbar-background {
   background: #f4f4f4; }
 
+.toolbar[light] .toolbar-title,
 .toolbar[light] .bar-button-default,
-.toolbar[light] .bar-button-outline,
-.toolbar[light] .toolbar-title {
+.toolbar[light] .bar-button-outline {
   color: #424242; }
-
-.toolbar[light] .bar-button-default ion-button-effect,
-.toolbar[light] .bar-button-outline ion-button-effect {
-  background-color: #424242; }
 
 .toolbar[light] .bar-button-outline {
   border-color: #424242; }
@@ -8203,14 +8196,10 @@ ion-buttons[right] {
 .toolbar[dark] .toolbar-background {
   background: #222; }
 
+.toolbar[dark] .toolbar-title,
 .toolbar[dark] .bar-button-default,
-.toolbar[dark] .bar-button-outline,
-.toolbar[dark] .toolbar-title {
+.toolbar[dark] .bar-button-outline {
   color: white; }
-
-.toolbar[dark] .bar-button-default ion-button-effect,
-.toolbar[dark] .bar-button-outline ion-button-effect {
-  background-color: white; }
 
 .toolbar[dark] .bar-button-outline {
   border-color: white; }

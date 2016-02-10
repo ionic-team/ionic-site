@@ -354,31 +354,6 @@ expression you want to evaluate when the tabs chage
 </div>
 
 
-
-
-<div id="rootNav"></div>
-
-<h3>
-<code>rootNav()</code>
-  
-
-</h3>
-
-Returns the root NavController. Returns `null` if Tabs is not
-within a NavController.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>NavController</code> 
-</div>
-
-
 <!-- related link -->
 
 <h2>Related</h2>

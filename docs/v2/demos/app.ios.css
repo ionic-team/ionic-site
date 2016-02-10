@@ -1,4 +1,4 @@
-/*! Ionic: Material Design */
+/*! Ionic: iOS */
 /*! normalize.css v3.0.2 | MIT License | github.com/necolas/normalize.css */
 audio,
 canvas,
@@ -4250,66 +4250,6 @@ ion-icon {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
-
 ion-content {
   color: #000; }
 
@@ -4320,7 +4260,10 @@ a {
   color: #327eff; }
 
 hr {
-  background-color: rgba(0, 0, 0, 0.08); }
+  background-color: rgba(0, 0, 0, 0.12); }
+
+.hairlines hr {
+  height: 0.55px; }
 
 h1[primary], h2[primary], h3[primary], h4[primary], h5[primary], h6[primary],
 p[primary],
@@ -4392,36 +4335,6 @@ sup[dark],
 ion-icon[dark] {
   color: #222 !important; }
 
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
-
 ion-action-sheet {
   position: absolute;
   top: 0;
@@ -4456,76 +4369,56 @@ ion-action-sheet {
   .action-sheet-button.activated {
     box-shadow: none; }
 
-.action-sheet-title {
-  padding: 19px 16px 17px;
-  font-size: 1.6rem;
-  color: #757575;
-  text-align: left; }
+ion-action-sheet {
+  text-align: center; }
 
-.action-sheet-button {
-  position: relative;
-  overflow: hidden;
-  padding: 0 16px;
-  min-height: 4.8rem;
-  font-size: 1.6rem;
-  font-weight: normal;
-  color: #222;
-  background-color: transparent;
-  text-align: left; }
-  .action-sheet-button.activated {
-    background: #f1f1f1;
-    border-radius: 0;
-    box-shadow: none; }
-
-.action-sheet-icon {
-  display: inline-block;
-  margin: 0 28px 0 0;
-  min-width: 24px;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 2.4rem; }
+.action-sheet-container {
+  padding: 0 10px; }
 
 .action-sheet-group {
   overflow: hidden;
-  margin: 0;
+  margin-bottom: 8px;
+  border-radius: 13px;
+  background: #f9f9f9; }
+  .action-sheet-group:last-child {
+    margin-bottom: 10px; }
+
+.action-sheet-title {
+  padding: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #8f8f8f;
   border-radius: 0;
-  background-color: #fafafa; }
-  .action-sheet-group:last-child .action-sheet-button {
-    margin-bottom: 8px; }
+  text-align: center; }
+
+.action-sheet-title {
+  border-bottom: 1px solid #d6d6da; }
+
+.action-sheet-button {
+  padding: 18px;
+  min-height: 5.6rem;
+  border-bottom: 1px solid #d6d6da;
+  font-size: 2rem;
+  color: #007aff;
+  background: transparent; }
+  .action-sheet-button:last-child {
+    border-bottom: 0; }
+  .action-sheet-button.activated {
+    margin-top: -1px;
+    background: #ebebeb;
+    border-bottom-color: #ebebeb;
+    border-top: 1px solid #ebebeb; }
+
+.action-sheet-destructive {
+  color: #f53d3d; }
 
 .action-sheet-cancel {
-  background-color: #fafafa;
-  border: none; }
+  font-weight: bold;
+  background: #fff; }
 
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+.hairlines .action-sheet-title,
+.hairlines .action-sheet-button {
+  border-bottom-width: 0.55px; }
 
 ion-alert {
   position: absolute;
@@ -4618,49 +4511,122 @@ ion-alert {
   font-size: 14px;
   margin-right: 8px; }
 
+ion-checkbox {
+  position: relative;
+  display: inline-block; }
+
+.checkbox-icon {
+  position: relative;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c8c7cc;
+  background-color: #fff; }
+
+.checkbox-checked {
+  background-color: #327eff;
+  border-color: #327eff; }
+
+.checkbox-checked .checkbox-inner {
+  position: absolute;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #fff;
+  top: 4px;
+  left: 7px;
+  width: 4px;
+  height: 9px;
+  border-left: none;
+  border-top: none;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+.checkbox-disabled,
+.item-checkbox-disabled ion-label {
+  opacity: 0.3;
+  pointer-events: none; }
+
+.item ion-checkbox {
+  position: static;
+  display: block;
+  margin: 10px 16px 10px 2px; }
+
+ion-checkbox[primary] .checkbox-checked {
+  background-color: #327eff;
+  border-color: #327eff; }
+  ion-checkbox[primary] .checkbox-checked .checkbox-inner {
+    border-color: white; }
+
+ion-checkbox[secondary] .checkbox-checked {
+  background-color: #32db64;
+  border-color: #32db64; }
+  ion-checkbox[secondary] .checkbox-checked .checkbox-inner {
+    border-color: white; }
+
+ion-checkbox[danger] .checkbox-checked {
+  background-color: #f53d3d;
+  border-color: #f53d3d; }
+  ion-checkbox[danger] .checkbox-checked .checkbox-inner {
+    border-color: white; }
+
+ion-checkbox[light] .checkbox-checked {
+  background-color: #f4f4f4;
+  border-color: #f4f4f4; }
+  ion-checkbox[light] .checkbox-checked .checkbox-inner {
+    border-color: black; }
+
+ion-checkbox[dark] .checkbox-checked {
+  background-color: #222;
+  border-color: #222; }
+  ion-checkbox[dark] .checkbox-checked .checkbox-inner {
+    border-color: white; }
+
+ion-alert {
+  background: transparent; }
+
 .alert-wrapper {
-  max-width: 280px;
-  border-radius: 2px;
-  background-color: #fafafa;
-  box-shadow: 0px 16px 20px rgba(0, 0, 0, 0.4); }
+  border-radius: 13px;
+  background-color: #f8f8f8;
+  max-width: 270px;
+  overflow: hidden; }
 
 .alert-head {
-  text-align: left;
-  padding: 24px 24px 20px 24px; }
+  padding: 12px 16px 7px;
+  text-align: center; }
 
 .alert-title {
-  font-size: 22px; }
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 17px; }
 
 .alert-sub-title {
-  font-size: 16px; }
+  font-size: 14px;
+  color: #666; }
 
 .alert-message,
 .alert-input-group {
-  padding: 0 24px 24px 24px;
-  color: rgba(0, 0, 0, 0.5); }
-
-.alert-message {
-  font-size: 15px; }
+  padding: 0px 16px 21px;
+  font-size: 13px;
+  color: inherit;
+  text-align: center; }
 
 .alert-input {
-  border-bottom: 1px solid #dedede;
-  color: #000000;
-  margin: 5px 0 5px 0; }
-  .alert-input:focus {
-    border-bottom: 2px solid #327eff;
-    margin-bottom: 4px; }
+  margin-top: 10px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  -webkit-appearance: none; }
 
 .alert-radio-group,
 .alert-checkbox-group {
-  position: relative;
-  border-top: 1px solid #dedede;
-  border-bottom: 1px solid #dedede;
   max-height: 240px;
-  overflow: auto; }
+  border-top: 1px solid #dbdbdf;
+  overflow: scroll; }
 
 .alert-tappable {
-  position: relative;
-  overflow: hidden;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4673,109 +4639,123 @@ ion-alert {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  -webkit-box-ordinal-group: 1;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  padding: 13px;
   text-align: auto;
-  padding: 13px 26px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap; }
 
 .alert-radio-icon {
   position: relative;
-  top: 13px;
-  left: 13px;
-  display: block;
-  width: 16px;
-  height: 16px;
-  margin: 0;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #787878;
-  border-radius: 50%; }
-  .alert-radio-icon:after {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 8px;
-    height: 8px;
-    background-color: #327eff;
-    border-radius: 50%;
-    content: '';
-    -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transform: scale3d(0, 0, 0);
-    transform: scale3d(0, 0, 0); }
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  min-width: 30px; }
 
 .alert-radio[aria-checked=true] {
   color: #327eff; }
-  .alert-radio[aria-checked=true] .alert-radio-icon {
-    border-color: #327eff; }
   .alert-radio[aria-checked=true] .alert-radio-icon:after {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); }
-
-.alert-checkbox-label {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  text-align: auto;
-  padding: 13px 26px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap; }
-
-.alert-checkbox-icon {
-  position: relative;
-  top: 13px;
-  left: 13px;
-  width: 16px;
-  height: 16px;
-  border-radius: 2px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #787878;
-  background-color: transparent; }
-
-.alert-checkbox[aria-checked=true] .alert-checkbox-icon {
-  background-color: #327eff;
-  border-color: #327eff; }
-  .alert-checkbox[aria-checked=true] .alert-checkbox-icon:after {
     position: absolute;
     border-width: 2px;
     border-style: solid;
-    border-color: #fafafa;
-    top: 0;
-    left: 3px;
+    border-color: #327eff;
+    top: 13px;
+    left: 7px;
     width: 4px;
-    height: 8px;
+    height: 10px;
     border-left: none;
     border-top: none;
     content: '';
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg); }
 
+.alert-checkbox-label {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-ordinal-group: 1;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  padding: 13px;
+  text-align: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; }
+
+.alert-checkbox-icon {
+  margin: 10px 6px 10px 16px;
+  position: relative;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c8c7cc;
+  background-color: #fff; }
+
+.alert-checkbox[aria-checked=true] .alert-checkbox-icon {
+  background-color: #327eff;
+  border-color: #327eff; }
+  .alert-checkbox[aria-checked=true] .alert-checkbox-icon .alert-checkbox-inner {
+    position: absolute;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #fff;
+    top: 4px;
+    left: 7px;
+    width: 4px;
+    height: 9px;
+    border-left: none;
+    border-top: none;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+
 .alert-button-group {
-  padding: 8px 8px 8px 24px;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  -webkit-flex-wrap: wrap-reverse;
-  -ms-flex-wrap: wrap-reverse;
-  flex-wrap: wrap-reverse; }
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -1px; }
 
 .alert-button {
-  position: relative;
-  overflow: hidden;
-  padding: 10px;
-  font-weight: 500;
+  margin: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-width: 50%;
+  font-size: 17px;
+  min-height: 44px;
+  border-radius: 0;
+  border-top: 1px solid #dbdbdf;
+  border-right: 1px solid #dbdbdf;
   color: #327eff;
-  background-color: transparent;
-  border-radius: 2px;
-  text-transform: uppercase;
-  text-align: right; }
+  background-color: transparent; }
+  .alert-button:last-child {
+    font-weight: bold;
+    border-right: 0; }
   .alert-button.activated {
+    opacity: 1;
+    background-color: #e9e9e9; }
+  .alert-button:hover:not(.disable-hover) {
     opacity: 1; }
+
+.hairlines .alert-radio-group,
+.hairlines .alert-checkbox-group {
+  border-width: 0.55px; }
+
+.hairlines .alert-input {
+  border-width: 0.55px; }
+
+.hairlines .alert-button {
+  border-top-width: 0.55px;
+  border-right-width: 0.55px; }
 
 ion-badge {
   display: inline-block;
@@ -4791,7 +4771,7 @@ ion-badge {
     display: none; }
 
 ion-badge {
-  border-radius: 4px;
+  border-radius: 10px;
   background-color: #327eff;
   color: white; }
 
@@ -4815,66 +4795,12 @@ ion-badge {
   background-color: #222;
   color: white; }
 
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
-
 .button {
   position: relative;
-  display: inline-block;
-  -webkit-transition: background-color, opacity 100ms linear;
-  transition: background-color, opacity 100ms linear;
-  z-index: 0;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  text-align: center;
-  text-transform: none;
-  -webkit-font-kerning: none;
-  font-kerning: none;
-  vertical-align: top;
-  vertical-align: -webkit-baseline-middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-appearance: none;
-  -moz-appearance: none; }
-
-span.button-inner {
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -4888,7 +4814,24 @@ span.button-inner {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  -webkit-transition: background-color, opacity 100ms linear;
+  transition: background-color, opacity 100ms linear;
+  z-index: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+  text-transform: none;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
 
 a.button {
   text-decoration: none; }
@@ -4922,119 +4865,84 @@ a.button {
 
 .button {
   margin: 0.4rem 0.2rem;
-  padding: 0 1.1em;
-  height: 3.6rem;
-  border-radius: 2px;
-  font-weight: 500;
-  font-size: 1.4rem;
+  padding: 0 1em;
+  min-height: 2.8em;
+  font-size: 1.6rem;
+  border-radius: 4px;
   color: white;
-  background-color: #327eff;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  text-transform: uppercase;
-  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+  background-color: #327eff; }
   .button:hover:not(.disable-hover) {
-    background-color: rgba(158, 158, 158, 0.1); }
+    opacity: 0.8;
+    text-decoration: none; }
   .button.activated {
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21);
+    opacity: 1;
     background-color: #2e74eb; }
-  .button ion-button-effect {
-    background-color: white; }
 
 .button-large {
   padding: 0 1em;
-  height: 2.8em;
+  min-height: 2.8em;
   font-size: 2rem; }
 
 .button-small {
   padding: 0 0.9em;
-  height: 2.1em;
+  min-height: 2.1em;
   font-size: 1.3rem; }
 
 .button-small.button-icon-only ion-icon {
-  font-size: 1.4em; }
-
-.button-full {
-  border-radius: 0;
-  margin-right: 0;
-  margin-left: 0;
-  border-right-width: 0;
-  border-left-width: 0; }
+  font-size: 1.3em; }
 
 .button-block {
+  display: block;
+  line-height: 2.8em;
+  margin-left: 0;
+  margin-right: 0; }
+
+.button-full {
   margin-right: 0;
-  margin-left: 0; }
+  margin-left: 0;
+  border-radius: 0;
+  border-left: none;
+  border-right: none; }
 
 .button-outline {
   border-width: 1px;
   border-style: solid;
   border-color: #327eff;
-  background-color: transparent;
   color: #327eff;
-  box-shadow: none; }
+  background-color: transparent;
+  border-radius: 4px; }
   .button-outline.activated {
     opacity: 1;
-    box-shadow: none;
-    background-color: transparent; }
-  .button-outline ion-button-effect {
+    color: #fff;
     background-color: #327eff; }
 
 .button-clear {
   border-color: transparent;
-  opacity: 1;
-  box-shadow: none;
-  background-color: transparent;
-  color: #327eff; }
+  color: #327eff;
+  background-color: transparent; }
   .button-clear.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
+    opacity: 0.4;
+    background-color: transparent; }
   .button-clear:hover:not(.disable-hover) {
+    opacity: 0.6;
     color: #327eff; }
-  .button-clear ion-button-effect {
-    background-color: #999; }
 
 .button-round {
   padding: 0 2.6rem;
   border-radius: 64px; }
 
-.button-fab {
-  border-radius: 50%;
-  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
-  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-  .button-fab.activated {
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4), 0 4px 7px 0 rgba(0, 0, 0, 0.1); }
-
-.button-icon-only {
-  padding: 0; }
-
-ion-button-effect {
-  position: absolute;
-  z-index: 0;
-  display: block;
-  border-radius: 50%;
-  background-color: #555;
-  opacity: 0.2;
-  pointer-events: none;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out; }
-
 .button-primary {
   color: white;
   background-color: #327eff; }
   .button-primary.activated {
-    opacity: 1;
     background-color: #2e74eb; }
-  .button-primary ion-button-effect {
-    background-color: white; }
 
 .button-outline-primary {
   border-color: #3078f2;
-  background-color: transparent;
-  color: #3078f2; }
+  color: #3078f2;
+  background-color: transparent; }
   .button-outline-primary.activated {
-    background-color: transparent; }
-  .button-outline-primary ion-button-effect {
+    color: #fff;
     background-color: #3078f2; }
 
 .button-clear-primary {
@@ -5042,8 +4950,7 @@ ion-button-effect {
   background-color: transparent;
   color: #327eff; }
   .button-clear-primary.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
+    opacity: 0.4; }
   .button-clear-primary:hover:not(.disable-hover) {
     color: #327eff; }
 
@@ -5051,18 +4958,14 @@ ion-button-effect {
   color: white;
   background-color: #32db64; }
   .button-secondary.activated {
-    opacity: 1;
     background-color: #2ec95c; }
-  .button-secondary ion-button-effect {
-    background-color: white; }
 
 .button-outline-secondary {
   border-color: #30d05f;
-  background-color: transparent;
-  color: #30d05f; }
+  color: #30d05f;
+  background-color: transparent; }
   .button-outline-secondary.activated {
-    background-color: transparent; }
-  .button-outline-secondary ion-button-effect {
+    color: #fff;
     background-color: #30d05f; }
 
 .button-clear-secondary {
@@ -5070,8 +4973,7 @@ ion-button-effect {
   background-color: transparent;
   color: #32db64; }
   .button-clear-secondary.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
+    opacity: 0.4; }
   .button-clear-secondary:hover:not(.disable-hover) {
     color: #32db64; }
 
@@ -5079,18 +4981,14 @@ ion-button-effect {
   color: white;
   background-color: #f53d3d; }
   .button-danger.activated {
-    opacity: 1;
     background-color: #e13838; }
-  .button-danger ion-button-effect {
-    background-color: white; }
 
 .button-outline-danger {
   border-color: #e93a3a;
-  background-color: transparent;
-  color: #e93a3a; }
+  color: #e93a3a;
+  background-color: transparent; }
   .button-outline-danger.activated {
-    background-color: transparent; }
-  .button-outline-danger ion-button-effect {
+    color: #fff;
     background-color: #e93a3a; }
 
 .button-clear-danger {
@@ -5098,8 +4996,7 @@ ion-button-effect {
   background-color: transparent;
   color: #f53d3d; }
   .button-clear-danger.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
+    opacity: 0.4; }
   .button-clear-danger:hover:not(.disable-hover) {
     color: #f53d3d; }
 
@@ -5107,18 +5004,14 @@ ion-button-effect {
   color: black;
   background-color: #f4f4f4; }
   .button-light.activated {
-    opacity: 1;
     background-color: #e0e0e0; }
-  .button-light ion-button-effect {
-    background-color: black; }
 
 .button-outline-light {
   border-color: #e8e8e8;
-  background-color: transparent;
-  color: #e8e8e8; }
+  color: #e8e8e8;
+  background-color: transparent; }
   .button-outline-light.activated {
-    background-color: transparent; }
-  .button-outline-light ion-button-effect {
+    color: #fff;
     background-color: #e8e8e8; }
 
 .button-clear-light {
@@ -5126,8 +5019,7 @@ ion-button-effect {
   background-color: transparent;
   color: #f4f4f4; }
   .button-clear-light.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
+    opacity: 0.4; }
   .button-clear-light:hover:not(.disable-hover) {
     color: #f4f4f4; }
 
@@ -5135,18 +5027,14 @@ ion-button-effect {
   color: white;
   background-color: #222; }
   .button-dark.activated {
-    opacity: 1;
     background-color: #343434; }
-  .button-dark ion-button-effect {
-    background-color: white; }
 
 .button-outline-dark {
   border-color: #2d2d2d;
-  background-color: transparent;
-  color: #2d2d2d; }
+  color: #2d2d2d;
+  background-color: transparent; }
   .button-outline-dark.activated {
-    background-color: transparent; }
-  .button-outline-dark ion-button-effect {
+    color: #fff;
     background-color: #2d2d2d; }
 
 .button-clear-dark {
@@ -5154,8 +5042,7 @@ ion-button-effect {
   background-color: transparent;
   color: #222; }
   .button-clear-dark.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
+    opacity: 0.4; }
   .button-clear-dark:hover:not(.disable-hover) {
     color: #222; }
 
@@ -5217,36 +5104,6 @@ ion-button-effect {
     line-height: 0.67;
     pointer-events: none; }
 
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
-
 ion-card {
   display: block;
   overflow: hidden; }
@@ -5273,30 +5130,31 @@ ion-card > :last-child {
   border-bottom-right-radius: inherit; }
 
 ion-card {
-  margin: 10px 10px 10px 10px;
+  margin: 12px 12px 12px 12px;
   font-size: 1.4rem;
   background: #fff;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   border-radius: 2px; }
   ion-card ion-list {
     margin-bottom: 0; }
+    ion-card ion-list .item {
+      padding-right: 0; }
     ion-card ion-list ion-label {
       padding: 0; }
-    ion-card ion-list .item-inner {
-      border-bottom: 1px solid #dedede; }
     ion-card ion-list > .item:last-child,
     ion-card ion-list > ion-item-sliding:last-child .item {
       border-bottom: none; }
   ion-card .item-inner {
     border: none; }
   ion-card ion-card-content {
-    padding: 13px 16px 13px 16px;
+    padding: 13px 16px 14px 16px;
     font-size: 1.4rem;
-    line-height: 1.5; }
+    line-height: 1.4; }
   ion-card ion-card-header {
     padding: 16px;
     font-size: 1.6rem;
-    color: #222; }
+    font-weight: 500;
+    color: #333; }
   ion-card ion-card-header + ion-card-content,
   ion-card .item + ion-card-content {
     padding-top: 0; }
@@ -5305,65 +5163,30 @@ ion-card {
     font-size: 1.3rem; }
   ion-card .card-title {
     padding: 8px 0 8px 0;
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     color: #222; }
   ion-card h1 {
     margin: 0 0 2px;
     font-size: 2.4rem;
-    font-weight: normal;
-    color: #222; }
+    font-weight: normal; }
   ion-card h2 {
     margin: 2px 0 2px;
     font-size: 1.6rem;
-    font-weight: normal;
-    color: #222; }
+    font-weight: normal; }
   ion-card h3,
   ion-card h4,
   ion-card h5,
   ion-card h6 {
     margin: 2px 0 2px;
     font-size: 1.4rem;
-    font-weight: normal;
-    color: #222; }
+    font-weight: normal; }
   ion-card p {
     font-size: 1.4rem;
     margin: 0 0 2px;
-    line-height: 1.5;
-    font-weight: normal;
-    color: #222; }
+    color: #666; }
 
 ion-card + ion-card {
   margin-top: 0; }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-checkbox {
   position: relative;
@@ -5371,19 +5194,13 @@ ion-checkbox {
 
 .checkbox-icon {
   position: relative;
-  width: 16px;
-  height: 16px;
-  border-radius: 2px;
-  border-width: 2px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  border-width: 1px;
   border-style: solid;
-  border-color: #787878;
-  background-color: #fff;
-  -webkit-transition-property: background;
-  transition-property: background;
-  -webkit-transition-duration: 280ms;
-  transition-duration: 280ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  border-color: #c8c7cc;
+  background-color: #fff; }
 
 .checkbox-checked {
   background-color: #327eff;
@@ -5391,13 +5208,13 @@ ion-checkbox {
 
 .checkbox-checked .checkbox-inner {
   position: absolute;
-  border-width: 2px;
+  border-width: 1px;
   border-style: solid;
   border-color: #fff;
-  top: 0;
-  left: 4px;
-  width: 5px;
-  height: 10px;
+  top: 4px;
+  left: 7px;
+  width: 4px;
+  height: 9px;
   border-left: none;
   border-top: none;
   -webkit-transform: rotate(45deg);
@@ -5411,10 +5228,7 @@ ion-checkbox {
 .item ion-checkbox {
   position: static;
   display: block;
-  margin: 9px 36px 9px 4px; }
-
-ion-checkbox + .item-inner ion-label {
-  margin-left: 0; }
+  margin: 10px 16px 10px 2px; }
 
 ion-checkbox[primary] .checkbox-checked {
   background-color: #327eff;
@@ -5497,112 +5311,35 @@ ion-chip {
   ion-chip ion-icon[name="close-circle"] {
     font-size: 1.2em; }
 
-ion-chip > ion-icon [primary] {
+ion-chip > ion-icon[primary] {
   background-color: #327eff;
   color: white !important; }
 
-ion-chip > ion-icon [secondary] {
+ion-chip > ion-icon[secondary] {
   background-color: #32db64;
   color: white !important; }
 
-ion-chip > ion-icon [danger] {
+ion-chip > ion-icon[danger] {
   background-color: #f53d3d;
   color: white !important; }
 
-ion-chip > ion-icon [light] {
+ion-chip > ion-icon[light] {
   background-color: #f4f4f4;
   color: black !important; }
 
-ion-chip > ion-icon [dark] {
+ion-chip > ion-icon[dark] {
   background-color: #222;
   color: white !important; }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-content {
   background-color: #fff; }
 
-[padding],
-[padding] > scroll-content {
-  padding: 16px; }
+.outer-content {
+  background: #efeff4; }
 
-[padding-top] {
-  padding-top: 16px; }
-
-[padding-right] {
-  padding-right: 16px; }
-
-[padding-bottom] {
-  padding-bottom: 16px; }
-
-[padding-left] {
-  padding-left: 16px; }
-
-[padding-vertical] {
-  padding-top: 16px;
-  padding-bottom: 16px; }
-
-[padding-horizontal] {
-  padding-right: 16px;
-  padding-left: 16px; }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+ion-nav.has-views,
+ion-tab.has-views {
+  background: #000; }
 
 ion-input,
 ion-textarea {
@@ -5687,31 +5424,12 @@ input.text-input:-webkit-autofill {
   display: none; }
 
 .text-input {
-  margin: 13px 8px 13px 8px;
+  margin: 12px 8px 13px 0;
   padding: 0; }
 
 .inset-input {
-  margin: 6.5px 16px 6.5px 16px;
-  padding: 6.5px 8px 6.5px 8px; }
-
-ion-input:after {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 16px;
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
-  border-bottom-color: transparent;
-  content: ''; }
-
-.input-has-focus:after {
-  border-bottom-color: #327eff; }
-
-ion-input.ng-valid.input-has-value:after {
-  border-bottom-color: #32db64; }
-
-ion-input.ng-invalid.ng-touched:after {
-  border-bottom-color: #f53d3d; }
+  margin: 6px 16px 6.5px 0;
+  padding: 6px 8px 6.5px 8px; }
 
 .item-label-stacked .text-input,
 .item-label-floating .text-input {
@@ -5719,11 +5437,9 @@ ion-input.ng-invalid.ng-touched:after {
   margin-top: 8px;
   margin-bottom: 8px; }
 
-.item-label-floating .text-input.cloned-input {
-  top: 32px; }
-
+.item-label-floating .text-input.cloned-input,
 .item-label-stacked .text-input.cloned-input {
-  top: 27px; }
+  top: 30px; }
 
 ion-input[clearInput] {
   position: relative; }
@@ -5732,40 +5448,10 @@ ion-input[clearInput] {
 
 .text-input-clear-icon {
   width: 30px;
-  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='#5B5B5B'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
-  background-size: 22px;
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='rgba(0,%200,%200,%200.5)'%20d='M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0S484.3,190.1,403.1,108.9z%20M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2l11.8,11.8L267.6,256L352,340.2z'/></svg>");
+  background-size: 18px;
   right: 8px;
-  bottom: 2px; }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  bottom: 0; }
 
 .item {
   display: -webkit-box;
@@ -5938,22 +5624,19 @@ ion-item-sliding.active-slide.active-options ion-item-options {
 
 .item {
   position: relative;
-  padding-right: 0;
   padding-left: 16px;
   font-size: 1.6rem;
-  text-transform: none;
-  font-weight: normal;
+  border-radius: 0;
   color: #000;
   background-color: #fff;
-  box-shadow: none;
-  -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 300ms;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms; }
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms; }
   .item h1 {
     margin: 0 0 2px;
     font-size: 2.4rem;
     font-weight: normal; }
   .item h2 {
-    margin: 2px 0 2px;
+    margin: 0 0 2px;
     font-size: 1.6rem;
     font-weight: normal; }
   .item h3,
@@ -5961,51 +5644,47 @@ ion-item-sliding.active-slide.active-options ion-item-options {
   .item h5,
   .item h6 {
     line-height: normal;
-    margin: 2px 0 2px;
+    margin: 0 0 3px 0;
     font-size: 1.4rem;
     font-weight: normal; }
   .item p {
     line-height: normal;
     color: #666;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin: 0 0 2px; }
+  .item h2:last-child,
+  .item h3:last-child,
+  .item h4:last-child,
+  .item h5:last-child,
+  .item h6:last-child,
+  .item p:last-child {
+    margin-bottom: 0; }
+  .item a {
+    text-decoration: none; }
 
 .item.activated {
-  background-color: #f1f1f1; }
-
-.item[no-lines] {
-  border-width: 0; }
+  background-color: #d9d9d9;
+  -webkit-transition-duration: 0ms;
+  transition-duration: 0ms; }
 
 .item-inner {
   padding-right: 8px;
-  border-bottom: 1px solid #dedede; }
+  border-bottom: 1px solid #c8c7cc; }
 
-[item-left],
+.hairlines .item-inner {
+  border-bottom-width: 0.55px; }
+
+[item-left] {
+  margin: 10px 16px 10px 0; }
+
 [item-right] {
-  margin: 9px 8px 9px 0; }
+  margin: 10px 8px 10px 8px; }
 
 ion-icon[item-left],
 ion-icon[item-right] {
-  margin-top: 11px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 9px;
   margin-left: 0; }
-
-.item-button {
-  padding: 0 0.6em;
-  height: 25px;
-  font-size: 1.2rem; }
-
-.item-button.button-icon-only ion-icon,
-.item-button.button-icon-only {
-  padding: 0 1px; }
-
-[text-wrap] ion-label {
-  font-size: 1.4rem;
-  line-height: 1.5; }
-
-ion-icon[item-left] + .item-inner,
-ion-icon[item-left] + .item-input {
-  margin-left: 24px; }
 
 ion-avatar[item-left],
 ion-thumbnail[item-left] {
@@ -6015,28 +5694,53 @@ ion-avatar[item-right],
 ion-thumbnail[item-right] {
   margin: 8px; }
 
+.item-button {
+  padding: 0 0.5em;
+  font-size: 1.3rem;
+  min-height: 24px; }
+
+.item-button.button-icon-only ion-icon,
+.item-button.button-icon-only {
+  padding: 0 1px; }
+
 ion-avatar {
-  min-width: 4rem;
-  min-height: 4rem; }
+  min-width: 3.6rem;
+  min-height: 3.6rem; }
   ion-avatar img {
-    max-width: 4rem;
-    max-height: 4rem;
-    border-radius: 2rem; }
+    max-width: 3.6rem;
+    max-height: 3.6rem;
+    border-radius: 1.8rem; }
 
 ion-thumbnail {
-  min-width: 8rem;
-  min-height: 8rem; }
+  min-width: 5.6rem;
+  min-height: 5.6rem; }
   ion-thumbnail img {
-    max-width: 8rem;
-    max-height: 8rem; }
+    max-width: 5.6rem;
+    max-height: 5.6rem; }
 
 ion-note {
-  color: #c5c5c5; }
+  color: #aeacb4; }
+
+button.item:not([detail-none]) .item-inner,
+a.item:not([detail-none]) .item-inner,
+.item[detail-push] .item-inner {
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='#c8c7cc'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px 14px;
+  padding-right: 32px; }
+
+ion-item-group .item:first-child .item-inner {
+  border-top-width: 0; }
+
+ion-item-group .item:last-child .item-inner,
+ion-item-group ion-item-sliding:last-child .item .item-inner {
+  border: none; }
 
 ion-item-divider {
-  padding: 13px 16px 13px 16px;
-  background-color: #fff;
-  color: #222; }
+  padding: 12px 16px 13px 16px;
+  color: #222;
+  background-color: #f7f7f7; }
 
 ion-item-divider[primary] {
   background-color: #327eff;
@@ -6060,36 +5764,6 @@ ion-item-divider[dark] {
 
 ion-item-sliding {
   background-color: #fff; }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-label {
   display: block;
@@ -6141,30 +5815,27 @@ ion-label[floating] {
   width: auto; }
 
 ion-label {
-  margin: 13px 8px 13px 0; }
+  margin: 12px 8px 13px 0; }
 
 .item-input ion-label {
-  color: #999; }
+  color: #7f7f7f; }
+
+ion-label + ion-input .text-input,
+ion-label + ion-textarea .text-input {
+  margin-left: 16px; }
 
 ion-label[stacked] {
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+  margin-bottom: 4px; }
 
 ion-label[floating] {
+  margin-bottom: 0;
   -webkit-transform-origin: left top;
   transform-origin: left top;
   -webkit-transform: translate3d(0, 27px, 0);
   transform: translate3d(0, 27px, 0);
   -webkit-transition: -webkit-transform 150ms ease-in-out;
   transition: transform 150ms ease-in-out; }
-
-ion-label[stacked],
-ion-label[floating] {
-  margin-left: 0;
-  margin-bottom: 0; }
-
-.input-has-focus ion-label[stacked],
-.input-has-focus ion-label[floating] {
-  color: #327eff; }
 
 .input-has-focus ion-label[floating],
 .input-has-value ion-label[floating] {
@@ -6186,36 +5857,6 @@ ion-label[light] {
 ion-label[dark] {
   color: #222 !important; }
 
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
-
 ion-list-header {
   display: block;
   overflow: hidden;
@@ -6236,115 +5877,108 @@ ion-list[inset] {
 /****************/
 /* DEFAULT LIST */
 /****************/
-ion-list-header,
-ion-item-divider {
-  border-bottom: 1px solid #dedede;
-  margin-left: 0;
-  padding: 16px 16px 16px 16px;
-  font-size: 1.4rem;
-  color: #858585; }
+ion-list-header {
+  position: relative;
+  padding: 10px 16px 10px 16px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: #333;
+  border-bottom: 1px solid #c8c7cc; }
 
 ion-list {
-  margin: 0 0 16px 0; }
-  ion-list .item-inner {
-    border-bottom: 1px solid #dedede; }
-  ion-list > .item:first-child,
-  ion-list > ion-item-sliding:first-child .item {
-    border-top: 1px solid #dedede; }
+  margin: -1px 0 32px 0; }
+  ion-list > .item:first-child {
+    border-top: 1px solid #c8c7cc; }
   ion-list > .item:last-child,
   ion-list > ion-item-sliding:last-child .item {
-    border-bottom: 1px solid #dedede; }
+    border-bottom: 1px solid #c8c7cc; }
     ion-list > .item:last-child .item-inner,
-    ion-list > .item:last-child ion-label,
-    ion-list > ion-item-sliding:last-child .item .item-inner,
-    ion-list > ion-item-sliding:last-child .item ion-label {
+    ion-list > ion-item-sliding:last-child .item .item-inner {
       border-bottom: none; }
-  ion-list > ion-input:last-child:after {
-    left: 0; }
-  ion-list ion-item-options button, ion-list ion-item-options [button] {
-    height: calc(100% - 2px);
-    margin: 1px 0 1px 0;
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    box-sizing: border-box; }
-    ion-list ion-item-options button:before, ion-list ion-item-options [button]:before {
-      margin: 0 auto; }
+  ion-list .item-inner {
+    border-bottom: 1px solid #c8c7cc; }
   ion-list .item[no-lines],
   ion-list .item[no-lines] .item-inner {
     border-width: 0; }
-  ion-list + ion-list {
-    margin-top: 32px; }
-    ion-list + ion-list ion-list-header {
-      margin-top: -16px;
-      padding-top: 0; }
+  ion-list ion-item-options {
+    border-bottom: 1px solid #c8c7cc; }
+    ion-list ion-item-options button, ion-list ion-item-options [button] {
+      min-height: 100%;
+      height: 100%;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      display: -webkit-inline-box;
+      display: -webkit-inline-flex;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      box-sizing: border-box; }
+      ion-list ion-item-options button:before, ion-list ion-item-options [button]:before {
+        margin: 0 auto; }
+
+ion-list + ion-list {
+  margin-top: 42px; }
+  ion-list + ion-list ion-list-header {
+    margin-top: -10px;
+    padding-top: 0; }
+
+.hairlines ion-list-header {
+  border-bottom-width: 0.55px; }
+
+.hairlines ion-list ion-item-options {
+  border-width: 0.55px; }
+
+.hairlines ion-list .item .item-inner {
+  border-width: 0.55px; }
+
+.hairlines ion-list > .item:first-child {
+  border-top-width: 0.55px; }
+
+.hairlines ion-list > .item:last-child,
+.hairlines ion-list > ion-item-sliding:last-child .item {
+  border-bottom-width: 0.55px; }
 
 /**************/
 /* INSET LIST */
 /**************/
 ion-list[inset] {
   margin: 16px 16px 16px 16px;
-  border-radius: 2px; }
-  ion-list[inset] .item:first-child {
-    border-top-width: 0;
-    border-top-right-radius: 2px;
-    border-top-left-radius: 2px; }
-  ion-list[inset] .item:last-child {
-    border-bottom-width: 0;
-    border-bottom-right-radius: 2px;
-    border-bottom-left-radius: 2px; }
-  ion-list[inset] .item-input {
-    padding-right: 0;
-    padding-left: 0; }
-  ion-list[inset] + ion-list[inset] {
-    margin-top: 0; }
+  border-radius: 4px; }
   ion-list[inset] ion-list-header {
     background-color: #fff; }
+  ion-list[inset] .item {
+    border-bottom: 1px solid #c8c7cc; }
+    ion-list[inset] .item .item-inner {
+      border-bottom: none; }
+  ion-list[inset] > .item:first-child,
+  ion-list[inset] > ion-item-sliding:first-child .item {
+    border-top: none; }
+  ion-list[inset] > .item:last-child,
+  ion-list[inset] > ion-item-sliding:last-child .item {
+    border-bottom: none; }
+
+ion-list[inset] + ion-list[inset] {
+  margin-top: 0; }
+
+.hairlines ion-list[inset] .item {
+  border-width: 0.55px; }
 
 /*****************/
 /* NO LINES LIST */
 /*****************/
+ion-list[no-lines] ion-list-header,
 ion-list[no-lines] .item,
-ion-list[no-lines] .item .item-inner {
+ion-list[no-lines] .item .item-inner,
+.hairlines ion-list[no-lines] ion-list-header,
+.hairlines ion-list[no-lines] .item,
+.hairlines ion-list[no-lines] .item .item-inner {
   border-width: 0; }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-menu {
   background: #fff; }
@@ -6358,68 +5992,8 @@ ion-menu {
 ion-menu[type=overlay] {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25); }
 
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
-
 ion-page.modal {
   background-color: #fff; }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-radio {
   position: relative;
@@ -6427,36 +6001,23 @@ ion-radio {
 
 .radio-icon {
   position: relative;
-  top: 0;
-  left: 0;
   display: block;
   width: 16px;
-  height: 16px;
-  margin: 0;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #787878;
-  border-radius: 50%; }
-
-.radio-inner {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 8px;
-  height: 8px;
-  background-color: #327eff;
-  border-radius: 50%;
-  -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transform: scale3d(0, 0, 0);
-  transform: scale3d(0, 0, 0); }
-
-.radio-checked {
-  border-color: #327eff; }
+  height: 21px; }
 
 .radio-checked .radio-inner {
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1); }
+  position: absolute;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #327eff;
+  top: 4px;
+  left: 7px;
+  width: 5px;
+  height: 12px;
+  border-left: none;
+  border-top: none;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg); }
 
 .radio-disabled,
 .item-radio-disabled ion-label {
@@ -6466,7 +6027,7 @@ ion-radio {
 .item ion-radio {
   position: static;
   display: block;
-  margin: 9px 8px 9px 0; }
+  margin: 10px 8px 10px 8px; }
 
 .item-radio ion-label {
   margin-left: 0; }
@@ -6475,64 +6036,29 @@ ion-radio {
   color: #327eff; }
 
 ion-radio[primary] .radio-checked {
-  border-color: #327eff; }
-
-ion-radio[primary] .radio-inner {
-  background-color: #327eff; }
+  color: #327eff; }
+  ion-radio[primary] .radio-checked .radio-inner {
+    border-color: #327eff; }
 
 ion-radio[secondary] .radio-checked {
-  border-color: #32db64; }
-
-ion-radio[secondary] .radio-inner {
-  background-color: #32db64; }
+  color: #32db64; }
+  ion-radio[secondary] .radio-checked .radio-inner {
+    border-color: #32db64; }
 
 ion-radio[danger] .radio-checked {
-  border-color: #f53d3d; }
-
-ion-radio[danger] .radio-inner {
-  background-color: #f53d3d; }
+  color: #f53d3d; }
+  ion-radio[danger] .radio-checked .radio-inner {
+    border-color: #f53d3d; }
 
 ion-radio[light] .radio-checked {
-  border-color: #f4f4f4; }
-
-ion-radio[light] .radio-inner {
-  background-color: #f4f4f4; }
+  color: #f4f4f4; }
+  ion-radio[light] .radio-checked .radio-inner {
+    border-color: #f4f4f4; }
 
 ion-radio[dark] .radio-checked {
-  border-color: #222; }
-
-ion-radio[dark] .radio-inner {
-  background-color: #222; }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  color: #222; }
+  ion-radio[dark] .radio-checked .radio-inner {
+    border-color: #222; }
 
 ion-searchbar {
   position: relative;
@@ -6571,113 +6097,143 @@ ion-searchbar {
   margin: 0; }
 
 ion-searchbar {
-  padding: 8px;
-  background: inherit; }
+  padding: 0 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  min-height: 44px; }
 
 .searchbar-search-icon {
-  width: 21px;
-  height: 21px;
-  top: 11px;
-  left: 16px;
-  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='#5B5B5B'%20d='M337.509,305.372h-17.501l-6.571-5.486c20.791-25.232,33.922-57.054,33.922-93.257C347.358,127.632,283.896,64,205.135,64C127.452,64,64,127.632,64,206.629s63.452,142.628,142.225,142.628c35.011,0,67.831-13.167,92.991-34.008l6.561,5.487v17.551L415.18,448L448,415.086L337.509,305.372z%20M206.225,305.372c-54.702,0-98.463-43.887-98.463-98.743c0-54.858,43.761-98.742,98.463-98.742c54.7,0,98.462,43.884,98.462,98.742C304.687,261.485,260.925,305.372,206.225,305.372z'/></svg>"); }
-
-.searchbar-md-cancel {
-  display: none;
-  width: 21px;
-  height: 100%;
-  margin: 0;
-  top: 0;
-  left: 10px; }
-
-.searchbar-search-icon,
-.searchbar-md-cancel {
-  background-size: 20px;
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2013%2013'><path%20fill='rgba(0,%200,%200,%200.5)'%20d='M5,1c2.2,0,4,1.8,4,4S7.2,9,5,9S1,7.2,1,5S2.8,1,5,1%20M5,0C2.2,0,0,2.2,0,5s2.2,5,5,5s5-2.2,5-5S7.8,0,5,0%20L5,0z'/><line%20stroke='rgba(0,%200,%200,%200.5)'%20stroke-miterlimit='10'%20x1='12.6'%20y1='12.6'%20x2='8.2'%20y2='8.2'/></svg>");
+  background-size: 13px;
   background-repeat: no-repeat;
-  position: absolute; }
-  .searchbar-search-icon.activated,
-  .searchbar-md-cancel.activated {
-    background-color: transparent; }
+  position: absolute;
+  left: 9px;
+  top: 9px;
+  margin-left: calc(50% - 60px);
+  -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
+  transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1); }
 
 .searchbar-input {
-  padding: 6px 55px;
-  height: auto;
+  height: 3rem;
   line-height: 3rem;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  font-size: 1.6rem;
+  padding: 0 28px;
+  font-size: 1.4rem;
   font-weight: 400;
-  border-radius: 2px;
-  color: #141414;
+  border-radius: 5px;
+  color: #000;
   background-color: #FFFFFF;
-  background-position: 8px center; }
+  padding-left: calc(50% - 28px);
+  -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
+  transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1); }
   .searchbar-input::-moz-placeholder {
-    color: #AEAEAE; }
+    color: rgba(0, 0, 0, 0.5); }
   .searchbar-input:-ms-input-placeholder {
-    color: #AEAEAE; }
+    color: rgba(0, 0, 0, 0.5); }
   .searchbar-input::-webkit-input-placeholder {
-    color: #AEAEAE;
+    color: rgba(0, 0, 0, 0.5);
     text-indent: 0; }
 
 .searchbar-clear-icon {
-  width: 22px;
+  width: 30px;
   height: 100%;
-  padding: 0;
-  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='#5B5B5B'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
-  background-size: 22px;
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='rgba(0,%200,%200,%200.5)'%20d='M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0S484.3,190.1,403.1,108.9z%20M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2l11.8,11.8L267.6,256L352,340.2z'/></svg>");
+  background-size: 18px;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  right: 13px;
+  right: 0;
   top: 0; }
-  .searchbar-clear-icon.activated {
-    background-color: transparent; }
-
-.searchbar-focused .searchbar-search-icon {
-  display: none; }
-
-.searchbar-focused .searchbar-md-cancel {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex; }
-
-.toolbar ion-searchbar {
-  padding: 3px; }
-
-.toolbar .searchbar-md-cancel {
-  left: 14px; }
 
 .searchbar-ios-cancel {
+  -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
+  transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
+  min-height: 30px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  visibility: hidden;
+  -webkit-transform: translateX(calc(100% + 8px));
+  transform: translateX(calc(100% + 8px));
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 0%;
+  -ms-flex: 0 0 0%;
+  flex: 0 0 0%; }
+
+.searchbar-left-aligned .searchbar-search-icon {
+  margin-left: 0; }
+
+.searchbar-left-aligned .searchbar-input {
+  padding-left: 30px; }
+
+.searchbar-focused .searchbar-ios-cancel {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  padding-left: 8px;
+  visibility: visible; }
+
+.toolbar ion-searchbar {
+  background: transparent;
+  border-bottom-width: 0; }
+  .toolbar ion-searchbar .searchbar-input {
+    background-color: rgba(0, 0, 0, 0.08); }
+  .toolbar ion-searchbar .searchbar-ios-cancel {
+    padding: 0; }
+
+.toolbar .searchbar-focused .searchbar-ios-cancel {
+  padding-left: 8px; }
+
+.searchbar-md-cancel {
   display: none; }
 
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+.hairlines ion-searchbar {
+  border-bottom-width: 0.55px; }
 
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+ion-searchbar[primary] .searchbar-ios-cancel {
+  color: #327eff; }
+  ion-searchbar[primary] .searchbar-ios-cancel:hover:not(.disable-hover) {
+    color: #2e74eb; }
 
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+.toolbar[primary] ion-searchbar .searchbar-ios-cancel {
+  color: white; }
 
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+ion-searchbar[secondary] .searchbar-ios-cancel {
+  color: #32db64; }
+  ion-searchbar[secondary] .searchbar-ios-cancel:hover:not(.disable-hover) {
+    color: #2ec95c; }
+
+.toolbar[secondary] ion-searchbar .searchbar-ios-cancel {
+  color: white; }
+
+ion-searchbar[danger] .searchbar-ios-cancel {
+  color: #f53d3d; }
+  ion-searchbar[danger] .searchbar-ios-cancel:hover:not(.disable-hover) {
+    color: #e13838; }
+
+.toolbar[danger] ion-searchbar .searchbar-ios-cancel {
+  color: white; }
+
+ion-searchbar[light] .searchbar-ios-cancel {
+  color: #f4f4f4; }
+  ion-searchbar[light] .searchbar-ios-cancel:hover:not(.disable-hover) {
+    color: #e0e0e0; }
+
+.toolbar[light] ion-searchbar .searchbar-ios-cancel {
+  color: black; }
+
+ion-searchbar[dark] .searchbar-ios-cancel {
+  color: #222; }
+  ion-searchbar[dark] .searchbar-ios-cancel:hover:not(.disable-hover) {
+    color: #343434; }
+
+.toolbar[dark] ion-searchbar .searchbar-ios-cancel {
+  color: white; }
 
 ion-segment {
   display: -webkit-box;
@@ -6715,94 +6271,104 @@ ion-segment {
   cursor: pointer; }
 
 .segment-button {
-  padding: 0 6px;
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
-  border-bottom-color: rgba(0, 0, 0, 0.1);
-  min-height: 4rem;
-  line-height: 4rem;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  font-weight: 500;
-  opacity: 0.7;
+  min-height: 3rem;
+  line-height: 3rem;
+  font-size: 1.3rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #327eff;
   color: #327eff;
-  background-color: transparent;
-  -webkit-transition: 100ms all linear;
-  transition: 100ms all linear; }
-  .segment-button.activated, .segment-button.segment-activated {
-    border-color: #327eff; }
+  background-color: transparent; }
+  .segment-button.segment-activated {
+    opacity: 1;
+    color: white;
+    background-color: #327eff;
+    -webkit-transition: 100ms all linear;
+    transition: 100ms all linear; }
+  .segment-button:hover:not(.segment-activated) {
+    background-color: rgba(50, 126, 255, 0.16); }
+  .segment-button:first-of-type {
+    border-radius: 4px 0 0 4px;
+    margin-right: 0; }
+  .segment-button:not(:first-of-type) {
+    border-left-width: 0; }
+  .segment-button:last-of-type {
+    border-left-width: 0;
+    border-radius: 0 4px 4px 0;
+    margin-left: 0; }
 
 .toolbar ion-segment {
-  margin: 0 auto; }
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; }
 
-.toolbar .segment-button.activated,
-.toolbar .segment-button.segment-activated {
-  opacity: 1; }
+.toolbar .segment-button {
+  max-width: 100px;
+  min-height: 2.4rem;
+  line-height: 2.4rem;
+  font-size: 1.2rem; }
 
 ion-segment[primary] .segment-button {
+  border-color: #327eff;
   color: #327eff; }
+  ion-segment[primary] .segment-button:hover:not(.segment-activated) {
+    background-color: rgba(50, 126, 255, 0.16); }
   ion-segment[primary] .segment-button.activated, ion-segment[primary] .segment-button.segment-activated {
-    opacity: 1;
-    border-color: #327eff;
-    color: #327eff; }
+    color: white;
+    background-color: #327eff; }
+
+.toolbar[primary] .segment-button.segment-activated {
+  color: #327eff; }
 
 ion-segment[secondary] .segment-button {
+  border-color: #32db64;
   color: #32db64; }
+  ion-segment[secondary] .segment-button:hover:not(.segment-activated) {
+    background-color: rgba(50, 219, 100, 0.16); }
   ion-segment[secondary] .segment-button.activated, ion-segment[secondary] .segment-button.segment-activated {
-    opacity: 1;
-    border-color: #32db64;
-    color: #32db64; }
+    color: white;
+    background-color: #32db64; }
+
+.toolbar[secondary] .segment-button.segment-activated {
+  color: #32db64; }
 
 ion-segment[danger] .segment-button {
+  border-color: #f53d3d;
   color: #f53d3d; }
+  ion-segment[danger] .segment-button:hover:not(.segment-activated) {
+    background-color: rgba(245, 61, 61, 0.16); }
   ion-segment[danger] .segment-button.activated, ion-segment[danger] .segment-button.segment-activated {
-    opacity: 1;
-    border-color: #f53d3d;
-    color: #f53d3d; }
+    color: white;
+    background-color: #f53d3d; }
+
+.toolbar[danger] .segment-button.segment-activated {
+  color: #f53d3d; }
 
 ion-segment[light] .segment-button {
+  border-color: #f4f4f4;
   color: #f4f4f4; }
+  ion-segment[light] .segment-button:hover:not(.segment-activated) {
+    background-color: rgba(244, 244, 244, 0.16); }
   ion-segment[light] .segment-button.activated, ion-segment[light] .segment-button.segment-activated {
-    opacity: 1;
-    border-color: #f4f4f4;
-    color: #f4f4f4; }
+    color: black;
+    background-color: #f4f4f4; }
+
+.toolbar[light] .segment-button.segment-activated {
+  color: #f4f4f4; }
 
 ion-segment[dark] .segment-button {
+  border-color: #222;
   color: #222; }
+  ion-segment[dark] .segment-button:hover:not(.segment-activated) {
+    background-color: rgba(34, 34, 34, 0.16); }
   ion-segment[dark] .segment-button.activated, ion-segment[dark] .segment-button.segment-activated {
-    opacity: 1;
-    border-color: #222;
-    color: #222; }
+    color: white;
+    background-color: #222; }
 
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+.toolbar[dark] .segment-button.segment-activated {
+  color: #222; }
 
 ion-select {
   display: -webkit-box;
@@ -6832,21 +6398,18 @@ ion-select {
   pointer-events: none; }
 
 ion-select {
-  padding: 13px 8px 13px 16px; }
-
-.item-select ion-label {
-  margin-left: 0; }
+  padding: 12px 8px 13px 16px; }
 
 .select-icon {
   position: relative;
   width: 12px;
-  height: 19px; }
+  height: 18px; }
 
 .select-icon .select-icon-inner {
   position: absolute;
   top: 50%;
   left: 5px;
-  margin-top: -3px;
+  margin-top: -2px;
   width: 0;
   height: 0;
   border-top: 5px solid;
@@ -6854,36 +6417,6 @@ ion-select {
   border-left: 5px solid transparent;
   color: #999;
   pointer-events: none; }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-tabs {
   display: -webkit-box;
@@ -7072,144 +6605,114 @@ tab-highlight {
   right: calc(50% - 50px); }
 
 tabbar {
+  border-top: 1px solid #b2b2b2;
   background: #f8f8f8; }
 
+ion-tabs[tabbarPlacement=top] tabbar {
+  border-top: none;
+  border-bottom: 1px solid #b2b2b2; }
+
 .tab-button {
-  padding: 12px 10px 5px 10px;
-  min-height: 4.8rem;
-  font-size: 1.4rem;
-  font-weight: 500;
-  opacity: 0.7;
-  box-shadow: none;
-  border-radius: 0;
-  border-bottom: 2px solid transparent;
+  padding: 0px 10px;
+  min-width: 80px;
+  max-width: 240px;
+  min-height: 49px;
   color: #8c8c8c; }
-  .tab-button[aria-selected=true] {
-    opacity: 1.0;
-    color: #327eff; }
+
+.tab-button:hover:not(.disable-hover),
+.tab-button[aria-selected=true] {
+  color: #327eff; }
 
 .tab-button-text {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  text-transform: uppercase; }
+  min-height: 11px;
+  font-size: 10px; }
+
+.has-title-only .tab-button-text {
+  font-size: 12px; }
 
 .tab-button-icon {
-  font-size: 2.4rem;
-  min-width: 7.4rem; }
+  font-size: 32px;
+  height: 32px;
+  min-width: 37px; }
+  .tab-button-icon:before {
+    vertical-align: top; }
 
-[tabbarIcons=bottom] .tab-button {
-  padding-top: 8px;
-  padding-bottom: 8px; }
+[tabbarIcons=right] .tab-button .tab-button-text,
+[tabbarIcons=left] .tab-button .tab-button-text {
+  font-size: 1.4rem;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 0; }
 
-[tabbarIcons=right] .tab-button,
-[tabbarIcons=left] .tab-button {
-  padding-bottom: 10px; }
-  [tabbarIcons=right] .tab-button ion-icon,
-  [tabbarIcons=left] .tab-button ion-icon {
-    min-width: 24px; }
+[tabbarIcons=right] .tab-button ion-icon,
+[tabbarIcons=left] .tab-button ion-icon {
+  min-width: 24px;
+  height: 26px;
+  font-size: 24px; }
 
-.tab-button.icon-only,
+[tabbarIcons=hide] .tab-button-text {
+  font-size: 1.4rem;
+  line-height: 1.1; }
+
 .tab-button.has-title-only {
-  padding: 6px 10px 6px 10px; }
+  min-height: 41px; }
+  .tab-button.has-title-only .tab-button-text {
+    font-size: 1.4rem;
+    line-height: 1.1; }
 
-tab-highlight {
-  position: absolute;
-  display: block;
-  height: 2px;
-  width: 1px;
-  bottom: 0;
-  left: 0;
-  background: #327eff;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0); }
-  tab-highlight.animate {
-    -webkit-transition-duration: 300ms;
-    transition-duration: 300ms; }
+.tab-button.icon-only {
+  min-height: 41px; }
 
-[tabbarPlacement=bottom] tab-highlight {
-  top: 0; }
+.hairlines ion-tabs tabbar {
+  border-top-width: 0.55px; }
+
+.hairlines ion-tabs[tabbarPlacement="top"] tabbar {
+  border-bottom-width: 0.55px; }
 
 ion-tabs[primary] tabbar {
+  border-color: #005efe;
   background-color: #327eff; }
   ion-tabs[primary] tabbar .tab-button {
     color: white; }
   ion-tabs[primary] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[primary] tabbar .tab-button[aria-selected=true] {
     color: white; }
-  ion-tabs[primary] tabbar tab-highlight {
-    background: white; }
 
 ion-tabs[secondary] tabbar {
+  border-color: #21b94e;
   background-color: #32db64; }
   ion-tabs[secondary] tabbar .tab-button {
     color: white; }
   ion-tabs[secondary] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[secondary] tabbar .tab-button[aria-selected=true] {
     color: white; }
-  ion-tabs[secondary] tabbar tab-highlight {
-    background: white; }
 
 ion-tabs[danger] tabbar {
+  border-color: #f30d0d;
   background-color: #f53d3d; }
   ion-tabs[danger] tabbar .tab-button {
     color: white; }
   ion-tabs[danger] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[danger] tabbar .tab-button[aria-selected=true] {
     color: white; }
-  ion-tabs[danger] tabbar tab-highlight {
-    background: white; }
 
 ion-tabs[light] tabbar {
+  border-color: #dbdbdb;
   background-color: #f4f4f4; }
   ion-tabs[light] tabbar .tab-button {
     color: black; }
   ion-tabs[light] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[light] tabbar .tab-button[aria-selected=true] {
     color: black; }
-  ion-tabs[light] tabbar tab-highlight {
-    background: black; }
 
 ion-tabs[dark] tabbar {
+  border-color: #090909;
   background-color: #222; }
   ion-tabs[dark] tabbar .tab-button {
     color: white; }
   ion-tabs[dark] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[dark] tabbar .tab-button[aria-selected=true] {
     color: white; }
-  ion-tabs[dark] tabbar tab-highlight {
-    background: white; }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-toggle {
   position: relative; }
@@ -7217,35 +6720,61 @@ ion-toggle {
 .toggle-icon {
   position: relative;
   display: block;
-  width: 36px;
-  height: 14px;
+  width: 51px;
+  height: 32px;
+  border-radius: 16px;
   pointer-events: none;
-  border-radius: 14px;
-  background-color: #dedede;
+  background-color: #e6e6e6;
   -webkit-transition: background-color 300ms;
   transition: background-color 300ms; }
 
+.toggle-icon:before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  left: 2px;
+  bottom: 2px;
+  border-radius: 16px;
+  background-color: #fff;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  -webkit-transition: -webkit-transform 300ms;
+  transition: transform 300ms; }
+
 .toggle-inner {
   position: absolute;
-  top: -3px;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  top: 2px;
+  left: 2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
   background-color: #fff;
-  -webkit-transition-property: -webkit-transform, background-color;
-  transition-property: transform, background-color;
-  -webkit-transition-duration: 300ms;
-  transition-duration: 300ms; }
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16), 0 3px 1px rgba(0, 0, 0, 0.1);
+  -webkit-transition: -webkit-transform 300ms, width 120ms ease-in-out 80ms, left 110ms ease-in-out 80ms;
+  transition: transform 300ms, width 120ms ease-in-out 80ms, left 110ms ease-in-out 80ms; }
 
 .toggle-checked {
-  background-color: #b2ceff; }
+  background-color: #327eff; }
+
+.toggle-activated:before,
+.toggle-checked:before {
+  -webkit-transform: scale3d(0, 0, 0);
+  transform: scale3d(0, 0, 0); }
 
 .toggle-checked .toggle-inner {
-  background-color: #327eff;
-  -webkit-transform: translate3d(16px, 0, 0);
-  transform: translate3d(16px, 0, 0); }
+  -webkit-transform: translate3d(19px, 0, 0);
+  transform: translate3d(19px, 0, 0); }
+
+.toggle-activated.toggle-checked:before {
+  -webkit-transform: scale3d(0, 0, 0);
+  transform: scale3d(0, 0, 0); }
+
+.toggle-activated .toggle-inner {
+  width: 34px; }
+
+.toggle-activated.toggle-checked .toggle-inner {
+  left: -4px; }
 
 .toggle-disabled,
 .item-toggle-disabled ion-label {
@@ -7257,71 +6786,26 @@ ion-toggle {
 
 .item ion-toggle {
   margin: 0;
-  padding: 12px 8px 12px 16px;
-  cursor: pointer; }
+  padding: 6px 8px 5px 16px; }
 
-.item-toggle ion-label {
-  margin-left: 0; }
+.item ion-toggle {
+  margin: 0;
+  padding: 6px 8px 5px 16px; }
 
 ion-toggle[primary] .toggle-checked {
-  background-color: #b2ceff; }
-
-ion-toggle[primary] .toggle-checked .toggle-inner {
   background-color: #327eff; }
 
 ion-toggle[secondary] .toggle-checked {
-  background-color: #9eeeb6; }
-
-ion-toggle[secondary] .toggle-checked .toggle-inner {
   background-color: #32db64; }
 
 ion-toggle[danger] .toggle-checked {
-  background-color: #fbb6b6; }
-
-ion-toggle[danger] .toggle-checked .toggle-inner {
   background-color: #f53d3d; }
 
 ion-toggle[light] .toggle-checked {
-  background-color: white; }
-
-ion-toggle[light] .toggle-checked .toggle-inner {
   background-color: #f4f4f4; }
 
 ion-toggle[dark] .toggle-checked {
-  background-color: #626262; }
-
-ion-toggle[dark] .toggle-checked .toggle-inner {
   background-color: #222; }
-
-/**
-  Roboto Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 .toolbar {
   position: relative;
@@ -7504,16 +6988,50 @@ ion-navbar.toolbar {
 
 .toolbar {
   padding: 4px;
-  min-height: 5.6rem; }
+  min-height: 4.4rem; }
 
 ion-navbar-section {
-  min-height: 5.6rem; }
+  min-height: 4.4rem; }
 
 .toolbar-background {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
   border-color: #b2b2b2;
   background: #f8f8f8; }
 
+.hairlines .toolbar-background {
+  border-bottom-width: 0.55px; }
+
 .toolbar-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-ordinal-group: 5;
+  -webkit-order: 4;
+  -ms-flex-order: 4;
+  order: 4; }
+
+.toolbar-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-top: 1px;
+  text-align: center;
+  pointer-events: auto;
+  color: #000; }
+
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0px 90px 1px 90px;
+  pointer-events: none;
+  -webkit-transform: translateZ(0px);
+  transform: translateZ(0px); }
+
+ion-buttons {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -7521,21 +7039,7 @@ ion-navbar-section {
   -webkit-box-ordinal-group: 4;
   -webkit-order: 3;
   -ms-flex-order: 3;
-  order: 3; }
-
-.toolbar-title {
-  color: #424242; }
-
-ion-title {
-  padding: 0 12px;
-  font-size: 2rem;
-  font-weight: 500; }
-
-ion-buttons {
-  -webkit-box-ordinal-group: 5;
-  -webkit-order: 4;
-  -ms-flex-order: 4;
-  order: 4;
+  order: 3;
   -webkit-transform: translateZ(0px);
   transform: translateZ(0px); }
 
@@ -7544,9 +7048,6 @@ ion-buttons[left] {
   -webkit-order: 2;
   -ms-flex-order: 2;
   order: 2; }
-
-ion-buttons[left] .bar-button:first-child {
-  margin-left: 0; }
 
 ion-buttons[end] {
   text-align: right;
@@ -7565,40 +7066,34 @@ ion-buttons[right] {
 .bar-button {
   margin-top: 0;
   margin-bottom: 0;
-  margin-left: 0.2rem;
-  margin-right: 0.2rem;
   padding: 0 5px;
   min-height: 32px;
   border: 0;
-  font-size: 1.4rem;
-  border-radius: 2px;
-  text-transform: uppercase;
-  font-weight: 500; }
-
-.bar-button-solid,
-.bar-button-outline {
-  overflow: hidden; }
+  font-size: 1.7rem;
+  border-radius: 4px; }
 
 .bar-button-outline {
   border-width: 1px;
   border-style: solid;
-  border-color: #424242;
-  color: #424242;
+  border-color: #327eff;
+  color: #327eff;
   background-color: transparent; }
   .bar-button-outline:hover:not(.disable-hover) {
     opacity: 0.4; }
   .bar-button-outline.activated {
     color: white;
-    background-color: #424242; }
+    background-color: #327eff; }
 
 .bar-button-solid {
   color: white;
-  background-color: #424242; }
+  background-color: #327eff; }
   .bar-button-solid:hover:not(.disable-hover) {
+    opacity: 0.4;
     color: white; }
   .bar-button-solid.activated {
+    opacity: 0.4;
     color: white;
-    background-color: #515151; }
+    background-color: #2e74eb; }
 
 .bar-button-icon-left ion-icon {
   margin-left: -0.1em;
@@ -7614,172 +7109,80 @@ ion-buttons[right] {
   pointer-events: none; }
 
 .bar-button-icon-only {
-  padding: 0; }
+  padding: 0;
+  min-width: 0.9em; }
   .bar-button-icon-only ion-icon {
     padding: 0 0.1em;
     font-size: 1.8em;
     line-height: 0.67;
-    min-width: 28px;
     pointer-events: none; }
 
 .back-button {
-  margin: 0 0 0 12px;
-  box-shadow: none; }
+  margin: 0;
+  margin-top: 2px;
+  min-height: 3.2rem;
+  line-height: 1;
+  -webkit-box-ordinal-group: 1;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  overflow: visible;
+  -webkit-transform: translateZ(0px);
+  transform: translateZ(0px); }
 
 .back-button-icon {
+  display: inherit;
   margin: 0;
-  min-width: 44px;
-  font-size: 2.4rem;
-  font-weight: normal;
-  text-align: left; }
+  min-width: 18px;
+  font-size: 3.3rem; }
+
+.back-button-text {
+  letter-spacing: -0.01em; }
 
 .bar-button-menutoggle {
   margin: 0 6px;
-  padding: 0 2px;
-  min-width: 44px;
+  padding: 0;
+  min-width: 36px;
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1; }
   .bar-button-menutoggle ion-icon {
     padding: 0 6px;
-    font-size: 2.4rem; }
+    font-size: 2.8rem; }
+  .bar-button-menutoggle.activated {
+    opacity: 0.4 !important; }
 
 .bar-button-menutoggle[end],
 .bar-button-menutoggle[right] {
-  margin: 0 2px;
-  min-width: 28px;
   -webkit-box-ordinal-group: 8;
   -webkit-order: 7;
   -ms-flex-order: 7;
   order: 7; }
 
 .bar-button-default {
-  color: #424242;
-  background-color: transparent; }
-  .bar-button-default:hover:not(.disable-hover) {
-    color: #424242; }
-
-.toolbar[primary] .toolbar-background {
-  background: #327eff; }
-
-.toolbar[primary] .bar-button-default,
-.toolbar[primary] .bar-button-outline,
-.toolbar[primary] .toolbar-title {
-  color: white; }
-
-.toolbar[primary] .bar-button-default ion-button-effect,
-.toolbar[primary] .bar-button-outline ion-button-effect {
-  background-color: white; }
-
-.toolbar[primary] .bar-button-outline {
-  border-color: white; }
-
-.toolbar[primary] .bar-button-primary {
   color: #327eff;
   background-color: transparent; }
-  .toolbar[primary] .bar-button-primary:hover:not(.disable-hover) {
+  .bar-button-default:hover:not(.disable-hover) {
     color: #327eff; }
+  .bar-button-default.activated {
+    opacity: 0.4; }
 
-.toolbar[primary] .bar-button-outline-primary {
-  border-color: #2e74eb;
-  color: #2e74eb;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-outline-primary.activated {
-    color: white;
-    background-color: #2e74eb; }
+.toolbar[primary] .toolbar-background {
+  background: #327eff;
+  border-color: #005efe; }
 
-.toolbar[primary] .bar-button-solid-primary {
-  color: white;
-  background-color: #327eff; }
-  .toolbar[primary] .bar-button-solid-primary.activated {
-    background-color: #2e74eb; }
-
-.toolbar[primary] .bar-button-secondary {
-  color: #32db64;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-secondary:hover:not(.disable-hover) {
-    color: #32db64; }
-
-.toolbar[primary] .bar-button-outline-secondary {
-  border-color: #2ec95c;
-  color: #2ec95c;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-outline-secondary.activated {
-    color: white;
-    background-color: #2ec95c; }
-
-.toolbar[primary] .bar-button-solid-secondary {
-  color: white;
-  background-color: #32db64; }
-  .toolbar[primary] .bar-button-solid-secondary.activated {
-    background-color: #2ec95c; }
-
-.toolbar[primary] .bar-button-danger {
-  color: #f53d3d;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-danger:hover:not(.disable-hover) {
-    color: #f53d3d; }
-
-.toolbar[primary] .bar-button-outline-danger {
-  border-color: #e13838;
-  color: #e13838;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-outline-danger.activated {
-    color: white;
-    background-color: #e13838; }
-
-.toolbar[primary] .bar-button-solid-danger {
-  color: white;
-  background-color: #f53d3d; }
-  .toolbar[primary] .bar-button-solid-danger.activated {
-    background-color: #e13838; }
-
-.toolbar[primary] .bar-button-light {
-  color: #f4f4f4;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-light:hover:not(.disable-hover) {
-    color: #f4f4f4; }
-
-.toolbar[primary] .bar-button-outline-light {
-  border-color: #e0e0e0;
-  color: #e0e0e0;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-outline-light.activated {
-    color: black;
-    background-color: #e0e0e0; }
-
-.toolbar[primary] .bar-button-solid-light {
-  color: black;
-  background-color: #f4f4f4; }
-  .toolbar[primary] .bar-button-solid-light.activated {
-    background-color: #e0e0e0; }
-
-.toolbar[primary] .bar-button-dark {
-  color: #222;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-dark:hover:not(.disable-hover) {
-    color: #222; }
-
-.toolbar[primary] .bar-button-outline-dark {
-  border-color: #343434;
-  color: #343434;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-outline-dark.activated {
-    color: white;
-    background-color: #343434; }
-
-.toolbar[primary] .bar-button-solid-dark {
-  color: white;
-  background-color: #222; }
-  .toolbar[primary] .bar-button-solid-dark.activated {
-    background-color: #343434; }
+.toolbar[primary] .toolbar-title,
+.toolbar[primary] .bar-button-default {
+  color: white; }
 
 .bar-button-primary {
   color: #327eff;
   background-color: transparent; }
   .bar-button-primary:hover:not(.disable-hover) {
     color: #327eff; }
+  .bar-button-primary.activated {
+    opacity: 0.4; }
 
 .bar-button-outline-primary {
   border-color: #2e74eb;
@@ -7796,125 +7199,20 @@ ion-buttons[right] {
     background-color: #2e74eb; }
 
 .toolbar[secondary] .toolbar-background {
-  background: #32db64; }
+  background: #32db64;
+  border-color: #21b94e; }
 
-.toolbar[secondary] .bar-button-default,
-.toolbar[secondary] .bar-button-outline,
-.toolbar[secondary] .toolbar-title {
+.toolbar[secondary] .toolbar-title,
+.toolbar[secondary] .bar-button-default {
   color: white; }
-
-.toolbar[secondary] .bar-button-default ion-button-effect,
-.toolbar[secondary] .bar-button-outline ion-button-effect {
-  background-color: white; }
-
-.toolbar[secondary] .bar-button-outline {
-  border-color: white; }
-
-.toolbar[secondary] .bar-button-primary {
-  color: #327eff;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-primary:hover:not(.disable-hover) {
-    color: #327eff; }
-
-.toolbar[secondary] .bar-button-outline-primary {
-  border-color: #2e74eb;
-  color: #2e74eb;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-outline-primary.activated {
-    color: white;
-    background-color: #2e74eb; }
-
-.toolbar[secondary] .bar-button-solid-primary {
-  color: white;
-  background-color: #327eff; }
-  .toolbar[secondary] .bar-button-solid-primary.activated {
-    background-color: #2e74eb; }
-
-.toolbar[secondary] .bar-button-secondary {
-  color: #32db64;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-secondary:hover:not(.disable-hover) {
-    color: #32db64; }
-
-.toolbar[secondary] .bar-button-outline-secondary {
-  border-color: #2ec95c;
-  color: #2ec95c;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-outline-secondary.activated {
-    color: white;
-    background-color: #2ec95c; }
-
-.toolbar[secondary] .bar-button-solid-secondary {
-  color: white;
-  background-color: #32db64; }
-  .toolbar[secondary] .bar-button-solid-secondary.activated {
-    background-color: #2ec95c; }
-
-.toolbar[secondary] .bar-button-danger {
-  color: #f53d3d;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-danger:hover:not(.disable-hover) {
-    color: #f53d3d; }
-
-.toolbar[secondary] .bar-button-outline-danger {
-  border-color: #e13838;
-  color: #e13838;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-outline-danger.activated {
-    color: white;
-    background-color: #e13838; }
-
-.toolbar[secondary] .bar-button-solid-danger {
-  color: white;
-  background-color: #f53d3d; }
-  .toolbar[secondary] .bar-button-solid-danger.activated {
-    background-color: #e13838; }
-
-.toolbar[secondary] .bar-button-light {
-  color: #f4f4f4;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-light:hover:not(.disable-hover) {
-    color: #f4f4f4; }
-
-.toolbar[secondary] .bar-button-outline-light {
-  border-color: #e0e0e0;
-  color: #e0e0e0;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-outline-light.activated {
-    color: black;
-    background-color: #e0e0e0; }
-
-.toolbar[secondary] .bar-button-solid-light {
-  color: black;
-  background-color: #f4f4f4; }
-  .toolbar[secondary] .bar-button-solid-light.activated {
-    background-color: #e0e0e0; }
-
-.toolbar[secondary] .bar-button-dark {
-  color: #222;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-dark:hover:not(.disable-hover) {
-    color: #222; }
-
-.toolbar[secondary] .bar-button-outline-dark {
-  border-color: #343434;
-  color: #343434;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-outline-dark.activated {
-    color: white;
-    background-color: #343434; }
-
-.toolbar[secondary] .bar-button-solid-dark {
-  color: white;
-  background-color: #222; }
-  .toolbar[secondary] .bar-button-solid-dark.activated {
-    background-color: #343434; }
 
 .bar-button-secondary {
   color: #32db64;
   background-color: transparent; }
   .bar-button-secondary:hover:not(.disable-hover) {
     color: #32db64; }
+  .bar-button-secondary.activated {
+    opacity: 0.4; }
 
 .bar-button-outline-secondary {
   border-color: #2ec95c;
@@ -7931,125 +7229,20 @@ ion-buttons[right] {
     background-color: #2ec95c; }
 
 .toolbar[danger] .toolbar-background {
-  background: #f53d3d; }
+  background: #f53d3d;
+  border-color: #f30d0d; }
 
-.toolbar[danger] .bar-button-default,
-.toolbar[danger] .bar-button-outline,
-.toolbar[danger] .toolbar-title {
+.toolbar[danger] .toolbar-title,
+.toolbar[danger] .bar-button-default {
   color: white; }
-
-.toolbar[danger] .bar-button-default ion-button-effect,
-.toolbar[danger] .bar-button-outline ion-button-effect {
-  background-color: white; }
-
-.toolbar[danger] .bar-button-outline {
-  border-color: white; }
-
-.toolbar[danger] .bar-button-primary {
-  color: #327eff;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-primary:hover:not(.disable-hover) {
-    color: #327eff; }
-
-.toolbar[danger] .bar-button-outline-primary {
-  border-color: #2e74eb;
-  color: #2e74eb;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-outline-primary.activated {
-    color: white;
-    background-color: #2e74eb; }
-
-.toolbar[danger] .bar-button-solid-primary {
-  color: white;
-  background-color: #327eff; }
-  .toolbar[danger] .bar-button-solid-primary.activated {
-    background-color: #2e74eb; }
-
-.toolbar[danger] .bar-button-secondary {
-  color: #32db64;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-secondary:hover:not(.disable-hover) {
-    color: #32db64; }
-
-.toolbar[danger] .bar-button-outline-secondary {
-  border-color: #2ec95c;
-  color: #2ec95c;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-outline-secondary.activated {
-    color: white;
-    background-color: #2ec95c; }
-
-.toolbar[danger] .bar-button-solid-secondary {
-  color: white;
-  background-color: #32db64; }
-  .toolbar[danger] .bar-button-solid-secondary.activated {
-    background-color: #2ec95c; }
-
-.toolbar[danger] .bar-button-danger {
-  color: #f53d3d;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-danger:hover:not(.disable-hover) {
-    color: #f53d3d; }
-
-.toolbar[danger] .bar-button-outline-danger {
-  border-color: #e13838;
-  color: #e13838;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-outline-danger.activated {
-    color: white;
-    background-color: #e13838; }
-
-.toolbar[danger] .bar-button-solid-danger {
-  color: white;
-  background-color: #f53d3d; }
-  .toolbar[danger] .bar-button-solid-danger.activated {
-    background-color: #e13838; }
-
-.toolbar[danger] .bar-button-light {
-  color: #f4f4f4;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-light:hover:not(.disable-hover) {
-    color: #f4f4f4; }
-
-.toolbar[danger] .bar-button-outline-light {
-  border-color: #e0e0e0;
-  color: #e0e0e0;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-outline-light.activated {
-    color: black;
-    background-color: #e0e0e0; }
-
-.toolbar[danger] .bar-button-solid-light {
-  color: black;
-  background-color: #f4f4f4; }
-  .toolbar[danger] .bar-button-solid-light.activated {
-    background-color: #e0e0e0; }
-
-.toolbar[danger] .bar-button-dark {
-  color: #222;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-dark:hover:not(.disable-hover) {
-    color: #222; }
-
-.toolbar[danger] .bar-button-outline-dark {
-  border-color: #343434;
-  color: #343434;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-outline-dark.activated {
-    color: white;
-    background-color: #343434; }
-
-.toolbar[danger] .bar-button-solid-dark {
-  color: white;
-  background-color: #222; }
-  .toolbar[danger] .bar-button-solid-dark.activated {
-    background-color: #343434; }
 
 .bar-button-danger {
   color: #f53d3d;
   background-color: transparent; }
   .bar-button-danger:hover:not(.disable-hover) {
     color: #f53d3d; }
+  .bar-button-danger.activated {
+    opacity: 0.4; }
 
 .bar-button-outline-danger {
   border-color: #e13838;
@@ -8066,125 +7259,20 @@ ion-buttons[right] {
     background-color: #e13838; }
 
 .toolbar[light] .toolbar-background {
-  background: #f4f4f4; }
+  background: #f4f4f4;
+  border-color: #dbdbdb; }
 
-.toolbar[light] .bar-button-default,
-.toolbar[light] .bar-button-outline,
-.toolbar[light] .toolbar-title {
-  color: #424242; }
-
-.toolbar[light] .bar-button-default ion-button-effect,
-.toolbar[light] .bar-button-outline ion-button-effect {
-  background-color: #424242; }
-
-.toolbar[light] .bar-button-outline {
-  border-color: #424242; }
-
-.toolbar[light] .bar-button-primary {
-  color: #327eff;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-primary:hover:not(.disable-hover) {
-    color: #327eff; }
-
-.toolbar[light] .bar-button-outline-primary {
-  border-color: #2e74eb;
-  color: #2e74eb;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-outline-primary.activated {
-    color: white;
-    background-color: #2e74eb; }
-
-.toolbar[light] .bar-button-solid-primary {
-  color: white;
-  background-color: #327eff; }
-  .toolbar[light] .bar-button-solid-primary.activated {
-    background-color: #2e74eb; }
-
-.toolbar[light] .bar-button-secondary {
-  color: #32db64;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-secondary:hover:not(.disable-hover) {
-    color: #32db64; }
-
-.toolbar[light] .bar-button-outline-secondary {
-  border-color: #2ec95c;
-  color: #2ec95c;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-outline-secondary.activated {
-    color: white;
-    background-color: #2ec95c; }
-
-.toolbar[light] .bar-button-solid-secondary {
-  color: white;
-  background-color: #32db64; }
-  .toolbar[light] .bar-button-solid-secondary.activated {
-    background-color: #2ec95c; }
-
-.toolbar[light] .bar-button-danger {
-  color: #f53d3d;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-danger:hover:not(.disable-hover) {
-    color: #f53d3d; }
-
-.toolbar[light] .bar-button-outline-danger {
-  border-color: #e13838;
-  color: #e13838;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-outline-danger.activated {
-    color: white;
-    background-color: #e13838; }
-
-.toolbar[light] .bar-button-solid-danger {
-  color: white;
-  background-color: #f53d3d; }
-  .toolbar[light] .bar-button-solid-danger.activated {
-    background-color: #e13838; }
-
-.toolbar[light] .bar-button-light {
-  color: #f4f4f4;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-light:hover:not(.disable-hover) {
-    color: #f4f4f4; }
-
-.toolbar[light] .bar-button-outline-light {
-  border-color: #e0e0e0;
-  color: #e0e0e0;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-outline-light.activated {
-    color: black;
-    background-color: #e0e0e0; }
-
-.toolbar[light] .bar-button-solid-light {
-  color: black;
-  background-color: #f4f4f4; }
-  .toolbar[light] .bar-button-solid-light.activated {
-    background-color: #e0e0e0; }
-
-.toolbar[light] .bar-button-dark {
-  color: #222;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-dark:hover:not(.disable-hover) {
-    color: #222; }
-
-.toolbar[light] .bar-button-outline-dark {
-  border-color: #343434;
-  color: #343434;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-outline-dark.activated {
-    color: white;
-    background-color: #343434; }
-
-.toolbar[light] .bar-button-solid-dark {
-  color: white;
-  background-color: #222; }
-  .toolbar[light] .bar-button-solid-dark.activated {
-    background-color: #343434; }
+.toolbar[light] .toolbar-title,
+.toolbar[light] .bar-button-default {
+  color: black; }
 
 .bar-button-light {
   color: #f4f4f4;
   background-color: transparent; }
   .bar-button-light:hover:not(.disable-hover) {
     color: #f4f4f4; }
+  .bar-button-light.activated {
+    opacity: 0.4; }
 
 .bar-button-outline-light {
   border-color: #e0e0e0;
@@ -8201,125 +7289,20 @@ ion-buttons[right] {
     background-color: #e0e0e0; }
 
 .toolbar[dark] .toolbar-background {
-  background: #222; }
+  background: #222;
+  border-color: #090909; }
 
-.toolbar[dark] .bar-button-default,
-.toolbar[dark] .bar-button-outline,
-.toolbar[dark] .toolbar-title {
+.toolbar[dark] .toolbar-title,
+.toolbar[dark] .bar-button-default {
   color: white; }
-
-.toolbar[dark] .bar-button-default ion-button-effect,
-.toolbar[dark] .bar-button-outline ion-button-effect {
-  background-color: white; }
-
-.toolbar[dark] .bar-button-outline {
-  border-color: white; }
-
-.toolbar[dark] .bar-button-primary {
-  color: #327eff;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-primary:hover:not(.disable-hover) {
-    color: #327eff; }
-
-.toolbar[dark] .bar-button-outline-primary {
-  border-color: #2e74eb;
-  color: #2e74eb;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-outline-primary.activated {
-    color: white;
-    background-color: #2e74eb; }
-
-.toolbar[dark] .bar-button-solid-primary {
-  color: white;
-  background-color: #327eff; }
-  .toolbar[dark] .bar-button-solid-primary.activated {
-    background-color: #2e74eb; }
-
-.toolbar[dark] .bar-button-secondary {
-  color: #32db64;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-secondary:hover:not(.disable-hover) {
-    color: #32db64; }
-
-.toolbar[dark] .bar-button-outline-secondary {
-  border-color: #2ec95c;
-  color: #2ec95c;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-outline-secondary.activated {
-    color: white;
-    background-color: #2ec95c; }
-
-.toolbar[dark] .bar-button-solid-secondary {
-  color: white;
-  background-color: #32db64; }
-  .toolbar[dark] .bar-button-solid-secondary.activated {
-    background-color: #2ec95c; }
-
-.toolbar[dark] .bar-button-danger {
-  color: #f53d3d;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-danger:hover:not(.disable-hover) {
-    color: #f53d3d; }
-
-.toolbar[dark] .bar-button-outline-danger {
-  border-color: #e13838;
-  color: #e13838;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-outline-danger.activated {
-    color: white;
-    background-color: #e13838; }
-
-.toolbar[dark] .bar-button-solid-danger {
-  color: white;
-  background-color: #f53d3d; }
-  .toolbar[dark] .bar-button-solid-danger.activated {
-    background-color: #e13838; }
-
-.toolbar[dark] .bar-button-light {
-  color: #f4f4f4;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-light:hover:not(.disable-hover) {
-    color: #f4f4f4; }
-
-.toolbar[dark] .bar-button-outline-light {
-  border-color: #e0e0e0;
-  color: #e0e0e0;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-outline-light.activated {
-    color: black;
-    background-color: #e0e0e0; }
-
-.toolbar[dark] .bar-button-solid-light {
-  color: black;
-  background-color: #f4f4f4; }
-  .toolbar[dark] .bar-button-solid-light.activated {
-    background-color: #e0e0e0; }
-
-.toolbar[dark] .bar-button-dark {
-  color: #222;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-dark:hover:not(.disable-hover) {
-    color: #222; }
-
-.toolbar[dark] .bar-button-outline-dark {
-  border-color: #343434;
-  color: #343434;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-outline-dark.activated {
-    color: white;
-    background-color: #343434; }
-
-.toolbar[dark] .bar-button-solid-dark {
-  color: white;
-  background-color: #222; }
-  .toolbar[dark] .bar-button-solid-dark.activated {
-    background-color: #343434; }
 
 .bar-button-dark {
   color: #222;
   background-color: transparent; }
   .bar-button-dark:hover:not(.disable-hover) {
     color: #222; }
+  .bar-button-dark.activated {
+    opacity: 0.4; }
 
 .bar-button-outline-dark {
   border-color: #343434;
@@ -8335,7 +7318,29 @@ ion-buttons[right] {
   .bar-button-solid-dark.activated {
     background-color: #343434; }
 
+.platform-cordova.platform-ios ion-navbar-section {
+  min-height: 6.4rem;
+  height: 6.4rem; }
+
+.platform-cordova.platform-ios ion-navbar ion-title,
+.platform-cordova.platform-ios ion-navbar ion-segment {
+  padding-top: 2rem; }
+
+.platform-cordova.platform-ios ion-navbar,
+.platform-cordova.platform-ios ion-app > ion-toolbar:first-child,
+.platform-cordova.platform-ios ion-app > ion-toolbar:first-child ion-title,
+.platform-cordova.platform-ios ion-app > ion-toolbar:first-child ion-segment,
+.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
+.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child ion-title,
+.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child ion-segment,
+.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child,
+.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title,
+.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-segment {
+  min-height: 6.4rem;
+  height: 6.4rem;
+  padding-top: 2rem; }
+
 body {
-  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;
   font-size: 1.4rem;
   background-color: #fff; }

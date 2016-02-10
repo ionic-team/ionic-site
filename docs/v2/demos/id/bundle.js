@@ -45888,9 +45888,11 @@
 	            selector: 'ion-navbar',
 	            template: '<div class="toolbar-background"></div>' +
 	                '<button class="back-button bar-button bar-button-default" [hidden]="hideBackButton">' +
+	                '<span class="button-inner">' +
 	                '<ion-icon class="back-button-icon" [name]="_bbIcon"></ion-icon>' +
 	                '<span class="back-button-text">' +
 	                '<span class="back-default">{{_bbText}}</span>' +
+	                '</span>' +
 	                '</span>' +
 	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +

@@ -4819,8 +4819,6 @@ ion-badge {
   -moz-appearance: none; }
 
 .button-inner {
-  width: 100%;
-  height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4838,9 +4836,11 @@ ion-badge {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  width: 100%;
+  height: 100%; }
 
-a.button {
+a.button, a[button] {
   text-decoration: none; }
 
 .button[disabled] {
@@ -4849,16 +4849,14 @@ a.button {
   pointer-events: none; }
 
 .button-block {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   clear: both;
   width: 100%; }
   .button-block:after {
     clear: both; }
 
 .button-full {
+  display: block;
   width: 100%; }
 
 .button-round {
@@ -4906,8 +4904,8 @@ a.button {
   margin-right: 0;
   margin-left: 0;
   border-radius: 0;
-  border-left: none;
-  border-right: none; }
+  border-right-width: 0;
+  border-left-width: 0; }
 
 .button-outline {
   border-width: 1px;
@@ -6946,30 +6944,14 @@ ion-navbar.toolbar {
 
 .bar-button {
   position: relative;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-flex-flow: row nowrap;
-  -ms-flex-flow: row nowrap;
-  flex-flow: row nowrap;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  display: inline-block;
   margin: 0;
   padding: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
   text-align: center;
   text-transform: none;
+  line-height: 1;
   vertical-align: top;
   vertical-align: -webkit-baseline-middle;
   cursor: pointer;
@@ -7001,10 +6983,7 @@ ion-navbar.toolbar {
 .back-button {
   display: none; }
   .back-button.show-back-button {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
+    display: inline-block; }
 
 .back-button-text {
   display: -webkit-box;
@@ -7045,7 +7024,6 @@ ion-navbar-section {
 .toolbar-title {
   font-size: 1.7rem;
   font-weight: 600;
-  margin-top: 1px;
   text-align: center;
   pointer-events: auto;
   color: #000; }
@@ -7094,10 +7072,8 @@ ion-buttons[right] {
   order: 6; }
 
 .bar-button {
-  margin-top: 0;
-  margin-bottom: 0;
   padding: 0 5px;
-  min-height: 32px;
+  height: 32px;
   border: 0;
   font-size: 1.7rem;
   border-radius: 4px; }
@@ -7126,7 +7102,6 @@ ion-buttons[right] {
     background-color: #2e74eb; }
 
 .bar-button-icon-left ion-icon {
-  margin-left: -0.1em;
   padding-right: 0.3em;
   font-size: 1.4em;
   line-height: 0.67;
@@ -7149,7 +7124,6 @@ ion-buttons[right] {
 
 .back-button {
   margin: 0;
-  margin-top: 2px;
   min-height: 3.2rem;
   line-height: 1;
   -webkit-box-ordinal-group: 1;
@@ -7163,8 +7137,9 @@ ion-buttons[right] {
 .back-button-icon {
   display: inherit;
   margin: 0;
+  margin-top: -1px;
   min-width: 18px;
-  font-size: 3.3rem; }
+  font-size: 3.4rem; }
 
 .back-button-text {
   letter-spacing: -0.01em; }

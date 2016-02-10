@@ -54,7 +54,7 @@ header_sub_title: Ionic 2 Developer Preview
 
   <section id="using-genymotion-android">
     <h3><a href="#using-genymotion-android">Using the Genymotion Android Emulator</a></h3>
-    <p>While the Android SKD comes with a stock emulator, it can be very slow and unresponsive at times. <a href="https://www.genymotion.com">Genymotion</a> is an alternate emulator that is blazing fast, and allows you to emulate native functionality like GPS and camera.</p>
+    <p>While the Android SDK comes with a stock emulator, it can be very slow and unresponsive at times. <a href="https://www.genymotion.com">Genymotion</a> is an alternate emulator that is blazing fast, and allows you to emulate native functionality like GPS and camera.</p>
   </section>
 
   <section id="debugging-ios-safari">

@@ -45,7 +45,7 @@ header_sub_title: Ionic 2 Developer Preview
     {% highlight bash %}
     $ ionic emulate ios -lc
     {% endhighlight %}
-    <p>Passing in the <code>-lc</code> flag will log console output to your terminal.</p>
+    <p>Passing in the <code>-lc</code> flag will enable livereload and log console output to your terminal.</p>
     <p>You can also use Xcode to launch the emulator and debug your app. Open up Xcode and open <code>../path-to-app/platforms/ios/myApp.xcodeproj</code>. After your app loads, you will be able to run it and see all console output inside of Xcode's output window.</p>
 
   </section>
@@ -54,7 +54,7 @@ header_sub_title: Ionic 2 Developer Preview
 
   <section id="using-genymotion-android">
     <h3><a href="#using-genymotion-android">Using the Genymotion Android Emulator</a></h3>
-    <p>While the Android SKD comes with a stock emulator, it can be very slow and unresponsive at times. <a href="https://www.genymotion.com">Genymotion</a> is an alternate emulator that is blazing fast, and allows you to emulate native functionality like GPS and camera.</p>
+    <p>While the Android SDK comes with a stock emulator, it can be very slow and unresponsive at times. <a href="https://www.genymotion.com">Genymotion</a> is an alternate emulator that is blazing fast, and allows you to emulate native functionality like GPS and camera.</p>
   </section>
 
   <section id="debugging-ios-safari">

@@ -39,7 +39,7 @@ docType: "class"
 
 <p><em>For basic Menu usage, see the <a href="../../../../components/#menus">Menu section</a>
 of the Component docs.</em></p>
-<p>Menu is a side-menu navigation that can be dragged out or toggled to show.</p>
+<p>Menu is a side-menu navigation that can be dragged out or toggled to show up.</p>
 <p>In order to use Menu, you must specify a <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">reference</a>
 to the content element that Menu should listen on for drag events, using the
 <code>content</code> property:</p>

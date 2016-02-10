@@ -12,9 +12,9 @@ header_sub_title: Ionic 2 Developer Preview
 
 <a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/migration/index.md'>Improve this doc</a>
 
-Ionic 2 is built on top of Angular 2, which is complete rewrite of the original framework. All the parts of Angular you know are still there, but there are new syntax and structural changes that developers need to be aware of. For an overview of the changes in Angular 2, take a look at [Learn Angular 2](http://learnangular2.com/).
+Ionic 2 is built on top of Angular 2, which is a complete rewrite of the original framework. All the parts of Angular you know are still there, but there are new syntax and structural changes about which developers need to be aware. For an overview of the changes in Angular 2, take a look at [Learn Angular 2](http://learnangular2.com/).
 
-For Ionic 2, things should feel quite familiar. All the concepts from Ionic V1 are still in V2, though they may look slightly different. You still have views and controllers like you did in V1, but in V2 they have been merged into one instance.
+In Ionic 2, things should feel quite familiar. All the concepts from Ionic V1 are still in V2, though they may look slightly different. You still have views and controllers like you did in V1, but in V2, they have been merged into one instance.
 
 Take this V1 example.
 
@@ -36,7 +36,7 @@ V1
 })
 ```
 
-We can rewrite this in V2 like so.
+You can rewrite this in V2 like this:
 
 ```
 @Page({
@@ -49,7 +49,7 @@ export class MainCmp {
 }
 ```
 
-Other changes, such as our navigation changes, are much more different, but all for the best. Now we can treat components as arbitrary views, and navigate to them however we want. This makes navigation much more flexible and allows for much more native-styled navigation stacks.
+Other changes, like navigation changes, are much different, but for good reasons, we promise. Now, you can treat components as arbitrary views and navigate to them any way you want to. This makes navigation much more flexible and allows for much more native-styled navigation stacks.
 
 # Migrating from Angular 1
 
@@ -109,7 +109,7 @@ _app.js_
 
 ### TypeScript
 
-TypeScript is a superset of JavaScript that provides ES6 Classes and type annotations in your code. By adopting TypeScript now, you can write your code as ES6 Classes that will be easy to move to Ionic 2\. The best part is that any valid JavaScript is also valid TypeScript, so you can convert your code piece by piece. If we take our controller from before, we can easily convert it to a TypeScript class like this.
+TypeScript is a superset of JavaScript that provides ES6 Classes and type annotations in your code. By adopting TypeScript now, you can write your code as ES6 Classes that will be easy to move to Ionic 2. The best part is that any valid JavaScript is also valid TypeScript, so you can convert your code piece by piece. If you take your controller from before, you can easily convert it to a TypeScript class like this.
 
 _app.js_
 
@@ -138,7 +138,7 @@ _app.ts_
 
 ### Project Structure
 
-With Angular 1, it was a practice to keep all your JavaScript together and separate from your templates. Since Ionic 2 and Angular 2 will be moving to a component base setup, you can reorganize your project to help mentally enforce that concept. So a project whose directory could look like this:
+With Angular 1, it was a practice to keep all your JavaScript together and separate from your templates. Since Ionic 2 and Angular 2 will be moving to a component base setup, you can reorganize your project to help mentally enforce that concept. So a project whose directory looks like this...
 
 ```
     |-www/
@@ -156,7 +156,7 @@ With Angular 1, it was a practice to keep all your JavaScript together and separ
 
 ```
 
-Could start to be reorganized to look like this:
+could start to be reorganized to look like this:
 
 ```
     |-www/

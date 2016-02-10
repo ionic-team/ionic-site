@@ -5,6 +5,10 @@ id: platform-specific-styles
 title: Platform Specific Styles
 header_title: Platform Specific Styles
 header_sub_title: Platform Specific Styles
+prev_page_title: Platform Specific Theming
+prev_page_link: /docs/v2/theming/platform-specific-styles/
+next_page_title: Sass Variables
+next_page_link: /docs/v2/theming/sass-variables/
 ---
 
 <h1 class="title">Platform Specific Styles</h1>
@@ -53,7 +57,7 @@ You can change the mode that gets assigned in the configuration of your app. The
 
 ## Overriding the Mode Styles
 
-Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet that consists of styles shared between all modes, a material stylesheet which contains the styles for the `md` mode, and an iOS stylesheet for, you guessed it, the `ios` mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.
+Each Ionic component has up to three stylesheets used to style it. For example, the tabs component has a core stylesheet that consists of styles shared between all modes, a Material stylesheet which contains the styles for the `md` mode, and an iOS stylesheet for, you guessed it, the `ios` mode. Not all components are styled differently for each mode, so some of them will only have the core stylesheet, or the core stylesheet and one of the modes.
 
 You can use the class that is applied to the body to override specific properties in mode components. For example, if you wanted to override all Material Design (md) mode buttons to have capitalized text:
 
@@ -82,14 +86,3 @@ By setting an attribute dynamically, you can add or remove functionality from a 
 ```
 
 This will set the `no-lines` attribute on the list component if `isMD` evaluates to true.
-
-
-
-<h3 style="text-align:right;">
- <a href="../overriding-ionic-variables/">
-    Sass Variables
-  </a>
-</h3>
-
-
-

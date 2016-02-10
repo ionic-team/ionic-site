@@ -5,6 +5,10 @@ id: theming-your-app
 title: Theming your Ionic app
 header_title: Theming your App
 header_sub_title: Customizing your app to fit your brand
+prev_page_title: Themeing your app
+prev_page_link: /docs/v2/theming/theming-your-app/
+next_page_title: Platform Specific Theming
+next_page_link: /docs/v2/theming/platform-specific-styles/
 ---
 
 <h1 class="title">Theming your Ionic App</h1>
@@ -57,10 +61,3 @@ By default, Ionic comes with a light and dark theme. To use the dark theme, impo
 // ---------------------------------
 @import "ionic";
 ```
-
-<h3 style="text-align:right;">
- <a href="/docs/v2/theming/platform-specific-styles/">
-    Platform specific theming
-  </a>
-</h3>
-

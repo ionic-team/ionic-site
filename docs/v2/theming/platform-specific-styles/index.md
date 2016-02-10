@@ -5,6 +5,10 @@ id: platform-specific-styles
 title: Platform Specific Styles
 header_title: Platform Specific Styles
 header_sub_title: Platform Specific Styles
+prev_page_title: Platform Specific Theming
+prev_page_link: /docs/v2/theming/platform-specific-styles/
+next_page_title: Sass Variables
+next_page_link: /docs/v2/theming/sass-variables/
 ---
 
 <h1 class="title">Platform Specific Styles</h1>
@@ -82,14 +86,3 @@ By setting an attribute dynamically, you can add or remove functionality from a 
 ```
 
 This will set the `no-lines` attribute on the list component if `isMD` evaluates to true.
-
-
-
-<h3 style="text-align:right;">
- <a href="../overriding-ionic-variables/">
-    Sass Variables
-  </a>
-</h3>
-
-
-

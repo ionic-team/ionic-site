@@ -18,7 +18,7 @@ hide_header_search: true
     <a class="section getting-started"
        href="/docs/v2/getting-started">
       <h3>Get Started</h3>
-      <p>Everything you need to know to get started with Ionic Framework.</p>
+      <p>Everything you need to know to get started with Ionic.</p>
     </a>
     <a class="section ui"
        href="/docs/v2/components">
@@ -28,7 +28,7 @@ hide_header_search: true
     <a class="section api"
        href="/docs/v2/api">
       <h3>API</h3>
-      <p>Explore our API for info on component methods, properties and events.</p>
+      <p>Explore our API for info on component methods, properties, and events.</p>
     </a>
     <a class="section theming"
        href="/docs/v2/theming/">
@@ -38,12 +38,12 @@ hide_header_search: true
     <a class="section ionicons-link"
        href="/docs/v2/resources/ionicons/">
       <h3>Ionicons</h3>
-      <p>Over 900 custom designed font/svg icons MIT licensed & ready to use with ionic.</p>
+      <p>Over 900 custom-designed font/SVG icons. MIT licensed & ready to use with Ionic.</p>
     </a>
     <a class="section forum"
        href="https://forum.ionicframework.com/">
       <h3>Community Forum</h3>
-      <p>Drop by and say Hi. Ask a question or share something interesting.</p>
+      <p>Drop by and say hi. Ask a question or share something interesting.</p>
     </a>
   </div>
 </div>

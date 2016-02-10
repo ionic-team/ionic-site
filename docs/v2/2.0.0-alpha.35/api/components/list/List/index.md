@@ -37,12 +37,12 @@ docType: "class"
 
 
 
-<p>The List is a widely used interface element in almost any mobile app, and can include
+<p>The List is a widely used interface element in almost any mobile app and can include
 content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.</p>
 <p>Both the list, which contains items, and the list items themselves can be any HTML
 element.</p>
 <p>Using the List and Item components make it easy to support various
-interaction modes such as swipe to edit, drag to reorder, and removing items.</p>
+interaction modes, such as swipe to edit, drag to reorder, and removing items.</p>
 
 
 <h1 class="class export">List <span class="type">class</span></h1>

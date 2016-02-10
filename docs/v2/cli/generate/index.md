@@ -26,17 +26,15 @@ ionic g page myPage
 This will give you a html file, sass file, and a js file with your component definition.
 
 
-To create a service, you can replace `page` with `injectable`:
+To create a service, you can replace `page` with `provider`:
 
 ```bash
-ionic g injectable MyData
+ionic g provider MyData
 
 √ Create app/pages/my-data/my-data.js
 ```
 
 This will create a standard class with a simple `http` get request using Angular's `http` class.
-
->They're called injectables because to use the class, you first have to annotate it with the `@Injectable()` decorator. This will let you use the class in your app.
 
 ### A quick note on naming conventions
 

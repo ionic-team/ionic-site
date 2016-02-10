@@ -69,7 +69,7 @@ $ ionic emulate ios
 
 
 ### [Building for Android](#building-for-android)
-To build for Android, you'll need to add the Android platform module to Cordova:</p>
+To build for Android, you'll need to add the Android platform module to Cordova:
 
 ```bash
 $ ionic platform add android

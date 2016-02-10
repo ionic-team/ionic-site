@@ -521,10 +521,75 @@ body {
   }
 }
 
+// sticky footer
+html {
+  position: relative;
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  margin: 0 0 -100px; /* bottom = footer height */
+}
+.footer-links {
+  position: absolute;
+  left: $sidenav-width + 40px;
+  bottom: 0;
+  height: 100px;
+  right: 40px;
+  @media (max-width: $screen-xs-max) {
+    left: 40px;
+  }
+}
+a.footer-link {
+  color: black;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 500;
+  position: absolute;
+  right: 40px;
+  text-align: right;
+  transition: color .2s;
+  &.prev {
+    right: auto;
+    left: 40px;
+    text-align: left;
+    @media (max-width: 500px) {
+      display: none;
+    }
+    &:before {
+      content: 'Previous';
+    }
+    &:after {
+      right: auto;
+      left: -25px;
+      content: "\f117";
+    }
+  }
+  &:hover {
+    color: $blue;
+  }
+  &:before {
+    display: block;
+    content:'Next';
+    font-size: 13px;
+    color: $grey;
+    font-weight: 400;
+  }
+  &:after {
+    content: "\f119";
+    font-family: Ionicons;
+    display: block;
+    position: absolute;
+    right: -25px;
+    font-size: 32px;
+    font-weight: 600;
+    bottom: -10px;
+  }
+}
 .docs-container {
+  min-height: 100%;
   main {
-    padding: 50px 40px;
-    position: relative;
+    padding: 50px 40px 100px;
 
     h1, h2, h3, h4, h5 {
       color: $blacker;
@@ -610,52 +675,6 @@ body {
       margin: 50px auto;
       max-width: 1037px;
       display: block;
-    }
-    a.footer-link {
-      color: black;
-      font-size: 18px;
-      text-decoration: none;
-      font-weight: 500;
-      position: absolute;
-      right: 80px;
-      text-align: right;
-      transition: color .2s;
-      &.prev {
-        right: auto;
-        left: 80px;
-        text-align: left;
-        @media (max-width: 500px) {
-          display: none;
-        }
-        &:before {
-          content: 'Previous';
-        }
-        &:after {
-          right: auto;
-          left: -25px;
-          content: "\f117";
-        }
-      }
-      &:hover {
-        color: $blue;
-      }
-      &:before {
-        display: block;
-        content:'Next';
-        font-size: 13px;
-        color: $grey;
-        font-weight: 400;
-      }
-      &:after {
-        content: "\f119";
-        font-family: Ionicons;
-        display: block;
-        position: absolute;
-        right: -25px;
-        font-size: 32px;
-        font-weight: 600;
-        bottom: -10px;
-      }
     }
   }
 }

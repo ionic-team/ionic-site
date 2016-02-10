@@ -62,19 +62,21 @@
       {% endif %}
       <main>
         {{ content }}
-        {% if page.prev_page_title  or page.next_page_title %}
-        <hr>
-        {% endif %}
-        {% if page.prev_page_title && page.prev_page_link %}
-          <a class="footer-link prev" href="{{page.prev_page_link}}">
-            {{page.prev_page_title}}</a>
-        {% endif %}
-        {% if page.next_page_title && page.next_page_link %}
-          <a class="footer-link next" href="{{page.next_page_link}}">
-            {{page.next_page_title}}</a>
-        {% endif %}
       </main>
     </div>
+    {% if page.prev_page_title  or page.next_page_title %}
+    <div class="footer-links">
+      <hr>
+      {% if page.prev_page_title and page.prev_page_link %}
+        <a class="footer-link prev" href="{{page.prev_page_link}}">
+          {{page.prev_page_title}}</a>
+      {% endif %}
+      {% if page.next_page_title and page.next_page_link %}
+        <a class="footer-link next" href="{{page.next_page_link}}">
+          {{page.next_page_title}}</a>
+      {% endif %}
+    </div>
+    {% endif %}
     {% include v2_fluid/footer_tags.html %}
     <div id="search-results">
       <div id="results-api">

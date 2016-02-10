@@ -8029,104 +8029,125 @@ body {
               transform: scaleY(1);
       outline: none; }
 
-.docs-container main {
-  padding: 50px 40px;
-  position: relative; }
-  .docs-container main h1, .docs-container main h2, .docs-container main h3, .docs-container main h4, .docs-container main h5 {
-    color: #26292e;
-    line-height: 1.4em;
-    margin: 2em 0 1em;
-    font-size: 26px;
-    font-weight: 400;
-    letter-spacing: -0.01em; }
-    .docs-container main h1:first-child, .docs-container main h2:first-child, .docs-container main h3:first-child, .docs-container main h4:first-child, .docs-container main h5:first-child {
-      margin-top: 0; }
-  .docs-container main h1 {
-    margin-bottom: 0; }
-  .docs-container main h2 {
-    padding: 2em 0 0em;
-    font-size: 24px; }
-  .docs-container main h2.section-header {
-    border-top: 1px solid #F0F3F7;
-    margin-top: 5.6em; }
-  .docs-container main h3 {
-    margin: 3.2em 0 0em;
-    font-size: 18px; }
-  .docs-container main h3.no-para {
-    margin-bottom: 1em; }
-  .docs-container main p {
-    color: #4C555A;
-    line-height: 1.9em;
-    margin: 1.2em 0 1.6em;
-    font-weight: 400;
-    font-size: 14px; }
-  .docs-container main pre {
-    border: 1px solid #e6e9ee;
-    background: white;
-    padding: 16px;
-    line-height: 24px; }
-  .docs-container main a:not(.btn) {
-    color: #4f8ff7;
-    text-decoration: none;
-    transition: .2s color; }
-    .docs-container main a:not(.btn):hover {
-      color: #98befa; }
-  .docs-container main b,
-  .docs-container main strong {
-    font-weight: 500;
-    color: #26292e; }
-  .docs-container main .nav a {
-    padding-top: 5px;
-    padding-bottom: 5px; }
-  .docs-container main blockquote {
-    padding: 0px 15px;
-    margin: 40px 0 40px;
-    font-size: 16px;
-    border-left: 4px solid #eeeeee; }
-  .docs-container main img.section-header {
-    width: 100%;
-    margin: 50px auto;
-    max-width: 1037px;
-    display: block; }
-  .docs-container main a.footer-link {
-    color: black;
-    font-size: 18px;
-    text-decoration: none;
-    font-weight: 500;
-    position: absolute;
-    right: 80px;
-    text-align: right;
-    transition: color .2s; }
-    .docs-container main a.footer-link.prev {
+html {
+  position: relative;
+  height: 100%; }
+
+body {
+  min-height: 100%;
+  margin: 0 0 -100px;
+  /* bottom = footer height */ }
+
+.footer-links {
+  position: absolute;
+  left: 270px;
+  bottom: 0;
+  height: 100px;
+  right: 40px; }
+  @media (max-width: 767px) {
+    .footer-links {
+      left: 40px; } }
+
+a.footer-link {
+  color: black;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 500;
+  position: absolute;
+  right: 40px;
+  text-align: right;
+  transition: color .2s; }
+  a.footer-link.prev {
+    right: auto;
+    left: 40px;
+    text-align: left; }
+    @media (max-width: 500px) {
+      a.footer-link.prev {
+        display: none; } }
+    a.footer-link.prev:before {
+      content: 'Previous'; }
+    a.footer-link.prev:after {
       right: auto;
-      left: 80px;
-      text-align: left; }
-      @media (max-width: 500px) {
-        .docs-container main a.footer-link.prev {
-          display: none; } }
-      .docs-container main a.footer-link.prev:before {
-        content: 'Previous'; }
-      .docs-container main a.footer-link.prev:after {
-        right: auto;
-        left: -25px;
-        content: "\f117"; }
-    .docs-container main a.footer-link:hover {
-      color: #4f8ff7; }
-    .docs-container main a.footer-link:before {
-      display: block;
-      content: 'Next';
-      font-size: 13px;
-      color: #9da5b3;
-      font-weight: 400; }
-    .docs-container main a.footer-link:after {
-      content: "\f119";
-      font-family: Ionicons;
-      display: block;
-      position: absolute;
-      right: -25px;
-      font-size: 32px;
-      font-weight: 600;
-      bottom: -10px; }
+      left: -25px;
+      content: "\f117"; }
+  a.footer-link:hover {
+    color: #4f8ff7; }
+  a.footer-link:before {
+    display: block;
+    content: 'Next';
+    font-size: 13px;
+    color: #9da5b3;
+    font-weight: 400; }
+  a.footer-link:after {
+    content: "\f119";
+    font-family: Ionicons;
+    display: block;
+    position: absolute;
+    right: -25px;
+    font-size: 32px;
+    font-weight: 600;
+    bottom: -10px; }
+
+.docs-container {
+  min-height: 100%; }
+  .docs-container main {
+    padding: 50px 40px 100px; }
+    .docs-container main h1, .docs-container main h2, .docs-container main h3, .docs-container main h4, .docs-container main h5 {
+      color: #26292e;
+      line-height: 1.4em;
+      margin: 2em 0 1em;
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: -0.01em; }
+      .docs-container main h1:first-child, .docs-container main h2:first-child, .docs-container main h3:first-child, .docs-container main h4:first-child, .docs-container main h5:first-child {
+        margin-top: 0; }
+    .docs-container main h1 {
+      margin-bottom: 0; }
+    .docs-container main h2 {
+      padding: 2em 0 0em;
+      font-size: 24px; }
+    .docs-container main h2.section-header {
+      border-top: 1px solid #F0F3F7;
+      margin-top: 5.6em; }
+    .docs-container main h3 {
+      margin: 3.2em 0 0em;
+      font-size: 18px; }
+    .docs-container main h3.no-para {
+      margin-bottom: 1em; }
+    .docs-container main p {
+      color: #4C555A;
+      line-height: 1.9em;
+      margin: 1.2em 0 1.6em;
+      font-weight: 400;
+      font-size: 14px; }
+    .docs-container main pre {
+      border: 1px solid #e6e9ee;
+      background: white;
+      padding: 16px;
+      line-height: 24px; }
+    .docs-container main a:not(.btn) {
+      color: #4f8ff7;
+      text-decoration: none;
+      transition: .2s color; }
+      .docs-container main a:not(.btn):hover {
+        color: #98befa; }
+    .docs-container main b,
+    .docs-container main strong {
+      font-weight: 500;
+      color: #26292e; }
+    .docs-container main .nav a {
+      padding-top: 5px;
+      padding-bottom: 5px; }
+    .docs-container main blockquote {
+      padding: 0px 15px;
+      margin: 40px 0 40px;
+      font-size: 16px;
+      border-left: 4px solid #eeeeee; }
+    .docs-container main img.section-header {
+      width: 100%;
+      margin: 50px auto;
+      max-width: 1037px;
+      display: block; }
 
 .platform-preview {
   position: absolute;
@@ -8432,6 +8453,9 @@ ul.docs-example {
         #search-results ul li a:hover, #search-results ul li a:active {
           text-decoration: none;
           color: #4f8ff7; }
+
+#results-platform {
+  display: none; }
 
 #docs-page-ionicons main .download-link, #docs-page-ionicons main .search {
   margin-right: auto;

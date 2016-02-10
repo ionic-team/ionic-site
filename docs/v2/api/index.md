@@ -16,8 +16,8 @@ searchable: false
 <img class="section-header" src="/img/docs/api-intro-header.png" />
 
 
-Ionic 2 takes everything you know and loved about Ionic 1, and builds on top of it to provide a much more flexible framework. Moving from Angular 1's controllers and services to ES6 classes provides a much more powerful way to work with an API, as well as being driven by standards.
+Ionic 2 takes everything you know and love about Ionic 1 and builds on top of it, to provide a much more flexible framework. Moving from Angular 1's controllers and services to ES6 classes provides a much more powerful way to work with an API, in addition to being driven by standards.
 
-You'll find two kin of doc pages, Components and Class APIs. The components include things like `ion-toggle`, `ion-radio`, `ion-tabs` and show you how to use them as well as all the available properties and events then have. The class APIs include our `NavController`, `NavParams`, `ViewController`, or `Storage`. These are the programmatic parts of Ionic 2 that you can call from your own classes.
+You'll find two kinds of doc pages, Components, and Class APIs. The components include things like `ion-toggle`, `ion-radio`, and `ion-tabs` and show you how to use them, as well as all the available properties and events they have. The class APIs include our `NavController`, `NavParams`, `ViewController`, or `Storage`. These are the programmatic parts of Ionic 2 that you can call from your own classes.
 
-Explore our API docs for detailed information on the components and their classes
+Explore our API docs for detailed information on the components and their classes.

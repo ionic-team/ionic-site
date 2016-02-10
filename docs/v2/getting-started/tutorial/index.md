@@ -18,12 +18,12 @@ next_page_link: /docs/v2/getting-started/tutorial/project-structure/
   Improve this doc
 </a>
 
-Now that we have [Ionic and its dependencies installed](../installation), let's build our first app! This section will guide you through the process of starting a new application, adding pages, navigating between those pages, and more. Let's get started!
+Now that you have [Ionic and its dependencies installed](../installation), you can build your first app! This section will guide you through the process of starting a new application, adding pages, navigating between those pages, and more. Let's get started!
 
 
 ### Starting a New Ionic 2 App
 
-If you don't already have an app started from the [previous section](../installation), let's create a new app! Use the `start` command to initialize a new Ionic app. We specify that we want it to be an Ionic 2 app by passing in the `--v2` option.
+If you don't already have an app started from the [previous section](../installation), you'll want to create a new app! Use the `start` command to initialize a new Ionic app. Specify that you want it to be an Ionic 2 app by passing in the `--v2` option.
 
 ```bash
 $ ionic start MyIonic2Project tutorial --v2
@@ -31,13 +31,13 @@ $ ionic start MyIonic2Project tutorial --v2
 
 This will pull Ionic 2 down, install [npm modules](../../resources/what-is/#npm) for the application, and get [Cordova](../../resources/what-is/#cordova) set up and ready to go.
 
-**Want to use Typescript instead? pass the `--ts` flag and get a project set up for TypeScript instead.**
+**Want to use TypeScript instead? Pass the `--ts` flag and get a project set up for TypeScript instead.**
 
-> You may have noticed that we passed in **tutorial** to the `ionic start` command. This tells Ionic to bootstrap your application using [tutorial template](https://github.com/driftyco/ionic2-starter-tutorial). If you do not specify a template by running `ionic start MyIonic2Project --v2`, the [tabs starter](https://github.com/driftyco/ionic2-starter-tabs) will be used.
+> You may have noticed that we passed in **tutorial** to the `ionic start` command. This tells Ionic to bootstrap your application using the [tutorial template](https://github.com/driftyco/ionic2-starter-tutorial). If you don't specify a template by running `ionic start MyIonic2Project --v2`, the [tabs starter](https://github.com/driftyco/ionic2-starter-tabs) will be used.
 
 
 ### Viewing the app in a browser
-Let's `cd` into the folder that was created. To get a quick preview of your app in the browser, use the `serve` command.
+Now, you can `cd` into the folder that was created. To get a quick preview of your app in the browser, use the `serve` command.
 
 ```bash
 $ cd MyIonic2Project/

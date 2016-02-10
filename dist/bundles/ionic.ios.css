@@ -4818,7 +4818,7 @@ ion-badge {
   -webkit-appearance: none;
   -moz-appearance: none; }
 
-span.button-inner {
+.button-inner {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -5614,6 +5614,19 @@ ion-item-options .button {
   border-radius: 0;
   box-shadow: none;
   height: 100%; }
+
+ion-item-options:not([icon-left]) .button-icon-left {
+  font-size: 14px; }
+  ion-item-options:not([icon-left]) .button-icon-left .button-inner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  ion-item-options:not([icon-left]) .button-icon-left ion-icon {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 0.3em; }
 
 ion-item-sliding.active-slide .item,
 ion-item-sliding.active-slide .item.activated {

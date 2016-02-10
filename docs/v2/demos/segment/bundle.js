@@ -59661,7 +59661,7 @@
 	 * <ion-checkbox id="myCheckbox"></ion-checkbox>
 	 * ```
 	 *
-	 * To get a reference to the registered component, inject the [IonicApp](../app/IonicApp/)
+	 * To get a reference to the registered component, inject the [IonicApp](../IonicApp/)
 	 * service:
 	 * ```ts
 	 * constructor(app: IonicApp) {

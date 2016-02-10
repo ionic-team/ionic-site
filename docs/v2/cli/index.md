@@ -10,11 +10,11 @@ header_sub_title: Ionic 2 Developer Preview
 
 ## Ionic CLI
 
-The Ionic CLI is the primary tool used during the process of developing an Ionic app. It is like a swiss army knife in that it brings together a bunch of miscellaneous tools under a single interface. The CLI contains a number of commands crucial for Ionic development, such as `start`, `build`, `serve`, and `run`. It also contains commands like `emulate` and `info`, which can be helpful in certain situations.
+The Ionic CLI is the primary tool used during the process of developing an Ionic app. It's like a Swiss Army Knife: It brings together a bunch of miscellaneous tools under a single interface. The CLI contains a number of commands crucial for Ionic development, such as `start`, `build`, `serve`, and `run`. It also contains commands like `emulate` and `info`, which can be helpful in certain situations.
 
 ### Installing the CLI
 
-To install the CLI, you will need to first install [node](../resources/what-is#node) and [npm](../resources/what-is#npm). Note - the CLI requires Node 4.X. Node 5.X has been know to cause a number of issues.  Once installed, run the following command to get the latest version of the Ionic CLI:
+To install the CLI, you will need to first install [node](../resources/what-is#node) and [npm](../resources/what-is#npm). Note: The CLI requires Node 4.X (Node 5.X has been know to cause a number of issues).  Once installed, run the following command to get the latest version of the Ionic CLI:
 
 ```bash
 $ npm install -g ionic@beta
@@ -40,7 +40,7 @@ This will create a new app named `myAwesomeApp`. Let's `cd` in to that directory
 $ ionic info
 ```
 
-This should print out details about your Ionic environment, which is useful for debugging. Finally, to view our app in the browser, we can use the `serve` command:
+This should print out details about your Ionic environment, which is useful for debugging. Finally, to view your app in the browser, you can use the `serve` command:
 
 ```bash
 $ ionic serve

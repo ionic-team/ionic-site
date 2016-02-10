@@ -3319,6 +3319,7 @@
 	__export(__webpack_require__(163));
 	__export(__webpack_require__(272));
 	__export(__webpack_require__(302));
+	__export(__webpack_require__(301));
 	__export(__webpack_require__(279));
 	__export(__webpack_require__(348));
 	// these modules don't export anything
@@ -46981,6 +46982,7 @@
 	            console.error('A parent <ion-nav> is required for ActionSheet/Alert/Modal');
 	            return;
 	        }
+	        enteringView.setNav(rootNav);
 	        opts.keyboardClose = false;
 	        opts.direction = 'forward';
 	        if (!opts.animation) {

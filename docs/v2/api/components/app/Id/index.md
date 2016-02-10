@@ -59,7 +59,7 @@ the Component docs for an example of how Menus rely on ID&#39;s.</p>
 <p>To give any component an ID, simply set its <code>id</code> property:</p>
 <pre><code class="lang-html">&lt;ion-checkbox id=&quot;myCheckbox&quot;&gt;&lt;/ion-checkbox&gt;
 </code></pre>
-<p>To get a reference to the registered component, inject the <a href="../app/IonicApp/">IonicApp</a>
+<p>To get a reference to the registered component, inject the <a href="../IonicApp/">IonicApp</a>
 service:</p>
 <pre><code class="lang-ts">constructor(app: IonicApp) {
    this.app = app

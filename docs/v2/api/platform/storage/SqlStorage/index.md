@@ -326,7 +326,7 @@ Set the value in the database for the given key. Existing values will be overwri
 <div id="remove"></div>
 
 <h3>
-<code>remove(key,&nbsp;value)</code>
+<code>remove(key)</code>
   
 
 </h3>
@@ -356,23 +356,6 @@ Remove the value in the database for the given key.
       </td>
       <td>
         <p>the key</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        value
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>The value (as a string)</p>
 
         
       </td>

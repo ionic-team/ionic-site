@@ -85,229 +85,105 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<th>Type</th>
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-autoplay
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>autoplay</td>
+      <td><code>Bool</code></td>
+      <td><p> whether or not the slides should automatically change</p>
 </td>
-
-
-<td>
-Boolean
+    </tr>
+    
+    <tr>
+      <td>loop</td>
+      <td><code>Boolean</code></td>
+      <td><p> whether or not the slides should automatically change</p>
 </td>
-
-
-<td>
-whether or not the slides should automatically change
+    </tr>
+    
+    <tr>
+      <td>index</td>
+      <td><code>Number</code></td>
+      <td><p> The slide index to start on</p>
 </td>
-</tr>
-
-<tr>
-<td>
-loop
+    </tr>
+    
+    <tr>
+      <td>bounce</td>
+      <td><code>Boolean</code></td>
+      <td><p> whether the slides should bounce</p>
 </td>
-
-
-<td>
-Boolean
+    </tr>
+    
+    <tr>
+      <td>pager</td>
+      <td><code>Boolean</code></td>
+      <td><p> Whether the slide should show the page or not</p>
 </td>
-
-
-<td>
-whether the slides should loop from the last slide back to the first
+    </tr>
+    
+    <tr>
+      <td>options</td>
+      <td><code>Any</code></td>
+      <td><p> Any additional slider options you want to pass</p>
 </td>
-</tr>
-
-<tr>
-<td>
-index
+    </tr>
+    
+    <tr>
+      <td>zoom</td>
+      <td><code>Number</code></td>
+      <td><p> Whether or not the slider can zoom in or out</p>
 </td>
-
-
-<td>
-Number
+    </tr>
+    
+    <tr>
+      <td>zoomDuration</td>
+      <td><code>Number</code></td>
+      <td><p> how long it should take to zoom a slide</p>
 </td>
-
-
-<td>
-The slide index to start on
+    </tr>
+    
+    <tr>
+      <td>zoomMax</td>
+      <td><code>Number</code></td>
+      <td><p> the max scale an slide can be zoomed</p>
 </td>
-</tr>
-
-<tr>
-<td>
-bounce
-</td>
-
-
-<td>
-Boolean
-</td>
-
-
-<td>
-whether the slides should bounce
-</td>
-</tr>
-
-<tr>
-<td>
-pager
-</td>
-
-
-<td>
-Boolean
-</td>
-
-
-<td>
-Whether the slide should show the page or not
-</td>
-</tr>
-
-<tr>
-<td>
-options
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-Any additional slider options you want to pass
-</td>
-</tr>
-
-<tr>
-<td>
-zoom
-</td>
-
-
-<td>
-Number
-</td>
-
-
-<td>
-Whether or not the slider can zoom in or out
-</td>
-</tr>
-
-<tr>
-<td>
-zoomDuration
-</td>
-
-
-<td>
-Number
-</td>
-
-
-<td>
-how long it should take to zoom a slide
-</td>
-</tr>
-
-<tr>
-<td>
-zoomMax
-</td>
-
-
-<td>
-Number
-</td>
-
-
-<td>
-the max scale an slide can be zoomed
-</td>
-</tr>
-
-<tr>
-<td>
-(change)
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-expression to evaluate when a slide has been changed
-</td>
-</tr>
-
-</tbody>
+    </tr>
+    
+  </tbody>
 </table>
-
-
-
-<!-- instance methods on the class --><!-- related link -->
+<!-- output events on the class -->
+<h2>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>change</td>
+      <td><p> expression to evaluate when a slide has been changed</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link -->
 
 <h2>Related</h2>
 

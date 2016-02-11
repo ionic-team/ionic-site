@@ -34,7 +34,7 @@ NavPop
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/nav-push.ts#L88'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/nav-push.ts#L96'>
 Improve this doc
 </a>
 

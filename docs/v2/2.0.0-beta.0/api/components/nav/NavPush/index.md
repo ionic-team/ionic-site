@@ -88,44 +88,6 @@ NavPush:</p>
 
 <h2>Instance Methods</h2>
 
-<div id="navPush"></div>
-
-<h3>
-<code>navPush()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="navParams"></div>
-
-<h3>
-<code>navParams()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="registry"></div>
 
 <h3>
@@ -143,7 +105,35 @@ NavPush:</p>
 
 
 
-<!-- related link -->
+
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>navPush</td>
+      <td><code>Page</code></td>
+      <td><p> the page you want to push</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>navParams</td>
+      <td><code>Any</code></td>
+      <td><p> Any parameters you want to pass along</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link -->
 
 <h2>Related</h2>
 

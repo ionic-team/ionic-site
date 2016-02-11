@@ -6909,7 +6909,7 @@ ion-icon {
     height: 64px; }
   .ios.platform-cordova.platform-ios ion-navbar ion-title,
   .ios.platform-cordova.platform-ios ion-navbar ion-segment {
-    padding-top: 16px; }
+    padding-top: 20px; }
   .ios.platform-cordova.platform-ios ion-navbar,
   .ios.platform-cordova.platform-ios ion-app > ion-toolbar:first-child,
   .ios.platform-cordova.platform-ios ion-app > ion-toolbar:first-child ion-title,
@@ -6922,7 +6922,7 @@ ion-icon {
   .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-segment {
     min-height: 64px;
     height: 64px;
-    padding-top: 20px; }
+    padding-top: 24px; }
 
 .md {
   /****************/

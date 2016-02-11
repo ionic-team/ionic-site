@@ -7329,7 +7329,7 @@ ion-buttons[right] {
 
 .platform-cordova.platform-ios ion-navbar ion-title,
 .platform-cordova.platform-ios ion-navbar ion-segment {
-  padding-top: 16px; }
+  padding-top: 20px; }
 
 .platform-cordova.platform-ios ion-navbar,
 .platform-cordova.platform-ios ion-app > ion-toolbar:first-child,
@@ -7343,7 +7343,7 @@ ion-buttons[right] {
 .platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-segment {
   min-height: 64px;
   height: 64px;
-  padding-top: 20px; }
+  padding-top: 24px; }
 
 body {
   font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;

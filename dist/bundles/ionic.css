@@ -7593,6 +7593,8 @@ ion-icon {
     background-color: transparent;
     color: #327eff;
     box-shadow: none; }
+    .md .button-outline:hover:not(.disable-hover) {
+      background-color: rgba(158, 158, 158, 0.1); }
     .md .button-outline.activated {
       opacity: 1;
       box-shadow: none;
@@ -7637,6 +7639,8 @@ ion-icon {
   .md .button-primary {
     color: white;
     background-color: #327eff; }
+    .md .button-primary:hover:not(.disable-hover) {
+      background-color: #327eff; }
     .md .button-primary.activated {
       opacity: 1;
       background-color: #2e74eb; }
@@ -7646,6 +7650,8 @@ ion-icon {
     border-color: #3078f2;
     background-color: transparent;
     color: #3078f2; }
+    .md .button-outline-primary:hover:not(.disable-hover) {
+      background-color: rgba(158, 158, 158, 0.1); }
     .md .button-outline-primary.activated {
       background-color: transparent; }
     .md .button-outline-primary ion-button-effect {
@@ -7662,6 +7668,8 @@ ion-icon {
   .md .button-secondary {
     color: white;
     background-color: #32db64; }
+    .md .button-secondary:hover:not(.disable-hover) {
+      background-color: #32db64; }
     .md .button-secondary.activated {
       opacity: 1;
       background-color: #2ec95c; }
@@ -7671,6 +7679,8 @@ ion-icon {
     border-color: #30d05f;
     background-color: transparent;
     color: #30d05f; }
+    .md .button-outline-secondary:hover:not(.disable-hover) {
+      background-color: rgba(158, 158, 158, 0.1); }
     .md .button-outline-secondary.activated {
       background-color: transparent; }
     .md .button-outline-secondary ion-button-effect {
@@ -7687,6 +7697,8 @@ ion-icon {
   .md .button-danger {
     color: white;
     background-color: #f53d3d; }
+    .md .button-danger:hover:not(.disable-hover) {
+      background-color: #f53d3d; }
     .md .button-danger.activated {
       opacity: 1;
       background-color: #e13838; }
@@ -7696,6 +7708,8 @@ ion-icon {
     border-color: #e93a3a;
     background-color: transparent;
     color: #e93a3a; }
+    .md .button-outline-danger:hover:not(.disable-hover) {
+      background-color: rgba(158, 158, 158, 0.1); }
     .md .button-outline-danger.activated {
       background-color: transparent; }
     .md .button-outline-danger ion-button-effect {
@@ -7712,6 +7726,8 @@ ion-icon {
   .md .button-light {
     color: black;
     background-color: #f4f4f4; }
+    .md .button-light:hover:not(.disable-hover) {
+      background-color: #f4f4f4; }
     .md .button-light.activated {
       opacity: 1;
       background-color: #e0e0e0; }
@@ -7721,6 +7737,8 @@ ion-icon {
     border-color: #e8e8e8;
     background-color: transparent;
     color: #e8e8e8; }
+    .md .button-outline-light:hover:not(.disable-hover) {
+      background-color: rgba(158, 158, 158, 0.1); }
     .md .button-outline-light.activated {
       background-color: transparent; }
     .md .button-outline-light ion-button-effect {
@@ -7737,6 +7755,8 @@ ion-icon {
   .md .button-dark {
     color: white;
     background-color: #222; }
+    .md .button-dark:hover:not(.disable-hover) {
+      background-color: #222; }
     .md .button-dark.activated {
       opacity: 1;
       background-color: #343434; }
@@ -7746,6 +7766,8 @@ ion-icon {
     border-color: #2d2d2d;
     background-color: transparent;
     color: #2d2d2d; }
+    .md .button-outline-dark:hover:not(.disable-hover) {
+      background-color: rgba(158, 158, 158, 0.1); }
     .md .button-outline-dark.activated {
       background-color: transparent; }
     .md .button-outline-dark ion-button-effect {

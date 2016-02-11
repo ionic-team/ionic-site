@@ -60,249 +60,94 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<th>Type</th>
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-cancelButtonText
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>cancelButtonText</td>
+      <td><code>string</code></td>
+      <td><p> Sets the cancel button text to the value passed in</p>
 </td>
-
-
-<td>
-string
+    </tr>
+    
+    <tr>
+      <td>hideCancelButton</td>
+      <td><code>boolean</code></td>
+      <td><p> Hides the cancel button</p>
 </td>
-
-
-<td>
-Sets the cancel button text to the value passed in
+    </tr>
+    
+    <tr>
+      <td>placeholder</td>
+      <td><code>string</code></td>
+      <td><p> Sets input placeholder to the value passed in</p>
 </td>
-</tr>
-
-<tr>
-<td>
-hideCancelButton
+    </tr>
+    
+    <tr>
+      <td>ngModel</td>
+      <td><code>Any</code></td>
+      <td><p> Expression to evaluate when the Searchbar input has changed including cleared</p>
 </td>
-
-
-<td>
-boolean
-</td>
-
-
-<td>
-Hides the cancel button
-</td>
-</tr>
-
-<tr>
-<td>
-placeholder
-</td>
-
-
-<td>
-string
-</td>
-
-
-<td>
-Sets input placeholder to the value passed in
-</td>
-</tr>
-
-<tr>
-<td>
-input
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-Expression to evaluate when the Searchbar input has changed including cleared
-</td>
-</tr>
-
-<tr>
-<td>
-keydown
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-Expression to evaluate when a key is pushed down in the Searchbar input
-</td>
-</tr>
-
-<tr>
-<td>
-keypress
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-Expression to evaluate when a character is inserted in the Searchbar input
-</td>
-</tr>
-
-<tr>
-<td>
-keyup
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-Expression to evaluate when a key is released in the Searchbar input
-</td>
-</tr>
-
-<tr>
-<td>
-blur
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-Expression to evaluate when the Searchbar input has blurred
-</td>
-</tr>
-
-<tr>
-<td>
-focus
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-Expression to evaluate when the Searchbar input has focused
-</td>
-</tr>
-
-<tr>
-<td>
-cancel
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-Expression to evaluate when the cancel button is clicked
-</td>
-</tr>
-
-<tr>
-<td>
-clear
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-Expression to evaluate when the clear input button is clicked
-</td>
-</tr>
-
-</tbody>
+    </tr>
+    
+  </tbody>
 </table>
-
-
-
-<!-- instance methods on the class --><!-- related link -->
+<!-- output events on the class -->
+<h2>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>input</td>
+      <td><p> When the Searchbar input has changed including cleared</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>blur</td>
+      <td><p> When the Searchbar input has blurred</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>focus</td>
+      <td><p> When the Searchbar input has focused</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>cancel</td>
+      <td><p> When the cancel button is clicked</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>clear</td>
+      <td><p> When the clear input button is clicked</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link -->
 
 <h2>Related</h2>
 

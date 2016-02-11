@@ -45982,14 +45982,6 @@
 	 * <ion-icon name="logo-twitter"></ion-icon>
 	 * ```
 	 *
-	 * @property {string} [name] - Use the appropriate icon for the mode.
-	 * @property {string} [ios] - Explicitly set the icon to use on iOS.
-	 * @property {string} [md] - Explicitly set the icon to use on Android.
-	 * @property {boolean} [isActive] - Whether or not the icon has an "active"
-	 * appearance. On iOS an active icon is filled in or full appearance, and an
-	 * inactive icon on iOS will use an outlined version of the icon same icon.
-	 * Material Design icons do not change appearance depending if they're active
-	 * or not. The `isActive` property is largely used by the tabbar.
 	 * @demo /docs/v2/demos/icon/
 	 * @see {@link /docs/v2/components#icons Icon Component Docs}
 	 *
@@ -46020,7 +46012,7 @@
 	    };
 	    Object.defineProperty(Icon.prototype, "name", {
 	        /**
-	         * @private
+	         * @input {String} Icon to use. Will load the appropriate icon for each mode
 	         */
 	        get: function () {
 	            return this._name;
@@ -46039,7 +46031,7 @@
 	    });
 	    Object.defineProperty(Icon.prototype, "ios", {
 	        /**
-	         * @private
+	         * @input {String} Explicitly set the icon to use on iOS
 	         */
 	        get: function () {
 	            return this._ios;
@@ -46053,7 +46045,7 @@
 	    });
 	    Object.defineProperty(Icon.prototype, "md", {
 	        /**
-	         * @private
+	         * @input {String} Explicitly set the icon to use on MD
 	         */
 	        get: function () {
 	            return this._md;
@@ -46067,7 +46059,7 @@
 	    });
 	    Object.defineProperty(Icon.prototype, "isActive", {
 	        /**
-	         * @private
+	         * @input {Bool} Whether or not the icon has an "active" appearance. On iOS an active icon is filled in or full appearance, and an inactive icon on iOS will use an outlined version of the icon same icon. Material Design icons do not change appearance depending if they're active or not. The `isActive` property is largely used by the tabbar.
 	         */
 	        get: function () {
 	            return (this._isActive === undefined || this._isActive === true || this._isActive === 'true');
@@ -49795,16 +49787,6 @@
 	 *})
 	 *
 	 *```
-	 * @property {Boolean} [autoplay] - whether or not the slides should automatically change
-	 * @property {Boolean} [loop] - whether the slides should loop from the last slide back to the first
-	 * @property {Number} [index] - The slide index to start on
-	 * @property {Boolean} [bounce] - whether the slides should bounce
-	 * @property {Boolean} [pager] - Whether the slide should show the page or not
-	 * @property {Any} [options] - Any additional slider options you want to pass
-	 * @property {Number} [zoom] - Whether or not the slider can zoom in or out
-	 * @property {Number} [zoomDuration] - how long it should take to zoom a slide
-	 * @property {Number} [zoomMax] - the max scale an slide can be zoomed
-	 * @property {Any} (change) - expression to evaluate when a slide has been changed
 	 * @demo /docs/v2/demos/slides/
 	 * @see {@link /docs/v2/components#slides Slides Component Docs}
 	 *
@@ -49829,7 +49811,7 @@
 	        var _this = this;
 	        _super.call(this, elementRef);
 	        /**
-	         * @private
+	         * @output {Any} expression to evaluate when a slide has been changed
 	         */
 	        this.change = new core_1.EventEmitter();
 	        this.rapidUpdate = util_2.debounce(function () {
@@ -54321,17 +54303,6 @@
 	var util_1 = __webpack_require__(161);
 	/**
 	 * @name Tabs
-	 * @property {any} [selectedIndex] - The default selected tab index when first loaded. If a selected index wasn't provided then it'll use `0`, the first tab.
-	 * @property {any} [tabbarPlacement] - set position of the tabbar, top or bottom
-	 * @property {any} [tabbarIcons] - set the position of the tabbar's icons: top, bottom, left, right, hide
-	 * @property {any} [preloadTabs] - sets whether to preload all the tabs, true or false
-	 * @property {any} (change) - expression you want to evaluate when the tabs chage
-	 * @usage
-	* ```html
-	 * <ion-tabs>
-	 *   <ion-tab [root]="tabRoot"></ion-tab>
-	 * </ion-tabs>
-	 * ```
 	 * @description
 	 * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
 	 * of the Component docs._
@@ -54340,9 +54311,18 @@
 	 * individual Tab components. On iOS, the TabBar is placed on the bottom of
 	 * the screen, while on Android it is at the top.
 	 *
+	 * @usage
+	 * ```html
+	 * <ion-tabs>
+	 *   <ion-tab [root]="tabRoot"></ion-tab>
+	 * </ion-tabs>
+	 * ```
+	 *
 	 * @demo /docs/v2/demos/tabs/
+	 *
 	 * @see {@link /docs/v2/components#tabs Tabs Component Docs}
 	 * @see {@link ../Tab Tab API Docs}
+	 *
 	 */
 	var Tabs = (function (_super) {
 	    __extends(Tabs, _super);
@@ -54360,7 +54340,7 @@
 	        this._tabs = [];
 	        this._onReady = null;
 	        /**
-	         * @private
+	         * @input {any} expression you want to evaluate when the tabs change
 	         */
 	        this.change = new core_1.EventEmitter();
 	        this.id = ++tabIds;
@@ -54793,12 +54773,6 @@
 	 * ```
 	 *
 	 *
-	 * @property {Page} [root] - set the root page for this tab
-	 * @property {String} [tabTitle] - set the title of this tab
-	 * @property {String} [tabIcon] - set the icon for this tab
-	 * @property {Any} [tabBadge] - set the badge for this tab
-	 * @property {String} [tabBadgeStyle] - set the badge color for this tab
-	 * @property {Any} (select) - method to call when the current tab is selected
 	 *
 	 * @demo /docs/v2/demos/tabs/
 	 */
@@ -54808,7 +54782,7 @@
 	        // A Tab is a NavController for its child pages
 	        _super.call(this, parentTabs, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer);
 	        /**
-	         * @private
+	         * @pinput {Any} Method to call when the current tab is selected
 	         */
 	        this.select = new core_2.EventEmitter();
 	        parentTabs.add(this);
@@ -55903,9 +55877,6 @@
 	 *
 	 * See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/core/Form-interface.html) for more info on forms and input.
 	 *
-	 * @property [checked] - whether or not the checkbox is checked (defaults to false)
-	 * @property [value] - the value of the checkbox component
-	 * @property [disabled] - whether or not the checkbox is disabled or not.
 	 *
 	 * @usage
 	 * ```html
@@ -55939,7 +55910,7 @@
 	        this._checked = false;
 	        this._disabled = false;
 	        /**
-	         * @private
+	         * @input {String} the value of the checkbox component
 	         */
 	        this.value = '';
 	        _form.register(this);
@@ -55961,7 +55932,7 @@
 	    };
 	    Object.defineProperty(Checkbox.prototype, "checked", {
 	        /**
-	         * @private
+	         * @input {Bool} whether or not the checkbox is checked (defaults to false)
 	         */
 	        get: function () {
 	            return this._checked;
@@ -55978,7 +55949,7 @@
 	    });
 	    Object.defineProperty(Checkbox.prototype, "disabled", {
 	        /**
-	         * @private
+	         * @input {Bool} whether or not the checkbox is disabled or not.
 	         */
 	        get: function () {
 	            return this._disabled;
@@ -57013,9 +56984,6 @@
 	 * @description
 	 * `ion-option` is a child component of `ion-select`. Similar to the native option element, `ion-option` can take a value and a checked property.
 	 *
-	 * @property [value] - the value of the option
-	 * @property [checked] - whether or not the option is already checked and selected
-	 *
 	 * @demo /docs/v2/demos/item-sliding/
 	 */
 	var Option = (function () {
@@ -57023,13 +56991,13 @@
 	        this._elementRef = _elementRef;
 	        this._checked = false;
 	        /**
-	         * @private
+	         * @input {Any} Event to evaluate when option has changed
 	         */
 	        this.select = new core_1.EventEmitter();
 	    }
 	    Object.defineProperty(Option.prototype, "checked", {
 	        /**
-	         * @private
+	         * @input {Bool} Whether or not the option is already checked and selected
 	         */
 	        get: function () {
 	            return this._checked;
@@ -57042,7 +57010,7 @@
 	    });
 	    Object.defineProperty(Option.prototype, "value", {
 	        /**
-	         * @private
+	         * @input {Any} The value of the option
 	         */
 	        get: function () {
 	            if (util_1.isDefined(this._value)) {
@@ -58289,8 +58257,6 @@
 	 * </form>
 	 * ```
 	 *
-	 * @property {string} [value] - the value of the segment button. Required.
-	 * @property {Any} (select) - expression to evaluate when a segment button has been clicked
 	 *
 	 * @demo /docs/v2/demos/segment/
 	 * @see {@link /docs/v2/components#segment Segment Component Docs}
@@ -58301,7 +58267,7 @@
 	        this._renderer = _renderer;
 	        this._elementRef = _elementRef;
 	        /**
-	         * @private
+	         * @output {Any} expression to evaluate when a segment button has been clicked
 	         */
 	        this.select = new core_1.EventEmitter();
 	    }
@@ -58401,7 +58367,6 @@
 	 * </form>
 	 * ```
 	 *
-	 * @property {Any} (change) - expression to evaluate when a segment button has been changed
 	 *
 	 * @demo /docs/v2/demos/segment/
 	 * @see {@link /docs/v2/components#segment Segment Component Docs}
@@ -58410,7 +58375,7 @@
 	var Segment = (function () {
 	    function Segment(ngControl) {
 	        /**
-	         * @private
+	         * @output {Any}  expression to evaluate when a segment button has been changed
 	         */
 	        this.change = new core_1.EventEmitter();
 	        /**
@@ -58539,7 +58504,7 @@
 	        this._disabled = false;
 	        this._value = null;
 	        /**
-	         * @private
+	         * @output {Any} expression to be evaluated when clicked
 	         */
 	        this.select = new core_1.EventEmitter();
 	        _form.register(this);
@@ -58752,7 +58717,7 @@
 	        this._ids = -1;
 	        this._init = false;
 	        /**
-	         * @private
+	         * @output {Any} expression to be evaluated when selection has been changed
 	         */
 	        this.change = new core_1.EventEmitter();
 	        this.id = ++radioGroupIds;
@@ -58953,19 +58918,6 @@
 	 * <ion-searchbar [(ngModel)]="defaultSearch" (input)="triggerInput($event)" (cancel)="onCancelSearchbar($event)" (clear)="onClearSearchbar($event)"></ion-searchbar>
 	 * ```
 	 *
-	 * @property {string} [cancelButtonText=Cancel] - Sets the cancel button text to the value passed in
-	 * @property {boolean} [hideCancelButton=false] - Hides the cancel button
-	 * @property {string} [placeholder=Search] - Sets input placeholder to the value passed in
-	 *
-	 * @property {Any} [input] - Expression to evaluate when the Searchbar input has changed including cleared
-	 * @property {Any} [keydown] - Expression to evaluate when a key is pushed down in the Searchbar input
-	 * @property {Any} [keypress] - Expression to evaluate when a character is inserted in the Searchbar input
-	 * @property {Any} [keyup] - Expression to evaluate when a key is released in the Searchbar input
-	 * @property {Any} [blur] - Expression to evaluate when the Searchbar input has blurred
-	 * @property {Any} [focus] - Expression to evaluate when the Searchbar input has focused
-	 * @property {Any} [cancel] - Expression to evaluate when the cancel button is clicked
-	 * @property {Any} [clear] - Expression to evaluate when the clear input button is clicked
-	 *
 	 * @demo /docs/v2/demos/searchbar/
 	 * @see {@link /docs/v2/components#searchbar Searchbar Component Docs}
 	 */
@@ -58976,23 +58928,23 @@
 	        this._elementRef = _elementRef;
 	        this._config = _config;
 	        /**
-	         * @private
+	         * @output {event} When the Searchbar input has changed including cleared
 	         */
 	        this.input = new core_1.EventEmitter();
 	        /**
-	         * @private
+	         * @output {event} When the Searchbar input has blurred
 	         */
 	        this.blur = new core_1.EventEmitter();
 	        /**
-	         * @private
+	         * @output {event} When the Searchbar input has focused
 	         */
 	        this.focus = new core_1.EventEmitter();
 	        /**
-	         * @private
+	         * @output {event} When the cancel button is clicked
 	         */
 	        this.cancel = new core_1.EventEmitter();
 	        /**
-	         * @private
+	         * @output {event} When the clear input button is clicked
 	         */
 	        this.clear = new core_1.EventEmitter();
 	        /**

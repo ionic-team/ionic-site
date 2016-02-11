@@ -76,113 +76,51 @@ markup once, and let Ionic automatically apply the appropriate icon.</p>
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<th>Type</th>
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-name
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>name</td>
+      <td><code>String</code></td>
+      <td><p> Icon to use. Will load the appropriate icon for each mode</p>
 </td>
-
-
-<td>
-string
+    </tr>
+    
+    <tr>
+      <td>ios</td>
+      <td><code>String</code></td>
+      <td><p> Explicitly set the icon to use on iOS</p>
 </td>
-
-
-<td>
-Use the appropriate icon for the mode.
+    </tr>
+    
+    <tr>
+      <td>md</td>
+      <td><code>String</code></td>
+      <td><p> Explicitly set the icon to use on MD</p>
 </td>
-</tr>
-
-<tr>
-<td>
-ios
+    </tr>
+    
+    <tr>
+      <td>isActive</td>
+      <td><code>Bool</code></td>
+      <td><p> Whether or not the icon has an &quot;active&quot; appearance. On iOS an active icon is filled in or full appearance, and an inactive icon on iOS will use an outlined version of the icon same icon. Material Design icons do not change appearance depending if they&#39;re active or not. The <code>isActive</code> property is largely used by the tabbar.</p>
 </td>
-
-
-<td>
-string
-</td>
-
-
-<td>
-Explicitly set the icon to use on iOS.
-</td>
-</tr>
-
-<tr>
-<td>
-md
-</td>
-
-
-<td>
-string
-</td>
-
-
-<td>
-Explicitly set the icon to use on Android.
-</td>
-</tr>
-
-<tr>
-<td>
-isActive
-</td>
-
-
-<td>
-boolean
-</td>
-
-
-<td>
-Whether or not the icon has an "active"
-appearance. On iOS an active icon is filled in or full appearance, and an
-inactive icon on iOS will use an outlined version of the icon same icon.
-Material Design icons do not change appearance depending if they're active
-or not. The `isActive` property is largely used by the tabbar.
-</td>
-</tr>
-
-</tbody>
-</table>
-
-
-
-<!-- instance methods on the class --><!-- related link -->
+    </tr>
+    
+  </tbody>
+</table><!-- related link -->
 
 <h2>Related</h2>
 

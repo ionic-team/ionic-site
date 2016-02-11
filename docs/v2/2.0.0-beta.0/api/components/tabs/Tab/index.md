@@ -97,149 +97,77 @@ class. Below is an example of presenting a modal from one of the tabs.</p>
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<th>Type</th>
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-root
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>root</td>
+      <td><code>Page</code></td>
+      <td><p> Set the root page for this tab</p>
 </td>
-
-
-<td>
-Page
+    </tr>
+    
+    <tr>
+      <td>tabTitle</td>
+      <td><code>String</code></td>
+      <td><p> Set the title of this tab</p>
 </td>
-
-
-<td>
-set the root page for this tab
+    </tr>
+    
+    <tr>
+      <td>tabIcon</td>
+      <td><code>String</code></td>
+      <td><p> Set the icon for this tab</p>
 </td>
-</tr>
-
-<tr>
-<td>
-tabTitle
+    </tr>
+    
+    <tr>
+      <td>tabBadge</td>
+      <td><code>String</code></td>
+      <td><p> Set the badge for this tab</p>
 </td>
-
-
-<td>
-String
+    </tr>
+    
+    <tr>
+      <td>tabBadgeStyle</td>
+      <td><code>String</code></td>
+      <td><p> Set the badge color for this tab</p>
 </td>
-
-
-<td>
-set the title of this tab
-</td>
-</tr>
-
-<tr>
-<td>
-tabIcon
-</td>
-
-
-<td>
-String
-</td>
-
-
-<td>
-set the icon for this tab
-</td>
-</tr>
-
-<tr>
-<td>
-tabBadge
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-set the badge for this tab
-</td>
-</tr>
-
-<tr>
-<td>
-tabBadgeStyle
-</td>
-
-
-<td>
-String
-</td>
-
-
-<td>
-set the badge color for this tab
-</td>
-</tr>
-
-<tr>
-<td>
-(select)
-</td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-method to call when the current tab is selected
-</td>
-</tr>
-
-</tbody>
+    </tr>
+    
+  </tbody>
 </table>
-
-
-
-<!-- instance methods on the class --><!-- related link --><!-- end content block -->
+<!-- output events on the class -->
+<h2>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>select</td>
+      <td><p> Method to call when the current tab is selected</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

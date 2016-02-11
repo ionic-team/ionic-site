@@ -66,126 +66,6 @@ the screen, while on Android it is at the top.</p>
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<th>Type</th>
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-selectedIndex
-</td>
-
-
-<td>
-any
-</td>
-
-
-<td>
-The default selected tab index when first loaded. If a selected index wasn't provided then it'll use `0`, the first tab.
-</td>
-</tr>
-
-<tr>
-<td>
-tabbarPlacement
-</td>
-
-
-<td>
-any
-</td>
-
-
-<td>
-set position of the tabbar, top or bottom
-</td>
-</tr>
-
-<tr>
-<td>
-tabbarIcons
-</td>
-
-
-<td>
-any
-</td>
-
-
-<td>
-set the position of the tabbar's icons: top, bottom, left, right, hide
-</td>
-</tr>
-
-<tr>
-<td>
-preloadTabs
-</td>
-
-
-<td>
-any
-</td>
-
-
-<td>
-sets whether to preload all the tabs, true or false
-</td>
-</tr>
-
-<tr>
-<td>
-(change)
-</td>
-
-
-<td>
-any
-</td>
-
-
-<td>
-expression you want to evaluate when the tabs chage
-</td>
-</tr>
-
-</tbody>
-</table>
-
 
 
 <!-- instance methods on the class -->
@@ -354,7 +234,68 @@ expression you want to evaluate when the tabs chage
 </div>
 
 
-<!-- related link -->
+
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>selectedIndex</td>
+      <td><code>Any</code></td>
+      <td><p> The default selected tab index when first loaded. If a selected index wasn&#39;t provided then it&#39;ll use <code>0</code>, the first tab.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>preloadTabs</td>
+      <td><code>Any</code></td>
+      <td><p> Sets whether to preload all the tabs, true or false</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>tabbarIcons</td>
+      <td><code>String</code></td>
+      <td><p> set the position of the tabbar&#39;s icons: top, bottom, left, right, hide</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>tabbarPlacement</td>
+      <td><code>String</code></td>
+      <td><p> Set position of the tabbar, top or bottom</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
+<!-- output events on the class -->
+<h2>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>change</td>
+      <td><p> expression you want to evaluate when the tabs change</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link -->
 
 <h2>Related</h2>
 

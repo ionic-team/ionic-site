@@ -266,23 +266,6 @@ ion-toolbar[position=bottom] {
   position: sticky;
   top: 0; }
 
-.css-scrollbars ::-webkit-scrollbar {
-  width: 9px; }
-
-.css-scrollbars ::-webkit-scrollbar-thumb:vertical {
-  background: rgba(0, 0, 0, 0.4);
-  border: 2px solid transparent;
-  border-radius: 20px;
-  background-clip: padding-box;
-  min-height: 10px; }
-
-.css-scrollbars ::-webkit-scrollbar-thumb:vertical:active {
-  background: rgba(0, 0, 0, 0.6);
-  border: 2px solid transparent;
-  border-radius: 20px;
-  background-clip: padding-box;
-  min-height: 10px; }
-
 html {
   font-size: 62.5%; }
 
@@ -4642,15 +4625,6 @@ ion-alert {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row; }
-  .alert-button-group.vertical {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap; }
 
 .alert-button {
   display: block;
@@ -4803,10 +4777,7 @@ ion-alert {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
-  justify-content: flex-end;
-  -webkit-flex-wrap: wrap-reverse;
-  -ms-flex-wrap: wrap-reverse;
-  flex-wrap: wrap-reverse; }
+  justify-content: flex-end; }
 
 .alert-button {
   position: relative;
@@ -4816,8 +4787,7 @@ ion-alert {
   color: #387ef5;
   background-color: transparent;
   border-radius: 2px;
-  text-transform: uppercase;
-  text-align: right; }
+  text-transform: uppercase; }
   .alert-button.activated {
     opacity: 1; }
 
@@ -4830,14 +4800,13 @@ ion-badge {
   white-space: nowrap;
   font-size: 1.3rem;
   font-weight: bold;
-  line-height: 1; }
+  line-height: 1;
+  background: #ccc; }
   ion-badge:empty {
     display: none; }
 
 ion-badge {
-  border-radius: 4px;
-  background-color: #387ef5;
-  color: white; }
+  border-radius: 4px; }
 
 .badge-primary {
   background-color: #387ef5;
@@ -4903,32 +4872,10 @@ ion-badge {
 
 .button {
   position: relative;
-  display: inline-block;
-  -webkit-transition: background-color, opacity 100ms linear;
-  transition: background-color, opacity 100ms linear;
-  z-index: 0;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  text-align: center;
-  text-transform: none;
-  -webkit-font-kerning: none;
-  font-kerning: none;
-  vertical-align: top;
-  vertical-align: -webkit-baseline-middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-appearance: none;
-  -moz-appearance: none; }
-
-.button-inner {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -4943,10 +4890,25 @@ ion-badge {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 100%;
-  height: 100%; }
+  -webkit-transition: background-color, opacity 100ms linear;
+  transition: background-color, opacity 100ms linear;
+  z-index: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+  text-transform: none;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
 
-a.button, a[button] {
+a.button {
   text-decoration: none; }
 
 .button[disabled] {
@@ -4955,14 +4917,16 @@ a.button, a[button] {
   pointer-events: none; }
 
 .button-block {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   clear: both;
   width: 100%; }
   .button-block:after {
     clear: both; }
 
 .button-full {
-  display: block;
   width: 100%; }
 
 .button-round {
@@ -4971,13 +4935,12 @@ a.button, a[button] {
 
 .button-full.button-outline {
   border-left-width: 0;
-  border-right-width: 0;
-  border-radius: 0; }
+  border-right-width: 0; }
 
 .button {
   margin: 0.4rem 0.2rem;
   padding: 0 1.1em;
-  height: 3.6rem;
+  min-height: 3.6rem;
   border-radius: 2px;
   font-weight: 500;
   font-size: 1.4rem;
@@ -4992,32 +4955,30 @@ a.button, a[button] {
   .button.activated {
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21);
     background-color: #3474e1; }
-  .button ion-button-effect {
-    background-color: white; }
 
 .button-large {
   padding: 0 1em;
-  height: 2.8em;
+  min-height: 2.8em;
   font-size: 2rem; }
 
 .button-small {
   padding: 0 0.9em;
-  height: 2.1em;
+  min-height: 2.1em;
   font-size: 1.3rem; }
 
 .button-small.button-icon-only ion-icon {
   font-size: 1.4em; }
 
-.button-block {
-  margin-left: 0;
-  margin-right: 0; }
-
 .button-full {
+  border-radius: 0;
   margin-right: 0;
   margin-left: 0;
-  border-radius: 0;
   border-right-width: 0;
   border-left-width: 0; }
+
+.button-block {
+  margin-right: 0;
+  margin-left: 0; }
 
 .button-outline {
   border-width: 1px;
@@ -5030,8 +4991,8 @@ a.button, a[button] {
     opacity: 1;
     box-shadow: none;
     background-color: transparent; }
-  .button-outline ion-button-effect {
-    background-color: #387ef5; }
+  .button-outline md-ripple {
+    background-color: rgba(56, 126, 245, 0.25); }
 
 .button-clear {
   border-color: transparent;
@@ -5044,8 +5005,6 @@ a.button, a[button] {
     box-shadow: none; }
   .button-clear:hover:not(.disable-hover) {
     color: #387ef5; }
-  .button-clear ion-button-effect {
-    background-color: #999; }
 
 .button-round {
   padding: 0 2.6rem;
@@ -5062,25 +5021,12 @@ a.button, a[button] {
 .button-icon-only {
   padding: 0; }
 
-ion-button-effect {
-  position: absolute;
-  z-index: 0;
-  display: block;
-  border-radius: 50%;
-  background-color: #555;
-  opacity: 0.2;
-  pointer-events: none;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out; }
-
 .button-primary {
   color: white;
   background-color: #387ef5; }
   .button-primary.activated {
     opacity: 1;
     background-color: #3474e1; }
-  .button-primary ion-button-effect {
-    background-color: white; }
 
 .button-outline-primary {
   border-color: #3578e9;
@@ -5088,8 +5034,8 @@ ion-button-effect {
   color: #3578e9; }
   .button-outline-primary.activated {
     background-color: transparent; }
-  .button-outline-primary ion-button-effect {
-    background-color: #3578e9; }
+  .button-outline-primary md-ripple {
+    background-color: rgba(53, 120, 233, 0.25); }
 
 .button-clear-primary {
   border-color: transparent;
@@ -5107,8 +5053,6 @@ ion-button-effect {
   .button-secondary.activated {
     opacity: 1;
     background-color: #2ec95c; }
-  .button-secondary ion-button-effect {
-    background-color: white; }
 
 .button-outline-secondary {
   border-color: #30d05f;
@@ -5116,8 +5060,8 @@ ion-button-effect {
   color: #30d05f; }
   .button-outline-secondary.activated {
     background-color: transparent; }
-  .button-outline-secondary ion-button-effect {
-    background-color: #30d05f; }
+  .button-outline-secondary md-ripple {
+    background-color: rgba(48, 208, 95, 0.25); }
 
 .button-clear-secondary {
   border-color: transparent;
@@ -5135,8 +5079,6 @@ ion-button-effect {
   .button-danger.activated {
     opacity: 1;
     background-color: #e13838; }
-  .button-danger ion-button-effect {
-    background-color: white; }
 
 .button-outline-danger {
   border-color: #e93a3a;
@@ -5144,8 +5086,8 @@ ion-button-effect {
   color: #e93a3a; }
   .button-outline-danger.activated {
     background-color: transparent; }
-  .button-outline-danger ion-button-effect {
-    background-color: #e93a3a; }
+  .button-outline-danger md-ripple {
+    background-color: rgba(233, 58, 58, 0.25); }
 
 .button-clear-danger {
   border-color: transparent;
@@ -5163,8 +5105,6 @@ ion-button-effect {
   .button-light.activated {
     opacity: 1;
     background-color: #e0e0e0; }
-  .button-light ion-button-effect {
-    background-color: black; }
 
 .button-outline-light {
   border-color: #e8e8e8;
@@ -5172,8 +5112,8 @@ ion-button-effect {
   color: #e8e8e8; }
   .button-outline-light.activated {
     background-color: transparent; }
-  .button-outline-light ion-button-effect {
-    background-color: #e8e8e8; }
+  .button-outline-light md-ripple {
+    background-color: rgba(232, 232, 232, 0.25); }
 
 .button-clear-light {
   border-color: transparent;
@@ -5191,8 +5131,6 @@ ion-button-effect {
   .button-dark.activated {
     opacity: 1;
     background-color: #343434; }
-  .button-dark ion-button-effect {
-    background-color: white; }
 
 .button-outline-dark {
   border-color: #2d2d2d;
@@ -5200,8 +5138,8 @@ ion-button-effect {
   color: #2d2d2d; }
   .button-outline-dark.activated {
     background-color: transparent; }
-  .button-outline-dark ion-button-effect {
-    background-color: #2d2d2d; }
+  .button-outline-dark md-ripple {
+    background-color: rgba(45, 45, 45, 0.25); }
 
 .button-clear-dark {
   border-color: transparent;
@@ -5219,8 +5157,6 @@ ion-button-effect {
   .button-energized.activated {
     opacity: 1;
     background-color: #ebb524; }
-  .button-energized ion-button-effect {
-    background-color: black; }
 
 .button-outline-energized {
   border-color: #f2bb25;
@@ -5228,8 +5164,8 @@ ion-button-effect {
   color: #f2bb25; }
   .button-outline-energized.activated {
     background-color: transparent; }
-  .button-outline-energized ion-button-effect {
-    background-color: #f2bb25; }
+  .button-outline-energized md-ripple {
+    background-color: rgba(242, 187, 37, 0.25); }
 
 .button-clear-energized {
   border-color: transparent;
@@ -5247,8 +5183,6 @@ ion-button-effect {
   .button-royal.activated {
     opacity: 1;
     background-color: #7458eb; }
-  .button-royal ion-button-effect {
-    background-color: black; }
 
 .button-outline-royal {
   border-color: #785bf2;
@@ -5256,8 +5190,8 @@ ion-button-effect {
   color: #785bf2; }
   .button-outline-royal.activated {
     background-color: transparent; }
-  .button-outline-royal ion-button-effect {
-    background-color: #785bf2; }
+  .button-outline-royal md-ripple {
+    background-color: rgba(120, 91, 242, 0.25); }
 
 .button-clear-royal {
   border-color: transparent;
@@ -5275,8 +5209,6 @@ ion-button-effect {
   .button-subtle.activated {
     opacity: 1;
     background-color: #535353; }
-  .button-subtle ion-button-effect {
-    background-color: white; }
 
 .button-outline-subtle {
   border-color: #4d4d4d;
@@ -5284,8 +5216,8 @@ ion-button-effect {
   color: #4d4d4d; }
   .button-outline-subtle.activated {
     background-color: transparent; }
-  .button-outline-subtle ion-button-effect {
-    background-color: #4d4d4d; }
+  .button-outline-subtle md-ripple {
+    background-color: rgba(77, 77, 77, 0.25); }
 
 .button-clear-subtle {
   border-color: transparent;
@@ -5387,7 +5319,9 @@ ion-button-effect {
 
 ion-card {
   display: block;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0); }
 
 ion-card img {
   display: block;
@@ -5401,14 +5335,6 @@ ion-card-header {
 
 ion-card-content {
   display: block; }
-
-ion-card > :first-child {
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit; }
-
-ion-card > :last-child {
-  border-bottom-left-radius: inherit;
-  border-bottom-right-radius: inherit; }
 
 ion-card {
   margin: 10px 10px 10px 10px;
@@ -5515,13 +5441,7 @@ ion-checkbox {
   border-width: 2px;
   border-style: solid;
   border-color: #787878;
-  background-color: #fff;
-  -webkit-transition-property: background;
-  transition-property: background;
-  -webkit-transition-duration: 280ms;
-  transition-duration: 280ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  background-color: #fff; }
 
 .checkbox-checked {
   background-color: #387ef5;
@@ -5543,7 +5463,7 @@ ion-checkbox {
 
 .checkbox-disabled,
 .item-checkbox-disabled ion-label {
-  opacity: 0.3;
+  opacity: 0.4;
   pointer-events: none; }
 
 .item ion-checkbox {
@@ -5809,9 +5729,6 @@ ion-textarea {
 
 textarea.text-input {
   display: block; }
-
-.text-input[disabled] {
-  opacity: 0.4; }
 
 input.text-input:-webkit-autofill {
   background-color: transparent; }
@@ -6086,19 +6003,6 @@ ion-item-options .button {
   box-shadow: none;
   height: 100%; }
 
-ion-item-options:not([icon-left]) .button-icon-left {
-  font-size: 14px; }
-  ion-item-options:not([icon-left]) .button-icon-left .button-inner {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column; }
-  ion-item-options:not([icon-left]) .button-icon-left ion-icon {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-bottom: 0.3em; }
-
 ion-item-sliding.active-slide .item,
 ion-item-sliding.active-slide .item.activated {
   position: relative;
@@ -6175,7 +6079,7 @@ ion-icon[item-right] {
 
 .item-button {
   padding: 0 0.6em;
-  height: 25px;
+  min-height: 25px;
   font-size: 1.2rem; }
 
 .item-button.button-icon-only ion-icon,
@@ -6336,9 +6240,10 @@ ion-label[floating] {
   width: auto; }
 
 ion-label {
-  margin: 13px 8px 13px 0; }
+  margin: 13px 8px 13px 8px; }
 
 .item-input ion-label {
+  margin: 13px 8px 13px 0;
   color: #999; }
 
 ion-label[stacked] {
@@ -6668,7 +6573,7 @@ ion-radio {
 
 .radio-disabled,
 .item-radio-disabled ion-label {
-  opacity: 0.3;
+  opacity: 0.4;
   pointer-events: none; }
 
 .item ion-radio {
@@ -6729,6 +6634,47 @@ ion-radio[subtle] .radio-checked {
 
 ion-radio[subtle] .radio-inner {
   background-color: #444444; }
+
+/**
+  Roboto Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+
+md-ripple {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-transform: scale(0.001) translateZ(0);
+  transform: scale(0.001) translateZ(0); }
 
 /**
   Roboto Font
@@ -7528,11 +7474,11 @@ ion-toggle {
 
 .toggle-disabled,
 .item-toggle-disabled ion-label {
-  opacity: 0.3;
+  opacity: 0.4;
   pointer-events: none; }
 
 .toggle-disabled ion-radio {
-  opacity: 0.3; }
+  opacity: 0.4; }
 
 .item ion-toggle {
   margin: 0;
@@ -7729,14 +7675,31 @@ ion-navbar.toolbar {
 
 .bar-button {
   position: relative;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin: 0;
   padding: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
+  overflow: hidden;
   text-align: center;
   text-transform: none;
-  line-height: 1;
   vertical-align: top;
   vertical-align: -webkit-baseline-middle;
   cursor: pointer;
@@ -7746,14 +7709,6 @@ ion-navbar.toolbar {
   user-select: none;
   -webkit-appearance: none;
   -moz-appearance: none; }
-
-.bar-button:after {
-  position: absolute;
-  content: '';
-  top: -7px;
-  right: -2px;
-  bottom: -6px;
-  left: -2px; }
 
 .bar-button-menutoggle {
   display: -webkit-box;
@@ -7768,7 +7723,10 @@ ion-navbar.toolbar {
 .back-button {
   display: none; }
   .back-button.show-back-button {
-    display: inline-block; }
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
 
 .back-button-text {
   display: -webkit-box;
@@ -7846,16 +7804,12 @@ ion-buttons[right] {
   margin-left: 0.2rem;
   margin-right: 0.2rem;
   padding: 0 5px;
-  height: 32px;
+  min-height: 32px;
   border: 0;
   font-size: 1.4rem;
   border-radius: 2px;
   text-transform: uppercase;
   font-weight: 500; }
-
-.bar-button-solid,
-.bar-button-outline {
-  overflow: hidden; }
 
 .bar-button-outline {
   border-width: 1px;
@@ -7879,6 +7833,7 @@ ion-buttons[right] {
     background-color: #515151; }
 
 .bar-button-icon-left ion-icon {
+  margin-left: -0.1em;
   padding-right: 0.3em;
   font-size: 1.4em;
   line-height: 0.67;
@@ -7940,14 +7895,10 @@ ion-buttons[right] {
 .toolbar[primary] .toolbar-background {
   background: #387ef5; }
 
+.toolbar[primary] .toolbar-title,
 .toolbar[primary] .bar-button-default,
-.toolbar[primary] .bar-button-outline,
-.toolbar[primary] .toolbar-title {
+.toolbar[primary] .bar-button-outline {
   color: white; }
-
-.toolbar[primary] .bar-button-default ion-button-effect,
-.toolbar[primary] .bar-button-outline ion-button-effect {
-  background-color: white; }
 
 .toolbar[primary] .bar-button-outline {
   border-color: white; }
@@ -8135,14 +8086,10 @@ ion-buttons[right] {
 .toolbar[secondary] .toolbar-background {
   background: #32db64; }
 
+.toolbar[secondary] .toolbar-title,
 .toolbar[secondary] .bar-button-default,
-.toolbar[secondary] .bar-button-outline,
-.toolbar[secondary] .toolbar-title {
+.toolbar[secondary] .bar-button-outline {
   color: white; }
-
-.toolbar[secondary] .bar-button-default ion-button-effect,
-.toolbar[secondary] .bar-button-outline ion-button-effect {
-  background-color: white; }
 
 .toolbar[secondary] .bar-button-outline {
   border-color: white; }
@@ -8330,14 +8277,10 @@ ion-buttons[right] {
 .toolbar[danger] .toolbar-background {
   background: #f53d3d; }
 
+.toolbar[danger] .toolbar-title,
 .toolbar[danger] .bar-button-default,
-.toolbar[danger] .bar-button-outline,
-.toolbar[danger] .toolbar-title {
+.toolbar[danger] .bar-button-outline {
   color: white; }
-
-.toolbar[danger] .bar-button-default ion-button-effect,
-.toolbar[danger] .bar-button-outline ion-button-effect {
-  background-color: white; }
 
 .toolbar[danger] .bar-button-outline {
   border-color: white; }
@@ -8525,14 +8468,10 @@ ion-buttons[right] {
 .toolbar[light] .toolbar-background {
   background: #f4f4f4; }
 
+.toolbar[light] .toolbar-title,
 .toolbar[light] .bar-button-default,
-.toolbar[light] .bar-button-outline,
-.toolbar[light] .toolbar-title {
+.toolbar[light] .bar-button-outline {
   color: #424242; }
-
-.toolbar[light] .bar-button-default ion-button-effect,
-.toolbar[light] .bar-button-outline ion-button-effect {
-  background-color: #424242; }
 
 .toolbar[light] .bar-button-outline {
   border-color: #424242; }
@@ -8720,14 +8659,10 @@ ion-buttons[right] {
 .toolbar[dark] .toolbar-background {
   background: #222; }
 
+.toolbar[dark] .toolbar-title,
 .toolbar[dark] .bar-button-default,
-.toolbar[dark] .bar-button-outline,
-.toolbar[dark] .toolbar-title {
+.toolbar[dark] .bar-button-outline {
   color: white; }
-
-.toolbar[dark] .bar-button-default ion-button-effect,
-.toolbar[dark] .bar-button-outline ion-button-effect {
-  background-color: white; }
 
 .toolbar[dark] .bar-button-outline {
   border-color: white; }
@@ -8915,14 +8850,10 @@ ion-buttons[right] {
 .toolbar[energized] .toolbar-background {
   background: #ffc527; }
 
+.toolbar[energized] .toolbar-title,
 .toolbar[energized] .bar-button-default,
-.toolbar[energized] .bar-button-outline,
-.toolbar[energized] .toolbar-title {
+.toolbar[energized] .bar-button-outline {
   color: #424242; }
-
-.toolbar[energized] .bar-button-default ion-button-effect,
-.toolbar[energized] .bar-button-outline ion-button-effect {
-  background-color: #424242; }
 
 .toolbar[energized] .bar-button-outline {
   border-color: #424242; }
@@ -9110,14 +9041,10 @@ ion-buttons[right] {
 .toolbar[royal] .toolbar-background {
   background: #7e60ff; }
 
+.toolbar[royal] .toolbar-title,
 .toolbar[royal] .bar-button-default,
-.toolbar[royal] .bar-button-outline,
-.toolbar[royal] .toolbar-title {
+.toolbar[royal] .bar-button-outline {
   color: #424242; }
-
-.toolbar[royal] .bar-button-default ion-button-effect,
-.toolbar[royal] .bar-button-outline ion-button-effect {
-  background-color: #424242; }
 
 .toolbar[royal] .bar-button-outline {
   border-color: #424242; }
@@ -9305,14 +9232,10 @@ ion-buttons[right] {
 .toolbar[subtle] .toolbar-background {
   background: #444444; }
 
+.toolbar[subtle] .toolbar-title,
 .toolbar[subtle] .bar-button-default,
-.toolbar[subtle] .bar-button-outline,
-.toolbar[subtle] .toolbar-title {
+.toolbar[subtle] .bar-button-outline {
   color: white; }
-
-.toolbar[subtle] .bar-button-default ion-button-effect,
-.toolbar[subtle] .bar-button-outline ion-button-effect {
-  background-color: white; }
 
 .toolbar[subtle] .bar-button-outline {
   border-color: white; }

@@ -34,7 +34,7 @@ Segment
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/segment/segment.ts#L99'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/segment/segment.ts#L97'>
 Improve this doc
 </a>
 
@@ -84,49 +84,28 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
 
 
-
-
-
-
-
-
-<th>Type</th>
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-(change)
+<!-- instance methods on the class -->
+<!-- output events on the class -->
+<h2>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>change</td>
+      <td><p>  expression to evaluate when a segment button has been changed</p>
 </td>
-
-
-<td>
-Any
-</td>
-
-
-<td>
-expression to evaluate when a segment button has been changed
-</td>
-</tr>
-
-</tbody>
-</table>
-
-
-
-<!-- instance methods on the class --><!-- related link -->
+    </tr>
+    
+  </tbody>
+</table><!-- related link -->
 
 <h2>Related</h2>
 

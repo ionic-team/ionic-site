@@ -53,56 +53,56 @@ Improve this doc
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
 
 
-
-
-
-
-
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-value
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>checked</td>
+      <td><code>Bool</code></td>
+      <td><p> Whether or not the option is already checked and selected</p>
 </td>
-
-
-
-<td>
-the value of the option
+    </tr>
+    
+    <tr>
+      <td>value</td>
+      <td><code>Any</code></td>
+      <td><p> The value of the option</p>
 </td>
-</tr>
-
-<tr>
-<td>
-checked
-</td>
-
-
-
-<td>
-whether or not the option is already checked and selected
-
-</td>
-</tr>
-
-</tbody>
+    </tr>
+    
+  </tbody>
 </table>
-
-
-
-<!-- instance methods on the class --><!-- related link --><!-- end content block -->
+<!-- output events on the class -->
+<h2>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>select</td>
+      <td><p> Event to evaluate when option has changed</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

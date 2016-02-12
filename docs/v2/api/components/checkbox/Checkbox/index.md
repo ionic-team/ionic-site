@@ -80,70 +80,44 @@ as iOS or Material Design.</p>
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
 
 
-
-
-
-
-
-
-
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-checked
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>value</td>
+      <td><code>String</code></td>
+      <td><p> the value of the checkbox component</p>
 </td>
-
-
-
-<td>
-whether or not the checkbox is checked (defaults to false)
+    </tr>
+    
+    <tr>
+      <td>checked</td>
+      <td><code>Bool</code></td>
+      <td><p> whether or not the checkbox is checked (defaults to false)</p>
 </td>
-</tr>
-
-<tr>
-<td>
-value
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>Bool</code></td>
+      <td><p> whether or not the checkbox is disabled or not.</p>
 </td>
-
-
-
-<td>
-the value of the checkbox component
-</td>
-</tr>
-
-<tr>
-<td>
-disabled
-</td>
-
-
-
-<td>
-whether or not the checkbox is disabled or not.
-
-</td>
-</tr>
-
-</tbody>
-</table>
-
-
-
-<!-- instance methods on the class --><!-- related link -->
+    </tr>
+    
+  </tbody>
+</table><!-- related link -->
 
 <h2>Related</h2>
 

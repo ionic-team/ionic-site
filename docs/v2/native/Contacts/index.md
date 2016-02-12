@@ -30,7 +30,7 @@ Contacts
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/contacts.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/contacts.ts#L187'>
 Improve this doc
 </a>
 
@@ -44,7 +44,7 @@ Improve this doc
 
 <p>Access and manage Contacts on the device.</p>
 <p>Requires plugin: <code>cordova-plugin-contacts</code>
-For full info, please see the <a href="https://github.com/apache/cordova-plugin-contacts">Cordova Contacts Docs</a></p>
+For full info, please see the <a href="https://github.com/apache/cordova-plugin-contacts">Cordova Contacts plugin docs</a></p>
 
 <!-- @usage tag -->
 

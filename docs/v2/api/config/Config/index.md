@@ -255,7 +255,7 @@ Sets a single config value.
       </td>
       <td>
         
-  <code>String</code>
+  <code>string</code>
       </td>
       <td>
         <p>The platform (either &#39;ios&#39; or &#39;android&#39;) that the config value should apply to. Leaving this blank will apply the config value to all platforms.</p>
@@ -272,7 +272,7 @@ Sets a single config value.
       </td>
       <td>
         
-  <code>String</code>
+  <code>string</code>
       </td>
       <td>
         <p>The key used to look up the value at a later point in time.</p>
@@ -289,7 +289,7 @@ Sets a single config value.
       </td>
       <td>
         
-  <code>String</code>
+  <code>string</code>
       </td>
       <td>
         <p>The config value being stored.</p>
@@ -337,7 +337,7 @@ Returns a single config value, given a key.
       </td>
       <td>
         
-  <code>String</code>
+  <code>string</code>
       </td>
       <td>
         <p>the key for the config value</p>
@@ -385,7 +385,7 @@ Same as `get()`, however always returns a boolean value.
       </td>
       <td>
         
-  <code>String</code>
+  <code>string</code>
       </td>
       <td>
         <p>the key for the config value</p>

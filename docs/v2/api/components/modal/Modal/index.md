@@ -165,7 +165,7 @@ class Profile {
       </td>
       <td>
         
-  <code>Any</code>
+  <code>any</code>
       </td>
       <td>
         <p>Modal</p>
@@ -182,7 +182,7 @@ class Profile {
       </td>
       <td>
         
-  <code>Object</code>
+  <code>object</code>
       </td>
       <td>
         <p>Modal options</p>

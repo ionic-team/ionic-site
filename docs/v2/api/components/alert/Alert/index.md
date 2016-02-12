@@ -174,7 +174,7 @@ presentPrompt() {
       </td>
       <td>
         
-  <code>Object</code>
+  <code>object</code>
       </td>
       <td>
         <p>Alert options</p>

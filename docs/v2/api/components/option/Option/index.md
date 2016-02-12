@@ -70,14 +70,14 @@ Improve this doc
     
     <tr>
       <td>checked</td>
-      <td><code>Bool</code></td>
+      <td><code>boolean</code></td>
       <td><p> Whether or not the option is already checked and selected</p>
 </td>
     </tr>
     
     <tr>
       <td>value</td>
-      <td><code>Any</code></td>
+      <td><code>any</code></td>
       <td><p> The value of the option</p>
 </td>
     </tr>

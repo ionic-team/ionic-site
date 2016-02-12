@@ -114,35 +114,35 @@ class. Below is an example of presenting a modal from one of the tabs.</p>
     
     <tr>
       <td>root</td>
-      <td><code>Page</code></td>
+      <td><code>page</code></td>
       <td><p> Set the root page for this tab</p>
 </td>
     </tr>
     
     <tr>
       <td>tabTitle</td>
-      <td><code>String</code></td>
+      <td><code>string</code></td>
       <td><p> Set the title of this tab</p>
 </td>
     </tr>
     
     <tr>
       <td>tabIcon</td>
-      <td><code>String</code></td>
+      <td><code>string</code></td>
       <td><p> Set the icon for this tab</p>
 </td>
     </tr>
     
     <tr>
       <td>tabBadge</td>
-      <td><code>String</code></td>
+      <td><code>string</code></td>
       <td><p> Set the badge for this tab</p>
 </td>
     </tr>
     
     <tr>
       <td>tabBadgeStyle</td>
-      <td><code>String</code></td>
+      <td><code>string</code></td>
       <td><p> Set the badge color for this tab</p>
 </td>
     </tr>

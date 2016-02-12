@@ -102,63 +102,63 @@ Improve this doc
     
     <tr>
       <td>autoplay</td>
-      <td><code>Bool</code></td>
+      <td><code>boolean</code></td>
       <td><p> whether or not the slides should automatically change</p>
 </td>
     </tr>
     
     <tr>
       <td>loop</td>
-      <td><code>Boolean</code></td>
+      <td><code>boolean</code></td>
       <td><p> whether or not the slides should automatically change</p>
 </td>
     </tr>
     
     <tr>
       <td>index</td>
-      <td><code>Number</code></td>
+      <td><code>number</code></td>
       <td><p> The slide index to start on</p>
 </td>
     </tr>
     
     <tr>
       <td>bounce</td>
-      <td><code>Boolean</code></td>
+      <td><code>boolean</code></td>
       <td><p> whether the slides should bounce</p>
 </td>
     </tr>
     
     <tr>
       <td>pager</td>
-      <td><code>Boolean</code></td>
+      <td><code>boolean</code></td>
       <td><p> Whether the slide should show the page or not</p>
 </td>
     </tr>
     
     <tr>
       <td>options</td>
-      <td><code>Any</code></td>
+      <td><code>any</code></td>
       <td><p> Any additional slider options you want to pass</p>
 </td>
     </tr>
     
     <tr>
       <td>zoom</td>
-      <td><code>Number</code></td>
+      <td><code>number</code></td>
       <td><p> Whether or not the slider can zoom in or out</p>
 </td>
     </tr>
     
     <tr>
       <td>zoomDuration</td>
-      <td><code>Number</code></td>
+      <td><code>number</code></td>
       <td><p> how long it should take to zoom a slide</p>
 </td>
     </tr>
     
     <tr>
       <td>zoomMax</td>
-      <td><code>Number</code></td>
+      <td><code>number</code></td>
       <td><p> the max scale an slide can be zoomed</p>
 </td>
     </tr>

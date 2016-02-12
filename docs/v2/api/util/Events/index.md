@@ -103,7 +103,7 @@ Subscribe to an event topic. Events that get posted to that topic will trigger t
       </td>
       <td>
         
-  <code>String</code>
+  <code>string</code>
       </td>
       <td>
         <p>the topic to subscribe to</p>
@@ -120,7 +120,7 @@ Subscribe to an event topic. Events that get posted to that topic will trigger t
       </td>
       <td>
         
-  <code>Function</code>
+  <code>function</code>
       </td>
       <td>
         <p>the event handler</p>
@@ -169,7 +169,7 @@ Unsubscribe from the given topic. Your handler will no longer receive events pub
       </td>
       <td>
         
-  <code>String</code>
+  <code>string</code>
       </td>
       <td>
         <p>the topic to unsubscribe from</p>
@@ -186,7 +186,7 @@ Unsubscribe from the given topic. Your handler will no longer receive events pub
       </td>
       <td>
         
-  <code>Function</code>
+  <code>function</code>
       </td>
       <td>
         <p>the event handler</p>
@@ -243,7 +243,7 @@ Publish an event to the given topic.
       </td>
       <td>
         
-  <code>String</code>
+  <code>string</code>
       </td>
       <td>
         <p>the topic to publish to</p>
@@ -260,7 +260,7 @@ Publish an event to the given topic.
       </td>
       <td>
         
-  <code>Any</code>
+  <code>any</code>
       </td>
       <td>
         <p>the data to send as the event</p>

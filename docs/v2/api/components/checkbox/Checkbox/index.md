@@ -97,21 +97,21 @@ as iOS or Material Design.</p>
     
     <tr>
       <td>value</td>
-      <td><code>String</code></td>
+      <td><code>string</code></td>
       <td><p> the value of the checkbox component</p>
 </td>
     </tr>
     
     <tr>
       <td>checked</td>
-      <td><code>Bool</code></td>
+      <td><code>boolean</code></td>
       <td><p> whether or not the checkbox is checked (defaults to false)</p>
 </td>
     </tr>
     
     <tr>
       <td>disabled</td>
-      <td><code>Bool</code></td>
+      <td><code>boolean</code></td>
       <td><p> whether or not the checkbox is disabled or not.</p>
 </td>
     </tr>

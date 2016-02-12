@@ -115,112 +115,37 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-cancelText
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>multiple</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether or not the select component can accept multipl selections</p>
 </td>
-
-
-
-<td>
-The text of the cancel button. Defatuls to 'cancel'
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether or not the select component is disabled or not</p>
 </td>
-</tr>
-
-<tr>
-<td>
-okText
-</td>
-
-
-
-<td>
-The text of the ok button. Defatuls to 'OK'
-</td>
-</tr>
-
-<tr>
-<td>
-alertOptions
-</td>
-
-
-
-<td>
-Any addition options that an alert can take. Title, Subtitle, etc.
-</td>
-</tr>
-
-<tr>
-<td>
-multiple
-</td>
-
-
-
-<td>
-Whether or not the select component can accept multipl selections
-</td>
-</tr>
-
-<tr>
-<td>
-disabled
-</td>
-
-
-
-<td>
-Whether or not the select component is disabled or not
-</td>
-</tr>
-
-<tr>
-<td>
-(change)
-</td>
-
-
-
-<td>
-Any expression you want to evaluate when the selection has changed
-
-</td>
-</tr>
-
-</tbody>
-</table>
-
-
-
-<!-- instance methods on the class --><!-- related link --><!-- end content block -->
+    </tr>
+    
+  </tbody>
+</table><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

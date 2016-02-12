@@ -93,28 +93,28 @@ markup once, and let Ionic automatically apply the appropriate icon.</p>
     
     <tr>
       <td>name</td>
-      <td><code>String</code></td>
+      <td><code>string</code></td>
       <td><p> Icon to use. Will load the appropriate icon for each mode</p>
 </td>
     </tr>
     
     <tr>
       <td>ios</td>
-      <td><code>String</code></td>
+      <td><code>string</code></td>
       <td><p> Explicitly set the icon to use on iOS</p>
 </td>
     </tr>
     
     <tr>
       <td>md</td>
-      <td><code>String</code></td>
+      <td><code>string</code></td>
       <td><p> Explicitly set the icon to use on MD</p>
 </td>
     </tr>
     
     <tr>
       <td>isActive</td>
-      <td><code>Bool</code></td>
+      <td><code>bool</code></td>
       <td><p> Whether or not the icon has an &quot;active&quot; appearance. On iOS an active icon is filled in or full appearance, and an inactive icon on iOS will use an outlined version of the icon same icon. Material Design icons do not change appearance depending if they&#39;re active or not. The <code>isActive</code> property is largely used by the tabbar.</p>
 </td>
     </tr>

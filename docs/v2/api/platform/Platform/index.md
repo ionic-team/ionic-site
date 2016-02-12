@@ -187,7 +187,7 @@ export MyClass {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>bool</code> returns true/false based on platform you place
+  <code>boolean</code> returns true/false based on platform you place
 </div>
 
 

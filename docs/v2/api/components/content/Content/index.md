@@ -68,80 +68,6 @@ Improve this doc
 
 <h2>Instance Methods</h2>
 
-<div id="addScrollEventListener"></div>
-
-<h3>
-<code>addScrollEventListener(handler)</code>
-  
-
-</h3>
-
-Adds the specified scroll handler to the content' scroll element.
-
-```ts
-@Page({
-  template: `<ion-content id="my-content"></ion-content>`
-)}
-export class MyPage{
-   constructor(app: IonicApp){
-       this.app = app;
-   }
-  // Need to wait until the component has been initialized
-  ngAfterViewInit() {
-    // Here 'my-content' is the ID of my ion-content
-    this.content = this.app.getComponent('my-content');
-    this.content.addScrollEventListener(this.myScroll);
-  }
-    myScroll() {
-     console.info('They see me scrolling...');
-   }
-}
-```
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        handler
-        
-        
-      </td>
-      <td>
-        
-  <code>Function</code>
-      </td>
-      <td>
-        <p>The method you want perform when scrolling</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Function</code> A function that removes the scroll handler.
-</div>
-
-
-
-
 <div id="onScrollEnd"></div>
 
 <h3>
@@ -172,7 +98,7 @@ Call a method when scrolling has stopped
       </td>
       <td>
         
-  <code>Function</code>
+  <code>function</code>
       </td>
       <td>
         <p>The method you want perform when scrolling has ended</p>
@@ -241,7 +167,7 @@ export class MyPage{
       </td>
       <td>
         
-  <code>Number</code>
+  <code>number</code>
       </td>
       <td>
         <p>The x-value to scroll to.</p>
@@ -258,7 +184,7 @@ export class MyPage{
       </td>
       <td>
         
-  <code>Number</code>
+  <code>number</code>
       </td>
       <td>
         <p>The y-value to scroll to.</p>
@@ -275,7 +201,7 @@ export class MyPage{
       </td>
       <td>
         
-  <code>Number</code>
+  <code>number</code>
       </td>
       <td>
         <p>Duration of the scroll animation in ms.</p>
@@ -311,7 +237,7 @@ export class MyPage{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise when done
+  <code>promise</code> Returns a promise when done
 </div>
 
 
@@ -356,7 +282,7 @@ export class MyPage{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise when done
+  <code>promise</code> Returns a promise when done
 </div>
 
 

@@ -249,28 +249,28 @@ the screen, while on Android it is at the top.</p>
     
     <tr>
       <td>selectedIndex</td>
-      <td><code>Any</code></td>
+      <td><code>any</code></td>
       <td><p> The default selected tab index when first loaded. If a selected index wasn&#39;t provided then it&#39;ll use <code>0</code>, the first tab.</p>
 </td>
     </tr>
     
     <tr>
       <td>preloadTabs</td>
-      <td><code>Any</code></td>
+      <td><code>any</code></td>
       <td><p> Sets whether to preload all the tabs, true or false</p>
 </td>
     </tr>
     
     <tr>
       <td>tabbarIcons</td>
-      <td><code>String</code></td>
+      <td><code>string</code></td>
       <td><p> set the position of the tabbar&#39;s icons: top, bottom, left, right, hide</p>
 </td>
     </tr>
     
     <tr>
       <td>tabbarPlacement</td>
-      <td><code>String</code></td>
+      <td><code>string</code></td>
       <td><p> Set position of the tabbar, top or bottom</p>
 </td>
     </tr>

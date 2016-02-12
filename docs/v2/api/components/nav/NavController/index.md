@@ -150,7 +150,7 @@ Set the root for the current navigation stack
       </td>
       <td>
         
-  <code>type</code>
+  <code>Type</code>
       </td>
       <td>
         <p>The name of the component you want to push on the navigation stack</p>
@@ -203,7 +203,7 @@ Set the root for the current navigation stack
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>promise</code> Returns a promise when done
+  <code>Promise</code> Returns a promise when done
 </div>
 
 
@@ -305,7 +305,7 @@ import {Detail} from '../detail/detail';
       </td>
       <td>
         
-  <code>array&lt;type&gt;</code>
+  <code>array&lt;Type&gt;</code>
       </td>
       <td>
         <p>An arry of page components and their params to load in the stack</p>
@@ -341,7 +341,7 @@ import {Detail} from '../detail/detail';
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>promise</code> Returns a promise when the pages are set
+  <code>Promise</code> Returns a promise when the pages are set
 </div>
 
 
@@ -434,7 +434,7 @@ class MyClass{
       </td>
       <td>
         
-  <code>type</code>
+  <code>Type</code>
       </td>
       <td>
         <p>The page component class you want to push on to the navigation stack</p>
@@ -487,7 +487,7 @@ class MyClass{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>promise</code> Returns a promise, which resolves when the transition has completed
+  <code>Promise</code> Returns a promise, which resolves when the transition has completed
 </div>
 
 
@@ -541,7 +541,7 @@ class MyClass{
       </td>
       <td>
         
-  <code>viewController</code>
+  <code>ViewController</code>
       </td>
       <td>
         <p>The name of the component you want to push on the navigation stack</p>
@@ -577,7 +577,7 @@ class MyClass{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>promise</code> Returns a promise, which resolves when the transition has completed
+  <code>Promise</code> Returns a promise, which resolves when the transition has completed
 </div>
 
 
@@ -697,7 +697,7 @@ This will insert the `Info` page into the second slot of our navigation stack
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>promise</code> Returns a promise when the page has been inserted into the navigation stack
+  <code>Promise</code> Returns a promise when the page has been inserted into the navigation stack
 </div>
 
 
@@ -770,7 +770,7 @@ in and become the active page.
       </td>
       <td>
         
-  <code>Array&lt;{page: Type, params=: any}&gt;</code>
+  <code>array&lt;{page: Type, params=: any}&gt;</code>
       </td>
       <td>
         <p>An array of objects, each with a <code>page</code> and optionally <code>params</code> property</p>
@@ -806,7 +806,7 @@ in and become the active page.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>promise</code> Returns a promise when the pages have been inserted into the navigation stack
+  <code>Promise</code> Returns a promise when the pages have been inserted into the navigation stack
 </div>
 
 
@@ -873,7 +873,7 @@ class SecondView{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>promise</code> Returns a promise when the transition is completed
+  <code>Promise</code> Returns a promise when the transition is completed
 </div>
 
 
@@ -956,7 +956,7 @@ Pop to a specific view in the history stack
       </td>
       <td>
         
-  <code>viewController</code>
+  <code>ViewController</code>
       </td>
       <td>
         <p>to pop to</p>
@@ -1086,7 +1086,7 @@ export class Detail {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>promise</code> Returns a promise when the page has been removed.
+  <code>Promise</code> Returns a promise when the page has been removed.
 </div>
 
 
@@ -1246,7 +1246,7 @@ Otherwise returns false.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>viewController</code> Returns the component that matches the index given
+  <code>ViewController</code> Returns the component that matches the index given
 </div>
 
 
@@ -1270,7 +1270,7 @@ Otherwise returns false.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>viewController</code> Returns the active page's view controller.
+  <code>ViewController</code> Returns the active page's view controller.
 </div>
 
 
@@ -1305,7 +1305,7 @@ Otherwise returns false.
       </td>
       <td>
         
-  <code>viewController</code>
+  <code>ViewController</code>
       </td>
       <td>
         
@@ -1358,7 +1358,7 @@ Otherwise returns false.
       </td>
       <td>
         
-  <code>viewController</code>
+  <code>ViewController</code>
       </td>
       <td>
         <p>The ViewController to get the previous view to</p>
@@ -1401,7 +1401,7 @@ First page in this nav controller's stack.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>viewController</code> Returns the first component page in the current stack
+  <code>ViewController</code> Returns the first component page in the current stack
 </div>
 
 
@@ -1425,7 +1425,7 @@ Last page in this nav controller's stack. This would not return a page which is 
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>viewController</code> Returns the last component page in the current stack
+  <code>ViewController</code> Returns the last component page in the current stack
 </div>
 
 
@@ -1460,7 +1460,7 @@ Last page in this nav controller's stack. This would not return a page which is 
       </td>
       <td>
         
-  <code>viewController</code>
+  <code>ViewController</code>
       </td>
       <td>
         
@@ -1526,7 +1526,7 @@ Returns the root NavController.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>navController</code> 
+  <code>NavController</code> 
 </div>
 
 

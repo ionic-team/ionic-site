@@ -98,7 +98,7 @@ Call a method when scrolling has stopped
       </td>
       <td>
         
-  <code>function</code>
+  <code>Function</code>
       </td>
       <td>
         <p>The method you want perform when scrolling has ended</p>
@@ -237,7 +237,7 @@ export class MyPage{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>promise</code> Returns a promise when done
+  <code>Promise</code> Returns a promise when done
 </div>
 
 
@@ -282,7 +282,7 @@ export class MyPage{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>promise</code> Returns a promise when done
+  <code>Promise</code> Returns a promise when done
 </div>
 
 

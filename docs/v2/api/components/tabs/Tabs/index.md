@@ -206,7 +206,7 @@ the screen, while on Android it is at the top.</p>
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Any</code> Tab Returs the tab who's index matches the one passed
+  <code>any</code> Tab Returs the tab who's index matches the one passed
 </div>
 
 
@@ -230,7 +230,7 @@ the screen, while on Android it is at the top.</p>
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Any</code> Tab Returns the currently selected tab
+  <code>any</code> Tab Returns the currently selected tab
 </div>
 
 

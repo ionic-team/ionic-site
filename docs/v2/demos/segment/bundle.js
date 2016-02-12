@@ -27945,8 +27945,8 @@
 	     * available to accept new user commands. For example, this is set to `false`
 	     * while views transition, a modal slides up, an action-sheet
 	     * slides up, etc. After the transition completes it is set back to `true`.
-	     * @param {bool} isEnabled
-	     * @param {bool} fallback  When `isEnabled` is set to `false`, this argument
+	     * @param {boolean} isEnabled
+	     * @param {boolean} fallback  When `isEnabled` is set to `false`, this argument
 	     * is used to set the maximum number of milliseconds that app will wait until
 	     * it will automatically enable the app again. It's basically a fallback incase
 	     * something goes wrong during a transition and the app wasn't re-enabled correctly.
@@ -27962,7 +27962,7 @@
 	    /**
 	     * @private
 	     * Boolean if the app is actively enabled or not.
-	     * @return {bool}
+	     * @return {boolean}
 	     */
 	    IonicApp.prototype.isEnabled = function () {
 	        return (this._disTime < Date.now());
@@ -27976,7 +27976,7 @@
 	    /**
 	     * @private
 	     * Boolean if the app is actively scrolling or not.
-	     * @return {bool}
+	     * @return {boolean}
 	     */
 	    IonicApp.prototype.isScrolling = function () {
 	        return (this._scrollTime + 64 > Date.now());
@@ -27985,7 +27985,7 @@
 	     * @private
 	     * Register a known component with a key, for easy lookups later.
 	     * @param {string} id  The id to use to register the component
-	     * @param {Object} component  The component to register
+	     * @param {object} component  The component to register
 	     */
 	    IonicApp.prototype.register = function (id, component) {
 	        this.components[id] = component;
@@ -28001,8 +28001,8 @@
 	    /**
 	     * @private
 	     * Get a registered component with the given type (returns the first)
-	     * @param {Object} cls the type to search for
-	     * @return {Object} the matching component, or undefined if none was found
+	     * @param {object} cls the type to search for
+	     * @return {object} the matching component, or undefined if none was found
 	     */
 	    IonicApp.prototype.getRegisteredComponent = function (cls) {
 	        for (var key in this.components) {
@@ -28016,7 +28016,7 @@
 	     * @private
 	     * Get the component for the given key.
 	     * @param {string} id  TODO
-	     * @return {Object} TODO
+	     * @return {object} TODO
 	     */
 	    IonicApp.prototype.getComponent = function (id) {
 	        // deprecated warning
@@ -41554,7 +41554,7 @@
 	    }
 	    /**
 	     * Progamatically open the Menu.
-	     * @return {promise} returns a promise when the menu is fully opened
+	     * @return {Promise} returns a promise when the menu is fully opened
 	     */
 	    MenuController.prototype.open = function (menuId) {
 	        var menu = this.get(menuId);
@@ -41565,7 +41565,7 @@
 	    /**
 	     * Progamatically close the Menu.
 	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
-	     * @return {promise} returns a promise when the menu is fully closed
+	     * @return {Promise} returns a promise when the menu is fully closed
 	     */
 	    MenuController.prototype.close = function (menuId) {
 	        var menu = this.get(menuId);
@@ -41577,7 +41577,7 @@
 	     * Toggle the menu. If it's closed, it will open, and if opened, it will
 	     * close.
 	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
-	     * @return {promise} returns a promise when the menu has been toggled
+	     * @return {Promise} returns a promise when the menu has been toggled
 	     */
 	    MenuController.prototype.toggle = function (menuId) {
 	        var menu = this.get(menuId);
@@ -41590,7 +41590,7 @@
 	     * left menus, but only one of them should be able to be dragged open.
 	     * @param {boolean} shouldEnable  True if it should be enabled, false if not.
 	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
-	     * @return {menu}  Returns the instance of the menu, which is useful for chaining.
+	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
 	     */
 	    MenuController.prototype.enable = function (shouldEnable, menuId) {
 	        var menu = this.get(menuId);
@@ -41602,7 +41602,7 @@
 	     * Used to enable or disable the ability to swipe open the menu.
 	     * @param {boolean} shouldEnable  True if it should be swipe-able, false if not.
 	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
-	     * @return {menu}  Returns the instance of the menu, which is useful for chaining.
+	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
 	     */
 	    MenuController.prototype.swipeEnable = function (shouldEnable, menuId) {
 	        var menu = this.get(menuId);
@@ -41613,7 +41613,7 @@
 	    /**
 	     * Used to get a menu instance.
 	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
-	     * @return {menu}  Returns the instance of the menu if found, otherwise `null`.
+	     * @return {Menu}  Returns the instance of the menu if found, otherwise `null`.
 	     */
 	    MenuController.prototype.get = function (menuId) {
 	        if (menuId) {
@@ -47050,10 +47050,10 @@
 	    }
 	    /**
 	     * Set the root for the current navigation stack
-	     * @param {type} page  The name of the component you want to push on the navigation stack
+	     * @param {Type} page  The name of the component you want to push on the navigation stack
 	     * @param {object} [params={}] Any nav-params you want to pass along to the next view
 	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {promise} Returns a promise when done
+	     * @returns {Promise} Returns a promise when done
 	     */
 	    NavController.prototype.setRoot = function (page, params, opts) {
 	        if (params === void 0) { params = {}; }
@@ -47129,9 +47129,9 @@
 	     *  }
 	     *```
 	     *
-	     * @param {array<type>} pages  An arry of page components and their params to load in the stack
+	     * @param {array<Type>} pages  An arry of page components and their params to load in the stack
 	     * @param {object} [opts={}] Any options you want to use pass
-	     * @returns {promise} Returns a promise when the pages are set
+	     * @returns {Promise} Returns a promise when the pages are set
 	     */
 	    NavController.prototype.setPages = function (pages, opts) {
 	        if (opts === void 0) { opts = {}; }
@@ -47238,10 +47238,10 @@
 	     *    }
 	     * }
 	     * ```
-	     * @param {type} page  The page component class you want to push on to the navigation stack
+	     * @param {Type} page  The page component class you want to push on to the navigation stack
 	     * @param {object} [params={}] Any nav-params you want to pass along to the next view
 	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {promise} Returns a promise, which resolves when the transition has completed
+	     * @returns {Promise} Returns a promise, which resolves when the transition has completed
 	     */
 	    NavController.prototype.push = function (page, params, opts) {
 	        if (params === void 0) { params = {}; }
@@ -47269,9 +47269,9 @@
 	     * }
 	     * ```
 	     *
-	     * @param {viewController} enteringView The name of the component you want to push on the navigation stack
+	     * @param {ViewController} enteringView The name of the component you want to push on the navigation stack
 	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {promise} Returns a promise, which resolves when the transition has completed
+	     * @returns {Promise} Returns a promise, which resolves when the transition has completed
 	     */
 	    NavController.prototype.present = function (enteringView, opts) {
 	        if (opts === void 0) { opts = {}; }
@@ -47317,7 +47317,7 @@
 	     * @param {Type} page  The name of the component you want to insert into the nav stack
 	     * @param {object} [params={}] Any nav-params you want to pass along to the next page
 	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {promise} Returns a promise when the page has been inserted into the navigation stack
+	     * @returns {Promise} Returns a promise when the page has been inserted into the navigation stack
 	     */
 	    NavController.prototype.insert = function (insertIndex, page, params, opts) {
 	        if (params === void 0) { params = {}; }
@@ -47348,9 +47348,9 @@
 	     * in and become the active page.
 	     *
 	     * @param {number} insertIndex  The index where you want to insert the page
-	     * @param {Array<{page: Type, params=: any}>} insertPages  An array of objects, each with a `page` and optionally `params` property
+	     * @param {array<{page: Type, params=: any}>} insertPages  An array of objects, each with a `page` and optionally `params` property
 	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {promise} Returns a promise when the pages have been inserted into the navigation stack
+	     * @returns {Promise} Returns a promise when the pages have been inserted into the navigation stack
 	     */
 	    NavController.prototype.insertPages = function (insertIndex, insertPages, opts) {
 	        if (opts === void 0) { opts = {}; }
@@ -47461,7 +47461,7 @@
 	     * ```
 	     *
 	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {promise} Returns a promise when the transition is completed
+	     * @returns {Promise} Returns a promise when the transition is completed
 	     */
 	    NavController.prototype.pop = function (opts) {
 	        if (opts === void 0) { opts = {}; }
@@ -47482,7 +47482,7 @@
 	    };
 	    /**
 	     * Pop to a specific view in the history stack
-	     * @param {viewController} view  to pop to
+	     * @param {ViewController} view  to pop to
 	     * @param {object} [opts={}]  Any options you want to use pass to transtion
 	     */
 	    NavController.prototype.popTo = function (view, opts) {
@@ -47511,7 +47511,7 @@
 	     * @param {number} [startIndex]  The starting index to remove pages from the stack. Default is the index of the last page.
 	     * @param {number} [removeCount]  The number of pages to remove, defaults to remove `1`.
 	     * @param {object} [opts={}] Any options you want to use pass to transtion.
-	     * @returns {promise} Returns a promise when the page has been removed.
+	     * @returns {Promise} Returns a promise when the page has been removed.
 	     */
 	    NavController.prototype.remove = function (startIndex, removeCount, opts) {
 	        var _this = this;
@@ -48195,7 +48195,7 @@
 	    };
 	    /**
 	     * @private
-	     * @returns {viewController}
+	     * @returns {ViewController}
 	     */
 	    NavController.prototype.getByState = function (state) {
 	        for (var i = this._views.length - 1; i >= 0; i--) {
@@ -48207,26 +48207,26 @@
 	    };
 	    /**
 	     * @param {number} index  The index of the page you want to get
-	     * @returns {viewController} Returns the component that matches the index given
+	     * @returns {ViewController} Returns the component that matches the index given
 	     */
 	    NavController.prototype.getByIndex = function (index) {
 	        return (index < this._views.length && index > -1 ? this._views[index] : null);
 	    };
 	    /**
-	     * @returns {viewController} Returns the active page's view controller.
+	     * @returns {ViewController} Returns the active page's view controller.
 	     */
 	    NavController.prototype.getActive = function () {
 	        return this.getByState(STATE_ACTIVE);
 	    };
 	    /**
-	     * @param {viewController} view
+	     * @param {ViewController} view
 	     * @returns {boolean}
 	     */
 	    NavController.prototype.isActive = function (view) {
 	        return !!(view && view.state === STATE_ACTIVE);
 	    };
 	    /**
-	     * @param {viewController} view  The ViewController to get the previous view to
+	     * @param {ViewController} view  The ViewController to get the previous view to
 	     * @returns {viewController}
 	     */
 	    NavController.prototype.getPrevious = function (view) {
@@ -48234,20 +48234,20 @@
 	    };
 	    /**
 	     * First page in this nav controller's stack.
-	     * @returns {viewController} Returns the first component page in the current stack
+	     * @returns {ViewController} Returns the first component page in the current stack
 	     */
 	    NavController.prototype.first = function () {
 	        return (this._views.length ? this._views[0] : null);
 	    };
 	    /**
 	     * Last page in this nav controller's stack. This would not return a page which is about to be destroyed.
-	     * @returns {viewController} Returns the last component page in the current stack
+	     * @returns {ViewController} Returns the last component page in the current stack
 	     */
 	    NavController.prototype.last = function () {
 	        return (this._views.length ? this._views[this._views.length - 1] : null);
 	    };
 	    /**
-	     * @param {viewController} view
+	     * @param {ViewController} view
 	     * @returns {number} Returns the index number of the view
 	     */
 	    NavController.prototype.indexOf = function (view) {
@@ -48263,7 +48263,7 @@
 	    Object.defineProperty(NavController.prototype, "rootNav", {
 	        /**
 	         * Returns the root NavController.
-	         * @returns {navController}
+	         * @returns {NavController}
 	         */
 	        get: function () {
 	            var nav = this;
@@ -49251,8 +49251,8 @@
 	     *    }
 	     * }
 	     * ```
-	     * @param {function} handler  The method you want perform when scrolling
-	     * @returns {function} A function that removes the scroll handler.
+	     * @param {Function} handler  The method you want perform when scrolling
+	     * @returns {Function} A function that removes the scroll handler.
 	     */
 	    Content.prototype.addScrollEventListener = function (handler) {
 	        var _this = this;
@@ -49269,7 +49269,7 @@
 	    /**
 	     * Call a method when scrolling has stopped
 	     *
-	     * @param {function} callback The method you want perform when scrolling has ended
+	     * @param {Function} callback The method you want perform when scrolling has ended
 	     */
 	    Content.prototype.onScrollEnd = function (callback) {
 	        var lastScrollTop = null;
@@ -49318,8 +49318,8 @@
 	     *    }
 	     * }
 	     * ```
-	     * @param {function} handler  The method you want to perform when touchmove is firing
-	     * @returns {function} A function that removes the touchmove handler.
+	     * @param {Function} handler  The method you want to perform when touchmove is firing
+	     * @returns {Function} A function that removes the touchmove handler.
 	     */
 	    Content.prototype.addTouchMoveListener = function (handler) {
 	        var _this = this;
@@ -49360,7 +49360,7 @@
 	     * @param {number} y  The y-value to scroll to.
 	     * @param {number} duration  Duration of the scroll animation in ms.
 	     * @param {TODO} tolerance  TODO
-	     * @returns {promise} Returns a promise when done
+	     * @returns {Promise} Returns a promise when done
 	     */
 	    Content.prototype.scrollTo = function (x, y, duration, tolerance) {
 	        if (this._scrollTo) {
@@ -49392,7 +49392,7 @@
 	     *    }
 	     * }
 	     * ```
-	     * @returns {promise} Returns a promise when done
+	     * @returns {Promise} Returns a promise when done
 	     */
 	    Content.prototype.scrollToTop = function () {
 	        if (this._scrollTo) {
@@ -49628,15 +49628,6 @@
 	 *  ```
 	 *  @demo /docs/v2/demos/refresher/
 	 *
-	 *  @property {string} [pullingIcon] - the icon you want to display when you begin to pull down
-	 *  @property {string} [pullingText] - the text you want to display when you begin to pull down
-	 *  @property {string} [refreshingIcon] - the icon you want to display when performing a refresh
-	 *  @property {string} [refreshingText] - the text you want to display when performing a refresh
-	 *
-	 *  @property {any} (refresh) - the methond on your class you want to perform when you refreshing
-	 *  @property {any} (starting) - the methond on your class you want to perform when you start pulling down
-	 *  @property {any} (pulling) - the methond on your class you want to perform when you are pulling down
-	 *
 	 */
 	var Refresher = (function () {
 	    function Refresher(_content, _element) {
@@ -49674,15 +49665,15 @@
 	         */
 	        this.canOverscroll = true;
 	        /**
-	         * @private
+	         * @output {any} the methond on your class you want to perform when you are pulling down
 	         */
 	        this.pulling = new core_1.EventEmitter();
 	        /**
-	         * @private
+	         * @output {any} the methond on your class you want to perform when you refreshing
 	         */
 	        this.refresh = new core_1.EventEmitter();
 	        /**
-	         * @private
+	         * @output {any} the methond on your class you want to perform when you start pulling down
 	         */
 	        this.starting = new core_1.EventEmitter();
 	        this._ele = _element.nativeElement;
@@ -54765,7 +54756,7 @@
 	    };
 	    /**
 	     * @param {number} index Index of the tab you want to get
-	     * @returns {Any} Tab Returs the tab who's index matches the one passed
+	     * @returns {any} Tab Returs the tab who's index matches the one passed
 	     */
 	    Tabs.prototype.getByIndex = function (index) {
 	        if (index < this._tabs.length && index > -1) {
@@ -54774,7 +54765,7 @@
 	        return null;
 	    };
 	    /**
-	     * @return {Any} Tab Returns the currently selected tab
+	     * @return {any} Tab Returns the currently selected tab
 	     */
 	    Tabs.prototype.getSelected = function () {
 	        for (var i = 0; i < this._tabs.length; i++) {
@@ -56308,14 +56299,14 @@
 	     * Angular2 Forms API method called by the view (NgControl) to register the
 	     * onChange event handler that updates the model (Control).
 	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
-	     * @param {Function} fn  the onChange event handler.
+	     * @param {function} fn  the onChange event handler.
 	     */
 	    Checkbox.prototype.registerOnChange = function (fn) { this.onChange = fn; };
 	    /**
 	     * @private
 	     * Angular2 Forms API method called by the the view (NgControl) to register
 	     * the onTouched event handler that marks model (Control) as touched.
-	     * @param {Function} fn  onTouched event handler.
+	     * @param {function} fn  onTouched event handler.
 	     */
 	    Checkbox.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    /**
@@ -56966,7 +56957,7 @@
 	        this.data.inputs.push(input);
 	    };
 	    /**
-	     * @param {object} button Alert button
+	     * @param {any} button Alert button
 	     */
 	    Alert.prototype.addButton = function (button) {
 	        this.data.buttons.push(button);
@@ -57299,7 +57290,7 @@
 	        this._elementRef = _elementRef;
 	        this._checked = false;
 	        /**
-	         * @input {Any} Event to evaluate when option has changed
+	         * @input {any} Event to evaluate when option has changed
 	         */
 	        this.select = new core_1.EventEmitter();
 	    }

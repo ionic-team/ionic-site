@@ -47,6 +47,141 @@ Improve this doc
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="login"></div>
+<h3><code>login()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="logout"></div>
+<h3><code>logout()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="getLoginStatus"></div>
+<h3><code>getLoginStatus()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="getAccessToken"></div>
+<h3><code>getAccessToken()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="showDialog"></div>
+<h3><code>showDialog()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="api"></div>
+<h3><code>api()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="logEvent"></div>
+<h3><code>logEvent()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="logPurchase"></div>
+<h3><code>logPurchase()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="appInvite"></div>
+<h3><code>appInvite()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- methods on the class --><!-- related link --><!-- end content block -->

@@ -47,6 +47,21 @@ Improve this doc
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="init"></div>
+<h3><code>init()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- methods on the class --><!-- related link --><!-- end content block -->

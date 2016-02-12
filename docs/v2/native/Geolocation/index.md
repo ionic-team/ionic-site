@@ -64,6 +64,36 @@ watch.subscribe((data) =&gt; {
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="getCurrentPosition"></div>
+<h3><code>getCurrentPosition()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="watchPosition"></div>
+<h3><code>watchPosition()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- methods on the class --><!-- related link --><!-- end content block -->

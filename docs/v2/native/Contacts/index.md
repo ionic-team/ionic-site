@@ -60,6 +60,157 @@ For full info, please see the <a href="https://github.com/apache/cordova-plugin-
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="create"></div>
+<h3><code>create(options)</code>
+  
+</h3>
+
+Create a new Contact object.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        options
+        
+        
+      </td>
+      <td>
+        
+  <code>Object</code>
+      </td>
+      <td>
+        <p>Object whose properties the created Contact should have.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Contact</code> Returns the created contact
+</div>
+
+
+
+<div id="find"></div>
+<h3><code>find(fields,&nbsp;options)</code>
+  
+</h3>
+
+Search for contacts in the Contacts list.
+
+Example: Contacts.find(['*'], { filter: 'Max' }) // will search for a displayName of 'Max'
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        fields
+        
+        
+      </td>
+      <td>
+        
+  <code>string[]</code>
+      </td>
+      <td>
+        <p>Contact fields to be used as a search qualifier.
+ A zero-length contactFields parameter is invalid and results in ContactError.INVALID_ARGUMENT_ERROR.
+ A contactFields value of &quot;*&quot; searches all contact fields.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        options
+        
+        
+      </td>
+      <td>
+        
+  <code>Object</code>
+      </td>
+      <td>
+        <p>the options to query with:
+  filter: The search string used to find navigator.contacts. (string) (Default: &quot;&quot;)
+  multiple: Determines if the find operation returns multiple navigator.contacts. (Boolean) (Default: false)
+  desiredFields: Contact fields to be returned back. If specified, the resulting Contact object only features values for these fields. (DOMString[]) [Optional]
+  hasPhoneNumber(Android only): Filters the search to only return contacts with a phone number informed. (Boolean) (Default: false)</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise that resolves with the search results (an array of Contact objects)
+
+
+</div>
+
+
+
+<div id="pickContact"></div>
+<h3><code>pickContact()</code>
+  
+</h3>
+
+Select a single Contact.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise that resolves with the selected Contact
+
+
+</div>
+
+
 
 
 <!-- methods on the class --><!-- related link --><!-- end content block -->

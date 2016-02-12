@@ -173,6 +173,846 @@ function bytesToString(buffer) {
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="scan"></div>
+<h3><code>scan(services,&nbsp;seconds)</code>
+  
+</h3>
+
+Scan and discover BLE peripherals for the specified amount of time.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        services
+        
+        
+      </td>
+      <td>
+        
+  <code>string[]</code>
+      </td>
+      <td>
+        <p>List of service UUIDs to discover, or <code>[]</code> to find all devices</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        seconds
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Number of seconds to run discovery</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns an Observable that notifies of each peripheral that is discovered during the specified time.
+
+
+</div>
+
+
+
+<div id="startScan"></div>
+<h3><code>startScan(services)</code>
+  
+</h3>
+
+Scan and discover BLE peripherals until `stopScan` is called.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        services
+        
+        
+      </td>
+      <td>
+        
+  <code>string[]</code>
+      </td>
+      <td>
+        <p>List of service UUIDs to discover, or <code>[]</code> to find all devices</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns an Observable that notifies of each peripheral discovered.
+
+
+</div>
+
+
+
+<div id="stopScan"></div>
+<h3><code>stopScan()</code>
+  
+</h3>
+
+Stop a scan started by `startScan`.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   returns a Promise.
+
+
+</div>
+
+
+
+<div id="connect"></div>
+<h3><code>connect(deviceId)</code>
+  
+</h3>
+
+Connect to a peripheral.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        deviceId
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID or MAC address of the peripheral</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns an Observable that notifies of connect/disconnect.
+
+
+</div>
+
+
+
+<div id="disconnect"></div>
+<h3><code>disconnect(deviceId)</code>
+  
+</h3>
+
+Disconnect from a peripheral.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        deviceId
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID or MAC address of the peripheral</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise
+
+
+</div>
+
+
+
+<div id="read"></div>
+<h3><code>read(device_id,&nbsp;service_uuid,&nbsp;characteristic_uuid)</code>
+  
+</h3>
+
+Read the value of a characteristic.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        device_id
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID or MAC address of the peripheral</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        service_uuid
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID of the BLE service</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        characteristic_uuid
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID of the BLE characteristic</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise
+
+
+</div>
+
+
+
+<div id="write"></div>
+<h3><code>write(device_id,&nbsp;service_uuid,&nbsp;characteristic_uuid,&nbsp;value)</code>
+  
+</h3>
+
+Write the value of a characteristic.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        device_id
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID or MAC address of the peripheral</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        service_uuid
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID of the BLE service</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        characteristic_uuid
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID of the BLE characteristic</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        value
+        
+        
+      </td>
+      <td>
+        
+  <code>ArrayBuffer</code>
+      </td>
+      <td>
+        <p>Data to write to the characteristic, as an ArrayBuffer.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise
+
+
+</div>
+
+
+
+<div id="writeWithoutResponse"></div>
+<h3><code>writeWithoutResponse(device_id,&nbsp;service_uuid,&nbsp;characteristic_uuid,&nbsp;value)</code>
+  
+</h3>
+
+Write the value of a characteristic without waiting for confirmation from the peripheral.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        device_id
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID or MAC address of the peripheral</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        service_uuid
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID of the BLE service</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        characteristic_uuid
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID of the BLE characteristic</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        value
+        
+        
+      </td>
+      <td>
+        
+  <code>ArrayBuffer</code>
+      </td>
+      <td>
+        <p>Data to write to the characteristic, as an ArrayBuffer.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise
+
+
+</div>
+
+
+
+<div id="startNotification"></div>
+<h3><code>startNotification(device_id,&nbsp;service_uuid,&nbsp;characteristic_uuid)</code>
+  
+</h3>
+
+Register to be notified when the value of a characteristic changes.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        device_id
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID or MAC address of the peripheral</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        service_uuid
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID of the BLE service</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        characteristic_uuid
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID of the BLE characteristic</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns an Observable that notifies of characteristic changes.
+
+
+</div>
+
+
+
+<div id="stopNotification"></div>
+<h3><code>stopNotification(device_id,&nbsp;service_uuid,&nbsp;characteristic_uuid)</code>
+  
+</h3>
+
+Stop being notified when the value of a characteristic changes.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        device_id
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID or MAC address of the peripheral</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        service_uuid
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID of the BLE service</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        characteristic_uuid
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID of the BLE characteristic</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise.
+
+
+</div>
+
+
+
+<div id="isConnected"></div>
+<h3><code>isConnected(device_id)</code>
+  
+</h3>
+
+Report the connection status.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        device_id
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>UUID or MAC address of the peripheral</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise.
+
+
+</div>
+
+
+
+<div id="isEnabled"></div>
+<h3><code>isEnabled()</code>
+  
+</h3>
+
+Report if bluetooth is enabled.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise.
+
+
+</div>
+
+
+
+<div id="showBluetoothSettings"></div>
+<h3><code>showBluetoothSettings()</code>
+  
+</h3>
+
+Open System Bluetooth settings (Android only).
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise.
+
+
+</div>
+
+
+
+<div id="enable"></div>
+<h3><code>enable()</code>
+  
+</h3>
+
+Enable Bluetooth on the device (Android only).
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise.
+
+
+</div>
+
+
 
 
 <!-- methods on the class --><!-- related link --><!-- end content block -->

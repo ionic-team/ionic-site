@@ -47,11 +47,56 @@ Improve this doc
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="verifyFingerprint"></div>
+<h3><code>verifyFingerprint()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="verifyFingerprintWithCustomPasswordFallback"></div>
+<h3><code>verifyFingerprintWithCustomPasswordFallback()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel"></div>
+<h3><code>verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- methods on the class -->
 
-<h2>Methods</h2>
+<h2>Instance Methods</h2>
 
 <div id="isAvailable"></div>
 

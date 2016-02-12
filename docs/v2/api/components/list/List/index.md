@@ -105,7 +105,7 @@ export class MyClass {
       </td>
       <td>
         
-  <code>Boolean</code>
+  <code>boolean</code>
       </td>
       <td>
         <p>whether the item-sliding should be enabled or not</p>

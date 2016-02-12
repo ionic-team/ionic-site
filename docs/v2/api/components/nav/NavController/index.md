@@ -305,7 +305,7 @@ import {Detail} from '../detail/detail';
       </td>
       <td>
         
-  <code>Array&lt;Type&gt;</code>
+  <code>array&lt;Type&gt;</code>
       </td>
       <td>
         <p>An arry of page components and their params to load in the stack</p>
@@ -770,7 +770,7 @@ in and become the active page.
       </td>
       <td>
         
-  <code>Array&lt;{page: Type, params=: any}&gt;</code>
+  <code>array&lt;{page: Type, params=: any}&gt;</code>
       </td>
       <td>
         <p>An array of objects, each with a <code>page</code> and optionally <code>params</code> property</p>
@@ -1377,7 +1377,7 @@ Otherwise returns false.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>ViewController</code> 
+  <code>viewController</code> 
 </div>
 
 

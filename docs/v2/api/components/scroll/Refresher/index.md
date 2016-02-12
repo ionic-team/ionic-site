@@ -88,169 +88,82 @@ constructor(){}
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<th>Type</th>
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-pullingIcon
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>pullingIcon</td>
+      <td><code>string</code></td>
+      <td><p> the icon you want to display when you begin to pull down</p>
 </td>
-
-
-<td>
-string
+    </tr>
+    
+    <tr>
+      <td>pullingText</td>
+      <td><code>string</code></td>
+      <td><p> the text you want to display when you begin to pull down</p>
 </td>
-
-
-<td>
-the icon you want to display when you begin to pull down
+    </tr>
+    
+    <tr>
+      <td>refreshingIcon</td>
+      <td><code>string</code></td>
+      <td><p> the icon you want to display when performing a refresh</p>
 </td>
-</tr>
-
-<tr>
-<td>
-pullingText
+    </tr>
+    
+    <tr>
+      <td>refreshingText</td>
+      <td><code>string</code></td>
+      <td><p> the text you want to display when performing a refresh</p>
 </td>
-
-
-<td>
-string
-</td>
-
-
-<td>
-the text you want to display when you begin to pull down
-</td>
-</tr>
-
-<tr>
-<td>
-refreshingIcon
-</td>
-
-
-<td>
-string
-</td>
-
-
-<td>
-the icon you want to display when performing a refresh
-</td>
-</tr>
-
-<tr>
-<td>
-refreshingText
-</td>
-
-
-<td>
-string
-</td>
-
-
-<td>
-the text you want to display when performing a refresh
-</td>
-</tr>
-
-<tr>
-<td>
-(refresh)
-</td>
-
-
-<td>
-any
-</td>
-
-
-<td>
-the methond on your class you want to perform when you refreshing
-</td>
-</tr>
-
-<tr>
-<td>
-(starting)
-</td>
-
-
-<td>
-any
-</td>
-
-
-<td>
-the methond on your class you want to perform when you start pulling down
-</td>
-</tr>
-
-<tr>
-<td>
-(pulling)
-</td>
-
-
-<td>
-any
-</td>
-
-
-<td>
-the methond on your class you want to perform when you are pulling down
-</td>
-</tr>
-
-</tbody>
+    </tr>
+    
+  </tbody>
 </table>
-
-
-
-<!-- instance methods on the class --><!-- related link --><!-- end content block -->
+<!-- output events on the class -->
+<h2>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>pulling</td>
+      <td><p> the methond on your class you want to perform when you are pulling down</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>refresh</td>
+      <td><p> the methond on your class you want to perform when you refreshing</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>starting</td>
+      <td><p> the methond on your class you want to perform when you start pulling down</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

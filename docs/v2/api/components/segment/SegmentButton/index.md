@@ -99,7 +99,7 @@ Improve this doc
     
     <tr>
       <td>value</td>
-      <td><code>String</code></td>
+      <td><code>string</code></td>
       <td><p> the value of the segment button. Required.</p>
 </td>
     </tr>

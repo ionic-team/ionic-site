@@ -98,7 +98,7 @@ Improve this doc
     
     <tr>
       <td>ngModel</td>
-      <td><code>Any</code></td>
+      <td><code>any</code></td>
       <td><p> Expression to evaluate when the Searchbar input has changed including cleared</p>
 </td>
     </tr>

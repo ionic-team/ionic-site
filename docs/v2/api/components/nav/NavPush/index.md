@@ -120,14 +120,14 @@ NavPush:</p>
     
     <tr>
       <td>navPush</td>
-      <td><code>Page</code></td>
+      <td><code>page</code></td>
       <td><p> the page you want to push</p>
 </td>
     </tr>
     
     <tr>
       <td>navParams</td>
-      <td><code>Any</code></td>
+      <td><code>any</code></td>
       <td><p> Any parameters you want to pass along</p>
 </td>
     </tr>

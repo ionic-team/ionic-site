@@ -169,64 +169,7 @@ set the max zoom amount for ion-scroll
 
 
 
-<!-- instance methods on the class -->
-
-<h2>Instance Methods</h2>
-
-<div id="addScrollEventListener"></div>
-
-<h3>
-<code>addScrollEventListener(handler)</code>
-  
-
-</h3>
-
-Add a scroll event handler to the scroll element if it exists.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        handler
-        
-        
-      </td>
-      <td>
-        
-  <code>Function</code>
-      </td>
-      <td>
-        <p>The scroll handler to add to the scroll element.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>?Function</code> a function to remove the specified handler, otherwise
-undefined if the scroll element doesn't exist.
-</div>
-
-
-<!-- related link --><!-- end content block -->
+<!-- instance methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

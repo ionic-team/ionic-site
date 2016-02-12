@@ -105,7 +105,7 @@ config
 
 
 <td>
-Object
+object
 </td>
 
 
@@ -121,7 +121,7 @@ providers
 
 
 <td>
-Array
+array
 </td>
 
 
@@ -137,7 +137,7 @@ template
 
 
 <td>
-String
+string
 </td>
 
 
@@ -153,7 +153,7 @@ templateUrl
 
 
 <td>
-String
+string
 </td>
 
 

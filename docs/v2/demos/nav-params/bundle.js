@@ -26404,9 +26404,9 @@
 	     * @description
 	     * Sets a single config value.
 	     *
-	     * @param {String} [platform] - The platform (either 'ios' or 'android') that the config value should apply to. Leaving this blank will apply the config value to all platforms.
-	     * @param {String} [key] - The key used to look up the value at a later point in time.
-	     * @param {String} [value] - The config value being stored.
+	     * @param {string} [platform] - The platform (either 'ios' or 'android') that the config value should apply to. Leaving this blank will apply the config value to all platforms.
+	     * @param {string} [key] - The key used to look up the value at a later point in time.
+	     * @param {string} [value] - The config value being stored.
 	     */
 	    Config.prototype.set = function () {
 	        var args = arguments;
@@ -26437,7 +26437,7 @@
 	     * @description
 	     * Returns a single config value, given a key.
 	     *
-	     * @param {String} [key] - the key for the config value
+	     * @param {string} [key] - the key for the config value
 	     */
 	    Config.prototype.get = function (key) {
 	        if (!util_1.isDefined(this._c[key])) {
@@ -26523,7 +26523,7 @@
 	     * @description
 	     * Same as `get()`, however always returns a boolean value.
 	     *
-	     * @param {String} [key] - the key for the config value
+	     * @param {string} [key] - the key for the config value
 	     */
 	    Config.prototype.getBoolean = function (key) {
 	        var val = this.get(key);
@@ -26584,7 +26584,7 @@
 	    // **********************************************
 	    /**
 	     * @param {string} platformName
-	     * @returns {bool} returns true/false based on platform you place
+	     * @returns {boolean} returns true/false based on platform you place
 	     * @description
 	     * Depending on the platform name, isPlatform will return true or flase
 	     *
@@ -27678,8 +27678,8 @@
 	    /**
 	     * Subscribe to an event topic. Events that get posted to that topic will trigger the provided handler.
 	     *
-	     * @param {String} topic the topic to subscribe to
-	     * @param {Function} handler the event handler
+	     * @param {string} topic the topic to subscribe to
+	     * @param {function} handler the event handler
 	     */
 	    Events.prototype.subscribe = function (topic) {
 	        var _this = this;
@@ -27697,8 +27697,8 @@
 	    /**
 	     * Unsubscribe from the given topic. Your handler will no longer receive events published to this topic.
 	     *
-	     * @param {String} topic the topic to unsubscribe from
-	     * @param {Function} handler the event handler
+	     * @param {string} topic the topic to unsubscribe from
+	     * @param {function} handler the event handler
 	     *
 	     * @return true if a handler was removed
 	     */
@@ -27729,8 +27729,8 @@
 	    /**
 	     * Publish an event to the given topic.
 	     *
-	     * @param {String} topic the topic to publish to
-	     * @param {Any} eventData the data to send as the event
+	     * @param {string} topic the topic to publish to
+	     * @param {any} eventData the data to send as the event
 	     */
 	    Events.prototype.publish = function (topic) {
 	        var args = [];
@@ -27945,8 +27945,8 @@
 	     * available to accept new user commands. For example, this is set to `false`
 	     * while views transition, a modal slides up, an action-sheet
 	     * slides up, etc. After the transition completes it is set back to `true`.
-	     * @param {bool} isEnabled
-	     * @param {bool} fallback  When `isEnabled` is set to `false`, this argument
+	     * @param {boolean} isEnabled
+	     * @param {boolean} fallback  When `isEnabled` is set to `false`, this argument
 	     * is used to set the maximum number of milliseconds that app will wait until
 	     * it will automatically enable the app again. It's basically a fallback incase
 	     * something goes wrong during a transition and the app wasn't re-enabled correctly.
@@ -27962,7 +27962,7 @@
 	    /**
 	     * @private
 	     * Boolean if the app is actively enabled or not.
-	     * @return {bool}
+	     * @return {boolean}
 	     */
 	    IonicApp.prototype.isEnabled = function () {
 	        return (this._disTime < Date.now());
@@ -27976,7 +27976,7 @@
 	    /**
 	     * @private
 	     * Boolean if the app is actively scrolling or not.
-	     * @return {bool}
+	     * @return {boolean}
 	     */
 	    IonicApp.prototype.isScrolling = function () {
 	        return (this._scrollTime + 64 > Date.now());
@@ -27985,7 +27985,7 @@
 	     * @private
 	     * Register a known component with a key, for easy lookups later.
 	     * @param {string} id  The id to use to register the component
-	     * @param {Object} component  The component to register
+	     * @param {object} component  The component to register
 	     */
 	    IonicApp.prototype.register = function (id, component) {
 	        this.components[id] = component;
@@ -28001,8 +28001,8 @@
 	    /**
 	     * @private
 	     * Get a registered component with the given type (returns the first)
-	     * @param {Object} cls the type to search for
-	     * @return {Object} the matching component, or undefined if none was found
+	     * @param {object} cls the type to search for
+	     * @return {object} the matching component, or undefined if none was found
 	     */
 	    IonicApp.prototype.getRegisteredComponent = function (cls) {
 	        for (var key in this.components) {
@@ -28016,7 +28016,7 @@
 	     * @private
 	     * Get the component for the given key.
 	     * @param {string} id  TODO
-	     * @return {Object} TODO
+	     * @return {object} TODO
 	     */
 	    IonicApp.prototype.getComponent = function (id) {
 	        // deprecated warning
@@ -41285,7 +41285,7 @@
 	     *
 	     * ```
 	     *
-	     * @return {Bool} returns a true or flase value if the keyboard is open or not
+	     * @return {boolean} returns a true or flase value if the keyboard is open or not
 	     */
 	    Keyboard.prototype.isOpen = function () {
 	        return dom_1.hasFocusedTextInput();
@@ -41306,8 +41306,8 @@
 	     * }
 	     *
 	     * ```
-	     * @param {Function} callback method you want to call when the keyboard has been closed
-	     * @return {Function} returns a callback that gets fired when the keyboard is closed
+	     * @param {function} callback method you want to call when the keyboard has been closed
+	     * @return {function} returns a callback that gets fired when the keyboard is closed
 	     */
 	    Keyboard.prototype.onClose = function (callback, pollingInternval) {
 	        if (pollingInternval === void 0) { pollingInternval = KEYBOARD_CLOSE_POLLING; }
@@ -45714,7 +45714,7 @@
 	    };
 	    /**
 	     * @private
-	     * @returns {ElementRef} Returns the Page's ElementRef
+	     * @returns {elementRef} Returns the Page's ElementRef
 	     */
 	    ViewController.prototype.pageRef = function () {
 	        return this._pgRef;
@@ -45727,7 +45727,7 @@
 	    };
 	    /**
 	     * @private
-	     * @returns {ElementRef} Returns the Page's Content ElementRef
+	     * @returns {elementRef} Returns the Page's Content ElementRef
 	     */
 	    ViewController.prototype.contentRef = function () {
 	        return this._cntRef;
@@ -45740,7 +45740,7 @@
 	    };
 	    /**
 	     * @private
-	     * @returns {Component} Returns the Page's Content component reference.
+	     * @returns {component} Returns the Page's Content component reference.
 	     */
 	    ViewController.prototype.getContent = function () {
 	        return this._cntDir;
@@ -46320,7 +46320,7 @@
 	    };
 	    Object.defineProperty(Icon.prototype, "name", {
 	        /**
-	         * @input {String} Icon to use. Will load the appropriate icon for each mode
+	         * @input {string} Icon to use. Will load the appropriate icon for each mode
 	         */
 	        get: function () {
 	            return this._name;
@@ -46339,7 +46339,7 @@
 	    });
 	    Object.defineProperty(Icon.prototype, "ios", {
 	        /**
-	         * @input {String} Explicitly set the icon to use on iOS
+	         * @input {string} Explicitly set the icon to use on iOS
 	         */
 	        get: function () {
 	            return this._ios;
@@ -46353,7 +46353,7 @@
 	    });
 	    Object.defineProperty(Icon.prototype, "md", {
 	        /**
-	         * @input {String} Explicitly set the icon to use on MD
+	         * @input {string} Explicitly set the icon to use on MD
 	         */
 	        get: function () {
 	            return this._md;
@@ -46367,7 +46367,7 @@
 	    });
 	    Object.defineProperty(Icon.prototype, "isActive", {
 	        /**
-	         * @input {Bool} Whether or not the icon has an "active" appearance. On iOS an active icon is filled in or full appearance, and an inactive icon on iOS will use an outlined version of the icon same icon. Material Design icons do not change appearance depending if they're active or not. The `isActive` property is largely used by the tabbar.
+	         * @input {bool} Whether or not the icon has an "active" appearance. On iOS an active icon is filled in or full appearance, and an inactive icon on iOS will use an outlined version of the icon same icon. Material Design icons do not change appearance depending if they're active or not. The `isActive` property is largely used by the tabbar.
 	         */
 	        get: function () {
 	            return (this._isActive === undefined || this._isActive === true || this._isActive === 'true');
@@ -47129,7 +47129,7 @@
 	     *  }
 	     *```
 	     *
-	     * @param {Array<Type>} pages  An arry of page components and their params to load in the stack
+	     * @param {array<Type>} pages  An arry of page components and their params to load in the stack
 	     * @param {object} [opts={}] Any options you want to use pass
 	     * @returns {Promise} Returns a promise when the pages are set
 	     */
@@ -47348,7 +47348,7 @@
 	     * in and become the active page.
 	     *
 	     * @param {number} insertIndex  The index where you want to insert the page
-	     * @param {Array<{page: Type, params=: any}>} insertPages  An array of objects, each with a `page` and optionally `params` property
+	     * @param {array<{page: Type, params=: any}>} insertPages  An array of objects, each with a `page` and optionally `params` property
 	     * @param {object} [opts={}] Any options you want to use pass to transtion
 	     * @returns {Promise} Returns a promise when the pages have been inserted into the navigation stack
 	     */
@@ -48227,7 +48227,7 @@
 	    };
 	    /**
 	     * @param {ViewController} view  The ViewController to get the previous view to
-	     * @returns {ViewController}
+	     * @returns {viewController}
 	     */
 	    NavController.prototype.getPrevious = function (view) {
 	        return this.getByIndex(this.indexOf(view) - 1);
@@ -49192,8 +49192,8 @@
 	var Content = (function (_super) {
 	    __extends(Content, _super);
 	    /**
-	     * @param {ElementRef} elementRef  A reference to the component's DOM element.
-	     * @param {Config} config  The config object to change content's default settings.
+	     * @param {elementRef} elementRef  A reference to the component's DOM element.
+	     * @param {config} config  The config object to change content's default settings.
 	     */
 	    function Content(_elementRef, _config, _app, _zone, viewCtrl) {
 	        _super.call(this, _elementRef);
@@ -49229,6 +49229,7 @@
 	        this.scrollElement.removeEventListener('scroll', this._onScroll);
 	    };
 	    /**
+	     * @private
 	     * Adds the specified scroll handler to the content' scroll element.
 	     *
 	     * ```ts
@@ -49355,9 +49356,9 @@
 	     *    }
 	     * }
 	     * ```
-	     * @param {Number} x  The x-value to scroll to.
-	     * @param {Number} y  The y-value to scroll to.
-	     * @param {Number} duration  Duration of the scroll animation in ms.
+	     * @param {number} x  The x-value to scroll to.
+	     * @param {number} y  The y-value to scroll to.
+	     * @param {number} duration  Duration of the scroll animation in ms.
 	     * @param {TODO} tolerance  TODO
 	     * @returns {Promise} Returns a promise when done
 	     */
@@ -49403,19 +49404,19 @@
 	    /**
 	     * @private
 	     * Returns the content and scroll elements' dimensions.
-	     * @returns {Object} dimensions  The content and scroll elements' dimensions
-	     * {Number} dimensions.contentHeight  content offsetHeight
-	     * {Number} dimensions.contentTop  content offsetTop
-	     * {Number} dimensions.contentBottom  content offsetTop+offsetHeight
-	     * {Number} dimensions.contentWidth  content offsetWidth
-	     * {Number} dimensions.contentLeft  content offsetLeft
-	     * {Number} dimensions.contentRight  content offsetLeft + offsetWidth
-	     * {Number} dimensions.scrollHeight  scroll scrollHeight
-	     * {Number} dimensions.scrollTop  scroll scrollTop
-	     * {Number} dimensions.scrollBottom  scroll scrollTop + scrollHeight
-	     * {Number} dimensions.scrollWidth  scroll scrollWidth
-	     * {Number} dimensions.scrollLeft  scroll scrollLeft
-	     * {Number} dimensions.scrollRight  scroll scrollLeft + scrollWidth
+	     * @returns {object} dimensions  The content and scroll elements' dimensions
+	     * {number} dimensions.contentHeight  content offsetHeight
+	     * {number} dimensions.contentTop  content offsetTop
+	     * {number} dimensions.contentBottom  content offsetTop+offsetHeight
+	     * {number} dimensions.contentWidth  content offsetWidth
+	     * {number} dimensions.contentLeft  content offsetLeft
+	     * {number} dimensions.contentRight  content offsetLeft + offsetWidth
+	     * {number} dimensions.scrollHeight  scroll scrollHeight
+	     * {number} dimensions.scrollTop  scroll scrollTop
+	     * {number} dimensions.scrollBottom  scroll scrollTop + scrollHeight
+	     * {number} dimensions.scrollWidth  scroll scrollWidth
+	     * {number} dimensions.scrollLeft  scroll scrollLeft
+	     * {number} dimensions.scrollRight  scroll scrollLeft + scrollWidth
 	     */
 	    Content.prototype.getContentDimensions = function () {
 	        var _scrollEle = this.scrollElement;
@@ -49523,6 +49524,7 @@
 	        this.scrollElement = this.getNativeElement().children[0];
 	    };
 	    /**
+	     * @private
 	     * Add a scroll event handler to the scroll element if it exists.
 	     * @param {Function} handler  The scroll handler to add to the scroll element.
 	     * @returns {?Function} a function to remove the specified handler, otherwise
@@ -49626,15 +49628,6 @@
 	 *  ```
 	 *  @demo /docs/v2/demos/refresher/
 	 *
-	 *  @property {string} [pullingIcon] - the icon you want to display when you begin to pull down
-	 *  @property {string} [pullingText] - the text you want to display when you begin to pull down
-	 *  @property {string} [refreshingIcon] - the icon you want to display when performing a refresh
-	 *  @property {string} [refreshingText] - the text you want to display when performing a refresh
-	 *
-	 *  @property {any} (refresh) - the methond on your class you want to perform when you refreshing
-	 *  @property {any} (starting) - the methond on your class you want to perform when you start pulling down
-	 *  @property {any} (pulling) - the methond on your class you want to perform when you are pulling down
-	 *
 	 */
 	var Refresher = (function () {
 	    function Refresher(_content, _element) {
@@ -49672,15 +49665,15 @@
 	         */
 	        this.canOverscroll = true;
 	        /**
-	         * @private
+	         * @output {any} the methond on your class you want to perform when you are pulling down
 	         */
 	        this.pulling = new core_1.EventEmitter();
 	        /**
-	         * @private
+	         * @output {any} the methond on your class you want to perform when you refreshing
 	         */
 	        this.refresh = new core_1.EventEmitter();
 	        /**
-	         * @private
+	         * @output {any} the methond on your class you want to perform when you start pulling down
 	         */
 	        this.starting = new core_1.EventEmitter();
 	        this._ele = _element.nativeElement;
@@ -50119,7 +50112,7 @@
 	        var _this = this;
 	        _super.call(this, elementRef);
 	        /**
-	         * @output {Any} expression to evaluate when a slide has been changed
+	         * @output {any} expression to evaluate when a slide has been changed
 	         */
 	        this.change = new core_1.EventEmitter();
 	        this.rapidUpdate = util_2.debounce(function () {
@@ -54763,7 +54756,7 @@
 	    };
 	    /**
 	     * @param {number} index Index of the tab you want to get
-	     * @returns {Any} Tab Returs the tab who's index matches the one passed
+	     * @returns {any} Tab Returs the tab who's index matches the one passed
 	     */
 	    Tabs.prototype.getByIndex = function (index) {
 	        if (index < this._tabs.length && index > -1) {
@@ -54772,7 +54765,7 @@
 	        return null;
 	    };
 	    /**
-	     * @return {Any} Tab Returns the currently selected tab
+	     * @return {any} Tab Returns the currently selected tab
 	     */
 	    Tabs.prototype.getSelected = function () {
 	        for (var i = 0; i < this._tabs.length; i++) {
@@ -55090,7 +55083,7 @@
 	        // A Tab is a NavController for its child pages
 	        _super.call(this, parentTabs, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer);
 	        /**
-	         * @pinput {Any} Method to call when the current tab is selected
+	         * @pinput {any} Method to call when the current tab is selected
 	         */
 	        this.select = new core_2.EventEmitter();
 	        parentTabs.add(this);
@@ -55371,7 +55364,7 @@
 	     *    }
 	     * }
 	     * ```
-	     * @param {Boolean} shouldEnable whether the item-sliding should be enabled or not
+	     * @param {boolean} shouldEnable whether the item-sliding should be enabled or not
 	     */
 	    List.prototype.enableSlidingItems = function (shouldEnable) {
 	        var _this = this;
@@ -56218,7 +56211,7 @@
 	        this._checked = false;
 	        this._disabled = false;
 	        /**
-	         * @input {String} the value of the checkbox component
+	         * @input {string} the value of the checkbox component
 	         */
 	        this.value = '';
 	        _form.register(this);
@@ -56240,7 +56233,7 @@
 	    };
 	    Object.defineProperty(Checkbox.prototype, "checked", {
 	        /**
-	         * @input {Bool} whether or not the checkbox is checked (defaults to false)
+	         * @input {boolean} whether or not the checkbox is checked (defaults to false)
 	         */
 	        get: function () {
 	            return this._checked;
@@ -56257,7 +56250,7 @@
 	    });
 	    Object.defineProperty(Checkbox.prototype, "disabled", {
 	        /**
-	         * @input {Bool} whether or not the checkbox is disabled or not.
+	         * @input {boolean} whether or not the checkbox is disabled or not.
 	         */
 	        get: function () {
 	            return this._disabled;
@@ -56306,14 +56299,14 @@
 	     * Angular2 Forms API method called by the view (NgControl) to register the
 	     * onChange event handler that updates the model (Control).
 	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
-	     * @param {Function} fn  the onChange event handler.
+	     * @param {function} fn  the onChange event handler.
 	     */
 	    Checkbox.prototype.registerOnChange = function (fn) { this.onChange = fn; };
 	    /**
 	     * @private
 	     * Angular2 Forms API method called by the the view (NgControl) to register
 	     * the onTouched event handler that marks model (Control) as touched.
-	     * @param {Function} fn  onTouched event handler.
+	     * @param {function} fn  onTouched event handler.
 	     */
 	    Checkbox.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    /**
@@ -56474,12 +56467,6 @@
 	 *   subTitle: 'Select your toppings'
 	 * };
 	 * ```
-	 * @property [cancelText] - The text of the cancel button. Defatuls to 'cancel'
-	 * @property [okText] - The text of the ok button. Defatuls to 'OK'
-	 * @property [alertOptions] - Any addition options that an alert can take. Title, Subtitle, etc.
-	 * @property [multiple] - Whether or not the select component can accept multipl selections
-	 * @property [disabled] - Whether or not the select component is disabled or not
-	 * @property (change) - Any expression you want to evaluate when the selection has changed
 	 *
 	 * @demo /docs/v2/demos/select/
 	 */
@@ -56497,14 +56484,17 @@
 	        this._text = '';
 	        /**
 	         * @private
+	         * @input {string}  The text of the cancel button. Defatuls to 'cancel'
 	         */
 	        this.cancelText = 'Cancel';
 	        /**
 	         * @private
+	         * @input {string} The text of the ok button. Defatuls to 'OK'
 	         */
 	        this.okText = 'OK';
 	        /**
 	         * @private
+	         * @input {any} Any addition options that an alert can take. Title, Subtitle, etc.
 	         */
 	        this.alertOptions = {};
 	        /**
@@ -56513,6 +56503,7 @@
 	        this.checked = false;
 	        /**
 	         * @private
+	         * @output {any} Any expression you want to evaluate when the selection has changed
 	         */
 	        this.change = new core_1.EventEmitter();
 	        this._form.register(this);
@@ -56579,7 +56570,7 @@
 	    };
 	    Object.defineProperty(Select.prototype, "multiple", {
 	        /**
-	         * @private
+	         * @input {boolean} Whether or not the select component can accept multipl selections
 	         */
 	        get: function () {
 	            return this._multi;
@@ -56662,7 +56653,7 @@
 	    };
 	    Object.defineProperty(Select.prototype, "disabled", {
 	        /**
-	         * @private
+	         * @input {boolean} Whether or not the select component is disabled or not
 	         */
 	        get: function () {
 	            return this._disabled;
@@ -56966,7 +56957,7 @@
 	        this.data.inputs.push(input);
 	    };
 	    /**
-	     * @param {object} button Alert button
+	     * @param {any} button Alert button
 	     */
 	    Alert.prototype.addButton = function (button) {
 	        this.data.buttons.push(button);
@@ -56978,7 +56969,7 @@
 	        this.data.cssClass = cssClass;
 	    };
 	    /**
-	     * @param {Object} opts Alert options
+	     * @param {object} opts Alert options
 	     */
 	    Alert.create = function (opts) {
 	        if (opts === void 0) { opts = {}; }
@@ -57299,13 +57290,13 @@
 	        this._elementRef = _elementRef;
 	        this._checked = false;
 	        /**
-	         * @input {Any} Event to evaluate when option has changed
+	         * @input {any} Event to evaluate when option has changed
 	         */
 	        this.select = new core_1.EventEmitter();
 	    }
 	    Object.defineProperty(Option.prototype, "checked", {
 	        /**
-	         * @input {Bool} Whether or not the option is already checked and selected
+	         * @input {boolean} Whether or not the option is already checked and selected
 	         */
 	        get: function () {
 	            return this._checked;
@@ -57318,7 +57309,7 @@
 	    });
 	    Object.defineProperty(Option.prototype, "value", {
 	        /**
-	         * @input {Any} The value of the option
+	         * @input {any} The value of the option
 	         */
 	        get: function () {
 	            if (util_1.isDefined(this._value)) {
@@ -58575,7 +58566,7 @@
 	        this._renderer = _renderer;
 	        this._elementRef = _elementRef;
 	        /**
-	         * @output {Any} expression to evaluate when a segment button has been clicked
+	         * @output {any} expression to evaluate when a segment button has been clicked
 	         */
 	        this.select = new core_1.EventEmitter();
 	    }
@@ -58812,7 +58803,7 @@
 	        this._disabled = false;
 	        this._value = null;
 	        /**
-	         * @output {Any} expression to be evaluated when clicked
+	         * @output {any} expression to be evaluated when clicked
 	         */
 	        this.select = new core_1.EventEmitter();
 	        _form.register(this);
@@ -59025,7 +59016,7 @@
 	        this._ids = -1;
 	        this._init = false;
 	        /**
-	         * @output {Any} expression to be evaluated when selection has been changed
+	         * @output {any} expression to be evaluated when selection has been changed
 	         */
 	        this.change = new core_1.EventEmitter();
 	        this.id = ++radioGroupIds;
@@ -60245,10 +60236,10 @@
 	* }
 	* ```
 	*
-	* @property {Object} [config] - the app's {@link docs/v2/api/config/Config/ Config} object
-	* @property {Array}  [providers] - any providers for your app
-	* @property {String} [template] - the template to use for the app root
-	* @property {String} [templateUrl] - a relative URL pointing to the template to use for the app root
+	* @property {object} [config] - the app's {@link docs/v2/api/config/Config/ Config} object
+	* @property {array}  [providers] - any providers for your app
+	* @property {string} [template] - the template to use for the app root
+	* @property {string} [templateUrl] - a relative URL pointing to the template to use for the app root
 	*
 	*/
 	function App(args) {
@@ -61002,8 +60993,8 @@
 	        return this._nav && this._nav.config.get(key);
 	    };
 	    /**
-	     * @param {Any} componentType Modal
-	     * @param {Object} data Modal options
+	     * @param {any} componentType Modal
+	     * @param {object} data Modal options
 	     */
 	    Modal.create = function (componentType, data) {
 	        if (data === void 0) { data = {}; }

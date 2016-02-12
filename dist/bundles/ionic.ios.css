@@ -6348,7 +6348,9 @@ ion-segment[primary] .segment-button {
   color: #327eff; }
   ion-segment[primary] .segment-button:hover:not(.segment-activated) {
     background-color: rgba(50, 126, 255, 0.1); }
-  ion-segment[primary] .segment-button.activated, ion-segment[primary] .segment-button.segment-activated {
+  ion-segment[primary] .segment-button:active:not(.segment-activated) {
+    background-color: rgba(50, 126, 255, 0.16); }
+  ion-segment[primary] .segment-button.segment-activated {
     color: white;
     background-color: #327eff; }
 
@@ -6360,7 +6362,9 @@ ion-segment[secondary] .segment-button {
   color: #32db64; }
   ion-segment[secondary] .segment-button:hover:not(.segment-activated) {
     background-color: rgba(50, 219, 100, 0.1); }
-  ion-segment[secondary] .segment-button.activated, ion-segment[secondary] .segment-button.segment-activated {
+  ion-segment[secondary] .segment-button:active:not(.segment-activated) {
+    background-color: rgba(50, 219, 100, 0.16); }
+  ion-segment[secondary] .segment-button.segment-activated {
     color: white;
     background-color: #32db64; }
 
@@ -6372,7 +6376,9 @@ ion-segment[danger] .segment-button {
   color: #f53d3d; }
   ion-segment[danger] .segment-button:hover:not(.segment-activated) {
     background-color: rgba(245, 61, 61, 0.1); }
-  ion-segment[danger] .segment-button.activated, ion-segment[danger] .segment-button.segment-activated {
+  ion-segment[danger] .segment-button:active:not(.segment-activated) {
+    background-color: rgba(245, 61, 61, 0.16); }
+  ion-segment[danger] .segment-button.segment-activated {
     color: white;
     background-color: #f53d3d; }
 
@@ -6384,7 +6390,9 @@ ion-segment[light] .segment-button {
   color: #f4f4f4; }
   ion-segment[light] .segment-button:hover:not(.segment-activated) {
     background-color: rgba(244, 244, 244, 0.1); }
-  ion-segment[light] .segment-button.activated, ion-segment[light] .segment-button.segment-activated {
+  ion-segment[light] .segment-button:active:not(.segment-activated) {
+    background-color: rgba(244, 244, 244, 0.16); }
+  ion-segment[light] .segment-button.segment-activated {
     color: black;
     background-color: #f4f4f4; }
 
@@ -6396,7 +6404,9 @@ ion-segment[dark] .segment-button {
   color: #222; }
   ion-segment[dark] .segment-button:hover:not(.segment-activated) {
     background-color: rgba(34, 34, 34, 0.1); }
-  ion-segment[dark] .segment-button.activated, ion-segment[dark] .segment-button.segment-activated {
+  ion-segment[dark] .segment-button:active:not(.segment-activated) {
+    background-color: rgba(34, 34, 34, 0.16); }
+  ion-segment[dark] .segment-button.segment-activated {
     color: white;
     background-color: #222; }
 

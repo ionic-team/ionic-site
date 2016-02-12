@@ -60,6 +60,22 @@ Improve this doc
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="scan"></div>
+<h3><code>scan()</code>
+  
+</h3>
+
+Open the barcode scanner.
+
+
+
+
+
+
+
+
+
 
 
 <!-- methods on the class --><!-- related link --><!-- end content block -->

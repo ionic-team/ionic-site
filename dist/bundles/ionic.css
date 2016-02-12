@@ -5223,12 +5223,16 @@ ion-icon {
     background: #000; }
   .ios ion-input,
   .ios ion-textarea {
+    position: relative;
     display: block;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
     width: 100%; }
+  .ios .item-input ion-input,
+  .ios .item-input ion-textarea {
+    position: static; }
   .ios .item.item-textarea {
     -webkit-box-align: stretch;
     -webkit-align-items: stretch;
@@ -6061,7 +6065,9 @@ ion-icon {
     color: #327eff; }
     .ios ion-segment[primary] .segment-button:hover:not(.segment-activated) {
       background-color: rgba(50, 126, 255, 0.1); }
-    .ios ion-segment[primary] .segment-button.activated, .ios ion-segment[primary] .segment-button.segment-activated {
+    .ios ion-segment[primary] .segment-button:active:not(.segment-activated) {
+      background-color: rgba(50, 126, 255, 0.16); }
+    .ios ion-segment[primary] .segment-button.segment-activated {
       color: white;
       background-color: #327eff; }
   .ios .toolbar[primary] .segment-button.segment-activated {
@@ -6071,7 +6077,9 @@ ion-icon {
     color: #32db64; }
     .ios ion-segment[secondary] .segment-button:hover:not(.segment-activated) {
       background-color: rgba(50, 219, 100, 0.1); }
-    .ios ion-segment[secondary] .segment-button.activated, .ios ion-segment[secondary] .segment-button.segment-activated {
+    .ios ion-segment[secondary] .segment-button:active:not(.segment-activated) {
+      background-color: rgba(50, 219, 100, 0.16); }
+    .ios ion-segment[secondary] .segment-button.segment-activated {
       color: white;
       background-color: #32db64; }
   .ios .toolbar[secondary] .segment-button.segment-activated {
@@ -6081,7 +6089,9 @@ ion-icon {
     color: #f53d3d; }
     .ios ion-segment[danger] .segment-button:hover:not(.segment-activated) {
       background-color: rgba(245, 61, 61, 0.1); }
-    .ios ion-segment[danger] .segment-button.activated, .ios ion-segment[danger] .segment-button.segment-activated {
+    .ios ion-segment[danger] .segment-button:active:not(.segment-activated) {
+      background-color: rgba(245, 61, 61, 0.16); }
+    .ios ion-segment[danger] .segment-button.segment-activated {
       color: white;
       background-color: #f53d3d; }
   .ios .toolbar[danger] .segment-button.segment-activated {
@@ -6091,7 +6101,9 @@ ion-icon {
     color: #f4f4f4; }
     .ios ion-segment[light] .segment-button:hover:not(.segment-activated) {
       background-color: rgba(244, 244, 244, 0.1); }
-    .ios ion-segment[light] .segment-button.activated, .ios ion-segment[light] .segment-button.segment-activated {
+    .ios ion-segment[light] .segment-button:active:not(.segment-activated) {
+      background-color: rgba(244, 244, 244, 0.16); }
+    .ios ion-segment[light] .segment-button.segment-activated {
       color: black;
       background-color: #f4f4f4; }
   .ios .toolbar[light] .segment-button.segment-activated {
@@ -6101,7 +6113,9 @@ ion-icon {
     color: #222; }
     .ios ion-segment[dark] .segment-button:hover:not(.segment-activated) {
       background-color: rgba(34, 34, 34, 0.1); }
-    .ios ion-segment[dark] .segment-button.activated, .ios ion-segment[dark] .segment-button.segment-activated {
+    .ios ion-segment[dark] .segment-button:active:not(.segment-activated) {
+      background-color: rgba(34, 34, 34, 0.16); }
+    .ios ion-segment[dark] .segment-button.segment-activated {
       color: white;
       background-color: #222; }
   .ios .toolbar[dark] .segment-button.segment-activated {
@@ -8184,12 +8198,16 @@ ion-icon {
   src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
   .md ion-input,
   .md ion-textarea {
+    position: relative;
     display: block;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
     width: 100%; }
+  .md .item-input ion-input,
+  .md .item-input ion-textarea {
+    position: static; }
   .md .item.item-textarea {
     -webkit-box-align: stretch;
     -webkit-align-items: stretch;

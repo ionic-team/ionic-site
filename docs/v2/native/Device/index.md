@@ -56,6 +56,26 @@ Improve this doc
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="getDevice"></div>
+<h3><code>getDevice()</code>
+  
+</h3>
+
+Returns the whole device object.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Object</code> The device object.
+</div>
+
+
 
 
 <!-- methods on the class --><!-- related link --><!-- end content block -->

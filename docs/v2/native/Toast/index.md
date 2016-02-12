@@ -47,6 +47,36 @@ Improve this doc
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="hide"></div>
+<h3><code>hide()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<div id="showWithOptions"></div>
+<h3><code>showWithOptions()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- methods on the class --><!-- related link --><!-- end content block -->

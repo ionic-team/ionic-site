@@ -1,0 +1,48 @@
+<h2 id="toolbar" class="section-header">Toolbar</h2>
+
+<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/toolbar.html">
+  Improve this Doc</a>
+
+A toolbar is a generic bar that can be used in an app as a header, sub-header, footer, or even sub-footer. Since `ion-toolbar` is based on flexbox, no matter how many toolbars you have in your page, they will be displayed correctly and `ion-content` will adjust accordingly.
+
+
+<h3 class="no-para">Basic Usage</h3>
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/toolbar/basic">
+  Demo Source
+</a>
+
+```html
+<ion-toolbar>
+  <ion-title>Toolbar</ion-title>
+</ion-toolbar>
+
+<ion-content></ion-content>
+```
+
+<h3 class="no-para">Footer</h3>
+
+Add the property `position="bottom"` to place the tool bar below the content
+
+```html
+<ion-content></ion-content>
+
+<ion-toolbar position="toolbar">
+  <ion-title>Footer</ion-title>
+</ion-toolbar>
+```
+
+<h3 class="no-para">Color</h3>
+
+To change the color of the toolbar, you can use the theme properties defined in your styles.
+
+```html
+<ion-toolbar primary>
+  <ion-title>Primary</ion-title>
+</ion-toolbar>
+
+<ion-toolbar danger>
+  <ion-title>Danger</ion-title>
+</ion-toolbar>
+
+<ion-content></ion-content>
+```

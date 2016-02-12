@@ -30,7 +30,7 @@ Camera
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/camera.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/camera.ts#L84'>
 Improve this doc
 </a>
 
@@ -61,6 +61,80 @@ Improve this doc
 
 
 <!-- @property tags -->
+<h2>Static Methods</h2>
+<div id="getPicture"></div>
+<h3><code>getPicture(options)</code>
+  
+</h3>
+
+Take a picture or video, or load one from the library.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        options
+        
+        
+      </td>
+      <td>
+        
+  <code>CameraOptions</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise that resolves with Base64 encoding of the image data, or the image file URI, depending on cameraOptions, otherwise rejects with an error.
+
+
+</div>
+
+
+
+<div id="cleanup"></div>
+<h3><code>cleanup()</code>
+  
+</h3>
+
+Remove intermediate image files that are kept in temporary storage after calling camera.getPicture.
+Applies only when the value of Camera.sourceType equals Camera.PictureSourceType.CAMERA and the Camera.destinationType equals Camera.DestinationType.FILE_URI.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise
+
+
+</div>
+
+
 
 
 <!-- methods on the class --><!-- related link --><!-- end content block -->

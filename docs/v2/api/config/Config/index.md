@@ -60,7 +60,7 @@ Improve this doc
 <pre><code class="lang-ts">@App({
   template: `&lt;ion-nav [root]=&quot;root&quot;&gt;&lt;/ion-nav&gt;`
   config: {
-    mode: md
+    mode: &#39;md&#39;
   }
 })
 </code></pre>

@@ -26297,7 +26297,7 @@
 	 * @App({
 	 *   template: `<ion-nav [root]="root"></ion-nav>`
 	 *   config: {
-	 *     mode: md
+	 *     mode: 'md'
 	 *   }
 	 * })
 	 * ```

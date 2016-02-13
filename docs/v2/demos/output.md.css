@@ -7969,12 +7969,11 @@ ion-navbar-section {
   -webkit-box-ordinal-group: 4;
   -webkit-order: 3;
   -ms-flex-order: 3;
-  order: 3; }
+  order: 3;
+  max-width: 100%; }
 
 .toolbar-title {
-  color: #424242; }
-
-ion-title {
+  color: #424242;
   padding: 0 12px;
   font-size: 2rem;
   font-weight: 500; }

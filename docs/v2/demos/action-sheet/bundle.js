@@ -56501,10 +56501,13 @@
 	         */
 	        this.checked = false;
 	        /**
-	         * @private
 	         * @output {any} Any expression you want to evaluate when the selection has changed
 	         */
 	        this.change = new core_1.EventEmitter();
+	        /**
+	         * @output {any} Any expression you want to evaluate when the selection was cancelled
+	         */
+	        this.cancel = new core_1.EventEmitter();
 	        this._form.register(this);
 	        if (ngControl) {
 	            ngControl.valueAccessor = this;
@@ -56532,7 +56535,12 @@
 	        var alertOptions = util_1.merge({}, this.alertOptions);
 	        // make sure their buttons array is removed from the options
 	        // and we create a new array for the alert's two buttons
-	        alertOptions.buttons = [this.cancelText];
+	        alertOptions.buttons = [{
+	                text: this.cancelText,
+	                handler: function () {
+	                    _this.cancel.emit(null);
+	                }
+	            }];
 	        // if the alertOptions didn't provide an title then use the label's text
 	        if (!alertOptions.title && this._item) {
 	            alertOptions.title = this._item.getLabelText();
@@ -56723,6 +56731,10 @@
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Select.prototype, "change", void 0);
 	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], Select.prototype, "cancel", void 0);
+	    __decorate([
 	        core_1.HostListener('click', ['$event']), 
 	        __metadata('design:type', Function), 
 	        __metadata('design:paramtypes', [Object]), 
@@ -56738,8 +56750,8 @@
 	    ], Select.prototype, "value", null);
 	    __decorate([
 	        core_1.ContentChildren(option_1.Option), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _b) || Object), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _c) || Object])
+	        __metadata('design:type', (typeof (_c = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _c) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_d = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _d) || Object])
 	    ], Select.prototype, "options", null);
 	    __decorate([
 	        core_1.Input(), 
@@ -56765,10 +56777,10 @@
 	        __param(3, core_1.Optional()),
 	        __param(4, core_1.Optional()),
 	        __param(5, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_d = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _d) || Object, (typeof (_e = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, (typeof (_j = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _j) || Object])
+	        __metadata('design:paramtypes', [(typeof (_e = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _g) || Object, (typeof (_h = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _h) || Object, (typeof (_j = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _j) || Object, (typeof (_k = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _k) || Object])
 	    ], Select);
 	    return Select;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 	})();
 	exports.Select = Select;
 

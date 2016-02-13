@@ -145,6 +145,31 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
     </tr>
     
   </tbody>
+</table>
+<!-- output events on the class -->
+<h2>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>change</td>
+      <td><p> Any expression you want to evaluate when the selection has changed</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>cancel</td>
+      <td><p> Any expression you want to evaluate when the selection was cancelled</p>
+</td>
+    </tr>
+    
+  </tbody>
 </table><!-- related link --><!-- end content block -->
 
 

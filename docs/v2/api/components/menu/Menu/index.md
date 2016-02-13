@@ -447,6 +447,54 @@ Used to enable or disable the ability to swipe open the menu.
 
 
 
+<div id="isOpen"></div>
+
+<h3>
+<code>isOpen()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> Returns true if the menu is currently open, otherwise false.
+</div>
+
+
+
+
+<div id="isEnabled"></div>
+
+<h3>
+<code>isEnabled()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> Returns true if the menu is currently enabled, otherwise false.
+</div>
+
+
+
+
 <div id="get"></div>
 
 <h3>
@@ -455,7 +503,10 @@ Used to enable or disable the ability to swipe open the menu.
 
 </h3>
 
-Used to get a menu instance.
+Used to get a menu instance. If a `menuId` is not provided then it'll return
+the first menu found. If a `menuId` is provided, then it'll first try to find
+the menu using the menu's `id` attribute. If a menu is not found using the `id`
+attribute, then it'll try to find the menu by its `side` name.
 
 
 <table class="table param-table" style="margin:0;">

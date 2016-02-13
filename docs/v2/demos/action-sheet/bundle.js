@@ -41610,7 +41610,24 @@
 	        }
 	    };
 	    /**
-	     * Used to get a menu instance.
+	     * @return {boolean} Returns true if the menu is currently open, otherwise false.
+	     */
+	    MenuController.prototype.isOpen = function (menuId) {
+	        var menu = this.get(menuId);
+	        return menu && menu.isOpen || false;
+	    };
+	    /**
+	     * @return {boolean} Returns true if the menu is currently enabled, otherwise false.
+	     */
+	    MenuController.prototype.isEnabled = function (menuId) {
+	        var menu = this.get(menuId);
+	        return menu && menu.isEnabled || false;
+	    };
+	    /**
+	     * Used to get a menu instance. If a `menuId` is not provided then it'll return
+	     * the first menu found. If a `menuId` is provided, then it'll first try to find
+	     * the menu using the menu's `id` attribute. If a menu is not found using the `id`
+	     * attribute, then it'll try to find the menu by its `side` name.
 	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
 	     * @return {Menu}  Returns the instance of the menu if found, otherwise `null`.
 	     */

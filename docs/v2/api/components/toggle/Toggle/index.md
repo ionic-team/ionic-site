@@ -48,7 +48,7 @@ except it looks different and is easier to use on a touch device.
 Toggles can also have colors assigned to them, by adding any color
 attribute.</p>
 <p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a>
-for more info on forms and input.</p>
+for more info on forms and inputs.</p>
 
 
 <h2>Component</h2>
@@ -66,7 +66,7 @@ for more info on forms and input.</p>
 
   &lt;ion-item&gt;
     &lt;ion-label&gt;Sausage&lt;/ion-label&gt;
-    &lt;ion-toggle [(ngModel)]=&quot;sausage&quot;&gt;&lt;/ion-toggle&gt;
+    &lt;ion-toggle [(ngModel)]=&quot;sausage&quot; disabled=&quot;true&quot;&gt;&lt;/ion-toggle&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;

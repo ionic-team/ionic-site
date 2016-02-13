@@ -56188,12 +56188,14 @@
 	var form_1 = __webpack_require__(167);
 	var item_1 = __webpack_require__(322);
 	var util_1 = __webpack_require__(163);
+	var CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 	/**
 	 * The checkbox is no different than the HTML checkbox input, except
 	 * it's styled accordingly to the the platform and design mode, such
 	 * as iOS or Material Design.
 	 *
-	 * See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/core/Form-interface.html) for more info on forms and input.
+	 * See the [Angular 2 Docs](https://angular.io/docs/ts/latest/guide/forms.html)
+	 * for more info on forms and inputs.
 	 *
 	 *
 	 * @usage
@@ -56203,17 +56205,17 @@
 	 *
 	 *    <ion-item>
 	 *      <ion-label>Pepperoni</ion-label>
-	 *      <ion-checkbox value="pepperoni" checked="true"></ion-checkbox>
+	 *      <ion-checkbox [(ngModel)]="pepperoni" checked="true"></ion-checkbox>
 	 *    </ion-item>
 	 *
 	 *    <ion-item>
 	 *      <ion-label>Sausage</ion-label>
-	 *      <ion-checkbox value="sausage" disabled="true"></ion-checkbox>
+	 *      <ion-checkbox [(ngModel)]="sausage" disabled="true"></ion-checkbox>
 	 *    </ion-item>
 	 *
 	 *    <ion-item>
 	 *      <ion-label>Mushrooms</ion-label>
-	 *      <ion-checkbox value="mushrooms"></ion-checkbox>
+	 *      <ion-checkbox [(ngModel)]="mushrooms"></ion-checkbox>
 	 *    </ion-item>
 	 *
 	 *  </ion-list>
@@ -56222,19 +56224,13 @@
 	 * @see {@link /docs/v2/components#checkbox Checkbox Component Docs}
 	 */
 	var Checkbox = (function () {
-	    function Checkbox(_form, _item, ngControl) {
+	    function Checkbox(_form, _item, _injector) {
 	        this._form = _form;
 	        this._item = _item;
+	        this._injector = _injector;
 	        this._checked = false;
 	        this._disabled = false;
-	        /**
-	         * @input {string} the value of the checkbox component
-	         */
-	        this.value = '';
 	        _form.register(this);
-	        if (ngControl) {
-	            ngControl.valueAccessor = this;
-	        }
 	        if (_item) {
 	            this.id = 'chk-' + _item.registerInput('checkbox');
 	            this._labelId = 'lbl-' + _item.id;
@@ -56243,10 +56239,12 @@
 	    }
 	    /**
 	     * @private
-	     * Toggle the checked state of the checkbox. Calls onChange to pass the updated checked state to the model (Control).
 	     */
-	    Checkbox.prototype.toggle = function () {
-	        this.checked = !this.checked;
+	    Checkbox.prototype._click = function (ev) {
+	        console.debug('checkbox, checked');
+	        ev.preventDefault();
+	        ev.stopPropagation();
+	        this.onChange(!this._checked);
 	    };
 	    Object.defineProperty(Checkbox.prototype, "checked", {
 	        /**
@@ -56256,15 +56254,41 @@
 	            return this._checked;
 	        },
 	        set: function (val) {
-	            if (!this._disabled) {
-	                this._checked = util_1.isTrueProperty(val);
-	                this.onChange(this._checked);
-	                this._item && this._item.setCssClass('item-checkbox-checked', this._checked);
-	            }
+	            this._setChecked(util_1.isTrueProperty(val));
+	            this.onChange(this._checked);
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /**
+	     * @private
+	     */
+	    Checkbox.prototype._setChecked = function (isChecked) {
+	        this._checked = isChecked;
+	        this._item && this._item.setCssClass('item-checkbox-checked', isChecked);
+	    };
+	    /**
+	     * @private
+	     */
+	    Checkbox.prototype.writeValue = function (val) {
+	        this._setChecked(util_1.isTrueProperty(val));
+	    };
+	    /**
+	     * @private
+	     */
+	    Checkbox.prototype.registerOnChange = function (fn) {
+	        var _this = this;
+	        this._fn = fn;
+	        this.onChange = function (isChecked) {
+	            console.debug('checkbox, onChange', isChecked);
+	            fn(isChecked);
+	            _this._setChecked(isChecked);
+	        };
+	    };
+	    /**
+	     * @private
+	     */
+	    Checkbox.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    Object.defineProperty(Checkbox.prototype, "disabled", {
 	        /**
 	         * @input {boolean} whether or not the checkbox is disabled or not.
@@ -56282,50 +56306,11 @@
 	    /**
 	     * @private
 	     */
-	    Checkbox.prototype._click = function (ev) {
-	        console.debug('checkbox, checked', this.value);
-	        ev.preventDefault();
-	        ev.stopPropagation();
-	        this.toggle();
-	    };
-	    /**
-	     * @private
-	     * Angular2 Forms API method called by the model (Control) on change to update
-	     * the checked value.
-	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L34
-	     */
-	    Checkbox.prototype.writeValue = function (val) {
-	        if (val !== null) {
-	            this.checked = val;
-	        }
-	    };
+	    Checkbox.prototype.onChange = function (_) { };
 	    /**
 	     * @private
 	     */
-	    Checkbox.prototype.onChange = function (val) {
-	        // TODO: figure the whys and the becauses
-	    };
-	    /**
-	     * @private
-	     */
-	    Checkbox.prototype.onTouched = function (val) {
-	        // TODO: figure the whys and the becauses
-	    };
-	    /**
-	     * @private
-	     * Angular2 Forms API method called by the view (NgControl) to register the
-	     * onChange event handler that updates the model (Control).
-	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
-	     * @param {function} fn  the onChange event handler.
-	     */
-	    Checkbox.prototype.registerOnChange = function (fn) { this.onChange = fn; };
-	    /**
-	     * @private
-	     * Angular2 Forms API method called by the the view (NgControl) to register
-	     * the onTouched event handler that marks model (Control) as touched.
-	     * @param {function} fn  onTouched event handler.
-	     */
-	    Checkbox.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+	    Checkbox.prototype.onTouched = function () { };
 	    /**
 	     * @private
 	     */
@@ -56333,9 +56318,11 @@
 	        this._form.deregister(this);
 	    };
 	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Checkbox.prototype, "value", void 0);
+	        core_1.HostListener('click', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], Checkbox.prototype, "_click", null);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
@@ -56344,12 +56331,6 @@
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
 	    ], Checkbox.prototype, "disabled", null);
-	    __decorate([
-	        core_1.HostListener('click', ['$event']), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
-	        __metadata('design:returntype', void 0)
-	    ], Checkbox.prototype, "_click", null);
 	    Checkbox = __decorate([
 	        core_1.Component({
 	            selector: 'ion-checkbox',
@@ -56365,11 +56346,11 @@
 	                '</button>',
 	            host: {
 	                '[class.checkbox-disabled]': '_disabled'
-	            }
+	            },
+	            providers: [CHECKBOX_VALUE_ACCESSOR]
 	        }),
-	        __param(1, core_1.Optional()),
-	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _b) || Object, (typeof (_c = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _c) || Object])
+	        __param(1, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Injector !== 'undefined' && core_1.Injector) === 'function' && _c) || Object])
 	    ], Checkbox);
 	    return Checkbox;
 	    var _a, _b, _c;
@@ -57417,7 +57398,7 @@
 	 * attribute.
 	 *
 	 * See the [Angular 2 Docs](https://angular.io/docs/ts/latest/guide/forms.html)
-	 * for more info on forms and input.
+	 * for more info on forms and inputs.
 	 * @property {boolean} [checked] - whether the toggle it toggled or not
 	 * @property {boolean} [disabled] - whether the toggle is disabled or not
 	 *
@@ -57433,7 +57414,7 @@
 	 *
 	 *    <ion-item>
 	 *      <ion-label>Sausage</ion-label>
-	 *      <ion-toggle [(ngModel)]="sausage"></ion-toggle>
+	 *      <ion-toggle [(ngModel)]="sausage" disabled="true"></ion-toggle>
 	 *    </ion-item>
 	 *
 	 *    <ion-item>
@@ -57534,6 +57515,13 @@
 	    /**
 	     * @private
 	     */
+	    Toggle.prototype._setChecked = function (isChecked) {
+	        this._checked = isChecked;
+	        this._item && this._item.setCssClass('item-toggle-checked', isChecked);
+	    };
+	    /**
+	     * @private
+	     */
 	    Toggle.prototype.writeValue = function (val) {
 	        this._setChecked(util_1.isTrueProperty(val));
 	    };
@@ -57552,10 +57540,7 @@
 	    /**
 	     * @private
 	     */
-	    Toggle.prototype._setChecked = function (isChecked) {
-	        this._checked = isChecked;
-	        this._item && this._item.setCssClass('item-toggle-checked', isChecked);
-	    };
+	    Toggle.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    Object.defineProperty(Toggle.prototype, "disabled", {
 	        get: function () {
 	            return this._disabled;
@@ -57567,10 +57552,6 @@
 	        enumerable: true,
 	        configurable: true
 	    });
-	    /**
-	     * @private
-	     */
-	    Toggle.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    /**
 	     * @private
 	     */

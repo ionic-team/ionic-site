@@ -34,7 +34,7 @@ Checkbox
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/checkbox/checkbox.ts#L5'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/checkbox/checkbox.ts#L8'>
 Improve this doc
 </a>
 
@@ -46,7 +46,8 @@ Improve this doc
 <p>The checkbox is no different than the HTML checkbox input, except
 it&#39;s styled accordingly to the the platform and design mode, such
 as iOS or Material Design.</p>
-<p>See the <a href="https://angular.io/docs/js/latest/api/core/Form-interface.html">Angular 2 Docs</a> for more info on forms and input.</p>
+<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a>
+for more info on forms and inputs.</p>
 
 
 <h2>Component</h2>
@@ -59,17 +60,17 @@ as iOS or Material Design.</p>
 
   &lt;ion-item&gt;
     &lt;ion-label&gt;Pepperoni&lt;/ion-label&gt;
-    &lt;ion-checkbox value=&quot;pepperoni&quot; checked=&quot;true&quot;&gt;&lt;/ion-checkbox&gt;
+    &lt;ion-checkbox [(ngModel)]=&quot;pepperoni&quot; checked=&quot;true&quot;&gt;&lt;/ion-checkbox&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
     &lt;ion-label&gt;Sausage&lt;/ion-label&gt;
-    &lt;ion-checkbox value=&quot;sausage&quot; disabled=&quot;true&quot;&gt;&lt;/ion-checkbox&gt;
+    &lt;ion-checkbox [(ngModel)]=&quot;sausage&quot; disabled=&quot;true&quot;&gt;&lt;/ion-checkbox&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
     &lt;ion-label&gt;Mushrooms&lt;/ion-label&gt;
-    &lt;ion-checkbox value=&quot;mushrooms&quot;&gt;&lt;/ion-checkbox&gt;
+    &lt;ion-checkbox [(ngModel)]=&quot;mushrooms&quot;&gt;&lt;/ion-checkbox&gt;
   &lt;/ion-item&gt;
 
 &lt;/ion-list&gt;
@@ -94,13 +95,6 @@ as iOS or Material Design.</p>
     </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>value</td>
-      <td><code>string</code></td>
-      <td><p> the value of the checkbox component</p>
-</td>
-    </tr>
     
     <tr>
       <td>checked</td>

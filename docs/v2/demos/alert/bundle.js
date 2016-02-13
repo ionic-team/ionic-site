@@ -50132,6 +50132,10 @@
 	         * @output {any} expression to evaluate when a slide has been changed
 	         */
 	        this.change = new core_1.EventEmitter();
+	        /**
+	         * @output {any} expression to evaluate when a slide change starts
+	         */
+	        this.slideChangeStart = new core_1.EventEmitter();
 	        this.rapidUpdate = util_2.debounce(function () {
 	            _this.update();
 	        }, 10);
@@ -50178,6 +50182,7 @@
 	            return _this.options.onTransitionEnd && _this.options.onTransitionEnd(swiper, e);
 	        };
 	        options.onSlideChangeStart = function (swiper) {
+	            _this.slideChangeStart.emit(swiper);
 	            return _this.options.onSlideChangeStart && _this.options.onSlideChangeStart(swiper);
 	        };
 	        options.onSlideChangeEnd = function (swiper) {
@@ -50560,6 +50565,10 @@
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Slides.prototype, "change", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], Slides.prototype, "slideChangeStart", void 0);
 	    Slides = __decorate([
 	        core_1.Component({
 	            selector: 'ion-slides',
@@ -50571,10 +50580,10 @@
 	                '</div>',
 	            directives: [common_1.NgClass]
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object])
 	    ], Slides);
 	    return Slides;
-	    var _a, _b;
+	    var _a, _b, _c;
 	})(ion_1.Ion);
 	exports.Slides = Slides;
 	/**

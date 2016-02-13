@@ -182,6 +182,12 @@ Improve this doc
 </td>
     </tr>
     
+    <tr>
+      <td>slideChangeStart</td>
+      <td><p> expression to evaluate when a slide change starts</p>
+</td>
+    </tr>
+    
   </tbody>
 </table><!-- related link -->
 

@@ -46,7 +46,7 @@ Improve this doc
 <p>A radio group is a group of radio components, and its value comes
 from the selected radio button&#39;s value. Selecting a radio button
 in the group unselects all others in the group.</p>
-<p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
+<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a> for more info on forms and input.</p>
 
 
 <h2>Directive</h2>

@@ -34,7 +34,7 @@ Toggle
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/toggle/toggle.ts#L7'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/toggle/toggle.ts#L10'>
 Improve this doc
 </a>
 
@@ -47,11 +47,12 @@ Improve this doc
 except it looks different and is easier to use on a touch device.
 Toggles can also have colors assigned to them, by adding any color
 attribute.</p>
-<p>See the <a href="https://angular.io/docs/js/latest/api/forms/">Angular 2 Docs</a> for more info on forms and input.</p>
+<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a>
+for more info on forms and input.</p>
 
 
 <h2>Component</h2>
-<h3>selector: <code>ion-toggle,ion-switch</code></h3>
+<h3>selector: <code>ion-toggle</code></h3>
 <!-- @usage tag -->
 
 <h2>Usage</h2>
@@ -60,17 +61,17 @@ attribute.</p>
 
   &lt;ion-item&gt;
     &lt;ion-label&gt;Pepperoni&lt;/ion-label&gt;
-    &lt;ion-toggle value=&quot;pepperoni&quot; checked=&quot;true&quot;&gt;&lt;/ion-toggle&gt;
+    &lt;ion-toggle [(ngModel)]=&quot;pepperoni&quot; checked=&quot;true&quot;&gt;&lt;/ion-toggle&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
     &lt;ion-label&gt;Sausage&lt;/ion-label&gt;
-    &lt;ion-toggle value=&quot;sausage&quot;&gt;&lt;/ion-toggle&gt;
+    &lt;ion-toggle [(ngModel)]=&quot;sausage&quot;&gt;&lt;/ion-toggle&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
     &lt;ion-label&gt;Mushrooms&lt;/ion-label&gt;
-    &lt;ion-toggle value=&quot;mushrooms&quot;&gt;&lt;/ion-toggle&gt;
+    &lt;ion-toggle [(ngModel)]=&quot;mushrooms&quot;&gt;&lt;/ion-toggle&gt;
   &lt;/ion-item&gt;
 
 &lt;/ion-list&gt;
@@ -98,14 +99,6 @@ attribute.</p>
 
 
 
-
-
-
-
-
-
-
-
 <th>Type</th>
 
 
@@ -113,22 +106,6 @@ attribute.</p>
 </tr>
 </thead>
 <tbody>
-
-<tr>
-<td>
-value
-</td>
-
-
-<td>
-any
-</td>
-
-
-<td>
-the inital value of the toggle
-</td>
-</tr>
 
 <tr>
 <td>
@@ -162,28 +139,38 @@ whether the toggle is disabled or not
 </td>
 </tr>
 
-<tr>
-<td>
-id
-</td>
-
-
-<td>
-string
-</td>
-
-
-<td>
-a unique ID for a toggle
-</td>
-</tr>
-
 </tbody>
 </table>
 
 
 
-<!-- instance methods on the class --><!-- related link -->
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>checked</td>
+      <td><code></code></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code></code></td>
+      <td></td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link -->
 
 <h2>Related</h2>
 

@@ -57374,10 +57374,10 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
 	var form_1 = __webpack_require__(167);
-	var config_1 = __webpack_require__(161);
 	var util_1 = __webpack_require__(163);
 	var item_1 = __webpack_require__(322);
 	var dom_1 = __webpack_require__(164);
+	var TOGGLE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
 	/**
 	 * @name Toggle
 	 * @description
@@ -57386,11 +57386,11 @@
 	 * Toggles can also have colors assigned to them, by adding any color
 	 * attribute.
 	 *
-	 * See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/forms/) for more info on forms and input.
-	 * @property {any} [value] - the inital value of the toggle
+	 * See the [Angular 2 Docs](https://angular.io/docs/ts/latest/guide/forms.html)
+	 * for more info on forms and input.
 	 * @property {boolean} [checked] - whether the toggle it toggled or not
 	 * @property {boolean} [disabled] - whether the toggle is disabled or not
-	 * @property {string} [id] - a unique ID for a toggle
+	 *
 	 * @usage
 	 * ```html
 	 *
@@ -57398,47 +57398,37 @@
 	 *
 	 *    <ion-item>
 	 *      <ion-label>Pepperoni</ion-label>
-	 *      <ion-toggle value="pepperoni" checked="true"></ion-toggle>
+	 *      <ion-toggle [(ngModel)]="pepperoni" checked="true"></ion-toggle>
 	 *    </ion-item>
 	 *
 	 *    <ion-item>
 	 *      <ion-label>Sausage</ion-label>
-	 *      <ion-toggle value="sausage"></ion-toggle>
+	 *      <ion-toggle [(ngModel)]="sausage"></ion-toggle>
 	 *    </ion-item>
 	 *
 	 *    <ion-item>
 	 *      <ion-label>Mushrooms</ion-label>
-	 *      <ion-toggle value="mushrooms"></ion-toggle>
+	 *      <ion-toggle [(ngModel)]="mushrooms"></ion-toggle>
 	 *    </ion-item>
 	 *
 	 *  </ion-list>
 	 * ```
+	 *
 	 * @demo /docs/v2/demos/toggle/
 	 * @see {@link /docs/v2/components#toggle Toggle Component Docs}
 	 */
 	var Toggle = (function () {
-	    function Toggle(_form, _elementRef, _renderer, config, ngControl, _item) {
+	    function Toggle(_form, _elementRef, _renderer, _item, _injector) {
 	        this._form = _form;
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
 	        this._item = _item;
+	        this._injector = _injector;
 	        this._checked = false;
 	        this._disabled = false;
 	        this._activated = false;
-	        this._touched = 0;
-	        /**
-	         * @private
-	         */
-	        this.value = '';
-	        // deprecated warning
-	        if (_elementRef.nativeElement.tagName == 'ION-SWITCH') {
-	            console.warn('<ion-switch> has been renamed to <ion-toggle>, please update your HTML');
-	        }
-	        _form.register(this);
-	        this._mode = config.get('mode');
-	        if (ngControl) {
-	            ngControl.valueAccessor = this;
-	        }
+	        this._msPrv = 0;
+	        this._form.register(this);
 	        if (_item) {
 	            this.id = 'tgl-' + _item.registerInput('toggle');
 	            this._labelId = 'lbl-' + _item.id;
@@ -57447,32 +57437,96 @@
 	    }
 	    /**
 	     * @private
-	     * Toggle the checked state of this toggle.
 	     */
-	    Toggle.prototype.toggle = function () {
-	        this.checked = !this.checked;
+	    Toggle.prototype.pointerDown = function (ev) {
+	        if (this._isPrevented(ev)) {
+	            return;
+	        }
+	        this._startX = dom_1.pointerCoord(ev).x;
+	        this._activated = true;
+	    };
+	    /**
+	     * @private
+	     */
+	    Toggle.prototype.pointerMove = function (ev) {
+	        if (this._startX) {
+	            if (this._isPrevented(ev)) {
+	                return;
+	            }
+	            var currentX = dom_1.pointerCoord(ev).x;
+	            console.debug('toggle, pointerMove', ev.type, currentX);
+	            if (this._checked) {
+	                if (currentX + 15 < this._startX) {
+	                    this.onChange(false);
+	                    this._startX = currentX;
+	                    this._activated = true;
+	                }
+	            }
+	            else if (currentX - 15 > this._startX) {
+	                this.onChange(true);
+	                this._startX = currentX;
+	                this._activated = (currentX < this._startX + 5);
+	            }
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Toggle.prototype.pointerUp = function (ev) {
+	        if (this._startX) {
+	            if (this._isPrevented(ev)) {
+	                return;
+	            }
+	            var endX = dom_1.pointerCoord(ev).x;
+	            if (this.checked) {
+	                if (this._startX + 4 > endX) {
+	                    this.onChange(false);
+	                }
+	            }
+	            else if (this._startX - 4 < endX) {
+	                this.onChange(true);
+	            }
+	            this._activated = false;
+	            this._startX = null;
+	        }
 	    };
 	    Object.defineProperty(Toggle.prototype, "checked", {
-	        /**
-	         * @private
-	         */
 	        get: function () {
 	            return this._checked;
 	        },
 	        set: function (val) {
-	            if (!this._disabled) {
-	                this._checked = util_1.isTrueProperty(val);
-	                this.onChange(this._checked);
-	                this._item && this._item.setCssClass('item-toggle-checked', this._checked);
-	            }
+	            this._setChecked(util_1.isTrueProperty(val));
+	            this.onChange(this._checked);
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /**
+	     * @private
+	     */
+	    Toggle.prototype.writeValue = function (val) {
+	        this._setChecked(util_1.isTrueProperty(val));
+	    };
+	    /**
+	     * @private
+	     */
+	    Toggle.prototype.registerOnChange = function (fn) {
+	        var _this = this;
+	        this._fn = fn;
+	        this.onChange = function (isChecked) {
+	            console.debug('toggle, onChange', isChecked);
+	            fn(isChecked);
+	            _this._setChecked(isChecked);
+	        };
+	    };
+	    /**
+	     * @private
+	     */
+	    Toggle.prototype._setChecked = function (isChecked) {
+	        this._checked = isChecked;
+	        this._item && this._item.setCssClass('item-toggle-checked', isChecked);
+	    };
 	    Object.defineProperty(Toggle.prototype, "disabled", {
-	        /**
-	         * @private
-	         */
 	        get: function () {
 	            return this._disabled;
 	        },
@@ -57486,82 +57540,15 @@
 	    /**
 	     * @private
 	     */
-	    Toggle.prototype.pointerDown = function (ev) {
-	        if (ev.type.indexOf('touch') > -1) {
-	            this._touched = Date.now();
-	        }
-	        if (this.isDisabled(ev)) {
-	            return;
-	        }
-	        this._startX = dom_1.pointerCoord(ev).x;
-	        this._activated = true;
-	    };
-	    /**
-	     * @private
-	     */
-	    Toggle.prototype.pointerMove = function (ev) {
-	        if (this._startX) {
-	            var currentX = dom_1.pointerCoord(ev).x;
-	            console.debug('toggle move', ev.type, currentX);
-	            if (this._checked) {
-	                if (currentX + 15 < this._startX) {
-	                    this.toggle();
-	                    this._startX = currentX;
-	                }
-	            }
-	            else if (currentX - 15 > this._startX) {
-	                this.toggle();
-	                this._startX = currentX;
-	            }
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Toggle.prototype.pointerUp = function (ev) {
-	        if (this._startX) {
-	            if (this.isDisabled(ev)) {
-	                return;
-	            }
-	            var endX = dom_1.pointerCoord(ev).x;
-	            if (this.checked) {
-	                if (this._startX + 4 > endX) {
-	                    this.toggle();
-	                }
-	            }
-	            else if (this._startX - 4 < endX) {
-	                this.toggle();
-	            }
-	            this._activated = false;
-	            this._startX = null;
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Toggle.prototype.writeValue = function (value) {
-	        this.checked = value;
-	    };
-	    /**
-	     * @private
-	     */
-	    Toggle.prototype.onChange = function (val) {
-	        // TODO: figure the whys and the becauses
-	    };
-	    /**
-	     * @private
-	     */
-	    Toggle.prototype.onTouched = function (val) {
-	        // TODO: figure the whys and the becauses
-	    };
-	    /**
-	     * @private
-	     */
-	    Toggle.prototype.registerOnChange = function (fn) { this.onChange = fn; };
-	    /**
-	     * @private
-	     */
 	    Toggle.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+	    /**
+	     * @private
+	     */
+	    Toggle.prototype.onChange = function (_) { };
+	    /**
+	     * @private
+	     */
+	    Toggle.prototype.onTouched = function () { };
 	    /**
 	     * @private
 	     */
@@ -57571,14 +57558,16 @@
 	    /**
 	     * @private
 	     */
-	    Toggle.prototype.isDisabled = function (ev) {
-	        return (this._touched + 999 > Date.now() && (ev.type.indexOf('mouse') > -1))
-	            || (this._mode == 'ios' && ev.target.tagName == 'ION-TOGGLE');
+	    Toggle.prototype._isPrevented = function (ev) {
+	        if (ev.type.indexOf('touch') > -1) {
+	            this._msPrv = Date.now() + 2000;
+	        }
+	        else if (this._msPrv > Date.now() && ev.type.indexOf('mouse') > -1) {
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	            return true;
+	        }
 	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Toggle.prototype, "value", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
@@ -57589,7 +57578,7 @@
 	    ], Toggle.prototype, "disabled", null);
 	    Toggle = __decorate([
 	        core_1.Component({
-	            selector: 'ion-toggle,ion-switch',
+	            selector: 'ion-toggle',
 	            template: '<div class="toggle-icon" [class.toggle-checked]="_checked" [class.toggle-activated]="_activated">' +
 	                '<div class="toggle-inner"></div>' +
 	                '</div>' +
@@ -57609,14 +57598,14 @@
 	                '</button>',
 	            host: {
 	                '[class.toggle-disabled]': '_disabled'
-	            }
+	            },
+	            providers: [TOGGLE_VALUE_ACCESSOR]
 	        }),
-	        __param(4, core_1.Optional()),
-	        __param(5, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _e) || Object, (typeof (_f = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _f) || Object])
+	        __param(3, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Injector !== 'undefined' && core_1.Injector) === 'function' && _e) || Object])
 	    ], Toggle);
 	    return Toggle;
-	    var _a, _b, _c, _d, _e, _f;
+	    var _a, _b, _c, _d, _e;
 	})();
 	exports.Toggle = Toggle;
 
@@ -58778,7 +58767,7 @@
 	 * and there must be at least two `<ion-radio>` components within
 	 * the radio group.
 	 *
-	 * See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/forms/) for
+	 * See the [Angular 2 Docs](https://angular.io/docs/ts/latest/guide/forms.html) for
 	 * more info on forms and input.
 	 *
 	 * @usage
@@ -58967,7 +58956,7 @@
 	 * from the selected radio button's value. Selecting a radio button
 	 * in the group unselects all others in the group.
 	 *
-	 * See the [Angular 2 Docs](https://angular.io/docs/js/latest/api/forms/) for more info on forms and input.
+	 * See the [Angular 2 Docs](https://angular.io/docs/ts/latest/guide/forms.html) for more info on forms and input.
 	 *
 	 * @usage
 	 * ```html

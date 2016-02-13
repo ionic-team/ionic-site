@@ -6301,7 +6301,7 @@ ion-segment {
   cursor: pointer; }
 
 .segment-button {
-  min-height: 3rem;
+  height: 3.2rem;
   line-height: 3rem;
   font-size: 1.3rem;
   border-width: 1px;
@@ -6309,6 +6309,9 @@ ion-segment {
   border-color: #327eff;
   color: #327eff;
   background-color: transparent; }
+  .segment-button ion-icon {
+    font-size: 2.6rem;
+    line-height: 2.8rem; }
   .segment-button.segment-activated {
     opacity: 1;
     color: white;
@@ -6342,9 +6345,12 @@ ion-segment {
 
 .toolbar .segment-button {
   max-width: 100px;
-  min-height: 2.4rem;
-  line-height: 2.4rem;
+  height: 2.6rem;
+  line-height: 2.5rem;
   font-size: 1.2rem; }
+  .toolbar .segment-button ion-icon {
+    font-size: 2.2rem;
+    line-height: 2.4rem; }
 
 ion-segment[primary] .segment-button {
   border-color: #327eff;

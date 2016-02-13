@@ -7183,7 +7183,7 @@ ion-segment {
   border-bottom-width: 2px;
   border-bottom-style: solid;
   border-bottom-color: rgba(0, 0, 0, 0.1);
-  min-height: 4rem;
+  height: 4.2rem;
   line-height: 4rem;
   font-size: 1.2rem;
   text-transform: uppercase;
@@ -7193,6 +7193,9 @@ ion-segment {
   background-color: transparent;
   -webkit-transition: 100ms all linear;
   transition: 100ms all linear; }
+  .segment-button ion-icon {
+    font-size: 2.6rem;
+    line-height: 4rem; }
   .segment-button.activated, .segment-button.segment-activated {
     border-color: #327eff; }
 

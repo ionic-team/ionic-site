@@ -5170,8 +5170,11 @@ ion-card {
   ion-card ion-note[item-left],
   ion-card ion-note[item-right] {
     font-size: 1.3rem; }
-  ion-card .card-title {
+  ion-card ion-card-title {
+    display: block;
+    line-height: 1.2;
     padding: 8px 0 8px 0;
+    margin: 2px 0 2px;
     font-size: 1.8rem;
     color: #222; }
   ion-card h1 {

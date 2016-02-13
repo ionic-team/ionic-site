@@ -5063,8 +5063,11 @@ ion-icon {
     .ios ion-card ion-note[item-left],
     .ios ion-card ion-note[item-right] {
       font-size: 1.3rem; }
-    .ios ion-card .card-title {
+    .ios ion-card ion-card-title {
+      display: block;
+      line-height: 1.2;
       padding: 8px 0 8px 0;
+      margin: 2px 0 2px;
       font-size: 1.8rem;
       color: #222; }
     .ios ion-card h1 {
@@ -8301,8 +8304,11 @@ ion-icon {
     .md ion-card ion-note[item-left],
     .md ion-card ion-note[item-right] {
       font-size: 1.3rem; }
-    .md ion-card .card-title {
+    .md ion-card ion-card-title {
+      display: block;
+      line-height: 1.2;
       padding: 8px 0 8px 0;
+      margin: 2px 0 2px;
       font-size: 2.4rem;
       color: #222; }
     .md ion-card h1 {

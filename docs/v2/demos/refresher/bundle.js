@@ -58784,7 +58784,7 @@
 	        _form.register(this);
 	        if (_group) {
 	            // register with the radiogroup
-	            this.id = 'rb-' + _group.register(this);
+	            this.id = 'rb-' + _group.add(this);
 	        }
 	        if (_item) {
 	            // register the input inside of the item
@@ -58816,29 +58816,14 @@
 	            return this._checked;
 	        },
 	        set: function (isChecked) {
-	            if (!this._disabled) {
-	                // only check/uncheck if it's not disabled
-	                // emit the select event for the radiogroup to catch
-	                this._checked = util_1.isTrueProperty(isChecked);
-	                this.select.emit(this.value);
-	                // if it's a stand-alone radiobutton nothing else happens
-	                // if it was within a radiogroup then updateAsChecked will
-	                // get called again
-	                this.updateAsChecked(this._checked);
+	            this._checked = util_1.isTrueProperty(isChecked);
+	            if (this._item) {
+	                this._item.setCssClass('item-radio-checked', this._checked);
 	            }
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
-	    /**
-	     * @private
-	     */
-	    RadioButton.prototype.updateAsChecked = function (val) {
-	        this._checked = val;
-	        if (this._item) {
-	            this._item.setCssClass('item-radio-checked', val);
-	        }
-	    };
 	    Object.defineProperty(RadioButton.prototype, "disabled", {
 	        /**
 	         * @private
@@ -58861,12 +58846,22 @@
 	        ev.preventDefault();
 	        ev.stopPropagation();
 	        this.checked = true;
+	        this.select.emit(this.value);
+	    };
+	    /**
+	     * @private
+	     */
+	    RadioButton.prototype.ngOnInit = function () {
+	        if (this._group && util_1.isDefined(this._group.value) && this._group.value === this.value) {
+	            this.checked = true;
+	        }
 	    };
 	    /**
 	     * @private
 	     */
 	    RadioButton.prototype.ngOnDestroy = function () {
 	        this._form.deregister(this);
+	        this._group.remove(this);
 	    };
 	    __decorate([
 	        core_1.Output(), 
@@ -58929,21 +58924,19 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
 	var list_1 = __webpack_require__(319);
-	var util_1 = __webpack_require__(163);
+	var RADIO_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return RadioGroup; }), multi: true });
 	/**
 	 * @name RadioGroup
 	 * @description
-	 * A radio group is a group of radio components, and its value comes
-	 * from the selected radio button's value. Selecting a radio button
-	 * in the group unselects all others in the group.
+	 * A radio group is a group of radio button components, and its value
+	 * comes from the checked radio button's value. Selecting a radio
+	 * button in the group unchecks all others in the group.
 	 *
-	 * See the [Angular 2 Docs](https://angular.io/docs/ts/latest/guide/forms.html) for more info on forms and input.
+	 * See the [Angular 2 Docs](https://angular.io/docs/ts/latest/guide/forms.html)
+	 * for more info on forms and inputs.
 	 *
 	 * @usage
 	 * ```html
@@ -58960,7 +58953,7 @@
 	 *
 	 *   <ion-item>
 	 *     <ion-label>Duesenberg</ion-label>
-	 *     <ion-radio value="duesenberg" checked="true"></ion-radio>
+	 *     <ion-radio value="duesenberg"></ion-radio>
 	 *   </ion-item>
 	 *
 	 *   <ion-item>
@@ -58980,14 +58973,15 @@
 	 *
 	 * </ion-list>
 	 * ```
+	 *
 	 * @demo /docs/v2/demos/radio/
 	 * @see {@link /docs/v2/components#radio Radio Component Docs}
 	*/
 	var RadioGroup = (function () {
-	    function RadioGroup(ngControl, _renderer, _elementRef) {
+	    function RadioGroup(_renderer, _elementRef) {
 	        this._renderer = _renderer;
 	        this._elementRef = _elementRef;
-	        this._buttons = [];
+	        this._btns = [];
 	        this._ids = -1;
 	        this._init = false;
 	        /**
@@ -58995,77 +58989,97 @@
 	         */
 	        this.change = new core_1.EventEmitter();
 	        this.id = ++radioGroupIds;
-	        if (ngControl) {
-	            ngControl.valueAccessor = this;
-	        }
 	    }
 	    /**
 	     * @private
-	     * Angular2 Forms API method called by the model (Control) on change to update
-	     * the checked value.
-	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L34
 	     */
 	    RadioGroup.prototype.writeValue = function (val) {
-	        if (val !== null) {
-	            var oldVal = this.value;
-	            // set the radiogroup's value
-	            this.value = util_1.isDefined(val) ? val : '';
-	            this.updateValue();
-	            // only emit change when it...changed
-	            if (this.value !== oldVal && this._init) {
-	                this.change.emit(this.value);
-	            }
-	            this._init = true;
+	        console.debug('radio group, writeValue', val);
+	        this.value = val;
+	        if (this._init) {
+	            this._update();
+	            this.onTouched();
+	            this.change.emit(val);
 	        }
+	        this._init = true;
 	    };
 	    /**
 	     * @private
 	     */
 	    RadioGroup.prototype.ngAfterContentInit = function () {
-	        var _this = this;
-	        // in a setTimeout to prevent
-	        // Expression '_checked in RadioButton@0:24' has changed after
-	        // it was checked. Previous value: 'true'. Current value: 'false'
-	        // should be available in future versions of ng2
-	        setTimeout(function () {
-	            _this.updateValue();
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    RadioGroup.prototype.updateValue = function () {
-	        var _this = this;
-	        if (util_1.isDefined(this.value)) {
-	            // loop through each of the radiobuttons
-	            this._buttons.forEach(function (radioButton) {
-	                // check this radiobutton if its value is
-	                // the same as the radiogroups value
-	                var isChecked = (radioButton.value === _this.value);
-	                radioButton.updateAsChecked(isChecked);
-	                if (isChecked) {
-	                    // if this button is checked, then set it as
-	                    // the radiogroup's active descendant
-	                    _this._renderer.setElementAttribute(_this._elementRef.nativeElement, 'aria-activedescendant', radioButton.id);
-	                }
-	            });
+	        var activeButton = this._btns.find(function (b) { return b.checked; });
+	        if (activeButton) {
+	            this._setActive(activeButton);
 	        }
 	    };
 	    /**
 	     * @private
 	     */
-	    RadioGroup.prototype.register = function (button) {
+	    RadioGroup.prototype.registerOnChange = function (fn) {
 	        var _this = this;
-	        this._buttons.push(button);
+	        this._fn = fn;
+	        this.onChange = function (val) {
+	            console.debug('radio group, onChange', val);
+	            fn(val);
+	            _this.value = val;
+	            _this._update();
+	            _this.onTouched();
+	            _this.change.emit(val);
+	        };
+	    };
+	    /**
+	     * @private
+	     */
+	    RadioGroup.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+	    /**
+	     * @private
+	     */
+	    RadioGroup.prototype._update = function () {
+	        var _this = this;
+	        // loop through each of the radiobuttons
+	        this._btns.forEach(function (radioButton) {
+	            // check this radiobutton if its value is
+	            // the same as the radiogroups value
+	            radioButton.checked = (radioButton.value === _this.value);
+	            if (radioButton.checked) {
+	                // if this button is checked, then set it as
+	                // the radiogroup's active descendant
+	                _this._setActive(radioButton);
+	            }
+	        });
+	    };
+	    RadioGroup.prototype._setActive = function (radioButton) {
+	        this._renderer.setElementAttribute(this._elementRef.nativeElement, 'aria-activedescendant', radioButton.id);
+	    };
+	    /**
+	     * @private
+	     */
+	    RadioGroup.prototype.add = function (button) {
+	        var _this = this;
+	        this._btns.push(button);
 	        // listen for radiobutton select events
-	        button.select.subscribe(function () {
+	        button.select.subscribe(function (val) {
 	            // this radiobutton has been selected
-	            _this.writeValue(button.value);
-	            _this.onChange(button.value);
+	            _this.onChange(val);
 	        });
 	        return this.id + '-' + (++this._ids);
 	    };
+	    /**
+	     * @private
+	     */
+	    RadioGroup.prototype.remove = function (button) {
+	        var index = this._btns.indexOf(button);
+	        if (index > -1) {
+	            if (button.value === this.value) {
+	                this.value = null;
+	            }
+	            this._btns.splice(index, 1);
+	        }
+	    };
 	    Object.defineProperty(RadioGroup.prototype, "_header", {
+	        /**
+	         * @private
+	         */
 	        set: function (header) {
 	            if (header) {
 	                if (!header.id) {
@@ -59080,26 +59094,11 @@
 	    /**
 	     * @private
 	     */
-	    RadioGroup.prototype.onChange = function (val) { };
+	    RadioGroup.prototype.onChange = function (_) { };
 	    /**
 	     * @private
 	     */
-	    RadioGroup.prototype.onTouched = function (val) { };
-	    /**
-	     * @private
-	     * Angular2 Forms API method called by the view (NgControl) to register the
-	     * onChange event handler that updates the model (Control).
-	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
-	     * @param {Function} fn  the onChange event handler.
-	     */
-	    RadioGroup.prototype.registerOnChange = function (fn) { this.onChange = fn; };
-	    /**
-	     * @private
-	     * Angular2 Forms API method called by the the view (NgControl) to register
-	     * the onTouched event handler that marks the model (Control) as touched.
-	     * @param {Function} fn  onTouched event handler.
-	     */
-	    RadioGroup.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+	    RadioGroup.prototype.onTouched = function () { };
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
@@ -59115,13 +59114,13 @@
 	            host: {
 	                '[attr.aria-activedescendant]': 'activeId',
 	                'role': 'radiogroup'
-	            }
-	        }),
-	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object])
+	            },
+	            providers: [RADIO_VALUE_ACCESSOR]
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object])
 	    ], RadioGroup);
 	    return RadioGroup;
-	    var _a, _b, _c, _d;
+	    var _a, _b, _c;
 	})();
 	exports.RadioGroup = RadioGroup;
 	var radioGroupIds = -1;

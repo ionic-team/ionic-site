@@ -34,7 +34,7 @@ RadioGroup
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/radio/radio-group.ts#L5'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/radio/radio-group.ts#L8'>
 Improve this doc
 </a>
 
@@ -43,10 +43,11 @@ Improve this doc
 
 
 
-<p>A radio group is a group of radio components, and its value comes
-from the selected radio button&#39;s value. Selecting a radio button
-in the group unselects all others in the group.</p>
-<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a> for more info on forms and input.</p>
+<p>A radio group is a group of radio button components, and its value
+comes from the checked radio button&#39;s value. Selecting a radio
+button in the group unchecks all others in the group.</p>
+<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a>
+for more info on forms and inputs.</p>
 
 
 <h2>Directive</h2>
@@ -68,7 +69,7 @@ in the group unselects all others in the group.</p>
 
   &lt;ion-item&gt;
     &lt;ion-label&gt;Duesenberg&lt;/ion-label&gt;
-    &lt;ion-radio value=&quot;duesenberg&quot; checked=&quot;true&quot;&gt;&lt;/ion-radio&gt;
+    &lt;ion-radio value=&quot;duesenberg&quot;&gt;&lt;/ion-radio&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;

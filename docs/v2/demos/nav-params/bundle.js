@@ -56233,10 +56233,9 @@
 	 * @see {@link /docs/v2/components#checkbox Checkbox Component Docs}
 	 */
 	var Checkbox = (function () {
-	    function Checkbox(_form, _item, _injector) {
+	    function Checkbox(_form, _item) {
 	        this._form = _form;
 	        this._item = _item;
-	        this._injector = _injector;
 	        this._checked = false;
 	        this._disabled = false;
 	        _form.register(this);
@@ -56359,10 +56358,10 @@
 	            providers: [CHECKBOX_VALUE_ACCESSOR]
 	        }),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Injector !== 'undefined' && core_1.Injector) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _b) || Object])
 	    ], Checkbox);
 	    return Checkbox;
-	    var _a, _b, _c;
+	    var _a, _b;
 	})();
 	exports.Checkbox = Checkbox;
 
@@ -56390,6 +56389,7 @@
 	var util_1 = __webpack_require__(163);
 	var nav_controller_1 = __webpack_require__(302);
 	var option_1 = __webpack_require__(328);
+	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 	/**
 	 * @name Select
 	 * @description
@@ -56478,7 +56478,7 @@
 	 * @demo /docs/v2/demos/select/
 	 */
 	var Select = (function () {
-	    function Select(_form, _elementRef, _renderer, _item, _nav, ngControl) {
+	    function Select(_form, _elementRef, _renderer, _item, _nav) {
 	        this._form = _form;
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
@@ -56491,12 +56491,12 @@
 	        this._text = '';
 	        /**
 	         * @private
-	         * @input {string}  The text of the cancel button. Defatuls to 'cancel'
+	         * @input {string}  The text of the cancel button. Defatuls to `Cancel`
 	         */
 	        this.cancelText = 'Cancel';
 	        /**
 	         * @private
-	         * @input {string} The text of the ok button. Defatuls to 'OK'
+	         * @input {string} The text of the ok button. Defatuls to `OK`
 	         */
 	        this.okText = 'OK';
 	        /**
@@ -56517,9 +56517,6 @@
 	         */
 	        this.cancel = new core_1.EventEmitter();
 	        this._form.register(this);
-	        if (ngControl) {
-	            ngControl.valueAccessor = this;
-	        }
 	        if (_item) {
 	            this.id = 'sel-' + _item.registerInput('select');
 	            this._labelId = 'lbl-' + _item.id;
@@ -56576,7 +56573,6 @@
 	        alert.addButton({
 	            text: this.okText,
 	            handler: function (selectedValues) {
-	                _this.value = selectedValues;
 	                _this.onChange(selectedValues);
 	                _this.change.emit(selectedValues);
 	            }
@@ -56592,21 +56588,6 @@
 	        },
 	        set: function (val) {
 	            this._multi = util_1.isTrueProperty(val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Select.prototype, "value", {
-	        /**
-	         * @private
-	         */
-	        get: function () {
-	            return (this._multi ? this._values : this._values.join());
-	        },
-	        set: function (val) {
-	            // passed in value could be either an array, undefined or a string
-	            this._values = (Array.isArray(val) ? val : util_1.isBlank(val) ? [] : [val]);
-	            this.updateOptions();
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -56632,7 +56613,7 @@
 	                // so check to see who should be checked
 	                this._values = val.toArray().filter(function (o) { return o.checked; }).map(function (o) { return o.value; });
 	            }
-	            this.updateOptions();
+	            this._updOpts();
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -56640,7 +56621,7 @@
 	    /**
 	     * @private
 	     */
-	    Select.prototype.updateOptions = function () {
+	    Select.prototype._updOpts = function () {
 	        var _this = this;
 	        this._texts = [];
 	        if (this._options) {
@@ -56653,18 +56634,6 @@
 	            });
 	        }
 	        this._text = this._texts.join(', ');
-	    };
-	    /**
-	     * @private
-	     */
-	    Select.prototype.ngAfterContentInit = function () {
-	        var _this = this;
-	        // using a setTimeout here to prevent
-	        // "has changed after it was checked" error
-	        // this will be fixed in future ng2 versions
-	        setTimeout(function () {
-	            _this.onChange(_this._values);
-	        });
 	    };
 	    Object.defineProperty(Select.prototype, "disabled", {
 	        /**
@@ -56682,36 +56651,36 @@
 	    });
 	    /**
 	     * @private
-	     * Angular2 Forms API method called by the model (Control) on change to update
-	     * the checked value.
-	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L34
 	     */
 	    Select.prototype.writeValue = function (val) {
-	        this.value = val;
+	        this._values = (Array.isArray(val) ? val : util_1.isBlank(val) ? [] : [val]);
+	        this._updOpts();
 	    };
 	    /**
 	     * @private
 	     */
-	    Select.prototype.onChange = function (val) { };
+	    Select.prototype.registerOnChange = function (fn) {
+	        var _this = this;
+	        this._fn = fn;
+	        this.onChange = function (val) {
+	            console.debug('select, onChange', val);
+	            fn(val);
+	            _this._values = (Array.isArray(val) ? val : util_1.isBlank(val) ? [] : [val]);
+	            _this._updOpts();
+	        };
+	    };
 	    /**
 	     * @private
-	     */
-	    Select.prototype.onTouched = function (val) { };
-	    /**
-	     * @private
-	     * Angular2 Forms API method called by the view (NgControl) to register the
-	     * onChange event handler that updates the model (Control).
-	     * https://github.com/angular/angular/blob/master/modules/angular2/src/forms/directives/shared.ts#L27
-	     * @param {Function} fn  the onChange event handler.
-	     */
-	    Select.prototype.registerOnChange = function (fn) { this.onChange = fn; };
-	    /**
-	     * @private
-	     * Angular2 Forms API method called by the the view (NgControl) to register
-	     * the onTouched event handler that marks model (Control) as touched.
-	     * @param {Function} fn  onTouched event handler.
 	     */
 	    Select.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+	    /**
+	     * @private
+	     */
+	    Select.prototype.onChange = function (_) { };
+	    /**
+	     * @private
+	     */
+	    Select.prototype.onTouched = function () { };
 	    /**
 	     * @private
 	     */
@@ -56753,10 +56722,6 @@
 	        __metadata('design:type', Object)
 	    ], Select.prototype, "multiple", null);
 	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Select.prototype, "value", null);
-	    __decorate([
 	        core_1.ContentChildren(option_1.Option), 
 	        __metadata('design:type', (typeof (_c = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _c) || Object), 
 	        __metadata('design:paramtypes', [(typeof (_d = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _d) || Object])
@@ -56780,15 +56745,15 @@
 	                '</button>',
 	            host: {
 	                '[class.select-disabled]': '_disabled'
-	            }
+	            },
+	            providers: [SELECT_VALUE_ACCESSOR]
 	        }),
 	        __param(3, core_1.Optional()),
-	        __param(4, core_1.Optional()),
-	        __param(5, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_e = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _g) || Object, (typeof (_h = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _h) || Object, (typeof (_j = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _j) || Object, (typeof (_k = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _k) || Object])
+	        __param(4, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_e = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _g) || Object, (typeof (_h = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _h) || Object, (typeof (_j = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _j) || Object])
 	    ], Select);
 	    return Select;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 	})();
 	exports.Select = Select;
 
@@ -57438,12 +57403,11 @@
 	 * @see {@link /docs/v2/components#toggle Toggle Component Docs}
 	 */
 	var Toggle = (function () {
-	    function Toggle(_form, _elementRef, _renderer, _item, _injector) {
+	    function Toggle(_form, _elementRef, _renderer, _item) {
 	        this._form = _form;
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
 	        this._item = _item;
-	        this._injector = _injector;
 	        this._checked = false;
 	        this._disabled = false;
 	        this._activated = false;
@@ -57622,10 +57586,10 @@
 	            providers: [TOGGLE_VALUE_ACCESSOR]
 	        }),
 	        __param(3, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Injector !== 'undefined' && core_1.Injector) === 'function' && _e) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _d) || Object])
 	    ], Toggle);
 	    return Toggle;
-	    var _a, _b, _c, _d, _e;
+	    var _a, _b, _c, _d;
 	})();
 	exports.Toggle = Toggle;
 

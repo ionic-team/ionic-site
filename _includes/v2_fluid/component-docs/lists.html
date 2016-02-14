@@ -146,6 +146,31 @@ Multiline lists are identical to regular lists, except they can multiple lines o
   Demo Source
 </a>
 
+Sliding items can be swiped to the left to reveal a set of buttons. To use a sliding item, add a `<ion-item-sliding>` component inside of a list:
+
+```html
+<ion-list>
+  <ion-item-sliding>
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="img/slimer.png">
+      </ion-avatar>
+      <h2>Slimer</h2>
+    </ion-item>
+    <ion-item-options>
+      <button primary>
+        <ion-icon name="text"></ion-icon>
+        Text
+      </button>
+      <button secondary>
+        <ion-icon name="call"></ion-icon>
+        Call
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+```
+
 
 <h3 class="section-nav" id="thumbnail-list">Thumbnail List</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/lists/thumbnail">

@@ -60233,6 +60233,9 @@
 	        _reflect.defineMetadata('annotations', annotations, cls);
 	        // define array of bootstrap providers
 	        var providers = bootstrap_1.ionicProviders(args).concat(args.providers || []);
+	        if (args.prodMode) {
+	            core_1.enableProdMode();
+	        }
 	        browser_1.bootstrap(cls, providers).then(function (appRef) {
 	            appRef.injector.get(tap_click_1.TapClick);
 	        });

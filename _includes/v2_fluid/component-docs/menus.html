@@ -10,7 +10,7 @@ Menu is a side-menu navigation that can be dragged out or toggled to show. Menu 
 
 Along with [Tabs](#tabs), Menus are a common way to navigate through an app if you have several "root" or "top-level" pages. For the basics of navigating through an Ionic app, see the [Navigation section](#navigation).
 
-For situations where using Tabs might not be desirable, for example if you have a large number of root pages (making a TabBar impractical), a menu might be a better solution.
+For UX reasons, we first recommend using Tabs. However, for situations where using Tabs might not be desirable, for example if you have a large number of root pages (making a TabBar impractical), a menu might be a better solution.
 
 Menus also allow you to return to root pages at any point. This can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.
 
@@ -52,6 +52,7 @@ The `<ion-menu>`s bound `[content]` property gets a [reference](https://angular.
 Then in our [@App](../api/config/App/) component we have two buttons with click handlers that navigate to a new root page:
 
 ```typescript
+import {MenuController, IonicApp} from 'ionic/ionic';
 import {LoginPage} from 'login';
 import {SignupPage} from 'signup';
 
@@ -60,15 +61,16 @@ import {SignupPage} from 'signup';
 })
 class MyApp {
 
-  constructor(ionicApp: IonicApp) {
-    this.app = ionicApp;
+  constructor(app: IonicApp, menu: MenuController) {
+    this.app = app;
+    this.menu = menu;
     this.loginPage = LoginPage;
     this.signupPage = SignupPage;
   }
 
   openPage(page) {
     // close the menu when clicking a link from the menu
-    this.app.getComponent('menu').close();
+    this.menu.close();
 
     // Reset the nav controller to have just this page
     // we wouldn't want the back button to show in this scenario
@@ -78,7 +80,7 @@ class MyApp {
 }
 ```
 
-We inject the [`IonicApp`](../api/components/app/IonicApp/) service so we can use Ionic's [id system](../api/components/app/IdRef) to get references to the menu and the nav controller.  We then use the NavController's [`setRoot`](../api/components/nav/NavController/#setRoot) function to clear the navigation stack and set the selected page as the new navigation root.
+We inject the [`MenuController`](../api/components/menu/Menu/) provider so we can close the opened menu.  We then use the NavController's [`setRoot`](../api/components/nav/NavController/#setRoot) function to clear the navigation stack and set the selected page as the new navigation root.
 
 Menus can be a little more complicated, but they allow for many different configuration options.  For example, the Google Maps app uses a drawer style Menu that exposes a list of items that open [Modals](#modals) over the main map content area and toggle settings on and off.
 

@@ -56213,7 +56213,7 @@
 	 *
 	 *    <ion-item>
 	 *      <ion-label>Pepperoni</ion-label>
-	 *      <ion-checkbox [(ngModel)]="pepperoni" checked="true"></ion-checkbox>
+	 *      <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
 	 *    </ion-item>
 	 *
 	 *    <ion-item>
@@ -56653,7 +56653,14 @@
 	     * @private
 	     */
 	    Select.prototype.writeValue = function (val) {
+	        console.debug('select, writeValue', val);
 	        this._values = (Array.isArray(val) ? val : util_1.isBlank(val) ? [] : [val]);
+	        this._updOpts();
+	    };
+	    /**
+	     * @private
+	     */
+	    Select.prototype.ngAfterContentInit = function () {
 	        this._updOpts();
 	    };
 	    /**
@@ -57384,7 +57391,7 @@
 	 *
 	 *    <ion-item>
 	 *      <ion-label>Pepperoni</ion-label>
-	 *      <ion-toggle [(ngModel)]="pepperoni" checked="true"></ion-toggle>
+	 *      <ion-toggle [(ngModel)]="pepperoni"></ion-toggle>
 	 *    </ion-item>
 	 *
 	 *    <ion-item>

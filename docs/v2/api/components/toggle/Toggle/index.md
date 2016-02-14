@@ -61,7 +61,7 @@ for more info on forms and inputs.</p>
 
   &lt;ion-item&gt;
     &lt;ion-label&gt;Pepperoni&lt;/ion-label&gt;
-    &lt;ion-toggle [(ngModel)]=&quot;pepperoni&quot; checked=&quot;true&quot;&gt;&lt;/ion-toggle&gt;
+    &lt;ion-toggle [(ngModel)]=&quot;pepperoni&quot;&gt;&lt;/ion-toggle&gt;
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;

@@ -10,7 +10,7 @@ header_sub_title: Ionic 2 Developer Preview
 
 # Migration Concepts
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/migration/index.md'>Improve this doc</a>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/getting-started/migration/index.md'>Improve this doc</a>
 
 Ionic 2 is built on top of Angular 2, which is a complete rewrite of the original framework. All the parts of Angular you know are still there, but there are new syntax and structural changes about which developers need to be aware. For an overview of the changes in Angular 2, take a look at [Learn Angular 2](http://learnangular2.com/).
 

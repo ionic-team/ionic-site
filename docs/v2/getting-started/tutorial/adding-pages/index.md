@@ -65,7 +65,7 @@ We see that `this.rootPage` is set to `HelloIonicPage`, so `HelloIonicPage` will
 
 ### Creating a Page
 
-Next, let's check out the `HelloIonicPage` that we are importing. Inside the `app/hello-ionic/` folder, let's open up `hello-ionic.js`.
+Next, let's check out the `HelloIonicPage` that we are importing. Inside the `app/pages/hello-ionic/` folder, let's open up `hello-ionic.js`.
 
 > You may have noticed that each page has its own folder that is named after the page. Inside each folder, we also see a `.html` and a `.scss` file with the same name. For example, inside of `hello-ionic/` we will find`hello-ionic.js`, `hello-ionic.html`, and `hello-ionic.scss`. Although using this pattern is not required, it can be helpful to keep things organized.
 
@@ -76,7 +76,7 @@ Below, you will see the `HelloIonicPage` class which has a `Page` [decorator](..
 import {Page, NavController} from 'ionic/ionic';
 
 @Page({
-  templateUrl: 'app/hello-ionic/hello-ionic.html'
+  templateUrl: 'build/pages/hello-ionic/hello-ionic.html'
 })
 export class HelloIonicPage {
   constructor(nav: NavController) {

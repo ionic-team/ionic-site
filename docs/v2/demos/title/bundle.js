@@ -56291,6 +56291,7 @@
 	            console.debug('checkbox, onChange', isChecked);
 	            fn(isChecked);
 	            _this._setChecked(isChecked);
+	            _this.onTouched();
 	        };
 	    };
 	    /**
@@ -56667,6 +56668,7 @@
 	            fn(val);
 	            _this._values = (Array.isArray(val) ? val : util_1.isBlank(val) ? [] : [val]);
 	            _this._updOpts();
+	            _this.onTouched();
 	        };
 	    };
 	    /**
@@ -57508,6 +57510,7 @@
 	            console.debug('toggle, onChange', isChecked);
 	            fn(isChecked);
 	            _this._setChecked(isChecked);
+	            _this.onTouched();
 	        };
 	    };
 	    /**

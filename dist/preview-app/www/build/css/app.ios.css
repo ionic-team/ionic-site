@@ -266,6 +266,23 @@ ion-toolbar[position=bottom] {
   position: sticky;
   top: 0; }
 
+.css-scrollbars ::-webkit-scrollbar {
+  width: 9px; }
+
+.css-scrollbars ::-webkit-scrollbar-thumb:vertical {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-clip: padding-box;
+  min-height: 10px; }
+
+.css-scrollbars ::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-clip: padding-box;
+  min-height: 10px; }
+
 html {
   font-size: 62.5%; }
 
@@ -4404,15 +4421,15 @@ ion-action-sheet {
   overflow: hidden;
   margin-bottom: 8px;
   border-radius: 13px;
-  background: rgba(243, 243, 243, 0.95); }
+  background: #f9f9f9; }
   .action-sheet-group:last-child {
     margin-bottom: 10px; }
 
 .action-sheet-title {
-  padding: 2rem;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #5f5f5f;
+  padding: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #8f8f8f;
   border-radius: 0;
   text-align: center; }
 
@@ -4429,7 +4446,10 @@ ion-action-sheet {
   .action-sheet-button:last-child {
     border-bottom: 0; }
   .action-sheet-button.activated {
-    background: #e9e9e9; }
+    margin-top: -1px;
+    background: #ebebeb;
+    border-bottom-color: #ebebeb;
+    border-top: 1px solid #ebebeb; }
 
 .action-sheet-destructive {
   color: #f53d3d; }
@@ -4515,6 +4535,15 @@ ion-alert {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row; }
+  .alert-button-group.vertical {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap; }
 
 .alert-button {
   display: block;
@@ -4523,6 +4552,96 @@ ion-alert {
   line-height: 20px;
   font-size: 14px;
   margin-right: 8px; }
+
+ion-checkbox {
+  position: relative;
+  display: inline-block; }
+
+.checkbox-icon {
+  position: relative;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c8c7cc;
+  background-color: #fff; }
+
+.checkbox-checked {
+  background-color: #387ef5;
+  border-color: #387ef5; }
+
+.checkbox-checked .checkbox-inner {
+  position: absolute;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #fff !important;
+  top: 4px;
+  left: 7px;
+  width: 4px;
+  height: 9px;
+  border-left: none;
+  border-top: none;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+.checkbox-disabled,
+.item-checkbox-disabled ion-label {
+  opacity: 0.3;
+  pointer-events: none; }
+
+.item ion-checkbox {
+  position: static;
+  display: block;
+  margin: 10px 16px 10px 2px; }
+
+ion-checkbox[primary] .checkbox-checked {
+  background-color: #387ef5;
+  border-color: #387ef5; }
+  ion-checkbox[primary] .checkbox-checked .checkbox-inner {
+    border-color: white; }
+
+ion-checkbox[secondary] .checkbox-checked {
+  background-color: #32db64;
+  border-color: #32db64; }
+  ion-checkbox[secondary] .checkbox-checked .checkbox-inner {
+    border-color: white; }
+
+ion-checkbox[danger] .checkbox-checked {
+  background-color: #f53d3d;
+  border-color: #f53d3d; }
+  ion-checkbox[danger] .checkbox-checked .checkbox-inner {
+    border-color: white; }
+
+ion-checkbox[light] .checkbox-checked {
+  background-color: #f4f4f4;
+  border-color: #f4f4f4; }
+  ion-checkbox[light] .checkbox-checked .checkbox-inner {
+    border-color: black; }
+
+ion-checkbox[dark] .checkbox-checked {
+  background-color: #222;
+  border-color: #222; }
+  ion-checkbox[dark] .checkbox-checked .checkbox-inner {
+    border-color: white; }
+
+ion-checkbox[energized] .checkbox-checked {
+  background-color: #ffc527;
+  border-color: #ffc527; }
+  ion-checkbox[energized] .checkbox-checked .checkbox-inner {
+    border-color: black; }
+
+ion-checkbox[royal] .checkbox-checked {
+  background-color: #7e60ff;
+  border-color: #7e60ff; }
+  ion-checkbox[royal] .checkbox-checked .checkbox-inner {
+    border-color: black; }
+
+ion-checkbox[subtle] .checkbox-checked {
+  background-color: #444444;
+  border-color: #444444; }
+  ion-checkbox[subtle] .checkbox-checked .checkbox-inner {
+    border-color: white; }
 
 ion-alert {
   background: transparent; }
@@ -4534,12 +4653,12 @@ ion-alert {
   overflow: hidden; }
 
 .alert-head {
-  padding: 12px 16px 20px;
+  padding: 12px 16px 7px;
   text-align: center; }
 
 .alert-title {
-  margin-top: 12px;
-  font-weight: bold;
+  margin-top: 8px;
+  font-weight: 600;
   font-size: 17px; }
 
 .alert-sub-title {
@@ -4548,7 +4667,7 @@ ion-alert {
 
 .alert-message,
 .alert-input-group {
-  padding: 0px 16px 24px;
+  padding: 0px 16px 21px;
   font-size: 13px;
   color: inherit;
   text-align: center; }
@@ -4564,7 +4683,7 @@ ion-alert {
 .alert-radio-group,
 .alert-checkbox-group {
   max-height: 240px;
-  border-top: 1px solid #c8c7cc;
+  border-top: 1px solid #dbdbdf;
   overflow: scroll; }
 
 .alert-tappable {
@@ -4630,17 +4749,52 @@ ion-alert {
   overflow: hidden;
   white-space: nowrap; }
 
+.alert-checkbox-icon {
+  margin: 10px 6px 10px 16px;
+  position: relative;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c8c7cc;
+  background-color: #fff; }
+
+.alert-checkbox[aria-checked=true] .alert-checkbox-icon {
+  background-color: #387ef5;
+  border-color: #387ef5; }
+  .alert-checkbox[aria-checked=true] .alert-checkbox-icon .alert-checkbox-inner {
+    position: absolute;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #fff !important;
+    top: 4px;
+    left: 7px;
+    width: 4px;
+    height: 9px;
+    border-left: none;
+    border-top: none;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+
+.alert-button-group {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -1px; }
+
 .alert-button {
   margin: 0;
   -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-width: 50%;
   font-size: 17px;
   min-height: 44px;
   border-radius: 0;
-  border-top: 1px solid #c8c7cc;
-  border-right: 1px solid #c8c7cc;
+  border-top: 1px solid #dbdbdf;
+  border-right: 1px solid #dbdbdf;
   color: #387ef5;
   background-color: transparent; }
   .alert-button:last-child {
@@ -4672,13 +4826,14 @@ ion-badge {
   white-space: nowrap;
   font-size: 1.3rem;
   font-weight: bold;
-  line-height: 1;
-  background: #ccc; }
+  line-height: 1; }
   ion-badge:empty {
     display: none; }
 
 ion-badge {
-  border-radius: 10px; }
+  border-radius: 10px;
+  background-color: #387ef5;
+  color: white; }
 
 .badge-primary {
   background-color: #387ef5;
@@ -5201,7 +5356,7 @@ ion-checkbox {
 
 .checkbox-disabled,
 .item-checkbox-disabled ion-label {
-  opacity: 0.4;
+  opacity: 0.3;
   pointer-events: none; }
 
 .item ion-checkbox {
@@ -5388,6 +5543,9 @@ ion-textarea {
 textarea.text-input {
   display: block; }
 
+.text-input[disabled] {
+  opacity: 0.4; }
+
 input.text-input:-webkit-autofill {
   background-color: transparent; }
 
@@ -5434,7 +5592,7 @@ input.text-input:-webkit-autofill {
   padding: 0; }
 
 .inset-input {
-  margin: 6px 16px 6.5px 16px;
+  margin: 6px 16px 6.5px 0;
   padding: 6px 8px 6.5px 8px; }
 
 .item-label-stacked .text-input,
@@ -5838,7 +5996,8 @@ ion-label {
 .item-input ion-label {
   color: #7f7f7f; }
 
-ion-label + ion-input .text-input {
+ion-label + ion-input .text-input,
+ion-label + ion-textarea .text-input {
   margin-left: 16px; }
 
 ion-label[stacked] {
@@ -6049,7 +6208,7 @@ ion-radio {
 
 .radio-disabled,
 .item-radio-disabled ion-label {
-  opacity: 0.4;
+  opacity: 0.3;
   pointer-events: none; }
 
 .item ion-radio {
@@ -6912,11 +7071,11 @@ ion-toggle {
 
 .toggle-disabled,
 .item-toggle-disabled ion-label {
-  opacity: 0.4;
+  opacity: 0.3;
   pointer-events: none; }
 
 .toggle-disabled ion-radio {
-  opacity: 0.4; }
+  opacity: 0.3; }
 
 .item ion-toggle {
   margin: 0;
@@ -7081,7 +7240,6 @@ ion-navbar.toolbar {
   padding: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
-  overflow: hidden;
   text-align: center;
   text-transform: none;
   vertical-align: top;
@@ -7093,6 +7251,14 @@ ion-navbar.toolbar {
   user-select: none;
   -webkit-appearance: none;
   -moz-appearance: none; }
+
+.bar-button:after {
+  position: absolute;
+  content: '';
+  top: -7px;
+  right: -2px;
+  bottom: -6px;
+  left: -2px; }
 
 .bar-button-menutoggle {
   display: -webkit-box;

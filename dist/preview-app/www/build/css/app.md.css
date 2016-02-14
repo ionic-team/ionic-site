@@ -266,6 +266,23 @@ ion-toolbar[position=bottom] {
   position: sticky;
   top: 0; }
 
+.css-scrollbars ::-webkit-scrollbar {
+  width: 9px; }
+
+.css-scrollbars ::-webkit-scrollbar-thumb:vertical {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-clip: padding-box;
+  min-height: 10px; }
+
+.css-scrollbars ::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-clip: padding-box;
+  min-height: 10px; }
+
 html {
   font-size: 62.5%; }
 
@@ -4625,6 +4642,15 @@ ion-alert {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row; }
+  .alert-button-group.vertical {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap; }
 
 .alert-button {
   display: block;
@@ -4777,7 +4803,10 @@ ion-alert {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  -webkit-flex-wrap: wrap-reverse;
+  -ms-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse; }
 
 .alert-button {
   position: relative;
@@ -4787,7 +4816,8 @@ ion-alert {
   color: #387ef5;
   background-color: transparent;
   border-radius: 2px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  text-align: right; }
   .alert-button.activated {
     opacity: 1; }
 
@@ -4800,13 +4830,14 @@ ion-badge {
   white-space: nowrap;
   font-size: 1.3rem;
   font-weight: bold;
-  line-height: 1;
-  background: #ccc; }
+  line-height: 1; }
   ion-badge:empty {
     display: none; }
 
 ion-badge {
-  border-radius: 4px; }
+  border-radius: 4px;
+  background-color: #387ef5;
+  color: white; }
 
 .badge-primary {
   background-color: #387ef5;
@@ -5441,7 +5472,13 @@ ion-checkbox {
   border-width: 2px;
   border-style: solid;
   border-color: #787878;
-  background-color: #fff; }
+  background-color: #fff;
+  -webkit-transition-property: background;
+  transition-property: background;
+  -webkit-transition-duration: 280ms;
+  transition-duration: 280ms;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 
 .checkbox-checked {
   background-color: #387ef5;
@@ -5463,7 +5500,7 @@ ion-checkbox {
 
 .checkbox-disabled,
 .item-checkbox-disabled ion-label {
-  opacity: 0.4;
+  opacity: 0.3;
   pointer-events: none; }
 
 .item ion-checkbox {
@@ -5729,6 +5766,9 @@ ion-textarea {
 
 textarea.text-input {
   display: block; }
+
+.text-input[disabled] {
+  opacity: 0.4; }
 
 input.text-input:-webkit-autofill {
   background-color: transparent; }
@@ -6240,10 +6280,9 @@ ion-label[floating] {
   width: auto; }
 
 ion-label {
-  margin: 13px 8px 13px 8px; }
+  margin: 13px 8px 13px 0; }
 
 .item-input ion-label {
-  margin: 13px 8px 13px 0;
   color: #999; }
 
 ion-label[stacked] {
@@ -6573,7 +6612,7 @@ ion-radio {
 
 .radio-disabled,
 .item-radio-disabled ion-label {
-  opacity: 0.4;
+  opacity: 0.3;
   pointer-events: none; }
 
 .item ion-radio {
@@ -7474,11 +7513,11 @@ ion-toggle {
 
 .toggle-disabled,
 .item-toggle-disabled ion-label {
-  opacity: 0.4;
+  opacity: 0.3;
   pointer-events: none; }
 
 .toggle-disabled ion-radio {
-  opacity: 0.4; }
+  opacity: 0.3; }
 
 .item ion-toggle {
   margin: 0;
@@ -7697,7 +7736,6 @@ ion-navbar.toolbar {
   padding: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
-  overflow: hidden;
   text-align: center;
   text-transform: none;
   vertical-align: top;
@@ -7709,6 +7747,14 @@ ion-navbar.toolbar {
   user-select: none;
   -webkit-appearance: none;
   -moz-appearance: none; }
+
+.bar-button:after {
+  position: absolute;
+  content: '';
+  top: -7px;
+  right: -2px;
+  bottom: -6px;
+  left: -2px; }
 
 .bar-button-menutoggle {
   display: -webkit-box;
@@ -7810,6 +7856,10 @@ ion-buttons[right] {
   border-radius: 2px;
   text-transform: uppercase;
   font-weight: 500; }
+
+.bar-button-solid,
+.bar-button-outline {
+  overflow: hidden; }
 
 .bar-button-outline {
   border-width: 1px;

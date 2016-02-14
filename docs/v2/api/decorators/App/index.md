@@ -110,7 +110,7 @@ object
 
 
 <td>
-the app's <a href='docs/v2/api/config/Config/'>Config</a> object
+the app's <a href='/docs/v2/api/config/Config/'>Config</a> object
 </td>
 </tr>
 

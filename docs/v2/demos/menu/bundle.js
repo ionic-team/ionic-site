@@ -55647,6 +55647,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
+	var hammer_1 = __webpack_require__(294);
 	var drag_gesture_1 = __webpack_require__(291);
 	var dom_1 = __webpack_require__(164);
 	var ItemSlidingGesture = (function (_super) {
@@ -55758,7 +55759,7 @@
 	        // and we aren't moving fast enough to swipe open
 	        if (this.getOpenAmount(itemContainerEle) < (restingPoint / 2)) {
 	            // If we are going left but too slow, or going right, go back to resting
-	            if (ev.direction & Hammer.DIRECTION_RIGHT || Math.abs(ev.velocityX) < 0.3) {
+	            if (ev.direction & hammer_1.DIRECTION_RIGHT || Math.abs(ev.velocityX) < 0.3) {
 	                restingPoint = 0;
 	            }
 	        }

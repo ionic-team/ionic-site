@@ -73,7 +73,13 @@ Open the barcode scanner.
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+   Returns a Promise that resolves with scanner data, or rejects with an error.
 
+
+</div>
 
 
 

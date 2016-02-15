@@ -45536,7 +45536,6 @@
 	    function ViewController(componentType, data) {
 	        if (data === void 0) { data = {}; }
 	        this.componentType = componentType;
-	        this.data = data;
 	        this._destroys = [];
 	        this._hdAttr = null;
 	        this._leavingOpts = null;
@@ -45554,7 +45553,12 @@
 	         * @private
 	         */
 	        this.viewType = '';
+	        /**
+	         * @private
+	         */
 	        this._emitter = new core_1.EventEmitter();
+	        // passed in data could be NavParams, but all we care about is its data object
+	        this.data = (data instanceof nav_params_1.NavParams ? data.data : data);
 	    }
 	    ViewController.prototype.subscribe = function (callback) {
 	        this._emitter.subscribe(callback);
@@ -54781,7 +54785,7 @@
 	    };
 	    /**
 	     * @param {number} index Index of the tab you want to get
-	     * @returns {any} Tab Returs the tab who's index matches the one passed
+	     * @returns {Tab} Returns the tab who's index matches the one passed
 	     */
 	    Tabs.prototype.getByIndex = function (index) {
 	        if (index < this._tabs.length && index > -1) {
@@ -54790,7 +54794,7 @@
 	        return null;
 	    };
 	    /**
-	     * @return {any} Tab Returns the currently selected tab
+	     * @return {Tab} Returns the currently selected tab
 	     */
 	    Tabs.prototype.getSelected = function () {
 	        for (var i = 0; i < this._tabs.length; i++) {
@@ -55108,7 +55112,7 @@
 	        // A Tab is a NavController for its child pages
 	        _super.call(this, parentTabs, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer);
 	        /**
-	         * @pinput {any} Method to call when the current tab is selected
+	         * @output {Tab} Method to call when the current tab is selected
 	         */
 	        this.select = new core_2.EventEmitter();
 	        parentTabs.add(this);
@@ -55126,7 +55130,7 @@
 	     */
 	    Tab.prototype.load = function (opts, done) {
 	        if (!this._loaded && this.root) {
-	            this.push(this.root, null, opts).then(function () {
+	            this.push(this.root, this.rootParams, opts).then(function () {
 	                done();
 	            });
 	            this._loaded = true;
@@ -55209,6 +55213,10 @@
 	        core_2.Input(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.Type !== 'undefined' && core_1.Type) === 'function' && _a) || Object)
 	    ], Tab.prototype, "root", void 0);
+	    __decorate([
+	        core_2.Input(), 
+	        __metadata('design:type', Object)
+	    ], Tab.prototype, "rootParams", void 0);
 	    __decorate([
 	        core_2.Input(), 
 	        __metadata('design:type', String)
@@ -60227,6 +60235,7 @@
 	* @property {string} [templateUrl] - a relative URL pointing to the template to use for the app root.
 	*/
 	function App(args) {
+	    if (args === void 0) { args = {}; }
 	    return function (cls) {
 	        // get current annotations
 	        var annotations = _reflect.getMetadata('annotations', cls) || [];

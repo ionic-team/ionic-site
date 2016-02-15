@@ -114,8 +114,15 @@ class. Below is an example of presenting a modal from one of the tabs.</p>
     
     <tr>
       <td>root</td>
-      <td><code>page</code></td>
+      <td><code>Page</code></td>
       <td><p> Set the root page for this tab</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>rootParams</td>
+      <td><code>object</code></td>
+      <td><p> Any nav-params you want to pass to the root page of the tab</p>
 </td>
     </tr>
     

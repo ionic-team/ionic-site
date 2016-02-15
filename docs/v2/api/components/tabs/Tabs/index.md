@@ -206,7 +206,7 @@ the screen, while on Android it is at the top.</p>
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>any</code> Tab Returs the tab who's index matches the one passed
+  <code>Tab</code> Returns the tab who's index matches the one passed
 </div>
 
 
@@ -230,7 +230,7 @@ the screen, while on Android it is at the top.</p>
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>any</code> Tab Returns the currently selected tab
+  <code>Tab</code> Returns the currently selected tab
 </div>
 
 
@@ -249,14 +249,14 @@ the screen, while on Android it is at the top.</p>
     
     <tr>
       <td>selectedIndex</td>
-      <td><code>any</code></td>
+      <td><code>number</code></td>
       <td><p> The default selected tab index when first loaded. If a selected index wasn&#39;t provided then it&#39;ll use <code>0</code>, the first tab.</p>
 </td>
     </tr>
     
     <tr>
       <td>preloadTabs</td>
-      <td><code>any</code></td>
+      <td><code>boolean</code></td>
       <td><p> Sets whether to preload all the tabs, true or false</p>
 </td>
     </tr>

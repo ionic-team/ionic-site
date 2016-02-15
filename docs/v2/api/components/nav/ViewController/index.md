@@ -86,25 +86,6 @@ export class MyPage{
 
 
 
-<div id="data"></div>
-
-<h3>
-<code>data()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="subscribe"></div>
 
 <h3>

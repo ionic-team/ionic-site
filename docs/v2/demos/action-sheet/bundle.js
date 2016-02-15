@@ -27157,10 +27157,6 @@
 /* 163 */
 /***/ function(module, exports) {
 
-	// Simple noop function
-	function noop() { }
-	exports.noop = noop;
-	;
 	/**
 	 * Given a min and max, restrict the given number
 	 * to the range.
@@ -27227,7 +27223,7 @@
 	    }
 	    return dst;
 	}
-	function debounce(func, wait, immediate) {
+	function debounce(fn, wait, immediate) {
 	    if (immediate === void 0) { immediate = false; }
 	    var timeout, args, context, timestamp, result;
 	    return function () {
@@ -27242,7 +27238,7 @@
 	            else {
 	                timeout = null;
 	                if (!immediate)
-	                    result = func.apply(context, args);
+	                    result = fn.apply(context, args);
 	            }
 	        };
 	        var callNow = immediate && !timeout;
@@ -27250,7 +27246,7 @@
 	            timeout = setTimeout(later, wait);
 	        }
 	        if (callNow)
-	            result = func.apply(context, args);
+	            result = fn.apply(context, args);
 	        return result;
 	    };
 	}
@@ -27292,18 +27288,12 @@
 	    }
 	    return !!val;
 	};
-	exports.isFalseProperty = function (val) {
-	    if (typeof val === 'string') {
-	        return (val.toLowerCase().trim() === 'false');
-	    }
-	    return !!val;
-	};
 	/**
 	 * Convert a string in the format thisIsAString to a slug format this-is-a-string
 	 */
-	function pascalCaseToDashCase(str) {
-	    if (str === void 0) { str = ''; }
-	    return str.charAt(0).toLowerCase() + str.substring(1).replace(/[A-Z]/g, function (match) {
+	function pascalCaseToDashCase(val) {
+	    if (val === void 0) { val = ''; }
+	    return val.charAt(0).toLowerCase() + val.substring(1).replace(/[A-Z]/g, function (match) {
 	        return '-' + match.toLowerCase();
 	    });
 	}
@@ -27358,7 +27348,7 @@
 	 * Throttle the given fun, only allowing it to be
 	 * called at most every `wait` ms.
 	 */
-	function throttle(func, wait, options) {
+	function throttle(fn, wait, options) {
 	    var context, args, result;
 	    var timeout = null;
 	    var previous = 0;
@@ -27366,7 +27356,7 @@
 	    var later = function () {
 	        previous = options.leading === false ? 0 : Date.now();
 	        timeout = null;
-	        result = func.apply(context, args);
+	        result = fn.apply(context, args);
 	    };
 	    return function () {
 	        var now = Date.now();
@@ -27379,7 +27369,7 @@
 	            clearTimeout(timeout);
 	            timeout = null;
 	            previous = now;
-	            result = func.apply(context, args);
+	            result = fn.apply(context, args);
 	        }
 	        else if (!timeout && options.trailing !== false) {
 	            timeout = setTimeout(later, remaining);
@@ -41621,7 +41611,7 @@
 	     */
 	    MenuController.prototype.isEnabled = function (menuId) {
 	        var menu = this.get(menuId);
-	        return menu && menu.isEnabled || false;
+	        return menu && menu.enabled || false;
 	    };
 	    /**
 	     * Used to get a menu instance. If a `menuId` is not provided then it'll return
@@ -41644,6 +41634,12 @@
 	        }
 	        // get the first menu in the array, if one exists
 	        return (this._menus.length ? this._menus[0] : null);
+	    };
+	    /**
+	     * @return {Array<Menu>}  Returns an array of all menu instances.
+	     */
+	    MenuController.prototype.getMenus = function () {
+	        return this._menus;
 	    };
 	    /**
 	     * @private
@@ -42517,6 +42513,10 @@
 	        this._keyboard = _keyboard;
 	        this._zone = _zone;
 	        this._preventTime = 0;
+	        this._isEnabled = true;
+	        this._isSwipeEnabled = true;
+	        this._isListening = false;
+	        this._init = false;
 	        /**
 	         * @private
 	         */
@@ -42524,21 +42524,42 @@
 	        /**
 	         * @private
 	         */
-	        this.isEnabled = true;
-	        /**
-	         * @private
-	         */
-	        this.isSwipeEnabled = true;
-	        /**
-	         * @private
-	         */
 	        this.opening = new core_1.EventEmitter();
 	    }
+	    Object.defineProperty(Menu.prototype, "enabled", {
+	        /**
+	         * @private
+	         */
+	        get: function () {
+	            return this._isEnabled;
+	        },
+	        set: function (val) {
+	            this._isEnabled = util_1.isTrueProperty(val);
+	            this._setListeners();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Menu.prototype, "swipeEnabled", {
+	        /**
+	         * @private
+	         */
+	        get: function () {
+	            return this._isSwipeEnabled;
+	        },
+	        set: function (val) {
+	            this._isSwipeEnabled = util_1.isTrueProperty(val);
+	            this._setListeners();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     */
 	    Menu.prototype.ngOnInit = function () {
 	        var self = this;
+	        self._init = true;
 	        var content = self.content;
 	        self._cntEle = (content instanceof Node) ? content : content && content.getNativeElement && content.getNativeElement();
 	        // requires content element
@@ -42555,25 +42576,56 @@
 	            self.type = self._config.get('menuType');
 	        }
 	        self._renderer.setElementAttribute(self._elementRef.nativeElement, 'type', self.type);
-	        // add the gesture listeners
-	        self._zone.runOutsideAngular(function () {
-	            self._cntGesture = new menu_gestures_1.MenuContentGesture(self, self.getContentElement());
-	            self._menuGesture = new menu_gestures_1.MenuTargetGesture(self, self.getNativeElement());
-	            self.onContentClick = function (ev) {
-	                if (self.isEnabled) {
-	                    ev.preventDefault();
-	                    ev.stopPropagation();
-	                    self.close();
-	                }
-	            };
+	        // add the gestures
+	        self._cntGesture = new menu_gestures_1.MenuContentGesture(self, self.getContentElement());
+	        self._menuGesture = new menu_gestures_1.MenuTargetGesture(self, self.getNativeElement());
+	        // register listeners if this menu is enabled
+	        // check if more than one menu is on the same side
+	        var hasEnabledSameSideMenu = self._menuCtrl.getMenus().some(function (m) {
+	            return m.side === self.side && m.enabled;
 	        });
-	        if (util_1.isFalseProperty(self.swipeEnabled)) {
-	            self.isSwipeEnabled = false;
+	        if (hasEnabledSameSideMenu) {
+	            // auto-disable if another menu on the same side is already enabled
+	            self._isEnabled = false;
 	        }
+	        self._setListeners();
+	        // create a reusable click handler on this instance, but don't assign yet
+	        self.onContentClick = function (ev) {
+	            if (self._isEnabled) {
+	                ev.preventDefault();
+	                ev.stopPropagation();
+	                self.close();
+	            }
+	        };
 	        self._cntEle.classList.add('menu-content');
 	        self._cntEle.classList.add('menu-content-' + self.type);
 	        // register this menu with the app's menu controller
 	        self._menuCtrl.register(self);
+	    };
+	    /**
+	     * @private
+	     */
+	    Menu.prototype._setListeners = function () {
+	        var self = this;
+	        if (self._init) {
+	            // only listen/unlisten if the menu has initialized
+	            if (self._isEnabled && self._isSwipeEnabled && !self._isListening) {
+	                // should listen, but is not currently listening
+	                console.debug('menu, gesture listen', self.side);
+	                self._zone.runOutsideAngular(function () {
+	                    self._cntGesture.listen();
+	                    self._menuGesture.listen();
+	                });
+	                self._isListening = true;
+	            }
+	            else if (self._isListening && (!self._isEnabled || !self._isSwipeEnabled)) {
+	                // should not listen, but is currently listening
+	                console.debug('menu, gesture unlisten', self.side);
+	                self._cntGesture.unlisten();
+	                self._menuGesture.unlisten();
+	                self._isListening = false;
+	            }
+	        }
 	    };
 	    /**
 	     * @private
@@ -42612,7 +42664,7 @@
 	     */
 	    Menu.prototype.setProgressStart = function () {
 	        // user started swiping the menu open/close
-	        if (this._isPrevented() || !this.isEnabled || !this.isSwipeEnabled)
+	        if (this._isPrevented() || !this._isEnabled || !this._isSwipeEnabled)
 	            return;
 	        this._before();
 	        this._getType().setProgressStart(this.isOpen);
@@ -42622,7 +42674,7 @@
 	     */
 	    Menu.prototype.setProgessStep = function (stepValue) {
 	        // user actively dragging the menu
-	        if (this.isEnabled && this.isSwipeEnabled) {
+	        if (this._isEnabled && this._isSwipeEnabled) {
 	            this._prevent();
 	            this._getType().setProgessStep(stepValue);
 	            this.opening.next(stepValue);
@@ -42634,7 +42686,7 @@
 	    Menu.prototype.setProgressEnd = function (shouldComplete, currentStepValue) {
 	        var _this = this;
 	        // user has finished dragging the menu
-	        if (this.isEnabled && this.isSwipeEnabled) {
+	        if (this._isEnabled && this._isSwipeEnabled) {
 	            this._prevent();
 	            this._getType().setProgressEnd(shouldComplete, currentStepValue, function (isOpen) {
 	                console.debug('menu, progress end', _this.side);
@@ -42648,7 +42700,7 @@
 	    Menu.prototype._before = function () {
 	        // this places the menu into the correct location before it animates in
 	        // this css class doesn't actually kick off any animations
-	        if (this.isEnabled) {
+	        if (this._isEnabled) {
 	            this.getNativeElement().classList.add('show-menu');
 	            this.getBackdropElement().classList.add('show-backdrop');
 	            this._prevent();
@@ -42662,7 +42714,7 @@
 	        // keep opening/closing the menu disabled for a touch more yet
 	        // only add listeners/css if it's enabled and isOpen
 	        // and only remove listeners/css if it's not open
-	        if ((this.isEnabled && isOpen) || !isOpen) {
+	        if ((this._isEnabled && isOpen) || !isOpen) {
 	            this._prevent();
 	            this.isOpen = isOpen;
 	            this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
@@ -42718,7 +42770,7 @@
 	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
 	     */
 	    Menu.prototype.enable = function (shouldEnable) {
-	        this.isEnabled = shouldEnable;
+	        this.enabled = shouldEnable;
 	        if (!shouldEnable && this.isOpen) {
 	            this.close();
 	        }
@@ -42730,7 +42782,7 @@
 	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
 	     */
 	    Menu.prototype.swipeEnable = function (shouldEnable) {
-	        this.isSwipeEnabled = shouldEnable;
+	        this.swipeEnabled = shouldEnable;
 	        return this;
 	    };
 	    /**
@@ -42780,8 +42832,12 @@
 	    ], Menu.prototype, "type", void 0);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Menu.prototype, "swipeEnabled", void 0);
+	        __metadata('design:type', Boolean)
+	    ], Menu.prototype, "enabled", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Menu.prototype, "swipeEnabled", null);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
@@ -42794,12 +42850,10 @@
 	        core_1.Component({
 	            selector: 'ion-menu',
 	            host: {
-	                'role': 'navigation',
-	                '[attr.side]': 'side',
-	                '[attr.type]': 'type',
-	                '[attr.swipeEnabled]': 'swipeEnabled'
+	                'role': 'navigation'
 	            },
-	            template: '<ng-content></ng-content><div tappable disable-activated class="backdrop"></div>',
+	            template: '<ng-content></ng-content>' +
+	                '<div tappable disable-activated class="backdrop"></div>',
 	            directives: [core_1.forwardRef(function () { return MenuBackdrop; })]
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_b = typeof menu_controller_1.MenuController !== 'undefined' && menu_controller_1.MenuController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _h) || Object])
@@ -42901,12 +42955,11 @@
 	            maxEdgeStart: menu.maxEdgeStart || 75
 	        }, options));
 	        this.menu = menu;
-	        this.listen();
 	    }
 	    MenuContentGesture.prototype.canStart = function (ev) {
 	        var menu = this.menu;
-	        if (!menu.isEnabled || !menu.isSwipeEnabled) {
-	            console.debug('menu can not start, isEnabled:', menu.isEnabled, 'isSwipeEnabled:', menu.isSwipeEnabled, 'side:', menu.side);
+	        if (!menu.enabled || !menu.swipeEnabled) {
+	            console.debug('menu can not start, isEnabled:', menu.enabled, 'isSwipeEnabled:', menu.swipeEnabled, 'side:', menu.side);
 	            return false;
 	        }
 	        if (ev.distance > 50) {
@@ -43222,19 +43275,20 @@
 	        this._hammer = hammer_1.Hammer(this.element, this._options);
 	    };
 	    Gesture.prototype.unlisten = function () {
+	        var type, i;
 	        if (this._hammer) {
-	            for (var type in this._callbacks) {
-	                for (var i = 0; i < this._callbacks[type].length; i++) {
+	            for (type in this._callbacks) {
+	                for (i = 0; i < this._callbacks[type].length; i++) {
 	                    this._hammer.off(type, this._callbacks[type]);
 	                }
 	            }
-	            this._hammer.destroy();
-	            this._hammer = null;
 	            this._callbacks = {};
+	            this._hammer.destroy();
 	        }
 	    };
 	    Gesture.prototype.destroy = function () {
 	        this.unlisten();
+	        this._hammer = this.element = this._options = null;
 	    };
 	    return Gesture;
 	})();

@@ -550,6 +550,30 @@ attribute, then it'll try to find the menu by its `side` name.
 </div>
 
 
+
+
+<div id="getMenus"></div>
+
+<h3>
+<code>getMenus()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Array&lt;Menu&gt;</code> Returns an array of all menu instances.
+</div>
+
+
 <!-- related link -->
 
 <h2>Related</h2>

@@ -32,7 +32,7 @@ App
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/decorators/app.ts#L6'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/decorators/app.ts#L32'>
 Improve this doc
 </a>
 
@@ -41,8 +41,11 @@ Improve this doc
 
 
 
-<p>App is an Ionic decorator that bootstraps an application. It can be passed a number of arguments, that act as global config variables for the app.
-App can accept a <code>template</code> property that has an inline template or a <code>templateUrl</code> property that points to an external html template.</p>
+<p>App is an Ionic decorator that bootstraps an application. It can be passed a
+number of arguments that act as global config variables for the app.
+<code>@App</code> is similar to Angular&#39;s <code>@Component</code> in which it can accept a <code>template</code>
+property that has an inline template, or a <code>templateUrl</code> property that points
+to an external html template.</p>
 
 <!-- @usage tag -->
 
@@ -90,6 +93,14 @@ export class MyApp{
 
 
 
+
+
+
+
+
+
+
+
 <th>Type</th>
 
 
@@ -110,7 +121,39 @@ object
 
 
 <td>
-the app's <a href='/docs/v2/api/config/Config/'>Config</a> object
+the app's <a href='/docs/v2/api/config/Config/'>Config</a> object.
+</td>
+</tr>
+
+<tr>
+<td>
+prodMode
+</td>
+
+
+<td>
+boolean
+</td>
+
+
+<td>
+Enable Angular's production mode, which turns off assertions and other checks within the framework. Defaults to `false`.
+</td>
+</tr>
+
+<tr>
+<td>
+pipes
+</td>
+
+
+<td>
+array
+</td>
+
+
+<td>
+any pipes for your app.
 </td>
 </tr>
 
@@ -126,7 +169,7 @@ array
 
 
 <td>
-any providers for your app
+any providers for your app.
 </td>
 </tr>
 
@@ -142,7 +185,7 @@ string
 
 
 <td>
-the template to use for the app root
+the template to use for the app root.
 </td>
 </tr>
 
@@ -158,7 +201,7 @@ string
 
 
 <td>
-a relative URL pointing to the template to use for the app root
+a relative URL pointing to the template to use for the app root.
 </td>
 </tr>
 

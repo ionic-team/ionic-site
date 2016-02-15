@@ -60200,8 +60200,11 @@
 	/**
 	* @name App
 	* @description
-	* App is an Ionic decorator that bootstraps an application. It can be passed a number of arguments, that act as global config variables for the app.
-	* App can accept a `template` property that has an inline template or a `templateUrl` property that points to an external html template.
+	* App is an Ionic decorator that bootstraps an application. It can be passed a
+	* number of arguments that act as global config variables for the app.
+	* `@App` is similar to Angular's `@Component` in which it can accept a `template`
+	* property that has an inline template, or a `templateUrl` property that points
+	* to an external html template.
 	*
 	* @usage
 	* ```ts
@@ -60217,14 +60220,14 @@
 	* }
 	* ```
 	*
-	* @property {object} [config] - the app's {@link /docs/v2/api/config/Config/ Config} object
-	* @property {array}  [providers] - any providers for your app
-	* @property {string} [template] - the template to use for the app root
-	* @property {string} [templateUrl] - a relative URL pointing to the template to use for the app root
-	*
+	* @property {object} [config] - the app's {@link /docs/v2/api/config/Config/ Config} object.
+	* @property {boolean} [prodMode] - Enable Angular's production mode, which turns off assertions and other checks within the framework. Defaults to `false`.
+	* @property {array}  [pipes] - any pipes for your app.
+	* @property {array}  [providers] - any providers for your app.
+	* @property {string} [template] - the template to use for the app root.
+	* @property {string} [templateUrl] - a relative URL pointing to the template to use for the app root.
 	*/
 	function App(args) {
-	    if (args === void 0) { args = {}; }
 	    return function (cls) {
 	        // get current annotations
 	        var annotations = _reflect.getMetadata('annotations', cls) || [];
@@ -60328,7 +60331,6 @@
 	 * For more information on how pages are created, see the [NavController API reference](../../components/nav/NavController/#creating_pages)
 	 */
 	function Page(config) {
-	    if (config === void 0) { config = {}; }
 	    return function (cls) {
 	        config.selector = 'ion-page';
 	        config.directives = config.directives ? config.directives.concat(directives_1.IONIC_DIRECTIVES) : directives_1.IONIC_DIRECTIVES;

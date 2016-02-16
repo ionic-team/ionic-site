@@ -31,6 +31,7 @@ property in the `ionic.project` file located in your project root to watch
 {
   "name": "myApp",
   "app_id": "",
+  "default_browser": "chrome", // must be in your path
   "watchPatterns": [
     "www/js/*",
     "!www/css/**/*"

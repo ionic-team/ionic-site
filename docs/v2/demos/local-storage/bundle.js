@@ -41551,21 +41551,34 @@
 	        if (menu) {
 	            return menu.open();
 	        }
+	        return Promise.resolve(false);
 	    };
 	    /**
-	     * Progamatically close the Menu.
+	     * Progamatically close the Menu. If no `menuId` is given as the first
+	     * argument then it'll close any menu which is open. If a `menuId`
+	     * is given then it'll close that exact menu.
 	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
 	     * @return {Promise} returns a promise when the menu is fully closed
 	     */
 	    MenuController.prototype.close = function (menuId) {
-	        var menu = this.get(menuId);
+	        var menu;
+	        if (menuId) {
+	            // find the menu by its id
+	            menu = this.get(menuId);
+	        }
+	        else {
+	            // find the menu that is open
+	            menu = this._menus.find(function (m) { return m.isOpen; });
+	        }
 	        if (menu) {
+	            // close the menu
 	            return menu.close();
 	        }
+	        return Promise.resolve(false);
 	    };
 	    /**
-	     * Toggle the menu. If it's closed, it will open, and if opened, it will
-	     * close.
+	     * Toggle the menu. If it's closed, it will open, and if opened, it
+	     * will close.
 	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
 	     * @return {Promise} returns a promise when the menu has been toggled
 	     */
@@ -41574,6 +41587,7 @@
 	        if (menu) {
 	            return menu.toggle();
 	        }
+	        return Promise.resolve(false);
 	    };
 	    /**
 	     * Used to enable or disable a menu. For example, there could be multiple

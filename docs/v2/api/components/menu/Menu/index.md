@@ -203,7 +203,9 @@ Progamatically open the Menu.
 
 </h3>
 
-Progamatically close the Menu.
+Progamatically close the Menu. If no `menuId` is given as the first
+argument then it'll close any menu which is open. If a `menuId`
+is given then it'll close that exact menu.
 
 
 <table class="table param-table" style="margin:0;">
@@ -257,8 +259,8 @@ Progamatically close the Menu.
 
 </h3>
 
-Toggle the menu. If it's closed, it will open, and if opened, it will
-close.
+Toggle the menu. If it's closed, it will open, and if opened, it
+will close.
 
 
 <table class="table param-table" style="margin:0;">

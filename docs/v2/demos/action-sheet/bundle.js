@@ -41527,7 +41527,25 @@
 	 * but this can be overriden using the `type` property:
 	 *
 	 * ```html
-	 * <ion-menu type="overlay" [content]="mycontent"></ion-menu>
+	 * <ion-menu type="overlay" [content]="mycontent">...</ion-menu>
+	 * ```
+	 *
+	 *
+	 * ### Persistent Menus
+	 *
+	 * By default, menus, and specifically their menu toggle buttons in the navbar,
+	 * only show on the root page within its `NavController`. For example, on Page 1
+	 * the menu toggle will show in the navbar. However, when navigating to Page 2,
+	 * because it is not the root Page for that `NavController`, the menu toggle
+	 * will not show in the navbar.
+	 *
+	 * Not showing the menu toggle button in the navbar is commonly seen within
+	 * native apps after navigating past the root Page. However, it is still possible
+	 * to always show the menu toggle button in the navbar by setting
+	 * `persistent="true"` on the `ion-menu` component.
+	 *
+	 * ```html
+	 * <ion-menu persistent="true" [content]="content">...</ion-menu>
 	 * ```
 	 *
 	 * @demo /docs/v2/demos/menu/
@@ -42530,6 +42548,7 @@
 	        this._isEnabled = true;
 	        this._isSwipeEnabled = true;
 	        this._isListening = false;
+	        this._isPers = false;
 	        this._init = false;
 	        /**
 	         * @private
@@ -42564,6 +42583,19 @@
 	        set: function (val) {
 	            this._isSwipeEnabled = util_1.isTrueProperty(val);
 	            this._setListeners();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Menu.prototype, "persistent", {
+	        /**
+	         * @private
+	         */
+	        get: function () {
+	            return this._isPers;
+	        },
+	        set: function (val) {
+	            this._isPers = util_1.isTrueProperty(val);
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -42854,7 +42886,11 @@
 	    ], Menu.prototype, "swipeEnabled", null);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object)
+	        __metadata('design:type', Boolean)
+	    ], Menu.prototype, "persistent", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Number)
 	    ], Menu.prototype, "maxEdgeStart", void 0);
 	    __decorate([
 	        core_1.Output(), 
@@ -45536,7 +45572,16 @@
 	        */
 	        get: function () {
 	            if (this._inNavbar && this._viewCtrl) {
-	                return !this._viewCtrl.isRoot();
+	                if (this._viewCtrl.isRoot()) {
+	                    // this is the root view, so it should always show
+	                    return false;
+	                }
+	                var menu = this._menu.get(this.menuToggle);
+	                if (menu) {
+	                    // this is not the root view, so see if this menu
+	                    // is configured to still be enabled if it's not the root view
+	                    return !menu.persistent;
+	                }
 	            }
 	            return false;
 	        },

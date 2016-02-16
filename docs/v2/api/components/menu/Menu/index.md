@@ -129,7 +129,19 @@ id be disabled.</p>
 is the traditional Material Design drawer type, and Reveal is the traditional
 iOS type. By default, menus will use to the correct type for the platform,
 but this can be overriden using the <code>type</code> property:</p>
-<pre><code class="lang-html">&lt;ion-menu type=&quot;overlay&quot; [content]=&quot;mycontent&quot;&gt;&lt;/ion-menu&gt;
+<pre><code class="lang-html">&lt;ion-menu type=&quot;overlay&quot; [content]=&quot;mycontent&quot;&gt;...&lt;/ion-menu&gt;
+</code></pre>
+<h3 id="persistent-menus">Persistent Menus</h3>
+<p>By default, menus, and specifically their menu toggle buttons in the navbar,
+only show on the root page within its <code>NavController</code>. For example, on Page 1
+the menu toggle will show in the navbar. However, when navigating to Page 2,
+because it is not the root Page for that <code>NavController</code>, the menu toggle
+will not show in the navbar.</p>
+<p>Not showing the menu toggle button in the navbar is commonly seen within
+native apps after navigating past the root Page. However, it is still possible
+to always show the menu toggle button in the navbar by setting
+<code>persistent=&quot;true&quot;</code> on the <code>ion-menu</code> component.</p>
+<pre><code class="lang-html">&lt;ion-menu persistent=&quot;true&quot; [content]=&quot;content&quot;&gt;...&lt;/ion-menu&gt;
 </code></pre>
 
 

@@ -70,6 +70,23 @@ By default, lists have no outside margin, to add one, add the `inset` property t
   Demo Source
 </a>
 
+To divide groups of items, use `<ion-item-group>` instead of `<ion-list>`. Use `<ion-item-divider>` components to divide the group in to various sections:
+
+```html
+<ion-content>
+    <ion-item-group>
+
+      <ion-item-divider light>A</ion-item-divider>
+      <ion-item>Angola</ion-item>
+      <ion-item>Argentina</ion-item>
+
+      <ion-item-divider light>B</ion-item-divider>
+
+    </ion-item-group>
+</ion-content>
+```
+
+
 <h3 class="section-nav" id="list-headers">List Headers</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/lists/headers">
   Demo Source

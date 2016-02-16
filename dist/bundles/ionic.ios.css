@@ -4468,8 +4468,6 @@ ion-alert {
 
 .alert-message {
   overflow: auto; }
-  .alert-message:empty {
-    padding: 0; }
 
 .alert-input {
   border: 0;
@@ -4611,6 +4609,9 @@ ion-alert {
   font-size: 13px;
   color: inherit;
   text-align: center; }
+
+.alert-message:empty {
+  padding: 0 0 12px 0; }
 
 .alert-input {
   margin-top: 10px;

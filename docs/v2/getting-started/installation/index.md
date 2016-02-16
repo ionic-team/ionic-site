@@ -13,7 +13,7 @@ next_page_link: /docs/v2/getting-started/tutorial
 
 # Installing Ionic
 
-<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/index.md'>Improve this doc</a>
+<a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/getting-started/installation/index.md'>Improve this doc</a>
 
 Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool or built and tested right in the browser.
 
@@ -75,7 +75,7 @@ To build for Android, you'll need to add the Android platform module to Cordova:
 $ ionic platform add android
 ```
 
-Next, you'll need to install the <a href="../../resources/what-is/#android-sdk">Android SDK</a>. The Android SDK allows you to build compile to a target device running Android. Although the Android SDK comes with a stock emulator, <a href="../../resources/what-is/#genymotion">Genymotion</a> is recommended, since it's much faster. Once installed, run an Android image and run:
+Next, you'll need to install the <a href="../../resources/what-is/#android-sdk">Android SDK</a>. The Android SDK allows you to build compile to a target device running Android. Although the Android SDK comes with a stock emulator, <a href="../../resources/what-is/#genymotion">Genymotion</a> is recommended, since it's much faster. Once installed, start an Android image and run:
 
 ```bash
 $ ionic run android

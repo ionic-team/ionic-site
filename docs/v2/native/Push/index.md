@@ -30,7 +30,7 @@ Push
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/push.ts#L246'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/push.ts#L245'>
 Improve this doc
 </a>
 

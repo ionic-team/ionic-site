@@ -30,7 +30,7 @@ StatusBar
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/statusbar.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/statusbar.ts#L2'>
 Improve this doc
 </a>
 
@@ -43,17 +43,9 @@ Improve this doc
 <h2>Description</h2>
 
 <p>Manage the appearance of the native status bar.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-statusbar</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-statusbar">StatusBar plugin docs</a>.</p>
 
 <!-- @usage tag -->
-
-<h2>Usage</h2>
-
-<pre><code class="lang-js">StatusBar.hide(); // Hide the bar
-
-StatusBar.setStyle(StatusBar.LIGHT_CONTENT) // Good for dark backgrounds
-</code></pre>
-
-
 
 
 <!-- @property tags -->
@@ -86,10 +78,10 @@ is true.
       </td>
       <td>
         
-  
+  <code>boolean</code>
       </td>
       <td>
-        <p>whether the status bar overlays the main app view.</p>
+        <p>Whether the status bar overlays the main app view.</p>
 
         
       </td>
@@ -109,6 +101,7 @@ is true.
   
 </h3>
 
+Use the default statusbar (dark text, for light backgrounds).
 
 
 
@@ -124,6 +117,7 @@ is true.
   
 </h3>
 
+Use the lightContent statusbar (light text, for dark backgrounds).
 
 
 
@@ -139,6 +133,7 @@ is true.
   
 </h3>
 
+Use the blackTranslucent statusbar (light text, for dark backgrounds).
 
 
 
@@ -154,6 +149,7 @@ is true.
   
 </h3>
 
+Use the blackOpaque statusbar (light text, for dark backgrounds).
 
 
 
@@ -165,7 +161,7 @@ is true.
 
 
 <div id="backgroundColorByName"></div>
-<h3><code>backgroundColorByName(name)</code>
+<h3><code>backgroundColorByName(colorName)</code>
   
 </h3>
 
@@ -188,16 +184,16 @@ iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
     
     <tr>
       <td>
-        name
+        colorName
         
         
       </td>
       <td>
         
-  
+  <code>string</code>
       </td>
       <td>
-        <p>the name of the color (from above)</p>
+        <p>The name of the color (from above)</p>
 
         
       </td>
@@ -213,7 +209,7 @@ iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
 
 
 <div id="backgroundColorByHexString"></div>
-<h3><code>backgroundColorByHexString(hex)</code>
+<h3><code>backgroundColorByHexString(hexString)</code>
   
 </h3>
 
@@ -235,16 +231,16 @@ iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
     
     <tr>
       <td>
-        hex
+        hexString
         
         
       </td>
       <td>
         
-  
+  <code>string</code>
       </td>
       <td>
-        <p>the hex value of the color.</p>
+        <p>The hex value of the color.</p>
 
         
       </td>
@@ -260,50 +256,14 @@ iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
 
 
 <div id="hide"></div>
-<h3><code>hide(style)</code>
+<h3><code>hide()</code>
   
 </h3>
 
 Hide the StatusBar
 
-Options:
-
-StatusBar.DEFAULT
-StatusBar.LIGHT_CONTENT
-StatusBar.BLACK_TRANSLUCENT
-StatusBar.BLACK_OPAQUE
 
 
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        style
-        
-        
-      </td>
-      <td>
-        
-  
-      </td>
-      <td>
-        <p>the style from above</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -317,6 +277,22 @@ StatusBar.BLACK_OPAQUE
 </h3>
 
 Show the StatusBar
+
+
+
+
+
+
+
+
+
+
+<div id="isVisible"></div>
+<h3><code>isVisible()</code>
+  
+</h3>
+
+Whether the StatusBar is currently visible or not.
 
 
 

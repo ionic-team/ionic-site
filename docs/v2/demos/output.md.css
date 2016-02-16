@@ -4575,8 +4575,6 @@ ion-alert {
 
 .alert-message {
   overflow: auto; }
-  .alert-message:empty {
-    padding: 0; }
 
 .alert-input {
   border: 0;
@@ -5063,6 +5061,8 @@ ion-button-effect {
 
 .alert-message {
   font-size: 15px; }
+  .alert-message:empty {
+    padding: 0; }
 
 .alert-input {
   border-bottom: 1px solid #dedede;

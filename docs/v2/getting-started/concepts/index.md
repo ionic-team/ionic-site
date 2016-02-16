@@ -16,7 +16,7 @@ If you’re completely new to Ionic and/or hybrid mobile app development, it can
 
 ### What is Ionic?
 
-Ionic is an open source SDK that enables developers to build performant, high-quality mobile apps using familiar web technologies (HTML, CSS, and JavaScript). 
+Ionic is an open source SDK that enables developers to build performant, high-quality mobile apps using familiar web technologies (HTML, CSS, and JavaScript).
 
 Ionic is focused mainly on the look and feel, or the UI interaction, of an app. This means that it’s not a replacement for PhoneGap or your favorite JavaScript framework. Instead, Ionic fits in well with these projects, in order to simplify one big part of your app development process: the front-end. Check out [“Where does the Ionic Framework fit in?”](http://blog.ionic.io/where-does-the-ionic-framework-fit-in/) to get a good understanding of Ionic's core philosophy and goals.
 
@@ -49,6 +49,3 @@ Navigation works like a stack &mdash; **push** a page to the stack to navigate t
 Ionic was originally built by [@benjsperry](https://twitter.com/benjsperry), [@adamdbradley](https://twitter.com/adamdbradley), and [@maxlynch](https://twitter.com/maxlynch). After releasing an alpha version of Ionic in November 2013, we released a 1.0 beta in March 2014 and a 1.0 final in May 2015.
 
 Now, Ionic has a massive international community of developers and contributors propelling its growth and adoption. Companies small and large are using Ionic to build better apps, faster. In 2015 Ionic developers reportedly created over 1.3M apps with the Ionic, a number that continues to grow each day.
-
-
-

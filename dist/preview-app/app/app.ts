@@ -10,7 +10,7 @@ import { BasicPage as rootPage } from './pages/action-sheets/action-sheets';
 @App({
   templateUrl: './build/app.html',
   config: {
-    production: true,
+    production: false,
     platforms: {
       android: {
         activator: 'ripple',

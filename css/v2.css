@@ -7756,13 +7756,13 @@ body {
       -webkit-transform-origin: top;
           -ms-transform-origin: top;
               transform-origin: top;
-      transition: opacity 0.5s, -webkit-transform 0.5s cubic-bezier(0.425, 0.845, 0.225, 1.85);
-      transition: opacity 0.5s, transform 0.5s cubic-bezier(0.425, 0.845, 0.225, 1.85); }
+      transition: opacity 0.4s, -webkit-transform 0.4s cubic-bezier(0.425, 0.845, 0.225, 1.85);
+      transition: opacity 0.4s, transform 0.4s cubic-bezier(0.425, 0.845, 0.225, 1.85); }
       .navbar-default .dropdown .dropdown-menu a {
         padding: 10px 20px; }
     .navbar-default .dropdown.open .dropdown-menu {
       visibility: 1;
-      top: 77px;
+      top: 64px;
       opacity: 1;
       -webkit-transform: translate3d(0, 0, 0);
               transform: translate3d(0, 0, 0); } }

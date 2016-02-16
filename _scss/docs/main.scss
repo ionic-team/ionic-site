@@ -165,8 +165,8 @@ body {
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
         transform: translate3d(0, -10px, 0);
         transform-origin: top;
-        transition: opacity .5s,
-                    transform .5s cubic-bezier(0.425, 0.845, 0.225, 1.85);
+        transition: opacity .4s,
+                    transform .4s cubic-bezier(0.425, 0.845, 0.225, 1.85);
         a {
           padding: 10px 20px;
         }
@@ -174,7 +174,7 @@ body {
 
       &.open .dropdown-menu {
         visibility: 1;
-        top: 77px;
+        top: 64px;
         opacity: 1;
         transform: translate3d(0, 0, 0);
       }

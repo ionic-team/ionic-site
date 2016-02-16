@@ -99,7 +99,7 @@ Show the ActionSheet.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> returns a promise that resolves with the index of the

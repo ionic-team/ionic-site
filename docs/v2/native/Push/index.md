@@ -108,7 +108,7 @@ var push = Push.init({
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>PushNotification</code> Returns a new [PushNotification](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/API.md#pushonevent-callback) object.
@@ -128,7 +128,7 @@ Check whether the push notification permission has been granted.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a Promise that resolves with an object with one property: isEnabled, a boolean that indicates if permission has been granted.

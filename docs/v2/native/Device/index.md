@@ -69,7 +69,7 @@ Returns the whole device object.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Object</code> The device object.

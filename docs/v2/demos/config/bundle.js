@@ -50206,7 +50206,7 @@
 	 * ```ts
 	 * @Page({
 	 *  template: `
-	 *     <ion-slides pager (change)="onSlideChanged($event)" loop="true" autoplay="true">
+	 *     <ion-slides pager (change)="onSlideChanged($event)" (move)="onSlideMove($event)" loop="true" autoplay="true">
 	 *      <ion-slide>
 	 *        <h3>Thank you for choosing the Awesome App!</h3>
 	 *        <p>
@@ -50263,6 +50263,10 @@
 	         * @output {any} expression to evaluate when a slide change starts
 	         */
 	        this.slideChangeStart = new core_1.EventEmitter();
+	        /**
+	         * @output {any} expression to evaluate when a slide moves
+	         */
+	        this.move = new core_1.EventEmitter();
 	        this.rapidUpdate = util_2.debounce(function () {
 	            _this.update();
 	        }, 10);
@@ -50321,6 +50325,10 @@
 	        };
 	        options.onLazyImageReady = function (swiper, slide, img) {
 	            return _this.options.onLazyImageReady && _this.options.onLazyImageReady(swiper, slide, img);
+	        };
+	        options.onSliderMove = function (swiper, e) {
+	            _this.move.emit(swiper);
+	            return _this.options.onSliderMove && _this.options.onSliderMove(swiper, e);
 	        };
 	        setTimeout(function () {
 	            var swiper = new swiper_widget_1.Swiper(_this.getNativeElement().children[0], options);
@@ -50696,6 +50704,10 @@
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
 	    ], Slides.prototype, "slideChangeStart", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
+	    ], Slides.prototype, "move", void 0);
 	    Slides = __decorate([
 	        core_1.Component({
 	            selector: 'ion-slides',
@@ -50707,10 +50719,10 @@
 	                '</div>',
 	            directives: [common_1.NgClass]
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [(typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object])
 	    ], Slides);
 	    return Slides;
-	    var _a, _b, _c;
+	    var _a, _b, _c, _d;
 	})(ion_1.Ion);
 	exports.Slides = Slides;
 	/**

@@ -61741,17 +61741,17 @@
 	var inputs = __webpack_require__(391);
 	var lists = __webpack_require__(399);
 	var menus = __webpack_require__(352);
-	var modals = __webpack_require__(409);
-	var navigation = __webpack_require__(411);
-	var radios = __webpack_require__(413);
-	var ranges = __webpack_require__(415);
-	var searchbars = __webpack_require__(417);
-	var segments = __webpack_require__(419);
-	var selects = __webpack_require__(421);
-	var slides = __webpack_require__(423);
-	var tabs = __webpack_require__(425);
-	var toggles = __webpack_require__(429);
-	var toolbar = __webpack_require__(431);
+	var modals = __webpack_require__(410);
+	var navigation = __webpack_require__(412);
+	var radios = __webpack_require__(414);
+	var ranges = __webpack_require__(416);
+	var searchbars = __webpack_require__(418);
+	var segments = __webpack_require__(420);
+	var selects = __webpack_require__(422);
+	var slides = __webpack_require__(424);
+	var tabs = __webpack_require__(426);
+	var toggles = __webpack_require__(430);
+	var toolbar = __webpack_require__(432);
 	var AndroidAttribute = (function () {
 	    function AndroidAttribute(platform, elementRef, renderer) {
 	        this.platform = platform;
@@ -63378,7 +63378,7 @@
 	__export(__webpack_require__(406));
 	__export(__webpack_require__(407));
 	__export(__webpack_require__(408));
-	__export(__webpack_require__(433));
+	__export(__webpack_require__(409));
 
 
 /***/ },
@@ -63664,14 +63664,45 @@
 /* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(410));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(5);
+	var core_1 = __webpack_require__(7);
+	var helpers_1 = __webpack_require__(354);
+	var DividersPage = (function () {
+	    function DividersPage() {
+	    }
+	    DividersPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/pages/lists/dividers/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], DividersPage);
+	    return DividersPage;
+	})();
+	exports.DividersPage = DividersPage;
 
 
 /***/ },
 /* 410 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(411));
+
+
+/***/ },
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63780,17 +63811,17 @@
 
 
 /***/ },
-/* 411 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(412));
+	__export(__webpack_require__(413));
 
 
 /***/ },
-/* 412 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63854,17 +63885,17 @@
 
 
 /***/ },
-/* 413 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(414));
+	__export(__webpack_require__(415));
 
 
 /***/ },
-/* 414 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63904,17 +63935,17 @@
 
 
 /***/ },
-/* 415 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(416));
+	__export(__webpack_require__(417));
 
 
 /***/ },
-/* 416 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63945,17 +63976,17 @@
 
 
 /***/ },
-/* 417 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(418));
+	__export(__webpack_require__(419));
 
 
 /***/ },
-/* 418 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64045,17 +64076,17 @@
 
 
 /***/ },
-/* 419 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(420));
+	__export(__webpack_require__(421));
 
 
 /***/ },
-/* 420 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64089,17 +64120,17 @@
 
 
 /***/ },
-/* 421 */
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(422));
+	__export(__webpack_require__(423));
 
 
 /***/ },
-/* 422 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64139,17 +64170,17 @@
 
 
 /***/ },
-/* 423 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(424));
+	__export(__webpack_require__(425));
 
 
 /***/ },
-/* 424 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64199,19 +64230,19 @@
 
 
 /***/ },
-/* 425 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(426));
 	__export(__webpack_require__(427));
 	__export(__webpack_require__(428));
+	__export(__webpack_require__(429));
 
 
 /***/ },
-/* 426 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64267,7 +64298,7 @@
 
 
 /***/ },
-/* 427 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64333,7 +64364,7 @@
 
 
 /***/ },
-/* 428 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64400,17 +64431,17 @@
 
 
 /***/ },
-/* 429 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(430));
+	__export(__webpack_require__(431));
 
 
 /***/ },
-/* 430 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64441,17 +64472,17 @@
 
 
 /***/ },
-/* 431 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(432));
+	__export(__webpack_require__(433));
 
 
 /***/ },
-/* 432 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64479,37 +64510,6 @@
 	    return BasicPage;
 	})();
 	exports.BasicPage = BasicPage;
-
-
-/***/ },
-/* 433 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(5);
-	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var DividersPage = (function () {
-	    function DividersPage() {
-	    }
-	    DividersPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/pages/lists/dividers/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], DividersPage);
-	    return DividersPage;
-	})();
-	exports.DividersPage = DividersPage;
 
 
 /***/ }

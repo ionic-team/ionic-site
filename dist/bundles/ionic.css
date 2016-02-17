@@ -5354,6 +5354,7 @@ ion-icon {
     padding: 0;
     border: 0;
     overflow: hidden;
+    min-height: inherit;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
@@ -8762,6 +8763,7 @@ ion-icon {
     padding: 0;
     border: 0;
     overflow: hidden;
+    min-height: inherit;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;

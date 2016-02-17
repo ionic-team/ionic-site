@@ -45673,8 +45673,8 @@
 	        // passed in data could be NavParams, but all we care about is its data object
 	        this.data = (data instanceof nav_params_1.NavParams ? data.data : data);
 	    }
-	    ViewController.prototype.subscribe = function (callback) {
-	        this._emitter.subscribe(callback);
+	    ViewController.prototype.subscribe = function (generatorOrNext) {
+	        return this._emitter.subscribe(generatorOrNext);
 	    };
 	    /**
 	     * @private

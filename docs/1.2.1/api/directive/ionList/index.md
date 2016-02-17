@@ -92,7 +92,7 @@ Advanced Usage: Thumbnails, Delete buttons, Reordering, Swiping
                        ng-click="share(item)">
       Share
     </ion-option-button>
-    <ion-option-button class="button-info"
+    <ion-option-button class="button-assertive"
                        ng-click="edit(item)">
       Edit
     </ion-option-button>

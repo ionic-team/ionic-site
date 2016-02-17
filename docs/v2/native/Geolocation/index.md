@@ -108,7 +108,7 @@ Get the device's current position.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or rejects with an error.
@@ -171,7 +171,7 @@ subscription.unsubscribe();
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns an Observable that notifies with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or errors.

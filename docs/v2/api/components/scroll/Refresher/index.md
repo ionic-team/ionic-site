@@ -56,30 +56,31 @@ Place it as the first child of your Content or Scroll element.</p>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
   &lt;ion-refresher (starting)=&quot;doStarting()&quot;
-                 (refresh)=&quot;doRefresh($event, refresher)&quot;
-                 (pulling)=&quot;doPulling($event, amt)&quot;&gt;
+                 (refresh)=&quot;doRefresh($event)&quot;
+                 (pulling)=&quot;doPulling($event)&quot;&gt;
   &lt;/ion-refresher&gt;
 
 &lt;/ion-content&gt;
 </code></pre>
 <pre><code class="lang-ts">export class MyClass {
-constructor(){}
+
   doRefresh(refresher) {
-    console.debug(&#39;Refreshing!&#39;, refresher);
+    console.log(&#39;Refreshing&#39;, refresher)
 
     setTimeout(() =&gt; {
-      console.debug(&#39;Pull to refresh complete!&#39;, refresher);
       refresher.complete();
-    })
+      console.log(&quot;Complete&quot;);
+    }, 5000);
   }
 
-  doStarting() {
-    console.debug(&#39;Pull started!&#39;);
+  doStarting(refresher) {
+    console.log(&#39;Starting&#39;, refresher);
   }
 
-  doPulling(amt) {
-    console.debug(&#39;You have pulled&#39;, amt);
+  doPulling(refresher) {
+    console.log(&#39;Pulling&#39;, refresher);
   }
+
 }
 </code></pre>
 
@@ -146,19 +147,19 @@ constructor(){}
     
     <tr>
       <td>pulling</td>
-      <td><p> the methond on your class you want to perform when you are pulling down</p>
+      <td><p> When you are pulling down</p>
 </td>
     </tr>
     
     <tr>
       <td>refresh</td>
-      <td><p> the methond on your class you want to perform when you refreshing</p>
+      <td><p> When you are refreshing</p>
 </td>
     </tr>
     
     <tr>
       <td>starting</td>
-      <td><p> the methond on your class you want to perform when you start pulling down</p>
+      <td><p> When you start pulling down</p>
 </td>
     </tr>
     

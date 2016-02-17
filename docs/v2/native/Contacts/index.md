@@ -104,7 +104,7 @@ Create a new Contact object.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Contact</code> Returns the created contact
@@ -180,7 +180,7 @@ Example: Contacts.find(['*'], { filter: 'Max' }) // will search for a displayNam
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves with the search results (an array of Contact objects)
@@ -202,7 +202,7 @@ Select a single Contact.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves with the selected Contact

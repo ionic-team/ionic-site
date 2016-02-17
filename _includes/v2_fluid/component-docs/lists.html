@@ -9,8 +9,8 @@ Lists are used to display rows of information, such as a contact list, playlist,
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
   <li class="docs-content-item"><a href="{{components_link}}#lists">Basic Lists</a></li>
-  <li class="docs-content-item"><a href="{{components_link}}#list-dividers">List Dividers</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#inset-list">Inset List</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#list-dividers">List Dividers</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#list-headers">List Headers</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#icon-list">Icon List</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#avatar-list">Avatar List</a></li>
@@ -64,6 +64,28 @@ By default, lists have no outside margin, to add one, add the `inset` property t
   </ion-item>
 </ion-list>
 ```
+
+<h3 class="section-nav" id="list-dividers">List Dividers</h3>
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/lists/dividers">
+  Demo Source
+</a>
+
+To divide groups of items, use `<ion-item-group>` instead of `<ion-list>`. Use `<ion-item-divider>` components to divide the group in to multiple sections:
+
+```html
+<ion-content>
+    <ion-item-group>
+
+      <ion-item-divider light>A</ion-item-divider>
+      <ion-item>Angola</ion-item>
+      <ion-item>Argentina</ion-item>
+
+      <ion-item-divider light>B</ion-item-divider>
+
+    </ion-item-group>
+</ion-content>
+```
+
 
 <h3 class="section-nav" id="list-headers">List Headers</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/lists/headers">

@@ -141,7 +141,7 @@ Login to Facebook to authenticate this app.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves with a status object if login succeeds, and rejects if login fails.
@@ -165,7 +165,7 @@ For more info see the [Facebook docs](https://developers.facebook.com/docs/refer
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves on a successful logout, and rejects if logout fails.
@@ -209,7 +209,7 @@ For more information see the [Facebook docs](https://developers.facebook.com/doc
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves with a status, or rejects with an error
@@ -232,7 +232,7 @@ Get a Facebook access token for using Facebook services.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves with an access token, or rejects with an error
@@ -266,7 +266,7 @@ For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves with success data, or rejects with an error
@@ -342,7 +342,7 @@ For more information see:
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves with the result of the request, or rejects with an error
@@ -429,7 +429,7 @@ Log an event.  For more information see the Events section above.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    
@@ -497,7 +497,7 @@ Log a purchase. For more information see the Events section above.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -558,7 +558,7 @@ For more information see:
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves with the result data, or rejects with an error

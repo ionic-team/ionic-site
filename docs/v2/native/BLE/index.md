@@ -234,7 +234,7 @@ Scan and discover BLE peripherals for the specified amount of time.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns an Observable that notifies of each peripheral that is discovered during the specified time.
@@ -287,7 +287,7 @@ Scan and discover BLE peripherals until `stopScan` is called.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns an Observable that notifies of each peripheral discovered.
@@ -310,7 +310,7 @@ Stop a scan started by `startScan`.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    returns a Promise.
@@ -362,7 +362,7 @@ Connect to a peripheral.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns an Observable that notifies of connect/disconnect.
@@ -414,7 +414,7 @@ Disconnect from a peripheral.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -501,7 +501,7 @@ Read the value of a characteristic.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -604,7 +604,7 @@ Write the value of a characteristic.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -708,7 +708,7 @@ Write the value of a characteristic without waiting for confirmation from the pe
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -795,7 +795,7 @@ Register to be notified when the value of a characteristic changes.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns an Observable that notifies of characteristic changes.
@@ -882,7 +882,7 @@ Stop being notified when the value of a characteristic changes.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise.
@@ -935,7 +935,7 @@ Report the connection status.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise.
@@ -958,7 +958,7 @@ Report if bluetooth is enabled.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise.
@@ -981,7 +981,7 @@ Open System Bluetooth settings (Android only).
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise.
@@ -1004,7 +1004,7 @@ Enable Bluetooth on the device (Android only).
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise.

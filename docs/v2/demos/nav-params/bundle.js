@@ -42548,7 +42548,6 @@
 	        this._preventTime = 0;
 	        this._isEnabled = true;
 	        this._isSwipeEnabled = true;
-	        this._isListening = false;
 	        this._isPers = false;
 	        this._init = false;
 	        /**
@@ -42656,21 +42655,19 @@
 	        var self = this;
 	        if (self._init) {
 	            // only listen/unlisten if the menu has initialized
-	            if (self._isEnabled && self._isSwipeEnabled && !self._isListening) {
+	            if (self._isEnabled && self._isSwipeEnabled && !self._cntGesture.isListening) {
 	                // should listen, but is not currently listening
 	                console.debug('menu, gesture listen', self.side);
 	                self._zone.runOutsideAngular(function () {
 	                    self._cntGesture.listen();
 	                    self._menuGesture.listen();
 	                });
-	                self._isListening = true;
 	            }
-	            else if (self._isListening && (!self._isEnabled || !self._isSwipeEnabled)) {
+	            else if (self._cntGesture.isListening && (!self._isEnabled || !self._isSwipeEnabled)) {
 	                // should not listen, but is currently listening
 	                console.debug('menu, gesture unlisten', self.side);
 	                self._cntGesture.unlisten();
 	                self._menuGesture.unlisten();
-	                self._isListening = false;
 	            }
 	        }
 	    };
@@ -42709,7 +42706,7 @@
 	    /**
 	     * @private
 	     */
-	    Menu.prototype.setProgressStart = function () {
+	    Menu.prototype.swipeStart = function () {
 	        // user started swiping the menu open/close
 	        if (this._isPrevented() || !this._isEnabled || !this._isSwipeEnabled)
 	            return;
@@ -42719,7 +42716,7 @@
 	    /**
 	     * @private
 	     */
-	    Menu.prototype.setProgessStep = function (stepValue) {
+	    Menu.prototype.swipeProgress = function (stepValue) {
 	        // user actively dragging the menu
 	        if (this._isEnabled && this._isSwipeEnabled) {
 	            this._prevent();
@@ -42730,13 +42727,13 @@
 	    /**
 	     * @private
 	     */
-	    Menu.prototype.setProgressEnd = function (shouldComplete, currentStepValue) {
+	    Menu.prototype.swipeEnd = function (shouldComplete, currentStepValue) {
 	        var _this = this;
 	        // user has finished dragging the menu
 	        if (this._isEnabled && this._isSwipeEnabled) {
 	            this._prevent();
 	            this._getType().setProgressEnd(shouldComplete, currentStepValue, function (isOpen) {
-	                console.debug('menu, progress end', _this.side);
+	                console.debug('menu, swipeEnd', _this.side);
 	                _this._after(isOpen);
 	            });
 	        }
@@ -43051,13 +43048,13 @@
 	    // Set CSS, then wait one frame for it to apply before sliding starts
 	    MenuContentGesture.prototype.onSlideBeforeStart = function (slide, ev) {
 	        console.debug('menu gesture, onSlideBeforeStart', this.menu.side);
-	        this.menu.setProgressStart();
+	        this.menu.swipeStart();
 	    };
 	    MenuContentGesture.prototype.onSlide = function (slide, ev) {
 	        var z = (this.menu.side === 'right' ? slide.min : slide.max);
 	        var stepValue = (slide.distance / z);
 	        console.debug('menu gesture, onSlide', this.menu.side, 'distance', slide.distance, 'min', slide.min, 'max', slide.max, 'z', z, 'stepValue', stepValue);
-	        this.menu.setProgessStep(stepValue);
+	        this.menu.swipeProgress(stepValue);
 	    };
 	    MenuContentGesture.prototype.onSlideEnd = function (slide, ev) {
 	        var z = (this.menu.side === 'right' ? slide.min : slide.max);
@@ -43065,7 +43062,7 @@
 	            (Math.abs(slide.delta) > Math.abs(z) * 0.5);
 	        var currentStepValue = (slide.distance / z);
 	        console.debug('menu gesture, onSlide', this.menu.side, 'distance', slide.distance, 'delta', slide.delta, 'velocityX', ev.velocityX, 'min', slide.min, 'max', slide.max, 'shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
-	        this.menu.setProgressEnd(shouldComplete, currentStepValue);
+	        this.menu.swipeEnd(shouldComplete, currentStepValue);
 	    };
 	    MenuContentGesture.prototype.getElementStartPos = function (slide, ev) {
 	        if (this.menu.side === 'right') {
@@ -43297,6 +43294,7 @@
 	    function Gesture(element, opts) {
 	        if (opts === void 0) { opts = {}; }
 	        this._callbacks = {};
+	        this.isListening = false;
 	        util_1.defaults(opts, {
 	            domEvents: true
 	        });
@@ -43324,6 +43322,7 @@
 	    };
 	    Gesture.prototype.listen = function () {
 	        this._hammer = hammer_1.Hammer(this.element, this._options);
+	        this.isListening = true;
 	    };
 	    Gesture.prototype.unlisten = function () {
 	        var type, i;
@@ -43336,6 +43335,7 @@
 	            this._callbacks = {};
 	            this._hammer.destroy();
 	        }
+	        this.isListening = false;
 	    };
 	    Gesture.prototype.destroy = function () {
 	        this.unlisten();
@@ -45674,8 +45674,8 @@
 	        // passed in data could be NavParams, but all we care about is its data object
 	        this.data = (data instanceof nav_params_1.NavParams ? data.data : data);
 	    }
-	    ViewController.prototype.subscribe = function (callback) {
-	        this._emitter.subscribe(callback);
+	    ViewController.prototype.subscribe = function (generatorOrNext) {
+	        return this._emitter.subscribe(generatorOrNext);
 	    };
 	    /**
 	     * @private
@@ -49731,8 +49731,8 @@
 	 *  ```html
 	 *  <ion-content>
 	 *    <ion-refresher (starting)="doStarting()"
-	 *                   (refresh)="doRefresh($event, refresher)"
-	 *                   (pulling)="doPulling($event, amt)">
+	 *                   (refresh)="doRefresh($event)"
+	 *                   (pulling)="doPulling($event)">
 	 *    </ion-refresher>
 	 *
 	 *  </ion-content>
@@ -49741,23 +49741,24 @@
 	 *
 	 *  ```ts
 	 *  export class MyClass {
-	 *  constructor(){}
+	 *
 	 *    doRefresh(refresher) {
-	 *      console.debug('Refreshing!', refresher);
+	 *      console.log('Refreshing', refresher)
 	 *
 	 *      setTimeout(() => {
-	 *        console.debug('Pull to refresh complete!', refresher);
 	 *        refresher.complete();
-	 *      })
+	 *        console.log("Complete");
+	 *      }, 5000);
 	 *    }
 	 *
-	 *    doStarting() {
-	 *      console.debug('Pull started!');
+	 *    doStarting(refresher) {
+	 *      console.log('Starting', refresher);
 	 *    }
 	 *
-	 *    doPulling(amt) {
-	 *      console.debug('You have pulled', amt);
+	 *    doPulling(refresher) {
+	 *      console.log('Pulling', refresher);
 	 *    }
+	 *
 	 *  }
 	 *  ```
 	 *  @demo /docs/v2/demos/refresher/
@@ -49799,15 +49800,15 @@
 	         */
 	        this.canOverscroll = true;
 	        /**
-	         * @output {any} the methond on your class you want to perform when you are pulling down
+	         * @output {event} When you are pulling down
 	         */
 	        this.pulling = new core_1.EventEmitter();
 	        /**
-	         * @output {any} the methond on your class you want to perform when you refreshing
+	         * @output {event} When you are refreshing
 	         */
 	        this.refresh = new core_1.EventEmitter();
 	        /**
-	         * @output {any} the methond on your class you want to perform when you start pulling down
+	         * @output {event} When you start pulling down
 	         */
 	        this.starting = new core_1.EventEmitter();
 	        this._ele = _element.nativeElement;
@@ -49894,7 +49895,7 @@
 	    Refresher.prototype.activate = function () {
 	        //this.ele.classList.add('active');
 	        this.isActive = true;
-	        //this.starting.next();
+	        this.starting.emit(this);
 	    };
 	    /**
 	     * @private
@@ -49917,7 +49918,7 @@
 	    Refresher.prototype.start = function () {
 	        // startCallback
 	        this.isRefreshing = true;
-	        this.refresh.next(this);
+	        this.refresh.emit(this);
 	        //$scope.$onRefresh();
 	    };
 	    /**
@@ -50044,8 +50045,8 @@
 	        this.isDragging = true;
 	        // overscroll according to the user's drag so far
 	        this.overscroll(Math.round((this.deltaY - this.dragOffset) / 3));
-	        // Pass an incremental pull amount to the EventEmitter
-	        this.pulling.next(this.lastOverscroll);
+	        // Pass the refresher to the EventEmitter
+	        this.pulling.emit(this);
 	        // update the icon accordingly
 	        if (!this.activated && this.lastOverscroll > this.ptrThreshold) {
 	            this.activated = true;

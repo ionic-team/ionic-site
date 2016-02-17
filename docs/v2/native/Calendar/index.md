@@ -96,7 +96,7 @@ options:
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -149,7 +149,7 @@ Delete a calendar. (iOS only)
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -172,7 +172,7 @@ Returns the default calendar options.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns an object with the default calendar options:
@@ -301,7 +301,7 @@ Silently create an event.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -439,7 +439,7 @@ Silently create an event with additional options.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -560,7 +560,7 @@ Interactively create an event.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -698,7 +698,7 @@ Interactively create an event with additional options.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -819,7 +819,7 @@ Find an event.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -957,7 +957,7 @@ Find an event with additional options.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves with the event, or rejects with an error.
@@ -1027,7 +1027,7 @@ Find a list of events within the specified date range. (Android only)
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves with the list of events, or rejects with an error.
@@ -1049,7 +1049,7 @@ Get a list of all calendars.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    A Promise that resolves with the list of calendars, or rejects with an error.
@@ -1071,7 +1071,7 @@ Get a list of all future events in the specified calendar. (iOS only)
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise that resolves with the list of events, or rejects with an error.
@@ -1277,7 +1277,7 @@ Modify an event. (iOS only)
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -1500,7 +1500,7 @@ Modify an event with additional options. (iOS only)
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -1621,7 +1621,7 @@ Delete an event.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -1758,7 +1758,7 @@ Delete an event from the specified Calendar. (iOS only)
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    Returns a Promise
@@ -1780,7 +1780,7 @@ Open the calendar at the specified date.
 
 
 
-<div class="return-value">
+<div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Date</code> date

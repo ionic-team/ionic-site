@@ -16,7 +16,7 @@ next_page_link: /docs/v2/theming/platform-specific-styles/
   Improve this doc
 </a>
 
-Theme support is baked right in to your Ionic apps. To change the theme, just tweak the `$colors` [map](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps) in your `www/app/app.scss` file:
+Theme support is baked right in to your Ionic apps. To change the theme, just tweak the `$colors` [map](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps) in your `app/theme/app.variables.scss` file:
 
 ```scss
 $colors: (
@@ -50,14 +50,3 @@ Ionic makes the `$colors` keys available as a property to many components. For e
 <button twitter>I'm a button</button>
 ```
 
-## Dark theme
-
-By default, Ionic comes with a light and dark theme. To use the dark theme, import it before the Ionic Sass files in your `app.scss` file:
-
-```scss
-@import "themes/dark";
-
-// Ionic Sass
-// ---------------------------------
-@import "ionic";
-```

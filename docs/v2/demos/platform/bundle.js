@@ -49730,7 +49730,7 @@
 	 *  @usage
 	 *  ```html
 	 *  <ion-content>
-	 *    <ion-refresher (starting)="doStarting()"
+	 *    <ion-refresher (start)="doStart($event)"
 	 *                   (refresh)="doRefresh($event)"
 	 *                   (pulling)="doPulling($event)">
 	 *    </ion-refresher>
@@ -49743,7 +49743,7 @@
 	 *  export class MyClass {
 	 *
 	 *    doRefresh(refresher) {
-	 *      console.log('Refreshing', refresher)
+	 *      console.log('Doing Refresh', refresher)
 	 *
 	 *      setTimeout(() => {
 	 *        refresher.complete();
@@ -49751,8 +49751,8 @@
 	 *      }, 5000);
 	 *    }
 	 *
-	 *    doStarting(refresher) {
-	 *      console.log('Starting', refresher);
+	 *    doStart(refresher) {
+	 *      console.log('Doing Start', refresher);
 	 *    }
 	 *
 	 *    doPulling(refresher) {
@@ -49810,7 +49810,7 @@
 	        /**
 	         * @output {event} When you start pulling down
 	         */
-	        this.starting = new core_1.EventEmitter();
+	        this.start = new core_1.EventEmitter();
 	        this._ele = _element.nativeElement;
 	        this._ele.classList.add('content');
 	    }
@@ -49895,7 +49895,7 @@
 	    Refresher.prototype.activate = function () {
 	        //this.ele.classList.add('active');
 	        this.isActive = true;
-	        this.starting.emit(this);
+	        this.start.emit(this);
 	    };
 	    /**
 	     * @private
@@ -49915,11 +49915,10 @@
 	    /**
 	     * @private
 	     */
-	    Refresher.prototype.start = function () {
+	    Refresher.prototype.startRefresh = function () {
 	        // startCallback
 	        this.isRefreshing = true;
 	        this.refresh.emit(this);
-	        //$scope.$onRefresh();
 	    };
 	    /**
 	     * @private
@@ -50081,7 +50080,7 @@
 	            this.dragOffset = 0;
 	            // the user has scroll far enough to trigger a refresh
 	            if (this.lastOverscroll > this.ptrThreshold) {
-	                this.start();
+	                this.startRefresh();
 	                this.scrollTo(this.ptrThreshold, this.scrollTime);
 	            }
 	            else {
@@ -50129,7 +50128,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
-	    ], Refresher.prototype, "starting", void 0);
+	    ], Refresher.prototype, "start", void 0);
 	    Refresher = __decorate([
 	        core_1.Component({
 	            selector: 'ion-refresher',
@@ -54742,7 +54741,6 @@
 	var tab_highlight_1 = __webpack_require__(318);
 	var ion_1 = __webpack_require__(287);
 	var platform_1 = __webpack_require__(162);
-	var nav_controller_1 = __webpack_require__(302);
 	var view_controller_1 = __webpack_require__(296);
 	var icon_1 = __webpack_require__(299);
 	var util_1 = __webpack_require__(163);
@@ -54774,7 +54772,6 @@
 	    function Tabs(viewCtrl, parent, _app, _config, _elementRef, _platform, _renderer) {
 	        var _this = this;
 	        _super.call(this, _elementRef);
-	        this.parent = parent;
 	        this._app = _app;
 	        this._config = _config;
 	        this._elementRef = _elementRef;
@@ -54788,6 +54785,7 @@
 	         * @input {any} expression you want to evaluate when the tabs change
 	         */
 	        this.change = new core_1.EventEmitter();
+	        this.parent = parent;
 	        this.id = ++tabIds;
 	        this.subPages = _config.getBoolean('tabSubPages');
 	        this._useHighlight = _config.getBoolean('tabbarHighlight');
@@ -54820,6 +54818,9 @@
 	            });
 	        });
 	    };
+	    /**
+	     * @private
+	     */
 	    Tabs.prototype.ngAfterContentInit = function () {
 	        var _this = this;
 	        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
@@ -55027,12 +55028,11 @@
 	                core_1.forwardRef(function () { return TabNavBarAnchor; })
 	            ]
 	        }),
-	        __param(0, core_1.Optional()),
-	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _d) || Object, (typeof (_e = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _h) || Object, (typeof (_j = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _j) || Object])
+	        __param(0, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _h) || Object])
 	    ], Tabs);
 	    return Tabs;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+	    var _a, _b, _c, _d, _e, _f, _g, _h;
 	})(ion_1.Ion);
 	exports.Tabs = Tabs;
 	var tabIds = -1;

@@ -55,7 +55,7 @@ Place it as the first child of your Content or Scroll element.</p>
 <h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
-  &lt;ion-refresher (starting)=&quot;doStarting()&quot;
+  &lt;ion-refresher (start)=&quot;doStart($event)&quot;
                  (refresh)=&quot;doRefresh($event)&quot;
                  (pulling)=&quot;doPulling($event)&quot;&gt;
   &lt;/ion-refresher&gt;
@@ -65,7 +65,7 @@ Place it as the first child of your Content or Scroll element.</p>
 <pre><code class="lang-ts">export class MyClass {
 
   doRefresh(refresher) {
-    console.log(&#39;Refreshing&#39;, refresher)
+    console.log(&#39;Doing Refresh&#39;, refresher)
 
     setTimeout(() =&gt; {
       refresher.complete();
@@ -73,8 +73,8 @@ Place it as the first child of your Content or Scroll element.</p>
     }, 5000);
   }
 
-  doStarting(refresher) {
-    console.log(&#39;Starting&#39;, refresher);
+  doStart(refresher) {
+    console.log(&#39;Doing Start&#39;, refresher);
   }
 
   doPulling(refresher) {
@@ -158,7 +158,7 @@ Place it as the first child of your Content or Scroll element.</p>
     </tr>
     
     <tr>
-      <td>starting</td>
+      <td>start</td>
       <td><p> When you start pulling down</p>
 </td>
     </tr>

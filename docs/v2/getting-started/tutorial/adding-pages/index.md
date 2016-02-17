@@ -23,7 +23,7 @@ Now that we have a basic understanding of the layout of an Ionic 2 app, let's wa
 Taking a look at `app/app.html`, we see this line near the bottom:
 
 ```html
-<ion-nav #content [root]="rootPage"></ion-nav>
+<ion-nav id="nav" [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>
 ```
 
 Pay attention to the `[root]` property binding. This sets what is essentially the first, or "root" page for the `ion-nav` controller. When the navigation controller loads, the component referenced by `rootPage` will be the root page.
@@ -32,8 +32,8 @@ In `app/app.js`, the `MyApp` root component specifies this in its constructor:
 
 ```ts
 import {App, IonicApp, Platform} from 'ionic/ionic';
-import {HelloIonicPage} from './hello-ionic/hello-ionic';
-import {ListPage} from './list/list';
+import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
+import {ListPage} from './pages/list/list';
 
 class MyApp {
 
@@ -71,31 +71,29 @@ Next, let's check out the `HelloIonicPage` that we are importing. Inside the `ap
 Below, you will see the `HelloIonicPage` class which has a `Page` [decorator](../../../resources/what-is/#decorators). This creates a Page - an Angular component and an Angular view configured with all the necessary directives already that is meant to be loaded dynamically, so it does not use a tag selector:
 
 ```ts
-import {Page, NavController} from 'ionic/ionic';
+import {Page} from 'ionic/ionic';
 
 @Page({
   templateUrl: 'build/pages/hello-ionic/hello-ionic.html'
 })
 export class HelloIonicPage {
-  constructor(nav: NavController) {
-    this.nav = nav;
+  constructor() {
   }
 
 }
 ```
 
-Note that we pass in the `nav` object, and set it as a property in the constructor.
-
-All pages have both a class, and an associated template. Let's checkout `app/hello-ionic/hello-ionic.html` - the template file for this page:
+All pages have both a class, and an associated template that's being compiled as well. Let's checkout `app/pages/hello-ionic/hello-ionic.html` - the template file for this page:
 
 ```html
 {% raw %}
 <ion-navbar *navbar>
-  <a menu-toggle>
+  <button menuToggle>
     <ion-icon name="menu"></ion-icon>
-  </a>
+  </button>
   <ion-title>Hello Ionic</ion-title>
 </ion-navbar>
+
 
 <ion-content padding class="getting-started">
 
@@ -103,8 +101,14 @@ All pages have both a class, and an associated template. Let's checkout `app/hel
 
   <p>
     This starter project is our way of helping you get a functional app running in record time.
-    ...
   </p>
+  <p>
+    Follow along on the tutorial section of the Ionic docs!
+  </p>
+  <p>
+    <button primary menuToggle>Toggle Menu</button>
+  </p>
+
 </ion-content>
 {% endraw %}
 ```
@@ -121,30 +125,43 @@ Let's check out the contents of `app/list/list.js`. Inside, you will see a new p
 
 ```ts
 {% raw %}
-import {IonicApp, Page, NavController, NavParams} from 'ionic/ionic';
+import {Page, NavController, NavParams} from 'ionic/ionic';
+import {ItemDetailsPage} from '../item-details/item-details';
+
 
 @Page({
-  templateUrl: 'app/list/list.html'
+  templateUrl: 'build/pages/list/list.html'
 })
 export class ListPage {
-  constructor(app: IonicApp, nav: NavController, navParams: NavParams) {
+  constructor(nav: NavController, navParams: NavParams) {
     this.nav = nav;
-    ...
-   }
-   ...
-   itemTapped(event, item) {
-     console.log('You selected', item.title);
-   }
+
+    // If we navigated to this page, we will have an item available as a nav param
+    this.selectedItem = navParams.get('item');
+
+    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
+    'american-football', 'boat', 'bluetooth', 'build'];
+
+    this.items = [];
+    for(let i = 1; i < 11; i++) {
+      this.items.push({
+        title: 'Item ' + i,
+        note: 'This is item #' + i,
+        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+      });
+    }
+  }
+
+  itemTapped(event, item) {
+     this.nav.push(ItemDetailsPage, {
+       item: item
+     });
+  }
 }
 {% endraw %}
 ```
 
-This page will create a basic list page containing a number of items. Notice that we are also defining an `itemTapped` function that logs the title of an item to the console. Let's go check out how this function gets called. Open up `app/list/list.html`:
+This page will create a basic list page containing a number of items.
 
-```html
-<ion-item *ngFor="#item of items" (click)="itemTapped($event, item)">
-```
 
-This will add each item to the list, and register a click handler on each of those items. When the item is tapped or clicked, it will call our `itemTapped` function that logs the title of the item to the console. Also note that we pass this function the click event, as well as the item that was tapped.
-
-Overall, this page is very similar to the `HelloIonicPage` we saw earlier. Currently, when you tap an item, our app will log a message to the console. In the next section, we will learn about how we can improve this by navigating to a new page!
+Overall, this page is very similar to the `HelloIonicPage` we saw earlier. In the next section, we will learn about how this wiring up our navigation to a new page!

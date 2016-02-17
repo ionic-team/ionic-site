@@ -21,13 +21,6 @@ Improve this doc
 
 Recall from the previous section we had a function inside our `ListPage` class that looked something like this:
 
-```ts
-itemTapped(event, item) {
-    console.log('You selected:', item.title);
-}
-```
-
-Let's improve it so it navigates to a new page:
 
 ```ts
 itemTapped(event, item) {

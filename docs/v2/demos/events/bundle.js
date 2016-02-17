@@ -49730,7 +49730,7 @@
 	 *  @usage
 	 *  ```html
 	 *  <ion-content>
-	 *    <ion-refresher (starting)="doStarting($event)"
+	 *    <ion-refresher (start)="doStart($event)"
 	 *                   (refresh)="doRefresh($event)"
 	 *                   (pulling)="doPulling($event)">
 	 *    </ion-refresher>
@@ -49743,7 +49743,7 @@
 	 *  export class MyClass {
 	 *
 	 *    doRefresh(refresher) {
-	 *      console.log('Refreshing', refresher)
+	 *      console.log('Doing Refresh', refresher)
 	 *
 	 *      setTimeout(() => {
 	 *        refresher.complete();
@@ -49751,8 +49751,8 @@
 	 *      }, 5000);
 	 *    }
 	 *
-	 *    doStarting(refresher) {
-	 *      console.log('Starting', refresher);
+	 *    doStart(refresher) {
+	 *      console.log('Doing Start', refresher);
 	 *    }
 	 *
 	 *    doPulling(refresher) {
@@ -49810,7 +49810,7 @@
 	        /**
 	         * @output {event} When you start pulling down
 	         */
-	        this.starting = new core_1.EventEmitter();
+	        this.start = new core_1.EventEmitter();
 	        this._ele = _element.nativeElement;
 	        this._ele.classList.add('content');
 	    }
@@ -49895,7 +49895,7 @@
 	    Refresher.prototype.activate = function () {
 	        //this.ele.classList.add('active');
 	        this.isActive = true;
-	        this.starting.emit(this);
+	        this.start.emit(this);
 	    };
 	    /**
 	     * @private
@@ -49915,7 +49915,7 @@
 	    /**
 	     * @private
 	     */
-	    Refresher.prototype.start = function () {
+	    Refresher.prototype.startRefresh = function () {
 	        // startCallback
 	        this.isRefreshing = true;
 	        this.refresh.emit(this);
@@ -50080,7 +50080,7 @@
 	            this.dragOffset = 0;
 	            // the user has scroll far enough to trigger a refresh
 	            if (this.lastOverscroll > this.ptrThreshold) {
-	                this.start();
+	                this.startRefresh();
 	                this.scrollTo(this.ptrThreshold, this.scrollTime);
 	            }
 	            else {
@@ -50128,7 +50128,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
-	    ], Refresher.prototype, "starting", void 0);
+	    ], Refresher.prototype, "start", void 0);
 	    Refresher = __decorate([
 	        core_1.Component({
 	            selector: 'ion-refresher',

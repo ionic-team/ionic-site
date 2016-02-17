@@ -42547,7 +42547,6 @@
 	        this._preventTime = 0;
 	        this._isEnabled = true;
 	        this._isSwipeEnabled = true;
-	        this._isListening = false;
 	        this._isPers = false;
 	        this._init = false;
 	        /**
@@ -42655,21 +42654,19 @@
 	        var self = this;
 	        if (self._init) {
 	            // only listen/unlisten if the menu has initialized
-	            if (self._isEnabled && self._isSwipeEnabled && !self._isListening) {
+	            if (self._isEnabled && self._isSwipeEnabled && !self._cntGesture.isListening) {
 	                // should listen, but is not currently listening
 	                console.debug('menu, gesture listen', self.side);
 	                self._zone.runOutsideAngular(function () {
 	                    self._cntGesture.listen();
 	                    self._menuGesture.listen();
 	                });
-	                self._isListening = true;
 	            }
-	            else if (self._isListening && (!self._isEnabled || !self._isSwipeEnabled)) {
+	            else if (self._cntGesture.isListening && (!self._isEnabled || !self._isSwipeEnabled)) {
 	                // should not listen, but is currently listening
 	                console.debug('menu, gesture unlisten', self.side);
 	                self._cntGesture.unlisten();
 	                self._menuGesture.unlisten();
-	                self._isListening = false;
 	            }
 	        }
 	    };
@@ -43296,6 +43293,7 @@
 	    function Gesture(element, opts) {
 	        if (opts === void 0) { opts = {}; }
 	        this._callbacks = {};
+	        this.isListening = false;
 	        util_1.defaults(opts, {
 	            domEvents: true
 	        });
@@ -43323,6 +43321,7 @@
 	    };
 	    Gesture.prototype.listen = function () {
 	        this._hammer = hammer_1.Hammer(this.element, this._options);
+	        this.isListening = true;
 	    };
 	    Gesture.prototype.unlisten = function () {
 	        var type, i;
@@ -43335,6 +43334,7 @@
 	            this._callbacks = {};
 	            this._hammer.destroy();
 	        }
+	        this.isListening = false;
 	    };
 	    Gesture.prototype.destroy = function () {
 	        this.unlisten();

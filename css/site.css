@@ -65,7 +65,6 @@ dfn {
   font-style: italic; }
 
 hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0; }
 
@@ -154,8 +153,6 @@ input[type="radio"] {
 
 input[type="search"] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box; }
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -232,8 +229,6 @@ table {
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
@@ -287,7 +282,6 @@ img {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 2px;
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   max-width: 100%;
@@ -1222,8 +1216,6 @@ label {
   font-weight: bold; }
 
 input[type="search"] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 input[type="radio"],
@@ -1277,14 +1269,11 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 2px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
   .form-control:focus {
     border-color: #66afe9;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
   .form-control[disabled], .form-control[readonly],
   fieldset[disabled] .form-control {
@@ -1402,11 +1391,9 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 
 .has-warning .form-control {
   border-color: #c09853;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
   .has-warning .form-control:focus {
     border-color: #a47e3c;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #dbc59e;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #dbc59e; }
 
 .has-warning .input-group-addon {
@@ -1420,11 +1407,9 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 
 .has-error .form-control {
   border-color: #b94a48;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
   .has-error .form-control:focus {
     border-color: #953b39;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392; }
 
 .has-error .input-group-addon {
@@ -1438,11 +1423,9 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
 
 .has-success .form-control {
   border-color: #468847;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
   .has-success .form-control:focus {
     border-color: #356635;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b; }
 
 .has-success .input-group-addon {
@@ -1519,7 +1502,6 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  -o-user-select: none;
   user-select: none; }
   .btn:focus {
     outline: none; }
@@ -1529,7 +1511,6 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   .btn:active, .btn.active {
     outline: 0;
     background-image: none;
-    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
   .btn.disabled, .btn[disabled],
   fieldset[disabled] .btn {
@@ -1537,7 +1518,6 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
     pointer-events: none;
     opacity: 0.65;
     filter: alpha(opacity=65);
-    -webkit-box-shadow: none;
     box-shadow: none; }
 
 .btn-default {
@@ -1692,7 +1672,6 @@ textarea.input-lg, .input-group-lg > textarea.form-control,
   .btn-link, .btn-link:active, .btn-link[disabled],
   fieldset[disabled] .btn-link {
     background-color: transparent;
-    -webkit-box-shadow: none;
     box-shadow: none; }
   .btn-link, .btn-link:hover, .btn-link:focus, .btn-link:active {
     border-color: transparent; }
@@ -1739,7 +1718,6 @@ input[type="button"].btn-block {
 
 .fade {
   opacity: 0;
-  -webkit-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear; }
   .fade.in {
     opacity: 1; }
@@ -1753,7 +1731,6 @@ input[type="button"].btn-block {
   position: relative;
   height: 0;
   overflow: hidden;
-  -webkit-transition: height 0.35s ease;
   transition: height 0.35s ease; }
 
 @font-face {
@@ -2405,7 +2382,6 @@ input[type="button"].btn-block {
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 2px;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box; }
   .dropdown-menu.pull-right {
@@ -2593,7 +2569,6 @@ input[type="button"].btn-block {
   padding-right: 12px; }
 
 .btn-group.open .dropdown-toggle {
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
 
 .btn .caret {
@@ -3057,7 +3032,6 @@ input[type="button"].btn-block {
   padding: 10px 15px;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   margin-top: 19px;
   margin-bottom: 19px; }
@@ -3072,7 +3046,6 @@ input[type="button"].btn-block {
       margin-right: 0;
       padding-top: 0;
       padding-bottom: 0;
-      -webkit-box-shadow: none;
       box-shadow: none; } }
 
 .navbar-nav > li > .dropdown-menu {
@@ -3552,18 +3525,6 @@ a.thumbnail:focus {
   to {
     background-position: 0 0; } }
 
-@-moz-keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0; }
-  to {
-    background-position: 0 0; } }
-
-@-o-keyframes progress-bar-stripes {
-  from {
-    background-position: 0 0; }
-  to {
-    background-position: 40px 0; } }
-
 @keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
@@ -3576,7 +3537,6 @@ a.thumbnail:focus {
   margin-bottom: 21px;
   background-color: #f5f5f5;
   border-radius: 2px;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); }
 
 .progress-bar {
@@ -3587,55 +3547,36 @@ a.thumbnail:focus {
   color: #fff;
   text-align: center;
   background-color: #4F8EF7;
-  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-  -webkit-transition: width 0.6s ease;
   transition: width 0.6s ease; }
 
 .progress-striped .progress-bar {
-  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-  background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-size: 40px 40px; }
 
 .progress.active .progress-bar {
   -webkit-animation: progress-bar-stripes 2s linear infinite;
-  -moz-animation: progress-bar-stripes 2s linear infinite;
   -ms-animation: progress-bar-stripes 2s linear infinite;
-  -o-animation: progress-bar-stripes 2s linear infinite;
   animation: progress-bar-stripes 2s linear infinite; }
 
 .progress-bar-success {
   background-color: #5cb85c; }
   .progress-striped .progress-bar-success {
-    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-    background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .progress-bar-info {
   background-color: #5bc0de; }
   .progress-striped .progress-bar-info {
-    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-    background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .progress-bar-warning {
   background-color: #f0ad4e; }
   .progress-striped .progress-bar-warning {
-    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-    background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .progress-bar-danger {
   background-color: #d9534f; }
   .progress-striped .progress-bar-danger {
-    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-    background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
 .media,
@@ -3719,7 +3660,6 @@ a.list-group-item {
   background-color: #fff;
   border: 1px solid transparent;
   border-radius: 2px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
 
 .panel-body {
@@ -3861,7 +3801,6 @@ a.list-group-item {
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
   border-radius: 2px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }
   .well blockquote {
     border-color: #ddd;
@@ -3921,9 +3860,7 @@ body.modal-open {
     -webkit-transform: translate(0, -25%);
     -ms-transform: translate(0, -25%);
     transform: translate(0, -25%);
-    -webkit-transition: -webkit-transform 0.3s ease-out;
-    -moz-transition: -moz-transform 0.3s ease-out;
-    -o-transition: -o-transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out; }
   .modal.in .modal-dialog {
     -webkit-transform: translate(0, 0);
@@ -3943,7 +3880,6 @@ body.modal-open {
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   background-clip: padding-box;
   outline: none; }
@@ -4007,7 +3943,6 @@ body.modal-open {
     padding-top: 30px;
     padding-bottom: 30px; }
   .modal-content {
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); } }
 
 .tooltip {
@@ -4117,7 +4052,6 @@ body.modal-open {
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   white-space: normal; }
   .popover.top {
@@ -4223,7 +4157,6 @@ body.modal-open {
   .carousel-inner > .item {
     display: none;
     position: relative;
-    -webkit-transition: 0.6s ease-in-out left;
     transition: 0.6s ease-in-out left; }
     .carousel-inner > .item > img,
     .carousel-inner > .item > a > img {
@@ -4267,18 +4200,12 @@ body.modal-open {
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
   .carousel-control.left {
-    background-image: -webkit-gradient(linear, 0% top, 100% top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.0001)));
-    background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.5) 0%), color-stop(rgba(0, 0, 0, 0.0001) 100%));
-    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1); }
   .carousel-control.right {
     left: auto;
     right: 0;
-    background-image: -webkit-gradient(linear, 0% top, 100% top, from(rgba(0, 0, 0, 0.0001)), to(rgba(0, 0, 0, 0.5)));
-    background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0%), color-stop(rgba(0, 0, 0, 0.5) 100%));
-    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1); }
@@ -4803,27 +4730,27 @@ td.visible-print {
 
 /* @license
  * MyFonts Webfont Build ID 2656303, 2013-10-02T11:03:28-0400
- * 
+ *
  * The fonts listed in this notice are subject to the End User License
- * Agreement(s) entered into by the website owner. All other parties are 
+ * Agreement(s) entered into by the website owner. All other parties are
  * explicitly restricted from using the Licensed Webfonts(s).
- * 
+ *
  * You may obtain a valid license at the URLs below.
- * 
+ *
  * Webfont: Avenir Next Pro Regular by Linotype
  * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-regular/
- * 
+ *
  * Webfont: Avenir Next Pro Medium by Linotype
  * URL: http://www.myfonts.com/fonts/linotype/avenir-next-pro/pro-medium/
- * 
- * 
+ *
+ *
  * License: http://www.myfonts.com/viewlicense?type=web&buildid=2656303
  * Licensed pageviews: 250,000
  * Webfonts copyright: Copyright &#x00A9; 2004 - 2007 Linotype GmbH, www.linotype.com. All rights reserved. This font software may not be reproduced, modified, disclosed or transferred without the express written approval of Linotype GmbH. Avenir is a trademark of Linotype GmbH
- * 
+ *
  * © 2013 MyFonts Inc
 */
-/* @import must be at top of file, otherwise CSS will not work 
+/* @import must be at top of file, otherwise CSS will not work
 @import url("//hello.myfonts.net/count/28882f");*/
 /* Avenir Next Pro */
 @font-face {
@@ -4841,6 +4768,43 @@ td.visible-print {
   src: url("http://code.ionicframework.com/assets/fonts/29CC36_0_0.eot");
   src: url("http://code.ionicframework.com/assets/fonts/29CC36_0_0.eot?#iefix") format("embedded-opentype"), url("http://code.ionicframework.com/assets/fonts/29CC36_0_0.woff") format("woff"), url("http://code.ionicframework.com/assets/fonts/29CC36_0_0.ttf") format("truetype"); }
 
+/* Consolidated Avenir */
+@font-face {
+  font-family: 'Avenir Next';
+  src: url("/fonts/avenir-next/bold.eot");
+  src: url("/fonts/avenir-next/bold.eot?#iefix") format("embedded-opentype"), url("/fonts/avenir-next/bold.woff2") format("woff2"), url("/fonts/avenir-next/bold.woff") format("woff"), url("/fonts/avenir-next/bold.ttf") format("truetype");
+  font-weight: 700; }
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url("/fonts/avenir-next/demi.eot");
+  src: url("/fonts/avenir-next/demi.eot?#iefix") format("embedded-opentype"), url("/fonts/avenir-next/demi.woff2") format("woff2"), url("/fonts/avenir-next/demi.woff") format("woff"), url("/fonts/avenir-next/demi.ttf") format("truetype");
+  font-weight: 600; }
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url("/fonts/avenir-next/medium.eot");
+  src: url("/fonts/avenir-next/medium.eot?#iefix") format("embedded-opentype"), url("/fonts/avenir-next/medium.woff") format("woff"), url("/fonts/avenir-next/medium.ttf") format("truetype");
+  font-weight: 500; }
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url("/fonts/avenir-next/regular.eot");
+  src: url("/fonts/avenir-next/regular.eot?#iefix") format("embedded-opentype"), url("/fonts/avenir-next/regular.woff") format("woff"), url("/fonts/avenir-next/regular.ttf") format("truetype");
+  font-weight: 400; }
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url("/fonts/avenir-next/thin.eot");
+  src: url("/fonts/avenir-next/thin.eot?#iefix") format("embedded-opentype"), url("/fonts/avenir-next/thin.woff2") format("woff2"), url("/fonts/avenir-next/thin.woff") format("woff"), url("/fonts/avenir-next/thin.ttf") format("truetype");
+  font-weight: 300; }
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url("/fonts/avenir-next/ultralight.eot");
+  src: url("/fonts/avenir-next/ultralight.eot?#iefix") format("embedded-opentype"), url("/fonts/avenir-next/ultralight.woff") format("woff"), url("/fonts/avenir-next/ultralight.ttf") format("truetype");
+  font-weight: 200; }
+
 /* Frieght Text Pro */
 @font-face {
   font-family: 'FreightTextProBook-Regular';
@@ -4851,6 +4815,13 @@ td.visible-print {
   font-family: 'FreightTextProMedium-Regular';
   src: url("http://code.ionicframework.com/assets/fonts/29D26A_1_0.eot");
   src: url("http://code.ionicframework.com/assets/fonts/29D26A_1_0.eot?#iefix") format("embedded-opentype"), url("http://code.ionicframework.com/assets/fonts/29D26A_1_0.woff") format("woff"), url("http://code.ionicframework.com/assets/fonts/29D26A_1_0.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "Ionicons";
+  src: url("../fonts/ionicons.eot?v=2.0.1");
+  src: url("../fonts/ionicons.eot?v=2.0.1#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=2.0.1") format("truetype"), url("../fonts/ionicons.woff?v=2.0.1") format("woff"), url("../fonts/ionicons.woff") format("woff"), url("../fonts/ionicons.svg?v=2.0.1#Ionicons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 
 /*
  * Some CSS adapted from LayerVault, http://layervault.com
@@ -4874,8 +4845,6 @@ td.visible-print {
 
 .input-container,
 .input-container * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 
@@ -4895,15 +4864,9 @@ td.visible-print {
     -webkit-font-smoothing: antialiased;
     width: 100%;
     height: 60px;
-    -webkit-transition: border 300ms ease;
-    -moz-transition: border 300ms ease;
-    -ms-transition: border 300ms ease;
-    -o-transition: border 300ms ease;
     transition: border 300ms ease;
     outline: none;
     padding: 18px 10px 0 8px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
     border-radius: 4px;
     border: 2px solid #ddd; }
     .input-container input:focus,
@@ -4918,10 +4881,6 @@ td.visible-print {
   .input-container label {
     font-size: 11px;
     font-weight: 300;
-    -webkit-transition: color 300ms ease;
-    -moz-transition: color 300ms ease;
-    -ms-transition: color 300ms ease;
-    -o-transition: color 300ms ease;
     transition: color 300ms ease;
     float: left;
     position: absolute;
@@ -5049,8 +5008,6 @@ h1 + h2 + p {
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
     color: #4F8EF7;
     opacity: 0.95;
-    -webkit-transition: 0.1s linear;
-    -moz-transition: 0.1s linear;
     transition: 0.1s linear; }
     .home .btn-row .btn-download:hover {
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
@@ -5064,8 +5021,6 @@ h1 + h2 + p {
     background: transparent;
     box-shadow: inset 0px 0px 0px 2px #A8C7FF;
     color: #A8C7FF;
-    -webkit-transition: 0.1s linear;
-    -moz-transition: 0.1s linear;
     transition: 0.1s linear; }
     .home .btn-row .btn-get-started:hover {
       box-shadow: inset 0px 0px 0px 2px #fff;
@@ -5090,7 +5045,6 @@ h1 + h2 + p {
     -webkit-animation: fadeInDown 1s both;
     animation: fadeInDown 1s both;
     -webkit-animation-delay: 1s;
-    -moz-animation-delay: 1s;
     animation-delay: 1s; }
     .home .feature-img.two .demo-link {
       visibility: visible; }
@@ -5101,7 +5055,6 @@ h1 + h2 + p {
     -webkit-animation: fadeInDown 1s both;
     animation: fadeInDown 1s both;
     -webkit-animation-delay: 1s;
-    -moz-animation-delay: 1s;
     animation-delay: 1s; }
     .home .feature-img.one .demo-link {
       visibility: visible; }
@@ -5124,20 +5077,14 @@ h1 + h2 + p {
     opacity: 1; }
     .home .feature-img a img {
       opacity: .9;
-      -webkit-transition: opacity .1s linear;
-      -moz-transition: opacity .1s linear;
       transition: opacity .1s linear;
       transition: opacity 0.1s linear;
       -webkit-animation-delay: .5s;
-      -moz-animation-delay: .5s;
       animation-delay: .5s; }
     .home .feature-img a span {
       opacity: .4;
-      -webkit-transition: opacity .1s linear;
-      -moz-transition: opacity .1s linear;
       transition: opacity .1s linear;
       -webkit-animation-delay: .5s;
-      -moz-animation-delay: .5s;
       animation-delay: .5s; }
     .home .feature-img a:hover img,
     .home .feature-img a:hover span {
@@ -5202,9 +5149,6 @@ h1 + h2 + p {
 
 .home .creator-bar {
   background: url("/img/teaser-bg.jpg") no-repeat transparent 50% 55%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   text-align: center;
   padding: 48px 0;
@@ -5244,11 +5188,6 @@ h1 + h2 + p {
   padding: 17px;
   width: 100%;
   background: #2155aa;
-  background: -moz-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #2155aa), color-stop(100%, #3e72c6));
-  background: -webkit-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
-  background: -o-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
-  background: -ms-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
   background: linear-gradient(to right, #2155aa 0%, #3e72c6 100%); }
   .home .utility-bar .container {
     overflow: hidden;
@@ -5264,7 +5203,6 @@ h1 + h2 + p {
     font-weight: normal;
     font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
     .home .utility-bar input:focus {
-      -webkit-box-shadow: none;
       box-shadow: none;
       border: 1px solid #84A6E2;
       background: #84A6E2; }
@@ -5557,6 +5495,44 @@ h1 + h2 + p {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown; }
 
+.home .creator-home-feature {
+  background: #1f90d2;
+  background: no-repeat center bottom url(/img/creator-app-preview.png), linear-gradient(to right, #1f90d2 0%, #4db6f2 100%);
+  background-size: 926px, 100%;
+  padding-bottom: 447px;
+  padding-top: 26px;
+  box-shadow: inset 0 -35px 30px -30px rgba(0, 0, 0, 0.1); }
+  @media (max-width: 926px) {
+    .home .creator-home-feature {
+      background-size: 617px, 100%;
+      padding-bottom: 300px; } }
+  @media (max-width: 617px) {
+    .home .creator-home-feature {
+      background-size: 463px, 100%;
+      padding-bottom: 250px; } }
+  @media (max-width: 463px) {
+    .home .creator-home-feature {
+      background-size: 308px, 100%;
+      padding-bottom: 170px; } }
+  .home .creator-home-feature hgroup.desc-row {
+    max-width: 650px;
+    margin: 0 auto; }
+    .home .creator-home-feature hgroup.desc-row h3,
+    .home .creator-home-feature hgroup.desc-row p {
+      color: white; }
+    .home .creator-home-feature hgroup.desc-row p {
+      opacity: .7; }
+    .home .creator-home-feature hgroup.desc-row .btn-white {
+      background: white;
+      font-family: "Avenir Next", "Helvetica Neue", Helvetica, sans-serif;
+      font-weight: 500;
+      font-size: 19px;
+      padding: 17px 39px;
+      color: #1f90d2;
+      opacity: 1;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); }
+
 #slider {
   margin: 0 auto;
   padding: 0;
@@ -5602,8 +5578,7 @@ h1 + h2 + p {
     #slider .slick-dots li button:before {
       color: white;
       font-size: 22px;
-      -webkit-transition: transform .2s, opacity .2s;
-      -o-transition: transform .2s, opacity .2s;
+      transition: -webkit-transform .2s, opacity .2s;
       transition: transform .2s, opacity .2s; }
     #slider .slick-dots li.slick-active button:before {
       -ms-transform: scale(1.3);
@@ -5707,7 +5682,6 @@ h1 + h2 + p {
     border: none;
     background: rgba(255, 255, 255, 0.15); }
     .home .utility-bar input:focus {
-      -webkit-box-shadow: none;
       box-shadow: none;
       border: none;
       background: rgba(255, 255, 255, 0.3); }
@@ -5808,29 +5782,14 @@ h1 + h2 + p {
 
 .slide-creator {
   background: #2090d2;
-  background: -moz-linear-gradient(left, #2090d2 0%, #4db5f2 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #2090d2), color-stop(100%, #4db5f2));
-  background: -webkit-linear-gradient(left, #2090d2 0%, #4db5f2 100%);
-  background: -o-linear-gradient(left, #2090d2 0%, #4db5f2 100%);
-  background: -ms-linear-gradient(left, #2090d2 0%, #4db5f2 100%);
   background: linear-gradient(to right, #2090d2 0%, #4db5f2 100%); }
 
 .slide-lab {
   background: #3fbae2;
-  background: -moz-linear-gradient(left, #3fbae2 0%, #7962ff 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #3fbae2), color-stop(100%, #7962ff));
-  background: -webkit-linear-gradient(left, #3fbae2 0%, #7962ff 100%);
-  background: -o-linear-gradient(left, #3fbae2 0%, #7962ff 100%);
-  background: -ms-linear-gradient(left, #3fbae2 0%, #7962ff 100%);
   background: linear-gradient(to right, #3fbae2 0%, #7962ff 100%); }
 
 .slide-market {
   background: #0e419b;
-  background: -moz-linear-gradient(left, #0e419b 0%, #19859c 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #0e419b), color-stop(100%, #19859c));
-  background: -webkit-linear-gradient(left, #0e419b 0%, #19859c 100%);
-  background: -o-linear-gradient(left, #0e419b 0%, #19859c 100%);
-  background: -ms-linear-gradient(left, #0e419b 0%, #19859c 100%);
   background: linear-gradient(to right, #0e419b 0%, #19859c 100%); }
 
 .testimonials blockquote {
@@ -5850,7 +5809,6 @@ h1 + h2 + p {
   background-color: white;
   background-size: 44px 40px;
   background-repeat: no-repeat;
-  -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s; }
 
 .testimonial-content {
@@ -5877,7 +5835,6 @@ h1 + h2 + p {
       font-family: Georgia, serif;
       line-height: 34px;
       opacity: 0;
-      -webkit-transition: opacity 0.3s;
       transition: opacity 0.3s;
       -webkit-font-smoothing: antialiased; }
     .testimonials blockquote.active p {
@@ -5933,7 +5890,6 @@ h1 + h2 + p {
 .fixed-menu {
   position: fixed;
   -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
 
 .ionic.ionic-example .bar {
@@ -6079,7 +6035,6 @@ pre {
     top: 0;
     right: auto;
     -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
   .device-preview-page .docs-section {
     padding-right: 380px; }
@@ -7052,15 +7007,11 @@ code.language-ts .k {
   padding-top: 5px; }
 
 .suggestions a:active {
-  -webkit-box-shadow: none;
   box-shadow: none; }
 
 .suggestions li.ng-enter,
 .suggestions li.ng-move,
 .suggestions li.ng-leave {
-  -webkit-transition: 0.5s linear all;
-  -moz-transition: 0.5s linear all;
-  -o-transition: 0.5s linear all;
   transition: 0.5s linear all;
   opacity: 0;
   max-height: 0px;
@@ -7095,19 +7046,14 @@ code.language-ts .k {
   margin-bottom: 20px; }
 
 #progress ul {
-  display: -webkit-box;
   display: -webkit-flex;
-  display: -moz-box;
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: horizontal;
   -webkit-flex-direction: horizontal;
   -moz-flex-direction: horizontal;
   -ms-flex-direction: horizontal;
   flex-direction: horizontal;
-  -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   -moz-justify-content: center;
@@ -7115,10 +7061,10 @@ code.language-ts .k {
   padding: 0; }
 
 #progress li {
-  -webkit-box-flex: 1;
   -webkit-flex: 1;
   box-flex: 1;
-  flex: 1;
+  -ms-flex: 1;
+      flex: 1;
   list-style: none;
   height: 100px;
   /*max-width: 52px;*/ }
@@ -7183,17 +7129,23 @@ code.language-ts .k {
 
 @keyframes tada {
   0% {
-    transform: scale(1, 1); }
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1); }
   20% {
-    transform: scale(1.2, 1.2); }
+    -webkit-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2); }
   40% {
-    transform: scale(1.5, 1.5); }
+    -webkit-transform: scale(1.5, 1.5);
+            transform: scale(1.5, 1.5); }
   60% {
-    transform: scale(1.2, 1.2); }
+    -webkit-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2); }
   80% {
-    transform: scale(0.9, 0.9); }
+    -webkit-transform: scale(0.9, 0.9);
+            transform: scale(0.9, 0.9); }
   100% {
-    transform: scale(1, 1); } }
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1); } }
 
 .ion-ios7-checkmark-empty {
   position: relative; }
@@ -7312,20 +7264,9 @@ a {
 
 .horizontal-gradient {
   background: #296ad4;
-  background: -moz-linear-gradient(left, #296ad4 0%, #4e8ef7 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #296ad4), color-stop(100%, #4e8ef7));
-  background: -webkit-linear-gradient(left, #296ad4 0%, #4e8ef7 100%);
-  background: -o-linear-gradient(left, #296ad4 0%, #4e8ef7 100%);
-  background: -ms-linear-gradient(left, #296ad4 0%, #4e8ef7 100%);
   background: linear-gradient(to right, #296ad4 0%, #4e8ef7 100%); }
 
 @-webkit-keyframes fadeIn {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-
-@-moz-keyframes fadeIn {
   from {
     opacity: 0; }
   to {
@@ -7340,10 +7281,8 @@ a {
 .fadeIn {
   opacity: 0;
   -webkit-animation: fadeIn ease-in 750ms;
-  -moz-animation: fadeIn ease-in 750ms;
   animation: fadeIn ease-in 750ms;
   -webkit-animation-fill-mode: forwards;
-  -moz-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   -webkit-animation-delay: 500ms;
   /* Chrome, Safari, Opera */
@@ -7448,11 +7387,6 @@ a {
     margin-bottom: 20px;
     border: none;
     background: #2155aa;
-    background: -moz-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #2155aa), color-stop(100%, #3e72c6));
-    background: -webkit-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
-    background: -o-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
-    background: -ms-linear-gradient(left, #2155aa 0%, #3e72c6 100%);
     background: linear-gradient(to right, #2155aa 0%, #3e72c6 100%); }
   .navbar-default .navbar-collapse .navbar-nav > li > a:hover {
     border-color: transparent !important; } }
@@ -7567,7 +7501,6 @@ a {
   font-size: 12px;
   transition: opacity ease-in-out 100ms;
   -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
   .search-results h4 {
     margin-bottom: 8px;
@@ -7641,7 +7574,9 @@ a {
     height: 30px;
     width: 2px;
     left: -15px;
-    transform: skewX(-15deg); }
+    -webkit-transform: skewX(-15deg);
+        -ms-transform: skewX(-15deg);
+            transform: skewX(-15deg); }
 
 .snap-bar {
   /*display: none;*/
@@ -7676,7 +7611,8 @@ a {
 
 .snap-bar.active {
   -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+      transform: translate(0, 0);
   margin-top: 0; }
 
 @media (max-width: 767px) {
@@ -7716,10 +7652,6 @@ a {
     height: 26px;
     text-overflow: ellipsis;
     white-space: nowrap; }
-
-@-moz-keyframes spin {
-  100% {
-    -moz-transform: rotate(360deg); } }
 
 @-webkit-keyframes spin {
   100% {
@@ -7887,6 +7819,9 @@ a {
   /**
  * Set ms-viewport to prevent MS "page squish" and allow fluid scrolling
  * https://msdn.microsoft.com/en-us/library/ie/hh869615(v=vs.85).aspx
+
+@-ms-viewport {
+  width: device-width; }
  */
   /* If you change these, change platform.scss as well */
   /**
@@ -8076,14 +8011,6 @@ a {
  * --------------------------------------------------
  * Platform specific tweaks
  */ }
-
-@font-face {
-  .ionic {
-    font-family: "Ionicons";
-    src: url("../fonts/ionicons.eot?v=2.0.1");
-    src: url("../fonts/ionicons.eot?v=2.0.1#iefix") format("embedded-opentype"), url("../fonts/ionicons.ttf?v=2.0.1") format("truetype"), url("../fonts/ionicons.woff?v=2.0.1") format("woff"), url("../fonts/ionicons.woff") format("woff"), url("../fonts/ionicons.svg?v=2.0.1#Ionicons") format("svg");
-    font-weight: normal;
-    font-style: normal; } }
   .ionic .ion, .ionic .ionicons,
   .ionic .ion-alert:before,
   .ionic .ion-alert-circled:before,
@@ -10365,7 +10292,6 @@ a {
   .ionic dfn {
     font-style: italic; }
   .ionic hr {
-    -moz-box-sizing: content-box;
     box-sizing: content-box;
     height: 0; }
   .ionic code,
@@ -10436,9 +10362,7 @@ a {
   .ionic html input[disabled] {
     cursor: default; }
   .ionic input[type="search"] {
-    -webkit-box-sizing: content-box;
     /* 2 */
-    -moz-box-sizing: content-box;
     box-sizing: content-box;
     -webkit-appearance: textfield;
     /* 1 */ }
@@ -10462,8 +10386,6 @@ a {
   .ionic *,
   .ionic *:before,
   .ionic *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box; }
   .ionic html {
     overflow: hidden;
@@ -10475,8 +10397,8 @@ a {
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
-    text-size-adjust: none;
+    -ms-text-size-adjust: none;
+        text-size-adjust: none;
     -webkit-tap-highlight-color: transparent;
     -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
@@ -10530,14 +10452,11 @@ a {
     user-select: none;
     -webkit-touch-callout: none;
     -webkit-text-size-adjust: none;
-    -moz-text-size-adjust: none;
-    text-size-adjust: none;
+    -ms-text-size-adjust: none;
+        text-size-adjust: none;
     -webkit-transform-origin: left top;
-    transform-origin: left top; }
-
-@-ms-viewport {
-  .ionic {
-    width: device-width; } }
+    -ms-transform-origin: left top;
+        transform-origin: left top; }
   .ionic .scroll-bar {
     position: absolute;
     z-index: 9999; }
@@ -10562,7 +10481,6 @@ a {
     border-radius: 4px;
     background: rgba(0, 0, 0, 0.3);
     opacity: 1;
-    -webkit-transition: opacity 0.3s linear;
     transition: opacity 0.3s linear; }
   .ionic .scroll-bar-indicator.scroll-bar-fade-out {
     opacity: 0; }
@@ -10573,30 +10491,23 @@ a {
     background: #aaa; }
   .ionic .grade-b .scroll-bar-indicator.scroll-bar-fade-out,
   .ionic .grade-c .scroll-bar-indicator.scroll-bar-fade-out {
-    -webkit-transition: none;
     transition: none; }
   .ionic ion-infinite-scroll {
     height: 60px;
     width: 100%;
     display: block;
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
     -webkit-flex-direction: row;
     -moz-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
-    -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
     -moz-justify-content: center;
     justify-content: center;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
@@ -10647,7 +10558,6 @@ a {
   .ionic .pane {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-    -webkit-transition-duration: 0;
     transition-duration: 0;
     z-index: 1; }
   .ionic .view {
@@ -10786,7 +10696,6 @@ a {
   .ionic a.subdued:last-child {
     padding-right: 0; }
   .ionic .action-sheet-backdrop {
-    -webkit-transition: background-color 150ms ease-in-out;
     transition: background-color 150ms ease-in-out;
     position: fixed;
     top: 0;
@@ -10800,7 +10709,6 @@ a {
   .ionic .action-sheet-wrapper {
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
-    -webkit-transition: all cubic-bezier(0.36, 0.66, 0.04, 1) 500ms;
     transition: all cubic-bezier(0.36, 0.66, 0.04, 1) 500ms;
     position: absolute;
     bottom: 0;
@@ -10900,16 +10808,13 @@ a {
     background-color: rgba(0, 0, 0, 0.4);
     visibility: hidden;
     opacity: 0;
-    -webkit-transition: 0.1s opacity linear;
     transition: 0.1s opacity linear; }
   .ionic .backdrop.visible {
     visibility: visible; }
   .ionic .backdrop.active {
     opacity: 1; }
   .ionic .bar {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
@@ -10923,8 +10828,6 @@ a {
     right: 0;
     left: 0;
     z-index: 9;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 5px;
     width: 100%;
@@ -11372,19 +11275,14 @@ a {
   .ionic .nav-bar-tabs-top .bar {
     background-image: none; }
   .ionic .tabs {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
     -webkit-flex-direction: horizontal;
     -moz-flex-direction: horizontal;
     -ms-flex-direction: horizontal;
     flex-direction: horizontal;
-    -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
     -moz-justify-content: center;
@@ -12103,10 +12001,6 @@ a {
     padding-bottom: 0; }
   .ionic .tabs-top.tabs-striped .tab-item {
     background: transparent;
-    -webkit-transition: color 0.1s ease;
-    -moz-transition: color 0.1s ease;
-    -ms-transition: color 0.1s ease;
-    -o-transition: color 0.1s ease;
     transition: color 0.1s ease; }
   .ionic .tabs-top.tabs-striped .tab-item.tab-item-active,
   .ionic .tabs-top.tabs-striped .tab-item.active,
@@ -12121,10 +12015,6 @@ a {
   .ionic .tabs-top.tabs-striped .tab-item.activated > .badge, .ionic .tabs-top.tabs-striped .tab-item.activated > i {
     margin-top: -1px; }
   .ionic .tabs-top.tabs-striped .tab-item .badge {
-    -webkit-transition: color 0.2s ease;
-    -moz-transition: color 0.2s ease;
-    -ms-transition: color 0.2s ease;
-    -o-transition: color 0.2s ease;
     transition: color 0.2s ease; }
   .ionic .tabs-top.tabs-striped:not(.tabs-icon-left):not(.tabs-icon-top) .tab-item.tab-item-active .tab-title,
   .ionic .tabs-top.tabs-striped:not(.tabs-icon-left):not(.tabs-icon-top) .tab-item.tab-item-active i,
@@ -12158,9 +12048,7 @@ a {
   .ionic .tabs-top ~ .bar-header {
     border-bottom-width: 0; }
   .ionic .tab-item {
-    -webkit-box-flex: 1;
     -webkit-flex: 1;
-    -moz-box-flex: 1;
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -12280,9 +12168,7 @@ a {
   .ionic .tab-item.activated.tab-item-dark {
     color: #444; }
   .ionic .item.tabs {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
@@ -12314,7 +12200,8 @@ a {
     z-index: 11; }
   .ionic .menu-content {
     -webkit-transform: none;
-    transform: none;
+    -ms-transform: none;
+        transform: none;
     box-shadow: -1px 0px 2px rgba(0, 0, 0, 0.2), 1px 0px 2px rgba(0, 0, 0, 0.2); }
   .ionic .menu-open .menu-content .pane,
   .ionic .menu-open .menu-content .scroll-content {
@@ -12322,8 +12209,6 @@ a {
     overflow: hidden; }
   .ionic .grade-b .menu-content,
   .ionic .grade-c .menu-content {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
     box-sizing: content-box;
     right: -1px;
     left: -1px;
@@ -12337,7 +12222,7 @@ a {
   .ionic .aside-open.aside-resizing .menu-right {
     display: none; }
   .ionic .menu-animated {
-    -webkit-transition: -webkit-transform 200ms ease;
+    transition: -webkit-transform 200ms ease;
     transition: transform 200ms ease; }
   .ionic .modal-backdrop,
   .ionic .modal-backdrop-bg {
@@ -12385,7 +12270,6 @@ a {
     .ionic .platform-ios.platform-cordova .modal-wrapper .modal .has-header.has-subheader.has-tabs-top {
       top: 137px; }
     .ionic .modal-backdrop-bg {
-      -webkit-transition: opacity 300ms ease-in-out;
       transition: opacity 300ms ease-in-out;
       background-color: #000;
       opacity: 0; }
@@ -12446,9 +12330,7 @@ a {
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
     border-radius: 10px; }
   .ionic .platform-ios .popover .bar-header {
-    -webkit-border-top-right-radius: 10px;
     border-top-right-radius: 10px;
-    -webkit-border-top-left-radius: 10px;
     border-top-left-radius: 10px; }
   .ionic .platform-ios .popover .scroll-content {
     margin: 8px 0;
@@ -12472,7 +12354,8 @@ a {
     border-radius: 3px;
     content: '';
     -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg); }
+    -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg); }
   .ionic .platform-ios .popover-bottom .popover-arrow {
     top: auto;
     bottom: -10px; }
@@ -12509,18 +12392,14 @@ a {
     bottom: 0;
     right: 0;
     background: transparent;
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
     -moz-justify-content: center;
     justify-content: center;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
@@ -12553,14 +12432,10 @@ a {
     max-height: 90%;
     border-radius: 0px;
     background-color: rgba(255, 255, 255, 0.9);
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
     -webkit-flex-direction: column;
     -moz-flex-direction: column;
     -ms-flex-direction: column;
@@ -12585,14 +12460,10 @@ a {
     padding: 10px;
     overflow: auto; }
   .ionic .popup-buttons {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
     -webkit-flex-direction: row;
     -moz-flex-direction: row;
     -ms-flex-direction: row;
@@ -12600,9 +12471,7 @@ a {
     padding: 10px;
     min-height: 65px; }
   .ionic .popup-buttons .button {
-    -webkit-box-flex: 1;
     -webkit-flex: 1;
-    -moz-box-flex: 1;
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -12626,23 +12495,18 @@ a {
     right: 0;
     bottom: 0;
     z-index: 13;
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
     -moz-justify-content: center;
     justify-content: center;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
     align-items: center;
-    -webkit-transition: 0.2s opacity linear;
     transition: 0.2s opacity linear;
     visibility: hidden;
     opacity: 0; }
@@ -12701,9 +12565,7 @@ a {
   .ionic .item p:last-child {
     margin-bottom: 0; }
   .ionic .item .badge {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
@@ -12972,13 +12834,10 @@ a {
     background-color: #262626; }
   .ionic .item-icon-left .icon,
   .ionic .item-icon-right .icon {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
@@ -13029,13 +12888,10 @@ a {
     padding-left: 72px; }
   .ionic .item-button-left > .button,
   .ionic .item-button-left .item-content > .button {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
@@ -13067,13 +12923,10 @@ a {
   .ionic .item-button-right .item-content > .button,
   .ionic .item-button-right > .buttons,
   .ionic .item-button-right .item-content > .buttons {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
@@ -13220,27 +13073,20 @@ a {
     font-size: 14px; }
   .ionic .item-left-editable .item-content,
   .ionic .item-right-editable .item-content {
-    -webkit-transition-duration: 250ms;
     transition-duration: 250ms;
-    -webkit-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
-    -webkit-transition-property: -webkit-transform;
-    -moz-transition-property: -moz-transform;
+    transition-property: -webkit-transform;
     transition-property: transform; }
   .ionic .list-left-editing .item-left-editable .item-content,
   .ionic .item-left-editing.item-left-editable .item-content {
     -webkit-transform: translate3d(50px, 0, 0);
     transform: translate3d(50px, 0, 0); }
   .ionic .item-remove-animate.ng-leave {
-    -webkit-transition-duration: 300ms;
     transition-duration: 300ms; }
   .ionic .item-remove-animate.ng-leave .item-content,
   .ionic .item-remove-animate.ng-leave:last-of-type {
-    -webkit-transition-duration: 300ms;
     transition-duration: 300ms;
-    -webkit-transition-timing-function: ease-in;
     transition-timing-function: ease-in;
-    -webkit-transition-property: all;
     transition-property: all; }
   .ionic .item-remove-animate.ng-leave.ng-leave-active .item-content {
     opacity: 0;
@@ -13249,16 +13095,12 @@ a {
   .ionic .item-remove-animate.ng-leave.ng-leave-active:last-of-type {
     opacity: 0; }
   .ionic .item-remove-animate.ng-leave.ng-leave-active ~ ion-item:not(.ng-leave) {
-    -webkit-transform: translate3d(0, -webkit-calc(-100% + 1px), 0);
-    transform: translate3d(0, calc(-100% + 1px), 0);
-    -webkit-transition-duration: 300ms;
+    -webkit-transform: translate3d(0, calc(-100% + 1px), 0);
+            transform: translate3d(0, calc(-100% + 1px), 0);
     transition-duration: 300ms;
-    -webkit-transition-timing-function: cubic-bezier(0.25, 0.81, 0.24, 1);
     transition-timing-function: cubic-bezier(0.25, 0.81, 0.24, 1);
-    -webkit-transition-property: all;
     transition-property: all; }
   .ionic .item-left-edit {
-    -webkit-transition: all ease-in-out 125ms;
     transition: all ease-in-out 125ms;
     position: absolute;
     top: 0;
@@ -13274,13 +13116,10 @@ a {
   .ionic .item-left-edit .button {
     height: 100%; }
   .ionic .item-left-edit .button.icon {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
@@ -13295,7 +13134,6 @@ a {
     -webkit-transform: translate3d(8px, 0, 0);
     transform: translate3d(8px, 0, 0); }
   .ionic .list-left-editing .item-left-edit {
-    -webkit-transition-delay: 125ms;
     transition-delay: 125ms; }
   .ionic .item-delete .button.icon {
     color: #ef473a;
@@ -13303,7 +13141,6 @@ a {
   .ionic .item-delete .button.icon:hover {
     opacity: .7; }
   .ionic .item-right-edit {
-    -webkit-transition: all ease-in-out 250ms;
     transition: all ease-in-out 250ms;
     position: absolute;
     top: 0;
@@ -13321,13 +13158,10 @@ a {
     min-width: 50px;
     height: 100%; }
   .ionic .item-right-edit .button.icon {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
@@ -13366,12 +13200,10 @@ a {
     height: 100%;
     border: none;
     border-radius: 0;
-    display: -webkit-inline-box;
     display: -webkit-inline-flex;
     display: -moz-inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
@@ -13541,7 +13373,6 @@ a {
     text-decoration: none;
     opacity: 0.3; }
   .ionic .slider-pager .slider-pager-page.active {
-    -webkit-transition: opacity 0.4s ease-in;
     transition: opacity 0.4s ease-in;
     opacity: 1; }
   .ionic .slider-slide.ng-enter,
@@ -13550,7 +13381,6 @@ a {
   .ionic .slider-pager-page.ng-enter,
   .ionic .slider-pager-page.ng-leave,
   .ionic .slider-pager-page.ng-animate {
-    -webkit-transition: none !important;
     transition: none !important; }
   .ionic .slider-slide.ng-animate,
   .ionic .slider-pager-page.ng-animate {
@@ -13608,12 +13438,11 @@ a {
     -webkit-transform: translate3d(0, 0, 0) rotate(-180deg);
     transform: translate3d(0, 0, 0) rotate(-180deg); }
   .ionic .scroll-refresher.active.refreshing {
-    -webkit-transition: -webkit-transform 0.2s;
     transition: -webkit-transform 0.2s;
-    -webkit-transition: transform 0.2s;
     transition: transform 0.2s;
     -webkit-transform: scale(1, 1);
-    transform: scale(1, 1); }
+    -ms-transform: scale(1, 1);
+        transform: scale(1, 1); }
   .ionic .scroll-refresher.active.refreshing .icon-pulling,
   .ionic .scroll-refresher.active.refreshing .text-pulling {
     display: none; }
@@ -13622,7 +13451,8 @@ a {
     display: block; }
   .ionic .scroll-refresher.active.refreshing.refreshing-tail {
     -webkit-transform: scale(0, 0);
-    transform: scale(0, 0); }
+    -ms-transform: scale(0, 0);
+        transform: scale(0, 0); }
   .ionic .overflow-scroll > .scroll {
     -webkit-overflow-scrolling: touch;
     width: 100%; }
@@ -13641,9 +13471,11 @@ a {
 
 @keyframes refresh-spin {
   0% {
-    transform: translate3d(0, 0, 0) rotate(0); }
+    -webkit-transform: translate3d(0, 0, 0) rotate(0);
+            transform: translate3d(0, 0, 0) rotate(0); }
   100% {
-    transform: translate3d(0, 0, 0) rotate(180deg); } }
+    -webkit-transform: translate3d(0, 0, 0) rotate(180deg);
+            transform: translate3d(0, 0, 0) rotate(180deg); } }
 
 @-webkit-keyframes refresh-spin-back {
   0% {
@@ -13653,9 +13485,11 @@ a {
 
 @keyframes refresh-spin-back {
   0% {
-    transform: translate3d(0, 0, 0) rotate(180deg); }
+    -webkit-transform: translate3d(0, 0, 0) rotate(180deg);
+            transform: translate3d(0, 0, 0) rotate(180deg); }
   100% {
-    transform: translate3d(0, 0, 0) rotate(0); } }
+    -webkit-transform: translate3d(0, 0, 0) rotate(0);
+            transform: translate3d(0, 0, 0) rotate(0); } }
   .ionic .spinner {
     stroke: #444;
     fill: #444; }
@@ -13745,13 +13579,10 @@ a {
   .ionic textarea {
     font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif; }
   .ionic .item-input {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
@@ -13760,11 +13591,8 @@ a {
     overflow: hidden;
     padding: 6px 0 5px 16px; }
   .ionic .item-input input {
-    -webkit-border-radius: 0;
     border-radius: 0;
-    -webkit-box-flex: 1;
     -webkit-flex: 1 220px;
-    -moz-box-flex: 1;
     -moz-flex: 1 220px;
     -ms-flex: 1 220px;
     flex: 1 220px;
@@ -13775,9 +13603,7 @@ a {
     padding-right: 24px;
     background-color: transparent; }
   .ionic .item-input .button .icon {
-    -webkit-box-flex: 0;
     -webkit-flex: 0 0 24px;
-    -moz-box-flex: 0;
     -moz-flex: 0 0 24px;
     -ms-flex: 0 0 24px;
     flex: 0 0 24px;
@@ -13787,11 +13613,8 @@ a {
     text-align: center;
     font-size: 16px; }
   .ionic .item-input .button-bar {
-    -webkit-border-radius: 0;
     border-radius: 0;
-    -webkit-box-flex: 1;
     -webkit-flex: 1 0 220px;
-    -moz-box-flex: 1;
     -moz-flex: 1 0 220px;
     -ms-flex: 1 0 220px;
     flex: 1 0 220px;
@@ -13801,15 +13624,14 @@ a {
   .ionic .item-input .icon {
     min-width: 14px; }
   .ionic .platform-windowsphone .item-input input {
-    flex-shrink: 1; }
+    -webkit-flex-shrink: 1;
+        -ms-flex-negative: 1;
+            flex-shrink: 1; }
   .ionic .item-input-inset {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
@@ -13818,24 +13640,18 @@ a {
     overflow: hidden;
     padding: 10.66667px; }
   .ionic .item-input-wrapper {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-flex: 1;
     -webkit-flex: 1 0;
-    -moz-box-flex: 1;
     -moz-flex: 1 0;
     -ms-flex: 1 0;
     flex: 1 0;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
     align-items: center;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
     padding-right: 8px;
     padding-left: 8px;
@@ -13870,7 +13686,6 @@ a {
     vertical-align: middle; }
   .ionic .item-stacked-label input,
   .ionic .item-stacked-label textarea {
-    -webkit-border-radius: 2px;
     border-radius: 2px;
     padding: 4px 8px 3px 0;
     border: none;
@@ -13887,12 +13702,10 @@ a {
     padding: 5px 0 0 0;
     opacity: 0;
     top: 10px;
-    -webkit-transition: opacity 0.15s ease-in, top 0.2s linear;
     transition: opacity 0.15s ease-in, top 0.2s linear; }
   .ionic .item-floating-label .input-label.has-input {
     opacity: 1;
     top: 0;
-    -webkit-transition: opacity 0.15s ease-in, top 0.2s linear;
     transition: opacity 0.15s ease-in, top 0.2s linear; }
   .ionic textarea,
   .ionic input[type="text"],
@@ -14104,17 +13917,16 @@ a {
     border-radius: 28px;
     background: #fff;
     content: ' ';
-    -webkit-transition: background-color 20ms ease-in-out;
     transition: background-color 20ms ease-in-out; }
   .ionic .checkbox input:checked:before,
   .ionic input:checked + .checkbox-icon:before {
     border-width: 2px; }
   .ionic .checkbox input:after,
   .ionic .checkbox-icon:after {
-    -webkit-transition: opacity 0.05s ease-in-out;
     transition: opacity 0.05s ease-in-out;
     -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
     position: absolute;
     top: 33%;
     left: 25%;
@@ -14148,7 +13960,8 @@ a {
   .ionic .grade-c .checkbox input:after,
   .ionic .grade-c .checkbox-icon:after {
     -webkit-transform: rotate(0);
-    transform: rotate(0);
+    -ms-transform: rotate(0);
+        transform: rotate(0);
     top: 3px;
     left: 4px;
     border: none;
@@ -14219,11 +14032,8 @@ a {
   .ionic .toggle input {
     display: none; }
   .ionic .toggle .track {
-    -webkit-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
-    -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
-    -webkit-transition-property: background-color, border;
     transition-property: background-color, border;
     display: inline-block;
     box-sizing: border-box;
@@ -14238,9 +14048,8 @@ a {
   .ionic .platform-android4_2 .toggle .track {
     -webkit-background-clip: padding-box; }
   .ionic .toggle .handle {
-    -webkit-transition: 0.3s cubic-bezier(0, 1.1, 1, 1.1);
     transition: 0.3s cubic-bezier(0, 1.1, 1, 1.1);
-    -webkit-transition-property: background-color, transform;
+    transition-property: background-color, -webkit-transform;
     transition-property: background-color, transform;
     position: absolute;
     display: block;
@@ -14367,7 +14176,6 @@ a {
     width: auto;
     height: 43px;
     outline: none;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ccc), color-stop(100%, #ccc));
     background: linear-gradient(to right, #ccc 0%, #ccc 100%);
     background-position: center;
     background-size: 99% 2px;
@@ -14422,13 +14230,10 @@ a {
     height: 2px;
     background: #ccc; }
   .ionic .range {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
@@ -14471,9 +14276,7 @@ a {
   .ionic .range.range-dark input::-ms-fill-lower {
     background: #444; }
   .ionic .range .icon {
-    -webkit-box-flex: 0;
     -webkit-flex: 0;
-    -moz-box-flex: 0;
     -moz-flex: 0;
     -ms-flex: 0;
     flex: 0;
@@ -14482,9 +14285,7 @@ a {
     text-align: center;
     font-size: 24px; }
   .ionic .range input {
-    -webkit-box-flex: 1;
     -webkit-flex: 1;
-    -moz-box-flex: 1;
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -14492,9 +14293,7 @@ a {
     margin-right: 10px;
     margin-left: 10px; }
   .ionic .range-label {
-    -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
-    -moz-box-flex: 0;
     -moz-flex: 0 0 auto;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
@@ -14941,7 +14740,6 @@ a {
     font-size: 32px;
     line-height: 51px; }
   .ionic .button-icon {
-    -webkit-transition: opacity 0.1s;
     transition: opacity 0.1s;
     padding: 0 6px;
     min-width: initial;
@@ -14957,7 +14755,6 @@ a {
   .ionic .button-icon.icon:before {
     font-size: 32px; }
   .ionic .button-clear {
-    -webkit-transition: opacity 0.1s;
     transition: opacity 0.1s;
     padding: 0 6px;
     max-height: 42px;
@@ -14976,7 +14773,6 @@ a {
   .ionic .button-clear.activated {
     opacity: 0.3; }
   .ionic .button-outline {
-    -webkit-transition: opacity 0.1s;
     transition: opacity 0.1s;
     background: none;
     box-shadow: none; }
@@ -15022,15 +14818,11 @@ a {
     cursor: default !important;
     pointer-events: none; }
   .ionic .button-bar {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-flex: 1;
     -webkit-flex: 1;
-    -moz-box-flex: 1;
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -15051,9 +14843,7 @@ a {
     display: inline-block;
     float: left; }
   .ionic .button-bar > .button {
-    -webkit-box-flex: 1;
     -webkit-flex: 1;
-    -moz-box-flex: 1;
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -15078,9 +14868,7 @@ a {
   .ionic .button-bar > .button-small .icon:before {
     line-height: 28px; }
   .ionic .row {
-    display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
@@ -15088,7 +14876,6 @@ a {
     width: 100%; }
   .ionic .row-wrap {
     -webkit-flex-wrap: wrap;
-    -moz-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
   .ionic .row-no-padding {
@@ -15099,9 +14886,7 @@ a {
     margin-top: -5px;
     padding-top: 0; }
   .ionic .col {
-    -webkit-box-flex: 1;
     -webkit-flex: 1;
-    -moz-box-flex: 1;
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -15109,50 +14894,42 @@ a {
     padding: 5px;
     width: 100%; }
   .ionic .row-top {
-    -webkit-box-align: start;
     -ms-flex-align: start;
     -webkit-align-items: flex-start;
     -moz-align-items: flex-start;
     align-items: flex-start; }
   .ionic .row-bottom {
-    -webkit-box-align: end;
     -ms-flex-align: end;
     -webkit-align-items: flex-end;
     -moz-align-items: flex-end;
     align-items: flex-end; }
   .ionic .row-center {
-    -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -moz-align-items: center;
     align-items: center; }
   .ionic .row-stretch {
-    -webkit-box-align: stretch;
     -ms-flex-align: stretch;
     -webkit-align-items: stretch;
     -moz-align-items: stretch;
     align-items: stretch; }
   .ionic .row-baseline {
-    -webkit-box-align: baseline;
     -ms-flex-align: baseline;
     -webkit-align-items: baseline;
     -moz-align-items: baseline;
     align-items: baseline; }
   .ionic .col-top {
-    -webkit-align-self: flex-start;
-    -moz-align-self: flex-start;
     -ms-flex-item-align: start;
-    align-self: flex-start; }
+    -webkit-align-self: flex-start;
+            align-self: flex-start; }
   .ionic .col-bottom {
-    -webkit-align-self: flex-end;
-    -moz-align-self: flex-end;
     -ms-flex-item-align: end;
-    align-self: flex-end; }
+    -webkit-align-self: flex-end;
+            align-self: flex-end; }
   .ionic .col-center {
-    -webkit-align-self: center;
-    -moz-align-self: center;
     -ms-flex-item-align: center;
-    align-self: center; }
+    -webkit-align-self: center;
+            align-self: center; }
   .ionic .col-offset-10 {
     margin-left: 10%; }
   .ionic .col-offset-20 {
@@ -15172,90 +14949,66 @@ a {
   .ionic .col-offset-90 {
     margin-left: 90%; }
   .ionic .col-10 {
-    -webkit-box-flex: 0;
     -webkit-flex: 0 0 10%;
-    -moz-box-flex: 0;
     -moz-flex: 0 0 10%;
     -ms-flex: 0 0 10%;
     flex: 0 0 10%;
     max-width: 10%; }
   .ionic .col-20 {
-    -webkit-box-flex: 0;
     -webkit-flex: 0 0 20%;
-    -moz-box-flex: 0;
     -moz-flex: 0 0 20%;
     -ms-flex: 0 0 20%;
     flex: 0 0 20%;
     max-width: 20%; }
   .ionic .col-25 {
-    -webkit-box-flex: 0;
     -webkit-flex: 0 0 25%;
-    -moz-box-flex: 0;
     -moz-flex: 0 0 25%;
     -ms-flex: 0 0 25%;
     flex: 0 0 25%;
     max-width: 25%; }
   .ionic .col-33, .ionic .col-34 {
-    -webkit-box-flex: 0;
     -webkit-flex: 0 0 33.3333%;
-    -moz-box-flex: 0;
     -moz-flex: 0 0 33.3333%;
     -ms-flex: 0 0 33.3333%;
     flex: 0 0 33.3333%;
     max-width: 33.3333%; }
   .ionic .col-50 {
-    -webkit-box-flex: 0;
     -webkit-flex: 0 0 50%;
-    -moz-box-flex: 0;
     -moz-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%; }
   .ionic .col-66, .ionic .col-67 {
-    -webkit-box-flex: 0;
     -webkit-flex: 0 0 66.6666%;
-    -moz-box-flex: 0;
     -moz-flex: 0 0 66.6666%;
     -ms-flex: 0 0 66.6666%;
     flex: 0 0 66.6666%;
     max-width: 66.6666%; }
   .ionic .col-75 {
-    -webkit-box-flex: 0;
     -webkit-flex: 0 0 75%;
-    -moz-box-flex: 0;
     -moz-flex: 0 0 75%;
     -ms-flex: 0 0 75%;
     flex: 0 0 75%;
     max-width: 75%; }
   .ionic .col-80 {
-    -webkit-box-flex: 0;
     -webkit-flex: 0 0 80%;
-    -moz-box-flex: 0;
     -moz-flex: 0 0 80%;
     -ms-flex: 0 0 80%;
     flex: 0 0 80%;
     max-width: 80%; }
   .ionic .col-90 {
-    -webkit-box-flex: 0;
     -webkit-flex: 0 0 90%;
-    -moz-box-flex: 0;
     -moz-flex: 0 0 90%;
     -ms-flex: 0 0 90%;
     flex: 0 0 90%;
     max-width: 90%; }
   @media (max-width: 567px) {
     .ionic .responsive-sm {
-      -webkit-box-direction: normal;
-      -moz-box-direction: normal;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
       -webkit-flex-direction: column;
       -ms-flex-direction: column;
       flex-direction: column; }
     .ionic .responsive-sm .col, .ionic .responsive-sm .col-10, .ionic .responsive-sm .col-20, .ionic .responsive-sm .col-25, .ionic .responsive-sm .col-33, .ionic .responsive-sm .col-34, .ionic .responsive-sm .col-50, .ionic .responsive-sm .col-66, .ionic .responsive-sm .col-67, .ionic .responsive-sm .col-75, .ionic .responsive-sm .col-80, .ionic .responsive-sm .col-90 {
-      -webkit-box-flex: 1;
       -webkit-flex: 1;
-      -moz-box-flex: 1;
       -moz-flex: 1;
       -ms-flex: 1;
       flex: 1;
@@ -15265,17 +15018,11 @@ a {
       width: 100%; } }
   @media (max-width: 767px) {
     .ionic .responsive-md {
-      -webkit-box-direction: normal;
-      -moz-box-direction: normal;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
       -webkit-flex-direction: column;
       -ms-flex-direction: column;
       flex-direction: column; }
     .ionic .responsive-md .col, .ionic .responsive-md .col-10, .ionic .responsive-md .col-20, .ionic .responsive-md .col-25, .ionic .responsive-md .col-33, .ionic .responsive-md .col-34, .ionic .responsive-md .col-50, .ionic .responsive-md .col-66, .ionic .responsive-md .col-67, .ionic .responsive-md .col-75, .ionic .responsive-md .col-80, .ionic .responsive-md .col-90 {
-      -webkit-box-flex: 1;
       -webkit-flex: 1;
-      -moz-box-flex: 1;
       -moz-flex: 1;
       -ms-flex: 1;
       flex: 1;
@@ -15285,17 +15032,11 @@ a {
       width: 100%; } }
   @media (max-width: 1023px) {
     .ionic .responsive-lg {
-      -webkit-box-direction: normal;
-      -moz-box-direction: normal;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
       -webkit-flex-direction: column;
       -ms-flex-direction: column;
       flex-direction: column; }
     .ionic .responsive-lg .col, .ionic .responsive-lg .col-10, .ionic .responsive-lg .col-20, .ionic .responsive-lg .col-25, .ionic .responsive-lg .col-33, .ionic .responsive-lg .col-34, .ionic .responsive-lg .col-50, .ionic .responsive-lg .col-66, .ionic .responsive-lg .col-67, .ionic .responsive-lg .col-75, .ionic .responsive-lg .col-80, .ionic .responsive-lg .col-90 {
-      -webkit-box-flex: 1;
       -webkit-flex: 1;
-      -moz-box-flex: 1;
       -moz-flex: 1;
       -ms-flex: 1;
       flex: 1;
@@ -15505,14 +15246,12 @@ a {
     .ionic .platform-ios.platform-browser.platform-ipad {
       position: fixed; } }
   .ionic .platform-c:not(.enable-transitions) * {
-    -webkit-transition: none !important;
     transition: none !important; }
   .ionic .slide-in-up {
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0); }
   .ionic .slide-in-up.ng-enter,
   .ionic .slide-in-up > .ng-enter {
-    -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
     transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; }
   .ionic .slide-in-up.ng-enter-active,
   .ionic .slide-in-up > .ng-enter-active {
@@ -15520,7 +15259,6 @@ a {
     transform: translate3d(0, 0, 0); }
   .ionic .slide-in-up.ng-leave,
   .ionic .slide-in-up > .ng-leave {
-    -webkit-transition: all ease-in-out 250ms;
     transition: all ease-in-out 250ms; }
 
 @-webkit-keyframes scaleOut {
@@ -15533,10 +15271,12 @@ a {
 
 @keyframes scaleOut {
   from {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
     opacity: 1; }
   to {
-    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
     opacity: 0; } }
 
 @-webkit-keyframes superScaleIn {
@@ -15549,18 +15289,18 @@ a {
 
 @keyframes superScaleIn {
   from {
-    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
     opacity: 0; }
   to {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
     opacity: 1; } }
   .ionic [nav-view-transition="ios"] [nav-view="entering"],
   .ionic [nav-view-transition="ios"] [nav-view="leaving"] {
-    -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
-    -webkit-transition-timing-function: cubic-bezier(0.36, 0.66, 0.04, 1);
     transition-timing-function: cubic-bezier(0.36, 0.66, 0.04, 1);
-    -webkit-transition-property: opacity, -webkit-transform, box-shadow;
+    transition-property: opacity, -webkit-transform, box-shadow;
     transition-property: opacity, transform, box-shadow; }
   .ionic [nav-view-transition="ios"][nav-view-direction="forward"],
   .ionic [nav-view-transition="ios"][nav-view-direction="back"] {
@@ -15575,11 +15315,9 @@ a {
   .ionic [nav-bar-transition="ios"] .title,
   .ionic [nav-bar-transition="ios"] .buttons,
   .ionic [nav-bar-transition="ios"] .back-text {
-    -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
-    -webkit-transition-timing-function: cubic-bezier(0.36, 0.66, 0.04, 1);
     transition-timing-function: cubic-bezier(0.36, 0.66, 0.04, 1);
-    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, -webkit-transform;
     transition-property: opacity, transform; }
   .ionic [nav-bar-transition="ios"] [nav-bar="active"],
   .ionic [nav-bar-transition="ios"] [nav-bar="entering"] {
@@ -15593,11 +15331,9 @@ a {
     display: none; }
   .ionic [nav-view-transition="android"] [nav-view="entering"],
   .ionic [nav-view-transition="android"] [nav-view="leaving"] {
-    -webkit-transition-duration: 200ms;
     transition-duration: 200ms;
-    -webkit-transition-timing-function: cubic-bezier(0.4, 0.6, 0.2, 1);
     transition-timing-function: cubic-bezier(0.4, 0.6, 0.2, 1);
-    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
     transition-property: transform; }
   .ionic [nav-view-transition="android"] [nav-view="active"],
   .ionic [nav-view-transition="android"][nav-view-direction="forward"] [nav-view="entering"],
@@ -15608,11 +15344,8 @@ a {
     z-index: 2; }
   .ionic [nav-bar-transition="android"] .title,
   .ionic [nav-bar-transition="android"] .buttons {
-    -webkit-transition-duration: 200ms;
     transition-duration: 200ms;
-    -webkit-transition-timing-function: cubic-bezier(0.4, 0.6, 0.2, 1);
     transition-timing-function: cubic-bezier(0.4, 0.6, 0.2, 1);
-    -webkit-transition-property: opacity;
     transition-property: opacity; }
   .ionic [nav-bar-transition="android"] [nav-bar="active"],
   .ionic [nav-bar-transition="android"] [nav-bar="entering"] {
@@ -15628,31 +15361,25 @@ a {
   .ionic [nav-swipe="fast"] .title,
   .ionic [nav-swipe="fast"] .buttons,
   .ionic [nav-swipe="fast"] .back-text {
-    -webkit-transition-duration: 50ms;
     transition-duration: 50ms;
-    -webkit-transition-timing-function: linear;
     transition-timing-function: linear; }
   .ionic [nav-swipe="slow"] [nav-view],
   .ionic [nav-swipe="slow"] .title,
   .ionic [nav-swipe="slow"] .buttons,
   .ionic [nav-swipe="slow"] .back-text {
-    -webkit-transition-duration: 160ms;
     transition-duration: 160ms;
-    -webkit-transition-timing-function: linear;
     transition-timing-function: linear; }
   .ionic [nav-view="cached"],
   .ionic [nav-bar="cached"] {
     display: none; }
   .ionic [nav-view="stage"] {
     opacity: 0;
-    -webkit-transition-duration: 0;
     transition-duration: 0; }
   .ionic [nav-bar="stage"] .title,
   .ionic [nav-bar="stage"] .buttons,
   .ionic [nav-bar="stage"] .back-text {
     position: absolute;
     opacity: 0;
-    -webkit-transition-duration: 0s;
     transition-duration: 0s; }
 
 .pre-footer {
@@ -15706,7 +15433,6 @@ a {
       box-shadow: none;
       opacity: .8; }
       #newsletter-bar form input:focus {
-        -webkit-box-shadow: none;
         box-shadow: none;
         outline: none;
         opacity: .9; }
@@ -15857,7 +15583,6 @@ a {
       color: white; }
       .footer .newsletter-container input:focus {
         background: #51627E;
-        -webkit-box-shadow: none;
         box-shadow: none;
         box-shadow: inset 0px 0px 0px 1px #4E8EF7; }
       .footer .newsletter-container input::-webkit-input-placeholder {

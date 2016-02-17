@@ -755,6 +755,57 @@
   animation-name: fadeInDown;
 }
 
+.home .creator-home-feature {
+  background: #1f90d2;
+  background: no-repeat center bottom url(/img/creator-app-preview.png),
+    linear-gradient(to right, #1f90d2 0%, #4db6f2 100%);
+  background-size: 926px, 100%;
+  padding-bottom: 447px;
+  padding-top: 26px;
+  box-shadow: inset 0 -35px 30px -30px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 926px) {
+    background-size: 617px, 100%;
+    padding-bottom: 300px;
+  }
+
+  @media (max-width: 617px) {
+    background-size: 463px, 100%;
+    padding-bottom: 250px;
+  }
+
+  @media (max-width: 463px) {
+    background-size: 308px, 100%;
+    padding-bottom: 170px;
+  }
+
+  hgroup.desc-row {
+    max-width: 650px;
+    margin: 0 auto;
+
+    h3,
+    p {
+      color: white;
+    }
+
+    p {
+      opacity: .7;
+    }
+
+    .btn-white {
+      background: white;
+      font-family: $font-family-avenir;
+      font-weight: 500;
+      font-size: 19px;
+      padding: 17px 39px;
+      color: #1f90d2;
+      opacity: 1;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+
 #slider{
   margin:0 auto;
   padding:0;
@@ -921,6 +972,7 @@
     }
   }
 }
+
 /* IE fixes */
 $ieEightAndNine: "\0/";
 .home .navbar{

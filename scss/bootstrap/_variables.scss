@@ -46,6 +46,9 @@ $font-family-base:        $font-family-sans-serif !default;
 $font-family-medium:      "AvenirNextLTPro-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-regular:     "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
+// consolidated Avenir font w/ different weights (how it should be)
+$font-family-avenir: 'Avenir Next', 'Helvetica Neue', Helvetica, sans-serif;
+
 $font-size-base:          15px !default;
 $font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
 $font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px

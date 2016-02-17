@@ -68,6 +68,7 @@ gulp.task('styles:v2', function() {
 gulp.task('styles:v1', function(done) {
   return gulp.src('scss/**/*.scss')
     .pipe(sass({onError: browserSync.notify}))
+    .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe(gulp.dest('./css/'))
     .pipe(gulp.dest('./_site/css/'))
     .pipe(minifyCss({

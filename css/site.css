@@ -5420,14 +5420,14 @@ h1 + h2 + p {
       text-align: center; } }
 
 .pre-footer.footer-social {
-  padding: 40px 40px 25px;
+  padding: 48px 40px 32px;
   background: #5B6E8C; }
   .pre-footer.footer-social p {
     color: #e2eeff;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-size: 20px;
+    font-size: 16px;
     font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .pre-footer.footer-social .spread-word {
     color: #fff;

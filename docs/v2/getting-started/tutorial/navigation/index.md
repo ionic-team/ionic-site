@@ -8,6 +8,8 @@ header_title: Navigating - Ionic 2 Guide
 header_sub_title: Ionic 2 Developer Preview
 next_page_title: Component Docs
 next_page_link: /docs/v2/components
+prev_page_title: Adding Pages
+prev_page_link: /docs/v2/getting-started/tutorial/adding-pages/
 ---
 
 <h1 class="title">Navigating to Pages</h1>
@@ -35,14 +37,14 @@ itemTapped(event, item) {
 }
 ```
 
-You might have noticed we are referencing `ItemDetailsPage`. This is a page included in the tutorial starter.  Let's import it in `app/list/list.js` so we can use it:
+You might have noticed we are referencing `ItemDetailsPage`. This is a page included in the tutorial starter.  Let's import it in `app/pages/list/list.js` so we can use it:
 
 ```ts
 ...
 import {ItemDetailsPage} from '../item-details/item-details';
 ```
 
-After saving the file, you will notice the `ionic serve` process will recompile your app with the new changes, and reload the browser. Let's revisit our app in the browser, and when we tap an item, it will navigate to the item details page!
+After saving the file, you will notice the `ionic serve` process will recompile your app with the new changes, and reload the browser. Let's revisit our app in the browser, and when we tap an item, it will navigate to the item details page! Notice that the menu-toggle is replaced with a back button instead. This is a native style that Ionic follows, but can be configured.
 
 ### How It Works
 

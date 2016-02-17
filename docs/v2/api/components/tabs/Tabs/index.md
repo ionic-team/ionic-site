@@ -72,44 +72,6 @@ the screen, while on Android it is at the top.</p>
 
 <h2>Instance Methods</h2>
 
-<div id="parent"></div>
-
-<h3>
-<code>parent()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="ngAfterContentInit"></div>
-
-<h3>
-<code>ngAfterContentInit()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="select"></div>
 
 <h3>

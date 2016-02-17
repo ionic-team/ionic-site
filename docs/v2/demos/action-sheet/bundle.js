@@ -54740,7 +54740,6 @@
 	var tab_highlight_1 = __webpack_require__(318);
 	var ion_1 = __webpack_require__(287);
 	var platform_1 = __webpack_require__(162);
-	var nav_controller_1 = __webpack_require__(302);
 	var view_controller_1 = __webpack_require__(296);
 	var icon_1 = __webpack_require__(299);
 	var util_1 = __webpack_require__(163);
@@ -54772,7 +54771,6 @@
 	    function Tabs(viewCtrl, parent, _app, _config, _elementRef, _platform, _renderer) {
 	        var _this = this;
 	        _super.call(this, _elementRef);
-	        this.parent = parent;
 	        this._app = _app;
 	        this._config = _config;
 	        this._elementRef = _elementRef;
@@ -54786,6 +54784,7 @@
 	         * @input {any} expression you want to evaluate when the tabs change
 	         */
 	        this.change = new core_1.EventEmitter();
+	        this.parent = parent;
 	        this.id = ++tabIds;
 	        this.subPages = _config.getBoolean('tabSubPages');
 	        this._useHighlight = _config.getBoolean('tabbarHighlight');
@@ -54818,6 +54817,9 @@
 	            });
 	        });
 	    };
+	    /**
+	     * @private
+	     */
 	    Tabs.prototype.ngAfterContentInit = function () {
 	        var _this = this;
 	        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
@@ -55025,12 +55027,11 @@
 	                core_1.forwardRef(function () { return TabNavBarAnchor; })
 	            ]
 	        }),
-	        __param(0, core_1.Optional()),
-	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _d) || Object, (typeof (_e = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _h) || Object, (typeof (_j = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _j) || Object])
+	        __param(0, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _h) || Object])
 	    ], Tabs);
 	    return Tabs;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+	    var _a, _b, _c, _d, _e, _f, _g, _h;
 	})(ion_1.Ion);
 	exports.Tabs = Tabs;
 	var tabIds = -1;

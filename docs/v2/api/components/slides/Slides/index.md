@@ -54,7 +54,7 @@ Improve this doc
 
 <pre><code class="lang-ts">@Page({
  template: `
-    &lt;ion-slides pager (change)=&quot;onSlideChanged($event)&quot; loop=&quot;true&quot; autoplay=&quot;true&quot;&gt;
+    &lt;ion-slides pager (change)=&quot;onSlideChanged($event)&quot; (move)=&quot;onSlideMove($event)&quot; loop=&quot;true&quot; autoplay=&quot;true&quot;&gt;
      &lt;ion-slide&gt;
        &lt;h3&gt;Thank you for choosing the Awesome App!&lt;/h3&gt;
        &lt;p&gt;
@@ -185,6 +185,12 @@ Improve this doc
     <tr>
       <td>slideChangeStart</td>
       <td><p> expression to evaluate when a slide change starts</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>move</td>
+      <td><p> expression to evaluate when a slide moves</p>
 </td>
     </tr>
     

@@ -1092,60 +1092,6 @@ export class Detail {
 
 
 
-<div id="isSwipeBackEnabled"></div>
-
-<h3>
-<code>isSwipeBackEnabled(isSwipeBackEnabled)</code>
-  
-
-</h3>
-
-Check to see if swipe-to-go-back is enabled
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        isSwipeBackEnabled
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Set whether or not swipe-to-go-back is enabled</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> Whether swipe-to-go-back is enabled
-</div>
-
-
-
-
 <div id="canSwipeBack"></div>
 
 <h3>
@@ -1530,7 +1476,28 @@ Returns the root NavController.
 </div>
 
 
-<!-- related link -->
+
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>swipeBackEnabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether it&#39;s possible to swipe-to-go-back on this nav controller or not.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link -->
 
 <h2>Related</h2>
 

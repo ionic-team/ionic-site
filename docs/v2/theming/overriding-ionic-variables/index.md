@@ -14,12 +14,14 @@ footer_includes: <script src="app.js"></script>
   Improve this doc
 </a>
 
-There are many variables you can override with Ionic. Any of the following variables can be overridden from your `www/app/app.scss` file, just add a new value above the Ionic import:
+There are many variables you can override with Ionic. Any of the following variables can be overridden from your `app/theme/app.variables.scss` file, just add a new value to the file:
 
 ```scss
 $text-color: #000099;
 
-@import "ionic";
+$colors(
+  ...
+)
 ```
 
 <input id="search-sass-input" type="search" placeholder="Filter Sass Variables" class="form-control">

@@ -55,7 +55,7 @@ Place it as the first child of your Content or Scroll element.</p>
 <h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
-  &lt;ion-refresher (starting)=&quot;doStarting()&quot;
+  &lt;ion-refresher (starting)=&quot;doStarting($event)&quot;
                  (refresh)=&quot;doRefresh($event)&quot;
                  (pulling)=&quot;doPulling($event)&quot;&gt;
   &lt;/ion-refresher&gt;

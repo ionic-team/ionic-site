@@ -49729,7 +49729,7 @@
 	 *  @usage
 	 *  ```html
 	 *  <ion-content>
-	 *    <ion-refresher (starting)="doStarting()"
+	 *    <ion-refresher (starting)="doStarting($event)"
 	 *                   (refresh)="doRefresh($event)"
 	 *                   (pulling)="doPulling($event)">
 	 *    </ion-refresher>
@@ -49918,7 +49918,6 @@
 	        // startCallback
 	        this.isRefreshing = true;
 	        this.refresh.emit(this);
-	        //$scope.$onRefresh();
 	    };
 	    /**
 	     * @private

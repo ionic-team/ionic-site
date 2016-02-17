@@ -43320,20 +43320,22 @@
 	        this._hammer.off(type, this._callbacks[type] ? cb : null);
 	    };
 	    Gesture.prototype.listen = function () {
-	        this._hammer = hammer_1.Hammer(this.element, this._options);
+	        if (!this.isListening) {
+	            this._hammer = hammer_1.Hammer(this.element, this._options);
+	        }
 	        this.isListening = true;
 	    };
 	    Gesture.prototype.unlisten = function () {
 	        var type, i;
-	        if (this._hammer) {
+	        if (this._hammer && this.isListening) {
 	            for (type in this._callbacks) {
 	                for (i = 0; i < this._callbacks[type].length; i++) {
 	                    this._hammer.off(type, this._callbacks[type]);
 	                }
 	            }
-	            this._callbacks = {};
 	            this._hammer.destroy();
 	        }
+	        this._callbacks = {};
 	        this.isListening = false;
 	    };
 	    Gesture.prototype.destroy = function () {
@@ -47054,12 +47056,20 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
 	var core_1 = __webpack_require__(7);
 	var instrumentation_1 = __webpack_require__(303);
 	var ion_1 = __webpack_require__(287);
 	var nav_params_1 = __webpack_require__(297);
 	var util_1 = __webpack_require__(163);
-	var dom_1 = __webpack_require__(164);
 	var swipe_back_1 = __webpack_require__(304);
 	var transition_1 = __webpack_require__(305);
 	var view_controller_1 = __webpack_require__(296);
@@ -47167,13 +47177,12 @@
 	        this._transIds = 0;
 	        this._init = false;
 	        this._ids = -1;
-	        this._sbTrans = null;
 	        this._trnsTime = 0;
 	        this._views = [];
 	        this.parent = parent;
 	        this.config = config;
 	        this._trnsDelay = config.get('pageTransitionDelay');
-	        this._sbEnabled = config.get('swipeBackEnabled') || false;
+	        this._sbEnabled = config.getBoolean('swipeBackEnabled') || false;
 	        this._sbThreshold = config.get('swipeBackThreshold') || 40;
 	        this.id = ++ctrlIds;
 	        // build a new injector for child ViewControllers to use
@@ -47269,7 +47278,7 @@
 	    NavController.prototype.setPages = function (pages, opts) {
 	        if (opts === void 0) { opts = {}; }
 	        if (!pages || !pages.length) {
-	            return Promise.resolve();
+	            return Promise.resolve(false);
 	        }
 	        // deprecated warning
 	        pages.forEach(function (pg) {
@@ -47297,9 +47306,9 @@
 	        var resolve;
 	        var promise = new Promise(function (res) { resolve = res; });
 	        // start the transition, fire resolve when done...
-	        this._transition(enteringView, leavingView, opts, function () {
+	        this._transition(enteringView, leavingView, opts, function (hasCompleted) {
 	            // transition has completed!!
-	            resolve(enteringView);
+	            resolve(hasCompleted);
 	        });
 	        return promise;
 	    };
@@ -47521,9 +47530,9 @@
 	                    // get the leaving view which the _insert() already set
 	                    var leavingView = this.getByState(STATE_INIT_LEAVE);
 	                    // start the transition, fire resolve when done...
-	                    this._transition(enteringView, leavingView, opts, function () {
+	                    this._transition(enteringView, leavingView, opts, function (hasCompleted) {
 	                        // transition has completed!!
-	                        resolve(enteringView);
+	                        resolve(hasCompleted);
 	                    });
 	                    return promise;
 	                }
@@ -47671,21 +47680,21 @@
 	                if (!opts.animation) {
 	                    opts.animation = forcedActive.getTransitionName(opts.direction);
 	                }
-	                if (this._lastTrans) {
-	                    this._lastTrans
+	                if (this._trans) {
+	                    this._trans
 	                        .onFinish(function () {
 	                        opts.animate = false;
-	                        _this._transition(forcedActive, null, opts, function () {
+	                        _this._transition(forcedActive, null, opts, function (hasCompleted) {
 	                            // transition has completed!!
-	                            resolve();
+	                            resolve(hasCompleted);
 	                        });
 	                    }, false, true)
 	                        .stop();
-	                    this._lastTrans.destroy();
-	                    this._lastTrans = null;
+	                    this._trans.destroy();
+	                    this._trans = null;
 	                }
 	                else {
-	                    resolve();
+	                    resolve(false);
 	                }
 	                return promise;
 	            }
@@ -47701,9 +47710,9 @@
 	            // get the view thats ready to enter
 	            var enteringView = this.getByState(STATE_INIT_ENTER);
 	            // start the transition, fire resolve when done...
-	            this._transition(enteringView, leavingView, opts, function () {
+	            this._transition(enteringView, leavingView, opts, function (hasCompleted) {
 	                // transition has completed!!
-	                resolve();
+	                resolve(hasCompleted);
 	            });
 	            return promise;
 	        }
@@ -47711,7 +47720,7 @@
 	        // there's still an active view after _remove() figured out states
 	        // so this means views that were only removed before the active
 	        // view, so auto-resolve since no transition needs to happen
-	        return Promise.resolve();
+	        return Promise.resolve(false);
 	    };
 	    /**
 	     * @private
@@ -47814,8 +47823,8 @@
 	        var transId = ++this._transIds;
 	        if (enteringView === leavingView) {
 	            // if the entering view and leaving view are the same thing don't continue
-	            this._transComplete(transId, enteringView, leavingView, null);
-	            return done(enteringView);
+	            this._transFinish(transId, enteringView, leavingView, null, false);
+	            return done(false);
 	        }
 	        // lets time this sucker, ready go
 	        var wtfScope = instrumentation_1.wtfStartTimeRange('NavController#_transition', (enteringView && enteringView.name));
@@ -47840,10 +47849,10 @@
 	          5. _transComplete: Cleanup, remove cache views, then call the final callback
 	        */
 	        // begin the multiple async process of transitioning to the entering view
-	        this._render(transId, enteringView, leavingView, opts, function () {
-	            _this._transComplete(transId, enteringView, leavingView, opts.direction);
+	        this._render(transId, enteringView, leavingView, opts, function (hasCompleted) {
+	            _this._transFinish(transId, enteringView, leavingView, opts.direction, hasCompleted);
 	            instrumentation_1.wtfEndTimeRange(wtfScope);
-	            done(enteringView);
+	            done(hasCompleted);
 	        });
 	    };
 	    /**
@@ -47926,19 +47935,13 @@
 	            // call each view's lifecycle events
 	            enteringView.willEnter();
 	            leavingView.willLeave();
-	            // lifecycle events may have updated some data
-	            // wait one frame and allow the raf to do a change detection
-	            // before kicking off the transition and showing the new view
-	            dom_1.raf(function () {
-	                _this._beforeTrans(enteringView, leavingView, opts, done);
-	            });
 	        }
 	        else {
 	            // this view is being preloaded, don't call lifecycle events
 	            // transition does not need to animate
 	            opts.animate = false;
-	            this._beforeTrans(enteringView, leavingView, opts, done);
 	        }
+	        this._beforeTrans(enteringView, leavingView, opts, done);
 	    };
 	    /**
 	     * @private
@@ -47967,8 +47970,8 @@
 	                isRTL: _this.config.platform.isRTL()
 	            };
 	            var transAnimation = transition_1.Transition.createTransition(enteringView, leavingView, transitionOpts);
-	            _this._lastTrans && _this._lastTrans.destroy();
-	            _this._lastTrans = transAnimation;
+	            _this._trans && _this._trans.destroy();
+	            _this._trans = transAnimation;
 	            if (opts.animate === false) {
 	                // force it to not animate the elements, just apply the "to" styles
 	                transAnimation.duration(0);
@@ -47983,34 +47986,43 @@
 	                transAnimation.before.addClass(enteringView.viewType);
 	            }
 	            // create a callback for when the animation is done
-	            transAnimation.onFinish(function () {
+	            transAnimation.onFinish(function (hasCompleted) {
 	                // transition animation has ended
-	                // dispose the animation and it's element references
+	                // destroy the animation and it's element references
 	                transAnimation.destroy();
-	                _this._afterTrans(enteringView, leavingView, opts, done);
+	                _this._afterTrans(enteringView, leavingView, opts, hasCompleted, done);
 	            });
 	            // cool, let's do this, start the transition
-	            transAnimation.play();
+	            if (opts.progressAnimation) {
+	                // this is a swipe to go back, just get the transition progress ready
+	                // kick off the swipe animation start
+	                transAnimation.progressStart();
+	            }
+	            else {
+	                // this is a normal animation
+	                // kick it off and let it play through
+	                transAnimation.play();
+	            }
 	        });
 	    };
 	    /**
 	     * @private
 	     */
-	    NavController.prototype._afterTrans = function (enteringView, leavingView, opts, done) {
+	    NavController.prototype._afterTrans = function (enteringView, leavingView, opts, hasCompleted, done) {
 	        // transition has completed, update each view's state
 	        // place back into the zone, run didEnter/didLeave
 	        // call the final callback when done
 	        var _this = this;
 	        // run inside of the zone again
 	        this._zone.run(function () {
-	            if (!opts.preload) {
+	            if (!opts.preload && hasCompleted) {
 	                enteringView.didEnter();
 	                leavingView.didLeave();
 	            }
 	            if (enteringView.state === STATE_INACTIVE) {
 	                // this entering view is already set to inactive, so this
 	                // transition must be canceled, so don't continue
-	                return done();
+	                return done(hasCompleted);
 	            }
 	            if (opts.keyboardClose !== false && _this._keyboard.isOpen()) {
 	                // the keyboard is still open!
@@ -48018,55 +48030,71 @@
 	                _this._keyboard.close();
 	                _this._keyboard.onClose(function () {
 	                    // keyboard has finished closing, transition complete
-	                    done();
+	                    done(hasCompleted);
 	                }, 32);
 	            }
 	            else {
 	                // all good, transition complete
-	                done();
+	                done(hasCompleted);
 	            }
 	        });
 	    };
 	    /**
 	     * @private
 	     */
-	    NavController.prototype._transComplete = function (transId, enteringView, leavingView, direction) {
+	    NavController.prototype._transFinish = function (transId, enteringView, leavingView, direction, hasCompleted) {
 	        // a transition has completed, but not sure if it's the last one or not
 	        // check if this transition is the most recent one or not
 	        var _this = this;
 	        if (transId === this._transIds) {
 	            // ok, good news, there were no other transitions that kicked
 	            // off during the time this transition started and ended
-	            // so the entering one is now officially the active transition
-	            // and the leaving transition is now just inactive
-	            if (enteringView.state !== STATE_REMOVE_AFTER_TRANS) {
-	                enteringView.state = STATE_ACTIVE;
+	            if (hasCompleted) {
+	                // this transition has completed as normal
+	                // so the entering one is now the active view
+	                // and the leaving view is now just inactive
+	                if (enteringView.state !== STATE_REMOVE_AFTER_TRANS) {
+	                    enteringView.state = STATE_ACTIVE;
+	                }
+	                if (leavingView.state !== STATE_REMOVE_AFTER_TRANS) {
+	                    leavingView.state = STATE_INACTIVE;
+	                }
+	                // only need to do all this clean up if the transition
+	                // completed, otherwise nothing actually changed
+	                // destroy all of the views that come after the active view
+	                this._cleanup();
+	                // make sure only this entering view and PREVIOUS view are the
+	                // only two views that are not display:none
+	                leavingView = this.getPrevious(enteringView);
+	                this._views.forEach(function (view) {
+	                    var shouldShow = (view === enteringView) || (view === leavingView);
+	                    view.domCache(shouldShow, _this._renderer);
+	                });
+	                // this check only needs to happen once, which will add the css
+	                // class to the nav when it's finished its first transition
+	                if (!this._init) {
+	                    this._init = true;
+	                    this._renderer.setElementClass(this.elementRef.nativeElement, 'has-views', true);
+	                }
 	            }
-	            if (leavingView.state !== STATE_REMOVE_AFTER_TRANS) {
-	                leavingView.state = STATE_INACTIVE;
-	            }
-	            // destroy all of the views that come after the active view
-	            this._cleanup();
-	            // make sure only this entering view and PREVIOUS view are the
-	            // only two views that are not display:none
-	            leavingView = this.getPrevious(enteringView);
-	            this._views.forEach(function (view) {
-	                var shouldShow = (view === enteringView) || (view === leavingView);
-	                view.domCache(shouldShow, _this._renderer);
-	            });
-	            // this check only needs to happen once, which will add the css
-	            // class to the nav when it's finished its first transition
-	            if (!this._init) {
-	                this._init = true;
-	                this._renderer.setElementClass(this.elementRef.nativeElement, 'has-views', true);
+	            else {
+	                // this transition has not completed, meaning the
+	                // entering view did not end up as the active view
+	                // this would happen when swipe to go back started
+	                // but the user did not complete the swipe and the
+	                // what was the active view stayed as the active view
+	                leavingView.state = STATE_ACTIVE;
+	                enteringView.state = STATE_INACTIVE;
 	            }
 	            // allow clicks and enable the app again
 	            this._app && this._app.setEnabled(true);
 	            this.setTransitioning(false);
-	            if (this.router && direction !== null) {
+	            if (this.router && direction !== null && hasCompleted) {
 	                // notify router of the state change if a direction was provided
 	                this.router.stateChange(direction, enteringView);
 	            }
+	            // see if we should add the swipe back gesture listeners or not
+	            this._sbCheck();
 	        }
 	        else {
 	            // darn, so this wasn't the most recent transition
@@ -48163,131 +48191,91 @@
 	     * @private
 	     */
 	    NavController.prototype.swipeBackStart = function () {
-	        return;
-	        if (!this._app.isEnabled() || !this.canSwipeBack()) {
-	            return;
-	        }
-	        // disables the app during the transition
-	        this._app.setEnabled(false);
-	        this.setTransitioning(true);
 	        // default the direction to "back"
 	        var opts = {
-	            direction: 'back'
+	            direction: 'back',
+	            progressAnimation: true
 	        };
-	        // get the active view and set that it is staged to be leaving
-	        // was probably the one popped from the stack
-	        var leavingView = this.getActive() || new view_controller_1.ViewController();
-	        leavingView.willLeave();
-	        leavingView.willUnload();
-	        // the entering view is now the new last view
-	        var enteringView = this.getPrevious(leavingView);
-	        enteringView.willEnter();
-	        // wait for the new view to complete setup
-	        this._render(0, enteringView, leavingView, {}, function () {
-	        });
+	        // figure out the states of each view in the stack
+	        var leavingView = this._remove(this._views.length - 1, 1);
+	        if (leavingView) {
+	            opts.animation = leavingView.getTransitionName(opts.direction);
+	            // get the view thats ready to enter
+	            var enteringView = this.getByState(STATE_INIT_ENTER);
+	            // start the transition, fire callback when done...
+	            this._transition(enteringView, leavingView, opts, function (hasCompleted) {
+	                // swipe back has finished!!
+	                console.debug('swipeBack, hasCompleted', hasCompleted);
+	            });
+	        }
 	    };
 	    /**
 	     * @private
 	     */
-	    NavController.prototype.swipeBackProgress = function (value) {
-	        return;
-	        if (this._sbTrans) {
+	    NavController.prototype.swipeBackProgress = function (stepValue) {
+	        if (this._trans && this._sbGesture) {
 	            // continue to disable the app while actively dragging
 	            this._app.setEnabled(false, 4000);
 	            this.setTransitioning(true, 4000);
 	            // set the transition animation's progress
-	            this._sbTrans.progressStep(value);
+	            this._trans.progressStep(stepValue);
 	        }
 	    };
 	    /**
 	     * @private
 	     */
-	    NavController.prototype.swipeBackEnd = function (completeSwipeBack, rate) {
+	    NavController.prototype.swipeBackEnd = function (shouldComplete, currentStepValue) {
+	        if (this._trans && this._sbGesture) {
+	            // the swipe back gesture has ended
+	            this._trans.progressEnd(shouldComplete, currentStepValue);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype._sbCheck = function () {
 	        var _this = this;
-	        return;
-	        if (!this._sbTrans)
-	            return;
-	        // disables the app during the transition
-	        this._app.setEnabled(false);
-	        this.setTransitioning(true);
-	        this._sbTrans.onFinish(function () {
-	            _this._zone.run(function () {
-	                // find the views that were entering and leaving
-	                var enteringView = null; // this._getStagedEntering();
-	                var leavingView = null; //this._getStagedLeaving();
-	                if (enteringView && leavingView) {
-	                    // finish up the animation
-	                    if (completeSwipeBack) {
-	                        // swipe back has completed navigating back
-	                        // update each view's state
-	                        enteringView.state = STATE_ACTIVE;
-	                        leavingView.state = STATE_INACTIVE;
-	                        enteringView.didEnter();
-	                        leavingView.didLeave();
-	                        if (_this.router) {
-	                            // notify router of the pop state change
-	                            _this.router.stateChange('pop', enteringView);
-	                        }
-	                    }
-	                    else {
-	                        // cancelled the swipe back, they didn't end up going back
-	                        // return views to their original state
-	                        leavingView.state = STATE_ACTIVE;
-	                        enteringView.state = STATE_INACTIVE;
-	                        leavingView.willEnter();
-	                        leavingView.didEnter();
-	                        enteringView.didLeave();
-	                        leavingView.shouldDestroy = false;
-	                        enteringView.shouldDestroy = false;
-	                    }
-	                }
-	                // empty out and dispose the swipe back transition animation
-	                _this._sbTrans && _this._sbTrans.destroy();
-	                _this._sbTrans = null;
-	                // all done!
-	                //this._transComplete();
-	            });
-	        }, true);
-	        this._sbTrans.progressEnd(completeSwipeBack, 0.5);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._sbComplete = function () {
-	        return;
-	        if (this.canSwipeBack()) {
-	            // it is possible to swipe back
-	            if (this.sbGesture) {
-	                // this is already an active gesture, don't create another one
-	                return;
+	        if (this._sbEnabled) {
+	            // this nav controller can have swipe to go back
+	            if (!this._sbGesture) {
+	                // create the swipe back gesture if we haven't already
+	                var opts = {
+	                    edge: 'left',
+	                    threshold: this._sbThreshold
+	                };
+	                this._sbGesture = new swipe_back_1.SwipeBackGesture(this.getNativeElement(), opts, this);
 	            }
-	            var opts = {
-	                edge: 'left',
-	                threshold: this._sbThreshold
-	            };
-	            this.sbGesture = new swipe_back_1.SwipeBackGesture(this.getNativeElement(), opts, this);
-	            console.debug('SwipeBackGesture listen');
-	            this.sbGesture.listen();
-	        }
-	        else if (this.sbGesture) {
-	            // it is not possible to swipe back and there is an
-	            // active sbGesture, so unlisten it
-	            console.debug('SwipeBackGesture unlisten');
-	            this.sbGesture.unlisten();
-	            this.sbGesture = null;
+	            if (this.canSwipeBack()) {
+	                // it is be possible to swipe back
+	                if (!this._sbGesture.isListening) {
+	                    this._zone.runOutsideAngular(function () {
+	                        // start listening if it's not already
+	                        console.debug('swipeBack gesture, listen');
+	                        _this._sbGesture.listen();
+	                    });
+	                }
+	            }
+	            else if (this._sbGesture.isListening) {
+	                // it should not be possible to swipe back
+	                // but the gesture is still listening
+	                console.debug('swipeBack gesture, unlisten');
+	                this._sbGesture.unlisten();
+	            }
 	        }
 	    };
-	    /**
-	     * Check to see if swipe-to-go-back is enabled
-	     * @param {boolean} isSwipeBackEnabled Set whether or not swipe-to-go-back is enabled
-	     * @returns {boolean} Whether swipe-to-go-back is enabled
-	     */
-	    NavController.prototype.isSwipeBackEnabled = function (val) {
-	        if (arguments.length) {
-	            this._sbEnabled = !!val;
-	        }
-	        return this._sbEnabled;
-	    };
+	    Object.defineProperty(NavController.prototype, "swipeBackEnabled", {
+	        /**
+	         * @input {boolean} Whether it's possible to swipe-to-go-back on this nav controller or not.
+	         */
+	        get: function () {
+	            return this._sbEnabled;
+	        },
+	        set: function (val) {
+	            this._sbEnabled = util_1.isTrueProperty(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * If it's possible to use swipe back or not. If it's not possible
 	     * to go back, or swipe back is not enable then this will return false.
@@ -48296,7 +48284,7 @@
 	     * @returns {boolean} Whether you can swipe to go back
 	     */
 	    NavController.prototype.canSwipeBack = function () {
-	        return (this._sbEnabled && this.canGoBack());
+	        return (this._sbEnabled && !this.isTransitioning() && this._app.isEnabled() && this.canGoBack());
 	    };
 	    /**
 	     * Returns `true` if there's a valid previous page that we can pop back to.
@@ -48440,6 +48428,10 @@
 	            }
 	        }
 	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], NavController.prototype, "swipeBackEnabled", null);
 	    return NavController;
 	})(ion_1.Ion);
 	exports.NavController = NavController;
@@ -48476,26 +48468,44 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var slide_edge_gesture_1 = __webpack_require__(289);
+	var util_1 = __webpack_require__(163);
 	var SwipeBackGesture = (function (_super) {
 	    __extends(SwipeBackGesture, _super);
-	    function SwipeBackGesture(element, opts, _nav) {
-	        if (opts === void 0) { opts = {}; }
-	        _super.call(this, element, opts);
+	    function SwipeBackGesture(element, options, _nav) {
+	        _super.call(this, element, util_1.assign({
+	            direction: 'x',
+	            maxEdgeStart: 75
+	        }, options));
 	        this._nav = _nav;
-	        // Can check corners through use of eg 'left top'
-	        this.edges = opts.edge.split(' ');
-	        this.threshold = opts.threshold;
 	    }
-	    SwipeBackGesture.prototype.onSlideStart = function () {
+	    SwipeBackGesture.prototype.canStart = function (ev) {
+	        // the gesture swipe angle must be mainly horizontal and the
+	        // gesture distance would be relatively short for a swipe back
+	        // and swipe back must be possible on this nav controller
+	        if (ev.angle > -40 &&
+	            ev.angle < 40 &&
+	            ev.distance < 50 &&
+	            this._nav.canSwipeBack()) {
+	            // passed the tests, now see if the super says it's cool or not
+	            return _super.prototype.canStart.call(this, ev);
+	        }
+	        // nerp, not today
+	        return false;
+	    };
+	    SwipeBackGesture.prototype.onSlideBeforeStart = function () {
+	        console.debug('swipeBack, onSlideBeforeStart');
 	        this._nav.swipeBackStart();
 	    };
-	    SwipeBackGesture.prototype.onSlide = function (slide, ev) {
-	        this._nav.swipeBackProgress(slide.distance / slide.max);
+	    SwipeBackGesture.prototype.onSlide = function (slide) {
+	        var stepValue = (slide.distance / slide.max);
+	        console.debug('swipeBack, onSlide, distance', slide.distance, 'max', slide.max, 'stepValue', stepValue);
+	        this._nav.swipeBackProgress(stepValue);
 	    };
 	    SwipeBackGesture.prototype.onSlideEnd = function (slide, ev) {
 	        var shouldComplete = (Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
-	        // TODO: calculate a better playback rate depending on velocity and distance
-	        this._nav.swipeBackEnd(shouldComplete, 1);
+	        var currentStepValue = (slide.distance / slide.max);
+	        console.debug('swipeBack, onSlideEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
+	        this._nav.swipeBackEnd(shouldComplete, currentStepValue);
 	    };
 	    return SwipeBackGesture;
 	})(slide_edge_gesture_1.SlideEdgeGesture);
@@ -48733,7 +48743,7 @@
 	            self._willChange(true);
 	            // set the async TRANSITION END event
 	            // and run onFinishes when the transition ends
-	            self._asyncEnd(duration);
+	            self._asyncEnd(duration, true);
 	            // begin each animation when everything is rendered in their place
 	            // and the transition duration/easing is ready to go
 	            dom_1.rafFrames(self._opts.renderDelay / 16, function () {
@@ -48759,7 +48769,7 @@
 	            self._after();
 	            // since there was no animation, it's done
 	            // fire off all the onFinishes
-	            self._onFinish();
+	            self._onFinish(true);
 	        }
 	    };
 	    Animation.prototype.stop = function (opts) {
@@ -48778,7 +48788,7 @@
 	            self._setTrans(duration, true);
 	            // set the async TRANSITION END event
 	            // and run onFinishes when the transition ends
-	            self._asyncEnd(duration);
+	            self._asyncEnd(duration, false);
 	        }
 	        else {
 	            // this animation does not have a duration, so it should not animate
@@ -48786,19 +48796,19 @@
 	            self._after();
 	            // since there was no animation, it's done
 	            // fire off all the onFinishes
-	            self._onFinish();
+	            self._onFinish(false);
 	        }
 	    };
-	    Animation.prototype._asyncEnd = function (duration) {
+	    Animation.prototype._asyncEnd = function (duration, shouldComplete) {
 	        var self = this;
 	        function onTransitionEnd(ev) {
-	            console.debug('Animation async end,', (ev ? 'transitionEnd event' : 'fallback timeout'));
+	            console.debug('Animation async end,', (ev ? 'transitionEnd, ' + ev.target.nodeName + ', property: ' + ev.propertyName : 'fallback timeout'));
 	            // ensure transition end events and timeouts have been cleared
 	            self._clearAsync();
 	            // set the after styles
 	            self._after();
 	            self._willChange(false);
-	            self._onFinish();
+	            self._onFinish(shouldComplete);
 	        }
 	        // set the TRANSITION END event on one of the transition elements
 	        self._unregTrans = dom_1.transitionEnd(self._transEl(), onTransitionEnd);
@@ -49006,12 +49016,12 @@
 	            // for example, the left menu was dragged all the way open already
 	            this._after();
 	            this._willChange(false);
-	            this._onFinish();
+	            this._onFinish(shouldComplete);
 	        }
 	        else {
 	            // the stepValue was left off at a point when it needs to finish transition still
 	            // for example, the left menu was opened 75% and needs to finish opening
-	            this._asyncEnd(64);
+	            this._asyncEnd(64, shouldComplete);
 	            // force quick duration, linear easing
 	            this._setTrans(64, true);
 	        }
@@ -49035,14 +49045,14 @@
 	        }
 	        return this;
 	    };
-	    Animation.prototype._onFinish = function () {
+	    Animation.prototype._onFinish = function (hasCompleted) {
 	        this.isPlaying = false;
 	        var i;
 	        for (i = 0; i < this._fFns.length; i++) {
-	            this._fFns[i]();
+	            this._fFns[i](hasCompleted);
 	        }
 	        for (i = 0; i < this._fOnceFns.length; i++) {
-	            this._fOnceFns[i]();
+	            this._fOnceFns[i](hasCompleted);
 	        }
 	        this._fOnceFns = [];
 	    };
@@ -59736,17 +59746,11 @@
 	            }
 	            this.push(this.root);
 	        }
-	        // default the swipe back to be enabled
-	        this.isSwipeBackEnabled((this.swipeBackEnabled || '').toString() !== 'false');
 	    };
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.Type !== 'undefined' && core_1.Type) === 'function' && _a) || Object)
 	    ], Nav.prototype, "root", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Nav.prototype, "swipeBackEnabled", void 0);
 	    Nav = __decorate([
 	        core_1.Component({
 	            selector: 'ion-nav',

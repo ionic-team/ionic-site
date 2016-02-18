@@ -43,14 +43,32 @@ Improve this doc
 <h2>Description</h2>
 
 <p>The ActionSheet plugin shows a native list of options the user can choose from.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-actionsheet</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">ActionSheet plugin docs</a>.</p>
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code>import {ActionSheet} from &#39;ionic-native&#39;;
+
+let buttonLabels = [&#39;Share via Facebook&#39;, &#39;Share via Twitter&#39;];
+ActionSheet.show({
+  &#39;title&#39;: &#39;What do you want with this image?&#39;,
+  &#39;buttonLabels&#39;: buttonLabels,
+  &#39;addCancelButtonWithLabel&#39;: &#39;Cancel&#39;,
+  &#39;addDestructiveButtonWithLabel&#39; : &#39;Delete&#39;
+}).then(buttonIndex =&gt; {
+  console.log(&#39;Button pressed: &#39; + buttonLabels[buttonIndex - 1]);
+});
+</code></pre>
+
+
 
 
 <!-- @property tags -->
 <h2>Static Methods</h2>
 <div id="show"></div>
-<h3><code>show(Available)</code>
+<h3><code>show(options)</code>
   
 </h3>
 
@@ -69,7 +87,7 @@ Show the ActionSheet.
     
     <tr>
       <td>
-        Available
+        options
         
         
       </td>
@@ -78,15 +96,7 @@ Show the ActionSheet.
   <code>options</code>
       </td>
       <td>
-        <p>options:
-  buttonLabels: string[]
-  title: string
-  androidTheme (Android only): number 1-5
-  androidEnableCancelButton (Android only): boolean, default false
-  winphoneEnableCancelButton (WP only): boolean, default false
-  addCancelButtonWithLabel: string
-  addDestructiveButtonWithLabel: string
-  position: [x, y] (iPad pass in [x, y] coords of popover)</p>
+        <p><code>buttonLabels</code>: string[]<br>  <code>title</code>: string<br>  <code>androidTheme</code> (Android only): number 1-5<br>  <code>androidEnableCancelButton</code> (Android only): boolean, default false<br>  <code>winphoneEnableCancelButton</code> (WP only): boolean, default false<br>  <code>addCancelButtonWithLabel</code>: string<br>  <code>addDestructiveButtonWithLabel</code>: string<br>  <code>position</code>: [x, y] (iPad pass in [x, y] coords of popover)</p>
 
         
       </td>
@@ -102,7 +112,7 @@ Show the ActionSheet.
 <div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> returns a promise that resolves with the index of the
+  <code>Promise</code> Returns a Promise that resolves with the index of the
   button pressed (1 based, so 1, 2, 3, etc.)
 </div>
 

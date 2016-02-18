@@ -40,9 +40,21 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Get geolocation data.</p>
+
+
+
+<pre>
+<code>
+$ ionic plugin add cordova-plugin-geolocation
+</code>
+</pre>
+<p>
+<a href="">
+Repo: 
+</a>
+</p>
 
 <!-- @usage tag -->
 

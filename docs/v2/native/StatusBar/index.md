@@ -40,10 +40,22 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Manage the appearance of the native status bar.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-statusbar</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-statusbar">StatusBar plugin docs</a>.</p>
+
+
+
+<pre>
+<code>
+$ ionic plugin add cordova-plugin-statusbar
+</code>
+</pre>
+<p>
+<a href="">
+Repo: 
+</a>
+</p>
 
 <!-- @usage tag -->
 

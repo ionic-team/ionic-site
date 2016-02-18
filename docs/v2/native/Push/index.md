@@ -40,11 +40,23 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Register and receive push notifications.</p>
 <p>Requires Cordova plugin: <code>phonegap-plugin-push</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-push">Push plugin docs</a>.</p>
 <p>For TypeScript users, see the <a href="https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/TYPESCRIPT.md">Push plugin docs about using TypeScript for custom notifications</a>.</p>
+
+
+
+<pre>
+<code>
+$ ionic plugin add phonegap-plugin-push
+</code>
+</pre>
+<p>
+<a href="">
+Repo: 
+</a>
+</p>
 
 <!-- @usage tag -->
 

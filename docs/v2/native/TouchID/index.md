@@ -40,7 +40,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Scan the fingerprint of a user with the TouchID sensor.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-touch-id</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">TouchID plugin docs</a>.</p>
@@ -48,6 +47,19 @@ Improve this doc
 <p>The plugin will reject for various reasons. Your app will most likely need to respond to the cases differently.</p>
 <p>Here is a list of some of the error codes:</p>
 <p>   <code>-1</code> - Fingerprint scan failed more than 3 times<br>   <code>-2</code> or <code>-128</code> - User tapped the &#39;Cancel&#39; button<br>   <code>-3</code> - User tapped the &#39;Enter Passcode&#39; or &#39;Enter Password&#39; button<br>   <code>-4</code> - The scan was cancelled by the system (Home button for example)<br>   <code>-6</code> - TouchID is not Available<br>   <code>-8</code> - TouchID is locked out from too many tries</p>
+
+
+
+<pre>
+<code>
+$ ionic plugin add cordova-plugin-touch-id
+</code>
+</pre>
+<p>
+<a href="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">
+Repo: https://github.com/EddyVerbruggen/cordova-plugin-touch-id
+</a>
+</p>
 
 <!-- @usage tag -->
 

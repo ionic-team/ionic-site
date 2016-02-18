@@ -40,10 +40,22 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>The ActionSheet plugin shows a native list of options the user can choose from.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-actionsheet</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">ActionSheet plugin docs</a>.</p>
+
+
+
+<pre>
+<code>
+$ ionic plugin add cordova-plugin-actionsheet
+</code>
+</pre>
+<p>
+<a href="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet">
+Repo: https://github.com/EddyVerbruggen/cordova-plugin-actionsheet
+</a>
+</p>
 
 <!-- @usage tag -->
 

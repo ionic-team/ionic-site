@@ -40,9 +40,21 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Access information about the underlying device and platform.</p>
+
+
+
+<pre>
+<code>
+$ ionic plugin add cordova-plugin-device
+</code>
+</pre>
+<p>
+<a href="">
+Repo: 
+</a>
+</p>
 
 <!-- @usage tag -->
 

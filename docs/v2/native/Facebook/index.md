@@ -40,7 +40,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Use the Facebook Connect plugin to obtain access to the native FB application on iOS and Android.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-facebook4</code>. For more info, please see the <a href="https://github.com/jeduan/cordova-plugin-facebook4">Facebook Connect</a>.</p>
@@ -78,6 +77,19 @@ Improve this doc
 <p>Activation events are automatically tracked for you in the plugin.</p>
 <p>Events are listed on the <a href="https://www.facebook.com/insights/">insights page</a>.</p>
 <p>For tracking events, see <code>logEvent</code> and <code>logPurchase</code>.</p>
+
+
+
+<pre>
+<code>
+$ ionic plugin add cordova-plugin-facebook4
+</code>
+</pre>
+<p>
+<a href="">
+Repo: 
+</a>
+</p>
 
 <!-- @usage tag -->
 

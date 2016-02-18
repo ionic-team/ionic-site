@@ -45779,21 +45779,6 @@
 	    /**
 	     * @private
 	     */
-	    ViewController.prototype.addDestroy = function (destroyFn) {
-	        this._destroys.push(destroyFn);
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.destroy = function () {
-	        for (var i = 0; i < this._destroys.length; i++) {
-	            this._destroys[i]();
-	        }
-	        this._destroys = [];
-	    };
-	    /**
-	     * @private
-	     */
 	    ViewController.prototype.domCache = function (shouldShow, renderer) {
 	        // using hidden element attribute to display:none and not render views
 	        // renderAttr of '' means the hidden attribute will be added
@@ -46047,10 +46032,19 @@
 	    };
 	    /**
 	     * @private
-	     * The view has been destroyed and its elements have been removed.
 	     */
-	    ViewController.prototype.didUnload = function () {
+	    ViewController.prototype.addDestroy = function (destroyFn) {
+	        this._destroys.push(destroyFn);
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.destroy = function () {
 	        ctrlFn(this, 'onPageDidUnload');
+	        for (var i = 0; i < this._destroys.length; i++) {
+	            this._destroys[i]();
+	        }
+	        this._destroys = [];
 	    };
 	    __decorate([
 	        core_1.Output(), 
@@ -47780,6 +47774,7 @@
 	            // set that it is the init leaving view
 	            // the first view to be removed, it should init leave
 	            view.state = STATE_INIT_LEAVE;
+	            view.willUnload();
 	            // from the index of the leaving view, go backwards and
 	            // find the first view that is inactive so it can be the entering
 	            for (var i = this.indexOf(view) - 1; i >= 0; i--) {
@@ -47811,7 +47806,6 @@
 	        this._views.filter(function (v) { return v.state === STATE_REMOVE; }).forEach(function (view) {
 	            view.willLeave();
 	            view.didLeave();
-	            view.didUnload();
 	            _this._views.splice(_this.indexOf(view), 1);
 	            view.destroy();
 	        });

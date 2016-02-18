@@ -79,7 +79,7 @@ body {
 
       &.shown {
         transform: translateX(0);
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       }
     }
   }
@@ -88,7 +88,7 @@ body {
 .navbar-default {
   background: linear-gradient(to right, #3071da, #4888f1);
   border-radius: 0;
-  border: none;
+  border: 0;
   margin-bottom: 0;
   position: relative;
   z-index: 10;
@@ -124,7 +124,7 @@ body {
 
       @media (max-width: $screen-xs-max) {
         padding: 15px;
-        border: none;
+        border: 0;
       }
     }
 
@@ -167,6 +167,7 @@ body {
         transform-origin: top;
         transition: opacity .4s,
                     transform .4s cubic-bezier(0.425, 0.845, 0.225, 1.85);
+
         a {
           padding: 10px 20px;
         }
@@ -191,26 +192,20 @@ body {
       input {
         background: lighten($blue, 2);
         box-shadow: none;
-        border: none;
+        border: 0;
         color: white;
         font-size: 14px;
         border-radius: 800px;
         padding-left: 38px;
         width: 150px;
         transition: all .3s cubic-bezier(0.2, 0.85, 0.2, 1.1);
+
         &:focus {
           width: 270px;
           background: lighten($blue, 5);
         }
+
         &::-webkit-input-placeholder {
-          color: lighten($blue, 20);
-        }
-
-        &:-moz-placeholder {
-          color: lighten($blue, 20);
-        }
-
-        &::-moz-placeholder {
           color: lighten($blue, 20);
         }
 
@@ -220,9 +215,9 @@ body {
       }
 
       &:before {
-        font-family: "Ionicons";
+        font-family: 'Ionicons';
         -webkit-font-smoothing: antialiased;
-        content: "\f4a5";
+        content: '\f4a5';
         font-size: 18px;
         font-weight: 800;
         color: lighten($blue, 15);
@@ -231,8 +226,10 @@ body {
         left: 14px;
       }
     }
+
     @media (max-width: $screen-sm-max) {
       margin-left: 25px;
+
       .form-group input:focus {
         width: 200px;
       }
@@ -241,7 +238,7 @@ body {
 
   .navbar-toggle,
   .sidebar-toggle {
-    border: none;
+    border: 0;
     position: relative;
     background: transparent;
 
@@ -307,10 +304,6 @@ body {
   -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch;
   -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 
   &::-webkit-scrollbar {
@@ -331,9 +324,9 @@ body {
       transition: .2s border-color, .2s color, .2s background, .2s box-shadow;
 
       &:before {
-        font-family: "Ionicons";
+        font-family: 'Ionicons';
         -webkit-font-smoothing: antialiased;
-        content: "\f3cf";
+        content: '\f3cf';
         font-size: 16px;
         font-weight: 800;
         position: relative;
@@ -344,7 +337,7 @@ body {
       &:hover {
         border-color: #DFE3E8;
         color: $blue;
-        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
         background: #fdfdfd;
       }
 
@@ -368,8 +361,8 @@ body {
       }
 
       &:before {
-        font-family: "Ionicons";
-        content: "\f4a5";
+        font-family: 'Ionicons';
+        content: '\f4a5';
         font-size: 20px;
         font-weight: 800;
         color: #a4abb5;
@@ -389,19 +382,19 @@ body {
 
         &:focus,
         &:hover {
-          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
           border-color: $blue;
         }
       }
     }
 
     select {
-      padding: 17px 20px 17px;
+      padding: 17px 20px;
       display: block;
       width: 100%;
       background: none;
       border-radius: 0;
-      border: none;
+      border: 0;
       outline: none;
       color: $grey;
       -webkit-appearance: none;
@@ -412,7 +405,7 @@ body {
       &:hover {
         border-color: $blue;
         color: $blue;
-        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         background: #fdfdfd;
       }
     }
@@ -426,9 +419,9 @@ body {
     }
 
     &.api-select:before {
-      font-family: "Ionicons";
+      font-family: 'Ionicons';
       -webkit-font-smoothing: antialiased;
-      content: "\f3d0";
+      content: '\f3d0';
       font-size: 14px;
       font-weight: 800;
       color: #a4abb5;
@@ -468,7 +461,8 @@ body {
       }
     }
 
-    ul, .capitalize {
+    ul,
+    .capitalize {
       padding: 0;
       opacity: 1;
 
@@ -480,6 +474,7 @@ body {
         letter-spacing: 0;
         height: 34px;
         transition: height cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, padding cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, color 0.2s;
+
         &:empty {
           display: none;
         }
@@ -526,10 +521,12 @@ html {
   position: relative;
   height: 100%;
 }
+
 body {
   min-height: 100%;
-  margin: 0 0 -100px; /* bottom = footer height */
+  margin: 0 0 -100px; // bottom = footer height
 }
+
 .footer-links {
   position: absolute;
   left: $sidenav-width + 40px;
@@ -540,6 +537,7 @@ body {
     left: 40px;
   }
 }
+
 a.footer-link {
   color: black;
   font-size: 18px;
@@ -549,6 +547,7 @@ a.footer-link {
   right: 40px;
   text-align: right;
   transition: color .2s;
+
   &.prev {
     right: auto;
     left: 40px;
@@ -556,27 +555,32 @@ a.footer-link {
     @media (max-width: 500px) {
       display: none;
     }
+
     &:before {
       content: 'Previous';
     }
+
     &:after {
       right: auto;
       left: -25px;
-      content: "\f117";
+      content: '\f117';
     }
   }
+
   &:hover {
     color: $blue;
   }
+
   &:before {
     display: block;
-    content:'Next';
+    content: 'Next';
     font-size: 13px;
     color: $grey;
     font-weight: 400;
   }
+
   &:after {
-    content: "\f119";
+    content: '\f119';
     font-family: Ionicons;
     display: block;
     position: absolute;
@@ -586,12 +590,18 @@ a.footer-link {
     bottom: -10px;
   }
 }
+
 .docs-container {
   min-height: 100%;
+
   main {
     padding: 50px 40px 100px;
 
-    h1, h2, h3, h4, h5 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
       color: $blacker;
       line-height: 1.4em;
       margin: 2em 0 1em;
@@ -609,22 +619,22 @@ a.footer-link {
     }
 
     h2 {
-      padding: 2em 0 0em;
+      padding: 2em 0 0;
       font-size: 24px;
-    }
 
-    h2.section-header {
-      border-top: 1px solid #F0F3F7;
-      margin-top: 5.6em;
+      &.section-header {
+        border-top: 1px solid #F0F3F7;
+        margin-top: 5.6em;
+      }
     }
 
     h3 {
-      margin: 3.2em 0 0em;
+      margin: 3.2em 0 0;
       font-size: 18px;
-    }
 
-    h3.no-para {
-      margin-bottom: 1em;
+      &.no-para {
+        margin-bottom: 1em;
+      }
     }
 
     p {
@@ -664,12 +674,14 @@ a.footer-link {
         padding-bottom: 5px;
       }
     }
+
     blockquote {
-      padding: 0px 15px;
-      margin: 40px 0 40px;
+      padding: 0 15px;
+      margin: 40px 0;
       font-size: 16px;
       border-left: 4px solid #eeeeee;
     }
+
     img.section-header {
       width: 100%;
       margin: 50px 0;
@@ -721,7 +733,7 @@ a.footer-link {
 #demo-device-ios {
   width: $platform-preview-width;
   height: 800px;
-  background: center top no-repeat url(/img/device-preview-ios.jpg);
+  background: center top no-repeat url('/img/device-preview-ios.jpg');
   background-size: $platform-preview-width;
   margin: 0 auto;
 
@@ -735,7 +747,7 @@ a.footer-link {
 #demo-device-android {
   @extend #demo-device-ios;
 
-  background-image: url(/img/device-preview-android.jpg);
+  background-image: url('/img/device-preview-android.jpg');
 
   iframe {
     margin-top: 64px;
@@ -760,7 +772,6 @@ ul.docs-content {
     color: #B9BEC5;
   }
 
-  li.docs-content-item {}
 }
 
 ul.docs-example {
@@ -804,15 +815,17 @@ ul.docs-example {
     margin: 0;
     line-height: 22px;
   }
+
   td ul {
     list-style: none;
     margin-right: -7px;
     margin-left: -92px;
     border: 1px solid #e6e9ee;
-    border-left: none;
-    border-top: none;
+    border-left: 0;
+    border-top: 0;
     padding: 10px 17px;
     border-bottom-right-radius: 0.5em;
+
     li {
       padding: 0;
       margin: 17px 0;
@@ -823,9 +836,9 @@ ul.docs-example {
 .return-value {
   b {
     &:before {
-      font-family: "Ionicons";
+      font-family: 'Ionicons';
       -webkit-font-smoothing: antialiased;
-      content: "\f203";
+      content: '\f203';
       font-size: 16px;
       font-weight: 800;
       position: relative;
@@ -835,8 +848,9 @@ ul.docs-example {
   }
 }
 
-.docs-container h3 a:not([role="button"]) {
+.docs-container h3 a:not([role='button']) {
   color: #26292e !important;
+
   &:hover {
     color: #26292e !important;
   }

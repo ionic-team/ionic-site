@@ -1,6 +1,7 @@
-pre{
+pre {
   background-color: white;
 }
+
 .hljs {
   display: block;
   padding: 0.5em;
@@ -11,18 +12,18 @@ pre{
 }
 
 
-/* Done */
+// Done
 
 .hljs-comment,
 .hljs-template_comment,
 .hljs-javadoc,
 .hljs-comment * {
   color: #999988;
-  font-style: italic
+  font-style: italic;
 }
 
 
-/* Done */
+// Done
 
 .hljs-keyword,
 .method,
@@ -37,7 +38,7 @@ pre{
 .hljs-request,
 .hljs-status {
   color: #445588;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 .hljs-envvar,
@@ -46,7 +47,7 @@ pre{
 }
 
 
-/* Done */
+// Done
 
 .hljs-string,
 .hljs-tag .hljs-value,

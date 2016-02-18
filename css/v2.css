@@ -1,13 +1,5 @@
 @charset "UTF-8";
-/*
- * Ionic v2
- *
- * SCSS styles for the Ionic v2 docs.
- * While currently part of the v1 site, this css is meant to be completely
- * independent of the rest of the site. ./scss is for v1 ./_scss if for v2
- *
- */
-@import url(https://fonts.googleapis.com/css?family=Nunito:300);
+@import url("https://fonts.googleapis.com/css?family=Nunito:300");
 /*!
   Ionicons, v3.0.0-alpha.3
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -7497,7 +7489,6 @@ pre {
   word-wrap: normal;
   white-space: pre; }
 
-/* Done */
 .hljs-comment,
 .hljs-template_comment,
 .hljs-javadoc,
@@ -7505,7 +7496,6 @@ pre {
   color: #999988;
   font-style: italic; }
 
-/* Done */
 .hljs-keyword,
 .method,
 .hljs-list .hljs-title,
@@ -7525,7 +7515,6 @@ pre {
 .tex .hljs-special {
   color: #660; }
 
-/* Done */
 .hljs-string,
 .hljs-tag .hljs-value,
 .hljs-cdata,
@@ -7687,12 +7676,12 @@ body {
         -webkit-transform: translateX(0);
             -ms-transform: translateX(0);
                 transform: translateX(0);
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); } }
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); } }
 
 .navbar-default {
   background: linear-gradient(to right, #3071da, #4888f1);
   border-radius: 0;
-  border: none;
+  border: 0;
   margin-bottom: 0;
   position: relative;
   z-index: 10; }
@@ -7719,7 +7708,7 @@ body {
     @media (max-width: 767px) {
       .navbar-default .navbar-nav > li > a {
         padding: 15px;
-        border: none; } }
+        border: 0; } }
   .navbar-default .navbar-nav > li.active > a {
     border-top-color: white; }
   .navbar-default .dropdown .dropdown-menu {
@@ -7774,7 +7763,7 @@ body {
       .navbar-default .navbar-form .form-group input {
         background: #5995f7;
         box-shadow: none;
-        border: none;
+        border: 0;
         color: white;
         font-size: 14px;
         border-radius: 800px;
@@ -7786,16 +7775,12 @@ body {
           background: #679ff8; }
         .navbar-default .navbar-form .form-group input::-webkit-input-placeholder {
           color: #b1cdfb; }
-        .navbar-default .navbar-form .form-group input:-moz-placeholder {
-          color: #b1cdfb; }
-        .navbar-default .navbar-form .form-group input::-moz-placeholder {
-          color: #b1cdfb; }
         .navbar-default .navbar-form .form-group input:-ms-input-placeholder {
           color: #b1cdfb; }
       .navbar-default .navbar-form .form-group:before {
-        font-family: "Ionicons";
+        font-family: 'Ionicons';
         -webkit-font-smoothing: antialiased;
-        content: "\f4a5";
+        content: '\f4a5';
         font-size: 18px;
         font-weight: 800;
         color: #98befa;
@@ -7809,7 +7794,7 @@ body {
           width: 200px; } }
   .navbar-default .navbar-toggle,
   .navbar-default .sidebar-toggle {
-    border: none;
+    border: 0;
     position: relative;
     background: transparent; }
     .navbar-default .navbar-toggle i,
@@ -7871,10 +7856,9 @@ body {
   -webkit-overflow-scrolling: touch;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
   .side-nav::-webkit-scrollbar {
     display: none;
     width: 0 !important; }
@@ -7889,9 +7873,9 @@ body {
     text-align: center;
     transition: .2s border-color, .2s color, .2s background, .2s box-shadow; }
     .side-nav .back-to-main a:before {
-      font-family: "Ionicons";
+      font-family: 'Ionicons';
       -webkit-font-smoothing: antialiased;
-      content: "\f3cf";
+      content: '\f3cf';
       font-size: 16px;
       font-weight: 800;
       position: relative;
@@ -7900,7 +7884,7 @@ body {
     .side-nav .back-to-main a:hover {
       border-color: #DFE3E8;
       color: #4f8ff7;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
       background: #fdfdfd; }
     .side-nav .back-to-main a:focus:after {
       border-right-color: transparent; }
@@ -7914,8 +7898,8 @@ body {
       .side-nav .form-group.search:hover:before {
         color: #a4abb5; }
       .side-nav .form-group.search:before {
-        font-family: "Ionicons";
-        content: "\f4a5";
+        font-family: 'Ionicons';
+        content: '\f4a5';
         font-size: 20px;
         font-weight: 800;
         color: #a4abb5;
@@ -7931,15 +7915,15 @@ body {
         box-shadow: none;
         transition: .2s border-color, .2s box-shadow; }
         .side-nav .form-group.search input:focus, .side-nav .form-group.search input:hover {
-          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
           border-color: #4f8ff7; }
     .side-nav .form-group select {
-      padding: 17px 20px 17px;
+      padding: 17px 20px;
       display: block;
       width: 100%;
       background: none;
       border-radius: 0;
-      border: none;
+      border: 0;
       outline: none;
       color: #9da5b3;
       -webkit-appearance: none;
@@ -7949,16 +7933,16 @@ body {
       .side-nav .form-group select:hover {
         border-color: #4f8ff7;
         color: #4f8ff7;
-        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         background: #fdfdfd; }
     .side-nav .form-group:hover {
       transition: .2s border-color; }
       .side-nav .form-group:hover:before {
         color: #4f8ff7; }
     .side-nav .form-group.api-select:before {
-      font-family: "Ionicons";
+      font-family: 'Ionicons';
       -webkit-font-smoothing: antialiased;
-      content: "\f3d0";
+      content: '\f3d0';
       font-size: 14px;
       font-weight: 800;
       color: #a4abb5;
@@ -7993,10 +7977,12 @@ body {
                 transform: scaleY(0.0001);
         transition: -webkit-transform .08s ease-in-out;
         transition: transform .08s ease-in-out; }
-    .side-nav ul ul, .side-nav ul .capitalize {
+    .side-nav ul ul,
+    .side-nav ul .capitalize {
       padding: 0;
       opacity: 1; }
-      .side-nav ul ul a, .side-nav ul .capitalize a {
+      .side-nav ul ul a,
+      .side-nav ul .capitalize a {
         color: #4C555A;
         text-transform: none;
         font-size: 13px;
@@ -8004,13 +7990,18 @@ body {
         letter-spacing: 0;
         height: 34px;
         transition: height cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, padding cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s, color 0.2s; }
-        .side-nav ul ul a:empty, .side-nav ul .capitalize a:empty {
+        .side-nav ul ul a:empty,
+        .side-nav ul .capitalize a:empty {
           display: none; }
-      .side-nav ul ul.ng-hide-add, .side-nav ul ul.ng-hide-remove, .side-nav ul .capitalize.ng-hide-add, .side-nav ul .capitalize.ng-hide-remove {
+      .side-nav ul ul.ng-hide-add, .side-nav ul ul.ng-hide-remove,
+      .side-nav ul .capitalize.ng-hide-add,
+      .side-nav ul .capitalize.ng-hide-remove {
         transition: opacity cubic-bezier(0.36, 0.66, 0.04, 1) 0.4s; }
-      .side-nav ul ul.ng-hide, .side-nav ul .capitalize.ng-hide {
+      .side-nav ul ul.ng-hide,
+      .side-nav ul .capitalize.ng-hide {
         opacity: 0; }
-        .side-nav ul ul.ng-hide a, .side-nav ul .capitalize.ng-hide a {
+        .side-nav ul ul.ng-hide a,
+        .side-nav ul .capitalize.ng-hide a {
           padding: 0;
           height: 0; }
     .side-nav ul ul .active > a,
@@ -8035,8 +8026,7 @@ html {
 
 body {
   min-height: 100%;
-  margin: 0 0 -100px;
-  /* bottom = footer height */ }
+  margin: 0 0 -100px; }
 
 .footer-links {
   position: absolute;
@@ -8069,7 +8059,7 @@ a.footer-link {
     a.footer-link.prev:after {
       right: auto;
       left: -25px;
-      content: "\f117"; }
+      content: '\f117'; }
   a.footer-link:hover {
     color: #4f8ff7; }
   a.footer-link:before {
@@ -8079,7 +8069,7 @@ a.footer-link {
     color: #9da5b3;
     font-weight: 400; }
   a.footer-link:after {
-    content: "\f119";
+    content: '\f119';
     font-family: Ionicons;
     display: block;
     position: absolute;
@@ -8092,28 +8082,36 @@ a.footer-link {
   min-height: 100%; }
   .docs-container main {
     padding: 50px 40px 100px; }
-    .docs-container main h1, .docs-container main h2, .docs-container main h3, .docs-container main h4, .docs-container main h5 {
+    .docs-container main h1,
+    .docs-container main h2,
+    .docs-container main h3,
+    .docs-container main h4,
+    .docs-container main h5 {
       color: #26292e;
       line-height: 1.4em;
       margin: 2em 0 1em;
       font-size: 26px;
       font-weight: 400;
       letter-spacing: -0.01em; }
-      .docs-container main h1:first-child, .docs-container main h2:first-child, .docs-container main h3:first-child, .docs-container main h4:first-child, .docs-container main h5:first-child {
+      .docs-container main h1:first-child,
+      .docs-container main h2:first-child,
+      .docs-container main h3:first-child,
+      .docs-container main h4:first-child,
+      .docs-container main h5:first-child {
         margin-top: 0; }
     .docs-container main h1 {
       margin-bottom: 0; }
     .docs-container main h2 {
-      padding: 2em 0 0em;
+      padding: 2em 0 0;
       font-size: 24px; }
-    .docs-container main h2.section-header {
-      border-top: 1px solid #F0F3F7;
-      margin-top: 5.6em; }
+      .docs-container main h2.section-header {
+        border-top: 1px solid #F0F3F7;
+        margin-top: 5.6em; }
     .docs-container main h3 {
-      margin: 3.2em 0 0em;
+      margin: 3.2em 0 0;
       font-size: 18px; }
-    .docs-container main h3.no-para {
-      margin-bottom: 1em; }
+      .docs-container main h3.no-para {
+        margin-bottom: 1em; }
     .docs-container main p {
       color: #4C555A;
       line-height: 1.9em;
@@ -8139,8 +8137,8 @@ a.footer-link {
       padding-top: 5px;
       padding-bottom: 5px; }
     .docs-container main blockquote {
-      padding: 0px 15px;
-      margin: 40px 0 40px;
+      padding: 0 15px;
+      margin: 40px 0;
       font-size: 16px;
       border-left: 4px solid #eeeeee; }
     .docs-container main img.section-header {
@@ -8179,7 +8177,7 @@ a.footer-link {
 #demo-device-ios, #demo-device-android {
   width: 467px;
   height: 800px;
-  background: center top no-repeat url(/img/device-preview-ios.jpg);
+  background: center top no-repeat url("/img/device-preview-ios.jpg");
   background-size: 467px;
   margin: 0 auto; }
   #demo-device-ios iframe, #demo-device-android iframe {
@@ -8188,7 +8186,7 @@ a.footer-link {
     height: 568px; }
 
 #demo-device-android {
-  background-image: url(/img/device-preview-android.jpg); }
+  background-image: url("/img/device-preview-android.jpg"); }
   #demo-device-android iframe {
     margin-top: 64px;
     width: 360px;
@@ -8243,8 +8241,8 @@ ul.docs-example {
   margin-right: -7px;
   margin-left: -92px;
   border: 1px solid #e6e9ee;
-  border-left: none;
-  border-top: none;
+  border-left: 0;
+  border-top: 0;
   padding: 10px 17px;
   border-bottom-right-radius: 0.5em; }
   .param-table td ul li {
@@ -8252,18 +8250,18 @@ ul.docs-example {
     margin: 17px 0; }
 
 .return-value b:before {
-  font-family: "Ionicons";
+  font-family: 'Ionicons';
   -webkit-font-smoothing: antialiased;
-  content: "\f203";
+  content: '\f203';
   font-size: 16px;
   font-weight: 800;
   position: relative;
   padding-right: 5px;
   top: 2px; }
 
-.docs-container h3 a:not([role="button"]) {
+.docs-container h3 a:not([role='button']) {
   color: #26292e !important; }
-  .docs-container h3 a:not([role="button"]):hover {
+  .docs-container h3 a:not([role='button']):hover {
     color: #26292e !important; }
 
 .docs-home img.docs-home-logo {
@@ -8276,9 +8274,9 @@ ul.docs-example {
   margin: 53px auto 92px;
   position: relative; }
   .docs-home form:before {
-    font-family: "Ionicons";
+    font-family: 'Ionicons';
     -webkit-font-smoothing: antialiased;
-    content: "\f4a5";
+    content: '\f4a5';
     font-size: 27px;
     font-weight: 800;
     color: #576070;
@@ -8293,20 +8291,14 @@ ul.docs-example {
     font-size: 18px;
     box-shadow: none; }
     .docs-home form input::-webkit-input-placeholder {
-      /* WebKit, Blink, Edge */
-      color: #9da5b3; }
-    .docs-home form input::-moz-placeholder {
-      /* Mozilla Firefox 19+ */
       color: #9da5b3; }
     .docs-home form input:-ms-input-placeholder {
-      /* Internet Explorer 10-11 */
       color: #9da5b3; }
     .docs-home form input:placeholder-shown {
-      /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
       color: #9da5b3; }
     .docs-home form input:focus, .docs-home form input:hover, .docs-home form input:active {
       border-color: #4f8ff7;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
       background: #fdfdfd; }
 
 .docs-home .sections {
@@ -8346,17 +8338,17 @@ ul.docs-example {
       transition: -webkit-transform 0.25s cubic-bezier(0.33, 1.6, 0.66, 1);
       transition: transform 0.25s cubic-bezier(0.33, 1.6, 0.66, 1); }
     .docs-home .sections .section.getting-started:before {
-      background-image: url(/img/docs-thumbnail-getting-started.png); }
+      background-image: url("/img/docs-thumbnail-getting-started.png"); }
     .docs-home .sections .section.ui:before {
-      background-image: url(/img/docs-thumbnail-ui-components.png); }
+      background-image: url("/img/docs-thumbnail-ui-components.png"); }
     .docs-home .sections .section.api:before {
-      background-image: url(/img/docs-thumbnail-api.png); }
+      background-image: url("/img/docs-thumbnail-api.png"); }
     .docs-home .sections .section.theming:before {
-      background-image: url(/img/docs-thumbnail-theming.png); }
+      background-image: url("/img/docs-thumbnail-theming.png"); }
     .docs-home .sections .section.ionicons-link:before {
-      background-image: url(/img/docs-thumbnail-ionicons.png); }
+      background-image: url("/img/docs-thumbnail-ionicons.png"); }
     .docs-home .sections .section.forum:before {
-      background-image: url(/img/docs-thumbnail-forum.png); }
+      background-image: url("/img/docs-thumbnail-forum.png"); }
     .docs-home .sections .section:hover:before {
       -webkit-transform: scale3d(1.05, 1.05, 1);
               transform: scale3d(1.05, 1.05, 1); }
@@ -8698,7 +8690,7 @@ ul.docs-example {
     font-weight: 500; }
     .docs-container main .four-oh-four a:after {
       font-family: Ionicons;
-      content: "\f287";
+      content: '\f287';
       display: inline-block;
       margin-left: 10px;
       position: relative;

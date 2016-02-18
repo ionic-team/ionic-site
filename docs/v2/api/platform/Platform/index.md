@@ -64,62 +64,6 @@ export MyClass {
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
-<div id="register"></div>
-<h3><code>register()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
-<div id="registry"></div>
-<h3><code>registry()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
-<div id="get"></div>
-<h3><code>get()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
-<div id="setDefault"></div>
-<h3><code>setDefault()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
 
 
 

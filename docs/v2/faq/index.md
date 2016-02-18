@@ -1,6 +1,7 @@
 ---
 layout: v2_fluid/docs_base
 id: faq
+category: faq
 title: Ionic 2 Resources | Troubleshooting
 header_title: Troubleshooting - Ionic 2 Resources
 header_sub_title: Ionic 2 Developer Preview

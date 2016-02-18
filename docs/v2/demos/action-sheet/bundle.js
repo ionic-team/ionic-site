@@ -48561,6 +48561,7 @@
 	    function Animation(ele, opts) {
 	        if (opts === void 0) { opts = {}; }
 	        this._wChg = false;
+	        this._lastUpd = 0;
 	        this._reset();
 	        this.element(ele);
 	        this._opts = util_1.assign({
@@ -48676,7 +48677,7 @@
 	            unit: '',
 	        };
 	        if (typeof val === 'string' && val.indexOf(' ') < 0) {
-	            var r = val.match(/(^-?\d*\.?\d*)(.*)/);
+	            var r = val.match(cssValueRegex);
 	            var num = parseFloat(r[1]);
 	            if (!isNaN(num)) {
 	                fxState.num = num;
@@ -49033,14 +49034,21 @@
 	        this._setTrans(0, true);
 	    };
 	    Animation.prototype.progressStep = function (stepValue) {
-	        stepValue = Math.min(1, Math.max(0, stepValue));
-	        for (var i = 0; i < this._c.length; i++) {
-	            this._c[i].progressStep(stepValue);
+	        var now = Date.now();
+	        // only update if the last update was more than 16ms ago
+	        if (now - 16 > this._lastUpd) {
+	            this._lastUpd = now;
+	            stepValue = Math.min(1, Math.max(0, stepValue));
+	            for (var i = 0; i < this._c.length; i++) {
+	                this._c[i].progressStep(stepValue);
+	            }
+	            if (this._rv) {
+	                // if the animation is going in reverse then
+	                // flip the step value: 0 becomes 1, 1 becomes 0
+	                stepValue = ((stepValue * -1) + 1);
+	            }
+	            this._progress(stepValue);
 	        }
-	        if (this._rv) {
-	            stepValue = ((stepValue * -1) + 1);
-	        }
-	        this._progress(stepValue);
 	    };
 	    Animation.prototype.progressEnd = function (shouldComplete, currentStepValue) {
 	        console.debug('Animation, progressEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
@@ -49154,6 +49162,7 @@
 	    'rotate': 1, 'rotateX': 1, 'rotateY': 1, 'rotateZ': 1,
 	    'skewX': 1, 'skewY': 1, 'perspective': 1
 	};
+	var cssValueRegex = /(^-?\d*\.?\d*)(.*)/;
 	var AnimationRegistry = {};
 
 /***/ },

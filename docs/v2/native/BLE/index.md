@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.0.8"
+version: "1.0.9"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -40,7 +40,6 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>This plugin enables communication between a phone and Bluetooth Low Energy (BLE) peripherals.</p>
 <p>The plugin provides a simple JavaScript API for iOS and Android.</p>
@@ -168,6 +167,19 @@ function bytesToString(buffer) {
 <p>You can read more about typed arrays in these articles on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays">MDN</a> and <a href="http://www.html5rocks.com/en/tutorials/webgl/typed_arrays/">HTML5 Rocks</a>.</p>
 <h2 id="uuids">UUIDs</h2>
 <p>UUIDs are always strings and not numbers. Some 16-bit UUIDs, such as &#39;2220&#39; look like integers, but they&#39;re not. (The integer 2220 is 0x8AC in hex.) This isn&#39;t a problem with 128 bit UUIDs since they look like strings 82b9e6e1-593a-456f-be9b-9215160ebcac. All 16-bit UUIDs should also be passed to methods as strings.</p>
+
+
+
+<pre>
+<code>
+$ ionic plugin add cordova-plugin-ble-central
+</code>
+</pre>
+<p>
+<a href="">
+Repo: 
+</a>
+</p>
 
 <!-- @usage tag -->
 

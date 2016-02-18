@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.0.8"
+version: "1.0.9"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -40,10 +40,22 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>The Barcode Scanner Plugin opens a camera view and automatically scans a barcode, returning the data back to you.</p>
 <p>Requires Cordova plugin: <code>phonegap-plugin-barcodescanner</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">BarcodeScanner plugin docs</a>.</p>
+
+
+
+<pre>
+<code>
+$ ionic plugin add phonegap-plugin-barcodescanner
+</code>
+</pre>
+<p>
+<a href="">
+Repo: 
+</a>
+</p>
 
 <!-- @usage tag -->
 

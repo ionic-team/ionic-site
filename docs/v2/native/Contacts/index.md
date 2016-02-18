@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.0.8"
+version: "1.0.9"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -40,11 +40,23 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Access and manage Contacts on the device.</p>
 <p>Requires plugin: <code>cordova-plugin-contacts</code>
 For full info, please see the <a href="https://github.com/apache/cordova-plugin-contacts">Cordova Contacts plugin docs</a></p>
+
+
+
+<pre>
+<code>
+$ ionic plugin add cordova-plugin-contacts
+</code>
+</pre>
+<p>
+<a href="https://github.com/apache/cordova-plugin-contacts">
+Repo: https://github.com/apache/cordova-plugin-contacts
+</a>
+</p>
 
 <!-- @usage tag -->
 

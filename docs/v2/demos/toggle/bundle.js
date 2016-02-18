@@ -62193,6 +62193,19 @@
 	var ionic_1 = __webpack_require__(5);
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
+	        this.data = {
+	            frodo: true,
+	            sam: false,
+	            eowyn: true,
+	            legolas: true,
+	            gimli: false,
+	            saruman: true,
+	            gandalf: true,
+	            arwen: false,
+	            boromir: false,
+	            gollum: true,
+	            galadriel: false
+	        };
 	    }
 	    ApiDemoApp = __decorate([
 	        ionic_1.App({

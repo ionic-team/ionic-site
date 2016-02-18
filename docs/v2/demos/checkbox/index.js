@@ -10,6 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ionic_1 = require('ionic/ionic');
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
+        this.data = {
+            jon: true,
+            daenerys: true,
+            arya: false,
+            tyroin: false,
+            sansa: true,
+            khal: false,
+            cersei: true,
+            stannis: true,
+            petyr: false,
+            hodor: true,
+            catelyn: true
+        };
     }
     ApiDemoApp = __decorate([
         ionic_1.App({

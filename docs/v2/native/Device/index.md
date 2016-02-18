@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.0.8"
+version: "1.0.9"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -40,9 +40,21 @@ Improve this doc
 
 
 <!-- description -->
-<h2>Description</h2>
 
 <p>Access information about the underlying device and platform.</p>
+
+
+
+<pre>
+<code>
+$ ionic plugin add cordova-plugin-device
+</code>
+</pre>
+<p>
+<a href="">
+Repo: 
+</a>
+</p>
 
 <!-- @usage tag -->
 

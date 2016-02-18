@@ -4572,8 +4572,10 @@ ion-icon {
     font-size: 13px;
     color: inherit;
     text-align: center; }
-  .ios .alert-message:empty {
-    padding: 0 0 12px 0; }
+  .ios .alert-message {
+    max-height: 240px; }
+    .ios .alert-message:empty {
+      padding: 0 0 12px 0; }
   .ios .alert-input {
     margin-top: 10px;
     padding: 6px;
@@ -7693,7 +7695,8 @@ ion-icon {
     padding: 0 24px 24px 24px;
     color: rgba(0, 0, 0, 0.5); }
   .md .alert-message {
-    font-size: 15px; }
+    font-size: 15px;
+    max-height: 240px; }
     .md .alert-message:empty {
       padding: 0; }
   .md .alert-input {

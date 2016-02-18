@@ -5058,7 +5058,8 @@ ion-button-effect {
   color: rgba(0, 0, 0, 0.5); }
 
 .alert-message {
-  font-size: 15px; }
+  font-size: 15px;
+  max-height: 240px; }
   .alert-message:empty {
     padding: 0; }
 

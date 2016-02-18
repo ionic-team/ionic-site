@@ -4608,8 +4608,10 @@ ion-alert {
   color: inherit;
   text-align: center; }
 
-.alert-message:empty {
-  padding: 0 0 12px 0; }
+.alert-message {
+  max-height: 240px; }
+  .alert-message:empty {
+    padding: 0 0 12px 0; }
 
 .alert-input {
   margin-top: 10px;

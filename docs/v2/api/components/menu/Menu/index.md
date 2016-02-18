@@ -148,34 +148,6 @@ to always show the menu toggle button in the navbar by setting
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
-<div id="registerType"></div>
-<h3><code>registerType()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
-<div id="create"></div>
-<h3><code>create()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
 
 
 

@@ -280,20 +280,6 @@ Dynamically set which color attribute this button should use.
 
 </tbody>
 </table>
-<h2>Static Methods</h2>
-<div id="setRoles"></div>
-<h3><code>setRoles()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
 
 
 

@@ -3312,6 +3312,7 @@
 	__export(__webpack_require__(160));
 	__export(__webpack_require__(165));
 	__export(__webpack_require__(276));
+	__export(__webpack_require__(167));
 	__export(__webpack_require__(306));
 	__export(__webpack_require__(305));
 	__export(__webpack_require__(283));
@@ -45778,21 +45779,6 @@
 	    /**
 	     * @private
 	     */
-	    ViewController.prototype.addDestroy = function (destroyFn) {
-	        this._destroys.push(destroyFn);
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.destroy = function () {
-	        for (var i = 0; i < this._destroys.length; i++) {
-	            this._destroys[i]();
-	        }
-	        this._destroys = [];
-	    };
-	    /**
-	     * @private
-	     */
 	    ViewController.prototype.domCache = function (shouldShow, renderer) {
 	        // using hidden element attribute to display:none and not render views
 	        // renderAttr of '' means the hidden attribute will be added
@@ -46046,10 +46032,19 @@
 	    };
 	    /**
 	     * @private
-	     * The view has been destroyed and its elements have been removed.
 	     */
-	    ViewController.prototype.didUnload = function () {
+	    ViewController.prototype.addDestroy = function (destroyFn) {
+	        this._destroys.push(destroyFn);
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.destroy = function () {
 	        ctrlFn(this, 'onPageDidUnload');
+	        for (var i = 0; i < this._destroys.length; i++) {
+	            this._destroys[i]();
+	        }
+	        this._destroys = [];
 	    };
 	    __decorate([
 	        core_1.Output(), 
@@ -47779,6 +47774,7 @@
 	            // set that it is the init leaving view
 	            // the first view to be removed, it should init leave
 	            view.state = STATE_INIT_LEAVE;
+	            view.willUnload();
 	            // from the index of the leaving view, go backwards and
 	            // find the first view that is inactive so it can be the entering
 	            for (var i = this.indexOf(view) - 1; i >= 0; i--) {
@@ -47810,7 +47806,6 @@
 	        this._views.filter(function (v) { return v.state === STATE_REMOVE; }).forEach(function (view) {
 	            view.willLeave();
 	            view.didLeave();
-	            view.didUnload();
 	            _this._views.splice(_this.indexOf(view), 1);
 	            view.destroy();
 	        });
@@ -48561,6 +48556,7 @@
 	    function Animation(ele, opts) {
 	        if (opts === void 0) { opts = {}; }
 	        this._wChg = false;
+	        this._lastUpd = 0;
 	        this._reset();
 	        this.element(ele);
 	        this._opts = util_1.assign({
@@ -48568,6 +48564,7 @@
 	        }, opts);
 	    }
 	    Animation.prototype._reset = function () {
+	        this._el = [];
 	        this._c = [];
 	        this._fx = {};
 	        this._bfSty = {};
@@ -48581,23 +48578,37 @@
 	        this._fOnceFns = [];
 	        this._clearAsync();
 	        this.isPlaying = this.hasTween = this._rv = false;
-	        this._el = this._easing = this._dur = null;
+	        this._easing = this._dur = null;
 	    };
 	    Animation.prototype.element = function (ele) {
+	        var i;
 	        if (ele) {
-	            if (ele.nativeElement) {
-	                ele = ele.nativeElement;
+	            if (Array.isArray(ele)) {
+	                for (i = 0; i < ele.length; i++) {
+	                    this._addEle(ele[i]);
+	                }
 	            }
 	            else if (typeof ele === 'string') {
 	                ele = doc.querySelector(ele);
+	                for (i = 0; i < ele.length; i++) {
+	                    this._addEle(ele[i]);
+	                }
 	            }
-	            if (ele && ele.nodeType === 1) {
-	                this._el = ele;
-	                // does this element suport will-change property?
-	                this._wChg = ('opacity' in ele.style);
+	            else {
+	                this._addEle(ele);
 	            }
 	        }
 	        return this;
+	    };
+	    Animation.prototype._addEle = function (ele) {
+	        if (ele.nativeElement) {
+	            ele = ele.nativeElement;
+	        }
+	        if (ele.nodeType === 1) {
+	            this._el.push(ele);
+	            // does this element suport will-change property?
+	            this._wChg = (typeof ele.style.willChange !== 'undefined');
+	        }
 	    };
 	    Animation.prototype.parent = function (parentAnimation) {
 	        this._parent = parentAnimation;
@@ -48623,46 +48634,58 @@
 	        return this;
 	    };
 	    Animation.prototype.from = function (prop, val) {
-	        return this._addProp('from', prop, val);
+	        this._addProp('from', prop, val);
+	        return this;
 	    };
-	    Animation.prototype.to = function (prop, val) {
-	        return this._addProp('to', prop, val);
+	    Animation.prototype.to = function (prop, val, clearProperyAfterTransition) {
+	        var fx = this._addProp('to', prop, val);
+	        if (clearProperyAfterTransition) {
+	            // if this effect is a transform then clear the transform effect
+	            // otherwise just clear the actual property
+	            this.after.clearStyles([fx.trans ? dom_1.CSS.transform : prop]);
+	        }
+	        return this;
 	    };
-	    Animation.prototype.fromTo = function (prop, fromVal, toVal) {
-	        return this.from(prop, fromVal).to(prop, toVal);
+	    Animation.prototype.fromTo = function (prop, fromVal, toVal, clearProperyAfterTransition) {
+	        return this.from(prop, fromVal).to(prop, toVal, clearProperyAfterTransition);
 	    };
 	    Animation.prototype._addProp = function (state, prop, val) {
-	        if (!this._fx[prop]) {
-	            this._fx[prop] = {
-	                trans: (TRANSFORMS.indexOf(prop) > -1)
+	        var fxProp = this._fx[prop];
+	        if (!fxProp) {
+	            // first time we've see this EffectProperty
+	            fxProp = this._fx[prop] = {
+	                trans: (typeof TRANSFORMS[prop] !== 'undefined'),
+	                wc: ''
 	            };
-	            if (this._fx[prop].trans) {
-	                this._fx[prop].wc = 'transform';
+	            // add the will-change property fo transforms or opacity
+	            if (fxProp.trans) {
+	                fxProp.wc = dom_1.CSS.transform;
 	            }
 	            else if (prop === 'opacity') {
-	                this._fx[prop].wc = prop;
+	                fxProp.wc = prop;
 	            }
 	        }
-	        var fx = this._fx[prop][state] = {
+	        // add from/to EffectState to the EffectProperty
+	        var fxState = fxProp[state] = {
 	            val: val,
 	            num: null,
 	            unit: '',
 	        };
 	        if (typeof val === 'string' && val.indexOf(' ') < 0) {
-	            var r = val.match(/(^-?\d*\.?\d*)(.*)/);
+	            var r = val.match(cssValueRegex);
 	            var num = parseFloat(r[1]);
 	            if (!isNaN(num)) {
-	                fx.num = num;
+	                fxState.num = num;
 	            }
-	            fx.unit = (r[0] != r[2] ? r[2] : '');
+	            fxState.unit = (r[0] != r[2] ? r[2] : '');
 	        }
 	        else if (typeof val === 'number') {
-	            fx.num = val;
+	            fxState.num = val;
 	        }
-	        return this;
+	        return fxProp;
 	    };
 	    Animation.prototype.fadeIn = function () {
-	        return this.fromTo('opacity', 0.001, 1);
+	        return this.fromTo('opacity', 0.001, 1, true);
 	    };
 	    Animation.prototype.fadeOut = function () {
 	        return this.fromTo('opacity', 0.999, 0);
@@ -48681,6 +48704,12 @@
 	                },
 	                setStyles: function (styles) {
 	                    _this._bfSty = styles;
+	                    return _this;
+	                },
+	                clearStyles: function (propertyNames) {
+	                    for (var i = 0; i < propertyNames.length; i++) {
+	                        _this._bfSty[propertyNames[i]] = '';
+	                    }
 	                    return _this;
 	                }
 	            };
@@ -48702,6 +48731,12 @@
 	                },
 	                setStyles: function (styles) {
 	                    _this._afSty = styles;
+	                    return _this;
+	                },
+	                clearStyles: function (propertyNames) {
+	                    for (var i = 0; i < propertyNames.length; i++) {
+	                        _this._afSty[propertyNames[i]] = '';
+	                    }
 	                    return _this;
 	                }
 	            };
@@ -48753,7 +48788,7 @@
 	                self._setTrans(duration, false);
 	                // wait a few moments again to wait for the transition
 	                // info to take hold in the DOM
-	                dom_1.raf(function () {
+	                dom_1.rafFrames(2, function () {
 	                    // browser had some time to render everything in place
 	                    // and the transition duration/easing is set
 	                    // now set the TO properties
@@ -48826,41 +48861,41 @@
 	        for (i = 0; i < this._c.length; i++) {
 	            this._c[i]._progress(stepValue);
 	        }
-	        if (this._el) {
+	        if (this._el.length) {
 	            // flip the number if we're going in reverse
 	            if (this._rv) {
 	                stepValue = ((stepValue * -1) + 1);
 	            }
 	            transforms = [];
 	            for (prop in this._fx) {
-	                if (this._fx.hasOwnProperty(prop)) {
-	                    fx = this._fx[prop];
-	                    if (fx.from && fx.to) {
-	                        tweenEffect = (fx.from.num !== fx.to.num);
-	                        if (tweenEffect) {
-	                            this.hasTween = true;
-	                        }
-	                        if (stepValue === 0) {
-	                            // FROM
-	                            val = fx.from.val;
-	                        }
-	                        else if (stepValue === 1) {
-	                            // TO
-	                            val = fx.to.val;
-	                        }
-	                        else if (tweenEffect) {
-	                            // EVERYTHING IN BETWEEN
-	                            val = (((fx.to.num - fx.from.num) * stepValue) + fx.from.num) + fx.to.unit;
+	                fx = this._fx[prop];
+	                if (fx.from && fx.to) {
+	                    tweenEffect = (fx.from.num !== fx.to.num);
+	                    if (tweenEffect) {
+	                        this.hasTween = true;
+	                    }
+	                    if (stepValue === 0) {
+	                        // FROM
+	                        val = fx.from.val;
+	                    }
+	                    else if (stepValue === 1) {
+	                        // TO
+	                        val = fx.to.val;
+	                    }
+	                    else if (tweenEffect) {
+	                        // EVERYTHING IN BETWEEN
+	                        val = (((fx.to.num - fx.from.num) * stepValue) + fx.from.num) + fx.to.unit;
+	                    }
+	                    else {
+	                        val = null;
+	                    }
+	                    if (val !== null) {
+	                        if (fx.trans) {
+	                            transforms.push(prop + '(' + val + ')');
 	                        }
 	                        else {
-	                            val = null;
-	                        }
-	                        if (val !== null) {
-	                            if (fx.trans) {
-	                                transforms.push(prop + '(' + val + ')');
-	                            }
-	                            else {
-	                                this._el.style[prop] = val;
+	                            for (i = 0; i < this._el.length; i++) {
+	                                this._el[i].style[prop] = val;
 	                            }
 	                        }
 	                    }
@@ -48873,22 +48908,27 @@
 	                    // then auto add translateZ for transform properties
 	                    transforms.push('translateZ(0px)');
 	                }
-	                this._el.style[dom_1.CSS.transform] = transforms.join(' ');
+	                for (i = 0; i < this._el.length; i++) {
+	                    this._el[i].style[dom_1.CSS.transform] = transforms.join(' ');
+	                }
 	            }
 	        }
 	    };
 	    Animation.prototype._setTrans = function (duration, forcedLinearEasing) {
+	        var i, easing;
 	        // set the TRANSITION properties inline on the element
-	        for (var i = 0; i < this._c.length; i++) {
+	        for (i = 0; i < this._c.length; i++) {
 	            this._c[i]._setTrans(duration, forcedLinearEasing);
 	        }
-	        if (this._el && Object.keys(this._fx).length) {
-	            // all parent/child animations should have the same duration
-	            this._el.style[dom_1.CSS.transitionDuration] = duration + 'ms';
-	            // each animation can have a different easing
-	            var easing = (forcedLinearEasing ? 'linear' : this.getEasing());
-	            if (easing) {
-	                this._el.style[dom_1.CSS.transitionTimingFn] = easing;
+	        if (Object.keys(this._fx).length) {
+	            for (i = 0; i < this._el.length; i++) {
+	                // all parent/child animations should have the same duration
+	                this._el[i].style[dom_1.CSS.transitionDuration] = duration + 'ms';
+	                // each animation can have a different easing
+	                easing = (forcedLinearEasing ? 'linear' : this.getEasing());
+	                if (easing) {
+	                    this._el[i].style[dom_1.CSS.transitionTimingFn] = easing;
+	                }
 	            }
 	        }
 	    };
@@ -48898,89 +48938,84 @@
 	            this._c[i]._willChange(addWillChange);
 	        }
 	        if (this._wChg) {
+	            wc = [];
 	            if (addWillChange) {
-	                wc = [];
 	                for (prop in this._fx) {
-	                    if (this._fx.hasOwnProperty(prop)) {
-	                        if (this._fx[prop].wc !== '') {
-	                            wc.push(this._fx[prop].wc);
-	                        }
+	                    if (this._fx[prop].wc !== '') {
+	                        wc.push(this._fx[prop].wc);
 	                    }
 	                }
-	                this._el.style['willChange'] = wc.join(',');
 	            }
-	            else {
-	                this._el.style['willChange'] = '';
+	            for (i = 0; i < this._el.length; i++) {
+	                this._el[i].style['willChange'] = wc.join(',');
 	            }
 	        }
 	    };
 	    Animation.prototype._before = function () {
 	        // before the RENDER_DELAY
 	        // before the animations have started
-	        var i, prop;
+	        var i, j, prop, ele;
 	        // stage all of the child animations
 	        for (i = 0; i < this._c.length; i++) {
 	            this._c[i]._before();
 	        }
-	        if (!this._rv && this._el) {
-	            // css classes to add before the animation
-	            for (i = 0; i < this._bfAdd.length; i++) {
-	                this._el.classList.add(this._bfAdd[i]);
-	            }
-	            // css classes to remove before the animation
-	            for (i = 0; i < this._bfRmv.length; i++) {
-	                this._el.classList.remove(this._bfRmv[i]);
-	            }
-	            // inline styles to add before the animation
-	            for (prop in this._bfSty) {
-	                if (this._bfSty.hasOwnProperty(prop)) {
-	                    this._el.style[prop] = this._bfSty[prop];
+	        if (!this._rv) {
+	            for (i = 0; i < this._el.length; i++) {
+	                ele = this._el[i];
+	                // css classes to add before the animation
+	                for (j = 0; j < this._bfAdd.length; j++) {
+	                    ele.classList.add(this._bfAdd[j]);
+	                }
+	                // css classes to remove before the animation
+	                for (j = 0; j < this._bfRmv.length; j++) {
+	                    ele.classList.remove(this._bfRmv[j]);
+	                }
+	                // inline styles to add before the animation
+	                for (prop in this._bfSty) {
+	                    ele.style[prop] = this._bfSty[prop];
 	                }
 	            }
 	        }
 	    };
 	    Animation.prototype._after = function () {
 	        // after the animations have finished
-	        var i, prop;
+	        var i, j, prop, ele;
 	        for (i = 0; i < this._c.length; i++) {
 	            this._c[i]._after();
 	        }
-	        if (this._el) {
+	        for (i = 0; i < this._el.length; i++) {
+	            ele = this._el[i];
 	            // remove the transition duration/easing
-	            this._el.style[dom_1.CSS.transitionDuration] = '';
-	            this._el.style[dom_1.CSS.transitionTimingFn] = '';
+	            ele.style[dom_1.CSS.transitionDuration] = '';
+	            ele.style[dom_1.CSS.transitionTimingFn] = '';
 	            if (this._rv) {
 	                // finished in reverse direction
 	                // css classes that were added before the animation should be removed
-	                for (i = 0; i < this._bfAdd.length; i++) {
-	                    this._el.classList.remove(this._bfAdd[i]);
+	                for (j = 0; j < this._bfAdd.length; j++) {
+	                    ele.classList.remove(this._bfAdd[j]);
 	                }
 	                // css classes that were removed before the animation should be added
-	                for (i = 0; i < this._bfRmv.length; i++) {
-	                    this._el.classList.add(this._bfRmv[i]);
+	                for (j = 0; j < this._bfRmv.length; j++) {
+	                    ele.classList.add(this._bfRmv[j]);
 	                }
 	                // inline styles that were added before the animation should be removed
 	                for (prop in this._bfSty) {
-	                    if (this._bfSty.hasOwnProperty(prop)) {
-	                        this._el.style[prop] = '';
-	                    }
+	                    ele.style[prop] = '';
 	                }
 	            }
 	            else {
 	                // finished in forward direction
 	                // css classes to add after the animation
-	                for (i = 0; i < this._afAdd.length; i++) {
-	                    this._el.classList.add(this._afAdd[i]);
+	                for (j = 0; j < this._afAdd.length; j++) {
+	                    ele.classList.add(this._afAdd[j]);
 	                }
 	                // css classes to remove after the animation
-	                for (i = 0; i < this._afRmv.length; i++) {
-	                    this._el.classList.remove(this._afRmv[i]);
+	                for (j = 0; j < this._afRmv.length; j++) {
+	                    ele.classList.remove(this._afRmv[j]);
 	                }
 	                // inline styles to add after the animation
 	                for (prop in this._afSty) {
-	                    if (this._afSty.hasOwnProperty(prop)) {
-	                        this._el.style[prop] = this._afSty[prop];
-	                    }
+	                    ele.style[prop] = this._afSty[prop];
 	                }
 	            }
 	        }
@@ -48994,14 +49029,21 @@
 	        this._setTrans(0, true);
 	    };
 	    Animation.prototype.progressStep = function (stepValue) {
-	        stepValue = Math.min(1, Math.max(0, stepValue));
-	        for (var i = 0; i < this._c.length; i++) {
-	            this._c[i].progressStep(stepValue);
+	        var now = Date.now();
+	        // only update if the last update was more than 16ms ago
+	        if (now - 16 > this._lastUpd) {
+	            this._lastUpd = now;
+	            stepValue = Math.min(1, Math.max(0, stepValue));
+	            for (var i = 0; i < this._c.length; i++) {
+	                this._c[i].progressStep(stepValue);
+	            }
+	            if (this._rv) {
+	                // if the animation is going in reverse then
+	                // flip the step value: 0 becomes 1, 1 becomes 0
+	                stepValue = ((stepValue * -1) + 1);
+	            }
+	            this._progress(stepValue);
 	        }
-	        if (this._rv) {
-	            stepValue = ((stepValue * -1) + 1);
-	        }
-	        this._progress(stepValue);
 	    };
 	    Animation.prototype.progressEnd = function (shouldComplete, currentStepValue) {
 	        console.debug('Animation, progressEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
@@ -49066,24 +49108,28 @@
 	        return this;
 	    };
 	    Animation.prototype.destroy = function (removeElement) {
-	        for (var i = 0; i < this._c.length; i++) {
+	        var i, ele;
+	        for (i = 0; i < this._c.length; i++) {
 	            this._c[i].destroy(removeElement);
 	        }
-	        if (removeElement && this._el) {
-	            this._el.parentNode && this._el.parentNode.removeChild(this._el);
+	        if (removeElement) {
+	            for (i = 0; i < this._el.length; i++) {
+	                ele = this._el[i];
+	                ele.parentNode && ele.parentNode.removeChild(ele);
+	            }
 	        }
 	        this._reset();
 	    };
 	    Animation.prototype._transEl = function () {
 	        // get the lowest level element that has an Animation
-	        var targetEl, i;
+	        var i, targetEl;
 	        for (i = 0; i < this._c.length; i++) {
 	            targetEl = this._c[i]._transEl();
 	            if (targetEl) {
 	                return targetEl;
 	            }
 	        }
-	        return (this.hasTween ? this._el : null);
+	        return (this.hasTween && this._el.length ? this._el[0] : null);
 	    };
 	    /*
 	     STATIC CLASSES
@@ -49105,9 +49151,13 @@
 	})();
 	exports.Animation = Animation;
 	var doc = document;
-	var TRANSFORMS = [
-	    'translateX', 'translateY', 'translateZ', 'scale', 'scaleX', 'scaleY', 'scaleZ',
-	    'rotate', 'rotateX', 'rotateY', 'rotateZ', 'skewX', 'skewY', 'perspective'];
+	var TRANSFORMS = {
+	    'translateX': 1, 'translateY': 1, 'translateZ': 1,
+	    'scale': 1, 'scaleX': 1, 'scaleY': 1, 'scaleZ': 1,
+	    'rotate': 1, 'rotateX': 1, 'rotateY': 1, 'rotateZ': 1,
+	    'skewX': 1, 'skewY': 1, 'perspective': 1
+	};
+	var cssValueRegex = /(^-?\d*\.?\d*)(.*)/;
 	var AnimationRegistry = {};
 
 /***/ },
@@ -50280,17 +50330,8 @@
 	            this.options = {};
 	        }
 	        this.showPager = util_2.isTrueProperty(this.pager);
-	        this.loop = util_2.isTrueProperty(this.loop);
-	        if (typeof (this.index) != 'undefined') {
-	            this.index = parseInt(this.index);
-	        }
 	        var options = util_2.defaults({
-	            loop: this.loop,
-	            initialSlide: this.index,
 	            pagination: '.swiper-pagination',
-	            paginationClickable: true,
-	            lazyLoading: true,
-	            preloadImages: false
 	        }, this.options);
 	        options.onTap = function (swiper, e) {
 	            _this.onTap(swiper, e);
@@ -50660,22 +50701,6 @@
 	    Slides.prototype.getSliderWidget = function () {
 	        return this.slider;
 	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Slides.prototype, "autoplay", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Slides.prototype, "loop", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Slides.prototype, "index", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Slides.prototype, "bounce", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
@@ -61689,7 +61714,7 @@
 	    modalEnter: 'modal-md-slide-in',
 	    modalLeave: 'modal-md-slide-out',
 	    pageTransition: 'md-transition',
-	    pageTransitionDelay: 120,
+	    pageTransitionDelay: 96,
 	    tabbarHighlight: true,
 	    tabbarPlacement: 'top',
 	    tabSubPages: true,
@@ -61956,14 +61981,14 @@
 	        if (backDirection) {
 	            // entering content, back direction
 	            enteringContent
-	                .fromTo(TRANSLATEX, OFF_LEFT, CENTER)
-	                .fromTo(OPACITY, OFF_OPACITY, 1);
+	                .fromTo(TRANSLATEX, OFF_LEFT, CENTER, true)
+	                .fromTo(OPACITY, OFF_OPACITY, 1, true);
 	        }
 	        else {
 	            // entering content, forward direction
 	            enteringContent
-	                .fromTo(TRANSLATEX, OFF_RIGHT, CENTER)
-	                .fromTo(OPACITY, 1, 1);
+	                .before.clearStyles([OPACITY])
+	                .fromTo(TRANSLATEX, OFF_RIGHT, CENTER, true);
 	        }
 	        if (enteringHasNavbar) {
 	            // entering page has a navbar
@@ -61984,7 +62009,7 @@
 	            // set properties depending on direction
 	            if (backDirection) {
 	                // entering navbar, back direction
-	                enteringTitle.fromTo(TRANSLATEX, OFF_LEFT, CENTER);
+	                enteringTitle.fromTo(TRANSLATEX, OFF_LEFT, CENTER, true);
 	                if (enteringView.enableBack()) {
 	                    // back direction, entering page has a back button
 	                    enteringBackButton
@@ -61994,20 +62019,20 @@
 	            }
 	            else {
 	                // entering navbar, forward direction
-	                enteringTitle.fromTo(TRANSLATEX, OFF_RIGHT, CENTER);
+	                enteringTitle.fromTo(TRANSLATEX, OFF_RIGHT, CENTER, true);
 	                if (leavingHasNavbar) {
 	                    // entering navbar, forward direction, and there's a leaving navbar
 	                    // should just fade in, no sliding
 	                    enteringNavbarBg
-	                        .fromTo(TRANSLATEX, CENTER, CENTER)
+	                        .before.clearStyles([TRANSLATEX])
 	                        .fadeIn();
 	                }
 	                else {
 	                    // entering navbar, forward direction, and there's no leaving navbar
 	                    // should just slide in, no fading in
 	                    enteringNavbarBg
-	                        .fromTo(TRANSLATEX, OFF_RIGHT, CENTER)
-	                        .fromTo(OPACITY, 1, 1);
+	                        .before.clearStyles([OPACITY])
+	                        .fromTo(TRANSLATEX, OFF_RIGHT, CENTER, true);
 	                }
 	                if (enteringView.enableBack()) {
 	                    // forward direction, entering page has a back button
@@ -62031,8 +62056,8 @@
 	            if (backDirection) {
 	                // leaving content, back direction
 	                leavingContent
-	                    .fromTo(TRANSLATEX, CENTER, '100%')
-	                    .fromTo(OPACITY, 1, 1);
+	                    .before.clearStyles([OPACITY])
+	                    .fromTo(TRANSLATEX, CENTER, '100%');
 	            }
 	            else {
 	                // leaving content, forward direction
@@ -62064,15 +62089,15 @@
 	                        // leaving navbar, back direction, and there's an entering navbar
 	                        // should just fade out, no sliding
 	                        leavingNavbarBg
-	                            .fromTo(TRANSLATEX, CENTER, CENTER)
+	                            .before.clearStyles([TRANSLATEX])
 	                            .fadeOut();
 	                    }
 	                    else {
 	                        // leaving navbar, back direction, and there's no entering navbar
 	                        // should just slide out, no fading out
 	                        leavingNavbarBg
-	                            .fromTo(TRANSLATEX, CENTER, '100%')
-	                            .fromTo(OPACITY, 1, 1);
+	                            .before.clearStyles([OPACITY])
+	                            .fromTo(TRANSLATEX, CENTER, '100%');
 	                    }
 	                    var leavingBackBtnText = new animation_1.Animation(leavingView.backBtnTextRef());
 	                    leavingBackBtnText.fromTo(TRANSLATEX, CENTER, (300) + 'px');
@@ -62119,12 +62144,12 @@
 	        this.add(enteringPage);
 	        if (backDirection) {
 	            this.duration(opts.duration || 200).easing('cubic-bezier(0.47,0,0.745,0.715)');
-	            enteringPage.fromTo(TRANSLATEY, CENTER, CENTER);
+	            enteringPage.before.clearStyles([TRANSLATEY]);
 	        }
 	        else {
 	            this.duration(opts.duration || 280).easing('cubic-bezier(0.36,0.66,0.04,1)');
 	            enteringPage
-	                .fromTo(TRANSLATEY, OFF_BOTTOM, CENTER)
+	                .fromTo(TRANSLATEY, OFF_BOTTOM, CENTER, true)
 	                .fadeIn();
 	        }
 	        if (enteringHasNavbar) {

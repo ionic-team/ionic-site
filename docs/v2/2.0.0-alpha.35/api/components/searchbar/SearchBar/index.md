@@ -37,7 +37,7 @@ docType: "class"
 
 
 
-<p>The Search Bar service adds an input field which can be used to search or filter items.</p>
+<p>The Search Bar service adds an input field that can be used to search or filter items.</p>
 
 
 <h1 class="class export">SearchBar <span class="type">class</span></h1>

@@ -50306,18 +50306,6 @@
 	        var _this = this;
 	        _super.call(this, elementRef);
 	        /**
-	         * @input {number} Whether or not the slider can zoom in or out
-	         */
-	        // @Input() zoom: any;
-	        /**
-	         * @input {number} how long it should take to zoom a slide
-	         */
-	        // @Input() zoomDuration: any;
-	        /**
-	         * @input {number} the max scale an slide can be zoomed
-	         */
-	        // @Input() zoomMax: any;
-	        /**
 	         * @output {any} expression to evaluate when a slide has been changed
 	         */
 	        this.change = new core_1.EventEmitter();
@@ -50721,6 +50709,18 @@
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
 	    ], Slides.prototype, "options", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], Slides.prototype, "zoom", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], Slides.prototype, "zoomDuration", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], Slides.prototype, "zoomMax", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)

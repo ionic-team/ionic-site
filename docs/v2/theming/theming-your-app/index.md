@@ -5,10 +5,10 @@ id: theming-your-app
 title: Theming your Ionic app
 header_title: Theming your App
 header_sub_title: Customizing your app to fit your brand
-prev_page_title: Themeing your app
-prev_page_link: /docs/v2/theming/theming-your-app/
-next_page_title: Platform Specific Theming
-next_page_link: /docs/v2/theming/platform-specific-styles/
+prev_page_title: Intro
+prev_page_link: /docs/v2/theming/
+next_page_title: Sass Variables
+next_page_link: /docs/v2/theming/sass-variables/
 ---
 
 <h1 class="title">Theming your Ionic App</h1>
@@ -49,4 +49,3 @@ Ionic makes the `$colors` keys available as a property to many components. For e
 ```html
 <button twitter>I'm a button</button>
 ```
-

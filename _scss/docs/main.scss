@@ -524,14 +524,14 @@ html {
 
 body {
   min-height: 100%;
-  margin: 0 0 -100px; // bottom = footer height
+  margin: 0 0 -130px; // bottom = footer height
 }
 
 .footer-links {
   position: absolute;
   left: $sidenav-width + 40px;
   bottom: 0;
-  height: 100px;
+  height: 130px;
   right: 40px;
   @media (max-width: $screen-xs-max) {
     left: 40px;
@@ -544,6 +544,7 @@ a.footer-link {
   text-decoration: none;
   font-weight: 500;
   position: absolute;
+  padding-top: 10px;
   right: 40px;
   text-align: right;
   transition: color .2s;

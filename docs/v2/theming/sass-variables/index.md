@@ -5,6 +5,10 @@ id: sass-variables
 title: Sass Variables
 header_title: Sass Variables
 header_sub_title: Sass Variables
+prev_page_title: Theming your app
+prev_page_link: /docs/v2/theming/theming-your-app/
+next_page_title: Platform Specific Theming
+next_page_link: /docs/v2/theming/platform-specific-styles/
 ---
 
 <h1 class="title">Sass Variables</h1>

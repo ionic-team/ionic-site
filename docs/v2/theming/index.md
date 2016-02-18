@@ -5,7 +5,7 @@ id: theming-intro
 title: Ionic 2 Theming
 header_title: Theming Ionic Apps
 header_sub_title: Ionic 2 Developer Preview
-next_page_title: Themeing your app
+next_page_title: Theming your app
 next_page_link: /docs/v2/theming/theming-your-app/
 ---
 

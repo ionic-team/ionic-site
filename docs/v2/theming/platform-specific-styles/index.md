@@ -7,8 +7,8 @@ header_title: Platform Specific Styles
 header_sub_title: Platform Specific Styles
 prev_page_title: Platform Specific Theming
 prev_page_link: /docs/v2/theming/platform-specific-styles/
-next_page_title: Sass Variables
-next_page_link: /docs/v2/theming/sass-variables/
+next_page_title: Overriding Ionic Variables
+next_page_link: /docs/v2/theming/overriding-ionic-variables/
 ---
 
 <h1 class="title">Platform Specific Styles</h1>

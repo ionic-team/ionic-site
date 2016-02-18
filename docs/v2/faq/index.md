@@ -52,28 +52,6 @@ class MyPage {}
 
 <h3 id="Common_mistakes">Common mistakes:</h3>
 
-- putting your `directives` array in your `@Component` options, not in `(click)`.
-
-```ts
-@Component({
-  //directives: [MyDirective] Wrong
-})
-(click)({
-  directives: [MyDirective] // Right
-})
-```
-
-- putting your `bindings` array in your `(click)` options, not in `@Component` or `@Directive`.
-
-```ts
-@Component({
-  providers: [MyService] // Right
-})
-(click)({
-  // providers: [MyService] Wrong
-})
-```
-
 - Forgetting `()` after an annotation: `@Injectable()`, `@Optional()`, etc.
 
 ```ts
@@ -87,7 +65,7 @@ class MyDirective {
 }
 ```
 
-- Adding bindings to every component when you mean to have the same binding instance injected to each component (services for example).  For a class to be injectable it only needs to be in the `bindings` array of that component or any parent component (for example `@App`), but not both.  Putting it in both the component that has that binding injected in addition to a parent or ancestor will create two separate binding instances. The following example illustrates the issue:
+- Adding providers to every component when you mean to have the same provider instance injected to each component (services for example).  For a class to be injectable it only needs to be in the `providers` array of that component or any parent component (for example `@App`), but not both.  Putting it in both the component that has that provider injected in addition to a parent or ancestor will create two separate provider instances. The following example illustrates the issue:
 
 ```ts
 let id = 0;
@@ -97,26 +75,25 @@ class MyService {
 
 @Component({
   selector: 'my-component',
-  providers: [MyService] // <-- Creates a new instance of MyService
-})                      // Unnecessary because MyService is in App's bindings
-(click)({
-  template: 'Hello World'
-})
+  template: 'Hello World',
+  providers: [MyService] // <-- Creates a new instance of MyService :(
+})                       // Unnecessary because MyService is in App's providers
 class MyComp {
-  // id is 0
+  // id is 1, s is a different MyService instance than MyApp
   constructor(s: MyService) { console.log("MyService id is: " + s.id); }
 }
 
 @App({
   template: '<my-component></my-component>',
-  providers: [MyService],
+  providers: [MyService], // MyService only needs to be here
   directives: [MyComp]
 })
 class MyApp {
-  // id is 1, s is a different instance than MyComp
+  // id is 0
   constructor(s: MyService) { console.log("MyService id is: " + s.id); }
 }
 ```
+Plunker: http://plnkr.co/edit/QzgR5H0r8FijHeVtv2dd
 
 <h3 id="Common_JS_errors">Common JS errors:</h3>
 
@@ -137,7 +114,7 @@ import {MyService} from 'myservice'; //Don't forget to import me!
 })
 export class MyClass {
   constructor(service: MyService){}
-    /* OR */
+    /* Or if not using typescriptPackage */
   constructor(@Inject(MyService) service){}
 }
 ```
@@ -145,10 +122,10 @@ export class MyClass {
 Sometimes circular references within your code can cause this error.  Circular references mean that two objects depend on each other, and so there is no way to declare both of them before each other.  To get around this, we can use the [`forwardRef`]() function built in to Angular 2.
 
 ```ts
+import {forwardRef} from 'angular2/core';
+
 @Component({
   selector: 'my-button'
-})
-(click)({
   template: `<div>
                <icon></icon>
                <input type="button" />
@@ -170,7 +147,7 @@ class MyIcon {
 
 This means Angular knows what type of thing it is supposed to inject, but it doesn't know how to inject it. Make sure:
 
-- if the parameter is a service, you have added the specified class to the list of bindings available to your app
+- if the parameter is a service, you have added the specified class to the list of providers available to your app
 
 
 ```ts
@@ -183,13 +160,11 @@ import {MyService} from 'myservice';
 class MyApp {
 ```
 
-If the parameter is another component or directive (for example, a parent component), adding it to your list of bindings will make the error go away, but this will have the same effect as #4 of the [Common Mistakes](#Common_mistakes) above.  That is, you'll be creating a new instance of the component class (you can kind of think of it as service-ifying your component), but you aren't actually getting a reference to the component instance you want (the one from angular compiling your app).  Instead, make sure that the directive or component you expect to be injected is available to your component (e.g. that it is actually a parent if you are expecting it to be a parent). This is probably easiest understood with an example:
+If the parameter is another component or directive (for example, a parent component), adding it to your list of providers will make the error go away, but this will have the same effect as #4 of the [Common Mistakes](#Common_mistakes) above.  That is, you'll be creating a new instance of the component class (you can kind of think of it as service-ifying your component), but you aren't actually getting a reference to the component instance you want (the one from angular compiling your app).  Instead, make sure that the directive or component you expect to be injected is available to your component (e.g. that it is actually a parent if you are expecting it to be a parent). This is probably easiest understood with an example:
 
 ```ts
 @Component({
   selector: 'my-comp'
-})
-(click)({
   template: '<div my-dir></div>',
   directives: [forwardRef(() => MyDir)]
 })

@@ -45671,6 +45671,12 @@
 	        this.viewType = '';
 	        /**
 	         * @private
+	         * If this is currently the active view, then set to false
+	         * if it does not want the other views to fire their own lifecycles.
+	         */
+	        this.fireOtherLifecycles = true;
+	        /**
+	         * @private
 	         */
 	        this._emitter = new core_1.EventEmitter();
 	        // passed in data could be NavParams, but all we care about is its data object
@@ -46059,7 +46065,7 @@
 	            viewCtrl.instance[fnName]();
 	        }
 	        catch (e) {
-	            console.error(fnName + ': ' + e.message);
+	            console.error(viewCtrl.name + ' ' + fnName + ': ' + e.message);
 	        }
 	    }
 	}
@@ -46150,6 +46156,7 @@
 	var toolbar_1 = __webpack_require__(300);
 	var config_1 = __webpack_require__(161);
 	var app_1 = __webpack_require__(168);
+	var util_1 = __webpack_require__(163);
 	var view_controller_1 = __webpack_require__(296);
 	var nav_controller_1 = __webpack_require__(302);
 	var BackButton = (function (_super) {
@@ -46244,19 +46251,25 @@
 	        _super.call(this, elementRef);
 	        this._app = _app;
 	        this._renderer = _renderer;
+	        this._hidden = false;
+	        this._hideBb = false;
 	        viewCtrl && viewCtrl.setNavbar(this);
 	        this._bbIcon = config.get('backButtonIcon');
 	        this._bbText = config.get('backButtonText');
 	    }
-	    /**
-	     * @private
-	     */
-	    Navbar.prototype.ngOnInit = function () {
-	        var hideBackButton = this.hideBackButton;
-	        if (typeof hideBackButton === 'string') {
-	            this.hideBackButton = (hideBackButton === '' || hideBackButton === 'true');
-	        }
-	    };
+	    Object.defineProperty(Navbar.prototype, "hideBackButton", {
+	        /**
+	         * @private
+	         */
+	        get: function () {
+	            return this._hideBb;
+	        },
+	        set: function (val) {
+	            this._hideBb = util_1.isTrueProperty(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     */
@@ -46319,13 +46332,13 @@
 	    };
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Navbar.prototype, "hideBackButton", void 0);
+	        __metadata('design:type', Boolean)
+	    ], Navbar.prototype, "hideBackButton", null);
 	    Navbar = __decorate([
 	        core_1.Component({
 	            selector: 'ion-navbar',
 	            template: '<div class="toolbar-background"></div>' +
-	                '<button class="back-button bar-button bar-button-default" [hidden]="hideBackButton">' +
+	                '<button class="back-button bar-button bar-button-default" [hidden]="_hideBb">' +
 	                '<span class="button-inner">' +
 	                '<ion-icon class="back-button-icon" [name]="_bbIcon"></ion-icon>' +
 	                '<span class="back-button-text">' +
@@ -47928,8 +47941,16 @@
 	                });
 	            }
 	            // call each view's lifecycle events
-	            enteringView.willEnter();
-	            leavingView.willLeave();
+	            if (leavingView.fireOtherLifecycles) {
+	                // only fire entering lifecycle if the leaving
+	                // view hasn't explicitly set not to
+	                enteringView.willEnter();
+	            }
+	            if (enteringView.fireOtherLifecycles) {
+	                // only fire leaving lifecycle if the entering
+	                // view hasn't explicitly set not to
+	                leavingView.willLeave();
+	            }
 	        }
 	        else {
 	            // this view is being preloaded, don't call lifecycle events
@@ -48011,8 +48032,16 @@
 	        // run inside of the zone again
 	        this._zone.run(function () {
 	            if (!opts.preload && hasCompleted) {
-	                enteringView.didEnter();
-	                leavingView.didLeave();
+	                if (leavingView.fireOtherLifecycles) {
+	                    // only fire entering lifecycle if the leaving
+	                    // view hasn't explicitly set not to
+	                    enteringView.didEnter();
+	                }
+	                if (enteringView.fireOtherLifecycles) {
+	                    // only fire leaving lifecycle if the entering
+	                    // view hasn't explicitly set not to
+	                    leavingView.didLeave();
+	                }
 	            }
 	            if (enteringView.state === STATE_INACTIVE) {
 	                // this entering view is already set to inactive, so this
@@ -57080,6 +57109,10 @@
 	        opts.enableBackdropDismiss = util_1.isDefined(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, AlertCmp, opts);
 	        this.viewType = 'alert';
+	        // by default, alerts should not fire lifecycle events of other views
+	        // for example, when an alert enters, the current active view should
+	        // not fire its lifecycle events because it's not conceptually leaving
+	        this.fireOtherLifecycles = false;
 	    }
 	    /**
 	    * @private
@@ -60668,6 +60701,10 @@
 	        opts.enableBackdropDismiss = util_1.isDefined(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, ActionSheetCmp, opts);
 	        this.viewType = 'action-sheet';
+	        // by default, actionsheets should not fire lifecycle events of other views
+	        // for example, when an actionsheets enters, the current active view should
+	        // not fire its lifecycle events because it's not conceptually leaving
+	        this.fireOtherLifecycles = false;
 	    }
 	    /**
 	    * @private

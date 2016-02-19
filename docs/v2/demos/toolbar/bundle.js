@@ -60696,6 +60696,28 @@
 	        this.data.buttons.push(button);
 	    };
 	    /**
+	     * Open an action sheet with the following options
+	     *
+	     * | Option                | Type       | Description                                                     |
+	     * |-----------------------|------------|-----------------------------------------------------------------|
+	     * | title                 |`string`    | The title for the actionsheet                                   |
+	     * | subTitle              |`string`    | The sub-title for the actionsheet                               |
+	     * | cssClass              |`string`    | An additional class for custom styles                           |
+	     * | enableBackdropDismiss |`boolean`   | If the actionsheet should close when the user taps the backdrop |
+	     * | buttons               |`array<any>`| An array of buttons to display                                  |
+	     *
+	     * For the buttons:
+	     *
+	     * | Option   | Type     | Description                                                                                                                                      |
+	     * |----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+	     * | text     | `string` | The buttons text                                                                                                                                 |
+	     * | icon     | `icon`   | The buttons icons                                                                                                                                |
+	     * | handler  | `any`    | An express the button shoule evaluate                                                                                                            |
+	     * | cssClass | `string` | An additional class for custom styles                                                                                                            |
+	     * | role     | `string` | How the button should be displayed, `destructive` or `cancel`. If not role is provided, it will display the button without any additional styles |
+	     *
+	     *
+	     *
 	     * @param {object} opts Action sheet options
 	     */
 	    ActionSheet.create = function (opts) {

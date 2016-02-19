@@ -4231,7 +4231,7 @@ ion-slides {
 
 @font-face {
   font-family: "Ionicons";
-  src: url("../fonts/ionicons.woff2?v=3.0.0-alpha.3") format("woff2"), url("../fonts/ionicons.woff?v=3.0.0-alpha.3") format("woff"), url("../fonts/ionicons.ttf?v=3.0.0-alpha.3") format("truetype");
+  src: url("/fonts/ionicons.woff2?v=3.0.0-alpha.3") format("woff2"), url("/fonts/ionicons.woff?v=3.0.0-alpha.3") format("woff"), url("/fonts/ionicons.ttf?v=3.0.0-alpha.3") format("truetype");
   font-weight: normal;
   font-style: normal; }
 

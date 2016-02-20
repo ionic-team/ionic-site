@@ -41609,8 +41609,9 @@
 	    };
 	    /**
 	     * Used to enable or disable a menu. For example, there could be multiple
-	     * left menus, but only one of them should be able to be dragged open.
-	     * @param {boolean} shouldEnable  True if it should be enabled, false if not.
+	     * left menus, but only one of them should be able to be opened at the same
+	     * time. If there are multiple menus on the same side, then enabling one menu
+	     * will also automatically disable all the others that are on the same side.
 	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
 	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
 	     */
@@ -41647,24 +41648,35 @@
 	        return menu && menu.enabled || false;
 	    };
 	    /**
-	     * Used to get a menu instance. If a `menuId` is not provided then it'll return
-	     * the first menu found. If a `menuId` is provided, then it'll first try to find
-	     * the menu using the menu's `id` attribute. If a menu is not found using the `id`
-	     * attribute, then it'll try to find the menu by its `side` name.
+	     * Used to get a menu instance. If a `menuId` is not provided then it'll
+	     * return the first menu found. If a `menuId` is `left` or `right`, then
+	     * it'll return the enabled menu on that side. Otherwise, if a `menuId` is
+	     * provided, then it'll try to find the menu using the menu's `id`
+	     * property. If a menu is not found then it'll return `null`.
 	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
 	     * @return {Menu}  Returns the instance of the menu if found, otherwise `null`.
 	     */
 	    MenuController.prototype.get = function (menuId) {
-	        if (menuId) {
-	            // first try by "id"
-	            var menu = this._menus.find(function (m) { return m.id === menuId; });
+	        var menu;
+	        if (menuId === 'left' || menuId === 'right') {
+	            // there could be more than one menu on the same side
+	            // so first try to get the enabled one
+	            menu = this._menus.find(function (m) { return m.side === menuId && m.enabled; });
 	            if (menu)
 	                return menu;
-	            // not found by "id", next try by "side"
-	            menu = this._menus.find(function (m) { return m.side === menuId; });
-	            if (menu)
-	                return menu;
+	            // didn't find a menu side that is enabled
+	            // so try to get the first menu side found
+	            return this._menus.find(function (m) { return m.side === menuId; }) || null;
 	        }
+	        else if (menuId) {
+	            // the menuId was not left or right
+	            // so try to get the menu by its "id"
+	            return this._menus.find(function (m) { return m.id === menuId; }) || null;
+	        }
+	        // return the first enabled menu
+	        menu = this._menus.find(function (m) { return m.enabled; });
+	        if (menu)
+	            return menu;
 	        // get the first menu in the array, if one exists
 	        return (this._menus.length ? this._menus[0] : null);
 	    };
@@ -42809,14 +42821,27 @@
 	    };
 	    /**
 	     * Used to enable or disable a menu. For example, there could be multiple
-	     * left menus, but only one of them should be able to be dragged open.
+	     * left menus, but only one of them should be able to be opened at the same
+	     * time. If there are multiple menus on the same side, then enabling one menu
+	     * will also automatically disable all the others that are on the same side.
 	     * @param {boolean} shouldEnable  True if it should be enabled, false if not.
 	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
 	     */
 	    Menu.prototype.enable = function (shouldEnable) {
+	        var _this = this;
 	        this.enabled = shouldEnable;
 	        if (!shouldEnable && this.isOpen) {
+	            // close if this menu is open, and should not be enabled
 	            this.close();
+	        }
+	        if (shouldEnable) {
+	            // if this menu should be enabled
+	            // then find all the other menus on this same side
+	            // and automatically disable other same side menus
+	            var sameSideMenus = this._menuCtrl
+	                .getMenus()
+	                .filter(function (m) { return m.side === _this.side && m !== _this; })
+	                .map(function (m) { return m.enabled = false; });
 	        }
 	        return this;
 	    };

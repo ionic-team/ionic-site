@@ -293,13 +293,15 @@ will close.
 <div id="enable"></div>
 
 <h3>
-<code>enable(shouldEnable,&nbsp;menuId)</code>
+<code>enable(menuId)</code>
   
 
 </h3>
 
 Used to enable or disable a menu. For example, there could be multiple
-left menus, but only one of them should be able to be dragged open.
+left menus, but only one of them should be able to be opened at the same
+time. If there are multiple menus on the same side, then enabling one menu
+will also automatically disable all the others that are on the same side.
 
 
 <table class="table param-table" style="margin:0;">
@@ -311,23 +313,6 @@ left menus, but only one of them should be able to be dragged open.
     </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        shouldEnable
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>True if it should be enabled, false if not.</p>
-
-        
-      </td>
-    </tr>
     
     <tr>
       <td>
@@ -489,10 +474,11 @@ Used to enable or disable the ability to swipe open the menu.
 
 </h3>
 
-Used to get a menu instance. If a `menuId` is not provided then it'll return
-the first menu found. If a `menuId` is provided, then it'll first try to find
-the menu using the menu's `id` attribute. If a menu is not found using the `id`
-attribute, then it'll try to find the menu by its `side` name.
+Used to get a menu instance. If a `menuId` is not provided then it'll
+return the first menu found. If a `menuId` is `left` or `right`, then
+it'll return the enabled menu on that side. Otherwise, if a `menuId` is
+provided, then it'll try to find the menu using the menu's `id`
+property. If a menu is not found then it'll return `null`.
 
 
 <table class="table param-table" style="margin:0;">

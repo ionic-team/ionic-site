@@ -47193,7 +47193,7 @@
 	        this._trnsDelay = config.get('pageTransitionDelay');
 	        this._sbEnabled = config.getBoolean('swipeBackEnabled') || false;
 	        this._sbThreshold = config.get('swipeBackThreshold') || 40;
-	        this.id = ++ctrlIds;
+	        this.id = (++ctrlIds).toString();
 	        // build a new injector for child ViewControllers to use
 	        this.providers = core_1.Injector.resolve([
 	            core_1.provide(NavController, { useValue: this })
@@ -47621,6 +47621,11 @@
 	        var activeView = this.getByState(STATE_TRANS_ENTER) ||
 	            this.getByState(STATE_INIT_ENTER) ||
 	            this.getActive();
+	        // if not set, by default climb up the nav controllers if
+	        // there isn't a previous view in this nav controller
+	        if (util_1.isUndefined(opts.climbNav)) {
+	            opts.climbNav = true;
+	        }
 	        return this.remove(this.indexOf(activeView), 1, opts);
 	    };
 	    /**
@@ -47711,13 +47716,39 @@
 	        if (leavingView) {
 	            // there is a view ready to leave, meaning that a transition needs
 	            // to happen and the previously active view is going to animate out
+	            // get the view thats ready to enter
+	            var enteringView = this.getByState(STATE_INIT_ENTER);
+	            if (!enteringView) {
+	                // oh knows! no entering view to go to!
+	                // if there is no previous view that would enter in this nav stack
+	                // and the option is set to climb up the nav parent looking
+	                // for the next nav we could transition to instead
+	                if (opts.climbNav) {
+	                    var parentNav = this.parent;
+	                    while (parentNav) {
+	                        if (!parentNav['_tabs']) {
+	                            // Tabs can be a parent, but it is not a collection of views
+	                            // only we're looking for an actual NavController w/ stack of views
+	                            leavingView.willLeave();
+	                            return parentNav.pop(opts).then(function (rtnVal) {
+	                                leavingView.didLeave();
+	                                return rtnVal;
+	                            });
+	                        }
+	                        parentNav = parentNav.parent;
+	                    }
+	                }
+	                // there's no previous view and there's no valid parent nav
+	                // to climb to so this shouldn't actually remove the leaving
+	                // view because there's nothing that would enter, eww
+	                leavingView.state = STATE_ACTIVE;
+	                return Promise.resolve(false);
+	            }
 	            var resolve;
 	            var promise = new Promise(function (res) { resolve = res; });
 	            if (!opts.animation) {
 	                opts.animation = leavingView.getTransitionName(opts.direction);
 	            }
-	            // get the view thats ready to enter
-	            var enteringView = this.getByState(STATE_INIT_ENTER);
 	            // start the transition, fire resolve when done...
 	            this._transition(enteringView, leavingView, opts, function (hasCompleted) {
 	                // transition has completed!!
@@ -48154,6 +48185,12 @@
 	            view.destroy();
 	        });
 	    };
+	    NavController.prototype.ngOnDestroy = function () {
+	        for (var i = this._views.length - 1; i >= 0; i--) {
+	            this._views[i].destroy();
+	        }
+	        this._views = [];
+	    };
 	    /**
 	     * @private
 	     */
@@ -48187,6 +48224,7 @@
 	                if (!hostViewRef.destroyed && index !== -1) {
 	                    viewContainer.remove(index);
 	                }
+	                view.setInstance(null);
 	            });
 	            // a new ComponentRef has been created
 	            // set the ComponentRef's instance to this ViewController
@@ -55337,7 +55375,7 @@
 	     */
 	    Tab.prototype.preload = function (wait) {
 	        var _this = this;
-	        this._loadTimer = setTimeout(function () {
+	        this._loadTmr = setTimeout(function () {
 	            if (!_this._loaded) {
 	                console.debug('Tabs, preload', _this.id);
 	                _this.load({
@@ -55400,7 +55438,8 @@
 	     * @private
 	     */
 	    Tab.prototype.ngOnDestroy = function () {
-	        clearTimeout(this._loadTimer);
+	        clearTimeout(this._loadTmr);
+	        _super.prototype.ngOnDestroy.call(this);
 	    };
 	    __decorate([
 	        core_2.Input(), 
@@ -60037,40 +60076,34 @@
 	        // method when the NavController has...changed its state
 	        _nav.registerRouter(this);
 	    }
-	    /**
-	     * @private
-	     * TODO
-	     * @param {ComponentInstruction} instruction  TODO
-	     */
 	    NavRouter.prototype.activate = function (nextInstruction) {
 	        var previousInstruction = this['_currentInstruction'];
 	        this['_currentInstruction'] = nextInstruction;
 	        var componentType = nextInstruction.componentType;
 	        var childRouter = this['_parentRouter'].childRouter(componentType);
 	        // prevent double navigations to the same view
-	        var lastView = this._nav.last();
-	        if (this._nav.isTransitioning() || lastView && lastView.componentType === componentType && lastView.data === nextInstruction.params) {
-	            return Promise.resolve();
+	        var instruction = new ResolvedInstruction(nextInstruction, null, null);
+	        var url;
+	        if (instruction) {
+	            url = instruction.toRootUrl();
+	            if (url === this._lastUrl) {
+	                return Promise.resolve();
+	            }
 	        }
+	        console.debug('NavRouter, activate:', componentType.name, 'url:', url);
 	        // tell the NavController which componentType, and it's params, to navigate to
 	        return this._nav.push(componentType, nextInstruction.params);
 	    };
 	    NavRouter.prototype.reuse = function (nextInstruction) {
 	        return Promise.resolve();
 	    };
-	    /**
-	     * Called by Ionic after a transition has completed.
-	     * @param {string} direction  The direction of the state change
-	     * @param {ViewController} viewCtrl  The entering ViewController
-	     */
 	    NavRouter.prototype.stateChange = function (direction, viewCtrl) {
 	        // stateChange is called by Ionic's NavController
 	        // type could be "push" or "pop"
 	        // viewCtrl is Ionic's ViewController class, which has the properties "componentType" and "params"
 	        // only do an update if there's an actual view change
-	        if (!viewCtrl || this._activeViewId === viewCtrl.id)
+	        if (!viewCtrl)
 	            return;
-	        this._activeViewId = viewCtrl.id;
 	        // get the best PathRecognizer for this view's componentType
 	        var pathRecognizer = this.getPathRecognizerByComponent(viewCtrl.componentType);
 	        if (pathRecognizer) {
@@ -60078,14 +60111,16 @@
 	            var componentInstruction = pathRecognizer.generate(viewCtrl.data);
 	            // create a ResolvedInstruction from the componentInstruction
 	            var instruction = new ResolvedInstruction(componentInstruction, null, null);
-	            this['_parentRouter'].navigateByInstruction(instruction);
+	            if (instruction) {
+	                var url = instruction.toRootUrl();
+	                if (url === this._lastUrl)
+	                    return;
+	                this._lastUrl = url;
+	                this['_parentRouter'].navigateByInstruction(instruction);
+	                console.debug('NavRouter, stateChange, name:', viewCtrl.name, 'id:', viewCtrl.id, 'url:', url);
+	            }
 	        }
 	    };
-	    /**
-	     * TODO
-	     * @param {TODO} componentType  TODO
-	     * @returns {TODO} TODO
-	     */
 	    NavRouter.prototype.getPathRecognizerByComponent = function (componentType) {
 	        // given a componentType, figure out the best PathRecognizer to use
 	        var rules = this['_parentRouter'].registry._rules;

@@ -1092,6 +1092,25 @@ export class Detail {
 
 
 
+<div id="ngOnDestroy"></div>
+
+<h3>
+<code>ngOnDestroy()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="canSwipeBack"></div>
 
 <h3>

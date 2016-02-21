@@ -47694,7 +47694,6 @@
 	     * @returns {Promise} Returns a promise when the page has been removed.
 	     */
 	    NavController.prototype.remove = function (startIndex, removeCount, opts) {
-	        var _this = this;
 	        if (startIndex === void 0) { startIndex = -1; }
 	        if (removeCount === void 0) { removeCount = 1; }
 	        if (opts === void 0) { opts = {}; }
@@ -47713,28 +47712,13 @@
 	            if (forcedActive) {
 	                // this scenario happens when a remove is going on
 	                // during a transition
-	                var resolve;
-	                var promise = new Promise(function (res) { resolve = res; });
-	                if (!opts.animation) {
-	                    opts.animation = forcedActive.getTransitionName(opts.direction);
-	                }
 	                if (this._trans) {
-	                    this._trans
-	                        .onFinish(function () {
-	                        opts.animate = false;
-	                        _this._transition(forcedActive, null, opts, function (hasCompleted) {
-	                            // transition has completed!!
-	                            resolve(hasCompleted);
-	                        });
-	                    }, false, true)
-	                        .stop();
+	                    this._trans.stop();
 	                    this._trans.destroy();
 	                    this._trans = null;
+	                    this._cleanup();
 	                }
-	                else {
-	                    resolve(false);
-	                }
-	                return promise;
+	                return Promise.resolve(false);
 	            }
 	        }
 	        if (leavingView) {

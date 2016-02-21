@@ -48944,7 +48944,12 @@
 	    };
 	    Animation.prototype._progress = function (stepValue) {
 	        // bread 'n butter
-	        var i, prop, fx, val, transforms, tweenEffect;
+	        var i;
+	        var prop;
+	        var fx;
+	        var val;
+	        var transforms;
+	        var tweenEffect;
 	        for (i = 0; i < this._c.length; i++) {
 	            this._c[i]._progress(stepValue);
 	        }
@@ -49002,7 +49007,8 @@
 	        }
 	    };
 	    Animation.prototype._setTrans = function (duration, forcedLinearEasing) {
-	        var i, easing;
+	        var i;
+	        var easing;
 	        // set the TRANSITION properties inline on the element
 	        for (i = 0; i < this._c.length; i++) {
 	            this._c[i]._setTrans(duration, forcedLinearEasing);
@@ -49020,7 +49026,9 @@
 	        }
 	    };
 	    Animation.prototype._willChange = function (addWillChange) {
-	        var i, wc, prop;
+	        var i;
+	        var wc;
+	        var prop;
 	        for (i = 0; i < this._c.length; i++) {
 	            this._c[i]._willChange(addWillChange);
 	        }
@@ -49041,7 +49049,10 @@
 	    Animation.prototype._before = function () {
 	        // before the RENDER_DELAY
 	        // before the animations have started
-	        var i, j, prop, ele;
+	        var i;
+	        var j;
+	        var prop;
+	        var ele;
 	        // stage all of the child animations
 	        for (i = 0; i < this._c.length; i++) {
 	            this._c[i]._before();
@@ -49066,7 +49077,10 @@
 	    };
 	    Animation.prototype._after = function () {
 	        // after the animations have finished
-	        var i, j, prop, ele;
+	        var i;
+	        var j;
+	        var prop;
+	        var ele;
 	        for (i = 0; i < this._c.length; i++) {
 	            this._c[i]._after();
 	        }
@@ -49195,7 +49209,8 @@
 	        return this;
 	    };
 	    Animation.prototype.destroy = function (removeElement) {
-	        var i, ele;
+	        var i;
+	        var ele;
 	        for (i = 0; i < this._c.length; i++) {
 	            this._c[i].destroy(removeElement);
 	        }
@@ -49209,7 +49224,8 @@
 	    };
 	    Animation.prototype._transEl = function () {
 	        // get the lowest level element that has an Animation
-	        var i, targetEl;
+	        var i;
+	        var targetEl;
 	        for (i = 0; i < this._c.length; i++) {
 	            targetEl = this._c[i]._transEl();
 	            if (targetEl) {

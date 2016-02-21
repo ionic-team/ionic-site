@@ -32,7 +32,7 @@ App
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/decorators/app.ts#L33'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/decorators/app.ts#L34'>
 Improve this doc
 </a>
 
@@ -137,7 +137,7 @@ boolean
 
 
 <td>
-Enable Angular's production mode, which turns off assertions and other checks within the framework. Defaults to `false`.
+Enable Angular's production mode, which turns off assertions and other checks within the framework. Additionally, this config sets the return value of `isProd()` which is on the `IonicApp` instance. Defaults to `false`.
 </td>
 </tr>
 

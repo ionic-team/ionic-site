@@ -27895,7 +27895,6 @@
 	var browser_1 = __webpack_require__(169);
 	var config_1 = __webpack_require__(161);
 	var click_block_1 = __webpack_require__(160);
-	var dom_1 = __webpack_require__(164);
 	/**
 	 * @private
 	 * Component registry service.  For more information on registering
@@ -27906,28 +27905,37 @@
 	        this._config = _config;
 	        this._clickBlock = _clickBlock;
 	        this._zone = _zone;
-	        this._titleSrv = new browser_1.Title();
-	        this._title = '';
+	        this._cmps = {};
 	        this._disTime = 0;
 	        this._scrollTime = 0;
-	        // Our component registry map
-	        this.components = {};
+	        this._title = '';
+	        this._titleSrv = new browser_1.Title();
+	        this._isProd = false;
 	    }
 	    /**
 	     * Sets the document title.
 	     * @param {string} val  Value to set the document title to.
 	     */
 	    IonicApp.prototype.setTitle = function (val) {
-	        var self = this;
-	        if (val !== self._title) {
-	            self._title = val;
-	            this._zone.runOutsideAngular(function () {
-	                function setAppTitle() {
-	                    self._titleSrv.setTitle(self._title);
-	                }
-	                dom_1.rafFrames(4, setAppTitle);
-	            });
+	        if (val !== this._title) {
+	            this._title = val;
+	            this._titleSrv.setTitle(val);
 	        }
+	    };
+	    /**
+	     * Returns if the app has been set to be in be in production mode or not.
+	     * Production mode can only be set within the config of `@App`. Defaults
+	     * to `false`.
+	     * @return {boolean}
+	     */
+	    IonicApp.prototype.isProd = function () {
+	        return this._isProd;
+	    };
+	    /**
+	     * @private
+	     */
+	    IonicApp.prototype.setProd = function (val) {
+	        this._isProd = !!val;
 	    };
 	    /**
 	     * @private
@@ -27978,7 +27986,7 @@
 	     * @param {object} component  The component to register
 	     */
 	    IonicApp.prototype.register = function (id, component) {
-	        this.components[id] = component;
+	        this._cmps[id] = component;
 	    };
 	    /**
 	     * @private
@@ -27986,7 +27994,7 @@
 	     * @param {string} id  The id to use to unregister
 	     */
 	    IonicApp.prototype.unregister = function (id) {
-	        delete this.components[id];
+	        delete this._cmps[id];
 	    };
 	    /**
 	     * @private
@@ -27995,8 +28003,8 @@
 	     * @return {object} the matching component, or undefined if none was found
 	     */
 	    IonicApp.prototype.getRegisteredComponent = function (cls) {
-	        for (var key in this.components) {
-	            var component = this.components[key];
+	        for (var key in this._cmps) {
+	            var component = this._cmps[key];
 	            if (component instanceof cls) {
 	                return component;
 	            }
@@ -28005,8 +28013,6 @@
 	    /**
 	     * @private
 	     * Get the component for the given key.
-	     * @param {string} id  TODO
-	     * @return {object} TODO
 	     */
 	    IonicApp.prototype.getComponent = function (id) {
 	        // deprecated warning
@@ -28023,7 +28029,7 @@
 	                '  this.menu.open("right");\n' +
 	                '}');
 	        }
-	        return this.components[id];
+	        return this._cmps[id];
 	    };
 	    IonicApp = __decorate([
 	        core_1.Injectable(), 
@@ -60498,6 +60504,7 @@
 
 	var core_1 = __webpack_require__(7);
 	var browser_1 = __webpack_require__(169);
+	var app_1 = __webpack_require__(168);
 	var tap_click_1 = __webpack_require__(280);
 	var bootstrap_1 = __webpack_require__(6);
 	var directives_1 = __webpack_require__(284);
@@ -60526,7 +60533,7 @@
 	* ```
 	*
 	* @property {object} [config] - the app's {@link /docs/v2/api/config/Config/ Config} object.
-	* @property {boolean} [prodMode] - Enable Angular's production mode, which turns off assertions and other checks within the framework. Defaults to `false`.
+	* @property {boolean} [prodMode] - Enable Angular's production mode, which turns off assertions and other checks within the framework. Additionally, this config sets the return value of `isProd()` which is on the `IonicApp` instance. Defaults to `false`.
 	* @property {array}  [pipes] - any pipes for your app.
 	* @property {array}  [providers] - any providers for your app.
 	* @property {string} [template] - the template to use for the app root.
@@ -60555,6 +60562,8 @@
 	        }
 	        browser_1.bootstrap(cls, providers).then(function (appRef) {
 	            appRef.injector.get(tap_click_1.TapClick);
+	            var app = appRef.injector.get(app_1.IonicApp);
+	            app.setProd(args.prodMode);
 	        });
 	        return cls;
 	    };

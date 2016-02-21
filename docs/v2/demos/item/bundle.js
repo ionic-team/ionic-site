@@ -56615,11 +56615,11 @@
 	    ], Checkbox.prototype, "_click", null);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object)
+	        __metadata('design:type', Boolean)
 	    ], Checkbox.prototype, "checked", null);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object)
+	        __metadata('design:type', Boolean)
 	    ], Checkbox.prototype, "disabled", null);
 	    Checkbox = __decorate([
 	        core_1.Component({
@@ -57709,6 +57709,10 @@
 	        this._disabled = false;
 	        this._activated = false;
 	        this._msPrv = 0;
+	        /**
+	         * @output {Toggle} expression to evaluate when the toggle value changes
+	         */
+	        this.change = new core_1.EventEmitter();
 	        this._form.register(this);
 	        if (_item) {
 	            this.id = 'tgl-' + _item.registerInput('toggle');
@@ -57786,8 +57790,11 @@
 	     * @private
 	     */
 	    Toggle.prototype._setChecked = function (isChecked) {
-	        this._checked = isChecked;
-	        this._item && this._item.setCssClass('item-toggle-checked', isChecked);
+	        if (isChecked !== this._checked) {
+	            this._checked = isChecked;
+	            this.change.emit(this);
+	            this._item && this._item.setCssClass('item-toggle-checked', isChecked);
+	        }
 	    };
 	    /**
 	     * @private
@@ -57826,7 +57833,12 @@
 	    /**
 	     * @private
 	     */
-	    Toggle.prototype.onChange = function (_) { };
+	    Toggle.prototype.onChange = function (isChecked) {
+	        // used when this input does not have an ngModel or ngControl
+	        console.debug('toggle, onChange (no ngModel)', isChecked);
+	        this._setChecked(isChecked);
+	        this.onTouched();
+	    };
 	    /**
 	     * @private
 	     */
@@ -57851,12 +57863,16 @@
 	        }
 	    };
 	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], Toggle.prototype, "change", void 0);
+	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object)
+	        __metadata('design:type', Boolean)
 	    ], Toggle.prototype, "checked", null);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object)
+	        __metadata('design:type', Boolean)
 	    ], Toggle.prototype, "disabled", null);
 	    Toggle = __decorate([
 	        core_1.Component({
@@ -57884,10 +57900,10 @@
 	            providers: [TOGGLE_VALUE_ACCESSOR]
 	        }),
 	        __param(3, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _e) || Object])
 	    ], Toggle);
 	    return Toggle;
-	    var _a, _b, _c, _d;
+	    var _a, _b, _c, _d, _e;
 	})();
 	exports.Toggle = Toggle;
 

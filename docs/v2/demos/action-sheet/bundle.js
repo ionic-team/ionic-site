@@ -48059,11 +48059,11 @@
 	                transAnimation.before.addClass(enteringView.viewType);
 	            }
 	            // create a callback for when the animation is done
-	            transAnimation.onFinish(function (hasCompleted) {
+	            transAnimation.onFinish(function (trans) {
 	                // transition animation has ended
 	                // destroy the animation and it's element references
-	                transAnimation.destroy();
-	                _this._afterTrans(enteringView, leavingView, opts, hasCompleted, done);
+	                trans.destroy();
+	                _this._afterTrans(enteringView, leavingView, opts, trans.hasCompleted, done);
 	            });
 	            // cool, let's do this, start the transition
 	            if (opts.progressAnimation) {
@@ -48648,7 +48648,11 @@
 	    function Animation(ele, opts) {
 	        if (opts === void 0) { opts = {}; }
 	        this._wChg = false;
+	        this._rv = false;
 	        this._lastUpd = 0;
+	        this.isPlaying = false;
+	        this.hasTween = false;
+	        this.hasCompleted = false;
 	        this._reset();
 	        this.element(ele);
 	        this._opts = util_1.assign({
@@ -48669,8 +48673,6 @@
 	        this._fFns = [];
 	        this._fOnceFns = [];
 	        this._clearAsync();
-	        this.isPlaying = this.hasTween = this._rv = false;
-	        this._easing = this._dur = null;
 	    };
 	    Animation.prototype.element = function (ele) {
 	        var i;
@@ -49196,12 +49198,13 @@
 	    };
 	    Animation.prototype._onFinish = function (hasCompleted) {
 	        this.isPlaying = false;
+	        this.hasCompleted = hasCompleted;
 	        var i;
 	        for (i = 0; i < this._fFns.length; i++) {
-	            this._fFns[i](hasCompleted);
+	            this._fFns[i](this);
 	        }
 	        for (i = 0; i < this._fOnceFns.length; i++) {
-	            this._fOnceFns[i](hasCompleted);
+	            this._fOnceFns[i](this);
 	        }
 	        this._fOnceFns = [];
 	    };

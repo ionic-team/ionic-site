@@ -111,6 +111,25 @@ for more info on forms and inputs.</p>
     </tr>
     
   </tbody>
+</table>
+<!-- output events on the class -->
+<h2>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>change</td>
+      <td><p> expression to evaluate when the checkbox value changes</p>
+</td>
+    </tr>
+    
+  </tbody>
 </table><!-- related link -->
 
 <h2>Related</h2>

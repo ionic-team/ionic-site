@@ -56503,6 +56503,10 @@
 	        this._item = _item;
 	        this._checked = false;
 	        this._disabled = false;
+	        /**
+	         * @output {Checkbox} expression to evaluate when the checkbox value changes
+	         */
+	        this.change = new core_1.EventEmitter();
 	        _form.register(this);
 	        if (_item) {
 	            this.id = 'chk-' + _item.registerInput('checkbox');
@@ -56537,8 +56541,11 @@
 	     * @private
 	     */
 	    Checkbox.prototype._setChecked = function (isChecked) {
-	        this._checked = isChecked;
-	        this._item && this._item.setCssClass('item-checkbox-checked', isChecked);
+	        if (isChecked !== this._checked) {
+	            this._checked = isChecked;
+	            this.change.emit(this);
+	            this._item && this._item.setCssClass('item-checkbox-checked', isChecked);
+	        }
 	    };
 	    /**
 	     * @private
@@ -56580,7 +56587,12 @@
 	    /**
 	     * @private
 	     */
-	    Checkbox.prototype.onChange = function (_) { };
+	    Checkbox.prototype.onChange = function (isChecked) {
+	        // used when this input does not have an ngModel or ngControl
+	        console.debug('checkbox, onChange (no ngModel)', isChecked);
+	        this._setChecked(isChecked);
+	        this.onTouched();
+	    };
 	    /**
 	     * @private
 	     */
@@ -56591,6 +56603,10 @@
 	    Checkbox.prototype.ngOnDestroy = function () {
 	        this._form.deregister(this);
 	    };
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], Checkbox.prototype, "change", void 0);
 	    __decorate([
 	        core_1.HostListener('click', ['$event']), 
 	        __metadata('design:type', Function), 
@@ -56624,10 +56640,10 @@
 	            providers: [CHECKBOX_VALUE_ACCESSOR]
 	        }),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _c) || Object])
 	    ], Checkbox);
 	    return Checkbox;
-	    var _a, _b;
+	    var _a, _b, _c;
 	})();
 	exports.Checkbox = Checkbox;
 
@@ -58820,7 +58836,7 @@
 	        this._renderer = _renderer;
 	        this._elementRef = _elementRef;
 	        /**
-	         * @output {any} expression to evaluate when a segment button has been clicked
+	         * @output {SegmentButton} expression to evaluate when a segment button has been clicked
 	         */
 	        this.select = new core_1.EventEmitter();
 	    }

@@ -84,7 +84,7 @@ more info on forms and input.</p>
     
     <tr>
       <td>select</td>
-      <td><p> expression to be evaluated when clicked</p>
+      <td><p> expression to be evaluated when selected</p>
 </td>
     </tr>
     

@@ -59089,7 +59089,7 @@
 	        this._disabled = false;
 	        this._value = null;
 	        /**
-	         * @output {any} expression to be evaluated when clicked
+	         * @output {RadioButton} expression to be evaluated when selected
 	         */
 	        this.select = new core_1.EventEmitter();
 	        _form.register(this);
@@ -59184,11 +59184,11 @@
 	    ], RadioButton.prototype, "value", null);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object)
+	        __metadata('design:type', Boolean)
 	    ], RadioButton.prototype, "checked", null);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object)
+	        __metadata('design:type', Boolean)
 	    ], RadioButton.prototype, "disabled", null);
 	    __decorate([
 	        core_1.HostListener('click', ['$event']), 

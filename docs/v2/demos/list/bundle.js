@@ -45704,6 +45704,10 @@
 	        /**
 	         * @private
 	         */
+	        this.isOverlay = false;
+	        /**
+	         * @private
+	         */
 	        this._emitter = new core_1.EventEmitter();
 	        // passed in data could be NavParams, but all we care about is its data object
 	        this.data = (data instanceof nav_params_1.NavParams ? data.data : data);
@@ -47950,7 +47954,6 @@
 	     */
 	    NavController.prototype._postRender = function (transId, enteringView, leavingView, isAlreadyTransitioning, opts, done) {
 	        // called after _render has completed and the view is compiled/loaded
-	        var _this = this;
 	        if (enteringView.state === STATE_INACTIVE) {
 	            // this entering view is already set to inactive, so this
 	            // transition must be canceled, so don't continue
@@ -47976,10 +47979,18 @@
 	            else {
 	                // there are no other transitions happening but this one
 	                // only entering/leaving should show, all others hidden
-	                this._views.forEach(function (view) {
-	                    var shouldShow = (view === enteringView) || (view === leavingView);
-	                    view.domCache(shouldShow, _this._renderer);
-	                });
+	                // also if a view is an overlay or the previous view is an
+	                // overlay then always show the overlay and the view before it
+	                var view;
+	                var shouldShow;
+	                for (var i = 0, ii = this._views.length; i < ii; i++) {
+	                    view = this._views[i];
+	                    shouldShow = (view === enteringView) ||
+	                        (view === leavingView) ||
+	                        view.isOverlay ||
+	                        (i < ii - 1 ? this._views[i + 1].isOverlay : false);
+	                    view.domCache(shouldShow, this._renderer);
+	                }
 	            }
 	            // call each view's lifecycle events
 	            if (leavingView.fireOtherLifecycles) {
@@ -57174,6 +57185,7 @@
 	        opts.enableBackdropDismiss = util_1.isDefined(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, AlertCmp, opts);
 	        this.viewType = 'alert';
+	        this.isOverlay = true;
 	        // by default, alerts should not fire lifecycle events of other views
 	        // for example, when an alert enters, the current active view should
 	        // not fire its lifecycle events because it's not conceptually leaving
@@ -60778,6 +60790,7 @@
 	        opts.enableBackdropDismiss = util_1.isDefined(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, ActionSheetCmp, opts);
 	        this.viewType = 'action-sheet';
+	        this.isOverlay = true;
 	        // by default, actionsheets should not fire lifecycle events of other views
 	        // for example, when an actionsheets enters, the current active view should
 	        // not fire its lifecycle events because it's not conceptually leaving
@@ -61275,6 +61288,7 @@
 	        if (data === void 0) { data = {}; }
 	        _super.call(this, componentType, data);
 	        this.viewType = 'modal';
+	        this.isOverlay = true;
 	    }
 	    /**
 	    * @private

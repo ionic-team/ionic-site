@@ -38,13 +38,7 @@ Improve this doc
 
 
 
-
-<!-- description -->
-
-<p>This plugin allows you to show a native Toast (a little text popup) on iOS, Android and WP8. It&#39;s great for showing a non intrusive native notification which is guaranteed always in the viewport of the browser.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-x-toast</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin">Toast plugin docs</a>.</p>
-
-
+<!-- decorators -->
 
 <pre>
 <code>
@@ -56,6 +50,11 @@ $ ionic plugin add cordova-plugin-x-toast
 Repo: https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin
 </a>
 </p>
+
+<!-- description -->
+
+<p>This plugin allows you to show a native Toast (a little text popup) on iOS, Android and WP8. It&#39;s great for showing a non intrusive native notification which is guaranteed always in the viewport of the browser.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-x-toast</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin">Toast plugin docs</a>.</p>
 
 <!-- @usage tag -->
 

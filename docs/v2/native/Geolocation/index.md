@@ -38,12 +38,7 @@ Improve this doc
 
 
 
-
-<!-- description -->
-
-<p>Get geolocation data.</p>
-
-
+<!-- decorators -->
 
 <pre>
 <code>
@@ -56,11 +51,16 @@ Repo:
 </a>
 </p>
 
+<!-- description -->
+
+<p>This plugin provides information about the device&#39;s location, such as latitude and longitude. Common sources of location information include Global Positioning System (GPS) and location inferred from network signals such as IP address, RFID, WiFi and Bluetooth MAC addresses, and GSM/CDMA cell IDs.</p>
+<p> This API is based on the W3C Geolocation API Specification, and only executes on devices that don&#39;t already provide an implementation.</p>
+
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">Geolocation.getCurrentPosition().then((resp) =&gt; {
+<pre><code class="lang-ts">Geolocation.getCurrentPosition().then((resp) =&gt; {
  //resp.coords.latitude
  //resp.coords.longitude
 })
@@ -138,7 +138,7 @@ Get the device's current position.
 Watch the current device's position.  Clear the watch by unsubscribing from
 Observable changes.
 
-```
+```ts
 var subscription = Geolocation.watchPosition().subscribe(position => {
   console.log(position.coords.longitude + ' ' + position.coords.latitude);
 });

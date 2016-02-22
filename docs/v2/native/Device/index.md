@@ -38,12 +38,7 @@ Improve this doc
 
 
 
-
-<!-- description -->
-
-<p>Access information about the underlying device and platform.</p>
-
-
+<!-- decorators -->
 
 <pre>
 <code>
@@ -51,10 +46,14 @@ $ ionic plugin add cordova-plugin-device
 </code>
 </pre>
 <p>
-<a href="">
-Repo: 
+<a href="https://github.com/apache/cordova-plugin-device">
+Repo: https://github.com/apache/cordova-plugin-device
 </a>
 </p>
+
+<!-- description -->
+
+<p>Access information about the underlying device and platform.</p>
 
 <!-- @usage tag -->
 

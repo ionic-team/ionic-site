@@ -38,14 +38,7 @@ Improve this doc
 
 
 
-
-<!-- description -->
-
-<p>Access and manage Contacts on the device.</p>
-<p>Requires plugin: <code>cordova-plugin-contacts</code>
-For full info, please see the <a href="https://github.com/apache/cordova-plugin-contacts">Cordova Contacts plugin docs</a></p>
-
-
+<!-- decorators -->
 
 <pre>
 <code>
@@ -57,6 +50,12 @@ $ ionic plugin add cordova-plugin-contacts
 Repo: https://github.com/apache/cordova-plugin-contacts
 </a>
 </p>
+
+<!-- description -->
+
+<p>Access and manage Contacts on the device.</p>
+<p>Requires plugin: <code>cordova-plugin-contacts</code>
+For full info, please see the <a href="https://github.com/apache/cordova-plugin-contacts">Cordova Contacts plugin docs</a></p>
 
 <!-- @usage tag -->
 

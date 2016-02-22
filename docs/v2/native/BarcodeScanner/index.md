@@ -38,13 +38,7 @@ Improve this doc
 
 
 
-
-<!-- description -->
-
-<p>The Barcode Scanner Plugin opens a camera view and automatically scans a barcode, returning the data back to you.</p>
-<p>Requires Cordova plugin: <code>phonegap-plugin-barcodescanner</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">BarcodeScanner plugin docs</a>.</p>
-
-
+<!-- decorators -->
 
 <pre>
 <code>
@@ -52,10 +46,15 @@ $ ionic plugin add phonegap-plugin-barcodescanner
 </code>
 </pre>
 <p>
-<a href="">
-Repo: 
+<a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">
+Repo: https://github.com/phonegap/phonegap-plugin-barcodescanner
 </a>
 </p>
+
+<!-- description -->
+
+<p>The Barcode Scanner Plugin opens a camera view and automatically scans a barcode, returning the data back to you.</p>
+<p>Requires Cordova plugin: <code>phonegap-plugin-barcodescanner</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">BarcodeScanner plugin docs</a>.</p>
 
 <!-- @usage tag -->
 

@@ -38,6 +38,18 @@ Improve this doc
 
 
 
+<!-- decorators -->
+
+<pre>
+<code>
+$ ionic plugin add cordova-plugin-facebook4
+</code>
+</pre>
+<p>
+<a href="https://github.com/jeduan/cordova-plugin-facebook4">
+Repo: https://github.com/jeduan/cordova-plugin-facebook4
+</a>
+</p>
 
 <!-- description -->
 
@@ -78,19 +90,6 @@ Improve this doc
 <p>Events are listed on the <a href="https://www.facebook.com/insights/">insights page</a>.</p>
 <p>For tracking events, see <code>logEvent</code> and <code>logPurchase</code>.</p>
 
-
-
-<pre>
-<code>
-$ ionic plugin add cordova-plugin-facebook4
-</code>
-</pre>
-<p>
-<a href="">
-Repo: 
-</a>
-</p>
-
 <!-- @usage tag -->
 
 
@@ -103,7 +102,7 @@ Repo:
 
 Login to Facebook to authenticate this app.
 
-```
+```ts
 {
   status: "connected",
   authResponse: {

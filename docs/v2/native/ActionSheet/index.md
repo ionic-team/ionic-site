@@ -38,13 +38,7 @@ Improve this doc
 
 
 
-
-<!-- description -->
-
-<p>The ActionSheet plugin shows a native list of options the user can choose from.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-actionsheet</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">ActionSheet plugin docs</a>.</p>
-
-
+<!-- decorators -->
 
 <pre>
 <code>
@@ -57,11 +51,16 @@ Repo: https://github.com/EddyVerbruggen/cordova-plugin-actionsheet
 </a>
 </p>
 
+<!-- description -->
+
+<p>The ActionSheet plugin shows a native list of options the user can choose from.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-actionsheet</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">ActionSheet plugin docs</a>.</p>
+
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code>import {ActionSheet} from &#39;ionic-native&#39;;
+<pre><code class="lang-ts">import {ActionSheet} from &#39;ionic-native&#39;;
 
 let buttonLabels = [&#39;Share via Facebook&#39;, &#39;Share via Twitter&#39;];
 ActionSheet.show({
@@ -108,7 +107,14 @@ Show the ActionSheet.
   <code>options</code>
       </td>
       <td>
-        <p><code>buttonLabels</code>: string[]<br>  <code>title</code>: string<br>  <code>androidTheme</code> (Android only): number 1-5<br>  <code>androidEnableCancelButton</code> (Android only): boolean, default false<br>  <code>winphoneEnableCancelButton</code> (WP only): boolean, default false<br>  <code>addCancelButtonWithLabel</code>: string<br>  <code>addDestructiveButtonWithLabel</code>: string<br>  <code>position</code>: [x, y] (iPad pass in [x, y] coords of popover)</p>
+        <p><code>buttonLabels</code>: string[]
+  <code>title</code>: string
+  <code>androidTheme</code> (Android only): number 1-5
+  <code>androidEnableCancelButton</code> (Android only): boolean, default false
+  <code>winphoneEnableCancelButton</code> (WP only): boolean, default false
+  <code>addCancelButtonWithLabel</code>: string
+  <code>addDestructiveButtonWithLabel</code>: string
+  <code>position</code>: [x, y] (iPad pass in [x, y] coords of popover)</p>
 
         
       </td>

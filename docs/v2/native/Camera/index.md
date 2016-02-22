@@ -38,13 +38,7 @@ Improve this doc
 
 
 
-
-<!-- description -->
-
-<p>Take a photo or capture video.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
-
-
+<!-- decorators -->
 
 <pre>
 <code>
@@ -52,10 +46,15 @@ $ ionic plugin add cordova-plugin-camera
 </code>
 </pre>
 <p>
-<a href="">
-Repo: 
+<a href="https://github.com/apache/cordova-plugin-camera">
+Repo: https://github.com/apache/cordova-plugin-camera
 </a>
 </p>
+
+<!-- description -->
+
+<p>Take a photo or capture video.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
 
 <!-- @usage tag -->
 

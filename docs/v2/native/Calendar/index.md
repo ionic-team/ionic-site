@@ -38,13 +38,7 @@ Improve this doc
 
 
 
-
-<!-- description -->
-
-<p>This plugin allows you to add events to the Calendar of the mobile device.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-calendar</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin">Calendar plugin docs</a>.</p>
-
-
+<!-- decorators -->
 
 <pre>
 <code>
@@ -52,10 +46,15 @@ $ ionic plugin add cordova-plugin-calendar
 </code>
 </pre>
 <p>
-<a href="">
-Repo: 
+<a href="https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin">
+Repo: https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin
 </a>
 </p>
+
+<!-- description -->
+
+<p>This plugin allows you to add events to the Calendar of the mobile device.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-calendar</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin">Calendar plugin docs</a>.</p>
 
 <!-- @usage tag -->
 

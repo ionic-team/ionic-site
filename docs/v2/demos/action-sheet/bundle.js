@@ -60255,7 +60255,7 @@
 	 * @name Id
 	 * @description
 	 * IdRef is an easy way to identify unique components in an app and access them
-	 * no matter where in the UI heirarchy you are. For example, this makes toggling
+	 * no matter where in the UI hierarchy you are. For example, this makes toggling
 	 * a global side menu feasible from any place in the application.
 	 *
 	 * See the [Menu section](http://ionicframework.com/docs/v2/components/#menus) of

@@ -43336,7 +43336,6 @@
 	        this._options = opts;
 	    }
 	    Gesture.prototype.options = function (opts) {
-	        if (opts === void 0) { opts = {}; }
 	        util_1.assign(this._options, opts);
 	    };
 	    Gesture.prototype.on = function (type, cb) {
@@ -48671,7 +48670,6 @@
 	        this._pFns = [];
 	        this._fFns = [];
 	        this._fOnceFns = [];
-	        this._clearAsync();
 	    };
 	    Animation.prototype.element = function (ele) {
 	        var i;
@@ -48948,6 +48946,7 @@
 	        if (this._tmr) {
 	            this._unregTrans && this._unregTrans();
 	            clearTimeout(this._tmr);
+	            this._tmr = 0;
 	        }
 	    };
 	    Animation.prototype._progress = function (stepValue) {
@@ -49229,6 +49228,7 @@
 	                ele.parentNode && ele.parentNode.removeChild(ele);
 	            }
 	        }
+	        this._clearAsync();
 	        this._reset();
 	    };
 	    Animation.prototype._transEl = function () {

@@ -27384,14 +27384,12 @@
 /* 164 */
 /***/ function(module, exports) {
 
-	var win = window;
-	var doc = document;
-	var docEle = doc.documentElement;
 	// RequestAnimationFrame Polyfill (Android 4.3 and below)
 	/*! @author Paul Irish */
 	/*! @source https://gist.github.com/paulirish/1579671 */
 	(function () {
 	    var rafLastTime = 0;
+	    var win = window;
 	    if (!win.requestAnimationFrame) {
 	        win.requestAnimationFrame = function (callback, element) {
 	            var currTime = Date.now();
@@ -27407,8 +27405,8 @@
 	        win.cancelAnimationFrame = function (id) { clearTimeout(id); };
 	    }
 	})();
-	exports.raf = win.requestAnimationFrame.bind(win);
-	exports.cancelRaf = win.cancelAnimationFrame.bind(win);
+	exports.raf = window.requestAnimationFrame.bind(window);
+	exports.cancelRaf = window.cancelAnimationFrame.bind(window);
 	function rafFrames(framesToWait, callback) {
 	    framesToWait = Math.ceil(framesToWait);
 	    if (framesToWait < 2) {
@@ -27427,7 +27425,7 @@
 	    var i, keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
 	        '-moz-transform', 'moz-transform', 'MozTransform', 'mozTransform', 'msTransform'];
 	    for (i = 0; i < keys.length; i++) {
-	        if (docEle.style[keys[i]] !== undefined) {
+	        if (document.documentElement.style[keys[i]] !== undefined) {
 	            exports.CSS.transform = keys[i];
 	            break;
 	        }
@@ -27435,7 +27433,7 @@
 	    // transition
 	    keys = ['webkitTransition', 'mozTransition', 'msTransition', 'transition'];
 	    for (i = 0; i < keys.length; i++) {
-	        if (docEle.style[keys[i]] !== undefined) {
+	        if (document.documentElement.style[keys[i]] !== undefined) {
 	            exports.CSS.transition = keys[i];
 	            break;
 	        }
@@ -27475,17 +27473,17 @@
 	        // a callback wasn't provided, so let's return a promise instead
 	        promise = new Promise(function (resolve) { callback = resolve; });
 	    }
-	    if (doc.readyState === 'complete' || doc.readyState === 'interactive') {
+	    if (document.readyState === 'complete' || document.readyState === 'interactive') {
 	        callback();
 	    }
 	    else {
 	        function completed() {
-	            doc.removeEventListener('DOMContentLoaded', completed, false);
-	            win.removeEventListener('load', completed, false);
+	            document.removeEventListener('DOMContentLoaded', completed, false);
+	            window.removeEventListener('load', completed, false);
 	            callback();
 	        }
-	        doc.addEventListener('DOMContentLoaded', completed, false);
-	        win.addEventListener('load', completed, false);
+	        document.addEventListener('DOMContentLoaded', completed, false);
+	        window.addEventListener('load', completed, false);
 	    }
 	    return promise;
 	}
@@ -27496,15 +27494,15 @@
 	        // a callback wasn't provided, so let's return a promise instead
 	        promise = new Promise(function (resolve) { callback = resolve; });
 	    }
-	    if (doc.readyState === 'complete') {
+	    if (document.readyState === 'complete') {
 	        callback();
 	    }
 	    else {
 	        function completed() {
-	            win.removeEventListener('load', completed, false);
+	            window.removeEventListener('load', completed, false);
 	            callback();
 	        }
-	        win.addEventListener('load', completed, false);
+	        window.addEventListener('load', completed, false);
 	    }
 	    return promise;
 	}
@@ -27530,7 +27528,7 @@
 	}
 	exports.hasPointerMoved = hasPointerMoved;
 	function isActive(ele) {
-	    return !!(ele && (doc.activeElement === ele));
+	    return !!(ele && (document.activeElement === ele));
 	}
 	exports.isActive = isActive;
 	function hasFocus(ele) {
@@ -27545,7 +27543,7 @@
 	}
 	exports.isTextInput = isTextInput;
 	function hasFocusedTextInput() {
-	    var ele = doc.activeElement;
+	    var ele = document.activeElement;
 	    if (isTextInput(ele)) {
 	        return (ele.parentElement.querySelector(':focus') === ele);
 	    }
@@ -27569,7 +27567,7 @@
 	var matchesFn;
 	var matchesMethods = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'];
 	matchesMethods.some(function (fn) {
-	    if (typeof docEle[fn] == 'function') {
+	    if (typeof document.documentElement[fn] === 'function') {
 	        matchesFn = fn;
 	        return true;
 	    }
@@ -27616,10 +27614,10 @@
 	function windowDimensions() {
 	    if (!dimensionCache.win) {
 	        // make sure we got good values before caching
-	        if (win.innerWidth && win.innerHeight) {
+	        if (window.innerWidth && window.innerHeight) {
 	            dimensionCache.win = {
-	                width: win.innerWidth,
-	                height: win.innerHeight
+	                width: window.innerWidth,
+	                height: window.innerHeight
 	            };
 	        }
 	        else {
@@ -43368,11 +43366,12 @@
 	            this._hammer.destroy();
 	        }
 	        this._callbacks = {};
+	        this._hammer = null;
 	        this.isListening = false;
 	    };
 	    Gesture.prototype.destroy = function () {
 	        this.unlisten();
-	        this._hammer = this.element = this._options = null;
+	        this.element = this._options = null;
 	    };
 	    return Gesture;
 	})();
@@ -48683,7 +48682,7 @@
 	                }
 	            }
 	            else if (typeof ele === 'string') {
-	                ele = doc.querySelectorAll(ele);
+	                ele = document.querySelectorAll(ele);
 	                for (i = 0; i < ele.length; i++) {
 	                    this._addEle(ele[i]);
 	                }
@@ -48946,8 +48945,10 @@
 	        self._tmr = setTimeout(onTransitionEnd, duration + 300);
 	    };
 	    Animation.prototype._clearAsync = function () {
-	        this._unregTrans && this._unregTrans();
-	        clearTimeout(this._tmr);
+	        if (this._tmr) {
+	            this._unregTrans && this._unregTrans();
+	            clearTimeout(this._tmr);
+	        }
 	    };
 	    Animation.prototype._progress = function (stepValue) {
 	        // bread 'n butter
@@ -49261,7 +49262,6 @@
 	    return Animation;
 	})();
 	exports.Animation = Animation;
-	var doc = document;
 	var TRANSFORMS = {
 	    'translateX': 1, 'translateY': 1, 'translateZ': 1,
 	    'scale': 1, 'scaleX': 1, 'scaleY': 1, 'scaleZ': 1,

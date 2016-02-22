@@ -56,7 +56,7 @@ Child of <a href="/docs/nightly/api/directive/ionList/"><code>ionList</code></a>
 <ion-list>
   <ion-input>
     <input type="text" placeholder="First Name">
-  <ion-input>
+  </ion-input>
 
   <ion-input>
     <ion-label>Username</ion-label>

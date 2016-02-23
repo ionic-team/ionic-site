@@ -137,15 +137,15 @@
   </li>
 
   {% comment %} ### Native ### {% endcomment %}
-  <!-- <li class="{% if page.category == 'native' %}active{% endif %}"> -->
-  <!--   <a ng&#45;click="showNative = !showNative">Native</a> -->
-  <!--   <ul ng&#45;show="showNative" -->
-  <!--       {% if page.category == 'native' %} -->
-  <!--         ng&#45;init="showNative = true" -->
-  <!--       {% endif %}> -->
-  <!--     {% include v2_fluid/native_menu.html %} -->
-  <!--   </ul> -->
-  <!-- </li> -->
+  <li class="{% if page.category == 'native' %}active{% endif %}">
+    <a ng-click="showNative = !showNative">Native</a>
+    <ul ng-show="showNative"
+        {% if page.category == 'native' %}
+          ng-init="showNative = true"
+        {% endif %}>
+      {% include v2_fluid/native_menu.html %}
+    </ul>
+  </li>
 
   {% comment %} ### Theming ### {% endcomment %}
   <li class="{% if page.category == 'theming' %}active{% endif %}">

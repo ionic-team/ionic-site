@@ -218,7 +218,7 @@ gulp.task('docs.index', function() {
   gutil.log('Reading docs from', gutil.colors.cyan(docPath));
 
   return gulp.src([
-    docPath + '/{api,cli,components,faq,getting-started,platform,resources,theming,utils}/**/*.{md,html,markdown}',
+    docPath + '/{api,cli,components,faq,getting-started,native,resources,theming,utils}/**/*.{md,html,markdown}',
     docPath + '/index.md',
   ])
   .pipe(es.map(function(file, callback) {

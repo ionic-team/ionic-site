@@ -65,7 +65,7 @@ $(document).ready(function() {
       var
       results = {
         api: {},
-        platform: {},
+        native: {},
         other: {}
       },
       queryResult,
@@ -77,10 +77,11 @@ $(document).ready(function() {
       for (queryResultId in queryResults) {
         queryResult = queryResults[queryResultId];
         queryData = data.ref[ queryResult.ref ];
+        console.log(queryData.p);
         if (queryData.p.indexOf('/api/') === 0) {
           results.api[ queryResult.ref ] = queryData;
-        } else if (queryData.p.indexOf('/platform/') === 0) {
-          results.platform[ queryResult.ref ] = queryData;
+        } else if (queryData.p.indexOf('/native/') === 0) {
+          results.native[ queryResult.ref ] = queryData;
         } else {
           results.other[ queryResult.ref ] = queryData;
         }
@@ -90,8 +91,9 @@ $(document).ready(function() {
   }
 
   function showResults(resultsData) {
+    console.log(resultsData)
     addResults('#results-api', resultsData.api, 42);
-    addResults('#results-platform', resultsData.platform, 14);
+    addResults('#results-native', resultsData.native, 14);
     addResults('#results-other', resultsData.other, 14);
 
     clearTimeout(removeOverlay);

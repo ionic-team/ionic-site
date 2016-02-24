@@ -40,14 +40,10 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre>
-<code>
-$ ionic plugin add cordova-plugin-ble-central
-</code>
-</pre>
-<p>
+<pre><code>$ ionic plugin add cordova-plugin-ble-central</code></pre>
+<p>Repo:
 <a href="https://github.com/don/cordova-plugin-ble-central">
-Repo: https://github.com/don/cordova-plugin-ble-central
+https://github.com/don/cordova-plugin-ble-central
 </a>
 </p>
 

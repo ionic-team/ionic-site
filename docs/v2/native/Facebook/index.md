@@ -40,14 +40,10 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre>
-<code>
-$ ionic plugin add cordova-plugin-facebook4
-</code>
-</pre>
-<p>
+<pre><code>$ ionic plugin add cordova-plugin-facebook4</code></pre>
+<p>Repo:
 <a href="https://github.com/jeduan/cordova-plugin-facebook4">
-Repo: https://github.com/jeduan/cordova-plugin-facebook4
+https://github.com/jeduan/cordova-plugin-facebook4
 </a>
 </p>
 

@@ -40,14 +40,10 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre>
-<code>
-$ ionic plugin add cordova-plugin-camera
-</code>
-</pre>
-<p>
+<pre><code>$ ionic plugin add cordova-plugin-camera</code></pre>
+<p>Repo:
 <a href="https://github.com/apache/cordova-plugin-camera">
-Repo: https://github.com/apache/cordova-plugin-camera
+https://github.com/apache/cordova-plugin-camera
 </a>
 </p>
 

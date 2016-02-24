@@ -40,14 +40,10 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre>
-<code>
-$ ionic plugin add cordova-plugin-x-toast
-</code>
-</pre>
-<p>
+<pre><code>$ ionic plugin add cordova-plugin-x-toast</code></pre>
+<p>Repo:
 <a href="https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin">
-Repo: https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin
+https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin
 </a>
 </p>
 

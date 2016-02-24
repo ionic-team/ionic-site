@@ -40,14 +40,10 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre>
-<code>
-$ ionic plugin add cordova-plugin-statusbar
-</code>
-</pre>
-<p>
+<pre><code>$ ionic plugin add cordova-plugin-statusbar</code></pre>
+<p>Repo:
 <a href="https://github.com/apache/cordova-plugin-statusbar">
-Repo: https://github.com/apache/cordova-plugin-statusbar
+https://github.com/apache/cordova-plugin-statusbar
 </a>
 </p>
 

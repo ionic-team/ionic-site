@@ -40,14 +40,10 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre>
-<code>
-$ ionic plugin add cordova-plugin-device
-</code>
-</pre>
-<p>
+<pre><code>$ ionic plugin add cordova-plugin-device</code></pre>
+<p>Repo:
 <a href="https://github.com/apache/cordova-plugin-device">
-Repo: https://github.com/apache/cordova-plugin-device
+https://github.com/apache/cordova-plugin-device
 </a>
 </p>
 

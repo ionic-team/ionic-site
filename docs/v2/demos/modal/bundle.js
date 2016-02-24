@@ -61130,11 +61130,11 @@
 	var menu_controller_1 = __webpack_require__(277);
 	var animation_1 = __webpack_require__(306);
 	/**
+	 * @private
 	 * Menu Type
 	 * Base class which is extended by the various types. Each
 	 * type will provide their own animations for open and close
 	 * and registers itself with Menu.
-	 * @private
 	 */
 	var MenuType = (function () {
 	    function MenuType() {
@@ -61176,6 +61176,7 @@
 	})();
 	exports.MenuType = MenuType;
 	/**
+	 * @private
 	 * Menu Reveal Type
 	 * The content slides over to reveal the menu underneath.
 	 * The menu itself, which is under the content, does not move.
@@ -61196,6 +61197,7 @@
 	})(MenuType);
 	menu_controller_1.MenuController.registerType('reveal', MenuRevealType);
 	/**
+	 * @private
 	 * Menu Push Type
 	 * The content slides over to reveal the menu underneath.
 	 * The menu itself also slides over to reveal its bad self.
@@ -61229,6 +61231,7 @@
 	})(MenuType);
 	menu_controller_1.MenuController.registerType('push', MenuPushType);
 	/**
+	 * @private
 	 * Menu Overlay Type
 	 * The menu slides over the content. The content
 	 * itself, which is under the menu, does not move.

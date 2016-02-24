@@ -1738,7 +1738,7 @@ $(document).ready(function() {
   setTimeout(function() {
     // check if there if there is recent search data in local storage
     try {
-      var localData = JSON.parse(localStorage.getItem('search-index'));
+      var localData = JSON.parse(localStorage.getItem('v2-search-index'));
       if (localData && (localData.ts + 86400000) > Date.now()) {
         searchReady(localData);
         return;
@@ -1750,7 +1750,7 @@ $(document).ready(function() {
       setTimeout(function() {
         try {
           requestData.ts = Date.now();
-          localStorage.setItem('search-index', JSON.stringify(requestData));
+          localStorage.setItem('v2-search-index', JSON.stringify(requestData));
         } catch (e) {}
       }, 100);
     });
@@ -1809,7 +1809,6 @@ $(document).ready(function() {
       for (queryResultId in queryResults) {
         queryResult = queryResults[queryResultId];
         queryData = data.ref[ queryResult.ref ];
-        console.log(queryData.p);
         if (queryData.p.indexOf('/api/') === 0) {
           results.api[ queryResult.ref ] = queryData;
         } else if (queryData.p.indexOf('/native/') === 0) {
@@ -1823,7 +1822,6 @@ $(document).ready(function() {
   }
 
   function showResults(resultsData) {
-    console.log(resultsData)
     addResults('#results-api', resultsData.api, 42);
     addResults('#results-native', resultsData.native, 14);
     addResults('#results-other', resultsData.other, 14);

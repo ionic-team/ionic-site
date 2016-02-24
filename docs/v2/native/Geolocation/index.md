@@ -40,14 +40,10 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre>
-<code>
-$ ionic plugin add cordova-plugin-geolocation
-</code>
-</pre>
-<p>
+<pre><code>$ ionic plugin add cordova-plugin-geolocation</code></pre>
+<p>Repo:
 <a href="">
-Repo: 
+
 </a>
 </p>
 

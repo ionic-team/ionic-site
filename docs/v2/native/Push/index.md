@@ -40,14 +40,10 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre>
-<code>
-$ ionic plugin add phonegap-plugin-push
-</code>
-</pre>
-<p>
+<pre><code>$ ionic plugin add phonegap-plugin-push</code></pre>
+<p>Repo:
 <a href="https://github.com/phonegap/phonegap-plugin-push">
-Repo: https://github.com/phonegap/phonegap-plugin-push
+https://github.com/phonegap/phonegap-plugin-push
 </a>
 </p>
 

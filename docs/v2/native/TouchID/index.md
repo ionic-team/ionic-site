@@ -40,14 +40,10 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre>
-<code>
-$ ionic plugin add cordova-plugin-touch-id
-</code>
-</pre>
-<p>
+<pre><code>$ ionic plugin add cordova-plugin-touch-id</code></pre>
+<p>Repo:
 <a href="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">
-Repo: https://github.com/EddyVerbruggen/cordova-plugin-touch-id
+https://github.com/EddyVerbruggen/cordova-plugin-touch-id
 </a>
 </p>
 

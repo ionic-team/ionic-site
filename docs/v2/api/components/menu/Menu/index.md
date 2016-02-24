@@ -76,7 +76,7 @@ property:</p>
 provider into any component or directive. This makes it easy get ahold of and
 control the correct menu instance. By default Ionic will find the app&#39;s menu
 without requiring a menu ID.</p>
-<pre><code class="lang-ts">import{Page, MenuController} from &#39;ionic/ionic&#39;;
+<pre><code class="lang-ts">import{Page, MenuController} from &#39;ionic-angular&#39;;
 @Page({...})
 export class MyPage {
  constructor(menu: MenuController) {

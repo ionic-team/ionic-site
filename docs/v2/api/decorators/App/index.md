@@ -51,7 +51,7 @@ to an external html template.</p>
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {App} from &#39;ionic/ionic&#39;;
+<pre><code class="lang-ts">import {App} from &#39;ionic-angular&#39;;
 
 @App({
   templateUrl: &#39;app/app.html&#39;,

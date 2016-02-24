@@ -47,7 +47,7 @@ Improve this doc
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {Page, ViewController} from &#39;ionic/ionic&#39;;
+<pre><code class="lang-ts">import {Page, ViewController} from &#39;ionic-angular&#39;;
 @Page....
 export class MyPage{
  constructor(viewCtrl: ViewController){

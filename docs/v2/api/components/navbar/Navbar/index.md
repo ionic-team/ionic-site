@@ -80,7 +80,28 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
 
 
 
-<!-- instance methods on the class --><!-- related link -->
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>hideBackButton</td>
+      <td><code>boolean</code></td>
+      <td><p> whether the back button should be shown or not</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link -->
 
 <h2>Related</h2>
 

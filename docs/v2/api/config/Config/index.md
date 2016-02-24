@@ -189,42 +189,125 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
-<div id="setModeConfig"></div>
-<h3><code>setModeConfig()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="getModeConfig"></div>
-<h3><code>getModeConfig()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
 
 
 
 <!-- instance methods on the class -->
 
 <h2>Instance Methods</h2>
+
+<div id="get"></div>
+
+<h3>
+<code>get(key,&nbsp;fallbackValue)</code>
+  
+
+</h3>
+
+Returns a single config value, given a key.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        key
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>the key for the config value</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        fallbackValue
+        
+        
+      </td>
+      <td>
+        
+  <code>any</code>
+      </td>
+      <td>
+        <p>a fallback value to use when the config value was not found, or is config value is <code>null</code>. Fallback value defaults to <code>null</code>.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="getBoolean"></div>
+
+<h3>
+<code>getBoolean(key)</code>
+  
+
+</h3>
+
+Same as `get()`, however always returns a boolean value.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        key
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>the key for the config value</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
 
 <div id="set"></div>
 
@@ -293,102 +376,6 @@ Sets a single config value.
       </td>
       <td>
         <p>The config value being stored.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-<div id="get"></div>
-
-<h3>
-<code>get(key)</code>
-  
-
-</h3>
-
-Returns a single config value, given a key.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        key
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>the key for the config value</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-<div id="getBoolean"></div>
-
-<h3>
-<code>getBoolean(key)</code>
-  
-
-</h3>
-
-Same as `get()`, however always returns a boolean value.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        key
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>the key for the config value</p>
 
         
       </td>

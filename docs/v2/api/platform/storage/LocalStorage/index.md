@@ -54,7 +54,7 @@ by the operating system (iOS).</p>
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">import {Page, Storage, LocalStorage} from &#39;ionic/ionic&#39;;
+<pre><code class="lang-ts">import {Page, Storage, LocalStorage} from &#39;ionic-angular&#39;;
 @Page({
   template: `&lt;ion-content&gt;&lt;/ion-content&gt;`
 });

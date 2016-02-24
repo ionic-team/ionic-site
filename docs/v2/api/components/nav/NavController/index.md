@@ -221,7 +221,7 @@ You can set the views of the current navigation stack and navigate to the last v
 
 
 ```typescript
-import {Page, NavController} from 'ionic/ionic'
+import {Page, NavController} from 'ionic-angular'
 import {Detail} from '../detail/detail'
 import {Info} from '../info/info'
 
@@ -242,7 +242,7 @@ By default, animations are disabled, but they can be enabled by passing options 
 
 
 ```typescript
-import {Page, NavController} from 'ionic/ionic'
+import {Page, NavController} from 'ionic-angular'
 import {Detail} from '../detail/detail'
 
  export class Home {
@@ -262,7 +262,7 @@ You can also pass any navigation params to the individual pages in the array.
 
 
 ```typescript
-import {Page, NavController} from 'ionic/ionic';
+import {Page, NavController} from 'ionic-angular';
 import {Info} from '../info/info';
 import {List} from '../list/list';
 import {Detail} from '../detail/detail';

@@ -48,7 +48,7 @@ options. It appears on top of the app&#39;s content, and must be manually
 dismissed by the user before they can resume interaction with the app.
 Dangerous (destructive) options are made obvious. There are easy
 ways to cancel out of the action sheet, such as tapping the backdrop or
-hitting the escape key on desktop.</p>
+hitting the escape key on desktop. </p>
 <p>An action sheet is created from an array of <code>buttons</code>, with each button
 including properties for its <code>text</code>, and optionally a <code>handler</code> and <code>role</code>.
 If a handler returns <code>false</code> then the action sheet will not be dismissed. An
@@ -63,7 +63,7 @@ Additionally, if the action sheet is dismissed by tapping the backdrop, then
 it will fire the handler from the button with the cancel role.</p>
 <p>Its shorthand is to add all the action sheet&#39;s options from within the
 <code>ActionSheet.create(opts)</code> first argument. Otherwise the action sheet&#39;s
-instance has methods to add options, such as <code>setTitle()</code> or <code>addButton()</code>.</p>
+instance has methods to add options, like <code>setTitle()</code> or <code>addButton()</code>.</p>
 
 <!-- @usage tag -->
 

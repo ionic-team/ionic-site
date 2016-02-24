@@ -65,7 +65,7 @@ class MyPage {}
 it is in <code>IONIC_DIRECTIVES</code>, so there is no need to add a <code>directives</code> array.</p>
 <p>Say you built a custom component that uses the already existing Ionic component.
 In this case, you would add <code>IONIC_DIRECTIVES</code> to your directives array.</p>
-<pre><code class="lang-ts">import {IONIC_DIRECTIVES} from &#39;ionic/ionic&#39;;
+<pre><code class="lang-ts">import {IONIC_DIRECTIVES} from &#39;ionic-angular&#39;;
 @Component({
   selector: &#39;my-component&#39;
   template: `&lt;div class=&quot;my-style&quot;&gt;
@@ -76,7 +76,7 @@ In this case, you would add <code>IONIC_DIRECTIVES</code> to your directives arr
 class MyCustomCheckbox {}
 </code></pre>
 <p>Alternatively, you could:</p>
-<pre><code class="lang-ts">import {Checkbox, Icon} from &#39;ionic/ionic&#39;
+<pre><code class="lang-ts">import {Checkbox, Icon} from &#39;ionic-angular&#39;
 </code></pre>
 <p>along with any other components and add them individually:</p>
 <pre><code>@Component({

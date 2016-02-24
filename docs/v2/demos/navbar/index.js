@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var ionic_1 = require('ionic/ionic');
+var ionic_angular_1 = require('ionic-angular');
 // Use the toolbar demo but pass in the demo name to change the title
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
@@ -16,7 +16,7 @@ var ApiDemoApp = (function () {
         this.apps = "free";
     }
     ApiDemoApp = __decorate([
-        ionic_1.App({
+        ionic_angular_1.App({
             templateUrl: '../toolbar/main.html'
         }), 
         __metadata('design:paramtypes', [])

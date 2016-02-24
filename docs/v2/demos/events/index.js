@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var ionic_1 = require('ionic/ionic');
+var ionic_angular_1 = require('ionic-angular');
 var Login = (function () {
     function Login(events) {
         this.events = events;
@@ -20,8 +20,8 @@ var Login = (function () {
         this.events.publish('user:login');
     };
     Login = __decorate([
-        ionic_1.Page({ templateUrl: 'login.html' }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Events !== 'undefined' && ionic_1.Events) === 'function' && _a) || Object])
+        ionic_angular_1.Page({ templateUrl: 'login.html' }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.Events !== 'undefined' && ionic_angular_1.Events) === 'function' && _a) || Object])
     ], Login);
     return Login;
     var _a;
@@ -34,8 +34,8 @@ var Logout = (function () {
         this.events.publish('user:logout');
     };
     Logout = __decorate([
-        ionic_1.Page({ templateUrl: 'logout.html' }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Events !== 'undefined' && ionic_1.Events) === 'function' && _a) || Object])
+        ionic_angular_1.Page({ templateUrl: 'logout.html' }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.Events !== 'undefined' && ionic_angular_1.Events) === 'function' && _a) || Object])
     ], Logout);
     return Logout;
     var _a;
@@ -69,10 +69,10 @@ var ApiDemoApp = (function () {
         });
     };
     ApiDemoApp = __decorate([
-        ionic_1.App({
+        ionic_angular_1.App({
             templateUrl: 'main.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.Events !== 'undefined' && ionic_1.Events) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.IonicApp !== 'undefined' && ionic_angular_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.Events !== 'undefined' && ionic_angular_1.Events) === 'function' && _b) || Object])
     ], ApiDemoApp);
     return ApiDemoApp;
     var _a, _b;

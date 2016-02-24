@@ -12,14 +12,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var ionic_1 = require('ionic/ionic');
-var ionic_2 = require('ionic/ionic');
+var ionic_angular_1 = require('ionic-angular');
+var ionic_angular_2 = require('ionic-angular');
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
         this.rootPage = ModalFirstPage;
     }
     ApiDemoApp = __decorate([
-        ionic_1.App({
+        ionic_angular_1.App({
             templateUrl: 'app.html'
         }), 
         __metadata('design:paramtypes', [])
@@ -32,24 +32,24 @@ var ModalFirstPage = (function () {
         this.myParam = '';
     }
     ModalFirstPage.prototype.openBasicModal = function () {
-        var myModal = ionic_2.Modal.create(ModalContentPage);
+        var myModal = ionic_angular_2.Modal.create(ModalContentPage);
         this.nav.present(myModal);
     };
     ModalFirstPage.prototype.openModalWithParams = function () {
-        var myModal = ionic_2.Modal.create(ModalContentPage, { 'myParam': this.myParam });
+        var myModal = ionic_angular_2.Modal.create(ModalContentPage, { 'myParam': this.myParam });
         this.nav.present(myModal);
     };
     ModalFirstPage.prototype.openCustomAnimationModal = function () {
-        var myModal = ionic_2.Modal.create(ModalContentPage, {
+        var myModal = ionic_angular_2.Modal.create(ModalContentPage, {
             animation: 'my-fade-in',
         });
         this.nav.present(myModal);
     };
     ModalFirstPage = __decorate([
-        ionic_1.Page({
+        ionic_angular_1.Page({
             templateUrl: 'main.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_2.NavController !== 'undefined' && ionic_2.NavController) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object])
     ], ModalFirstPage);
     return ModalFirstPage;
     var _a;
@@ -65,10 +65,10 @@ var ModalContentPage = (function () {
         this.viewCtrl.dismiss();
     };
     ModalContentPage = __decorate([
-        ionic_1.Page({
+        ionic_angular_1.Page({
             templateUrl: "modal-content.html"
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_2.NavController !== 'undefined' && ionic_2.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_2.NavParams !== 'undefined' && ionic_2.NavParams) === 'function' && _b) || Object, (typeof (_c = typeof ionic_1.ViewController !== 'undefined' && ionic_1.ViewController) === 'function' && _c) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_2.NavParams !== 'undefined' && ionic_angular_2.NavParams) === 'function' && _b) || Object, (typeof (_c = typeof ionic_angular_1.ViewController !== 'undefined' && ionic_angular_1.ViewController) === 'function' && _c) || Object])
     ], ModalContentPage);
     return ModalContentPage;
     var _a, _b, _c;
@@ -86,8 +86,8 @@ var FadeIn = (function (_super) {
             .before.addClass('show-page');
     }
     return FadeIn;
-})(ionic_2.Animation);
-ionic_2.Animation.register('my-fade-in', FadeIn);
+})(ionic_angular_2.Animation);
+ionic_angular_2.Animation.register('my-fade-in', FadeIn);
 var FadeOut = (function (_super) {
     __extends(FadeOut, _super);
     function FadeOut(enteringView, leavingView) {
@@ -99,5 +99,5 @@ var FadeOut = (function (_super) {
             .before.addClass('show-page');
     }
     return FadeOut;
-})(ionic_2.Animation);
-ionic_2.Animation.register('my-fade-out', FadeOut);
+})(ionic_angular_2.Animation);
+ionic_angular_2.Animation.register('my-fade-out', FadeOut);

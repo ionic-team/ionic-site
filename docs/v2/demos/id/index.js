@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var ionic_1 = require('ionic/ionic');
+var ionic_angular_1 = require('ionic-angular');
 var Page1 = (function () {
     function Page1(menu) {
         this.menu = menu;
@@ -24,8 +24,8 @@ var Page1 = (function () {
         this.menu.enable(true, 'menu2');
     };
     Page1 = __decorate([
-        ionic_1.Page({ templateUrl: 'page1.html' }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.MenuController !== 'undefined' && ionic_1.MenuController) === 'function' && _a) || Object])
+        ionic_angular_1.Page({ templateUrl: 'page1.html' }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.MenuController !== 'undefined' && ionic_angular_1.MenuController) === 'function' && _a) || Object])
     ], Page1);
     return Page1;
     var _a;
@@ -35,7 +35,7 @@ var ApiDemoApp = (function () {
         this.rootView = Page1;
     }
     ApiDemoApp = __decorate([
-        ionic_1.App({
+        ionic_angular_1.App({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [])

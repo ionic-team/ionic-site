@@ -7,13 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var ionic_1 = require('ionic/ionic');
+var ionic_angular_1 = require('ionic-angular');
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
         this.rootPage = TabPage;
     }
     ApiDemoApp = __decorate([
-        ionic_1.App({
+        ionic_angular_1.App({
             templateUrl: 'app.html',
             config: CONFIG_DEMO || {}
         }), 
@@ -26,7 +26,7 @@ var TabPage = (function () {
         this.tabOne = InitialPage;
     }
     TabPage = __decorate([
-        ionic_1.Page({
+        ionic_angular_1.Page({
             templateUrl: 'tabs.html'
         }), 
         __metadata('design:paramtypes', [])
@@ -65,10 +65,10 @@ var InitialPage = (function () {
         this.nav.push(AnotherPage);
     };
     InitialPage = __decorate([
-        ionic_1.Page({
+        ionic_angular_1.Page({
             templateUrl: 'main.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.Platform !== 'undefined' && ionic_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _b) || Object])
     ], InitialPage);
     return InitialPage;
     var _a, _b;
@@ -82,10 +82,10 @@ var AnotherPage = (function () {
         this.nav.pop();
     };
     AnotherPage = __decorate([
-        ionic_1.Page({
+        ionic_angular_1.Page({
             templateUrl: 'page.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
     ], AnotherPage);
     return AnotherPage;
     var _a;

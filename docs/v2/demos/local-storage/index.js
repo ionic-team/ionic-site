@@ -7,14 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var ionic_1 = require('ionic/ionic');
-var ionic_2 = require('ionic/ionic');
+var ionic_angular_1 = require('ionic-angular');
+var ionic_angular_2 = require('ionic-angular');
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
         this.root = MainPage;
     }
     ApiDemoApp = __decorate([
-        ionic_1.App({
+        ionic_angular_1.App({
             template: '<ion-nav [root]="root"></ion-nav>'
         }), 
         __metadata('design:paramtypes', [])
@@ -23,7 +23,7 @@ var ApiDemoApp = (function () {
 })();
 var MainPage = (function () {
     function MainPage() {
-        this.local = new ionic_2.Storage(ionic_2.LocalStorage);
+        this.local = new ionic_angular_2.Storage(ionic_angular_2.LocalStorage);
         this.localStorageDemo = '{}';
         window.localStorage.clear();
         this.myItem = {
@@ -59,7 +59,7 @@ var MainPage = (function () {
         }
     };
     MainPage = __decorate([
-        ionic_1.Page({
+        ionic_angular_1.Page({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [])

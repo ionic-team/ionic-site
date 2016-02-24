@@ -75,11 +75,23 @@ ActionSheet.show({
 <!-- @property tags -->
 <h2>Static Methods</h2>
 <div id="show"></div>
-<h3><code>show(options)</code>
+<h3><code>show(Options)</code>
   
 </h3>
 
-Show the ActionSheet.
+Show the ActionSheet. The ActionSheet's options is an object with the following propterties.
+
+| Option                        | Type      | Description                                  |
+|-------------------------------|-----------|----------------------------------------------|
+| title                         |`string`   | The title for the actionsheet                |
+| buttonLabels                  |`string[]` | the labels for the buttons. Uses the index x |
+| androidTheme                  |`number`   | Theme to bue used on Android                 |
+| androidEnableCancelButton     |`boolean`  | Enable a cancel on Android                   |
+| winphoneEnableCancelButton    |`boolean`  | Enable a cancel on Android                   |
+| addCancelButtonWithLabel      |`string`   | Add a cancle button with text                |
+| addDestructiveButtonWithLabel |`string`   | Add a destructive button with text           |
+| position                      |`number[]` | On an iPad, set the X,Y position             |
+
 
 
 <table class="table param-table" style="margin:0;">
@@ -94,7 +106,7 @@ Show the ActionSheet.
     
     <tr>
       <td>
-        options
+        Options
         
         
       </td>
@@ -103,14 +115,7 @@ Show the ActionSheet.
   <code>options</code>
       </td>
       <td>
-        <p><code>buttonLabels</code>: string[]
-  <code>title</code>: string
-  <code>androidTheme</code> (Android only): number 1-5
-  <code>androidEnableCancelButton</code> (Android only): boolean, default false
-  <code>winphoneEnableCancelButton</code> (WP only): boolean, default false
-  <code>addCancelButtonWithLabel</code>: string
-  <code>addDestructiveButtonWithLabel</code>: string
-  <code>position</code>: [x, y] (iPad pass in [x, y] coords of popover)</p>
+        <p>See table above</p>
 
         
       </td>

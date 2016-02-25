@@ -7232,10 +7232,10 @@ ion-searchbar {
   .searchbar-clear-icon.activated {
     background-color: transparent; }
 
-.searchbar-focused .searchbar-search-icon {
+.searchbar-focused:not(.searchbar-hide-cancel) .searchbar-search-icon {
   display: none; }
 
-.searchbar-focused .searchbar-md-cancel {
+.searchbar-focused:not(.searchbar-hide-cancel) .searchbar-md-cancel {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

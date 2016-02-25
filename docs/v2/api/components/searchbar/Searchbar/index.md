@@ -52,7 +52,12 @@ Improve this doc
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-searchbar [(ngModel)]=&quot;defaultSearch&quot; (input)=&quot;triggerInput($event)&quot; (cancel)=&quot;onCancelSearchbar($event)&quot; (clear)=&quot;onClearSearchbar($event)&quot;&gt;&lt;/ion-searchbar&gt;
+<pre><code class="lang-html">&lt;ion-searchbar
+  [(ngModel)]=&quot;myInput&quot;
+  [hideCancelButton]=&quot;shouldHideCancel&quot;
+  (input)=&quot;onInput($event)&quot;
+  (cancel)=&quot;onCancel($event)&quot;&gt;
+&lt;/ion-searchbar&gt;
 </code></pre>
 
 

@@ -4,6 +4,10 @@ document.getElementById('sidebar-toggle').onclick = function() {
   this.classList.toggle('active');
 };
 
+$(document).ready(function() {
+  $(".dropdown-toggle").dropdown();
+});
+
 // highlight.js syntax highlighting
 hljs.initHighlightingOnLoad();
 

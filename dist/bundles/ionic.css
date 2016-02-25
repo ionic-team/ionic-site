@@ -1426,6 +1426,143 @@ ion-slides {
     max-width: 100%;
     max-height: 100%; }
 
+ion-spinner {
+  display: inline-block;
+  position: relative;
+  width: 28px;
+  height: 28px; }
+
+ion-spinner svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0); }
+
+ion-spinner.spinner-paused svg {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused; }
+
+.spinner-ios line,
+.spinner-ios-small line {
+  stroke: #69717d;
+  stroke-width: 4px;
+  stroke-linecap: round; }
+
+.spinner-ios svg,
+.spinner-ios-small svg {
+  -webkit-animation: spinner-fade-out 1s linear infinite;
+  animation: spinner-fade-out 1s linear infinite; }
+
+.spinner-bubbles circle {
+  fill: black; }
+
+.spinner-bubbles svg {
+  -webkit-animation: spinner-scale-out 1s linear infinite;
+  animation: spinner-scale-out 1s linear infinite; }
+
+.spinner-circles circle {
+  fill: #69717d; }
+
+.spinner-circles svg {
+  -webkit-animation: spinner-fade-out 1s linear infinite;
+  animation: spinner-fade-out 1s linear infinite; }
+
+.spinner-crescent circle {
+  fill: transparent;
+  stroke: black;
+  stroke-width: 4px;
+  stroke-dasharray: 128px;
+  stroke-dashoffset: 82px; }
+
+.spinner-crescent svg {
+  -webkit-animation: spinner-rotate 1s linear infinite;
+  animation: spinner-rotate 1s linear infinite; }
+
+.spinner-dots circle {
+  fill: #444;
+  stroke-width: 0; }
+
+.spinner-dots svg {
+  -webkit-animation: spinner-dots 1s linear infinite;
+  animation: spinner-dots 1s linear infinite;
+  -webkit-transform-origin: center;
+  transform-origin: center; }
+
+@-webkit-keyframes spinner-fade-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes spinner-fade-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes spinner-scale-out {
+  0% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); }
+  100% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0); } }
+
+@keyframes spinner-scale-out {
+  0% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); }
+  100% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0); } }
+
+@-webkit-keyframes spinner-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes spinner-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-webkit-keyframes spinner-dots {
+  0% {
+    opacity: 0.9;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); }
+  50% {
+    opacity: 0.3;
+    -webkit-transform: scale(0.4, 0.4);
+    transform: scale(0.4, 0.4); }
+  100% {
+    opacity: 0.9;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); } }
+
+@keyframes spinner-dots {
+  0% {
+    opacity: 0.9;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); }
+  50% {
+    opacity: 0.3;
+    -webkit-transform: scale(0.4, 0.4);
+    transform: scale(0.4, 0.4); }
+  100% {
+    opacity: 0.9;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); } }
+
 .ion-ios-add:before {
   content: "\f102"; }
 

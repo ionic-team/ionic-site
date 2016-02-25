@@ -3303,11 +3303,11 @@
 	__export(__webpack_require__(6));
 	__export(__webpack_require__(161));
 	__export(__webpack_require__(284));
-	__export(__webpack_require__(342));
 	__export(__webpack_require__(343));
 	__export(__webpack_require__(344));
+	__export(__webpack_require__(345));
 	__export(__webpack_require__(162));
-	__export(__webpack_require__(348));
+	__export(__webpack_require__(349));
 	__export(__webpack_require__(160));
 	__export(__webpack_require__(165));
 	__export(__webpack_require__(276));
@@ -3315,13 +3315,13 @@
 	__export(__webpack_require__(306));
 	__export(__webpack_require__(305));
 	__export(__webpack_require__(283));
-	__export(__webpack_require__(352));
+	__export(__webpack_require__(353));
 	// these modules don't export anything
-	__webpack_require__(353);
 	__webpack_require__(354);
 	__webpack_require__(355);
 	__webpack_require__(356);
 	__webpack_require__(357);
+	__webpack_require__(358);
 
 /***/ },
 /* 6 */
@@ -42348,22 +42348,23 @@
 	var item_sliding_1 = __webpack_require__(324);
 	var toolbar_1 = __webpack_require__(300);
 	var icon_1 = __webpack_require__(299);
-	var checkbox_1 = __webpack_require__(325);
-	var select_1 = __webpack_require__(326);
-	var option_1 = __webpack_require__(328);
-	var toggle_1 = __webpack_require__(329);
-	var input_1 = __webpack_require__(330);
+	var spinner_1 = __webpack_require__(325);
+	var checkbox_1 = __webpack_require__(326);
+	var select_1 = __webpack_require__(327);
+	var option_1 = __webpack_require__(329);
+	var toggle_1 = __webpack_require__(330);
+	var input_1 = __webpack_require__(331);
 	var label_1 = __webpack_require__(323);
-	var segment_1 = __webpack_require__(333);
-	var radio_button_1 = __webpack_require__(334);
-	var radio_group_1 = __webpack_require__(335);
-	var searchbar_1 = __webpack_require__(336);
-	var nav_1 = __webpack_require__(337);
-	var nav_push_1 = __webpack_require__(338);
-	var nav_router_1 = __webpack_require__(339);
+	var segment_1 = __webpack_require__(334);
+	var radio_button_1 = __webpack_require__(335);
+	var radio_group_1 = __webpack_require__(336);
+	var searchbar_1 = __webpack_require__(337);
+	var nav_1 = __webpack_require__(338);
+	var nav_push_1 = __webpack_require__(339);
+	var nav_router_1 = __webpack_require__(340);
 	var navbar_1 = __webpack_require__(298);
-	var id_1 = __webpack_require__(340);
-	var show_hide_when_1 = __webpack_require__(341);
+	var id_1 = __webpack_require__(341);
+	var show_hide_when_1 = __webpack_require__(342);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @private
@@ -42408,6 +42409,7 @@
 	 *
 	 * **Media**
 	 * -  Icon
+	 * -  Spinner
 	 *
 	 * **Forms**
 	 * -  Searchbar
@@ -42467,6 +42469,7 @@
 	    toolbar_1.ToolbarItem,
 	    // Media
 	    icon_1.Icon,
+	    spinner_1.Spinner,
 	    // Forms
 	    searchbar_1.Searchbar,
 	    searchbar_1.SearchbarInput,
@@ -56505,6 +56508,298 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
+	var core_1 = __webpack_require__(7);
+	var common_1 = __webpack_require__(172);
+	var config_1 = __webpack_require__(161);
+	/**
+	 * @name Spinner
+	 * @description
+	 * The `ion-spinner` component provides a variety of animated SVG spinners.
+	 * Spinners enables you to give users feedback that the app is actively
+	 * processing/thinking/waiting/chillin’ out, or whatever you’d like it to indicate.
+	 * By default, the `ion-refresher` feature uses this spinner component while it's
+	 * the refresher is in the `refreshing` state.
+	 *
+	 * Ionic offers a handful of spinners out of the box, and by default, it will use
+	 * the appropriate spinner for the platform on which it’s running.
+	 *
+	 * <table class="table spinner-table">
+	 *  <tr>
+	 *    <th>
+	 *      <code>ios</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="ios"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>ios-small</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="ios-small"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>bubbles</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="bubbles"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>circles</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="circles"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>crescent</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="crescent"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>dots</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="dots"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 * </table>
+	 *
+	 * @usage
+	 * The following code would use the default spinner for the platform it's
+	 * running from. If it's neither iOS or Android, it'll default to use `ios`.
+	 *
+	 * ```html
+	 * <ion-spinner></ion-spinner>
+	 * ```
+	 *
+	 * By setting the `name` property, you can specify which predefined spinner to
+	 * use, no matter what the platform is.
+	 *
+	 * ```html
+	 * <ion-spinner name="bubbles"></ion-spinner>
+	 * ```
+	 *
+	 * ## Styling SVG with CSS
+	 * One cool thing about SVG is its ability to be styled with CSS! One thing to note
+	 * is that some of the CSS properties on an SVG element have different names. For
+	 * example, SVG uses the term `stroke` instead of `border`, and `fill` instead
+	 * of `background-color`.
+	 *
+	 * ```css
+	 * ion-spinner svg {
+	 *   width: 28px;
+	 *   height: 28px;
+	 *   stroke: #444;
+	 *   fill: #222;
+	 * }
+	 * ```
+	 */
+	var Spinner = (function () {
+	    function Spinner(_config) {
+	        this._config = _config;
+	        this._dur = null;
+	        /**
+	         * @input {string} If the animation is paused or not. Defaults to `false`.
+	         */
+	        this.paused = false;
+	    }
+	    Object.defineProperty(Spinner.prototype, "name", {
+	        /**
+	         * @input {string} SVG spinner name.
+	         */
+	        get: function () {
+	            return this._name;
+	        },
+	        set: function (val) {
+	            this._name = val;
+	            this.load();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Spinner.prototype, "duration", {
+	        /**
+	         * @input {string} How long it takes it to do one loop.
+	         */
+	        get: function () {
+	            return this._dur;
+	        },
+	        set: function (val) {
+	            this._dur = val;
+	            this.load();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Spinner.prototype.ngOnInit = function () {
+	        this._init = true;
+	        this.load();
+	    };
+	    Spinner.prototype.load = function () {
+	        if (this._init) {
+	            this._l = [];
+	            this._c = [];
+	            var name = this._name || this._config.get('spinner', 'ios');
+	            var spinner = SPINNERS[name];
+	            if (spinner) {
+	                this._applied = 'spinner-' + name;
+	                if (spinner.lines) {
+	                    for (var i = 0, l = spinner.lines; i < l; i++) {
+	                        this._l.push(this._loadEle(spinner, i, l));
+	                    }
+	                }
+	                else if (spinner.circles) {
+	                    for (var i = 0, l = spinner.circles; i < l; i++) {
+	                        this._c.push(this._loadEle(spinner, i, l));
+	                    }
+	                }
+	            }
+	        }
+	    };
+	    Spinner.prototype._loadEle = function (spinner, index, total) {
+	        var duration = this._dur || spinner.dur;
+	        var data = spinner.fn(duration, index, total);
+	        data.style.animationDuration = duration + 'ms';
+	        return data;
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Spinner.prototype, "name", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Number)
+	    ], Spinner.prototype, "duration", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Spinner.prototype, "paused", void 0);
+	    Spinner = __decorate([
+	        core_1.Component({
+	            selector: 'ion-spinner',
+	            template: '<svg viewBox="0 0 64 64" *ngFor="#i of _c" [ngStyle]="i.style">' +
+	                '<circle [attr.r]="i.r" transform="translate(32,32)"></circle>' +
+	                '</svg>' +
+	                '<svg viewBox="0 0 64 64" *ngFor="#i of _l" [ngStyle]="i.style">' +
+	                '<line [attr.y1]="i.y1" [attr.y2]="i.y2" transform="translate(32,32)"></line>' +
+	                '</svg>',
+	            directives: [common_1.NgStyle],
+	            host: {
+	                '[class]': '_applied',
+	                '[class.spinner-paused]': 'paused'
+	            }
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object])
+	    ], Spinner);
+	    return Spinner;
+	    var _a;
+	})();
+	exports.Spinner = Spinner;
+	var SPINNERS = {
+	    ios: {
+	        dur: 1000,
+	        lines: 12,
+	        fn: function (dur, index, total) {
+	            return {
+	                y1: 17,
+	                y2: 29,
+	                style: {
+	                    transform: 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
+	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
+	                }
+	            };
+	        }
+	    },
+	    'ios-small': {
+	        dur: 1000,
+	        lines: 12,
+	        fn: function (dur, index, total) {
+	            return {
+	                y1: 12,
+	                y2: 20,
+	                style: {
+	                    transform: 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
+	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
+	                }
+	            };
+	        }
+	    },
+	    bubbles: {
+	        dur: 1000,
+	        circles: 9,
+	        fn: function (dur, index, total) {
+	            return {
+	                r: 5,
+	                style: {
+	                    top: 9 * Math.sin(2 * Math.PI * index / total),
+	                    left: 9 * Math.cos(2 * Math.PI * index / total),
+	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
+	                }
+	            };
+	        }
+	    },
+	    circles: {
+	        dur: 1000,
+	        circles: 8,
+	        fn: function (dur, index, total) {
+	            return {
+	                r: 5,
+	                style: {
+	                    top: 9 * Math.sin(2 * Math.PI * index / total),
+	                    left: 9 * Math.cos(2 * Math.PI * index / total),
+	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
+	                }
+	            };
+	        }
+	    },
+	    crescent: {
+	        dur: 750,
+	        circles: 1,
+	        fn: function (dur) {
+	            return {
+	                r: 26,
+	                style: {}
+	            };
+	        }
+	    },
+	    dots: {
+	        dur: 750,
+	        circles: 3,
+	        fn: function (dur, index, total) {
+	            return {
+	                r: 6,
+	                style: {
+	                    left: (9 - (9 * index)),
+	                    animationDelay: -(110 * index) + 'ms'
+	                }
+	            };
+	        }
+	    }
+	};
+
+/***/ },
+/* 326 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
@@ -56699,7 +56994,7 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 326 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56716,12 +57011,12 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
-	var alert_1 = __webpack_require__(327);
+	var alert_1 = __webpack_require__(328);
 	var form_1 = __webpack_require__(167);
 	var item_1 = __webpack_require__(322);
 	var util_1 = __webpack_require__(163);
 	var nav_controller_1 = __webpack_require__(302);
-	var option_1 = __webpack_require__(328);
+	var option_1 = __webpack_require__(329);
 	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 	/**
 	 * @name Select
@@ -57099,7 +57394,7 @@
 	exports.Select = Select;
 
 /***/ },
-/* 327 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -57597,7 +57892,7 @@
 	var alertIds = -1;
 
 /***/ },
-/* 328 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57690,7 +57985,7 @@
 	exports.Option = Option;
 
 /***/ },
-/* 329 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57960,7 +58255,7 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 330 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -57986,10 +58281,10 @@
 	var config_1 = __webpack_require__(161);
 	var content_1 = __webpack_require__(310);
 	var form_1 = __webpack_require__(167);
-	var input_base_1 = __webpack_require__(331);
+	var input_base_1 = __webpack_require__(332);
 	var app_1 = __webpack_require__(168);
 	var item_1 = __webpack_require__(322);
-	var native_input_1 = __webpack_require__(332);
+	var native_input_1 = __webpack_require__(333);
 	var nav_controller_1 = __webpack_require__(302);
 	var platform_1 = __webpack_require__(162);
 	/**
@@ -58144,7 +58439,7 @@
 	exports.TextArea = TextArea;
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58159,7 +58454,7 @@
 	var core_1 = __webpack_require__(7);
 	var util_1 = __webpack_require__(163);
 	var dom_1 = __webpack_require__(164);
-	var native_input_1 = __webpack_require__(332);
+	var native_input_1 = __webpack_require__(333);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
 	        this._form = _form;
@@ -58678,7 +58973,7 @@
 	}
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58873,7 +59168,7 @@
 	exports.NextInput = NextInput;
 
 /***/ },
-/* 333 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59121,7 +59416,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 334 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59140,7 +59435,7 @@
 	var form_1 = __webpack_require__(167);
 	var util_1 = __webpack_require__(163);
 	var item_1 = __webpack_require__(322);
-	var radio_group_1 = __webpack_require__(335);
+	var radio_group_1 = __webpack_require__(336);
 	/**
 	 * @description
 	 * A radio button with a unique value. Note that all `<ion-radio>`
@@ -59306,7 +59601,7 @@
 	exports.RadioButton = RadioButton;
 
 /***/ },
-/* 335 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59520,7 +59815,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 336 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59856,7 +60151,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 337 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60018,7 +60313,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 338 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60180,7 +60475,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 339 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60202,7 +60497,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var router_1 = __webpack_require__(117);
-	var nav_1 = __webpack_require__(337);
+	var nav_1 = __webpack_require__(338);
 	/**
 	 * @private
 	 */
@@ -60300,7 +60595,7 @@
 	})(router_1.Instruction);
 
 /***/ },
-/* 340 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60412,7 +60707,7 @@
 	exports.Attr = Attr;
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60565,7 +60860,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 342 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(7);
@@ -60637,7 +60932,7 @@
 	exports.App = App;
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(7);
@@ -60727,58 +61022,58 @@
 	exports.Page = Page;
 
 /***/ },
-/* 344 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(168));
-	__export(__webpack_require__(340));
-	__export(__webpack_require__(345));
-	__export(__webpack_require__(327));
+	__export(__webpack_require__(341));
+	__export(__webpack_require__(346));
+	__export(__webpack_require__(328));
 	__export(__webpack_require__(309));
 	__export(__webpack_require__(301));
-	__export(__webpack_require__(325));
+	__export(__webpack_require__(326));
 	__export(__webpack_require__(310));
 	__export(__webpack_require__(299));
-	__export(__webpack_require__(330));
+	__export(__webpack_require__(331));
 	__export(__webpack_require__(322));
 	__export(__webpack_require__(324));
 	__export(__webpack_require__(277));
 	__export(__webpack_require__(286));
-	__export(__webpack_require__(346));
+	__export(__webpack_require__(347));
 	__export(__webpack_require__(295));
 	__export(__webpack_require__(307));
 	__export(__webpack_require__(323));
 	__export(__webpack_require__(319));
-	__export(__webpack_require__(341));
-	__export(__webpack_require__(347));
-	__export(__webpack_require__(337));
+	__export(__webpack_require__(342));
+	__export(__webpack_require__(348));
+	__export(__webpack_require__(338));
 	__export(__webpack_require__(302));
 	__export(__webpack_require__(296));
 	__export(__webpack_require__(297));
-	__export(__webpack_require__(338));
 	__export(__webpack_require__(339));
+	__export(__webpack_require__(340));
 	__export(__webpack_require__(298));
-	__export(__webpack_require__(328));
+	__export(__webpack_require__(329));
 	__export(__webpack_require__(285));
 	__export(__webpack_require__(313));
-	__export(__webpack_require__(334));
 	__export(__webpack_require__(335));
+	__export(__webpack_require__(336));
 	__export(__webpack_require__(311));
 	__export(__webpack_require__(312));
-	__export(__webpack_require__(336));
-	__export(__webpack_require__(333));
-	__export(__webpack_require__(326));
+	__export(__webpack_require__(337));
+	__export(__webpack_require__(334));
+	__export(__webpack_require__(327));
 	__export(__webpack_require__(315));
 	__export(__webpack_require__(317));
 	__export(__webpack_require__(280));
-	__export(__webpack_require__(329));
+	__export(__webpack_require__(330));
 	__export(__webpack_require__(300));
 
 /***/ },
-/* 345 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61118,7 +61413,7 @@
 	transition_1.Transition.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
 
 /***/ },
-/* 346 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61265,7 +61560,7 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 347 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61474,18 +61769,18 @@
 	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(349));
 	__export(__webpack_require__(350));
 	__export(__webpack_require__(351));
+	__export(__webpack_require__(352));
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports) {
 
 	/**
@@ -61562,7 +61857,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 350 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61570,7 +61865,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(349);
+	var storage_1 = __webpack_require__(350);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -61656,7 +61951,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61664,7 +61959,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(349);
+	var storage_1 = __webpack_require__(350);
 	var util_1 = __webpack_require__(163);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -61872,7 +62167,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61921,7 +62216,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 353 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var config_1 = __webpack_require__(161);
@@ -61940,6 +62235,7 @@
 	    modalLeave: 'modal-slide-out',
 	    pageTransition: 'ios-transition',
 	    pageTransitionDelay: 16,
+	    spinner: 'ios',
 	    tabbarPlacement: 'bottom',
 	});
 	// Material Design Mode Settings
@@ -61957,13 +62253,14 @@
 	    modalLeave: 'modal-md-slide-out',
 	    pageTransition: 'md-transition',
 	    pageTransitionDelay: 96,
+	    spinner: 'crescent',
 	    tabbarHighlight: true,
 	    tabbarPlacement: 'top',
 	    tabSubPages: true,
 	});
 
 /***/ },
-/* 354 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var platform_1 = __webpack_require__(162);
@@ -62127,7 +62424,7 @@
 	}
 
 /***/ },
-/* 355 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -62186,7 +62483,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 356 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -62359,7 +62656,7 @@
 	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 357 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {

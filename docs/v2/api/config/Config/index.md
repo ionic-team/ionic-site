@@ -178,6 +178,11 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 <td>top</td>
 </tr>
 <tr>
+<td>tabbarLayout</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td>tabSubPages</td>
 <td></td>
 <td>true</td>

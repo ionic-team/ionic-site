@@ -26363,6 +26363,7 @@
 	 * | pageTransitionDelay        | 16                     | 120                       |
 	 * | tabbarPlacement            | bottom                 | top                       |
 	 * | tabbarHighlight            |                        | top                       |
+	 * | tabbarLayout               |                        |                           |
 	 * | tabSubPages                |                        | true                      |
 	 *
 	**/
@@ -54976,7 +54977,7 @@
 	        this._tabs = [];
 	        this._onReady = null;
 	        /**
-	         * @input {any} expression you want to evaluate when the tabs change
+	         * @input {any} Expression to evaluate when the tab changes.
 	         */
 	        this.change = new core_1.EventEmitter();
 	        this.parent = parent;
@@ -55000,7 +55001,11 @@
 	    Tabs.prototype.ngAfterViewInit = function () {
 	        var _this = this;
 	        this._setConfig('tabbarPlacement', 'bottom');
+	        this._setConfig('tabbarLayout', 'icon-top');
 	        this._setConfig('tabbarIcons', 'top');
+	        if (this.tabbarIcons) {
+	            console.warn("DEPRECATION WARNING: 'tabbarIcons' is no longer supported and will be removed in next major release. Use 'tabbarLayout' instead. Available values: 'icon-top', 'icon-left', 'icon-right', 'icon-bottom', 'icon-hide', 'title-hide'.");
+	        }
 	        if (this._useHighlight) {
 	            this._platform.onResize(function () {
 	                _this._highlight.select(_this.getSelected());
@@ -55034,7 +55039,7 @@
 	    Tabs.prototype._setConfig = function (attrKey, fallback) {
 	        var val = this[attrKey];
 	        if (util_1.isUndefined(val)) {
-	            val = this._config.get(attrKey);
+	            val = this._config.get(attrKey, fallback);
 	        }
 	        this._renderer.setElementAttribute(this._elementRef.nativeElement, attrKey, val);
 	    };
@@ -55177,6 +55182,10 @@
 	        core_1.Input(), 
 	        __metadata('design:type', String)
 	    ], Tabs.prototype, "tabbarIcons", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Tabs.prototype, "tabbarLayout", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)

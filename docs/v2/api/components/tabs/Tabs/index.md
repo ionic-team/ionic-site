@@ -212,28 +212,35 @@ the screen, while on Android it is at the top.</p>
     <tr>
       <td>selectedIndex</td>
       <td><code>number</code></td>
-      <td><p> The default selected tab index when first loaded. If a selected index wasn&#39;t provided then it&#39;ll use <code>0</code>, the first tab.</p>
+      <td><p> The default selected tab index when first loaded. If a selected index isn&#39;t provided then it will use <code>0</code>, the first tab.</p>
 </td>
     </tr>
     
     <tr>
       <td>preloadTabs</td>
       <td><code>boolean</code></td>
-      <td><p> Sets whether to preload all the tabs, true or false</p>
+      <td><p> Set whether to preload all the tabs: <code>true</code>, <code>false</code>.</p>
 </td>
     </tr>
     
     <tr>
       <td>tabbarIcons</td>
       <td><code>string</code></td>
-      <td><p> set the position of the tabbar&#39;s icons: top, bottom, left, right, hide</p>
+      <td><p> Deprecated, use <code>tabbarLayout</code> instead. Set the position of the tabbar&#39;s icons: <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>, <code>hide</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>tabbarLayout</td>
+      <td><code>string</code></td>
+      <td><p> Set the tabbar layout: <code>icon-top</code>, <code>icon-left</code>, <code>icon-right</code>, <code>icon-bottom</code>, <code>icon-hide</code>, <code>title-hide</code>.</p>
 </td>
     </tr>
     
     <tr>
       <td>tabbarPlacement</td>
       <td><code>string</code></td>
-      <td><p> Set position of the tabbar, top or bottom</p>
+      <td><p> Set position of the tabbar: <code>top</code>, <code>bottom</code>.</p>
 </td>
     </tr>
     
@@ -252,7 +259,7 @@ the screen, while on Android it is at the top.</p>
     
     <tr>
       <td>change</td>
-      <td><p> expression you want to evaluate when the tabs change</p>
+      <td><p> Expression to evaluate when the tab changes.</p>
 </td>
     </tr>
     

@@ -6431,34 +6431,36 @@ ion-icon {
     white-space: normal; }
   .ios tab-highlight {
     display: none; }
-  .ios [tabbarIcons=bottom] .tab-button .tab-button-icon {
+  .ios [tabbarLayout=icon-bottom] .tab-button .tab-button-icon {
     -webkit-box-ordinal-group: 11;
     -webkit-order: 10;
     -ms-flex-order: 10;
     order: 10; }
-  .ios [tabbarIcons=left] .tab-button {
+  .ios [tabbarLayout=icon-left] .tab-button {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row; }
-    .ios [tabbarIcons=left] .tab-button .tab-button-icon {
+    .ios [tabbarLayout=icon-left] .tab-button .tab-button-icon {
       text-align: right;
       padding-right: 8px; }
-  .ios [tabbarIcons=right] .tab-button {
+  .ios [tabbarLayout=icon-right] .tab-button {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row; }
-    .ios [tabbarIcons=right] .tab-button .tab-button-icon {
+    .ios [tabbarLayout=icon-right] .tab-button .tab-button-icon {
       -webkit-box-ordinal-group: 11;
       -webkit-order: 10;
       -ms-flex-order: 10;
       order: 10;
       text-align: left;
       padding-left: 8px; }
-  .ios [tabbarIcons=hide] .tab-button-icon {
+  .ios [tabbarLayout=icon-hide] .tab-button-icon {
+    display: none; }
+  .ios [tabbarLayout=title-hide] .tab-button-text {
     display: none; }
   .ios .tab-badge {
     position: absolute;
@@ -6471,9 +6473,9 @@ ion-icon {
     line-height: 16px; }
   .ios .has-icon .tab-badge {
     right: calc(50% - 30px); }
-  .ios [tabbarIcons=bottom] .tab-badge,
-  .ios [tabbarIcons=left] .tab-badge,
-  .ios [tabbarIcons=right] .tab-badge {
+  .ios [tabbarLayout=icon-bottom] .tab-badge,
+  .ios [tabbarLayout=icon-left] .tab-badge,
+  .ios [tabbarLayout=icon-right] .tab-badge {
     right: calc(50% - 50px); }
   .ios tabbar {
     border-top: 1px solid #b2b2b2;
@@ -6501,25 +6503,25 @@ ion-icon {
     min-width: 37px; }
     .ios .tab-button-icon:before {
       vertical-align: top; }
-  .ios [tabbarIcons=right] .tab-button .tab-button-text,
-  .ios [tabbarIcons=left] .tab-button .tab-button-text {
+  .ios [tabbarLayout=icon-right] .tab-button .tab-button-text,
+  .ios [tabbarLayout=icon-left] .tab-button .tab-button-text {
     font-size: 1.4rem;
     line-height: 1.1;
     margin-top: 0;
     margin-bottom: 0; }
-  .ios [tabbarIcons=right] .tab-button ion-icon,
-  .ios [tabbarIcons=left] .tab-button ion-icon {
+  .ios [tabbarLayout=icon-right] .tab-button ion-icon,
+  .ios [tabbarLayout=icon-left] .tab-button ion-icon {
     min-width: 24px;
     height: 26px;
     font-size: 24px; }
-  .ios [tabbarIcons=hide] .tab-button-text {
-    font-size: 1.4rem;
-    line-height: 1.1; }
+  .ios [tabbarLayout=icon-hide] .tab-button,
   .ios .tab-button.has-title-only {
     min-height: 41px; }
+    .ios [tabbarLayout=icon-hide] .tab-button .tab-button-text,
     .ios .tab-button.has-title-only .tab-button-text {
       font-size: 1.4rem;
       line-height: 1.1; }
+  .ios [tabbarLayout=title-hide] .tab-button,
   .ios .tab-button.icon-only {
     min-height: 41px; }
   .ios.hairlines ion-tabs tabbar {
@@ -9992,34 +9994,36 @@ ion-icon {
     white-space: normal; }
   .md tab-highlight {
     display: none; }
-  .md [tabbarIcons=bottom] .tab-button .tab-button-icon {
+  .md [tabbarLayout=icon-bottom] .tab-button .tab-button-icon {
     -webkit-box-ordinal-group: 11;
     -webkit-order: 10;
     -ms-flex-order: 10;
     order: 10; }
-  .md [tabbarIcons=left] .tab-button {
+  .md [tabbarLayout=icon-left] .tab-button {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row; }
-    .md [tabbarIcons=left] .tab-button .tab-button-icon {
+    .md [tabbarLayout=icon-left] .tab-button .tab-button-icon {
       text-align: right;
       padding-right: 8px; }
-  .md [tabbarIcons=right] .tab-button {
+  .md [tabbarLayout=icon-right] .tab-button {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row; }
-    .md [tabbarIcons=right] .tab-button .tab-button-icon {
+    .md [tabbarLayout=icon-right] .tab-button .tab-button-icon {
       -webkit-box-ordinal-group: 11;
       -webkit-order: 10;
       -ms-flex-order: 10;
       order: 10;
       text-align: left;
       padding-left: 8px; }
-  .md [tabbarIcons=hide] .tab-button-icon {
+  .md [tabbarLayout=icon-hide] .tab-button-icon {
+    display: none; }
+  .md [tabbarLayout=title-hide] .tab-button-text {
     display: none; }
   .md .tab-badge {
     position: absolute;
@@ -10032,9 +10036,9 @@ ion-icon {
     line-height: 16px; }
   .md .has-icon .tab-badge {
     right: calc(50% - 30px); }
-  .md [tabbarIcons=bottom] .tab-badge,
-  .md [tabbarIcons=left] .tab-badge,
-  .md [tabbarIcons=right] .tab-badge {
+  .md [tabbarLayout=icon-bottom] .tab-badge,
+  .md [tabbarLayout=icon-left] .tab-badge,
+  .md [tabbarLayout=icon-right] .tab-badge {
     right: calc(50% - 50px); }
   .md tabbar {
     background: #f8f8f8; }
@@ -10058,15 +10062,17 @@ ion-icon {
   .md .tab-button-icon {
     font-size: 2.4rem;
     min-width: 7.4rem; }
-  .md [tabbarIcons=bottom] .tab-button {
+  .md [tabbarLayout=icon-bottom] .tab-button {
     padding-top: 8px;
     padding-bottom: 8px; }
-  .md [tabbarIcons=right] .tab-button,
-  .md [tabbarIcons=left] .tab-button {
+  .md [tabbarLayout=icon-right] .tab-button,
+  .md [tabbarLayout=icon-left] .tab-button {
     padding-bottom: 10px; }
-    .md [tabbarIcons=right] .tab-button ion-icon,
-    .md [tabbarIcons=left] .tab-button ion-icon {
+    .md [tabbarLayout=icon-right] .tab-button ion-icon,
+    .md [tabbarLayout=icon-left] .tab-button ion-icon {
       min-width: 24px; }
+  .md [tabbarLayout=icon-hide] .tab-button,
+  .md [tabbarLayout=title-hide] .tab-button,
   .md .tab-button.icon-only,
   .md .tab-button.has-title-only {
     padding: 6px 10px 6px 10px; }

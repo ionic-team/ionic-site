@@ -61750,8 +61750,8 @@
 	var selects = __webpack_require__(422);
 	var slides = __webpack_require__(424);
 	var tabs = __webpack_require__(426);
-	var toggles = __webpack_require__(430);
-	var toolbar = __webpack_require__(432);
+	var toggles = __webpack_require__(431);
+	var toolbar = __webpack_require__(433);
 	var AndroidAttribute = (function () {
 	    function AndroidAttribute(platform, elementRef, renderer) {
 	        this.platform = platform;
@@ -61860,6 +61860,7 @@
 	        'tabs': tabs.BasicPage,
 	        'tabs-icon': tabs.IconPage,
 	        'tabs-icon-text': tabs.IconTextPage,
+	        'tabs-badges': tabs.BadgesPage,
 	        'toolbar': toolbar.BasicPage
 	    };
 	}
@@ -64281,6 +64282,7 @@
 	__export(__webpack_require__(427));
 	__export(__webpack_require__(428));
 	__export(__webpack_require__(429));
+	__export(__webpack_require__(430));
 
 
 /***/ },
@@ -64476,14 +64478,70 @@
 /* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(431));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(5);
+	var core_1 = __webpack_require__(7);
+	var helpers = __webpack_require__(354);
+	var TabBadgePage = (function () {
+	    function TabBadgePage(platform) {
+	        this.platform = platform;
+	        this.isAndroid = platform.is('android');
+	    }
+	    TabBadgePage = __decorate([
+	        ionic_1.Page({
+	            template: '' +
+	                '<ion-navbar *navbar hideBackButton [attr.primary]="isAndroid ? \'\' : null">' +
+	                '<ion-title>Tabs</ion-title>' +
+	                '</ion-navbar>' +
+	                '<ion-content>' +
+	                '</ion-content>',
+	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })],
+	        }), 
+	        __metadata('design:paramtypes', [ionic_1.Platform])
+	    ], TabBadgePage);
+	    return TabBadgePage;
+	})();
+	var BadgesPage = (function () {
+	    function BadgesPage() {
+	        this.tabOne = TabBadgePage;
+	        this.tabTwo = TabBadgePage;
+	        this.tabThree = TabBadgePage;
+	    }
+	    BadgesPage = __decorate([
+	        ionic_1.Page({
+	            template: '<ion-tabs class="tabs-badges">' +
+	                '<ion-tab tabIcon="call" [root]="tabOne" tabBadge="3" tabBadgeStyle="danger"></ion-tab>' +
+	                '<ion-tab tabIcon="chatbubbles" [root]="tabTwo" tabBadge="14" tabBadgeStyle="danger"></ion-tab>' +
+	                '<ion-tab tabIcon="musical-notes" [root]="tabThree"></ion-tab>' +
+	                '</ion-tabs>',
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], BadgesPage);
+	    return BadgesPage;
+	})();
+	exports.BadgesPage = BadgesPage;
 
 
 /***/ },
 /* 431 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(432));
+
+
+/***/ },
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64514,17 +64572,17 @@
 
 
 /***/ },
-/* 432 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(433));
+	__export(__webpack_require__(434));
 
 
 /***/ },
-/* 433 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

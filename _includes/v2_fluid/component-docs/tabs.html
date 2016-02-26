@@ -18,6 +18,8 @@ Tabs are useful if you have a few "root" or "top-level" pages.  They are obvious
   <li class="docs-content-item"><a href="#tabs">Text Tabs</a></li>
   <li class="docs-content-item"><a href="#tabs-icon">Icon Tabs</a></li>
   <li class="docs-content-item"><a href="#tabs-icon-text">Text and Icon Tabs</a></li>
+  <li class="docs-content-item"><a href="#tabs-badges">Badge Tabs</a></li>
+
 </ul>
 
 ### Basic Usage
@@ -163,6 +165,44 @@ export class TabsTextPage {
     this.tab1 = TabsTextContentPage;
     this.tab2 = TabsTextContentPage;
     ...
+  }
+}
+```
+
+<h3 class="section-nav" id="tabs-badges">Badges</h3>
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/tabs/icon-text">
+  Demo Source
+</a>
+
+To add a badge to a tab, use the `tabBadge` and `tabBadgeStyle` attributes. The `tabBadgeStyle` attribute can be passed the name of any [color](/docs/v2/theming/theming-your-app/):
+
+
+```typescript
+@Page({
+  template: `
+  <ion-navbar *navbar>
+    <ion-title>Tabs</ion-title>
+  </ion-navbar>
+  <ion-content>
+  </ion-content>`,
+})
+class TabBadgePage {
+  constructor() {
+  }
+}
+
+@Page({
+  template: 
+    '<ion-tabs>' +
+      '<ion-tab tabIcon="call" [root]="tabOne" tabBadge="3" tabBadgeStyle="danger"></ion-tab>' +
+      '<ion-tab tabIcon="chatbubbles" [root]="tabTwo" tabBadge="14" tabBadgeStyle="danger"></ion-tab>' +
+      '<ion-tab tabIcon="musical-notes" [root]="tabThree"></ion-tab>' +
+    '</ion-tabs>',
+})
+export class BadgesPage {
+  constructor() {
+    this.tabOne = TabBadgePage;
+    this.tabTwo = TabBadgePage;
   }
 }
 ```

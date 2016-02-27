@@ -24,7 +24,7 @@ The following are a list of editors and IDEs that we think will give you the mos
   <h3>
     <a href="#code">Visual Studio Code</a>
     </h3>
-  <p>VS Code is a new editor that comes with support for ES6 syntax, as well as TypeScript support. It will also prompt users to include TypeScript definition files and download them from <a href="http://definitelytyped.org/">Definitely Typed</a>. Visual Studio Code is free and works on OSX, Windows, and Linux.</p>
+  <p>VS Code is a new editor that comes with support for ES6 syntax, as well as TypeScript support. It will also prompt users to include TypeScript definition files and download them from <a href="http://definitelytyped.org/">Definitely Typed</a>. Visual Studio Code is free and works on OS X, Windows, and Linux.</p>
   <p><a href="https://code.visualstudio.com/">Offical website</a></p>
   </h3>
 
@@ -32,16 +32,16 @@ The following are a list of editors and IDEs that we think will give you the mos
 
 <section id="atom">
 <h3><a href="#atom">Atom</a></h3>
-<p>Atom is cross platform editor built on web technologies. Atom has many plugins to make ES6/TypeScript development very easy. If there isn't something provided by Atom or a plugin, you can even make a plugin yourself, using JavaScript. Atom works on OSX, Windows, and Linux.</p>
+<p>Atom is cross platform editor built on web technologies. Atom has many plugins to make ES6/TypeScript development very easy. If there isn't something provided by Atom or a plugin, you can even make a plugin yourself, using JavaScript. Atom works on OS X, Windows, and Linux.</p>
 <p><a href="https://atom.io/packages/atom-typescript">Atom TypeScript</a></p>
 <p><a href="https://atom.io/">Atom official website</a></p>
 </section>
 
 <section id="webstorm">
-  <h3><a href="#webstorm">Webstorm</a></h3>
+  <h3><a href="#webstorm">WebStorm</a></h3>
 
-<p>Webstorm is a paid IDE that provides many features, such as advanced refactoring support, automatic compilation of code, and gulp/grunt/webpack support. Out of the box, Webstorm comes with support for ES6 and TypeScript, as well as Angular and Ionic syntax support.</p>
-<p><a href="https://www.jetbrains.com/webstorm/">Webstorm official website</a></p>
+<p>WebStorm is a paid IDE that provides many features, such as advanced refactoring support, automatic compilation of code, and gulp/grunt/webpack support. Out of the box, WebStorm comes with support for ES6 and TypeScript, as well as Angular and Ionic syntax support.</p>
+<p><a href="https://www.jetbrains.com/webstorm/">WebStorm official website</a></p>
 </section>
 
 <script>

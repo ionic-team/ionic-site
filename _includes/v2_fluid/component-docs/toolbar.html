@@ -70,3 +70,66 @@ One of the best uses of the toolbar is as a header.
 </ion-content>
 
 ```
+
+<h3 class="no-para">Searchbar Toolbar</h3>
+
+Another commond design paradigm is to include a searchbar inside your toolbar.
+
+```html
+<ion-toolbar>
+  <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
+</ion-toolbar>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="#item of items">
+      {% raw %}{{ item }}{% endraw %}
+    </ion-item>
+  </ion-list>
+</ion-content>
+```
+
+```typescript
+@Page({
+  templateUrl: 'search/template.html',
+})
+class SearchPage {
+  constructor() {
+    this.searchQuery = '';
+    this.initializeItems();
+  }
+
+  initializeItems() {
+    this.items = [
+      'Angular 1.x',
+      'Angular 2',
+      'ReactJS',
+      'EmberJS',
+      'Meteor',
+      'Typescript',
+      'Dart',
+      'CoffeeScript'
+    ];
+  }
+
+  getItems(searchbar) {
+    // Reset items back to all of the items
+    this.initializeItems();
+
+    // set q to the value of the searchbar
+    var q = searchbar.value;
+
+    // if the value is an empty string don't filter the items
+    if (q.trim() == '') {
+      return;
+    }
+
+    this.items = this.items.filter((v) => {
+      if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+        return true;
+      }
+      return false;
+    })
+  }
+}
+```

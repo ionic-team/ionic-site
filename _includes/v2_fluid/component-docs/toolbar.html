@@ -70,3 +70,33 @@ One of the best uses of the toolbar is as a header.
 </ion-content>
 
 ```
+
+<h3 class="no-para">Segment Toolbar</h3>
+
+You can also put segments in a toolbar, which is a common navigation paradigm in IOS.
+
+```html
+<ion-toolbar>
+    <ion-segment [(ngModel)]="segments">
+        <ion-segment-button value="first">
+            First
+        </ion-segment-button>
+        <ion-segment-button value="second">
+            Second
+        </ion-segment-button>
+    </ion-segment>
+</ion-toolbar>
+
+<ion-content>
+    <div [ngSwitch]="segments">
+        <ion-item *ngSwitchWhen="'first'">
+            <h2>This is an awesome first segment!</h2>
+        </ion-item>
+
+        <ion-item *ngSwitchWhen="'second'">
+            <h2>Second is definitely more awesome!</h2>
+        </ion-item>
+    </div>
+</ion-content>
+
+```

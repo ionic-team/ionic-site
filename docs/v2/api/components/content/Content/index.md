@@ -41,9 +41,10 @@ Improve this doc
 
 
 
-<p>The Content component provides an easy to use content area that can be configured to use Ionic&#39;s custom Scroll View, or the built in overflow scrolling of the browser.</p>
-<p>While we recommend using the custom Scroll features in Ionic in most cases, sometimes (for performance reasons) only the browser&#39;s native overflow scrolling will suffice, and so we&#39;ve made it easy to toggle between the Ionic scroll implementation and overflow scrolling.</p>
-<p>You can implement pull-to-refresh with the <a href="../../scroll/Refresher">Refresher</a> component.</p>
+<p>The Content component provides an easy to use content area with some useful
+methods to control the scrollable area.</p>
+<p>The content area can also implement pull-to-refresh with the
+<a href="../../scroll/Refresher">Refresher</a> component.</p>
 
 
 <h2>Component</h2>
@@ -52,7 +53,7 @@ Improve this doc
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-content id=&quot;myContent&quot;&gt;
+<pre><code class="lang-html">&lt;ion-content&gt;
   Add your content here!
 &lt;/ion-content&gt;
 </code></pre>
@@ -68,47 +69,17 @@ Improve this doc
 
 <h2>Instance Methods</h2>
 
-<div id="onScrollEnd"></div>
+<div id="onScrollElementTransitionEnd"></div>
 
 <h3>
-<code>onScrollEnd(callback)</code>
+<code>onScrollElementTransitionEnd()</code>
   
 
 </h3>
 
-Call a method when scrolling has stopped
 
 
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        callback
-        
-        
-      </td>
-      <td>
-        
-  <code>Function</code>
-      </td>
-      <td>
-        <p>The method you want perform when scrolling has ended</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
 
 
 
@@ -284,6 +255,82 @@ export class MyPage{
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise when done
 </div>
+
+
+
+
+<div id="getScrollTop"></div>
+
+<h3>
+<code>getScrollTop()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="addCssClass"></div>
+
+<h3>
+<code>addCssClass()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="removeCssClass"></div>
+
+<h3>
+<code>removeCssClass()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="setScrollElementStyle"></div>
+
+<h3>
+<code>setScrollElementStyle()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
 
 
 <!-- related link --><!-- end content block -->

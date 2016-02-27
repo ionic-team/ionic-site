@@ -207,6 +207,7 @@ ion-content {
 
 scroll-content {
   position: absolute;
+  z-index: 1;
   top: 0;
   right: 0;
   bottom: 0;
@@ -824,6 +825,87 @@ ion-page.modal {
   -webkit-transform: translate3d(0px, 100%, 0px);
   transform: translate3d(0px, 100%, 0px); }
 
+ion-refresher {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 60px;
+  display: none; }
+  ion-refresher.refresher-active {
+    display: block; }
+
+.has-refresher > scroll-content {
+  -webkit-transition: all 320ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  transition: all 320ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  border-top: 1px solid #ddd;
+  margin-top: -1px; }
+
+ion-refresher-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%; }
+
+.refresher-pulling,
+.refresher-refreshing {
+  display: none;
+  width: 100%; }
+
+.refresher-pulling-icon,
+.refresher-refreshing-icon {
+  text-align: center;
+  color: #000;
+  font-size: 30px;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+  -webkit-transform-origin: center;
+  transform-origin: center; }
+
+.refresher-pulling-text,
+.refresher-refreshing-text {
+  text-align: center;
+  color: #000;
+  font-size: 16px; }
+
+ion-refresher-content[state=pulling] .refresher-pulling {
+  display: block; }
+
+ion-refresher-content[state=ready] .refresher-pulling {
+  display: block; }
+
+ion-refresher-content[state=ready] .refresher-pulling-icon {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+ion-refresher-content[state=refreshing] .refresher-refreshing {
+  display: block; }
+
+ion-refresher-content[state=cancelling] .refresher-pulling {
+  display: block; }
+
+ion-refresher-content[state=cancelling] .refresher-pulling-icon {
+  -webkit-transform: scale(0);
+  transform: scale(0); }
+
+ion-refresher-content[state=ending] .refresher-refreshing {
+  display: block; }
+
+ion-refresher-content[state=ending] .refresher-refreshing-icon {
+  -webkit-transform: scale(0);
+  transform: scale(0); }
+
 ion-scroll {
   position: relative;
   display: block; }
@@ -854,109 +936,6 @@ ion-scroll {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     will-change: scroll-position; }
-
-ion-refresher {
-  position: absolute;
-  top: -60px;
-  right: 0;
-  left: 0;
-  overflow: hidden;
-  margin: auto;
-  height: 60px; }
-  ion-refresher .refresher-content {
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    width: 100%;
-    color: #000;
-    text-align: center;
-    font-size: 30px; }
-    ion-refresher .refresher-content .text-refreshing,
-    ion-refresher .refresher-content .text-pulling {
-      font-size: 16px;
-      line-height: 16px; }
-    ion-refresher .refresher-content.refresher-with-text {
-      bottom: 10px; }
-  ion-refresher .icon-refreshing,
-  ion-refresher .icon-pulling {
-    width: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d; }
-  ion-refresher .icon-pulling {
-    -webkit-animation-name: refresh-spin-back;
-    animation-name: refresh-spin-back;
-    -webkit-animation-duration: 200ms;
-    animation-duration: 200ms;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear;
-    -webkit-animation-fill-mode: none;
-    animation-fill-mode: none;
-    -webkit-transform: translate3d(0, 0, 0) rotate(0deg);
-    transform: translate3d(0, 0, 0) rotate(0deg); }
-  ion-refresher .icon-refreshing,
-  ion-refresher .text-refreshing {
-    display: none; }
-  ion-refresher .icon-refreshing {
-    -webkit-animation-duration: 1.5s;
-    animation-duration: 1.5s; }
-  ion-refresher.active .icon-pulling:not(.pulling-rotation-disabled) {
-    -webkit-animation-name: refresh-spin;
-    animation-name: refresh-spin;
-    -webkit-transform: translate3d(0, 0, 0) rotate(-180deg);
-    transform: translate3d(0, 0, 0) rotate(-180deg); }
-  ion-refresher.active.refreshing {
-    -webkit-transition: -webkit-transform .2s;
-    transition: -webkit-transform .2s;
-    transition: transform .2s;
-    -webkit-transform: scale(1, 1);
-    transform: scale(1, 1); }
-    ion-refresher.active.refreshing .icon-pulling,
-    ion-refresher.active.refreshing .text-pulling {
-      display: none; }
-    ion-refresher.active.refreshing .icon-refreshing,
-    ion-refresher.active.refreshing .text-refreshing {
-      display: block; }
-    ion-refresher.active.refreshing.refreshing-tail {
-      -webkit-transform: scale(0, 0);
-      transform: scale(0, 0); }
-
-scroll-content.overscroll {
-  overflow: visible; }
-
-/*
-  -webkit-overflow-scrolling:touch;
-  width:100%;
-}
-*/
-@-webkit-keyframes refresh-spin {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0) rotate(0); }
-  100% {
-    -webkit-transform: translate3d(0, 0, 0) rotate(180deg); } }
-
-@keyframes refresh-spin {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0) rotate(0);
-    transform: translate3d(0, 0, 0) rotate(0); }
-  100% {
-    -webkit-transform: translate3d(0, 0, 0) rotate(180deg);
-    transform: translate3d(0, 0, 0) rotate(180deg); } }
-
-@-webkit-keyframes refresh-spin-back {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0) rotate(180deg); }
-  100% {
-    -webkit-transform: translate3d(0, 0, 0) rotate(0); } }
-
-@keyframes refresh-spin-back {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0) rotate(180deg);
-    transform: translate3d(0, 0, 0) rotate(180deg); }
-  100% {
-    -webkit-transform: translate3d(0, 0, 0) rotate(0);
-    transform: translate3d(0, 0, 0) rotate(0); } }
 
 ion-swipe-slides {
   display: block;

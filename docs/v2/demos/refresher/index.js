@@ -8,26 +8,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require('ionic-angular');
+var mock_provider_1 = require('./mock-provider');
 var ApiDemoApp = (function () {
-    function ApiDemoApp() {
+    function ApiDemoApp(mockProvider) {
+        this.mockProvider = mockProvider;
+        this.items = mockProvider.getData();
     }
     ApiDemoApp.prototype.doRefresh = function (refresher) {
+        var _this = this;
         console.log('DOREFRESH', refresher);
-        setTimeout(function () {
-            refresher.complete();
+        this.mockProvider.getAsyncData().then(function (newData) {
+            for (var i = 0; i < newData.length; i++) {
+                _this.items.unshift(newData[i]);
+            }
+            refresher.endRefreshing();
         });
     };
-    ApiDemoApp.prototype.doStarting = function () {
-        console.log('DOSTARTING');
-    };
-    ApiDemoApp.prototype.doPulling = function (amt) {
-        console.log('DOPULLING', amt);
+    ApiDemoApp.prototype.doPulling = function (refresher) {
+        console.log('DOPULLING', refresher.progress);
     };
     ApiDemoApp = __decorate([
         ionic_angular_1.App({
-            templateUrl: 'main.html'
+            templateUrl: 'main.html',
+            providers: [mock_provider_1.MockProvider]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_a = typeof mock_provider_1.MockProvider !== 'undefined' && mock_provider_1.MockProvider) === 'function' && _a) || Object])
     ], ApiDemoApp);
     return ApiDemoApp;
+    var _a;
 })();

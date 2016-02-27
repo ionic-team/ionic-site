@@ -48,7 +48,7 @@
 	__webpack_require__(2);
 	__webpack_require__(3);
 	__webpack_require__(4);
-	module.exports = __webpack_require__(359);
+	module.exports = __webpack_require__(360);
 
 
 /***/ },
@@ -3304,11 +3304,11 @@
 	__export(__webpack_require__(6));
 	__export(__webpack_require__(161));
 	__export(__webpack_require__(284));
-	__export(__webpack_require__(343));
 	__export(__webpack_require__(344));
 	__export(__webpack_require__(345));
+	__export(__webpack_require__(346));
 	__export(__webpack_require__(162));
-	__export(__webpack_require__(349));
+	__export(__webpack_require__(350));
 	__export(__webpack_require__(160));
 	__export(__webpack_require__(165));
 	__export(__webpack_require__(276));
@@ -3316,13 +3316,13 @@
 	__export(__webpack_require__(306));
 	__export(__webpack_require__(305));
 	__export(__webpack_require__(283));
-	__export(__webpack_require__(353));
+	__export(__webpack_require__(354));
 	// these modules don't export anything
-	__webpack_require__(354);
 	__webpack_require__(355);
 	__webpack_require__(356);
 	__webpack_require__(357);
 	__webpack_require__(358);
+	__webpack_require__(359);
 
 /***/ },
 /* 6 */
@@ -27455,6 +27455,8 @@
 	    exports.CSS.transitionDuration = (isWebkit ? '-webkit-' : '') + 'transition-duration';
 	    // transition timing function
 	    exports.CSS.transitionTimingFn = (isWebkit ? '-webkit-' : '') + 'transition-timing-function';
+	    // transition delay
+	    exports.CSS.transitionDelay = (isWebkit ? '-webkit-' : '') + 'transition-delay';
 	    // To be sure transitionend works everywhere, include *both* the webkit and non-webkit events
 	    exports.CSS.transitionEnd = (isWebkit ? 'webkitTransitionEnd ' : '') + 'transitionend';
 	})();
@@ -27600,7 +27602,6 @@
 	/**
 	 * Get the element offsetWidth and offsetHeight. Values are cached
 	 * to reduce DOM reads. Cache is cleared on a window resize.
-	 * @param {TODO} ele  TODO
 	 */
 	function getDimensions(ele, id) {
 	    var dimensions = dimensionCache[id];
@@ -27622,6 +27623,10 @@
 	    return dimensions;
 	}
 	exports.getDimensions = getDimensions;
+	function clearDimensions(id) {
+	    delete dimensionCache[id];
+	}
+	exports.clearDimensions = clearDimensions;
 	function windowDimensions() {
 	    if (!dimensionCache.win) {
 	        // make sure we got good values before caching
@@ -42341,32 +42346,33 @@
 	var blur_1 = __webpack_require__(309);
 	var content_1 = __webpack_require__(310);
 	var scroll_1 = __webpack_require__(311);
-	var pull_to_refresh_1 = __webpack_require__(312);
-	var slides_1 = __webpack_require__(313);
-	var tabs_1 = __webpack_require__(315);
-	var tab_1 = __webpack_require__(317);
-	var list_1 = __webpack_require__(319);
-	var item_1 = __webpack_require__(322);
-	var item_sliding_1 = __webpack_require__(324);
+	var refresher_1 = __webpack_require__(312);
+	var refresher_content_1 = __webpack_require__(313);
+	var slides_1 = __webpack_require__(315);
+	var tabs_1 = __webpack_require__(317);
+	var tab_1 = __webpack_require__(319);
+	var list_1 = __webpack_require__(321);
+	var item_1 = __webpack_require__(324);
+	var item_sliding_1 = __webpack_require__(326);
 	var toolbar_1 = __webpack_require__(300);
 	var icon_1 = __webpack_require__(299);
-	var spinner_1 = __webpack_require__(325);
-	var checkbox_1 = __webpack_require__(326);
-	var select_1 = __webpack_require__(327);
-	var option_1 = __webpack_require__(329);
-	var toggle_1 = __webpack_require__(330);
-	var input_1 = __webpack_require__(331);
-	var label_1 = __webpack_require__(323);
-	var segment_1 = __webpack_require__(334);
-	var radio_button_1 = __webpack_require__(335);
-	var radio_group_1 = __webpack_require__(336);
-	var searchbar_1 = __webpack_require__(337);
-	var nav_1 = __webpack_require__(338);
-	var nav_push_1 = __webpack_require__(339);
-	var nav_router_1 = __webpack_require__(340);
+	var spinner_1 = __webpack_require__(314);
+	var checkbox_1 = __webpack_require__(327);
+	var select_1 = __webpack_require__(328);
+	var option_1 = __webpack_require__(330);
+	var toggle_1 = __webpack_require__(331);
+	var input_1 = __webpack_require__(332);
+	var label_1 = __webpack_require__(325);
+	var segment_1 = __webpack_require__(335);
+	var radio_button_1 = __webpack_require__(336);
+	var radio_group_1 = __webpack_require__(337);
+	var searchbar_1 = __webpack_require__(338);
+	var nav_1 = __webpack_require__(339);
+	var nav_push_1 = __webpack_require__(340);
+	var nav_router_1 = __webpack_require__(341);
 	var navbar_1 = __webpack_require__(298);
-	var id_1 = __webpack_require__(341);
-	var show_hide_when_1 = __webpack_require__(342);
+	var id_1 = __webpack_require__(342);
+	var show_hide_when_1 = __webpack_require__(343);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @private
@@ -42388,6 +42394,7 @@
 	 * -  Content
 	 * -  Scroll
 	 * -  Refresher
+	 * -  RefresherContent
 	 *
 	 * **Lists**
 	 * -  List
@@ -42452,7 +42459,8 @@
 	    blur_1.Blur,
 	    content_1.Content,
 	    scroll_1.Scroll,
-	    pull_to_refresh_1.Refresher,
+	    refresher_1.Refresher,
+	    refresher_content_1.RefresherContent,
 	    // Lists
 	    list_1.List,
 	    list_1.ListHeader,
@@ -43016,6 +43024,9 @@
 	    };
 	    Ion.prototype.height = function () {
 	        return dom.getDimensions(this.elementRef.nativeElement, this._id).height;
+	    };
+	    Ion.prototype.ngOnDestroy = function () {
+	        dom.clearDimensions(this._id);
 	    };
 	    return Ion;
 	})();
@@ -49517,15 +49528,15 @@
 	/**
 	 * @name Content
 	 * @description
-	 * The Content component provides an easy to use content area that can be configured to use Ionic's custom Scroll View, or the built in overflow scrolling of the browser.
+	 * The Content component provides an easy to use content area with some useful
+	 * methods to control the scrollable area.
 	 *
-	 * While we recommend using the custom Scroll features in Ionic in most cases, sometimes (for performance reasons) only the browser's native overflow scrolling will suffice, and so we've made it easy to toggle between the Ionic scroll implementation and overflow scrolling.
-	 *
-	 * You can implement pull-to-refresh with the [Refresher](../../scroll/Refresher) component.
+	 * The content area can also implement pull-to-refresh with the
+	 * [Refresher](../../scroll/Refresher) component.
 	 *
 	 * @usage
 	 * ```html
-	 * <ion-content id="myContent">
+	 * <ion-content>
 	 *   Add your content here!
 	 * </ion-content>
 	 * ```
@@ -49533,10 +49544,6 @@
 	 */
 	var Content = (function (_super) {
 	    __extends(Content, _super);
-	    /**
-	     * @param {elementRef} elementRef  A reference to the component's DOM element.
-	     * @param {config} config  The config object to change content's default settings.
-	     */
 	    function Content(_elementRef, _config, _app, _zone, viewCtrl) {
 	        _super.call(this, _elementRef);
 	        this._elementRef = _elementRef;
@@ -49568,7 +49575,8 @@
 	     * @private
 	     */
 	    Content.prototype.ngOnDestroy = function () {
-	        this.scrollElement.removeEventListener('scroll', this._onScroll);
+	        this.scrollElement.removeEventListener('scroll', this._onScroll.bind(this));
+	        this.scrollElement = null;
 	    };
 	    /**
 	     * @private
@@ -49596,21 +49604,60 @@
 	     * @param {Function} handler  The method you want perform when scrolling
 	     * @returns {Function} A function that removes the scroll handler.
 	     */
-	    Content.prototype.addScrollEventListener = function (handler) {
+	    Content.prototype.addScrollListener = function (handler) {
+	        return this._addListener('scroll', handler);
+	    };
+	    /**
+	     * @private
+	     */
+	    Content.prototype.addTouchStartListener = function (handler) {
+	        return this._addListener('touchstart', handler);
+	    };
+	    /**
+	     * @private
+	     */
+	    Content.prototype.addTouchMoveListener = function (handler) {
+	        return this._addListener('touchmove', handler);
+	    };
+	    /**
+	     * @private
+	     */
+	    Content.prototype.addTouchEndListener = function (handler) {
+	        return this._addListener('touchend', handler);
+	    };
+	    /**
+	     * @private
+	     */
+	    Content.prototype.addMouseDownListener = function (handler) {
+	        return this._addListener('mousedown', handler);
+	    };
+	    /**
+	     * @private
+	     */
+	    Content.prototype.addMouseUpListener = function (handler) {
+	        return this._addListener('mouseup', handler);
+	    };
+	    /**
+	     * @private
+	     */
+	    Content.prototype.addMouseMoveListener = function (handler) {
+	        return this._addListener('mousemove', handler);
+	    };
+	    Content.prototype._addListener = function (type, handler) {
 	        var _this = this;
 	        if (!this.scrollElement) {
 	            return;
 	        }
 	        // ensure we're not creating duplicates
-	        this.scrollElement.removeEventListener('scroll', handler);
-	        this.scrollElement.addEventListener('scroll', handler);
+	        this.scrollElement.removeEventListener(type, handler);
+	        this.scrollElement.addEventListener(type, handler);
 	        return function () {
-	            _this.scrollElement.removeEventListener('scroll', handler);
+	            _this.scrollElement.removeEventListener(type, handler);
 	        };
 	    };
 	    /**
+	     * @private
 	     * Call a method when scrolling has stopped
-	     *
 	     * @param {Function} callback The method you want perform when scrolling has ended
 	     */
 	    Content.prototype.onScrollEnd = function (callback) {
@@ -49637,43 +49684,8 @@
 	        }
 	        setTimeout(next, 100);
 	    };
-	    /**
-	     * @private
-	     * Adds the specified touchmove handler to the content's scroll element.
-	     *
-	     * ```ts
-	     * @Page({
-	     *   template: `<ion-content id="my-content"></ion-content>`
-	     * )}
-	     * export class MyPage{
-	     *    constructor(app: IonicApp){
-	     *        this.app = app;
-	     *    }
-	     *   // Need to wait until the component has been initialized
-	     *   ngAfterViewInit() {
-	     *     // Here 'my-content' is the ID of my ion-content
-	     *     this.content = this.app.getComponent('my-content');
-	     *     this.content.addTouchMoveListener(this.touchHandler);
-	     *   }
-	     *    touchHandler() {
-	     *      console.log("I'm touching all the magazines!!");
-	     *    }
-	     * }
-	     * ```
-	     * @param {Function} handler  The method you want to perform when touchmove is firing
-	     * @returns {Function} A function that removes the touchmove handler.
-	     */
-	    Content.prototype.addTouchMoveListener = function (handler) {
-	        var _this = this;
-	        if (!this.scrollElement) {
-	            return;
-	        }
-	        // ensure we're not creating duplicates
-	        this.scrollElement.removeEventListener('touchmove', handler);
-	        this.scrollElement.addEventListener('touchmove', handler);
-	        return function () {
-	            _this.scrollElement.removeEventListener('touchmove', handler);
-	        };
+	    Content.prototype.onScrollElementTransitionEnd = function (callback) {
+	        dom_1.transitionEnd(this.scrollElement, callback);
 	    };
 	    /**
 	     * Scroll to the specified position.
@@ -49743,6 +49755,18 @@
 	        this._scrollTo = new scroll_to_1.ScrollTo(this.scrollElement);
 	        return this._scrollTo.start(0, 0, 300, 0);
 	    };
+	    Content.prototype.getScrollTop = function () {
+	        return this.getNativeElement().scrollTop;
+	    };
+	    Content.prototype.addCssClass = function (className) {
+	        this.getNativeElement().classList.add(className);
+	    };
+	    Content.prototype.removeCssClass = function (className) {
+	        this.getNativeElement().classList.remove(className);
+	    };
+	    Content.prototype.setScrollElementStyle = function (prop, val) {
+	        this.scrollElement.style[prop] = val;
+	    };
 	    /**
 	     * @private
 	     * Returns the content and scroll elements' dimensions.
@@ -49795,7 +49819,8 @@
 	            selector: 'ion-content',
 	            template: '<scroll-content>' +
 	                '<ng-content></ng-content>' +
-	                '</scroll-content>'
+	                '</scroll-content>' +
+	                '<ng-content select="ion-refresher"></ng-content>'
 	        }),
 	        __param(4, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _c) || Object, (typeof (_d = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _d) || Object, (typeof (_e = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _e) || Object])
@@ -49922,451 +49947,884 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(172);
 	var content_1 = __webpack_require__(310);
-	var icon_1 = __webpack_require__(299);
 	var util_1 = __webpack_require__(163);
 	var dom_1 = __webpack_require__(164);
 	/**
 	 * @name Refresher
 	 * @description
-	 * Allows you to add pull-to-refresh to an Content component.
-	 * Place it as the first child of your Content or Scroll element.
+	 * Allows you to add Pull-To-Refresh to an Content component.
+	 * Place `ion-refresher` as the first child of your `ion-content` element.
 	 *
-	 * When refreshing is complete, call `refresher.complete()` from your controller.
+	 * Pages can then can listen to the refreshers various output events. The
+	 * `refresh` output event is the one that's fired when the user has pulled
+	 * down far enough to kick off the refreshing process. Once the async operation
+	 * has completed and the refreshing should end, call `endRefreshing()`.
 	 *
-	 *  @usage
+	 * @usage
+	 * ```html
+	 * <ion-content>
+	 *
+	 *   <ion-refresher (refresh)="doRefresh($event)">
+	 *     <ion-refresher-content></ion-refresher-content>
+	 *   </ion-refresher>
+	 *
+	 * </ion-content>
+	 * ```
+	 *
+	 * ```ts
+	 * @Page({...})
+	 * export class NewsFeedPage {
+	 *
+	 *   doRefresh(refresher) {
+	 *     console.log('Begin async operation', refresher);
+	 *
+	 *     setTimeout(() => {
+	 *       console.log('Async operation has ended');
+	 *       refresher.endRefreshing();
+	 *     }, 2000);
+	 *   }
+	 *
+	 * }
+	 * ```
+	 *
+	 *
+	 * ## Refresher Content
+	 *
+	 * By default, Ionic provides the pulling icon and refreshing spinner that
+	 * looks best for the platform the user is on. However, you can change the
+	 * default icon and spinner, along with adding text for each state by
+	 * adding properties to the child `ion-refresher-content` component.
+	 *
 	 *  ```html
 	 *  <ion-content>
-	 *    <ion-refresher (start)="doStart($event)"
-	 *                   (refresh)="doRefresh($event)"
-	 *                   (pulling)="doPulling($event)">
+	 *
+	 *    <ion-refresher (refresh)="doRefresh($event)">
+	 *      <ion-refresher-content
+	 *        pullingIcon="arrow-dropdown"
+	 *        pullingText="Pull to refresh"
+	 *        refreshingSpinner="circles"
+	 *        refreshingText="Refreshing...">
+	 *      </ion-refresher-content>
 	 *    </ion-refresher>
 	 *
 	 *  </ion-content>
-
 	 *  ```
 	 *
-	 *  ```ts
-	 *  export class MyClass {
 	 *
-	 *    doRefresh(refresher) {
-	 *      console.log('Doing Refresh', refresher)
+	 * ## Further Customizing Refresher Content
 	 *
-	 *      setTimeout(() => {
-	 *        refresher.complete();
-	 *        console.log("Complete");
-	 *      }, 5000);
-	 *    }
+	 * The `ion-refresh` component holds the refresh logic, and it requires a
+	 * child refresher content component for its display. The `ion-refresher-content`
+	 * component is Ionic's default that shows the actual display of the refresher
+	 * and changes its look depending on the refresher's state. With this separation,
+	 * it also allows developers to create their own refresher content components.
+	 * Ideas include having some cool SVG or CSS animations that are customized to
+	 * your app and animates the various refresher states to your liking.
 	 *
-	 *    doStart(refresher) {
-	 *      console.log('Doing Start', refresher);
-	 *    }
-	 *
-	 *    doPulling(refresher) {
-	 *      console.log('Pulling', refresher);
-	 *    }
-	 *
-	 *  }
-	 *  ```
-	 *  @demo /docs/v2/demos/refresher/
+	 * @demo /docs/v2/demos/refresher/
 	 *
 	 */
 	var Refresher = (function () {
-	    function Refresher(_content, _element) {
+	    function Refresher(_content, _zone, elementRef) {
 	        this._content = _content;
+	        this._zone = _zone;
+	        this._appliedStyles = false;
+	        this._lastStart = 0;
+	        this._lastCheck = 0;
+	        this._isEnabled = true;
 	        /**
-	         * @private
+	         * The current state which the refresher is in. The refresher's states include:
+	         *
+	         * - `inactive` - The refresher is not being pulled down or refreshing and is currently hidden.
+	         * - `pulling` - The user is actively pulling down the refresher, but has not reached the point yet that if the user lets go, it'll refresh.
+	         * - `cancelling` - The user pulled down the refresher and let go, but did not pull down far enough to kick off the `refreshing` state. After letting go, the refresher is in the `cancelling` state while it is closing, and will go back to the `inactive` state once closed.
+	         * - `ready` - The user has pulled down the refresher far enough that if they let go, it'll begin the `refreshing` state.
+	         * - `refreshing` - The refresher is actively waiting on the async operation to end. Once the refresh handler calls `endRefreshing()` it will begin the `ending` state.
+	         * - `ending` - The `refreshing` state has finished and the refresher is in the process of closing itself. Once closed, the refresher will go back to the `inactive` state.
 	         */
-	        this.isDragging = false;
+	        this.state = STATE_INACTIVE;
 	        /**
-	         * @private
+	         * The Y coordinate of where the user started to the pull down the content.
 	         */
-	        this.isOverscrolling = false;
+	        this.startY = null;
 	        /**
-	         * @private
+	         * The current touch or mouse event's Y coordinate.
 	         */
-	        this.dragOffset = 0;
+	        this.currentY = null;
 	        /**
-	         * @private
+	         * The distance between the start of the pull and the current touch or
+	         * mouse event's Y coordinate.
 	         */
-	        this.lastOverscroll = 0;
+	        this.deltaY = null;
 	        /**
-	         * @private
+	         * A number representing how far down the user has pulled.
+	         * The number `0` represents the user hasn't pulled down at all. The
+	         * number `1`, and anything greater than `1`, represents that the user
+	         * has pulled far enough down that when they let go then the refresh will
+	         * happen. If they let go and the number is less than `1`, then the
+	         * refresh will not happen, and the content will return to it's original
+	         * position.
 	         */
-	        this.ptrThreshold = 0;
+	        this.progress = 0;
 	        /**
-	         * @private
+	         * @input {number} The min distance the user must pull down until the
+	         * refresher can go into the `refreshing` state. Default is `60`.
 	         */
-	        this.activated = false;
+	        this.pullMin = 60;
 	        /**
-	         * @private
+	         * @input {number} The maximum distance of the pull until the refresher
+	         * will automatically go into the `refreshing` state. By default, the pull
+	         * maximum will be the result of `pullMin + 60`.
 	         */
-	        this.scrollTime = 500;
+	        this.pullMax = null;
 	        /**
-	         * @private
+	         * @input {number} How many milliseconds it takes to close the refresher. Default is `280`.
 	         */
-	        this.canOverscroll = true;
+	        this.closeDuration = 280;
 	        /**
-	         * @output {event} When you are pulling down
+	         * @input {number} How many milliseconds it takes the refresher to to snap back to the `refreshing` state. Default is `280`.
 	         */
-	        this.pulling = new core_1.EventEmitter();
+	        this.snapbackDuration = 280;
 	        /**
-	         * @output {event} When you are refreshing
+	         * @output {event} When the user lets go and has pulled down far enough, which would be
+	         * farther than the `pullMin`, then your refresh hander if fired and the state is
+	         * updated to `refreshing`. From within your refresh handler, you must call the
+	         * `endRefreshing()` method when your async operation has completed.
 	         */
 	        this.refresh = new core_1.EventEmitter();
 	        /**
-	         * @output {event} When you start pulling down
+	         * @output {event} While the user is pulling down the content and exposing the refresher.
+	         */
+	        this.pulling = new core_1.EventEmitter();
+	        /**
+	         * @output {event} When the user begins to start pulling down.
 	         */
 	        this.start = new core_1.EventEmitter();
-	        this._ele = _element.nativeElement;
-	        this._ele.classList.add('content');
-	    }
-	    /**
-	     * @private
-	     */
-	    Refresher.prototype.ngOnInit = function () {
-	        var sp = this._content.getNativeElement();
-	        var sc = this._content.scrollElement;
-	        this.startY = null;
-	        this.deltaY = null;
-	        this.scrollHost = sp;
-	        this.scrollChild = sc;
-	        util_1.defaults(this, {
-	            pullingIcon: 'md-arrow-down',
-	            refreshingIcon: 'ionic'
+	        _content.addCssClass('has-refresher');
+	        // deprecated warning
+	        var ele = elementRef.nativeElement;
+	        var deprecatedAttrs = ['pullingIcon', 'pullingText', 'refreshingIcon', 'refreshingText', 'spinner'];
+	        deprecatedAttrs.forEach(function (attrName) {
+	            if (ele.hasAttribute(attrName)) {
+	                console.warn('<ion-refresher> property "' + attrName + '" should now be placed on the inner <ion-refresher-content> component instead of <ion-refresher>. Please review the Refresher docs for API updates.');
+	            }
 	        });
-	        this.showSpinner = !util_1.isDefined(this.refreshingIcon) && this.spinner != 'none';
-	        this.showIcon = util_1.isDefined(this.refreshingIcon);
-	        this._touchMoveListener = this._handleTouchMove.bind(this);
-	        this._touchEndListener = this._handleTouchEnd.bind(this);
-	        this._handleScrollListener = this._handleScroll.bind(this);
-	        sc.addEventListener('touchmove', this._touchMoveListener);
-	        sc.addEventListener('touchend', this._touchEndListener);
-	        sc.addEventListener('scroll', this._handleScrollListener);
-	    };
-	    /**
-	     * @private
-	     */
-	    Refresher.prototype.ngOnDestroy = function () {
-	        var sc = this._content.scrollElement;
-	        sc.removeEventListener('touchmove', this._touchMoveListener);
-	        sc.removeEventListener('touchend', this._touchEndListener);
-	        sc.removeEventListener('scroll', this._handleScrollListener);
-	    };
-	    /**
-	     * @private
-	     * @param {TODO} val  TODO
-	     */
-	    Refresher.prototype.overscroll = function (val) {
-	        this.scrollChild.style[dom_1.CSS.transform] = 'translateY(' + val + 'px)';
-	        this.lastOverscroll = val;
-	    };
-	    /**
-	     * @private
-	     * @param {TODO} target  TODO
-	     * @param {TODO} newScrollTop  TODO
-	     */
-	    Refresher.prototype.nativescroll = function (target, newScrollTop) {
-	        // creates a scroll event that bubbles, can be cancelled, and with its view
-	        // and detail property initialized to window and 1, respectively
-	        target.scrollTop = newScrollTop;
-	        var e = document.createEvent("UIEvents");
-	        e.initUIEvent("scroll", true, true, window, 1);
-	        target.dispatchEvent(e);
-	    };
-	    /**
-	     * @private
-	     * @param {TODO} enabled  TODO
-	     */
-	    Refresher.prototype.setScrollLock = function (enabled) {
-	        var _this = this;
-	        // set the scrollbar to be position:fixed in preparation to overscroll
-	        // or remove it so the app can be natively scrolled
-	        if (enabled) {
-	            dom_1.raf(function () {
-	                _this.scrollChild.classList.add('overscroll');
-	                _this.show();
-	            });
+	    }
+	    Object.defineProperty(Refresher.prototype, "enabled", {
+	        /**
+	         * @input {boolean} If the refresher is enabled or not. Default is `true`.
+	         */
+	        get: function () {
+	            return this._isEnabled;
+	        },
+	        set: function (val) {
+	            this._isEnabled = util_1.isTrueProperty(val);
+	            this._setListeners(this._isEnabled);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Refresher.prototype._onStart = function (ev) {
+	        // if multitouch then get out immediately
+	        if (ev.touches && ev.touches.length > 1) {
+	            return 1;
 	        }
-	        else {
-	            dom_1.raf(function () {
-	                _this.scrollChild.classList.remove('overscroll');
-	                _this.hide();
-	                _this.deactivate();
-	            });
+	        var coord = dom_1.pointerCoord(ev);
+	        console.debug('Pull-to-refresh, onStart', ev.type, 'y:', coord.y);
+	        var now = Date.now();
+	        if (this._lastStart + 100 > now) {
+	            return 2;
+	        }
+	        this._lastStart = now;
+	        if (ev.type === 'mousedown' && !this._mMove) {
+	            this._mMove = this._content.addMouseMoveListener(this._onMove.bind(this));
+	        }
+	        this.startY = this.currentY = coord.y;
+	        this.progress = 0;
+	        if (!this.pullMax) {
+	            this.pullMax = (this.pullMin + 60);
 	        }
 	    };
-	    /**
-	     * @private
-	     */
-	    Refresher.prototype.activate = function () {
-	        //this.ele.classList.add('active');
-	        this.isActive = true;
-	        this.start.emit(this);
-	    };
-	    /**
-	     * @private
-	     */
-	    Refresher.prototype.deactivate = function () {
+	    Refresher.prototype._onMove = function (ev) {
 	        var _this = this;
-	        // give tail 150ms to finish
-	        setTimeout(function () {
-	            _this.isActive = false;
-	            _this.isRefreshing = false;
-	            _this.isRefreshingTail = false;
-	            // deactivateCallback
-	            if (_this.activated)
-	                _this.activated = false;
-	        }, 150);
+	        // this method can get called like a bazillion times per second,
+	        // so it's built to be as efficient as possible, and does its
+	        // best to do any DOM read/writes only when absolutely necessary
+	        console.debug('Pull-to-refresh, onMove', ev.type);
+	        // if multitouch then get out immediately
+	        if (ev.touches && ev.touches.length > 1) {
+	            return 1;
+	        }
+	        // do nothing if it's actively refreshing
+	        // or it's in the process of closing
+	        // or this was never a startY
+	        if (this.startY === null || this.state === STATE_REFRESHING || this.state === STATE_CANCELLING || this.state === STATE_ENDING) {
+	            return 2;
+	        }
+	        // if we just updated stuff less than 16ms ago
+	        // then don't check again, just chillout plz
+	        var now = Date.now();
+	        if (this._lastCheck + 16 > now) {
+	            return 3;
+	        }
+	        // remember the last time we checked all this
+	        this._lastCheck = now;
+	        // get the current pointer coordinates
+	        var coord = dom_1.pointerCoord(ev);
+	        this.currentY = coord.y;
+	        // it's now possible they could be pulling down the content
+	        // how far have they pulled so far?
+	        this.deltaY = (coord.y - this.startY);
+	        // don't bother if they're scrolling up
+	        // and have not already started dragging
+	        if (this.deltaY <= 0) {
+	            // the current Y is higher than the starting Y
+	            // so they scrolled up enough to be ignored
+	            this.progress = 0;
+	            if (this.state !== STATE_INACTIVE) {
+	                this._zone.run(function () {
+	                    _this.state = STATE_INACTIVE;
+	                });
+	            }
+	            if (this._appliedStyles) {
+	                // reset the styles only if they were applied
+	                this._setCss(0, '', false, '');
+	                return 5;
+	            }
+	            return 6;
+	        }
+	        if (this.state === STATE_INACTIVE) {
+	            // this refresh is not alreadying actively pulling down
+	            // get the content's scrollTop
+	            var scrollHostScrollTop = this._content.getScrollTop();
+	            // if the scrollTop is greater than zero then it's
+	            // not possible to pull the content down yet
+	            if (scrollHostScrollTop > 0) {
+	                this.progress = 0;
+	                return 7;
+	            }
+	            // content scrolled all the way to the top, and dragging down
+	            this.state = STATE_PULLING;
+	        }
+	        // prevent native scroll events
+	        ev.preventDefault();
+	        // the refresher is actively pulling at this point
+	        // move the scroll element within the content element
+	        this._setCss(this.deltaY, '0ms', true, '');
+	        if (!this.deltaY) {
+	            // don't continue if there's no delta yet
+	            this.progress = 0;
+	            return 8;
+	        }
+	        // so far so good, let's run this all back within zone now
+	        this._zone.run(function () {
+	            _this._onMoveInZone();
+	        });
 	    };
-	    /**
-	     * @private
-	     */
-	    Refresher.prototype.startRefresh = function () {
-	        // startCallback
-	        this.isRefreshing = true;
+	    Refresher.prototype._onMoveInZone = function () {
+	        // set pull progress
+	        this.progress = (this.deltaY / this.pullMin);
+	        // emit "start" if it hasn't started yet
+	        if (!this._didStart) {
+	            this._didStart = true;
+	            this.start.emit(this);
+	        }
+	        // emit "pulling" on every move
+	        this.pulling.emit(this);
+	        // do nothing if the delta is less than the pull threshold
+	        if (this.deltaY < this.pullMin) {
+	            // ensure it stays in the pulling state, cuz its not ready yet
+	            this.state = STATE_PULLING;
+	            return 2;
+	        }
+	        if (this.deltaY > this.pullMax) {
+	            // they pulled farther than the max, so kick off the refresh
+	            this._beginRefresh();
+	            return 3;
+	        }
+	        // pulled farther than the pull min!!
+	        // it is now in the `ready` state!!
+	        // if they let go then it'll refresh, kerpow!!
+	        this.state = STATE_READY;
+	        return 4;
+	    };
+	    Refresher.prototype._onEnd = function (ev) {
+	        // only run in a zone when absolutely necessary
+	        var _this = this;
+	        if (this.state === STATE_READY) {
+	            this._zone.run(function () {
+	                // they pulled down far enough, so it's ready to refresh
+	                _this._beginRefresh();
+	            });
+	        }
+	        else if (this.state === STATE_PULLING) {
+	            this._zone.run(function () {
+	                // they were pulling down, but didn't pull down far enough
+	                // set the content back to it's original location
+	                // and close the refresher
+	                // set that the refresh is actively cancelling
+	                _this.cancelRefreshing();
+	            });
+	        }
+	        // reset on any touchend/mouseup
+	        this.startY = null;
+	        if (this._mMove) {
+	            // we don't want to always listen to mousemoves
+	            // remove it if we're still listening
+	            this._mMove();
+	            this._mMove = null;
+	        }
+	    };
+	    Refresher.prototype._beginRefresh = function () {
+	        // assumes we're already back in a zone
+	        // they pulled down far enough, so it's ready to refresh
+	        this.state = STATE_REFRESHING;
+	        // place the content in a hangout position while it thinks
+	        this._setCss(this.pullMin, (this.snapbackDuration + 'ms'), true, '');
+	        // emit "refresh" because it was pulled down far enough
+	        // and they let go to begin refreshing
 	        this.refresh.emit(this);
 	    };
 	    /**
-	     * @private
+	     * Call `endRefreshing()` when your async operation has completed.
+	     * For example, the `refreshing` state is while the app is performing
+	     * an asynchronous operation, such as receiving more data from an
+	     * AJAX request. Once the data has been received, you then call this
+	     * method to signify that the refreshing has completed and to close
+	     * the refresher. This method also changes the refresher's state from
+	     * `refreshing` to `ending`.
 	     */
-	    Refresher.prototype.show = function () {
-	        // showCallback
-	        this._ele.classList.remove('invisible');
+	    Refresher.prototype.endRefreshing = function () {
+	        this._close(STATE_ENDING, '120ms');
 	    };
 	    /**
-	     * @private
+	     * Changes the refresher's state from `refreshing` to `cancelling`.
 	     */
-	    Refresher.prototype.hide = function () {
-	        // showCallback
-	        this._ele.classList.add('invisible');
-	    };
-	    /**
-	     * @private
-	     */
-	    Refresher.prototype.tail = function () {
-	        // tailCallback
-	        this._ele.classList.add('refreshing-tail');
+	    Refresher.prototype.cancelRefreshing = function () {
+	        this._close(STATE_CANCELLING, '');
 	    };
 	    /**
 	     * @private
 	     */
 	    Refresher.prototype.complete = function () {
-	        var _this = this;
-	        setTimeout(function () {
-	            dom_1.raf(_this.tail.bind(_this));
-	            // scroll back to home during tail animation
-	            _this.scrollTo(0, _this.scrollTime, _this.deactivate.bind(_this));
-	            // return to native scrolling after tail animation has time to finish
-	            setTimeout(function () {
-	                if (_this.isOverscrolling) {
-	                    _this.isOverscrolling = false;
-	                    _this.setScrollLock(false);
+	        // deprecated warning
+	        console.warn('refresher completed() deprecated, please update to endRefreshing()');
+	        this.endRefreshing();
+	    };
+	    Refresher.prototype._close = function (state, delay) {
+	        var timer;
+	        function close(ev) {
+	            // closing is done, return to inactive state
+	            if (ev) {
+	                clearTimeout(timer);
+	            }
+	            this.state = STATE_INACTIVE;
+	            this.progress = 0;
+	            this._didStart = this.startY = this.currentY = this.deltaY = null;
+	            this._setCss(0, '0ms', false, '');
+	        }
+	        // create fallback timer incase something goes wrong with transitionEnd event
+	        timer = setTimeout(close.bind(this), 600);
+	        // create transition end event on the content's scroll element
+	        this._content.onScrollElementTransitionEnd(close.bind(this));
+	        // reset set the styles on the scroll element
+	        // set that the refresh is actively cancelling/completing
+	        this.state = state;
+	        this._setCss(0, '', true, delay);
+	        if (this._mMove) {
+	            // always remove the mousemove event
+	            this._mMove();
+	            this._mMove = null;
+	        }
+	    };
+	    Refresher.prototype._setCss = function (y, duration, overflowVisible, delay) {
+	        this._appliedStyles = (y > 0);
+	        var content = this._content;
+	        content.setScrollElementStyle(dom_1.CSS.transform, ((y > 0) ? 'translateY(' + y + 'px) translateZ(0px)' : 'translateZ(0px)'));
+	        content.setScrollElementStyle(dom_1.CSS.transitionDuration, duration);
+	        content.setScrollElementStyle(dom_1.CSS.transitionDelay, delay);
+	        content.setScrollElementStyle('overflow', (overflowVisible ? 'hidden' : ''));
+	    };
+	    Refresher.prototype._setListeners = function (shouldListen) {
+	        var self = this;
+	        var content = self._content;
+	        if (shouldListen) {
+	            // add listener outside of zone
+	            // touch handlers
+	            self._zone.runOutsideAngular(function () {
+	                if (!self._tStart) {
+	                    self._tStart = content.addTouchStartListener(self._onStart.bind(self));
 	                }
-	            }, _this.scrollTime);
-	        }, this.scrollTime);
-	    };
-	    /**
-	     * @private
-	     * @param {TODO} Y  TODO
-	     * @param {TODO} duration  TODO
-	     * @param {Function} callback  TODO
-	     */
-	    Refresher.prototype.scrollTo = function (Y, duration, callback) {
-	        // scroll animation loop w/ easing
-	        // credit https://gist.github.com/dezinezync/5487119
-	        var start = Date.now(), from = this.lastOverscroll;
-	        if (from === Y) {
-	            callback && callback();
-	            return; /* Prevent scrolling to the Y point if already there */
-	        }
-	        // decelerating to zero velocity
-	        function easeOutCubic(t) {
-	            return (--t) * t * t + 1;
-	        }
-	        // scroll loop
-	        function scroll() {
-	            var currentTime = Date.now(), time = Math.min(1, ((currentTime - start) / duration)), 
-	            // where .5 would be 50% of time on a linear scale easedT gives a
-	            // fraction based on the easing method
-	            easedT = easeOutCubic(time);
-	            this.overscroll(Math.round((easedT * (Y - from)) + from));
-	            if (time < 1) {
-	                dom_1.raf(scroll.bind(this));
-	            }
-	            else {
-	                if (Y < 5 && Y > -5) {
-	                    this.isOverscrolling = false;
-	                    this.setScrollLock(false);
+	                if (!self._tMove) {
+	                    self._tMove = content.addTouchMoveListener(self._onMove.bind(self));
 	                }
-	                callback && callback();
-	            }
-	        }
-	        // start scroll loop
-	        dom_1.raf(scroll.bind(this));
-	    };
-	    /**
-	     * @private
-	     * TODO
-	     * @param {Event} e  TODO
-	     */
-	    Refresher.prototype._handleTouchMove = function (e) {
-	        //console.debug('TOUCHMOVE', e);
-	        // if multitouch or regular scroll event, get out immediately
-	        if (!this.canOverscroll || e.touches.length > 1) {
-	            return;
-	        }
-	        //if this is a new drag, keep track of where we start
-	        if (this.startY === null) {
-	            this.startY = parseInt(e.touches[0].screenY, 10);
-	        }
-	        // how far have we dragged so far?
-	        this.deltaY = parseInt(e.touches[0].screenY, 10) - this.startY;
-	        // if we've dragged up and back down in to native scroll territory
-	        if (this.deltaY - this.dragOffset <= 0 || this.scrollHost.scrollTop !== 0) {
-	            if (this.isOverscrolling) {
-	                this.isOverscrolling = false;
-	                this.setScrollLock(false);
-	            }
-	            if (this.isDragging) {
-	                this.nativescroll(this.scrollHost, Math.round(this.deltaY - this.dragOffset) * -1);
-	            }
-	            // if we're not at overscroll 0 yet, 0 out
-	            if (this.lastOverscroll !== 0) {
-	                this.overscroll(0);
-	            }
-	            return;
-	        }
-	        else if (this.deltaY > 0 && this.scrollHost.scrollTop === 0 && !this.isOverscrolling) {
-	            // starting overscroll, but drag started below scrollTop 0, so we need to offset the position
-	            this.dragOffset = this.deltaY;
-	        }
-	        // prevent native scroll events while overscrolling
-	        e.preventDefault();
-	        // if not overscrolling yet, initiate overscrolling
-	        if (!this.isOverscrolling) {
-	            this.isOverscrolling = true;
-	            this.setScrollLock(true);
-	        }
-	        this.isDragging = true;
-	        // overscroll according to the user's drag so far
-	        this.overscroll(Math.round((this.deltaY - this.dragOffset) / 3));
-	        // Pass the refresher to the EventEmitter
-	        this.pulling.emit(this);
-	        // update the icon accordingly
-	        if (!this.activated && this.lastOverscroll > this.ptrThreshold) {
-	            this.activated = true;
-	            dom_1.raf(this.activate.bind(this));
-	        }
-	        else if (this.activated && this.lastOverscroll < this.ptrThreshold) {
-	            this.activated = false;
-	            dom_1.raf(this.deactivate.bind(this));
-	        }
-	    };
-	    /**
-	     * @private
-	     * TODO
-	     * @param {Event} e  TODO
-	     */
-	    Refresher.prototype._handleTouchEnd = function (e) {
-	        console.debug('TOUCHEND', e);
-	        // if this wasn't an overscroll, get out immediately
-	        if (!this.canOverscroll && !this.isDragging) {
-	            return;
-	        }
-	        // reset Y
-	        this.startY = null;
-	        // the user has overscrolled but went back to native scrolling
-	        if (!this.isDragging) {
-	            this.dragOffset = 0;
-	            this.isOverscrolling = false;
-	            this.setScrollLock(false);
+	                if (!self._tEnd) {
+	                    self._tEnd = content.addTouchEndListener(self._onEnd.bind(self));
+	                }
+	                // mouse handlers
+	                // mousemove does not get added until mousedown fires
+	                if (!self._mDown) {
+	                    self._mDown = content.addMouseDownListener(self._onStart.bind(self));
+	                }
+	                if (!self._mUp) {
+	                    self._mUp = content.addMouseUpListener(self._onEnd.bind(self));
+	                }
+	            });
 	        }
 	        else {
-	            this.isDragging = false;
-	            this.dragOffset = 0;
-	            // the user has scroll far enough to trigger a refresh
-	            if (this.lastOverscroll > this.ptrThreshold) {
-	                this.startRefresh();
-	                this.scrollTo(this.ptrThreshold, this.scrollTime);
-	            }
-	            else {
-	                this.scrollTo(0, this.scrollTime, this.deactivate.bind(this));
-	                this.isOverscrolling = false;
-	            }
+	            // unregister event listeners from content element
+	            self._mDown && self._mDown();
+	            self._mMove && self._mMove();
+	            self._mUp && self._mUp();
+	            self._tStart && self._tStart();
+	            self._tMove && self._tMove();
+	            self._tEnd && self._tEnd();
+	            self._mDown = self._mMove = self._mUp = self._tStart = self._tMove = self._tEnd = null;
 	        }
 	    };
 	    /**
 	     * @private
-	     * TODO
-	     * @param {Event} e  TODO
 	     */
-	    Refresher.prototype._handleScroll = function (e) {
-	        console.debug('SCROLL', e.target.scrollTop);
+	    Refresher.prototype.ngOnInit = function () {
+	        // bind event listeners
+	        // save the unregister listener functions to use onDestroy
+	        this._setListeners(this._isEnabled);
+	    };
+	    /**
+	     * @private
+	     */
+	    Refresher.prototype.ngOnDestroy = function () {
+	        this._setListeners(false);
 	    };
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Refresher.prototype, "pullingIcon", void 0);
+	        __metadata('design:type', Number)
+	    ], Refresher.prototype, "pullMin", void 0);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Refresher.prototype, "pullingText", void 0);
+	        __metadata('design:type', Number)
+	    ], Refresher.prototype, "pullMax", void 0);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Refresher.prototype, "refreshingIcon", void 0);
+	        __metadata('design:type', Number)
+	    ], Refresher.prototype, "closeDuration", void 0);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Refresher.prototype, "refreshingText", void 0);
+	        __metadata('design:type', Number)
+	    ], Refresher.prototype, "snapbackDuration", void 0);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Refresher.prototype, "spinner", void 0);
+	        __metadata('design:type', Boolean)
+	    ], Refresher.prototype, "enabled", null);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Refresher.prototype, "pulling", void 0);
+	    ], Refresher.prototype, "refresh", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], Refresher.prototype, "refresh", void 0);
+	    ], Refresher.prototype, "pulling", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
 	    ], Refresher.prototype, "start", void 0);
 	    Refresher = __decorate([
-	        core_1.Component({
+	        core_1.Directive({
 	            selector: 'ion-refresher',
 	            host: {
-	                '[class.active]': 'isActive',
-	                '[class.refreshing]': 'isRefreshing',
-	                '[class.refreshingTail]': 'isRefreshingTail'
-	            },
-	            template: '<div class="refresher-content" [class.refresher-with-text]="pullingText || refreshingText">' +
-	                '<div class="icon-pulling">' +
-	                '<ion-icon [name]="pullingIcon"></ion-icon>' +
-	                '</div>' +
-	                '<div class="text-pulling" [innerHTML]="pullingText" *ngIf="pullingText"></div>' +
-	                '<div class="icon-refreshing">' +
-	                '<ion-icon [name]="refreshingIcon"></ion-icon>' +
-	                '</div>' +
-	                '<div class="text-refreshing" [innerHTML]="refreshingText" *ngIf="refreshingText"></div>' +
-	                '</div>',
-	            directives: [common_1.NgIf, common_1.NgClass, icon_1.Icon]
+	                '[class.refresher-active]': 'state !== "inactive"'
+	            }
 	        }),
 	        __param(0, core_1.Host()), 
-	        __metadata('design:paramtypes', [(typeof (_d = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _d) || Object, (typeof (_e = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _e) || Object])
+	        __metadata('design:paramtypes', [(typeof (_d = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object])
 	    ], Refresher);
 	    return Refresher;
-	    var _a, _b, _c, _d, _e;
+	    var _a, _b, _c, _d, _e, _f;
 	})();
 	exports.Refresher = Refresher;
+	var STATE_INACTIVE = 'inactive';
+	var STATE_PULLING = 'pulling';
+	var STATE_READY = 'ready';
+	var STATE_REFRESHING = 'refreshing';
+	var STATE_CANCELLING = 'cancelling';
+	var STATE_ENDING = 'ending';
 
 /***/ },
 /* 313 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(7);
+	var common_1 = __webpack_require__(172);
+	var config_1 = __webpack_require__(161);
+	var icon_1 = __webpack_require__(299);
+	var refresher_1 = __webpack_require__(312);
+	var spinner_1 = __webpack_require__(314);
+	/**
+	 * @private
+	 */
+	var RefresherContent = (function () {
+	    function RefresherContent(r, _config) {
+	        this.r = r;
+	        this._config = _config;
+	    }
+	    /**
+	     * @private
+	     */
+	    RefresherContent.prototype.ngOnInit = function () {
+	        if (!this.pullingIcon) {
+	            this.pullingIcon = this._config.get('pullingIcon', 'arrow-down');
+	        }
+	        if (!this.refreshingSpinner) {
+	            this.refreshingSpinner = this._config.get('refreshingSpinner', 'ios');
+	        }
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], RefresherContent.prototype, "pullingIcon", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], RefresherContent.prototype, "pullingText", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], RefresherContent.prototype, "refreshingSpinner", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], RefresherContent.prototype, "refreshingText", void 0);
+	    RefresherContent = __decorate([
+	        core_1.Component({
+	            selector: 'ion-refresher-content',
+	            template: '<div class="refresher-pulling">' +
+	                '<div class="refresher-pulling-icon" *ngIf="pullingIcon">' +
+	                '<ion-icon [name]="pullingIcon"></ion-icon>' +
+	                '</div>' +
+	                '<div class="refresher-pulling-text" [innerHTML]="pullingText" *ngIf="pullingText"></div>' +
+	                '</div>' +
+	                '<div class="refresher-refreshing">' +
+	                '<div class="refresher-refreshing-icon">' +
+	                '<ion-spinner [name]="refreshingSpinner"></ion-spinner>' +
+	                '</div>' +
+	                '<div class="refresher-refreshing-text" [innerHTML]="refreshingText" *ngIf="refreshingText"></div>' +
+	                '</div>',
+	            directives: [common_1.NgIf, icon_1.Icon, spinner_1.Spinner],
+	            host: {
+	                '[attr.state]': 'r.state'
+	            }
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof refresher_1.Refresher !== 'undefined' && refresher_1.Refresher) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
+	    ], RefresherContent);
+	    return RefresherContent;
+	    var _a, _b;
+	})();
+	exports.RefresherContent = RefresherContent;
+
+/***/ },
+/* 314 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(7);
+	var common_1 = __webpack_require__(172);
+	var config_1 = __webpack_require__(161);
+	/**
+	 * @name Spinner
+	 * @description
+	 * The `ion-spinner` component provides a variety of animated SVG spinners.
+	 * Spinners enables you to give users feedback that the app is actively
+	 * processing/thinking/waiting/chillin’ out, or whatever you’d like it to indicate.
+	 * By default, the `ion-refresher` feature uses this spinner component while it's
+	 * the refresher is in the `refreshing` state.
+	 *
+	 * Ionic offers a handful of spinners out of the box, and by default, it will use
+	 * the appropriate spinner for the platform on which it’s running.
+	 *
+	 * <table class="table spinner-table">
+	 *  <tr>
+	 *    <th>
+	 *      <code>ios</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="ios"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>ios-small</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="ios-small"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>bubbles</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="bubbles"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>circles</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="circles"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>crescent</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="crescent"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>dots</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="dots"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 * </table>
+	 *
+	 * @usage
+	 * The following code would use the default spinner for the platform it's
+	 * running from. If it's neither iOS or Android, it'll default to use `ios`.
+	 *
+	 * ```html
+	 * <ion-spinner></ion-spinner>
+	 * ```
+	 *
+	 * By setting the `name` property, you can specify which predefined spinner to
+	 * use, no matter what the platform is.
+	 *
+	 * ```html
+	 * <ion-spinner name="bubbles"></ion-spinner>
+	 * ```
+	 *
+	 * ## Styling SVG with CSS
+	 * One cool thing about SVG is its ability to be styled with CSS! One thing to note
+	 * is that some of the CSS properties on an SVG element have different names. For
+	 * example, SVG uses the term `stroke` instead of `border`, and `fill` instead
+	 * of `background-color`.
+	 *
+	 * ```css
+	 * ion-spinner svg {
+	 *   width: 28px;
+	 *   height: 28px;
+	 *   stroke: #444;
+	 *   fill: #222;
+	 * }
+	 * ```
+	 */
+	var Spinner = (function () {
+	    function Spinner(_config) {
+	        this._config = _config;
+	        this._dur = null;
+	        /**
+	         * @input {string} If the animation is paused or not. Defaults to `false`.
+	         */
+	        this.paused = false;
+	    }
+	    Object.defineProperty(Spinner.prototype, "name", {
+	        /**
+	         * @input {string} SVG spinner name.
+	         */
+	        get: function () {
+	            return this._name;
+	        },
+	        set: function (val) {
+	            this._name = val;
+	            this.load();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Spinner.prototype, "duration", {
+	        /**
+	         * @input {string} How long it takes it to do one loop.
+	         */
+	        get: function () {
+	            return this._dur;
+	        },
+	        set: function (val) {
+	            this._dur = val;
+	            this.load();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Spinner.prototype.ngOnInit = function () {
+	        this._init = true;
+	        this.load();
+	    };
+	    Spinner.prototype.load = function () {
+	        if (this._init) {
+	            this._l = [];
+	            this._c = [];
+	            var name = this._name || this._config.get('spinner', 'ios');
+	            var spinner = SPINNERS[name];
+	            if (spinner) {
+	                this._applied = 'spinner-' + name;
+	                if (spinner.lines) {
+	                    for (var i = 0, l = spinner.lines; i < l; i++) {
+	                        this._l.push(this._loadEle(spinner, i, l));
+	                    }
+	                }
+	                else if (spinner.circles) {
+	                    for (var i = 0, l = spinner.circles; i < l; i++) {
+	                        this._c.push(this._loadEle(spinner, i, l));
+	                    }
+	                }
+	            }
+	        }
+	    };
+	    Spinner.prototype._loadEle = function (spinner, index, total) {
+	        var duration = this._dur || spinner.dur;
+	        var data = spinner.fn(duration, index, total);
+	        data.style.animationDuration = duration + 'ms';
+	        return data;
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Spinner.prototype, "name", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Number)
+	    ], Spinner.prototype, "duration", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Spinner.prototype, "paused", void 0);
+	    Spinner = __decorate([
+	        core_1.Component({
+	            selector: 'ion-spinner',
+	            template: '<svg viewBox="0 0 64 64" *ngFor="#i of _c" [ngStyle]="i.style">' +
+	                '<circle [attr.r]="i.r" transform="translate(32,32)"></circle>' +
+	                '</svg>' +
+	                '<svg viewBox="0 0 64 64" *ngFor="#i of _l" [ngStyle]="i.style">' +
+	                '<line [attr.y1]="i.y1" [attr.y2]="i.y2" transform="translate(32,32)"></line>' +
+	                '</svg>',
+	            directives: [common_1.NgStyle],
+	            host: {
+	                '[class]': '_applied',
+	                '[class.spinner-paused]': 'paused'
+	            }
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object])
+	    ], Spinner);
+	    return Spinner;
+	    var _a;
+	})();
+	exports.Spinner = Spinner;
+	var SPINNERS = {
+	    ios: {
+	        dur: 1000,
+	        lines: 12,
+	        fn: function (dur, index, total) {
+	            return {
+	                y1: 17,
+	                y2: 29,
+	                style: {
+	                    transform: 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
+	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
+	                }
+	            };
+	        }
+	    },
+	    'ios-small': {
+	        dur: 1000,
+	        lines: 12,
+	        fn: function (dur, index, total) {
+	            return {
+	                y1: 12,
+	                y2: 20,
+	                style: {
+	                    transform: 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
+	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
+	                }
+	            };
+	        }
+	    },
+	    bubbles: {
+	        dur: 1000,
+	        circles: 9,
+	        fn: function (dur, index, total) {
+	            return {
+	                r: 5,
+	                style: {
+	                    top: 9 * Math.sin(2 * Math.PI * index / total),
+	                    left: 9 * Math.cos(2 * Math.PI * index / total),
+	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
+	                }
+	            };
+	        }
+	    },
+	    circles: {
+	        dur: 1000,
+	        circles: 8,
+	        fn: function (dur, index, total) {
+	            return {
+	                r: 5,
+	                style: {
+	                    top: 9 * Math.sin(2 * Math.PI * index / total),
+	                    left: 9 * Math.cos(2 * Math.PI * index / total),
+	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
+	                }
+	            };
+	        }
+	    },
+	    crescent: {
+	        dur: 750,
+	        circles: 1,
+	        fn: function (dur) {
+	            return {
+	                r: 26,
+	                style: {}
+	            };
+	        }
+	    },
+	    dots: {
+	        dur: 750,
+	        circles: 3,
+	        fn: function (dur, index, total) {
+	            return {
+	                r: 6,
+	                style: {
+	                    left: (9 - (9 * index)),
+	                    animationDelay: -(110 * index) + 'ms'
+	                }
+	            };
+	        }
+	    }
+	};
+
+/***/ },
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -50394,7 +50852,7 @@
 	var util_1 = __webpack_require__(293);
 	var dom_1 = __webpack_require__(164);
 	var util_2 = __webpack_require__(163);
-	var swiper_widget_1 = __webpack_require__(314);
+	var swiper_widget_1 = __webpack_require__(316);
 	/**
 	 * @name Slides
 	 * @description
@@ -50948,7 +51406,7 @@
 	exports.SlideLazy = SlideLazy;
 
 /***/ },
-/* 314 */
+/* 316 */
 /***/ function(module, exports) {
 
 	/**
@@ -54908,7 +55366,7 @@
 
 
 /***/ },
-/* 315 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -54932,8 +55390,8 @@
 	var common_1 = __webpack_require__(172);
 	var app_1 = __webpack_require__(168);
 	var config_1 = __webpack_require__(161);
-	var tab_button_1 = __webpack_require__(316);
-	var tab_highlight_1 = __webpack_require__(318);
+	var tab_button_1 = __webpack_require__(318);
+	var tab_highlight_1 = __webpack_require__(320);
 	var ion_1 = __webpack_require__(287);
 	var platform_1 = __webpack_require__(162);
 	var nav_controller_1 = __webpack_require__(302);
@@ -55258,7 +55716,7 @@
 	})();
 
 /***/ },
-/* 316 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -55276,7 +55734,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var tab_1 = __webpack_require__(317);
+	var tab_1 = __webpack_require__(319);
 	var ion_1 = __webpack_require__(287);
 	var config_1 = __webpack_require__(161);
 	/**
@@ -55337,7 +55795,7 @@
 	exports.TabButton = TabButton;
 
 /***/ },
-/* 317 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -55363,7 +55821,7 @@
 	var config_1 = __webpack_require__(161);
 	var keyboard_1 = __webpack_require__(276);
 	var nav_controller_1 = __webpack_require__(302);
-	var tabs_1 = __webpack_require__(315);
+	var tabs_1 = __webpack_require__(317);
 	/**
 	 * @name Tab
 	 * @description
@@ -55578,7 +56036,7 @@
 	exports.Tab = Tab;
 
 /***/ },
-/* 318 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55625,7 +56083,7 @@
 	exports.TabHighlight = TabHighlight;
 
 /***/ },
-/* 319 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -55647,8 +56105,8 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var ion_1 = __webpack_require__(287);
-	var virtual_1 = __webpack_require__(320);
-	var item_sliding_gesture_1 = __webpack_require__(321);
+	var virtual_1 = __webpack_require__(322);
+	var item_sliding_gesture_1 = __webpack_require__(323);
 	var util_1 = __webpack_require__(293);
 	/**
 	 * The List is a widely used interface element in almost any mobile app, and can include
@@ -55812,7 +56270,7 @@
 	exports.ListHeader = ListHeader;
 
 /***/ },
-/* 320 */
+/* 322 */
 /***/ function(module, exports) {
 
 	var ListVirtualScroll = (function () {
@@ -55905,7 +56363,7 @@
 	})();
 
 /***/ },
-/* 321 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -56126,7 +56584,7 @@
 	var DRAG_THRESHOLD = 20;
 
 /***/ },
-/* 322 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56143,7 +56601,7 @@
 	var button_1 = __webpack_require__(301);
 	var form_1 = __webpack_require__(167);
 	var icon_1 = __webpack_require__(299);
-	var label_1 = __webpack_require__(323);
+	var label_1 = __webpack_require__(325);
 	/**
 	 * @name Item
 	 * @description
@@ -56320,7 +56778,7 @@
 	exports.Item = Item;
 
 /***/ },
-/* 323 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56437,7 +56895,7 @@
 	exports.Label = Label;
 
 /***/ },
-/* 324 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56453,7 +56911,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var list_1 = __webpack_require__(319);
+	var list_1 = __webpack_require__(321);
 	/**
 	 * @name ItemSliding
 	 *
@@ -56506,299 +56964,7 @@
 	var slideIds = 0;
 
 /***/ },
-/* 325 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(172);
-	var config_1 = __webpack_require__(161);
-	/**
-	 * @name Spinner
-	 * @description
-	 * The `ion-spinner` component provides a variety of animated SVG spinners.
-	 * Spinners enables you to give users feedback that the app is actively
-	 * processing/thinking/waiting/chillin’ out, or whatever you’d like it to indicate.
-	 * By default, the `ion-refresher` feature uses this spinner component while it's
-	 * the refresher is in the `refreshing` state.
-	 *
-	 * Ionic offers a handful of spinners out of the box, and by default, it will use
-	 * the appropriate spinner for the platform on which it’s running.
-	 *
-	 * <table class="table spinner-table">
-	 *  <tr>
-	 *    <th>
-	 *      <code>ios</code>
-	 *    </th>
-	 *    <td>
-	 *      <ion-spinner name="ios"></ion-spinner>
-	 *    </td>
-	 *  </tr>
-	 *  <tr>
-	 *    <th>
-	 *      <code>ios-small</code>
-	 *    </th>
-	 *    <td>
-	 *      <ion-spinner name="ios-small"></ion-spinner>
-	 *    </td>
-	 *  </tr>
-	 *  <tr>
-	 *    <th>
-	 *      <code>bubbles</code>
-	 *    </th>
-	 *    <td>
-	 *      <ion-spinner name="bubbles"></ion-spinner>
-	 *    </td>
-	 *  </tr>
-	 *  <tr>
-	 *    <th>
-	 *      <code>circles</code>
-	 *    </th>
-	 *    <td>
-	 *      <ion-spinner name="circles"></ion-spinner>
-	 *    </td>
-	 *  </tr>
-	 *  <tr>
-	 *    <th>
-	 *      <code>crescent</code>
-	 *    </th>
-	 *    <td>
-	 *      <ion-spinner name="crescent"></ion-spinner>
-	 *    </td>
-	 *  </tr>
-	 *  <tr>
-	 *    <th>
-	 *      <code>dots</code>
-	 *    </th>
-	 *    <td>
-	 *      <ion-spinner name="dots"></ion-spinner>
-	 *    </td>
-	 *  </tr>
-	 * </table>
-	 *
-	 * @usage
-	 * The following code would use the default spinner for the platform it's
-	 * running from. If it's neither iOS or Android, it'll default to use `ios`.
-	 *
-	 * ```html
-	 * <ion-spinner></ion-spinner>
-	 * ```
-	 *
-	 * By setting the `name` property, you can specify which predefined spinner to
-	 * use, no matter what the platform is.
-	 *
-	 * ```html
-	 * <ion-spinner name="bubbles"></ion-spinner>
-	 * ```
-	 *
-	 * ## Styling SVG with CSS
-	 * One cool thing about SVG is its ability to be styled with CSS! One thing to note
-	 * is that some of the CSS properties on an SVG element have different names. For
-	 * example, SVG uses the term `stroke` instead of `border`, and `fill` instead
-	 * of `background-color`.
-	 *
-	 * ```css
-	 * ion-spinner svg {
-	 *   width: 28px;
-	 *   height: 28px;
-	 *   stroke: #444;
-	 *   fill: #222;
-	 * }
-	 * ```
-	 */
-	var Spinner = (function () {
-	    function Spinner(_config) {
-	        this._config = _config;
-	        this._dur = null;
-	        /**
-	         * @input {string} If the animation is paused or not. Defaults to `false`.
-	         */
-	        this.paused = false;
-	    }
-	    Object.defineProperty(Spinner.prototype, "name", {
-	        /**
-	         * @input {string} SVG spinner name.
-	         */
-	        get: function () {
-	            return this._name;
-	        },
-	        set: function (val) {
-	            this._name = val;
-	            this.load();
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Spinner.prototype, "duration", {
-	        /**
-	         * @input {string} How long it takes it to do one loop.
-	         */
-	        get: function () {
-	            return this._dur;
-	        },
-	        set: function (val) {
-	            this._dur = val;
-	            this.load();
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Spinner.prototype.ngOnInit = function () {
-	        this._init = true;
-	        this.load();
-	    };
-	    Spinner.prototype.load = function () {
-	        if (this._init) {
-	            this._l = [];
-	            this._c = [];
-	            var name = this._name || this._config.get('spinner', 'ios');
-	            var spinner = SPINNERS[name];
-	            if (spinner) {
-	                this._applied = 'spinner-' + name;
-	                if (spinner.lines) {
-	                    for (var i = 0, l = spinner.lines; i < l; i++) {
-	                        this._l.push(this._loadEle(spinner, i, l));
-	                    }
-	                }
-	                else if (spinner.circles) {
-	                    for (var i = 0, l = spinner.circles; i < l; i++) {
-	                        this._c.push(this._loadEle(spinner, i, l));
-	                    }
-	                }
-	            }
-	        }
-	    };
-	    Spinner.prototype._loadEle = function (spinner, index, total) {
-	        var duration = this._dur || spinner.dur;
-	        var data = spinner.fn(duration, index, total);
-	        data.style.animationDuration = duration + 'ms';
-	        return data;
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Spinner.prototype, "name", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Number)
-	    ], Spinner.prototype, "duration", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean)
-	    ], Spinner.prototype, "paused", void 0);
-	    Spinner = __decorate([
-	        core_1.Component({
-	            selector: 'ion-spinner',
-	            template: '<svg viewBox="0 0 64 64" *ngFor="#i of _c" [ngStyle]="i.style">' +
-	                '<circle [attr.r]="i.r" transform="translate(32,32)"></circle>' +
-	                '</svg>' +
-	                '<svg viewBox="0 0 64 64" *ngFor="#i of _l" [ngStyle]="i.style">' +
-	                '<line [attr.y1]="i.y1" [attr.y2]="i.y2" transform="translate(32,32)"></line>' +
-	                '</svg>',
-	            directives: [common_1.NgStyle],
-	            host: {
-	                '[class]': '_applied',
-	                '[class.spinner-paused]': 'paused'
-	            }
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object])
-	    ], Spinner);
-	    return Spinner;
-	    var _a;
-	})();
-	exports.Spinner = Spinner;
-	var SPINNERS = {
-	    ios: {
-	        dur: 1000,
-	        lines: 12,
-	        fn: function (dur, index, total) {
-	            return {
-	                y1: 17,
-	                y2: 29,
-	                style: {
-	                    transform: 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
-	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
-	                }
-	            };
-	        }
-	    },
-	    'ios-small': {
-	        dur: 1000,
-	        lines: 12,
-	        fn: function (dur, index, total) {
-	            return {
-	                y1: 12,
-	                y2: 20,
-	                style: {
-	                    transform: 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
-	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
-	                }
-	            };
-	        }
-	    },
-	    bubbles: {
-	        dur: 1000,
-	        circles: 9,
-	        fn: function (dur, index, total) {
-	            return {
-	                r: 5,
-	                style: {
-	                    top: 9 * Math.sin(2 * Math.PI * index / total),
-	                    left: 9 * Math.cos(2 * Math.PI * index / total),
-	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
-	                }
-	            };
-	        }
-	    },
-	    circles: {
-	        dur: 1000,
-	        circles: 8,
-	        fn: function (dur, index, total) {
-	            return {
-	                r: 5,
-	                style: {
-	                    top: 9 * Math.sin(2 * Math.PI * index / total),
-	                    left: 9 * Math.cos(2 * Math.PI * index / total),
-	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
-	                }
-	            };
-	        }
-	    },
-	    crescent: {
-	        dur: 750,
-	        circles: 1,
-	        fn: function (dur) {
-	            return {
-	                r: 26,
-	                style: {}
-	            };
-	        }
-	    },
-	    dots: {
-	        dur: 750,
-	        circles: 3,
-	        fn: function (dur, index, total) {
-	            return {
-	                r: 6,
-	                style: {
-	                    left: (9 - (9 * index)),
-	                    animationDelay: -(110 * index) + 'ms'
-	                }
-	            };
-	        }
-	    }
-	};
-
-/***/ },
-/* 326 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56816,7 +56982,7 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
 	var form_1 = __webpack_require__(167);
-	var item_1 = __webpack_require__(322);
+	var item_1 = __webpack_require__(324);
 	var util_1 = __webpack_require__(163);
 	var CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 	/**
@@ -57004,7 +57170,7 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 327 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57021,12 +57187,12 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
-	var alert_1 = __webpack_require__(328);
+	var alert_1 = __webpack_require__(329);
 	var form_1 = __webpack_require__(167);
-	var item_1 = __webpack_require__(322);
+	var item_1 = __webpack_require__(324);
 	var util_1 = __webpack_require__(163);
 	var nav_controller_1 = __webpack_require__(302);
-	var option_1 = __webpack_require__(329);
+	var option_1 = __webpack_require__(330);
 	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 	/**
 	 * @name Select
@@ -57404,7 +57570,7 @@
 	exports.Select = Select;
 
 /***/ },
-/* 328 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -57902,7 +58068,7 @@
 	var alertIds = -1;
 
 /***/ },
-/* 329 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57995,7 +58161,7 @@
 	exports.Option = Option;
 
 /***/ },
-/* 330 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58014,7 +58180,7 @@
 	var common_1 = __webpack_require__(172);
 	var form_1 = __webpack_require__(167);
 	var util_1 = __webpack_require__(163);
-	var item_1 = __webpack_require__(322);
+	var item_1 = __webpack_require__(324);
 	var dom_1 = __webpack_require__(164);
 	var TOGGLE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
 	/**
@@ -58265,7 +58431,7 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58291,10 +58457,10 @@
 	var config_1 = __webpack_require__(161);
 	var content_1 = __webpack_require__(310);
 	var form_1 = __webpack_require__(167);
-	var input_base_1 = __webpack_require__(332);
+	var input_base_1 = __webpack_require__(333);
 	var app_1 = __webpack_require__(168);
-	var item_1 = __webpack_require__(322);
-	var native_input_1 = __webpack_require__(333);
+	var item_1 = __webpack_require__(324);
+	var native_input_1 = __webpack_require__(334);
 	var nav_controller_1 = __webpack_require__(302);
 	var platform_1 = __webpack_require__(162);
 	/**
@@ -58449,7 +58615,7 @@
 	exports.TextArea = TextArea;
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58464,7 +58630,7 @@
 	var core_1 = __webpack_require__(7);
 	var util_1 = __webpack_require__(163);
 	var dom_1 = __webpack_require__(164);
-	var native_input_1 = __webpack_require__(333);
+	var native_input_1 = __webpack_require__(334);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
 	        this._form = _form;
@@ -58821,7 +58987,7 @@
 	        if (this._useAssist && this._scrollView) {
 	            setTimeout(function () {
 	                _this.deregScrollMove();
-	                _this._deregScroll = _this._scrollView.addScrollEventListener(_this._scrollMove);
+	                _this._deregScroll = _this._scrollView.addScrollListener(_this._scrollMove);
 	            }, 80);
 	        }
 	    };
@@ -58983,7 +59149,7 @@
 	}
 
 /***/ },
-/* 333 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59178,7 +59344,7 @@
 	exports.NextInput = NextInput;
 
 /***/ },
-/* 334 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59426,7 +59592,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 335 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59444,8 +59610,8 @@
 	var core_1 = __webpack_require__(7);
 	var form_1 = __webpack_require__(167);
 	var util_1 = __webpack_require__(163);
-	var item_1 = __webpack_require__(322);
-	var radio_group_1 = __webpack_require__(336);
+	var item_1 = __webpack_require__(324);
+	var radio_group_1 = __webpack_require__(337);
 	/**
 	 * @description
 	 * A radio button with a unique value. Note that all `<ion-radio>`
@@ -59611,7 +59777,7 @@
 	exports.RadioButton = RadioButton;
 
 /***/ },
-/* 336 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59625,7 +59791,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
-	var list_1 = __webpack_require__(319);
+	var list_1 = __webpack_require__(321);
 	var RADIO_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return RadioGroup; }), multi: true });
 	/**
 	 * @name RadioGroup
@@ -59825,7 +59991,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 337 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60169,7 +60335,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 338 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60331,7 +60497,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 339 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60493,7 +60659,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 340 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60515,7 +60681,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var router_1 = __webpack_require__(117);
-	var nav_1 = __webpack_require__(338);
+	var nav_1 = __webpack_require__(339);
 	/**
 	 * @private
 	 */
@@ -60613,7 +60779,7 @@
 	})(router_1.Instruction);
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60725,7 +60891,7 @@
 	exports.Attr = Attr;
 
 /***/ },
-/* 342 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60878,7 +61044,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(7);
@@ -60950,7 +61116,7 @@
 	exports.App = App;
 
 /***/ },
-/* 344 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(7);
@@ -61040,58 +61206,59 @@
 	exports.Page = Page;
 
 /***/ },
-/* 345 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(168));
-	__export(__webpack_require__(341));
-	__export(__webpack_require__(346));
-	__export(__webpack_require__(328));
+	__export(__webpack_require__(342));
+	__export(__webpack_require__(347));
+	__export(__webpack_require__(329));
 	__export(__webpack_require__(309));
 	__export(__webpack_require__(301));
-	__export(__webpack_require__(326));
+	__export(__webpack_require__(327));
 	__export(__webpack_require__(310));
 	__export(__webpack_require__(299));
-	__export(__webpack_require__(331));
-	__export(__webpack_require__(322));
+	__export(__webpack_require__(332));
 	__export(__webpack_require__(324));
+	__export(__webpack_require__(326));
 	__export(__webpack_require__(277));
 	__export(__webpack_require__(286));
-	__export(__webpack_require__(347));
+	__export(__webpack_require__(348));
 	__export(__webpack_require__(295));
 	__export(__webpack_require__(307));
-	__export(__webpack_require__(323));
-	__export(__webpack_require__(319));
-	__export(__webpack_require__(342));
-	__export(__webpack_require__(348));
-	__export(__webpack_require__(338));
+	__export(__webpack_require__(325));
+	__export(__webpack_require__(321));
+	__export(__webpack_require__(343));
+	__export(__webpack_require__(349));
+	__export(__webpack_require__(339));
 	__export(__webpack_require__(302));
 	__export(__webpack_require__(296));
 	__export(__webpack_require__(297));
-	__export(__webpack_require__(339));
 	__export(__webpack_require__(340));
+	__export(__webpack_require__(341));
 	__export(__webpack_require__(298));
-	__export(__webpack_require__(329));
-	__export(__webpack_require__(285));
-	__export(__webpack_require__(313));
-	__export(__webpack_require__(335));
-	__export(__webpack_require__(336));
-	__export(__webpack_require__(311));
-	__export(__webpack_require__(312));
-	__export(__webpack_require__(337));
-	__export(__webpack_require__(334));
-	__export(__webpack_require__(327));
-	__export(__webpack_require__(315));
-	__export(__webpack_require__(317));
-	__export(__webpack_require__(280));
 	__export(__webpack_require__(330));
+	__export(__webpack_require__(285));
+	__export(__webpack_require__(315));
+	__export(__webpack_require__(336));
+	__export(__webpack_require__(337));
+	__export(__webpack_require__(312));
+	__export(__webpack_require__(313));
+	__export(__webpack_require__(311));
+	__export(__webpack_require__(338));
+	__export(__webpack_require__(335));
+	__export(__webpack_require__(328));
+	__export(__webpack_require__(317));
+	__export(__webpack_require__(319));
+	__export(__webpack_require__(280));
+	__export(__webpack_require__(331));
 	__export(__webpack_require__(300));
 
 /***/ },
-/* 346 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61431,7 +61598,7 @@
 	transition_1.Transition.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
 
 /***/ },
-/* 347 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61578,7 +61745,7 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61787,18 +61954,18 @@
 	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(350));
 	__export(__webpack_require__(351));
 	__export(__webpack_require__(352));
+	__export(__webpack_require__(353));
 
 /***/ },
-/* 350 */
+/* 351 */
 /***/ function(module, exports) {
 
 	/**
@@ -61875,7 +62042,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61883,7 +62050,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(350);
+	var storage_1 = __webpack_require__(351);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -61969,7 +62136,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61977,7 +62144,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(350);
+	var storage_1 = __webpack_require__(351);
 	var util_1 = __webpack_require__(163);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -62185,7 +62352,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 353 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62234,7 +62401,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 354 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var config_1 = __webpack_require__(161);
@@ -62278,7 +62445,7 @@
 	});
 
 /***/ },
-/* 355 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var platform_1 = __webpack_require__(162);
@@ -62442,7 +62609,7 @@
 	}
 
 /***/ },
-/* 356 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -62501,7 +62668,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 357 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -62674,7 +62841,7 @@
 	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 358 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -62737,7 +62904,7 @@
 	transition_1.Transition.register('md-transition', MDTransition);
 
 /***/ },
-/* 359 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {

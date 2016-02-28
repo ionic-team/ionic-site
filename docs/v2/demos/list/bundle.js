@@ -58490,7 +58490,7 @@
 	 *  </ion-item>
 	 *
 	 *  <ion-item>
-	 *    <ion-labe fixed>Website</ion-label>
+	 *    <ion-label fixed>Website</ion-label>
 	 *    <ion-input type="url"></ion-input>
 	 *  </ion-item>
 	 *

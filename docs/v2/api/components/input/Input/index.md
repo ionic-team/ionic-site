@@ -66,7 +66,7 @@ interactivity.</p>
 &lt;/ion-item&gt;
 
 &lt;ion-item&gt;
-  &lt;ion-labe fixed&gt;Website&lt;/ion-label&gt;
+  &lt;ion-label fixed&gt;Website&lt;/ion-label&gt;
   &lt;ion-input type=&quot;url&quot;&gt;&lt;/ion-input&gt;
 &lt;/ion-item&gt;
 

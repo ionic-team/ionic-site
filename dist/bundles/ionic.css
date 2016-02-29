@@ -756,6 +756,38 @@ ion-icon {
 ion-icon[small] {
   font-size: 1.1em; }
 
+ion-infinite {
+  display: block;
+  width: 100%; }
+
+ion-infinite-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center; }
+
+.infinite-loading {
+  width: 100%;
+  margin: 0px 0px 32px 0px; }
+
+.infinite-loading-text {
+  margin: 4px 32px 0 32px;
+  color: #666; }
+
+ion-infinite-content[state=disabled] .infinite-loading {
+  display: none; }
+
 ion-menu {
   position: absolute;
   top: 0;

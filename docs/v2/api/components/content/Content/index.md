@@ -333,6 +333,42 @@ export class MyPage{
 
 
 
+
+
+<div id="getContentDimensions"></div>
+
+<h3>
+<code>getContentDimensions()</code>
+  
+
+</h3>
+
+Returns the content and scroll elements' dimensions.
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>object</code> dimensions  The content and scroll elements' dimensions
+{number} dimensions.contentHeight  content offsetHeight
+{number} dimensions.contentTop  content offsetTop
+{number} dimensions.contentBottom  content offsetTop+offsetHeight
+{number} dimensions.contentWidth  content offsetWidth
+{number} dimensions.contentLeft  content offsetLeft
+{number} dimensions.contentRight  content offsetLeft + offsetWidth
+{number} dimensions.scrollHeight  scroll scrollHeight
+{number} dimensions.scrollTop  scroll scrollTop
+{number} dimensions.scrollBottom  scroll scrollTop + scrollHeight
+{number} dimensions.scrollWidth  scroll scrollWidth
+{number} dimensions.scrollLeft  scroll scrollLeft
+{number} dimensions.scrollRight  scroll scrollLeft + scrollWidth
+</div>
+
+
 <!-- related link --><!-- end content block -->
 
 

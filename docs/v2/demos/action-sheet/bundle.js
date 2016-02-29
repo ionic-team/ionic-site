@@ -50823,9 +50823,9 @@
 	            return 6;
 	        }
 	        if (this.state === STATE_INACTIVE) {
-	            // this refresh is not alreadying actively pulling down
+	            // this refresh is not already actively pulling down
 	            // get the content's scrollTop
-	            var scrollHostScrollTop = this._content.getScrollTop();
+	            var scrollHostScrollTop = this._content.scrollElement.scrollTop;
 	            // if the scrollTop is greater than zero then it's
 	            // not possible to pull the content down yet
 	            if (scrollHostScrollTop > 0) {

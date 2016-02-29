@@ -9,7 +9,9 @@ title: "InfiniteScroll"
 header_sub_title: "Class in module "
 doc: "InfiniteScroll"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/infinite-scroll/"
+angular_controller: APIDemoCtrl 
 ---
 
 

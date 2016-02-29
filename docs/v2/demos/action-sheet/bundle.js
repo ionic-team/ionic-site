@@ -50048,6 +50048,8 @@
 	 * developers to create their own infinite scroll content components.
 	 * You could replace our default content with custom SVG or CSS animations.
 	 *
+	 * @demo /docs/v2/demos/infinite-scroll/
+	 *
 	 */
 	var InfiniteScroll = (function () {
 	    function InfiniteScroll(_content, _zone, _elementRef) {

@@ -48,7 +48,7 @@ Place <code>ion-refresher</code> as the first child of your <code>ion-content</c
 <p>Pages can then can listen to the refreshers various output events. The
 <code>refresh</code> output event is the one that&#39;s fired when the user has pulled
 down far enough to kick off the refreshing process. Once the async operation
-has completed and the refreshing should end, call <code>endRefreshing()</code>.</p>
+has completed and the refreshing should end, call <code>complete()</code>.</p>
 
 
 <h2>Directive</h2>
@@ -73,7 +73,7 @@ export class NewsFeedPage {
 
     setTimeout(() =&gt; {
       console.log(&#39;Async operation has ended&#39;);
-      refresher.endRefreshing();
+      refresher.complete();
     }, 2000);
   }
 
@@ -131,8 +131,8 @@ The current state which the refresher is in. The refresher's states include:
 - `pulling` - The user is actively pulling down the refresher, but has not reached the point yet that if the user lets go, it'll refresh.
 - `cancelling` - The user pulled down the refresher and let go, but did not pull down far enough to kick off the `refreshing` state. After letting go, the refresher is in the `cancelling` state while it is closing, and will go back to the `inactive` state once closed.
 - `ready` - The user has pulled down the refresher far enough that if they let go, it'll begin the `refreshing` state.
-- `refreshing` - The refresher is actively waiting on the async operation to end. Once the refresh handler calls `endRefreshing()` it will begin the `ending` state.
-- `ending` - The `refreshing` state has finished and the refresher is in the process of closing itself. Once closed, the refresher will go back to the `inactive` state.
+- `refreshing` - The refresher is actively waiting on the async operation to end. Once the refresh handler calls `complete()` it will begin the `completing` state.
+- `completing` - The `refreshing` state has finished and the refresher is in the process of closing itself. Once closed, the refresher will go back to the `inactive` state.
 
 
 
@@ -231,21 +231,21 @@ position.
 
 
 
-<div id="endRefreshing"></div>
+<div id="complete"></div>
 
 <h3>
-<code>endRefreshing()</code>
+<code>complete()</code>
   
 
 </h3>
 
-Call `endRefreshing()` when your async operation has completed.
+Call `complete()` when your async operation has completed.
 For example, the `refreshing` state is while the app is performing
 an asynchronous operation, such as receiving more data from an
 AJAX request. Once the data has been received, you then call this
 method to signify that the refreshing has completed and to close
 the refresher. This method also changes the refresher's state from
-`refreshing` to `ending`.
+`refreshing` to `completing`.
 
 
 
@@ -257,10 +257,10 @@ the refresher. This method also changes the refresher's state from
 
 
 
-<div id="cancelRefreshing"></div>
+<div id="cancel"></div>
 
 <h3>
-<code>cancelRefreshing()</code>
+<code>cancel()</code>
   
 
 </h3>
@@ -344,7 +344,7 @@ maximum will be the result of <code>pullMin + 60</code>.</p>
       <td><p> When the user lets go and has pulled down far enough, which would be
 farther than the <code>pullMin</code>, then your refresh hander if fired and the state is
 updated to <code>refreshing</code>. From within your refresh handler, you must call the
-<code>endRefreshing()</code> method when your async operation has completed.</p>
+<code>complete()</code> method when your async operation has completed.</p>
 </td>
     </tr>
     

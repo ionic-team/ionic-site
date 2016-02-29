@@ -806,13 +806,14 @@
   }
 }
 
-#slider{
-  margin:0 auto;
-  padding:0;
+#slider {
+  margin: 0 auto;
+  padding: 0;
   position: relative;
-  top:-78px;
+  top: -78px;
   width: 100%;
   overflow-x: hidden;
+
   .slick-prev,
   .slick-next{
     left: 10px;
@@ -947,37 +948,74 @@
     i {
       display: inline;
     }
-    .feature-img{
-      background: no-repeat center top url(/img/homepage/ionic-lab-preview-img.png);
+
+    .feature-img {
+      background: no-repeat center top url('/img/homepage/ionic-lab-preview-img.png');
       background-size: 100%;
-      margin-top:0;
-      padding-top:20px;
+      margin-top: 0;
+      padding-top: 20px;
     }
-    .logo{
-      width:170px;
+
+    .logo {
+      width: 170px;
       margin: 72px 0 32px;
     }
   }
-  .slide-market{
+
+  .slide-market {
     color: #A1BEE4;
+
     h3 {
-        max-width: 440px;
+      max-width: 440px;
     }
+
     .btn-row .btn-download {
-        color: #04499e;
+      color: #04499e;
     }
-    .feature-img{
-      background: no-repeat center top url(/img/homepage/market-bag-img.png);
+
+    .feature-img {
+      background: no-repeat center top url('/img/homepage/market-bag-img.png');
       background-size: 70%;
     }
   }
 }
 
-/* IE fixes */
+// Safari fixes
+@supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+  #slider {
+    top: -112px;
+
+    .slide-creator .creator-preview {
+      bottom: -21px;
+    }
+  }
+
+  .home #slider + .utility-bar {
+    margin-top: -212px;
+  }
+  @media (max-width: 991px) {
+    .home .container {
+      #slider {
+        top: -188px;
+
+        .slide-creator .creator-preview {
+          bottom: -78px;
+        }
+      }
+
+      #slider + .utility-bar {
+        margin-top: -318px;
+      }
+    }
+  }
+}
+
+
+// IE fixes
 $ieEightAndNine: "\0/";
-.home .navbar{
-  background:none;
-  background:unquote(#4E8EF7 + $ieEightAndNine);
+.home .navbar {
+  background: none;
+  background: unquote(#4E8EF7 + $ieEightAndNine);
 }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .home .navbar{

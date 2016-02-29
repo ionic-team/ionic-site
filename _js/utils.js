@@ -5,7 +5,7 @@ document.getElementById('sidebar-toggle').onclick = function() {
 };
 
 $(document).ready(function() {
-  $(".dropdown-toggle").dropdown();
+  $('.dropdown-toggle').dropdown();
 });
 
 // highlight.js syntax highlighting

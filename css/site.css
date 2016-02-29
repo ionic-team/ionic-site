@@ -5645,7 +5645,7 @@ h1 + h2 + p {
   #slider .slide-lab i {
     display: inline; }
   #slider .slide-lab .feature-img {
-    background: no-repeat center top url(/img/homepage/ionic-lab-preview-img.png);
+    background: no-repeat center top url("/img/homepage/ionic-lab-preview-img.png");
     background-size: 100%;
     margin-top: 0;
     padding-top: 20px; }
@@ -5659,10 +5659,24 @@ h1 + h2 + p {
     #slider .slide-market .btn-row .btn-download {
       color: #04499e; }
     #slider .slide-market .feature-img {
-      background: no-repeat center top url(/img/homepage/market-bag-img.png);
+      background: no-repeat center top url("/img/homepage/market-bag-img.png");
       background-size: 70%; }
 
-/* IE fixes */
+@supports (overflow: -webkit-marquee) and ((-webkit-justify-content: inherit) or (-ms-flex-pack: inherit) or (justify-content: inherit)) {
+  #slider {
+    top: -112px; }
+    #slider .slide-creator .creator-preview {
+      bottom: -21px; }
+  .home #slider + .utility-bar {
+    margin-top: -212px; }
+  @media (max-width: 991px) {
+    .home .container #slider {
+      top: -188px; }
+      .home .container #slider .slide-creator .creator-preview {
+        bottom: -78px; }
+    .home .container #slider + .utility-bar {
+      margin-top: -318px; } } }
+
 .home .navbar {
   background: none;
   background: #4E8EF7�/; }

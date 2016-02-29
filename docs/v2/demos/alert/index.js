@@ -192,8 +192,6 @@ var InitialPage = (function () {
         });
         this.nav.present(alert);
     };
-    InitialPage.prototype.doCustomAnimation = function () {
-    };
     InitialPage = __decorate([
         ionic_angular_1.Page({
             templateUrl: 'main.html'

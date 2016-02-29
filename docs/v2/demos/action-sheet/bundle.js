@@ -49759,15 +49759,27 @@
 	        this._scrollTo = new scroll_to_1.ScrollTo(this.scrollElement);
 	        return this._scrollTo.start(0, 0, 300, 0);
 	    };
+	    /**
+	     * @private
+	     */
 	    Content.prototype.getScrollTop = function () {
 	        return this.getNativeElement().scrollTop;
 	    };
+	    /**
+	     * @private
+	     */
 	    Content.prototype.addCssClass = function (className) {
 	        this.getNativeElement().classList.add(className);
 	    };
+	    /**
+	     * @private
+	     */
 	    Content.prototype.removeCssClass = function (className) {
 	        this.getNativeElement().classList.remove(className);
 	    };
+	    /**
+	     * @private
+	     */
 	    Content.prototype.setScrollElementStyle = function (prop, val) {
 	        this.scrollElement.style[prop] = val;
 	    };

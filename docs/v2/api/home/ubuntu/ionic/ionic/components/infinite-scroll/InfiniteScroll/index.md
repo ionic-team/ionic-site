@@ -41,16 +41,16 @@ Improve this doc
 
 
 
-<p>The infinite scroll allows you to call a method whenever the user
-gets to the bottom of the page or near the bottom of the page.</p>
-<p>The expression you add to the <code>infinite</code> output event is called when
-the user scrolls greater than distance away from the bottom of the
-content. Once your <code>infinite</code> handler is done loading new data, it
-should call the <code>endLoading()</code> method on the infinite scroll instance.</p>
+<p>The Infinite Scroll allows you to perform an action when the user
+scrolls a specified distance from the bottom of the page.</p>
+<p>The expression assigned to the <code>infinite</code> event is called when
+the user scrolls to the specified distance. When this expression
+has finished its tasks, it should call the <code>complete()</code> method
+on the infinite scroll instance.</p>
 
 
 <h2>Directive</h2>
-<h3>selector: <code>ion-infinite</code></h3>
+<h3>selector: <code>ion-infinite-scroll</code></h3>
 <!-- @usage tag -->
 
 <h2>Usage</h2>
@@ -61,9 +61,9 @@ should call the <code>endLoading()</code> method on the infinite scroll instance
    &lt;ion-item *ngFor=&quot;#i of items&quot;&gt;{{i}}&lt;/ion-item&gt;
  &lt;/ion-list&gt;
 
- &lt;ion-infinite (infinite)=&quot;doInfinite($event)&quot;&gt;
-   &lt;ion-infinite-content&gt;&lt;/ion-infinite-content&gt;
- &lt;/ion-infinite&gt;
+ &lt;ion-infinite-scroll (infinite)=&quot;doInfinite($event)&quot;&gt;
+   &lt;ion-infinite-scroll-content&gt;&lt;/ion-infinite-scroll-content&gt;
+ &lt;/ion-infinite-scroll&gt;
 
 &lt;/ion-content&gt;
 </code></pre>
@@ -86,37 +86,36 @@ export class NewsFeedPage {
       }
 
       console.log(&#39;Async operation has ended&#39;);
-      infiniteScroll.endLoading();
+      infiniteScroll.complete();
     }, 500);
   }
 
 }
 </code></pre>
 <h2 id="infinite-scroll-content">Infinite Scroll Content</h2>
-<p>By default, Ionic provides the infinite scroll spinner that looks
+<p>By default, Ionic uses the infinite scroll spinner that looks
 best for the platform the user is on. However, you can change the
-default spinner, along with adding text by adding properties to
-the child <code>ion-infinite-content</code> component.</p>
+default spinner or add text by adding properties to the
+<code>ion-infinite-scroll-content</code> component.</p>
 <pre><code class="lang-html">&lt;ion-content&gt;
 
-  &lt;ion-infinite (infinite)=&quot;doInfinite($event)&quot;&gt;
-    &lt;ion-infinite-content
+  &lt;ion-infinite-scroll (infinite)=&quot;doInfinite($event)&quot;&gt;
+    &lt;ion-infinite-scroll-content
       loadingSpinner=&quot;bubbles&quot;
       loadingText=&quot;Loading more data...&quot;&gt;
-    &lt;/ion-infinite-content&gt;
-  &lt;/ion-infinite&gt;
+    &lt;/ion-infinite-scroll-content&gt;
+  &lt;/ion-infinite-scroll&gt;
 
 &lt;/ion-content&gt;
 </code></pre>
 <h2 id="further-customizing-infinite-scroll-content">Further Customizing Infinite Scroll Content</h2>
-<p>The <code>ion-infinite</code> component holds the infinite scroll logic, and it
-requires a child infinite scroll content component for its display.
-The <code>ion-infinite-content</code> component is Ionic&#39;s default that shows
-the actual display of the infinite scroll and changes its look depending
-on the infinite scroll&#39;s state. With this separation, it also allows
+<p>The <code>ion-infinite-scroll</code> component holds the infinite scroll logic.
+It requires a child component in order to display the content.
+Ionic uses <code>ion-infinite-scroll-content</code> by default. This component
+displays the infinite scroll and changes the look depending
+on the infinite scroll&#39;s state. Separating these components allows
 developers to create their own infinite scroll content components.
-Ideas include having some cool SVG or CSS animations that are
-customized to your app and animates to your liking.</p>
+You could replace our default content with custom SVG or CSS animations.</p>
 
 
 
@@ -148,15 +147,15 @@ customized to your app and animates to your liking.</p>
 
 
 
-<div id="endLoading"></div>
+<div id="complete"></div>
 
 <h3>
-<code>endLoading()</code>
+<code>complete()</code>
   
 
 </h3>
 
-Call `endLoading()` within the `infinite` output event handler when
+Call `complete()` within the `infinite` output event handler when
 your async operation has completed. For example, the `loading`
 state is while the app is performing an asynchronous operation,
 such as receiving more data from an AJAX request to add more items
@@ -242,11 +241,11 @@ the infinite scroll is no longer needed.
       <td><code>string</code></td>
       <td><p> The threshold distance from the bottom
 of the content to call the <code>infinite</code> output event when scrolled.
-The threshold input value can be either a percent, or
+The threshold value can be either a percent, or
 in pixels. For example, use the value of <code>10%</code> for the <code>infinite</code>
-output event to get called when the scroll has 10% of the scroll
-left until it reaches the bottom. Use the value <code>100px</code> when the
-scroll is within 100 pixels from the bottom of the content.
+output event to get called when the user has scrolled 10%
+from the bottom of the page. Use the value <code>100px</code> when the
+scroll is within 100 pixels from the bottom of the page.
 Default is <code>15%</code>.</p>
 </td>
     </tr>
@@ -267,8 +266,8 @@ Default is <code>15%</code>.</p>
     <tr>
       <td>infinite</td>
       <td><p> The expression to call when the scroll reaches
-the threshold input distance. From within your infinite handler,
-you must call the infinite scroll&#39;s <code>endLoading()</code> method when
+the threshold distance. From within your infinite handler,
+you must call the infinite scroll&#39;s <code>complete()</code> method when
 your async operation has completed.</p>
 </td>
     </tr>

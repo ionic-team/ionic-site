@@ -756,11 +756,11 @@ ion-icon {
 ion-icon[small] {
   font-size: 1.1em; }
 
-ion-infinite {
+ion-infinite-scroll {
   display: block;
   width: 100%; }
 
-ion-infinite-content {
+ion-infinite-scroll-content {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -785,7 +785,7 @@ ion-infinite-content {
   margin: 4px 32px 0 32px;
   color: #666; }
 
-ion-infinite-content[state=disabled] .infinite-loading {
+ion-infinite-scroll-content[state=disabled] .infinite-loading {
   display: none; }
 
 ion-menu {

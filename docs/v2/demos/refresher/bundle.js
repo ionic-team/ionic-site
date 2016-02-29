@@ -48,7 +48,7 @@
 	__webpack_require__(2);
 	__webpack_require__(3);
 	__webpack_require__(4);
-	module.exports = __webpack_require__(362);
+	module.exports = __webpack_require__(361);
 
 
 /***/ },
@@ -3304,11 +3304,11 @@
 	__export(__webpack_require__(6));
 	__export(__webpack_require__(161));
 	__export(__webpack_require__(284));
+	__export(__webpack_require__(345));
 	__export(__webpack_require__(346));
 	__export(__webpack_require__(347));
-	__export(__webpack_require__(348));
 	__export(__webpack_require__(162));
-	__export(__webpack_require__(352));
+	__export(__webpack_require__(351));
 	__export(__webpack_require__(160));
 	__export(__webpack_require__(165));
 	__export(__webpack_require__(276));
@@ -3316,13 +3316,13 @@
 	__export(__webpack_require__(306));
 	__export(__webpack_require__(305));
 	__export(__webpack_require__(283));
-	__export(__webpack_require__(356));
+	__export(__webpack_require__(355));
 	// these modules don't export anything
+	__webpack_require__(356);
 	__webpack_require__(357);
 	__webpack_require__(358);
 	__webpack_require__(359);
 	__webpack_require__(360);
-	__webpack_require__(361);
 
 /***/ },
 /* 6 */
@@ -42354,27 +42354,27 @@
 	var tabs_1 = __webpack_require__(319);
 	var tab_1 = __webpack_require__(321);
 	var list_1 = __webpack_require__(323);
-	var item_1 = __webpack_require__(326);
-	var item_sliding_1 = __webpack_require__(328);
+	var item_1 = __webpack_require__(325);
+	var item_sliding_1 = __webpack_require__(327);
 	var toolbar_1 = __webpack_require__(300);
 	var icon_1 = __webpack_require__(299);
 	var spinner_1 = __webpack_require__(314);
-	var checkbox_1 = __webpack_require__(329);
-	var select_1 = __webpack_require__(330);
-	var option_1 = __webpack_require__(332);
-	var toggle_1 = __webpack_require__(333);
-	var input_1 = __webpack_require__(334);
-	var label_1 = __webpack_require__(327);
-	var segment_1 = __webpack_require__(337);
-	var radio_button_1 = __webpack_require__(338);
-	var radio_group_1 = __webpack_require__(339);
-	var searchbar_1 = __webpack_require__(340);
-	var nav_1 = __webpack_require__(341);
-	var nav_push_1 = __webpack_require__(342);
-	var nav_router_1 = __webpack_require__(343);
+	var checkbox_1 = __webpack_require__(328);
+	var select_1 = __webpack_require__(329);
+	var option_1 = __webpack_require__(331);
+	var toggle_1 = __webpack_require__(332);
+	var input_1 = __webpack_require__(333);
+	var label_1 = __webpack_require__(326);
+	var segment_1 = __webpack_require__(336);
+	var radio_button_1 = __webpack_require__(337);
+	var radio_group_1 = __webpack_require__(338);
+	var searchbar_1 = __webpack_require__(339);
+	var nav_1 = __webpack_require__(340);
+	var nav_push_1 = __webpack_require__(341);
+	var nav_router_1 = __webpack_require__(342);
 	var navbar_1 = __webpack_require__(298);
-	var id_1 = __webpack_require__(344);
-	var show_hide_when_1 = __webpack_require__(345);
+	var id_1 = __webpack_require__(343);
+	var show_hide_when_1 = __webpack_require__(344);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @private
@@ -56442,18 +56442,19 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var ion_1 = __webpack_require__(287);
-	var virtual_1 = __webpack_require__(324);
-	var item_sliding_gesture_1 = __webpack_require__(325);
-	var util_1 = __webpack_require__(293);
+	var item_sliding_gesture_1 = __webpack_require__(324);
 	/**
-	 * The List is a widely used interface element in almost any mobile app, and can include
-	 * content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
+	 * The List is a widely used interface element in almost any mobile app,
+	 * and can include content ranging from basic text all the way to
+	 * buttons, toggles, icons, and thumbnails.
 	 *
-	 * Both the list, which contains items, and the list items themselves can be any HTML
-	 * element.
+	 * Both the list, which contains items, and the list items themselves
+	 * can be any HTML element.
 	 *
 	 * Using the List and Item components make it easy to support various
-	 * interaction modes such as swipe to edit, drag to reorder, and removing items.
+	 * interaction modes such as swipe to edit, drag to reorder, and
+	 * removing items.
+	 *
 	 * @demo /docs/v2/demos/list/
 	 * @see {@link /docs/v2/components#lists List Component Docs}
 	 *
@@ -56469,35 +56470,9 @@
 	    /**
 	     * @private
 	     */
-	    List.prototype.ngOnInit = function () {
-	        if (util_1.isDefined(this.virtual)) {
-	            console.debug('Content', this.content);
-	            console.debug('Virtual?', this.virtual);
-	            console.debug('Items?', this.items.length, 'of \'em');
-	            this._initVirtualScrolling();
-	        }
-	    };
-	    /**
-	     * @private
-	     */
 	    List.prototype.ngOnDestroy = function () {
-	        this.ele = null;
-	        this.slidingGesture && this.slidingGesture.unlisten();
-	    };
-	    /**
-	     * @private
-	     */
-	    List.prototype._initVirtualScrolling = function () {
-	        if (!this.content) {
-	            return;
-	        }
-	        this._virtualScrollingManager = new virtual_1.ListVirtualScroll(this);
-	    };
-	    /**
-	     * @private
-	     */
-	    List.prototype.setItemTemplate = function (item) {
-	        this.itemTemplate = item;
+	        this.slidingGesture && this.slidingGesture.destroy();
+	        this.ele = this.slidingGesture = null;
 	    };
 	    /**
 	     * Enable sliding items if your page has them
@@ -56552,18 +56527,6 @@
 	    List.prototype.closeSlidingItems = function () {
 	        this.slidingGesture && this.slidingGesture.closeOpened();
 	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], List.prototype, "items", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], List.prototype, "virtual", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], List.prototype, "content", void 0);
 	    List = __decorate([
 	        core_1.Directive({
 	            selector: 'ion-list'
@@ -56608,99 +56571,6 @@
 
 /***/ },
 /* 324 */
-/***/ function(module, exports) {
-
-	var ListVirtualScroll = (function () {
-	    function ListVirtualScroll(list) {
-	        var _this = this;
-	        this.itemHeight = 60;
-	        this.shownItems = {};
-	        this.enteringItems = [];
-	        this.leavingItems = [];
-	        this.list = list;
-	        this.content = this.list.content;
-	        this.viewportHeight = this.content.height();
-	        this.viewContainer = this.list.itemTemplate.viewContainer;
-	        // Compute the initial sizes
-	        setTimeout(function () {
-	            _this.resize();
-	            // Simulate the first event to start layout
-	            _this._handleVirtualScroll({
-	                target: _this.content.scrollElement
-	            });
-	        });
-	        this.content.addScrollEventListener(function (event) {
-	            _this._handleVirtualScroll(event);
-	        });
-	    }
-	    ListVirtualScroll.prototype.resize = function () {
-	        this.viewportHeight = this.content.height();
-	        this.viewportScrollHeight = this.content.scrollElement.scrollHeight;
-	        this.virtualHeight = this.list.items.length * this.itemHeight;
-	        this.itemsPerScreen = this.viewportHeight / this.itemHeight;
-	        console.debug('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
-	    };
-	    ListVirtualScroll.prototype._handleVirtualScroll = function (event) {
-	        var item;
-	        var shownItemRef;
-	        var st = event.target.scrollTop;
-	        var sh = event.target.scrollHeight;
-	        var topIndex = Math.floor(st / this.itemHeight);
-	        var bottomIndex = Math.floor((st / this.itemHeight) + this.itemsPerScreen);
-	        var items = this.list.items;
-	        // Key iterate the shown items map
-	        // and compare the index to our index range,
-	        // pushing the items to remove to our leaving
-	        // list if they're ouside this range.
-	        for (var i in this.shownItems) {
-	            if (i < topIndex || i > bottomIndex) {
-	                this.leavingItems.push(this.shownItems[i]);
-	                delete this.shownItems[i];
-	            }
-	        }
-	        var realIndex = 0;
-	        // Iterate the set of items that will be rendered, using the
-	        // index from the actual items list as the map for the
-	        // virtual items we draw
-	        for (var i = topIndex, realIndex_1 = 0; i < bottomIndex && i < items.length; i++, realIndex_1++) {
-	            item = items[i];
-	            console.debug('Drawing item', i, item.title);
-	            shownItemRef = this.shownItems[i];
-	            // Is this a new item?
-	            if (!shownItemRef) {
-	                var itemView = this.viewContainer.create(this.list.itemTemplate.protoViewRef, realIndex_1);
-	                itemView.setLocal('\$implicit', item);
-	                itemView.setLocal('\$item', item);
-	                shownItemRef = new VirtualItemRef(item, i, realIndex_1, itemView);
-	                this.shownItems[i] = shownItemRef;
-	                this.enteringItems.push(shownItemRef);
-	            }
-	        }
-	        while (this.leavingItems.length) {
-	            var itemRef = this.leavingItems.pop();
-	            console.debug('Removing item', itemRef.item, itemRef.realIndex);
-	            this.viewContainer.remove(itemRef.realIndex);
-	        }
-	        console.debug('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
-	        console.debug('Container has', this.list.getNativeElement().children.length, 'children');
-	    };
-	    ListVirtualScroll.prototype.cellAtIndex = function (index) {
-	    };
-	    return ListVirtualScroll;
-	})();
-	exports.ListVirtualScroll = ListVirtualScroll;
-	var VirtualItemRef = (function () {
-	    function VirtualItemRef(item, index, realIndex, view) {
-	        this.item = item;
-	        this.index = index;
-	        this.realIndex = realIndex;
-	        this.view = view;
-	    }
-	    return VirtualItemRef;
-	})();
-
-/***/ },
-/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -56921,7 +56791,7 @@
 	var DRAG_THRESHOLD = 20;
 
 /***/ },
-/* 326 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56938,7 +56808,7 @@
 	var button_1 = __webpack_require__(301);
 	var form_1 = __webpack_require__(167);
 	var icon_1 = __webpack_require__(299);
-	var label_1 = __webpack_require__(327);
+	var label_1 = __webpack_require__(326);
 	/**
 	 * @name Item
 	 * @description
@@ -57115,7 +56985,7 @@
 	exports.Item = Item;
 
 /***/ },
-/* 327 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57232,7 +57102,7 @@
 	exports.Label = Label;
 
 /***/ },
-/* 328 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57301,7 +57171,7 @@
 	var slideIds = 0;
 
 /***/ },
-/* 329 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57319,7 +57189,7 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
 	var form_1 = __webpack_require__(167);
-	var item_1 = __webpack_require__(326);
+	var item_1 = __webpack_require__(325);
 	var util_1 = __webpack_require__(163);
 	var CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 	/**
@@ -57507,7 +57377,7 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 330 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57524,12 +57394,12 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
-	var alert_1 = __webpack_require__(331);
+	var alert_1 = __webpack_require__(330);
 	var form_1 = __webpack_require__(167);
-	var item_1 = __webpack_require__(326);
+	var item_1 = __webpack_require__(325);
 	var util_1 = __webpack_require__(163);
 	var nav_controller_1 = __webpack_require__(302);
-	var option_1 = __webpack_require__(332);
+	var option_1 = __webpack_require__(331);
 	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 	/**
 	 * @name Select
@@ -57907,7 +57777,7 @@
 	exports.Select = Select;
 
 /***/ },
-/* 331 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58405,7 +58275,7 @@
 	var alertIds = -1;
 
 /***/ },
-/* 332 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58498,7 +58368,7 @@
 	exports.Option = Option;
 
 /***/ },
-/* 333 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58517,7 +58387,7 @@
 	var common_1 = __webpack_require__(172);
 	var form_1 = __webpack_require__(167);
 	var util_1 = __webpack_require__(163);
-	var item_1 = __webpack_require__(326);
+	var item_1 = __webpack_require__(325);
 	var dom_1 = __webpack_require__(164);
 	var TOGGLE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
 	/**
@@ -58768,7 +58638,7 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 334 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58794,10 +58664,10 @@
 	var config_1 = __webpack_require__(161);
 	var content_1 = __webpack_require__(310);
 	var form_1 = __webpack_require__(167);
-	var input_base_1 = __webpack_require__(335);
+	var input_base_1 = __webpack_require__(334);
 	var app_1 = __webpack_require__(168);
-	var item_1 = __webpack_require__(326);
-	var native_input_1 = __webpack_require__(336);
+	var item_1 = __webpack_require__(325);
+	var native_input_1 = __webpack_require__(335);
 	var nav_controller_1 = __webpack_require__(302);
 	var platform_1 = __webpack_require__(162);
 	/**
@@ -58952,7 +58822,7 @@
 	exports.TextArea = TextArea;
 
 /***/ },
-/* 335 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58967,7 +58837,7 @@
 	var core_1 = __webpack_require__(7);
 	var util_1 = __webpack_require__(163);
 	var dom_1 = __webpack_require__(164);
-	var native_input_1 = __webpack_require__(336);
+	var native_input_1 = __webpack_require__(335);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
 	        this._form = _form;
@@ -59486,7 +59356,7 @@
 	}
 
 /***/ },
-/* 336 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59681,7 +59551,7 @@
 	exports.NextInput = NextInput;
 
 /***/ },
-/* 337 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59929,7 +59799,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 338 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59947,8 +59817,8 @@
 	var core_1 = __webpack_require__(7);
 	var form_1 = __webpack_require__(167);
 	var util_1 = __webpack_require__(163);
-	var item_1 = __webpack_require__(326);
-	var radio_group_1 = __webpack_require__(339);
+	var item_1 = __webpack_require__(325);
+	var radio_group_1 = __webpack_require__(338);
 	/**
 	 * @description
 	 * A radio button with a unique value. Note that all `<ion-radio>`
@@ -60114,7 +59984,7 @@
 	exports.RadioButton = RadioButton;
 
 /***/ },
-/* 339 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60328,7 +60198,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 340 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60672,7 +60542,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 341 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60834,7 +60704,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 342 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60996,7 +60866,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 343 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61018,7 +60888,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var router_1 = __webpack_require__(117);
-	var nav_1 = __webpack_require__(341);
+	var nav_1 = __webpack_require__(340);
 	/**
 	 * @private
 	 */
@@ -61116,7 +60986,7 @@
 	})(router_1.Instruction);
 
 /***/ },
-/* 344 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61228,7 +61098,7 @@
 	exports.Attr = Attr;
 
 /***/ },
-/* 345 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61381,7 +61251,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 346 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(7);
@@ -61453,7 +61323,7 @@
 	exports.App = App;
 
 /***/ },
-/* 347 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(7);
@@ -61543,61 +61413,61 @@
 	exports.Page = Page;
 
 /***/ },
-/* 348 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(168));
-	__export(__webpack_require__(344));
-	__export(__webpack_require__(349));
-	__export(__webpack_require__(331));
+	__export(__webpack_require__(343));
+	__export(__webpack_require__(348));
+	__export(__webpack_require__(330));
 	__export(__webpack_require__(309));
 	__export(__webpack_require__(301));
-	__export(__webpack_require__(329));
+	__export(__webpack_require__(328));
 	__export(__webpack_require__(310));
 	__export(__webpack_require__(299));
 	__export(__webpack_require__(312));
 	__export(__webpack_require__(313));
-	__export(__webpack_require__(334));
-	__export(__webpack_require__(326));
-	__export(__webpack_require__(328));
+	__export(__webpack_require__(333));
+	__export(__webpack_require__(325));
+	__export(__webpack_require__(327));
 	__export(__webpack_require__(277));
 	__export(__webpack_require__(286));
-	__export(__webpack_require__(350));
+	__export(__webpack_require__(349));
 	__export(__webpack_require__(295));
 	__export(__webpack_require__(307));
-	__export(__webpack_require__(327));
+	__export(__webpack_require__(326));
 	__export(__webpack_require__(323));
-	__export(__webpack_require__(345));
-	__export(__webpack_require__(351));
-	__export(__webpack_require__(341));
+	__export(__webpack_require__(344));
+	__export(__webpack_require__(350));
+	__export(__webpack_require__(340));
 	__export(__webpack_require__(302));
 	__export(__webpack_require__(296));
 	__export(__webpack_require__(297));
+	__export(__webpack_require__(341));
 	__export(__webpack_require__(342));
-	__export(__webpack_require__(343));
 	__export(__webpack_require__(298));
-	__export(__webpack_require__(332));
+	__export(__webpack_require__(331));
 	__export(__webpack_require__(285));
 	__export(__webpack_require__(317));
+	__export(__webpack_require__(337));
 	__export(__webpack_require__(338));
-	__export(__webpack_require__(339));
 	__export(__webpack_require__(315));
 	__export(__webpack_require__(316));
 	__export(__webpack_require__(311));
-	__export(__webpack_require__(340));
-	__export(__webpack_require__(337));
-	__export(__webpack_require__(330));
+	__export(__webpack_require__(339));
+	__export(__webpack_require__(336));
+	__export(__webpack_require__(329));
 	__export(__webpack_require__(319));
 	__export(__webpack_require__(321));
 	__export(__webpack_require__(280));
-	__export(__webpack_require__(333));
+	__export(__webpack_require__(332));
 	__export(__webpack_require__(300));
 
 /***/ },
-/* 349 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61937,7 +61807,7 @@
 	transition_1.Transition.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
 
 /***/ },
-/* 350 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -62084,7 +61954,7 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 351 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -62293,18 +62163,18 @@
 	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 352 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
+	__export(__webpack_require__(352));
 	__export(__webpack_require__(353));
 	__export(__webpack_require__(354));
-	__export(__webpack_require__(355));
 
 /***/ },
-/* 353 */
+/* 352 */
 /***/ function(module, exports) {
 
 	/**
@@ -62381,7 +62251,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 354 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -62389,7 +62259,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(353);
+	var storage_1 = __webpack_require__(352);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -62475,7 +62345,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 355 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -62483,7 +62353,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(353);
+	var storage_1 = __webpack_require__(352);
 	var util_1 = __webpack_require__(163);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -62691,7 +62561,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 356 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62740,7 +62610,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 357 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var config_1 = __webpack_require__(161);
@@ -62784,7 +62654,7 @@
 	});
 
 /***/ },
-/* 358 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var platform_1 = __webpack_require__(162);
@@ -62948,7 +62818,7 @@
 	}
 
 /***/ },
-/* 359 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -63007,7 +62877,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 360 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -63180,7 +63050,7 @@
 	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 361 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -63243,7 +63113,7 @@
 	transition_1.Transition.register('md-transition', MDTransition);
 
 /***/ },
-/* 362 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63256,7 +63126,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_angular_1 = __webpack_require__(5);
-	var mock_provider_1 = __webpack_require__(363);
+	var mock_provider_1 = __webpack_require__(362);
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp(mockProvider) {
 	        this.mockProvider = mockProvider;
@@ -63287,7 +63157,7 @@
 	})();
 
 /***/ },
-/* 363 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

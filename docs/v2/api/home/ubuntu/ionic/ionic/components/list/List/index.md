@@ -34,7 +34,7 @@ List
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/list/list.ts#L5'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/list/list.ts#L4'>
 Improve this doc
 </a>
 
@@ -43,12 +43,14 @@ Improve this doc
 
 
 
-<p>The List is a widely used interface element in almost any mobile app, and can include
-content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.</p>
-<p>Both the list, which contains items, and the list items themselves can be any HTML
-element.</p>
+<p>The List is a widely used interface element in almost any mobile app,
+and can include content ranging from basic text all the way to
+buttons, toggles, icons, and thumbnails.</p>
+<p>Both the list, which contains items, and the list items themselves
+can be any HTML element.</p>
 <p>Using the List and Item components make it easy to support various
-interaction modes such as swipe to edit, drag to reorder, and removing items.</p>
+interaction modes such as swipe to edit, drag to reorder, and
+removing items.</p>
 
 
 <h2>Directive</h2>

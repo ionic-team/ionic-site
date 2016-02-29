@@ -6013,19 +6013,6 @@ ion-item-divider {
     position: sticky;
     top: 0px; }
 
-ion-label {
-  margin: 0;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; }
-
-[text-wrap] ion-label {
-  white-space: normal; }
-
 [vertical-align-top],
 ion-input.item {
   -webkit-box-align: start;
@@ -6189,10 +6176,6 @@ ion-icon[item-right] {
 .item-button.button-icon-only {
   padding: 0 1px; }
 
-[text-wrap] ion-label {
-  font-size: 1.4rem;
-  line-height: 1.5; }
-
 ion-icon[item-left] + .item-inner,
 ion-icon[item-left] + .item-input {
   margin-left: 24px; }
@@ -6284,7 +6267,14 @@ ion-item-sliding {
 ion-label {
   display: block;
   font-size: inherit;
-  white-space: nowrap; }
+  white-space: nowrap;
+  margin: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-overflow: ellipsis;
+  overflow: hidden; }
 
 .item-input ion-label {
   max-width: 200px;
@@ -6293,6 +6283,9 @@ ion-label {
   -ms-flex: initial;
   flex: initial;
   pointer-events: none; }
+
+[text-wrap] ion-label {
+  white-space: normal; }
 
 ion-label[fixed] {
   -webkit-box-flex: 0;
@@ -6332,6 +6325,10 @@ ion-label[floating] {
 
 ion-label {
   margin: 13px 8px 13px 0; }
+
+[text-wrap] ion-label {
+  font-size: 1.4rem;
+  line-height: 1.5; }
 
 .item-input ion-label {
   color: #999; }

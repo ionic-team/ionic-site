@@ -61813,7 +61813,7 @@
 	 * modal.
 	 *
 	 * ```ts
-	 * import {Page, Modal, NavController} from 'ionic-angular';
+	 * import {Page, Modal, NavController, ViewController} from 'ionic-angular';
 	 *
 	 * @Page(...)
 	 * class HomePage {

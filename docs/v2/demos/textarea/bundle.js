@@ -51115,10 +51115,10 @@
 	     */
 	    RefresherContent.prototype.ngOnInit = function () {
 	        if (!this.pullingIcon) {
-	            this.pullingIcon = this._config.get('pullingIcon', 'arrow-down');
+	            this.pullingIcon = this._config.get('refresherPullingIcon', 'arrow-down');
 	        }
 	        if (!this.refreshingSpinner) {
-	            this.refreshingSpinner = this._config.get('refreshingSpinner', 'ios');
+	            this.refreshingSpinner = this._config.get('refresherRefreshingSpinner', this._config.get('spinner', 'ios'));
 	        }
 	    };
 	    __decorate([

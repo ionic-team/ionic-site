@@ -21,7 +21,7 @@ var ApiDemoApp = (function () {
             for (var i = 0; i < newData.length; i++) {
                 _this.items.unshift(newData[i]);
             }
-            refresher.endRefreshing();
+            refresher.complete();
         });
     };
     ApiDemoApp.prototype.doPulling = function (refresher) {

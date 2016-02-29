@@ -932,10 +932,10 @@ ion-refresher-content[state=cancelling] .refresher-pulling-icon {
   -webkit-transform: scale(0);
   transform: scale(0); }
 
-ion-refresher-content[state=ending] .refresher-refreshing {
+ion-refresher-content[state=completing] .refresher-refreshing {
   display: block; }
 
-ion-refresher-content[state=ending] .refresher-refreshing-icon {
+ion-refresher-content[state=completing] .refresher-refreshing-icon {
   -webkit-transform: scale(0);
   transform: scale(0); }
 

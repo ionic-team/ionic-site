@@ -3193,11 +3193,11 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var ionic_2 = __webpack_require__(5);
-	var menus_1 = __webpack_require__(352);
-	var helpers = __webpack_require__(354);
+	var menus_1 = __webpack_require__(354);
+	var helpers = __webpack_require__(356);
 	// Change the import if you want to change the first page, for example:
 	// import { ImagePage as rootPage } from './pages/cards/cards';
-	var action_sheets_1 = __webpack_require__(355);
+	var action_sheets_1 = __webpack_require__(357);
 	var DemoApp = (function () {
 	    function DemoApp(app, platform, config) {
 	        var _this = this;
@@ -3303,25 +3303,27 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(6));
-	__export(__webpack_require__(264));
+	__export(__webpack_require__(159));
 	__export(__webpack_require__(280));
-	__export(__webpack_require__(336));
-	__export(__webpack_require__(337));
 	__export(__webpack_require__(338));
-	__export(__webpack_require__(265));
-	__export(__webpack_require__(342));
-	__export(__webpack_require__(268));
+	__export(__webpack_require__(339));
+	__export(__webpack_require__(340));
+	__export(__webpack_require__(160));
+	__export(__webpack_require__(344));
+	__export(__webpack_require__(158));
+	__export(__webpack_require__(163));
 	__export(__webpack_require__(272));
-	__export(__webpack_require__(270));
+	__export(__webpack_require__(302));
+	__export(__webpack_require__(301));
 	__export(__webpack_require__(279));
-	__export(__webpack_require__(274));
-	__export(__webpack_require__(346));
+	__export(__webpack_require__(348));
 	// these modules don't export anything
-	__webpack_require__(347);
-	__webpack_require__(348);
 	__webpack_require__(349);
 	__webpack_require__(350);
 	__webpack_require__(351);
+	__webpack_require__(352);
+	__webpack_require__(353);
+
 
 /***/ },
 /* 6 */
@@ -3330,19 +3332,20 @@
 	var core_1 = __webpack_require__(7);
 	var router_1 = __webpack_require__(118);
 	var http_1 = __webpack_require__(143);
-	var app_1 = __webpack_require__(158);
-	var config_1 = __webpack_require__(264);
-	var platform_1 = __webpack_require__(265);
-	var form_1 = __webpack_require__(269);
-	var keyboard_1 = __webpack_require__(270);
-	var scroll_to_1 = __webpack_require__(271);
-	var events_1 = __webpack_require__(272);
-	var nav_registry_1 = __webpack_require__(273);
-	var translate_1 = __webpack_require__(274);
-	var click_block_1 = __webpack_require__(268);
-	var feature_detect_1 = __webpack_require__(275);
+	var click_block_1 = __webpack_require__(158);
+	var config_1 = __webpack_require__(159);
+	var events_1 = __webpack_require__(163);
+	var feature_detect_1 = __webpack_require__(164);
+	var form_1 = __webpack_require__(165);
+	var app_1 = __webpack_require__(166);
+	var keyboard_1 = __webpack_require__(272);
+	var menu_controller_1 = __webpack_require__(273);
+	var nav_registry_1 = __webpack_require__(274);
+	var platform_1 = __webpack_require__(160);
+	var dom_1 = __webpack_require__(162);
+	var scroll_to_1 = __webpack_require__(275);
 	var tap_click_1 = __webpack_require__(276);
-	var dom_1 = __webpack_require__(267);
+	var translate_1 = __webpack_require__(279);
 	/**
 	 * @private
 	 */
@@ -3377,6 +3380,7 @@
 	        tap_click_1.TapClick,
 	        form_1.Form,
 	        keyboard_1.Keyboard,
+	        menu_controller_1.MenuController,
 	        translate_1.Translate,
 	        router_1.ROUTER_PROVIDERS,
 	        core_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy }),
@@ -3459,6 +3463,7 @@
 	        });
 	    }, 2000);
 	}
+
 
 /***/ },
 /* 7 */
@@ -26133,6 +26138,1608 @@
 
 /***/ },
 /* 158 */
+/***/ function(module, exports) {
+
+	var CSS_CLICK_BLOCK = 'click-block-active';
+	var DEFAULT_EXPIRE = 330;
+	var cbEle, fallbackTimerId;
+	var isShowing = false;
+	/**
+	 * @private
+	 */
+	var ClickBlock = (function () {
+	    function ClickBlock() {
+	        this._enabled = false;
+	    }
+	    ClickBlock.prototype.enable = function () {
+	        cbEle = document.createElement('click-block');
+	        document.body.appendChild(cbEle);
+	        cbEle.addEventListener('touchmove', function (ev) {
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	        });
+	        this._enabled = true;
+	    };
+	    ClickBlock.prototype.show = function (shouldShow, expire) {
+	        if (this._enabled) {
+	            if (shouldShow) {
+	                show(expire);
+	            }
+	            else {
+	                hide();
+	            }
+	        }
+	    };
+	    return ClickBlock;
+	})();
+	exports.ClickBlock = ClickBlock;
+	function show(expire) {
+	    clearTimeout(fallbackTimerId);
+	    fallbackTimerId = setTimeout(hide, expire || DEFAULT_EXPIRE);
+	    if (!isShowing) {
+	        cbEle.classList.add(CSS_CLICK_BLOCK);
+	        isShowing = true;
+	    }
+	}
+	function hide() {
+	    clearTimeout(fallbackTimerId);
+	    if (isShowing) {
+	        cbEle.classList.remove(CSS_CLICK_BLOCK);
+	        isShowing = false;
+	    }
+	}
+
+
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	* @ngdoc service
+	* @name Config
+	* @module ionic
+	* @description
+	* Config allows you to set the modes of your components
+	*/
+	var platform_1 = __webpack_require__(160);
+	var util_1 = __webpack_require__(161);
+	/**
+	 * @name Config
+	 * @demo /docs/v2/demos/config/
+	 * @description
+	 * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
+	 *
+	 * ```ts
+	 * @App({
+	 *   template: `<ion-nav [root]="root"></ion-nav>`
+	 *   config: {
+	 *     backButtonText: 'Go Back',
+	 *     iconMode: 'ios',
+	 *     modalEnter: 'modal-slide-in',
+	 *     modalLeave: 'modal-slide-out',
+	 *     tabbarPlacement: 'bottom',
+	 *     pageTransition: 'ios',
+	 *   }
+	 * })
+	 * ```
+	 *
+	 * Or change the whole mode
+	 *
+	 * ```ts
+	 * @App({
+	 *   template: `<ion-nav [root]="root"></ion-nav>`
+	 *   config: {
+	 *     mode: md
+	 *   }
+	 * })
+	 * ```
+	 *
+	 * Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.
+	 * ```ts
+	 * @App({
+	 *   template: `<ion-nav [root]="root"></ion-nav>`
+	 *   config: {
+	 *     tabbarPlacement: 'bottom',
+	 *     platforms: {
+	 *      ios: {
+	 *        tabbarPlacement: 'top',
+	 *      }
+	 *     }
+	 *   }
+	 * })
+	 * ```
+	 *
+	 * We could also configure these values at a component level. Take `tabbarPlacement`, we can configure this as a property on our `ion-tabs`.
+	 *
+	 * ```html
+	 * <ion-tabs tabbarPlacement="top">
+	 *    <ion-tab tabTitle="Dash" tabIcon="pulse" [root]="tabRoot"></ion-tab>
+	 *  </ion-tabs>
+	 * ```
+	 *
+	 * The property will override anything else set in the apps.
+	 *
+	 * The last way we could configure is through URL query strings. This is useful for testing while in the browser.
+	 * Simply add `?ionic<PROPERTYNAME>=<value>` to the url.
+	 *
+	 * ```bash
+	 * http://localhost:8100/?ionicTabbarPlacement=bottom
+	 * ```
+	 *
+	 * Custom values can be added to config, and looked up at a later point in time.
+	 *
+	 * ``` javascript
+	 * config.set('ios', 'favoriteColor', 'green');
+	 * // from any page in your app:
+	 * config.get('favoriteColor'); // 'green'
+	 * ```
+	 *
+	 *
+	 * A config value can come from anywhere and be anything, but there are a default set of values.
+	 *
+	 *
+	 * | Config property            | Default iOS Value      | Default MD Value          |
+	 * |----------------------------|------------------------|---------------------------|
+	 * | activator                  | highlight              | ripple                    |
+	 * | actionSheetEnter           | action-sheet-slide-in  | action-sheet-md-slide-in  |
+	 * | actionSheetLeave           | action-sheet-slide-out | action-sheet-md-slide-out |
+	 * | alertEnter                 | alert-pop-in           | alert-md-pop-in           |
+	 * | alertLeave                 | alert-pop-out          | alert-md-pop-out          |
+	 * | backButtonText             | Back                   |                           |
+	 * | backButtonIcon             | ion-ios-arrow-back     | ion-md-arrow-back         |
+	 * | iconMode                   | ios                    | md                        |
+	 * | menuType                   | reveal                 | overlay                   |
+	 * | modalEnter                 | modal-slide-in         | modal-md-slide-in         |
+	 * | modalLeave                 | modal-slide-out        | modal-md-slide-out        |
+	 * | pageTransition             | ios-transition         | md-transition             |
+	 * | pageTransitionDelay        | 16                     | 120                       |
+	 * | tabbarPlacement            | bottom                 | top                       |
+	 * | tabbarHighlight            |                        | top                       |
+	 * | tabSubPages                |                        | true                      |
+	 *
+	**/
+	var Config = (function () {
+	    function Config(config) {
+	        this._c = {};
+	        this._s = {};
+	        this._s = config && util_1.isObject(config) && !util_1.isArray(config) ? config : {};
+	    }
+	    /**
+	     * For setting and getting multiple config values
+	     */
+	    /**
+	     * @private
+	     * @name settings()
+	     * @description
+	     */
+	    Config.prototype.settings = function () {
+	        var args = arguments;
+	        switch (args.length) {
+	            case 0:
+	                return this._s;
+	            case 1:
+	                // settings({...})
+	                this._s = args[0];
+	                this._c = {}; // clear cache
+	                break;
+	            case 2:
+	                // settings('ios', {...})
+	                this._s.platforms = this._s.platforms || {};
+	                this._s.platforms[args[0]] = args[1];
+	                this._c = {}; // clear cache
+	                break;
+	        }
+	        return this;
+	    };
+	    /**
+	     * @name set
+	     * @description
+	     * Sets a single config value.
+	     *
+	     * @param {String} [platform] - The platform (either 'ios' or 'android') that the config value should apply to. Leaving this blank will apply the config value to all platforms.
+	     * @param {String} [key] - The key used to look up the value at a later point in time.
+	     * @param {String} [value] - The config value being stored.
+	     */
+	    Config.prototype.set = function () {
+	        var args = arguments;
+	        var arg0 = args[0];
+	        var arg1 = args[1];
+	        switch (args.length) {
+	            case 2:
+	                // set('key', 'value') = set key/value pair
+	                // arg1 = value
+	                this._s[arg0] = arg1;
+	                delete this._c[arg0]; // clear cache
+	                break;
+	            case 3:
+	                // setting('ios', 'key', 'value') = set key/value pair for platform
+	                // arg0 = platform
+	                // arg1 = key
+	                // arg2 = value
+	                this._s.platforms = this._s.platforms || {};
+	                this._s.platforms[arg0] = this._s.platforms[arg0] || {};
+	                this._s.platforms[arg0][arg1] = args[2];
+	                delete this._c[arg1]; // clear cache
+	                break;
+	        }
+	        return this;
+	    };
+	    /**
+	     * @name get
+	     * @description
+	     * Returns a single config value, given a key.
+	     *
+	     * @param {String} [key] - the key for the config value
+	     */
+	    Config.prototype.get = function (key) {
+	        if (!util_1.isDefined(this._c[key])) {
+	            if (!util_1.isDefined(key)) {
+	                throw 'config key is not defined';
+	            }
+	            // if the value was already set this will all be skipped
+	            // if there was no user config then it'll check each of
+	            // the user config's platforms, which already contains
+	            // settings from default platform configs
+	            var userPlatformValue = undefined;
+	            var userDefaultValue = this._s[key];
+	            var userPlatformModeValue = undefined;
+	            var userDefaultModeValue = undefined;
+	            var platformValue = undefined;
+	            var platformModeValue = undefined;
+	            var configObj = null;
+	            if (this.platform) {
+	                var queryStringValue = this.platform.query('ionic' + key.toLowerCase());
+	                if (util_1.isDefined(queryStringValue)) {
+	                    return this._c[key] = (queryStringValue === 'true' ? true : queryStringValue === 'false' ? false : queryStringValue);
+	                }
+	                // check the platform settings object for this value
+	                // loop though each of the active platforms
+	                // array of active platforms, which also knows the hierarchy,
+	                // with the last one the most important
+	                var activePlatformKeys = this.platform.platforms();
+	                // loop through all of the active platforms we're on
+	                for (var i = 0, l = activePlatformKeys.length; i < l; i++) {
+	                    // get user defined platform values
+	                    if (this._s.platforms) {
+	                        configObj = this._s.platforms[activePlatformKeys[i]];
+	                        if (configObj) {
+	                            if (util_1.isDefined(configObj[key])) {
+	                                userPlatformValue = configObj[key];
+	                            }
+	                            configObj = Config.getModeConfig(configObj.mode);
+	                            if (configObj && util_1.isDefined(configObj[key])) {
+	                                userPlatformModeValue = configObj[key];
+	                            }
+	                        }
+	                    }
+	                    // get default platform's setting
+	                    configObj = platform_1.Platform.get(activePlatformKeys[i]);
+	                    if (configObj && configObj.settings) {
+	                        if (util_1.isDefined(configObj.settings[key])) {
+	                            // found a setting for this platform
+	                            platformValue = configObj.settings[key];
+	                        }
+	                        configObj = Config.getModeConfig(configObj.settings.mode);
+	                        if (configObj && util_1.isDefined(configObj[key])) {
+	                            // found setting for this platform's mode
+	                            platformModeValue = configObj[key];
+	                        }
+	                    }
+	                }
+	            }
+	            configObj = Config.getModeConfig(this._s.mode);
+	            if (configObj && util_1.isDefined(configObj[key])) {
+	                userDefaultModeValue = configObj[key];
+	            }
+	            // cache the value
+	            this._c[key] = util_1.isDefined(userPlatformValue) ? userPlatformValue :
+	                util_1.isDefined(userDefaultValue) ? userDefaultValue :
+	                    util_1.isDefined(userPlatformModeValue) ? userPlatformModeValue :
+	                        util_1.isDefined(userDefaultModeValue) ? userDefaultModeValue :
+	                            util_1.isDefined(platformValue) ? platformValue :
+	                                util_1.isDefined(platformModeValue) ? platformModeValue :
+	                                    null;
+	        }
+	        // return key's value
+	        // either it came directly from the user config
+	        // or it was from the users platform configs
+	        // or it was from the default platform configs
+	        // in that order
+	        if (util_1.isFunction(this._c[key])) {
+	            return this._c[key](this.platform);
+	        }
+	        return this._c[key];
+	    };
+	    /**
+	     * @name getBoolean
+	     * @description
+	     * Same as `get()`, however always returns a boolean value.
+	     *
+	     * @param {String} [key] - the key for the config value
+	     */
+	    Config.prototype.getBoolean = function (key) {
+	        var val = this.get(key);
+	        return (val || val === 'true') ? true : false;
+	    };
+	    /**
+	     * @private
+	     */
+	    Config.prototype.setPlatform = function (platform) {
+	        this.platform = platform;
+	    };
+	    Config.setModeConfig = function (mode, config) {
+	        modeConfigs[mode] = config;
+	    };
+	    Config.getModeConfig = function (mode) {
+	        return modeConfigs[mode] || null;
+	    };
+	    return Config;
+	})();
+	exports.Config = Config;
+	var modeConfigs = {};
+
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var util_1 = __webpack_require__(161);
+	var dom_1 = __webpack_require__(162);
+	/**
+	 * @name Platform
+	 * @description
+	 * Platform returns the availble information about your current platform.
+	 * Platforms in Ionic 2 are much more complex then in V1, returns not just a single platform,
+	 * but a hierarchy of information, such as a devices OS, phone vs tablet, or mobile vs browser.
+	 * With this information you can completely custimize your app to fit any device and platform.
+	 *
+	 * @usage
+	 * ```ts
+	 * import {Platform} 'ionic/ionic';
+	 * export MyClass {
+	 *    constructor(platform: Platform){
+	 *      this.platform = platform;
+	 *    }
+	 * }
+	 * ```
+	 * @demo /docs/v2/demos/platform/
+	 */
+	var Platform = (function () {
+	    function Platform(platforms) {
+	        var _this = this;
+	        if (platforms === void 0) { platforms = []; }
+	        this._versions = {};
+	        this._onResizes = [];
+	        this._platforms = platforms;
+	        this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
+	    }
+	    // Methods
+	    // **********************************************
+	    /**
+	     * @param {string} platformName
+	     * @returns {bool} returns true/false based on platform you place
+	     * @description
+	     * Depending on the platform name, isPlatform will return true or flase
+	     *
+	     * ```
+	     * import {Platform} 'ionic/ionic';
+	     * export MyClass {
+	     *    constructor(platform: Platform){
+	     *      this.platform = platform;
+	     *      if(this.platform.is('ios'){
+	     *        // what ever you need to do for
+	     *        // if the platfomr is ios
+	     *      }
+	     *    }
+	     * }
+	     * ```
+	     */
+	    Platform.prototype.is = function (platformName) {
+	        return (this._platforms.indexOf(platformName) > -1);
+	    };
+	    /**
+	     * @returns {array} the array of platforms
+	     * @description
+	     * Depending on what device you are on, `platforms` can return multiple values.
+	     * Each possible value is a hierarchy of platforms. For example, on an iPhone,
+	     * it would return mobile, ios, and iphone.
+	     *
+	     * ```
+	     * import {Platform} 'ionic/ionic';
+	     * export MyClass {
+	     *    constructor(platform: Platform){
+	     *      this.platform = platform;
+	     *      console.log(this.platform.platforms());
+	     *      // This will return an array of all the availble platforms
+	     *      // From if your on mobile, to mobile os, and device name
+	     *    }
+	     * }
+	     * ```
+	     */
+	    Platform.prototype.platforms = function () {
+	        // get the array of active platforms, which also knows the hierarchy,
+	        // with the last one the most important
+	        return this._platforms;
+	    };
+	    /**
+	     * Returns an object containing information about the paltform
+	     *
+	     * ```
+	     * import {Platform} 'ionic/ionic';
+	     * export MyClass {
+	     *    constructor(platform: Platform){
+	     *      this.platform = platform;
+	     *      console.log(this.platform.versions());
+	     *    }
+	     * }
+	     * ```
+	  
+	     * @param {string} [platformName] optional platformName
+	     * @returns {object} An object with various platform info
+	     *
+	     */
+	    Platform.prototype.versions = function (platformName) {
+	        if (arguments.length) {
+	            // get a specific platform's version
+	            return this._versions[platformName];
+	        }
+	        // get all the platforms that have a valid parsed version
+	        return this._versions;
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.version = function () {
+	        for (var platformName in this._versions) {
+	            if (this._versions[platformName]) {
+	                return this._versions[platformName];
+	            }
+	        }
+	        return {};
+	    };
+	    /**
+	     * Returns a promise when the platform is ready and native functionality can be called
+	     *
+	     * ```
+	     * import {Platform} 'ionic/ionic';
+	     * export MyClass {
+	     *    constructor(platform: Platform){
+	     *      this.platform = platform;
+	     *      this.platform.ready().then(() => {
+	     *        console.log('Platform ready');
+	     *        // The platform is now ready, execute any native code you want
+	     *       });
+	     *    }
+	     * }
+	     * ```
+	     * @returns {promise} Returns a promsie when device ready has fired
+	     */
+	    Platform.prototype.ready = function () {
+	        return this._readyPromise;
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.prepareReady = function (config) {
+	        var self = this;
+	        function resolve() {
+	            self._readyResolve(config);
+	        }
+	        if (this._engineReady) {
+	            // the engine provide a ready promise, use this instead
+	            this._engineReady(resolve);
+	        }
+	        else {
+	            // there is no custom ready method from the engine
+	            // use the default dom ready
+	            dom_1.ready(resolve);
+	        }
+	    };
+	    /**
+	    * Set the app's language direction, which will update the `dir` attribute
+	    * on the app's root `<html>` element. We recommend the app's `index.html`
+	    * file already has the correct `dir` attribute value set, such as
+	    * `<html dir="ltr">` or `<html dir="rtl">`. This method is useful if the
+	    * direction needs to be dynamically changed per user/session.
+	    * [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
+	    * @param {string} dir  Examples: `rtl`, `ltr`
+	    */
+	    Platform.prototype.setDir = function (dir, updateDocument) {
+	        this._dir = (dir || '').toLowerCase();
+	        if (updateDocument !== false) {
+	            document.documentElement.setAttribute('dir', dir);
+	        }
+	    };
+	    /**
+	     * Returns app's language direction.
+	     * We recommend the app's `index.html` file already has the correct `dir`
+	     * attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
+	     * [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
+	     * @returns {string}
+	     */
+	    Platform.prototype.dir = function () {
+	        return this._dir;
+	    };
+	    /**
+	     * Returns if this app is using right-to-left language direction or not.
+	     * We recommend the app's `index.html` file already has the correct `dir`
+	     * attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
+	     * [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
+	     * @returns {boolean}
+	     */
+	    Platform.prototype.isRTL = function () {
+	        return (this._dir === 'rtl');
+	    };
+	    /**
+	    * Set the app's language and optionally the country code, which will update
+	    * the `lang` attribute on the app's root `<html>` element.
+	    * We recommend the app's `index.html` file already has the correct `lang`
+	    * attribute value set, such as `<html lang="en">`. This method is useful if
+	    * the language needs to be dynamically changed per user/session.
+	    * [W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
+	    * @param {string} language  Examples: `en-US`, `en-GB`, `ar`, `de`, `zh`, `es-MX`
+	    */
+	    Platform.prototype.setLang = function (language, updateDocument) {
+	        this._lang = language;
+	        if (updateDocument !== false) {
+	            document.documentElement.setAttribute('lang', language);
+	        }
+	    };
+	    /**
+	     * Returns app's language and optional country code.
+	     * We recommend the app's `index.html` file already has the correct `lang`
+	     * attribute value set, such as `<html lang="en">`.
+	     * [W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
+	     * @returns {string}
+	     */
+	    Platform.prototype.lang = function () {
+	        return this._lang;
+	    };
+	    // Methods meant to be overridden by the engine
+	    // **********************************************
+	    // Provided NOOP methods so they do not error when
+	    // called by engines (the browser) doesn't provide them
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.on = function () { };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.onHardwareBackButton = function () { };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.registerBackButtonAction = function () { };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.exitApp = function () { };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.fullScreen = function () { };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.showStatusBar = function () { };
+	    // Getter/Setter Methods
+	    // **********************************************
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.setUrl = function (url) {
+	        this._url = url;
+	        this._qs = util_1.getQuerystring(url);
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.url = function () {
+	        return this._url;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.query = function (key) {
+	        return (this._qs || {})[key];
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.setUserAgent = function (userAgent) {
+	        this._ua = userAgent;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.userAgent = function () {
+	        return this._ua || '';
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.setNavigatorPlatform = function (navigatorPlatform) {
+	        this._bPlt = navigatorPlatform;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.navigatorPlatform = function () {
+	        return this._bPlt || '';
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.width = function () {
+	        return dom_1.windowDimensions().width;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.height = function () {
+	        return dom_1.windowDimensions().height;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.isPortrait = function () {
+	        return this.width() < this.height();
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.isLandscape = function () {
+	        return !this.isPortrait();
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.prototype.windowResize = function () {
+	        var self = this;
+	        clearTimeout(self._resizeTm);
+	        self._resizeTm = setTimeout(function () {
+	            dom_1.flushDimensionCache();
+	            for (var i = 0; i < self._onResizes.length; i++) {
+	                try {
+	                    self._onResizes[i]();
+	                }
+	                catch (e) {
+	                    void 0;
+	                }
+	            }
+	        }, 200);
+	    };
+	    /**
+	     * @private
+	     * @returns Unregister function
+	     */
+	    Platform.prototype.onResize = function (cb) {
+	        var self = this;
+	        self._onResizes.push(cb);
+	        return function () {
+	            var index = self._onResizes.indexOf(cb);
+	            if (index > -1) {
+	                self._onResizes.splice(index, 1);
+	            }
+	        };
+	    };
+	    // Platform Registry
+	    // **********************************************
+	    /**
+	     * @private
+	     */
+	    Platform.register = function (platformConfig) {
+	        platformRegistry[platformConfig.name] = platformConfig;
+	    };
+	    /**
+	    * @private
+	    */
+	    Platform.registry = function () {
+	        return platformRegistry;
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.get = function (platformName) {
+	        return platformRegistry[platformName] || {};
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.setDefault = function (platformName) {
+	        platformDefault = platformName;
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.testQuery = function (queryValue, queryTestValue) {
+	        var valueSplit = queryValue.toLowerCase().split(';');
+	        return valueSplit.indexOf(queryTestValue) > -1;
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.testUserAgent = function (userAgentExpression) {
+	        var rgx = new RegExp(userAgentExpression, 'i');
+	        return rgx.test(this._ua || '');
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.testNavigatorPlatform = function (navigatorPlatformExpression) {
+	        var rgx = new RegExp(navigatorPlatformExpression, 'i');
+	        return rgx.test(this._bPlt);
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.matchUserAgentVersion = function (userAgentExpression) {
+	        if (this._ua && userAgentExpression) {
+	            var val = this._ua.match(userAgentExpression);
+	            if (val) {
+	                return {
+	                    major: val[1],
+	                    minor: val[2]
+	                };
+	            }
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.isPlatform = function (queryTestValue, userAgentExpression) {
+	        if (!userAgentExpression) {
+	            userAgentExpression = queryTestValue;
+	        }
+	        var queryValue = this.query('ionicplatform');
+	        if (queryValue) {
+	            return this.testQuery(queryValue, queryTestValue);
+	        }
+	        return this.testUserAgent(userAgentExpression);
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.load = function (platformOverride) {
+	        var rootPlatformNode = null;
+	        var engineNode = null;
+	        var self = this;
+	        this.platformOverride = platformOverride;
+	        // figure out the most specific platform and active engine
+	        var tmpPlatform = null;
+	        for (var platformName in platformRegistry) {
+	            tmpPlatform = this.matchPlatform(platformName);
+	            if (tmpPlatform) {
+	                // we found a platform match!
+	                // check if its more specific than the one we already have
+	                if (tmpPlatform.isEngine) {
+	                    // because it matched then this should be the active engine
+	                    // you cannot have more than one active engine
+	                    engineNode = tmpPlatform;
+	                }
+	                else if (!rootPlatformNode || tmpPlatform.depth > rootPlatformNode.depth) {
+	                    // only find the root node for platforms that are not engines
+	                    // set this node as the root since we either don't already
+	                    // have one, or this one is more specific that the current one
+	                    rootPlatformNode = tmpPlatform;
+	                }
+	            }
+	        }
+	        if (!rootPlatformNode) {
+	            rootPlatformNode = new PlatformNode(platformDefault);
+	        }
+	        // build a Platform instance filled with the
+	        // hierarchy of active platforms and settings
+	        if (rootPlatformNode) {
+	            // check if we found an engine node (cordova/node-webkit/etc)
+	            if (engineNode) {
+	                // add the engine to the first in the platform hierarchy
+	                // the original rootPlatformNode now becomes a child
+	                // of the engineNode, which is not the new root
+	                engineNode.child = rootPlatformNode;
+	                rootPlatformNode.parent = engineNode;
+	                rootPlatformNode = engineNode;
+	                // add any events which the engine would provide
+	                // for example, Cordova provides its own ready event
+	                var engineMethods = engineNode.methods();
+	                engineMethods._engineReady = engineMethods.ready;
+	                delete engineMethods.ready;
+	                util_1.assign(this, engineMethods);
+	            }
+	            var platformNode = rootPlatformNode;
+	            while (platformNode) {
+	                insertSuperset(platformNode);
+	                platformNode = platformNode.child;
+	            }
+	            // make sure the root noot is actually the root
+	            // incase a node was inserted before the root
+	            platformNode = rootPlatformNode.parent;
+	            while (platformNode) {
+	                rootPlatformNode = platformNode;
+	                platformNode = platformNode.parent;
+	            }
+	            platformNode = rootPlatformNode;
+	            while (platformNode) {
+	                // set the array of active platforms with
+	                // the last one in the array the most important
+	                this._platforms.push(platformNode.name());
+	                // get the platforms version if a version parser was provided
+	                this._versions[platformNode.name()] = platformNode.version(this);
+	                // go to the next platform child
+	                platformNode = platformNode.child;
+	            }
+	        }
+	        if (this._platforms.indexOf('mobile') > -1 && this._platforms.indexOf('cordova') === -1) {
+	            this._platforms.push('mobileweb');
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.matchPlatform = function (platformName) {
+	        // build a PlatformNode and assign config data to it
+	        // use it's getRoot method to build up its hierarchy
+	        // depending on which platforms match
+	        var platformNode = new PlatformNode(platformName);
+	        var rootNode = platformNode.getRoot(this);
+	        if (rootNode) {
+	            rootNode.depth = 0;
+	            var childPlatform = rootNode.child;
+	            while (childPlatform) {
+	                rootNode.depth++;
+	                childPlatform = childPlatform.child;
+	            }
+	        }
+	        return rootNode;
+	    };
+	    return Platform;
+	})();
+	exports.Platform = Platform;
+	function insertSuperset(platformNode) {
+	    var supersetPlaformName = platformNode.superset();
+	    if (supersetPlaformName) {
+	        // add a platform in between two exist platforms
+	        // so we can build the correct hierarchy of active platforms
+	        var supersetPlatform = new PlatformNode(supersetPlaformName);
+	        supersetPlatform.parent = platformNode.parent;
+	        supersetPlatform.child = platformNode;
+	        if (supersetPlatform.parent) {
+	            supersetPlatform.parent.child = supersetPlatform;
+	        }
+	        platformNode.parent = supersetPlatform;
+	    }
+	}
+	var PlatformNode = (function () {
+	    function PlatformNode(platformName) {
+	        this.c = Platform.get(platformName);
+	        this.isEngine = this.c.isEngine;
+	    }
+	    PlatformNode.prototype.name = function () {
+	        return this.c.name;
+	    };
+	    PlatformNode.prototype.settings = function () {
+	        return this.c.settings || {};
+	    };
+	    PlatformNode.prototype.superset = function () {
+	        return this.c.superset;
+	    };
+	    PlatformNode.prototype.methods = function () {
+	        return this.c.methods || {};
+	    };
+	    PlatformNode.prototype.isMatch = function (p) {
+	        if (p.platformOverride && !this.isEngine) {
+	            return (p.platformOverride === this.c.name);
+	        }
+	        else if (!this.c.isMatch) {
+	            return false;
+	        }
+	        return this.c.isMatch(p);
+	    };
+	    PlatformNode.prototype.version = function (p) {
+	        if (this.c.versionParser) {
+	            var v = this.c.versionParser(p);
+	            if (v) {
+	                var str = v.major + '.' + v.minor;
+	                return {
+	                    str: str,
+	                    num: parseFloat(str),
+	                    major: parseInt(v.major, 10),
+	                    minor: parseInt(v.minor, 10)
+	                };
+	            }
+	        }
+	    };
+	    PlatformNode.prototype.getRoot = function (p) {
+	        if (this.isMatch(p)) {
+	            var parents = this.getSubsetParents(this.name());
+	            if (!parents.length) {
+	                return this;
+	            }
+	            var platform = null;
+	            var rootPlatform = null;
+	            for (var i = 0; i < parents.length; i++) {
+	                platform = new PlatformNode(parents[i]);
+	                platform.child = this;
+	                rootPlatform = platform.getRoot(p);
+	                if (rootPlatform) {
+	                    this.parent = platform;
+	                    return rootPlatform;
+	                }
+	            }
+	        }
+	        return null;
+	    };
+	    PlatformNode.prototype.getSubsetParents = function (subsetPlatformName) {
+	        var platformRegistry = Platform.registry();
+	        var parentPlatformNames = [];
+	        var platform = null;
+	        for (var platformName in platformRegistry) {
+	            platform = platformRegistry[platformName];
+	            if (platform.subsets && platform.subsets.indexOf(subsetPlatformName) > -1) {
+	                parentPlatformNames.push(platformName);
+	            }
+	        }
+	        return parentPlatformNames;
+	    };
+	    return PlatformNode;
+	})();
+	var platformRegistry = {};
+	var platformDefault = null;
+
+
+/***/ },
+/* 161 */
+/***/ function(module, exports) {
+
+	// Simple noop function
+	function noop() { }
+	exports.noop = noop;
+	;
+	/**
+	 * Given a min and max, restrict the given number
+	 * to the range.
+	 * @param min the minimum
+	 * @param n the value
+	 * @param max the maximum
+	 */
+	function clamp(min, n, max) {
+	    return Math.max(min, Math.min(n, max));
+	}
+	exports.clamp = clamp;
+	/**
+	 * The assign() method is used to copy the values of all enumerable own
+	 * properties from one or more source objects to a target object. It will
+	 * return the target object. When available, this method will use
+	 * `Object.assign()` under-the-hood.
+	 * @param target  The target object
+	 * @param source(s)  The source object
+	 */
+	function assign() {
+	    var args = [];
+	    for (var _i = 0; _i < arguments.length; _i++) {
+	        args[_i - 0] = arguments[_i];
+	    }
+	    if (typeof Object.assign !== 'function') {
+	        // use the old-school shallow extend method
+	        return _baseExtend(args[0], [].slice.call(args, 1), false);
+	    }
+	    // use the built in ES6 Object.assign method
+	    return Object.assign.apply(null, args);
+	}
+	exports.assign = assign;
+	/**
+	 * Do a deep extend (merge).
+	 * @param dst the destination
+	 * @param ... the param objects
+	 */
+	function merge(dst) {
+	    var args = [];
+	    for (var _i = 1; _i < arguments.length; _i++) {
+	        args[_i - 1] = arguments[_i];
+	    }
+	    return _baseExtend(dst, [].slice.call(arguments, 1), true);
+	}
+	exports.merge = merge;
+	function _baseExtend(dst, objs, deep) {
+	    for (var i = 0, ii = objs.length; i < ii; ++i) {
+	        var obj = objs[i];
+	        if (!obj || !exports.isObject(obj) && !exports.isFunction(obj))
+	            continue;
+	        var keys = Object.keys(obj);
+	        for (var j = 0, jj = keys.length; j < jj; j++) {
+	            var key = keys[j];
+	            var src = obj[key];
+	            if (deep && exports.isObject(src)) {
+	                if (!exports.isObject(dst[key]))
+	                    dst[key] = exports.isArray(src) ? [] : {};
+	                _baseExtend(dst[key], [src], true);
+	            }
+	            else {
+	                dst[key] = src;
+	            }
+	        }
+	    }
+	    return dst;
+	}
+	function debounce(func, wait, immediate) {
+	    if (immediate === void 0) { immediate = false; }
+	    var timeout, args, context, timestamp, result;
+	    return function () {
+	        context = this;
+	        args = arguments;
+	        timestamp = Date.now();
+	        var later = function () {
+	            var last = Date.now() - timestamp;
+	            if (last < wait) {
+	                timeout = setTimeout(later, wait - last);
+	            }
+	            else {
+	                timeout = null;
+	                if (!immediate)
+	                    result = func.apply(context, args);
+	            }
+	        };
+	        var callNow = immediate && !timeout;
+	        if (!timeout) {
+	            timeout = setTimeout(later, wait);
+	        }
+	        if (callNow)
+	            result = func.apply(context, args);
+	        return result;
+	    };
+	}
+	exports.debounce = debounce;
+	/**
+	 * Apply default arguments if they don't exist in
+	 * the first object.
+	 * @param the destination to apply defaults to.
+	 */
+	function defaults(dest) {
+	    var args = [];
+	    for (var _i = 1; _i < arguments.length; _i++) {
+	        args[_i - 1] = arguments[_i];
+	    }
+	    for (var i = arguments.length - 1; i >= 1; i--) {
+	        var source = arguments[i] || {};
+	        for (var key in source) {
+	            if (source.hasOwnProperty(key) && !dest.hasOwnProperty(key)) {
+	                dest[key] = source[key];
+	            }
+	        }
+	    }
+	    return dest;
+	}
+	exports.defaults = defaults;
+	exports.isBoolean = function (val) { return typeof val === 'boolean'; };
+	exports.isString = function (val) { return typeof val === 'string'; };
+	exports.isNumber = function (val) { return typeof val === 'number'; };
+	exports.isFunction = function (val) { return typeof val === 'function'; };
+	exports.isDefined = function (val) { return typeof val !== 'undefined'; };
+	exports.isUndefined = function (val) { return typeof val === 'undefined'; };
+	exports.isBlank = function (val) { return val === undefined || val === null; };
+	exports.isObject = function (val) { return typeof val === 'object'; };
+	exports.isArray = Array.isArray;
+	exports.isTrueProperty = function (val) {
+	    if (typeof val === 'string') {
+	        val = val.toLowerCase().trim();
+	        return (val === 'true' || val === '');
+	    }
+	    return !!val;
+	};
+	exports.isFalseProperty = function (val) {
+	    if (typeof val === 'string') {
+	        return (val.toLowerCase().trim() === 'false');
+	    }
+	    return !!val;
+	};
+	/**
+	 * Convert a string in the format thisIsAString to a slug format this-is-a-string
+	 */
+	function pascalCaseToDashCase(str) {
+	    if (str === void 0) { str = ''; }
+	    return str.charAt(0).toLowerCase() + str.substring(1).replace(/[A-Z]/g, function (match) {
+	        return '-' + match.toLowerCase();
+	    });
+	}
+	exports.pascalCaseToDashCase = pascalCaseToDashCase;
+	var uid = 0;
+	function nextUid() {
+	    return ++uid;
+	}
+	exports.nextUid = nextUid;
+	exports.array = {
+	    find: function (arr, cb) {
+	        for (var i = 0, ii = arr.length; i < ii; i++) {
+	            if (cb(arr[i], i))
+	                return arr[i];
+	        }
+	    },
+	    remove: function (arr, itemOrIndex) {
+	        var index = -1;
+	        if (exports.isNumber(itemOrIndex)) {
+	            index = itemOrIndex;
+	        }
+	        else {
+	            index = arr.indexOf(itemOrIndex);
+	        }
+	        if (index < 0) {
+	            return false;
+	        }
+	        arr.splice(index, 1);
+	        return true;
+	    }
+	};
+	/**
+	 * Grab all query strings keys and values.
+	 * @param url
+	 */
+	function getQuerystring(url) {
+	    var queryParams = {};
+	    if (url) {
+	        var startIndex = url.indexOf('?');
+	        if (startIndex !== -1) {
+	            var queries = url.slice(startIndex + 1).split('&');
+	            queries.forEach(function (param) {
+	                var split = param.split('=');
+	                queryParams[split[0].toLowerCase()] = split[1].split('#')[0];
+	            });
+	        }
+	    }
+	    return queryParams;
+	}
+	exports.getQuerystring = getQuerystring;
+	/**
+	 * Throttle the given fun, only allowing it to be
+	 * called at most every `wait` ms.
+	 */
+	function throttle(func, wait, options) {
+	    var context, args, result;
+	    var timeout = null;
+	    var previous = 0;
+	    options || (options = {});
+	    var later = function () {
+	        previous = options.leading === false ? 0 : Date.now();
+	        timeout = null;
+	        result = func.apply(context, args);
+	    };
+	    return function () {
+	        var now = Date.now();
+	        if (!previous && options.leading === false)
+	            previous = now;
+	        var remaining = wait - (now - previous);
+	        context = this;
+	        args = arguments;
+	        if (remaining <= 0) {
+	            clearTimeout(timeout);
+	            timeout = null;
+	            previous = now;
+	            result = func.apply(context, args);
+	        }
+	        else if (!timeout && options.trailing !== false) {
+	            timeout = setTimeout(later, remaining);
+	        }
+	        return result;
+	    };
+	}
+	exports.throttle = throttle;
+
+
+/***/ },
+/* 162 */
+/***/ function(module, exports) {
+
+	var win = window;
+	var doc = document;
+	var docEle = doc.documentElement;
+	// RequestAnimationFrame Polyfill (Android 4.3 and below)
+	/*! @author Paul Irish */
+	/*! @source https://gist.github.com/paulirish/1579671 */
+	(function () {
+	    var rafLastTime = 0;
+	    if (!win.requestAnimationFrame) {
+	        win.requestAnimationFrame = function (callback, element) {
+	            var currTime = Date.now();
+	            var timeToCall = Math.max(0, 16 - (currTime - rafLastTime));
+	            var id = window.setTimeout(function () {
+	                callback(currTime + timeToCall);
+	            }, timeToCall);
+	            rafLastTime = currTime + timeToCall;
+	            return id;
+	        };
+	    }
+	    if (!win.cancelAnimationFrame) {
+	        win.cancelAnimationFrame = function (id) { clearTimeout(id); };
+	    }
+	})();
+	exports.raf = win.requestAnimationFrame.bind(win);
+	exports.cancelRaf = win.cancelAnimationFrame.bind(win);
+	function rafFrames(framesToWait, callback) {
+	    framesToWait = Math.ceil(framesToWait);
+	    if (framesToWait < 2) {
+	        exports.raf(callback);
+	    }
+	    else {
+	        setTimeout(function () {
+	            exports.raf(callback);
+	        }, (framesToWait - 1) * 17);
+	    }
+	}
+	exports.rafFrames = rafFrames;
+	exports.CSS = {};
+	(function () {
+	    // transform
+	    var i, keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
+	        '-moz-transform', 'moz-transform', 'MozTransform', 'mozTransform', 'msTransform'];
+	    for (i = 0; i < keys.length; i++) {
+	        if (docEle.style[keys[i]] !== undefined) {
+	            exports.CSS.transform = keys[i];
+	            break;
+	        }
+	    }
+	    // transition
+	    keys = ['webkitTransition', 'mozTransition', 'msTransition', 'transition'];
+	    for (i = 0; i < keys.length; i++) {
+	        if (docEle.style[keys[i]] !== undefined) {
+	            exports.CSS.transition = keys[i];
+	            break;
+	        }
+	    }
+	    // The only prefix we care about is webkit for transitions.
+	    var isWebkit = exports.CSS.transition.indexOf('webkit') > -1;
+	    // transition duration
+	    exports.CSS.transitionDuration = (isWebkit ? '-webkit-' : '') + 'transition-duration';
+	    // transition timing function
+	    exports.CSS.transitionTimingFn = (isWebkit ? '-webkit-' : '') + 'transition-timing-function';
+	    // To be sure transitionend works everywhere, include *both* the webkit and non-webkit events
+	    exports.CSS.transitionEnd = (isWebkit ? 'webkitTransitionEnd ' : '') + 'transitionend';
+	})();
+	function transitionEnd(el, callback) {
+	    if (el) {
+	        function unregister() {
+	            exports.CSS.transitionEnd.split(' ').forEach(function (eventName) {
+	                el.removeEventListener(eventName, onEvent);
+	            });
+	        }
+	        function onEvent(ev) {
+	            if (el === ev.target) {
+	                unregister();
+	                callback(ev);
+	            }
+	        }
+	        exports.CSS.transitionEnd.split(' ').forEach(function (eventName) {
+	            el.addEventListener(eventName, onEvent);
+	        });
+	        return unregister;
+	    }
+	}
+	exports.transitionEnd = transitionEnd;
+	function ready(callback) {
+	    var promise = null;
+	    if (!callback) {
+	        // a callback wasn't provided, so let's return a promise instead
+	        promise = new Promise(function (resolve) { callback = resolve; });
+	    }
+	    if (doc.readyState === 'complete' || doc.readyState === 'interactive') {
+	        callback();
+	    }
+	    else {
+	        function completed() {
+	            doc.removeEventListener('DOMContentLoaded', completed, false);
+	            win.removeEventListener('load', completed, false);
+	            callback();
+	        }
+	        doc.addEventListener('DOMContentLoaded', completed, false);
+	        win.addEventListener('load', completed, false);
+	    }
+	    return promise;
+	}
+	exports.ready = ready;
+	function windowLoad(callback) {
+	    var promise = null;
+	    if (!callback) {
+	        // a callback wasn't provided, so let's return a promise instead
+	        promise = new Promise(function (resolve) { callback = resolve; });
+	    }
+	    if (doc.readyState === 'complete') {
+	        callback();
+	    }
+	    else {
+	        function completed() {
+	            win.removeEventListener('load', completed, false);
+	            callback();
+	        }
+	        win.addEventListener('load', completed, false);
+	    }
+	    return promise;
+	}
+	exports.windowLoad = windowLoad;
+	function pointerCoord(ev) {
+	    // get coordinates for either a mouse click
+	    // or a touch depending on the given event
+	    var c = { x: 0, y: 0 };
+	    if (ev) {
+	        var touches = ev.touches && ev.touches.length ? ev.touches : [ev];
+	        var e = (ev.changedTouches && ev.changedTouches[0]) || touches[0];
+	        if (e) {
+	            c.x = e.clientX || e.pageX || 0;
+	            c.y = e.clientY || e.pageY || 0;
+	        }
+	    }
+	    return c;
+	}
+	exports.pointerCoord = pointerCoord;
+	function hasPointerMoved(threshold, startCoord, endCoord) {
+	    return startCoord && endCoord &&
+	        (Math.abs(startCoord.x - endCoord.x) > threshold || Math.abs(startCoord.y - endCoord.y) > threshold);
+	}
+	exports.hasPointerMoved = hasPointerMoved;
+	function isActive(ele) {
+	    return !!(ele && (doc.activeElement === ele));
+	}
+	exports.isActive = isActive;
+	function hasFocus(ele) {
+	    return isActive(ele) && (ele.parentElement.querySelector(':focus') === ele);
+	}
+	exports.hasFocus = hasFocus;
+	function isTextInput(ele) {
+	    return !!ele &&
+	        (ele.tagName == 'TEXTAREA' ||
+	            ele.contentEditable === 'true' ||
+	            (ele.tagName == 'INPUT' && !(/^(radio|checkbox|range|file|submit|reset|color|image|button)$/i).test(ele.type)));
+	}
+	exports.isTextInput = isTextInput;
+	function hasFocusedTextInput() {
+	    var ele = doc.activeElement;
+	    if (isTextInput(ele)) {
+	        return (ele.parentElement.querySelector(':focus') === ele);
+	    }
+	    return false;
+	}
+	exports.hasFocusedTextInput = hasFocusedTextInput;
+	var skipInputAttrsReg = /^(value|checked|disabled|type|class|style|id)$/i;
+	function copyInputAttributes(srcElement, destElement) {
+	    // copy attributes from one element to another
+	    // however, skip over a few of them as they're already
+	    // handled in the angular world
+	    var attrs = srcElement.attributes;
+	    for (var i = 0; i < attrs.length; i++) {
+	        var attr = attrs[i];
+	        if (!skipInputAttrsReg.test(attr.name)) {
+	            destElement.setAttribute(attr.name, attr.value);
+	        }
+	    }
+	}
+	exports.copyInputAttributes = copyInputAttributes;
+	var matchesFn;
+	var matchesMethods = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'];
+	matchesMethods.some(function (fn) {
+	    if (typeof docEle[fn] == 'function') {
+	        matchesFn = fn;
+	        return true;
+	    }
+	});
+	function closest(ele, selector, checkSelf) {
+	    if (ele && matchesFn) {
+	        // traverse parents
+	        ele = (checkSelf ? ele : ele.parentElement);
+	        while (ele !== null) {
+	            if (ele[matchesFn](selector)) {
+	                return ele;
+	            }
+	            ele = ele.parentElement;
+	        }
+	    }
+	    return null;
+	}
+	exports.closest = closest;
+	/**
+	 * Get the element offsetWidth and offsetHeight. Values are cached
+	 * to reduce DOM reads. Cache is cleared on a window resize.
+	 * @param {TODO} ele  TODO
+	 */
+	function getDimensions(ele, id) {
+	    var dimensions = dimensionCache[id];
+	    if (!dimensions) {
+	        // make sure we got good values before caching
+	        if (ele.offsetWidth && ele.offsetHeight) {
+	            dimensions = dimensionCache[id] = {
+	                width: ele.offsetWidth,
+	                height: ele.offsetHeight,
+	                left: ele.offsetLeft,
+	                top: ele.offsetTop
+	            };
+	        }
+	        else {
+	            // do not cache bad values
+	            return { width: 0, height: 0, left: 0, top: 0 };
+	        }
+	    }
+	    return dimensions;
+	}
+	exports.getDimensions = getDimensions;
+	function windowDimensions() {
+	    if (!dimensionCache.win) {
+	        // make sure we got good values before caching
+	        if (win.innerWidth && win.innerHeight) {
+	            dimensionCache.win = {
+	                width: win.innerWidth,
+	                height: win.innerHeight
+	            };
+	        }
+	        else {
+	            // do not cache bad values
+	            return { width: 0, height: 0 };
+	        }
+	    }
+	    return dimensionCache.win;
+	}
+	exports.windowDimensions = windowDimensions;
+	function flushDimensionCache() {
+	    dimensionCache = {};
+	}
+	exports.flushDimensionCache = flushDimensionCache;
+	var dimensionCache = {};
+
+
+/***/ },
+/* 163 */
+/***/ function(module, exports) {
+
+	/**
+	 * @name Events
+	 * @description
+	 * Events is a pub/sub style event system for sending and responding to application-level
+	 * events across your app.
+	 * @usage
+	 * ```ts
+	 * // first page (publish an event when a user is created)
+	 * function createUser(user) {
+	 *   console.log('User created!')
+	 *   events.publish('user:created', user);
+	 * }
+	 *
+	 * // second page (listen for the user created event)
+	 * events.subscribe('user:created', (user) => {
+	 *   console.log('Welcome', user);
+	 * });
+	 *
+	 * ```
+	 * @demo /docs/v2/demos/events/
+	 */
+	var Events = (function () {
+	    function Events() {
+	        this._channels = [];
+	    }
+	    /**
+	     * Subscribe to an event topic. Events that get posted to that topic will trigger the provided handler.
+	     *
+	     * @param {String} topic the topic to subscribe to
+	     * @param {Function} handler the event handler
+	     */
+	    Events.prototype.subscribe = function (topic) {
+	        var _this = this;
+	        var handlers = [];
+	        for (var _i = 1; _i < arguments.length; _i++) {
+	            handlers[_i - 1] = arguments[_i];
+	        }
+	        if (!this._channels[topic]) {
+	            this._channels[topic] = [];
+	        }
+	        handlers.forEach(function (handler) {
+	            _this._channels[topic].push(handler);
+	        });
+	    };
+	    /**
+	     * Unsubscribe from the given topic. Your handler will no longer receive events published to this topic.
+	     *
+	     * @param {String} topic the topic to unsubscribe from
+	     * @param {Function} handler the event handler
+	     *
+	     * @return true if a handler was removed
+	     */
+	    Events.prototype.unsubscribe = function (topic, handler) {
+	        var t = this._channels[topic];
+	        if (!t) {
+	            // Wasn't found, wasn't removed
+	            return false;
+	        }
+	        if (!handler) {
+	            // Remove all handlers for this topic
+	            delete this._channels[topic];
+	            return true;
+	        }
+	        // We need to find and remove a specific handler
+	        var i = t.indexOf(handler);
+	        if (i < 0) {
+	            // Wasn't found, wasn't removed
+	            return false;
+	        }
+	        t.splice(i, 1);
+	        // If the channel is empty now, remove it from the channel map
+	        if (!t.length) {
+	            delete this._channels[topic];
+	        }
+	        return true;
+	    };
+	    /**
+	     * Publish an event to the given topic.
+	     *
+	     * @param {String} topic the topic to publish to
+	     * @param {Any} eventData the data to send as the event
+	     */
+	    Events.prototype.publish = function (topic) {
+	        var args = [];
+	        for (var _i = 1; _i < arguments.length; _i++) {
+	            args[_i - 1] = arguments[_i];
+	        }
+	        var t = this._channels[topic];
+	        if (!t) {
+	            return null;
+	        }
+	        var responses = [];
+	        t.forEach(function (handler) {
+	            responses.push(handler(args));
+	        });
+	        return responses;
+	    };
+	    return Events;
+	})();
+	exports.Events = Events;
+
+
+/***/ },
+/* 164 */
+/***/ function(module, exports) {
+
+	var FeatureDetect = (function () {
+	    function FeatureDetect() {
+	        this._results = {};
+	    }
+	    FeatureDetect.prototype.run = function (window, document) {
+	        for (var name_1 in featureDetects) {
+	            this._results[name_1] = featureDetects[name_1](window, document, document.body);
+	        }
+	    };
+	    FeatureDetect.prototype.has = function (featureName) {
+	        return !!this._results[featureName];
+	    };
+	    FeatureDetect.add = function (name, fn) {
+	        featureDetects[name] = fn;
+	    };
+	    return FeatureDetect;
+	})();
+	exports.FeatureDetect = FeatureDetect;
+	var featureDetects = {};
+	// FeatureDetect.add('sticky', function(window, document) {
+	//   // css position sticky
+	//   let ele = document.createElement('div');
+	//   ele.style.cssText = 'position:-webkit-sticky;position:sticky';
+	//   return ele.style.position.indexOf('sticky') > -1;
+	// });
+	FeatureDetect.add('hairlines', function (window, document, body) {
+	    /**
+	    * Hairline Shim
+	    * Add the "hairline" CSS class name to the body tag
+	    * if the browser supports subpixels.
+	    */
+	    var canDo = false;
+	    if (window.devicePixelRatio >= 2) {
+	        var hairlineEle = document.createElement('div');
+	        hairlineEle.style.border = '.5px solid transparent';
+	        body.appendChild(hairlineEle);
+	        if (hairlineEle.offsetHeight === 1) {
+	            body.classList.add('hairlines');
+	            canDo = true;
+	        }
+	        body.removeChild(hairlineEle);
+	    }
+	    return canDo;
+	});
+
+
+/***/ },
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26145,10 +27752,99 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var browser_1 = __webpack_require__(159);
-	var config_1 = __webpack_require__(264);
-	var click_block_1 = __webpack_require__(268);
-	var dom_1 = __webpack_require__(267);
+	/**
+	 * @private
+	 */
+	var Form = (function () {
+	    function Form() {
+	        this._focused = null;
+	        this._ids = -1;
+	        this._inputs = [];
+	        this.focusCtrl(document);
+	    }
+	    Form.prototype.register = function (input) {
+	        this._inputs.push(input);
+	    };
+	    Form.prototype.deregister = function (input) {
+	        var index = this._inputs.indexOf(input);
+	        if (index > -1) {
+	            this._inputs.splice(index, 1);
+	        }
+	        if (input === this._focused) {
+	            this._focused = null;
+	        }
+	    };
+	    Form.prototype.focusCtrl = function (document) {
+	        // raw DOM fun
+	        var focusCtrl = document.createElement('focus-ctrl');
+	        focusCtrl.setAttribute('aria-hidden', true);
+	        this._blur = document.createElement('button');
+	        this._blur.tabIndex = -1;
+	        focusCtrl.appendChild(this._blur);
+	        document.body.appendChild(focusCtrl);
+	    };
+	    Form.prototype.focusOut = function () {
+	        void 0;
+	        var activeElement = document.activeElement;
+	        if (activeElement) {
+	            activeElement.blur();
+	        }
+	        this._blur.focus();
+	    };
+	    Form.prototype.setAsFocused = function (input) {
+	        this._focused = input;
+	    };
+	    /**
+	     * Focuses the next input element, if it exists.
+	     */
+	    Form.prototype.tabFocus = function (currentInput) {
+	        var index = this._inputs.indexOf(currentInput);
+	        if (index > -1 && (index + 1) < this._inputs.length) {
+	            var nextInput = this._inputs[index + 1];
+	            if (nextInput !== this._focused) {
+	                void 0;
+	                return nextInput.initFocus();
+	            }
+	        }
+	        index = this._inputs.indexOf(this._focused);
+	        if (index > 0) {
+	            var previousInput = this._inputs[index - 1];
+	            if (previousInput) {
+	                void 0;
+	                previousInput.initFocus();
+	            }
+	        }
+	    };
+	    Form.prototype.nextId = function () {
+	        return ++this._ids;
+	    };
+	    Form = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [])
+	    ], Form);
+	    return Form;
+	})();
+	exports.Form = Form;
+
+
+/***/ },
+/* 166 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(7);
+	var browser_1 = __webpack_require__(167);
+	var config_1 = __webpack_require__(159);
+	var click_block_1 = __webpack_require__(158);
+	var dom_1 = __webpack_require__(162);
 	/**
 	 * @private
 	 * Component registry service.  For more information on registering
@@ -26231,8 +27927,6 @@
 	     * @param {Object} component  The component to register
 	     */
 	    IonicApp.prototype.register = function (id, component) {
-	        if (this.components[id] && this.components[id] !== component) {
-	        }
 	        this.components[id] = component;
 	    };
 	    /**
@@ -26264,24 +27958,28 @@
 	     * @return {Object} TODO
 	     */
 	    IonicApp.prototype.getComponent = function (id) {
+	        // deprecated warning
+	        if (/menu/i.test(id)) {
+	            void 0;
+	        }
 	        return this.components[id];
 	    };
 	    IonicApp = __decorate([
 	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof click_block_1.ClickBlock !== 'undefined' && click_block_1.ClickBlock) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [config_1.Config, click_block_1.ClickBlock, core_1.NgZone])
 	    ], IonicApp);
 	    return IonicApp;
-	    var _a, _b, _c;
 	})();
 	exports.IonicApp = IonicApp;
 
+
 /***/ },
-/* 159 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var angular_entrypoint_1 = __webpack_require__(160);
+	'use strict';var angular_entrypoint_1 = __webpack_require__(168);
 	exports.AngularEntrypoint = angular_entrypoint_1.AngularEntrypoint;
-	var browser_common_1 = __webpack_require__(161);
+	var browser_common_1 = __webpack_require__(169);
 	exports.BROWSER_PROVIDERS = browser_common_1.BROWSER_PROVIDERS;
 	exports.ELEMENT_PROBE_BINDINGS = browser_common_1.ELEMENT_PROBE_BINDINGS;
 	exports.ELEMENT_PROBE_PROVIDERS = browser_common_1.ELEMENT_PROBE_PROVIDERS;
@@ -26293,12 +27991,12 @@
 	exports.enableDebugTools = browser_common_1.enableDebugTools;
 	exports.disableDebugTools = browser_common_1.disableDebugTools;
 	var lang_1 = __webpack_require__(10);
-	var browser_common_2 = __webpack_require__(161);
-	var compiler_1 = __webpack_require__(233);
+	var browser_common_2 = __webpack_require__(169);
+	var compiler_1 = __webpack_require__(241);
 	var core_1 = __webpack_require__(7);
 	var reflection_capabilities_1 = __webpack_require__(23);
-	var xhr_impl_1 = __webpack_require__(222);
-	var compiler_2 = __webpack_require__(233);
+	var xhr_impl_1 = __webpack_require__(230);
+	var compiler_2 = __webpack_require__(241);
 	var di_1 = __webpack_require__(11);
 	/**
 	 * An array of providers that should be passed into `application()` when bootstrapping a component.
@@ -26385,7 +28083,7 @@
 
 
 /***/ },
-/* 160 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26429,41 +28127,41 @@
 
 
 /***/ },
-/* 161 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
 	var di_1 = __webpack_require__(11);
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
+	var common_1 = __webpack_require__(170);
 	var testability_1 = __webpack_require__(88);
 	var dom_adapter_1 = __webpack_require__(139);
-	var dom_events_1 = __webpack_require__(205);
-	var key_events_1 = __webpack_require__(207);
-	var hammer_gestures_1 = __webpack_require__(208);
-	var dom_tokens_1 = __webpack_require__(210);
-	var dom_renderer_1 = __webpack_require__(211);
-	var shared_styles_host_1 = __webpack_require__(219);
-	var shared_styles_host_2 = __webpack_require__(219);
-	var browser_details_1 = __webpack_require__(218);
-	var animation_builder_1 = __webpack_require__(212);
-	var browser_adapter_1 = __webpack_require__(220);
-	var testability_2 = __webpack_require__(224);
-	var wtf_init_1 = __webpack_require__(225);
-	var event_manager_1 = __webpack_require__(206);
-	var dom_tokens_2 = __webpack_require__(210);
+	var dom_events_1 = __webpack_require__(213);
+	var key_events_1 = __webpack_require__(215);
+	var hammer_gestures_1 = __webpack_require__(216);
+	var dom_tokens_1 = __webpack_require__(218);
+	var dom_renderer_1 = __webpack_require__(219);
+	var shared_styles_host_1 = __webpack_require__(227);
+	var shared_styles_host_2 = __webpack_require__(227);
+	var browser_details_1 = __webpack_require__(226);
+	var animation_builder_1 = __webpack_require__(220);
+	var browser_adapter_1 = __webpack_require__(228);
+	var testability_2 = __webpack_require__(232);
+	var wtf_init_1 = __webpack_require__(233);
+	var event_manager_1 = __webpack_require__(214);
+	var dom_tokens_2 = __webpack_require__(218);
 	exports.DOCUMENT = dom_tokens_2.DOCUMENT;
-	var title_1 = __webpack_require__(226);
+	var title_1 = __webpack_require__(234);
 	exports.Title = title_1.Title;
-	var common_dom_1 = __webpack_require__(227);
+	var common_dom_1 = __webpack_require__(235);
 	exports.DebugElementViewListener = common_dom_1.DebugElementViewListener;
 	exports.ELEMENT_PROBE_PROVIDERS = common_dom_1.ELEMENT_PROBE_PROVIDERS;
 	exports.ELEMENT_PROBE_BINDINGS = common_dom_1.ELEMENT_PROBE_BINDINGS;
 	exports.inspectNativeElement = common_dom_1.inspectNativeElement;
 	exports.By = common_dom_1.By;
-	var browser_adapter_2 = __webpack_require__(220);
+	var browser_adapter_2 = __webpack_require__(228);
 	exports.BrowserDomAdapter = browser_adapter_2.BrowserDomAdapter;
-	var tools_1 = __webpack_require__(230);
+	var tools_1 = __webpack_require__(238);
 	exports.enableDebugTools = tools_1.enableDebugTools;
 	exports.disableDebugTools = tools_1.disableDebugTools;
 	/**
@@ -26516,20 +28214,20 @@
 
 
 /***/ },
-/* 162 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(163));
-	__export(__webpack_require__(173));
+	__export(__webpack_require__(171));
 	__export(__webpack_require__(181));
-	__export(__webpack_require__(204));
+	__export(__webpack_require__(189));
+	__export(__webpack_require__(212));
 
 
 /***/ },
-/* 163 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/**
@@ -26537,30 +28235,30 @@
 	 * @description
 	 * This module provides a set of common Pipes.
 	 */
-	var async_pipe_1 = __webpack_require__(164);
-	var uppercase_pipe_1 = __webpack_require__(166);
-	var lowercase_pipe_1 = __webpack_require__(167);
-	var json_pipe_1 = __webpack_require__(168);
-	var slice_pipe_1 = __webpack_require__(169);
-	var date_pipe_1 = __webpack_require__(170);
-	var number_pipe_1 = __webpack_require__(172);
+	var async_pipe_1 = __webpack_require__(172);
+	var uppercase_pipe_1 = __webpack_require__(174);
+	var lowercase_pipe_1 = __webpack_require__(175);
+	var json_pipe_1 = __webpack_require__(176);
+	var slice_pipe_1 = __webpack_require__(177);
+	var date_pipe_1 = __webpack_require__(178);
+	var number_pipe_1 = __webpack_require__(180);
 	var lang_1 = __webpack_require__(10);
-	var async_pipe_2 = __webpack_require__(164);
+	var async_pipe_2 = __webpack_require__(172);
 	exports.AsyncPipe = async_pipe_2.AsyncPipe;
-	var date_pipe_2 = __webpack_require__(170);
+	var date_pipe_2 = __webpack_require__(178);
 	exports.DatePipe = date_pipe_2.DatePipe;
-	var json_pipe_2 = __webpack_require__(168);
+	var json_pipe_2 = __webpack_require__(176);
 	exports.JsonPipe = json_pipe_2.JsonPipe;
-	var slice_pipe_2 = __webpack_require__(169);
+	var slice_pipe_2 = __webpack_require__(177);
 	exports.SlicePipe = slice_pipe_2.SlicePipe;
-	var lowercase_pipe_2 = __webpack_require__(167);
+	var lowercase_pipe_2 = __webpack_require__(175);
 	exports.LowerCasePipe = lowercase_pipe_2.LowerCasePipe;
-	var number_pipe_2 = __webpack_require__(172);
+	var number_pipe_2 = __webpack_require__(180);
 	exports.NumberPipe = number_pipe_2.NumberPipe;
 	exports.DecimalPipe = number_pipe_2.DecimalPipe;
 	exports.PercentPipe = number_pipe_2.PercentPipe;
 	exports.CurrencyPipe = number_pipe_2.CurrencyPipe;
-	var uppercase_pipe_2 = __webpack_require__(166);
+	var uppercase_pipe_2 = __webpack_require__(174);
 	exports.UpperCasePipe = uppercase_pipe_2.UpperCasePipe;
 	/**
 	 * A collection of Angular core pipes that are likely to be used in each and every
@@ -26583,7 +28281,7 @@
 
 
 /***/ },
-/* 164 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26598,7 +28296,7 @@
 	var lang_1 = __webpack_require__(10);
 	var async_1 = __webpack_require__(53);
 	var core_1 = __webpack_require__(7);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(165);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(173);
 	var ObservableStrategy = (function () {
 	    function ObservableStrategy() {
 	    }
@@ -26722,7 +28420,7 @@
 
 
 /***/ },
-/* 165 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -26743,7 +28441,7 @@
 
 
 /***/ },
-/* 166 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26757,7 +28455,7 @@
 	};
 	var lang_1 = __webpack_require__(10);
 	var core_1 = __webpack_require__(7);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(165);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(173);
 	/**
 	 * Implements uppercase transforms to text.
 	 *
@@ -26789,7 +28487,7 @@
 
 
 /***/ },
-/* 167 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26803,7 +28501,7 @@
 	};
 	var lang_1 = __webpack_require__(10);
 	var core_1 = __webpack_require__(7);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(165);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(173);
 	/**
 	 * Transforms text to lowercase.
 	 *
@@ -26835,7 +28533,7 @@
 
 
 /***/ },
-/* 168 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26874,7 +28572,7 @@
 
 
 /***/ },
-/* 169 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26890,7 +28588,7 @@
 	var exceptions_1 = __webpack_require__(19);
 	var collection_1 = __webpack_require__(17);
 	var core_1 = __webpack_require__(7);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(165);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(173);
 	/**
 	 * Creates a new List or String containing only a subset (slice) of the
 	 * elements.
@@ -26974,7 +28672,7 @@
 
 
 /***/ },
-/* 170 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -26987,10 +28685,10 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var lang_1 = __webpack_require__(10);
-	var intl_1 = __webpack_require__(171);
+	var intl_1 = __webpack_require__(179);
 	var core_1 = __webpack_require__(7);
 	var collection_1 = __webpack_require__(17);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(165);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(173);
 	// TODO: move to a global configurable location along with other i18n components.
 	var defaultLocale = 'en-US';
 	/**
@@ -27101,7 +28799,7 @@
 
 
 /***/ },
-/* 171 */
+/* 179 */
 /***/ function(module, exports) {
 
 	'use strict';(function (NumberFormatStyle) {
@@ -27210,7 +28908,7 @@
 
 
 /***/ },
-/* 172 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -27229,10 +28927,10 @@
 	};
 	var lang_1 = __webpack_require__(10);
 	var exceptions_1 = __webpack_require__(19);
-	var intl_1 = __webpack_require__(171);
+	var intl_1 = __webpack_require__(179);
 	var core_1 = __webpack_require__(7);
 	var collection_1 = __webpack_require__(17);
-	var invalid_pipe_argument_exception_1 = __webpack_require__(165);
+	var invalid_pipe_argument_exception_1 = __webpack_require__(173);
 	var defaultLocale = 'en-US';
 	var _re = lang_1.RegExpWrapper.create('^(\\d+)?\\.((\\d+)(\\-(\\d+))?)?$');
 	/**
@@ -27403,7 +29101,7 @@
 
 
 /***/ },
-/* 173 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';function __export(m) {
@@ -27414,25 +29112,25 @@
 	 * @description
 	 * Common directives shipped with Angular.
 	 */
-	var ng_class_1 = __webpack_require__(174);
+	var ng_class_1 = __webpack_require__(182);
 	exports.NgClass = ng_class_1.NgClass;
-	var ng_for_1 = __webpack_require__(175);
+	var ng_for_1 = __webpack_require__(183);
 	exports.NgFor = ng_for_1.NgFor;
-	var ng_if_1 = __webpack_require__(176);
+	var ng_if_1 = __webpack_require__(184);
 	exports.NgIf = ng_if_1.NgIf;
-	var ng_style_1 = __webpack_require__(177);
+	var ng_style_1 = __webpack_require__(185);
 	exports.NgStyle = ng_style_1.NgStyle;
-	var ng_switch_1 = __webpack_require__(178);
+	var ng_switch_1 = __webpack_require__(186);
 	exports.NgSwitch = ng_switch_1.NgSwitch;
 	exports.NgSwitchWhen = ng_switch_1.NgSwitchWhen;
 	exports.NgSwitchDefault = ng_switch_1.NgSwitchDefault;
-	__export(__webpack_require__(179));
-	var core_directives_1 = __webpack_require__(180);
+	__export(__webpack_require__(187));
+	var core_directives_1 = __webpack_require__(188);
 	exports.CORE_DIRECTIVES = core_directives_1.CORE_DIRECTIVES;
 
 
 /***/ },
-/* 174 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27626,7 +29324,7 @@
 
 
 /***/ },
-/* 175 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27798,7 +29496,7 @@
 
 
 /***/ },
-/* 176 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27864,7 +29562,7 @@
 
 
 /***/ },
-/* 177 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -27972,7 +29670,7 @@
 
 
 /***/ },
-/* 178 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -28203,22 +29901,22 @@
 
 
 /***/ },
-/* 179 */
+/* 187 */
 /***/ function(module, exports) {
 
 	'use strict';// TS does not have Observables
 
 
 /***/ },
-/* 180 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
-	var ng_class_1 = __webpack_require__(174);
-	var ng_for_1 = __webpack_require__(175);
-	var ng_if_1 = __webpack_require__(176);
-	var ng_style_1 = __webpack_require__(177);
-	var ng_switch_1 = __webpack_require__(178);
+	var ng_class_1 = __webpack_require__(182);
+	var ng_for_1 = __webpack_require__(183);
+	var ng_if_1 = __webpack_require__(184);
+	var ng_style_1 = __webpack_require__(185);
+	var ng_switch_1 = __webpack_require__(186);
 	/**
 	 * A collection of Angular core directives that are likely to be used in each and every Angular
 	 * application.
@@ -28263,7 +29961,7 @@
 
 
 /***/ },
-/* 181 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/**
@@ -28279,58 +29977,58 @@
 	 * explicitly.
 	 *
 	 */
-	var model_1 = __webpack_require__(182);
+	var model_1 = __webpack_require__(190);
 	exports.AbstractControl = model_1.AbstractControl;
 	exports.Control = model_1.Control;
 	exports.ControlGroup = model_1.ControlGroup;
 	exports.ControlArray = model_1.ControlArray;
-	var abstract_control_directive_1 = __webpack_require__(183);
+	var abstract_control_directive_1 = __webpack_require__(191);
 	exports.AbstractControlDirective = abstract_control_directive_1.AbstractControlDirective;
-	var control_container_1 = __webpack_require__(184);
+	var control_container_1 = __webpack_require__(192);
 	exports.ControlContainer = control_container_1.ControlContainer;
-	var ng_control_name_1 = __webpack_require__(185);
+	var ng_control_name_1 = __webpack_require__(193);
 	exports.NgControlName = ng_control_name_1.NgControlName;
-	var ng_form_control_1 = __webpack_require__(195);
+	var ng_form_control_1 = __webpack_require__(203);
 	exports.NgFormControl = ng_form_control_1.NgFormControl;
-	var ng_model_1 = __webpack_require__(196);
+	var ng_model_1 = __webpack_require__(204);
 	exports.NgModel = ng_model_1.NgModel;
-	var ng_control_1 = __webpack_require__(186);
+	var ng_control_1 = __webpack_require__(194);
 	exports.NgControl = ng_control_1.NgControl;
-	var ng_control_group_1 = __webpack_require__(197);
+	var ng_control_group_1 = __webpack_require__(205);
 	exports.NgControlGroup = ng_control_group_1.NgControlGroup;
-	var ng_form_model_1 = __webpack_require__(198);
+	var ng_form_model_1 = __webpack_require__(206);
 	exports.NgFormModel = ng_form_model_1.NgFormModel;
-	var ng_form_1 = __webpack_require__(199);
+	var ng_form_1 = __webpack_require__(207);
 	exports.NgForm = ng_form_1.NgForm;
-	var control_value_accessor_1 = __webpack_require__(187);
+	var control_value_accessor_1 = __webpack_require__(195);
 	exports.NG_VALUE_ACCESSOR = control_value_accessor_1.NG_VALUE_ACCESSOR;
-	var default_value_accessor_1 = __webpack_require__(190);
+	var default_value_accessor_1 = __webpack_require__(198);
 	exports.DefaultValueAccessor = default_value_accessor_1.DefaultValueAccessor;
-	var ng_control_status_1 = __webpack_require__(200);
+	var ng_control_status_1 = __webpack_require__(208);
 	exports.NgControlStatus = ng_control_status_1.NgControlStatus;
-	var checkbox_value_accessor_1 = __webpack_require__(192);
+	var checkbox_value_accessor_1 = __webpack_require__(200);
 	exports.CheckboxControlValueAccessor = checkbox_value_accessor_1.CheckboxControlValueAccessor;
-	var select_control_value_accessor_1 = __webpack_require__(193);
+	var select_control_value_accessor_1 = __webpack_require__(201);
 	exports.NgSelectOption = select_control_value_accessor_1.NgSelectOption;
 	exports.SelectControlValueAccessor = select_control_value_accessor_1.SelectControlValueAccessor;
-	var directives_1 = __webpack_require__(201);
+	var directives_1 = __webpack_require__(209);
 	exports.FORM_DIRECTIVES = directives_1.FORM_DIRECTIVES;
-	var validators_1 = __webpack_require__(189);
+	var validators_1 = __webpack_require__(197);
 	exports.NG_VALIDATORS = validators_1.NG_VALIDATORS;
 	exports.NG_ASYNC_VALIDATORS = validators_1.NG_ASYNC_VALIDATORS;
 	exports.Validators = validators_1.Validators;
-	var validators_2 = __webpack_require__(202);
+	var validators_2 = __webpack_require__(210);
 	exports.RequiredValidator = validators_2.RequiredValidator;
 	exports.MinLengthValidator = validators_2.MinLengthValidator;
 	exports.MaxLengthValidator = validators_2.MaxLengthValidator;
-	var form_builder_1 = __webpack_require__(203);
+	var form_builder_1 = __webpack_require__(211);
 	exports.FormBuilder = form_builder_1.FormBuilder;
 	exports.FORM_PROVIDERS = form_builder_1.FORM_PROVIDERS;
 	exports.FORM_BINDINGS = form_builder_1.FORM_BINDINGS;
 
 
 /***/ },
-/* 182 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -28824,7 +30522,7 @@
 
 
 /***/ },
-/* 183 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
@@ -28890,7 +30588,7 @@
 
 
 /***/ },
-/* 184 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -28898,7 +30596,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var abstract_control_directive_1 = __webpack_require__(183);
+	var abstract_control_directive_1 = __webpack_require__(191);
 	/**
 	 * A directive that contains multiple {@link NgControl}s.
 	 *
@@ -28931,7 +30629,7 @@
 
 
 /***/ },
-/* 185 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -28954,11 +30652,11 @@
 	var lang_1 = __webpack_require__(10);
 	var async_1 = __webpack_require__(53);
 	var core_1 = __webpack_require__(7);
-	var control_container_1 = __webpack_require__(184);
-	var ng_control_1 = __webpack_require__(186);
-	var control_value_accessor_1 = __webpack_require__(187);
-	var shared_1 = __webpack_require__(188);
-	var validators_1 = __webpack_require__(189);
+	var control_container_1 = __webpack_require__(192);
+	var ng_control_1 = __webpack_require__(194);
+	var control_value_accessor_1 = __webpack_require__(195);
+	var shared_1 = __webpack_require__(196);
+	var validators_1 = __webpack_require__(197);
 	var controlNameBinding = lang_1.CONST_EXPR(new core_1.Provider(ng_control_1.NgControl, { useExisting: core_1.forwardRef(function () { return NgControlName; }) }));
 	/**
 	 * Creates and binds a control with a specified name to a DOM element.
@@ -29094,7 +30792,7 @@
 
 
 /***/ },
-/* 186 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29102,7 +30800,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var abstract_control_directive_1 = __webpack_require__(183);
+	var abstract_control_directive_1 = __webpack_require__(191);
 	var exceptions_1 = __webpack_require__(19);
 	/**
 	 * A base class that all control directive extend.
@@ -29133,7 +30831,7 @@
 
 
 /***/ },
-/* 187 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var core_1 = __webpack_require__(7);
@@ -29147,18 +30845,18 @@
 
 
 /***/ },
-/* 188 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(17);
 	var lang_1 = __webpack_require__(10);
 	var exceptions_1 = __webpack_require__(19);
-	var validators_1 = __webpack_require__(189);
-	var default_value_accessor_1 = __webpack_require__(190);
-	var number_value_accessor_1 = __webpack_require__(191);
-	var checkbox_value_accessor_1 = __webpack_require__(192);
-	var select_control_value_accessor_1 = __webpack_require__(193);
-	var normalize_validator_1 = __webpack_require__(194);
+	var validators_1 = __webpack_require__(197);
+	var default_value_accessor_1 = __webpack_require__(198);
+	var number_value_accessor_1 = __webpack_require__(199);
+	var checkbox_value_accessor_1 = __webpack_require__(200);
+	var select_control_value_accessor_1 = __webpack_require__(201);
+	var normalize_validator_1 = __webpack_require__(202);
 	function controlPath(name, parent) {
 	    var p = collection_1.ListWrapper.clone(parent.path);
 	    p.push(name);
@@ -29249,7 +30947,7 @@
 
 
 /***/ },
-/* 189 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
@@ -29370,7 +31068,7 @@
 
 
 /***/ },
-/* 190 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29383,7 +31081,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var control_value_accessor_1 = __webpack_require__(187);
+	var control_value_accessor_1 = __webpack_require__(195);
 	var lang_1 = __webpack_require__(10);
 	var DEFAULT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new core_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return DefaultValueAccessor; }), multi: true }));
 	/**
@@ -29425,7 +31123,7 @@
 
 
 /***/ },
-/* 191 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29438,7 +31136,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var control_value_accessor_1 = __webpack_require__(187);
+	var control_value_accessor_1 = __webpack_require__(195);
 	var lang_1 = __webpack_require__(10);
 	var NUMBER_VALUE_ACCESSOR = lang_1.CONST_EXPR(new core_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return NumberValueAccessor; }), multi: true }));
 	/**
@@ -29482,7 +31180,7 @@
 
 
 /***/ },
-/* 192 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29495,7 +31193,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var control_value_accessor_1 = __webpack_require__(187);
+	var control_value_accessor_1 = __webpack_require__(195);
 	var lang_1 = __webpack_require__(10);
 	var CHECKBOX_VALUE_ACCESSOR = lang_1.CONST_EXPR(new core_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return CheckboxControlValueAccessor; }), multi: true }));
 	/**
@@ -29532,7 +31230,7 @@
 
 
 /***/ },
-/* 193 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -29549,7 +31247,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var async_1 = __webpack_require__(53);
-	var control_value_accessor_1 = __webpack_require__(187);
+	var control_value_accessor_1 = __webpack_require__(195);
 	var lang_1 = __webpack_require__(10);
 	var SELECT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new core_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return SelectControlValueAccessor; }), multi: true }));
 	/**
@@ -29609,7 +31307,7 @@
 
 
 /***/ },
-/* 194 */
+/* 202 */
 /***/ function(module, exports) {
 
 	'use strict';function normalizeValidator(validator) {
@@ -29624,7 +31322,7 @@
 
 
 /***/ },
-/* 195 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29648,10 +31346,10 @@
 	var collection_1 = __webpack_require__(17);
 	var async_1 = __webpack_require__(53);
 	var core_1 = __webpack_require__(7);
-	var ng_control_1 = __webpack_require__(186);
-	var validators_1 = __webpack_require__(189);
-	var control_value_accessor_1 = __webpack_require__(187);
-	var shared_1 = __webpack_require__(188);
+	var ng_control_1 = __webpack_require__(194);
+	var validators_1 = __webpack_require__(197);
+	var control_value_accessor_1 = __webpack_require__(195);
+	var shared_1 = __webpack_require__(196);
 	var formControlBinding = lang_1.CONST_EXPR(new core_1.Provider(ng_control_1.NgControl, { useExisting: core_1.forwardRef(function () { return NgFormControl; }) }));
 	/**
 	 * Binds an existing {@link Control} to a DOM element.
@@ -29771,7 +31469,7 @@
 
 
 /***/ },
-/* 196 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29794,11 +31492,11 @@
 	var lang_1 = __webpack_require__(10);
 	var async_1 = __webpack_require__(53);
 	var core_1 = __webpack_require__(7);
-	var control_value_accessor_1 = __webpack_require__(187);
-	var ng_control_1 = __webpack_require__(186);
-	var model_1 = __webpack_require__(182);
-	var validators_1 = __webpack_require__(189);
-	var shared_1 = __webpack_require__(188);
+	var control_value_accessor_1 = __webpack_require__(195);
+	var ng_control_1 = __webpack_require__(194);
+	var model_1 = __webpack_require__(190);
+	var validators_1 = __webpack_require__(197);
+	var shared_1 = __webpack_require__(196);
 	var formControlBinding = lang_1.CONST_EXPR(new core_1.Provider(ng_control_1.NgControl, { useExisting: core_1.forwardRef(function () { return NgModel; }) }));
 	/**
 	 * Binds a domain model to a form control.
@@ -29894,7 +31592,7 @@
 
 
 /***/ },
-/* 197 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -29916,9 +31614,9 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var lang_1 = __webpack_require__(10);
-	var control_container_1 = __webpack_require__(184);
-	var shared_1 = __webpack_require__(188);
-	var validators_1 = __webpack_require__(189);
+	var control_container_1 = __webpack_require__(192);
+	var shared_1 = __webpack_require__(196);
+	var validators_1 = __webpack_require__(197);
 	var controlGroupProvider = lang_1.CONST_EXPR(new core_1.Provider(control_container_1.ControlContainer, { useExisting: core_1.forwardRef(function () { return NgControlGroup; }) }));
 	/**
 	 * Creates and binds a control group to a DOM element.
@@ -30035,7 +31733,7 @@
 
 
 /***/ },
-/* 198 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -30059,9 +31757,9 @@
 	var collection_1 = __webpack_require__(17);
 	var async_1 = __webpack_require__(53);
 	var core_1 = __webpack_require__(7);
-	var control_container_1 = __webpack_require__(184);
-	var shared_1 = __webpack_require__(188);
-	var validators_1 = __webpack_require__(189);
+	var control_container_1 = __webpack_require__(192);
+	var shared_1 = __webpack_require__(196);
+	var validators_1 = __webpack_require__(197);
 	var formDirectiveProvider = lang_1.CONST_EXPR(new core_1.Provider(control_container_1.ControlContainer, { useExisting: core_1.forwardRef(function () { return NgFormModel; }) }));
 	/**
 	 * Binds an existing control group to a DOM element.
@@ -30226,7 +31924,7 @@
 
 
 /***/ },
-/* 199 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -30250,10 +31948,10 @@
 	var collection_1 = __webpack_require__(17);
 	var lang_1 = __webpack_require__(10);
 	var core_1 = __webpack_require__(7);
-	var control_container_1 = __webpack_require__(184);
-	var model_1 = __webpack_require__(182);
-	var shared_1 = __webpack_require__(188);
-	var validators_1 = __webpack_require__(189);
+	var control_container_1 = __webpack_require__(192);
+	var model_1 = __webpack_require__(190);
+	var shared_1 = __webpack_require__(196);
+	var validators_1 = __webpack_require__(197);
 	var formDirectiveProvider = lang_1.CONST_EXPR(new core_1.Provider(control_container_1.ControlContainer, { useExisting: core_1.forwardRef(function () { return NgForm; }) }));
 	/**
 	 * If `NgForm` is bound in a component, `<form>` elements in that component will be
@@ -30425,7 +32123,7 @@
 
 
 /***/ },
-/* 200 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -30441,7 +32139,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var ng_control_1 = __webpack_require__(186);
+	var ng_control_1 = __webpack_require__(194);
 	var lang_1 = __webpack_require__(10);
 	/**
 	 * Directive automatically applied to Angular forms that sets CSS classes
@@ -30514,50 +32212,50 @@
 
 
 /***/ },
-/* 201 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
-	var ng_control_name_1 = __webpack_require__(185);
-	var ng_form_control_1 = __webpack_require__(195);
-	var ng_model_1 = __webpack_require__(196);
-	var ng_control_group_1 = __webpack_require__(197);
-	var ng_form_model_1 = __webpack_require__(198);
-	var ng_form_1 = __webpack_require__(199);
-	var default_value_accessor_1 = __webpack_require__(190);
-	var checkbox_value_accessor_1 = __webpack_require__(192);
-	var number_value_accessor_1 = __webpack_require__(191);
-	var ng_control_status_1 = __webpack_require__(200);
-	var select_control_value_accessor_1 = __webpack_require__(193);
-	var validators_1 = __webpack_require__(202);
-	var ng_control_name_2 = __webpack_require__(185);
+	var ng_control_name_1 = __webpack_require__(193);
+	var ng_form_control_1 = __webpack_require__(203);
+	var ng_model_1 = __webpack_require__(204);
+	var ng_control_group_1 = __webpack_require__(205);
+	var ng_form_model_1 = __webpack_require__(206);
+	var ng_form_1 = __webpack_require__(207);
+	var default_value_accessor_1 = __webpack_require__(198);
+	var checkbox_value_accessor_1 = __webpack_require__(200);
+	var number_value_accessor_1 = __webpack_require__(199);
+	var ng_control_status_1 = __webpack_require__(208);
+	var select_control_value_accessor_1 = __webpack_require__(201);
+	var validators_1 = __webpack_require__(210);
+	var ng_control_name_2 = __webpack_require__(193);
 	exports.NgControlName = ng_control_name_2.NgControlName;
-	var ng_form_control_2 = __webpack_require__(195);
+	var ng_form_control_2 = __webpack_require__(203);
 	exports.NgFormControl = ng_form_control_2.NgFormControl;
-	var ng_model_2 = __webpack_require__(196);
+	var ng_model_2 = __webpack_require__(204);
 	exports.NgModel = ng_model_2.NgModel;
-	var ng_control_group_2 = __webpack_require__(197);
+	var ng_control_group_2 = __webpack_require__(205);
 	exports.NgControlGroup = ng_control_group_2.NgControlGroup;
-	var ng_form_model_2 = __webpack_require__(198);
+	var ng_form_model_2 = __webpack_require__(206);
 	exports.NgFormModel = ng_form_model_2.NgFormModel;
-	var ng_form_2 = __webpack_require__(199);
+	var ng_form_2 = __webpack_require__(207);
 	exports.NgForm = ng_form_2.NgForm;
-	var default_value_accessor_2 = __webpack_require__(190);
+	var default_value_accessor_2 = __webpack_require__(198);
 	exports.DefaultValueAccessor = default_value_accessor_2.DefaultValueAccessor;
-	var checkbox_value_accessor_2 = __webpack_require__(192);
+	var checkbox_value_accessor_2 = __webpack_require__(200);
 	exports.CheckboxControlValueAccessor = checkbox_value_accessor_2.CheckboxControlValueAccessor;
-	var number_value_accessor_2 = __webpack_require__(191);
+	var number_value_accessor_2 = __webpack_require__(199);
 	exports.NumberValueAccessor = number_value_accessor_2.NumberValueAccessor;
-	var ng_control_status_2 = __webpack_require__(200);
+	var ng_control_status_2 = __webpack_require__(208);
 	exports.NgControlStatus = ng_control_status_2.NgControlStatus;
-	var select_control_value_accessor_2 = __webpack_require__(193);
+	var select_control_value_accessor_2 = __webpack_require__(201);
 	exports.SelectControlValueAccessor = select_control_value_accessor_2.SelectControlValueAccessor;
 	exports.NgSelectOption = select_control_value_accessor_2.NgSelectOption;
-	var validators_2 = __webpack_require__(202);
+	var validators_2 = __webpack_require__(210);
 	exports.RequiredValidator = validators_2.RequiredValidator;
 	exports.MinLengthValidator = validators_2.MinLengthValidator;
 	exports.MaxLengthValidator = validators_2.MaxLengthValidator;
-	var ng_control_1 = __webpack_require__(186);
+	var ng_control_1 = __webpack_require__(194);
 	exports.NgControl = ng_control_1.NgControl;
 	/**
 	 *
@@ -30595,7 +32293,7 @@
 
 
 /***/ },
-/* 202 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -30612,7 +32310,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var lang_1 = __webpack_require__(10);
-	var validators_1 = __webpack_require__(189);
+	var validators_1 = __webpack_require__(197);
 	var lang_2 = __webpack_require__(10);
 	var REQUIRED_VALIDATOR = lang_1.CONST_EXPR(new core_1.Provider(validators_1.NG_VALIDATORS, { useValue: validators_1.Validators.required, multi: true }));
 	/**
@@ -30697,7 +32395,7 @@
 
 
 /***/ },
-/* 203 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -30712,7 +32410,7 @@
 	var core_1 = __webpack_require__(7);
 	var collection_1 = __webpack_require__(17);
 	var lang_1 = __webpack_require__(10);
-	var modelModule = __webpack_require__(182);
+	var modelModule = __webpack_require__(190);
 	/**
 	 * Creates a form object from a user-specified configuration.
 	 *
@@ -30842,12 +32540,12 @@
 
 
 /***/ },
-/* 204 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
-	var forms_1 = __webpack_require__(181);
-	var directives_1 = __webpack_require__(173);
+	var forms_1 = __webpack_require__(189);
+	var directives_1 = __webpack_require__(181);
 	/**
 	 * A collection of Angular core directives that are likely to be used in each and every Angular
 	 * application. This includes core directives (e.g., NgIf and NgFor), and forms directives (e.g.,
@@ -30895,7 +32593,7 @@
 
 
 /***/ },
-/* 205 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -30914,7 +32612,7 @@
 	};
 	var dom_adapter_1 = __webpack_require__(139);
 	var core_1 = __webpack_require__(7);
-	var event_manager_1 = __webpack_require__(206);
+	var event_manager_1 = __webpack_require__(214);
 	var DomEventsPlugin = (function (_super) {
 	    __extends(DomEventsPlugin, _super);
 	    function DomEventsPlugin() {
@@ -30944,7 +32642,7 @@
 
 
 /***/ },
-/* 206 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -31017,7 +32715,7 @@
 
 
 /***/ },
-/* 207 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -31037,7 +32735,7 @@
 	var dom_adapter_1 = __webpack_require__(139);
 	var lang_1 = __webpack_require__(10);
 	var collection_1 = __webpack_require__(17);
-	var event_manager_1 = __webpack_require__(206);
+	var event_manager_1 = __webpack_require__(214);
 	var di_1 = __webpack_require__(11);
 	var modifierKeys = ['alt', 'control', 'meta', 'shift'];
 	var modifierKeyGetters = {
@@ -31135,7 +32833,7 @@
 
 
 /***/ },
-/* 208 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -31152,7 +32850,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var hammer_common_1 = __webpack_require__(209);
+	var hammer_common_1 = __webpack_require__(217);
 	var lang_1 = __webpack_require__(10);
 	var exceptions_1 = __webpack_require__(19);
 	var di_1 = __webpack_require__(11);
@@ -31192,7 +32890,7 @@
 
 
 /***/ },
-/* 209 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -31200,7 +32898,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var event_manager_1 = __webpack_require__(206);
+	var event_manager_1 = __webpack_require__(214);
 	var collection_1 = __webpack_require__(17);
 	var _eventNames = {
 	    // pan
@@ -31254,7 +32952,7 @@
 
 
 /***/ },
-/* 210 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var di_1 = __webpack_require__(11);
@@ -31269,7 +32967,7 @@
 
 
 /***/ },
-/* 211 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -31290,15 +32988,15 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var di_1 = __webpack_require__(11);
-	var animation_builder_1 = __webpack_require__(212);
+	var animation_builder_1 = __webpack_require__(220);
 	var lang_1 = __webpack_require__(10);
 	var exceptions_1 = __webpack_require__(19);
-	var shared_styles_host_1 = __webpack_require__(219);
-	var event_manager_1 = __webpack_require__(206);
-	var dom_tokens_1 = __webpack_require__(210);
+	var shared_styles_host_1 = __webpack_require__(227);
+	var event_manager_1 = __webpack_require__(214);
+	var dom_tokens_1 = __webpack_require__(218);
 	var metadata_1 = __webpack_require__(8);
 	var dom_adapter_1 = __webpack_require__(139);
-	var util_1 = __webpack_require__(217);
+	var util_1 = __webpack_require__(225);
 	var NAMESPACE_URIS = lang_1.CONST_EXPR({ 'xlink': 'http://www.w3.org/1999/xlink', 'svg': 'http://www.w3.org/2000/svg' });
 	var TEMPLATE_COMMENT_TEXT = 'template bindings={}';
 	var TEMPLATE_BINDINGS_EXP = /^template bindings=(.*)$/g;
@@ -31588,7 +33286,7 @@
 
 
 /***/ },
-/* 212 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -31601,8 +33299,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var di_1 = __webpack_require__(11);
-	var css_animation_builder_1 = __webpack_require__(213);
-	var browser_details_1 = __webpack_require__(218);
+	var css_animation_builder_1 = __webpack_require__(221);
+	var browser_details_1 = __webpack_require__(226);
 	var AnimationBuilder = (function () {
 	    /**
 	     * Used for DI
@@ -31626,11 +33324,11 @@
 
 
 /***/ },
-/* 213 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var css_animation_options_1 = __webpack_require__(214);
-	var animation_1 = __webpack_require__(215);
+	'use strict';var css_animation_options_1 = __webpack_require__(222);
+	var animation_1 = __webpack_require__(223);
 	var CssAnimationBuilder = (function () {
 	    /**
 	     * Accepts public properties for CssAnimationBuilder
@@ -31717,7 +33415,7 @@
 
 
 /***/ },
-/* 214 */
+/* 222 */
 /***/ function(module, exports) {
 
 	'use strict';var CssAnimationOptions = (function () {
@@ -31735,12 +33433,12 @@
 
 
 /***/ },
-/* 215 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
-	var math_1 = __webpack_require__(216);
-	var util_1 = __webpack_require__(217);
+	var math_1 = __webpack_require__(224);
+	var util_1 = __webpack_require__(225);
 	var collection_1 = __webpack_require__(17);
 	var dom_adapter_1 = __webpack_require__(139);
 	var Animation = (function () {
@@ -31922,7 +33620,7 @@
 
 
 /***/ },
-/* 216 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
@@ -31931,7 +33629,7 @@
 
 
 /***/ },
-/* 217 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
@@ -31948,7 +33646,7 @@
 
 
 /***/ },
-/* 218 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -31961,7 +33659,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var di_1 = __webpack_require__(11);
-	var math_1 = __webpack_require__(216);
+	var math_1 = __webpack_require__(224);
 	var dom_adapter_1 = __webpack_require__(139);
 	var BrowserDetails = (function () {
 	    function BrowserDetails() {
@@ -32026,7 +33724,7 @@
 
 
 /***/ },
-/* 219 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -32049,7 +33747,7 @@
 	var dom_adapter_1 = __webpack_require__(139);
 	var di_1 = __webpack_require__(11);
 	var collection_1 = __webpack_require__(17);
-	var dom_tokens_1 = __webpack_require__(210);
+	var dom_tokens_1 = __webpack_require__(218);
 	var SharedStylesHost = (function () {
 	    function SharedStylesHost() {
 	        /** @internal */
@@ -32112,7 +33810,7 @@
 
 
 /***/ },
-/* 220 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -32123,7 +33821,7 @@
 	var collection_1 = __webpack_require__(17);
 	var lang_1 = __webpack_require__(10);
 	var dom_adapter_1 = __webpack_require__(139);
-	var generic_browser_adapter_1 = __webpack_require__(221);
+	var generic_browser_adapter_1 = __webpack_require__(229);
 	var _attrToPropMap = {
 	    'class': 'className',
 	    'innerHtml': 'innerHTML',
@@ -32505,7 +34203,7 @@
 
 
 /***/ },
-/* 221 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -32516,7 +34214,7 @@
 	var collection_1 = __webpack_require__(17);
 	var lang_1 = __webpack_require__(10);
 	var dom_adapter_1 = __webpack_require__(139);
-	var xhr_impl_1 = __webpack_require__(222);
+	var xhr_impl_1 = __webpack_require__(230);
 	/**
 	 * Provides DOM operations in any browser environment.
 	 */
@@ -32580,7 +34278,7 @@
 
 
 /***/ },
-/* 222 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -32590,7 +34288,7 @@
 	};
 	var promise_1 = __webpack_require__(54);
 	var lang_1 = __webpack_require__(10);
-	var xhr_1 = __webpack_require__(223);
+	var xhr_1 = __webpack_require__(231);
 	var XHRImpl = (function (_super) {
 	    __extends(XHRImpl, _super);
 	    function XHRImpl() {
@@ -32630,7 +34328,7 @@
 
 
 /***/ },
-/* 223 */
+/* 231 */
 /***/ function(module, exports) {
 
 	'use strict';// TODO: vsavkin rename it into TemplateLoader
@@ -32648,7 +34346,7 @@
 
 
 /***/ },
-/* 224 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(17);
@@ -32726,7 +34424,7 @@
 
 
 /***/ },
-/* 225 */
+/* 233 */
 /***/ function(module, exports) {
 
 	'use strict';/**
@@ -32737,7 +34435,7 @@
 
 
 /***/ },
-/* 226 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var dom_adapter_1 = __webpack_require__(139);
@@ -32768,7 +34466,7 @@
 
 
 /***/ },
-/* 227 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';function __export(m) {
@@ -32781,25 +34479,25 @@
 	exports.DOM = dom_adapter_1.DOM;
 	exports.setRootDomAdapter = dom_adapter_1.setRootDomAdapter;
 	exports.DomAdapter = dom_adapter_1.DomAdapter;
-	var dom_renderer_1 = __webpack_require__(211);
+	var dom_renderer_1 = __webpack_require__(219);
 	exports.DomRenderer = dom_renderer_1.DomRenderer;
-	var dom_tokens_1 = __webpack_require__(210);
+	var dom_tokens_1 = __webpack_require__(218);
 	exports.DOCUMENT = dom_tokens_1.DOCUMENT;
-	var shared_styles_host_1 = __webpack_require__(219);
+	var shared_styles_host_1 = __webpack_require__(227);
 	exports.SharedStylesHost = shared_styles_host_1.SharedStylesHost;
 	exports.DomSharedStylesHost = shared_styles_host_1.DomSharedStylesHost;
-	var dom_events_1 = __webpack_require__(205);
+	var dom_events_1 = __webpack_require__(213);
 	exports.DomEventsPlugin = dom_events_1.DomEventsPlugin;
-	var event_manager_1 = __webpack_require__(206);
+	var event_manager_1 = __webpack_require__(214);
 	exports.EVENT_MANAGER_PLUGINS = event_manager_1.EVENT_MANAGER_PLUGINS;
 	exports.EventManager = event_manager_1.EventManager;
 	exports.EventManagerPlugin = event_manager_1.EventManagerPlugin;
-	__export(__webpack_require__(228));
-	__export(__webpack_require__(229));
+	__export(__webpack_require__(236));
+	__export(__webpack_require__(237));
 
 
 /***/ },
-/* 228 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
@@ -32848,7 +34546,7 @@
 
 
 /***/ },
-/* 229 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -32948,11 +34646,11 @@
 
 
 /***/ },
-/* 230 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
-	var common_tools_1 = __webpack_require__(231);
+	var common_tools_1 = __webpack_require__(239);
 	var context = lang_1.global;
 	/**
 	 * Enabled Angular 2 debug tools that are accessible via your browser's
@@ -32979,12 +34677,12 @@
 
 
 /***/ },
-/* 231 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var application_ref_1 = __webpack_require__(85);
 	var lang_1 = __webpack_require__(10);
-	var browser_1 = __webpack_require__(232);
+	var browser_1 = __webpack_require__(240);
 	var dom_adapter_1 = __webpack_require__(139);
 	/**
 	 * Entry point for all Angular debug tools. This object corresponds to the `ng`
@@ -33053,7 +34751,7 @@
 
 
 /***/ },
-/* 232 */
+/* 240 */
 /***/ function(module, exports) {
 
 	'use strict';/**
@@ -33075,7 +34773,7 @@
 
 
 /***/ },
-/* 233 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';function __export(m) {
@@ -33086,13 +34784,13 @@
 	 * @description
 	 * Starting point to import all compiler APIs.
 	 */
-	__export(__webpack_require__(234));
-	__export(__webpack_require__(223));
-	__export(__webpack_require__(235));
+	__export(__webpack_require__(242));
+	__export(__webpack_require__(231));
+	__export(__webpack_require__(243));
 
 
 /***/ },
-/* 234 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -33422,45 +35120,45 @@
 
 
 /***/ },
-/* 235 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	var runtime_compiler_1 = __webpack_require__(236);
-	var template_compiler_1 = __webpack_require__(237);
+	var runtime_compiler_1 = __webpack_require__(244);
+	var template_compiler_1 = __webpack_require__(245);
 	exports.TemplateCompiler = template_compiler_1.TemplateCompiler;
-	var directive_metadata_1 = __webpack_require__(238);
+	var directive_metadata_1 = __webpack_require__(246);
 	exports.CompileDirectiveMetadata = directive_metadata_1.CompileDirectiveMetadata;
 	exports.CompileTypeMetadata = directive_metadata_1.CompileTypeMetadata;
 	exports.CompileTemplateMetadata = directive_metadata_1.CompileTemplateMetadata;
-	var source_module_1 = __webpack_require__(243);
+	var source_module_1 = __webpack_require__(251);
 	exports.SourceModule = source_module_1.SourceModule;
 	exports.SourceWithImports = source_module_1.SourceWithImports;
 	var platform_directives_and_pipes_1 = __webpack_require__(113);
 	exports.PLATFORM_DIRECTIVES = platform_directives_and_pipes_1.PLATFORM_DIRECTIVES;
 	exports.PLATFORM_PIPES = platform_directives_and_pipes_1.PLATFORM_PIPES;
-	__export(__webpack_require__(242));
-	var template_parser_1 = __webpack_require__(252);
+	__export(__webpack_require__(250));
+	var template_parser_1 = __webpack_require__(260);
 	exports.TEMPLATE_TRANSFORMS = template_parser_1.TEMPLATE_TRANSFORMS;
 	var lang_1 = __webpack_require__(10);
 	var di_1 = __webpack_require__(11);
-	var template_parser_2 = __webpack_require__(252);
-	var html_parser_1 = __webpack_require__(253);
-	var template_normalizer_1 = __webpack_require__(260);
-	var runtime_metadata_1 = __webpack_require__(261);
-	var change_detector_compiler_1 = __webpack_require__(244);
-	var style_compiler_1 = __webpack_require__(247);
-	var view_compiler_1 = __webpack_require__(250);
-	var proto_view_compiler_1 = __webpack_require__(251);
-	var template_compiler_2 = __webpack_require__(237);
+	var template_parser_2 = __webpack_require__(260);
+	var html_parser_1 = __webpack_require__(261);
+	var template_normalizer_1 = __webpack_require__(268);
+	var runtime_metadata_1 = __webpack_require__(269);
+	var change_detector_compiler_1 = __webpack_require__(252);
+	var style_compiler_1 = __webpack_require__(255);
+	var view_compiler_1 = __webpack_require__(258);
+	var proto_view_compiler_1 = __webpack_require__(259);
+	var template_compiler_2 = __webpack_require__(245);
 	var change_detection_1 = __webpack_require__(30);
 	var compiler_1 = __webpack_require__(90);
-	var runtime_compiler_2 = __webpack_require__(236);
-	var element_schema_registry_1 = __webpack_require__(258);
-	var dom_element_schema_registry_1 = __webpack_require__(263);
-	var url_resolver_1 = __webpack_require__(234);
+	var runtime_compiler_2 = __webpack_require__(244);
+	var element_schema_registry_1 = __webpack_require__(266);
+	var dom_element_schema_registry_1 = __webpack_require__(271);
+	var url_resolver_1 = __webpack_require__(242);
 	var change_detection_2 = __webpack_require__(30);
 	function _createChangeDetectorGenConfig() {
 	    return new change_detection_1.ChangeDetectorGenConfig(lang_1.assertionsEnabled(), false, true);
@@ -33492,7 +35190,7 @@
 
 
 /***/ },
-/* 236 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -33511,7 +35209,7 @@
 	};
 	var compiler_1 = __webpack_require__(90);
 	var view_ref_1 = __webpack_require__(100);
-	var template_compiler_1 = __webpack_require__(237);
+	var template_compiler_1 = __webpack_require__(245);
 	var di_1 = __webpack_require__(11);
 	var RuntimeCompiler = (function (_super) {
 	    __extends(RuntimeCompiler, _super);
@@ -33545,7 +35243,7 @@
 
 
 /***/ },
-/* 237 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -33561,21 +35259,21 @@
 	var exceptions_1 = __webpack_require__(19);
 	var collection_1 = __webpack_require__(17);
 	var async_1 = __webpack_require__(53);
-	var directive_metadata_1 = __webpack_require__(238);
-	var template_ast_1 = __webpack_require__(242);
+	var directive_metadata_1 = __webpack_require__(246);
+	var template_ast_1 = __webpack_require__(250);
 	var di_1 = __webpack_require__(11);
-	var source_module_1 = __webpack_require__(243);
-	var change_detector_compiler_1 = __webpack_require__(244);
-	var style_compiler_1 = __webpack_require__(247);
-	var view_compiler_1 = __webpack_require__(250);
-	var proto_view_compiler_1 = __webpack_require__(251);
-	var template_parser_1 = __webpack_require__(252);
-	var template_normalizer_1 = __webpack_require__(260);
-	var runtime_metadata_1 = __webpack_require__(261);
+	var source_module_1 = __webpack_require__(251);
+	var change_detector_compiler_1 = __webpack_require__(252);
+	var style_compiler_1 = __webpack_require__(255);
+	var view_compiler_1 = __webpack_require__(258);
+	var proto_view_compiler_1 = __webpack_require__(259);
+	var template_parser_1 = __webpack_require__(260);
+	var template_normalizer_1 = __webpack_require__(268);
+	var runtime_metadata_1 = __webpack_require__(269);
 	var view_1 = __webpack_require__(91);
 	var change_detection_1 = __webpack_require__(30);
 	var resolved_metadata_cache_1 = __webpack_require__(116);
-	var util_1 = __webpack_require__(240);
+	var util_1 = __webpack_require__(248);
 	exports.METADATA_CACHE_MODULE_REF = source_module_1.moduleRef('package:angular2/src/core/linker/resolved_metadata_cache' + util_1.MODULE_SUFFIX);
 	/**
 	 * An internal module of the Angular compiler that begins with component types,
@@ -33896,7 +35594,7 @@
 
 
 /***/ },
-/* 238 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
@@ -33904,9 +35602,9 @@
 	var collection_1 = __webpack_require__(17);
 	var change_detection_1 = __webpack_require__(30);
 	var view_1 = __webpack_require__(81);
-	var selector_1 = __webpack_require__(239);
-	var util_1 = __webpack_require__(240);
-	var interfaces_1 = __webpack_require__(241);
+	var selector_1 = __webpack_require__(247);
+	var util_1 = __webpack_require__(248);
+	var interfaces_1 = __webpack_require__(249);
 	// group 1: "property" from "[property]"
 	// group 2: "event" from "(event)"
 	var HOST_REG_EXP = /^(?:(?:\[([^\]]+)\])|(?:\(([^\)]+)\)))$/g;
@@ -34158,7 +35856,7 @@
 
 
 /***/ },
-/* 239 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(17);
@@ -34520,7 +36218,7 @@
 
 
 /***/ },
-/* 240 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
@@ -34714,7 +36412,7 @@
 
 
 /***/ },
-/* 241 */
+/* 249 */
 /***/ function(module, exports) {
 
 	'use strict';(function (LifecycleHooks) {
@@ -34744,7 +36442,7 @@
 
 
 /***/ },
-/* 242 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
@@ -34993,7 +36691,7 @@
 
 
 /***/ },
-/* 243 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
@@ -35067,7 +36765,7 @@
 
 
 /***/ },
-/* 244 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -35079,16 +36777,16 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var source_module_1 = __webpack_require__(243);
+	var source_module_1 = __webpack_require__(251);
 	var change_detection_jit_generator_1 = __webpack_require__(77);
 	var abstract_change_detector_1 = __webpack_require__(48);
 	var change_detection_util_1 = __webpack_require__(43);
 	var constants_1 = __webpack_require__(41);
-	var change_definition_factory_1 = __webpack_require__(245);
+	var change_definition_factory_1 = __webpack_require__(253);
 	var lang_1 = __webpack_require__(10);
 	var change_detection_1 = __webpack_require__(30);
-	var change_detector_codegen_1 = __webpack_require__(246);
-	var util_1 = __webpack_require__(240);
+	var change_detector_codegen_1 = __webpack_require__(254);
+	var util_1 = __webpack_require__(248);
 	var di_1 = __webpack_require__(11);
 	var ABSTRACT_CHANGE_DETECTOR = "AbstractChangeDetector";
 	var UTIL = "ChangeDetectionUtil";
@@ -35157,15 +36855,15 @@
 
 
 /***/ },
-/* 245 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(17);
 	var lang_1 = __webpack_require__(10);
 	var reflection_1 = __webpack_require__(21);
 	var change_detection_1 = __webpack_require__(30);
-	var template_ast_1 = __webpack_require__(242);
-	var interfaces_1 = __webpack_require__(241);
+	var template_ast_1 = __webpack_require__(250);
+	var interfaces_1 = __webpack_require__(249);
 	function createChangeDetectorDefinitions(componentType, componentStrategy, genConfig, parsedTemplate) {
 	    var pvVisitors = [];
 	    var visitor = new ProtoViewVisitor(null, pvVisitors, componentStrategy);
@@ -35330,7 +37028,7 @@
 
 
 /***/ },
-/* 246 */
+/* 254 */
 /***/ function(module, exports) {
 
 	'use strict';// Note: This class is only here so that we can reference it from TypeScript code.
@@ -35350,7 +37048,7 @@
 
 
 /***/ },
-/* 247 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -35362,15 +37060,15 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var source_module_1 = __webpack_require__(243);
+	var source_module_1 = __webpack_require__(251);
 	var view_1 = __webpack_require__(81);
-	var xhr_1 = __webpack_require__(223);
+	var xhr_1 = __webpack_require__(231);
 	var lang_1 = __webpack_require__(10);
 	var async_1 = __webpack_require__(53);
-	var shadow_css_1 = __webpack_require__(248);
-	var url_resolver_1 = __webpack_require__(234);
-	var style_url_resolver_1 = __webpack_require__(249);
-	var util_1 = __webpack_require__(240);
+	var shadow_css_1 = __webpack_require__(256);
+	var url_resolver_1 = __webpack_require__(242);
+	var style_url_resolver_1 = __webpack_require__(257);
+	var util_1 = __webpack_require__(248);
 	var di_1 = __webpack_require__(11);
 	var COMPONENT_VARIABLE = '%COMP%';
 	var HOST_ATTR = "_nghost-" + COMPONENT_VARIABLE;
@@ -35450,7 +37148,7 @@
 
 
 /***/ },
-/* 248 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var collection_1 = __webpack_require__(17);
@@ -35952,7 +37650,7 @@
 
 
 /***/ },
-/* 249 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';// Some of the code comes from WebComponents.JS
@@ -35998,7 +37696,7 @@
 
 
 /***/ },
-/* 250 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -36012,15 +37710,15 @@
 	};
 	var lang_1 = __webpack_require__(10);
 	var collection_1 = __webpack_require__(17);
-	var template_ast_1 = __webpack_require__(242);
-	var source_module_1 = __webpack_require__(243);
+	var template_ast_1 = __webpack_require__(250);
+	var source_module_1 = __webpack_require__(251);
 	var view_1 = __webpack_require__(91);
 	var view_type_1 = __webpack_require__(93);
 	var element_1 = __webpack_require__(92);
 	var view_2 = __webpack_require__(81);
-	var util_1 = __webpack_require__(240);
+	var util_1 = __webpack_require__(248);
 	var di_1 = __webpack_require__(11);
-	var proto_view_compiler_1 = __webpack_require__(251);
+	var proto_view_compiler_1 = __webpack_require__(259);
 	exports.VIEW_JIT_IMPORTS = lang_1.CONST_EXPR({
 	    'AppView': view_1.AppView,
 	    'AppElement': element_1.AppElement,
@@ -36402,7 +38100,7 @@
 
 
 /***/ },
-/* 251 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -36421,12 +38119,12 @@
 	};
 	var lang_1 = __webpack_require__(10);
 	var collection_1 = __webpack_require__(17);
-	var template_ast_1 = __webpack_require__(242);
-	var source_module_1 = __webpack_require__(243);
+	var template_ast_1 = __webpack_require__(250);
+	var source_module_1 = __webpack_require__(251);
 	var view_1 = __webpack_require__(91);
 	var view_type_1 = __webpack_require__(93);
 	var element_1 = __webpack_require__(92);
-	var util_1 = __webpack_require__(240);
+	var util_1 = __webpack_require__(248);
 	var di_1 = __webpack_require__(11);
 	exports.PROTO_VIEW_JIT_IMPORTS = lang_1.CONST_EXPR({ 'AppProtoView': view_1.AppProtoView, 'AppProtoElement': element_1.AppProtoElement, 'ViewType': view_type_1.ViewType });
 	// TODO: have a single file that reexports everything needed for
@@ -36718,7 +38416,7 @@
 
 
 /***/ },
-/* 252 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -36744,17 +38442,17 @@
 	var lang_2 = __webpack_require__(10);
 	var exceptions_1 = __webpack_require__(19);
 	var change_detection_1 = __webpack_require__(30);
-	var html_parser_1 = __webpack_require__(253);
-	var html_tags_1 = __webpack_require__(257);
-	var parse_util_1 = __webpack_require__(256);
+	var html_parser_1 = __webpack_require__(261);
+	var html_tags_1 = __webpack_require__(265);
+	var parse_util_1 = __webpack_require__(264);
 	var ast_1 = __webpack_require__(35);
-	var template_ast_1 = __webpack_require__(242);
-	var selector_1 = __webpack_require__(239);
-	var element_schema_registry_1 = __webpack_require__(258);
-	var template_preparser_1 = __webpack_require__(259);
-	var style_url_resolver_1 = __webpack_require__(249);
-	var html_ast_1 = __webpack_require__(254);
-	var util_1 = __webpack_require__(240);
+	var template_ast_1 = __webpack_require__(250);
+	var selector_1 = __webpack_require__(247);
+	var element_schema_registry_1 = __webpack_require__(266);
+	var template_preparser_1 = __webpack_require__(267);
+	var style_url_resolver_1 = __webpack_require__(257);
+	var html_ast_1 = __webpack_require__(262);
+	var util_1 = __webpack_require__(248);
 	// Group 1 = "bind-"
 	// Group 2 = "var-" or "#"
 	// Group 3 = "on-"
@@ -37383,7 +39081,7 @@
 
 
 /***/ },
-/* 253 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -37402,11 +39100,11 @@
 	};
 	var lang_1 = __webpack_require__(10);
 	var collection_1 = __webpack_require__(17);
-	var html_ast_1 = __webpack_require__(254);
+	var html_ast_1 = __webpack_require__(262);
 	var di_1 = __webpack_require__(11);
-	var html_lexer_1 = __webpack_require__(255);
-	var parse_util_1 = __webpack_require__(256);
-	var html_tags_1 = __webpack_require__(257);
+	var html_lexer_1 = __webpack_require__(263);
+	var parse_util_1 = __webpack_require__(264);
+	var html_tags_1 = __webpack_require__(265);
 	var HtmlTreeError = (function (_super) {
 	    __extends(HtmlTreeError, _super);
 	    function HtmlTreeError(elementName, location, msg) {
@@ -37636,7 +39334,7 @@
 
 
 /***/ },
-/* 254 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
@@ -37685,7 +39383,7 @@
 
 
 /***/ },
-/* 255 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -37695,8 +39393,8 @@
 	};
 	var lang_1 = __webpack_require__(10);
 	var collection_1 = __webpack_require__(17);
-	var parse_util_1 = __webpack_require__(256);
-	var html_tags_1 = __webpack_require__(257);
+	var parse_util_1 = __webpack_require__(264);
+	var html_tags_1 = __webpack_require__(265);
 	(function (HtmlTokenType) {
 	    HtmlTokenType[HtmlTokenType["TAG_OPEN_START"] = 0] = "TAG_OPEN_START";
 	    HtmlTokenType[HtmlTokenType["TAG_OPEN_END"] = 1] = "TAG_OPEN_END";
@@ -38245,7 +39943,7 @@
 
 
 /***/ },
-/* 256 */
+/* 264 */
 /***/ function(module, exports) {
 
 	'use strict';var ParseLocation = (function () {
@@ -38322,7 +40020,7 @@
 
 
 /***/ },
-/* 257 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
@@ -38722,7 +40420,7 @@
 
 
 /***/ },
-/* 258 */
+/* 266 */
 /***/ function(module, exports) {
 
 	'use strict';var ElementSchemaRegistry = (function () {
@@ -38736,11 +40434,11 @@
 
 
 /***/ },
-/* 259 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
-	var html_tags_1 = __webpack_require__(257);
+	var html_tags_1 = __webpack_require__(265);
 	var NG_CONTENT_SELECT_ATTR = 'select';
 	var NG_CONTENT_ELEMENT = 'ng-content';
 	var LINK_ELEMENT = 'link';
@@ -38815,7 +40513,7 @@
 
 
 /***/ },
-/* 260 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -38827,18 +40525,18 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var directive_metadata_1 = __webpack_require__(238);
+	var directive_metadata_1 = __webpack_require__(246);
 	var lang_1 = __webpack_require__(10);
 	var exceptions_1 = __webpack_require__(19);
 	var async_1 = __webpack_require__(53);
-	var xhr_1 = __webpack_require__(223);
-	var url_resolver_1 = __webpack_require__(234);
-	var style_url_resolver_1 = __webpack_require__(249);
+	var xhr_1 = __webpack_require__(231);
+	var url_resolver_1 = __webpack_require__(242);
+	var style_url_resolver_1 = __webpack_require__(257);
 	var di_1 = __webpack_require__(11);
 	var view_1 = __webpack_require__(81);
-	var html_ast_1 = __webpack_require__(254);
-	var html_parser_1 = __webpack_require__(253);
-	var template_preparser_1 = __webpack_require__(259);
+	var html_ast_1 = __webpack_require__(262);
+	var html_parser_1 = __webpack_require__(261);
+	var template_preparser_1 = __webpack_require__(267);
 	var TemplateNormalizer = (function () {
 	    function TemplateNormalizer(_xhr, _urlResolver, _htmlParser) {
 	        this._xhr = _xhr;
@@ -38947,7 +40645,7 @@
 
 
 /***/ },
-/* 261 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -38965,18 +40663,18 @@
 	var di_1 = __webpack_require__(11);
 	var lang_1 = __webpack_require__(10);
 	var exceptions_1 = __webpack_require__(19);
-	var cpl = __webpack_require__(238);
+	var cpl = __webpack_require__(246);
 	var md = __webpack_require__(28);
 	var directive_resolver_1 = __webpack_require__(110);
 	var pipe_resolver_1 = __webpack_require__(117);
 	var view_resolver_1 = __webpack_require__(111);
-	var directive_lifecycle_reflector_1 = __webpack_require__(262);
-	var interfaces_1 = __webpack_require__(241);
+	var directive_lifecycle_reflector_1 = __webpack_require__(270);
+	var interfaces_1 = __webpack_require__(249);
 	var reflection_1 = __webpack_require__(21);
 	var di_2 = __webpack_require__(11);
 	var platform_directives_and_pipes_1 = __webpack_require__(113);
-	var util_1 = __webpack_require__(240);
-	var url_resolver_1 = __webpack_require__(234);
+	var util_1 = __webpack_require__(248);
+	var url_resolver_1 = __webpack_require__(242);
 	var RuntimeMetadataResolver = (function () {
 	    function RuntimeMetadataResolver(_directiveResolver, _pipeResolver, _viewResolver, _platformDirectives, _platformPipes) {
 	        this._directiveResolver = _directiveResolver;
@@ -39119,11 +40817,11 @@
 
 
 /***/ },
-/* 262 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(10);
-	var interfaces_1 = __webpack_require__(241);
+	var interfaces_1 = __webpack_require__(249);
 	function hasLifecycleHook(lcInterface, token) {
 	    if (!(token instanceof lang_1.Type))
 	        return false;
@@ -39153,7 +40851,7 @@
 
 
 /***/ },
-/* 263 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -39174,8 +40872,8 @@
 	var lang_1 = __webpack_require__(10);
 	var collection_1 = __webpack_require__(17);
 	var dom_adapter_1 = __webpack_require__(139);
-	var html_tags_1 = __webpack_require__(257);
-	var element_schema_registry_1 = __webpack_require__(258);
+	var html_tags_1 = __webpack_require__(265);
+	var element_schema_registry_1 = __webpack_require__(266);
 	var NAMESPACE_URIS = lang_1.CONST_EXPR({ 'xlink': 'http://www.w3.org/1999/xlink', 'svg': 'http://www.w3.org/2000/svg' });
 	var DomElementSchemaRegistry = (function (_super) {
 	    __extends(DomElementSchemaRegistry, _super);
@@ -39219,1478 +40917,7 @@
 
 
 /***/ },
-/* 264 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	* @ngdoc service
-	* @name Config
-	* @module ionic
-	* @description
-	* Config allows you to set the modes of your components
-	*/
-	var platform_1 = __webpack_require__(265);
-	var util_1 = __webpack_require__(266);
-	/**
-	 * @name Config
-	 * @demo /docs/v2/demos/config/
-	 * @description
-	 * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
-	 *
-	 * ```ts
-	 * @App({
-	 *   template: `<ion-nav [root]="root"></ion-nav>`
-	 *   config: {
-	 *     backButtonText: 'Go Back',
-	 *     iconMode: 'ios',
-	 *     modalEnter: 'modal-slide-in',
-	 *     modalLeave: 'modal-slide-out',
-	 *     tabbarPlacement: 'bottom',
-	 *     pageTransition: 'ios',
-	 *   }
-	 * })
-	 * ```
-	 *
-	 * Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.
-	 * ```ts
-	 * @App({
-	 *   template: `<ion-nav [root]="root"></ion-nav>`
-	 *   config: {
-	 *     tabbarPlacement: 'bottom',
-	 *     platforms: {
-	 *      ios: {
-	 *        tabbarPlacement: 'top',
-	 *      }
-	 *     }
-	 *   }
-	 * })
-	 * ```
-	 *
-	 * We could also configure these values at a component level. Take `tabbarPlacement`, we can configure this as a property on our `ion-tabs`.
-	 *
-	 * ```html
-	 * <ion-tabs tabbarPlacement="top">
-	 *    <ion-tab tabTitle="Dash" tabIcon="pulse" [root]="tabRoot"></ion-tab>
-	 *  </ion-tabs>
-	 * ```
-	 *
-	 * The property will override anything else set in the apps.
-	 *
-	 * The last way we could configure is through URL query strings. This is useful for testing while in the browser.
-	 * Simply add `?ionic<PROPERTYNAME>=<value>` to the url.
-	 *
-	 * ```bash
-	 * http://localhost:8100/?ionicTabbarPlacement=bottom
-	 * ```
-	 *
-	 * Custom values can be added to config, and looked up at a later point in time.
-	 *
-	 * ``` javascript
-	 * config.set('ios', 'favoriteColor', 'green');
-	 * // from any page in your app:
-	 * config.get('favoriteColor'); // 'green'
-	 * ```
-	 *
-	 *
-	 * A config value can come from anywhere and be anything, but there are a default set of values.
-	 *
-	 *
-	 * | Config property            | Default iOS Value      | Default MD Value          |
-	 * |----------------------------|------------------------|---------------------------|
-	 * | activator                  | highlight              | ripple                    |
-	 * | actionSheetEnter           | action-sheet-slide-in  | action-sheet-md-slide-in  |
-	 * | actionSheetLeave           | action-sheet-slide-out | action-sheet-md-slide-out |
-	 * | alertEnter                 | alert-pop-in           | alert-md-pop-in           |
-	 * | alertLeave                 | alert-pop-out          | alert-md-pop-out          |
-	 * | backButtonText             | Back                   |                           |
-	 * | backButtonIcon             | ion-ios-arrow-back     | ion-md-arrow-back         |
-	 * | iconMode                   | ios                    | md                        |
-	 * | menuType                   | reveal                 | overlay                   |
-	 * | modalEnter                 | modal-slide-in         | modal-md-slide-in         |
-	 * | modalLeave                 | modal-slide-out        | modal-md-slide-out        |
-	 * | pageTransition             | ios-transition         | md-transition             |
-	 * | pageTransitionDelay        | 16                     | 120                       |
-	 * | tabbarPlacement            | bottom                 | top                       |
-	 * | tabbarHighlight            |                        | top                       |
-	 * | tabSubPages                |                        | true                      |
-	 *
-	**/
-	var Config = (function () {
-	    function Config(config) {
-	        this._c = {};
-	        this._s = {};
-	        this._s = config && util_1.isObject(config) && !util_1.isArray(config) ? config : {};
-	    }
-	    /**
-	     * For setting and getting multiple config values
-	     */
-	    /**
-	     * @private
-	     * @name settings()
-	     * @description
-	     */
-	    Config.prototype.settings = function () {
-	        var args = arguments;
-	        switch (args.length) {
-	            case 0:
-	                return this._s;
-	            case 1:
-	                // settings({...})
-	                this._s = args[0];
-	                this._c = {}; // clear cache
-	                break;
-	            case 2:
-	                // settings('ios', {...})
-	                this._s.platforms = this._s.platforms || {};
-	                this._s.platforms[args[0]] = args[1];
-	                this._c = {}; // clear cache
-	                break;
-	        }
-	        return this;
-	    };
-	    /**
-	     * @name set
-	     * @description
-	     * Sets a single config value.
-	     *
-	     * @param {String} [platform] - The platform (either 'ios' or 'android') that the config value should apply to. Leaving this blank will apply the config value to all platforms.
-	     * @param {String} [key] - The key used to look up the value at a later point in time.
-	     * @param {String} [value] - The config value being stored.
-	     */
-	    Config.prototype.set = function () {
-	        var args = arguments;
-	        var arg0 = args[0];
-	        var arg1 = args[1];
-	        switch (args.length) {
-	            case 2:
-	                // set('key', 'value') = set key/value pair
-	                // arg1 = value
-	                this._s[arg0] = arg1;
-	                delete this._c[arg0]; // clear cache
-	                break;
-	            case 3:
-	                // setting('ios', 'key', 'value') = set key/value pair for platform
-	                // arg0 = platform
-	                // arg1 = key
-	                // arg2 = value
-	                this._s.platforms = this._s.platforms || {};
-	                this._s.platforms[arg0] = this._s.platforms[arg0] || {};
-	                this._s.platforms[arg0][arg1] = args[2];
-	                delete this._c[arg1]; // clear cache
-	                break;
-	        }
-	        return this;
-	    };
-	    /**
-	     * @name get
-	     * @description
-	     * Returns a single config value, given a key.
-	     *
-	     * @param {String} [key] - the key for the config value
-	     */
-	    Config.prototype.get = function (key) {
-	        if (!util_1.isDefined(this._c[key])) {
-	            if (!util_1.isDefined(key)) {
-	                throw 'config key is not defined';
-	            }
-	            // if the value was already set this will all be skipped
-	            // if there was no user config then it'll check each of
-	            // the user config's platforms, which already contains
-	            // settings from default platform configs
-	            var userPlatformValue = undefined;
-	            var userDefaultValue = this._s[key];
-	            var userPlatformModeValue = undefined;
-	            var userDefaultModeValue = undefined;
-	            var platformValue = undefined;
-	            var platformModeValue = undefined;
-	            var configObj = null;
-	            if (this.platform) {
-	                var queryStringValue = this.platform.query('ionic' + key.toLowerCase());
-	                if (util_1.isDefined(queryStringValue)) {
-	                    return this._c[key] = (queryStringValue === 'true' ? true : queryStringValue === 'false' ? false : queryStringValue);
-	                }
-	                // check the platform settings object for this value
-	                // loop though each of the active platforms
-	                // array of active platforms, which also knows the hierarchy,
-	                // with the last one the most important
-	                var activePlatformKeys = this.platform.platforms();
-	                // loop through all of the active platforms we're on
-	                for (var i = 0, l = activePlatformKeys.length; i < l; i++) {
-	                    // get user defined platform values
-	                    if (this._s.platforms) {
-	                        configObj = this._s.platforms[activePlatformKeys[i]];
-	                        if (configObj) {
-	                            if (util_1.isDefined(configObj[key])) {
-	                                userPlatformValue = configObj[key];
-	                            }
-	                            configObj = Config.getModeConfig(configObj.mode);
-	                            if (configObj && util_1.isDefined(configObj[key])) {
-	                                userPlatformModeValue = configObj[key];
-	                            }
-	                        }
-	                    }
-	                    // get default platform's setting
-	                    configObj = platform_1.Platform.get(activePlatformKeys[i]);
-	                    if (configObj && configObj.settings) {
-	                        if (util_1.isDefined(configObj.settings[key])) {
-	                            // found a setting for this platform
-	                            platformValue = configObj.settings[key];
-	                        }
-	                        configObj = Config.getModeConfig(configObj.settings.mode);
-	                        if (configObj && util_1.isDefined(configObj[key])) {
-	                            // found setting for this platform's mode
-	                            platformModeValue = configObj[key];
-	                        }
-	                    }
-	                }
-	            }
-	            configObj = Config.getModeConfig(this._s.mode);
-	            if (configObj && util_1.isDefined(configObj[key])) {
-	                userDefaultModeValue = configObj[key];
-	            }
-	            // cache the value
-	            this._c[key] = util_1.isDefined(userPlatformValue) ? userPlatformValue :
-	                util_1.isDefined(userDefaultValue) ? userDefaultValue :
-	                    util_1.isDefined(userPlatformModeValue) ? userPlatformModeValue :
-	                        util_1.isDefined(userDefaultModeValue) ? userDefaultModeValue :
-	                            util_1.isDefined(platformValue) ? platformValue :
-	                                util_1.isDefined(platformModeValue) ? platformModeValue :
-	                                    null;
-	        }
-	        // return key's value
-	        // either it came directly from the user config
-	        // or it was from the users platform configs
-	        // or it was from the default platform configs
-	        // in that order
-	        if (util_1.isFunction(this._c[key])) {
-	            return this._c[key](this.platform);
-	        }
-	        return this._c[key];
-	    };
-	    /**
-	     * @name getBoolean
-	     * @description
-	     * Same as `get()`, however always returns a boolean value.
-	     *
-	     * @param {String} [key] - the key for the config value
-	     */
-	    Config.prototype.getBoolean = function (key) {
-	        var val = this.get(key);
-	        return (val || val === 'true') ? true : false;
-	    };
-	    /**
-	     * @private
-	     */
-	    Config.prototype.setPlatform = function (platform) {
-	        this.platform = platform;
-	    };
-	    Config.setModeConfig = function (mode, config) {
-	        modeConfigs[mode] = config;
-	    };
-	    Config.getModeConfig = function (mode) {
-	        return modeConfigs[mode] || null;
-	    };
-	    return Config;
-	})();
-	exports.Config = Config;
-	var modeConfigs = {};
-
-/***/ },
-/* 265 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var util_1 = __webpack_require__(266);
-	var dom_1 = __webpack_require__(267);
-	/**
-	 * @name Platform
-	 * @description
-	 * Platform returns the availble information about your current platform.
-	 * Platforms in Ionic 2 are much more complex then in V1, returns not just a single platform,
-	 * but a hierarchy of information, such as a devices OS, phone vs tablet, or mobile vs browser.
-	 * With this information you can completely custimize your app to fit any device and platform.
-	 *
-	 * @usage
-	 * ```ts
-	 * import {Platform} 'ionic/ionic';
-	 * export MyClass {
-	 *    constructor(platform: Platform){
-	 *      this.platform = platform;
-	 *    }
-	 * }
-	 * ```
-	 * @demo /docs/v2/demos/platform/
-	 */
-	var Platform = (function () {
-	    function Platform(platforms) {
-	        var _this = this;
-	        if (platforms === void 0) { platforms = []; }
-	        this._versions = {};
-	        this._onResizes = [];
-	        this._platforms = platforms;
-	        this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
-	    }
-	    // Methods
-	    // **********************************************
-	    /**
-	     * @param {string} platformName
-	     * @returns {bool} returns true/false based on platform you place
-	     * @description
-	     * Depending on the platform name, isPlatform will return true or flase
-	     *
-	     * ```
-	     * import {Platform} 'ionic/ionic';
-	     * export MyClass {
-	     *    constructor(platform: Platform){
-	     *      this.platform = platform;
-	     *      if(this.platform.is('ios'){
-	     *        // what ever you need to do for
-	     *        // if the platfomr is ios
-	     *      }
-	     *    }
-	     * }
-	     * ```
-	     */
-	    Platform.prototype.is = function (platformName) {
-	        return (this._platforms.indexOf(platformName) > -1);
-	    };
-	    /**
-	     * @returns {array} the array of platforms
-	     * @description
-	     * Depending on what device you are on, `platforms` can return multiple values.
-	     * Each possible value is a hierarchy of platforms. For example, on an iPhone,
-	     * it would return mobile, ios, and iphone.
-	     *
-	     * ```
-	     * import {Platform} 'ionic/ionic';
-	     * export MyClass {
-	     *    constructor(platform: Platform){
-	     *      this.platform = platform;
-	     *      console.log(this.platform.platforms());
-	     *      // This will return an array of all the availble platforms
-	     *      // From if your on mobile, to mobile os, and device name
-	     *    }
-	     * }
-	     * ```
-	     */
-	    Platform.prototype.platforms = function () {
-	        // get the array of active platforms, which also knows the hierarchy,
-	        // with the last one the most important
-	        return this._platforms;
-	    };
-	    /**
-	     * Returns an object containing information about the paltform
-	     *
-	     * ```
-	     * import {Platform} 'ionic/ionic';
-	     * export MyClass {
-	     *    constructor(platform: Platform){
-	     *      this.platform = platform;
-	     *      console.log(this.platform.versions());
-	     *    }
-	     * }
-	     * ```
-	  
-	     * @param {string} [platformName] optional platformName
-	     * @returns {object} An object with various platform info
-	     *
-	     */
-	    Platform.prototype.versions = function (platformName) {
-	        if (arguments.length) {
-	            // get a specific platform's version
-	            return this._versions[platformName];
-	        }
-	        // get all the platforms that have a valid parsed version
-	        return this._versions;
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.version = function () {
-	        for (var platformName in this._versions) {
-	            if (this._versions[platformName]) {
-	                return this._versions[platformName];
-	            }
-	        }
-	        return {};
-	    };
-	    /**
-	     * Returns a promise when the platform is ready and native functionality can be called
-	     *
-	     * ```
-	     * import {Platform} 'ionic/ionic';
-	     * export MyClass {
-	     *    constructor(platform: Platform){
-	     *      this.platform = platform;
-	     *      this.platform.ready().then(() => {
-	     *        console.log('Platform ready');
-	     *        // The platform is now ready, execute any native code you want
-	     *       });
-	     *    }
-	     * }
-	     * ```
-	     * @returns {promise} Returns a promsie when device ready has fired
-	     */
-	    Platform.prototype.ready = function () {
-	        return this._readyPromise;
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.prepareReady = function (config) {
-	        var self = this;
-	        function resolve() {
-	            self._readyResolve(config);
-	        }
-	        if (this._engineReady) {
-	            // the engine provide a ready promise, use this instead
-	            this._engineReady(resolve);
-	        }
-	        else {
-	            // there is no custom ready method from the engine
-	            // use the default dom ready
-	            dom_1.ready(resolve);
-	        }
-	    };
-	    /**
-	    * Set the app's language direction, which will update the `dir` attribute
-	    * on the app's root `<html>` element. We recommend the app's `index.html`
-	    * file already has the correct `dir` attribute value set, such as
-	    * `<html dir="ltr">` or `<html dir="rtl">`. This method is useful if the
-	    * direction needs to be dynamically changed per user/session.
-	    * [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
-	    * @param {string} dir  Examples: `rtl`, `ltr`
-	    */
-	    Platform.prototype.setDir = function (dir, updateDocument) {
-	        this._dir = (dir || '').toLowerCase();
-	        if (updateDocument !== false) {
-	            document.documentElement.setAttribute('dir', dir);
-	        }
-	    };
-	    /**
-	     * Returns app's language direction.
-	     * We recommend the app's `index.html` file already has the correct `dir`
-	     * attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
-	     * [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
-	     * @returns {string}
-	     */
-	    Platform.prototype.dir = function () {
-	        return this._dir;
-	    };
-	    /**
-	     * Returns if this app is using right-to-left language direction or not.
-	     * We recommend the app's `index.html` file already has the correct `dir`
-	     * attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
-	     * [W3C: Structural markup and right-to-left text in HTML](http://www.w3.org/International/questions/qa-html-dir)
-	     * @returns {boolean}
-	     */
-	    Platform.prototype.isRTL = function () {
-	        return (this._dir === 'rtl');
-	    };
-	    /**
-	    * Set the app's language and optionally the country code, which will update
-	    * the `lang` attribute on the app's root `<html>` element.
-	    * We recommend the app's `index.html` file already has the correct `lang`
-	    * attribute value set, such as `<html lang="en">`. This method is useful if
-	    * the language needs to be dynamically changed per user/session.
-	    * [W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
-	    * @param {string} language  Examples: `en-US`, `en-GB`, `ar`, `de`, `zh`, `es-MX`
-	    */
-	    Platform.prototype.setLang = function (language, updateDocument) {
-	        this._lang = language;
-	        if (updateDocument !== false) {
-	            document.documentElement.setAttribute('lang', language);
-	        }
-	    };
-	    /**
-	     * Returns app's language and optional country code.
-	     * We recommend the app's `index.html` file already has the correct `lang`
-	     * attribute value set, such as `<html lang="en">`.
-	     * [W3C: Declaring language in HTML](http://www.w3.org/International/questions/qa-html-language-declarations)
-	     * @returns {string}
-	     */
-	    Platform.prototype.lang = function () {
-	        return this._lang;
-	    };
-	    // Methods meant to be overridden by the engine
-	    // **********************************************
-	    // Provided NOOP methods so they do not error when
-	    // called by engines (the browser) doesn't provide them
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.on = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.onHardwareBackButton = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.registerBackButtonAction = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.exitApp = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.fullScreen = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.showStatusBar = function () { };
-	    // Getter/Setter Methods
-	    // **********************************************
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.setUrl = function (url) {
-	        this._url = url;
-	        this._qs = util_1.getQuerystring(url);
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.url = function () {
-	        return this._url;
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.query = function (key) {
-	        return (this._qs || {})[key];
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.setUserAgent = function (userAgent) {
-	        this._ua = userAgent;
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.userAgent = function () {
-	        return this._ua || '';
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.setNavigatorPlatform = function (navigatorPlatform) {
-	        this._bPlt = navigatorPlatform;
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.navigatorPlatform = function () {
-	        return this._bPlt || '';
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.width = function () {
-	        return dom_1.windowDimensions().width;
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.height = function () {
-	        return dom_1.windowDimensions().height;
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.isPortrait = function () {
-	        return this.width() < this.height();
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.isLandscape = function () {
-	        return !this.isPortrait();
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.windowResize = function () {
-	        var self = this;
-	        clearTimeout(self._resizeTimer);
-	        self._resizeTimer = setTimeout(function () {
-	            dom_1.flushDimensionCache();
-	            for (var i = 0; i < self._onResizes.length; i++) {
-	                try {
-	                    self._onResizes[i]();
-	                }
-	                catch (e) {
-	                    void 0;
-	                }
-	            }
-	        }, 250);
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.onResize = function (cb) {
-	        this._onResizes.push(cb);
-	    };
-	    // Platform Registry
-	    // **********************************************
-	    /**
-	     * @private
-	     */
-	    Platform.register = function (platformConfig) {
-	        platformRegistry[platformConfig.name] = platformConfig;
-	    };
-	    /**
-	    * @private
-	    */
-	    Platform.registry = function () {
-	        return platformRegistry;
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.get = function (platformName) {
-	        return platformRegistry[platformName] || {};
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.setDefault = function (platformName) {
-	        platformDefault = platformName;
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.testQuery = function (queryValue, queryTestValue) {
-	        var valueSplit = queryValue.toLowerCase().split(';');
-	        return valueSplit.indexOf(queryTestValue) > -1;
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.testUserAgent = function (userAgentExpression) {
-	        var rgx = new RegExp(userAgentExpression, 'i');
-	        return rgx.test(this._ua || '');
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.testNavigatorPlatform = function (navigatorPlatformExpression) {
-	        var rgx = new RegExp(navigatorPlatformExpression, 'i');
-	        return rgx.test(this._bPlt);
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.matchUserAgentVersion = function (userAgentExpression) {
-	        if (this._ua && userAgentExpression) {
-	            var val = this._ua.match(userAgentExpression);
-	            if (val) {
-	                return {
-	                    major: val[1],
-	                    minor: val[2]
-	                };
-	            }
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.isPlatform = function (queryTestValue, userAgentExpression) {
-	        if (!userAgentExpression) {
-	            userAgentExpression = queryTestValue;
-	        }
-	        var queryValue = this.query('ionicplatform');
-	        if (queryValue) {
-	            return this.testQuery(queryValue, queryTestValue);
-	        }
-	        return this.testUserAgent(userAgentExpression);
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.load = function (platformOverride) {
-	        var rootPlatformNode = null;
-	        var engineNode = null;
-	        var self = this;
-	        this.platformOverride = platformOverride;
-	        // figure out the most specific platform and active engine
-	        var tmpPlatform = null;
-	        for (var platformName in platformRegistry) {
-	            tmpPlatform = this.matchPlatform(platformName);
-	            if (tmpPlatform) {
-	                // we found a platform match!
-	                // check if its more specific than the one we already have
-	                if (tmpPlatform.isEngine) {
-	                    // because it matched then this should be the active engine
-	                    // you cannot have more than one active engine
-	                    engineNode = tmpPlatform;
-	                }
-	                else if (!rootPlatformNode || tmpPlatform.depth > rootPlatformNode.depth) {
-	                    // only find the root node for platforms that are not engines
-	                    // set this node as the root since we either don't already
-	                    // have one, or this one is more specific that the current one
-	                    rootPlatformNode = tmpPlatform;
-	                }
-	            }
-	        }
-	        if (!rootPlatformNode) {
-	            rootPlatformNode = new PlatformNode(platformDefault);
-	        }
-	        // build a Platform instance filled with the
-	        // hierarchy of active platforms and settings
-	        if (rootPlatformNode) {
-	            // check if we found an engine node (cordova/node-webkit/etc)
-	            if (engineNode) {
-	                // add the engine to the first in the platform hierarchy
-	                // the original rootPlatformNode now becomes a child
-	                // of the engineNode, which is not the new root
-	                engineNode.child = rootPlatformNode;
-	                rootPlatformNode.parent = engineNode;
-	                rootPlatformNode = engineNode;
-	                // add any events which the engine would provide
-	                // for example, Cordova provides its own ready event
-	                var engineMethods = engineNode.methods();
-	                engineMethods._engineReady = engineMethods.ready;
-	                delete engineMethods.ready;
-	                util_1.assign(this, engineMethods);
-	            }
-	            var platformNode = rootPlatformNode;
-	            while (platformNode) {
-	                insertSuperset(platformNode);
-	                platformNode = platformNode.child;
-	            }
-	            // make sure the root noot is actually the root
-	            // incase a node was inserted before the root
-	            platformNode = rootPlatformNode.parent;
-	            while (platformNode) {
-	                rootPlatformNode = platformNode;
-	                platformNode = platformNode.parent;
-	            }
-	            platformNode = rootPlatformNode;
-	            while (platformNode) {
-	                // set the array of active platforms with
-	                // the last one in the array the most important
-	                this._platforms.push(platformNode.name());
-	                // get the platforms version if a version parser was provided
-	                this._versions[platformNode.name()] = platformNode.version(this);
-	                // go to the next platform child
-	                platformNode = platformNode.child;
-	            }
-	        }
-	        if (this._platforms.indexOf('mobile') > -1 && this._platforms.indexOf('cordova') === -1) {
-	            this._platforms.push('mobileweb');
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Platform.prototype.matchPlatform = function (platformName) {
-	        // build a PlatformNode and assign config data to it
-	        // use it's getRoot method to build up its hierarchy
-	        // depending on which platforms match
-	        var platformNode = new PlatformNode(platformName);
-	        var rootNode = platformNode.getRoot(this);
-	        if (rootNode) {
-	            rootNode.depth = 0;
-	            var childPlatform = rootNode.child;
-	            while (childPlatform) {
-	                rootNode.depth++;
-	                childPlatform = childPlatform.child;
-	            }
-	        }
-	        return rootNode;
-	    };
-	    return Platform;
-	})();
-	exports.Platform = Platform;
-	function insertSuperset(platformNode) {
-	    var supersetPlaformName = platformNode.superset();
-	    if (supersetPlaformName) {
-	        // add a platform in between two exist platforms
-	        // so we can build the correct hierarchy of active platforms
-	        var supersetPlatform = new PlatformNode(supersetPlaformName);
-	        supersetPlatform.parent = platformNode.parent;
-	        supersetPlatform.child = platformNode;
-	        if (supersetPlatform.parent) {
-	            supersetPlatform.parent.child = supersetPlatform;
-	        }
-	        platformNode.parent = supersetPlatform;
-	    }
-	}
-	var PlatformNode = (function () {
-	    function PlatformNode(platformName) {
-	        this.c = Platform.get(platformName);
-	        this.isEngine = this.c.isEngine;
-	    }
-	    PlatformNode.prototype.name = function () {
-	        return this.c.name;
-	    };
-	    PlatformNode.prototype.settings = function () {
-	        return this.c.settings || {};
-	    };
-	    PlatformNode.prototype.superset = function () {
-	        return this.c.superset;
-	    };
-	    PlatformNode.prototype.methods = function () {
-	        return this.c.methods || {};
-	    };
-	    PlatformNode.prototype.isMatch = function (p) {
-	        if (p.platformOverride && !this.isEngine) {
-	            return (p.platformOverride === this.c.name);
-	        }
-	        else if (!this.c.isMatch) {
-	            return false;
-	        }
-	        return this.c.isMatch(p);
-	    };
-	    PlatformNode.prototype.version = function (p) {
-	        if (this.c.versionParser) {
-	            var v = this.c.versionParser(p);
-	            if (v) {
-	                var str = v.major + '.' + v.minor;
-	                return {
-	                    str: str,
-	                    num: parseFloat(str),
-	                    major: parseInt(v.major, 10),
-	                    minor: parseInt(v.minor, 10)
-	                };
-	            }
-	        }
-	    };
-	    PlatformNode.prototype.getRoot = function (p) {
-	        if (this.isMatch(p)) {
-	            var parents = this.getSubsetParents(this.name());
-	            if (!parents.length) {
-	                return this;
-	            }
-	            var platform = null;
-	            var rootPlatform = null;
-	            for (var i = 0; i < parents.length; i++) {
-	                platform = new PlatformNode(parents[i]);
-	                platform.child = this;
-	                rootPlatform = platform.getRoot(p);
-	                if (rootPlatform) {
-	                    this.parent = platform;
-	                    return rootPlatform;
-	                }
-	            }
-	        }
-	        return null;
-	    };
-	    PlatformNode.prototype.getSubsetParents = function (subsetPlatformName) {
-	        var platformRegistry = Platform.registry();
-	        var parentPlatformNames = [];
-	        var platform = null;
-	        for (var platformName in platformRegistry) {
-	            platform = platformRegistry[platformName];
-	            if (platform.subsets && platform.subsets.indexOf(subsetPlatformName) > -1) {
-	                parentPlatformNames.push(platformName);
-	            }
-	        }
-	        return parentPlatformNames;
-	    };
-	    return PlatformNode;
-	})();
-	var platformRegistry = {};
-	var platformDefault = null;
-
-/***/ },
-/* 266 */
-/***/ function(module, exports) {
-
-	// Simple noop function
-	function noop() { }
-	exports.noop = noop;
-	;
-	/**
-	 * Given a min and max, restrict the given number
-	 * to the range.
-	 * @param min the minimum
-	 * @param n the value
-	 * @param max the maximum
-	 */
-	function clamp(min, n, max) {
-	    return Math.max(min, Math.min(n, max));
-	}
-	exports.clamp = clamp;
-	/**
-	 * The assign() method is used to copy the values of all enumerable own
-	 * properties from one or more source objects to a target object. It will
-	 * return the target object. When available, this method will use
-	 * `Object.assign()` under-the-hood.
-	 * @param target  The target object
-	 * @param source(s)  The source object
-	 */
-	function assign() {
-	    var args = [];
-	    for (var _i = 0; _i < arguments.length; _i++) {
-	        args[_i - 0] = arguments[_i];
-	    }
-	    if (typeof Object.assign !== 'function') {
-	        // use the old-school shallow extend method
-	        return _baseExtend(args[0], [].slice.call(args, 1), false);
-	    }
-	    // use the built in ES6 Object.assign method
-	    return Object.assign.apply(null, args);
-	}
-	exports.assign = assign;
-	/**
-	 * Do a deep extend (merge).
-	 * @param dst the destination
-	 * @param ... the param objects
-	 */
-	function merge(dst) {
-	    var args = [];
-	    for (var _i = 1; _i < arguments.length; _i++) {
-	        args[_i - 1] = arguments[_i];
-	    }
-	    return _baseExtend(dst, [].slice.call(arguments, 1), true);
-	}
-	exports.merge = merge;
-	function _baseExtend(dst, objs, deep) {
-	    for (var i = 0, ii = objs.length; i < ii; ++i) {
-	        var obj = objs[i];
-	        if (!obj || !exports.isObject(obj) && !exports.isFunction(obj))
-	            continue;
-	        var keys = Object.keys(obj);
-	        for (var j = 0, jj = keys.length; j < jj; j++) {
-	            var key = keys[j];
-	            var src = obj[key];
-	            if (deep && exports.isObject(src)) {
-	                if (!exports.isObject(dst[key]))
-	                    dst[key] = exports.isArray(src) ? [] : {};
-	                _baseExtend(dst[key], [src], true);
-	            }
-	            else {
-	                dst[key] = src;
-	            }
-	        }
-	    }
-	    return dst;
-	}
-	function debounce(func, wait, immediate) {
-	    if (immediate === void 0) { immediate = false; }
-	    var timeout, args, context, timestamp, result;
-	    return function () {
-	        context = this;
-	        args = arguments;
-	        timestamp = Date.now();
-	        var later = function () {
-	            var last = Date.now() - timestamp;
-	            if (last < wait) {
-	                timeout = setTimeout(later, wait - last);
-	            }
-	            else {
-	                timeout = null;
-	                if (!immediate)
-	                    result = func.apply(context, args);
-	            }
-	        };
-	        var callNow = immediate && !timeout;
-	        if (!timeout) {
-	            timeout = setTimeout(later, wait);
-	        }
-	        if (callNow)
-	            result = func.apply(context, args);
-	        return result;
-	    };
-	}
-	exports.debounce = debounce;
-	/**
-	 * Apply default arguments if they don't exist in
-	 * the first object.
-	 * @param the destination to apply defaults to.
-	 */
-	function defaults(dest) {
-	    var args = [];
-	    for (var _i = 1; _i < arguments.length; _i++) {
-	        args[_i - 1] = arguments[_i];
-	    }
-	    for (var i = arguments.length - 1; i >= 1; i--) {
-	        var source = arguments[i] || {};
-	        for (var key in source) {
-	            if (source.hasOwnProperty(key) && !dest.hasOwnProperty(key)) {
-	                dest[key] = source[key];
-	            }
-	        }
-	    }
-	    return dest;
-	}
-	exports.defaults = defaults;
-	exports.isBoolean = function (val) { return typeof val === 'boolean'; };
-	exports.isString = function (val) { return typeof val === 'string'; };
-	exports.isNumber = function (val) { return typeof val === 'number'; };
-	exports.isFunction = function (val) { return typeof val === 'function'; };
-	exports.isDefined = function (val) { return typeof val !== 'undefined'; };
-	exports.isUndefined = function (val) { return typeof val === 'undefined'; };
-	exports.isBlank = function (val) { return val === undefined || val === null; };
-	exports.isObject = function (val) { return typeof val === 'object'; };
-	exports.isArray = Array.isArray;
-	exports.isTrueProperty = function (val) {
-	    if (typeof val === 'boolean')
-	        return val;
-	    if (typeof val === 'string') {
-	        val = val.toLowerCase().trim();
-	        return (val === 'true' || val === '');
-	    }
-	    if (typeof val === 'number')
-	        return (val > 0);
-	    return !!val;
-	};
-	/**
-	 * Convert a string in the format thisIsAString to a slug format this-is-a-string
-	 */
-	function pascalCaseToDashCase(str) {
-	    if (str === void 0) { str = ''; }
-	    return str.charAt(0).toLowerCase() + str.substring(1).replace(/[A-Z]/g, function (match) {
-	        return '-' + match.toLowerCase();
-	    });
-	}
-	exports.pascalCaseToDashCase = pascalCaseToDashCase;
-	var uid = 0;
-	function nextUid() {
-	    return ++uid;
-	}
-	exports.nextUid = nextUid;
-	exports.array = {
-	    find: function (arr, cb) {
-	        for (var i = 0, ii = arr.length; i < ii; i++) {
-	            if (cb(arr[i], i))
-	                return arr[i];
-	        }
-	    },
-	    remove: function (arr, itemOrIndex) {
-	        var index = -1;
-	        if (exports.isNumber(itemOrIndex)) {
-	            index = itemOrIndex;
-	        }
-	        else {
-	            index = arr.indexOf(itemOrIndex);
-	        }
-	        if (index < 0) {
-	            return false;
-	        }
-	        arr.splice(index, 1);
-	        return true;
-	    }
-	};
-	/**
-	 * Grab all query strings keys and values.
-	 * @param url
-	 */
-	function getQuerystring(url) {
-	    var queryParams = {};
-	    if (url) {
-	        var startIndex = url.indexOf('?');
-	        if (startIndex !== -1) {
-	            var queries = url.slice(startIndex + 1).split('&');
-	            queries.forEach(function (param) {
-	                var split = param.split('=');
-	                queryParams[split[0].toLowerCase()] = split[1].split('#')[0];
-	            });
-	        }
-	    }
-	    return queryParams;
-	}
-	exports.getQuerystring = getQuerystring;
-	/**
-	 * Throttle the given fun, only allowing it to be
-	 * called at most every `wait` ms.
-	 */
-	function throttle(func, wait, options) {
-	    var context, args, result;
-	    var timeout = null;
-	    var previous = 0;
-	    options || (options = {});
-	    var later = function () {
-	        previous = options.leading === false ? 0 : Date.now();
-	        timeout = null;
-	        result = func.apply(context, args);
-	    };
-	    return function () {
-	        var now = Date.now();
-	        if (!previous && options.leading === false)
-	            previous = now;
-	        var remaining = wait - (now - previous);
-	        context = this;
-	        args = arguments;
-	        if (remaining <= 0) {
-	            clearTimeout(timeout);
-	            timeout = null;
-	            previous = now;
-	            result = func.apply(context, args);
-	        }
-	        else if (!timeout && options.trailing !== false) {
-	            timeout = setTimeout(later, remaining);
-	        }
-	        return result;
-	    };
-	}
-	exports.throttle = throttle;
-
-/***/ },
-/* 267 */
-/***/ function(module, exports) {
-
-	var win = window;
-	var doc = document;
-	var docEle = doc.documentElement;
-	// requestAnimationFrame is polyfilled for old Android
-	// within the web-animations polyfill
-	exports.raf = win.requestAnimationFrame;
-	function rafFrames(framesToWait, callback) {
-	    framesToWait = Math.ceil(framesToWait);
-	    if (framesToWait < 2) {
-	        exports.raf(callback);
-	    }
-	    else {
-	        setTimeout(function () {
-	            exports.raf(callback);
-	        }, (framesToWait - 1) * 17);
-	    }
-	}
-	exports.rafFrames = rafFrames;
-	exports.CSS = {};
-	(function () {
-	    // transform
-	    var i, keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
-	        '-moz-transform', 'moz-transform', 'MozTransform', 'mozTransform', 'msTransform'];
-	    for (i = 0; i < keys.length; i++) {
-	        if (docEle.style[keys[i]] !== undefined) {
-	            exports.CSS.transform = keys[i];
-	            break;
-	        }
-	    }
-	    // transition
-	    keys = ['webkitTransition', 'mozTransition', 'msTransition', 'transition'];
-	    for (i = 0; i < keys.length; i++) {
-	        if (docEle.style[keys[i]] !== undefined) {
-	            exports.CSS.transition = keys[i];
-	            break;
-	        }
-	    }
-	    // The only prefix we care about is webkit for transitions.
-	    var isWebkit = exports.CSS.transition.indexOf('webkit') > -1;
-	    // transition duration
-	    exports.CSS.transitionDuration = (isWebkit ? '-webkit-' : '') + 'transition-duration';
-	    // To be sure transitionend works everywhere, include *both* the webkit and non-webkit events
-	    exports.CSS.transitionEnd = (isWebkit ? 'webkitTransitionEnd ' : '') + 'transitionend';
-	})();
-	if (win.onanimationend === undefined && win.onwebkitanimationend !== undefined) {
-	    exports.CSS.animationStart = 'webkitAnimationStart animationstart';
-	    exports.CSS.animationEnd = 'webkitAnimationEnd animationend';
-	}
-	else {
-	    exports.CSS.animationStart = 'animationstart';
-	    exports.CSS.animationEnd = 'animationend';
-	}
-	function transitionEnd(el) {
-	    return cssPromise(el, exports.CSS.transitionEnd);
-	}
-	exports.transitionEnd = transitionEnd;
-	function animationStart(el, animationName) {
-	    return cssPromise(el, exports.CSS.animationStart, animationName);
-	}
-	exports.animationStart = animationStart;
-	function animationEnd(el, animationName) {
-	    return cssPromise(el, exports.CSS.animationEnd, animationName);
-	}
-	exports.animationEnd = animationEnd;
-	function cssPromise(el, eventNames, animationName) {
-	    return new Promise(function (resolve) {
-	        eventNames.split(' ').forEach(function (eventName) {
-	            el.addEventListener(eventName, onEvent);
-	        });
-	        function onEvent(ev) {
-	            if (ev.animationName && animationName) {
-	                // do not resolve if a bubbled up ev.animationName
-	                // is not the same as the passed in animationName arg
-	                if (ev.animationName !== animationName) {
-	                    return;
-	                }
-	            }
-	            else if (ev.target !== el) {
-	                // do not resolve if the event's target element is not
-	                // the same as the element the listener was added to
-	                return;
-	            }
-	            ev.stopPropagation();
-	            eventNames.split(' ').forEach(function (eventName) {
-	                el.removeEventListener(eventName, onEvent);
-	            });
-	            resolve(ev);
-	        }
-	    });
-	}
-	function ready(callback) {
-	    var promise = null;
-	    if (!callback) {
-	        // a callback wasn't provided, so let's return a promise instead
-	        promise = new Promise(function (resolve) { callback = resolve; });
-	    }
-	    if (doc.readyState === 'complete' || doc.readyState === 'interactive') {
-	        callback();
-	    }
-	    else {
-	        function completed() {
-	            doc.removeEventListener('DOMContentLoaded', completed, false);
-	            win.removeEventListener('load', completed, false);
-	            callback();
-	        }
-	        doc.addEventListener('DOMContentLoaded', completed, false);
-	        win.addEventListener('load', completed, false);
-	    }
-	    return promise;
-	}
-	exports.ready = ready;
-	function windowLoad(callback) {
-	    var promise = null;
-	    if (!callback) {
-	        // a callback wasn't provided, so let's return a promise instead
-	        promise = new Promise(function (resolve) { callback = resolve; });
-	    }
-	    if (doc.readyState === 'complete') {
-	        callback();
-	    }
-	    else {
-	        function completed() {
-	            win.removeEventListener('load', completed, false);
-	            callback();
-	        }
-	        win.addEventListener('load', completed, false);
-	    }
-	    return promise;
-	}
-	exports.windowLoad = windowLoad;
-	function pointerCoord(ev) {
-	    // get coordinates for either a mouse click
-	    // or a touch depending on the given event
-	    var c = { x: 0, y: 0 };
-	    if (ev) {
-	        var touches = ev.touches && ev.touches.length ? ev.touches : [ev];
-	        var e = (ev.changedTouches && ev.changedTouches[0]) || touches[0];
-	        if (e) {
-	            c.x = e.clientX || e.pageX || 0;
-	            c.y = e.clientY || e.pageY || 0;
-	        }
-	    }
-	    return c;
-	}
-	exports.pointerCoord = pointerCoord;
-	function hasPointerMoved(threshold, startCoord, endCoord) {
-	    return startCoord && endCoord &&
-	        (Math.abs(startCoord.x - endCoord.x) > threshold || Math.abs(startCoord.y - endCoord.y) > threshold);
-	}
-	exports.hasPointerMoved = hasPointerMoved;
-	function isActive(ele) {
-	    return !!(ele && (doc.activeElement === ele));
-	}
-	exports.isActive = isActive;
-	function hasFocus(ele) {
-	    return isActive(ele) && (ele.parentElement.querySelector(':focus') === ele);
-	}
-	exports.hasFocus = hasFocus;
-	function isTextInput(ele) {
-	    return !!ele &&
-	        (ele.tagName == 'TEXTAREA' ||
-	            ele.contentEditable === 'true' ||
-	            (ele.tagName == 'INPUT' && !(/^(radio|checkbox|range|file|submit|reset|color|image|button)$/i).test(ele.type)));
-	}
-	exports.isTextInput = isTextInput;
-	function hasFocusedTextInput() {
-	    var ele = doc.activeElement;
-	    if (isTextInput(ele)) {
-	        return (ele.parentElement.querySelector(':focus') === ele);
-	    }
-	    return false;
-	}
-	exports.hasFocusedTextInput = hasFocusedTextInput;
-	var matchesFn;
-	var matchesMethods = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'];
-	matchesMethods.some(function (fn) {
-	    if (typeof docEle[fn] == 'function') {
-	        matchesFn = fn;
-	        return true;
-	    }
-	});
-	function closest(ele, selector, checkSelf) {
-	    if (ele && matchesFn) {
-	        // traverse parents
-	        ele = (checkSelf ? ele : ele.parentElement);
-	        while (ele !== null) {
-	            if (ele[matchesFn](selector)) {
-	                return ele;
-	            }
-	            ele = ele.parentElement;
-	        }
-	    }
-	    return null;
-	}
-	exports.closest = closest;
-	function removeElement(ele) {
-	    ele && ele.parentNode && ele.parentNode.removeChild(ele);
-	}
-	exports.removeElement = removeElement;
-	/**
-	 * Get the element offsetWidth and offsetHeight. Values are cached
-	 * to reduce DOM reads. Cache is cleared on a window resize.
-	 * @param {TODO} ele  TODO
-	 */
-	function getDimensions(ele, id) {
-	    var dimensions = dimensionCache[id];
-	    if (!dimensions) {
-	        // make sure we got good values before caching
-	        if (ele.offsetWidth && ele.offsetHeight) {
-	            dimensions = dimensionCache[id] = {
-	                width: ele.offsetWidth,
-	                height: ele.offsetHeight,
-	                left: ele.offsetLeft,
-	                top: ele.offsetTop
-	            };
-	        }
-	        else {
-	            // do not cache bad values
-	            return { width: 0, height: 0, left: 0, top: 0 };
-	        }
-	    }
-	    return dimensions;
-	}
-	exports.getDimensions = getDimensions;
-	function windowDimensions() {
-	    if (!dimensionCache.win) {
-	        // make sure we got good values before caching
-	        if (win.innerWidth && win.innerHeight) {
-	            dimensionCache.win = {
-	                width: win.innerWidth,
-	                height: win.innerHeight
-	            };
-	        }
-	        else {
-	            // do not cache bad values
-	            return { width: 0, height: 0 };
-	        }
-	    }
-	    return dimensionCache.win;
-	}
-	exports.windowDimensions = windowDimensions;
-	function flushDimensionCache() {
-	    dimensionCache = {};
-	}
-	exports.flushDimensionCache = flushDimensionCache;
-	var dimensionCache = {};
-	function isStaticPositioned(element) {
-	    return (element.style.position || 'static') === 'static';
-	}
-	/**
-	 * returns the closest, non-statically positioned parentOffset of a given element
-	 * @param element
-	 */
-	function parentOffsetEl(element) {
-	    var offsetParent = element.offsetParent || doc;
-	    while (offsetParent && offsetParent !== doc && isStaticPositioned(offsetParent)) {
-	        offsetParent = offsetParent.offsetParent;
-	    }
-	    return offsetParent || doc;
-	}
-	exports.parentOffsetEl = parentOffsetEl;
-	;
-	/**
-	 * Get the current coordinates of the element, relative to the offset parent.
-	 * Read-only equivalent of [jQuery's position function](http://api.jquery.com/position/).
-	 * @param {element} element The element to get the position of.
-	 * @returns {object} Returns an object containing the properties top, left, width and height.
-	 */
-	function position(element) {
-	    var elBCR = offset(element);
-	    var offsetParentBCR = { top: 0, left: 0 };
-	    var offsetParentEl = parentOffsetEl(element);
-	    if (offsetParentEl != doc) {
-	        offsetParentBCR = offset(offsetParentEl);
-	        offsetParentBCR.top += offsetParentEl.clientTop - offsetParentEl.scrollTop;
-	        offsetParentBCR.left += offsetParentEl.clientLeft - offsetParentEl.scrollLeft;
-	    }
-	    var boundingClientRect = element.getBoundingClientRect();
-	    return {
-	        width: boundingClientRect.width || element.offsetWidth,
-	        height: boundingClientRect.height || element.offsetHeight,
-	        top: elBCR.top - offsetParentBCR.top,
-	        left: elBCR.left - offsetParentBCR.left
-	    };
-	}
-	exports.position = position;
-	/**
-	* Get the current coordinates of the element, relative to the doc.
-	* Read-only equivalent of [jQuery's offset function](http://api.jquery.com/offset/).
-	* @param {element} element The element to get the offset of.
-	* @returns {object} Returns an object containing the properties top, left, width and height.
-	*/
-	function offset(element) {
-	    var boundingClientRect = element.getBoundingClientRect();
-	    return {
-	        width: boundingClientRect.width || element.offsetWidth,
-	        height: boundingClientRect.height || element.offsetHeight,
-	        top: boundingClientRect.top + (win.pageYOffset || docEle.scrollTop),
-	        left: boundingClientRect.left + (win.pageXOffset || docEle.scrollLeft)
-	    };
-	}
-	exports.offset = offset;
-
-/***/ },
-/* 268 */
-/***/ function(module, exports) {
-
-	var CSS_CLICK_BLOCK = 'click-block-active';
-	var DEFAULT_EXPIRE = 330;
-	var cbEle, fallbackTimerId;
-	var isShowing = false;
-	/**
-	 * @private
-	 */
-	var ClickBlock = (function () {
-	    function ClickBlock() {
-	        this._enabled = false;
-	    }
-	    ClickBlock.prototype.enable = function () {
-	        cbEle = document.createElement('click-block');
-	        document.body.appendChild(cbEle);
-	        cbEle.addEventListener('touchmove', function (ev) {
-	            ev.preventDefault();
-	            ev.stopPropagation();
-	        });
-	        this._enabled = true;
-	    };
-	    ClickBlock.prototype.show = function (shouldShow, expire) {
-	        if (this._enabled) {
-	            if (shouldShow) {
-	                show(expire);
-	            }
-	            else {
-	                hide();
-	            }
-	        }
-	    };
-	    return ClickBlock;
-	})();
-	exports.ClickBlock = ClickBlock;
-	function show(expire) {
-	    clearTimeout(fallbackTimerId);
-	    fallbackTimerId = setTimeout(hide, expire || DEFAULT_EXPIRE);
-	    if (!isShowing) {
-	        cbEle.classList.add(CSS_CLICK_BLOCK);
-	        isShowing = true;
-	    }
-	}
-	function hide() {
-	    clearTimeout(fallbackTimerId);
-	    if (isShowing) {
-	        cbEle.classList.remove(CSS_CLICK_BLOCK);
-	        isShowing = false;
-	    }
-	}
-
-/***/ },
-/* 269 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -40703,97 +40930,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	/**
-	 * @private
-	 */
-	var Form = (function () {
-	    function Form() {
-	        this._focused = null;
-	        this._ids = -1;
-	        this._inputs = [];
-	        this.focusCtrl(document);
-	    }
-	    Form.prototype.register = function (input) {
-	        this._inputs.push(input);
-	    };
-	    Form.prototype.deregister = function (input) {
-	        var index = this._inputs.indexOf(input);
-	        if (index > -1) {
-	            this._inputs.splice(index, 1);
-	        }
-	        if (input === this._focused) {
-	            this._focused = null;
-	        }
-	    };
-	    Form.prototype.focusCtrl = function (document) {
-	        // raw DOM fun
-	        var focusCtrl = document.createElement('focus-ctrl');
-	        focusCtrl.setAttribute('aria-hidden', true);
-	        this._blur = document.createElement('button');
-	        this._blur.tabIndex = -1;
-	        focusCtrl.appendChild(this._blur);
-	        document.body.appendChild(focusCtrl);
-	    };
-	    Form.prototype.focusOut = function () {
-	        void 0;
-	        var activeElement = document.activeElement;
-	        if (activeElement) {
-	            activeElement.blur();
-	        }
-	        this._blur.focus();
-	    };
-	    Form.prototype.setAsFocused = function (input) {
-	        this._focused = input;
-	    };
-	    /**
-	     * Focuses the next input element, if it exists.
-	     */
-	    Form.prototype.tabFocus = function (currentInput) {
-	        var index = this._inputs.indexOf(currentInput);
-	        if (index > -1 && (index + 1) < this._inputs.length) {
-	            var nextInput = this._inputs[index + 1];
-	            if (nextInput !== this._focused) {
-	                void 0;
-	                return nextInput.initFocus();
-	            }
-	        }
-	        index = this._inputs.indexOf(this._focused);
-	        if (index > 0) {
-	            var previousInput = this._inputs[index - 1];
-	            if (previousInput) {
-	                void 0;
-	                previousInput.initFocus();
-	            }
-	        }
-	    };
-	    Form.prototype.nextId = function () {
-	        return ++this._ids;
-	    };
-	    Form = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [])
-	    ], Form);
-	    return Form;
-	})();
-	exports.Form = Form;
-
-/***/ },
-/* 270 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(7);
-	var config_1 = __webpack_require__(264);
-	var form_1 = __webpack_require__(269);
-	var dom_1 = __webpack_require__(267);
+	var config_1 = __webpack_require__(159);
+	var form_1 = __webpack_require__(165);
+	var dom_1 = __webpack_require__(162);
 	/**
 	 * @name Keyboard
 	 * @description
@@ -40956,19 +41095,294 @@
 	    };
 	    Keyboard = __decorate([
 	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [config_1.Config, form_1.Form, core_1.NgZone])
 	    ], Keyboard);
 	    return Keyboard;
-	    var _a, _b, _c;
 	})();
 	exports.Keyboard = Keyboard;
 	var KEYBOARD_CLOSE_POLLING = 150;
 
+
 /***/ },
-/* 271 */
+/* 273 */
+/***/ function(module, exports) {
+
+	/**
+	 * @name Menu
+	 * @description
+	 * _For basic Menu usage, see the [Menu section](../../../../components/#menus)
+	 * of the Component docs._
+	 *
+	 * Menu is a side-menu interface that can be dragged out or toggled to open or closed.
+	 * An Ionic app can have numerous menus, all of which can be controlled within
+	 * template HTML, or programmatically.
+	 *
+	 * @usage
+	 * In order to use Menu, you must specify a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables)
+	 * to the content element that Menu should listen on for drag events, using the `content` property.
+	 * This is telling the menu which content the menu is attached to, so it knows which element to
+	 * move over, and to respond to drag events. Note that a **menu is a sibling to its content**.
+	 *
+	 * ```html
+	 * <ion-menu [content]="mycontent">
+	 *   <ion-content>
+	 *     <ion-list>
+	 *     ...
+	 *     </ion-list>
+	 *   </ion-content>
+	 * </ion-menu>
+	 *
+	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * ```
+	 *
+	 * By default, Menus are on the left, but this can be overridden with the `side`
+	 * property:
+	 *
+	 * ```html
+	 * <ion-menu side="right" [content]="mycontent">...</ion-menu>
+	 * ```
+	 *
+	 *
+	 * ### Programmatic Interaction
+	 *
+	 * To programmatically interact with any menu, you can inject the `MenuController`
+	 * provider into any component or directive. This makes it easy get ahold of and
+	 * control the correct menu instance. By default Ionic will find the app's menu
+	 * without requiring a menu ID.
+	 *
+	 * ```ts
+	 * import{Page, MenuController} from 'ionic/ionic';
+	 * @Page({...})
+	 * export class MyPage {
+	 *  constructor(menu: MenuController) {
+	 *    this.menu = menu;
+	 *  }
+	 *
+	 *  openMenu() {
+	 *    this.menu.open();
+	 *  }
+	 *
+	 * }
+	 * ```
+	 *
+	 * Note that if you want to easily toggle or close a menu just from a page's
+	 * template, you can use `menuToggle` and/or `menuClose` to accomplish the same
+	 * tasks as above.
+	 *
+	 *
+	 * ### Apps With Left And Right Menus
+	 *
+	 * For apps with a left and right menu, you can control the desired
+	 * menu by passing in the side of the menu.
+	 *
+	 * ```html
+	 * <ion-menu side="left" [content]="mycontent">...</ion-menu>
+	 * <ion-menu side="right" [content]="mycontent">...</ion-menu>
+	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * ```
+	 *
+	 * ```ts
+	 *  openLeftMenu() {
+	 *    this.menu.open('left');
+	 *  }
+	 *
+	 *  closeRightMenu() {
+	 *    this.menu.close('right');
+	 *  }
+	 * ```
+	 *
+	 *
+	 * ### Apps With Multiple, Same Side Menus
+	 *
+	 * Since more than one menu on a the same side is possible, and you wouldn't want
+	 * both to be open at the same time, an app can decide which menu should be enabled.
+	 * For apps with multiple menus on the same side, it's required to give each menu a
+	 * unique ID. In the example below, we're saying that the left menu with the
+	 * `authenticated` id should be enabled, and the left menu with the `unauthenticated`
+	 * id be disabled.
+	 *
+	 * ```html
+	 * <ion-menu id="authenticated" side="left" [content]="mycontent">...</ion-menu>
+	 * <ion-menu id="unauthenticated" side="left" [content]="mycontent">...</ion-menu>
+	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * ```
+	 *
+	 * ```ts
+	 *  enableAuthenticatedMenu() {
+	 *    this.menu.enable(true, 'authenticated');
+	 *    this.menu.enable(false, 'unauthenticated');
+	 *  }
+	 * ```
+	 *
+	 * Note that if an app only had one menu, there is no reason to pass a menu id.
+	 *
+	 *
+	 * ### Menu Types
+	 *
+	 * Menu supports two display types: `overlay`, `reveal` and `push`. Overlay
+	 * is the traditional Material Design drawer type, and Reveal is the traditional
+	 * iOS type. By default, menus will use to the correct type for the platform,
+	 * but this can be overriden using the `type` property:
+	 *
+	 * ```html
+	 * <ion-menu type="overlay" [content]="mycontent"></ion-menu>
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/menu/
+	 *
+	 * @see {@link /docs/v2/components#menus Menu Component Docs}
+	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
+	 * @see {@link ../../nav/Nav Nav API Docs}
+	 *
+	 */
+	var MenuController = (function () {
+	    function MenuController() {
+	        this._menus = [];
+	    }
+	    /**
+	     * Progamatically open the Menu.
+	     * @return {Promise} returns a promise when the menu is fully opened
+	     */
+	    MenuController.prototype.open = function (menuId) {
+	        var menu = this.get(menuId);
+	        if (menu) {
+	            return menu.open();
+	        }
+	    };
+	    /**
+	     * Progamatically close the Menu.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Promise} returns a promise when the menu is fully closed
+	     */
+	    MenuController.prototype.close = function (menuId) {
+	        var menu = this.get(menuId);
+	        if (menu) {
+	            return menu.close();
+	        }
+	    };
+	    /**
+	     * Toggle the menu. If it's closed, it will open, and if opened, it will
+	     * close.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Promise} returns a promise when the menu has been toggled
+	     */
+	    MenuController.prototype.toggle = function (menuId) {
+	        var menu = this.get(menuId);
+	        if (menu) {
+	            return menu.toggle();
+	        }
+	    };
+	    /**
+	     * Used to enable or disable a menu. For example, there could be multiple
+	     * left menus, but only one of them should be able to be dragged open.
+	     * @param {boolean} shouldEnable  True if it should be enabled, false if not.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
+	     */
+	    MenuController.prototype.enable = function (shouldEnable, menuId) {
+	        var menu = this.get(menuId);
+	        if (menu) {
+	            return menu.enable(shouldEnable);
+	        }
+	    };
+	    /**
+	     * Used to enable or disable the ability to swipe open the menu.
+	     * @param {boolean} shouldEnable  True if it should be swipe-able, false if not.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
+	     */
+	    MenuController.prototype.swipeEnable = function (shouldEnable, menuId) {
+	        var menu = this.get(menuId);
+	        if (menu) {
+	            return menu.swipeEnable(shouldEnable);
+	        }
+	    };
+	    /**
+	     * Used to get a menu instance.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Menu}  Returns the instance of the menu if found, otherwise `null`.
+	     */
+	    MenuController.prototype.get = function (menuId) {
+	        if (menuId) {
+	            // first try by "id"
+	            var menu = this._menus.find(function (m) { return m.id === menuId; });
+	            if (menu)
+	                return menu;
+	            // not found by "id", next try by "side"
+	            menu = this._menus.find(function (m) { return m.side === menuId; });
+	            if (menu)
+	                return menu;
+	        }
+	        // get the first menu in the array, if one exists
+	        return (this._menus.length ? this._menus[0] : null);
+	    };
+	    /**
+	     * @private
+	     */
+	    MenuController.prototype.register = function (menu) {
+	        this._menus.push(menu);
+	    };
+	    /**
+	     * @private
+	     */
+	    MenuController.prototype.unregister = function (menu) {
+	        var index = this._menus.indexOf(menu);
+	        if (index > -1) {
+	            this._menus.splice(index, 1);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    MenuController.registerType = function (name, cls) {
+	        menuTypes[name] = cls;
+	    };
+	    /**
+	     * @private
+	     */
+	    MenuController.create = function (type, menuCmp) {
+	        return new menuTypes[type](menuCmp);
+	    };
+	    return MenuController;
+	})();
+	exports.MenuController = MenuController;
+	var menuTypes = {};
+
+
+/***/ },
+/* 274 */
+/***/ function(module, exports) {
+
+	/**
+	 * @private
+	 * Map of possible pages that can be navigated to using an Ionic NavController
+	 */
+	var NavRegistry = (function () {
+	    function NavRegistry(pages) {
+	        if (pages === void 0) { pages = []; }
+	        var pagePairs = pages.map(function (page) { return [page['name'], page]; });
+	        this._pages = new Map();
+	        for (var i = 0; i < pagePairs.length; i++) {
+	            var pair = pagePairs[i];
+	            this._pages.set(pair[0], pair[1]);
+	        }
+	    }
+	    NavRegistry.prototype.get = function (pageName) {
+	        return this._pages.get(pageName);
+	    };
+	    NavRegistry.prototype.set = function (page) {
+	        this._pages.set(page.name, page);
+	    };
+	    return NavRegistry;
+	})();
+	exports.NavRegistry = NavRegistry;
+
+
+/***/ },
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dom_1 = __webpack_require__(267);
+	var dom_1 = __webpack_require__(162);
 	var ScrollTo = (function () {
 	    function ScrollTo(ele) {
 	        if (typeof ele === 'string') {
@@ -41063,253 +41477,6 @@
 	    return (--t) * t * t + 1;
 	}
 
-/***/ },
-/* 272 */
-/***/ function(module, exports) {
-
-	/**
-	 * @name Events
-	 * @description
-	 * Events is a pub/sub style event system for sending and responding to application-level
-	 * events across your app.
-	 * @usage
-	 * ```ts
-	 * // first page (publish an event when a user is created)
-	 * function createUser(user) {
-	 *   console.log('User created!')
-	 *   events.publish('user:created', user);
-	 * }
-	 *
-	 * // second page (listen for the user created event)
-	 * events.subscribe('user:created', (user) => {
-	 *   console.log('Welcome', user);
-	 * });
-	 *
-	 * ```
-	 */
-	var Events = (function () {
-	    function Events() {
-	        this._channels = [];
-	    }
-	    /**
-	     * Subscribe to an event topic. Events that get posted to that topic will trigger the provided handler.
-	     *
-	     * @param {String} topic the topic to subscribe to
-	     * @param {Function} handler the event handler
-	     */
-	    Events.prototype.subscribe = function (topic) {
-	        var _this = this;
-	        var handlers = [];
-	        for (var _i = 1; _i < arguments.length; _i++) {
-	            handlers[_i - 1] = arguments[_i];
-	        }
-	        if (!this._channels[topic]) {
-	            this._channels[topic] = [];
-	        }
-	        handlers.forEach(function (handler) {
-	            _this._channels[topic].push(handler);
-	        });
-	    };
-	    /**
-	     * Unsubscribe from the given topic. Your handler will no longer receive events published to this topic.
-	     *
-	     * @param {String} topic the topic to unsubscribe from
-	     * @param {Function} handler the event handler
-	     *
-	     * @return true if a handler was removed
-	     */
-	    Events.prototype.unsubscribe = function (topic, handler) {
-	        var t = this._channels[topic];
-	        if (!t) {
-	            // Wasn't found, wasn't removed
-	            return false;
-	        }
-	        if (!handler) {
-	            // Remove all handlers for this topic
-	            delete this._channels[topic];
-	            return true;
-	        }
-	        // We need to find and remove a specific handler
-	        var i = t.indexOf(handler);
-	        if (i < 0) {
-	            // Wasn't found, wasn't removed
-	            return false;
-	        }
-	        t.splice(i, 1);
-	        // If the channel is empty now, remove it from the channel map
-	        if (!t.length) {
-	            delete this._channels[topic];
-	        }
-	        return true;
-	    };
-	    /**
-	     * Publish an event to the given topic.
-	     *
-	     * @param {String} topic the topic to publish to
-	     * @param {Any} eventData the data to send as the event
-	     */
-	    Events.prototype.publish = function (topic) {
-	        var args = [];
-	        for (var _i = 1; _i < arguments.length; _i++) {
-	            args[_i - 1] = arguments[_i];
-	        }
-	        var t = this._channels[topic];
-	        if (!t) {
-	            return null;
-	        }
-	        var responses = [];
-	        t.forEach(function (handler) {
-	            responses.push(handler(args));
-	        });
-	        return responses;
-	    };
-	    return Events;
-	})();
-	exports.Events = Events;
-
-/***/ },
-/* 273 */
-/***/ function(module, exports) {
-
-	/**
-	 * @private
-	 * Map of possible pages that can be navigated to using an Ionic NavController
-	 */
-	var NavRegistry = (function () {
-	    function NavRegistry(pages) {
-	        if (pages === void 0) { pages = []; }
-	        var pagePairs = pages.map(function (page) { return [page['name'], page]; });
-	        this._pages = new Map();
-	        for (var i = 0; i < pagePairs.length; i++) {
-	            var pair = pagePairs[i];
-	            this._pages.set(pair[0], pair[1]);
-	        }
-	    }
-	    NavRegistry.prototype.get = function (pageName) {
-	        return this._pages.get(pageName);
-	    };
-	    NavRegistry.prototype.set = function (page) {
-	        this._pages.set(page.name, page);
-	    };
-	    return NavRegistry;
-	})();
-	exports.NavRegistry = NavRegistry;
-
-/***/ },
-/* 274 */
-/***/ function(module, exports) {
-
-	/**
-	 * @private
-	 * Provide multi-language and i18n support in your app. Translate works by
-	 * mapping full strings to language translated ones. That means that you don't
-	 * need to provide strings for your default language, just new languages.
-	 *
-	 * Note: The Angular team will be building an
-	 * [Localization/Internationalization](https://docs.google.com/document/d/1mwyOFsAD-bPoXTk3Hthq0CAcGXCUw-BtTJMR4nGTY-0/view#heading=h.ixg45w3363q)
-	 * provider, so this Translation provider may not be further developed.
-	 *
-	 * @usage
-	 * ```js
-	 * Translate.translations({
-	 *   'de': {
-	 *     'Welcome to MyApp': 'Willkommen auf'
-	 *   }
-	 * })
-	 *
-	 * Changing the default language:
-	 *
-	 * Translate.setLanguage('de');
-	 * ```
-	 *
-	 * Usage in a template:
-	 *
-	 * ```js
-	 * <span>{{ 'Welcome to MyApp' | translate }}
-	 * ```
-	 */
-	var Translate = (function () {
-	    function Translate() {
-	        this._transMap = {};
-	        this._language = {};
-	    }
-	    Translate.prototype.translations = function (lang, map) {
-	        this._transMap[lang] = map;
-	    };
-	    Translate.prototype.setLanguage = function (lang) {
-	        this._language = lang;
-	    };
-	    Translate.prototype.getTranslations = function (lang) {
-	        return this._transMap[lang];
-	    };
-	    Translate.prototype.translate = function (key, lang) {
-	        // If the language isn't specified and we have no overridden one, return the string passed.
-	        if (!lang && !this._language) {
-	            return key;
-	        }
-	        var setLanguage = lang || this._language;
-	        var map = this.getTranslations(setLanguage);
-	        if (!map) {
-	            void 0;
-	            return '';
-	        }
-	        return this._getTranslation(map, key);
-	    };
-	    Translate.prototype._getTranslation = function (map, key) {
-	        return map && map[key] || '';
-	    };
-	    return Translate;
-	})();
-	exports.Translate = Translate;
-
-/***/ },
-/* 275 */
-/***/ function(module, exports) {
-
-	var FeatureDetect = (function () {
-	    function FeatureDetect() {
-	        this._results = {};
-	    }
-	    FeatureDetect.prototype.run = function (window, document) {
-	        for (var name in featureDetects) {
-	            this._results[name] = featureDetects[name](window, document, document.body);
-	        }
-	    };
-	    FeatureDetect.prototype.has = function (featureName) {
-	        return !!this._results[featureName];
-	    };
-	    FeatureDetect.add = function (name, fn) {
-	        featureDetects[name] = fn;
-	    };
-	    return FeatureDetect;
-	})();
-	exports.FeatureDetect = FeatureDetect;
-	var featureDetects = {};
-	// FeatureDetect.add('sticky', function(window, document) {
-	//   // css position sticky
-	//   let ele = document.createElement('div');
-	//   ele.style.cssText = 'position:-webkit-sticky;position:sticky';
-	//   return ele.style.position.indexOf('sticky') > -1;
-	// });
-	FeatureDetect.add('hairlines', function (window, document, body) {
-	    /**
-	    * Hairline Shim
-	    * Add the "hairline" CSS class name to the body tag
-	    * if the browser supports subpixels.
-	    */
-	    var canDo = false;
-	    if (window.devicePixelRatio >= 2) {
-	        var hairlineEle = document.createElement('div');
-	        hairlineEle.style.border = '.5px solid transparent';
-	        body.appendChild(hairlineEle);
-	        if (hairlineEle.offsetHeight === 1) {
-	            body.classList.add('hairlines');
-	            canDo = true;
-	        }
-	        body.removeChild(hairlineEle);
-	    }
-	    return canDo;
-	});
 
 /***/ },
 /* 276 */
@@ -41325,9 +41492,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var app_1 = __webpack_require__(158);
-	var config_1 = __webpack_require__(264);
-	var dom_1 = __webpack_require__(267);
+	var app_1 = __webpack_require__(166);
+	var config_1 = __webpack_require__(159);
+	var dom_1 = __webpack_require__(162);
 	var activator_1 = __webpack_require__(277);
 	var ripple_1 = __webpack_require__(278);
 	/**
@@ -41429,8 +41596,11 @@
 	        }
 	    };
 	    TapClick.prototype.pointerEnd = function (ev) {
+	        var activatableEle = getActivatableTarget(ev.target);
+	        if (activatableEle) {
+	            this.activator && this.activator.upAction(ev, activatableEle, this.startCoord.x, this.startCoord.y);
+	        }
 	        this.moveListeners(false);
-	        this.activator && this.activator.upAction();
 	    };
 	    TapClick.prototype.pointerCancel = function (ev) {
 	        void 0;
@@ -41462,10 +41632,9 @@
 	    };
 	    TapClick = __decorate([
 	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [config_1.Config, app_1.IonicApp, core_1.NgZone])
 	    ], TapClick);
 	    return TapClick;
-	    var _a, _b, _c;
 	})();
 	exports.TapClick = TapClick;
 	function getActivatableTarget(ele) {
@@ -41507,61 +41676,55 @@
 	var POINTER_MOVE_UNTIL_CANCEL = 10;
 	var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
 
+
 /***/ },
 /* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dom_1 = __webpack_require__(267);
+	var dom_1 = __webpack_require__(162);
 	var Activator = (function () {
-	    function Activator(app, config, zone) {
+	    function Activator(app, config, _zone) {
 	        this.app = app;
-	        this.zone = zone;
-	        this.queue = [];
-	        this.active = [];
-	        this.x = 0;
-	        this.y = 0;
-	        this.activatedClass = config.get('activatedClass') || 'activated';
+	        this._zone = _zone;
+	        this._queue = [];
+	        this._active = [];
+	        this._css = config.get('activatedClass') || 'activated';
 	    }
 	    Activator.prototype.downAction = function (ev, activatableEle, pointerX, pointerY) {
 	        // the user just pressed down
 	        var self = this;
 	        if (self.disableActivated(ev)) {
-	            return false;
+	            return;
 	        }
-	        // remember where they pressed
-	        self.x = pointerX;
-	        self.y = pointerY;
 	        // queue to have this element activated
-	        self.queue.push(activatableEle);
-	        function activateCss() {
-	            var activatableEle;
-	            for (var i = 0; i < self.queue.length; i++) {
-	                activatableEle = self.queue[i];
-	                if (activatableEle && activatableEle.parentNode) {
-	                    self.active.push(activatableEle);
-	                    activatableEle.classList.add(self.activatedClass);
+	        self._queue.push(activatableEle);
+	        this._zone.runOutsideAngular(function () {
+	            dom_1.rafFrames(2, function () {
+	                var activatableEle;
+	                for (var i = 0; i < self._queue.length; i++) {
+	                    activatableEle = self._queue[i];
+	                    if (activatableEle && activatableEle.parentNode) {
+	                        self._active.push(activatableEle);
+	                        activatableEle.classList.add(self._css);
+	                    }
 	                }
-	            }
-	            self.queue = [];
-	        }
-	        this.zone.runOutsideAngular(function () {
-	            dom_1.rafFrames(2, activateCss);
+	                self._queue = [];
+	            });
 	        });
-	        return true;
 	    };
-	    Activator.prototype.upAction = function () {
+	    Activator.prototype.upAction = function (ev, activatableEle, pointerX, pointerY) {
 	        // the user was pressing down, then just let up
 	        var self = this;
 	        function activateUp() {
 	            self.clearState();
 	        }
-	        this.zone.runOutsideAngular(function () {
+	        this._zone.runOutsideAngular(function () {
 	            dom_1.rafFrames(CLEAR_STATE_DEFERS, activateUp);
 	        });
 	    };
 	    Activator.prototype.clearState = function () {
-	        // all states should return to normal
 	        var _this = this;
+	        // all states should return to normal
 	        if (!this.app.isEnabled()) {
 	            // the app is actively disabled, so don't bother deactivating anything.
 	            // this makes it easier on the GPU so it doesn't have to redraw any
@@ -41578,14 +41741,13 @@
 	    Activator.prototype.deactivate = function () {
 	        // remove the active class from all active elements
 	        var self = this;
-	        self.queue = [];
-	        function deactivate() {
-	            for (var i = 0; i < self.active.length; i++) {
-	                self.active[i].classList.remove(self.activatedClass);
+	        self._queue = [];
+	        dom_1.rafFrames(2, function () {
+	            for (var i = 0; i < self._active.length; i++) {
+	                self._active[i].classList.remove(self._css);
 	            }
-	            self.active = [];
-	        }
-	        dom_1.rafFrames(2, deactivate);
+	            self._active = [];
+	        });
 	    };
 	    Activator.prototype.disableActivated = function (ev) {
 	        if (ev.defaultPrevented)
@@ -41605,6 +41767,7 @@
 	exports.Activator = Activator;
 	var CLEAR_STATE_DEFERS = 5;
 
+
 /***/ },
 /* 278 */
 /***/ function(module, exports, __webpack_require__) {
@@ -41615,946 +41778,215 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var activator_1 = __webpack_require__(277);
-	var animation_1 = __webpack_require__(279);
-	var dom_1 = __webpack_require__(267);
+	var dom_1 = __webpack_require__(162);
+	var win = window;
+	/**
+	 * @private
+	 */
 	var RippleActivator = (function (_super) {
 	    __extends(RippleActivator, _super);
 	    function RippleActivator(app, config, zone) {
 	        _super.call(this, app, config, zone);
-	        this.expands = {};
-	        this.fades = {};
 	    }
 	    RippleActivator.prototype.downAction = function (ev, activatableEle, pointerX, pointerY) {
-	        var _this = this;
-	        if (_super.prototype.downAction.call(this, ev, activatableEle, pointerX, pointerY)) {
-	            // create a new ripple element
-	            this.expandSpeed = EXPAND_DOWN_PLAYBACK_RATE;
-	            this.zone.runOutsideAngular(function () {
-	                dom_1.raf(function () {
-	                    var clientRect = activatableEle.getBoundingClientRect();
-	                    dom_1.raf(function () {
-	                        _this.createRipple(activatableEle, pointerX, pointerY, clientRect);
-	                    });
-	                });
-	            });
+	        var self = this;
+	        if (self.disableActivated(ev)) {
+	            return;
 	        }
-	        return true;
-	    };
-	    RippleActivator.prototype.createRipple = function (activatableEle, pointerX, pointerY, clientRect) {
-	        var _this = this;
-	        var clientPointerX = (pointerX - clientRect.left);
-	        var clientPointerY = (pointerY - clientRect.top);
-	        var x = Math.max(Math.abs(clientRect.width - clientPointerX), clientPointerX) * 2;
-	        var y = Math.max(Math.abs(clientRect.height - clientPointerY), clientPointerY) * 2;
-	        var diameter = Math.max(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)), 64);
-	        var radius = Math.sqrt(clientRect.width + clientRect.height);
-	        var duration = (1000 * Math.sqrt(radius / TOUCH_DOWN_ACCEL) + 0.5);
-	        var rippleEle = document.createElement('md-ripple');
-	        var rippleId = Date.now();
-	        var eleStyle = rippleEle.style;
-	        eleStyle.width = eleStyle.height = diameter + 'px';
-	        eleStyle.marginTop = eleStyle.marginLeft = -(diameter / 2) + 'px';
-	        eleStyle.left = clientPointerX + 'px';
-	        eleStyle.top = clientPointerY + 'px';
-	        activatableEle.appendChild(rippleEle);
-	        // create the animation for the fade out, but don't start it yet
-	        this.fades[rippleId] = new animation_1.Animation(rippleEle, { renderDelay: 0 });
-	        this.fades[rippleId]
-	            .fadeOut()
-	            .duration(FADE_OUT_DURATION)
-	            .playbackRate(1)
-	            .onFinish(function () {
+	        // queue to have this element activated
+	        self._queue.push(activatableEle);
+	        this._zone.runOutsideAngular(function () {
 	            dom_1.raf(function () {
-	                _this.fades[rippleId].dispose(true);
-	                delete _this.fades[rippleId];
+	                var i;
+	                for (i = 0; i < self._queue.length; i++) {
+	                    var queuedEle = self._queue[i];
+	                    if (queuedEle && queuedEle.parentNode) {
+	                        self._active.push(queuedEle);
+	                        // DOM WRITE
+	                        queuedEle.classList.add(self._css);
+	                        var j = queuedEle.childElementCount;
+	                        while (j--) {
+	                            var rippleEle = queuedEle.children[j];
+	                            if (rippleEle.tagName === 'ION-BUTTON-EFFECT') {
+	                                // DOM WRITE
+	                                rippleEle.style.left = '-9999px';
+	                                rippleEle.style.opacity = '';
+	                                rippleEle.style[dom_1.CSS.transform] = 'scale(0.001) translateZ(0px)';
+	                                rippleEle.style[dom_1.CSS.transition] = '';
+	                                // DOM READ
+	                                var clientRect = activatableEle.getBoundingClientRect();
+	                                rippleEle.$top = clientRect.top;
+	                                rippleEle.$left = clientRect.left;
+	                                rippleEle.$width = clientRect.width;
+	                                rippleEle.$height = clientRect.height;
+	                                break;
+	                            }
+	                        }
+	                    }
+	                }
+	                self._queue = [];
 	            });
 	        });
-	        // expand the circle from the users starting point
-	        // start slow, and when they let up, then speed up the animation
-	        this.expands[rippleId] = new animation_1.Animation(rippleEle, { renderDelay: 0 });
-	        this.expands[rippleId]
-	            .fromTo('scale', '0.001', '1')
-	            .duration(duration)
-	            .playbackRate(this.expandSpeed)
-	            .onFinish(function () {
-	            _this.expands[rippleId].dispose();
-	            delete _this.expands[rippleId];
-	            _this.next();
-	        })
-	            .play();
 	    };
-	    RippleActivator.prototype.upAction = function () {
-	        var _this = this;
-	        this.deactivate();
-	        this.expandSpeed = 1;
-	        this.zone.runOutsideAngular(function () {
-	            dom_1.rafFrames(4, function () {
-	                _this.next();
-	            });
+	    RippleActivator.prototype.upAction = function (ev, activatableEle, pointerX, pointerY) {
+	        var self = this;
+	        var i = activatableEle.childElementCount;
+	        while (i--) {
+	            var rippleEle = activatableEle.children[i];
+	            if (rippleEle.tagName === 'ION-BUTTON-EFFECT') {
+	                var clientPointerX = (pointerX - rippleEle.$left);
+	                var clientPointerY = (pointerY - rippleEle.$top);
+	                var x = Math.max(Math.abs(rippleEle.$width - clientPointerX), clientPointerX) * 2;
+	                var y = Math.max(Math.abs(rippleEle.$height - clientPointerY), clientPointerY) * 2;
+	                var diameter = Math.min(Math.max(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)), 64), 240);
+	                if (activatableEle.hasAttribute('ion-item')) {
+	                    diameter = Math.min(diameter, 140);
+	                }
+	                var radius = Math.sqrt(rippleEle.$width + rippleEle.$height);
+	                var scaleTransitionDuration = Math.max(1600 * Math.sqrt(radius / TOUCH_DOWN_ACCEL) + 0.5, 260);
+	                var opacityTransitionDuration = scaleTransitionDuration * 0.7;
+	                var opacityTransitionDelay = scaleTransitionDuration - opacityTransitionDuration;
+	                // DOM WRITE
+	                rippleEle.style.width = rippleEle.style.height = diameter + 'px';
+	                rippleEle.style.marginTop = rippleEle.style.marginLeft = -(diameter / 2) + 'px';
+	                rippleEle.style.left = clientPointerX + 'px';
+	                rippleEle.style.top = clientPointerY + 'px';
+	                rippleEle.style.opacity = '0';
+	                rippleEle.style[dom_1.CSS.transform] = 'scale(1) translateZ(0px)';
+	                rippleEle.style[dom_1.CSS.transition] = 'transform ' +
+	                    scaleTransitionDuration +
+	                    'ms,opacity ' +
+	                    opacityTransitionDuration +
+	                    'ms ' +
+	                    opacityTransitionDelay + 'ms';
+	            }
+	        }
+	        _super.prototype.upAction.call(this, ev, activatableEle, pointerX, pointerY);
+	    };
+	    RippleActivator.prototype.deactivate = function () {
+	        // remove the active class from all active elements
+	        var self = this;
+	        self._queue = [];
+	        dom_1.rafFrames(2, function () {
+	            for (var i = 0; i < self._active.length; i++) {
+	                self._active[i].classList.remove(self._css);
+	            }
+	            self._active = [];
 	        });
-	    };
-	    RippleActivator.prototype.next = function () {
-	        var now = Date.now();
-	        var rippleId;
-	        for (rippleId in this.expands) {
-	            if (parseInt(rippleId, 10) + 4000 < now) {
-	                this.expands[rippleId].dispose(true);
-	                delete this.expands[rippleId];
-	            }
-	            else if (this.expands[rippleId].playbackRate() === EXPAND_DOWN_PLAYBACK_RATE) {
-	                this.expands[rippleId].playbackRate(EXPAND_OUT_PLAYBACK_RATE);
-	            }
-	        }
-	        for (rippleId in this.fades) {
-	            if (parseInt(rippleId, 10) + 4000 < now) {
-	                this.fades[rippleId].dispose(true);
-	                delete this.fades[rippleId];
-	            }
-	            else if (!this.fades[rippleId].isPlaying) {
-	                this.fades[rippleId].isPlaying = true;
-	                this.fades[rippleId].play();
-	            }
-	        }
-	    };
-	    RippleActivator.prototype.clearState = function () {
-	        this.deactivate();
-	        this.next();
 	    };
 	    return RippleActivator;
 	})(activator_1.Activator);
 	exports.RippleActivator = RippleActivator;
-	var TOUCH_DOWN_ACCEL = 512;
-	var EXPAND_DOWN_PLAYBACK_RATE = 0.35;
-	var EXPAND_OUT_PLAYBACK_RATE = 3;
-	var FADE_OUT_DURATION = 700;
+	var TOUCH_DOWN_ACCEL = 300;
+
 
 /***/ },
 /* 279 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var dom_1 = __webpack_require__(267);
-	var util_1 = __webpack_require__(266);
-	var doc = document;
-	/**
-	  Animation Steps/Process
-	  -----------------------
-	
-	 - Construct animation (doesn't start)
-	 - Client play()'s animation, returns promise
-	 - Add before classes to elements
-	 - Remove before classes from elements
-	 - Elements staged in "from" effect w/ inline styles
-	 - Call onReady()
-	 - Wait for RENDER_DELAY milliseconds (give browser time to render)
-	 - Call onPlay()
-	 - Run from/to animation on elements
-	 - Animations finish async
-	 - Set inline styles w/ the "to" effects on elements
-	 - Add after classes to elements
-	 - Remove after classes from elements
-	 - Call onFinish()
-	 - Resolve play()'s promise
-	**/
 	/**
 	 * @private
-	**/
-	var Animation = (function () {
-	    function Animation(ele, opts) {
-	        if (opts === void 0) { opts = {}; }
-	        this.reset();
-	        this._opts = util_1.assign({
-	            renderDelay: 16
-	        }, opts);
-	        this.elements(ele);
-	        if (!doc.documentElement.animate) {
+	 * Provide multi-language and i18n support in your app. Translate works by
+	 * mapping full strings to language translated ones. That means that you don't
+	 * need to provide strings for your default language, just new languages.
+	 *
+	 * Note: The Angular team will be building an
+	 * [Localization/Internationalization](https://docs.google.com/document/d/1mwyOFsAD-bPoXTk3Hthq0CAcGXCUw-BtTJMR4nGTY-0/view#heading=h.ixg45w3363q)
+	 * provider, so this Translation provider may not be further developed.
+	 *
+	 * @usage
+	 * ```js
+	 * Translate.translations({
+	 *   'de': {
+	 *     'Welcome to MyApp': 'Willkommen auf'
+	 *   }
+	 * })
+	 *
+	 * Changing the default language:
+	 *
+	 * Translate.setLanguage('de');
+	 * ```
+	 *
+	 * Usage in a template:
+	 *
+	 * ```js
+	 * <span>{{ 'Welcome to MyApp' | translate }}
+	 * ```
+	 */
+	var Translate = (function () {
+	    function Translate() {
+	        this._transMap = {};
+	        this._language = {};
+	    }
+	    Translate.prototype.translations = function (lang, map) {
+	        this._transMap[lang] = map;
+	    };
+	    Translate.prototype.setLanguage = function (lang) {
+	        this._language = lang;
+	    };
+	    Translate.prototype.getTranslations = function (lang) {
+	        return this._transMap[lang];
+	    };
+	    Translate.prototype.translate = function (key, lang) {
+	        // If the language isn't specified and we have no overridden one, return the string passed.
+	        if (!lang && !this._language) {
+	            return key;
+	        }
+	        var setLanguage = lang || this._language;
+	        var map = this.getTranslations(setLanguage);
+	        if (!map) {
 	            void 0;
+	            return '';
 	        }
-	    }
-	    Animation.prototype.reset = function () {
-	        this._el = [];
-	        this._chld = [];
-	        this._ani = [];
-	        this._bfSty = {};
-	        this._bfAdd = [];
-	        this._bfRmv = [];
-	        this._afAdd = [];
-	        this._afRmv = [];
-	        this._readys = [];
-	        this._plays = [];
-	        this._finishes = [];
+	        return this._getTranslation(map, key);
 	    };
-	    Animation.prototype.elements = function (ele) {
-	        if (ele) {
-	            if (typeof ele === 'string') {
-	                // string query selector
-	                ele = doc.querySelectorAll(ele);
-	            }
-	            if (ele.length) {
-	                // array of elements
-	                for (var i = 0; i < ele.length; i++) {
-	                    this.addElement(ele[i]);
-	                }
-	            }
-	            else {
-	                // single element
-	                this.addElement(ele);
-	            }
-	        }
-	        return this;
+	    Translate.prototype._getTranslation = function (map, key) {
+	        return map && map[key] || '';
 	    };
-	    Animation.prototype.addElement = function (ele) {
-	        // ensure only HTML Element nodes
-	        if (ele) {
-	            if (ele.nativeElement) {
-	                // angular ElementRef
-	                ele = ele.nativeElement;
-	            }
-	            if (ele.nodeType === 1) {
-	                this._el.push(ele);
-	            }
-	        }
-	    };
-	    Animation.prototype.parent = function (parentAnimation) {
-	        this._parent = parentAnimation;
-	        return this;
-	    };
-	    Animation.prototype.add = function (childAnimations) {
-	        var _childAnimations = Array.isArray(childAnimations) ? childAnimations : arguments;
-	        for (var i = 0; i < _childAnimations.length; i++) {
-	            _childAnimations[i].parent(this);
-	            this._chld.push(_childAnimations[i]);
-	        }
-	        return this;
-	    };
-	    Animation.prototype.duration = function (value) {
-	        if (arguments.length) {
-	            this._duration = value;
-	            return this;
-	        }
-	        return this._duration || (this._parent && this._parent.duration()) || 0;
-	    };
-	    Animation.prototype.clearDuration = function () {
-	        this._duration = null;
-	        for (var i = 0, l = this._chld.length; i < l; i++) {
-	            this._chld[i].clearDuration();
-	        }
-	    };
-	    Animation.prototype.easing = function (name, opts) {
-	        if (arguments.length) {
-	            this._easing = {
-	                name: name,
-	                opts: opts
-	            };
-	            return this;
-	        }
-	        return this._easing || (this._parent && this._parent.easing());
-	    };
-	    Animation.prototype.playbackRate = function (value) {
-	        if (arguments.length) {
-	            this._rate = value;
-	            var i;
-	            for (i = 0; i < this._chld.length; i++) {
-	                this._chld[i].playbackRate(value);
-	            }
-	            for (i = 0; i < this._ani.length; i++) {
-	                this._ani[i].playbackRate(value);
-	            }
-	            return this;
-	        }
-	        return (typeof this._rate !== 'undefined' ? this._rate : this._parent && this._parent.playbackRate());
-	    };
-	    Animation.prototype.reverse = function () {
-	        return this.playbackRate(-1);
-	    };
-	    Animation.prototype.forward = function () {
-	        return this.playbackRate(1);
-	    };
-	    Animation.prototype.from = function (property, value) {
-	        if (!this._from) {
-	            this._from = {};
-	        }
-	        this._from[property] = value;
-	        return this;
-	    };
-	    Animation.prototype.to = function (property, value) {
-	        if (!this._to) {
-	            this._to = {};
-	        }
-	        this._to[property] = value;
-	        return this;
-	    };
-	    Animation.prototype.fromTo = function (property, from, to) {
-	        return this.from(property, from).to(property, to);
-	    };
-	    Animation.prototype.fadeIn = function () {
-	        return this.fromTo('opacity', 0.001, 1);
-	    };
-	    Animation.prototype.fadeOut = function () {
-	        return this.fromTo('opacity', 0.999, 0);
-	    };
-	    Object.defineProperty(Animation.prototype, "before", {
-	        get: function () {
-	            var _this = this;
-	            return {
-	                addClass: function (className) {
-	                    _this._bfAdd.push(className);
-	                    return _this;
-	                },
-	                removeClass: function (className) {
-	                    _this._bfRmv.push(className);
-	                    return _this;
-	                },
-	                setStyles: function (styles) {
-	                    _this._bfSty = styles;
-	                    return _this;
-	                }
-	            };
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Animation.prototype, "after", {
-	        get: function () {
-	            var _this = this;
-	            return {
-	                addClass: function (className) {
-	                    _this._afAdd.push(className);
-	                    return _this;
-	                },
-	                removeClass: function (className) {
-	                    _this._afRmv.push(className);
-	                    return _this;
-	                }
-	            };
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Animation.prototype.play = function (done) {
-	        var self = this;
-	        // the actual play() method which may or may not start async
-	        function beginPlay(beginPlayDone) {
-	            var tasks = [];
-	            self._chld.forEach(function (childAnimation) {
-	                tasks.push(function (taskDone) {
-	                    childAnimation.play(taskDone);
-	                });
-	            });
-	            self._ani.forEach(function (animation) {
-	                tasks.push(function (taskDone) {
-	                    animation.play(taskDone);
-	                });
-	            });
-	            parallel(tasks, beginPlayDone);
-	        }
-	        if (!self._parent) {
-	            // this is the top level animation and is in full control
-	            // of when the async play() should actually kick off
-	            // stage all animations and child animations at their starting point
-	            self.stage();
-	            var promise;
-	            if (!done) {
-	                promise = new Promise(function (res) { done = res; });
-	            }
-	            function kickoff() {
-	                // synchronously call all onPlay()'s before play()
-	                self._onPlay();
-	                beginPlay(function () {
-	                    self._onFinish();
-	                    done();
-	                });
-	            }
-	            if (self._duration > 16 && self._opts.renderDelay > 0) {
-	                // begin each animation when everything is rendered in their starting point
-	                // give the browser some time to render everything in place before starting
-	                dom_1.rafFrames(self._opts.renderDelay / 16, kickoff);
-	            }
-	            else {
-	                // no need to render everything in there place before animating in
-	                // just kick it off immediately to render them in their "to" locations
-	                kickoff();
-	            }
-	            return promise;
-	        }
-	        // this is a child animation, it is told exactly when to
-	        // start by the top level animation
-	        beginPlay(done);
-	    };
-	    Animation.prototype.stage = function () {
-	        // before the RENDER_DELAY
-	        // before the animations have started
-	        if (!this._isStaged) {
-	            this._isStaged = true;
-	            var i, p, l, j, ele, animation;
-	            for (i = 0, l = this._chld.length; i < l; i++) {
-	                this._chld[i].stage();
-	            }
-	            for (i = 0; i < this._el.length; i++) {
-	                ele = this._el[i];
-	                for (j = 0; j < this._bfAdd.length; j++) {
-	                    ele.classList.add(this._bfAdd[j]);
-	                }
-	                for (p in this._bfSty) {
-	                    ele.style[p] = this._bfSty[p];
-	                }
-	                for (j = 0; j < this._bfRmv.length; j++) {
-	                    ele.classList.remove(this._bfRmv[j]);
-	                }
-	            }
-	            if (this._to) {
-	                // only animate the elements if there are defined "to" effects
-	                for (i = 0; i < this._el.length; i++) {
-	                    animation = new Animate(this._el[i], this._from, this._to, this.duration(), this.easing(), this.playbackRate());
-	                    if (animation.shouldAnimate) {
-	                        this._ani.push(animation);
-	                    }
-	                }
-	            }
-	            for (i = 0; i < this._readys.length; i++) {
-	                this._readys[i](this);
-	            }
-	        }
-	    };
-	    Animation.prototype._onPlay = function () {
-	        // after the RENDER_DELAY
-	        // before the animations have started
-	        var i;
-	        this._isFinished = false;
-	        for (i = 0; i < this._chld.length; i++) {
-	            this._chld[i]._onPlay();
-	        }
-	        for (i = 0; i < this._plays.length; i++) {
-	            this._plays[i](this);
-	        }
-	    };
-	    Animation.prototype._onFinish = function () {
-	        // after the animations have finished
-	        if (!this._isFinished && !this.isProgress) {
-	            this._isFinished = true;
-	            var i, j, ele;
-	            for (i = 0; i < this._chld.length; i++) {
-	                this._chld[i]._onFinish();
-	            }
-	            if (this.playbackRate() < 0) {
-	                // reverse direction
-	                for (i = 0; i < this._el.length; i++) {
-	                    ele = this._el[i];
-	                    for (j = 0; j < this._bfAdd.length; j++) {
-	                        ele.classList.remove(this._bfAdd[j]);
-	                    }
-	                    for (j = 0; j < this._bfRmv.length; j++) {
-	                        ele.classList.add(this._bfRmv[j]);
-	                    }
-	                }
-	            }
-	            else {
-	                // normal direction
-	                for (i = 0; i < this._el.length; i++) {
-	                    ele = this._el[i];
-	                    for (j = 0; j < this._afAdd.length; j++) {
-	                        ele.classList.add(this._afAdd[j]);
-	                    }
-	                    for (j = 0; j < this._afRmv.length; j++) {
-	                        ele.classList.remove(this._afRmv[j]);
-	                    }
-	                }
-	            }
-	            for (i = 0; i < this._finishes.length; i++) {
-	                this._finishes[i](this);
-	            }
-	        }
-	    };
-	    Animation.prototype.pause = function () {
-	        var i;
-	        for (i = 0; i < this._chld.length; i++) {
-	            this._chld[i].pause();
-	        }
-	        for (i = 0; i < this._ani.length; i++) {
-	            this._ani[i].pause();
-	        }
-	    };
-	    Animation.prototype.progressStart = function () {
-	        this.isProgress = true;
-	        for (var i = 0; i < this._chld.length; i++) {
-	            this._chld[i].progressStart();
-	        }
-	        this.duration(1000);
-	        this.play();
-	        this.pause();
-	    };
-	    Animation.prototype.progress = function (value) {
-	        value = Math.min(1, Math.max(0, value));
-	        this.isProgress = true;
-	        var i;
-	        for (i = 0; i < this._chld.length; i++) {
-	            this._chld[i].progress(value);
-	        }
-	        for (i = 0; i < this._ani.length; i++) {
-	            this._ani[i].progress(value);
-	        }
-	    };
-	    /**
-	     * Get the current time of the first animation
-	     * in the list. To get a specific time of an animation, call
-	     * subAnimationInstance.getCurrentTime()
-	     */
-	    Animation.prototype.getCurrentTime = function () {
-	        if (this._chld.length > 0) {
-	            return this._chld[0].getCurrentTime();
-	        }
-	        if (this._ani.length > 0) {
-	            return this._ani[0].getCurrentTime();
-	        }
-	        return 0;
-	    };
-	    Animation.prototype.progressEnd = function (shouldComplete, rate) {
-	        if (rate === void 0) { rate = 3; }
-	        var promises = [];
-	        this.isProgress = false;
-	        for (var i = 0; i < this._chld.length; i++) {
-	            promises.push(this._chld[i].progressEnd(shouldComplete));
-	        }
-	        this._ani.forEach(function (animation) {
-	            if (shouldComplete) {
-	                animation.playbackRate(rate);
-	            }
-	            else {
-	                animation.playbackRate(rate * -1);
-	            }
-	            promises.push(new Promise(function (resolve) {
-	                animation.play(resolve);
-	            }));
-	        });
-	        return Promise.all(promises);
-	    };
-	    Animation.prototype.onReady = function (fn, clear) {
-	        if (clear) {
-	            this._readys = [];
-	        }
-	        this._readys.push(fn);
-	        return this;
-	    };
-	    Animation.prototype.onPlay = function (fn, clear) {
-	        if (clear) {
-	            this._plays = [];
-	        }
-	        this._plays.push(fn);
-	        return this;
-	    };
-	    Animation.prototype.onFinish = function (fn, clear) {
-	        if (clear) {
-	            this._finishes = [];
-	        }
-	        this._finishes.push(fn);
-	        return this;
-	    };
-	    Animation.prototype.clone = function () {
-	        function copy(dest, src) {
-	            // undo what stage() may have already done
-	            util_1.assign(dest, src);
-	            dest._isFinished = dest._isStaged = dest.isProgress = false;
-	            dest._chld = [];
-	            dest._ani = [];
-	            for (var i = 0; i < src._chld.length; i++) {
-	                dest.add(copy(new Animation(), src._chld[i]));
-	            }
-	            return dest;
-	        }
-	        return copy(new Animation(), this);
-	    };
-	    Animation.prototype.dispose = function (removeElement) {
-	        var i;
-	        for (i = 0; i < this._chld.length; i++) {
-	            this._chld[i].dispose(removeElement);
-	        }
-	        for (i = 0; i < this._ani.length; i++) {
-	            this._ani[i].dispose();
-	        }
-	        if (removeElement) {
-	            for (i = 0; i < this._el.length; i++) {
-	                this._el[i].parentNode && this._el[i].parentNode.removeChild(this._el[i]);
-	            }
-	        }
-	        this.reset();
-	    };
-	    /*
-	     STATIC CLASSES
-	     */
-	    Animation.create = function (name) {
-	        var AnimationClass = AnimationRegistry[name];
-	        if (!AnimationClass) {
-	            // couldn't find an animation by the given name
-	            // fallback to just the base Animation class
-	            AnimationClass = Animation;
-	        }
-	        return new AnimationClass();
-	    };
-	    Animation.createTransition = function (enteringView, leavingView, opts) {
-	        if (opts === void 0) { opts = {}; }
-	        var TransitionClass = AnimationRegistry[opts.animation];
-	        if (!TransitionClass) {
-	            // didn't find a transition animation, default to ios-transition
-	            TransitionClass = AnimationRegistry['ios-transition'];
-	        }
-	        return new TransitionClass(enteringView, leavingView, opts);
-	    };
-	    Animation.register = function (name, AnimationClass) {
-	        AnimationRegistry[name] = AnimationClass;
-	    };
-	    return Animation;
+	    return Translate;
 	})();
-	exports.Animation = Animation;
-	/**
-	 * @private
-	**/
-	var Animate = (function () {
-	    function Animate(ele, fromEffect, toEffect, duration, easingConfig, playbackRate) {
-	        // https://w3c.github.io/web-animations/
-	        // not using the direct API methods because they're still in flux
-	        // however, element.animate() seems locked in and uses the latest
-	        // and correct API methods under the hood, so really doesn't matter
-	        if (!fromEffect) {
-	            void 0;
-	            return;
-	        }
-	        this.toEffect = parseEffect(toEffect);
-	        this.shouldAnimate = (duration > 32);
-	        if (!this.shouldAnimate) {
-	            inlineStyle(ele, this.toEffect);
-	            return;
-	        }
-	        this.ele = ele;
-	        // stage where the element will start from
-	        this.fromEffect = parseEffect(fromEffect);
-	        inlineStyle(ele, this.fromEffect);
-	        this.duration = duration;
-	        this.rate = (typeof playbackRate !== 'undefined' ? playbackRate : 1);
-	        this.easing = easingConfig && easingConfig.name || 'linear';
-	        this.effects = [convertProperties(this.fromEffect)];
-	        if (this.easing in EASING_FN) {
-	            insertEffects(this.effects, this.fromEffect, this.toEffect, easingConfig);
-	        }
-	        else if (this.easing in CUBIC_BEZIERS) {
-	            this.easing = 'cubic-bezier(' + CUBIC_BEZIERS[this.easing] + ')';
-	        }
-	        this.effects.push(convertProperties(this.toEffect));
-	    }
-	    Animate.prototype.play = function (done) {
-	        var self = this;
-	        if (self.ani) {
-	            self.ani.play();
-	        }
-	        else {
-	            // https://developers.google.com/web/updates/2014/05/Web-Animations---element-animate-is-now-in-Chrome-36
-	            // https://w3c.github.io/web-animations/
-	            // Future versions will use "new window.Animation" rather than "element.animate()"
-	            self.ani = self.ele.animate(self.effects, {
-	                duration: self.duration || 0,
-	                easing: self.easing,
-	                playbackRate: self.rate // old way of setting playbackRate, but still necessary
-	            });
-	            self.ani.playbackRate = self.rate;
-	        }
-	        self.ani.onfinish = function () {
-	            // lock in where the element will stop at
-	            // if the playbackRate is negative then it needs to return
-	            // to its "from" effects
-	            if (self.ani) {
-	                inlineStyle(self.ele, self.rate < 0 ? self.fromEffect : self.toEffect);
-	                self.ani = self.ani.onfinish = null;
-	                done && done();
-	            }
-	        };
-	    };
-	    Animate.prototype.pause = function () {
-	        this.ani && this.ani.pause();
-	    };
-	    Animate.prototype.progress = function (value) {
-	        if (this.ani) {
-	            // passed a number between 0 and 1
-	            if (this.ani.playState !== 'paused') {
-	                this.ani.pause();
-	            }
-	            // don't let the progress finish the animation
-	            // leave it off JUST before it's finished
-	            value = Math.min(0.999, Math.max(0.001, value));
-	            this.ani.currentTime = (this.duration * value);
-	        }
-	    };
-	    Animate.prototype.getCurrentTime = function () {
-	        return (this.ani && this.ani.currentTime) || 0;
-	    };
-	    Animate.prototype.playbackRate = function (value) {
-	        this.rate = value;
-	        if (this.ani) {
-	            this.ani.playbackRate = value;
-	        }
-	    };
-	    Animate.prototype.dispose = function () {
-	        this.ele = this.ani = this.effects = this.toEffect = null;
-	    };
-	    return Animate;
-	})();
-	function insertEffects(effects, fromEffect, toEffect, easingConfig) {
-	    easingConfig.opts = easingConfig.opts || {};
-	    var increment = easingConfig.opts.increment || 0.04;
-	    var easingFn = EASING_FN[easingConfig.name];
-	    var pos, tweenEffect, addEffect, property, toProperty, fromValue, diffValue;
-	    for (pos = increment; pos <= (1 - increment); pos += increment) {
-	        tweenEffect = {};
-	        addEffect = false;
-	        for (property in toEffect) {
-	            toProperty = toEffect[property];
-	            if (toProperty.tween) {
-	                fromValue = fromEffect[property].num;
-	                diffValue = toProperty.num - fromValue;
-	                tweenEffect[property] = {
-	                    value: roundValue((easingFn(pos, easingConfig.opts) * diffValue) + fromValue) + toProperty.unit
-	                };
-	                addEffect = true;
-	            }
-	        }
-	        if (addEffect) {
-	            effects.push(convertProperties(tweenEffect));
-	        }
-	    }
-	}
-	function parseEffect(inputEffect) {
-	    var val, r, num, property;
-	    var outputEffect = {};
-	    for (property in inputEffect) {
-	        val = inputEffect[property];
-	        r = val.toString().match(/(^-?\d*\.?\d*)(.*)/);
-	        num = parseFloat(r[1]);
-	        outputEffect[property] = {
-	            value: val,
-	            num: num,
-	            unit: (r[0] != r[2] ? r[2] : ''),
-	            tween: !isNaN(num) && (ANIMATE_PROPERTIES.indexOf(property) > -1)
-	        };
-	    }
-	    return outputEffect;
-	}
-	function convertProperties(inputEffect) {
-	    var outputEffect = {};
-	    var transforms = [];
-	    var value, property;
-	    for (property in inputEffect) {
-	        value = inputEffect[property].value;
-	        if (TRANSFORMS.indexOf(property) > -1) {
-	            transforms.push(property + '(' + value + ')');
-	        }
-	        else {
-	            outputEffect[property] = value;
-	        }
-	    }
-	    if (transforms.length) {
-	        transforms.push('translateZ(0px)');
-	        outputEffect.transform = transforms.join(' ');
-	    }
-	    return outputEffect;
-	}
-	function inlineStyle(ele, effect) {
-	    if (ele && effect) {
-	        var transforms = [];
-	        var value, property;
-	        for (property in effect) {
-	            value = effect[property].value;
-	            if (TRANSFORMS.indexOf(property) > -1) {
-	                transforms.push(property + '(' + value + ')');
-	            }
-	            else {
-	                ele.style[property] = value;
-	            }
-	        }
-	        if (transforms.length) {
-	            transforms.push('translateZ(0px)');
-	            ele.style[dom_1.CSS.transform] = transforms.join(' ');
-	        }
-	    }
-	}
-	function roundValue(val) {
-	    return Math.round(val * 10000) / 10000;
-	}
-	var TRANSFORMS = ['translateX', 'translateY', 'translateZ', 'scale', 'scaleX', 'scaleY', 'scaleZ',
-	    'rotate', 'rotateX', 'rotateY', 'rotateZ', 'skewX', 'skewY', 'perspective'];
-	var ANIMATE_PROPERTIES = TRANSFORMS.concat('opacity');
-	// Robert Penner's Easing Functions
-	// http://robertpenner.com/easing/
-	var CUBIC_BEZIERS = {
-	    // default browser suppored easing
-	    // ease
-	    // ease-in
-	    // ease-out
-	    // ease-in-out
-	    // Cubic
-	    'ease-in-cubic': '0.55,0.055,0.675,0.19',
-	    'ease-out-cubic': '0.215,0.61,0.355,1',
-	    'ease-in-Out-cubic': '0.645,0.045,0.355,1',
-	    // Circ
-	    'ease-in-circ': '0.6,0.04,0.98,0.335',
-	    'ease-out-circ': '0.075,0.82,0.165,1',
-	    'ease-in-out-circ': '0.785,0.135,0.15,0.86',
-	    // Expo
-	    'ease-in-expo': '0.95,0.05,0.795,0.035',
-	    'ease-out-expo': '0.19,1,0.22,1',
-	    'ease-in-out-expo': '1,0,0,1',
-	    // Quad
-	    'ease-in-quad': '0.55,0.085,0.68,0.53',
-	    'ease-out-quad': '0.25,0.46,0.45,0.94',
-	    'ease-in-out-quad': '0.455,0.03,0.515,0.955',
-	    // Quart
-	    'ease-in-quart': '0.895,0.03,0.685,0.22',
-	    'ease-out-quart': '0.165,0.84,0.44,1',
-	    'ease-in-out-quart': '0.77,0,0.175,1',
-	    // Quint
-	    'ease-in-quint': '0.755,0.05,0.855,0.06',
-	    'ease-out-quint': '0.23,1,0.32,1',
-	    'ease-in-out-quint': '0.86,0,0.07,1',
-	    // Sine
-	    'ease-in-sine': '0.47,0,0.745,0.715',
-	    'ease-out-sine': '0.39,0.575,0.565,1',
-	    'ease-in-out-sine': '0.445,0.05,0.55,0.95',
-	    // Back
-	    'ease-in-back': '0.6,-0.28,0.735,0.045',
-	    'ease-out-back': '0.175,0.885,0.32,1.275',
-	    'ease-in-out-back': '0.68,-0.55,0.265,1.55',
-	};
-	var EASING_FN = {
-	    'elastic': function (pos) {
-	        return -1 * Math.pow(4, -8 * pos) * Math.sin((pos * 6 - 1) * (2 * Math.PI) / 2) + 1;
-	    },
-	    'swing-from-to': function (pos, opts) {
-	        var s = opts.s || 1.70158;
-	        return ((pos /= 0.5) < 1) ? 0.5 * (pos * pos * (((s *= (1.525)) + 1) * pos - s)) :
-	            0.5 * ((pos -= 2) * pos * (((s *= (1.525)) + 1) * pos + s) + 2);
-	    },
-	    'swing-from': function (pos, opts) {
-	        var s = opts.s || 1.70158;
-	        return pos * pos * ((s + 1) * pos - s);
-	    },
-	    'swing-to': function (pos, opts) {
-	        var s = opts.s || 1.70158;
-	        return (pos -= 1) * pos * ((s + 1) * pos + s) + 1;
-	    },
-	    'bounce': function (pos) {
-	        if (pos < (1 / 2.75)) {
-	            return (7.5625 * pos * pos);
-	        }
-	        else if (pos < (2 / 2.75)) {
-	            return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
-	        }
-	        else if (pos < (2.5 / 2.75)) {
-	            return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
-	        }
-	        return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
-	    },
-	    'bounce-past': function (pos) {
-	        if (pos < (1 / 2.75)) {
-	            return (7.5625 * pos * pos);
-	        }
-	        else if (pos < (2 / 2.75)) {
-	            return 2 - (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
-	        }
-	        else if (pos < (2.5 / 2.75)) {
-	            return 2 - (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
-	        }
-	        return 2 - (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
-	    },
-	    'ease-out-bounce': function (pos) {
-	        if ((pos) < (1 / 2.75)) {
-	            return (7.5625 * pos * pos);
-	        }
-	        else if (pos < (2 / 2.75)) {
-	            return (7.5625 * (pos -= (1.5 / 2.75)) * pos + 0.75);
-	        }
-	        else if (pos < (2.5 / 2.75)) {
-	            return (7.5625 * (pos -= (2.25 / 2.75)) * pos + 0.9375);
-	        }
-	        return (7.5625 * (pos -= (2.625 / 2.75)) * pos + 0.984375);
-	    },
-	    'ease-from-to': function (pos) {
-	        if ((pos /= 0.5) < 1)
-	            return 0.5 * Math.pow(pos, 4);
-	        return -0.5 * ((pos -= 2) * Math.pow(pos, 3) - 2);
-	    },
-	    'ease-from': function (pos, opts) {
-	        return Math.pow(pos, opts.s || 4);
-	    },
-	    'ease-to': function (pos, opts) {
-	        return Math.pow(pos, opts.s || 0.25);
-	    },
-	    /*
-	     * scripty2, Thomas Fuchs (MIT Licence)
-	     * https://raw.github.com/madrobby/scripty2/master/src/effects/transitions/transitions.js
-	     */
-	    'spring': function (pos, opts) {
-	        var damping = opts.damping || 4.5;
-	        var elasticity = opts.elasticity || 6;
-	        return 1 - (Math.cos(pos * damping * Math.PI) * Math.exp(-pos * elasticity));
-	    },
-	    'sinusoidal': function (pos) {
-	        return (-Math.cos(pos * Math.PI) / 2) + 0.5;
-	    }
-	};
-	var AnimationRegistry = {};
-	function parallel(tasks, done) {
-	    var l = tasks.length;
-	    if (!l) {
-	        done && done();
-	        return;
-	    }
-	    var completed = 0;
-	    function taskCompleted() {
-	        completed++;
-	        if (completed === l) {
-	            done && done();
-	        }
-	    }
-	    for (var i = 0; i < l; i++) {
-	        tasks[i](taskCompleted);
-	    }
-	}
+	exports.Translate = Translate;
+
 
 /***/ },
 /* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var common_1 = __webpack_require__(162);
+	var common_1 = __webpack_require__(170);
 	var overlay_1 = __webpack_require__(281);
 	var menu_1 = __webpack_require__(282);
 	var menu_toggle_1 = __webpack_require__(291);
-	var menu_close_1 = __webpack_require__(301);
-	var badge_1 = __webpack_require__(302);
+	var menu_close_1 = __webpack_require__(303);
+	var badge_1 = __webpack_require__(304);
 	var button_1 = __webpack_require__(297);
-	var blur_1 = __webpack_require__(303);
-	var content_1 = __webpack_require__(304);
-	var scroll_1 = __webpack_require__(305);
-	var pull_to_refresh_1 = __webpack_require__(306);
-	var slides_1 = __webpack_require__(307);
-	var tabs_1 = __webpack_require__(309);
-	var tab_1 = __webpack_require__(311);
-	var list_1 = __webpack_require__(313);
-	var item_1 = __webpack_require__(316);
-	var item_sliding_1 = __webpack_require__(318);
+	var blur_1 = __webpack_require__(305);
+	var content_1 = __webpack_require__(306);
+	var scroll_1 = __webpack_require__(307);
+	var pull_to_refresh_1 = __webpack_require__(308);
+	var slides_1 = __webpack_require__(309);
+	var tabs_1 = __webpack_require__(311);
+	var tab_1 = __webpack_require__(313);
+	var list_1 = __webpack_require__(315);
+	var item_1 = __webpack_require__(318);
+	var item_sliding_1 = __webpack_require__(320);
 	var toolbar_1 = __webpack_require__(296);
 	var icon_1 = __webpack_require__(295);
-	var checkbox_1 = __webpack_require__(319);
-	var select_1 = __webpack_require__(320);
-	var option_1 = __webpack_require__(322);
-	var toggle_1 = __webpack_require__(323);
-	var input_1 = __webpack_require__(324);
-	var label_1 = __webpack_require__(317);
-	var segment_1 = __webpack_require__(327);
-	var radio_button_1 = __webpack_require__(328);
-	var radio_group_1 = __webpack_require__(329);
-	var searchbar_1 = __webpack_require__(330);
-	var nav_1 = __webpack_require__(331);
-	var nav_push_1 = __webpack_require__(332);
-	var nav_router_1 = __webpack_require__(333);
+	var checkbox_1 = __webpack_require__(321);
+	var select_1 = __webpack_require__(322);
+	var option_1 = __webpack_require__(324);
+	var toggle_1 = __webpack_require__(325);
+	var input_1 = __webpack_require__(326);
+	var label_1 = __webpack_require__(319);
+	var segment_1 = __webpack_require__(329);
+	var radio_button_1 = __webpack_require__(330);
+	var radio_group_1 = __webpack_require__(331);
+	var searchbar_1 = __webpack_require__(332);
+	var nav_1 = __webpack_require__(333);
+	var nav_push_1 = __webpack_require__(334);
+	var nav_router_1 = __webpack_require__(335);
 	var navbar_1 = __webpack_require__(294);
-	var id_1 = __webpack_require__(334);
-	var show_hide_when_1 = __webpack_require__(335);
+	var id_1 = __webpack_require__(336);
+	var show_hide_when_1 = __webpack_require__(337);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @private
@@ -42684,6 +42116,7 @@
 	    show_hide_when_1.HideWhen
 	];
 
+
 /***/ },
 /* 281 */
 /***/ function(module, exports, __webpack_require__) {
@@ -42718,6 +42151,7 @@
 	})();
 	exports.OverlayNav = OverlayNav;
 
+
 /***/ },
 /* 282 */
 /***/ function(module, exports, __webpack_require__) {
@@ -42741,99 +42175,22 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var ion_1 = __webpack_require__(283);
-	var app_1 = __webpack_require__(158);
-	var config_1 = __webpack_require__(264);
-	var platform_1 = __webpack_require__(265);
-	var keyboard_1 = __webpack_require__(270);
-	var gestures = __webpack_require__(284);
+	var config_1 = __webpack_require__(159);
+	var platform_1 = __webpack_require__(160);
+	var keyboard_1 = __webpack_require__(272);
+	var menu_gestures_1 = __webpack_require__(284);
+	var menu_controller_1 = __webpack_require__(273);
+	var util_1 = __webpack_require__(161);
 	/**
-	 * @name Menu
-	 * @description
-	 * _For basic Menu usage, see the [Menu section](../../../../components/#menus)
-	 * of the Component docs._
-	 *
-	 * Menu is a side-menu navigation that can be dragged out or toggled to show.
-	 *
-	 * @usage
-	 * In order to use Menu, you must specify a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables)
-	 * to the content element that Menu should listen on for drag events, using the `content` property:
-	 *
-	 * ```html
-	 * <ion-menu [content]="mycontent">
-	 *   <ion-content>
-	 *     <ion-list>
-	 *     ...
-	 *     </ion-list>
-	 *   </ion-content>
-	 * </ion-menu>
-	 *
-	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
-	 * ```
-	 *
-	 * By default, Menus are on the left, but this can be overriden with the `side`
-	 * property:
-	 * ```html
-	 * <ion-menu [content]="mycontent" side="right"></ion-menu>
-	 * ```
-	 *
-	 * Menus can optionally be given an `id` attribute which allows the app to
-	 * to get ahold of menu references. If no `id` is given then the menu
-	 * automatically receives an `id` created from the side it is on, such as
-	 * `leftMenu` or `rightMenu`. When using more than one menu it is always
-	 * recommended to give each menu a unique `id`. Additionally menuToggle and
-	 * menuClose directives should be given menu id values of their respective
-	 * menu.
-	 *
-	 * Menu supports two display styles: overlay, and reveal. Overlay
-	 * is the traditional Android drawer style, and Reveal is the traditional iOS
-	 * style. By default, Menu will adjust to the correct style for the platform,
-	 * but this can be overriden using the `type` property:
-	 * ```html
-	 * <ion-menu [content]="mycontent" type="overlay"></ion-menu>
-	 * ```
-	 *
-	 * To programatically interact with the menu, you first get the menu component.
-	 *
-	 * ```ts
-	 * @Page({
-	 * `<ion-menu [content]="mycontent" id="leftMenu"></ion-menu>
-	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>`
-	 * )}
-	 * export class MyClass{
-	 *  constructor(app: IonicApp){
-	 *    this.app = app;
-	 *    this.menu;
-	 *  }
-	 *
-	 *  // Wait until the page is ready
-	 *  ngAfterViewInit(){
-	 *    this.menu = this.app.getComponent('leftMenu');
-	 *  }
-	 *
-	 *  // Open the menu programatically
-	 *  openMenu(){
-	 *    this.menu.open();
-	 *  }
-	 *
-	 * }
-	 * ```
-	 *
-	 * If you want to use any of the APIs down below, make sure to grabe the menu component by it's ID
-	 *
-	 * @demo /docs/v2/demos/menu/
-	 *
-	 * @see {@link /docs/v2/components#menus Menu Component Docs}
-	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
-	 * @see {@link ../../nav/Nav Nav API Docs}
-	 *
+	 * @private
 	 */
 	var Menu = (function (_super) {
 	    __extends(Menu, _super);
-	    function Menu(_elementRef, _config, _app, _platform, _renderer, _keyboard, _zone) {
+	    function Menu(_menuCtrl, _elementRef, _config, _platform, _renderer, _keyboard, _zone) {
 	        _super.call(this, _elementRef);
+	        this._menuCtrl = _menuCtrl;
 	        this._elementRef = _elementRef;
 	        this._config = _config;
-	        this._app = _app;
 	        this._platform = _platform;
 	        this._renderer = _renderer;
 	        this._keyboard = _keyboard;
@@ -42863,74 +42220,48 @@
 	        var self = this;
 	        var content = self.content;
 	        self._cntEle = (content instanceof Node) ? content : content && content.getNativeElement && content.getNativeElement();
+	        // requires content element
 	        if (!self._cntEle) {
 	            return void 0;
 	        }
+	        // normalize the "side"
 	        if (self.side !== 'left' && self.side !== 'right') {
 	            self.side = 'left';
 	        }
 	        self._renderer.setElementAttribute(self._elementRef.nativeElement, 'side', self.side);
-	        if (self.swipeEnabled === 'false') {
+	        // normalize the "type"
+	        if (!self.type) {
+	            self.type = self._config.get('menuType');
+	        }
+	        self._renderer.setElementAttribute(self._elementRef.nativeElement, 'type', self.type);
+	        // add the gesture listeners
+	        self._zone.runOutsideAngular(function () {
+	            self._cntGesture = new menu_gestures_1.MenuContentGesture(self, self.getContentElement());
+	            self._menuGesture = new menu_gestures_1.MenuTargetGesture(self, self.getNativeElement());
+	            self.onContentClick = function (ev) {
+	                if (self.isEnabled) {
+	                    ev.preventDefault();
+	                    ev.stopPropagation();
+	                    self.close();
+	                }
+	            };
+	        });
+	        if (util_1.isFalseProperty(self.swipeEnabled)) {
 	            self.isSwipeEnabled = false;
 	        }
-	        if (!self.id) {
-	            // Auto register
-	            self.id = self.side + 'Menu';
-	            if (self._app.getComponent(self.id)) {
-	                // id already exists, make sure this one is unique
-	                self.id += (++menuIds);
-	            }
-	            self._app.register(self.id, self);
-	        }
-	        self._initGesture();
-	        self._initType(self.type);
 	        self._cntEle.classList.add('menu-content');
 	        self._cntEle.classList.add('menu-content-' + self.type);
-	        self.onContentClick = function (ev) {
-	            if (self.isEnabled) {
-	                ev.preventDefault();
-	                ev.stopPropagation();
-	                self.close();
-	            }
-	        };
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype._initGesture = function () {
-	        var _this = this;
-	        this._zone.runOutsideAngular(function () {
-	            switch (_this.side) {
-	                case 'right':
-	                    _this._gesture = new gestures.RightMenuGesture(_this);
-	                    break;
-	                case 'left':
-	                    _this._gesture = new gestures.LeftMenuGesture(_this);
-	                    break;
-	            }
-	            _this._targetGesture = new gestures.TargetGesture(_this);
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    Menu.prototype._initType = function (type) {
-	        type = type && type.trim().toLowerCase();
-	        if (!type) {
-	            type = this._config.get('menuType');
-	        }
-	        this.type = type;
-	        this._renderer.setElementAttribute(this._elementRef.nativeElement, 'menuType', type);
+	        // register this menu with the app's menu controller
+	        self._menuCtrl.register(self);
 	    };
 	    /**
 	     * @private
 	     */
 	    Menu.prototype._getType = function () {
 	        if (!this._type) {
-	            this._type = new menuTypes[this.type](this);
+	            this._type = menu_controller_1.MenuController.create(this.type, this);
 	            if (this._config.get('animate') === false) {
-	                this._type.open.duration(33);
-	                this._type.close.duration(33);
+	                this._type.ani.duration(0);
 	            }
 	        }
 	        return this._type;
@@ -42944,12 +42275,15 @@
 	        var _this = this;
 	        // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
 	        // or swiping open the menu while pressing down on the menuToggle button
-	        if (shouldOpen === this.isOpen || this._isPrevented()) {
-	            return Promise.resolve();
+	        if ((shouldOpen && this.isOpen) || this._isPrevented()) {
+	            return Promise.resolve(this.isOpen);
 	        }
 	        this._before();
-	        return this._getType().setOpen(shouldOpen).then(function () {
-	            _this._after(shouldOpen);
+	        return new Promise(function (resolve) {
+	            _this._getType().setOpen(shouldOpen, function () {
+	                _this._after(shouldOpen);
+	                resolve(_this.isOpen);
+	            });
 	        });
 	    };
 	    /**
@@ -42965,23 +42299,24 @@
 	    /**
 	     * @private
 	     */
-	    Menu.prototype.setProgess = function (value) {
+	    Menu.prototype.setProgessStep = function (stepValue) {
 	        // user actively dragging the menu
 	        if (this.isEnabled && this.isSwipeEnabled) {
 	            this._prevent();
-	            this._getType().setProgess(value);
-	            this.opening.next(value);
+	            this._getType().setProgessStep(stepValue);
+	            this.opening.next(stepValue);
 	        }
 	    };
 	    /**
 	     * @private
 	     */
-	    Menu.prototype.setProgressEnd = function (shouldComplete) {
+	    Menu.prototype.setProgressEnd = function (shouldComplete, currentStepValue) {
 	        var _this = this;
 	        // user has finished dragging the menu
 	        if (this.isEnabled && this.isSwipeEnabled) {
 	            this._prevent();
-	            this._getType().setProgressEnd(shouldComplete).then(function (isOpen) {
+	            this._getType().setProgressEnd(shouldComplete, currentStepValue, function (isOpen) {
+	                void 0;
 	                _this._after(isOpen);
 	            });
 	        }
@@ -43035,22 +42370,22 @@
 	        return this._preventTime > Date.now();
 	    };
 	    /**
-	     * Progamatically open the Menu
-	     * @return {Promise} returns a promise when the menu is fully opened
+	     * Progamatically open the Menu.
+	     * @return {Promise} returns a promise when the menu is fully opened.
 	     */
 	    Menu.prototype.open = function () {
 	        return this.setOpen(true);
 	    };
 	    /**
-	     * Progamatically close the Menu
-	     * @return {Promise} returns a promise when the menu is fully closed
+	     * Progamatically close the Menu.
+	     * @return {Promise} returns a promise when the menu is fully closed.
 	     */
 	    Menu.prototype.close = function () {
 	        return this.setOpen(false);
 	    };
 	    /**
-	     * Toggle the menu. If it's closed, it will open, and if opened, it will close
-	     * @return {Promise} returns a promise when the menu has been toggled
+	     * Toggle the menu. If it's closed, it will open, and if opened, it will close.
+	     * @return {Promise} returns a promise when the menu has been toggled.
 	     */
 	    Menu.prototype.toggle = function () {
 	        return this.setOpen(!this.isOpen);
@@ -43063,7 +42398,7 @@
 	     */
 	    Menu.prototype.enable = function (shouldEnable) {
 	        this.isEnabled = shouldEnable;
-	        if (!shouldEnable) {
+	        if (!shouldEnable && this.isOpen) {
 	            this.close();
 	        }
 	        return this;
@@ -43098,40 +42433,13 @@
 	    /**
 	     * @private
 	     */
-	    Menu.register = function (name, cls) {
-	        menuTypes[name] = cls;
-	    };
-	    //static register(name:string , cls: typeof MenuType) {
-	    /**
-	     * @private
-	     */
 	    Menu.prototype.ngOnDestroy = function () {
-	        this._app.unregister(this.id);
-	        this._gesture && this._gesture.destroy();
-	        this._targetGesture && this._targetGesture.destroy();
-	        this._type && this._type.ngOnDestroy();
+	        this._menuCtrl.unregister(this);
+	        this._cntGesture && this._cntGesture.destroy();
+	        this._menuGesture && this._menuGesture.destroy();
+	        this._type && this._type.destroy();
+	        this._resizeUnreg && this._resizeUnreg();
 	        this._cntEle = null;
-	    };
-	    Menu.getById = function (app, menuId) {
-	        var menu = null;
-	        if (menuId) {
-	            menu = app.getComponent(menuId);
-	            if (!menu) {
-	                void 0;
-	                return;
-	            }
-	        }
-	        else {
-	            menu = app.getComponent('leftMenu');
-	            if (!menu) {
-	                menu = app.getComponent('rightMenu');
-	            }
-	            if (!menu) {
-	                void 0;
-	                return;
-	            }
-	        }
-	        return menu;
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -43151,7 +42459,7 @@
 	    ], Menu.prototype, "type", void 0);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', String)
+	        __metadata('design:type', Object)
 	    ], Menu.prototype, "swipeEnabled", void 0);
 	    __decorate([
 	        core_1.Input(), 
@@ -43159,7 +42467,7 @@
 	    ], Menu.prototype, "maxEdgeStart", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Menu.prototype, "opening", void 0);
 	    Menu = __decorate([
 	        core_1.Component({
@@ -43173,22 +42481,19 @@
 	            template: '<ng-content></ng-content><div tappable disable-activated class="backdrop"></div>',
 	            directives: [core_1.forwardRef(function () { return MenuBackdrop; })]
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _h) || Object])
+	        __metadata('design:paramtypes', [menu_controller_1.MenuController, core_1.ElementRef, config_1.Config, platform_1.Platform, core_1.Renderer, keyboard_1.Keyboard, core_1.NgZone])
 	    ], Menu);
 	    return Menu;
-	    var _a, _b, _c, _d, _e, _f, _g, _h;
 	})(ion_1.Ion);
 	exports.Menu = Menu;
-	var menuTypes = {};
-	var menuIds = 0;
 	/**
 	 * @private
 	 */
 	var MenuBackdrop = (function () {
-	    function MenuBackdrop(menu, elementRef) {
-	        this.menu = menu;
+	    function MenuBackdrop(_menuCtrl, elementRef) {
+	        this._menuCtrl = _menuCtrl;
 	        this.elementRef = elementRef;
-	        menu.backdrop = this;
+	        _menuCtrl.backdrop = this;
 	    }
 	    /**
 	     * @private
@@ -43197,28 +42502,28 @@
 	        void 0;
 	        ev.preventDefault();
 	        ev.stopPropagation();
-	        this.menu.close();
+	        this._menuCtrl.close();
 	    };
 	    MenuBackdrop = __decorate([
 	        core_1.Directive({
 	            selector: '.backdrop',
 	            host: {
-	                '(click)': 'clicked($event)'
+	                '(click)': 'clicked($event)',
 	            }
 	        }),
 	        __param(0, core_1.Host()), 
-	        __metadata('design:paramtypes', [Menu, (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [Menu, core_1.ElementRef])
 	    ], MenuBackdrop);
 	    return MenuBackdrop;
-	    var _a;
 	})();
 	exports.MenuBackdrop = MenuBackdrop;
+
 
 /***/ },
 /* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dom = __webpack_require__(267);
+	var dom = __webpack_require__(162);
 	var ids = 0;
 	/**
 	 * Base class for all Ionic components. Exposes some common functionality
@@ -43249,6 +42554,7 @@
 	})();
 	exports.Ion = Ion;
 
+
 /***/ },
 /* 284 */
 /***/ function(module, exports, __webpack_require__) {
@@ -43259,13 +42565,16 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var slide_edge_gesture_1 = __webpack_require__(285);
-	var util_1 = __webpack_require__(266);
+	var util_1 = __webpack_require__(161);
+	/**
+	 * Gesture attached to the content which the menu is assigned to
+	 */
 	var MenuContentGesture = (function (_super) {
 	    __extends(MenuContentGesture, _super);
-	    function MenuContentGesture(menu, targetEl, options) {
+	    function MenuContentGesture(menu, contentEle, options) {
 	        if (options === void 0) { options = {}; }
-	        _super.call(this, targetEl, util_1.assign({
-	            direction: (menu.side === 'left' || menu.side === 'right') ? 'x' : 'y',
+	        _super.call(this, contentEle, util_1.assign({
+	            direction: 'x',
 	            edge: menu.side,
 	            threshold: 0,
 	            maxEdgeStart: menu.maxEdgeStart || 75
@@ -43274,24 +42583,82 @@
 	        this.listen();
 	    }
 	    MenuContentGesture.prototype.canStart = function (ev) {
-	        var validAngle = ((-35 <= ev.angle && ev.angle <= 35) || (180 >= ev.angle && ev.angle >= 145) || (-180 <= ev.angle && ev.angle <= -145));
-	        return this.menu.isOpen && this.menu.isEnabled && validAngle ? true : _super.prototype.canStart.call(this, ev);
+	        var menu = this.menu;
+	        if (!menu.isEnabled || !menu.isSwipeEnabled) {
+	            void 0;
+	            return false;
+	        }
+	        if (ev.distance > 50) {
+	            // the distance is longer than you'd expect a side menu swipe to be
+	            void 0;
+	            return false;
+	        }
+	        void 0;
+	        if (menu.side === 'right') {
+	            // right side
+	            if (menu.isOpen) {
+	                // right side, opened
+	                return true;
+	            }
+	            else {
+	                // right side, closed
+	                if ((ev.angle > 140 && ev.angle <= 180) || (ev.angle > -140 && ev.angle <= -180)) {
+	                    return _super.prototype.canStart.call(this, ev);
+	                }
+	            }
+	        }
+	        else {
+	            // left side
+	            if (menu.isOpen) {
+	                // left side, opened
+	                return true;
+	            }
+	            else {
+	                // left side, closed
+	                if (ev.angle > -40 && ev.angle < 40) {
+	                    return _super.prototype.canStart.call(this, ev);
+	                }
+	            }
+	        }
+	        // didn't pass the test, don't open this menu
+	        return false;
 	    };
 	    // Set CSS, then wait one frame for it to apply before sliding starts
 	    MenuContentGesture.prototype.onSlideBeforeStart = function (slide, ev) {
+	        void 0;
 	        this.menu.setProgressStart();
 	    };
 	    MenuContentGesture.prototype.onSlide = function (slide, ev) {
-	        this.menu.setProgess(slide.distance / slide.max);
+	        var z = (this.menu.side === 'right' ? slide.min : slide.max);
+	        var stepValue = (slide.distance / z);
+	        void 0;
+	        this.menu.setProgessStep(stepValue);
 	    };
 	    MenuContentGesture.prototype.onSlideEnd = function (slide, ev) {
-	        var shouldComplete = (Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5);
-	        this.menu.setProgressEnd(shouldComplete);
+	        var z = (this.menu.side === 'right' ? slide.min : slide.max);
+	        var shouldComplete = (Math.abs(ev.velocityX) > 0.2) ||
+	            (Math.abs(slide.delta) > Math.abs(z) * 0.5);
+	        var currentStepValue = (slide.distance / z);
+	        void 0;
+	        this.menu.setProgressEnd(shouldComplete, currentStepValue);
 	    };
 	    MenuContentGesture.prototype.getElementStartPos = function (slide, ev) {
+	        if (this.menu.side === 'right') {
+	            // right menu
+	            return this.menu.isOpen ? slide.min : slide.max;
+	        }
+	        // left menu
 	        return this.menu.isOpen ? slide.max : slide.min;
 	    };
 	    MenuContentGesture.prototype.getSlideBoundaries = function () {
+	        if (this.menu.side === 'right') {
+	            // right menu
+	            return {
+	                min: -this.menu.width(),
+	                max: 0
+	            };
+	        }
+	        // left menu
 	        return {
 	            min: 0,
 	            max: this.menu.width()
@@ -43301,46 +42668,19 @@
 	})(slide_edge_gesture_1.SlideEdgeGesture);
 	exports.MenuContentGesture = MenuContentGesture;
 	/**
-	 * Support dragging the target menu as well as the content.
+	 * Gesture attached to the actual menu itself
 	 */
-	var TargetGesture = (function (_super) {
-	    __extends(TargetGesture, _super);
-	    function TargetGesture(menu) {
-	        _super.call(this, menu, menu.getNativeElement(), {
+	var MenuTargetGesture = (function (_super) {
+	    __extends(MenuTargetGesture, _super);
+	    function MenuTargetGesture(menu, menuEle) {
+	        _super.call(this, menu, menuEle, {
 	            maxEdgeStart: 0
 	        });
 	    }
-	    return TargetGesture;
+	    return MenuTargetGesture;
 	})(MenuContentGesture);
-	exports.TargetGesture = TargetGesture;
-	var LeftMenuGesture = (function (_super) {
-	    __extends(LeftMenuGesture, _super);
-	    function LeftMenuGesture(menu) {
-	        _super.call(this, menu, menu.getContentElement());
-	    }
-	    return LeftMenuGesture;
-	})(MenuContentGesture);
-	exports.LeftMenuGesture = LeftMenuGesture;
-	var RightMenuGesture = (function (_super) {
-	    __extends(RightMenuGesture, _super);
-	    function RightMenuGesture(menu) {
-	        _super.call(this, menu, menu.getContentElement());
-	    }
-	    RightMenuGesture.prototype.onSlide = function (slide, ev) {
-	        this.menu.setProgess(slide.distance / slide.min);
-	    };
-	    RightMenuGesture.prototype.getElementStartPos = function (slide, ev) {
-	        return this.menu.isOpen ? slide.min : slide.max;
-	    };
-	    RightMenuGesture.prototype.getSlideBoundaries = function () {
-	        return {
-	            min: -this.menu.width(),
-	            max: 0
-	        };
-	    };
-	    return RightMenuGesture;
-	})(MenuContentGesture);
-	exports.RightMenuGesture = RightMenuGesture;
+	exports.MenuTargetGesture = MenuTargetGesture;
+
 
 /***/ },
 /* 285 */
@@ -43352,8 +42692,8 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var slide_gesture_1 = __webpack_require__(286);
-	var util_1 = __webpack_require__(266);
-	var dom_1 = __webpack_require__(267);
+	var util_1 = __webpack_require__(161);
+	var dom_1 = __webpack_require__(162);
 	var SlideEdgeGesture = (function (_super) {
 	    __extends(SlideEdgeGesture, _super);
 	    function SlideEdgeGesture(element, opts) {
@@ -43391,6 +42731,7 @@
 	    return SlideEdgeGesture;
 	})(slide_gesture_1.SlideGesture);
 	exports.SlideEdgeGesture = SlideEdgeGesture;
+
 
 /***/ },
 /* 286 */
@@ -43471,6 +42812,7 @@
 	})(drag_gesture_1.DragGesture);
 	exports.SlideGesture = SlideGesture;
 
+
 /***/ },
 /* 287 */
 /***/ function(module, exports, __webpack_require__) {
@@ -43517,6 +42859,7 @@
 	    return DragGesture;
 	})(gesture_1.Gesture);
 	exports.DragGesture = DragGesture;
+
 
 /***/ },
 /* 288 */
@@ -43580,6 +42923,7 @@
 	})();
 	exports.Gesture = Gesture;
 
+
 /***/ },
 /* 289 */
 /***/ function(module, exports, __webpack_require__) {
@@ -43587,15 +42931,16 @@
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	var domUtil = __webpack_require__(267);
+	var domUtil = __webpack_require__(162);
 	exports.dom = domUtil;
-	__export(__webpack_require__(266));
+	__export(__webpack_require__(161));
+
 
 /***/ },
 /* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var util_1 = __webpack_require__(266);
+	var util_1 = __webpack_require__(161);
 	var win = window;
 	var doc = document;
 	/*! Hammer.JS - v2.0.6 - 2015-12-23
@@ -45746,6 +45091,7 @@
 	});
 	win.Hammer = Hammer;
 
+
 /***/ },
 /* 291 */
 /***/ function(module, exports, __webpack_require__) {
@@ -45763,44 +45109,43 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var app_1 = __webpack_require__(158);
 	var view_controller_1 = __webpack_require__(292);
 	var navbar_1 = __webpack_require__(294);
-	var menu_1 = __webpack_require__(282);
+	var menu_controller_1 = __webpack_require__(273);
 	/**
-	* @name MenuToggle
-	* @description
-	* Toggle a menu by placing this directive on any item.
-	* Note that the menu's id must be either `leftMenu` or `rightMenu`
-	*
-	* @usage
-	 * ```html
-	 *<ion-content>
-	 *  <h3>Page 1</h3>
-	 *  <button menuToggle>Toggle Menu</button>
-	 *</ion-content>
+	 * @name MenuToggle
+	 * @description
+	 * The `menuToggle` directive can be placed on any button to
+	 * automatically close an open menu.
 	 *
+	 * @usage
+	 * ```html
+	 * <button menuToggle>Toggle Menu</button>
 	 * ```
-	* @demo /docs/v2/demos/menu/
-	* @see {@link /docs/v2/components#menus Menu Component Docs}
-	* @see {@link ../../menu/Menu Menu API Docs}
-	*/
+	 *
+	 * To toggle a certain menu by its id or side, give the `menuToggle`
+	 * directive a value.
+	 *
+	 * ```html
+	 * <button menuToggle="right">Toggle Right Menu</button>
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/menu/
+	 * @see {@link /docs/v2/components#menus Menu Component Docs}
+	 * @see {@link ../../menu/Menu Menu API Docs}
+	 */
 	var MenuToggle = (function () {
-	    function MenuToggle(_app, elementRef, _viewCtrl, _navbar) {
-	        this._app = _app;
+	    function MenuToggle(_menu, elementRef, _viewCtrl, _navbar) {
+	        this._menu = _menu;
 	        this._viewCtrl = _viewCtrl;
 	        this._navbar = _navbar;
-	        this.withinNavbar = !!_navbar;
-	        // Deprecation warning
-	        if (this.withinNavbar && elementRef.nativeElement.tagName === 'A') {
-	            void 0;
-	        }
+	        this._inNavbar = !!_navbar;
 	    }
 	    /**
 	    * @private
 	    */
 	    MenuToggle.prototype.toggle = function () {
-	        var menu = menu_1.Menu.getById(this._app, this.menuToggle);
+	        var menu = this._menu.get(this.menuToggle);
 	        menu && menu.toggle();
 	    };
 	    Object.defineProperty(MenuToggle.prototype, "isHidden", {
@@ -45808,7 +45153,7 @@
 	        * @private
 	        */
 	        get: function () {
-	            if (this.withinNavbar && this._viewCtrl) {
+	            if (this._inNavbar && this._viewCtrl) {
 	                return !this._viewCtrl.isRoot();
 	            }
 	            return false;
@@ -45836,12 +45181,12 @@
 	        }),
 	        __param(2, core_1.Optional()),
 	        __param(3, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof navbar_1.Navbar !== 'undefined' && navbar_1.Navbar) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [menu_controller_1.MenuController, core_1.ElementRef, view_controller_1.ViewController, navbar_1.Navbar])
 	    ], MenuToggle);
 	    return MenuToggle;
-	    var _a, _b, _c, _d;
 	})();
 	exports.MenuToggle = MenuToggle;
+
 
 /***/ },
 /* 292 */
@@ -46274,10 +45619,9 @@
 	    };
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], ViewController.prototype, "_emitter", void 0);
 	    return ViewController;
-	    var _a;
 	})();
 	exports.ViewController = ViewController;
 	function ctrlFn(viewCtrl, fnName) {
@@ -46290,6 +45634,7 @@
 	        }
 	    }
 	}
+
 
 /***/ },
 /* 293 */
@@ -46350,6 +45695,7 @@
 	})();
 	exports.NavParams = NavParams;
 
+
 /***/ },
 /* 294 */
 /***/ function(module, exports, __webpack_require__) {
@@ -46375,8 +45721,8 @@
 	var ion_1 = __webpack_require__(283);
 	var icon_1 = __webpack_require__(295);
 	var toolbar_1 = __webpack_require__(296);
-	var config_1 = __webpack_require__(264);
-	var app_1 = __webpack_require__(158);
+	var config_1 = __webpack_require__(159);
+	var app_1 = __webpack_require__(166);
 	var view_controller_1 = __webpack_require__(292);
 	var nav_controller_1 = __webpack_require__(298);
 	var BackButton = (function (_super) {
@@ -46401,10 +45747,9 @@
 	        __param(0, core_1.Optional()),
 	        __param(2, core_1.Optional()),
 	        __param(2, core_1.Inject(core_1.forwardRef(function () { return Navbar; }))), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, Navbar])
+	        __metadata('design:paramtypes', [nav_controller_1.NavController, core_1.ElementRef, Navbar])
 	    ], BackButton);
 	    return BackButton;
-	    var _a, _b;
 	})(ion_1.Ion);
 	var BackButtonText = (function () {
 	    function BackButtonText(elementRef, navbar) {
@@ -46415,10 +45760,9 @@
 	            selector: '.back-button-text'
 	        }),
 	        __param(1, core_1.Inject(core_1.forwardRef(function () { return Navbar; }))), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Navbar])
+	        __metadata('design:paramtypes', [core_1.ElementRef, Navbar])
 	    ], BackButtonText);
 	    return BackButtonText;
-	    var _a;
 	})();
 	var ToolbarBackground = (function () {
 	    function ToolbarBackground(elementRef, navbar) {
@@ -46429,10 +45773,9 @@
 	            selector: '.toolbar-background'
 	        }),
 	        __param(1, core_1.Inject(core_1.forwardRef(function () { return Navbar; }))), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Navbar])
+	        __metadata('design:paramtypes', [core_1.ElementRef, Navbar])
 	    ], ToolbarBackground);
 	    return ToolbarBackground;
-	    var _a;
 	})();
 	/**
 	 * @name Navbar
@@ -46444,7 +45787,7 @@
 	 * ```html
 	 * <ion-navbar *navbar>
 	 *
-	 *   <ion-buttons>
+	 *   <ion-buttons start>
 	 *     <button (click)="toggleItems()">
 	 *       toggle
 	 *     </button>
@@ -46454,7 +45797,7 @@
 	 *     Page Title
 	 *   </ion-title>
 	 *
-	 *   <ion-buttons>
+	 *   <ion-buttons end>
 	 *     <button (click)="openModal()">
 	 *       Modal
 	 *     </button>
@@ -46462,6 +45805,7 @@
 	 * </ion-navbar>
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/navbar/
 	 * @see {@link ../../toolbar/Toolbar/ Toolbar API Docs}
 	 */
 	var Navbar = (function (_super) {
@@ -46483,6 +45827,9 @@
 	            this.hideBackButton = (hideBackButton === '' || hideBackButton === 'true');
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    Navbar.prototype.setBackButtonText = function (text) {
 	        this._bbText = text;
 	    };
@@ -46537,6 +45884,7 @@
 	     * @private
 	     */
 	    Navbar.prototype.setHidden = function (isHidden) {
+	        // used to display none/block the navbar
 	        this._hidden = isHidden;
 	    };
 	    __decorate([
@@ -46548,10 +45896,13 @@
 	            selector: 'ion-navbar',
 	            template: '<div class="toolbar-background"></div>' +
 	                '<button class="back-button bar-button bar-button-default" [hidden]="hideBackButton">' +
+	                '<span class="button-inner">' +
 	                '<ion-icon class="back-button-icon" [name]="_bbIcon"></ion-icon>' +
 	                '<span class="back-button-text">' +
 	                '<span class="back-default">{{_bbText}}</span>' +
 	                '</span>' +
+	                '</span>' +
+	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +
 	                '<ng-content select="[menuToggle],ion-buttons[left]"></ng-content>' +
 	                '<ng-content select="ion-buttons[start]"></ng-content>' +
@@ -46566,10 +45917,9 @@
 	            directives: [BackButton, BackButtonText, icon_1.Icon, ToolbarBackground]
 	        }),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
+	        __metadata('design:paramtypes', [app_1.IonicApp, view_controller_1.ViewController, core_1.ElementRef, config_1.Config, core_1.Renderer])
 	    ], Navbar);
 	    return Navbar;
-	    var _a, _b, _c, _d, _e;
 	})(toolbar_1.ToolbarBase);
 	exports.Navbar = Navbar;
 	/**
@@ -46590,12 +45940,12 @@
 	            selector: 'template[navbar]'
 	        }),
 	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.TemplateRef !== 'undefined' && core_1.TemplateRef) === 'function' && _b) || Object, (typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.TemplateRef, view_controller_1.ViewController])
 	    ], NavbarTemplate);
 	    return NavbarTemplate;
-	    var _a, _b, _c;
 	})();
 	exports.NavbarTemplate = NavbarTemplate;
+
 
 /***/ },
 /* 295 */
@@ -46611,7 +45961,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var config_1 = __webpack_require__(264);
+	var config_1 = __webpack_require__(159);
 	/**
 	 * @name Icon
 	 * @description
@@ -46647,6 +45997,7 @@
 	 * inactive icon on iOS will use an outlined version of the icon same icon.
 	 * Material Design icons do not change appearance depending if they're active
 	 * or not. The `isActive` property is largely used by the tabbar.
+	 * @demo /docs/v2/demos/icon/
 	 * @see {@link /docs/v2/components#icons Icon Component Docs}
 	 *
 	 */
@@ -46791,12 +46142,12 @@
 	                'role': 'img'
 	            }
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [config_1.Config, core_1.ElementRef, core_1.Renderer])
 	    ], Icon);
 	    return Icon;
-	    var _a, _b, _c;
 	})();
 	exports.Icon = Icon;
+
 
 /***/ },
 /* 296 */
@@ -46878,7 +46229,7 @@
 	 * Since it's based on flexbox, you can place the toolbar where you
 	 * need it and flexbox will handle everything else. Toolbars will automatically
 	 * assume they should be placed before an `ion-content`, so to specify that you want it
-	 * below, you can add the property `placement="bottom"`. This will change the flex order
+	 * below, you can add the property `position="bottom"`. This will change the flex order
 	 * property.
 	 *
 	 * @usage
@@ -46893,17 +46244,17 @@
 	 *
 	 *  <ion-content></ion-content>
 	 *
-	 * <ion-toolbar position="bottom>
+	 * <ion-toolbar position="bottom">
 	 *   <ion-title>I'm a subfooter</ion-title>
 	 * </ion-toolbar>
 	 *
-	 * <ion-toolbar position="bottom>
+	 * <ion-toolbar position="bottom">
 	 *   <ion-title>I'm a footer</ion-title>
 	 * </ion-toolbar>
 	 *
 	 *  ```
 	 *
-	 * @property {any} [placement] - set position of the toolbar, top or bottom
+	 * @property {any} [position] - set position of the toolbar, top or bottom. If not set, defautls to top.
 	 * @demo /docs/v2/demos/toolbar/
 	 * @see {@link ../../navbar/Navbar/ Navbar API Docs}
 	 */
@@ -46926,10 +46277,9 @@
 	                'class': 'toolbar'
 	            }
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef])
 	    ], Toolbar);
 	    return Toolbar;
-	    var _a;
 	})(ToolbarBase);
 	exports.Toolbar = Toolbar;
 	/**
@@ -46950,7 +46300,7 @@
 	 *   <ion-title>SubHeader</ion-title>
 	 * </ion-toolbar>
 	 *  ```
-	 * @demo /docs/v2/demos/toolbar/
+	 * @demo /docs/v2/demos/title/
 	 */
 	var ToolbarTitle = (function (_super) {
 	    __extends(ToolbarTitle, _super);
@@ -46975,10 +46325,9 @@
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()),
 	        __param(2, core_1.Inject(core_1.forwardRef(function () { return navbar_1.Navbar; }))), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Toolbar, (typeof (_b = typeof navbar_1.Navbar !== 'undefined' && navbar_1.Navbar) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef, Toolbar, navbar_1.Navbar])
 	    ], ToolbarTitle);
 	    return ToolbarTitle;
-	    var _a, _b;
 	})(ion_1.Ion);
 	exports.ToolbarTitle = ToolbarTitle;
 	/**
@@ -47025,12 +46374,12 @@
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()),
 	        __param(2, core_1.Inject(core_1.forwardRef(function () { return navbar_1.Navbar; }))), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Toolbar, (typeof (_b = typeof navbar_1.Navbar !== 'undefined' && navbar_1.Navbar) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef, Toolbar, navbar_1.Navbar])
 	    ], ToolbarItem);
 	    return ToolbarItem;
-	    var _a, _b;
 	})();
 	exports.ToolbarItem = ToolbarItem;
+
 
 /***/ },
 /* 297 */
@@ -47049,7 +46398,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var config_1 = __webpack_require__(264);
+	var config_1 = __webpack_require__(159);
 	/**
 	  * @name Button
 	  * @module ionic
@@ -47070,7 +46419,7 @@
 	  * @property [color] - Dynamically set which color attribute this button should use.
 	  * @description
 	  * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
-	  * @demo /docs/v2/demos/buttons/
+	  * @demo /docs/v2/demos/button/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
 	
 	 */
@@ -47101,7 +46450,6 @@
 	            this._disabled = true;
 	        }
 	        this._readAttrs(element);
-	        this._readIcon(element);
 	    }
 	    /**
 	     * @private
@@ -47111,6 +46459,7 @@
 	        if (this.color) {
 	            this._colors = [this.color];
 	        }
+	        this._readIcon(this._elementRef.nativeElement);
 	        this._assignCss(true);
 	    };
 	    /**
@@ -47142,6 +46491,9 @@
 	    Button.prototype._readIcon = function (element) {
 	        // figure out if and where the icon lives in the button
 	        var childNodes = element.childNodes;
+	        if (childNodes.length > 0) {
+	            childNodes = childNodes[0].childNodes;
+	        }
 	        var childNode;
 	        var nodes = [];
 	        for (var i = 0, l = childNodes.length; i < l; i++) {
@@ -47243,14 +46595,17 @@
 	        __metadata('design:type', String)
 	    ], Button.prototype, "color", void 0);
 	    Button = __decorate([
-	        core_1.Directive({
-	            selector: 'button,[button]'
+	        core_1.Component({
+	            selector: 'button:not([ion-item]),[button]',
+	            template: '<span class="button-inner">' +
+	                '<ng-content></ng-content>' +
+	                '</span>' +
+	                '<ion-button-effect></ion-button-effect>'
 	        }),
 	        __param(3, core_1.Attribute('ion-item')), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, String])
+	        __metadata('design:paramtypes', [config_1.Config, core_1.ElementRef, core_1.Renderer, String])
 	    ], Button);
 	    return Button;
-	    var _a, _b, _c;
 	})();
 	exports.Button = Button;
 	var BUTTON_SIZE_ATTRS = ['large', 'small'];
@@ -47260,6 +46615,7 @@
 	var IGNORE_ATTRS = /_ng|button|left|right/;
 	var TEXT = 1;
 	var ICON = 2;
+
 
 /***/ },
 /* 298 */
@@ -47272,14 +46628,16 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var instrumentation_1 = __webpack_require__(299);
-	var animation_1 = __webpack_require__(279);
 	var ion_1 = __webpack_require__(283);
-	var util_1 = __webpack_require__(266);
 	var nav_params_1 = __webpack_require__(293);
-	var dom_1 = __webpack_require__(267);
+	var util_1 = __webpack_require__(161);
+	var dom_1 = __webpack_require__(162);
 	var swipe_back_1 = __webpack_require__(300);
+	var transition_1 = __webpack_require__(301);
 	var view_controller_1 = __webpack_require__(292);
 	/**
+	 * @name NavController
+	 * @description
 	 * _For examples on the basic usage of NavController, check out the
 	 * [Navigation section](../../../../components/#navigation) of the Component
 	 * docs._
@@ -47369,12 +46727,10 @@
 	 */
 	var NavController = (function (_super) {
 	    __extends(NavController, _super);
-	    function NavController(parent, app, config, keyboard, elementRef, _anchorName, _compiler, _viewManager, _zone, _renderer) {
+	    function NavController(parent, _app, config, _keyboard, elementRef, _anchorName, _compiler, _viewManager, _zone, _renderer) {
 	        _super.call(this, elementRef);
-	        this.parent = parent;
-	        this.app = app;
-	        this.config = config;
-	        this.keyboard = keyboard;
+	        this._app = _app;
+	        this._keyboard = _keyboard;
 	        this._anchorName = _anchorName;
 	        this._compiler = _compiler;
 	        this._viewManager = _viewManager;
@@ -47386,6 +46742,8 @@
 	        this._sbTrans = null;
 	        this._trnsTime = 0;
 	        this._views = [];
+	        this.parent = parent;
+	        this.config = config;
 	        this._trnsDelay = config.get('pageTransitionDelay');
 	        this._sbEnabled = config.get('swipeBackEnabled') || false;
 	        this._sbThreshold = config.get('swipeBackThreshold') || 40;
@@ -47627,15 +46985,14 @@
 	            void 0;
 	            return;
 	        }
+	        enteringView.setNav(rootNav);
 	        opts.keyboardClose = false;
-	        opts.skipCache = true;
 	        opts.direction = 'forward';
 	        if (!opts.animation) {
 	            opts.animation = enteringView.getTransitionName('forward');
 	        }
 	        enteringView.setLeavingOpts({
 	            keyboardClose: false,
-	            skipCache: true,
 	            direction: 'back',
 	            animation: enteringView.getTransitionName('back')
 	        });
@@ -47885,13 +47242,16 @@
 	                    opts.animation = forcedActive.getTransitionName(opts.direction);
 	                }
 	                if (this._lastTrans) {
-	                    this._lastTrans.playbackRate(100).onFinish(function () {
+	                    this._lastTrans
+	                        .onFinish(function () {
 	                        opts.animate = false;
 	                        _this._transition(forcedActive, null, opts, function () {
 	                            // transition has completed!!
 	                            resolve();
 	                        });
-	                    });
+	                    }, false, true)
+	                        .stop();
+	                    this._lastTrans.destroy();
 	                    this._lastTrans = null;
 	                }
 	                else {
@@ -48168,32 +47528,39 @@
 	        // everything during the transition should runOutsideAngular
 	        this._zone.runOutsideAngular(function () {
 	            // init the transition animation
-	            opts.renderDelay = opts.transitionDelay || _this._trnsDelay;
-	            // set if this app is right-to-left or not
-	            opts.isRTL = _this.config.platform.isRTL();
-	            var transAnimation = animation_1.Animation.createTransition(enteringView, leavingView, opts);
+	            var transitionOpts = {
+	                animation: opts.animation,
+	                direction: opts.direction,
+	                duration: opts.duration,
+	                easing: opts.easing,
+	                renderDelay: opts.transitionDelay || _this._trnsDelay,
+	                isRTL: _this.config.platform.isRTL()
+	            };
+	            var transAnimation = transition_1.Transition.createTransition(enteringView, leavingView, transitionOpts);
+	            _this._lastTrans && _this._lastTrans.destroy();
 	            _this._lastTrans = transAnimation;
 	            if (opts.animate === false) {
 	                // force it to not animate the elements, just apply the "to" styles
-	                transAnimation.clearDuration();
 	                transAnimation.duration(0);
 	            }
-	            var duration = transAnimation.duration();
+	            var duration = transAnimation.getDuration();
 	            var enableApp = (duration < 64);
 	            // block any clicks during the transition and provide a
 	            // fallback to remove the clickblock if something goes wrong
-	            _this.app.setEnabled(enableApp, duration);
+	            _this._app.setEnabled(enableApp, duration);
 	            _this.setTransitioning(!enableApp, duration);
 	            if (enteringView.viewType) {
 	                transAnimation.before.addClass(enteringView.viewType);
 	            }
-	            // start the transition
-	            transAnimation.play(function () {
+	            // create a callback for when the animation is done
+	            transAnimation.onFinish(function () {
 	                // transition animation has ended
 	                // dispose the animation and it's element references
-	                transAnimation.dispose();
+	                transAnimation.destroy();
 	                _this._afterTrans(enteringView, leavingView, opts, done);
 	            });
+	            // cool, let's do this, start the transition
+	            transAnimation.play();
 	        });
 	    };
 	    /**
@@ -48215,11 +47582,11 @@
 	                // transition must be canceled, so don't continue
 	                return done();
 	            }
-	            if (opts.keyboardClose !== false && _this.keyboard.isOpen()) {
+	            if (opts.keyboardClose !== false && _this._keyboard.isOpen()) {
 	                // the keyboard is still open!
 	                // no problem, let's just close for them
-	                _this.keyboard.close();
-	                _this.keyboard.onClose(function () {
+	                _this._keyboard.close();
+	                _this._keyboard.onClose(function () {
 	                    // keyboard has finished closing, transition complete
 	                    done();
 	                }, 32);
@@ -48264,7 +47631,7 @@
 	                this._renderer.setElementClass(this.elementRef.nativeElement, 'has-views', true);
 	            }
 	            // allow clicks and enable the app again
-	            this.app && this.app.setEnabled(true);
+	            this._app && this._app.setEnabled(true);
 	            this.setTransitioning(false);
 	            if (this.router && direction !== null) {
 	                // notify router of the state change if a direction was provided
@@ -48366,13 +47733,12 @@
 	     * @private
 	     */
 	    NavController.prototype.swipeBackStart = function () {
-	        var _this = this;
 	        return;
-	        if (!this.app.isEnabled() || !this.canSwipeBack()) {
+	        if (!this._app.isEnabled() || !this.canSwipeBack()) {
 	            return;
 	        }
 	        // disables the app during the transition
-	        this.app.setEnabled(false);
+	        this._app.setEnabled(false);
 	        this.setTransitioning(true);
 	        // default the direction to "back"
 	        var opts = {
@@ -48388,15 +47754,6 @@
 	        enteringView.willEnter();
 	        // wait for the new view to complete setup
 	        this._render(0, enteringView, leavingView, {}, function () {
-	            _this._zone.runOutsideAngular(function () {
-	                // set that the new view pushed on the stack is staged to be entering/leaving
-	                // staged state is important for the transition to find the correct view
-	                // enteringView.state = STATE_RENDERED_ENTER;
-	                // leavingView.state = STATE_RENDERED_LEAVE;
-	                // init the swipe back transition animation
-	                _this._sbTrans = animation_1.Animation.createTransition(enteringView, leavingView, opts);
-	                _this._sbTrans.easing('linear').progressStart();
-	            });
 	        });
 	    };
 	    /**
@@ -48406,10 +47763,10 @@
 	        return;
 	        if (this._sbTrans) {
 	            // continue to disable the app while actively dragging
-	            this.app.setEnabled(false, 4000);
+	            this._app.setEnabled(false, 4000);
 	            this.setTransitioning(true, 4000);
 	            // set the transition animation's progress
-	            this._sbTrans.progress(value);
+	            this._sbTrans.progressStep(value);
 	        }
 	    };
 	    /**
@@ -48421,9 +47778,9 @@
 	        if (!this._sbTrans)
 	            return;
 	        // disables the app during the transition
-	        this.app.setEnabled(false);
+	        this._app.setEnabled(false);
 	        this.setTransitioning(true);
-	        this._sbTrans.progressEnd(completeSwipeBack, rate).then(function () {
+	        this._sbTrans.onFinish(function () {
 	            _this._zone.run(function () {
 	                // find the views that were entering and leaving
 	                var enteringView = null; // this._getStagedEntering();
@@ -48455,12 +47812,13 @@
 	                    }
 	                }
 	                // empty out and dispose the swipe back transition animation
-	                _this._sbTrans && _this._sbTrans.dispose();
+	                _this._sbTrans && _this._sbTrans.destroy();
 	                _this._sbTrans = null;
 	                // all done!
 	                //this._transComplete();
 	            });
-	        });
+	        }, true);
+	        this._sbTrans.progressEnd(completeSwipeBack, 0.5);
 	    };
 	    /**
 	     * @private
@@ -48667,6 +48025,7 @@
 	var INIT_ZINDEX = 10;
 	var ctrlIds = -1;
 
+
 /***/ },
 /* 299 */
 /***/ function(module, exports, __webpack_require__) {
@@ -48713,8 +48072,609 @@
 	})(slide_edge_gesture_1.SlideEdgeGesture);
 	exports.SwipeBackGesture = SwipeBackGesture;
 
+
 /***/ },
 /* 301 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var animation_1 = __webpack_require__(302);
+	/**
+	 * @private
+	 **/
+	var Transition = (function (_super) {
+	    __extends(Transition, _super);
+	    function Transition(opts) {
+	        _super.call(this, null, {
+	            renderDelay: opts.renderDelay
+	        });
+	    }
+	    Transition.createTransition = function (enteringView, leavingView, opts) {
+	        var TransitionClass = TransitionRegistry[opts.animation];
+	        if (!TransitionClass) {
+	            // didn't find a transition animation, default to ios-transition
+	            TransitionClass = TransitionRegistry['ios-transition'];
+	        }
+	        return new TransitionClass(enteringView, leavingView, opts);
+	    };
+	    Transition.register = function (name, TransitionClass) {
+	        TransitionRegistry[name] = TransitionClass;
+	    };
+	    return Transition;
+	})(animation_1.Animation);
+	exports.Transition = Transition;
+	var TransitionRegistry = {};
+
+
+/***/ },
+/* 302 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var dom_1 = __webpack_require__(162);
+	var util_1 = __webpack_require__(161);
+	/**
+	 * @private
+	 **/
+	var Animation = (function () {
+	    function Animation(ele, opts) {
+	        if (opts === void 0) { opts = {}; }
+	        this._wChg = false;
+	        this._reset();
+	        this.element(ele);
+	        this._opts = util_1.assign({
+	            renderDelay: 24
+	        }, opts);
+	    }
+	    Animation.prototype._reset = function () {
+	        this._c = [];
+	        this._fx = {};
+	        this._bfSty = {};
+	        this._bfAdd = [];
+	        this._bfRmv = [];
+	        this._afSty = {};
+	        this._afAdd = [];
+	        this._afRmv = [];
+	        this._pFns = [];
+	        this._fFns = [];
+	        this._fOnceFns = [];
+	        this._clearAsync();
+	        this.isPlaying = this.hasTween = this._rv = false;
+	        this._el = this._easing = this._dur = null;
+	    };
+	    Animation.prototype.element = function (ele) {
+	        if (ele) {
+	            if (ele.nativeElement) {
+	                ele = ele.nativeElement;
+	            }
+	            else if (typeof ele === 'string') {
+	                ele = doc.querySelector(ele);
+	            }
+	            if (ele && ele.nodeType === 1) {
+	                this._el = ele;
+	                // does this element suport will-change property?
+	                this._wChg = ('opacity' in ele.style);
+	            }
+	        }
+	        return this;
+	    };
+	    Animation.prototype.parent = function (parentAnimation) {
+	        this._parent = parentAnimation;
+	        return this;
+	    };
+	    Animation.prototype.add = function (childAnimation) {
+	        childAnimation.parent(this);
+	        this._c.push(childAnimation);
+	        return this;
+	    };
+	    Animation.prototype.getDuration = function () {
+	        return this._dur !== null ? this._dur : (this._parent && this._parent.getDuration()) || 0;
+	    };
+	    Animation.prototype.duration = function (milliseconds) {
+	        this._dur = milliseconds;
+	        return this;
+	    };
+	    Animation.prototype.getEasing = function () {
+	        return this._easing !== null ? this._easing : (this._parent && this._parent.getEasing()) || null;
+	    };
+	    Animation.prototype.easing = function (name) {
+	        this._easing = name;
+	        return this;
+	    };
+	    Animation.prototype.from = function (prop, val) {
+	        return this._addProp('from', prop, val);
+	    };
+	    Animation.prototype.to = function (prop, val) {
+	        return this._addProp('to', prop, val);
+	    };
+	    Animation.prototype.fromTo = function (prop, fromVal, toVal) {
+	        return this.from(prop, fromVal).to(prop, toVal);
+	    };
+	    Animation.prototype._addProp = function (state, prop, val) {
+	        if (!this._fx[prop]) {
+	            this._fx[prop] = {
+	                trans: (TRANSFORMS.indexOf(prop) > -1)
+	            };
+	            if (this._fx[prop].trans) {
+	                this._fx[prop].wc = 'transform';
+	            }
+	            else if (prop === 'opacity') {
+	                this._fx[prop].wc = prop;
+	            }
+	        }
+	        var fx = this._fx[prop][state] = {
+	            val: val,
+	            num: null,
+	            unit: '',
+	        };
+	        if (typeof val === 'string' && val.indexOf(' ') < 0) {
+	            var r = val.match(/(^-?\d*\.?\d*)(.*)/);
+	            var num = parseFloat(r[1]);
+	            if (!isNaN(num)) {
+	                fx.num = num;
+	            }
+	            fx.unit = (r[0] != r[2] ? r[2] : '');
+	        }
+	        else if (typeof val === 'number') {
+	            fx.num = val;
+	        }
+	        return this;
+	    };
+	    Animation.prototype.fadeIn = function () {
+	        return this.fromTo('opacity', 0.001, 1);
+	    };
+	    Animation.prototype.fadeOut = function () {
+	        return this.fromTo('opacity', 0.999, 0);
+	    };
+	    Object.defineProperty(Animation.prototype, "before", {
+	        get: function () {
+	            var _this = this;
+	            return {
+	                addClass: function (className) {
+	                    _this._bfAdd.push(className);
+	                    return _this;
+	                },
+	                removeClass: function (className) {
+	                    _this._bfRmv.push(className);
+	                    return _this;
+	                },
+	                setStyles: function (styles) {
+	                    _this._bfSty = styles;
+	                    return _this;
+	                }
+	            };
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Animation.prototype, "after", {
+	        get: function () {
+	            var _this = this;
+	            return {
+	                addClass: function (className) {
+	                    _this._afAdd.push(className);
+	                    return _this;
+	                },
+	                removeClass: function (className) {
+	                    _this._afRmv.push(className);
+	                    return _this;
+	                },
+	                setStyles: function (styles) {
+	                    _this._afSty = styles;
+	                    return _this;
+	                }
+	            };
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Animation.prototype.play = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        var self = this;
+	        var i;
+	        var duration = util_1.isDefined(opts.duration) ? opts.duration : self._dur;
+	        void 0;
+	        // always default that an animation does not tween
+	        // a tween requires that an Animation class has an element
+	        // and that it has at least one FROM/TO effect
+	        // and that the FROM/TO effect can tween numeric values
+	        self.hasTween = false;
+	        // fire off all the onPlays
+	        for (i = 0; i < self._pFns.length; i++) {
+	            self._pFns[i]();
+	        }
+	        this.isPlaying = true;
+	        // this is the top level animation and is in full control
+	        // of when the async play() should actually kick off
+	        // if there is no duration then it'll set the TO property immediately
+	        // if there is a duration, then it'll stage all animations at the
+	        // FROM property and transition duration, wait a few frames, then
+	        // kick off the animation by setting the TO property for each animation
+	        // stage all of the before css classes and inline styles
+	        // will recursively stage all child elements
+	        self._before();
+	        // ensure all past transition end events have been cleared
+	        this._clearAsync();
+	        if (duration > 30) {
+	            // this animation has a duration, so it should animate
+	            // place all the elements with their FROM properties
+	            // set the FROM properties
+	            self._progress(0);
+	            self._willChange(true);
+	            // set the async TRANSITION END event
+	            // and run onFinishes when the transition ends
+	            self._asyncEnd(duration);
+	            // begin each animation when everything is rendered in their place
+	            // and the transition duration/easing is ready to go
+	            dom_1.rafFrames(self._opts.renderDelay / 16, function () {
+	                // there's been a moment and the elements are in place
+	                // now set the TRANSITION duration/easing
+	                self._setTrans(duration, false);
+	                // wait a few moments again to wait for the transition
+	                // info to take hold in the DOM
+	                dom_1.raf(function () {
+	                    // browser had some time to render everything in place
+	                    // and the transition duration/easing is set
+	                    // now set the TO properties
+	                    // which will trigger the transition to begin
+	                    self._progress(1);
+	                });
+	            });
+	        }
+	        else {
+	            // this animation does not have a duration, so it should not animate
+	            // just go straight to the TO properties and call it done
+	            self._progress(1);
+	            // since there was no animation, immediately run the after
+	            self._after();
+	            // since there was no animation, it's done
+	            // fire off all the onFinishes
+	            self._onFinish();
+	        }
+	    };
+	    Animation.prototype.stop = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        var self = this;
+	        var duration = util_1.isDefined(opts.duration) ? opts.duration : 0;
+	        var stepValue = util_1.isDefined(opts.stepValue) ? opts.stepValue : 1;
+	        // ensure all past transition end events have been cleared
+	        this._clearAsync();
+	        // set the TO properties
+	        self._progress(stepValue);
+	        if (duration > 30) {
+	            // this animation has a duration, so it should animate
+	            // place all the elements with their TO properties
+	            // now set the TRANSITION duration
+	            self._setTrans(duration, true);
+	            // set the async TRANSITION END event
+	            // and run onFinishes when the transition ends
+	            self._asyncEnd(duration);
+	        }
+	        else {
+	            // this animation does not have a duration, so it should not animate
+	            // just go straight to the TO properties and call it done
+	            self._after();
+	            // since there was no animation, it's done
+	            // fire off all the onFinishes
+	            self._onFinish();
+	        }
+	    };
+	    Animation.prototype._asyncEnd = function (duration) {
+	        var self = this;
+	        function onTransitionEnd(ev) {
+	            void 0;
+	            // ensure transition end events and timeouts have been cleared
+	            self._clearAsync();
+	            // set the after styles
+	            self._after();
+	            self._willChange(false);
+	            self._onFinish();
+	        }
+	        // set the TRANSITION END event on one of the transition elements
+	        self._unregTrans = dom_1.transitionEnd(self._transEl(), onTransitionEnd);
+	        // set a fallback timeout if the transition end event never fires
+	        self._tmr = setTimeout(onTransitionEnd, duration + 300);
+	    };
+	    Animation.prototype._clearAsync = function () {
+	        this._unregTrans && this._unregTrans();
+	        clearTimeout(this._tmr);
+	    };
+	    Animation.prototype._progress = function (stepValue) {
+	        // bread 'n butter
+	        var i, prop, fx, val, transforms, tweenEffect;
+	        for (i = 0; i < this._c.length; i++) {
+	            this._c[i]._progress(stepValue);
+	        }
+	        if (this._el) {
+	            // flip the number if we're going in reverse
+	            if (this._rv) {
+	                stepValue = ((stepValue * -1) + 1);
+	            }
+	            transforms = [];
+	            for (prop in this._fx) {
+	                if (this._fx.hasOwnProperty(prop)) {
+	                    fx = this._fx[prop];
+	                    if (fx.from && fx.to) {
+	                        tweenEffect = (fx.from.num !== fx.to.num);
+	                        if (tweenEffect) {
+	                            this.hasTween = true;
+	                        }
+	                        if (stepValue === 0) {
+	                            // FROM
+	                            val = fx.from.val;
+	                        }
+	                        else if (stepValue === 1) {
+	                            // TO
+	                            val = fx.to.val;
+	                        }
+	                        else if (tweenEffect) {
+	                            // EVERYTHING IN BETWEEN
+	                            val = (((fx.to.num - fx.from.num) * stepValue) + fx.from.num) + fx.to.unit;
+	                        }
+	                        else {
+	                            val = null;
+	                        }
+	                        if (val !== null) {
+	                            if (fx.trans) {
+	                                transforms.push(prop + '(' + val + ')');
+	                            }
+	                            else {
+	                                this._el.style[prop] = val;
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	            // place all transforms on the same property
+	            if (transforms.length) {
+	                if (!this._wChg) {
+	                    // if the element doesn't support will-change
+	                    // then auto add translateZ for transform properties
+	                    transforms.push('translateZ(0px)');
+	                }
+	                this._el.style[dom_1.CSS.transform] = transforms.join(' ');
+	            }
+	        }
+	    };
+	    Animation.prototype._setTrans = function (duration, forcedLinearEasing) {
+	        // set the TRANSITION properties inline on the element
+	        for (var i = 0; i < this._c.length; i++) {
+	            this._c[i]._setTrans(duration, forcedLinearEasing);
+	        }
+	        if (this._el && Object.keys(this._fx).length) {
+	            // all parent/child animations should have the same duration
+	            this._el.style[dom_1.CSS.transitionDuration] = duration + 'ms';
+	            // each animation can have a different easing
+	            var easing = (forcedLinearEasing ? 'linear' : this.getEasing());
+	            if (easing) {
+	                this._el.style[dom_1.CSS.transitionTimingFn] = easing;
+	            }
+	        }
+	    };
+	    Animation.prototype._willChange = function (addWillChange) {
+	        var i, wc, prop;
+	        for (i = 0; i < this._c.length; i++) {
+	            this._c[i]._willChange(addWillChange);
+	        }
+	        if (this._wChg) {
+	            if (addWillChange) {
+	                wc = [];
+	                for (prop in this._fx) {
+	                    if (this._fx.hasOwnProperty(prop)) {
+	                        if (this._fx[prop].wc !== '') {
+	                            wc.push(this._fx[prop].wc);
+	                        }
+	                    }
+	                }
+	                this._el.style['willChange'] = wc.join(',');
+	            }
+	            else {
+	                this._el.style['willChange'] = '';
+	            }
+	        }
+	    };
+	    Animation.prototype._before = function () {
+	        // before the RENDER_DELAY
+	        // before the animations have started
+	        var i, prop;
+	        // stage all of the child animations
+	        for (i = 0; i < this._c.length; i++) {
+	            this._c[i]._before();
+	        }
+	        if (!this._rv && this._el) {
+	            // css classes to add before the animation
+	            for (i = 0; i < this._bfAdd.length; i++) {
+	                this._el.classList.add(this._bfAdd[i]);
+	            }
+	            // css classes to remove before the animation
+	            for (i = 0; i < this._bfRmv.length; i++) {
+	                this._el.classList.remove(this._bfRmv[i]);
+	            }
+	            // inline styles to add before the animation
+	            for (prop in this._bfSty) {
+	                if (this._bfSty.hasOwnProperty(prop)) {
+	                    this._el.style[prop] = this._bfSty[prop];
+	                }
+	            }
+	        }
+	    };
+	    Animation.prototype._after = function () {
+	        // after the animations have finished
+	        var i, prop;
+	        for (i = 0; i < this._c.length; i++) {
+	            this._c[i]._after();
+	        }
+	        if (this._el) {
+	            // remove the transition duration/easing
+	            this._el.style[dom_1.CSS.transitionDuration] = '';
+	            this._el.style[dom_1.CSS.transitionTimingFn] = '';
+	            if (this._rv) {
+	                // finished in reverse direction
+	                // css classes that were added before the animation should be removed
+	                for (i = 0; i < this._bfAdd.length; i++) {
+	                    this._el.classList.remove(this._bfAdd[i]);
+	                }
+	                // css classes that were removed before the animation should be added
+	                for (i = 0; i < this._bfRmv.length; i++) {
+	                    this._el.classList.add(this._bfRmv[i]);
+	                }
+	                // inline styles that were added before the animation should be removed
+	                for (prop in this._bfSty) {
+	                    if (this._bfSty.hasOwnProperty(prop)) {
+	                        this._el.style[prop] = '';
+	                    }
+	                }
+	            }
+	            else {
+	                // finished in forward direction
+	                // css classes to add after the animation
+	                for (i = 0; i < this._afAdd.length; i++) {
+	                    this._el.classList.add(this._afAdd[i]);
+	                }
+	                // css classes to remove after the animation
+	                for (i = 0; i < this._afRmv.length; i++) {
+	                    this._el.classList.remove(this._afRmv[i]);
+	                }
+	                // inline styles to add after the animation
+	                for (prop in this._afSty) {
+	                    if (this._afSty.hasOwnProperty(prop)) {
+	                        this._el.style[prop] = this._afSty[prop];
+	                    }
+	                }
+	            }
+	        }
+	    };
+	    Animation.prototype.progressStart = function () {
+	        for (var i = 0; i < this._c.length; i++) {
+	            this._c[i].progressStart();
+	        }
+	        this._before();
+	        // force no duration, linear easing
+	        this._setTrans(0, true);
+	    };
+	    Animation.prototype.progressStep = function (stepValue) {
+	        stepValue = Math.min(1, Math.max(0, stepValue));
+	        for (var i = 0; i < this._c.length; i++) {
+	            this._c[i].progressStep(stepValue);
+	        }
+	        if (this._rv) {
+	            stepValue = ((stepValue * -1) + 1);
+	        }
+	        this._progress(stepValue);
+	    };
+	    Animation.prototype.progressEnd = function (shouldComplete, currentStepValue) {
+	        void 0;
+	        for (var i = 0; i < this._c.length; i++) {
+	            this._c[i].progressEnd(shouldComplete, currentStepValue);
+	        }
+	        // set all the animations to their final position
+	        this._progress(shouldComplete ? 1 : 0);
+	        // if it's already at the final position, or close, then it's done
+	        // otherwise we need to add a transition end event listener
+	        if (currentStepValue < 0.05 || currentStepValue > 0.95) {
+	            // the progress was already left off at the point that is finished
+	            // for example, the left menu was dragged all the way open already
+	            this._after();
+	            this._willChange(false);
+	            this._onFinish();
+	        }
+	        else {
+	            // the stepValue was left off at a point when it needs to finish transition still
+	            // for example, the left menu was opened 75% and needs to finish opening
+	            this._asyncEnd(64);
+	            // force quick duration, linear easing
+	            this._setTrans(64, true);
+	        }
+	    };
+	    Animation.prototype.onPlay = function (callback) {
+	        this._pFns.push(callback);
+	        return this;
+	    };
+	    Animation.prototype.onFinish = function (callback, onceTimeCallback, clearOnFinishCallacks) {
+	        if (onceTimeCallback === void 0) { onceTimeCallback = false; }
+	        if (clearOnFinishCallacks === void 0) { clearOnFinishCallacks = false; }
+	        if (clearOnFinishCallacks) {
+	            this._fFns = [];
+	            this._fOnceFns = [];
+	        }
+	        if (onceTimeCallback) {
+	            this._fOnceFns.push(callback);
+	        }
+	        else {
+	            this._fFns.push(callback);
+	        }
+	        return this;
+	    };
+	    Animation.prototype._onFinish = function () {
+	        this.isPlaying = false;
+	        var i;
+	        for (i = 0; i < this._fFns.length; i++) {
+	            this._fFns[i]();
+	        }
+	        for (i = 0; i < this._fOnceFns.length; i++) {
+	            this._fOnceFns[i]();
+	        }
+	        this._fOnceFns = [];
+	    };
+	    Animation.prototype.reverse = function (shouldReverse) {
+	        if (shouldReverse === void 0) { shouldReverse = true; }
+	        for (var i = 0; i < this._c.length; i++) {
+	            this._c[i].reverse(shouldReverse);
+	        }
+	        this._rv = shouldReverse;
+	        return this;
+	    };
+	    Animation.prototype.destroy = function (removeElement) {
+	        for (var i = 0; i < this._c.length; i++) {
+	            this._c[i].destroy(removeElement);
+	        }
+	        if (removeElement && this._el) {
+	            this._el.parentNode && this._el.parentNode.removeChild(this._el);
+	        }
+	        this._reset();
+	    };
+	    Animation.prototype._transEl = function () {
+	        // get the lowest level element that has an Animation
+	        var targetEl, i;
+	        for (i = 0; i < this._c.length; i++) {
+	            targetEl = this._c[i]._transEl();
+	            if (targetEl) {
+	                return targetEl;
+	            }
+	        }
+	        return (this.hasTween ? this._el : null);
+	    };
+	    /*
+	     STATIC CLASSES
+	     */
+	    Animation.create = function (name, opts) {
+	        if (opts === void 0) { opts = {}; }
+	        var AnimationClass = AnimationRegistry[name];
+	        if (!AnimationClass) {
+	            // couldn't find an animation by the given name
+	            // fallback to just the base Animation class
+	            AnimationClass = Animation;
+	        }
+	        return new AnimationClass(null, opts);
+	    };
+	    Animation.register = function (name, AnimationClass) {
+	        AnimationRegistry[name] = AnimationClass;
+	    };
+	    return Animation;
+	})();
+	exports.Animation = Animation;
+	var doc = document;
+	var TRANSFORMS = [
+	    'translateX', 'translateY', 'translateZ', 'scale', 'scaleX', 'scaleY', 'scaleZ',
+	    'rotate', 'rotateX', 'rotateY', 'rotateZ', 'skewX', 'skewY', 'perspective'];
+	var AnimationRegistry = {};
+
+
+/***/ },
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -48727,39 +48687,38 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var app_1 = __webpack_require__(158);
-	var menu_1 = __webpack_require__(282);
+	var menu_controller_1 = __webpack_require__(273);
 	/**
-	* @name MenuClose
-	* @description
-	* Place `menuClose` on a button to automatically close an open menu. Note that the menu's id must be either
-	* `leftMenu` or `rightMenu`
-	*
-	* @usage
-	 * ```html
-	 * <ion-menu [content]="mycontent" id="leftMenu">
-	 *   <ion-content>
-	 *     <ion-list>
-	 *     <ion-item menuClose>Close the menu</ion-item>
-	 *     </ion-list>
-	 *   </ion-content>
-	 * </ion-menu>
+	 * @name MenuClose
+	 * @description
+	 * The `menuClose` directive can be placed on any button to
+	 * automatically close an open menu.
 	 *
-	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * @usage
+	 * ```html
+	 * <button menuClose>Close Menu</button>
 	 * ```
-	* @demo /docs/v2/demos/menu/
-	* @see {@link /docs/v2/components#menus Menu Component Docs}
-	* @see {@link ../../menu/Menu Menu API Docs}
-	*/
+	 *
+	 * To close a certain menu by its id or side, give the `menuClose`
+	 * directive a value.
+	 *
+	 * ```html
+	 * <button menuClose="left">Close Left Menu</button>
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/menu/
+	 * @see {@link /docs/v2/components#menus Menu Component Docs}
+	 * @see {@link ../../menu/Menu Menu API Docs}
+	 */
 	var MenuClose = (function () {
-	    function MenuClose(_app) {
-	        this._app = _app;
+	    function MenuClose(_menu) {
+	        this._menu = _menu;
 	    }
 	    /**
 	    * @private
 	    */
 	    MenuClose.prototype.close = function () {
-	        var menu = menu_1.Menu.getById(this._app, this.menuClose);
+	        var menu = this._menu.get(this.menuClose);
 	        menu && menu.close();
 	    };
 	    __decorate([
@@ -48776,15 +48735,15 @@
 	        core_1.Directive({
 	            selector: '[menuClose]'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [menu_controller_1.MenuController])
 	    ], MenuClose);
 	    return MenuClose;
-	    var _a;
 	})();
 	exports.MenuClose = MenuClose;
 
+
 /***/ },
-/* 302 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -48797,7 +48756,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var config_1 = __webpack_require__(264);
+	var config_1 = __webpack_require__(159);
 	/**
 	  * @name Badge
 	  * @module ionic
@@ -48839,15 +48798,15 @@
 	        core_1.Directive({
 	            selector: 'ion-badge'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [config_1.Config, core_1.ElementRef, core_1.Renderer])
 	    ], Badge);
 	    return Badge;
-	    var _a, _b, _c;
 	})();
 	exports.Badge = Badge;
 
+
 /***/ },
-/* 303 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -48885,15 +48844,15 @@
 	        core_1.Directive({
 	            selector: '[blur]'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer])
 	    ], Blur);
 	    return Blur;
-	    var _a, _b;
 	})();
 	exports.Blur = Blur;
 
+
 /***/ },
-/* 304 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -48915,11 +48874,11 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var ion_1 = __webpack_require__(283);
-	var app_1 = __webpack_require__(158);
-	var config_1 = __webpack_require__(264);
-	var dom_1 = __webpack_require__(267);
+	var app_1 = __webpack_require__(166);
+	var config_1 = __webpack_require__(159);
+	var dom_1 = __webpack_require__(162);
 	var view_controller_1 = __webpack_require__(292);
-	var scroll_to_1 = __webpack_require__(271);
+	var scroll_to_1 = __webpack_require__(275);
 	/**
 	 * @name Content
 	 * @description
@@ -49203,15 +49162,15 @@
 	                '</scroll-content>'
 	        }),
 	        __param(4, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _c) || Object, (typeof (_d = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _d) || Object, (typeof (_e = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _e) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef, config_1.Config, app_1.IonicApp, core_1.NgZone, view_controller_1.ViewController])
 	    ], Content);
 	    return Content;
-	    var _a, _b, _c, _d, _e;
 	})(ion_1.Ion);
 	exports.Content = Content;
 
+
 /***/ },
-/* 305 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -49255,7 +49214,13 @@
 	    __extends(Scroll, _super);
 	    function Scroll(elementRef) {
 	        _super.call(this, elementRef);
+	        /**
+	         * @private
+	         */
 	        this.maxScale = 3;
+	        /**
+	         * @private
+	         */
 	        this.zoomDuration = 250;
 	    }
 	    /**
@@ -49296,15 +49261,15 @@
 	                '</div>' +
 	                '</scroll-content>'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef])
 	    ], Scroll);
 	    return Scroll;
-	    var _a;
 	})(ion_1.Ion);
 	exports.Scroll = Scroll;
 
+
 /***/ },
-/* 306 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -49320,11 +49285,11 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
-	var content_1 = __webpack_require__(304);
+	var common_1 = __webpack_require__(170);
+	var content_1 = __webpack_require__(306);
 	var icon_1 = __webpack_require__(295);
-	var util_1 = __webpack_require__(266);
-	var dom_1 = __webpack_require__(267);
+	var util_1 = __webpack_require__(161);
+	var dom_1 = __webpack_require__(162);
 	/**
 	 * @name Refresher
 	 * @description
@@ -49349,20 +49314,20 @@
 	 *  export class MyClass {
 	 *  constructor(){}
 	 *    doRefresh(refresher) {
-	 *      console.log('Refreshing!', refresher);
+	 *      console.debug('Refreshing!', refresher);
 	 *
 	 *      setTimeout(() => {
-	 *        console.log('Pull to refresh complete!', refresher);
+	 *        console.debug('Pull to refresh complete!', refresher);
 	 *        refresher.complete();
 	 *      })
 	 *    }
 	 *
 	 *    doStarting() {
-	 *      console.log('Pull started!');
+	 *      console.debug('Pull started!');
 	 *    }
 	 *
 	 *    doPulling(amt) {
-	 *      console.log('You have pulled', amt);
+	 *      console.debug('You have pulled', amt);
 	 *    }
 	 *  }
 	 *  ```
@@ -49379,28 +49344,61 @@
 	 *
 	 */
 	var Refresher = (function () {
-	    function Refresher(content, element) {
-	        this.content = content;
+	    function Refresher(_content, _element) {
+	        this._content = _content;
+	        /**
+	         * @private
+	         */
 	        this.isDragging = false;
+	        /**
+	         * @private
+	         */
 	        this.isOverscrolling = false;
+	        /**
+	         * @private
+	         */
 	        this.dragOffset = 0;
+	        /**
+	         * @private
+	         */
 	        this.lastOverscroll = 0;
+	        /**
+	         * @private
+	         */
 	        this.ptrThreshold = 0;
+	        /**
+	         * @private
+	         */
 	        this.activated = false;
+	        /**
+	         * @private
+	         */
 	        this.scrollTime = 500;
+	        /**
+	         * @private
+	         */
 	        this.canOverscroll = true;
+	        /**
+	         * @private
+	         */
 	        this.pulling = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.refresh = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.starting = new core_1.EventEmitter();
-	        this.ele = element.nativeElement;
-	        this.ele.classList.add('content');
+	        this._ele = _element.nativeElement;
+	        this._ele.classList.add('content');
 	    }
 	    /**
 	     * @private
 	     */
 	    Refresher.prototype.ngOnInit = function () {
-	        var sp = this.content.getNativeElement();
-	        var sc = this.content.scrollElement;
+	        var sp = this._content.getNativeElement();
+	        var sc = this._content.scrollElement;
 	        this.startY = null;
 	        this.deltaY = null;
 	        this.scrollHost = sp;
@@ -49422,7 +49420,7 @@
 	     * @private
 	     */
 	    Refresher.prototype.ngOnDestroy = function () {
-	        var sc = this.content.scrollElement;
+	        var sc = this._content.scrollElement;
 	        sc.removeEventListener('touchmove', this._touchMoveListener);
 	        sc.removeEventListener('touchend', this._touchEndListener);
 	        sc.removeEventListener('scroll', this._handleScrollListener);
@@ -49507,21 +49505,21 @@
 	     */
 	    Refresher.prototype.show = function () {
 	        // showCallback
-	        this.ele.classList.remove('invisible');
+	        this._ele.classList.remove('invisible');
 	    };
 	    /**
 	     * @private
 	     */
 	    Refresher.prototype.hide = function () {
 	        // showCallback
-	        this.ele.classList.add('invisible');
+	        this._ele.classList.add('invisible');
 	    };
 	    /**
 	     * @private
 	     */
 	    Refresher.prototype.tail = function () {
 	        // tailCallback
-	        this.ele.classList.add('refreshing-tail');
+	        this._ele.classList.add('refreshing-tail');
 	    };
 	    /**
 	     * @private
@@ -49586,7 +49584,7 @@
 	     * @param {Event} e  TODO
 	     */
 	    Refresher.prototype._handleTouchMove = function (e) {
-	        //console.log('TOUCHMOVE', e);
+	        //console.debug('TOUCHMOVE', e);
 	        // if multitouch or regular scroll event, get out immediately
 	        if (!this.canOverscroll || e.touches.length > 1) {
 	            return;
@@ -49701,15 +49699,15 @@
 	    ], Refresher.prototype, "spinner", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Refresher.prototype, "pulling", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Refresher.prototype, "refresh", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Refresher.prototype, "starting", void 0);
 	    Refresher = __decorate([
 	        core_1.Component({
@@ -49732,15 +49730,15 @@
 	            directives: [common_1.NgIf, common_1.NgClass, icon_1.Icon]
 	        }),
 	        __param(0, core_1.Host()), 
-	        __metadata('design:paramtypes', [(typeof (_d = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _d) || Object, (typeof (_e = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _e) || Object])
+	        __metadata('design:paramtypes', [content_1.Content, core_1.ElementRef])
 	    ], Refresher);
 	    return Refresher;
-	    var _a, _b, _c, _d, _e;
 	})();
 	exports.Refresher = Refresher;
 
+
 /***/ },
-/* 307 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -49761,29 +49759,18 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
+	var common_1 = __webpack_require__(170);
 	var ion_1 = __webpack_require__(283);
-	var animation_1 = __webpack_require__(279);
+	var animation_1 = __webpack_require__(302);
 	var gesture_1 = __webpack_require__(288);
 	var util_1 = __webpack_require__(289);
-	var dom_1 = __webpack_require__(267);
-	var util_2 = __webpack_require__(266);
-	var swiper_widget_1 = __webpack_require__(308);
+	var dom_1 = __webpack_require__(162);
+	var util_2 = __webpack_require__(161);
+	var swiper_widget_1 = __webpack_require__(310);
 	/**
 	 * @name Slides
 	 * @description
 	 * Slides is a slide box implementation based on Swiper.js
-	 *
-	 * Swiper.js:
-	 * The most modern mobile touch slider and framework with hardware accelerated transitions
-	 *
-	 * http://www.idangero.us/swiper/
-	 *
-	 * Copyright 2015, Vladimir Kharlampidi
-	 * The iDangero.us
-	 * http://www.idangero.us/
-	 *
-	 * Licensed under MIT
 	 *
 	 * @usage
 	 * ```ts
@@ -49817,12 +49804,27 @@
 	 *```
 	 * @property {Boolean} [autoplay] - whether or not the slides should automatically change
 	 * @property {Boolean} [loop] - whether the slides should loop from the last slide back to the first
-	 * @property {Boolean} [bounce] - whether the slides should bounce
 	 * @property {Number} [index] - The slide index to start on
-	 * @property [pager] - add this property to enable the slide pager
-	 * @property {Any} [change] - expression to evaluate when a slide has been changed
+	 * @property {Boolean} [bounce] - whether the slides should bounce
+	 * @property {Boolean} [pager] - Whether the slide should show the page or not
+	 * @property {Any} [options] - Any additional slider options you want to pass
+	 * @property {Number} [zoom] - Whether or not the slider can zoom in or out
+	 * @property {Number} [zoomDuration] - how long it should take to zoom a slide
+	 * @property {Number} [zoomMax] - the max scale an slide can be zoomed
+	 * @property {Any} (change) - expression to evaluate when a slide has been changed
 	 * @demo /docs/v2/demos/slides/
 	 * @see {@link /docs/v2/components#slides Slides Component Docs}
+	 *
+	 * Swiper.js:
+	 * The most modern mobile touch slider and framework with hardware accelerated transitions
+	 *
+	 * http://www.idangero.us/swiper/
+	 *
+	 * Copyright 2015, Vladimir Kharlampidi
+	 * The iDangero.us
+	 * http://www.idangero.us/
+	 *
+	 * Licensed under MIT
 	 */
 	var Slides = (function (_super) {
 	    __extends(Slides, _super);
@@ -49833,11 +49835,13 @@
 	    function Slides(elementRef) {
 	        var _this = this;
 	        _super.call(this, elementRef);
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        this.rapidUpdate = util_2.debounce(function () {
 	            _this.update();
 	        }, 10);
-	        void 0;
 	    }
 	    /**
 	     * @private
@@ -50033,12 +50037,11 @@
 	          ty = y-my;
 	        }
 	    
-	        console.log(y);
+	        console.debug(y);
 	        */
 	        var zi = new animation_1.Animation(this.touch.target.children[0])
 	            .duration(this.zoomDuration)
-	            .easing('linear')
-	            .fill('none');
+	            .easing('linear');
 	        var zw = new animation_1.Animation(this.touch.target.children[0])
 	            .duration(this.zoomDuration)
 	            .easing('linear');
@@ -50122,7 +50125,6 @@
 	        // Move image
 	        this.touch.x = this.touch.deltaX + this.touch.lastX;
 	        this.touch.y = this.touch.deltaY + this.touch.lastY;
-	        void 0;
 	        if (this.touch.x < x1) {
 	            void 0;
 	        }
@@ -50263,7 +50265,7 @@
 	    ], Slides.prototype, "zoomMax", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Slides.prototype, "change", void 0);
 	    Slides = __decorate([
 	        core_1.Component({
@@ -50276,14 +50278,18 @@
 	                '</div>',
 	            directives: [common_1.NgClass]
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef])
 	    ], Slides);
 	    return Slides;
-	    var _a, _b;
 	})(ion_1.Ion);
 	exports.Slides = Slides;
 	/**
-	 * @private
+	 * @name Slide
+	 * @description
+	 * `ion-slide` is a child component of `ion-slides` and is where all your individule slide content will be rendered too.
+	 *
+	 * @demo /docs/v2/demos/slides/
+	 * @see {@link /docs/v2/api/components/slides/Slides/ Slides API Docs}
 	 */
 	var Slide = (function () {
 	    function Slide(elementRef, slides) {
@@ -50301,10 +50307,9 @@
 	            template: '<div class="slide-zoom"><ng-content></ng-content></div>'
 	        }),
 	        __param(1, core_1.Host()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Slides])
+	        __metadata('design:paramtypes', [core_1.ElementRef, Slides])
 	    ], Slide);
 	    return Slide;
-	    var _a;
 	})();
 	exports.Slide = Slide;
 	/**
@@ -50326,8 +50331,9 @@
 	})();
 	exports.SlideLazy = SlideLazy;
 
+
 /***/ },
-/* 308 */
+/* 310 */
 /***/ function(module, exports) {
 
 	/**
@@ -54287,7 +54293,7 @@
 
 
 /***/ },
-/* 309 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -54308,23 +54314,24 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
-	var app_1 = __webpack_require__(158);
-	var config_1 = __webpack_require__(264);
-	var tab_button_1 = __webpack_require__(310);
-	var tab_highlight_1 = __webpack_require__(312);
+	var common_1 = __webpack_require__(170);
+	var app_1 = __webpack_require__(166);
+	var config_1 = __webpack_require__(159);
+	var tab_button_1 = __webpack_require__(312);
+	var tab_highlight_1 = __webpack_require__(314);
 	var ion_1 = __webpack_require__(283);
-	var platform_1 = __webpack_require__(265);
+	var platform_1 = __webpack_require__(160);
 	var nav_controller_1 = __webpack_require__(298);
 	var view_controller_1 = __webpack_require__(292);
 	var icon_1 = __webpack_require__(295);
-	var util_1 = __webpack_require__(266);
+	var util_1 = __webpack_require__(161);
 	/**
 	 * @name Tabs
 	 * @property {any} [selectedIndex] - The default selected tab index when first loaded. If a selected index wasn't provided then it'll use `0`, the first tab.
 	 * @property {any} [tabbarPlacement] - set position of the tabbar, top or bottom
 	 * @property {any} [tabbarIcons] - set the position of the tabbar's icons: top, bottom, left, right, hide
 	 * @property {any} [preloadTabs] - sets whether to preload all the tabs, true or false
+	 * @property {any} (change) - expression you want to evaluate when the tabs chage
 	 * @usage
 	* ```html
 	 * <ion-tabs>
@@ -54339,6 +54346,7 @@
 	 * individual Tab components. On iOS, the TabBar is placed on the bottom of
 	 * the screen, while on Android it is at the top.
 	 *
+	 * @demo /docs/v2/demos/tabs/
 	 * @see {@link /docs/v2/components#tabs Tabs Component Docs}
 	 * @see {@link ../Tab Tab API Docs}
 	 */
@@ -54354,8 +54362,12 @@
 	        this._platform = _platform;
 	        this._renderer = _renderer;
 	        this._ids = -1;
+	        this._preloadTabs = null;
 	        this._tabs = [];
 	        this._onReady = null;
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        this.id = ++tabIds;
 	        this.subPages = _config.getBoolean('tabSubPages');
@@ -54376,10 +54388,8 @@
 	     */
 	    Tabs.prototype.ngAfterViewInit = function () {
 	        var _this = this;
-	        this.preloadTabs = (this.preloadTabs !== "false" && this.preloadTabs !== false);
 	        this._setConfig('tabbarPlacement', 'bottom');
 	        this._setConfig('tabbarIcons', 'top');
-	        this._setConfig('preloadTabs', false);
 	        if (this._useHighlight) {
 	            this._platform.onResize(function () {
 	                _this._highlight.select(_this.getSelected());
@@ -54390,12 +54400,16 @@
 	                _this.select(tab);
 	            });
 	        });
+	    };
+	    Tabs.prototype.ngAfterContentInit = function () {
+	        var _this = this;
 	        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
+	        var preloadTabs = (util_1.isUndefined(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
 	        this._tabs.forEach(function (tab, index) {
 	            if (index === selectedIndex) {
 	                _this.select(tab);
 	            }
-	            else if (_this.preloadTabs) {
+	            else if (preloadTabs) {
 	                tab.preload(1000 * index);
 	            }
 	        });
@@ -54463,7 +54477,6 @@
 	                _this._onReady();
 	                _this._onReady = null;
 	            }
-	            void 0;
 	        });
 	    };
 	    /**
@@ -54523,6 +54536,7 @@
 	    };
 	    Object.defineProperty(Tabs.prototype, "rootNav", {
 	        /**
+	         * @private
 	         * Returns the root NavController. Returns `null` if Tabs is not
 	         * within a NavController.
 	         * @returns {NavController}
@@ -54555,11 +54569,11 @@
 	    ], Tabs.prototype, "tabbarPlacement", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Tabs.prototype, "change", void 0);
 	    __decorate([
 	        core_1.ViewChild(tab_highlight_1.TabHighlight), 
-	        __metadata('design:type', (typeof (_b = typeof tab_highlight_1.TabHighlight !== 'undefined' && tab_highlight_1.TabHighlight) === 'function' && _b) || Object)
+	        __metadata('design:type', tab_highlight_1.TabHighlight)
 	    ], Tabs.prototype, "_highlight", void 0);
 	    __decorate([
 	        core_1.ViewChildren(tab_button_1.TabButton), 
@@ -54577,6 +54591,7 @@
 	                '<ion-icon *ngIf="t.tabIcon" [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></ion-icon>' +
 	                '<span *ngIf="t.tabTitle" class="tab-button-text">{{t.tabTitle}}</span>' +
 	                '<ion-badge *ngIf="t.tabBadge" class="tab-badge" [ngClass]="\'badge-\' + t.tabBadgeStyle">{{t.tabBadge}}</ion-badge>' +
+	                '<ion-button-effect></ion-button-effect>' +
 	                '</a>' +
 	                '<tab-highlight></tab-highlight>' +
 	                '</tabbar>' +
@@ -54595,10 +54610,9 @@
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _d) || Object, (typeof (_e = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _h) || Object, (typeof (_j = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _j) || Object])
+	        __metadata('design:paramtypes', [view_controller_1.ViewController, nav_controller_1.NavController, app_1.IonicApp, config_1.Config, core_1.ElementRef, platform_1.Platform, core_1.Renderer])
 	    ], Tabs);
 	    return Tabs;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 	})(ion_1.Ion);
 	exports.Tabs = Tabs;
 	var tabIds = -1;
@@ -54612,14 +54626,14 @@
 	    TabNavBarAnchor = __decorate([
 	        core_1.Directive({ selector: 'template[navbar-anchor]' }),
 	        __param(0, core_1.Host()), 
-	        __metadata('design:paramtypes', [Tabs, (typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [Tabs, core_1.ViewContainerRef])
 	    ], TabNavBarAnchor);
 	    return TabNavBarAnchor;
-	    var _a;
 	})();
 
+
 /***/ },
-/* 310 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -54637,9 +54651,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var tab_1 = __webpack_require__(311);
+	var tab_1 = __webpack_require__(313);
 	var ion_1 = __webpack_require__(283);
-	var config_1 = __webpack_require__(264);
+	var config_1 = __webpack_require__(159);
 	/**
 	 * @private
 	 */
@@ -54663,11 +54677,11 @@
 	    };
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', (typeof (_a = typeof tab_1.Tab !== 'undefined' && tab_1.Tab) === 'function' && _a) || Object)
+	        __metadata('design:type', tab_1.Tab)
 	    ], TabButton.prototype, "tab", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], TabButton.prototype, "select", void 0);
 	    __decorate([
 	        core_1.HostListener('click'), 
@@ -54690,15 +54704,15 @@
 	                '[class.disable-hover]': 'disHover'
 	            }
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [config_1.Config, core_1.ElementRef])
 	    ], TabButton);
 	    return TabButton;
-	    var _a, _b, _c, _d;
 	})(ion_1.Ion);
 	exports.TabButton = TabButton;
 
+
 /***/ },
-/* 311 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -54720,21 +54734,13 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var core_2 = __webpack_require__(7);
-	var app_1 = __webpack_require__(158);
-	var config_1 = __webpack_require__(264);
-	var keyboard_1 = __webpack_require__(270);
+	var app_1 = __webpack_require__(166);
+	var config_1 = __webpack_require__(159);
+	var keyboard_1 = __webpack_require__(272);
 	var nav_controller_1 = __webpack_require__(298);
-	var tabs_1 = __webpack_require__(309);
+	var tabs_1 = __webpack_require__(311);
 	/**
 	 * @name Tab
-	 * @usage
-	 * ```html
-	 * <ion-tabs>
-	 * 	 <ion-tab tabTitle="Home" tabIcon="home" [root]="tabOneRoot"></ion-tab>
-	 * 	 <ion-tab tabTitle="Login" tabIcon="star" [root]="tabTwoRoot"></ion-tab>
-	 * </ion-tabs>
-	 * ```
-	 *
 	 * @description
 	 * _For basic Tabs usage, see the [Tabs section](../../../../components/#tabs)
 	 * of the Component docs._
@@ -54749,11 +54755,12 @@
 	 * See the [Tabs API reference](../Tabs/) for more details on configuring Tabs
 	 * and the TabBar.
 	 *
+	 * @usage
 	 * For most cases, you can give tab a `[root]` property along with the component you want to load.
 	 *
 	 * ```html
 	 * <ion-tabs>
-	 *  <ion-tab [root]="chatRoot"><ion-tab>
+	 *  <ion-tab [root]="chatRoot" tabTitle="Chat" tabIcon="chat"><ion-tab>
 	 * </ion-tabs>
 	 * ```
 	 *
@@ -54791,19 +54798,23 @@
 	 * ```
 	 *
 	 *
-	 * @property {any} [root] - set the root page for this tab
-	 * @property {any} [tabTitle] - set the title of this tab
-	 * @property {any} [tabIcon] - set the icon for this tab
-	 * @property {any} [tabBadge] - set the badge for this tab
-	 * @property {any} [tabBadgeStyle] - set the badge color for this tab
-	 * @property {any} [select] - method to call when the current tab is selected
+	 * @property {Page} [root] - set the root page for this tab
+	 * @property {String} [tabTitle] - set the title of this tab
+	 * @property {String} [tabIcon] - set the icon for this tab
+	 * @property {Any} [tabBadge] - set the badge for this tab
+	 * @property {String} [tabBadgeStyle] - set the badge color for this tab
+	 * @property {Any} (select) - method to call when the current tab is selected
 	 *
+	 * @demo /docs/v2/demos/tabs/
 	 */
 	var Tab = (function (_super) {
 	    __extends(Tab, _super);
 	    function Tab(parentTabs, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer) {
 	        // A Tab is a NavController for its child pages
 	        _super.call(this, parentTabs, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer);
+	        /**
+	         * @private
+	         */
 	        this.select = new core_2.EventEmitter();
 	        parentTabs.add(this);
 	        this._panelId = 'tabpanel-' + this.id;
@@ -54829,10 +54840,14 @@
 	            done();
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    Tab.prototype.preload = function (wait) {
 	        var _this = this;
 	        this._loadTimer = setTimeout(function () {
 	            if (!_this._loaded) {
+	                void 0;
 	                _this.load({
 	                    animate: false,
 	                    preload: true,
@@ -54881,18 +54896,7 @@
 	    };
 	    Object.defineProperty(Tab.prototype, "index", {
 	        /**
-	         *
-	         * ```ts
-	         * export class MyClass{
-	         *  constructor(tab: Tab){
-	         *    this.tab = tab;
-	         *    console.log(this.tab.index);
-	         *  }
-	         * }
-	         * ```
-	         *
-	         * @returns {number} Returns the index of this page within its NavController.
-	         *
+	         * @private
 	         */
 	        get: function () {
 	            return this.parent.getIndex(this);
@@ -54908,7 +54912,7 @@
 	    };
 	    __decorate([
 	        core_2.Input(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.Type !== 'undefined' && core_1.Type) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.Type)
 	    ], Tab.prototype, "root", void 0);
 	    __decorate([
 	        core_2.Input(), 
@@ -54928,7 +54932,7 @@
 	    ], Tab.prototype, "tabBadgeStyle", void 0);
 	    __decorate([
 	        core_2.Output(), 
-	        __metadata('design:type', (typeof (_b = typeof core_2.EventEmitter !== 'undefined' && core_2.EventEmitter) === 'function' && _b) || Object)
+	        __metadata('design:type', core_2.EventEmitter)
 	    ], Tab.prototype, "select", void 0);
 	    Tab = __decorate([
 	        core_1.Component({
@@ -54942,15 +54946,15 @@
 	            template: '<div #contents></div>'
 	        }),
 	        __param(0, core_1.Inject(core_1.forwardRef(function () { return tabs_1.Tabs; }))), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Compiler !== 'undefined' && core_1.Compiler) === 'function' && _h) || Object, (typeof (_j = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object])
+	        __metadata('design:paramtypes', [tabs_1.Tabs, app_1.IonicApp, config_1.Config, keyboard_1.Keyboard, core_1.ElementRef, core_1.Compiler, core_1.AppViewManager, core_1.NgZone, core_1.Renderer])
 	    ], Tab);
 	    return Tab;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 	})(nav_controller_1.NavController);
 	exports.Tab = Tab;
 
+
 /***/ },
-/* 312 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -54963,7 +54967,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var dom_1 = __webpack_require__(267);
+	var dom_1 = __webpack_require__(162);
 	/**
 	 * @private
 	 */
@@ -54989,15 +54993,15 @@
 	        core_1.Directive({
 	            selector: 'tab-highlight'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef])
 	    ], TabHighlight);
 	    return TabHighlight;
-	    var _a;
 	})();
 	exports.TabHighlight = TabHighlight;
 
+
 /***/ },
-/* 313 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -55019,8 +55023,8 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var ion_1 = __webpack_require__(283);
-	var virtual_1 = __webpack_require__(314);
-	var item_sliding_gesture_1 = __webpack_require__(315);
+	var virtual_1 = __webpack_require__(316);
+	var item_sliding_gesture_1 = __webpack_require__(317);
 	var util_1 = __webpack_require__(289);
 	/**
 	 * The List is a widely used interface element in almost any mobile app, and can include
@@ -55145,10 +55149,9 @@
 	        core_1.Directive({
 	            selector: 'ion-list'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef, core_1.NgZone])
 	    ], List);
 	    return List;
-	    var _a, _b;
 	})(ion_1.Ion);
 	exports.List = List;
 	/**
@@ -55176,15 +55179,15 @@
 	            selector: 'ion-list-header'
 	        }),
 	        __param(2, core_1.Attribute('id')), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, String])
+	        __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef, String])
 	    ], ListHeader);
 	    return ListHeader;
-	    var _a, _b;
 	})();
 	exports.ListHeader = ListHeader;
 
+
 /***/ },
-/* 314 */
+/* 316 */
 /***/ function(module, exports) {
 
 	var ListVirtualScroll = (function () {
@@ -55276,8 +55279,9 @@
 	    return VirtualItemRef;
 	})();
 
+
 /***/ },
-/* 315 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -55286,7 +55290,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var drag_gesture_1 = __webpack_require__(287);
-	var dom_1 = __webpack_require__(267);
+	var dom_1 = __webpack_require__(162);
 	var ItemSlidingGesture = (function (_super) {
 	    __extends(ItemSlidingGesture, _super);
 	    function ItemSlidingGesture(list, listEle) {
@@ -55496,8 +55500,9 @@
 	}
 	var DRAG_THRESHOLD = 20;
 
+
 /***/ },
-/* 316 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55510,11 +55515,11 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
+	var common_1 = __webpack_require__(170);
 	var button_1 = __webpack_require__(297);
-	var form_1 = __webpack_require__(269);
+	var form_1 = __webpack_require__(165);
 	var icon_1 = __webpack_require__(295);
-	var label_1 = __webpack_require__(317);
+	var label_1 = __webpack_require__(319);
 	/**
 	 * @name Item
 	 * @description
@@ -55543,6 +55548,7 @@
 	 * </ion-list>
 	 *
 	 *  ```
+	 * @demo /docs/v2/demos/item/
 	 * @see {@link /docs/v2/components#lists List Component Docs}
 	 * @see {@link ../../list/List List API Docs}
 	 */
@@ -55554,8 +55560,8 @@
 	        this._inputs = [];
 	        this._viewLabel = true;
 	        /**
-	       * @private
-	       */
+	         * @private
+	         */
 	        this.labelId = null;
 	        this.id = form.nextId().toString();
 	    }
@@ -55647,13 +55653,13 @@
 	    });
 	    __decorate([
 	        core_1.ContentChild(label_1.Label), 
-	        __metadata('design:type', (typeof (_a = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _a) || Object), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _b) || Object])
+	        __metadata('design:type', label_1.Label), 
+	        __metadata('design:paramtypes', [label_1.Label])
 	    ], Item.prototype, "contentLabel", null);
 	    __decorate([
 	        core_1.ViewChild(label_1.Label), 
-	        __metadata('design:type', (typeof (_c = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _c) || Object), 
-	        __metadata('design:paramtypes', [(typeof (_d = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _d) || Object])
+	        __metadata('design:type', label_1.Label), 
+	        __metadata('design:paramtypes', [label_1.Label])
 	    ], Item.prototype, "viewLabel", null);
 	    __decorate([
 	        core_1.ContentChildren(button_1.Button), 
@@ -55675,21 +55681,22 @@
 	                '<ng-content></ng-content>' +
 	                '</ion-label>' +
 	                '<ng-content select="[item-right],ion-radio,ion-toggle,ion-select,ion-input,ion-textarea"></ng-content>' +
-	                '</div>',
+	                '</div>' +
+	                '<ion-button-effect></ion-button-effect>',
 	            host: {
 	                'class': 'item'
 	            },
 	            directives: [common_1.NgIf, label_1.Label]
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_e = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object])
+	        __metadata('design:paramtypes', [form_1.Form, core_1.Renderer, core_1.ElementRef])
 	    ], Item);
 	    return Item;
-	    var _a, _b, _c, _d, _e, _f, _g;
 	})();
 	exports.Item = Item;
 
+
 /***/ },
-/* 317 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55798,15 +55805,15 @@
 	        __param(3, core_1.Attribute('stacked')),
 	        __param(4, core_1.Attribute('fixed')),
 	        __param(5, core_1.Attribute('inset')), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object, String, String, String, String])
+	        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, String, String, String, String])
 	    ], Label);
 	    return Label;
-	    var _a, _b;
 	})();
 	exports.Label = Label;
 
+
 /***/ },
-/* 318 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55822,7 +55829,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var list_1 = __webpack_require__(313);
+	var list_1 = __webpack_require__(315);
 	/**
 	 * @name ItemSliding
 	 *
@@ -55833,9 +55840,9 @@
 	 * ```html
 	 * <ion-list>
 	 *   <ion-item-sliding *ngFor="#item of items">
-	 *     <ion-item (click)="itemTapped(item)">
+	 *     <button ion-item (click)="itemTapped(item)">
 	 *       {{item.title}}
-	 *     </ion-item>
+	 *     </button>
 	 *     <ion-item-options>
 	 *       <button (click)="favorite(item)">Favorite</button>
 	 *       <button (click)="share(item)">Share</button>
@@ -55843,6 +55850,7 @@
 	 *   </ion-item-sliding>
 	 * </ion-list>
 	 * ```
+	 * @demo /docs/v2/demos/item-sliding/
 	 * @see {@link /docs/v2/components#lists List Component Docs}
 	 * @see {@link ../../list/List List API Docs}
 	 */
@@ -55865,16 +55873,16 @@
 	                '<ng-content select="ion-item-options"></ng-content>'
 	        }),
 	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof list_1.List !== 'undefined' && list_1.List) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [list_1.List, core_1.ElementRef])
 	    ], ItemSliding);
 	    return ItemSliding;
-	    var _a, _b;
 	})();
 	exports.ItemSliding = ItemSliding;
 	var slideIds = 0;
 
+
 /***/ },
-/* 319 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -55890,10 +55898,10 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
-	var form_1 = __webpack_require__(269);
-	var item_1 = __webpack_require__(316);
-	var util_1 = __webpack_require__(266);
+	var common_1 = __webpack_require__(170);
+	var form_1 = __webpack_require__(165);
+	var item_1 = __webpack_require__(318);
+	var util_1 = __webpack_require__(161);
 	/**
 	 * The checkbox is no different than the HTML checkbox input, except
 	 * it's styled accordingly to the the platform and design mode, such
@@ -56078,15 +56086,15 @@
 	        }),
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _b) || Object, (typeof (_c = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [form_1.Form, item_1.Item, common_1.NgControl])
 	    ], Checkbox);
 	    return Checkbox;
-	    var _a, _b, _c;
 	})();
 	exports.Checkbox = Checkbox;
 
+
 /***/ },
-/* 320 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56102,13 +56110,13 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
-	var alert_1 = __webpack_require__(321);
-	var form_1 = __webpack_require__(269);
-	var item_1 = __webpack_require__(316);
-	var util_1 = __webpack_require__(266);
+	var common_1 = __webpack_require__(170);
+	var alert_1 = __webpack_require__(323);
+	var form_1 = __webpack_require__(165);
+	var item_1 = __webpack_require__(318);
+	var util_1 = __webpack_require__(161);
 	var nav_controller_1 = __webpack_require__(298);
-	var option_1 = __webpack_require__(322);
+	var option_1 = __webpack_require__(324);
 	/**
 	 * @name Select
 	 * @description
@@ -56193,7 +56201,14 @@
 	 *   subTitle: 'Select your toppings'
 	 * };
 	 * ```
+	 * @property [cancelText] - The text of the cancel button. Defatuls to 'cancel'
+	 * @property [okText] - The text of the ok button. Defatuls to 'OK'
+	 * @property [alertOptions] - Any addition options that an alert can take. Title, Subtitle, etc.
+	 * @property [multiple] - Whether or not the select component can accept multipl selections
+	 * @property [disabled] - Whether or not the select component is disabled or not
+	 * @property (change) - Any expression you want to evaluate when the selection has changed
 	 *
+	 * @demo /docs/v2/demos/select/
 	 */
 	var Select = (function () {
 	    function Select(_form, _elementRef, _renderer, _item, _nav, ngControl) {
@@ -56207,10 +56222,25 @@
 	        this._values = [];
 	        this._texts = [];
 	        this._text = '';
+	        /**
+	         * @private
+	         */
 	        this.cancelText = 'Cancel';
+	        /**
+	         * @private
+	         */
 	        this.okText = 'OK';
+	        /**
+	         * @private
+	         */
 	        this.alertOptions = {};
+	        /**
+	         * @private
+	         */
 	        this.checked = false;
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        this._form.register(this);
 	        if (ngControl) {
@@ -56275,6 +56305,9 @@
 	        this._nav.present(alert, alertOptions);
 	    };
 	    Object.defineProperty(Select.prototype, "multiple", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._multi;
 	        },
@@ -56285,6 +56318,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Select.prototype, "value", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return (this._multi ? this._values : this._values.join());
 	        },
@@ -56297,6 +56333,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Select.prototype, "text", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return (this._multi ? this._texts : this._texts.join());
 	        },
@@ -56304,6 +56343,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Select.prototype, "options", {
+	        /**
+	         * @private
+	         */
 	        set: function (val) {
 	            this._options = val;
 	            if (!this._values.length) {
@@ -56316,6 +56358,9 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /**
+	     * @private
+	     */
 	    Select.prototype.updateOptions = function () {
 	        var _this = this;
 	        this._texts = [];
@@ -56330,6 +56375,9 @@
 	        }
 	        this._text = this._texts.join(', ');
 	    };
+	    /**
+	     * @private
+	     */
 	    Select.prototype.ngAfterContentInit = function () {
 	        var _this = this;
 	        // using a setTimeout here to prevent
@@ -56340,6 +56388,9 @@
 	        });
 	    };
 	    Object.defineProperty(Select.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._disabled;
 	        },
@@ -56406,7 +56457,7 @@
 	    ], Select.prototype, "checked", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Select.prototype, "change", void 0);
 	    __decorate([
 	        core_1.HostListener('click', ['$event']), 
@@ -56424,8 +56475,8 @@
 	    ], Select.prototype, "value", null);
 	    __decorate([
 	        core_1.ContentChildren(option_1.Option), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _b) || Object), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _c) || Object])
+	        __metadata('design:type', core_1.QueryList), 
+	        __metadata('design:paramtypes', [core_1.QueryList])
 	    ], Select.prototype, "options", null);
 	    __decorate([
 	        core_1.Input(), 
@@ -56451,15 +56502,15 @@
 	        __param(3, core_1.Optional()),
 	        __param(4, core_1.Optional()),
 	        __param(5, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_d = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _d) || Object, (typeof (_e = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, (typeof (_j = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _j) || Object])
+	        __metadata('design:paramtypes', [form_1.Form, core_1.ElementRef, core_1.Renderer, item_1.Item, nav_controller_1.NavController, common_1.NgControl])
 	    ], Select);
 	    return Select;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 	})();
 	exports.Select = Select;
 
+
 /***/ },
-/* 321 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -56477,10 +56528,11 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
-	var animation_1 = __webpack_require__(279);
-	var config_1 = __webpack_require__(264);
-	var util_1 = __webpack_require__(266);
+	var common_1 = __webpack_require__(170);
+	var animation_1 = __webpack_require__(302);
+	var transition_1 = __webpack_require__(301);
+	var config_1 = __webpack_require__(159);
+	var util_1 = __webpack_require__(161);
 	var nav_params_1 = __webpack_require__(293);
 	var view_controller_1 = __webpack_require__(292);
 	/**
@@ -56589,6 +56641,7 @@
 	 * }
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/alert/
 	 */
 	var Alert = (function (_super) {
 	    __extends(Alert, _super);
@@ -56596,6 +56649,7 @@
 	        if (opts === void 0) { opts = {}; }
 	        opts.inputs = opts.inputs || [];
 	        opts.buttons = opts.buttons || [];
+	        opts.enableBackdropDismiss = util_1.isDefined(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, AlertCmp, opts);
 	        this.viewType = 'alert';
 	    }
@@ -56661,8 +56715,8 @@
 	})(view_controller_1.ViewController);
 	exports.Alert = Alert;
 	/**
-	* @private
-	*/
+	 * @private
+	 */
 	var AlertCmp = (function () {
 	    function AlertCmp(_viewCtrl, _elementRef, _config, params, renderer) {
 	        this._viewCtrl = _viewCtrl;
@@ -56721,7 +56775,6 @@
 	        var self = this;
 	        self.keyUp = function (ev) {
 	            if (ev.keyCode === 13) {
-	                // enter
 	                void 0;
 	                var button = self.d.buttons[self.d.buttons.length - 1];
 	                self.btnClick(button);
@@ -56772,12 +56825,14 @@
 	        checkedInput.checked = !checkedInput.checked;
 	    };
 	    AlertCmp.prototype.bdClick = function () {
-	        var cancelBtn = this.d.buttons.find(function (b) { return b.role === 'cancel'; });
-	        if (cancelBtn) {
-	            this.btnClick(cancelBtn, 1);
-	        }
-	        else {
-	            this.dismiss('backdrop');
+	        if (this.d.enableBackdropDismiss) {
+	            var cancelBtn = this.d.buttons.find(function (b) { return b.role === 'cancel'; });
+	            if (cancelBtn) {
+	                this.btnClick(cancelBtn, 1);
+	            }
+	            else {
+	                this.dismiss('backdrop');
+	            }
 	        }
 	    };
 	    AlertCmp.prototype.dismiss = function (role) {
@@ -56803,7 +56858,10 @@
 	        });
 	        return values;
 	    };
-	    AlertCmp.prototype.onPageDidLeave = function () {
+	    AlertCmp.prototype.onPageWillLeave = function () {
+	        document.removeEventListener('keyup', this.keyUp);
+	    };
+	    AlertCmp.prototype.ngOnDestroy = function () {
 	        document.removeEventListener('keyup', this.keyUp);
 	    };
 	    AlertCmp = __decorate([
@@ -56848,6 +56906,7 @@
 	                '<div class="alert-button-group" [ngClass]="{vertical: d.buttons.length>2}">' +
 	                '<button *ngFor="#b of d.buttons" (click)="btnClick(b)" [ngClass]="b.cssClass" class="alert-button">' +
 	                '{{b.text}}' +
+	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +
 	                '</div>' +
 	                '</div>',
@@ -56858,10 +56917,9 @@
 	            },
 	            directives: [common_1.NgClass, common_1.NgSwitch, common_1.NgIf, common_1.NgFor]
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
+	        __metadata('design:paramtypes', [view_controller_1.ViewController, core_1.ElementRef, config_1.Config, nav_params_1.NavParams, core_1.Renderer])
 	    ], AlertCmp);
 	    return AlertCmp;
-	    var _a, _b, _c, _d, _e;
 	})();
 	/**
 	 * Animations for alerts
@@ -56869,7 +56927,7 @@
 	var AlertPopIn = (function (_super) {
 	    __extends(AlertPopIn, _super);
 	    function AlertPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
@@ -56878,15 +56936,16 @@
 	        this
 	            .easing('ease-in-out')
 	            .duration(200)
-	            .add(backdrop, wrapper);
+	            .add(backdrop)
+	            .add(wrapper);
 	    }
 	    return AlertPopIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-pop-in', AlertPopIn);
+	})(transition_1.Transition);
+	transition_1.Transition.register('alert-pop-in', AlertPopIn);
 	var AlertPopOut = (function (_super) {
 	    __extends(AlertPopOut, _super);
 	    function AlertPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
@@ -56895,15 +56954,16 @@
 	        this
 	            .easing('ease-in-out')
 	            .duration(200)
-	            .add(backdrop, wrapper);
+	            .add(backdrop)
+	            .add(wrapper);
 	    }
 	    return AlertPopOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-pop-out', AlertPopOut);
+	})(transition_1.Transition);
+	transition_1.Transition.register('alert-pop-out', AlertPopOut);
 	var AlertMdPopIn = (function (_super) {
 	    __extends(AlertMdPopIn, _super);
 	    function AlertMdPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
@@ -56912,15 +56972,16 @@
 	        this
 	            .easing('ease-in-out')
 	            .duration(200)
-	            .add(backdrop, wrapper);
+	            .add(backdrop)
+	            .add(wrapper);
 	    }
 	    return AlertMdPopIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-md-pop-in', AlertMdPopIn);
+	})(transition_1.Transition);
+	transition_1.Transition.register('alert-md-pop-in', AlertMdPopIn);
 	var AlertMdPopOut = (function (_super) {
 	    __extends(AlertMdPopOut, _super);
 	    function AlertMdPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
@@ -56929,15 +56990,17 @@
 	        this
 	            .easing('ease-in-out')
 	            .duration(200)
-	            .add(backdrop, wrapper);
+	            .add(backdrop)
+	            .add(wrapper);
 	    }
 	    return AlertMdPopOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('alert-md-pop-out', AlertMdPopOut);
+	})(transition_1.Transition);
+	transition_1.Transition.register('alert-md-pop-out', AlertMdPopOut);
 	var alertIds = -1;
 
+
 /***/ },
-/* 322 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56950,17 +57013,30 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var util_1 = __webpack_require__(266);
+	var util_1 = __webpack_require__(161);
 	/**
 	 * @name Option
+	 * @description
+	 * `ion-option` is a child component of `ion-select`. Similar to the native option element, `ion-option` can take a value and a checked property.
+	 *
+	 * @property [value] - the value of the option
+	 * @property [checked] - whether or not the option is already checked and selected
+	 *
+	 * @demo /docs/v2/demos/item-sliding/
 	 */
 	var Option = (function () {
 	    function Option(_elementRef) {
 	        this._elementRef = _elementRef;
 	        this._checked = false;
+	        /**
+	         * @private
+	         */
 	        this.select = new core_1.EventEmitter();
 	    }
 	    Object.defineProperty(Option.prototype, "checked", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._checked;
 	        },
@@ -56971,6 +57047,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Option.prototype, "value", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            if (util_1.isDefined(this._value)) {
 	                return this._value;
@@ -56984,6 +57063,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Option.prototype, "text", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._elementRef.nativeElement.textContent;
 	        },
@@ -56992,7 +57074,7 @@
 	    });
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Option.prototype, "select", void 0);
 	    __decorate([
 	        core_1.Input(), 
@@ -57006,15 +57088,15 @@
 	        core_1.Directive({
 	            selector: 'ion-option'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef])
 	    ], Option);
 	    return Option;
-	    var _a, _b;
 	})();
 	exports.Option = Option;
 
+
 /***/ },
-/* 323 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57030,12 +57112,12 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
-	var form_1 = __webpack_require__(269);
-	var config_1 = __webpack_require__(264);
-	var util_1 = __webpack_require__(266);
-	var item_1 = __webpack_require__(316);
-	var dom_1 = __webpack_require__(267);
+	var common_1 = __webpack_require__(170);
+	var form_1 = __webpack_require__(165);
+	var config_1 = __webpack_require__(159);
+	var util_1 = __webpack_require__(161);
+	var item_1 = __webpack_require__(318);
+	var dom_1 = __webpack_require__(162);
 	/**
 	 * @name Toggle
 	 * @description
@@ -57084,6 +57166,9 @@
 	        this._disabled = false;
 	        this._activated = false;
 	        this._touched = 0;
+	        /**
+	         * @private
+	         */
 	        this.value = '';
 	        // deprecated warning
 	        if (_elementRef.nativeElement.tagName == 'ION-SWITCH') {
@@ -57108,6 +57193,9 @@
 	        this.checked = !this.checked;
 	    };
 	    Object.defineProperty(Toggle.prototype, "checked", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._checked;
 	        },
@@ -57122,6 +57210,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Toggle.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._disabled;
 	        },
@@ -57262,15 +57353,15 @@
 	        }),
 	        __param(4, core_1.Optional()),
 	        __param(5, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _e) || Object, (typeof (_f = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _f) || Object])
+	        __metadata('design:paramtypes', [form_1.Form, core_1.ElementRef, core_1.Renderer, config_1.Config, common_1.NgControl, item_1.Item])
 	    ], Toggle);
 	    return Toggle;
-	    var _a, _b, _c, _d, _e, _f;
 	})();
 	exports.Toggle = Toggle;
 
+
 /***/ },
-/* 324 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -57291,17 +57382,17 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
+	var common_1 = __webpack_require__(170);
 	var button_1 = __webpack_require__(297);
-	var config_1 = __webpack_require__(264);
-	var content_1 = __webpack_require__(304);
-	var form_1 = __webpack_require__(269);
-	var input_base_1 = __webpack_require__(325);
-	var app_1 = __webpack_require__(158);
-	var item_1 = __webpack_require__(316);
-	var native_input_1 = __webpack_require__(326);
+	var config_1 = __webpack_require__(159);
+	var content_1 = __webpack_require__(306);
+	var form_1 = __webpack_require__(165);
+	var input_base_1 = __webpack_require__(327);
+	var app_1 = __webpack_require__(166);
+	var item_1 = __webpack_require__(318);
+	var native_input_1 = __webpack_require__(328);
 	var nav_controller_1 = __webpack_require__(298);
-	var platform_1 = __webpack_require__(265);
+	var platform_1 = __webpack_require__(160);
 	/**
 	 * @name Input
 	 * @description
@@ -57348,6 +57439,7 @@
 	 *  </ion-item>
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/input/
 	 */
 	var TextInput = (function (_super) {
 	    __extends(TextInput, _super);
@@ -57372,10 +57464,9 @@
 	        __param(6, core_1.Optional()),
 	        __param(7, core_1.Optional()),
 	        __param(8, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, (typeof (_j = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _j) || Object])
+	        __metadata('design:paramtypes', [config_1.Config, form_1.Form, item_1.Item, app_1.IonicApp, platform_1.Platform, core_1.ElementRef, content_1.Content, nav_controller_1.NavController, common_1.NgControl])
 	    ], TextInput);
 	    return TextInput;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 	})(input_base_1.InputBase);
 	exports.TextInput = TextInput;
 	/**
@@ -57413,6 +57504,7 @@
 	 *  </ion-item>
 	 * ```
 	 *
+	 * @demo /docs/v2/demos/textarea/
 	 */
 	var TextArea = (function (_super) {
 	    __extends(TextArea, _super);
@@ -57444,15 +57536,15 @@
 	        __param(6, core_1.Optional()),
 	        __param(7, core_1.Optional()),
 	        __param(8, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _g) || Object, (typeof (_h = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _h) || Object, (typeof (_j = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _j) || Object])
+	        __metadata('design:paramtypes', [config_1.Config, form_1.Form, item_1.Item, app_1.IonicApp, platform_1.Platform, core_1.ElementRef, content_1.Content, nav_controller_1.NavController, common_1.NgControl])
 	    ], TextArea);
 	    return TextArea;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 	})(input_base_1.InputBase);
 	exports.TextArea = TextArea;
 
+
 /***/ },
-/* 325 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57465,9 +57557,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var util_1 = __webpack_require__(266);
-	var dom_1 = __webpack_require__(267);
-	var native_input_1 = __webpack_require__(326);
+	var util_1 = __webpack_require__(161);
+	var dom_1 = __webpack_require__(162);
+	var native_input_1 = __webpack_require__(328);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
 	        this._form = _form;
@@ -57555,7 +57647,7 @@
 	            this._type = 'text';
 	            if (val) {
 	                val = val.toLowerCase();
-	                if (/password|email|number|search|tel|url|date|datetime|datetime-local|month|time|week/.test(val)) {
+	                if (/password|email|number|search|tel|url|date|month|time|week/.test(val)) {
 	                    this._type = val;
 	                }
 	            }
@@ -57598,6 +57690,8 @@
 	            });
 	            this.checkHasValue(nativeInput.getValue());
 	            this.disabled = this._disabled;
+	            // copy ion-input attributes to the native input element
+	            dom_1.copyInputAttributes(this._elementRef.nativeElement, nativeInput.element());
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -57916,7 +58010,7 @@
 	    ], InputBase.prototype, "placeholder", void 0);
 	    __decorate([
 	        core_1.ViewChild(native_input_1.NativeInput), 
-	        __metadata('design:type', (typeof (_a = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _a) || Object)
+	        __metadata('design:type', native_input_1.NativeInput)
 	    ], InputBase.prototype, "_native", void 0);
 	    __decorate([
 	        core_1.Input(), 
@@ -57932,16 +58026,15 @@
 	    ], InputBase.prototype, "disabled", null);
 	    __decorate([
 	        core_1.ViewChild(native_input_1.NativeInput), 
-	        __metadata('design:type', (typeof (_b = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _b) || Object), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _c) || Object])
+	        __metadata('design:type', native_input_1.NativeInput), 
+	        __metadata('design:paramtypes', [native_input_1.NativeInput])
 	    ], InputBase.prototype, "_nativeInput", null);
 	    __decorate([
 	        core_1.ViewChild(native_input_1.NextInput), 
-	        __metadata('design:type', (typeof (_d = typeof native_input_1.NextInput !== 'undefined' && native_input_1.NextInput) === 'function' && _d) || Object), 
-	        __metadata('design:paramtypes', [(typeof (_e = typeof native_input_1.NextInput !== 'undefined' && native_input_1.NextInput) === 'function' && _e) || Object])
+	        __metadata('design:type', native_input_1.NextInput), 
+	        __metadata('design:paramtypes', [native_input_1.NextInput])
 	    ], InputBase.prototype, "_nextInput", null);
 	    return InputBase;
-	    var _a, _b, _c, _d, _e;
 	})();
 	exports.InputBase = InputBase;
 	var SCROLL_ASSIST_SPEED = 0.3;
@@ -57952,8 +58045,9 @@
 	    return Math.min(400, Math.max(150, duration));
 	}
 
+
 /***/ },
-/* 326 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57966,8 +58060,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
-	var dom_1 = __webpack_require__(267);
+	var common_1 = __webpack_require__(170);
+	var dom_1 = __webpack_require__(162);
 	/**
 	 * @private
 	 */
@@ -58066,11 +58160,11 @@
 	    };
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], NativeInput.prototype, "focusChange", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], NativeInput.prototype, "valueChange", void 0);
 	    __decorate([
 	        core_1.HostListener('input', ['$event']), 
@@ -58094,10 +58188,9 @@
 	        core_1.Directive({
 	            selector: '.text-input'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _e) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, common_1.NgControl])
 	    ], NativeInput);
 	    return NativeInput;
-	    var _a, _b, _c, _d, _e;
 	})();
 	exports.NativeInput = NativeInput;
 	function cloneInput(focusedInputEle, addCssClass) {
@@ -58128,7 +58221,7 @@
 	    };
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], NextInput.prototype, "focused", void 0);
 	    __decorate([
 	        core_1.HostListener('focus'), 
@@ -58143,12 +58236,12 @@
 	        __metadata('design:paramtypes', [])
 	    ], NextInput);
 	    return NextInput;
-	    var _a;
 	})();
 	exports.NextInput = NextInput;
 
+
 /***/ },
-/* 327 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58164,13 +58257,12 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
-	var util_1 = __webpack_require__(266);
+	var common_1 = __webpack_require__(170);
+	var util_1 = __webpack_require__(161);
 	/**
 	 * @name SegmentButton
 	 * @description
 	 * The child buttons of the `ion-segment` component. Each `ion-segment-button` must have a value.
-	 * @property {string} [value] - the value of the segment-button. Required.
 	 * @usage
 	 * ```html
 	 * <ion-segment [(ngModel)]="relationship" primary>
@@ -58201,7 +58293,8 @@
 	 * </form>
 	 * ```
 	 *
-	 * @property {Any} [click] - expression to evaluate when a segment button has been clicked
+	 * @property {string} [value] - the value of the segment button. Required.
+	 * @property {Any} (select) - expression to evaluate when a segment button has been clicked
 	 *
 	 * @demo /docs/v2/demos/segment/
 	 * @see {@link /docs/v2/components#segment Segment Component Docs}
@@ -58211,6 +58304,9 @@
 	    function SegmentButton(_renderer, _elementRef) {
 	        this._renderer = _renderer;
 	        this._elementRef = _elementRef;
+	        /**
+	         * @private
+	         */
 	        this.select = new core_1.EventEmitter();
 	    }
 	    /**
@@ -58246,7 +58342,7 @@
 	    ], SegmentButton.prototype, "value", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], SegmentButton.prototype, "select", void 0);
 	    __decorate([
 	        core_1.HostListener('click', ['$event']), 
@@ -58255,18 +58351,19 @@
 	        __metadata('design:returntype', void 0)
 	    ], SegmentButton.prototype, "onClick", null);
 	    SegmentButton = __decorate([
-	        core_1.Directive({
+	        core_1.Component({
 	            selector: 'ion-segment-button',
+	            template: '<ng-content></ng-content>' +
+	                '<ion-button-effect></ion-button-effect>',
 	            host: {
 	                'tappable': '',
 	                'class': 'segment-button',
 	                'role': 'button'
 	            }
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef])
 	    ], SegmentButton);
 	    return SegmentButton;
-	    var _a, _b, _c;
 	})();
 	exports.SegmentButton = SegmentButton;
 	/**
@@ -58307,7 +58404,7 @@
 	 * </form>
 	 * ```
 	 *
-	 * @property {Any} [change] - expression to evaluate when a segment button has been changed
+	 * @property {Any} (change) - expression to evaluate when a segment button has been changed
 	 *
 	 * @demo /docs/v2/demos/segment/
 	 * @see {@link /docs/v2/components#segment Segment Component Docs}
@@ -58315,6 +58412,9 @@
 	 */
 	var Segment = (function () {
 	    function Segment(ngControl) {
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        /**
 	         * @private
@@ -58372,26 +58472,26 @@
 	    Segment.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Segment.prototype, "change", void 0);
 	    __decorate([
 	        core_1.ContentChildren(SegmentButton), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _b) || Object)
+	        __metadata('design:type', core_1.QueryList)
 	    ], Segment.prototype, "_buttons", void 0);
 	    Segment = __decorate([
 	        core_1.Directive({
 	            selector: 'ion-segment'
 	        }),
 	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [common_1.NgControl])
 	    ], Segment);
 	    return Segment;
-	    var _a, _b, _c;
 	})();
 	exports.Segment = Segment;
 
+
 /***/ },
-/* 328 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58407,10 +58507,10 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var form_1 = __webpack_require__(269);
-	var util_1 = __webpack_require__(266);
-	var item_1 = __webpack_require__(316);
-	var radio_group_1 = __webpack_require__(329);
+	var form_1 = __webpack_require__(165);
+	var util_1 = __webpack_require__(161);
+	var item_1 = __webpack_require__(318);
+	var radio_group_1 = __webpack_require__(331);
 	/**
 	 * @description
 	 * A radio button with a unique value. Note that all `<ion-radio>`
@@ -58441,6 +58541,9 @@
 	        this._checked = false;
 	        this._disabled = false;
 	        this._value = null;
+	        /**
+	         * @private
+	         */
 	        this.select = new core_1.EventEmitter();
 	        _form.register(this);
 	        if (_group) {
@@ -58456,6 +58559,9 @@
 	        }
 	    }
 	    Object.defineProperty(RadioButton.prototype, "value", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            // if the value is not defined then use it's unique id
 	            return util_1.isBlank(this._value) ? this.id : this._value;
@@ -58467,6 +58573,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(RadioButton.prototype, "checked", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._checked;
 	        },
@@ -58495,6 +58604,9 @@
 	        }
 	    };
 	    Object.defineProperty(RadioButton.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
 	        get: function () {
 	            return this._disabled;
 	        },
@@ -58522,7 +58634,7 @@
 	    };
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], RadioButton.prototype, "select", void 0);
 	    __decorate([
 	        core_1.Input(), 
@@ -58561,15 +58673,15 @@
 	        }),
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _c) || Object, (typeof (_d = typeof radio_group_1.RadioGroup !== 'undefined' && radio_group_1.RadioGroup) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [form_1.Form, item_1.Item, radio_group_1.RadioGroup])
 	    ], RadioButton);
 	    return RadioButton;
-	    var _a, _b, _c, _d;
 	})();
 	exports.RadioButton = RadioButton;
 
+
 /***/ },
-/* 329 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -58585,10 +58697,12 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
-	var list_1 = __webpack_require__(313);
-	var util_1 = __webpack_require__(266);
+	var common_1 = __webpack_require__(170);
+	var list_1 = __webpack_require__(315);
+	var util_1 = __webpack_require__(161);
 	/**
+	 * @name RadioGroup
+	 * @description
 	 * A radio group is a group of radio components, and its value comes
 	 * from the selected radio button's value. Selecting a radio button
 	 * in the group unselects all others in the group.
@@ -58640,6 +58754,9 @@
 	        this._buttons = [];
 	        this._ids = -1;
 	        this._init = false;
+	        /**
+	         * @private
+	         */
 	        this.change = new core_1.EventEmitter();
 	        this.id = ++radioGroupIds;
 	        if (ngControl) {
@@ -58665,6 +58782,9 @@
 	            this._init = true;
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    RadioGroup.prototype.ngAfterContentInit = function () {
 	        var _this = this;
 	        // in a setTimeout to prevent
@@ -58675,6 +58795,9 @@
 	            _this.updateValue();
 	        });
 	    };
+	    /**
+	     * @private
+	     */
 	    RadioGroup.prototype.updateValue = function () {
 	        var _this = this;
 	        if (util_1.isDefined(this.value)) {
@@ -58692,6 +58815,9 @@
 	            });
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    RadioGroup.prototype.register = function (button) {
 	        var _this = this;
 	        this._buttons.push(button);
@@ -58740,7 +58866,7 @@
 	    RadioGroup.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], RadioGroup.prototype, "change", void 0);
 	    __decorate([
 	        core_1.ContentChild(list_1.ListHeader), 
@@ -58756,16 +58882,16 @@
 	            }
 	        }),
 	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [common_1.NgControl, core_1.Renderer, core_1.ElementRef])
 	    ], RadioGroup);
 	    return RadioGroup;
-	    var _a, _b, _c, _d;
 	})();
 	exports.RadioGroup = RadioGroup;
 	var radioGroupIds = -1;
 
+
 /***/ },
-/* 330 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -58786,12 +58912,12 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
+	var common_1 = __webpack_require__(170);
 	var ion_1 = __webpack_require__(283);
-	var config_1 = __webpack_require__(264);
+	var config_1 = __webpack_require__(159);
 	var icon_1 = __webpack_require__(295);
 	var button_1 = __webpack_require__(297);
-	var util_1 = __webpack_require__(266);
+	var util_1 = __webpack_require__(161);
 	/**
 	* @private
 	*/
@@ -58813,10 +58939,9 @@
 	        core_1.Directive({
 	            selector: '.searchbar-input',
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef])
 	    ], SearchbarInput);
 	    return SearchbarInput;
-	    var _a;
 	})();
 	exports.SearchbarInput = SearchbarInput;
 	/**
@@ -58843,6 +58968,7 @@
 	 * @property {Any} [cancel] - Expression to evaluate when the cancel button is clicked
 	 * @property {Any} [clear] - Expression to evaluate when the clear input button is clicked
 	 *
+	 * @demo /docs/v2/demos/searchbar/
 	 * @see {@link /docs/v2/components#searchbar Searchbar Component Docs}
 	 */
 	var Searchbar = (function (_super) {
@@ -58871,7 +58997,13 @@
 	         * @private
 	         */
 	        this.clear = new core_1.EventEmitter();
+	        /**
+	         * @private
+	         */
 	        this.value = '';
+	        /**
+	         * @private
+	         */
 	        this.blurInput = true;
 	        /**
 	         * @private
@@ -59058,23 +59190,23 @@
 	    ], Searchbar.prototype, "ngModel", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Searchbar.prototype, "input", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Searchbar.prototype, "blur", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Searchbar.prototype, "focus", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_d = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _d) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Searchbar.prototype, "cancel", void 0);
 	    __decorate([
 	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_e = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _e) || Object)
+	        __metadata('design:type', core_1.EventEmitter)
 	    ], Searchbar.prototype, "clear", void 0);
 	    __decorate([
 	        core_1.HostBinding('class.searchbar-focused'), 
@@ -59092,22 +59224,22 @@
 	                '<ion-icon name="arrow-back"></ion-icon>' +
 	                '</button>' +
 	                '<div class="searchbar-search-icon"></div>' +
-	                '<input [value]="value" (keyup)="inputChanged($event)" (blur)="inputBlurred()" (focus)="inputFocused()" class="searchbar-input" type="search" [attr.placeholder]="placeholder">' +
+	                '<input [value]="value" (keyup)="inputChanged($event)" (blur)="inputBlurred()" (focus)="inputFocused()" class="searchbar-input" type="search" [attr.placeholder]="placeholder" autocomplete="off">' +
 	                '<button clear *ngIf="value" class="searchbar-clear-icon" (click)="clearInput()" (mousedown)="clearInput()"></button>' +
 	                '</div>' +
 	                '<button clear (click)="cancelSearchbar()" (mousedown)="cancelSearchbar()" [hidden]="hideCancelButton" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
 	            directives: [common_1.FORM_DIRECTIVES, common_1.NgIf, common_1.NgClass, icon_1.Icon, button_1.Button, SearchbarInput]
 	        }),
 	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _g) || Object, (typeof (_h = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _h) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef, config_1.Config, common_1.NgControl])
 	    ], Searchbar);
 	    return Searchbar;
-	    var _a, _b, _c, _d, _e, _f, _g, _h;
 	})(ion_1.Ion);
 	exports.Searchbar = Searchbar;
 
+
 /***/ },
-/* 331 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59128,9 +59260,9 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var app_1 = __webpack_require__(158);
-	var config_1 = __webpack_require__(264);
-	var keyboard_1 = __webpack_require__(270);
+	var app_1 = __webpack_require__(166);
+	var config_1 = __webpack_require__(159);
+	var keyboard_1 = __webpack_require__(272);
 	var nav_controller_1 = __webpack_require__(298);
 	var view_controller_1 = __webpack_require__(292);
 	/**
@@ -59151,6 +59283,7 @@
 	 * component) to be loaded initially by any Nav you create, using
 	 * the 'root' property:
 	 *
+	 * @usage
 	 * ```ts
 	 * import {GettingStartedPage} from 'getting-started';
 	 * @App({
@@ -59224,6 +59357,7 @@
 	 *   </pre>
 	 * </div>
 	 *
+	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 */
 	var Nav = (function (_super) {
@@ -59252,7 +59386,7 @@
 	    };
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.Type !== 'undefined' && core_1.Type) === 'function' && _a) || Object)
+	        __metadata('design:type', core_1.Type)
 	    ], Nav.prototype, "root", void 0);
 	    __decorate([
 	        core_1.Input(), 
@@ -59265,15 +59399,15 @@
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _b) || Object, (typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Compiler !== 'undefined' && core_1.Compiler) === 'function' && _h) || Object, (typeof (_j = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object])
+	        __metadata('design:paramtypes', [nav_controller_1.NavController, view_controller_1.ViewController, app_1.IonicApp, config_1.Config, keyboard_1.Keyboard, core_1.ElementRef, core_1.Compiler, core_1.AppViewManager, core_1.NgZone, core_1.Renderer])
 	    ], Nav);
 	    return Nav;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 	})(nav_controller_1.NavController);
 	exports.Nav = Nav;
 
+
 /***/ },
-/* 332 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59290,7 +59424,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var nav_controller_1 = __webpack_require__(298);
-	var nav_registry_1 = __webpack_require__(273);
+	var nav_registry_1 = __webpack_require__(274);
 	/**
 	 * @name NavPush
 	 * @description
@@ -59327,7 +59461,7 @@
 	 * ```html
 	 * <button [navPush]="[pushPage, params]"></button>
 	 * ```
-	 * @demo /docs/v2/demos/nav-push-pop/
+	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 * @see {@link ../NavPop NavPop API Docs}
 	 */
@@ -59377,10 +59511,9 @@
 	            }
 	        }),
 	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof nav_registry_1.NavRegistry !== 'undefined' && nav_registry_1.NavRegistry) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [nav_controller_1.NavController, nav_registry_1.NavRegistry])
 	    ], NavPush);
 	    return NavPush;
-	    var _a, _b;
 	})();
 	exports.NavPush = NavPush;
 	/**
@@ -59397,7 +59530,7 @@
 	 * This will go back one page in the navigation stack
 	 *
 	 * Similar to {@link /docs/v2/api/components/nav/NavPush/ `NavPush` }
-	 * @demo /docs/v2/demos/nav-push-pop/
+	 * @demo /docs/v2/demos/navigation/
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 * @see {@link ../NavPush NavPush API Docs}
 	 */
@@ -59427,15 +59560,15 @@
 	            }
 	        }),
 	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [nav_controller_1.NavController])
 	    ], NavPop);
 	    return NavPop;
-	    var _a;
 	})();
 	exports.NavPop = NavPop;
 
+
 /***/ },
-/* 333 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59457,7 +59590,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var router_1 = __webpack_require__(118);
-	var nav_1 = __webpack_require__(331);
+	var nav_1 = __webpack_require__(333);
 	/**
 	 * @private
 	 */
@@ -59536,10 +59669,9 @@
 	            selector: 'ion-nav'
 	        }),
 	        __param(3, core_1.Attribute('name')), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.DynamicComponentLoader !== 'undefined' && core_1.DynamicComponentLoader) === 'function' && _b) || Object, (typeof (_c = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _c) || Object, String, (typeof (_d = typeof nav_1.Nav !== 'undefined' && nav_1.Nav) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [core_1.ElementRef, core_1.DynamicComponentLoader, router_1.Router, String, nav_1.Nav])
 	    ], NavRouter);
 	    return NavRouter;
-	    var _a, _b, _c, _d;
 	})(router_1.RouterOutlet);
 	exports.NavRouter = NavRouter;
 	// TODO: hacked from
@@ -59558,8 +59690,9 @@
 	    return ResolvedInstruction;
 	})(router_1.Instruction);
 
+
 /***/ },
-/* 334 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59572,7 +59705,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var app_1 = __webpack_require__(158);
+	var app_1 = __webpack_require__(166);
 	/**
 	 * @name Id
 	 * @description
@@ -59589,7 +59722,7 @@
 	 * <ion-checkbox id="myCheckbox"></ion-checkbox>
 	 * ```
 	 *
-	 * To get a reference to the registered component, inject the [IonicApp](../app/IonicApp/)
+	 * To get a reference to the registered component, inject the [IonicApp](../IonicApp/)
 	 * service:
 	 * ```ts
 	 * constructor(app: IonicApp) {
@@ -59606,6 +59739,8 @@
 	 * *NOTE:* It is not recommended to use ID's across Pages, as there is often no
 	 * guarantee that the registered component has not been destroyed if its Page
 	 * has been navigated away from.
+	 *
+	 * @demo /docs/v2/demos/id/
 	 */
 	var IdRef = (function () {
 	    function IdRef(_app, elementRef, appViewManager) {
@@ -59633,10 +59768,9 @@
 	        core_1.Directive({
 	            selector: '[id]'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [app_1.IonicApp, core_1.ElementRef, core_1.AppViewManager])
 	    ], IdRef);
 	    return IdRef;
-	    var _a, _b, _c;
 	})();
 	exports.IdRef = IdRef;
 	/**
@@ -59661,15 +59795,15 @@
 	        core_1.Directive({
 	            selector: '[attr]'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef])
 	    ], Attr);
 	    return Attr;
-	    var _a, _b;
 	})();
 	exports.Attr = Attr;
 
+
 /***/ },
-/* 335 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -59690,7 +59824,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var platform_1 = __webpack_require__(265);
+	var platform_1 = __webpack_require__(160);
 	/**
 	 * @private
 	 */
@@ -59772,10 +59906,9 @@
 	            }
 	        }),
 	        __param(0, core_1.Attribute('showWhen')), 
-	        __metadata('design:paramtypes', [String, (typeof (_a = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [String, platform_1.Platform, core_1.NgZone])
 	    ], ShowWhen);
 	    return ShowWhen;
-	    var _a, _b;
 	})(DisplayWhen);
 	exports.ShowWhen = ShowWhen;
 	/**
@@ -59814,19 +59947,19 @@
 	            }
 	        }),
 	        __param(0, core_1.Attribute('hideWhen')), 
-	        __metadata('design:paramtypes', [String, (typeof (_a = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [String, platform_1.Platform, core_1.NgZone])
 	    ], HideWhen);
 	    return HideWhen;
-	    var _a, _b;
 	})(DisplayWhen);
 	exports.HideWhen = HideWhen;
 
+
 /***/ },
-/* 336 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(7);
-	var browser_1 = __webpack_require__(159);
+	var browser_1 = __webpack_require__(167);
 	var tap_click_1 = __webpack_require__(276);
 	var bootstrap_1 = __webpack_require__(6);
 	var directives_1 = __webpack_require__(280);
@@ -59883,8 +60016,9 @@
 	}
 	exports.App = App;
 
+
 /***/ },
-/* 337 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core_1 = __webpack_require__(7);
@@ -59893,7 +60027,6 @@
 	/**
 	 * @name Page
 	 * @description
-	 *For more information on how pages are created, see the [NavController API reference](../../components/nav/NavController/#creating_pages)
 	 *
 	 * The Page decorator indicates that the decorated class is an Ionic
 	 * navigation component, meaning it can be navigated to using a NavController.
@@ -59956,6 +60089,8 @@
 	 * Pages have their content automatically wrapped in `<ion-view>`, so although
 	 * you may see these tags if you inspect your markup, you don't need to include
 	 * them in your templates.
+	 *
+	 * For more information on how pages are created, see the [NavController API reference](../../components/nav/NavController/#creating_pages)
 	 */
 	function Page(config) {
 	    if (config === void 0) { config = {}; }
@@ -59973,58 +60108,61 @@
 	}
 	exports.Page = Page;
 
+
 /***/ },
-/* 338 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(158));
-	__export(__webpack_require__(334));
-	__export(__webpack_require__(339));
-	__export(__webpack_require__(321));
-	__export(__webpack_require__(303));
-	__export(__webpack_require__(297));
-	__export(__webpack_require__(319));
-	__export(__webpack_require__(304));
-	__export(__webpack_require__(295));
-	__export(__webpack_require__(324));
-	__export(__webpack_require__(316));
-	__export(__webpack_require__(318));
-	__export(__webpack_require__(282));
-	__export(__webpack_require__(340));
-	__export(__webpack_require__(291));
-	__export(__webpack_require__(301));
-	__export(__webpack_require__(317));
-	__export(__webpack_require__(313));
-	__export(__webpack_require__(335));
+	__export(__webpack_require__(166));
+	__export(__webpack_require__(336));
 	__export(__webpack_require__(341));
-	__export(__webpack_require__(331));
+	__export(__webpack_require__(323));
+	__export(__webpack_require__(305));
+	__export(__webpack_require__(297));
+	__export(__webpack_require__(321));
+	__export(__webpack_require__(306));
+	__export(__webpack_require__(295));
+	__export(__webpack_require__(326));
+	__export(__webpack_require__(318));
+	__export(__webpack_require__(320));
+	__export(__webpack_require__(273));
+	__export(__webpack_require__(282));
+	__export(__webpack_require__(342));
+	__export(__webpack_require__(291));
+	__export(__webpack_require__(303));
+	__export(__webpack_require__(319));
+	__export(__webpack_require__(315));
+	__export(__webpack_require__(337));
+	__export(__webpack_require__(343));
+	__export(__webpack_require__(333));
 	__export(__webpack_require__(298));
 	__export(__webpack_require__(292));
 	__export(__webpack_require__(293));
-	__export(__webpack_require__(332));
-	__export(__webpack_require__(333));
+	__export(__webpack_require__(334));
+	__export(__webpack_require__(335));
 	__export(__webpack_require__(294));
-	__export(__webpack_require__(322));
+	__export(__webpack_require__(324));
 	__export(__webpack_require__(281));
-	__export(__webpack_require__(307));
-	__export(__webpack_require__(328));
-	__export(__webpack_require__(329));
-	__export(__webpack_require__(305));
-	__export(__webpack_require__(306));
-	__export(__webpack_require__(330));
-	__export(__webpack_require__(327));
-	__export(__webpack_require__(320));
 	__export(__webpack_require__(309));
+	__export(__webpack_require__(330));
+	__export(__webpack_require__(331));
+	__export(__webpack_require__(307));
+	__export(__webpack_require__(308));
+	__export(__webpack_require__(332));
+	__export(__webpack_require__(329));
+	__export(__webpack_require__(322));
 	__export(__webpack_require__(311));
+	__export(__webpack_require__(313));
 	__export(__webpack_require__(276));
-	__export(__webpack_require__(323));
+	__export(__webpack_require__(325));
 	__export(__webpack_require__(296));
 
+
 /***/ },
-/* 339 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60042,10 +60180,12 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
-	var animation_1 = __webpack_require__(279);
-	var config_1 = __webpack_require__(264);
+	var common_1 = __webpack_require__(170);
+	var animation_1 = __webpack_require__(302);
+	var transition_1 = __webpack_require__(301);
+	var config_1 = __webpack_require__(159);
 	var icon_1 = __webpack_require__(295);
+	var util_1 = __webpack_require__(161);
 	var nav_params_1 = __webpack_require__(293);
 	var view_controller_1 = __webpack_require__(292);
 	/**
@@ -60121,6 +60261,7 @@
 	    function ActionSheet(opts) {
 	        if (opts === void 0) { opts = {}; }
 	        opts.buttons = opts.buttons || [];
+	        opts.enableBackdropDismiss = util_1.isDefined(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, ActionSheetCmp, opts);
 	        this.viewType = 'action-sheet';
 	    }
@@ -60183,20 +60324,14 @@
 	                button.cssClass = '';
 	            }
 	            // deprecated warning
-	            if (button.style === 'cancel') {
+	            if (button.style) {
 	                void 0;
-	                button.role = 'cancel';
-	                _this.d.cancelButton = button;
+	                button.role = button.style;
 	            }
 	            if (button.role === 'cancel') {
 	                _this.d.cancelButton = button;
 	            }
 	            else {
-	                // deprecated warning
-	                if (button.style === 'destructive') {
-	                    button.role = 'destructive';
-	                    button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive';
-	                }
 	                if (button.role === 'destructive') {
 	                    button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive';
 	                }
@@ -60230,17 +60365,22 @@
 	        }
 	    };
 	    ActionSheetCmp.prototype.bdClick = function () {
-	        if (this.d.cancelButton) {
-	            this.click(this.d.cancelButton, 1);
-	        }
-	        else {
-	            this.dismiss('backdrop');
+	        if (this.d.enableBackdropDismiss) {
+	            if (this.d.cancelButton) {
+	                this.click(this.d.cancelButton, 1);
+	            }
+	            else {
+	                this.dismiss('backdrop');
+	            }
 	        }
 	    };
 	    ActionSheetCmp.prototype.dismiss = function (role) {
 	        return this._viewCtrl.dismiss(null, role);
 	    };
-	    ActionSheetCmp.prototype.onPageDidLeave = function () {
+	    ActionSheetCmp.prototype.onPageWillLeave = function () {
+	        document.removeEventListener('keyup', this.keyUp);
+	    };
+	    ActionSheetCmp.prototype.ngOnDestroy = function () {
 	        document.removeEventListener('keyup', this.keyUp);
 	    };
 	    ActionSheetCmp = __decorate([
@@ -60255,12 +60395,14 @@
 	                '<button (click)="click(b)" *ngFor="#b of d.buttons" class="action-sheet-button disable-hover" [ngClass]="b.cssClass">' +
 	                '<ion-icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></ion-icon> ' +
 	                '{{b.text}}' +
+	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +
 	                '</div>' +
 	                '<div class="action-sheet-group" *ngIf="d.cancelButton">' +
 	                '<button (click)="click(d.cancelButton)" class="action-sheet-button action-sheet-cancel disable-hover" [ngClass]="d.cancelButton.cssClass">' +
 	                '<ion-icon [name]="d.cancelButton.icon" *ngIf="d.cancelButton.icon" class="action-sheet-icon"></ion-icon> ' +
 	                '{{d.cancelButton.text}}' +
+	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +
 	                '</div>' +
 	                '</div>' +
@@ -60270,70 +60412,70 @@
 	            },
 	            directives: [common_1.NgFor, common_1.NgIf, icon_1.Icon]
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
+	        __metadata('design:paramtypes', [view_controller_1.ViewController, config_1.Config, core_1.ElementRef, nav_params_1.NavParams, core_1.Renderer])
 	    ], ActionSheetCmp);
 	    return ActionSheetCmp;
-	    var _a, _b, _c, _d, _e;
 	})();
 	var ActionSheetSlideIn = (function (_super) {
 	    __extends(ActionSheetSlideIn, _super);
 	    function ActionSheetSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
 	        backdrop.fromTo('opacity', 0.01, 0.4);
 	        wrapper.fromTo('translateY', '100%', '0%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add([backdrop, wrapper]);
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetSlideIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('action-sheet-slide-in', ActionSheetSlideIn);
+	})(transition_1.Transition);
+	transition_1.Transition.register('action-sheet-slide-in', ActionSheetSlideIn);
 	var ActionSheetSlideOut = (function (_super) {
 	    __extends(ActionSheetSlideOut, _super);
 	    function ActionSheetSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
 	        backdrop.fromTo('opacity', 0.4, 0);
 	        wrapper.fromTo('translateY', '0%', '100%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add([backdrop, wrapper]);
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetSlideOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('action-sheet-slide-out', ActionSheetSlideOut);
+	})(transition_1.Transition);
+	transition_1.Transition.register('action-sheet-slide-out', ActionSheetSlideOut);
 	var ActionSheetMdSlideIn = (function (_super) {
 	    __extends(ActionSheetMdSlideIn, _super);
 	    function ActionSheetMdSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
 	        backdrop.fromTo('opacity', 0.01, 0.26);
 	        wrapper.fromTo('translateY', '100%', '0%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add([backdrop, wrapper]);
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetMdSlideIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
+	})(transition_1.Transition);
+	transition_1.Transition.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
 	var ActionSheetMdSlideOut = (function (_super) {
 	    __extends(ActionSheetMdSlideOut, _super);
 	    function ActionSheetMdSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
 	        backdrop.fromTo('opacity', 0.26, 0);
 	        wrapper.fromTo('translateY', '0%', '100%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add([backdrop, wrapper]);
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetMdSlideOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
+	})(transition_1.Transition);
+	transition_1.Transition.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
+
 
 /***/ },
-/* 340 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60341,8 +60483,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var menu_1 = __webpack_require__(282);
-	var animation_1 = __webpack_require__(279);
+	var menu_controller_1 = __webpack_require__(273);
+	var animation_1 = __webpack_require__(302);
 	/**
 	 * Menu Type
 	 * Base class which is extended by the various types. Each
@@ -60352,58 +60494,39 @@
 	 */
 	var MenuType = (function () {
 	    function MenuType() {
-	        this.open = new animation_1.Animation();
-	        this.close = new animation_1.Animation();
+	        this.ani = new animation_1.Animation();
 	    }
-	    MenuType.prototype.setOpen = function (shouldOpen) {
-	        var _this = this;
-	        return new Promise(function (resolve) {
-	            if (shouldOpen) {
-	                _this.open.playbackRate(1).onFinish(resolve, true).play();
-	            }
-	            else {
-	                _this.close.playbackRate(1).onFinish(resolve, true).play();
-	            }
-	        });
+	    MenuType.prototype.setOpen = function (shouldOpen, done) {
+	        this.ani
+	            .onFinish(done, true)
+	            .reverse(!shouldOpen)
+	            .play();
 	    };
 	    MenuType.prototype.setProgressStart = function (isOpen) {
 	        this.isOpening = !isOpen;
-	        this.seek && this.seek.dispose();
-	        // clone the correct animation depending on open/close
-	        if (this.isOpening) {
-	            this.seek = this.open.clone();
-	        }
-	        else {
-	            this.seek = this.close.clone();
-	        }
 	        // the cloned animation should not use an easing curve during seek
-	        this.seek.easing('linear').progressStart();
+	        this.ani
+	            .reverse(isOpen)
+	            .progressStart();
 	    };
-	    MenuType.prototype.setProgess = function (value) {
+	    MenuType.prototype.setProgessStep = function (stepValue) {
 	        // adjust progress value depending if it opening or closing
-	        if (!this.isOpening) {
-	            value = 1 - value;
-	        }
-	        this.seek.progress(value);
+	        this.ani.progressStep(stepValue);
 	    };
-	    MenuType.prototype.setProgressEnd = function (shouldComplete) {
+	    MenuType.prototype.setProgressEnd = function (shouldComplete, currentStepValue, done) {
 	        var _this = this;
-	        var resolve;
-	        var promise = new Promise(function (res) { resolve = res; });
 	        var isOpen = (this.isOpening && shouldComplete);
 	        if (!this.isOpening && !shouldComplete) {
 	            isOpen = true;
 	        }
-	        this.seek.progressEnd(shouldComplete).then(function () {
+	        this.ani.onFinish(function () {
 	            _this.isOpening = false;
-	            resolve(isOpen);
-	        });
-	        return promise;
+	            done(isOpen);
+	        }, true);
+	        this.ani.progressEnd(shouldComplete, currentStepValue);
 	    };
-	    MenuType.prototype.ngOnDestroy = function () {
-	        this.open && this.open.dispose();
-	        this.close && this.close.dispose();
-	        this.seek && this.seek.dispose();
+	    MenuType.prototype.destroy = function () {
+	        this.ani && this.ani.destroy();
 	    };
 	    return MenuType;
 	})();
@@ -60417,22 +60540,17 @@
 	    __extends(MenuRevealType, _super);
 	    function MenuRevealType(menu) {
 	        _super.call(this);
-	        var easing = 'ease';
-	        var duration = 250;
 	        var openedX = (menu.width() * (menu.side == 'right' ? -1 : 1)) + 'px';
-	        var closedX = '0px';
-	        this.open.easing(easing).duration(duration);
-	        this.close.easing(easing).duration(duration);
+	        this.ani
+	            .easing('ease')
+	            .duration(250);
 	        var contentOpen = new animation_1.Animation(menu.getContentElement());
-	        contentOpen.fromTo(TRANSLATE_X, closedX, openedX);
-	        this.open.add(contentOpen);
-	        var contentClose = new animation_1.Animation(menu.getContentElement());
-	        contentClose.fromTo(TRANSLATE_X, openedX, closedX);
-	        this.close.add(contentClose);
+	        contentOpen.fromTo('translateX', '0px', openedX);
+	        this.ani.add(contentOpen);
 	    }
 	    return MenuRevealType;
 	})(MenuType);
-	menu_1.Menu.register('reveal', MenuRevealType);
+	menu_controller_1.MenuController.registerType('reveal', MenuRevealType);
 	/**
 	 * Menu Push Type
 	 * The content slides over to reveal the menu underneath.
@@ -60442,8 +60560,9 @@
 	    __extends(MenuPushType, _super);
 	    function MenuPushType(menu) {
 	        _super.call(this);
-	        var easing = 'ease';
-	        var duration = 250;
+	        this.ani
+	            .easing('ease')
+	            .duration(250);
 	        var contentOpenedX, menuClosedX, menuOpenedX;
 	        if (menu.side == 'right') {
 	            contentOpenedX = -menu.width() + 'px';
@@ -60455,25 +60574,16 @@
 	            menuOpenedX = '0px';
 	            menuClosedX = -menu.width() + 'px';
 	        }
-	        // left side
-	        this.open.easing(easing).duration(duration);
-	        this.close.easing(easing).duration(duration);
-	        var menuOpen = new animation_1.Animation(menu.getMenuElement());
-	        menuOpen.fromTo(TRANSLATE_X, menuClosedX, menuOpenedX);
-	        this.open.add(menuOpen);
-	        var contentOpen = new animation_1.Animation(menu.getContentElement());
-	        contentOpen.fromTo(TRANSLATE_X, '0px', contentOpenedX);
-	        this.open.add(contentOpen);
-	        var menuClose = new animation_1.Animation(menu.getMenuElement());
-	        menuClose.fromTo(TRANSLATE_X, menuOpenedX, menuClosedX);
-	        this.close.add(menuClose);
-	        var contentClose = new animation_1.Animation(menu.getContentElement());
-	        contentClose.fromTo(TRANSLATE_X, contentOpenedX, '0px');
-	        this.close.add(contentClose);
+	        var menuAni = new animation_1.Animation(menu.getMenuElement());
+	        menuAni.fromTo('translateX', menuClosedX, menuOpenedX);
+	        this.ani.add(menuAni);
+	        var contentApi = new animation_1.Animation(menu.getContentElement());
+	        contentApi.fromTo('translateX', '0px', contentOpenedX);
+	        this.ani.add(contentApi);
 	    }
 	    return MenuPushType;
 	})(MenuType);
-	menu_1.Menu.register('push', MenuPushType);
+	menu_controller_1.MenuController.registerType('push', MenuPushType);
 	/**
 	 * Menu Overlay Type
 	 * The menu slides over the content. The content
@@ -60483,9 +60593,9 @@
 	    __extends(MenuOverlayType, _super);
 	    function MenuOverlayType(menu) {
 	        _super.call(this);
-	        var easing = 'ease';
-	        var duration = 250;
-	        var backdropOpacity = 0.35;
+	        this.ani
+	            .easing('ease')
+	            .duration(250);
 	        var closedX, openedX;
 	        if (menu.side == 'right') {
 	            // right side
@@ -60497,29 +60607,20 @@
 	            closedX = -menu.width() + 'px';
 	            openedX = '8px';
 	        }
-	        this.open.easing(easing).duration(duration);
-	        this.close.easing(easing).duration(duration);
-	        var menuOpen = new animation_1.Animation(menu.getMenuElement());
-	        menuOpen.fromTo(TRANSLATE_X, closedX, openedX);
-	        this.open.add(menuOpen);
-	        var backdropOpen = new animation_1.Animation(menu.getBackdropElement());
-	        backdropOpen.fromTo(OPACITY, 0.01, backdropOpacity);
-	        this.open.add(backdropOpen);
-	        var menuClose = new animation_1.Animation(menu.getMenuElement());
-	        menuClose.fromTo(TRANSLATE_X, openedX, closedX);
-	        this.close.add(menuClose);
-	        var backdropClose = new animation_1.Animation(menu.getBackdropElement());
-	        backdropClose.fromTo(OPACITY, backdropOpacity, 0.01);
-	        this.close.add(backdropClose);
+	        var menuAni = new animation_1.Animation(menu.getMenuElement());
+	        menuAni.fromTo('translateX', closedX, openedX);
+	        this.ani.add(menuAni);
+	        var backdropApi = new animation_1.Animation(menu.getBackdropElement());
+	        backdropApi.fromTo('opacity', 0.01, 0.35);
+	        this.ani.add(backdropApi);
 	    }
 	    return MenuOverlayType;
 	})(MenuType);
-	menu_1.Menu.register('overlay', MenuOverlayType);
-	var OPACITY = 'opacity';
-	var TRANSLATE_X = 'translateX';
+	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
+
 
 /***/ },
-/* 341 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60528,7 +60629,8 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var view_controller_1 = __webpack_require__(292);
-	var animation_1 = __webpack_require__(279);
+	var animation_1 = __webpack_require__(302);
+	var transition_1 = __webpack_require__(301);
 	/**
 	 * @name Modal
 	 * @description
@@ -60547,14 +60649,47 @@
 	 * `dismiss` method. Additionally, you can dismiss any overlay by using `pop`
 	 * on the root nav controller.
 	 *
+	 * Data can be passed to a new modal through `Modal.create()` as the second
+	 * argument. The data can gen be accessed from the opened page by injecting
+	 * `NavParams`. Note that the page, which opened as a modal, has no special
+	 * "modal" logic within it, but uses `NavParams` no differently than a
+	 * standard page.
+	 *
+	 * @usage
+	 * ```ts
+	 * import {Page, Modal, NavController, NavParams} from 'ionic/ionic';
+	 *
+	 * @Page(...)
+	 * class HomePage {
+	 *
+	 *  constructor(nav: NavController) {
+	 *    this.nav = nav;
+	 *  }
+	 *
+	 *  presentProfileModal() {
+	 *    let profileModal = Modal.create(Profile, { userId: 8675309 });
+	 *    this.nav.present(profileModal);
+	 *  }
+	 *
+	 * }
+	 *
+	 * @Page(...)
+	 * class Profile {
+	 *
+	 *  constructor(params: NavParams) {
+	 *    console.log('UserId', params.get('userId'));
+	 *  }
+	 *
+	 * }
+	 * ```
+	 *
 	 * A modal can also emit data, which is useful when it is used to add or edit
 	 * data. For example, a profile page could slide up in a modal, and on submit,
 	 * the submit button could pass the updated profile data, then dismiss the
 	 * modal.
 	 *
-	 * @usage
 	 * ```ts
-	 * import {Modal, NavController} from 'ionic/ionic';
+	 * import {Page, Modal, NavController} from 'ionic/ionic';
 	 *
 	 * @Page(...)
 	 * class HomePage {
@@ -60626,8 +60761,9 @@
 	var ModalSlideIn = (function (_super) {
 	    __extends(ModalSlideIn, _super);
 	    function ModalSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, enteringView.pageRef(), opts);
+	        _super.call(this, opts);
 	        this
+	            .element(enteringView.pageRef())
 	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
 	            .duration(400)
 	            .fromTo('translateY', '100%', '0%')
@@ -60640,25 +60776,27 @@
 	        }
 	    }
 	    return ModalSlideIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('modal-slide-in', ModalSlideIn);
+	})(transition_1.Transition);
+	transition_1.Transition.register('modal-slide-in', ModalSlideIn);
 	var ModalSlideOut = (function (_super) {
 	    __extends(ModalSlideOut, _super);
 	    function ModalSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, leavingView.pageRef(), opts);
+	        _super.call(this, opts);
 	        this
+	            .element(leavingView.pageRef())
 	            .easing('ease-out')
 	            .duration(250)
 	            .fromTo('translateY', '0%', '100%');
 	    }
 	    return ModalSlideOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('modal-slide-out', ModalSlideOut);
+	})(transition_1.Transition);
+	transition_1.Transition.register('modal-slide-out', ModalSlideOut);
 	var ModalMDSlideIn = (function (_super) {
 	    __extends(ModalMDSlideIn, _super);
 	    function ModalMDSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, enteringView.pageRef(), opts);
+	        _super.call(this, opts);
 	        this
+	            .element(enteringView.pageRef())
 	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
 	            .duration(280)
 	            .fromTo('translateY', '40px', '0px')
@@ -60672,35 +60810,38 @@
 	        }
 	    }
 	    return ModalMDSlideIn;
-	})(animation_1.Animation);
-	animation_1.Animation.register('modal-md-slide-in', ModalMDSlideIn);
+	})(transition_1.Transition);
+	transition_1.Transition.register('modal-md-slide-in', ModalMDSlideIn);
 	var ModalMDSlideOut = (function (_super) {
 	    __extends(ModalMDSlideOut, _super);
 	    function ModalMDSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, leavingView.pageRef(), opts);
+	        _super.call(this, opts);
 	        this
+	            .element(leavingView.pageRef())
 	            .duration(200)
 	            .easing('cubic-bezier(0.47,0,0.745,0.715)')
 	            .fromTo('translateY', '0px', '40px')
 	            .fadeOut();
 	    }
 	    return ModalMDSlideOut;
-	})(animation_1.Animation);
-	animation_1.Animation.register('modal-md-slide-out', ModalMDSlideOut);
+	})(transition_1.Transition);
+	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
+
 
 /***/ },
-/* 342 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(343));
-	__export(__webpack_require__(344));
 	__export(__webpack_require__(345));
+	__export(__webpack_require__(346));
+	__export(__webpack_require__(347));
+
 
 /***/ },
-/* 343 */
+/* 345 */
 /***/ function(module, exports) {
 
 	/**
@@ -60776,8 +60917,9 @@
 	})();
 	exports.StorageEngine = StorageEngine;
 
+
 /***/ },
-/* 344 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60785,7 +60927,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(343);
+	var storage_1 = __webpack_require__(345);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -60870,8 +61012,9 @@
 	})(storage_1.StorageEngine);
 	exports.LocalStorage = LocalStorage;
 
+
 /***/ },
-/* 345 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -60879,8 +61022,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(343);
-	var util_1 = __webpack_require__(266);
+	var storage_1 = __webpack_require__(345);
+	var util_1 = __webpack_require__(161);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
 	/**
@@ -60924,10 +61067,10 @@
 	            existingDatabase: false
 	        });
 	        if (win.sqlitePlugin) {
-	            var location = this._getBackupLocation(dbOptions.backupFlag);
+	            var location_1 = this._getBackupLocation(dbOptions.backupFlag);
 	            this._db = win.sqlitePlugin.openDatabase(util_1.assign({
 	                name: dbOptions.name,
-	                location: location,
+	                location: location_1,
 	                createFromLocation: dbOptions.existingDatabase ? 1 : 0
 	            }, dbOptions));
 	        }
@@ -61087,8 +61230,9 @@
 	})(storage_1.StorageEngine);
 	exports.SqlStorage = SqlStorage;
 
+
 /***/ },
-/* 346 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61101,7 +61245,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var translate_1 = __webpack_require__(274);
+	var translate_1 = __webpack_require__(279);
 	/**
 	 * @private
 	 * The Translate pipe makes it easy to translate strings.
@@ -61129,18 +61273,18 @@
 	    TranslatePipe = __decorate([
 	        core_1.Pipe({ name: 'translate' }),
 	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof translate_1.Translate !== 'undefined' && translate_1.Translate) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [translate_1.Translate])
 	    ], TranslatePipe);
 	    return TranslatePipe;
-	    var _a;
 	})();
 	exports.TranslatePipe = TranslatePipe;
 
+
 /***/ },
-/* 347 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var config_1 = __webpack_require__(264);
+	var config_1 = __webpack_require__(159);
 	// iOS Mode Settings
 	config_1.Config.setModeConfig('ios', {
 	    activator: 'highlight',
@@ -61178,12 +61322,13 @@
 	    tabSubPages: true,
 	});
 
+
 /***/ },
-/* 348 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var platform_1 = __webpack_require__(265);
-	var dom_1 = __webpack_require__(267);
+	var platform_1 = __webpack_require__(160);
+	var dom_1 = __webpack_require__(162);
 	var win = window;
 	var doc = document;
 	platform_1.Platform.register({
@@ -61340,8 +61485,9 @@
 	    return p.testNavigatorPlatform('iphone|ipad|ipod');
 	}
 
+
 /***/ },
-/* 349 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61349,7 +61495,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(279);
+	var animation_1 = __webpack_require__(302);
 	var SlideIn = (function (_super) {
 	    __extends(SlideIn, _super);
 	    function SlideIn(element) {
@@ -61399,8 +61545,9 @@
 	})(animation_1.Animation);
 	animation_1.Animation.register('fade-out', FadeOut);
 
+
 /***/ },
-/* 350 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61408,8 +61555,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(279);
-	var DURATION = 400;
+	var animation_1 = __webpack_require__(302);
+	var transition_1 = __webpack_require__(301);
+	var DURATION = 500;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	var OPACITY = 'opacity';
 	var TRANSLATEX = 'translateX';
@@ -61421,7 +61569,7 @@
 	var IOSTransition = (function (_super) {
 	    __extends(IOSTransition, _super);
 	    function IOSTransition(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        this.duration(opts.duration || DURATION);
 	        this.easing(opts.easing || EASING);
 	        // what direction is the transition going
@@ -61568,11 +61716,12 @@
 	        }
 	    }
 	    return IOSTransition;
-	})(animation_1.Animation);
-	animation_1.Animation.register('ios-transition', IOSTransition);
+	})(transition_1.Transition);
+	transition_1.Transition.register('ios-transition', IOSTransition);
+
 
 /***/ },
-/* 351 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __extends = (this && this.__extends) || function (d, b) {
@@ -61580,7 +61729,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(279);
+	var animation_1 = __webpack_require__(302);
+	var transition_1 = __webpack_require__(301);
 	var TRANSLATEY = 'translateY';
 	var OFF_BOTTOM = '40px';
 	var CENTER = '0px';
@@ -61588,7 +61738,7 @@
 	var MDTransition = (function (_super) {
 	    __extends(MDTransition, _super);
 	    function MDTransition(enteringView, leavingView, opts) {
-	        _super.call(this, null, opts);
+	        _super.call(this, opts);
 	        // what direction is the transition going
 	        var backDirection = (opts.direction === 'back');
 	        // do they have navbars?
@@ -61630,21 +61780,22 @@
 	        }
 	    }
 	    return MDTransition;
-	})(animation_1.Animation);
-	animation_1.Animation.register('md-transition', MDTransition);
+	})(transition_1.Transition);
+	transition_1.Transition.register('md-transition', MDTransition);
+
 
 /***/ },
-/* 352 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(353));
+	__export(__webpack_require__(355));
 
 
 /***/ },
-/* 353 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61658,7 +61809,7 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers = __webpack_require__(354);
+	var helpers = __webpack_require__(356);
 	var BasicPage = (function () {
 	    function BasicPage(app) {
 	        this.app = app;
@@ -61716,7 +61867,7 @@
 
 
 /***/ },
-/* 354 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61730,28 +61881,28 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var ionic_1 = __webpack_require__(5);
-	var actionSheets = __webpack_require__(355);
-	var alerts = __webpack_require__(357);
-	var badges = __webpack_require__(363);
-	var buttons = __webpack_require__(365);
-	var cards = __webpack_require__(376);
-	var checkboxes = __webpack_require__(385);
-	var grid = __webpack_require__(387);
-	var icons = __webpack_require__(389);
-	var inputs = __webpack_require__(391);
-	var lists = __webpack_require__(399);
-	var menus = __webpack_require__(352);
-	var modals = __webpack_require__(410);
-	var navigation = __webpack_require__(412);
-	var radios = __webpack_require__(414);
-	var ranges = __webpack_require__(416);
-	var searchbars = __webpack_require__(418);
-	var segments = __webpack_require__(420);
-	var selects = __webpack_require__(422);
-	var slides = __webpack_require__(424);
-	var tabs = __webpack_require__(426);
-	var toggles = __webpack_require__(431);
-	var toolbar = __webpack_require__(433);
+	var actionSheets = __webpack_require__(357);
+	var alerts = __webpack_require__(359);
+	var badges = __webpack_require__(365);
+	var buttons = __webpack_require__(367);
+	var cards = __webpack_require__(378);
+	var checkboxes = __webpack_require__(387);
+	var grid = __webpack_require__(389);
+	var icons = __webpack_require__(391);
+	var inputs = __webpack_require__(393);
+	var lists = __webpack_require__(401);
+	var menus = __webpack_require__(354);
+	var modals = __webpack_require__(412);
+	var navigation = __webpack_require__(414);
+	var radios = __webpack_require__(416);
+	var ranges = __webpack_require__(418);
+	var searchbars = __webpack_require__(420);
+	var segments = __webpack_require__(422);
+	var selects = __webpack_require__(424);
+	var slides = __webpack_require__(426);
+	var tabs = __webpack_require__(428);
+	var toggles = __webpack_require__(432);
+	var toolbar = __webpack_require__(434);
 	var AndroidAttribute = (function () {
 	    function AndroidAttribute(platform, elementRef, renderer) {
 	        this.platform = platform;
@@ -61860,7 +62011,6 @@
 	        'tabs': tabs.BasicPage,
 	        'tabs-icon': tabs.IconPage,
 	        'tabs-icon-text': tabs.IconTextPage,
-	        'tabs-badges': tabs.BadgesPage,
 	        'toolbar': toolbar.BasicPage
 	    };
 	}
@@ -61890,17 +62040,17 @@
 
 
 /***/ },
-/* 355 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(356));
+	__export(__webpack_require__(358));
 
 
 /***/ },
-/* 356 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -61914,7 +62064,7 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
 	var BasicPage = (function () {
 	    function BasicPage(platform, nav) {
 	        this.platform = platform;
@@ -62017,21 +62167,21 @@
 
 
 /***/ },
-/* 357 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(358));
-	__export(__webpack_require__(359));
 	__export(__webpack_require__(360));
 	__export(__webpack_require__(361));
 	__export(__webpack_require__(362));
+	__export(__webpack_require__(363));
+	__export(__webpack_require__(364));
 
 
 /***/ },
-/* 358 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62044,7 +62194,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(5);
-	var helpers_1 = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
 	var core_1 = __webpack_require__(7);
 	var BasicPage = (function () {
 	    function BasicPage(nav) {
@@ -62071,7 +62221,7 @@
 
 
 /***/ },
-/* 359 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62084,7 +62234,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(5);
-	var helpers_1 = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
 	var core_1 = __webpack_require__(7);
 	var ConfirmPage = (function () {
 	    function ConfirmPage(nav) {
@@ -62124,7 +62274,7 @@
 
 
 /***/ },
-/* 360 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62137,7 +62287,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(5);
-	var helpers_1 = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
 	var core_1 = __webpack_require__(7);
 	var PromptPage = (function () {
 	    function PromptPage(nav) {
@@ -62146,7 +62296,7 @@
 	    PromptPage.prototype.doPrompt = function () {
 	        var prompt = ionic_1.Alert.create({
 	            title: 'Login',
-	            message: "Enter a name for this new album you're so keen on adding",
+	            body: "Enter a name for this new album you're so keen on adding",
 	            inputs: [
 	                {
 	                    name: 'title',
@@ -62183,7 +62333,7 @@
 
 
 /***/ },
-/* 361 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62196,7 +62346,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(5);
-	var helpers_1 = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
 	var core_1 = __webpack_require__(7);
 	var RadioPage = (function () {
 	    function RadioPage(nav) {
@@ -62268,7 +62418,7 @@
 
 
 /***/ },
-/* 362 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62281,7 +62431,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(5);
-	var helpers_1 = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
 	var core_1 = __webpack_require__(7);
 	var CheckboxPage = (function () {
 	    function CheckboxPage(nav) {
@@ -62363,47 +62513,6 @@
 
 
 /***/ },
-/* 363 */
-/***/ function(module, exports, __webpack_require__) {
-
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(364));
-
-
-/***/ },
-/* 364 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(5);
-	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var BasicPage = (function () {
-	    function BasicPage() {
-	    }
-	    BasicPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/pages/badges/basic/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
-	})();
-	exports.BasicPage = BasicPage;
-
-
-/***/ },
 /* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -62411,15 +62520,6 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(366));
-	__export(__webpack_require__(367));
-	__export(__webpack_require__(368));
-	__export(__webpack_require__(369));
-	__export(__webpack_require__(370));
-	__export(__webpack_require__(371));
-	__export(__webpack_require__(372));
-	__export(__webpack_require__(373));
-	__export(__webpack_require__(374));
-	__export(__webpack_require__(375));
 
 
 /***/ },
@@ -62437,13 +62537,13 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
 	var BasicPage = (function () {
 	    function BasicPage() {
 	    }
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/buttons/basic/basic.html',
+	            templateUrl: './build/pages/badges/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -62457,31 +62557,19 @@
 /* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(5);
-	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var BlockPage = (function () {
-	    function BlockPage() {
-	    }
-	    BlockPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/pages/buttons/block/block.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], BlockPage);
-	    return BlockPage;
-	})();
-	exports.BlockPage = BlockPage;
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(368));
+	__export(__webpack_require__(369));
+	__export(__webpack_require__(370));
+	__export(__webpack_require__(371));
+	__export(__webpack_require__(372));
+	__export(__webpack_require__(373));
+	__export(__webpack_require__(374));
+	__export(__webpack_require__(375));
+	__export(__webpack_require__(376));
+	__export(__webpack_require__(377));
 
 
 /***/ },
@@ -62499,20 +62587,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var ClearPage = (function () {
-	    function ClearPage() {
+	var helpers_1 = __webpack_require__(356);
+	var BasicPage = (function () {
+	    function BasicPage() {
 	    }
-	    ClearPage = __decorate([
+	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/buttons/clear/clear.html',
+	            templateUrl: './build/pages/buttons/basic/basic.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], ClearPage);
-	    return ClearPage;
+	    ], BasicPage);
+	    return BasicPage;
 	})();
-	exports.ClearPage = ClearPage;
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
@@ -62530,20 +62618,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var ComponentsPage = (function () {
-	    function ComponentsPage() {
+	var helpers_1 = __webpack_require__(356);
+	var BlockPage = (function () {
+	    function BlockPage() {
 	    }
-	    ComponentsPage = __decorate([
+	    BlockPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/buttons/components/components.html',
+	            templateUrl: './build/pages/buttons/block/block.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], ComponentsPage);
-	    return ComponentsPage;
+	    ], BlockPage);
+	    return BlockPage;
 	})();
-	exports.ComponentsPage = ComponentsPage;
+	exports.BlockPage = BlockPage;
 
 
 /***/ },
@@ -62561,20 +62649,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var FabPage = (function () {
-	    function FabPage() {
+	var helpers_1 = __webpack_require__(356);
+	var ClearPage = (function () {
+	    function ClearPage() {
 	    }
-	    FabPage = __decorate([
+	    ClearPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/buttons/fab/fab.html',
+	            templateUrl: './build/pages/buttons/clear/clear.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], FabPage);
-	    return FabPage;
+	    ], ClearPage);
+	    return ClearPage;
 	})();
-	exports.FabPage = FabPage;
+	exports.ClearPage = ClearPage;
 
 
 /***/ },
@@ -62592,20 +62680,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var FullPage = (function () {
-	    function FullPage() {
+	var helpers_1 = __webpack_require__(356);
+	var ComponentsPage = (function () {
+	    function ComponentsPage() {
 	    }
-	    FullPage = __decorate([
+	    ComponentsPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/buttons/full/full.html',
+	            templateUrl: './build/pages/buttons/components/components.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], FullPage);
-	    return FullPage;
+	    ], ComponentsPage);
+	    return ComponentsPage;
 	})();
-	exports.FullPage = FullPage;
+	exports.ComponentsPage = ComponentsPage;
 
 
 /***/ },
@@ -62623,20 +62711,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var IconsPage = (function () {
-	    function IconsPage() {
+	var helpers_1 = __webpack_require__(356);
+	var FabPage = (function () {
+	    function FabPage() {
 	    }
-	    IconsPage = __decorate([
+	    FabPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/buttons/icons/icons.html',
+	            templateUrl: './build/pages/buttons/fab/fab.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], IconsPage);
-	    return IconsPage;
+	    ], FabPage);
+	    return FabPage;
 	})();
-	exports.IconsPage = IconsPage;
+	exports.FabPage = FabPage;
 
 
 /***/ },
@@ -62654,20 +62742,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var OutlinePage = (function () {
-	    function OutlinePage() {
+	var helpers_1 = __webpack_require__(356);
+	var FullPage = (function () {
+	    function FullPage() {
 	    }
-	    OutlinePage = __decorate([
+	    FullPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/buttons/outline/outline.html',
+	            templateUrl: './build/pages/buttons/full/full.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], OutlinePage);
-	    return OutlinePage;
+	    ], FullPage);
+	    return FullPage;
 	})();
-	exports.OutlinePage = OutlinePage;
+	exports.FullPage = FullPage;
 
 
 /***/ },
@@ -62685,20 +62773,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var RoundPage = (function () {
-	    function RoundPage() {
+	var helpers_1 = __webpack_require__(356);
+	var IconsPage = (function () {
+	    function IconsPage() {
 	    }
-	    RoundPage = __decorate([
+	    IconsPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/buttons/round/round.html',
+	            templateUrl: './build/pages/buttons/icons/icons.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], RoundPage);
-	    return RoundPage;
+	    ], IconsPage);
+	    return IconsPage;
 	})();
-	exports.RoundPage = RoundPage;
+	exports.IconsPage = IconsPage;
 
 
 /***/ },
@@ -62716,37 +62804,51 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var SizesPage = (function () {
-	    function SizesPage() {
+	var helpers_1 = __webpack_require__(356);
+	var OutlinePage = (function () {
+	    function OutlinePage() {
 	    }
-	    SizesPage = __decorate([
+	    OutlinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/buttons/sizes/sizes.html',
+	            templateUrl: './build/pages/buttons/outline/outline.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], SizesPage);
-	    return SizesPage;
+	    ], OutlinePage);
+	    return OutlinePage;
 	})();
-	exports.SizesPage = SizesPage;
+	exports.OutlinePage = OutlinePage;
 
 
 /***/ },
 /* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(377));
-	__export(__webpack_require__(378));
-	__export(__webpack_require__(379));
-	__export(__webpack_require__(380));
-	__export(__webpack_require__(381));
-	__export(__webpack_require__(382));
-	__export(__webpack_require__(383));
-	__export(__webpack_require__(384));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(5);
+	var core_1 = __webpack_require__(7);
+	var helpers_1 = __webpack_require__(356);
+	var RoundPage = (function () {
+	    function RoundPage() {
+	    }
+	    RoundPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/pages/buttons/round/round.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], RoundPage);
+	    return RoundPage;
+	})();
+	exports.RoundPage = RoundPage;
 
 
 /***/ },
@@ -62764,51 +62866,37 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var AdvancedMapPage = (function () {
-	    function AdvancedMapPage() {
+	var helpers_1 = __webpack_require__(356);
+	var SizesPage = (function () {
+	    function SizesPage() {
 	    }
-	    AdvancedMapPage = __decorate([
+	    SizesPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/cards/advanced-map/template.html',
+	            templateUrl: './build/pages/buttons/sizes/sizes.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], AdvancedMapPage);
-	    return AdvancedMapPage;
+	    ], SizesPage);
+	    return SizesPage;
 	})();
-	exports.AdvancedMapPage = AdvancedMapPage;
+	exports.SizesPage = SizesPage;
 
 
 /***/ },
 /* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(5);
-	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var AdvancedSocialPage = (function () {
-	    function AdvancedSocialPage() {
-	    }
-	    AdvancedSocialPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/pages/cards/advanced-social/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], AdvancedSocialPage);
-	    return AdvancedSocialPage;
-	})();
-	exports.AdvancedSocialPage = AdvancedSocialPage;
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(379));
+	__export(__webpack_require__(380));
+	__export(__webpack_require__(381));
+	__export(__webpack_require__(382));
+	__export(__webpack_require__(383));
+	__export(__webpack_require__(384));
+	__export(__webpack_require__(385));
+	__export(__webpack_require__(386));
 
 
 /***/ },
@@ -62826,20 +62914,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var AdvancedWeatherPage = (function () {
-	    function AdvancedWeatherPage() {
+	var helpers_1 = __webpack_require__(356);
+	var AdvancedMapPage = (function () {
+	    function AdvancedMapPage() {
 	    }
-	    AdvancedWeatherPage = __decorate([
+	    AdvancedMapPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/cards/advanced-weather/template.html',
+	            templateUrl: './build/pages/cards/advanced-map/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], AdvancedWeatherPage);
-	    return AdvancedWeatherPage;
+	    ], AdvancedMapPage);
+	    return AdvancedMapPage;
 	})();
-	exports.AdvancedWeatherPage = AdvancedWeatherPage;
+	exports.AdvancedMapPage = AdvancedMapPage;
 
 
 /***/ },
@@ -62857,20 +62945,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var BackgroundPage = (function () {
-	    function BackgroundPage() {
+	var helpers_1 = __webpack_require__(356);
+	var AdvancedSocialPage = (function () {
+	    function AdvancedSocialPage() {
 	    }
-	    BackgroundPage = __decorate([
+	    AdvancedSocialPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/cards/background/template.html',
+	            templateUrl: './build/pages/cards/advanced-social/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BackgroundPage);
-	    return BackgroundPage;
+	    ], AdvancedSocialPage);
+	    return AdvancedSocialPage;
 	})();
-	exports.BackgroundPage = BackgroundPage;
+	exports.AdvancedSocialPage = AdvancedSocialPage;
 
 
 /***/ },
@@ -62888,20 +62976,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var BasicPage = (function () {
-	    function BasicPage() {
+	var helpers_1 = __webpack_require__(356);
+	var AdvancedWeatherPage = (function () {
+	    function AdvancedWeatherPage() {
 	    }
-	    BasicPage = __decorate([
+	    AdvancedWeatherPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/cards/basic/template.html',
+	            templateUrl: './build/pages/cards/advanced-weather/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
+	    ], AdvancedWeatherPage);
+	    return AdvancedWeatherPage;
 	})();
-	exports.BasicPage = BasicPage;
+	exports.AdvancedWeatherPage = AdvancedWeatherPage;
 
 
 /***/ },
@@ -62919,20 +63007,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var HeaderPage = (function () {
-	    function HeaderPage() {
+	var helpers_1 = __webpack_require__(356);
+	var BackgroundPage = (function () {
+	    function BackgroundPage() {
 	    }
-	    HeaderPage = __decorate([
+	    BackgroundPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/cards/header/template.html',
+	            templateUrl: './build/pages/cards/background/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], HeaderPage);
-	    return HeaderPage;
+	    ], BackgroundPage);
+	    return BackgroundPage;
 	})();
-	exports.HeaderPage = HeaderPage;
+	exports.BackgroundPage = BackgroundPage;
 
 
 /***/ },
@@ -62950,20 +63038,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var ImagePage = (function () {
-	    function ImagePage() {
+	var helpers_1 = __webpack_require__(356);
+	var BasicPage = (function () {
+	    function BasicPage() {
 	    }
-	    ImagePage = __decorate([
+	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/cards/image/template.html',
+	            templateUrl: './build/pages/cards/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], ImagePage);
-	    return ImagePage;
+	    ], BasicPage);
+	    return BasicPage;
 	})();
-	exports.ImagePage = ImagePage;
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
@@ -62981,30 +63069,51 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var ListPage = (function () {
-	    function ListPage() {
+	var helpers_1 = __webpack_require__(356);
+	var HeaderPage = (function () {
+	    function HeaderPage() {
 	    }
-	    ListPage = __decorate([
+	    HeaderPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/cards/list/template.html',
+	            templateUrl: './build/pages/cards/header/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], ListPage);
-	    return ListPage;
+	    ], HeaderPage);
+	    return HeaderPage;
 	})();
-	exports.ListPage = ListPage;
+	exports.HeaderPage = HeaderPage;
 
 
 /***/ },
 /* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(386));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(5);
+	var core_1 = __webpack_require__(7);
+	var helpers_1 = __webpack_require__(356);
+	var ImagePage = (function () {
+	    function ImagePage() {
+	    }
+	    ImagePage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/pages/cards/image/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], ImagePage);
+	    return ImagePage;
+	})();
+	exports.ImagePage = ImagePage;
 
 
 /***/ },
@@ -63022,20 +63131,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var CheckboxPage = (function () {
-	    function CheckboxPage() {
+	var helpers_1 = __webpack_require__(356);
+	var ListPage = (function () {
+	    function ListPage() {
 	    }
-	    CheckboxPage = __decorate([
+	    ListPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/checkboxes/basic/template.html',
+	            templateUrl: './build/pages/cards/list/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], CheckboxPage);
-	    return CheckboxPage;
+	    ], ListPage);
+	    return ListPage;
 	})();
-	exports.CheckboxPage = CheckboxPage;
+	exports.ListPage = ListPage;
 
 
 /***/ },
@@ -63063,20 +63172,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var BasicPage = (function () {
-	    function BasicPage() {
+	var helpers_1 = __webpack_require__(356);
+	var CheckboxPage = (function () {
+	    function CheckboxPage() {
 	    }
-	    BasicPage = __decorate([
+	    CheckboxPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/grid/basic/template.html',
+	            templateUrl: './build/pages/checkboxes/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
+	    ], CheckboxPage);
+	    return CheckboxPage;
 	})();
-	exports.BasicPage = BasicPage;
+	exports.CheckboxPage = CheckboxPage;
 
 
 /***/ },
@@ -63104,13 +63213,13 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
 	var BasicPage = (function () {
 	    function BasicPage() {
 	    }
 	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/icons/basic/template.html',
+	            templateUrl: './build/pages/grid/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -63128,12 +63237,6 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(392));
-	__export(__webpack_require__(393));
-	__export(__webpack_require__(394));
-	__export(__webpack_require__(395));
-	__export(__webpack_require__(396));
-	__export(__webpack_require__(397));
-	__export(__webpack_require__(398));
 
 
 /***/ },
@@ -63149,10 +63252,57 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
 	var ionic_1 = __webpack_require__(5);
-	var helpers_1 = __webpack_require__(354);
+	var core_1 = __webpack_require__(7);
+	var helpers_1 = __webpack_require__(356);
+	var BasicPage = (function () {
+	    function BasicPage() {
+	    }
+	    BasicPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/pages/icons/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], BasicPage);
+	    return BasicPage;
+	})();
+	exports.BasicPage = BasicPage;
+
+
+/***/ },
+/* 393 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(394));
+	__export(__webpack_require__(395));
+	__export(__webpack_require__(396));
+	__export(__webpack_require__(397));
+	__export(__webpack_require__(398));
+	__export(__webpack_require__(399));
+	__export(__webpack_require__(400));
+
+
+/***/ },
+/* 394 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(7);
+	var common_1 = __webpack_require__(170);
+	var ionic_1 = __webpack_require__(5);
+	var helpers_1 = __webpack_require__(356);
 	var BasicPage = (function () {
 	    function BasicPage() {
 	        this.form = new common_1.ControlGroup({
@@ -63178,68 +63328,6 @@
 
 
 /***/ },
-/* 393 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(5);
-	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var FixedInlinePage = (function () {
-	    function FixedInlinePage() {
-	    }
-	    FixedInlinePage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/pages/inputs/fixed-inline/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], FixedInlinePage);
-	    return FixedInlinePage;
-	})();
-	exports.FixedInlinePage = FixedInlinePage;
-
-
-/***/ },
-/* 394 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(5);
-	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var FloatingPage = (function () {
-	    function FloatingPage() {
-	    }
-	    FloatingPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/pages/inputs/floating/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], FloatingPage);
-	    return FloatingPage;
-	})();
-	exports.FloatingPage = FloatingPage;
-
-
-/***/ },
 /* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -63254,20 +63342,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var InlinePage = (function () {
-	    function InlinePage() {
+	var helpers_1 = __webpack_require__(356);
+	var FixedInlinePage = (function () {
+	    function FixedInlinePage() {
 	    }
-	    InlinePage = __decorate([
+	    FixedInlinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/inputs/inline/template.html',
+	            templateUrl: './build/pages/inputs/fixed-inline/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], InlinePage);
-	    return InlinePage;
+	    ], FixedInlinePage);
+	    return FixedInlinePage;
 	})();
-	exports.InlinePage = InlinePage;
+	exports.FixedInlinePage = FixedInlinePage;
 
 
 /***/ },
@@ -63285,20 +63373,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var InsetPage = (function () {
-	    function InsetPage() {
+	var helpers_1 = __webpack_require__(356);
+	var FloatingPage = (function () {
+	    function FloatingPage() {
 	    }
-	    InsetPage = __decorate([
+	    FloatingPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/inputs/inset/template.html',
+	            templateUrl: './build/pages/inputs/floating/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], InsetPage);
-	    return InsetPage;
+	    ], FloatingPage);
+	    return FloatingPage;
 	})();
-	exports.InsetPage = InsetPage;
+	exports.FloatingPage = FloatingPage;
 
 
 /***/ },
@@ -63316,20 +63404,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var PlaceholderPage = (function () {
-	    function PlaceholderPage() {
+	var helpers_1 = __webpack_require__(356);
+	var InlinePage = (function () {
+	    function InlinePage() {
 	    }
-	    PlaceholderPage = __decorate([
+	    InlinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/inputs/placeholder/template.html',
+	            templateUrl: './build/pages/inputs/inline/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], PlaceholderPage);
-	    return PlaceholderPage;
+	    ], InlinePage);
+	    return InlinePage;
 	})();
-	exports.PlaceholderPage = PlaceholderPage;
+	exports.InlinePage = InlinePage;
 
 
 /***/ },
@@ -63347,39 +63435,51 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var StackedPage = (function () {
-	    function StackedPage() {
+	var helpers_1 = __webpack_require__(356);
+	var InsetPage = (function () {
+	    function InsetPage() {
 	    }
-	    StackedPage = __decorate([
+	    InsetPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/inputs/stacked/template.html',
+	            templateUrl: './build/pages/inputs/inset/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], StackedPage);
-	    return StackedPage;
+	    ], InsetPage);
+	    return InsetPage;
 	})();
-	exports.StackedPage = StackedPage;
+	exports.InsetPage = InsetPage;
 
 
 /***/ },
 /* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(400));
-	__export(__webpack_require__(401));
-	__export(__webpack_require__(402));
-	__export(__webpack_require__(403));
-	__export(__webpack_require__(404));
-	__export(__webpack_require__(405));
-	__export(__webpack_require__(406));
-	__export(__webpack_require__(407));
-	__export(__webpack_require__(408));
-	__export(__webpack_require__(409));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(5);
+	var core_1 = __webpack_require__(7);
+	var helpers_1 = __webpack_require__(356);
+	var PlaceholderPage = (function () {
+	    function PlaceholderPage() {
+	    }
+	    PlaceholderPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/pages/inputs/placeholder/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], PlaceholderPage);
+	    return PlaceholderPage;
+	})();
+	exports.PlaceholderPage = PlaceholderPage;
 
 
 /***/ },
@@ -63397,51 +63497,39 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var AvatarPage = (function () {
-	    function AvatarPage() {
+	var helpers_1 = __webpack_require__(356);
+	var StackedPage = (function () {
+	    function StackedPage() {
 	    }
-	    AvatarPage = __decorate([
+	    StackedPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/lists/avatar/template.html',
+	            templateUrl: './build/pages/inputs/stacked/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], AvatarPage);
-	    return AvatarPage;
+	    ], StackedPage);
+	    return StackedPage;
 	})();
-	exports.AvatarPage = AvatarPage;
+	exports.StackedPage = StackedPage;
 
 
 /***/ },
 /* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(5);
-	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var BasicPage = (function () {
-	    function BasicPage() {
-	    }
-	    BasicPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/pages/lists/basic/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], BasicPage);
-	    return BasicPage;
-	})();
-	exports.BasicPage = BasicPage;
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(402));
+	__export(__webpack_require__(403));
+	__export(__webpack_require__(404));
+	__export(__webpack_require__(405));
+	__export(__webpack_require__(406));
+	__export(__webpack_require__(407));
+	__export(__webpack_require__(408));
+	__export(__webpack_require__(409));
+	__export(__webpack_require__(410));
+	__export(__webpack_require__(411));
 
 
 /***/ },
@@ -63459,20 +63547,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var HeadersPage = (function () {
-	    function HeadersPage() {
+	var helpers_1 = __webpack_require__(356);
+	var AvatarPage = (function () {
+	    function AvatarPage() {
 	    }
-	    HeadersPage = __decorate([
+	    AvatarPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/lists/headers/template.html',
+	            templateUrl: './build/pages/lists/avatar/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], HeadersPage);
-	    return HeadersPage;
+	    ], AvatarPage);
+	    return AvatarPage;
 	})();
-	exports.HeadersPage = HeadersPage;
+	exports.AvatarPage = AvatarPage;
 
 
 /***/ },
@@ -63490,20 +63578,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var IconPage = (function () {
-	    function IconPage() {
+	var helpers_1 = __webpack_require__(356);
+	var BasicPage = (function () {
+	    function BasicPage() {
 	    }
-	    IconPage = __decorate([
+	    BasicPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/lists/icon/template.html',
+	            templateUrl: './build/pages/lists/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], IconPage);
-	    return IconPage;
+	    ], BasicPage);
+	    return BasicPage;
 	})();
-	exports.IconPage = IconPage;
+	exports.BasicPage = BasicPage;
 
 
 /***/ },
@@ -63521,20 +63609,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var InsetPage = (function () {
-	    function InsetPage() {
+	var helpers_1 = __webpack_require__(356);
+	var HeadersPage = (function () {
+	    function HeadersPage() {
 	    }
-	    InsetPage = __decorate([
+	    HeadersPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/lists/inset/template.html',
+	            templateUrl: './build/pages/lists/headers/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], InsetPage);
-	    return InsetPage;
+	    ], HeadersPage);
+	    return HeadersPage;
 	})();
-	exports.InsetPage = InsetPage;
+	exports.HeadersPage = HeadersPage;
 
 
 /***/ },
@@ -63552,20 +63640,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var NoLinesPage = (function () {
-	    function NoLinesPage() {
+	var helpers_1 = __webpack_require__(356);
+	var IconPage = (function () {
+	    function IconPage() {
 	    }
-	    NoLinesPage = __decorate([
+	    IconPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/lists/no-lines/template.html',
+	            templateUrl: './build/pages/lists/icon/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], NoLinesPage);
-	    return NoLinesPage;
+	    ], IconPage);
+	    return IconPage;
 	})();
-	exports.NoLinesPage = NoLinesPage;
+	exports.IconPage = IconPage;
 
 
 /***/ },
@@ -63583,20 +63671,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var MultilinePage = (function () {
-	    function MultilinePage() {
+	var helpers_1 = __webpack_require__(356);
+	var InsetPage = (function () {
+	    function InsetPage() {
 	    }
-	    MultilinePage = __decorate([
+	    InsetPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/lists/multiline/template.html',
+	            templateUrl: './build/pages/lists/inset/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], MultilinePage);
-	    return MultilinePage;
+	    ], InsetPage);
+	    return InsetPage;
 	})();
-	exports.MultilinePage = MultilinePage;
+	exports.InsetPage = InsetPage;
 
 
 /***/ },
@@ -63614,20 +63702,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var SlidingPage = (function () {
-	    function SlidingPage() {
+	var helpers_1 = __webpack_require__(356);
+	var NoLinesPage = (function () {
+	    function NoLinesPage() {
 	    }
-	    SlidingPage = __decorate([
+	    NoLinesPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/lists/sliding/template.html',
+	            templateUrl: './build/pages/lists/no-lines/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], SlidingPage);
-	    return SlidingPage;
+	    ], NoLinesPage);
+	    return NoLinesPage;
 	})();
-	exports.SlidingPage = SlidingPage;
+	exports.NoLinesPage = NoLinesPage;
 
 
 /***/ },
@@ -63645,20 +63733,20 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var ThumbnailPage = (function () {
-	    function ThumbnailPage() {
+	var helpers_1 = __webpack_require__(356);
+	var MultilinePage = (function () {
+	    function MultilinePage() {
 	    }
-	    ThumbnailPage = __decorate([
+	    MultilinePage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/lists/thumbnail/template.html',
+	            templateUrl: './build/pages/lists/multiline/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], ThumbnailPage);
-	    return ThumbnailPage;
+	    ], MultilinePage);
+	    return MultilinePage;
 	})();
-	exports.ThumbnailPage = ThumbnailPage;
+	exports.MultilinePage = MultilinePage;
 
 
 /***/ },
@@ -63676,30 +63764,51 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var DividersPage = (function () {
-	    function DividersPage() {
+	var helpers_1 = __webpack_require__(356);
+	var SlidingPage = (function () {
+	    function SlidingPage() {
 	    }
-	    DividersPage = __decorate([
+	    SlidingPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/lists/dividers/template.html',
+	            templateUrl: './build/pages/lists/sliding/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], DividersPage);
-	    return DividersPage;
+	    ], SlidingPage);
+	    return SlidingPage;
 	})();
-	exports.DividersPage = DividersPage;
+	exports.SlidingPage = SlidingPage;
 
 
 /***/ },
 /* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(411));
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(5);
+	var core_1 = __webpack_require__(7);
+	var helpers_1 = __webpack_require__(356);
+	var ThumbnailPage = (function () {
+	    function ThumbnailPage() {
+	    }
+	    ThumbnailPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/pages/lists/thumbnail/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], ThumbnailPage);
+	    return ThumbnailPage;
+	})();
+	exports.ThumbnailPage = ThumbnailPage;
 
 
 /***/ },
@@ -63717,8 +63826,49 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
-	var helpers = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
+	var DividersPage = (function () {
+	    function DividersPage() {
+	    }
+	    DividersPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/pages/lists/dividers/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], DividersPage);
+	    return DividersPage;
+	})();
+	exports.DividersPage = DividersPage;
+
+
+/***/ },
+/* 412 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(413));
+
+
+/***/ },
+/* 413 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(5);
+	var core_1 = __webpack_require__(7);
+	var common_1 = __webpack_require__(170);
+	var helpers = __webpack_require__(356);
 	var ModalsInitialPage = (function () {
 	    function ModalsInitialPage(nav) {
 	        this.nav = nav;
@@ -63812,17 +63962,17 @@
 
 
 /***/ },
-/* 412 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(413));
+	__export(__webpack_require__(415));
 
 
 /***/ },
-/* 413 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -63837,7 +63987,7 @@
 	var ionic_1 = __webpack_require__(5);
 	var ionic_2 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers = __webpack_require__(354);
+	var helpers = __webpack_require__(356);
 	var NavigationDetailsPage = (function () {
 	    function NavigationDetailsPage(params) {
 	        this.item = params.data.item;
@@ -63928,56 +64078,6 @@
 
 
 /***/ },
-/* 414 */
-/***/ function(module, exports, __webpack_require__) {
-
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(415));
-
-
-/***/ },
-/* 415 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(5);
-	var core_1 = __webpack_require__(7);
-	var common_1 = __webpack_require__(162);
-	var helpers = __webpack_require__(354);
-	var RadioPage = (function () {
-	    function RadioPage() {
-	        this.langs = new common_1.Control("");
-	        this.langForm = new common_1.ControlGroup({
-	            "langs": this.langs
-	        });
-	    }
-	    RadioPage.prototype.doSubmit = function (event) {
-	        console.log('Submitting form', this.langeForm.value);
-	        event.preventDefault();
-	    };
-	    RadioPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/pages/radios/basic/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], RadioPage);
-	    return RadioPage;
-	})();
-	exports.RadioPage = RadioPage;
-
-
-/***/ },
 /* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -64002,20 +64102,29 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var RangePage = (function () {
-	    function RangePage() {
+	var common_1 = __webpack_require__(170);
+	var helpers = __webpack_require__(356);
+	var RadioPage = (function () {
+	    function RadioPage() {
+	        this.langs = new common_1.Control("");
+	        this.langForm = new common_1.ControlGroup({
+	            "langs": this.langs
+	        });
 	    }
-	    RangePage = __decorate([
+	    RadioPage.prototype.doSubmit = function (event) {
+	        console.log('Submitting form', this.langeForm.value);
+	        event.preventDefault();
+	    };
+	    RadioPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/ranges/basic/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	            templateUrl: './build/pages/radios/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], RangePage);
-	    return RangePage;
+	    ], RadioPage);
+	    return RadioPage;
 	})();
-	exports.RangePage = RangePage;
+	exports.RadioPage = RadioPage;
 
 
 /***/ },
@@ -64043,7 +64152,48 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
+	var RangePage = (function () {
+	    function RangePage() {
+	    }
+	    RangePage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/pages/ranges/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], RangePage);
+	    return RangePage;
+	})();
+	exports.RangePage = RangePage;
+
+
+/***/ },
+/* 420 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(421));
+
+
+/***/ },
+/* 421 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(5);
+	var core_1 = __webpack_require__(7);
+	var helpers_1 = __webpack_require__(356);
 	var SearchPage = (function () {
 	    function SearchPage() {
 	        this.searchQuery = '';
@@ -64119,50 +64269,6 @@
 
 
 /***/ },
-/* 420 */
-/***/ function(module, exports, __webpack_require__) {
-
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(421));
-
-
-/***/ },
-/* 421 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(5);
-	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var SegmentPage = (function () {
-	    function SegmentPage(platform) {
-	        this.platform = platform;
-	        this.pet = "puppies";
-	        this.isAndroid = platform.is('android');
-	    }
-	    SegmentPage = __decorate([
-	        ionic_1.Page({
-	            templateUrl: './build/pages/segments/basic/template.html',
-	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
-	        }), 
-	        __metadata('design:paramtypes', [ionic_1.Platform])
-	    ], SegmentPage);
-	    return SegmentPage;
-	})();
-	exports.SegmentPage = SegmentPage;
-
-
-/***/ },
 /* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -64187,29 +64293,23 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
-	var SelectPage = (function () {
-	    function SelectPage() {
-	        this.gaming = "n64";
-	        this.gender = "f";
-	        this.musicAlertOpts = {
-	            title: '1994 Music',
-	            subTitle: 'Select your favorite'
-	        };
+	var helpers_1 = __webpack_require__(356);
+	var SegmentPage = (function () {
+	    function SegmentPage(platform) {
+	        this.platform = platform;
+	        this.pet = "puppies";
+	        this.isAndroid = platform.is('android');
 	    }
-	    SelectPage.prototype.stpSelect = function () {
-	        console.log('STP selected');
-	    };
-	    SelectPage = __decorate([
+	    SegmentPage = __decorate([
 	        ionic_1.Page({
-	            templateUrl: './build/pages/selects/basic/template.html',
+	            templateUrl: './build/pages/segments/basic/template.html',
 	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
 	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], SelectPage);
-	    return SelectPage;
+	        __metadata('design:paramtypes', [ionic_1.Platform])
+	    ], SegmentPage);
+	    return SegmentPage;
 	})();
-	exports.SelectPage = SelectPage;
+	exports.SegmentPage = SegmentPage;
 
 
 /***/ },
@@ -64237,7 +64337,57 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
+	var SelectPage = (function () {
+	    function SelectPage() {
+	        this.gaming = "n64";
+	        this.gender = "f";
+	        this.musicAlertOpts = {
+	            title: '1994 Music',
+	            subTitle: 'Select your favorite'
+	        };
+	    }
+	    SelectPage.prototype.stpSelect = function () {
+	        console.log('STP selected');
+	    };
+	    SelectPage = __decorate([
+	        ionic_1.Page({
+	            templateUrl: './build/pages/selects/basic/template.html',
+	            directives: [core_1.forwardRef(function () { return helpers_1.AndroidAttribute; })]
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], SelectPage);
+	    return SelectPage;
+	})();
+	exports.SelectPage = SelectPage;
+
+
+/***/ },
+/* 426 */
+/***/ function(module, exports, __webpack_require__) {
+
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(427));
+
+
+/***/ },
+/* 427 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(5);
+	var core_1 = __webpack_require__(7);
+	var helpers_1 = __webpack_require__(356);
 	var BasicPage = (function () {
 	    function BasicPage(nav, app) {
 	        this.nav = nav;
@@ -64273,20 +64423,19 @@
 
 
 /***/ },
-/* 426 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(427));
-	__export(__webpack_require__(428));
 	__export(__webpack_require__(429));
 	__export(__webpack_require__(430));
+	__export(__webpack_require__(431));
 
 
 /***/ },
-/* 427 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64300,7 +64449,7 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers = __webpack_require__(354);
+	var helpers = __webpack_require__(356);
 	var TabTextPage = (function () {
 	    function TabTextPage(platform) {
 	        this.platform = platform;
@@ -64342,7 +64491,7 @@
 
 
 /***/ },
-/* 428 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64356,7 +64505,7 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers = __webpack_require__(354);
+	var helpers = __webpack_require__(356);
 	var TabIconPage = (function () {
 	    function TabIconPage(platform) {
 	        this.platform = platform;
@@ -64408,7 +64557,7 @@
 
 
 /***/ },
-/* 429 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64422,7 +64571,7 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers = __webpack_require__(354);
+	var helpers = __webpack_require__(356);
 	var TabIconTextPage = (function () {
 	    function TabIconTextPage(platform) {
 	        this.platform = platform;
@@ -64475,73 +64624,17 @@
 
 
 /***/ },
-/* 430 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(5);
-	var core_1 = __webpack_require__(7);
-	var helpers = __webpack_require__(354);
-	var TabBadgePage = (function () {
-	    function TabBadgePage(platform) {
-	        this.platform = platform;
-	        this.isAndroid = platform.is('android');
-	    }
-	    TabBadgePage = __decorate([
-	        ionic_1.Page({
-	            template: '' +
-	                '<ion-navbar *navbar hideBackButton [attr.primary]="isAndroid ? \'\' : null">' +
-	                '<ion-title>Tabs</ion-title>' +
-	                '</ion-navbar>' +
-	                '<ion-content>' +
-	                '</ion-content>',
-	            directives: [core_1.forwardRef(function () { return helpers.AndroidAttribute; })],
-	        }), 
-	        __metadata('design:paramtypes', [ionic_1.Platform])
-	    ], TabBadgePage);
-	    return TabBadgePage;
-	})();
-	var BadgesPage = (function () {
-	    function BadgesPage() {
-	        this.tabOne = TabBadgePage;
-	        this.tabTwo = TabBadgePage;
-	        this.tabThree = TabBadgePage;
-	    }
-	    BadgesPage = __decorate([
-	        ionic_1.Page({
-	            template: '<ion-tabs class="tabs-badges">' +
-	                '<ion-tab tabIcon="call" [root]="tabOne" tabBadge="3" tabBadgeStyle="danger"></ion-tab>' +
-	                '<ion-tab tabIcon="chatbubbles" [root]="tabTwo" tabBadge="14" tabBadgeStyle="danger"></ion-tab>' +
-	                '<ion-tab tabIcon="musical-notes" [root]="tabThree"></ion-tab>' +
-	                '</ion-tabs>',
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], BadgesPage);
-	    return BadgesPage;
-	})();
-	exports.BadgesPage = BadgesPage;
-
-
-/***/ },
-/* 431 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(432));
+	__export(__webpack_require__(433));
 
 
 /***/ },
-/* 432 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64555,7 +64648,7 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
 	var TogglePage = (function () {
 	    function TogglePage() {
 	    }
@@ -64572,17 +64665,17 @@
 
 
 /***/ },
-/* 433 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(434));
+	__export(__webpack_require__(435));
 
 
 /***/ },
-/* 434 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -64596,7 +64689,7 @@
 	};
 	var ionic_1 = __webpack_require__(5);
 	var core_1 = __webpack_require__(7);
-	var helpers_1 = __webpack_require__(354);
+	var helpers_1 = __webpack_require__(356);
 	var BasicPage = (function () {
 	    function BasicPage() {
 	    }

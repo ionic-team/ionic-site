@@ -4403,7 +4403,7 @@ p {
   color: #000; }
 
 a {
-  color: #327eff; }
+  color: #387ef5; }
 
 hr {
   background-color: rgba(0, 0, 0, 0.12); }
@@ -4423,7 +4423,7 @@ em[primary],
 sub[primary],
 sup[primary],
 ion-icon[primary] {
-  color: #327eff !important; }
+  color: #387ef5 !important; }
 
 h1[secondary], h2[secondary], h3[secondary], h4[secondary], h5[secondary], h6[secondary],
 p[secondary],
@@ -4480,6 +4480,34 @@ sub[dark],
 sup[dark],
 ion-icon[dark] {
   color: #222 !important; }
+
+h1[vibrant], h2[vibrant], h3[vibrant], h4[vibrant], h5[vibrant], h6[vibrant],
+p[vibrant],
+span[vibrant],
+a:not([button])[vibrant],
+small[vibrant],
+b[vibrant],
+i[vibrant],
+strong[vibrant],
+em[vibrant],
+sub[vibrant],
+sup[vibrant],
+ion-icon[vibrant] {
+  color: rebeccapurple !important; }
+
+h1[bright], h2[bright], h3[bright], h4[bright], h5[bright], h6[bright],
+p[bright],
+span[bright],
+a:not([button])[bright],
+small[bright],
+b[bright],
+i[bright],
+strong[bright],
+em[bright],
+sub[bright],
+sup[bright],
+ion-icon[bright] {
+  color: #FFC125 !important; }
 
 ion-action-sheet {
   position: absolute;
@@ -4735,12 +4763,12 @@ ion-alert {
   min-width: 30px; }
 
 .alert-radio[aria-checked=true] {
-  color: #327eff; }
+  color: #387ef5; }
   .alert-radio[aria-checked=true] .alert-radio-icon:after {
     position: absolute;
     border-width: 2px;
     border-style: solid;
-    border-color: #327eff;
+    border-color: #387ef5;
     top: 13px;
     left: 7px;
     width: 4px;
@@ -4778,8 +4806,8 @@ ion-alert {
   background-color: #fff; }
 
 .alert-checkbox[aria-checked=true] .alert-checkbox-icon {
-  background-color: #327eff;
-  border-color: #327eff; }
+  background-color: #387ef5;
+  border-color: #387ef5; }
   .alert-checkbox[aria-checked=true] .alert-checkbox-icon .alert-checkbox-inner {
     position: absolute;
     border-width: 1px;
@@ -4812,7 +4840,7 @@ ion-alert {
   border-radius: 0;
   border-top: 1px solid #dbdbdf;
   border-right: 1px solid #dbdbdf;
-  color: #327eff;
+  color: #387ef5;
   background-color: transparent; }
   .alert-button:last-child {
     font-weight: bold;
@@ -4849,11 +4877,11 @@ ion-badge {
 
 ion-badge {
   border-radius: 10px;
-  background-color: #327eff;
+  background-color: #387ef5;
   color: white; }
 
 .badge-primary {
-  background-color: #327eff;
+  background-color: #387ef5;
   color: white; }
 
 .badge-secondary {
@@ -4871,6 +4899,14 @@ ion-badge {
 .badge-dark {
   background-color: #222;
   color: white; }
+
+.badge-vibrant {
+  background-color: rebeccapurple;
+  color: white; }
+
+.badge-bright {
+  background-color: #FFC125;
+  color: black; }
 
 .button {
   position: relative;
@@ -4952,13 +4988,13 @@ a.button, a[button] {
   font-size: 1.6rem;
   border-radius: 4px;
   color: white;
-  background-color: #327eff; }
+  background-color: #387ef5; }
   .button:hover:not(.disable-hover) {
     opacity: 0.8;
     text-decoration: none; }
   .button.activated {
     opacity: 1;
-    background-color: #2e74eb; }
+    background-color: #3474e1; }
 
 .button-large {
   padding: 0 1em;
@@ -4987,28 +5023,28 @@ a.button, a[button] {
 .button-outline {
   border-width: 1px;
   border-style: solid;
-  border-color: #327eff;
-  color: #327eff;
+  border-color: #387ef5;
+  color: #387ef5;
   background-color: transparent;
   border-radius: 4px; }
   .button-outline.activated {
     opacity: 1;
     color: #fff;
-    background-color: #327eff; }
+    background-color: #387ef5; }
 
 .hairlines .button-outline {
   border-width: 0.55px; }
 
 .button-clear {
   border-color: transparent;
-  color: #327eff;
+  color: #387ef5;
   background-color: transparent; }
   .button-clear.activated {
     opacity: 0.4;
     background-color: transparent; }
   .button-clear:hover:not(.disable-hover) {
     opacity: 0.6;
-    color: #327eff; }
+    color: #387ef5; }
 
 .button-round {
   padding: 0 2.6rem;
@@ -5019,26 +5055,26 @@ ion-button-effect {
 
 .button-primary {
   color: white;
-  background-color: #327eff; }
+  background-color: #387ef5; }
   .button-primary.activated {
-    background-color: #2e74eb; }
+    background-color: #3474e1; }
 
 .button-outline-primary {
-  border-color: #3078f2;
-  color: #3078f2;
+  border-color: #3578e9;
+  color: #3578e9;
   background-color: transparent; }
   .button-outline-primary.activated {
     color: #fff;
-    background-color: #3078f2; }
+    background-color: #3578e9; }
 
 .button-clear-primary {
   border-color: transparent;
   background-color: transparent;
-  color: #327eff; }
+  color: #387ef5; }
   .button-clear-primary.activated {
     opacity: 0.4; }
   .button-clear-primary:hover:not(.disable-hover) {
-    color: #327eff; }
+    color: #387ef5; }
 
 .button-secondary {
   color: white;
@@ -5131,6 +5167,52 @@ ion-button-effect {
     opacity: 0.4; }
   .button-clear-dark:hover:not(.disable-hover) {
     color: #222; }
+
+.button-vibrant {
+  color: white;
+  background-color: rebeccapurple; }
+  .button-vibrant.activated {
+    background-color: #7243a1; }
+
+.button-outline-vibrant {
+  border-color: #6e3d9e;
+  color: #6e3d9e;
+  background-color: transparent; }
+  .button-outline-vibrant.activated {
+    color: #fff;
+    background-color: #6e3d9e; }
+
+.button-clear-vibrant {
+  border-color: transparent;
+  background-color: transparent;
+  color: rebeccapurple; }
+  .button-clear-vibrant.activated {
+    opacity: 0.4; }
+  .button-clear-vibrant:hover:not(.disable-hover) {
+    color: rebeccapurple; }
+
+.button-bright {
+  color: black;
+  background-color: #FFC125; }
+  .button-bright.activated {
+    background-color: #ebb222; }
+
+.button-outline-bright {
+  border-color: #f2b723;
+  color: #f2b723;
+  background-color: transparent; }
+  .button-outline-bright.activated {
+    color: #fff;
+    background-color: #f2b723; }
+
+.button-clear-bright {
+  border-color: transparent;
+  background-color: transparent;
+  color: #FFC125; }
+  .button-clear-bright.activated {
+    opacity: 0.4; }
+  .button-clear-bright:hover:not(.disable-hover) {
+    color: #FFC125; }
 
 .button-fab {
   position: absolute;
@@ -5292,8 +5374,8 @@ ion-checkbox {
   background-color: #fff; }
 
 .checkbox-checked {
-  background-color: #327eff;
-  border-color: #327eff; }
+  background-color: #387ef5;
+  border-color: #387ef5; }
 
 .checkbox-checked .checkbox-inner {
   position: absolute;
@@ -5320,8 +5402,8 @@ ion-checkbox {
   margin: 8px 16px 8px 2px; }
 
 ion-checkbox[primary] .checkbox-checked {
-  background-color: #327eff;
-  border-color: #327eff; }
+  background-color: #387ef5;
+  border-color: #387ef5; }
   ion-checkbox[primary] .checkbox-checked .checkbox-inner {
     border-color: white; }
 
@@ -5348,6 +5430,18 @@ ion-checkbox[dark] .checkbox-checked {
   border-color: #222; }
   ion-checkbox[dark] .checkbox-checked .checkbox-inner {
     border-color: white; }
+
+ion-checkbox[vibrant] .checkbox-checked {
+  background-color: rebeccapurple;
+  border-color: rebeccapurple; }
+  ion-checkbox[vibrant] .checkbox-checked .checkbox-inner {
+    border-color: white; }
+
+ion-checkbox[bright] .checkbox-checked {
+  background-color: #FFC125;
+  border-color: #FFC125; }
+  ion-checkbox[bright] .checkbox-checked .checkbox-inner {
+    border-color: black; }
 
 ion-chip {
   font-size: 13px;
@@ -5401,7 +5495,7 @@ ion-chip {
     font-size: 1.2em; }
 
 ion-chip > ion-icon[primary] {
-  background-color: #327eff;
+  background-color: #387ef5;
   color: white !important; }
 
 ion-chip > ion-icon[secondary] {
@@ -5419,6 +5513,14 @@ ion-chip > ion-icon[light] {
 ion-chip > ion-icon[dark] {
   background-color: #222;
   color: white !important; }
+
+ion-chip > ion-icon[vibrant] {
+  background-color: rebeccapurple;
+  color: white !important; }
+
+ion-chip > ion-icon[bright] {
+  background-color: #FFC125;
+  color: black !important; }
 
 ion-content {
   background-color: #fff; }
@@ -5838,7 +5940,7 @@ ion-item-divider {
   background-color: #f7f7f7; }
 
 ion-item-divider[primary] {
-  background-color: #327eff;
+  background-color: #387ef5;
   color: white; }
 
 ion-item-divider[secondary] {
@@ -5856,6 +5958,14 @@ ion-item-divider[light] {
 ion-item-divider[dark] {
   background-color: #222;
   color: white; }
+
+ion-item-divider[vibrant] {
+  background-color: rebeccapurple;
+  color: white; }
+
+ion-item-divider[bright] {
+  background-color: #FFC125;
+  color: black; }
 
 ion-item-sliding {
   background-color: #fff; }
@@ -5948,7 +6058,7 @@ ion-label[floating] {
   transform: translate3d(0, 0, 0) scale(0.8); }
 
 ion-label[primary] {
-  color: #327eff !important; }
+  color: #387ef5 !important; }
 
 ion-label[secondary] {
   color: #32db64 !important; }
@@ -5961,6 +6071,12 @@ ion-label[light] {
 
 ion-label[dark] {
   color: #222 !important; }
+
+ion-label[vibrant] {
+  color: rebeccapurple !important; }
+
+ion-label[bright] {
+  color: #FFC125 !important; }
 
 ion-list-header {
   display: block;
@@ -6114,7 +6230,7 @@ ion-radio {
   position: absolute;
   border-width: 2px;
   border-style: solid;
-  border-color: #327eff;
+  border-color: #387ef5;
   top: 4px;
   left: 7px;
   width: 5px;
@@ -6138,12 +6254,12 @@ ion-radio {
   margin-left: 0; }
 
 .item-radio-checked ion-label {
-  color: #327eff; }
+  color: #387ef5; }
 
 ion-radio[primary] .radio-checked {
-  color: #327eff; }
+  color: #387ef5; }
   ion-radio[primary] .radio-checked .radio-inner {
-    border-color: #327eff; }
+    border-color: #387ef5; }
 
 ion-radio[secondary] .radio-checked {
   color: #32db64; }
@@ -6164,6 +6280,16 @@ ion-radio[dark] .radio-checked {
   color: #222; }
   ion-radio[dark] .radio-checked .radio-inner {
     border-color: #222; }
+
+ion-radio[vibrant] .radio-checked {
+  color: rebeccapurple; }
+  ion-radio[vibrant] .radio-checked .radio-inner {
+    border-color: rebeccapurple; }
+
+ion-radio[bright] .radio-checked {
+  color: #FFC125; }
+  ion-radio[bright] .radio-checked .radio-inner {
+    border-color: #FFC125; }
 
 ion-searchbar {
   position: relative;
@@ -6301,9 +6427,9 @@ ion-searchbar {
   border-bottom-width: 0.55px; }
 
 ion-searchbar[primary] .searchbar-ios-cancel {
-  color: #327eff; }
+  color: #387ef5; }
   ion-searchbar[primary] .searchbar-ios-cancel:hover:not(.disable-hover) {
-    color: #2e74eb; }
+    color: #3474e1; }
 
 .toolbar[primary] ion-searchbar .searchbar-ios-cancel {
   color: white; }
@@ -6339,6 +6465,22 @@ ion-searchbar[dark] .searchbar-ios-cancel {
 
 .toolbar[dark] ion-searchbar .searchbar-ios-cancel {
   color: white; }
+
+ion-searchbar[vibrant] .searchbar-ios-cancel {
+  color: rebeccapurple; }
+  ion-searchbar[vibrant] .searchbar-ios-cancel:hover:not(.disable-hover) {
+    color: #7243a1; }
+
+.toolbar[vibrant] ion-searchbar .searchbar-ios-cancel {
+  color: white; }
+
+ion-searchbar[bright] .searchbar-ios-cancel {
+  color: #FFC125; }
+  ion-searchbar[bright] .searchbar-ios-cancel:hover:not(.disable-hover) {
+    color: #ebb222; }
+
+.toolbar[bright] ion-searchbar .searchbar-ios-cancel {
+  color: black; }
 
 ion-segment {
   display: -webkit-box;
@@ -6381,8 +6523,8 @@ ion-segment {
   font-size: 1.3rem;
   border-width: 1px;
   border-style: solid;
-  border-color: #327eff;
-  color: #327eff;
+  border-color: #387ef5;
+  color: #387ef5;
   background-color: transparent; }
   .segment-button ion-icon {
     font-size: 2.6rem;
@@ -6390,15 +6532,15 @@ ion-segment {
   .segment-button.segment-activated {
     opacity: 1;
     color: white;
-    background-color: #327eff;
+    background-color: #387ef5;
     -webkit-transition: 100ms all linear;
     transition: 100ms all linear; }
   .segment-button:hover:not(.segment-activated) {
-    background-color: rgba(50, 126, 255, 0.1);
+    background-color: rgba(56, 126, 245, 0.1);
     -webkit-transition: 100ms all linear;
     transition: 100ms all linear; }
   .segment-button:active:not(.segment-activated) {
-    background-color: rgba(50, 126, 255, 0.16);
+    background-color: rgba(56, 126, 245, 0.16);
     -webkit-transition: 100ms all linear;
     transition: 100ms all linear; }
   .segment-button:first-of-type {
@@ -6428,18 +6570,18 @@ ion-segment {
     line-height: 2.4rem; }
 
 ion-segment[primary] .segment-button {
-  border-color: #327eff;
-  color: #327eff; }
+  border-color: #387ef5;
+  color: #387ef5; }
   ion-segment[primary] .segment-button:hover:not(.segment-activated) {
-    background-color: rgba(50, 126, 255, 0.1); }
+    background-color: rgba(56, 126, 245, 0.1); }
   ion-segment[primary] .segment-button:active:not(.segment-activated) {
-    background-color: rgba(50, 126, 255, 0.16); }
+    background-color: rgba(56, 126, 245, 0.16); }
   ion-segment[primary] .segment-button.segment-activated {
     color: white;
-    background-color: #327eff; }
+    background-color: #387ef5; }
 
 .toolbar[primary] .segment-button.segment-activated {
-  color: #327eff; }
+  color: #387ef5; }
 
 ion-segment[secondary] .segment-button {
   border-color: #32db64;
@@ -6496,6 +6638,34 @@ ion-segment[dark] .segment-button {
 
 .toolbar[dark] .segment-button.segment-activated {
   color: #222; }
+
+ion-segment[vibrant] .segment-button {
+  border-color: rebeccapurple;
+  color: rebeccapurple; }
+  ion-segment[vibrant] .segment-button:hover:not(.segment-activated) {
+    background-color: rgba(102, 51, 153, 0.1); }
+  ion-segment[vibrant] .segment-button:active:not(.segment-activated) {
+    background-color: rgba(102, 51, 153, 0.16); }
+  ion-segment[vibrant] .segment-button.segment-activated {
+    color: white;
+    background-color: rebeccapurple; }
+
+.toolbar[vibrant] .segment-button.segment-activated {
+  color: rebeccapurple; }
+
+ion-segment[bright] .segment-button {
+  border-color: #FFC125;
+  color: #FFC125; }
+  ion-segment[bright] .segment-button:hover:not(.segment-activated) {
+    background-color: rgba(255, 193, 37, 0.1); }
+  ion-segment[bright] .segment-button:active:not(.segment-activated) {
+    background-color: rgba(255, 193, 37, 0.16); }
+  ion-segment[bright] .segment-button.segment-activated {
+    color: black;
+    background-color: #FFC125; }
+
+.toolbar[bright] .segment-button.segment-activated {
+  color: #FFC125; }
 
 ion-select {
   display: -webkit-box;
@@ -6752,7 +6922,7 @@ ion-tabs[tabbarPlacement=top] tabbar {
 
 .tab-button:hover:not(.disable-hover),
 .tab-button[aria-selected=true] {
-  color: #327eff; }
+  color: #387ef5; }
 
 .tab-button-text {
   min-height: 11px;
@@ -6800,8 +6970,8 @@ ion-tabs[tabbarPlacement=top] tabbar {
   border-bottom-width: 0.55px; }
 
 ion-tabs[primary] tabbar {
-  border-color: #005efe;
-  background-color: #327eff; }
+  border-color: #0c60ee;
+  background-color: #387ef5; }
   ion-tabs[primary] tabbar .tab-button {
     color: white; }
   ion-tabs[primary] tabbar .tab-button:hover:not(.disable-hover),
@@ -6844,6 +7014,24 @@ ion-tabs[dark] tabbar {
   ion-tabs[dark] tabbar .tab-button[aria-selected=true] {
     color: white; }
 
+ion-tabs[vibrant] tabbar {
+  border-color: #4d2673;
+  background-color: rebeccapurple; }
+  ion-tabs[vibrant] tabbar .tab-button {
+    color: white; }
+  ion-tabs[vibrant] tabbar .tab-button:hover:not(.disable-hover),
+  ion-tabs[vibrant] tabbar .tab-button[aria-selected=true] {
+    color: white; }
+
+ion-tabs[bright] tabbar {
+  border-color: #f1ac00;
+  background-color: #FFC125; }
+  ion-tabs[bright] tabbar .tab-button {
+    color: black; }
+  ion-tabs[bright] tabbar .tab-button:hover:not(.disable-hover),
+  ion-tabs[bright] tabbar .tab-button[aria-selected=true] {
+    color: black; }
+
 ion-toggle {
   position: relative; }
 
@@ -6885,7 +7073,7 @@ ion-toggle {
   transition: transform 300ms, width 120ms ease-in-out 80ms, left 110ms ease-in-out 80ms; }
 
 .toggle-checked {
-  background-color: #327eff; }
+  background-color: #387ef5; }
 
 .toggle-activated:before,
 .toggle-checked:before {
@@ -6923,7 +7111,7 @@ ion-toggle {
   padding: 6px 8px 5px 16px; }
 
 ion-toggle[primary] .toggle-checked {
-  background-color: #327eff; }
+  background-color: #387ef5; }
 
 ion-toggle[secondary] .toggle-checked {
   background-color: #32db64; }
@@ -6936,6 +7124,12 @@ ion-toggle[light] .toggle-checked {
 
 ion-toggle[dark] .toggle-checked {
   background-color: #222; }
+
+ion-toggle[vibrant] .toggle-checked {
+  background-color: rebeccapurple; }
+
+ion-toggle[bright] .toggle-checked {
+  background-color: #FFC125; }
 
 .toolbar {
   position: relative;
@@ -7183,25 +7377,25 @@ ion-buttons[right] {
 .bar-button-outline {
   border-width: 1px;
   border-style: solid;
-  border-color: #327eff;
-  color: #327eff;
+  border-color: #387ef5;
+  color: #387ef5;
   background-color: transparent; }
   .bar-button-outline:hover:not(.disable-hover) {
     opacity: 0.4; }
   .bar-button-outline.activated {
     color: white;
-    background-color: #327eff; }
+    background-color: #387ef5; }
 
 .bar-button-solid {
   color: white;
-  background-color: #327eff; }
+  background-color: #387ef5; }
   .bar-button-solid:hover:not(.disable-hover) {
     opacity: 0.4;
     color: white; }
   .bar-button-solid.activated {
     opacity: 0.4;
     color: white;
-    background-color: #2e74eb; }
+    background-color: #3474e1; }
 
 .bar-button-icon-left ion-icon {
   padding-right: 0.3em;
@@ -7268,42 +7462,42 @@ ion-buttons[right] {
   order: 7; }
 
 .bar-button-default {
-  color: #327eff;
+  color: #387ef5;
   background-color: transparent; }
   .bar-button-default:hover:not(.disable-hover) {
-    color: #327eff; }
+    color: #387ef5; }
   .bar-button-default.activated {
     opacity: 0.4; }
 
 .toolbar[primary] .toolbar-background {
-  background: #327eff;
-  border-color: #005efe; }
+  background: #387ef5;
+  border-color: #0c60ee; }
 
 .toolbar[primary] .toolbar-title,
 .toolbar[primary] .bar-button-default {
   color: white; }
 
 .bar-button-primary {
-  color: #327eff;
+  color: #387ef5;
   background-color: transparent; }
   .bar-button-primary:hover:not(.disable-hover) {
-    color: #327eff; }
+    color: #387ef5; }
   .bar-button-primary.activated {
     opacity: 0.4; }
 
 .bar-button-outline-primary {
-  border-color: #2e74eb;
-  color: #2e74eb;
+  border-color: #3474e1;
+  color: #3474e1;
   background-color: transparent; }
   .bar-button-outline-primary.activated {
     color: white;
-    background-color: #2e74eb; }
+    background-color: #3474e1; }
 
 .bar-button-solid-primary {
   color: white;
-  background-color: #327eff; }
+  background-color: #387ef5; }
   .bar-button-solid-primary.activated {
-    background-color: #2e74eb; }
+    background-color: #3474e1; }
 
 .toolbar[secondary] .toolbar-background {
   background: #32db64;
@@ -7424,6 +7618,66 @@ ion-buttons[right] {
   background-color: #222; }
   .bar-button-solid-dark.activated {
     background-color: #343434; }
+
+.toolbar[vibrant] .toolbar-background {
+  background: rebeccapurple;
+  border-color: #4d2673; }
+
+.toolbar[vibrant] .toolbar-title,
+.toolbar[vibrant] .bar-button-default {
+  color: white; }
+
+.bar-button-vibrant {
+  color: rebeccapurple;
+  background-color: transparent; }
+  .bar-button-vibrant:hover:not(.disable-hover) {
+    color: rebeccapurple; }
+  .bar-button-vibrant.activated {
+    opacity: 0.4; }
+
+.bar-button-outline-vibrant {
+  border-color: #7243a1;
+  color: #7243a1;
+  background-color: transparent; }
+  .bar-button-outline-vibrant.activated {
+    color: white;
+    background-color: #7243a1; }
+
+.bar-button-solid-vibrant {
+  color: white;
+  background-color: rebeccapurple; }
+  .bar-button-solid-vibrant.activated {
+    background-color: #7243a1; }
+
+.toolbar[bright] .toolbar-background {
+  background: #FFC125;
+  border-color: #f1ac00; }
+
+.toolbar[bright] .toolbar-title,
+.toolbar[bright] .bar-button-default {
+  color: black; }
+
+.bar-button-bright {
+  color: #FFC125;
+  background-color: transparent; }
+  .bar-button-bright:hover:not(.disable-hover) {
+    color: #FFC125; }
+  .bar-button-bright.activated {
+    opacity: 0.4; }
+
+.bar-button-outline-bright {
+  border-color: #ebb222;
+  color: #ebb222;
+  background-color: transparent; }
+  .bar-button-outline-bright.activated {
+    color: white;
+    background-color: #ebb222; }
+
+.bar-button-solid-bright {
+  color: black;
+  background-color: #FFC125; }
+  .bar-button-solid-bright.activated {
+    background-color: #ebb222; }
 
 .platform-cordova.platform-ios ion-navbar-section {
   min-height: 64px;

@@ -7121,7 +7121,8 @@ ion-navbar-section {
   -webkit-box-ordinal-group: 5;
   -webkit-order: 4;
   -ms-flex-order: 4;
-  order: 4; }
+  order: 4;
+  min-width: 0; }
 
 .toolbar-title {
   font-size: 1.7rem;

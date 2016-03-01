@@ -8,7 +8,67 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require('ionic-angular');
-var mock_provider_1 = require('./mock-provider');
+var core_1 = require('angular2/core');
+/**
+ * Mock Data Access Object
+ **/
+var MockProvider = (function () {
+    function MockProvider() {
+        this._data = [
+            'Fast Times at Ridgemont High',
+            'Peggy Sue Got Married',
+            'Raising Arizona',
+            'Moonstruck',
+            'Fire Birds',
+            'Honeymoon in Vegas',
+            'Amos & Andrew',
+            'It Could Happen to You',
+            'Trapped in Paradise',
+            'Leaving Las Vegas',
+            'The Rock',
+            'Con Air',
+            'Face/Off',
+            'City of Angels',
+            'Gone in Sixty Seconds',
+            'The Family Man',
+            'Windtalkers',
+            'Matchstick Men',
+            'National Treasure',
+            'Ghost Rider',
+            'Grindhouse',
+            'Next',
+            'Kick-Ass',
+            'Drive Angry',
+        ];
+    }
+    MockProvider.prototype.getData = function () {
+        // return mock data synchronously
+        var data = [];
+        for (var i = 0; i < 20; i++) {
+            data.push(this._getRandomData());
+        }
+        return data;
+    };
+    MockProvider.prototype.getAsyncData = function () {
+        var _this = this;
+        // async receive mock data
+        return new Promise(function (resolve) {
+            setTimeout(function () {
+                resolve(_this.getData());
+            }, 1000);
+        });
+    };
+    MockProvider.prototype._getRandomData = function () {
+        var i = Math.floor(Math.random() * this._data.length);
+        return this._data[i];
+    };
+    MockProvider = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], MockProvider);
+    return MockProvider;
+})();
+exports.MockProvider = MockProvider;
 var ApiDemoApp = (function () {
     function ApiDemoApp(mockProvider) {
         this.mockProvider = mockProvider;
@@ -29,10 +89,9 @@ var ApiDemoApp = (function () {
     ApiDemoApp = __decorate([
         ionic_angular_1.App({
             templateUrl: 'main.html',
-            providers: [mock_provider_1.MockProvider]
+            providers: [MockProvider]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof mock_provider_1.MockProvider !== 'undefined' && mock_provider_1.MockProvider) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [MockProvider])
     ], ApiDemoApp);
     return ApiDemoApp;
-    var _a;
 })();

@@ -9878,3 +9878,17 @@ body.md .tabs-icon-text tab-highlight {
 body.ios .tabs-icon-text tabbar .tab-button[aria-selected=true],
 body.ios .tabs-icon-text tabbar .tab-button:hover:not(.disable-hover) {
   color: #7e60ff; }
+
+p.toolbar-buttons {
+  margin-left: 25px; }
+
+body.md .toolbar-buttons-page div.toolbar-title,
+body.md .toolbar-buttons-page p.toolbar-buttons {
+  color: #fff; }
+
+body.md .toolbar-segment-page p {
+  text-align: center;
+  color: #fff; }
+
+body.ios .toolbar-segment-page {
+  text-align: center; }

@@ -43,11 +43,11 @@ Improve this doc
 
 
 
-<p>Allows you to add Pull-To-Refresh to an Content component.
-Place <code>ion-refresher</code> as the first child of your <code>ion-content</code> element.</p>
-<p>Pages can then can listen to the refreshers various output events. The
-<code>refresh</code> output event is the one that&#39;s fired when the user has pulled
-down far enough to kick off the refreshing process. Once the async operation
+<p>The Refresher provides pull-to-refresh functionality on a content component.
+Place the <code>ion-refresher</code> as the first child of your <code>ion-content</code> element.</p>
+<p>Pages can then listen to the refresher&#39;s various output events. The
+<code>refresh</code> output event is fired when the user has pulled down far
+enough to kick off the refreshing process. Once the async operation
 has completed and the refreshing should end, call <code>complete()</code>.</p>
 
 
@@ -98,13 +98,14 @@ adding properties to the child <code>ion-refresher-content</code> component.</p>
 &lt;/ion-content&gt;
 </code></pre>
 <h2 id="further-customizing-refresher-content">Further Customizing Refresher Content</h2>
-<p>The <code>ion-refresh</code> component holds the refresh logic, and it requires a
-child refresher content component for its display. The <code>ion-refresher-content</code>
-component is Ionic&#39;s default that shows the actual display of the refresher
-and changes its look depending on the refresher&#39;s state. With this separation,
-it also allows developers to create their own refresher content components.
-Ideas include having some cool SVG or CSS animations that are customized to
-your app and animates the various refresher states to your liking.</p>
+<p>The <code>ion-refresher</code> component holds the refresh logic. 
+It requires a child component in order to display the content. 
+Ionic uses <code>ion-refresher-content</code> by default. This component
+displays the refresher and changes the look depending
+on the refresher&#39;s state. Separating these components
+allows developers to create their own refresher content 
+components. You could replace our default content with 
+custom SVG or CSS animations.</p>
 
 
 

@@ -44,7 +44,7 @@ var MockProvider = (function () {
     MockProvider.prototype.getData = function () {
         // return mock data synchronously
         var data = [];
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < 20; i++) {
             data.push(this._getRandomData());
         }
         return data;
@@ -74,18 +74,17 @@ var ApiDemoApp = (function () {
         this.mockProvider = mockProvider;
         this.items = mockProvider.getData();
     }
-    ApiDemoApp.prototype.doRefresh = function (refresher) {
+    ApiDemoApp.prototype.doInfinite = function (infiniteScroll) {
         var _this = this;
-        console.log('DOREFRESH', refresher);
         this.mockProvider.getAsyncData().then(function (newData) {
             for (var i = 0; i < newData.length; i++) {
-                _this.items.unshift(newData[i]);
+                _this.items.push(newData[i]);
             }
-            refresher.complete();
+            infiniteScroll.complete();
+            if (_this.items.length > 90) {
+                infiniteScroll.enable(false);
+            }
         });
-    };
-    ApiDemoApp.prototype.doPulling = function (refresher) {
-        console.log('DOPULLING', refresher.progress);
     };
     ApiDemoApp = __decorate([
         ionic_angular_1.App({

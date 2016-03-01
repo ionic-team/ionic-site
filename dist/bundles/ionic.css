@@ -6421,6 +6421,7 @@ ion-icon {
     line-height: 16px; }
   .ios .has-icon .tab-badge {
     right: calc(50% - 30px); }
+  .ios [tabbarLayout=icon-hide] .tab-badge,
   .ios [tabbarLayout=icon-bottom] .tab-badge,
   .ios [tabbarLayout=icon-left] .tab-badge,
   .ios [tabbarLayout=icon-right] .tab-badge {
@@ -6755,7 +6756,8 @@ ion-icon {
     -webkit-box-ordinal-group: 5;
     -webkit-order: 4;
     -ms-flex-order: 4;
-    order: 4; }
+    order: 4;
+    min-width: 0; }
   .ios .toolbar-title {
     font-size: 1.7rem;
     font-weight: 600;
@@ -9605,6 +9607,7 @@ ion-icon {
     line-height: 16px; }
   .md .has-icon .tab-badge {
     right: calc(50% - 30px); }
+  .md [tabbarLayout=icon-hide] .tab-badge,
   .md [tabbarLayout=icon-bottom] .tab-badge,
   .md [tabbarLayout=icon-left] .tab-badge,
   .md [tabbarLayout=icon-right] .tab-badge {
@@ -9992,7 +9995,8 @@ ion-icon {
     -webkit-order: 3;
     -ms-flex-order: 3;
     order: 3;
-    max-width: 100%; }
+    max-width: 100%;
+    min-width: 0; }
   .md .toolbar-title {
     color: #424242;
     padding: 0 12px;

@@ -47,8 +47,7 @@
 	__webpack_require__(1);
 	__webpack_require__(2);
 	__webpack_require__(3);
-	__webpack_require__(4);
-	module.exports = __webpack_require__(361);
+	module.exports = __webpack_require__(4);
 
 
 /***/ },
@@ -3176,6 +3175,11 @@
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3186,9 +3190,10 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_angular_1 = __webpack_require__(5);
+	var ionic_angular_2 = __webpack_require__(5);
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
-	        this.rootPage = InitialPage;
+	        this.rootPage = ModalFirstPage;
 	    }
 	    ApiDemoApp = __decorate([
 	        ionic_angular_1.App({
@@ -3198,101 +3203,81 @@
 	    ], ApiDemoApp);
 	    return ApiDemoApp;
 	})();
-	var InitialPage = (function () {
-	    function InitialPage(nav, platform) {
+	var ModalFirstPage = (function () {
+	    function ModalFirstPage(nav) {
 	        this.nav = nav;
-	        this.platform = platform;
+	        this.myParam = '';
 	    }
-	    InitialPage.prototype.present = function () {
-	        if (this.platform.is('android')) {
-	            var androidSheet = {
-	                title: 'Albums',
-	                buttons: [
-	                    { text: 'Share',
-	                        icon: 'share',
-	                        handler: function () {
-	                            console.log('Share clicked');
-	                        }
-	                    },
-	                    { text: 'Play',
-	                        icon: 'arrow-dropright-circle',
-	                        handler: function () {
-	                            console.log('Play clicked');
-	                        }
-	                    },
-	                    { text: 'Favorite',
-	                        icon: 'md-heart-outline',
-	                        handler: function () {
-	                            console.log('Favorite clicked');
-	                        }
-	                    },
-	                    {
-	                        text: 'Delete',
-	                        style: 'destructive',
-	                        icon: 'md-trash',
-	                        handler: function () {
-	                            console.log('Destructive clicked');
-	                        }
-	                    },
-	                    {
-	                        text: 'Cancel',
-	                        style: 'cancel',
-	                        icon: 'md-close',
-	                        handler: function () {
-	                            console.log('Cancel clicked');
-	                        }
-	                    }
-	                ],
-	            };
-	        }
-	        var actionSheet = ionic_angular_1.ActionSheet.create(androidSheet || {
-	            buttons: [
-	                {
-	                    text: 'Share',
-	                    handler: function () {
-	                        console.log('Share clicked');
-	                    }
-	                },
-	                {
-	                    text: 'Play',
-	                    handler: function () {
-	                        console.log('Play clicked');
-	                    }
-	                },
-	                {
-	                    text: 'Favorite',
-	                    handler: function () {
-	                        console.log('Favorite clicked');
-	                    }
-	                },
-	                {
-	                    text: 'Delete',
-	                    style: 'destructive',
-	                    handler: function () {
-	                        console.log('Destructive clicked');
-	                    }
-	                },
-	                {
-	                    text: 'Cancel',
-	                    style: 'cancel',
-	                    handler: function () {
-	                        console.log('Cancel clicked');
-	                    }
-	                }
-	            ]
-	        });
-	        this.nav.present(actionSheet);
+	    ModalFirstPage.prototype.openBasicModal = function () {
+	        var myModal = ionic_angular_2.Modal.create(ModalContentPage);
+	        this.nav.present(myModal);
 	    };
-	    InitialPage = __decorate([
+	    ModalFirstPage.prototype.openModalWithParams = function () {
+	        var myModal = ionic_angular_2.Modal.create(ModalContentPage, { 'myParam': this.myParam });
+	        this.nav.present(myModal);
+	    };
+	    ModalFirstPage.prototype.openCustomAnimationModal = function () {
+	        var myModal = ionic_angular_2.Modal.create(ModalContentPage, {
+	            animation: 'my-fade-in',
+	        });
+	        this.nav.present(myModal);
+	    };
+	    ModalFirstPage = __decorate([
 	        ionic_angular_1.Page({
 	            templateUrl: 'main.html'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _b) || Object])
-	    ], InitialPage);
-	    return InitialPage;
-	    var _a, _b;
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object])
+	    ], ModalFirstPage);
+	    return ModalFirstPage;
+	    var _a;
 	})();
-	exports.InitialPage = InitialPage;
+	exports.ModalFirstPage = ModalFirstPage;
+	var ModalContentPage = (function () {
+	    function ModalContentPage(nav, params, viewCtrl) {
+	        this.nav = nav;
+	        this.viewCtrl = viewCtrl;
+	        this.myParam = params.get('myParam');
+	    }
+	    ModalContentPage.prototype.dismiss = function () {
+	        this.viewCtrl.dismiss();
+	    };
+	    ModalContentPage = __decorate([
+	        ionic_angular_1.Page({
+	            templateUrl: "modal-content.html"
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_2.NavParams !== 'undefined' && ionic_angular_2.NavParams) === 'function' && _b) || Object, (typeof (_c = typeof ionic_angular_1.ViewController !== 'undefined' && ionic_angular_1.ViewController) === 'function' && _c) || Object])
+	    ], ModalContentPage);
+	    return ModalContentPage;
+	    var _a, _b, _c;
+	})();
+	exports.ModalContentPage = ModalContentPage;
+	var FadeIn = (function (_super) {
+	    __extends(FadeIn, _super);
+	    function FadeIn(enteringView, leavingView) {
+	        _super.call(this, enteringView.pageRef());
+	        this
+	            .easing('ease')
+	            .duration(1000)
+	            .fromTo('translateY', '0%', '0%')
+	            .fadeIn()
+	            .before.addClass('show-page');
+	    }
+	    return FadeIn;
+	})(ionic_angular_2.Animation);
+	ionic_angular_2.Animation.register('my-fade-in', FadeIn);
+	var FadeOut = (function (_super) {
+	    __extends(FadeOut, _super);
+	    function FadeOut(enteringView, leavingView) {
+	        _super.call(this, leavingView.pageRef());
+	        this
+	            .easing('ease')
+	            .duration(500)
+	            .fadeOut()
+	            .before.addClass('show-page');
+	    }
+	    return FadeOut;
+	})(ionic_angular_2.Animation);
+	ionic_angular_2.Animation.register('my-fade-out', FadeOut);
 
 /***/ },
 /* 5 */
@@ -50049,6 +50034,8 @@
 	 * developers to create their own infinite scroll content components.
 	 * You could replace our default content with custom SVG or CSS animations.
 	 *
+	 * @demo /docs/v2/demos/infinite-scroll/
+	 *
 	 */
 	var InfiniteScroll = (function () {
 	    function InfiniteScroll(_content, _zone, _elementRef) {
@@ -50593,12 +50580,12 @@
 	/**
 	 * @name Refresher
 	 * @description
-	 * Allows you to add Pull-To-Refresh to an Content component.
-	 * Place `ion-refresher` as the first child of your `ion-content` element.
+	 * The Refresher provides pull-to-refresh functionality on a content component.
+	 * Place the `ion-refresher` as the first child of your `ion-content` element.
 	 *
-	 * Pages can then can listen to the refreshers various output events. The
-	 * `refresh` output event is the one that's fired when the user has pulled
-	 * down far enough to kick off the refreshing process. Once the async operation
+	 * Pages can then listen to the refresher's various output events. The
+	 * `refresh` output event is fired when the user has pulled down far
+	 * enough to kick off the refreshing process. Once the async operation
 	 * has completed and the refreshing should end, call `complete()`.
 	 *
 	 * @usage
@@ -50654,13 +50641,14 @@
 	 *
 	 * ## Further Customizing Refresher Content
 	 *
-	 * The `ion-refresh` component holds the refresh logic, and it requires a
-	 * child refresher content component for its display. The `ion-refresher-content`
-	 * component is Ionic's default that shows the actual display of the refresher
-	 * and changes its look depending on the refresher's state. With this separation,
-	 * it also allows developers to create their own refresher content components.
-	 * Ideas include having some cool SVG or CSS animations that are customized to
-	 * your app and animates the various refresher states to your liking.
+	 * The `ion-refresher` component holds the refresh logic.
+	 * It requires a child component in order to display the content.
+	 * Ionic uses `ion-refresher-content` by default. This component
+	 * displays the refresher and changes the look depending
+	 * on the refresher's state. Separating these components
+	 * allows developers to create their own refresher content
+	 * components. You could replace our default content with
+	 * custom SVG or CSS animations.
 	 *
 	 * @demo /docs/v2/demos/refresher/
 	 *
@@ -63118,114 +63106,6 @@
 	    return MDTransition;
 	})(transition_1.Transition);
 	transition_1.Transition.register('md-transition', MDTransition);
-
-/***/ },
-/* 361 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_angular_1 = __webpack_require__(5);
-	var ionic_angular_2 = __webpack_require__(5);
-	var ApiDemoApp = (function () {
-	    function ApiDemoApp() {
-	        this.rootPage = ModalFirstPage;
-	    }
-	    ApiDemoApp = __decorate([
-	        ionic_angular_1.App({
-	            templateUrl: 'app.html'
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], ApiDemoApp);
-	    return ApiDemoApp;
-	})();
-	var ModalFirstPage = (function () {
-	    function ModalFirstPage(nav) {
-	        this.nav = nav;
-	        this.myParam = '';
-	    }
-	    ModalFirstPage.prototype.openBasicModal = function () {
-	        var myModal = ionic_angular_2.Modal.create(ModalContentPage);
-	        this.nav.present(myModal);
-	    };
-	    ModalFirstPage.prototype.openModalWithParams = function () {
-	        var myModal = ionic_angular_2.Modal.create(ModalContentPage, { 'myParam': this.myParam });
-	        this.nav.present(myModal);
-	    };
-	    ModalFirstPage.prototype.openCustomAnimationModal = function () {
-	        var myModal = ionic_angular_2.Modal.create(ModalContentPage, {
-	            animation: 'my-fade-in',
-	        });
-	        this.nav.present(myModal);
-	    };
-	    ModalFirstPage = __decorate([
-	        ionic_angular_1.Page({
-	            templateUrl: 'main.html'
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object])
-	    ], ModalFirstPage);
-	    return ModalFirstPage;
-	    var _a;
-	})();
-	exports.ModalFirstPage = ModalFirstPage;
-	var ModalContentPage = (function () {
-	    function ModalContentPage(nav, params, viewCtrl) {
-	        this.nav = nav;
-	        this.viewCtrl = viewCtrl;
-	        this.myParam = params.get('myParam');
-	    }
-	    ModalContentPage.prototype.dismiss = function () {
-	        this.viewCtrl.dismiss();
-	    };
-	    ModalContentPage = __decorate([
-	        ionic_angular_1.Page({
-	            templateUrl: "modal-content.html"
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_2.NavParams !== 'undefined' && ionic_angular_2.NavParams) === 'function' && _b) || Object, (typeof (_c = typeof ionic_angular_1.ViewController !== 'undefined' && ionic_angular_1.ViewController) === 'function' && _c) || Object])
-	    ], ModalContentPage);
-	    return ModalContentPage;
-	    var _a, _b, _c;
-	})();
-	exports.ModalContentPage = ModalContentPage;
-	var FadeIn = (function (_super) {
-	    __extends(FadeIn, _super);
-	    function FadeIn(enteringView, leavingView) {
-	        _super.call(this, enteringView.pageRef());
-	        this
-	            .easing('ease')
-	            .duration(1000)
-	            .fromTo('translateY', '0%', '0%')
-	            .fadeIn()
-	            .before.addClass('show-page');
-	    }
-	    return FadeIn;
-	})(ionic_angular_2.Animation);
-	ionic_angular_2.Animation.register('my-fade-in', FadeIn);
-	var FadeOut = (function (_super) {
-	    __extends(FadeOut, _super);
-	    function FadeOut(enteringView, leavingView) {
-	        _super.call(this, leavingView.pageRef());
-	        this
-	            .easing('ease')
-	            .duration(500)
-	            .fadeOut()
-	            .before.addClass('show-page');
-	    }
-	    return FadeOut;
-	})(ionic_angular_2.Animation);
-	ionic_angular_2.Animation.register('my-fade-out', FadeOut);
 
 /***/ }
 /******/ ]);

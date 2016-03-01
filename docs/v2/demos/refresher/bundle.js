@@ -47,8 +47,7 @@
 	__webpack_require__(1);
 	__webpack_require__(2);
 	__webpack_require__(3);
-	__webpack_require__(4);
-	module.exports = __webpack_require__(361);
+	module.exports = __webpack_require__(4);
 
 
 /***/ },
@@ -3186,113 +3185,94 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_angular_1 = __webpack_require__(5);
-	var ApiDemoApp = (function () {
-	    function ApiDemoApp() {
-	        this.rootPage = InitialPage;
+	var core_1 = __webpack_require__(7);
+	/**
+	 * Mock Data Access Object
+	 **/
+	var MockProvider = (function () {
+	    function MockProvider() {
+	        this._data = [
+	            'Fast Times at Ridgemont High',
+	            'Peggy Sue Got Married',
+	            'Raising Arizona',
+	            'Moonstruck',
+	            'Fire Birds',
+	            'Honeymoon in Vegas',
+	            'Amos & Andrew',
+	            'It Could Happen to You',
+	            'Trapped in Paradise',
+	            'Leaving Las Vegas',
+	            'The Rock',
+	            'Con Air',
+	            'Face/Off',
+	            'City of Angels',
+	            'Gone in Sixty Seconds',
+	            'The Family Man',
+	            'Windtalkers',
+	            'Matchstick Men',
+	            'National Treasure',
+	            'Ghost Rider',
+	            'Grindhouse',
+	            'Next',
+	            'Kick-Ass',
+	            'Drive Angry',
+	        ];
 	    }
+	    MockProvider.prototype.getData = function () {
+	        // return mock data synchronously
+	        var data = [];
+	        for (var i = 0; i < 3; i++) {
+	            data.push(this._getRandomData());
+	        }
+	        return data;
+	    };
+	    MockProvider.prototype.getAsyncData = function () {
+	        var _this = this;
+	        // async receive mock data
+	        return new Promise(function (resolve) {
+	            setTimeout(function () {
+	                resolve(_this.getData());
+	            }, 1000);
+	        });
+	    };
+	    MockProvider.prototype._getRandomData = function () {
+	        var i = Math.floor(Math.random() * this._data.length);
+	        return this._data[i];
+	    };
+	    MockProvider = __decorate([
+	        core_1.Injectable(), 
+	        __metadata('design:paramtypes', [])
+	    ], MockProvider);
+	    return MockProvider;
+	})();
+	exports.MockProvider = MockProvider;
+	var ApiDemoApp = (function () {
+	    function ApiDemoApp(mockProvider) {
+	        this.mockProvider = mockProvider;
+	        this.items = mockProvider.getData();
+	    }
+	    ApiDemoApp.prototype.doRefresh = function (refresher) {
+	        var _this = this;
+	        console.log('DOREFRESH', refresher);
+	        this.mockProvider.getAsyncData().then(function (newData) {
+	            for (var i = 0; i < newData.length; i++) {
+	                _this.items.unshift(newData[i]);
+	            }
+	            refresher.complete();
+	        });
+	    };
+	    ApiDemoApp.prototype.doPulling = function (refresher) {
+	        console.log('DOPULLING', refresher.progress);
+	    };
 	    ApiDemoApp = __decorate([
 	        ionic_angular_1.App({
-	            templateUrl: 'app.html'
+	            templateUrl: 'main.html',
+	            providers: [MockProvider]
 	        }), 
-	        __metadata('design:paramtypes', [])
+	        __metadata('design:paramtypes', [MockProvider])
 	    ], ApiDemoApp);
 	    return ApiDemoApp;
 	})();
-	var InitialPage = (function () {
-	    function InitialPage(nav, platform) {
-	        this.nav = nav;
-	        this.platform = platform;
-	    }
-	    InitialPage.prototype.present = function () {
-	        if (this.platform.is('android')) {
-	            var androidSheet = {
-	                title: 'Albums',
-	                buttons: [
-	                    { text: 'Share',
-	                        icon: 'share',
-	                        handler: function () {
-	                            console.log('Share clicked');
-	                        }
-	                    },
-	                    { text: 'Play',
-	                        icon: 'arrow-dropright-circle',
-	                        handler: function () {
-	                            console.log('Play clicked');
-	                        }
-	                    },
-	                    { text: 'Favorite',
-	                        icon: 'md-heart-outline',
-	                        handler: function () {
-	                            console.log('Favorite clicked');
-	                        }
-	                    },
-	                    {
-	                        text: 'Delete',
-	                        style: 'destructive',
-	                        icon: 'md-trash',
-	                        handler: function () {
-	                            console.log('Destructive clicked');
-	                        }
-	                    },
-	                    {
-	                        text: 'Cancel',
-	                        style: 'cancel',
-	                        icon: 'md-close',
-	                        handler: function () {
-	                            console.log('Cancel clicked');
-	                        }
-	                    }
-	                ],
-	            };
-	        }
-	        var actionSheet = ionic_angular_1.ActionSheet.create(androidSheet || {
-	            buttons: [
-	                {
-	                    text: 'Share',
-	                    handler: function () {
-	                        console.log('Share clicked');
-	                    }
-	                },
-	                {
-	                    text: 'Play',
-	                    handler: function () {
-	                        console.log('Play clicked');
-	                    }
-	                },
-	                {
-	                    text: 'Favorite',
-	                    handler: function () {
-	                        console.log('Favorite clicked');
-	                    }
-	                },
-	                {
-	                    text: 'Delete',
-	                    style: 'destructive',
-	                    handler: function () {
-	                        console.log('Destructive clicked');
-	                    }
-	                },
-	                {
-	                    text: 'Cancel',
-	                    style: 'cancel',
-	                    handler: function () {
-	                        console.log('Cancel clicked');
-	                    }
-	                }
-	            ]
-	        });
-	        this.nav.present(actionSheet);
-	    };
-	    InitialPage = __decorate([
-	        ionic_angular_1.Page({
-	            templateUrl: 'main.html'
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _b) || Object])
-	    ], InitialPage);
-	    return InitialPage;
-	    var _a, _b;
-	})();
-	exports.InitialPage = InitialPage;
 
 /***/ },
 /* 5 */
@@ -50049,6 +50029,8 @@
 	 * developers to create their own infinite scroll content components.
 	 * You could replace our default content with custom SVG or CSS animations.
 	 *
+	 * @demo /docs/v2/demos/infinite-scroll/
+	 *
 	 */
 	var InfiniteScroll = (function () {
 	    function InfiniteScroll(_content, _zone, _elementRef) {
@@ -50593,12 +50575,12 @@
 	/**
 	 * @name Refresher
 	 * @description
-	 * Allows you to add Pull-To-Refresh to an Content component.
-	 * Place `ion-refresher` as the first child of your `ion-content` element.
+	 * The Refresher provides pull-to-refresh functionality on a content component.
+	 * Place the `ion-refresher` as the first child of your `ion-content` element.
 	 *
-	 * Pages can then can listen to the refreshers various output events. The
-	 * `refresh` output event is the one that's fired when the user has pulled
-	 * down far enough to kick off the refreshing process. Once the async operation
+	 * Pages can then listen to the refresher's various output events. The
+	 * `refresh` output event is fired when the user has pulled down far
+	 * enough to kick off the refreshing process. Once the async operation
 	 * has completed and the refreshing should end, call `complete()`.
 	 *
 	 * @usage
@@ -50654,13 +50636,14 @@
 	 *
 	 * ## Further Customizing Refresher Content
 	 *
-	 * The `ion-refresh` component holds the refresh logic, and it requires a
-	 * child refresher content component for its display. The `ion-refresher-content`
-	 * component is Ionic's default that shows the actual display of the refresher
-	 * and changes its look depending on the refresher's state. With this separation,
-	 * it also allows developers to create their own refresher content components.
-	 * Ideas include having some cool SVG or CSS animations that are customized to
-	 * your app and animates the various refresher states to your liking.
+	 * The `ion-refresher` component holds the refresh logic.
+	 * It requires a child component in order to display the content.
+	 * Ionic uses `ion-refresher-content` by default. This component
+	 * displays the refresher and changes the look depending
+	 * on the refresher's state. Separating these components
+	 * allows developers to create their own refresher content
+	 * components. You could replace our default content with
+	 * custom SVG or CSS animations.
 	 *
 	 * @demo /docs/v2/demos/refresher/
 	 *
@@ -63118,125 +63101,6 @@
 	    return MDTransition;
 	})(transition_1.Transition);
 	transition_1.Transition.register('md-transition', MDTransition);
-
-/***/ },
-/* 361 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_angular_1 = __webpack_require__(5);
-	var mock_provider_1 = __webpack_require__(362);
-	var ApiDemoApp = (function () {
-	    function ApiDemoApp(mockProvider) {
-	        this.mockProvider = mockProvider;
-	        this.items = mockProvider.getData();
-	    }
-	    ApiDemoApp.prototype.doRefresh = function (refresher) {
-	        var _this = this;
-	        console.log('DOREFRESH', refresher);
-	        this.mockProvider.getAsyncData().then(function (newData) {
-	            for (var i = 0; i < newData.length; i++) {
-	                _this.items.unshift(newData[i]);
-	            }
-	            refresher.complete();
-	        });
-	    };
-	    ApiDemoApp.prototype.doPulling = function (refresher) {
-	        console.log('DOPULLING', refresher.progress);
-	    };
-	    ApiDemoApp = __decorate([
-	        ionic_angular_1.App({
-	            templateUrl: 'main.html',
-	            providers: [mock_provider_1.MockProvider]
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof mock_provider_1.MockProvider !== 'undefined' && mock_provider_1.MockProvider) === 'function' && _a) || Object])
-	    ], ApiDemoApp);
-	    return ApiDemoApp;
-	    var _a;
-	})();
-
-/***/ },
-/* 362 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(7);
-	/**
-	 * Mock Data Access Object
-	 **/
-	var MockProvider = (function () {
-	    function MockProvider() {
-	        this._data = [
-	            'Fast Times at Ridgemont High',
-	            'Peggy Sue Got Married',
-	            'Raising Arizona',
-	            'Moonstruck',
-	            'Fire Birds',
-	            'Honeymoon in Vegas',
-	            'Amos & Andrew',
-	            'It Could Happen to You',
-	            'Trapped in Paradise',
-	            'Leaving Las Vegas',
-	            'The Rock',
-	            'Con Air',
-	            'Face/Off',
-	            'City of Angels',
-	            'Gone in Sixty Seconds',
-	            'The Family Man',
-	            'Windtalkers',
-	            'Matchstick Men',
-	            'National Treasure',
-	            'Ghost Rider',
-	            'Grindhouse',
-	            'Next',
-	            'Kick-Ass',
-	            'Drive Angry',
-	        ];
-	    }
-	    MockProvider.prototype.getData = function () {
-	        // return mock data synchronously
-	        var data = [];
-	        for (var i = 0; i < 3; i++) {
-	            data.push(this._getRandomData());
-	        }
-	        return data;
-	    };
-	    MockProvider.prototype.getAsyncData = function () {
-	        var _this = this;
-	        // async receive mock data
-	        return new Promise(function (resolve) {
-	            setTimeout(function () {
-	                resolve(_this.getData());
-	            }, 1000);
-	        });
-	    };
-	    MockProvider.prototype._getRandomData = function () {
-	        var i = Math.floor(Math.random() * this._data.length);
-	        return this._data[i];
-	    };
-	    MockProvider = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [])
-	    ], MockProvider);
-	    return MockProvider;
-	})();
-	exports.MockProvider = MockProvider;
 
 /***/ }
 /******/ ]);

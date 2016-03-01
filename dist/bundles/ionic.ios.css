@@ -6729,6 +6729,7 @@ tab-highlight {
 .has-icon .tab-badge {
   right: calc(50% - 30px); }
 
+[tabbarLayout=icon-hide] .tab-badge,
 [tabbarLayout=icon-bottom] .tab-badge,
 [tabbarLayout=icon-left] .tab-badge,
 [tabbarLayout=icon-right] .tab-badge {
@@ -7120,7 +7121,8 @@ ion-navbar-section {
   -webkit-box-ordinal-group: 5;
   -webkit-order: 4;
   -ms-flex-order: 4;
-  order: 4; }
+  order: 4;
+  min-width: 0; }
 
 .toolbar-title {
   font-size: 1.7rem;

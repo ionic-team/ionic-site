@@ -7,7 +7,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var ionic_angular_1 = require('ionic-angular');
 var core_1 = require('angular2/core');
 /**
  * Mock Data Access Object
@@ -69,30 +68,3 @@ var MockProvider = (function () {
     return MockProvider;
 })();
 exports.MockProvider = MockProvider;
-var ApiDemoApp = (function () {
-    function ApiDemoApp(mockProvider) {
-        this.mockProvider = mockProvider;
-        this.items = mockProvider.getData();
-    }
-    ApiDemoApp.prototype.doRefresh = function (refresher) {
-        var _this = this;
-        console.log('DOREFRESH', refresher);
-        this.mockProvider.getAsyncData().then(function (newData) {
-            for (var i = 0; i < newData.length; i++) {
-                _this.items.unshift(newData[i]);
-            }
-            refresher.complete();
-        });
-    };
-    ApiDemoApp.prototype.doPulling = function (refresher) {
-        console.log('DOPULLING', refresher.progress);
-    };
-    ApiDemoApp = __decorate([
-        ionic_angular_1.App({
-            templateUrl: 'main.html',
-            providers: [MockProvider]
-        }), 
-        __metadata('design:paramtypes', [MockProvider])
-    ], ApiDemoApp);
-    return ApiDemoApp;
-})();

@@ -31,7 +31,7 @@ Pay attention to the `[root]` property binding. This sets what is essentially th
 In `app/app.js`, the `MyApp` root component specifies this in its constructor:
 
 ```ts
-import {App, IonicApp, Platform} from 'ionic/ionic';
+import {App, IonicApp, Platform} from 'ionic-framework/ionic';
 import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {ListPage} from './pages/list/list';
 
@@ -71,7 +71,7 @@ Next, let's check out the `HelloIonicPage` that we are importing. Inside the `ap
 Below, you will see the `HelloIonicPage` class which has a `Page` [decorator](../../../resources/what-is/#decorators). This creates a Page - an Angular component and an Angular view configured with all the necessary directives already that is meant to be loaded dynamically, so it does not use a tag selector:
 
 ```ts
-import {Page} from 'ionic/ionic';
+import {Page} from 'ionic-framework/ionic';
 
 @Page({
   templateUrl: 'build/pages/hello-ionic/hello-ionic.html'
@@ -125,7 +125,7 @@ Let's check out the contents of `app/list/list.js`. Inside, you will see a new p
 
 ```ts
 {% raw %}
-import {Page, NavController, NavParams} from 'ionic/ionic';
+import {Page, NavController, NavParams} from 'ionic-framework/ionic';
 import {ItemDetailsPage} from '../item-details/item-details';
 
 

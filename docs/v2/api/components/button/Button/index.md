@@ -43,7 +43,8 @@ Improve this doc
 
 
 
-<p>Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.</p>
+<p>Buttons are simple components in Ionic. They can consist of text and icons
+and be enhanced by a wide range of attributes.</p>
 
 
 <h2>Component</h2>
@@ -106,7 +107,7 @@ outline
 
 
 <td>
-for an unfilled outline button
+A transparent button with a border.
 </td>
 </tr>
 
@@ -118,7 +119,7 @@ clear
 
 
 <td>
-for a transparent button that only shows text and icons
+A transparent button without a border.
 </td>
 </tr>
 
@@ -130,7 +131,7 @@ round
 
 
 <td>
-for a button with rounded corners
+A button with rounded corners.
 </td>
 </tr>
 
@@ -142,7 +143,7 @@ block
 
 
 <td>
-for a block button that fills it's parent container
+A button that fills its parent container with a border-radius.
 </td>
 </tr>
 
@@ -154,7 +155,7 @@ full
 
 
 <td>
-for a full width button
+A button that fills its parent container without a border-radius or borders on the left/right.
 </td>
 </tr>
 
@@ -166,7 +167,7 @@ small
 
 
 <td>
-sets button size to small
+A button with size small.
 </td>
 </tr>
 
@@ -178,7 +179,7 @@ large
 
 
 <td>
-sets button size to large
+A button with size large.
 </td>
 </tr>
 
@@ -190,7 +191,7 @@ disabled
 
 
 <td>
-disables the button
+A disabled button.
 </td>
 </tr>
 
@@ -202,7 +203,7 @@ fab
 
 
 <td>
-for a floating action button
+A floating action button.
 </td>
 </tr>
 
@@ -214,7 +215,7 @@ fab-left
 
 
 <td>
-position a fab button to the left
+Position a fab button to the left.
 </td>
 </tr>
 
@@ -226,7 +227,7 @@ fab-right
 
 
 <td>
-position a fab button to the right
+Position a fab button to the right.
 </td>
 </tr>
 
@@ -238,7 +239,7 @@ fab-center
 
 
 <td>
-position a fab button towards the center
+Position a fab button towards the center.
 </td>
 </tr>
 
@@ -250,7 +251,7 @@ fab-top
 
 
 <td>
-position a fab button towards the top
+Position a fab button towards the top.
 </td>
 </tr>
 
@@ -262,7 +263,7 @@ fab-bottom
 
 
 <td>
-position a fab button towards the bottom
+Position a fab button towards the bottom.
 </td>
 </tr>
 
@@ -275,6 +276,7 @@ color
 
 <td>
 Dynamically set which color attribute this button should use.
+
 </td>
 </tr>
 

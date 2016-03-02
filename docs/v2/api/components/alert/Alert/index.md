@@ -43,8 +43,8 @@ Improve this doc
 
 
 
-<p>An Alert is a dialog that presents users with either information, or used
-to receive information from the user using inputs. An alert appears on top
+<p>An Alert is a dialog that presents users with information or collects
+information from the user using inputs. An alert appears on top
 of the app&#39;s content, and must be manually dismissed by the user before
 they can resume interaction with the app.</p>
 <p>An alert is created from an array of <code>buttons</code> and optionally an array of
@@ -58,10 +58,10 @@ array) is the main button.</p>
 If a <code>cancel</code> role is on one of the buttons, then if the alert is dismissed
 by tapping the backdrop, then it will fire the handler from the button
 with a cancel role.</p>
-<p>Alerts can also include inputs whos data can be passed back to the app.
+<p>Alerts can also include inputs whose data can be passed back to the app.
 Inputs can be used to prompt users for information.</p>
-<p>Its shorthand is to add all the alert&#39;s options from within the
-<code>Alert.create(opts)</code> first argument. Otherwise the alert&#39;s instance
+<p>You can pass all of the alert&#39;s options in the first argument of
+the create method: <code>Alert.create(opts)</code>. Otherwise the alert&#39;s instance
 has methods to add options, such as <code>setTitle()</code> or <code>addButton()</code>.</p>
 
 <!-- @usage tag -->

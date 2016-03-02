@@ -43,9 +43,9 @@ Improve this doc
 
 
 
-<p>IdRef is an easy way to identify unique components in an app and access them
+<p>The <code>id</code> attribute is an easy way to identify unique components in an app and access them
 no matter where in the UI hierarchy you are. For example, this makes toggling
-a global side menu feasible from any place in the application.</p>
+a global side menu possible from any place in the application.</p>
 <p>See the <a href="http://ionicframework.com/docs/v2/components/#menus">Menu section</a> of
 the Component docs for an example of how Menus rely on ID&#39;s.</p>
 

@@ -43,10 +43,8 @@ Improve this doc
 
 
 
-<p>Labels describe the data that the user should enter in to an input
-element. You can give <code>ion-label</code> attributes to tell it how to
-handle its display type, which is especially useful for an
-<code>ion-item</code> which contains a text input.</p>
+<p>Labels are placed inside of an <code>ion-item</code> element and can be used
+to describe an <code>ion-input</code>, <code>ion-toggle</code>, <code>ion-checkbox</code>, and more.</p>
 
 
 <h2>Directive</h2>
@@ -61,7 +59,7 @@ handle its display type, which is especially useful for an
 &lt;/ion-item&gt;
 
 &lt;ion-item&gt;
-  &lt;ion-labe fixed&gt;Website&lt;/ion-label&gt;
+  &lt;ion-label fixed&gt;Website&lt;/ion-label&gt;
   &lt;ion-input type=&quot;url&quot;&gt;&lt;/ion-input&gt;
 &lt;/ion-item&gt;
 
@@ -73,6 +71,16 @@ handle its display type, which is especially useful for an
 &lt;ion-item&gt;
   &lt;ion-label stacked&gt;Phone&lt;/ion-label&gt;
   &lt;ion-input type=&quot;tel&quot;&gt;&lt;/ion-input&gt;
+&lt;/ion-item&gt;
+
+&lt;ion-item&gt;
+  &lt;ion-label&gt;Toggle&lt;/ion-label&gt;
+  &lt;ion-toggle&gt;&lt;/ion-toggle&gt;
+&lt;/ion-item&gt;
+
+&lt;ion-item&gt;
+  &lt;ion-label&gt;Checkbox&lt;/ion-label&gt;
+  &lt;ion-checkbox&gt;&lt;/ion-checkbox&gt;
 &lt;/ion-item&gt;
 </code></pre>
 

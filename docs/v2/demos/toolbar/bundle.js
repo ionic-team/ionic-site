@@ -26182,7 +26182,8 @@
 	 * @name Config
 	 * @demo /docs/v2/demos/config/
 	 * @description
-	 * Config lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
+	 * The Config lets you configure your entire app or specific platforms.
+	 * You can set the tab placement, icon mode, animations, and more here.
 	 *
 	 * ```ts
 	 * @App({
@@ -26198,7 +26199,7 @@
 	 * })
 	 * ```
 	 *
-	 * Or change the whole mode
+	 * To change the mode to always use Material Design (md).
 	 *
 	 * ```ts
 	 * @App({
@@ -26209,7 +26210,7 @@
 	 * })
 	 * ```
 	 *
-	 * Config can be overwritting at multiple levels, allowing deeper configuration. Taking the example from earlier, we can override any setting we want based on a platform.
+	 * Config can be overwritten at multiple levels allowing for more configuration. Taking the example from earlier, we can override any setting we want based on a platform.
 	 * ```ts
 	 * @App({
 	 *   template: `<ion-nav [root]="root"></ion-nav>`
@@ -26231,8 +26232,6 @@
 	 *    <ion-tab tabTitle="Dash" tabIcon="pulse" [root]="tabRoot"></ion-tab>
 	 *  </ion-tabs>
 	 * ```
-	 *
-	 * The property will override anything else set in the apps.
 	 *
 	 * The last way we could configure is through URL query strings. This is useful for testing while in the browser.
 	 * Simply add `?ionic<PROPERTYNAME>=<value>` to the url.
@@ -27563,8 +27562,9 @@
 	/**
 	 * @name Events
 	 * @description
-	 * Events is a pub/sub style event system for sending and responding to application-level
+	 * Events is a publish-subscribe style event system for sending and responding to application-level
 	 * events across your app.
+	 *
 	 * @usage
 	 * ```ts
 	 * // first page (publish an event when a user is created)
@@ -41165,7 +41165,7 @@
 	/**
 	 * @name Keyboard
 	 * @description
-	 * The `Keyboard` class allows you to work with the keyboard events provide by the Ionic keyboard plugin.
+	 * The `Keyboard` class allows you to work with the keyboard events provided by the Ionic keyboard plugin.
 	 *
 	 * @usage
 	 * ```ts
@@ -41342,7 +41342,7 @@
 	 * _For basic Menu usage, see the [Menu section](../../../../components/#menus)
 	 * of the Component docs._
 	 *
-	 * Menu is a side-menu interface that can be dragged out or toggled to open or closed.
+	 * Menu is a side-menu interface that can be dragged and toggled to open or close.
 	 * An Ionic app can have numerous menus, all of which can be controlled within
 	 * template HTML, or programmatically.
 	 *
@@ -46188,17 +46188,14 @@
 	 * @name Navbar
 	 * @description
 	 * Navbar is a global level toolbar that gets updated every time a page gets
-	 * loaded. You can pass the navbar a `ion-title` or any number of buttons.
+	 * loaded. You can pass the navbar an `ion-title`, any number of buttons, a segment, or a searchbar.
 	 *
 	 * @usage
 	 * ```html
 	 * <ion-navbar *navbar>
-	 *
-	 *   <ion-buttons start>
-	 *     <button (click)="toggleItems()">
-	 *       toggle
-	 *     </button>
-	 *   </ion-buttons>
+	 *   <button menuToggle>
+	 *     <ion-icon name="menu"></ion-icon>
+	 *   </button>
 	 *
 	 *   <ion-title>
 	 *     Page Title
@@ -46206,7 +46203,7 @@
 	 *
 	 *   <ion-buttons end>
 	 *     <button (click)="openModal()">
-	 *       Modal
+	 *       <ion-icon name="options"></ion-icon>
 	 *     </button>
 	 *   </ion-buttons>
 	 * </ion-navbar>
@@ -46383,12 +46380,12 @@
 	 * For a full list of available icons, check out the
 	 * [Ionicons resource docs](../../../../resources/ionicons).
 	 *
-	 * One feature of Ionicons is that when icon names are set, the actual icon
+	 * One feature of Ionicons in Ionic is when icon names are set, the actual icon
 	 * which is rendered can change slightly depending on the mode the app is
 	 * running from. For example, by setting the icon name of `alarm`, on iOS the
 	 * icon will automatically apply `ios-alarm`, and on Material Design it will
-	 * automatically apply `md-alarm`. This allow the developer to write the
-	 * markup once, and let Ionic automatically apply the appropriate icon.
+	 * automatically apply `md-alarm`. This allows the developer to write the
+	 * markup once while Ionic applies the appropriate icon based on the mode.
 	 *
 	 * @usage
 	 * ```html
@@ -46810,26 +46807,29 @@
 	/**
 	  * @name Button
 	  * @module ionic
-	  * @property [outline] - for an unfilled outline button
-	  * @property [clear] - for a transparent button that only shows text and icons
-	  * @property [round] - for a button with rounded corners
-	  * @property [block] - for a block button that fills it's parent container
-	  * @property [full] - for a full width button
-	  * @property [small] - sets button size to small
-	  * @property [large] - sets button size to large
-	  * @property [disabled] - disables the button
-	  * @property [fab] - for a floating action button
-	  * @property [fab-left] - position a fab button to the left
-	  * @property [fab-right] - position a fab button to the right
-	  * @property [fab-center] - position a fab button towards the center
-	  * @property [fab-top] - position a fab button towards the top
-	  * @property [fab-bottom] - position a fab button towards the bottom
-	  * @property [color] - Dynamically set which color attribute this button should use.
+	  *
 	  * @description
-	  * Buttons are simple components in Ionic, can consist of text, an icon, or both, and can be enhanced with a wide range of attributes.
+	  * Buttons are simple components in Ionic. They can consist of text and icons
+	  * and be enhanced by a wide range of attributes.
+	  *
+	  * @property [outline] - A transparent button with a border.
+	  * @property [clear] - A transparent button without a border.
+	  * @property [round] - A button with rounded corners.
+	  * @property [block] - A button that fills its parent container with a border-radius.
+	  * @property [full] - A button that fills its parent container without a border-radius or borders on the left/right.
+	  * @property [small] - A button with size small.
+	  * @property [large] - A button with size large.
+	  * @property [disabled] - A disabled button.
+	  * @property [fab] - A floating action button.
+	  * @property [fab-left] - Position a fab button to the left.
+	  * @property [fab-right] - Position a fab button to the right.
+	  * @property [fab-center] - Position a fab button towards the center.
+	  * @property [fab-top] - Position a fab button towards the top.
+	  * @property [fab-bottom] - Position a fab button towards the bottom.
+	  * @property [color] - Dynamically set which color attribute this button should use.
+	  *
 	  * @demo /docs/v2/demos/button/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
-
 	 */
 	var Button = (function () {
 	    function Button(config, _elementRef, _renderer, ionItem) {
@@ -56920,10 +56920,8 @@
 	/**
 	 * @name Label
 	 * @description
-	 * Labels describe the data that the user should enter in to an input
-	 * element. You can give `ion-label` attributes to tell it how to
-	 * handle its display type, which is especially useful for an
-	 * `ion-item` which contains a text input.
+	 * Labels are placed inside of an `ion-item` element and can be used
+	 * to describe an `ion-input`, `ion-toggle`, `ion-checkbox`, and more.
 	 *
 	 * @property [fixed] - a persistant label that sits next the the input
 	 * @property [floating] - a label that will float about the input if the input is empty of looses focus
@@ -56938,7 +56936,7 @@
 	 *  </ion-item>
 	 *
 	 *  <ion-item>
-	 *    <ion-labe fixed>Website</ion-label>
+	 *    <ion-label fixed>Website</ion-label>
 	 *    <ion-input type="url"></ion-input>
 	 *  </ion-item>
 	 *
@@ -56952,6 +56950,15 @@
 	 *    <ion-input type="tel"></ion-input>
 	 *  </ion-item>
 	 *
+	 *  <ion-item>
+	 *    <ion-label>Toggle</ion-label>
+	 *    <ion-toggle></ion-toggle>
+	 *  </ion-item>
+	 *
+	 *  <ion-item>
+	 *    <ion-label>Checkbox</ion-label>
+	 *    <ion-checkbox></ion-checkbox>
+	 *  </ion-item>
 	 * ```
 	 *
 	 * @demo /docs/v2/demos/label/
@@ -57109,9 +57116,12 @@
 	var util_1 = __webpack_require__(163);
 	var CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 	/**
-	 * The checkbox is no different than the HTML checkbox input, except
-	 * it's styled accordingly to the the platform and design mode, such
-	 * as iOS or Material Design.
+	 * @name Checkbox
+	 * @module ionic
+	 *
+	 * @description
+	 * The Checkbox is a simple component styled based on the mode. It can be
+	 * placed in an `ion-item` or used as a stand-alone checkbox.
 	 *
 	 * See the [Angular 2 Docs](https://angular.io/docs/ts/latest/guide/forms.html)
 	 * for more info on forms and inputs.
@@ -57139,6 +57149,7 @@
 	 *
 	 *  </ion-list>
 	 * ```
+	 *
 	 * @demo /docs/v2/demos/checkbox/
 	 * @see {@link /docs/v2/components#checkbox Checkbox Component Docs}
 	 */
@@ -57721,8 +57732,8 @@
 	/**
 	 * @name Alert
 	 * @description
-	 * An Alert is a dialog that presents users with either information, or used
-	 * to receive information from the user using inputs. An alert appears on top
+	 * An Alert is a dialog that presents users with information or collects
+	 * information from the user using inputs. An alert appears on top
 	 * of the app's content, and must be manually dismissed by the user before
 	 * they can resume interaction with the app.
 	 *
@@ -57740,11 +57751,11 @@
 	 * by tapping the backdrop, then it will fire the handler from the button
 	 * with a cancel role.
 	 *
-	 * Alerts can also include inputs whos data can be passed back to the app.
+	 * Alerts can also include inputs whose data can be passed back to the app.
 	 * Inputs can be used to prompt users for information.
 	 *
-	 * Its shorthand is to add all the alert's options from within the
-	 * `Alert.create(opts)` first argument. Otherwise the alert's instance
+	 * You can pass all of the alert's options in the first argument of
+	 * the create method: `Alert.create(opts)`. Otherwise the alert's instance
 	 * has methods to add options, such as `setTitle()` or `addButton()`.
 	 *
 	 * @usage
@@ -60919,9 +60930,9 @@
 	/**
 	 * @name Id
 	 * @description
-	 * IdRef is an easy way to identify unique components in an app and access them
+	 * The `id` attribute is an easy way to identify unique components in an app and access them
 	 * no matter where in the UI hierarchy you are. For example, this makes toggling
-	 * a global side menu feasible from any place in the application.
+	 * a global side menu possible from any place in the application.
 	 *
 	 * See the [Menu section](http://ionicframework.com/docs/v2/components/#menus) of
 	 * the Component docs for an example of how Menus rely on ID's.
@@ -61089,7 +61100,25 @@
 	 * Complements the [hideWhen attribute](../HideWhen).
 	 * @usage
 	 * ```html
-	 * <div showWhen="ios">I am only visible on iOS!</div>
+	 * <div showWhen="android">
+	 *  I am visible on Android!
+	 * </div>
+	 *
+	 * <div showWhen="ios">
+	 *  I am visible on iOS!
+	 * </div>
+	 *
+	 * <div showWhen="android,ios">
+	 *  I am visible on Android and iOS!
+	 * </div>
+	 *
+	 * <div showWhen="portrait">
+	 *  I am visible on Portrait!
+	 * </div>
+	 *
+	 * <div showWhen="landscape">
+	 *  I am visible on Landscape!
+	 * </div>
 	 * ```
 	 * @demo /docs/v2/demos/show-when/
 	 * @see {@link ../HideWhen HideWhen API Docs}
@@ -61131,8 +61160,27 @@
 	 * Complements the [showWhen attribute](../ShowWhen).
 	 * @usage
 	 * ```html
-	 * <div hideWhen="android">I am hidden on Android!</div>
+	 * <div hideWhen="android">
+	 *  I am hidden on Android!
+	 * </div>
+	 *
+	 * <div hideWhen="ios">
+	 *  I am hidden on iOS!
+	 * </div>
+	 *
+	 * <div hideWhen="android,ios">
+	 *  I am hidden on Android and iOS!
+	 * </div>
+	 *
+	 * <div hideWhen="portrait">
+	 *  I am hidden on Portrait!
+	 * </div>
+	 *
+	 * <div hideWhen="landscape">
+	 *  I am hidden on Landscape!
+	 * </div>
 	 * ```
+	 *
 	 * @demo /docs/v2/demos/hide-when/
 	 * @see {@link ../ShowWhen ShowWhen API Docs}
 	 */
@@ -61415,7 +61463,7 @@
 	 * An Action Sheet is a dialog that lets the user choose from a set of
 	 * options. It appears on top of the app's content, and must be manually
 	 * dismissed by the user before they can resume interaction with the app.
-	 * Dangerous (destructive) options are made obvious. There are easy
+	 * Dangerous (destructive) options are made obvious in `ios` mode. There are easy
 	 * ways to cancel out of the action sheet, such as tapping the backdrop or
 	 * hitting the escape key on desktop.
 	 *
@@ -61425,16 +61473,16 @@
 	 * action sheet can also optionally have a `title` and a `subTitle`.
 	 *
 	 * A button's `role` property can either be `destructive` or `cancel`. Buttons
-	 * without a role property will have a default look for its platform. Buttons
+	 * without a role property will have the default look for the platform. Buttons
 	 * with the `cancel` role will always load as the bottom button, no matter where
-	 * it shows up in the array. All other buttons will show up in the order they
+	 * they are in the array. All other buttons will be displayed in the order they
 	 * have been added to the `buttons` array. Note: We recommend that `destructive`
-	 * buttons show be the first button in the array, making it the button on top.
+	 * buttons are always the first button in the array, making them the top button.
 	 * Additionally, if the action sheet is dismissed by tapping the backdrop, then
 	 * it will fire the handler from the button with the cancel role.
 	 *
-	 * Its shorthand is to add all the action sheet's options from within the
-	 * `ActionSheet.create(opts)` first argument. Otherwise the action sheet's
+	 * You can pass all of the action sheet's options in the first argument of
+	 * the create method: `ActionSheet.create(opts)`. Otherwise the action sheet's
 	 * instance has methods to add options, like `setTitle()` or `addButton()`.
 	 *
 	 * @usage

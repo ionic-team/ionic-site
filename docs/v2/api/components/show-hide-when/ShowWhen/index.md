@@ -54,7 +54,25 @@ Complements the <a href="../HideWhen">hideWhen attribute</a>.</p>
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;div showWhen=&quot;ios&quot;&gt;I am only visible on iOS!&lt;/div&gt;
+<pre><code class="lang-html">&lt;div showWhen=&quot;android&quot;&gt;
+ I am visible on Android!
+&lt;/div&gt;
+
+&lt;div showWhen=&quot;ios&quot;&gt;
+ I am visible on iOS!
+&lt;/div&gt;
+
+&lt;div showWhen=&quot;android,ios&quot;&gt;
+ I am visible on Android and iOS!
+&lt;/div&gt;
+
+&lt;div showWhen=&quot;portrait&quot;&gt;
+ I am visible on Portrait!
+&lt;/div&gt;
+
+&lt;div showWhen=&quot;landscape&quot;&gt;
+ I am visible on Landscape!
+&lt;/div&gt;
 </code></pre>
 
 

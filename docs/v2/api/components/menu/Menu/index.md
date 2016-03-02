@@ -45,7 +45,7 @@ Improve this doc
 
 <p><em>For basic Menu usage, see the <a href="../../../../components/#menus">Menu section</a>
 of the Component docs.</em></p>
-<p>Menu is a side-menu interface that can be dragged out or toggled to open or closed.
+<p>Menu is a side-menu interface that can be dragged and toggled to open or close.
 An Ionic app can have numerous menus, all of which can be controlled within
 template HTML, or programmatically.</p>
 

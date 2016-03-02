@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "checkbox"
 title: "Checkbox"
-header_sub_title: "Class in module "
+header_sub_title: "Class in module ionic"
 doc: "Checkbox"
 docType: "class"
 show_preview_device: true
@@ -43,9 +43,8 @@ Improve this doc
 
 
 
-<p>The checkbox is no different than the HTML checkbox input, except
-it&#39;s styled accordingly to the the platform and design mode, such
-as iOS or Material Design.</p>
+<p>The Checkbox is a simple component styled based on the mode. It can be
+placed in an <code>ion-item</code> or used as a stand-alone checkbox.</p>
 <p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a>
 for more info on forms and inputs.</p>
 

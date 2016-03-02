@@ -30,6 +30,14 @@ var InitialPage = (function () {
             var androidSheet = {
                 title: 'Albums',
                 buttons: [
+                    {
+                        text: 'Delete',
+                        style: 'destructive',
+                        icon: 'md-trash',
+                        handler: function () {
+                            console.log('Destructive clicked');
+                        }
+                    },
                     { text: 'Share',
                         icon: 'share',
                         handler: function () {
@@ -49,14 +57,6 @@ var InitialPage = (function () {
                         }
                     },
                     {
-                        text: 'Delete',
-                        style: 'destructive',
-                        icon: 'md-trash',
-                        handler: function () {
-                            console.log('Destructive clicked');
-                        }
-                    },
-                    {
                         text: 'Cancel',
                         style: 'cancel',
                         icon: 'md-close',
@@ -69,6 +69,13 @@ var InitialPage = (function () {
         }
         var actionSheet = ionic_angular_1.ActionSheet.create(androidSheet || {
             buttons: [
+                {
+                    text: 'Delete',
+                    style: 'destructive',
+                    handler: function () {
+                        console.log('Destructive clicked');
+                    }
+                },
                 {
                     text: 'Share',
                     handler: function () {
@@ -85,13 +92,6 @@ var InitialPage = (function () {
                     text: 'Favorite',
                     handler: function () {
                         console.log('Favorite clicked');
-                    }
-                },
-                {
-                    text: 'Delete',
-                    style: 'destructive',
-                    handler: function () {
-                        console.log('Destructive clicked');
                     }
                 },
                 {

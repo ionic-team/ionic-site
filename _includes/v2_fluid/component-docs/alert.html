@@ -49,7 +49,7 @@ Prompts offer the user a way to input data or information. For example, often ti
 ```
     let prompt = Alert.create({
       title: 'Login',
-      body: "Enter a name for this new album you're so keen on adding",
+      message: "Enter a name for this new album you're so keen on adding",
       inputs: [
         {
           name: 'title',
@@ -84,7 +84,7 @@ Confirmation Alerts are used when it is required that the user explicitly confir
 ```
     let confirm = Alert.create({
       title: 'Use this lightsaber?',
-      body: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+      message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
       buttons: [
         {
           text: 'Disagree',

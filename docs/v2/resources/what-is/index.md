@@ -20,7 +20,6 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <p>The <a href="http://developer.android.com/sdk/index.html">Android SDK</a> is a software development kit that for developers building for Google's Android Platform. It includes tools for building, testing, and debugging Android apps.</p>
   </section>
 
-
   <section id="annotations">
     <h3><a href="#annotations">Annotations</a></h3>
     <p>Annotations are used to add metadata to a class. <a href="#typescript">TypeScript</a> extends <a href="#es2015-es6">ES6</a> by adding annotations. While you can define your own annotations, the Ionic community often refers to two annotations provided by Angular 2: <code>@Component</code> and <code>@View</code>.
@@ -36,12 +35,17 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <h3><a href="#babel">Babel</a></h3>
     <p><a href="http://babeljs.io">Babel</a> is a next-generation JavaScript compiler. Currently, today's browsers do not support every feature of the next-generation of JavaScript (<a href="#es2015-es6">ES6</a>). Babel solves this problem by compiling your ES6 code in to <a href="#es5">ES5</a>, which is the well-known version of JavaScript supported in all browsers.</p>
   </section>
-  
+
+  <section id="browserify">
+    <h3><a href="#browserify">Browserify</a></h3>
+    <p><a href="http://browserify.org/">Browserify</a> is a code bundler, similar to <a href="#webpack">webpack</a>, that analzyes all the code in an project, and budle it into single file.</p>
+  </section>
+
   <section id="bundling">
     <h3><a href="#bundling">Bundling</a></h3>
     <p>Bundling is the process of taking an app dependencies (code you've written plus any npm modules installed) and compiling/transpiling them down to one single file.</p>
   </section>
-  
+
   <section id="cli">
     <h3><a href="#cli">CLI</a></h3>
     <p>A CLI, or command-line interface, is text-based interface for interacting with a program. The common command-line app for a Mac user is the Terminal app, and Windows users often use Command Prompt. The Ionic community often uses this term to refer to <a href="http://ionicframework.com/docs/cli/">Ionic's CLI</a>. Ionic's CLI can be used for a number of things, such as creating production builds of an app, running the development server, and accessing <a href="http://ionic.io/">Ionic services</a>.</p>
@@ -105,21 +109,47 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <p><a href="http://ionicons.com/">Ionicons</a> is an open-source icon set used and created by Ionic. It includes iOS, Material Design, and social icons, as well as a wide range of commonly used icons. Ionicons is included by default in Ionic distributions, but they can be used in any project.</p>
   </section>
 
+  <section id="karma">
+    <h3><a href="#karma">Karma</a></h3>
+    <p><a href="https://karma-runner.github.io/0.13/index.html">Karama</a> is a test runner that will run your app's test inside a real browser. It's takes your test, written in any testing framework, and just runs them in browser. Orginially written for Angular 1.</p>
+  </section>
+
+  <section id="module">
+    <h3><a href="#module">Module</a></h3>
+    <p>Modules in JavaScript are small, independent, and reusable pieces or code that are isolated from one another and the Global scope</p>
+  </section>
+
+  <section id="livereload">
+    <h3><a href="#livereload">Live Reload</a></h3>
+    <p>Live Reload is a tool that automatically reloads your browser when it deteches changes. It watches a specific path and anytime a file or directory is updated, it will trigger a full browser reload. In cases where css is chagned, livereload will inject the changed css instead of reloading the entire page</p>
+  </section>
+
   <section id="node">
-    <h3><a href="#node">node</a></h3>
+    <h3><a href="#node">Node</a></h3>
     <p><a href="https://nodejs.org/">node</a> is a runtime environment that lets you write JavaScript on the server-side. In addition to being used for web services, node is often used to build developer tools, such as the <a href="#cli">Ionic CLI</a>.</p>
   </section>
 
   <section id="npm">
-    <h3><a href="#npm">npm</a></h3>
+    <h3><a href="#npm">NPM</a></h3>
     <p><a href="https://www.npmjs.com/">npm</a> is the package manager for <a href="#node">node</a>. It allows you to install, share, and package node modules. Ionic can be installed with npm, along with a number of its dependencies.
     </p>
   </section>
 
 <section id="observable">
-    <h3><a href="#observable">observable</a></h3>
+    <h3><a href="#observable">Observable</a></h3>
     <p>An observable is an object that emits events (or notifications). An observer is an object that listens for these events, and does something when an event is received. Together, they create a pattern that can be used for programming asynchronously.
     </p>
+  </section>
+
+<section id="polyfill">
+    <h3><a href="#polyfill">Polyfill</a></h3>
+    <p>A polyfill is a bit of code that add functionality to the browser and normailizes browser differences. This is similar to a shim, but where as a shim has it's own API, a polyfill let's you use the expect API of the brower.</p>
+    <p><a href="https://remysharp.com/2010/10/08/what-is-a-polyfill">What is a polyfill?</p>
+  </section>
+
+<section id="protractor">
+    <h3><a href="#protractor">Protractor</a></h3>
+    <p><a href="https://angular.github.io/protractor/#/">Protractor</a> is testing framework written for and by the Angular team. Protractor can be used with test runners, like Karma, for end-to-end testing. Basically figuring out if your app behaves the way you expect it too.</p>
   </section>
 
   <section id="sass">
@@ -127,13 +157,19 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <p>Sass is a stylesheet language that compiles to CSS and is used by Ionic. Sass is like CSS, but with extra features such as <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variables_">variables</a>, <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#mixins">mixins</a>, and <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_10">for loops</a>.</p>
   </section>
 
+<section id="shim">
+    <h3><a href="#shim">Shim</a></h3>
+    <p>A shim is a piece of code that normailizes difference APIs across browsers. A shim would often has it's own API that would handle the cross browser differences.</p>
+  </section>
+
+
   <section id="systemjs">
     <h3><a href="#systemjs">SystemJS</a></h3>
     <p>SystemJS is a module loader (like RequireJS) that loads all module formats - AMD, CommonJS, and ES6, and is built on top of the <a href="https://github.com/ModuleLoader/es6-module-loader">ES6 Module Loader polyfill</a> (a polyfill implementing the way JavaScript will load modules natively in the future).</p>
   </section>
 
   <section id="transpiler">
-    <h3><a href="#transpiler">transpiler</a></h3>
+    <h3><a href="#transpiler">Transpiler</a></h3>
     <p>
     Transpile means to convert code from one language, to another language. Typically a transpiler will convert a high-level language to another high-level language. Often times the Ionic community will talk about <em>transpiling</em> <a href="#es2015-es6">ES2015/ES6</a> or <a href="#typescript">TypeScript</a> to <a href="#es5">ES5</a>.
     </p>
@@ -144,6 +180,11 @@ header_sub_title: Learn about the Ionic community's favorite tools
     <p>
     TypeScript is a superset of JavaScript, which means it gives you JavaScript, along with a number of extra features such as <a href="http://www.typescriptlang.org/Handbook#basic-types">type declarations</a> and <a href="http://www.typescriptlang.org/Handbook#interfaces">interfaces</a>. Although Ionic is built with TypeScript, using it to build an Ionic app is completely optional.
     </p>
+  </section>
+
+  <section id="unit-tests">
+    <h3><a href="#unit-tests">Unit Tests</a></h3>
+    <p>Unit Tests and unit testing are a way to test small pieces of code to see if they behave as expected. Unit testing frameworks include Jasmine, Mocah, QUnit, and many more.</p>
   </section>
 
   <section id="webpack">

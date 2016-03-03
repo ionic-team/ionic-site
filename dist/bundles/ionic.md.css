@@ -375,60 +375,6 @@ template,
 root-anchor {
   display: none !important; }
 
-[padding],
-[padding] > scroll-content {
-  padding: 16px; }
-
-[padding-top] {
-  padding-top: 16px; }
-
-[padding-right] {
-  padding-right: 16px; }
-
-[padding-bottom] {
-  padding-bottom: 16px; }
-
-[padding-left] {
-  padding-left: 16px; }
-
-[padding-vertical] {
-  padding-top: 16px;
-  padding-bottom: 16px; }
-
-[padding-horizontal] {
-  padding-right: 16px;
-  padding-left: 16px; }
-
-[no-padding] {
-  padding: 0; }
-
-[margin],
-[margin] > scroll-content {
-  margin: 16px; }
-
-[margin-top] {
-  margin-top: 16px; }
-
-[margin-right] {
-  margin-right: 16px; }
-
-[margin-bottom] {
-  margin-bottom: 16px; }
-
-[margin-left] {
-  margin-left: 16px; }
-
-[margin-vertical] {
-  margin-top: 16px;
-  margin-bottom: 16px; }
-
-[margin-horizontal] {
-  margin-right: 16px;
-  margin-left: 16px; }
-
-[no-margin] {
-  margin: 0; }
-
 :focus,
 :active {
   outline: none; }
@@ -4738,8 +4684,7 @@ ion-alert {
   margin: 0;
   z-index: 0;
   line-height: 20px;
-  font-size: 14px;
-  margin-right: 8px; }
+  font-size: 14px; }
 
 .alert-wrapper {
   max-width: 280px;
@@ -4892,6 +4837,7 @@ ion-alert {
 
 .alert-button {
   padding: 10px;
+  margin: 0 8px 0 0;
   font-weight: 500;
   color: #327eff;
   background-color: transparent;
@@ -5410,14 +5356,6 @@ ion-card-header {
 ion-card-content {
   display: block; }
 
-ion-card > :first-child {
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit; }
-
-ion-card > :last-child {
-  border-bottom-left-radius: inherit;
-  border-bottom-right-radius: inherit; }
-
 ion-card {
   margin: 10px 10px 10px 10px;
   font-size: 1.4rem;
@@ -5596,14 +5534,13 @@ ion-checkbox[dark] .checkbox-checked {
     border-color: white; }
 
 ion-chip {
-  font-size: 13px;
-  font-weight: normal;
   background: rgba(0, 0, 0, 0.12);
   display: inline-block;
   height: 32px;
   line-height: 32px;
   border-radius: 16px;
   padding: 0 12px;
+  margin: 2px 0;
   box-sizing: border-box;
   vertical-align: middle;
   display: -webkit-inline-box;
@@ -5613,11 +5550,13 @@ ion-chip {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-  margin: 2px 0; }
+  font-size: 13px;
+  font-weight: normal; }
   ion-chip ion-label {
     margin: 0;
     color: rgba(0, 0, 0, 0.87); }
-  ion-chip > ion-icon, ion-chip > ion-avatar {
+  ion-chip > ion-icon,
+  ion-chip > ion-avatar {
     width: 32px;
     height: 32px;
     margin-left: -12px;
@@ -5627,42 +5566,44 @@ ion-chip {
     line-height: 32px;
     color: rgba(0, 0, 0, 0.87);
     font-size: 18px; }
-    ion-chip > ion-icon img, ion-chip > ion-avatar img {
+    ion-chip > ion-icon img,
+    ion-chip > ion-avatar img {
       max-width: 100%;
       max-height: 100%;
       width: 100%;
       height: 100%;
       border-radius: 50%;
       display: block; }
-    ion-chip > ion-icon + ion-label, ion-chip > ion-avatar + ion-label {
+    ion-chip > ion-icon + ion-label,
+    ion-chip > ion-avatar + ion-label {
       margin-left: 8px; }
   ion-chip ion-avatar {
     min-width: 32px;
     min-height: 32px; }
   ion-chip .button {
-    min-height: inherit;
-    margin-right: -4px;
-    margin-left: 8px; }
+    height: inherit;
+    margin: 0;
+    margin-right: -4px; }
   ion-chip ion-icon[name="close-circle"] {
     font-size: 1.2em; }
 
-ion-chip > ion-icon [primary] {
+ion-chip ion-icon[primary] {
   background-color: #327eff;
   color: white !important; }
 
-ion-chip > ion-icon [secondary] {
+ion-chip ion-icon[secondary] {
   background-color: #32db64;
   color: white !important; }
 
-ion-chip > ion-icon [danger] {
+ion-chip ion-icon[danger] {
   background-color: #f53d3d;
   color: white !important; }
 
-ion-chip > ion-icon [light] {
+ion-chip ion-icon[light] {
   background-color: #f4f4f4;
   color: black !important; }
 
-ion-chip > ion-icon [dark] {
+ion-chip ion-icon[dark] {
   background-color: #222;
   color: white !important; }
 
@@ -5696,6 +5637,12 @@ ion-chip > ion-icon [dark] {
   font-weight: 700;
   src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
+[no-padding] {
+  padding: 0; }
+
+[no-margin] {
+  margin: 0; }
+
 ion-content {
   background-color: #fff; }
 
@@ -5706,14 +5653,14 @@ ion-content {
 [padding-top] {
   padding-top: 16px; }
 
+[padding-left] {
+  padding-left: 16px; }
+
 [padding-right] {
   padding-right: 16px; }
 
 [padding-bottom] {
   padding-bottom: 16px; }
-
-[padding-left] {
-  padding-left: 16px; }
 
 [padding-vertical] {
   padding-top: 16px;
@@ -5722,6 +5669,30 @@ ion-content {
 [padding-horizontal] {
   padding-right: 16px;
   padding-left: 16px; }
+
+[margin],
+[margin] > scroll-content {
+  margin: 16px; }
+
+[margin-top] {
+  margin-top: 16px; }
+
+[margin-left] {
+  margin-left: 16px; }
+
+[margin-right] {
+  margin-right: 16px; }
+
+[margin-bottom] {
+  margin-bottom: 16px; }
+
+[margin-vertical] {
+  margin-top: 16px;
+  margin-bottom: 16px; }
+
+[margin-horizontal] {
+  margin-right: 16px;
+  margin-left: 16px; }
 
 /**
   Roboto Font
@@ -5984,8 +5955,7 @@ ion-item-divider {
   display: block;
   min-height: 30px;
   width: 100%;
-  z-index: 1000;
-  font-weight: 500; }
+  z-index: 1000; }
   ion-item-divider[sticky] {
     position: -webkit-sticky;
     position: sticky;
@@ -6868,11 +6838,6 @@ ion-segment {
   display: block;
   margin-left: 0;
   margin-right: 0;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  width: 0;
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -6889,6 +6854,11 @@ ion-segment {
   font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: 500;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 0;
   opacity: 0.7;
   color: #327eff;
   background-color: transparent;

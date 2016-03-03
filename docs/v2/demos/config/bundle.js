@@ -3448,7 +3448,7 @@
 	        linkEle.href = href;
 	    }
 	    // set the mode class name
-	    // ios/md
+	    // ios/md/wp
 	    bodyEle.classList.add(mode);
 	    // language and direction
 	    platform.setDir(document.documentElement.dir, false);
@@ -60590,6 +60590,7 @@
 	        core_1.Component({
 	            selector: 'ion-searchbar',
 	            host: {
+	                '[class.searchbar-has-value]': 'value',
 	                '[class.searchbar-hide-cancel]': 'hideCancelButton'
 	            },
 	            template: '<div class="searchbar-input-container">' +
@@ -61912,6 +61913,34 @@
 	    return ActionSheetMdSlideOut;
 	})(transition_1.Transition);
 	transition_1.Transition.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
+	var ActionSheetWpSlideIn = (function (_super) {
+	    __extends(ActionSheetWpSlideIn, _super);
+	    function ActionSheetWpSlideIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
+	        backdrop.fromTo('opacity', 0.01, 0.1);
+	        wrapper.fromTo('translateY', '100%', '0%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
+	    }
+	    return ActionSheetWpSlideIn;
+	})(transition_1.Transition);
+	transition_1.Transition.register('action-sheet-wp-slide-in', ActionSheetWpSlideIn);
+	var ActionSheetWpSlideOut = (function (_super) {
+	    __extends(ActionSheetWpSlideOut, _super);
+	    function ActionSheetWpSlideOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
+	        backdrop.fromTo('opacity', 0.1, 0);
+	        wrapper.fromTo('translateY', '0%', '100%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
+	    }
+	    return ActionSheetWpSlideOut;
+	})(transition_1.Transition);
+	transition_1.Transition.register('action-sheet-wp-slide-out', ActionSheetWpSlideOut);
 
 /***/ },
 /* 349 */
@@ -62759,6 +62788,24 @@
 	    tabbarPlacement: 'top',
 	    tabSubPages: true,
 	});
+	// Windows Mode Settings
+	config_1.Config.setModeConfig('wp', {
+	    activator: 'highlight',
+	    actionSheetEnter: 'action-sheet-wp-slide-in',
+	    actionSheetLeave: 'action-sheet-wp-slide-out',
+	    alertEnter: 'alert-md-pop-in',
+	    alertLeave: 'alert-md-pop-out',
+	    backButtonText: '',
+	    backButtonIcon: 'ios-arrow-back',
+	    iconMode: 'ios',
+	    menuType: 'overlay',
+	    modalEnter: 'modal-md-slide-in',
+	    modalLeave: 'modal-md-slide-out',
+	    pageTransition: 'md-transition',
+	    pageTransitionDelay: 96,
+	    tabbarPlacement: 'top',
+	    tabSubPages: true,
+	});
 
 /***/ },
 /* 357 */
@@ -62882,17 +62929,20 @@
 	    }
 	});
 	platform_1.Platform.register({
-	    name: 'windowsphone',
+	    name: 'windows',
 	    superset: 'mobile',
 	    subsets: [
 	        'phablet',
 	        'tablet'
 	    ],
 	    settings: {
-	        mode: 'md',
+	        mode: 'wp',
+	        autoFocusAssist: 'immediate',
+	        clickBlock: true,
+	        hoverCSS: false
 	    },
 	    isMatch: function (p) {
-	        return p.isPlatform('windowsphone', 'windows phone');
+	        return p.isPlatform('windows', 'windows');
 	    },
 	    versionParser: function (p) {
 	        return p.matchUserAgentVersion(/Windows Phone (\d+).(\d+)?/);

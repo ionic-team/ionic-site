@@ -1,4 +1,4 @@
-/*! Ionic: Material Design */
+/*! Ionic: Windows */
 /*! normalize.css v3.0.2 | MIT License | github.com/necolas/normalize.css */
 audio,
 canvas,
@@ -4343,64 +4343,64 @@ ion-icon {
   -moz-osx-font-smoothing: grayscale; }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-content {
   color: #000; }
@@ -4409,7 +4409,7 @@ p {
   color: #000; }
 
 a {
-  color: #387ef5; }
+  color: #327eff; }
 
 hr {
   background-color: rgba(0, 0, 0, 0.08); }
@@ -4426,7 +4426,7 @@ em[primary],
 sub[primary],
 sup[primary],
 ion-icon[primary] {
-  color: #387ef5 !important; }
+  color: #327eff !important; }
 
 h1[secondary], h2[secondary], h3[secondary], h4[secondary], h5[secondary], h6[secondary],
 p[secondary],
@@ -4484,63 +4484,35 @@ sup[dark],
 ion-icon[dark] {
   color: #222 !important; }
 
-h1[vibrant], h2[vibrant], h3[vibrant], h4[vibrant], h5[vibrant], h6[vibrant],
-p[vibrant],
-span[vibrant],
-a:not([button])[vibrant],
-small[vibrant],
-b[vibrant],
-i[vibrant],
-strong[vibrant],
-em[vibrant],
-sub[vibrant],
-sup[vibrant],
-ion-icon[vibrant] {
-  color: rebeccapurple !important; }
-
-h1[bright], h2[bright], h3[bright], h4[bright], h5[bright], h6[bright],
-p[bright],
-span[bright],
-a:not([button])[bright],
-small[bright],
-b[bright],
-i[bright],
-strong[bright],
-em[bright],
-sub[bright],
-sup[bright],
-ion-icon[bright] {
-  color: #FFC125 !important; }
-
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-action-sheet {
   position: absolute;
@@ -4567,64 +4539,69 @@ ion-action-sheet {
 .action-sheet-button {
   width: 100%; }
 
+.action-sheet-wrapper {
+  box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2); }
+
 .action-sheet-title {
   padding: 19px 16px 17px;
-  font-size: 1.6rem;
-  color: #757575;
+  font-size: 2rem;
+  color: #4D4D4D;
   text-align: left; }
 
 .action-sheet-button {
   padding: 0 16px;
   min-height: 4.8rem;
-  font-size: 1.6rem;
-  color: #222;
+  font-size: 1.5rem;
+  color: #4D4D4D;
   background: transparent;
   text-align: left; }
   .action-sheet-button.activated {
-    background: #f1f1f1; }
+    background: #AAAAAA; }
 
 .action-sheet-icon {
-  margin: 0 28px 0 0;
+  margin: 0 16px 0 0;
   min-width: 24px;
   text-align: center;
   vertical-align: middle;
   font-size: 2.4rem; }
 
 .action-sheet-group {
-  overflow: hidden;
-  background: #fafafa; }
+  background: #ffffff; }
   .action-sheet-group:last-child .action-sheet-button {
     margin-bottom: 8px; }
 
+.action-sheet-cancel {
+  background: transparent; }
+
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-alert {
   position: absolute;
@@ -4714,46 +4691,52 @@ ion-alert {
   line-height: 20px;
   font-size: 14px; }
 
+ion-alert .backdrop {
+  background: white; }
+
 .alert-wrapper {
-  max-width: 280px;
-  border-radius: 2px;
-  background-color: #fafafa;
-  box-shadow: 0px 16px 20px rgba(0, 0, 0, 0.4); }
+  width: 100%;
+  max-width: 520px;
+  border-radius: 0;
+  background: #E6E6E6;
+  border: 1px solid #327eff; }
 
 .alert-head {
   text-align: left;
-  padding: 24px 24px 20px 24px; }
+  padding: 20px 20px 5px 20px; }
 
 .alert-title {
-  font-size: 22px; }
+  font-size: 20px;
+  font-weight: 400; }
 
 .alert-sub-title {
   font-size: 16px; }
 
 .alert-message,
 .alert-input-group {
-  padding: 0 24px 24px 24px;
-  color: rgba(0, 0, 0, 0.5); }
+  padding: 0 20px;
+  color: #000; }
 
 .alert-message {
-  font-size: 15px;
+  font-size: 13px;
   max-height: 240px; }
   .alert-message:empty {
     padding: 0; }
 
 .alert-input {
-  border-bottom: 1px solid #dedede;
+  border: 2px solid rgba(0, 0, 0, 0.5);
   color: #000000;
-  margin: 5px 0 5px 0; }
+  margin: 5px 0 5px 0;
+  padding: 0 8px;
+  line-height: 3rem; }
   .alert-input:focus {
-    border-bottom: 2px solid #387ef5;
-    margin-bottom: 4px; }
+    border-color: #327eff; }
 
 .alert-radio-group,
 .alert-checkbox-group {
   position: relative;
-  border-top: 1px solid #dedede;
-  border-bottom: 1px solid #dedede;
+  border-top: 0 solid rgba(0, 0, 0, 0.5);
+  border-bottom: 0 solid rgba(0, 0, 0, 0.5);
   max-height: 240px;
   overflow: auto; }
 
@@ -4788,7 +4771,7 @@ ion-alert {
   margin: 0;
   border-width: 2px;
   border-style: solid;
-  border-color: #787878;
+  border-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%; }
   .alert-radio-icon:after {
     position: absolute;
@@ -4796,21 +4779,17 @@ ion-alert {
     left: 2px;
     width: 8px;
     height: 8px;
-    background-color: #387ef5;
+    background: #327eff;
     border-radius: 50%;
     content: '';
-    -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transform: scale3d(0, 0, 0);
-    transform: scale3d(0, 0, 0); }
+    display: none; }
 
 .alert-radio[aria-checked=true] {
-  color: #387ef5; }
+  color: #000; }
   .alert-radio[aria-checked=true] .alert-radio-icon {
-    border-color: #387ef5; }
+    border-color: rgba(0, 0, 0, 0.5); }
   .alert-radio[aria-checked=true] .alert-radio-icon:after {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); }
+    display: block; }
 
 .alert-checkbox-label {
   -webkit-box-flex: 1;
@@ -4829,32 +4808,33 @@ ion-alert {
   left: 13px;
   width: 16px;
   height: 16px;
-  border-radius: 2px;
+  border-radius: 0;
   border-width: 2px;
   border-style: solid;
-  border-color: #787878;
-  background-color: transparent; }
+  border-color: rgba(0, 0, 0, 0.5);
+  background: transparent; }
 
 .alert-checkbox[aria-checked=true] .alert-checkbox-icon {
-  background-color: #387ef5;
-  border-color: #387ef5; }
-  .alert-checkbox[aria-checked=true] .alert-checkbox-icon:after {
-    position: absolute;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #fafafa;
-    top: 0;
-    left: 3px;
-    width: 4px;
-    height: 8px;
-    border-left: none;
-    border-top: none;
-    content: '';
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg); }
+  background: #327eff;
+  border-color: #327eff; }
+
+.alert-checkbox[aria-checked=true] .alert-checkbox-inner {
+  position: absolute;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #E6E6E6;
+  top: -2px;
+  left: 3px;
+  width: 6px;
+  height: 12px;
+  border-left: none;
+  border-top: none;
+  content: '';
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg); }
 
 .alert-button-group {
-  padding: 8px 8px 8px 24px;
+  padding: 10px 20px;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
@@ -4862,20 +4842,23 @@ ion-alert {
   -webkit-flex-wrap: wrap-reverse;
   -ms-flex-wrap: wrap-reverse;
   flex-wrap: wrap-reverse; }
+  .alert-button-group.vertical .alert-button {
+    width: 100%;
+    margin-top: 5px; }
+    .alert-button-group.vertical .alert-button:first-child:not(:only-child) {
+      margin-top: 0; }
 
 .alert-button {
-  padding: 10px;
-  margin: 0 8px 0 0;
-  font-weight: 500;
-  color: #387ef5;
-  background-color: transparent;
-  border-radius: 2px;
-  text-transform: uppercase;
-  text-align: right;
-  position: relative;
-  overflow: hidden; }
+  padding: 5px;
+  color: #000;
+  background: #B8B8B8;
+  border-radius: 0;
+  width: 49.5%;
+  font-weight: 300; }
+  .alert-button:first-child:not(:only-child) {
+    margin-right: 1%; }
   .alert-button.activated {
-    background-color: rgba(158, 158, 158, 0.2); }
+    background: darkgray; }
 
 ion-badge {
   display: inline-block;
@@ -4891,12 +4874,12 @@ ion-badge {
     display: none; }
 
 ion-badge {
-  border-radius: 4px;
-  background-color: #387ef5;
+  border-radius: 0;
+  background-color: #327eff;
   color: white; }
 
 .badge-primary {
-  background-color: #387ef5;
+  background-color: #327eff;
   color: white; }
 
 .badge-secondary {
@@ -4915,43 +4898,35 @@ ion-badge {
   background-color: #222;
   color: white; }
 
-.badge-vibrant {
-  background-color: rebeccapurple;
-  color: white; }
-
-.badge-bright {
-  background-color: #FFC125;
-  color: black; }
-
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 .button {
   position: relative;
@@ -5030,22 +5005,16 @@ a.button, a[button] {
   margin: 0.4rem 0.2rem;
   padding: 0 1.1em;
   height: 3.6rem;
-  border-radius: 2px;
-  font-weight: 500;
+  border-radius: 0;
+  border: 3px solid transparent;
   font-size: 1.4rem;
   color: white;
-  background-color: #387ef5;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  text-transform: uppercase;
-  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+  background-color: #327eff; }
   .button:hover:not(.disable-hover) {
-    background-color: #387ef5; }
+    border-color: #2e74eb;
+    background-color: #327eff; }
   .button.activated {
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21);
-    background-color: #3474e1; }
-  .button ion-button-effect {
-    background-color: white; }
+    background-color: #2e74eb; }
 
 .button-large {
   padding: 0 1em;
@@ -5074,120 +5043,82 @@ a.button, a[button] {
 .button-outline {
   border-width: 1px;
   border-style: solid;
-  border-color: #387ef5;
+  border-color: #327eff;
   background-color: transparent;
-  color: #387ef5;
-  box-shadow: none; }
+  color: #327eff; }
   .button-outline:hover:not(.disable-hover) {
     background-color: rgba(158, 158, 158, 0.1); }
   .button-outline.activated {
-    opacity: 1;
-    box-shadow: none;
-    background-color: transparent; }
-  .button-outline ion-button-effect {
-    background-color: #387ef5; }
+    background-color: rgba(50, 126, 255, 0.16); }
 
 .button-clear {
-  border-color: transparent;
-  opacity: 1;
-  box-shadow: none;
   background-color: transparent;
-  color: #387ef5; }
+  color: #327eff; }
   .button-clear.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
+    background-color: rgba(158, 158, 158, 0.2); }
   .button-clear:hover:not(.disable-hover) {
     background-color: rgba(158, 158, 158, 0.1); }
-  .button-clear ion-button-effect {
-    background-color: #999; }
 
 .button-round {
   padding: 0 2.6rem;
   border-radius: 64px; }
 
 .button-fab {
-  border-radius: 50%;
-  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.14), 0 4px 5px rgba(0, 0, 0, 0.1);
-  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1); }
-  .button-fab.activated {
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4), 0 4px 7px 0 rgba(0, 0, 0, 0.1); }
+  border-radius: 50%; }
 
 .button-icon-only {
   padding: 0; }
 
 ion-button-effect {
-  position: absolute;
-  z-index: 0;
-  display: block;
-  border-radius: 50%;
-  background-color: #555;
-  opacity: 0.2;
-  pointer-events: none;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out; }
+  display: none; }
 
 .button-primary {
   color: white;
-  background-color: #387ef5; }
+  background-color: #327eff; }
   .button-primary:hover:not(.disable-hover) {
-    background-color: #387ef5; }
+    border-color: #2e74eb;
+    background-color: #327eff; }
   .button-primary.activated {
-    opacity: 1;
-    background-color: #3474e1; }
-  .button-primary ion-button-effect {
-    background-color: white; }
+    background-color: #2e74eb; }
 
 .button-outline-primary {
-  border-color: #3578e9;
-  background-color: transparent;
-  color: #3578e9; }
+  border-color: #3078f2;
+  color: #3078f2; }
   .button-outline-primary:hover:not(.disable-hover) {
+    border-color: #3078f2;
     background-color: rgba(158, 158, 158, 0.1); }
   .button-outline-primary.activated {
-    background-color: transparent; }
-  .button-outline-primary ion-button-effect {
-    background-color: #3578e9; }
+    background-color: rgba(48, 120, 242, 0.16); }
 
 .button-clear-primary {
-  border-color: transparent;
-  background-color: transparent;
-  color: #387ef5; }
+  color: #327eff; }
   .button-clear-primary.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
+    background-color: rgba(158, 158, 158, 0.2); }
   .button-clear-primary:hover:not(.disable-hover) {
-    color: #387ef5; }
+    color: #327eff; }
 
 .button-secondary {
   color: white;
   background-color: #32db64; }
   .button-secondary:hover:not(.disable-hover) {
+    border-color: #2ec95c;
     background-color: #32db64; }
   .button-secondary.activated {
-    opacity: 1;
     background-color: #2ec95c; }
-  .button-secondary ion-button-effect {
-    background-color: white; }
 
 .button-outline-secondary {
   border-color: #30d05f;
-  background-color: transparent;
   color: #30d05f; }
   .button-outline-secondary:hover:not(.disable-hover) {
+    border-color: #30d05f;
     background-color: rgba(158, 158, 158, 0.1); }
   .button-outline-secondary.activated {
-    background-color: transparent; }
-  .button-outline-secondary ion-button-effect {
-    background-color: #30d05f; }
+    background-color: rgba(48, 208, 95, 0.16); }
 
 .button-clear-secondary {
-  border-color: transparent;
-  background-color: transparent;
   color: #32db64; }
   .button-clear-secondary.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
+    background-color: rgba(158, 158, 158, 0.2); }
   .button-clear-secondary:hover:not(.disable-hover) {
     color: #32db64; }
 
@@ -5195,31 +5126,24 @@ ion-button-effect {
   color: white;
   background-color: #f53d3d; }
   .button-danger:hover:not(.disable-hover) {
+    border-color: #e13838;
     background-color: #f53d3d; }
   .button-danger.activated {
-    opacity: 1;
     background-color: #e13838; }
-  .button-danger ion-button-effect {
-    background-color: white; }
 
 .button-outline-danger {
   border-color: #e93a3a;
-  background-color: transparent;
   color: #e93a3a; }
   .button-outline-danger:hover:not(.disable-hover) {
+    border-color: #e93a3a;
     background-color: rgba(158, 158, 158, 0.1); }
   .button-outline-danger.activated {
-    background-color: transparent; }
-  .button-outline-danger ion-button-effect {
-    background-color: #e93a3a; }
+    background-color: rgba(233, 58, 58, 0.16); }
 
 .button-clear-danger {
-  border-color: transparent;
-  background-color: transparent;
   color: #f53d3d; }
   .button-clear-danger.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
+    background-color: rgba(158, 158, 158, 0.2); }
   .button-clear-danger:hover:not(.disable-hover) {
     color: #f53d3d; }
 
@@ -5227,31 +5151,24 @@ ion-button-effect {
   color: black;
   background-color: #f4f4f4; }
   .button-light:hover:not(.disable-hover) {
+    border-color: #e0e0e0;
     background-color: #f4f4f4; }
   .button-light.activated {
-    opacity: 1;
     background-color: #e0e0e0; }
-  .button-light ion-button-effect {
-    background-color: black; }
 
 .button-outline-light {
   border-color: #e8e8e8;
-  background-color: transparent;
   color: #e8e8e8; }
   .button-outline-light:hover:not(.disable-hover) {
+    border-color: #e8e8e8;
     background-color: rgba(158, 158, 158, 0.1); }
   .button-outline-light.activated {
-    background-color: transparent; }
-  .button-outline-light ion-button-effect {
-    background-color: #e8e8e8; }
+    background-color: rgba(232, 232, 232, 0.16); }
 
 .button-clear-light {
-  border-color: transparent;
-  background-color: transparent;
   color: #f4f4f4; }
   .button-clear-light.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
+    background-color: rgba(158, 158, 158, 0.2); }
   .button-clear-light:hover:not(.disable-hover) {
     color: #f4f4f4; }
 
@@ -5259,97 +5176,26 @@ ion-button-effect {
   color: white;
   background-color: #222; }
   .button-dark:hover:not(.disable-hover) {
+    border-color: #343434;
     background-color: #222; }
   .button-dark.activated {
-    opacity: 1;
     background-color: #343434; }
-  .button-dark ion-button-effect {
-    background-color: white; }
 
 .button-outline-dark {
   border-color: #2d2d2d;
-  background-color: transparent;
   color: #2d2d2d; }
   .button-outline-dark:hover:not(.disable-hover) {
+    border-color: #2d2d2d;
     background-color: rgba(158, 158, 158, 0.1); }
   .button-outline-dark.activated {
-    background-color: transparent; }
-  .button-outline-dark ion-button-effect {
-    background-color: #2d2d2d; }
+    background-color: rgba(45, 45, 45, 0.16); }
 
 .button-clear-dark {
-  border-color: transparent;
-  background-color: transparent;
   color: #222; }
   .button-clear-dark.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
+    background-color: rgba(158, 158, 158, 0.2); }
   .button-clear-dark:hover:not(.disable-hover) {
     color: #222; }
-
-.button-vibrant {
-  color: white;
-  background-color: rebeccapurple; }
-  .button-vibrant:hover:not(.disable-hover) {
-    background-color: rebeccapurple; }
-  .button-vibrant.activated {
-    opacity: 1;
-    background-color: #7243a1; }
-  .button-vibrant ion-button-effect {
-    background-color: white; }
-
-.button-outline-vibrant {
-  border-color: #6e3d9e;
-  background-color: transparent;
-  color: #6e3d9e; }
-  .button-outline-vibrant:hover:not(.disable-hover) {
-    background-color: rgba(158, 158, 158, 0.1); }
-  .button-outline-vibrant.activated {
-    background-color: transparent; }
-  .button-outline-vibrant ion-button-effect {
-    background-color: #6e3d9e; }
-
-.button-clear-vibrant {
-  border-color: transparent;
-  background-color: transparent;
-  color: rebeccapurple; }
-  .button-clear-vibrant.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
-  .button-clear-vibrant:hover:not(.disable-hover) {
-    color: rebeccapurple; }
-
-.button-bright {
-  color: black;
-  background-color: #FFC125; }
-  .button-bright:hover:not(.disable-hover) {
-    background-color: #FFC125; }
-  .button-bright.activated {
-    opacity: 1;
-    background-color: #ebb222; }
-  .button-bright ion-button-effect {
-    background-color: black; }
-
-.button-outline-bright {
-  border-color: #f2b723;
-  background-color: transparent;
-  color: #f2b723; }
-  .button-outline-bright:hover:not(.disable-hover) {
-    background-color: rgba(158, 158, 158, 0.1); }
-  .button-outline-bright.activated {
-    background-color: transparent; }
-  .button-outline-bright ion-button-effect {
-    background-color: #f2b723; }
-
-.button-clear-bright {
-  border-color: transparent;
-  background-color: transparent;
-  color: #FFC125; }
-  .button-clear-bright.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    box-shadow: none; }
-  .button-clear-bright:hover:not(.disable-hover) {
-    color: #FFC125; }
 
 .button-fab {
   position: absolute;
@@ -5410,34 +5256,34 @@ ion-button-effect {
     pointer-events: none; }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-card {
   display: block;
@@ -5457,17 +5303,17 @@ ion-card-content {
   display: block; }
 
 ion-card {
-  margin: 10px 10px 10px 10px;
+  margin: 8px 8px 8px 8px;
   font-size: 1.4rem;
   background: #fff;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  border-radius: 2px; }
+  border-radius: 1px;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2); }
   ion-card ion-list {
     margin-bottom: 0; }
     ion-card ion-list ion-label {
       padding: 0; }
     ion-card ion-list .item-inner {
-      border-bottom: 1px solid #dedede; }
+      border-bottom: 1px solid transparent; }
     ion-card ion-list > .item:last-child,
     ion-card ion-list > ion-item-sliding:last-child .item {
       border-bottom: none; }
@@ -5523,34 +5369,34 @@ ion-card + ion-card {
   margin-top: 0; }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-checkbox {
   position: relative;
@@ -5560,31 +5406,25 @@ ion-checkbox {
   position: relative;
   width: 16px;
   height: 16px;
-  border-radius: 2px;
+  border-radius: 0;
   border-width: 2px;
   border-style: solid;
-  border-color: #787878;
-  background-color: #fff;
-  -webkit-transition-property: background;
-  transition-property: background;
-  -webkit-transition-duration: 280ms;
-  transition-duration: 280ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  border-color: #333333;
+  background-color: #fff; }
 
 .checkbox-checked {
-  background-color: #387ef5;
-  border-color: #387ef5; }
+  background-color: #327eff;
+  border-color: #327eff; }
 
 .checkbox-checked .checkbox-inner {
   position: absolute;
-  border-width: 2px;
+  border-width: 1px;
   border-style: solid;
   border-color: #fff;
-  top: 0;
-  left: 4px;
-  width: 5px;
-  height: 10px;
+  top: -2px;
+  left: 3px;
+  width: 6px;
+  height: 12px;
   border-left: none;
   border-top: none;
   -webkit-transform: rotate(45deg);
@@ -5598,14 +5438,14 @@ ion-checkbox {
 .item ion-checkbox {
   position: static;
   display: block;
-  margin: 9px 36px 9px 4px; }
+  margin: 9px 16px 9px 4px; }
 
 ion-checkbox + .item-inner ion-label {
   margin-left: 0; }
 
 ion-checkbox[primary] .checkbox-checked {
-  background-color: #387ef5;
-  border-color: #387ef5; }
+  background-color: #327eff;
+  border-color: #327eff; }
   ion-checkbox[primary] .checkbox-checked .checkbox-inner {
     border-color: white; }
 
@@ -5632,18 +5472,6 @@ ion-checkbox[dark] .checkbox-checked {
   border-color: #222; }
   ion-checkbox[dark] .checkbox-checked .checkbox-inner {
     border-color: white; }
-
-ion-checkbox[vibrant] .checkbox-checked {
-  background-color: rebeccapurple;
-  border-color: rebeccapurple; }
-  ion-checkbox[vibrant] .checkbox-checked .checkbox-inner {
-    border-color: white; }
-
-ion-checkbox[bright] .checkbox-checked {
-  background-color: #FFC125;
-  border-color: #FFC125; }
-  ion-checkbox[bright] .checkbox-checked .checkbox-inner {
-    border-color: black; }
 
 ion-chip {
   background: rgba(0, 0, 0, 0.12);
@@ -5700,7 +5528,7 @@ ion-chip {
     font-size: 1.2em; }
 
 ion-chip ion-icon[primary] {
-  background-color: #387ef5;
+  background-color: #327eff;
   color: white !important; }
 
 ion-chip ion-icon[secondary] {
@@ -5719,43 +5547,35 @@ ion-chip ion-icon[dark] {
   background-color: #222;
   color: white !important; }
 
-ion-chip ion-icon[vibrant] {
-  background-color: rebeccapurple;
-  color: white !important; }
-
-ion-chip ion-icon[bright] {
-  background-color: #FFC125;
-  color: black !important; }
-
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 [no-padding] {
   padding: 0; }
@@ -5815,34 +5635,34 @@ ion-content {
   margin-left: 16px; }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-input,
 ion-textarea {
@@ -5933,30 +5753,22 @@ input.text-input:-webkit-autofill {
 
 .text-input {
   margin: 13px 8px 13px 8px;
-  padding: 0; }
+  padding: 0 8px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  line-height: 3rem; }
 
 .inset-input {
   margin: 6.5px 16px 6.5px 16px;
   padding: 6.5px 8px 6.5px 8px; }
 
-ion-input:after {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 16px;
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
-  border-bottom-color: transparent;
-  content: ''; }
+.input-has-focus .text-input {
+  border-color: #327eff; }
 
-.input-has-focus:after {
-  border-bottom-color: #387ef5; }
+ion-input.ng-valid.input-has-value .text-input {
+  border-color: #32db64; }
 
-ion-input.ng-valid.input-has-value:after {
-  border-bottom-color: #32db64; }
-
-ion-input.ng-invalid.ng-touched:after {
-  border-bottom-color: #f53d3d; }
+ion-input.ng-invalid.ng-touched .text-input {
+  border-color: #f53d3d; }
 
 .item-label-stacked .text-input,
 .item-label-floating .text-input {
@@ -5977,40 +5789,40 @@ ion-input[clearInput] {
 
 .text-input-clear-icon {
   width: 30px;
-  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='#5B5B5B'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='rgba(0,%200,%200,%200.5)'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
   background-size: 22px;
   right: 8px;
   bottom: 2px; }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 .item {
   display: -webkit-box;
@@ -6190,9 +6002,7 @@ ion-item-sliding.active-slide.active-options ion-item-options {
   font-weight: normal;
   color: #000;
   background-color: #fff;
-  box-shadow: none;
-  -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 300ms;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms; }
+  box-shadow: none; }
   .item h1 {
     margin: 0 0 2px;
     font-size: 2.4rem;
@@ -6216,14 +6026,14 @@ ion-item-sliding.active-slide.active-options ion-item-options {
     margin: 0 0 2px; }
 
 .item.activated {
-  background-color: #f1f1f1; }
+  background-color: #AAAAAA; }
 
 .item[no-lines] {
   border-width: 0; }
 
 .item-inner {
   padding-right: 8px;
-  border-bottom: 1px solid #dedede; }
+  border-bottom: 1px solid transparent; }
 
 [item-left],
 [item-right] {
@@ -6244,9 +6054,13 @@ ion-icon[item-right] {
 .item-button.button-icon-only {
   padding: 0 1px; }
 
+[text-wrap] ion-label {
+  font-size: 1.4rem;
+  line-height: 1.5; }
+
 ion-icon[item-left] + .item-inner,
 ion-icon[item-left] + .item-input {
-  margin-left: 24px; }
+  margin-left: 8px; }
 
 ion-avatar[item-left],
 ion-thumbnail[item-left] {
@@ -6272,7 +6086,7 @@ ion-thumbnail {
     max-height: 8rem; }
 
 ion-note {
-  color: #c5c5c5; }
+  color: rgba(0, 0, 0, 0.5); }
 
 ion-item-divider {
   padding: 13px 16px 13px 16px;
@@ -6280,7 +6094,7 @@ ion-item-divider {
   color: #222; }
 
 ion-item-divider[primary] {
-  background-color: #387ef5;
+  background-color: #327eff;
   color: white; }
 
 ion-item-divider[secondary] {
@@ -6299,46 +6113,38 @@ ion-item-divider[dark] {
   background-color: #222;
   color: white; }
 
-ion-item-divider[vibrant] {
-  background-color: rebeccapurple;
-  color: white; }
-
-ion-item-divider[bright] {
-  background-color: #FFC125;
-  color: black; }
-
 ion-item-sliding {
   background-color: #fff; }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-label {
   display: block;
@@ -6402,10 +6208,6 @@ ion-label[floating] {
 ion-label {
   margin: 13px 8px 13px 0; }
 
-[text-wrap] ion-label {
-  font-size: 1.4rem;
-  line-height: 1.5; }
-
 .item-input ion-label {
   color: #999; }
 
@@ -6415,10 +6217,8 @@ ion-label[stacked] {
 ion-label[floating] {
   -webkit-transform-origin: left top;
   transform-origin: left top;
-  -webkit-transform: translate3d(0, 27px, 0);
-  transform: translate3d(0, 27px, 0);
-  -webkit-transition: -webkit-transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out; }
+  -webkit-transform: translate3d(8px, 34px, 0);
+  transform: translate3d(8px, 34px, 0); }
 
 ion-label[stacked],
 ion-label[floating] {
@@ -6427,7 +6227,7 @@ ion-label[floating] {
 
 .input-has-focus ion-label[stacked],
 .input-has-focus ion-label[floating] {
-  color: #387ef5; }
+  color: #327eff; }
 
 .input-has-focus ion-label[floating],
 .input-has-value ion-label[floating] {
@@ -6435,7 +6235,7 @@ ion-label[floating] {
   transform: translate3d(0, 0, 0) scale(0.8); }
 
 ion-label[primary] {
-  color: #387ef5 !important; }
+  color: #327eff !important; }
 
 ion-label[secondary] {
   color: #32db64 !important; }
@@ -6449,41 +6249,35 @@ ion-label[light] {
 ion-label[dark] {
   color: #222 !important; }
 
-ion-label[vibrant] {
-  color: rebeccapurple !important; }
-
-ion-label[bright] {
-  color: #FFC125 !important; }
-
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-list-header {
   display: block;
@@ -6507,22 +6301,22 @@ ion-list[inset] {
 /****************/
 ion-list-header,
 ion-item-divider {
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid transparent;
   margin-left: 0;
   padding: 16px 16px 16px 16px;
-  font-size: 1.4rem;
-  color: #858585; }
+  font-size: 2rem;
+  color: #000; }
 
 ion-list {
   margin: 0 0 16px 0; }
   ion-list .item-inner {
-    border-bottom: 1px solid #dedede; }
+    border-bottom: 1px solid transparent; }
   ion-list > .item:first-child,
   ion-list > ion-item-sliding:first-child .item {
-    border-top: 1px solid #dedede; }
+    border-top: 1px solid transparent; }
   ion-list > .item:last-child,
   ion-list > ion-item-sliding:last-child .item {
-    border-bottom: 1px solid #dedede; }
+    border-bottom: 1px solid transparent; }
     ion-list > .item:last-child .item-inner,
     ion-list > .item:last-child ion-label,
     ion-list > ion-item-sliding:last-child .item .item-inner,
@@ -6586,109 +6380,100 @@ ion-list[no-lines] .item .item-inner {
   border-width: 0; }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-menu {
-  background: #fff; }
-
-.menu-content-reveal {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25); }
-
-.menu-content-push {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25); }
-
-ion-menu[type=overlay] {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25); }
+  background: #F2F2F2; }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-page.modal {
   background-color: #fff; }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-radio {
   position: relative;
@@ -6704,7 +6489,7 @@ ion-radio {
   margin: 0;
   border-width: 2px;
   border-style: solid;
-  border-color: #787878;
+  border-color: #333333;
   border-radius: 50%; }
 
 .radio-inner {
@@ -6713,19 +6498,15 @@ ion-radio {
   left: 2px;
   width: 8px;
   height: 8px;
-  background-color: #387ef5;
+  background-color: #333333;
   border-radius: 50%;
-  -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transform: scale3d(0, 0, 0);
-  transform: scale3d(0, 0, 0); }
+  display: none; }
 
 .radio-checked {
-  border-color: #387ef5; }
+  border-color: #327eff; }
 
 .radio-checked .radio-inner {
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1); }
+  display: block; }
 
 .radio-disabled,
 .item-radio-disabled ion-label {
@@ -6735,85 +6516,59 @@ ion-radio {
 .item ion-radio {
   position: static;
   display: block;
-  margin: 9px 8px 9px 0; }
+  margin: 9px 16px 9px 0;
+  -webkit-box-ordinal-group: 0;
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1; }
 
 .item-radio ion-label {
   margin-left: 0; }
 
-.item-radio-checked ion-label {
-  color: #387ef5; }
-
 ion-radio[primary] .radio-checked {
-  border-color: #387ef5; }
-
-ion-radio[primary] .radio-inner {
-  background-color: #387ef5; }
+  border-color: #327eff; }
 
 ion-radio[secondary] .radio-checked {
   border-color: #32db64; }
 
-ion-radio[secondary] .radio-inner {
-  background-color: #32db64; }
-
 ion-radio[danger] .radio-checked {
   border-color: #f53d3d; }
-
-ion-radio[danger] .radio-inner {
-  background-color: #f53d3d; }
 
 ion-radio[light] .radio-checked {
   border-color: #f4f4f4; }
 
-ion-radio[light] .radio-inner {
-  background-color: #f4f4f4; }
-
 ion-radio[dark] .radio-checked {
   border-color: #222; }
 
-ion-radio[dark] .radio-inner {
-  background-color: #222; }
-
-ion-radio[vibrant] .radio-checked {
-  border-color: rebeccapurple; }
-
-ion-radio[vibrant] .radio-inner {
-  background-color: rebeccapurple; }
-
-ion-radio[bright] .radio-checked {
-  border-color: #FFC125; }
-
-ion-radio[bright] .radio-inner {
-  background-color: #FFC125; }
-
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-searchbar {
   position: relative;
@@ -6852,113 +6607,110 @@ ion-searchbar {
   margin: 0; }
 
 ion-searchbar {
-  padding: 8px;
-  background: inherit; }
+  padding: 0;
+  background: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.5); }
 
 .searchbar-search-icon {
   width: 21px;
   height: 21px;
-  top: 11px;
-  left: 16px;
-  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='#5B5B5B'%20d='M337.509,305.372h-17.501l-6.571-5.486c20.791-25.232,33.922-57.054,33.922-93.257C347.358,127.632,283.896,64,205.135,64C127.452,64,64,127.632,64,206.629s63.452,142.628,142.225,142.628c35.011,0,67.831-13.167,92.991-34.008l6.561,5.487v17.551L415.18,448L448,415.086L337.509,305.372z%20M206.225,305.372c-54.702,0-98.463-43.887-98.463-98.743c0-54.858,43.761-98.742,98.463-98.742c54.7,0,98.462,43.884,98.462,98.742C304.687,261.485,260.925,305.372,206.225,305.372z'/></svg>"); }
-
-.searchbar-md-cancel {
-  display: none;
-  width: 21px;
-  height: 100%;
-  margin: 0;
-  top: 0;
-  left: 10px; }
-
-.searchbar-search-icon,
-.searchbar-md-cancel {
+  top: 5px;
+  right: 8px;
   background-size: 20px;
   background-repeat: no-repeat;
-  position: absolute; }
-  .searchbar-search-icon.activated,
-  .searchbar-md-cancel.activated {
+  position: absolute;
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='#858585'%20d='M337.509,305.372h-17.501l-6.571-5.486c20.791-25.232,33.922-57.054,33.922-93.257C347.358,127.632,283.896,64,205.135,64C127.452,64,64,127.632,64,206.629s63.452,142.628,142.225,142.628c35.011,0,67.831-13.167,92.991-34.008l6.561,5.487v17.551L415.18,448L448,415.086L337.509,305.372z%20M206.225,305.372c-54.702,0-98.463-43.887-98.463-98.743c0-54.858,43.761-98.742,98.463-98.742c54.7,0,98.462,43.884,98.462,98.742C304.687,261.485,260.925,305.372,206.225,305.372z'/></svg>"); }
+  .searchbar-search-icon.activated {
     background-color: transparent; }
 
 .searchbar-input {
-  padding: 6px 55px;
+  padding: 0 8px;
   height: auto;
   line-height: 3rem;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 400;
-  border-radius: 2px;
+  border-radius: 0;
   color: #141414;
   background-color: #FFFFFF;
   background-position: 8px center; }
   .searchbar-input::-moz-placeholder {
-    color: #AEAEAE; }
+    color: #858585; }
   .searchbar-input:-ms-input-placeholder {
-    color: #AEAEAE; }
+    color: #858585; }
   .searchbar-input::-webkit-input-placeholder {
-    color: #AEAEAE;
+    color: #858585;
     text-indent: 0; }
 
 .searchbar-clear-icon {
   width: 22px;
   height: 100%;
   padding: 0;
-  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='#5B5B5B'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='#858585'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
   background-size: 22px;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  right: 13px;
+  right: 8px;
   top: 0; }
   .searchbar-clear-icon.activated {
     background-color: transparent; }
 
-.searchbar-focused:not(.searchbar-hide-cancel) .searchbar-search-icon {
+.searchbar-focused {
+  border-color: #327eff; }
+
+.searchbar-has-value .searchbar-search-icon {
   display: none; }
-
-.searchbar-focused:not(.searchbar-hide-cancel) .searchbar-md-cancel {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex; }
-
-.toolbar ion-searchbar {
-  padding: 3px; }
-
-.toolbar .searchbar-md-cancel {
-  left: 14px; }
 
 .searchbar-ios-cancel {
   display: none; }
 
+.searchbar-md-cancel {
+  display: none; }
+
+ion-searchbar[primary].searchbar-focused {
+  border-color: #327eff; }
+
+ion-searchbar[secondary].searchbar-focused {
+  border-color: #32db64; }
+
+ion-searchbar[danger].searchbar-focused {
+  border-color: #f53d3d; }
+
+ion-searchbar[light].searchbar-focused {
+  border-color: #f4f4f4; }
+
+ion-searchbar[dark].searchbar-focused {
+  border-color: #222; }
+
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-segment {
   display: -webkit-box;
@@ -6990,31 +6742,25 @@ ion-segment {
   white-space: nowrap;
   cursor: pointer; }
 
+ion-segment {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start; }
+
 .segment-button {
   padding: 0 6px;
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
-  border-bottom-color: rgba(0, 0, 0, 0.1);
-  height: 4.2rem;
+  height: 4rem;
   line-height: 4rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
-  font-weight: 500;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  width: 0;
-  opacity: 0.7;
-  color: #387ef5;
-  background-color: transparent;
-  -webkit-transition: 100ms all linear;
-  transition: 100ms all linear; }
+  font-weight: bold;
+  opacity: 0.5;
+  color: #000;
+  background-color: transparent; }
   .segment-button ion-icon {
     font-size: 2.6rem;
     line-height: 4rem; }
-  .segment-button.activated, .segment-button.segment-activated {
-    border-color: #387ef5; }
 
 .toolbar ion-segment {
   margin: 0 auto; }
@@ -7024,11 +6770,11 @@ ion-segment {
   opacity: 1; }
 
 ion-segment[primary] .segment-button {
-  color: #387ef5; }
+  color: #327eff; }
   ion-segment[primary] .segment-button.activated, ion-segment[primary] .segment-button.segment-activated {
     opacity: 1;
-    border-color: #387ef5;
-    color: #387ef5; }
+    border-color: #327eff;
+    color: #327eff; }
 
 ion-segment[secondary] .segment-button {
   color: #32db64; }
@@ -7058,49 +6804,35 @@ ion-segment[dark] .segment-button {
     border-color: #222;
     color: #222; }
 
-ion-segment[vibrant] .segment-button {
-  color: rebeccapurple; }
-  ion-segment[vibrant] .segment-button.activated, ion-segment[vibrant] .segment-button.segment-activated {
-    opacity: 1;
-    border-color: rebeccapurple;
-    color: rebeccapurple; }
-
-ion-segment[bright] .segment-button {
-  color: #FFC125; }
-  ion-segment[bright] .segment-button.activated, ion-segment[bright] .segment-button.segment-activated {
-    opacity: 1;
-    border-color: #FFC125;
-    color: #FFC125; }
-
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-select {
   display: -webkit-box;
@@ -7130,58 +6862,59 @@ ion-select {
   pointer-events: none; }
 
 ion-select {
-  padding: 13px 8px 13px 16px; }
+  padding: 6.5px 8px 6.5px 8px;
+  border: 2px solid #B5B5B5; }
 
 .item-select ion-label {
   margin-left: 0; }
 
 .select-icon {
   position: relative;
-  width: 12px;
-  height: 19px; }
+  width: 18px;
+  height: 18px; }
 
 .select-icon .select-icon-inner {
   position: absolute;
-  top: 50%;
+  display: block;
+  width: 9px;
+  height: 9px;
   left: 5px;
-  margin-top: -3px;
-  width: 0;
-  height: 0;
-  border-top: 5px solid;
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
-  color: #999;
+  top: 3px;
+  border-top: 2px solid #B5B5B5;
+  border-right: 2px solid #B5B5B5;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
   pointer-events: none; }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-tabs {
   display: -webkit-box;
@@ -7379,8 +7112,8 @@ tabbar {
 .tab-button {
   padding: 12px 10px 5px 10px;
   min-height: 4.8rem;
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: normal;
   opacity: 0.7;
   box-shadow: none;
   border-radius: 0;
@@ -7388,62 +7121,42 @@ tabbar {
   color: #8c8c8c; }
   .tab-button[aria-selected=true] {
     opacity: 1.0;
-    color: #387ef5; }
+    color: #327eff;
+    border-bottom: 2px solid #327eff; }
+  .tab-button.activated {
+    background: rgba(0, 0, 0, 0.1); }
 
 .tab-button-text {
   margin-top: 5px;
-  margin-bottom: 5px;
-  text-transform: uppercase; }
+  margin-bottom: 5px; }
 
 .tab-button-icon {
   font-size: 2.4rem;
-  min-width: 7.4rem; }
+  min-width: 2.4rem; }
 
-[tabbarLayout=icon-bottom] .tab-button {
+[tabbarIcons=bottom] .tab-button {
   padding-top: 8px;
   padding-bottom: 8px; }
 
-[tabbarLayout=icon-right] .tab-button,
-[tabbarLayout=icon-left] .tab-button {
+[tabbarIcons=right] .tab-button,
+[tabbarIcons=left] .tab-button {
   padding-bottom: 10px; }
-  [tabbarLayout=icon-right] .tab-button ion-icon,
-  [tabbarLayout=icon-left] .tab-button ion-icon {
+  [tabbarIcons=right] .tab-button ion-icon,
+  [tabbarIcons=left] .tab-button ion-icon {
     min-width: 24px; }
 
-[tabbarLayout=icon-hide] .tab-button,
-[tabbarLayout=title-hide] .tab-button,
 .tab-button.icon-only,
 .tab-button.has-title-only {
   padding: 6px 10px 6px 10px; }
 
-tab-highlight {
-  position: absolute;
-  display: block;
-  height: 2px;
-  width: 1px;
-  bottom: 0;
-  left: 0;
-  background: #387ef5;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0); }
-  tab-highlight.animate {
-    -webkit-transition-duration: 300ms;
-    transition-duration: 300ms; }
-
-[tabbarPlacement=bottom] tab-highlight {
-  top: 0; }
-
 ion-tabs[primary] tabbar {
-  background-color: #387ef5; }
+  background-color: #327eff; }
   ion-tabs[primary] tabbar .tab-button {
     color: white; }
   ion-tabs[primary] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[primary] tabbar .tab-button[aria-selected=true] {
-    color: white; }
-  ion-tabs[primary] tabbar tab-highlight {
-    background: white; }
+    color: white;
+    border-color: white; }
 
 ion-tabs[secondary] tabbar {
   background-color: #32db64; }
@@ -7451,9 +7164,8 @@ ion-tabs[secondary] tabbar {
     color: white; }
   ion-tabs[secondary] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[secondary] tabbar .tab-button[aria-selected=true] {
-    color: white; }
-  ion-tabs[secondary] tabbar tab-highlight {
-    background: white; }
+    color: white;
+    border-color: white; }
 
 ion-tabs[danger] tabbar {
   background-color: #f53d3d; }
@@ -7461,9 +7173,8 @@ ion-tabs[danger] tabbar {
     color: white; }
   ion-tabs[danger] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[danger] tabbar .tab-button[aria-selected=true] {
-    color: white; }
-  ion-tabs[danger] tabbar tab-highlight {
-    background: white; }
+    color: white;
+    border-color: white; }
 
 ion-tabs[light] tabbar {
   background-color: #f4f4f4; }
@@ -7471,9 +7182,8 @@ ion-tabs[light] tabbar {
     color: black; }
   ion-tabs[light] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[light] tabbar .tab-button[aria-selected=true] {
-    color: black; }
-  ion-tabs[light] tabbar tab-highlight {
-    background: black; }
+    color: black;
+    border-color: black; }
 
 ion-tabs[dark] tabbar {
   background-color: #222; }
@@ -7481,59 +7191,38 @@ ion-tabs[dark] tabbar {
     color: white; }
   ion-tabs[dark] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[dark] tabbar .tab-button[aria-selected=true] {
-    color: white; }
-  ion-tabs[dark] tabbar tab-highlight {
-    background: white; }
-
-ion-tabs[vibrant] tabbar {
-  background-color: rebeccapurple; }
-  ion-tabs[vibrant] tabbar .tab-button {
-    color: white; }
-  ion-tabs[vibrant] tabbar .tab-button:hover:not(.disable-hover),
-  ion-tabs[vibrant] tabbar .tab-button[aria-selected=true] {
-    color: white; }
-  ion-tabs[vibrant] tabbar tab-highlight {
-    background: white; }
-
-ion-tabs[bright] tabbar {
-  background-color: #FFC125; }
-  ion-tabs[bright] tabbar .tab-button {
-    color: black; }
-  ion-tabs[bright] tabbar .tab-button:hover:not(.disable-hover),
-  ion-tabs[bright] tabbar .tab-button[aria-selected=true] {
-    color: black; }
-  ion-tabs[bright] tabbar tab-highlight {
-    background: black; }
+    color: white;
+    border-color: white; }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-toggle {
   position: relative; }
@@ -7541,35 +7230,30 @@ ion-toggle {
 .toggle-icon {
   position: relative;
   display: block;
-  width: 36px;
-  height: 14px;
+  width: 40px;
+  height: 18px;
   pointer-events: none;
-  border-radius: 14px;
-  background-color: #dedede;
-  -webkit-transition: background-color 300ms;
-  transition: background-color 300ms; }
+  border-radius: 18px;
+  background-color: transparent;
+  border: 2px solid #323232; }
 
 .toggle-inner {
   position: absolute;
-  top: -3px;
-  left: 0;
-  width: 20px;
-  height: 20px;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  background-color: #fff;
-  -webkit-transition-property: -webkit-transform, background-color;
-  transition-property: transform, background-color;
-  -webkit-transition-duration: 300ms;
-  transition-duration: 300ms; }
+  background-color: #323232; }
 
 .toggle-checked {
-  background-color: #b1cdfb; }
+  background-color: #327eff;
+  border-color: #327eff; }
 
 .toggle-checked .toggle-inner {
-  background-color: #387ef5;
-  -webkit-transform: translate3d(16px, 0, 0);
-  transform: translate3d(16px, 0, 0); }
+  background-color: white;
+  -webkit-transform: translate3d(22px, 0, 0);
+  transform: translate3d(22px, 0, 0); }
 
 .toggle-disabled,
 .item-toggle-disabled ion-label {
@@ -7588,76 +7272,69 @@ ion-toggle {
   margin-left: 0; }
 
 ion-toggle[primary] .toggle-checked {
-  background-color: #b1cdfb; }
+  background-color: #327eff;
+  border-color: #327eff; }
 
 ion-toggle[primary] .toggle-checked .toggle-inner {
-  background-color: #387ef5; }
-
-ion-toggle[secondary] .toggle-checked {
-  background-color: #9eeeb6; }
-
-ion-toggle[secondary] .toggle-checked .toggle-inner {
-  background-color: #32db64; }
-
-ion-toggle[danger] .toggle-checked {
-  background-color: #fbb6b6; }
-
-ion-toggle[danger] .toggle-checked .toggle-inner {
-  background-color: #f53d3d; }
-
-ion-toggle[light] .toggle-checked {
   background-color: white; }
 
+ion-toggle[secondary] .toggle-checked {
+  background-color: #32db64;
+  border-color: #32db64; }
+
+ion-toggle[secondary] .toggle-checked .toggle-inner {
+  background-color: white; }
+
+ion-toggle[danger] .toggle-checked {
+  background-color: #f53d3d;
+  border-color: #f53d3d; }
+
+ion-toggle[danger] .toggle-checked .toggle-inner {
+  background-color: white; }
+
+ion-toggle[light] .toggle-checked {
+  background-color: #f4f4f4;
+  border-color: #f4f4f4; }
+
 ion-toggle[light] .toggle-checked .toggle-inner {
-  background-color: #f4f4f4; }
+  background-color: black; }
 
 ion-toggle[dark] .toggle-checked {
-  background-color: #626262; }
+  background-color: #222;
+  border-color: #222; }
 
 ion-toggle[dark] .toggle-checked .toggle-inner {
-  background-color: #222; }
-
-ion-toggle[vibrant] .toggle-checked {
-  background-color: #a679d2; }
-
-ion-toggle[vibrant] .toggle-checked .toggle-inner {
-  background-color: rebeccapurple; }
-
-ion-toggle[bright] .toggle-checked {
-  background-color: #ffe5a5; }
-
-ion-toggle[bright] .toggle-checked .toggle-inner {
-  background-color: #FFC125; }
+  background-color: white; }
 
 /**
-  Roboto Font
+  Noto Sans Font
   Google
   Apache License, version 2.0
   http://www.apache.org/licenses/LICENSE-2.0.html
  */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 .toolbar {
   position: relative;
@@ -7821,10 +7498,10 @@ ion-navbar.toolbar {
 
 .toolbar {
   padding: 4px;
-  min-height: 5.6rem; }
+  min-height: 4.6rem; }
 
 ion-navbar-section {
-  min-height: 5.6rem; }
+  min-height: 4.6rem; }
 
 .toolbar-background {
   border-color: #b2b2b2;
@@ -7843,10 +7520,11 @@ ion-navbar-section {
   min-width: 0; }
 
 .toolbar-title {
-  color: #424242;
-  padding: 0 12px;
-  font-size: 2rem;
-  font-weight: 500; }
+  color: #000;
+  padding: 0 6px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase; }
 
 ion-buttons {
   -webkit-box-ordinal-group: 5;
@@ -7899,23 +7577,23 @@ ion-buttons[right] {
 .bar-button-outline {
   border-width: 1px;
   border-style: solid;
-  border-color: #424242;
-  color: #424242;
+  border-color: #000;
+  color: #000;
   background-color: transparent; }
   .bar-button-outline:hover:not(.disable-hover) {
     opacity: 0.4; }
   .bar-button-outline.activated {
     color: white;
-    background-color: #424242; }
+    background-color: #000; }
 
 .bar-button-solid {
   color: white;
-  background-color: #424242; }
+  background-color: #000; }
   .bar-button-solid:hover:not(.disable-hover) {
     color: white; }
   .bar-button-solid.activated {
     color: white;
-    background-color: #515151; }
+    background-color: #141414; }
 
 .bar-button-icon-left ion-icon {
   padding-right: 0.3em;
@@ -7971,13 +7649,13 @@ ion-buttons[right] {
   order: 7; }
 
 .bar-button-default {
-  color: #424242;
+  color: #000;
   background-color: transparent; }
   .bar-button-default:hover:not(.disable-hover) {
-    color: #424242; }
+    color: #000; }
 
 .toolbar[primary] .toolbar-background {
-  background: #387ef5; }
+  background: #327eff; }
 
 .toolbar[primary] .bar-button-default,
 .toolbar[primary] .bar-button-outline,
@@ -7992,24 +7670,24 @@ ion-buttons[right] {
   border-color: white; }
 
 .toolbar[primary] .bar-button-primary {
-  color: #387ef5;
+  color: #327eff;
   background-color: transparent; }
   .toolbar[primary] .bar-button-primary:hover:not(.disable-hover) {
-    color: #387ef5; }
+    color: #327eff; }
 
 .toolbar[primary] .bar-button-outline-primary {
-  border-color: #3474e1;
-  color: #3474e1;
+  border-color: #2e74eb;
+  color: #2e74eb;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-primary.activated {
     color: white;
-    background-color: #3474e1; }
+    background-color: #2e74eb; }
 
 .toolbar[primary] .bar-button-solid-primary {
   color: white;
-  background-color: #387ef5; }
+  background-color: #327eff; }
   .toolbar[primary] .bar-button-solid-primary.activated {
-    background-color: #3474e1; }
+    background-color: #2e74eb; }
 
 .toolbar[primary] .bar-button-secondary {
   color: #32db64;
@@ -8091,65 +7769,25 @@ ion-buttons[right] {
   .toolbar[primary] .bar-button-solid-dark.activated {
     background-color: #343434; }
 
-.toolbar[primary] .bar-button-vibrant {
-  color: rebeccapurple;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-vibrant:hover:not(.disable-hover) {
-    color: rebeccapurple; }
-
-.toolbar[primary] .bar-button-outline-vibrant {
-  border-color: #7243a1;
-  color: #7243a1;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-outline-vibrant.activated {
-    color: white;
-    background-color: #7243a1; }
-
-.toolbar[primary] .bar-button-solid-vibrant {
-  color: white;
-  background-color: rebeccapurple; }
-  .toolbar[primary] .bar-button-solid-vibrant.activated {
-    background-color: #7243a1; }
-
-.toolbar[primary] .bar-button-bright {
-  color: #FFC125;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-bright:hover:not(.disable-hover) {
-    color: #FFC125; }
-
-.toolbar[primary] .bar-button-outline-bright {
-  border-color: #ebb222;
-  color: #ebb222;
-  background-color: transparent; }
-  .toolbar[primary] .bar-button-outline-bright.activated {
-    color: white;
-    background-color: #ebb222; }
-
-.toolbar[primary] .bar-button-solid-bright {
-  color: black;
-  background-color: #FFC125; }
-  .toolbar[primary] .bar-button-solid-bright.activated {
-    background-color: #ebb222; }
-
 .bar-button-primary {
-  color: #387ef5;
+  color: #327eff;
   background-color: transparent; }
   .bar-button-primary:hover:not(.disable-hover) {
-    color: #387ef5; }
+    color: #327eff; }
 
 .bar-button-outline-primary {
-  border-color: #3474e1;
-  color: #3474e1;
+  border-color: #2e74eb;
+  color: #2e74eb;
   background-color: transparent; }
   .bar-button-outline-primary.activated {
     color: white;
-    background-color: #3474e1; }
+    background-color: #2e74eb; }
 
 .bar-button-solid-primary {
   color: white;
-  background-color: #387ef5; }
+  background-color: #327eff; }
   .bar-button-solid-primary.activated {
-    background-color: #3474e1; }
+    background-color: #2e74eb; }
 
 .toolbar[secondary] .toolbar-background {
   background: #32db64; }
@@ -8167,24 +7805,24 @@ ion-buttons[right] {
   border-color: white; }
 
 .toolbar[secondary] .bar-button-primary {
-  color: #387ef5;
+  color: #327eff;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-primary:hover:not(.disable-hover) {
-    color: #387ef5; }
+    color: #327eff; }
 
 .toolbar[secondary] .bar-button-outline-primary {
-  border-color: #3474e1;
-  color: #3474e1;
+  border-color: #2e74eb;
+  color: #2e74eb;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-primary.activated {
     color: white;
-    background-color: #3474e1; }
+    background-color: #2e74eb; }
 
 .toolbar[secondary] .bar-button-solid-primary {
   color: white;
-  background-color: #387ef5; }
+  background-color: #327eff; }
   .toolbar[secondary] .bar-button-solid-primary.activated {
-    background-color: #3474e1; }
+    background-color: #2e74eb; }
 
 .toolbar[secondary] .bar-button-secondary {
   color: #32db64;
@@ -8266,46 +7904,6 @@ ion-buttons[right] {
   .toolbar[secondary] .bar-button-solid-dark.activated {
     background-color: #343434; }
 
-.toolbar[secondary] .bar-button-vibrant {
-  color: rebeccapurple;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-vibrant:hover:not(.disable-hover) {
-    color: rebeccapurple; }
-
-.toolbar[secondary] .bar-button-outline-vibrant {
-  border-color: #7243a1;
-  color: #7243a1;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-outline-vibrant.activated {
-    color: white;
-    background-color: #7243a1; }
-
-.toolbar[secondary] .bar-button-solid-vibrant {
-  color: white;
-  background-color: rebeccapurple; }
-  .toolbar[secondary] .bar-button-solid-vibrant.activated {
-    background-color: #7243a1; }
-
-.toolbar[secondary] .bar-button-bright {
-  color: #FFC125;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-bright:hover:not(.disable-hover) {
-    color: #FFC125; }
-
-.toolbar[secondary] .bar-button-outline-bright {
-  border-color: #ebb222;
-  color: #ebb222;
-  background-color: transparent; }
-  .toolbar[secondary] .bar-button-outline-bright.activated {
-    color: white;
-    background-color: #ebb222; }
-
-.toolbar[secondary] .bar-button-solid-bright {
-  color: black;
-  background-color: #FFC125; }
-  .toolbar[secondary] .bar-button-solid-bright.activated {
-    background-color: #ebb222; }
-
 .bar-button-secondary {
   color: #32db64;
   background-color: transparent; }
@@ -8342,24 +7940,24 @@ ion-buttons[right] {
   border-color: white; }
 
 .toolbar[danger] .bar-button-primary {
-  color: #387ef5;
+  color: #327eff;
   background-color: transparent; }
   .toolbar[danger] .bar-button-primary:hover:not(.disable-hover) {
-    color: #387ef5; }
+    color: #327eff; }
 
 .toolbar[danger] .bar-button-outline-primary {
-  border-color: #3474e1;
-  color: #3474e1;
+  border-color: #2e74eb;
+  color: #2e74eb;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-primary.activated {
     color: white;
-    background-color: #3474e1; }
+    background-color: #2e74eb; }
 
 .toolbar[danger] .bar-button-solid-primary {
   color: white;
-  background-color: #387ef5; }
+  background-color: #327eff; }
   .toolbar[danger] .bar-button-solid-primary.activated {
-    background-color: #3474e1; }
+    background-color: #2e74eb; }
 
 .toolbar[danger] .bar-button-secondary {
   color: #32db64;
@@ -8441,46 +8039,6 @@ ion-buttons[right] {
   .toolbar[danger] .bar-button-solid-dark.activated {
     background-color: #343434; }
 
-.toolbar[danger] .bar-button-vibrant {
-  color: rebeccapurple;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-vibrant:hover:not(.disable-hover) {
-    color: rebeccapurple; }
-
-.toolbar[danger] .bar-button-outline-vibrant {
-  border-color: #7243a1;
-  color: #7243a1;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-outline-vibrant.activated {
-    color: white;
-    background-color: #7243a1; }
-
-.toolbar[danger] .bar-button-solid-vibrant {
-  color: white;
-  background-color: rebeccapurple; }
-  .toolbar[danger] .bar-button-solid-vibrant.activated {
-    background-color: #7243a1; }
-
-.toolbar[danger] .bar-button-bright {
-  color: #FFC125;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-bright:hover:not(.disable-hover) {
-    color: #FFC125; }
-
-.toolbar[danger] .bar-button-outline-bright {
-  border-color: #ebb222;
-  color: #ebb222;
-  background-color: transparent; }
-  .toolbar[danger] .bar-button-outline-bright.activated {
-    color: white;
-    background-color: #ebb222; }
-
-.toolbar[danger] .bar-button-solid-bright {
-  color: black;
-  background-color: #FFC125; }
-  .toolbar[danger] .bar-button-solid-bright.activated {
-    background-color: #ebb222; }
-
 .bar-button-danger {
   color: #f53d3d;
   background-color: transparent; }
@@ -8507,34 +8065,34 @@ ion-buttons[right] {
 .toolbar[light] .bar-button-default,
 .toolbar[light] .bar-button-outline,
 .toolbar[light] .toolbar-title {
-  color: #424242; }
+  color: black; }
 
 .toolbar[light] .bar-button-default ion-button-effect,
 .toolbar[light] .bar-button-outline ion-button-effect {
-  background-color: #424242; }
+  background-color: black; }
 
 .toolbar[light] .bar-button-outline {
-  border-color: #424242; }
+  border-color: black; }
 
 .toolbar[light] .bar-button-primary {
-  color: #387ef5;
+  color: #327eff;
   background-color: transparent; }
   .toolbar[light] .bar-button-primary:hover:not(.disable-hover) {
-    color: #387ef5; }
+    color: #327eff; }
 
 .toolbar[light] .bar-button-outline-primary {
-  border-color: #3474e1;
-  color: #3474e1;
+  border-color: #2e74eb;
+  color: #2e74eb;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-primary.activated {
     color: white;
-    background-color: #3474e1; }
+    background-color: #2e74eb; }
 
 .toolbar[light] .bar-button-solid-primary {
   color: white;
-  background-color: #387ef5; }
+  background-color: #327eff; }
   .toolbar[light] .bar-button-solid-primary.activated {
-    background-color: #3474e1; }
+    background-color: #2e74eb; }
 
 .toolbar[light] .bar-button-secondary {
   color: #32db64;
@@ -8616,46 +8174,6 @@ ion-buttons[right] {
   .toolbar[light] .bar-button-solid-dark.activated {
     background-color: #343434; }
 
-.toolbar[light] .bar-button-vibrant {
-  color: rebeccapurple;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-vibrant:hover:not(.disable-hover) {
-    color: rebeccapurple; }
-
-.toolbar[light] .bar-button-outline-vibrant {
-  border-color: #7243a1;
-  color: #7243a1;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-outline-vibrant.activated {
-    color: white;
-    background-color: #7243a1; }
-
-.toolbar[light] .bar-button-solid-vibrant {
-  color: white;
-  background-color: rebeccapurple; }
-  .toolbar[light] .bar-button-solid-vibrant.activated {
-    background-color: #7243a1; }
-
-.toolbar[light] .bar-button-bright {
-  color: #FFC125;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-bright:hover:not(.disable-hover) {
-    color: #FFC125; }
-
-.toolbar[light] .bar-button-outline-bright {
-  border-color: #ebb222;
-  color: #ebb222;
-  background-color: transparent; }
-  .toolbar[light] .bar-button-outline-bright.activated {
-    color: white;
-    background-color: #ebb222; }
-
-.toolbar[light] .bar-button-solid-bright {
-  color: black;
-  background-color: #FFC125; }
-  .toolbar[light] .bar-button-solid-bright.activated {
-    background-color: #ebb222; }
-
 .bar-button-light {
   color: #f4f4f4;
   background-color: transparent; }
@@ -8692,24 +8210,24 @@ ion-buttons[right] {
   border-color: white; }
 
 .toolbar[dark] .bar-button-primary {
-  color: #387ef5;
+  color: #327eff;
   background-color: transparent; }
   .toolbar[dark] .bar-button-primary:hover:not(.disable-hover) {
-    color: #387ef5; }
+    color: #327eff; }
 
 .toolbar[dark] .bar-button-outline-primary {
-  border-color: #3474e1;
-  color: #3474e1;
+  border-color: #2e74eb;
+  color: #2e74eb;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-primary.activated {
     color: white;
-    background-color: #3474e1; }
+    background-color: #2e74eb; }
 
 .toolbar[dark] .bar-button-solid-primary {
   color: white;
-  background-color: #387ef5; }
+  background-color: #327eff; }
   .toolbar[dark] .bar-button-solid-primary.activated {
-    background-color: #3474e1; }
+    background-color: #2e74eb; }
 
 .toolbar[dark] .bar-button-secondary {
   color: #32db64;
@@ -8791,46 +8309,6 @@ ion-buttons[right] {
   .toolbar[dark] .bar-button-solid-dark.activated {
     background-color: #343434; }
 
-.toolbar[dark] .bar-button-vibrant {
-  color: rebeccapurple;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-vibrant:hover:not(.disable-hover) {
-    color: rebeccapurple; }
-
-.toolbar[dark] .bar-button-outline-vibrant {
-  border-color: #7243a1;
-  color: #7243a1;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-outline-vibrant.activated {
-    color: white;
-    background-color: #7243a1; }
-
-.toolbar[dark] .bar-button-solid-vibrant {
-  color: white;
-  background-color: rebeccapurple; }
-  .toolbar[dark] .bar-button-solid-vibrant.activated {
-    background-color: #7243a1; }
-
-.toolbar[dark] .bar-button-bright {
-  color: #FFC125;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-bright:hover:not(.disable-hover) {
-    color: #FFC125; }
-
-.toolbar[dark] .bar-button-outline-bright {
-  border-color: #ebb222;
-  color: #ebb222;
-  background-color: transparent; }
-  .toolbar[dark] .bar-button-outline-bright.activated {
-    color: white;
-    background-color: #ebb222; }
-
-.toolbar[dark] .bar-button-solid-bright {
-  color: black;
-  background-color: #FFC125; }
-  .toolbar[dark] .bar-button-solid-bright.activated {
-    background-color: #ebb222; }
-
 .bar-button-dark {
   color: #222;
   background-color: transparent; }
@@ -8851,357 +8329,7 @@ ion-buttons[right] {
   .bar-button-solid-dark.activated {
     background-color: #343434; }
 
-.toolbar[vibrant] .toolbar-background {
-  background: rebeccapurple; }
-
-.toolbar[vibrant] .bar-button-default,
-.toolbar[vibrant] .bar-button-outline,
-.toolbar[vibrant] .toolbar-title {
-  color: white; }
-
-.toolbar[vibrant] .bar-button-default ion-button-effect,
-.toolbar[vibrant] .bar-button-outline ion-button-effect {
-  background-color: white; }
-
-.toolbar[vibrant] .bar-button-outline {
-  border-color: white; }
-
-.toolbar[vibrant] .bar-button-primary {
-  color: #387ef5;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-primary:hover:not(.disable-hover) {
-    color: #387ef5; }
-
-.toolbar[vibrant] .bar-button-outline-primary {
-  border-color: #3474e1;
-  color: #3474e1;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-outline-primary.activated {
-    color: white;
-    background-color: #3474e1; }
-
-.toolbar[vibrant] .bar-button-solid-primary {
-  color: white;
-  background-color: #387ef5; }
-  .toolbar[vibrant] .bar-button-solid-primary.activated {
-    background-color: #3474e1; }
-
-.toolbar[vibrant] .bar-button-secondary {
-  color: #32db64;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-secondary:hover:not(.disable-hover) {
-    color: #32db64; }
-
-.toolbar[vibrant] .bar-button-outline-secondary {
-  border-color: #2ec95c;
-  color: #2ec95c;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-outline-secondary.activated {
-    color: white;
-    background-color: #2ec95c; }
-
-.toolbar[vibrant] .bar-button-solid-secondary {
-  color: white;
-  background-color: #32db64; }
-  .toolbar[vibrant] .bar-button-solid-secondary.activated {
-    background-color: #2ec95c; }
-
-.toolbar[vibrant] .bar-button-danger {
-  color: #f53d3d;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-danger:hover:not(.disable-hover) {
-    color: #f53d3d; }
-
-.toolbar[vibrant] .bar-button-outline-danger {
-  border-color: #e13838;
-  color: #e13838;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-outline-danger.activated {
-    color: white;
-    background-color: #e13838; }
-
-.toolbar[vibrant] .bar-button-solid-danger {
-  color: white;
-  background-color: #f53d3d; }
-  .toolbar[vibrant] .bar-button-solid-danger.activated {
-    background-color: #e13838; }
-
-.toolbar[vibrant] .bar-button-light {
-  color: #f4f4f4;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-light:hover:not(.disable-hover) {
-    color: #f4f4f4; }
-
-.toolbar[vibrant] .bar-button-outline-light {
-  border-color: #e0e0e0;
-  color: #e0e0e0;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-outline-light.activated {
-    color: black;
-    background-color: #e0e0e0; }
-
-.toolbar[vibrant] .bar-button-solid-light {
-  color: black;
-  background-color: #f4f4f4; }
-  .toolbar[vibrant] .bar-button-solid-light.activated {
-    background-color: #e0e0e0; }
-
-.toolbar[vibrant] .bar-button-dark {
-  color: #222;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-dark:hover:not(.disable-hover) {
-    color: #222; }
-
-.toolbar[vibrant] .bar-button-outline-dark {
-  border-color: #343434;
-  color: #343434;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-outline-dark.activated {
-    color: white;
-    background-color: #343434; }
-
-.toolbar[vibrant] .bar-button-solid-dark {
-  color: white;
-  background-color: #222; }
-  .toolbar[vibrant] .bar-button-solid-dark.activated {
-    background-color: #343434; }
-
-.toolbar[vibrant] .bar-button-vibrant {
-  color: rebeccapurple;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-vibrant:hover:not(.disable-hover) {
-    color: rebeccapurple; }
-
-.toolbar[vibrant] .bar-button-outline-vibrant {
-  border-color: #7243a1;
-  color: #7243a1;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-outline-vibrant.activated {
-    color: white;
-    background-color: #7243a1; }
-
-.toolbar[vibrant] .bar-button-solid-vibrant {
-  color: white;
-  background-color: rebeccapurple; }
-  .toolbar[vibrant] .bar-button-solid-vibrant.activated {
-    background-color: #7243a1; }
-
-.toolbar[vibrant] .bar-button-bright {
-  color: #FFC125;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-bright:hover:not(.disable-hover) {
-    color: #FFC125; }
-
-.toolbar[vibrant] .bar-button-outline-bright {
-  border-color: #ebb222;
-  color: #ebb222;
-  background-color: transparent; }
-  .toolbar[vibrant] .bar-button-outline-bright.activated {
-    color: white;
-    background-color: #ebb222; }
-
-.toolbar[vibrant] .bar-button-solid-bright {
-  color: black;
-  background-color: #FFC125; }
-  .toolbar[vibrant] .bar-button-solid-bright.activated {
-    background-color: #ebb222; }
-
-.bar-button-vibrant {
-  color: rebeccapurple;
-  background-color: transparent; }
-  .bar-button-vibrant:hover:not(.disable-hover) {
-    color: rebeccapurple; }
-
-.bar-button-outline-vibrant {
-  border-color: #7243a1;
-  color: #7243a1;
-  background-color: transparent; }
-  .bar-button-outline-vibrant.activated {
-    color: white;
-    background-color: #7243a1; }
-
-.bar-button-solid-vibrant {
-  color: white;
-  background-color: rebeccapurple; }
-  .bar-button-solid-vibrant.activated {
-    background-color: #7243a1; }
-
-.toolbar[bright] .toolbar-background {
-  background: #FFC125; }
-
-.toolbar[bright] .bar-button-default,
-.toolbar[bright] .bar-button-outline,
-.toolbar[bright] .toolbar-title {
-  color: #424242; }
-
-.toolbar[bright] .bar-button-default ion-button-effect,
-.toolbar[bright] .bar-button-outline ion-button-effect {
-  background-color: #424242; }
-
-.toolbar[bright] .bar-button-outline {
-  border-color: #424242; }
-
-.toolbar[bright] .bar-button-primary {
-  color: #387ef5;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-primary:hover:not(.disable-hover) {
-    color: #387ef5; }
-
-.toolbar[bright] .bar-button-outline-primary {
-  border-color: #3474e1;
-  color: #3474e1;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-outline-primary.activated {
-    color: white;
-    background-color: #3474e1; }
-
-.toolbar[bright] .bar-button-solid-primary {
-  color: white;
-  background-color: #387ef5; }
-  .toolbar[bright] .bar-button-solid-primary.activated {
-    background-color: #3474e1; }
-
-.toolbar[bright] .bar-button-secondary {
-  color: #32db64;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-secondary:hover:not(.disable-hover) {
-    color: #32db64; }
-
-.toolbar[bright] .bar-button-outline-secondary {
-  border-color: #2ec95c;
-  color: #2ec95c;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-outline-secondary.activated {
-    color: white;
-    background-color: #2ec95c; }
-
-.toolbar[bright] .bar-button-solid-secondary {
-  color: white;
-  background-color: #32db64; }
-  .toolbar[bright] .bar-button-solid-secondary.activated {
-    background-color: #2ec95c; }
-
-.toolbar[bright] .bar-button-danger {
-  color: #f53d3d;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-danger:hover:not(.disable-hover) {
-    color: #f53d3d; }
-
-.toolbar[bright] .bar-button-outline-danger {
-  border-color: #e13838;
-  color: #e13838;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-outline-danger.activated {
-    color: white;
-    background-color: #e13838; }
-
-.toolbar[bright] .bar-button-solid-danger {
-  color: white;
-  background-color: #f53d3d; }
-  .toolbar[bright] .bar-button-solid-danger.activated {
-    background-color: #e13838; }
-
-.toolbar[bright] .bar-button-light {
-  color: #f4f4f4;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-light:hover:not(.disable-hover) {
-    color: #f4f4f4; }
-
-.toolbar[bright] .bar-button-outline-light {
-  border-color: #e0e0e0;
-  color: #e0e0e0;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-outline-light.activated {
-    color: black;
-    background-color: #e0e0e0; }
-
-.toolbar[bright] .bar-button-solid-light {
-  color: black;
-  background-color: #f4f4f4; }
-  .toolbar[bright] .bar-button-solid-light.activated {
-    background-color: #e0e0e0; }
-
-.toolbar[bright] .bar-button-dark {
-  color: #222;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-dark:hover:not(.disable-hover) {
-    color: #222; }
-
-.toolbar[bright] .bar-button-outline-dark {
-  border-color: #343434;
-  color: #343434;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-outline-dark.activated {
-    color: white;
-    background-color: #343434; }
-
-.toolbar[bright] .bar-button-solid-dark {
-  color: white;
-  background-color: #222; }
-  .toolbar[bright] .bar-button-solid-dark.activated {
-    background-color: #343434; }
-
-.toolbar[bright] .bar-button-vibrant {
-  color: rebeccapurple;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-vibrant:hover:not(.disable-hover) {
-    color: rebeccapurple; }
-
-.toolbar[bright] .bar-button-outline-vibrant {
-  border-color: #7243a1;
-  color: #7243a1;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-outline-vibrant.activated {
-    color: white;
-    background-color: #7243a1; }
-
-.toolbar[bright] .bar-button-solid-vibrant {
-  color: white;
-  background-color: rebeccapurple; }
-  .toolbar[bright] .bar-button-solid-vibrant.activated {
-    background-color: #7243a1; }
-
-.toolbar[bright] .bar-button-bright {
-  color: #FFC125;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-bright:hover:not(.disable-hover) {
-    color: #FFC125; }
-
-.toolbar[bright] .bar-button-outline-bright {
-  border-color: #ebb222;
-  color: #ebb222;
-  background-color: transparent; }
-  .toolbar[bright] .bar-button-outline-bright.activated {
-    color: white;
-    background-color: #ebb222; }
-
-.toolbar[bright] .bar-button-solid-bright {
-  color: black;
-  background-color: #FFC125; }
-  .toolbar[bright] .bar-button-solid-bright.activated {
-    background-color: #ebb222; }
-
-.bar-button-bright {
-  color: #FFC125;
-  background-color: transparent; }
-  .bar-button-bright:hover:not(.disable-hover) {
-    color: #FFC125; }
-
-.bar-button-outline-bright {
-  border-color: #ebb222;
-  color: #ebb222;
-  background-color: transparent; }
-  .bar-button-outline-bright.activated {
-    color: white;
-    background-color: #ebb222; }
-
-.bar-button-solid-bright {
-  color: black;
-  background-color: #FFC125; }
-  .bar-button-solid-bright.activated {
-    background-color: #ebb222; }
-
 body {
-  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-family: "Segoe UI", "Noto Sans", sans-serif;
   font-size: 1.4rem;
   background-color: #fff; }

@@ -374,60 +374,6 @@ template,
 root-anchor {
   display: none !important; }
 
-[padding],
-[padding] > scroll-content {
-  padding: 16px; }
-
-[padding-top] {
-  padding-top: 16px; }
-
-[padding-right] {
-  padding-right: 16px; }
-
-[padding-bottom] {
-  padding-bottom: 16px; }
-
-[padding-left] {
-  padding-left: 16px; }
-
-[padding-vertical] {
-  padding-top: 16px;
-  padding-bottom: 16px; }
-
-[padding-horizontal] {
-  padding-right: 16px;
-  padding-left: 16px; }
-
-[no-padding] {
-  padding: 0; }
-
-[margin],
-[margin] > scroll-content {
-  margin: 16px; }
-
-[margin-top] {
-  margin-top: 16px; }
-
-[margin-right] {
-  margin-right: 16px; }
-
-[margin-bottom] {
-  margin-bottom: 16px; }
-
-[margin-left] {
-  margin-left: 16px; }
-
-[margin-vertical] {
-  margin-top: 16px;
-  margin-bottom: 16px; }
-
-[margin-horizontal] {
-  margin-right: 16px;
-  margin-left: 16px; }
-
-[no-margin] {
-  margin: 0; }
-
 :focus,
 :active {
   outline: none; }
@@ -4625,8 +4571,7 @@ ion-icon {
     margin: 0;
     z-index: 0;
     line-height: 20px;
-    font-size: 14px;
-    margin-right: 8px; }
+    font-size: 14px; }
   .ios .alert-wrapper {
     max-width: 270px;
     border-radius: 13px;
@@ -5099,12 +5044,6 @@ ion-icon {
     text-overflow: ellipsis; }
   .ios ion-card-content {
     display: block; }
-  .ios ion-card > :first-child {
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit; }
-  .ios ion-card > :last-child {
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit; }
   .ios ion-card {
     margin: 12px 12px 12px 12px;
     font-size: 1.4rem;
@@ -5227,14 +5166,13 @@ ion-icon {
     .ios ion-checkbox[dark] .checkbox-checked .checkbox-inner {
       border-color: white; }
   .ios ion-chip {
-    font-size: 13px;
-    font-weight: normal;
     background: rgba(0, 0, 0, 0.12);
     display: inline-block;
     height: 32px;
     line-height: 32px;
     border-radius: 16px;
     padding: 0 12px;
+    margin: 2px 0;
     box-sizing: border-box;
     vertical-align: middle;
     display: -webkit-inline-box;
@@ -5244,11 +5182,13 @@ ion-icon {
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     align-self: center;
-    margin: 2px 0; }
+    font-size: 13px;
+    font-weight: normal; }
     .ios ion-chip ion-label {
       margin: 0;
       color: rgba(0, 0, 0, 0.87); }
-    .ios ion-chip > ion-icon, .ios ion-chip > ion-avatar {
+    .ios ion-chip > ion-icon,
+    .ios ion-chip > ion-avatar {
       width: 32px;
       height: 32px;
       margin-left: -12px;
@@ -5258,39 +5198,45 @@ ion-icon {
       line-height: 32px;
       color: rgba(0, 0, 0, 0.87);
       font-size: 18px; }
-      .ios ion-chip > ion-icon img, .ios ion-chip > ion-avatar img {
+      .ios ion-chip > ion-icon img,
+      .ios ion-chip > ion-avatar img {
         max-width: 100%;
         max-height: 100%;
         width: 100%;
         height: 100%;
         border-radius: 50%;
         display: block; }
-      .ios ion-chip > ion-icon + ion-label, .ios ion-chip > ion-avatar + ion-label {
+      .ios ion-chip > ion-icon + ion-label,
+      .ios ion-chip > ion-avatar + ion-label {
         margin-left: 8px; }
     .ios ion-chip ion-avatar {
       min-width: 32px;
       min-height: 32px; }
     .ios ion-chip .button {
-      min-height: inherit;
-      margin-right: -4px;
-      margin-left: 8px; }
+      height: inherit;
+      margin: 0;
+      margin-right: -4px; }
     .ios ion-chip ion-icon[name="close-circle"] {
       font-size: 1.2em; }
-  .ios ion-chip > ion-icon[primary] {
+  .ios ion-chip ion-icon[primary] {
     background-color: #327eff;
     color: white !important; }
-  .ios ion-chip > ion-icon[secondary] {
+  .ios ion-chip ion-icon[secondary] {
     background-color: #32db64;
     color: white !important; }
-  .ios ion-chip > ion-icon[danger] {
+  .ios ion-chip ion-icon[danger] {
     background-color: #f53d3d;
     color: white !important; }
-  .ios ion-chip > ion-icon[light] {
+  .ios ion-chip ion-icon[light] {
     background-color: #f4f4f4;
     color: black !important; }
-  .ios ion-chip > ion-icon[dark] {
+  .ios ion-chip ion-icon[dark] {
     background-color: #222;
     color: white !important; }
+  .ios [no-padding] {
+    padding: 0; }
+  .ios [no-margin] {
+    margin: 0; }
   .ios ion-content {
     background-color: #fff; }
   .ios .outer-content {
@@ -5298,6 +5244,42 @@ ion-icon {
   .ios ion-nav.has-views,
   .ios ion-tab.has-views {
     background: #000; }
+  .ios [padding],
+  .ios [padding] > scroll-content {
+    padding: 16px; }
+  .ios [padding-top] {
+    padding-top: 16px; }
+  .ios [padding-left] {
+    padding-left: 16px; }
+  .ios [padding-right] {
+    padding-right: 16px; }
+  .ios [padding-bottom] {
+    padding-bottom: 16px; }
+  .ios [padding-vertical] {
+    padding-top: 16px;
+    padding-bottom: 16px; }
+  .ios [padding-horizontal] {
+    padding-right: 16px;
+    padding-left: 16px; }
+  .ios [no-padding] {
+    padding: 0; }
+  .ios [margin],
+  .ios [margin] > scroll-content {
+    margin: 16px; }
+  .ios [margin-top] {
+    margin-top: 16px; }
+  .ios [margin-left] {
+    margin-left: 16px; }
+  .ios [margin-right] {
+    margin-right: 16px; }
+  .ios [margin-bottom] {
+    margin-bottom: 16px; }
+  .ios [margin-vertical] {
+    margin-top: 16px;
+    margin-bottom: 16px; }
+  .ios [margin-horizontal] {
+    margin-right: 16px;
+    margin-left: 16px; }
   .ios ion-input,
   .ios ion-textarea {
     position: relative;
@@ -5454,8 +5436,7 @@ ion-icon {
     display: block;
     min-height: 30px;
     width: 100%;
-    z-index: 1000;
-    font-weight: 500; }
+    z-index: 1000; }
     .ios ion-item-divider[sticky] {
       position: -webkit-sticky;
       position: sticky;
@@ -6083,11 +6064,6 @@ ion-icon {
     display: block;
     margin-left: 0;
     margin-right: 0;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    width: 0;
     overflow: hidden;
     text-align: center;
     text-overflow: ellipsis;
@@ -6101,7 +6077,12 @@ ion-icon {
     border-style: solid;
     border-color: #327eff;
     color: #327eff;
-    background-color: transparent; }
+    background-color: transparent;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0; }
     .ios .segment-button ion-icon {
       font-size: 2.6rem;
       line-height: 2.8rem; }
@@ -7356,8 +7337,7 @@ ion-icon {
     margin: 0;
     z-index: 0;
     line-height: 20px;
-    font-size: 14px;
-    margin-right: 8px; }
+    font-size: 14px; }
   .md .alert-wrapper {
     max-width: 280px;
     border-radius: 2px;
@@ -7493,6 +7473,7 @@ ion-icon {
     flex-wrap: wrap-reverse; }
   .md .alert-button {
     padding: 10px;
+    margin: 0 8px 0 0;
     font-weight: 500;
     color: #327eff;
     background-color: transparent;
@@ -7954,12 +7935,6 @@ ion-icon {
     text-overflow: ellipsis; }
   .md ion-card-content {
     display: block; }
-  .md ion-card > :first-child {
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit; }
-  .md ion-card > :last-child {
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit; }
   .md ion-card {
     margin: 10px 10px 10px 10px;
     font-size: 1.4rem;
@@ -8124,14 +8099,13 @@ ion-icon {
     .md ion-checkbox[dark] .checkbox-checked .checkbox-inner {
       border-color: white; }
   .md ion-chip {
-    font-size: 13px;
-    font-weight: normal;
     background: rgba(0, 0, 0, 0.12);
     display: inline-block;
     height: 32px;
     line-height: 32px;
     border-radius: 16px;
     padding: 0 12px;
+    margin: 2px 0;
     box-sizing: border-box;
     vertical-align: middle;
     display: -webkit-inline-box;
@@ -8141,11 +8115,13 @@ ion-icon {
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     align-self: center;
-    margin: 2px 0; }
+    font-size: 13px;
+    font-weight: normal; }
     .md ion-chip ion-label {
       margin: 0;
       color: rgba(0, 0, 0, 0.87); }
-    .md ion-chip > ion-icon, .md ion-chip > ion-avatar {
+    .md ion-chip > ion-icon,
+    .md ion-chip > ion-avatar {
       width: 32px;
       height: 32px;
       margin-left: -12px;
@@ -8155,37 +8131,39 @@ ion-icon {
       line-height: 32px;
       color: rgba(0, 0, 0, 0.87);
       font-size: 18px; }
-      .md ion-chip > ion-icon img, .md ion-chip > ion-avatar img {
+      .md ion-chip > ion-icon img,
+      .md ion-chip > ion-avatar img {
         max-width: 100%;
         max-height: 100%;
         width: 100%;
         height: 100%;
         border-radius: 50%;
         display: block; }
-      .md ion-chip > ion-icon + ion-label, .md ion-chip > ion-avatar + ion-label {
+      .md ion-chip > ion-icon + ion-label,
+      .md ion-chip > ion-avatar + ion-label {
         margin-left: 8px; }
     .md ion-chip ion-avatar {
       min-width: 32px;
       min-height: 32px; }
     .md ion-chip .button {
-      min-height: inherit;
-      margin-right: -4px;
-      margin-left: 8px; }
+      height: inherit;
+      margin: 0;
+      margin-right: -4px; }
     .md ion-chip ion-icon[name="close-circle"] {
       font-size: 1.2em; }
-  .md ion-chip > ion-icon [primary] {
+  .md ion-chip ion-icon[primary] {
     background-color: #327eff;
     color: white !important; }
-  .md ion-chip > ion-icon [secondary] {
+  .md ion-chip ion-icon[secondary] {
     background-color: #32db64;
     color: white !important; }
-  .md ion-chip > ion-icon [danger] {
+  .md ion-chip ion-icon[danger] {
     background-color: #f53d3d;
     color: white !important; }
-  .md ion-chip > ion-icon [light] {
+  .md ion-chip ion-icon[light] {
     background-color: #f4f4f4;
     color: black !important; }
-  .md ion-chip > ion-icon [dark] {
+  .md ion-chip ion-icon[dark] {
     background-color: #222;
     color: white !important; }
 
@@ -8218,6 +8196,10 @@ ion-icon {
   font-style: normal;
   font-weight: 700;
   src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
+  .md [no-padding] {
+    padding: 0; }
+  .md [no-margin] {
+    margin: 0; }
   .md ion-content {
     background-color: #fff; }
   .md [padding],
@@ -8225,18 +8207,35 @@ ion-icon {
     padding: 16px; }
   .md [padding-top] {
     padding-top: 16px; }
+  .md [padding-left] {
+    padding-left: 16px; }
   .md [padding-right] {
     padding-right: 16px; }
   .md [padding-bottom] {
     padding-bottom: 16px; }
-  .md [padding-left] {
-    padding-left: 16px; }
   .md [padding-vertical] {
     padding-top: 16px;
     padding-bottom: 16px; }
   .md [padding-horizontal] {
     padding-right: 16px;
     padding-left: 16px; }
+  .md [margin],
+  .md [margin] > scroll-content {
+    margin: 16px; }
+  .md [margin-top] {
+    margin-top: 16px; }
+  .md [margin-left] {
+    margin-left: 16px; }
+  .md [margin-right] {
+    margin-right: 16px; }
+  .md [margin-bottom] {
+    margin-bottom: 16px; }
+  .md [margin-vertical] {
+    margin-top: 16px;
+    margin-bottom: 16px; }
+  .md [margin-horizontal] {
+    margin-right: 16px;
+    margin-left: 16px; }
 
 /**
   Roboto Font
@@ -8469,8 +8468,7 @@ ion-icon {
     display: block;
     min-height: 30px;
     width: 100%;
-    z-index: 1000;
-    font-weight: 500; }
+    z-index: 1000; }
     .md ion-item-divider[sticky] {
       position: -webkit-sticky;
       position: sticky;
@@ -9241,11 +9239,6 @@ ion-icon {
     display: block;
     margin-left: 0;
     margin-right: 0;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    width: 0;
     overflow: hidden;
     text-align: center;
     text-overflow: ellipsis;
@@ -9261,6 +9254,11 @@ ion-icon {
     font-size: 1.2rem;
     text-transform: uppercase;
     font-weight: 500;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
     opacity: 0.7;
     color: #327eff;
     background-color: transparent;
@@ -10644,4 +10642,3518 @@ ion-icon {
     color: white;
     background-color: #222; }
     .md .bar-button-solid-dark.activated {
+      background-color: #343434; }
+
+.wp {
+  /****************/
+  /* DEFAULT LIST */
+  /****************/
+  /**************/
+  /* INSET LIST */
+  /**************/
+  /*****************/
+  /* NO LINES LIST */
+  /*****************/
+  font-family: "Segoe UI", "Noto Sans", sans-serif;
+  font-size: 1.4rem;
+  background-color: #fff; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-content {
+    color: #000; }
+  .wp p {
+    color: #000; }
+  .wp a {
+    color: #327eff; }
+  .wp hr {
+    background-color: rgba(0, 0, 0, 0.08); }
+  .wp h1[primary], .wp h2[primary], .wp h3[primary], .wp h4[primary], .wp h5[primary], .wp h6[primary],
+  .wp p[primary],
+  .wp span[primary],
+  .wp a:not([button])[primary],
+  .wp small[primary],
+  .wp b[primary],
+  .wp i[primary],
+  .wp strong[primary],
+  .wp em[primary],
+  .wp sub[primary],
+  .wp sup[primary],
+  .wp ion-icon[primary] {
+    color: #327eff !important; }
+  .wp h1[secondary], .wp h2[secondary], .wp h3[secondary], .wp h4[secondary], .wp h5[secondary], .wp h6[secondary],
+  .wp p[secondary],
+  .wp span[secondary],
+  .wp a:not([button])[secondary],
+  .wp small[secondary],
+  .wp b[secondary],
+  .wp i[secondary],
+  .wp strong[secondary],
+  .wp em[secondary],
+  .wp sub[secondary],
+  .wp sup[secondary],
+  .wp ion-icon[secondary] {
+    color: #32db64 !important; }
+  .wp h1[danger], .wp h2[danger], .wp h3[danger], .wp h4[danger], .wp h5[danger], .wp h6[danger],
+  .wp p[danger],
+  .wp span[danger],
+  .wp a:not([button])[danger],
+  .wp small[danger],
+  .wp b[danger],
+  .wp i[danger],
+  .wp strong[danger],
+  .wp em[danger],
+  .wp sub[danger],
+  .wp sup[danger],
+  .wp ion-icon[danger] {
+    color: #f53d3d !important; }
+  .wp h1[light], .wp h2[light], .wp h3[light], .wp h4[light], .wp h5[light], .wp h6[light],
+  .wp p[light],
+  .wp span[light],
+  .wp a:not([button])[light],
+  .wp small[light],
+  .wp b[light],
+  .wp i[light],
+  .wp strong[light],
+  .wp em[light],
+  .wp sub[light],
+  .wp sup[light],
+  .wp ion-icon[light] {
+    color: #f4f4f4 !important; }
+  .wp h1[dark], .wp h2[dark], .wp h3[dark], .wp h4[dark], .wp h5[dark], .wp h6[dark],
+  .wp p[dark],
+  .wp span[dark],
+  .wp a:not([button])[dark],
+  .wp small[dark],
+  .wp b[dark],
+  .wp i[dark],
+  .wp strong[dark],
+  .wp em[dark],
+  .wp sub[dark],
+  .wp sup[dark],
+  .wp ion-icon[dark] {
+    color: #222 !important; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-action-sheet {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    display: block; }
+  .wp .action-sheet-wrapper {
+    position: absolute;
+    width: 100%;
+    max-width: 500px;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    margin: auto;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  .wp .action-sheet-button {
+    width: 100%; }
+  .wp .action-sheet-wrapper {
+    box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2); }
+  .wp .action-sheet-title {
+    padding: 19px 16px 17px;
+    font-size: 2rem;
+    color: #4D4D4D;
+    text-align: left; }
+  .wp .action-sheet-button {
+    padding: 0 16px;
+    min-height: 4.8rem;
+    font-size: 1.5rem;
+    color: #4D4D4D;
+    background: transparent;
+    text-align: left; }
+    .wp .action-sheet-button.activated {
+      background: #AAAAAA; }
+  .wp .action-sheet-icon {
+    margin: 0 16px 0 0;
+    min-width: 24px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 2.4rem; }
+  .wp .action-sheet-group {
+    background: #ffffff; }
+    .wp .action-sheet-group:last-child .action-sheet-button {
+      margin-bottom: 8px; }
+  .wp .action-sheet-cancel {
+    background: transparent; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-alert {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .wp ion-alert input {
+      width: 100%; }
+  .wp .alert-wrapper {
+    z-index: 10;
+    min-width: 250px;
+    max-height: 90%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    opacity: 0; }
+  .wp .alert-title {
+    margin: 0;
+    padding: 0; }
+  .wp .alert-sub-title {
+    margin: 5px 0 0 0;
+    padding: 0;
+    font-weight: normal; }
+  .wp .alert-message {
+    overflow: auto; }
+  .wp .alert-input {
+    border: 0;
+    background: inherit;
+    padding: 10px 0; }
+    .wp .alert-input::-moz-placeholder {
+      color: #999; }
+    .wp .alert-input:-ms-input-placeholder {
+      color: #999; }
+    .wp .alert-input::-webkit-input-placeholder {
+      color: #999;
+      text-indent: 0; }
+  .wp .alert-button-group {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row; }
+    .wp .alert-button-group.vertical {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; }
+  .wp .alert-button {
+    display: block;
+    margin: 0;
+    z-index: 0;
+    line-height: 20px;
+    font-size: 14px; }
+  .wp ion-alert .backdrop {
+    background: white; }
+  .wp .alert-wrapper {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 0;
+    background: #E6E6E6;
+    border: 1px solid #327eff; }
+  .wp .alert-head {
+    text-align: left;
+    padding: 20px 20px 5px 20px; }
+  .wp .alert-title {
+    font-size: 20px;
+    font-weight: 400; }
+  .wp .alert-sub-title {
+    font-size: 16px; }
+  .wp .alert-message,
+  .wp .alert-input-group {
+    padding: 0 20px;
+    color: #000; }
+  .wp .alert-message {
+    font-size: 13px;
+    max-height: 240px; }
+    .wp .alert-message:empty {
+      padding: 0; }
+  .wp .alert-input {
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    color: #000000;
+    margin: 5px 0 5px 0;
+    padding: 0 8px;
+    line-height: 3rem; }
+    .wp .alert-input:focus {
+      border-color: #327eff; }
+  .wp .alert-radio-group,
+  .wp .alert-checkbox-group {
+    position: relative;
+    border-top: 0 solid rgba(0, 0, 0, 0.5);
+    border-bottom: 0 solid rgba(0, 0, 0, 0.5);
+    max-height: 240px;
+    overflow: auto; }
+  .wp .alert-tappable {
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 44px;
+    cursor: pointer; }
+  .wp .alert-radio-label {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: auto;
+    padding: 13px 26px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; }
+  .wp .alert-radio-icon {
+    position: relative;
+    top: 13px;
+    left: 13px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%; }
+    .wp .alert-radio-icon:after {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 8px;
+      height: 8px;
+      background: #327eff;
+      border-radius: 50%;
+      content: '';
+      display: none; }
+  .wp .alert-radio[aria-checked=true] {
+    color: #000; }
+    .wp .alert-radio[aria-checked=true] .alert-radio-icon {
+      border-color: rgba(0, 0, 0, 0.5); }
+    .wp .alert-radio[aria-checked=true] .alert-radio-icon:after {
+      display: block; }
+  .wp .alert-checkbox-label {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: auto;
+    padding: 13px 26px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; }
+  .wp .alert-checkbox-icon {
+    position: relative;
+    top: 13px;
+    left: 13px;
+    width: 16px;
+    height: 16px;
+    border-radius: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    background: transparent; }
+  .wp .alert-checkbox[aria-checked=true] .alert-checkbox-icon {
+    background: #327eff;
+    border-color: #327eff; }
+  .wp .alert-checkbox[aria-checked=true] .alert-checkbox-inner {
+    position: absolute;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E6E6E6;
+    top: -2px;
+    left: 3px;
+    width: 6px;
+    height: 12px;
+    border-left: none;
+    border-top: none;
+    content: '';
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  .wp .alert-button-group {
+    padding: 10px 20px;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-flex-wrap: wrap-reverse;
+    -ms-flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse; }
+    .wp .alert-button-group.vertical .alert-button {
+      width: 100%;
+      margin-top: 5px; }
+      .wp .alert-button-group.vertical .alert-button:first-child:not(:only-child) {
+        margin-top: 0; }
+  .wp .alert-button {
+    padding: 5px;
+    color: #000;
+    background: #B8B8B8;
+    border-radius: 0;
+    width: 49.5%;
+    font-weight: 300; }
+    .wp .alert-button:first-child:not(:only-child) {
+      margin-right: 1%; }
+    .wp .alert-button.activated {
+      background: darkgray; }
+  .wp ion-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    min-width: 10px;
+    vertical-align: baseline;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1; }
+    .wp ion-badge:empty {
+      display: none; }
+  .wp ion-badge {
+    border-radius: 0;
+    background-color: #327eff;
+    color: white; }
+  .wp .badge-primary {
+    background-color: #327eff;
+    color: white; }
+  .wp .badge-secondary {
+    background-color: #32db64;
+    color: white; }
+  .wp .badge-danger {
+    background-color: #f53d3d;
+    color: white; }
+  .wp .badge-light {
+    background-color: #f4f4f4;
+    color: black; }
+  .wp .badge-dark {
+    background-color: #222;
+    color: white; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp .button {
+    position: relative;
+    display: inline-block;
+    -webkit-transition: background-color, opacity 100ms linear;
+    transition: background-color, opacity 100ms linear;
+    z-index: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    text-transform: none;
+    -webkit-font-kerning: none;
+    font-kerning: none;
+    vertical-align: top;
+    vertical-align: -webkit-baseline-middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; }
+  .wp .button-inner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%; }
+  .wp a.button, .wp a[button] {
+    text-decoration: none; }
+  .wp .button[disabled] {
+    opacity: 0.4;
+    cursor: default !important;
+    pointer-events: none; }
+  .wp .button-block {
+    display: block;
+    clear: both;
+    width: 100%; }
+    .wp .button-block:after {
+      clear: both; }
+  .wp .button-full {
+    display: block;
+    width: 100%; }
+  .wp .button-round {
+    padding: 0 2.6rem;
+    border-radius: 64px; }
+  .wp .button-full.button-outline {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-radius: 0; }
+  .wp .button {
+    margin: 0.4rem 0.2rem;
+    padding: 0 1.1em;
+    height: 3.6rem;
+    border-radius: 0;
+    border: 3px solid transparent;
+    font-size: 1.4rem;
+    color: white;
+    background-color: #327eff; }
+    .wp .button:hover:not(.disable-hover) {
+      border-color: #2e74eb;
+      background-color: #327eff; }
+    .wp .button.activated {
+      background-color: #2e74eb; }
+  .wp .button-large {
+    padding: 0 1em;
+    height: 2.8em;
+    font-size: 2rem; }
+  .wp .button-small {
+    padding: 0 0.9em;
+    height: 2.1em;
+    font-size: 1.3rem; }
+  .wp .button-small.button-icon-only ion-icon {
+    font-size: 1.4em; }
+  .wp .button-block {
+    margin-left: 0;
+    margin-right: 0; }
+  .wp .button-full {
+    margin-right: 0;
+    margin-left: 0;
+    border-radius: 0;
+    border-right-width: 0;
+    border-left-width: 0; }
+  .wp .button-outline {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #327eff;
+    background-color: transparent;
+    color: #327eff; }
+    .wp .button-outline:hover:not(.disable-hover) {
+      background-color: rgba(158, 158, 158, 0.1); }
+    .wp .button-outline.activated {
+      background-color: rgba(50, 126, 255, 0.16); }
+  .wp .button-clear {
+    background-color: transparent;
+    color: #327eff; }
+    .wp .button-clear.activated {
+      background-color: rgba(158, 158, 158, 0.2); }
+    .wp .button-clear:hover:not(.disable-hover) {
+      background-color: rgba(158, 158, 158, 0.1); }
+  .wp .button-round {
+    padding: 0 2.6rem;
+    border-radius: 64px; }
+  .wp .button-fab {
+    border-radius: 50%; }
+  .wp .button-icon-only {
+    padding: 0; }
+  .wp ion-button-effect {
+    display: none; }
+  .wp .button-primary {
+    color: white;
+    background-color: #327eff; }
+    .wp .button-primary:hover:not(.disable-hover) {
+      border-color: #2e74eb;
+      background-color: #327eff; }
+    .wp .button-primary.activated {
+      background-color: #2e74eb; }
+  .wp .button-outline-primary {
+    border-color: #3078f2;
+    color: #3078f2; }
+    .wp .button-outline-primary:hover:not(.disable-hover) {
+      border-color: #3078f2;
+      background-color: rgba(158, 158, 158, 0.1); }
+    .wp .button-outline-primary.activated {
+      background-color: rgba(48, 120, 242, 0.16); }
+  .wp .button-clear-primary {
+    color: #327eff; }
+    .wp .button-clear-primary.activated {
+      background-color: rgba(158, 158, 158, 0.2); }
+    .wp .button-clear-primary:hover:not(.disable-hover) {
+      color: #327eff; }
+  .wp .button-secondary {
+    color: white;
+    background-color: #32db64; }
+    .wp .button-secondary:hover:not(.disable-hover) {
+      border-color: #2ec95c;
+      background-color: #32db64; }
+    .wp .button-secondary.activated {
+      background-color: #2ec95c; }
+  .wp .button-outline-secondary {
+    border-color: #30d05f;
+    color: #30d05f; }
+    .wp .button-outline-secondary:hover:not(.disable-hover) {
+      border-color: #30d05f;
+      background-color: rgba(158, 158, 158, 0.1); }
+    .wp .button-outline-secondary.activated {
+      background-color: rgba(48, 208, 95, 0.16); }
+  .wp .button-clear-secondary {
+    color: #32db64; }
+    .wp .button-clear-secondary.activated {
+      background-color: rgba(158, 158, 158, 0.2); }
+    .wp .button-clear-secondary:hover:not(.disable-hover) {
+      color: #32db64; }
+  .wp .button-danger {
+    color: white;
+    background-color: #f53d3d; }
+    .wp .button-danger:hover:not(.disable-hover) {
+      border-color: #e13838;
+      background-color: #f53d3d; }
+    .wp .button-danger.activated {
+      background-color: #e13838; }
+  .wp .button-outline-danger {
+    border-color: #e93a3a;
+    color: #e93a3a; }
+    .wp .button-outline-danger:hover:not(.disable-hover) {
+      border-color: #e93a3a;
+      background-color: rgba(158, 158, 158, 0.1); }
+    .wp .button-outline-danger.activated {
+      background-color: rgba(233, 58, 58, 0.16); }
+  .wp .button-clear-danger {
+    color: #f53d3d; }
+    .wp .button-clear-danger.activated {
+      background-color: rgba(158, 158, 158, 0.2); }
+    .wp .button-clear-danger:hover:not(.disable-hover) {
+      color: #f53d3d; }
+  .wp .button-light {
+    color: black;
+    background-color: #f4f4f4; }
+    .wp .button-light:hover:not(.disable-hover) {
+      border-color: #e0e0e0;
+      background-color: #f4f4f4; }
+    .wp .button-light.activated {
+      background-color: #e0e0e0; }
+  .wp .button-outline-light {
+    border-color: #e8e8e8;
+    color: #e8e8e8; }
+    .wp .button-outline-light:hover:not(.disable-hover) {
+      border-color: #e8e8e8;
+      background-color: rgba(158, 158, 158, 0.1); }
+    .wp .button-outline-light.activated {
+      background-color: rgba(232, 232, 232, 0.16); }
+  .wp .button-clear-light {
+    color: #f4f4f4; }
+    .wp .button-clear-light.activated {
+      background-color: rgba(158, 158, 158, 0.2); }
+    .wp .button-clear-light:hover:not(.disable-hover) {
+      color: #f4f4f4; }
+  .wp .button-dark {
+    color: white;
+    background-color: #222; }
+    .wp .button-dark:hover:not(.disable-hover) {
+      border-color: #343434;
+      background-color: #222; }
+    .wp .button-dark.activated {
+      background-color: #343434; }
+  .wp .button-outline-dark {
+    border-color: #2d2d2d;
+    color: #2d2d2d; }
+    .wp .button-outline-dark:hover:not(.disable-hover) {
+      border-color: #2d2d2d;
+      background-color: rgba(158, 158, 158, 0.1); }
+    .wp .button-outline-dark.activated {
+      background-color: rgba(45, 45, 45, 0.16); }
+  .wp .button-clear-dark {
+    color: #222; }
+    .wp .button-clear-dark.activated {
+      background-color: rgba(158, 158, 158, 0.2); }
+    .wp .button-clear-dark:hover:not(.disable-hover) {
+      color: #222; }
+  .wp .button-fab {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    min-width: 0;
+    vertical-align: middle;
+    border-radius: 50%;
+    background-clip: padding-box;
+    overflow: hidden;
+    font-size: 14px; }
+    .wp .button-fab ion-icon {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      font-size: 2.8rem; }
+  .wp [fab-center] {
+    left: 50%;
+    margin-left: -28px; }
+  .wp [fab-top] {
+    top: 16px; }
+  .wp [fab-right] {
+    right: 16px; }
+  .wp [fab-bottom] {
+    bottom: 16px; }
+  .wp [fab-left] {
+    left: 16px; }
+  .wp [fab-fixed] {
+    position: fixed; }
+  .wp .button-icon-left ion-icon {
+    padding-right: 0.3em;
+    font-size: 1.4em;
+    line-height: 0.67;
+    pointer-events: none; }
+  .wp .button-icon-right ion-icon {
+    padding-left: 0.4em;
+    font-size: 1.4em;
+    line-height: 0.67;
+    pointer-events: none; }
+  .wp .button-icon-only {
+    padding: 0;
+    min-width: 0.9em; }
+    .wp .button-icon-only ion-icon {
+      padding: 0 0.5em;
+      font-size: 1.8em;
+      line-height: 0.67;
+      pointer-events: none; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-card {
+    display: block;
+    overflow: hidden; }
+  .wp ion-card img {
+    display: block;
+    width: 100%; }
+  .wp ion-card-header {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .wp ion-card-content {
+    display: block; }
+  .wp ion-card {
+    margin: 8px 8px 8px 8px;
+    font-size: 1.4rem;
+    background: #fff;
+    border-radius: 1px;
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2); }
+    .wp ion-card ion-list {
+      margin-bottom: 0; }
+      .wp ion-card ion-list ion-label {
+        padding: 0; }
+      .wp ion-card ion-list .item-inner {
+        border-bottom: 1px solid transparent; }
+      .wp ion-card ion-list > .item:last-child,
+      .wp ion-card ion-list > ion-item-sliding:last-child .item {
+        border-bottom: none; }
+    .wp ion-card .item-inner {
+      border: none; }
+    .wp ion-card ion-card-content {
+      padding: 13px 16px 13px 16px;
+      font-size: 1.4rem;
+      line-height: 1.5; }
+    .wp ion-card ion-card-header {
+      padding: 16px;
+      font-size: 1.6rem;
+      color: #222; }
+    .wp ion-card ion-card-header + ion-card-content,
+    .wp ion-card .item + ion-card-content {
+      padding-top: 0; }
+    .wp ion-card ion-note[item-left],
+    .wp ion-card ion-note[item-right] {
+      font-size: 1.3rem; }
+    .wp ion-card ion-card-title {
+      display: block;
+      line-height: 1.2;
+      padding: 8px 0 8px 0;
+      margin: 2px 0 2px;
+      font-size: 2.4rem;
+      color: #222; }
+    .wp ion-card h1 {
+      margin: 0 0 2px;
+      font-size: 2.4rem;
+      font-weight: normal;
+      color: #222; }
+    .wp ion-card h2 {
+      margin: 2px 0 2px;
+      font-size: 1.6rem;
+      font-weight: normal;
+      color: #222; }
+    .wp ion-card h3,
+    .wp ion-card h4,
+    .wp ion-card h5,
+    .wp ion-card h6 {
+      margin: 2px 0 2px;
+      font-size: 1.4rem;
+      font-weight: normal;
+      color: #222; }
+    .wp ion-card p {
+      font-size: 1.4rem;
+      margin: 0 0 2px;
+      line-height: 1.5;
+      font-weight: normal;
+      color: #222; }
+  .wp ion-card + ion-card {
+    margin-top: 0; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-checkbox {
+    position: relative;
+    display: inline-block; }
+  .wp .checkbox-icon {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border-radius: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #333333;
+    background-color: #fff; }
+  .wp .checkbox-checked {
+    background-color: #327eff;
+    border-color: #327eff; }
+  .wp .checkbox-checked .checkbox-inner {
+    position: absolute;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #fff;
+    top: -2px;
+    left: 3px;
+    width: 6px;
+    height: 12px;
+    border-left: none;
+    border-top: none;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  .wp .checkbox-disabled,
+  .wp .item-checkbox-disabled ion-label {
+    opacity: 0.3;
+    pointer-events: none; }
+  .wp .item ion-checkbox {
+    position: static;
+    display: block;
+    margin: 9px 16px 9px 4px; }
+  .wp ion-checkbox + .item-inner ion-label {
+    margin-left: 0; }
+  .wp ion-checkbox[primary] .checkbox-checked {
+    background-color: #327eff;
+    border-color: #327eff; }
+    .wp ion-checkbox[primary] .checkbox-checked .checkbox-inner {
+      border-color: white; }
+  .wp ion-checkbox[secondary] .checkbox-checked {
+    background-color: #32db64;
+    border-color: #32db64; }
+    .wp ion-checkbox[secondary] .checkbox-checked .checkbox-inner {
+      border-color: white; }
+  .wp ion-checkbox[danger] .checkbox-checked {
+    background-color: #f53d3d;
+    border-color: #f53d3d; }
+    .wp ion-checkbox[danger] .checkbox-checked .checkbox-inner {
+      border-color: white; }
+  .wp ion-checkbox[light] .checkbox-checked {
+    background-color: #f4f4f4;
+    border-color: #f4f4f4; }
+    .wp ion-checkbox[light] .checkbox-checked .checkbox-inner {
+      border-color: black; }
+  .wp ion-checkbox[dark] .checkbox-checked {
+    background-color: #222;
+    border-color: #222; }
+    .wp ion-checkbox[dark] .checkbox-checked .checkbox-inner {
+      border-color: white; }
+  .wp ion-chip {
+    background: rgba(0, 0, 0, 0.12);
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 16px;
+    padding: 0 12px;
+    margin: 2px 0;
+    box-sizing: border-box;
+    vertical-align: middle;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    font-size: 13px;
+    font-weight: normal; }
+    .wp ion-chip ion-label {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.87); }
+    .wp ion-chip > ion-icon,
+    .wp ion-chip > ion-avatar {
+      width: 32px;
+      height: 32px;
+      margin-left: -12px;
+      vertical-align: top;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 32px;
+      color: rgba(0, 0, 0, 0.87);
+      font-size: 18px; }
+      .wp ion-chip > ion-icon img,
+      .wp ion-chip > ion-avatar img {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: block; }
+      .wp ion-chip > ion-icon + ion-label,
+      .wp ion-chip > ion-avatar + ion-label {
+        margin-left: 8px; }
+    .wp ion-chip ion-avatar {
+      min-width: 32px;
+      min-height: 32px; }
+    .wp ion-chip .button {
+      height: inherit;
+      margin: 0;
+      margin-right: -4px; }
+    .wp ion-chip ion-icon[name="close-circle"] {
+      font-size: 1.2em; }
+  .wp ion-chip ion-icon[primary] {
+    background-color: #327eff;
+    color: white !important; }
+  .wp ion-chip ion-icon[secondary] {
+    background-color: #32db64;
+    color: white !important; }
+  .wp ion-chip ion-icon[danger] {
+    background-color: #f53d3d;
+    color: white !important; }
+  .wp ion-chip ion-icon[light] {
+    background-color: #f4f4f4;
+    color: black !important; }
+  .wp ion-chip ion-icon[dark] {
+    background-color: #222;
+    color: white !important; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp [no-padding] {
+    padding: 0; }
+  .wp [no-margin] {
+    margin: 0; }
+  .wp ion-content {
+    background-color: #fff; }
+  .wp [padding],
+  .wp [padding] > scroll-content {
+    padding: 16px; }
+  .wp [padding-top] {
+    padding-top: 16px; }
+  .wp [padding-left] {
+    padding-left: 16px; }
+  .wp [padding-right] {
+    padding-right: 16px; }
+  .wp [padding-bottom] {
+    padding-bottom: 16px; }
+  .wp [padding-vertical] {
+    padding-top: 16px;
+    padding-bottom: 16px; }
+  .wp [padding-horizontal] {
+    padding-right: 16px;
+    padding-left: 16px; }
+  .wp [margin],
+  .wp [margin] > scroll-content {
+    margin: 16px; }
+  .wp [margin-top] {
+    margin-top: 16px; }
+  .wp [margin-left] {
+    margin-left: 16px; }
+  .wp [margin-right] {
+    margin-right: 16px; }
+  .wp [margin-bottom] {
+    margin-bottom: 16px; }
+  .wp [margin-vertical] {
+    margin-top: 16px;
+    margin-bottom: 16px; }
+  .wp [margin-horizontal] {
+    margin-right: 16px;
+    margin-left: 16px; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-input,
+  .wp ion-textarea {
+    position: relative;
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%; }
+  .wp .item-input ion-input,
+  .wp .item-input ion-textarea {
+    position: static; }
+  .wp .item.item-textarea {
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch; }
+  .wp .text-input {
+    display: inline-block;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 92%;
+    width: calc(100% - 10px);
+    -webkit-appearance: none; }
+    .wp .text-input::-moz-placeholder {
+      color: #999; }
+    .wp .text-input:-ms-input-placeholder {
+      color: #999; }
+    .wp .text-input::-webkit-input-placeholder {
+      color: #999;
+      text-indent: 0; }
+  .wp textarea.text-input {
+    display: block; }
+  .wp .text-input[disabled] {
+    opacity: 0.4; }
+  .wp input.text-input:-webkit-autofill {
+    background-color: transparent; }
+  .wp .platform-mobile textarea.text-input {
+    resize: none; }
+  .wp .input-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .wp .input-has-focus .input-cover {
+    display: none; }
+  .wp [next-input] {
+    position: absolute;
+    bottom: 1px;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    pointer-events: none; }
+  .wp .text-input-clear-icon {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .wp .text-input.cloned-input {
+    position: absolute;
+    top: 0;
+    pointer-events: none; }
+  .wp .item-input:not(.item-label-floating) .text-input.cloned-active {
+    display: none; }
+  .wp .text-input {
+    margin: 13px 8px 13px 8px;
+    padding: 0 8px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    line-height: 3rem; }
+  .wp .inset-input {
+    margin: 6.5px 16px 6.5px 16px;
+    padding: 6.5px 8px 6.5px 8px; }
+  .wp .input-has-focus .text-input {
+    border-color: #327eff; }
+  .wp ion-input.ng-valid.input-has-value .text-input {
+    border-color: #32db64; }
+  .wp ion-input.ng-invalid.ng-touched .text-input {
+    border-color: #f53d3d; }
+  .wp .item-label-stacked .text-input,
+  .wp .item-label-floating .text-input {
+    margin-left: 0;
+    margin-top: 8px;
+    margin-bottom: 8px; }
+  .wp .item-label-floating .text-input.cloned-input {
+    top: 32px; }
+  .wp .item-label-stacked .text-input.cloned-input {
+    top: 27px; }
+  .wp ion-input[clearInput] {
+    position: relative; }
+    .wp ion-input[clearInput] .text-input {
+      padding-right: 30px; }
+  .wp .text-input-clear-icon {
+    width: 30px;
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='rgba(0,%200,%200,%200.5)'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
+    background-size: 22px;
+    right: 8px;
+    bottom: 2px; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp .item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    min-height: 4.4rem;
+    overflow: hidden;
+    text-align: initial;
+    font-weight: normal;
+    line-height: normal;
+    text-decoration: none;
+    color: inherit; }
+  .wp .item-inner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    min-height: inherit;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: inherit;
+    -ms-flex-direction: inherit;
+    flex-direction: inherit;
+    -webkit-box-align: inherit;
+    -webkit-align-items: inherit;
+    -ms-flex-align: inherit;
+    align-items: inherit;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch; }
+  .wp .item[no-lines],
+  .wp .item[no-lines] .item-inner {
+    border: none; }
+  .wp ion-item-group {
+    display: block; }
+  .wp ion-item-divider {
+    display: block;
+    min-height: 30px;
+    width: 100%;
+    z-index: 1000; }
+    .wp ion-item-divider[sticky] {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0px; }
+  .wp [vertical-align-top],
+  .wp ion-input.item {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .wp .item > ion-icon[small]:first-child,
+  .wp .item-inner > ion-icon[small]:first-child {
+    min-width: 18px; }
+  .wp .item > ion-icon:first-child,
+  .wp .item-inner > ion-icon:first-child {
+    min-width: 24px;
+    text-align: center; }
+  .wp .item > ion-icon,
+  .wp .item-inner > ion-icon {
+    line-height: 1;
+    font-size: 2.4rem;
+    min-height: 2.4rem; }
+    .wp .item > ion-icon[large],
+    .wp .item-inner > ion-icon[large] {
+      font-size: 3.2rem;
+      min-height: 3.2rem; }
+    .wp .item > ion-icon[small],
+    .wp .item-inner > ion-icon[small] {
+      font-size: 1.8rem;
+      min-height: 1.8rem; }
+  .wp ion-avatar,
+  .wp ion-thumbnail {
+    display: block;
+    line-height: 1; }
+    .wp ion-avatar img,
+    .wp ion-thumbnail img {
+      display: block; }
+  .wp .item-cover {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; }
+  .wp ion-item-sliding {
+    display: block;
+    position: relative;
+    overflow: hidden; }
+    .wp ion-item-sliding .item {
+      position: static; }
+  .wp ion-item-options {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+    visibility: hidden; }
+  .wp ion-item-options .button {
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    height: 100%; }
+  .wp ion-item-options:not([icon-left]) .button-icon-left {
+    font-size: 14px; }
+    .wp ion-item-options:not([icon-left]) .button-icon-left .button-inner {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+    .wp ion-item-options:not([icon-left]) .button-icon-left ion-icon {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      padding-bottom: 0.3em; }
+  .wp ion-item-sliding.active-slide .item,
+  .wp ion-item-sliding.active-slide .item.activated {
+    position: relative;
+    z-index: 2;
+    opacity: 1;
+    -webkit-transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    pointer-events: none; }
+  .wp ion-item-sliding.active-slide ion-item-options {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+  .wp ion-item-sliding.active-slide.active-options ion-item-options {
+    visibility: visible; }
+  .wp .item {
+    position: relative;
+    padding-right: 0;
+    padding-left: 16px;
+    font-size: 1.6rem;
+    text-transform: none;
+    font-weight: normal;
+    color: #000;
+    background-color: #fff;
+    box-shadow: none; }
+    .wp .item h1 {
+      margin: 0 0 2px;
+      font-size: 2.4rem;
+      font-weight: normal; }
+    .wp .item h2 {
+      margin: 2px 0 2px;
+      font-size: 1.6rem;
+      font-weight: normal; }
+    .wp .item h3,
+    .wp .item h4,
+    .wp .item h5,
+    .wp .item h6 {
+      line-height: normal;
+      margin: 2px 0 2px;
+      font-size: 1.4rem;
+      font-weight: normal; }
+    .wp .item p {
+      line-height: normal;
+      color: #666;
+      font-size: 1.4rem;
+      margin: 0 0 2px; }
+  .wp .item.activated {
+    background-color: #AAAAAA; }
+  .wp .item[no-lines] {
+    border-width: 0; }
+  .wp .item-inner {
+    padding-right: 8px;
+    border-bottom: 1px solid transparent; }
+  .wp [item-left],
+  .wp [item-right] {
+    margin: 9px 8px 9px 0; }
+  .wp ion-icon[item-left],
+  .wp ion-icon[item-right] {
+    margin-top: 11px;
+    margin-bottom: 10px;
+    margin-left: 0; }
+  .wp .item-button {
+    padding: 0 0.6em;
+    height: 25px;
+    font-size: 1.2rem; }
+  .wp .item-button.button-icon-only ion-icon,
+  .wp .item-button.button-icon-only {
+    padding: 0 1px; }
+  .wp [text-wrap] ion-label {
+    font-size: 1.4rem;
+    line-height: 1.5; }
+  .wp ion-icon[item-left] + .item-inner,
+  .wp ion-icon[item-left] + .item-input {
+    margin-left: 8px; }
+  .wp ion-avatar[item-left],
+  .wp ion-thumbnail[item-left] {
+    margin: 8px 16px 8px 0; }
+  .wp ion-avatar[item-right],
+  .wp ion-thumbnail[item-right] {
+    margin: 8px; }
+  .wp ion-avatar {
+    min-width: 4rem;
+    min-height: 4rem; }
+    .wp ion-avatar img {
+      max-width: 4rem;
+      max-height: 4rem;
+      border-radius: 2rem; }
+  .wp ion-thumbnail {
+    min-width: 8rem;
+    min-height: 8rem; }
+    .wp ion-thumbnail img {
+      max-width: 8rem;
+      max-height: 8rem; }
+  .wp ion-note {
+    color: rgba(0, 0, 0, 0.5); }
+  .wp ion-item-divider {
+    padding: 13px 16px 13px 16px;
+    background-color: #fff;
+    color: #222; }
+  .wp ion-item-divider[primary] {
+    background-color: #327eff;
+    color: white; }
+  .wp ion-item-divider[secondary] {
+    background-color: #32db64;
+    color: white; }
+  .wp ion-item-divider[danger] {
+    background-color: #f53d3d;
+    color: white; }
+  .wp ion-item-divider[light] {
+    background-color: #f4f4f4;
+    color: black; }
+  .wp ion-item-divider[dark] {
+    background-color: #222;
+    color: white; }
+  .wp ion-item-sliding {
+    background-color: #fff; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-label {
+    display: block;
+    font-size: inherit;
+    white-space: nowrap;
+    margin: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+  .wp .item-input ion-label {
+    max-width: 200px;
+    -webkit-box-flex: initial;
+    -webkit-flex: initial;
+    -ms-flex: initial;
+    flex: initial;
+    pointer-events: none; }
+  .wp [text-wrap] ion-label {
+    white-space: normal; }
+  .wp ion-label[fixed] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 30%;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    width: 30%;
+    min-width: 100px;
+    max-width: 200px; }
+  .wp .item-label-stacked,
+  .wp .item-label-floating {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .wp ion-label[stacked],
+  .wp ion-label[floating] {
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    margin-bottom: 0;
+    max-width: 100%; }
+  .wp ion-label[stacked],
+  .wp ion-label[floating] {
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    width: auto; }
+  .wp ion-label {
+    margin: 13px 8px 13px 0; }
+  .wp .item-input ion-label {
+    color: #999; }
+  .wp ion-label[stacked] {
+    font-size: 1.2rem; }
+  .wp ion-label[floating] {
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: translate3d(8px, 34px, 0);
+    transform: translate3d(8px, 34px, 0); }
+  .wp ion-label[stacked],
+  .wp ion-label[floating] {
+    margin-left: 0;
+    margin-bottom: 0; }
+  .wp .input-has-focus ion-label[stacked],
+  .wp .input-has-focus ion-label[floating] {
+    color: #327eff; }
+  .wp .input-has-focus ion-label[floating],
+  .wp .input-has-value ion-label[floating] {
+    -webkit-transform: translate3d(0, 0, 0) scale(0.8);
+    transform: translate3d(0, 0, 0) scale(0.8); }
+  .wp ion-label[primary] {
+    color: #327eff !important; }
+  .wp ion-label[secondary] {
+    color: #32db64 !important; }
+  .wp ion-label[danger] {
+    color: #f53d3d !important; }
+  .wp ion-label[light] {
+    color: #f4f4f4 !important; }
+  .wp ion-label[dark] {
+    color: #222 !important; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-list-header {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .wp ion-list {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+  .wp ion-list[inset] {
+    overflow: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0); }
+  .wp ion-list-header,
+  .wp ion-item-divider {
+    border-bottom: 1px solid transparent;
+    margin-left: 0;
+    padding: 16px 16px 16px 16px;
+    font-size: 2rem;
+    color: #000; }
+  .wp ion-list {
+    margin: 0 0 16px 0; }
+    .wp ion-list .item-inner {
+      border-bottom: 1px solid transparent; }
+    .wp ion-list > .item:first-child,
+    .wp ion-list > ion-item-sliding:first-child .item {
+      border-top: 1px solid transparent; }
+    .wp ion-list > .item:last-child,
+    .wp ion-list > ion-item-sliding:last-child .item {
+      border-bottom: 1px solid transparent; }
+      .wp ion-list > .item:last-child .item-inner,
+      .wp ion-list > .item:last-child ion-label,
+      .wp ion-list > ion-item-sliding:last-child .item .item-inner,
+      .wp ion-list > ion-item-sliding:last-child .item ion-label {
+        border-bottom: none; }
+    .wp ion-list > ion-input:last-child:after {
+      left: 0; }
+    .wp ion-list ion-item-options button, .wp ion-list ion-item-options [button] {
+      height: calc(100% - 2px);
+      margin: 1px 0 1px 0;
+      box-shadow: none;
+      border: none;
+      border-radius: 0;
+      display: -webkit-inline-box;
+      display: -webkit-inline-flex;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      box-sizing: border-box; }
+      .wp ion-list ion-item-options button:before, .wp ion-list ion-item-options [button]:before {
+        margin: 0 auto; }
+    .wp ion-list .item[no-lines],
+    .wp ion-list .item[no-lines] .item-inner {
+      border-width: 0; }
+    .wp ion-list + ion-list {
+      margin-top: 32px; }
+      .wp ion-list + ion-list ion-list-header {
+        margin-top: -16px;
+        padding-top: 0; }
+  .wp ion-list[inset] {
+    margin: 16px 16px 16px 16px;
+    border-radius: 2px; }
+    .wp ion-list[inset] .item:first-child {
+      border-top-width: 0;
+      border-top-right-radius: 2px;
+      border-top-left-radius: 2px; }
+    .wp ion-list[inset] .item:last-child {
+      border-bottom-width: 0;
+      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 2px; }
+    .wp ion-list[inset] .item-input {
+      padding-right: 0;
+      padding-left: 0; }
+    .wp ion-list[inset] + ion-list[inset] {
+      margin-top: 0; }
+    .wp ion-list[inset] ion-list-header {
+      background-color: #fff; }
+  .wp ion-list[no-lines] .item,
+  .wp ion-list[no-lines] .item .item-inner {
+    border-width: 0; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-menu {
+    background: #F2F2F2; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-page.modal {
+    background-color: #fff; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-radio {
+    position: relative;
+    display: inline-block; }
+  .wp .radio-icon {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #333333;
+    border-radius: 50%; }
+  .wp .radio-inner {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    background-color: #333333;
+    border-radius: 50%;
+    display: none; }
+  .wp .radio-checked {
+    border-color: #327eff; }
+  .wp .radio-checked .radio-inner {
+    display: block; }
+  .wp .radio-disabled,
+  .wp .item-radio-disabled ion-label {
+    opacity: 0.3;
+    pointer-events: none; }
+  .wp .item ion-radio {
+    position: static;
+    display: block;
+    margin: 9px 16px 9px 0;
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+    -ms-flex-order: -1;
+    order: -1; }
+  .wp .item-radio ion-label {
+    margin-left: 0; }
+  .wp ion-radio[primary] .radio-checked {
+    border-color: #327eff; }
+  .wp ion-radio[secondary] .radio-checked {
+    border-color: #32db64; }
+  .wp ion-radio[danger] .radio-checked {
+    border-color: #f53d3d; }
+  .wp ion-radio[light] .radio-checked {
+    border-color: #f4f4f4; }
+  .wp ion-radio[dark] .radio-checked {
+    border-color: #222; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-searchbar {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%; }
+  .wp .searchbar-icon {
+    pointer-events: none; }
+  .wp .searchbar-input-container {
+    position: relative;
+    display: block;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    width: 100%; }
+  .wp .searchbar-input {
+    display: block;
+    width: 100%;
+    border: none;
+    font-family: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none; }
+  .wp .searchbar-clear-icon {
+    min-height: 0;
+    padding: 0;
+    margin: 0; }
+  .wp ion-searchbar {
+    padding: 0;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.5); }
+  .wp .searchbar-search-icon {
+    width: 21px;
+    height: 21px;
+    top: 5px;
+    right: 8px;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='#858585'%20d='M337.509,305.372h-17.501l-6.571-5.486c20.791-25.232,33.922-57.054,33.922-93.257C347.358,127.632,283.896,64,205.135,64C127.452,64,64,127.632,64,206.629s63.452,142.628,142.225,142.628c35.011,0,67.831-13.167,92.991-34.008l6.561,5.487v17.551L415.18,448L448,415.086L337.509,305.372z%20M206.225,305.372c-54.702,0-98.463-43.887-98.463-98.743c0-54.858,43.761-98.742,98.463-98.742c54.7,0,98.462,43.884,98.462,98.742C304.687,261.485,260.925,305.372,206.225,305.372z'/></svg>"); }
+    .wp .searchbar-search-icon.activated {
+      background-color: transparent; }
+  .wp .searchbar-input {
+    padding: 0 8px;
+    height: auto;
+    line-height: 3rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    border-radius: 0;
+    color: #141414;
+    background-color: #FFFFFF;
+    background-position: 8px center; }
+    .wp .searchbar-input::-moz-placeholder {
+      color: #858585; }
+    .wp .searchbar-input:-ms-input-placeholder {
+      color: #858585; }
+    .wp .searchbar-input::-webkit-input-placeholder {
+      color: #858585;
+      text-indent: 0; }
+  .wp .searchbar-clear-icon {
+    width: 22px;
+    height: 100%;
+    padding: 0;
+    background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='#858585'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    right: 8px;
+    top: 0; }
+    .wp .searchbar-clear-icon.activated {
+      background-color: transparent; }
+  .wp .searchbar-focused {
+    border-color: #327eff; }
+  .wp .searchbar-has-value .searchbar-search-icon {
+    display: none; }
+  .wp .searchbar-ios-cancel {
+    display: none; }
+  .wp .searchbar-md-cancel {
+    display: none; }
+  .wp ion-searchbar[primary].searchbar-focused {
+    border-color: #327eff; }
+  .wp ion-searchbar[secondary].searchbar-focused {
+    border-color: #32db64; }
+  .wp ion-searchbar[danger].searchbar-focused {
+    border-color: #f53d3d; }
+  .wp ion-searchbar[light].searchbar-focused {
+    border-color: #f4f4f4; }
+  .wp ion-searchbar[dark].searchbar-focused {
+    border-color: #222; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-segment {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%; }
+  .wp .segment-button {
+    position: relative;
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer; }
+  .wp ion-segment {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+  .wp .segment-button {
+    padding: 0 6px;
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0.5;
+    color: #000;
+    background-color: transparent; }
+    .wp .segment-button ion-icon {
+      font-size: 2.6rem;
+      line-height: 4rem; }
+  .wp .toolbar ion-segment {
+    margin: 0 auto; }
+  .wp .toolbar .segment-button.activated,
+  .wp .toolbar .segment-button.segment-activated {
+    opacity: 1; }
+  .wp ion-segment[primary] .segment-button {
+    color: #327eff; }
+    .wp ion-segment[primary] .segment-button.activated, .wp ion-segment[primary] .segment-button.segment-activated {
+      opacity: 1;
+      border-color: #327eff;
+      color: #327eff; }
+  .wp ion-segment[secondary] .segment-button {
+    color: #32db64; }
+    .wp ion-segment[secondary] .segment-button.activated, .wp ion-segment[secondary] .segment-button.segment-activated {
+      opacity: 1;
+      border-color: #32db64;
+      color: #32db64; }
+  .wp ion-segment[danger] .segment-button {
+    color: #f53d3d; }
+    .wp ion-segment[danger] .segment-button.activated, .wp ion-segment[danger] .segment-button.segment-activated {
+      opacity: 1;
+      border-color: #f53d3d;
+      color: #f53d3d; }
+  .wp ion-segment[light] .segment-button {
+    color: #f4f4f4; }
+    .wp ion-segment[light] .segment-button.activated, .wp ion-segment[light] .segment-button.segment-activated {
+      opacity: 1;
+      border-color: #f4f4f4;
+      color: #f4f4f4; }
+  .wp ion-segment[dark] .segment-button {
+    color: #222; }
+    .wp ion-segment[dark] .segment-button.activated, .wp ion-segment[dark] .segment-button.segment-activated {
+      opacity: 1;
+      border-color: #222;
+      color: #222; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-select {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    max-width: 45%; }
+  .wp .select-text {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 16px;
+    font-size: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .wp .item-multiple-inputs ion-select {
+    position: relative; }
+  .wp .select-disabled,
+  .wp .item-select-disabled ion-label {
+    opacity: 0.4;
+    pointer-events: none; }
+  .wp ion-select {
+    padding: 6.5px 8px 6.5px 8px;
+    border: 2px solid #B5B5B5; }
+  .wp .item-select ion-label {
+    margin-left: 0; }
+  .wp .select-icon {
+    position: relative;
+    width: 18px;
+    height: 18px; }
+  .wp .select-icon .select-icon-inner {
+    position: absolute;
+    display: block;
+    width: 9px;
+    height: 9px;
+    left: 5px;
+    top: 3px;
+    border-top: 2px solid #B5B5B5;
+    border-right: 2px solid #B5B5B5;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    pointer-events: none; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-tabs {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0; }
+  .wp ion-tab {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    display: none; }
+    .wp ion-tab.show-tab {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+  .wp ion-tabs > ion-navbar-section {
+    -webkit-box-ordinal-group: -29;
+    -webkit-order: -30;
+    -ms-flex-order: -30;
+    order: -30; }
+  .wp ion-tabbar-section {
+    position: relative;
+    -webkit-box-ordinal-group: 21;
+    -webkit-order: 20;
+    -ms-flex-order: 20;
+    order: 20; }
+  .wp [tabbarPlacement=top] ion-tabbar-section {
+    -webkit-box-ordinal-group: -19;
+    -webkit-order: -20;
+    -ms-flex-order: -20;
+    order: -20; }
+  .wp tabbar {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: hidden; }
+  .wp .tab-button {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 0;
+    border-radius: 0;
+    background: none; }
+  .wp .tab-button-text {
+    margin-top: 3px;
+    margin-bottom: 2px; }
+  .wp .tab-button-text,
+  .wp .tab-button-icon {
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    min-width: 26px;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: none; }
+  .wp .has-icon .tab-button-icon,
+  .wp .has-title .tab-button-text {
+    display: block; }
+  .wp .has-title-only .tab-button-text {
+    white-space: normal; }
+  .wp tab-highlight {
+    display: none; }
+  .wp [tabbarLayout=icon-bottom] .tab-button .tab-button-icon {
+    -webkit-box-ordinal-group: 11;
+    -webkit-order: 10;
+    -ms-flex-order: 10;
+    order: 10; }
+  .wp [tabbarLayout=icon-left] .tab-button {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row; }
+    .wp [tabbarLayout=icon-left] .tab-button .tab-button-icon {
+      text-align: right;
+      padding-right: 8px; }
+  .wp [tabbarLayout=icon-right] .tab-button {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row; }
+    .wp [tabbarLayout=icon-right] .tab-button .tab-button-icon {
+      -webkit-box-ordinal-group: 11;
+      -webkit-order: 10;
+      -ms-flex-order: 10;
+      order: 10;
+      text-align: left;
+      padding-left: 8px; }
+  .wp [tabbarLayout=icon-hide] .tab-button-icon {
+    display: none; }
+  .wp [tabbarLayout=title-hide] .tab-button-text {
+    display: none; }
+  .wp .tab-badge {
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    right: calc(50% - 50px);
+    padding: 1px 6px;
+    height: auto;
+    font-size: 12px;
+    line-height: 16px; }
+  .wp .has-icon .tab-badge {
+    right: calc(50% - 30px); }
+  .wp [tabbarLayout=icon-hide] .tab-badge,
+  .wp [tabbarLayout=icon-bottom] .tab-badge,
+  .wp [tabbarLayout=icon-left] .tab-badge,
+  .wp [tabbarLayout=icon-right] .tab-badge {
+    right: calc(50% - 50px); }
+  .wp tabbar {
+    background: #f8f8f8; }
+  .wp .tab-button {
+    padding: 12px 10px 5px 10px;
+    min-height: 4.8rem;
+    font-size: 1.2rem;
+    font-weight: normal;
+    opacity: 0.7;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+    color: #8c8c8c; }
+    .wp .tab-button[aria-selected=true] {
+      opacity: 1.0;
+      color: #327eff;
+      border-bottom: 2px solid #327eff; }
+    .wp .tab-button.activated {
+      background: rgba(0, 0, 0, 0.1); }
+  .wp .tab-button-text {
+    margin-top: 5px;
+    margin-bottom: 5px; }
+  .wp .tab-button-icon {
+    font-size: 2.4rem;
+    min-width: 2.4rem; }
+  .wp [tabbarIcons=bottom] .tab-button {
+    padding-top: 8px;
+    padding-bottom: 8px; }
+  .wp [tabbarIcons=right] .tab-button,
+  .wp [tabbarIcons=left] .tab-button {
+    padding-bottom: 10px; }
+    .wp [tabbarIcons=right] .tab-button ion-icon,
+    .wp [tabbarIcons=left] .tab-button ion-icon {
+      min-width: 24px; }
+  .wp .tab-button.icon-only,
+  .wp .tab-button.has-title-only {
+    padding: 6px 10px 6px 10px; }
+  .wp ion-tabs[primary] tabbar {
+    background-color: #327eff; }
+    .wp ion-tabs[primary] tabbar .tab-button {
+      color: white; }
+    .wp ion-tabs[primary] tabbar .tab-button:hover:not(.disable-hover),
+    .wp ion-tabs[primary] tabbar .tab-button[aria-selected=true] {
+      color: white;
+      border-color: white; }
+  .wp ion-tabs[secondary] tabbar {
+    background-color: #32db64; }
+    .wp ion-tabs[secondary] tabbar .tab-button {
+      color: white; }
+    .wp ion-tabs[secondary] tabbar .tab-button:hover:not(.disable-hover),
+    .wp ion-tabs[secondary] tabbar .tab-button[aria-selected=true] {
+      color: white;
+      border-color: white; }
+  .wp ion-tabs[danger] tabbar {
+    background-color: #f53d3d; }
+    .wp ion-tabs[danger] tabbar .tab-button {
+      color: white; }
+    .wp ion-tabs[danger] tabbar .tab-button:hover:not(.disable-hover),
+    .wp ion-tabs[danger] tabbar .tab-button[aria-selected=true] {
+      color: white;
+      border-color: white; }
+  .wp ion-tabs[light] tabbar {
+    background-color: #f4f4f4; }
+    .wp ion-tabs[light] tabbar .tab-button {
+      color: black; }
+    .wp ion-tabs[light] tabbar .tab-button:hover:not(.disable-hover),
+    .wp ion-tabs[light] tabbar .tab-button[aria-selected=true] {
+      color: black;
+      border-color: black; }
+  .wp ion-tabs[dark] tabbar {
+    background-color: #222; }
+    .wp ion-tabs[dark] tabbar .tab-button {
+      color: white; }
+    .wp ion-tabs[dark] tabbar .tab-button:hover:not(.disable-hover),
+    .wp ion-tabs[dark] tabbar .tab-button[aria-selected=true] {
+      color: white;
+      border-color: white; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp ion-toggle {
+    position: relative; }
+  .wp .toggle-icon {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 18px;
+    pointer-events: none;
+    border-radius: 18px;
+    background-color: transparent;
+    border: 2px solid #323232; }
+  .wp .toggle-inner {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #323232; }
+  .wp .toggle-checked {
+    background-color: #327eff;
+    border-color: #327eff; }
+  .wp .toggle-checked .toggle-inner {
+    background-color: white;
+    -webkit-transform: translate3d(22px, 0, 0);
+    transform: translate3d(22px, 0, 0); }
+  .wp .toggle-disabled,
+  .wp .item-toggle-disabled ion-label {
+    opacity: 0.3;
+    pointer-events: none; }
+  .wp .toggle-disabled ion-radio {
+    opacity: 0.3; }
+  .wp .item ion-toggle {
+    margin: 0;
+    padding: 12px 8px 12px 16px;
+    cursor: pointer; }
+  .wp .item-toggle ion-label {
+    margin-left: 0; }
+  .wp ion-toggle[primary] .toggle-checked {
+    background-color: #327eff;
+    border-color: #327eff; }
+  .wp ion-toggle[primary] .toggle-checked .toggle-inner {
+    background-color: white; }
+  .wp ion-toggle[secondary] .toggle-checked {
+    background-color: #32db64;
+    border-color: #32db64; }
+  .wp ion-toggle[secondary] .toggle-checked .toggle-inner {
+    background-color: white; }
+  .wp ion-toggle[danger] .toggle-checked {
+    background-color: #f53d3d;
+    border-color: #f53d3d; }
+  .wp ion-toggle[danger] .toggle-checked .toggle-inner {
+    background-color: white; }
+  .wp ion-toggle[light] .toggle-checked {
+    background-color: #f4f4f4;
+    border-color: #f4f4f4; }
+  .wp ion-toggle[light] .toggle-checked .toggle-inner {
+    background-color: black; }
+  .wp ion-toggle[dark] .toggle-checked {
+    background-color: #222;
+    border-color: #222; }
+  .wp ion-toggle[dark] .toggle-checked .toggle-inner {
+    background-color: white; }
+
+/**
+  Noto Sans Font
+  Google
+  Apache License, version 2.0
+  http://www.apache.org/licenses/LICENSE-2.0.html
+ */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
+  .wp .toolbar {
+    position: relative;
+    z-index: 10;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-ordinal-group: -9;
+    -webkit-order: -10;
+    -ms-flex-order: -10;
+    order: -10;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0;
+    -ms-flex: 0;
+    flex: 0;
+    width: 100%;
+    overflow: hidden; }
+  .wp .toolbar-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border: 0;
+    pointer-events: none;
+    -webkit-transform: translateZ(0px);
+    transform: translateZ(0px); }
+  .wp .toolbar[position=bottom] {
+    -webkit-box-ordinal-group: 11;
+    -webkit-order: 10;
+    -ms-flex-order: 10;
+    order: 10; }
+  .wp ion-title {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transform: translateZ(0px);
+    transform: translateZ(0px); }
+  .wp .toolbar-title {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+  .wp ion-buttons {
+    display: block;
+    margin: 0 0.2rem;
+    pointer-events: none;
+    -webkit-transform: translateZ(0px);
+    transform: translateZ(0px); }
+  .wp ion-buttons button,
+  .wp ion-buttons a,
+  .wp ion-buttons input,
+  .wp ion-buttons textarea,
+  .wp ion-buttons div {
+    pointer-events: auto; }
+  .wp .toolbar[transparent] .toolbar-background {
+    background: transparent;
+    border-color: transparent; }
+  .wp ion-buttons,
+  .wp .bar-button-menutoggle {
+    -webkit-transform: translateZ(0px);
+    transform: translateZ(0px);
+    z-index: 99; }
+  .wp ion-navbar.toolbar {
+    -webkit-transform: translateZ(0px);
+    transform: translateZ(0px);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    opacity: 0; }
+    .wp ion-navbar.toolbar.show-navbar {
+      opacity: 1; }
+  .wp .bar-button {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: top;
+    vertical-align: -webkit-baseline-middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; }
+  .wp .bar-button:after {
+    position: absolute;
+    content: '';
+    top: -7px;
+    right: -2px;
+    bottom: -6px;
+    left: -2px; }
+  .wp .bar-button-menutoggle {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .wp .back-button {
+    display: none; }
+    .wp .back-button.show-back-button {
+      display: inline-block; }
+  .wp .back-button-text {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .wp .toolbar {
+    padding: 4px;
+    min-height: 4.6rem; }
+  .wp ion-navbar-section {
+    min-height: 4.6rem; }
+  .wp .toolbar-background {
+    border-color: #b2b2b2;
+    background: #f8f8f8; }
+  .wp .toolbar-content {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+    -ms-flex-order: 3;
+    order: 3;
+    max-width: 100%;
+    min-width: 0; }
+  .wp .toolbar-title {
+    color: #000;
+    padding: 0 6px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase; }
+  .wp ion-buttons {
+    -webkit-box-ordinal-group: 5;
+    -webkit-order: 4;
+    -ms-flex-order: 4;
+    order: 4;
+    -webkit-transform: translateZ(0px);
+    transform: translateZ(0px); }
+  .wp ion-buttons[left] {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2; }
+  .wp ion-buttons[left] .bar-button:first-child {
+    margin-left: 0; }
+  .wp ion-buttons[end] {
+    text-align: right;
+    -webkit-box-ordinal-group: 6;
+    -webkit-order: 5;
+    -ms-flex-order: 5;
+    order: 5; }
+  .wp ion-buttons[right] {
+    text-align: right;
+    -webkit-box-ordinal-group: 7;
+    -webkit-order: 6;
+    -ms-flex-order: 6;
+    order: 6; }
+  .wp .bar-button {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    padding: 0 5px;
+    height: 32px;
+    border: 0;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: 500; }
+  .wp .bar-button-solid,
+  .wp .bar-button-outline {
+    overflow: hidden; }
+  .wp .bar-button-outline {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000;
+    color: #000;
+    background-color: transparent; }
+    .wp .bar-button-outline:hover:not(.disable-hover) {
+      opacity: 0.4; }
+    .wp .bar-button-outline.activated {
+      color: white;
+      background-color: #000; }
+  .wp .bar-button-solid {
+    color: white;
+    background-color: #000; }
+    .wp .bar-button-solid:hover:not(.disable-hover) {
+      color: white; }
+    .wp .bar-button-solid.activated {
+      color: white;
+      background-color: #141414; }
+  .wp .bar-button-icon-left ion-icon {
+    padding-right: 0.3em;
+    font-size: 1.4em;
+    line-height: 0.67;
+    pointer-events: none; }
+  .wp .bar-button-icon-right ion-icon {
+    padding-left: 0.4em;
+    font-size: 1.4em;
+    line-height: 0.67;
+    pointer-events: none; }
+  .wp .bar-button-icon-only {
+    padding: 0; }
+    .wp .bar-button-icon-only ion-icon {
+      padding: 0 0.1em;
+      font-size: 1.8em;
+      line-height: 0.67;
+      min-width: 28px;
+      pointer-events: none; }
+  .wp .back-button {
+    margin: 0 0 0 12px;
+    box-shadow: none; }
+  .wp .back-button-icon {
+    margin: 0;
+    min-width: 44px;
+    font-size: 2.4rem;
+    font-weight: normal;
+    text-align: left; }
+  .wp .bar-button-menutoggle {
+    margin: 0 6px;
+    padding: 0 2px;
+    min-width: 44px;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1; }
+    .wp .bar-button-menutoggle ion-icon {
+      padding: 0 6px;
+      font-size: 2.4rem; }
+  .wp .bar-button-menutoggle[end],
+  .wp .bar-button-menutoggle[right] {
+    margin: 0 2px;
+    min-width: 28px;
+    -webkit-box-ordinal-group: 8;
+    -webkit-order: 7;
+    -ms-flex-order: 7;
+    order: 7; }
+  .wp .bar-button-default {
+    color: #000;
+    background-color: transparent; }
+    .wp .bar-button-default:hover:not(.disable-hover) {
+      color: #000; }
+  .wp .toolbar[primary] .toolbar-background {
+    background: #327eff; }
+  .wp .toolbar[primary] .bar-button-default,
+  .wp .toolbar[primary] .bar-button-outline,
+  .wp .toolbar[primary] .toolbar-title {
+    color: white; }
+  .wp .toolbar[primary] .bar-button-default ion-button-effect,
+  .wp .toolbar[primary] .bar-button-outline ion-button-effect {
+    background-color: white; }
+  .wp .toolbar[primary] .bar-button-outline {
+    border-color: white; }
+  .wp .toolbar[primary] .bar-button-primary {
+    color: #327eff;
+    background-color: transparent; }
+    .wp .toolbar[primary] .bar-button-primary:hover:not(.disable-hover) {
+      color: #327eff; }
+  .wp .toolbar[primary] .bar-button-outline-primary {
+    border-color: #2e74eb;
+    color: #2e74eb;
+    background-color: transparent; }
+    .wp .toolbar[primary] .bar-button-outline-primary.activated {
+      color: white;
+      background-color: #2e74eb; }
+  .wp .toolbar[primary] .bar-button-solid-primary {
+    color: white;
+    background-color: #327eff; }
+    .wp .toolbar[primary] .bar-button-solid-primary.activated {
+      background-color: #2e74eb; }
+  .wp .toolbar[primary] .bar-button-secondary {
+    color: #32db64;
+    background-color: transparent; }
+    .wp .toolbar[primary] .bar-button-secondary:hover:not(.disable-hover) {
+      color: #32db64; }
+  .wp .toolbar[primary] .bar-button-outline-secondary {
+    border-color: #2ec95c;
+    color: #2ec95c;
+    background-color: transparent; }
+    .wp .toolbar[primary] .bar-button-outline-secondary.activated {
+      color: white;
+      background-color: #2ec95c; }
+  .wp .toolbar[primary] .bar-button-solid-secondary {
+    color: white;
+    background-color: #32db64; }
+    .wp .toolbar[primary] .bar-button-solid-secondary.activated {
+      background-color: #2ec95c; }
+  .wp .toolbar[primary] .bar-button-danger {
+    color: #f53d3d;
+    background-color: transparent; }
+    .wp .toolbar[primary] .bar-button-danger:hover:not(.disable-hover) {
+      color: #f53d3d; }
+  .wp .toolbar[primary] .bar-button-outline-danger {
+    border-color: #e13838;
+    color: #e13838;
+    background-color: transparent; }
+    .wp .toolbar[primary] .bar-button-outline-danger.activated {
+      color: white;
+      background-color: #e13838; }
+  .wp .toolbar[primary] .bar-button-solid-danger {
+    color: white;
+    background-color: #f53d3d; }
+    .wp .toolbar[primary] .bar-button-solid-danger.activated {
+      background-color: #e13838; }
+  .wp .toolbar[primary] .bar-button-light {
+    color: #f4f4f4;
+    background-color: transparent; }
+    .wp .toolbar[primary] .bar-button-light:hover:not(.disable-hover) {
+      color: #f4f4f4; }
+  .wp .toolbar[primary] .bar-button-outline-light {
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+    background-color: transparent; }
+    .wp .toolbar[primary] .bar-button-outline-light.activated {
+      color: black;
+      background-color: #e0e0e0; }
+  .wp .toolbar[primary] .bar-button-solid-light {
+    color: black;
+    background-color: #f4f4f4; }
+    .wp .toolbar[primary] .bar-button-solid-light.activated {
+      background-color: #e0e0e0; }
+  .wp .toolbar[primary] .bar-button-dark {
+    color: #222;
+    background-color: transparent; }
+    .wp .toolbar[primary] .bar-button-dark:hover:not(.disable-hover) {
+      color: #222; }
+  .wp .toolbar[primary] .bar-button-outline-dark {
+    border-color: #343434;
+    color: #343434;
+    background-color: transparent; }
+    .wp .toolbar[primary] .bar-button-outline-dark.activated {
+      color: white;
+      background-color: #343434; }
+  .wp .toolbar[primary] .bar-button-solid-dark {
+    color: white;
+    background-color: #222; }
+    .wp .toolbar[primary] .bar-button-solid-dark.activated {
+      background-color: #343434; }
+  .wp .bar-button-primary {
+    color: #327eff;
+    background-color: transparent; }
+    .wp .bar-button-primary:hover:not(.disable-hover) {
+      color: #327eff; }
+  .wp .bar-button-outline-primary {
+    border-color: #2e74eb;
+    color: #2e74eb;
+    background-color: transparent; }
+    .wp .bar-button-outline-primary.activated {
+      color: white;
+      background-color: #2e74eb; }
+  .wp .bar-button-solid-primary {
+    color: white;
+    background-color: #327eff; }
+    .wp .bar-button-solid-primary.activated {
+      background-color: #2e74eb; }
+  .wp .toolbar[secondary] .toolbar-background {
+    background: #32db64; }
+  .wp .toolbar[secondary] .bar-button-default,
+  .wp .toolbar[secondary] .bar-button-outline,
+  .wp .toolbar[secondary] .toolbar-title {
+    color: white; }
+  .wp .toolbar[secondary] .bar-button-default ion-button-effect,
+  .wp .toolbar[secondary] .bar-button-outline ion-button-effect {
+    background-color: white; }
+  .wp .toolbar[secondary] .bar-button-outline {
+    border-color: white; }
+  .wp .toolbar[secondary] .bar-button-primary {
+    color: #327eff;
+    background-color: transparent; }
+    .wp .toolbar[secondary] .bar-button-primary:hover:not(.disable-hover) {
+      color: #327eff; }
+  .wp .toolbar[secondary] .bar-button-outline-primary {
+    border-color: #2e74eb;
+    color: #2e74eb;
+    background-color: transparent; }
+    .wp .toolbar[secondary] .bar-button-outline-primary.activated {
+      color: white;
+      background-color: #2e74eb; }
+  .wp .toolbar[secondary] .bar-button-solid-primary {
+    color: white;
+    background-color: #327eff; }
+    .wp .toolbar[secondary] .bar-button-solid-primary.activated {
+      background-color: #2e74eb; }
+  .wp .toolbar[secondary] .bar-button-secondary {
+    color: #32db64;
+    background-color: transparent; }
+    .wp .toolbar[secondary] .bar-button-secondary:hover:not(.disable-hover) {
+      color: #32db64; }
+  .wp .toolbar[secondary] .bar-button-outline-secondary {
+    border-color: #2ec95c;
+    color: #2ec95c;
+    background-color: transparent; }
+    .wp .toolbar[secondary] .bar-button-outline-secondary.activated {
+      color: white;
+      background-color: #2ec95c; }
+  .wp .toolbar[secondary] .bar-button-solid-secondary {
+    color: white;
+    background-color: #32db64; }
+    .wp .toolbar[secondary] .bar-button-solid-secondary.activated {
+      background-color: #2ec95c; }
+  .wp .toolbar[secondary] .bar-button-danger {
+    color: #f53d3d;
+    background-color: transparent; }
+    .wp .toolbar[secondary] .bar-button-danger:hover:not(.disable-hover) {
+      color: #f53d3d; }
+  .wp .toolbar[secondary] .bar-button-outline-danger {
+    border-color: #e13838;
+    color: #e13838;
+    background-color: transparent; }
+    .wp .toolbar[secondary] .bar-button-outline-danger.activated {
+      color: white;
+      background-color: #e13838; }
+  .wp .toolbar[secondary] .bar-button-solid-danger {
+    color: white;
+    background-color: #f53d3d; }
+    .wp .toolbar[secondary] .bar-button-solid-danger.activated {
+      background-color: #e13838; }
+  .wp .toolbar[secondary] .bar-button-light {
+    color: #f4f4f4;
+    background-color: transparent; }
+    .wp .toolbar[secondary] .bar-button-light:hover:not(.disable-hover) {
+      color: #f4f4f4; }
+  .wp .toolbar[secondary] .bar-button-outline-light {
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+    background-color: transparent; }
+    .wp .toolbar[secondary] .bar-button-outline-light.activated {
+      color: black;
+      background-color: #e0e0e0; }
+  .wp .toolbar[secondary] .bar-button-solid-light {
+    color: black;
+    background-color: #f4f4f4; }
+    .wp .toolbar[secondary] .bar-button-solid-light.activated {
+      background-color: #e0e0e0; }
+  .wp .toolbar[secondary] .bar-button-dark {
+    color: #222;
+    background-color: transparent; }
+    .wp .toolbar[secondary] .bar-button-dark:hover:not(.disable-hover) {
+      color: #222; }
+  .wp .toolbar[secondary] .bar-button-outline-dark {
+    border-color: #343434;
+    color: #343434;
+    background-color: transparent; }
+    .wp .toolbar[secondary] .bar-button-outline-dark.activated {
+      color: white;
+      background-color: #343434; }
+  .wp .toolbar[secondary] .bar-button-solid-dark {
+    color: white;
+    background-color: #222; }
+    .wp .toolbar[secondary] .bar-button-solid-dark.activated {
+      background-color: #343434; }
+  .wp .bar-button-secondary {
+    color: #32db64;
+    background-color: transparent; }
+    .wp .bar-button-secondary:hover:not(.disable-hover) {
+      color: #32db64; }
+  .wp .bar-button-outline-secondary {
+    border-color: #2ec95c;
+    color: #2ec95c;
+    background-color: transparent; }
+    .wp .bar-button-outline-secondary.activated {
+      color: white;
+      background-color: #2ec95c; }
+  .wp .bar-button-solid-secondary {
+    color: white;
+    background-color: #32db64; }
+    .wp .bar-button-solid-secondary.activated {
+      background-color: #2ec95c; }
+  .wp .toolbar[danger] .toolbar-background {
+    background: #f53d3d; }
+  .wp .toolbar[danger] .bar-button-default,
+  .wp .toolbar[danger] .bar-button-outline,
+  .wp .toolbar[danger] .toolbar-title {
+    color: white; }
+  .wp .toolbar[danger] .bar-button-default ion-button-effect,
+  .wp .toolbar[danger] .bar-button-outline ion-button-effect {
+    background-color: white; }
+  .wp .toolbar[danger] .bar-button-outline {
+    border-color: white; }
+  .wp .toolbar[danger] .bar-button-primary {
+    color: #327eff;
+    background-color: transparent; }
+    .wp .toolbar[danger] .bar-button-primary:hover:not(.disable-hover) {
+      color: #327eff; }
+  .wp .toolbar[danger] .bar-button-outline-primary {
+    border-color: #2e74eb;
+    color: #2e74eb;
+    background-color: transparent; }
+    .wp .toolbar[danger] .bar-button-outline-primary.activated {
+      color: white;
+      background-color: #2e74eb; }
+  .wp .toolbar[danger] .bar-button-solid-primary {
+    color: white;
+    background-color: #327eff; }
+    .wp .toolbar[danger] .bar-button-solid-primary.activated {
+      background-color: #2e74eb; }
+  .wp .toolbar[danger] .bar-button-secondary {
+    color: #32db64;
+    background-color: transparent; }
+    .wp .toolbar[danger] .bar-button-secondary:hover:not(.disable-hover) {
+      color: #32db64; }
+  .wp .toolbar[danger] .bar-button-outline-secondary {
+    border-color: #2ec95c;
+    color: #2ec95c;
+    background-color: transparent; }
+    .wp .toolbar[danger] .bar-button-outline-secondary.activated {
+      color: white;
+      background-color: #2ec95c; }
+  .wp .toolbar[danger] .bar-button-solid-secondary {
+    color: white;
+    background-color: #32db64; }
+    .wp .toolbar[danger] .bar-button-solid-secondary.activated {
+      background-color: #2ec95c; }
+  .wp .toolbar[danger] .bar-button-danger {
+    color: #f53d3d;
+    background-color: transparent; }
+    .wp .toolbar[danger] .bar-button-danger:hover:not(.disable-hover) {
+      color: #f53d3d; }
+  .wp .toolbar[danger] .bar-button-outline-danger {
+    border-color: #e13838;
+    color: #e13838;
+    background-color: transparent; }
+    .wp .toolbar[danger] .bar-button-outline-danger.activated {
+      color: white;
+      background-color: #e13838; }
+  .wp .toolbar[danger] .bar-button-solid-danger {
+    color: white;
+    background-color: #f53d3d; }
+    .wp .toolbar[danger] .bar-button-solid-danger.activated {
+      background-color: #e13838; }
+  .wp .toolbar[danger] .bar-button-light {
+    color: #f4f4f4;
+    background-color: transparent; }
+    .wp .toolbar[danger] .bar-button-light:hover:not(.disable-hover) {
+      color: #f4f4f4; }
+  .wp .toolbar[danger] .bar-button-outline-light {
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+    background-color: transparent; }
+    .wp .toolbar[danger] .bar-button-outline-light.activated {
+      color: black;
+      background-color: #e0e0e0; }
+  .wp .toolbar[danger] .bar-button-solid-light {
+    color: black;
+    background-color: #f4f4f4; }
+    .wp .toolbar[danger] .bar-button-solid-light.activated {
+      background-color: #e0e0e0; }
+  .wp .toolbar[danger] .bar-button-dark {
+    color: #222;
+    background-color: transparent; }
+    .wp .toolbar[danger] .bar-button-dark:hover:not(.disable-hover) {
+      color: #222; }
+  .wp .toolbar[danger] .bar-button-outline-dark {
+    border-color: #343434;
+    color: #343434;
+    background-color: transparent; }
+    .wp .toolbar[danger] .bar-button-outline-dark.activated {
+      color: white;
+      background-color: #343434; }
+  .wp .toolbar[danger] .bar-button-solid-dark {
+    color: white;
+    background-color: #222; }
+    .wp .toolbar[danger] .bar-button-solid-dark.activated {
+      background-color: #343434; }
+  .wp .bar-button-danger {
+    color: #f53d3d;
+    background-color: transparent; }
+    .wp .bar-button-danger:hover:not(.disable-hover) {
+      color: #f53d3d; }
+  .wp .bar-button-outline-danger {
+    border-color: #e13838;
+    color: #e13838;
+    background-color: transparent; }
+    .wp .bar-button-outline-danger.activated {
+      color: white;
+      background-color: #e13838; }
+  .wp .bar-button-solid-danger {
+    color: white;
+    background-color: #f53d3d; }
+    .wp .bar-button-solid-danger.activated {
+      background-color: #e13838; }
+  .wp .toolbar[light] .toolbar-background {
+    background: #f4f4f4; }
+  .wp .toolbar[light] .bar-button-default,
+  .wp .toolbar[light] .bar-button-outline,
+  .wp .toolbar[light] .toolbar-title {
+    color: black; }
+  .wp .toolbar[light] .bar-button-default ion-button-effect,
+  .wp .toolbar[light] .bar-button-outline ion-button-effect {
+    background-color: black; }
+  .wp .toolbar[light] .bar-button-outline {
+    border-color: black; }
+  .wp .toolbar[light] .bar-button-primary {
+    color: #327eff;
+    background-color: transparent; }
+    .wp .toolbar[light] .bar-button-primary:hover:not(.disable-hover) {
+      color: #327eff; }
+  .wp .toolbar[light] .bar-button-outline-primary {
+    border-color: #2e74eb;
+    color: #2e74eb;
+    background-color: transparent; }
+    .wp .toolbar[light] .bar-button-outline-primary.activated {
+      color: white;
+      background-color: #2e74eb; }
+  .wp .toolbar[light] .bar-button-solid-primary {
+    color: white;
+    background-color: #327eff; }
+    .wp .toolbar[light] .bar-button-solid-primary.activated {
+      background-color: #2e74eb; }
+  .wp .toolbar[light] .bar-button-secondary {
+    color: #32db64;
+    background-color: transparent; }
+    .wp .toolbar[light] .bar-button-secondary:hover:not(.disable-hover) {
+      color: #32db64; }
+  .wp .toolbar[light] .bar-button-outline-secondary {
+    border-color: #2ec95c;
+    color: #2ec95c;
+    background-color: transparent; }
+    .wp .toolbar[light] .bar-button-outline-secondary.activated {
+      color: white;
+      background-color: #2ec95c; }
+  .wp .toolbar[light] .bar-button-solid-secondary {
+    color: white;
+    background-color: #32db64; }
+    .wp .toolbar[light] .bar-button-solid-secondary.activated {
+      background-color: #2ec95c; }
+  .wp .toolbar[light] .bar-button-danger {
+    color: #f53d3d;
+    background-color: transparent; }
+    .wp .toolbar[light] .bar-button-danger:hover:not(.disable-hover) {
+      color: #f53d3d; }
+  .wp .toolbar[light] .bar-button-outline-danger {
+    border-color: #e13838;
+    color: #e13838;
+    background-color: transparent; }
+    .wp .toolbar[light] .bar-button-outline-danger.activated {
+      color: white;
+      background-color: #e13838; }
+  .wp .toolbar[light] .bar-button-solid-danger {
+    color: white;
+    background-color: #f53d3d; }
+    .wp .toolbar[light] .bar-button-solid-danger.activated {
+      background-color: #e13838; }
+  .wp .toolbar[light] .bar-button-light {
+    color: #f4f4f4;
+    background-color: transparent; }
+    .wp .toolbar[light] .bar-button-light:hover:not(.disable-hover) {
+      color: #f4f4f4; }
+  .wp .toolbar[light] .bar-button-outline-light {
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+    background-color: transparent; }
+    .wp .toolbar[light] .bar-button-outline-light.activated {
+      color: black;
+      background-color: #e0e0e0; }
+  .wp .toolbar[light] .bar-button-solid-light {
+    color: black;
+    background-color: #f4f4f4; }
+    .wp .toolbar[light] .bar-button-solid-light.activated {
+      background-color: #e0e0e0; }
+  .wp .toolbar[light] .bar-button-dark {
+    color: #222;
+    background-color: transparent; }
+    .wp .toolbar[light] .bar-button-dark:hover:not(.disable-hover) {
+      color: #222; }
+  .wp .toolbar[light] .bar-button-outline-dark {
+    border-color: #343434;
+    color: #343434;
+    background-color: transparent; }
+    .wp .toolbar[light] .bar-button-outline-dark.activated {
+      color: white;
+      background-color: #343434; }
+  .wp .toolbar[light] .bar-button-solid-dark {
+    color: white;
+    background-color: #222; }
+    .wp .toolbar[light] .bar-button-solid-dark.activated {
+      background-color: #343434; }
+  .wp .bar-button-light {
+    color: #f4f4f4;
+    background-color: transparent; }
+    .wp .bar-button-light:hover:not(.disable-hover) {
+      color: #f4f4f4; }
+  .wp .bar-button-outline-light {
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+    background-color: transparent; }
+    .wp .bar-button-outline-light.activated {
+      color: black;
+      background-color: #e0e0e0; }
+  .wp .bar-button-solid-light {
+    color: black;
+    background-color: #f4f4f4; }
+    .wp .bar-button-solid-light.activated {
+      background-color: #e0e0e0; }
+  .wp .toolbar[dark] .toolbar-background {
+    background: #222; }
+  .wp .toolbar[dark] .bar-button-default,
+  .wp .toolbar[dark] .bar-button-outline,
+  .wp .toolbar[dark] .toolbar-title {
+    color: white; }
+  .wp .toolbar[dark] .bar-button-default ion-button-effect,
+  .wp .toolbar[dark] .bar-button-outline ion-button-effect {
+    background-color: white; }
+  .wp .toolbar[dark] .bar-button-outline {
+    border-color: white; }
+  .wp .toolbar[dark] .bar-button-primary {
+    color: #327eff;
+    background-color: transparent; }
+    .wp .toolbar[dark] .bar-button-primary:hover:not(.disable-hover) {
+      color: #327eff; }
+  .wp .toolbar[dark] .bar-button-outline-primary {
+    border-color: #2e74eb;
+    color: #2e74eb;
+    background-color: transparent; }
+    .wp .toolbar[dark] .bar-button-outline-primary.activated {
+      color: white;
+      background-color: #2e74eb; }
+  .wp .toolbar[dark] .bar-button-solid-primary {
+    color: white;
+    background-color: #327eff; }
+    .wp .toolbar[dark] .bar-button-solid-primary.activated {
+      background-color: #2e74eb; }
+  .wp .toolbar[dark] .bar-button-secondary {
+    color: #32db64;
+    background-color: transparent; }
+    .wp .toolbar[dark] .bar-button-secondary:hover:not(.disable-hover) {
+      color: #32db64; }
+  .wp .toolbar[dark] .bar-button-outline-secondary {
+    border-color: #2ec95c;
+    color: #2ec95c;
+    background-color: transparent; }
+    .wp .toolbar[dark] .bar-button-outline-secondary.activated {
+      color: white;
+      background-color: #2ec95c; }
+  .wp .toolbar[dark] .bar-button-solid-secondary {
+    color: white;
+    background-color: #32db64; }
+    .wp .toolbar[dark] .bar-button-solid-secondary.activated {
+      background-color: #2ec95c; }
+  .wp .toolbar[dark] .bar-button-danger {
+    color: #f53d3d;
+    background-color: transparent; }
+    .wp .toolbar[dark] .bar-button-danger:hover:not(.disable-hover) {
+      color: #f53d3d; }
+  .wp .toolbar[dark] .bar-button-outline-danger {
+    border-color: #e13838;
+    color: #e13838;
+    background-color: transparent; }
+    .wp .toolbar[dark] .bar-button-outline-danger.activated {
+      color: white;
+      background-color: #e13838; }
+  .wp .toolbar[dark] .bar-button-solid-danger {
+    color: white;
+    background-color: #f53d3d; }
+    .wp .toolbar[dark] .bar-button-solid-danger.activated {
+      background-color: #e13838; }
+  .wp .toolbar[dark] .bar-button-light {
+    color: #f4f4f4;
+    background-color: transparent; }
+    .wp .toolbar[dark] .bar-button-light:hover:not(.disable-hover) {
+      color: #f4f4f4; }
+  .wp .toolbar[dark] .bar-button-outline-light {
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+    background-color: transparent; }
+    .wp .toolbar[dark] .bar-button-outline-light.activated {
+      color: black;
+      background-color: #e0e0e0; }
+  .wp .toolbar[dark] .bar-button-solid-light {
+    color: black;
+    background-color: #f4f4f4; }
+    .wp .toolbar[dark] .bar-button-solid-light.activated {
+      background-color: #e0e0e0; }
+  .wp .toolbar[dark] .bar-button-dark {
+    color: #222;
+    background-color: transparent; }
+    .wp .toolbar[dark] .bar-button-dark:hover:not(.disable-hover) {
+      color: #222; }
+  .wp .toolbar[dark] .bar-button-outline-dark {
+    border-color: #343434;
+    color: #343434;
+    background-color: transparent; }
+    .wp .toolbar[dark] .bar-button-outline-dark.activated {
+      color: white;
+      background-color: #343434; }
+  .wp .toolbar[dark] .bar-button-solid-dark {
+    color: white;
+    background-color: #222; }
+    .wp .toolbar[dark] .bar-button-solid-dark.activated {
+      background-color: #343434; }
+  .wp .bar-button-dark {
+    color: #222;
+    background-color: transparent; }
+    .wp .bar-button-dark:hover:not(.disable-hover) {
+      color: #222; }
+  .wp .bar-button-outline-dark {
+    border-color: #343434;
+    color: #343434;
+    background-color: transparent; }
+    .wp .bar-button-outline-dark.activated {
+      color: white;
+      background-color: #343434; }
+  .wp .bar-button-solid-dark {
+    color: white;
+    background-color: #222; }
+    .wp .bar-button-solid-dark.activated {
       background-color: #343434; }

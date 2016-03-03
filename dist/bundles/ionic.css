@@ -4485,34 +4485,26 @@ ion-icon {
     color: #222 !important; }
   .ios ion-action-sheet {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    display: block;
-    z-index: 1000; }
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    display: block; }
   .ios .action-sheet-wrapper {
     position: absolute;
+    width: 100%;
+    max-width: 500px;
     z-index: 10;
     bottom: 0;
     left: 0;
     right: 0;
-    width: 100%;
     display: block;
-    max-width: 500px;
     margin: auto;
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0); }
-  .ios .action-sheet-container {
-    width: auto;
-    overflow: hidden; }
   .ios .action-sheet-button {
-    display: block;
-    width: 100%;
-    margin: 0;
-    border-radius: 0; }
-    .ios .action-sheet-button.activated {
-      box-shadow: none; }
+    width: 100%; }
   .ios ion-action-sheet {
     text-align: center; }
   .ios .action-sheet-container {
@@ -4527,11 +4519,10 @@ ion-icon {
   .ios .action-sheet-title {
     padding: 1.5rem;
     font-size: 1.3rem;
-    font-weight: 400;
     color: #8f8f8f;
+    font-weight: 400;
     border-radius: 0;
-    text-align: center; }
-  .ios .action-sheet-title {
+    text-align: center;
     border-bottom: 1px solid #d6d6da; }
   .ios .action-sheet-button {
     padding: 18px;
@@ -4636,16 +4627,15 @@ ion-icon {
     line-height: 20px;
     font-size: 14px;
     margin-right: 8px; }
-  .ios ion-alert {
-    background: transparent; }
   .ios .alert-wrapper {
+    max-width: 270px;
     border-radius: 13px;
     background-color: #f8f8f8;
-    max-width: 270px;
+    box-shadow: none;
     overflow: hidden; }
   .ios .alert-head {
-    padding: 12px 16px 7px;
-    text-align: center; }
+    text-align: center;
+    padding: 12px 16px 7px; }
   .ios .alert-title {
     margin-top: 8px;
     font-weight: 600;
@@ -4692,7 +4682,6 @@ ion-icon {
     -ms-flex-order: 0;
     order: 0;
     padding: 13px;
-    text-align: auto;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap; }
@@ -4777,15 +4766,13 @@ ion-icon {
     border-top: 1px solid #dbdbdf;
     border-right: 1px solid #dbdbdf;
     color: #327eff;
-    background-color: transparent; }
+    background-color: transparent;
+    overflow: hidden; }
     .ios .alert-button:last-child {
       font-weight: bold;
       border-right: 0; }
     .ios .alert-button.activated {
-      opacity: 1;
       background-color: #e9e9e9; }
-    .ios .alert-button:hover:not(.disable-hover) {
-      opacity: 1; }
   .ios.hairlines .alert-radio-group,
   .ios.hairlines .alert-checkbox-group {
     border-width: 0.55px; }
@@ -7215,55 +7202,41 @@ ion-icon {
   src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
   .md ion-action-sheet {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    display: block;
-    z-index: 1000; }
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    display: block; }
   .md .action-sheet-wrapper {
     position: absolute;
+    width: 100%;
+    max-width: 500px;
     z-index: 10;
     bottom: 0;
     left: 0;
     right: 0;
-    width: 100%;
     display: block;
-    max-width: 500px;
     margin: auto;
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0); }
-  .md .action-sheet-container {
-    width: auto;
-    overflow: hidden; }
   .md .action-sheet-button {
-    display: block;
-    width: 100%;
-    margin: 0;
-    border-radius: 0; }
-    .md .action-sheet-button.activated {
-      box-shadow: none; }
+    width: 100%; }
   .md .action-sheet-title {
     padding: 19px 16px 17px;
     font-size: 1.6rem;
     color: #757575;
     text-align: left; }
   .md .action-sheet-button {
-    position: relative;
-    overflow: hidden;
     padding: 0 16px;
     min-height: 4.8rem;
     font-size: 1.6rem;
-    font-weight: normal;
     color: #222;
-    background-color: transparent;
+    background: transparent;
     text-align: left; }
     .md .action-sheet-button.activated {
-      background: #f1f1f1;
-      border-radius: 0;
-      box-shadow: none; }
+      background: #f1f1f1; }
   .md .action-sheet-icon {
-    display: inline-block;
     margin: 0 28px 0 0;
     min-width: 24px;
     text-align: center;
@@ -7271,14 +7244,9 @@ ion-icon {
     font-size: 2.4rem; }
   .md .action-sheet-group {
     overflow: hidden;
-    margin: 0;
-    border-radius: 0;
-    background-color: #fafafa; }
+    background: #fafafa; }
     .md .action-sheet-group:last-child .action-sheet-button {
       margin-bottom: 8px; }
-  .md .action-sheet-cancel {
-    background-color: #fafafa;
-    border: none; }
 
 /**
   Roboto Font
@@ -7524,18 +7492,17 @@ ion-icon {
     -ms-flex-wrap: wrap-reverse;
     flex-wrap: wrap-reverse; }
   .md .alert-button {
-    position: relative;
-    overflow: hidden;
     padding: 10px;
     font-weight: 500;
     color: #327eff;
     background-color: transparent;
     border-radius: 2px;
     text-transform: uppercase;
-    text-align: right; }
+    text-align: right;
+    position: relative;
+    overflow: hidden; }
     .md .alert-button.activated {
-      background-color: rgba(158, 158, 158, 0.2);
-      opacity: 1; }
+      background-color: rgba(158, 158, 158, 0.2); }
   .md ion-badge {
     display: inline-block;
     padding: 3px 8px;

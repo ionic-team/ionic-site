@@ -4511,37 +4511,28 @@ ion-icon[bright] {
 
 ion-action-sheet {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  display: block;
-  z-index: 1000; }
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  display: block; }
 
 .action-sheet-wrapper {
   position: absolute;
+  width: 100%;
+  max-width: 500px;
   z-index: 10;
   bottom: 0;
   left: 0;
   right: 0;
-  width: 100%;
   display: block;
-  max-width: 500px;
   margin: auto;
   -webkit-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0); }
 
-.action-sheet-container {
-  width: auto;
-  overflow: hidden; }
-
 .action-sheet-button {
-  display: block;
-  width: 100%;
-  margin: 0;
-  border-radius: 0; }
-  .action-sheet-button.activated {
-    box-shadow: none; }
+  width: 100%; }
 
 ion-action-sheet {
   text-align: center; }
@@ -4560,12 +4551,10 @@ ion-action-sheet {
 .action-sheet-title {
   padding: 1.5rem;
   font-size: 1.3rem;
-  font-weight: 400;
   color: #8f8f8f;
+  font-weight: 400;
   border-radius: 0;
-  text-align: center; }
-
-.action-sheet-title {
+  text-align: center;
   border-bottom: 1px solid #d6d6da; }
 
 .action-sheet-button {
@@ -4683,18 +4672,16 @@ ion-alert {
   font-size: 14px;
   margin-right: 8px; }
 
-ion-alert {
-  background: transparent; }
-
 .alert-wrapper {
+  max-width: 270px;
   border-radius: 13px;
   background-color: #f8f8f8;
-  max-width: 270px;
+  box-shadow: none;
   overflow: hidden; }
 
 .alert-head {
-  padding: 12px 16px 7px;
-  text-align: center; }
+  text-align: center;
+  padding: 12px 16px 7px; }
 
 .alert-title {
   margin-top: 8px;
@@ -4749,7 +4736,6 @@ ion-alert {
   -ms-flex-order: 0;
   order: 0;
   padding: 13px;
-  text-align: auto;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap; }
@@ -4841,15 +4827,13 @@ ion-alert {
   border-top: 1px solid #dbdbdf;
   border-right: 1px solid #dbdbdf;
   color: #387ef5;
-  background-color: transparent; }
+  background-color: transparent;
+  overflow: hidden; }
   .alert-button:last-child {
     font-weight: bold;
     border-right: 0; }
   .alert-button.activated {
-    opacity: 1;
     background-color: #e9e9e9; }
-  .alert-button:hover:not(.disable-hover) {
-    opacity: 1; }
 
 .hairlines .alert-radio-group,
 .hairlines .alert-checkbox-group {

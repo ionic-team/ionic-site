@@ -4598,37 +4598,28 @@ ion-icon[bright] {
 
 ion-action-sheet {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  display: block;
-  z-index: 1000; }
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  display: block; }
 
 .action-sheet-wrapper {
   position: absolute;
+  width: 100%;
+  max-width: 500px;
   z-index: 10;
   bottom: 0;
   left: 0;
   right: 0;
-  width: 100%;
   display: block;
-  max-width: 500px;
   margin: auto;
   -webkit-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0); }
 
-.action-sheet-container {
-  width: auto;
-  overflow: hidden; }
-
 .action-sheet-button {
-  display: block;
-  width: 100%;
-  margin: 0;
-  border-radius: 0; }
-  .action-sheet-button.activated {
-    box-shadow: none; }
+  width: 100%; }
 
 .action-sheet-title {
   padding: 19px 16px 17px;
@@ -4637,22 +4628,16 @@ ion-action-sheet {
   text-align: left; }
 
 .action-sheet-button {
-  position: relative;
-  overflow: hidden;
   padding: 0 16px;
   min-height: 4.8rem;
   font-size: 1.6rem;
-  font-weight: normal;
   color: #222;
-  background-color: transparent;
+  background: transparent;
   text-align: left; }
   .action-sheet-button.activated {
-    background: #f1f1f1;
-    border-radius: 0;
-    box-shadow: none; }
+    background: #f1f1f1; }
 
 .action-sheet-icon {
-  display: inline-block;
   margin: 0 28px 0 0;
   min-width: 24px;
   text-align: center;
@@ -4661,15 +4646,9 @@ ion-action-sheet {
 
 .action-sheet-group {
   overflow: hidden;
-  margin: 0;
-  border-radius: 0;
-  background-color: #fafafa; }
+  background: #fafafa; }
   .action-sheet-group:last-child .action-sheet-button {
     margin-bottom: 8px; }
-
-.action-sheet-cancel {
-  background-color: #fafafa;
-  border: none; }
 
 /**
   Roboto Font
@@ -4940,18 +4919,17 @@ ion-alert {
   flex-wrap: wrap-reverse; }
 
 .alert-button {
-  position: relative;
-  overflow: hidden;
   padding: 10px;
   font-weight: 500;
   color: #387ef5;
   background-color: transparent;
   border-radius: 2px;
   text-transform: uppercase;
-  text-align: right; }
+  text-align: right;
+  position: relative;
+  overflow: hidden; }
   .alert-button.activated {
-    background-color: rgba(158, 158, 158, 0.2);
-    opacity: 1; }
+    background-color: rgba(158, 158, 158, 0.2); }
 
 ion-badge {
   display: inline-block;

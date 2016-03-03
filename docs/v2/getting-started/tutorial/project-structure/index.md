@@ -22,7 +22,7 @@ Let's walk through the anatomy of an Ionic 2 app. Inside of the folder that was 
 
 <h3 class="file-title">./www/index.html</h3>
 
-`www/index.html` is the main entry point for the app, though its purpose is to set up script and CSS includes and `bootstrap`, or start running, our app. We won't spend much of our time in this file.
+`www/index.html` is the main entry point for the app, though its purpose is to set up script and CSS includes and bootstrap, or start running, our app. We won't spend much of our time in this file.
 
 For your app to function, Ionic looks for the `<ion-app>` tag in your HTML. In this example we have:
 
@@ -39,11 +39,11 @@ And the following scripts near the bottom:
 
 - `build/js/app.bundle.js` is a concatenated file containing Ionic, Angular and your app's JavaScript.
 
-- `cordova.js` will 404 during local development, as it gets injected into your project during cordova's build process.
+- `cordova.js` will 404 during local development, as it gets injected into your project during Cordova's build process.
 
 <h3 class="file-title">./app/app.js</h3>
 
-Inside of the `app` directory we find our pre-compiled code. This is where most of the work for an Ionic 2 app will take place. When we run `ionic serve`, our code inside of `app/` is [transpiled](/docs/what-is/#transpiler) into the correct Javascript version that the browser understands (currently, [ES5](/docs/what-is/#es5)). That means we can work at a higher level using TypeScript and [ES6+](/docs/what-is/es2015-es6), but compile down to the older form of Javascript the browser needs.
+Inside of the `app` directory we find our pre-compiled code. This is where most of the work for an Ionic 2 app will take place. When we run `ionic serve`, our code inside of `app/` is [transpiled](docs/v2/resources/what-is/#transpiler) into the correct Javascript version that the browser understands (currently, [ES5](docs/v2/resources/what-is/#es5)). That means we can work at a higher level using TypeScript and [ES6+](docs/v2/resources/what-is/#es2015-es6), but compile down to the older form of Javascript the browser needs.
 
 `app/app.js` is the entry point for our app.
 
@@ -69,7 +69,7 @@ In this component, we set the template to be the file at `build/app.html`, which
 Here's the main template for the app in `app/app.html`:
 
 ```html
-<ion-menu id="leftMenu" [content]="content">
+<ion-menu [content]="content">
 
   <ion-toolbar>
     <ion-title>Pages</ion-title>
@@ -88,8 +88,6 @@ Here's the main template for the app in `app/app.html`:
 <ion-nav id="nav" [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>
 ```
 
-In this template, we set up an `ion-menu` to function as a side menu, and then a navigation controller to act as the main content area. The `ion-menu` takes a property of `content`, and we can pass the local variable of `#content` from our `ion-nav`.
+In this template, we set up an `ion-menu` to function as a side menu, and then an `ion-nav` component to act as the main content area. The `ion-menu`'s `[content]` property is bound to the local variable `content` from our `ion-nav`, so it knows where it should animate around.
 
-This will let the menu know what element should be the main content. The app will let the user select sections from the side menu which will change what they see in the content area. The user will be able to navigate inside the content menu if the section has other pages to navigate to.
-
-Let's go and see how to create more pages and perform basic navigation.
+Next let's see how to create more pages and perform basic navigation.

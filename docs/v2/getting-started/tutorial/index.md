@@ -33,7 +33,7 @@ This will pull Ionic 2 down, install [npm modules](../../resources/what-is/#npm)
 
 **Want to use TypeScript instead? Pass the `--ts` flag and get a project set up for TypeScript instead.**
 
-> You may have noticed that we passed in **tutorial** to the `ionic start` command. This tells Ionic to bootstrap your application using the [tutorial template](https://github.com/driftyco/ionic2-starter-tutorial). If you don't specify a template by running `ionic start MyIonic2Project --v2`, the [tabs starter](https://github.com/driftyco/ionic2-starter-tabs) will be used.
+> You may have noticed that we passed in **tutorial** to the `ionic start` command. This tells Ionic to initialize your application using the [tutorial template](https://github.com/driftyco/ionic2-starter-tutorial). If you don't specify a template by running `ionic start MyIonic2Project --v2`, the [tabs template](https://github.com/driftyco/ionic2-starter-tabs) will be used.
 
 
 ### Viewing the app in a browser

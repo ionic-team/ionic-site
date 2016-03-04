@@ -48638,6 +48638,7 @@
 	        this._pFns = [];
 	        this._fFns = [];
 	        this._fOnceFns = [];
+	        this._easing = this._dur = null;
 	    };
 	    Animation.prototype.element = function (ele) {
 	        var i;

@@ -40,7 +40,7 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add com.verso.cordova.clipboard</code></pre>
+<pre><code>$ ionic plugin add https://github.com/VersoSolutions/CordovaClipboard.git</code></pre>
 <p>Repo:
 <a href="">
 
@@ -50,8 +50,9 @@ Improve this doc
 <!-- description -->
 
 <p>Clipboard management plugin for Cordova that supports iOS, Android, and Windows Phone 8.</p>
-<p>Requires Cordova plugin: <a href="https://github.com/VersoSolutions/CordovaClipboard">https://github.com/VersoSolutions/CordovaClipboard</a></p>
-<pre><code>ionic plugin add https://github.com/VersoSolutions/CordovaClipboard.git
+<p>Requires Cordova plugin: <a href="https://github.com/VersoSolutions/CordovaClipboard">https://github.com/VersoSolutions/CordovaClipboard</a>
+For more info, please see the <a href="https://github.com/VersoSolutions/CordovaClipboard.git">Clipboard plugin docs</a>.</p>
+<pre><code>cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git
 </code></pre>
 
 <!-- @usage tag -->

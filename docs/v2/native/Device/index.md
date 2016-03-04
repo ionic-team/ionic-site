@@ -63,8 +63,8 @@ https://github.com/apache/cordova-plugin-device
 
 <!-- @property tags -->
 <h2>Static Methods</h2>
-<div id="getDevice"></div>
-<h3><code>getDevice()</code>
+<div id="device"></div>
+<h3><code>device()</code>
   
 </h3>
 

@@ -43,7 +43,7 @@ Improve this doc
 
 
 
-<p>The <code>showWhen</code> attribute takes a string that represents a plaform or screen orientation.
+<p>The <code>showWhen</code> attribute takes a string that represents a platform or screen orientation.
 The element the attribute is added to will only be shown when that platform or screen orientation is active.
 Complements the <a href="../HideWhen">hideWhen attribute</a>.</p>
 

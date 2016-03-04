@@ -65,6 +65,14 @@ input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer; }
 
+a,
+button,
+[tappable],
+input,
+textarea {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation; }
+
 button {
   border: 0;
   line-height: 1;

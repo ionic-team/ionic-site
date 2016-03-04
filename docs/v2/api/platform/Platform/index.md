@@ -53,7 +53,9 @@ With this information you can completely custimize your app to fit any device an
 <h2>Usage</h2>
 
 <pre><code class="lang-ts">import {Platform} from &#39;ionic-angular&#39;;
-export MyClass {
+
+@Page({...})
+export MyPage {
    constructor(platform: Platform){
      this.platform = platform;
    }
@@ -79,16 +81,38 @@ export MyClass {
 
 </h3>
 
-Depending on the platform name, isPlatform will return true or flase
+Depending on the platform the user is on, `is(platformName)` will
+return `true` or `false`. Note that the same app can return `true`
+for more than one platform name. For example, an app running from
+an iPad would return `true` for the platform names: `mobile`,
+`ios`, `ipad`, and `tablet`. Additionally, if the app was running
+from Cordova then `cordova` would be true, and if it was running
+from a web browser on the iPad then then `mobileweb` would also
+be `true`.
+
+Possible built-in platform names:
+
+- `android`
+- `cordova`
+- `core`
+- `ios`
+- `ipad`
+- `iphone`
+- `mobile`
+- `mobileweb`
+- `phablet`
+- `tablet`
+- `windows`
 
 ```
 import {Platform} from 'ionic-angular';
-export MyClass {
-   constructor(platform: Platform){
-     this.platform = platform;
-     if(this.platform.is('ios'){
-       // what ever you need to do for
-       // if the platfomr is ios
+
+@Page({...})
+export MyPage {
+   constructor(platform: Platform) {
+     if (platform.is('ios')) {
+       // what ever you need to do
+       // if the platform is ios
      }
    }
 }
@@ -131,7 +155,7 @@ export MyClass {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> returns true/false based on platform you place
+  <code>boolean</code> returns true/false based on platform.
 </div>
 
 
@@ -151,8 +175,8 @@ it would return mobile, ios, and iphone.
 
 ```
 import {Platform} from 'ionic-angular';
-export MyClass {
-   constructor(platform: Platform){
+export MyPage {
+   constructor(platform: Platform) {
      this.platform = platform;
      console.log(this.platform.platforms());
      // This will return an array of all the availble platforms
@@ -187,8 +211,10 @@ Returns an object containing information about the paltform
 
 ```
 import {Platform} from 'ionic-angular';
-export MyClass {
-   constructor(platform: Platform){
+
+@Page({...})
+export MyPage {
+   constructor(platform: Platform) {
      this.platform = platform;
      console.log(this.platform.versions());
    }
@@ -252,8 +278,10 @@ Returns a promise when the platform is ready and native functionality can be cal
 
 ```
 import {Platform} from 'ionic-angular';
-export MyClass {
-   constructor(platform: Platform){
+
+@Page({...})
+export MyPage {
+   constructor(platform: Platform) {
      this.platform = platform;
      this.platform.ready().then(() => {
        console.log('Platform ready');

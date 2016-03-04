@@ -26485,7 +26485,7 @@
 	 *
 	 * @usage
 	 * ```ts
-	 * import {Platform} 'ionic-angular';
+	 * import {Platform} from 'ionic-angular';
 	 * export MyClass {
 	 *    constructor(platform: Platform){
 	 *      this.platform = platform;
@@ -26512,7 +26512,7 @@
 	     * Depending on the platform name, isPlatform will return true or flase
 	     *
 	     * ```
-	     * import {Platform} 'ionic-angular';
+	     * import {Platform} from 'ionic-angular';
 	     * export MyClass {
 	     *    constructor(platform: Platform){
 	     *      this.platform = platform;
@@ -26535,7 +26535,7 @@
 	     * it would return mobile, ios, and iphone.
 	     *
 	     * ```
-	     * import {Platform} 'ionic-angular';
+	     * import {Platform} from 'ionic-angular';
 	     * export MyClass {
 	     *    constructor(platform: Platform){
 	     *      this.platform = platform;
@@ -26555,7 +26555,7 @@
 	     * Returns an object containing information about the paltform
 	     *
 	     * ```
-	     * import {Platform} 'ionic-angular';
+	     * import {Platform} from 'ionic-angular';
 	     * export MyClass {
 	     *    constructor(platform: Platform){
 	     *      this.platform = platform;
@@ -26591,7 +26591,7 @@
 	     * Returns a promise when the platform is ready and native functionality can be called
 	     *
 	     * ```
-	     * import {Platform} 'ionic-angular';
+	     * import {Platform} from 'ionic-angular';
 	     * export MyClass {
 	     *    constructor(platform: Platform){
 	     *      this.platform = platform;

@@ -56076,11 +56076,13 @@
 	        _super.call(this, elementRef);
 	        this.select = new core_1.EventEmitter();
 	        this.disHover = (config.get('hoverCSS') === false);
+	        this._layout = config.get('tabbarLayout');
 	    }
 	    TabButton.prototype.ngOnInit = function () {
 	        this.tab.btn = this;
+	        this._layout = this.tab.parent.tabbarLayout || this._layout;
 	        this.hasTitle = !!this.tab.tabTitle;
-	        this.hasIcon = !!this.tab.tabIcon;
+	        this.hasIcon = !!this.tab.tabIcon && this._layout != 'icon-hide';
 	        this.hasTitleOnly = (this.hasTitle && !this.hasIcon);
 	        this.hasIconOnly = (this.hasIcon && !this.hasTitle);
 	        this.hasBadge = !!this.tab.tabBadge;

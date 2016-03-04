@@ -6403,7 +6403,6 @@ ion-icon {
     line-height: 16px; }
   .ios .has-icon .tab-badge {
     right: calc(50% - 30px); }
-  .ios [tabbarLayout=icon-hide] .tab-badge,
   .ios [tabbarLayout=icon-bottom] .tab-badge,
   .ios [tabbarLayout=icon-left] .tab-badge,
   .ios [tabbarLayout=icon-right] .tab-badge {
@@ -9589,7 +9588,6 @@ ion-icon {
     line-height: 16px; }
   .md .has-icon .tab-badge {
     right: calc(50% - 30px); }
-  .md [tabbarLayout=icon-hide] .tab-badge,
   .md [tabbarLayout=icon-bottom] .tab-badge,
   .md [tabbarLayout=icon-left] .tab-badge,
   .md [tabbarLayout=icon-right] .tab-badge {
@@ -13125,7 +13123,6 @@ ion-icon {
     line-height: 16px; }
   .wp .has-icon .tab-badge {
     right: calc(50% - 30px); }
-  .wp [tabbarLayout=icon-hide] .tab-badge,
   .wp [tabbarLayout=icon-bottom] .tab-badge,
   .wp [tabbarLayout=icon-left] .tab-badge,
   .wp [tabbarLayout=icon-right] .tab-badge {

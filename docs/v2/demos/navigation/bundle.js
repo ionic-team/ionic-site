@@ -26913,13 +26913,6 @@
 	    /**
 	     * @private
 	     */
-	    Platform.prototype.testUserAgent = function (userAgentExpression) {
-	        var rgx = new RegExp(userAgentExpression, 'i');
-	        return rgx.test(this._ua || '');
-	    };
-	    /**
-	     * @private
-	     */
 	    Platform.prototype.testNavigatorPlatform = function (navigatorPlatformExpression) {
 	        var rgx = new RegExp(navigatorPlatformExpression, 'i');
 	        return rgx.test(this._bPlt);
@@ -26941,15 +26934,25 @@
 	    /**
 	     * @private
 	     */
-	    Platform.prototype.isPlatform = function (queryTestValue, userAgentExpression) {
-	        if (!userAgentExpression) {
-	            userAgentExpression = queryTestValue;
-	        }
+	    Platform.prototype.isPlatformMatch = function (queryStringName, userAgentAtLeastHas, userAgentMustNotHave) {
+	        if (userAgentMustNotHave === void 0) { userAgentMustNotHave = []; }
 	        var queryValue = this.query('ionicplatform');
 	        if (queryValue) {
-	            return this.testQuery(queryValue, queryTestValue);
+	            return this.testQuery(queryValue, queryStringName);
 	        }
-	        return this.testUserAgent(userAgentExpression);
+	        userAgentAtLeastHas = userAgentAtLeastHas || [queryStringName];
+	        var userAgent = this._ua.toLowerCase();
+	        for (var i = 0; i < userAgentAtLeastHas.length; i++) {
+	            if (userAgent.indexOf(userAgentAtLeastHas[i]) > -1) {
+	                for (var j = 0; j < userAgentMustNotHave.length; j++) {
+	                    if (userAgent.indexOf(userAgentMustNotHave[j]) > -1) {
+	                        return false;
+	                    }
+	                }
+	                return true;
+	            }
+	        }
+	        return false;
 	    };
 	    /**
 	     * @private
@@ -62800,7 +62803,7 @@
 	        scrollAssist: true,
 	    },
 	    isMatch: function (p) {
-	        return p.isPlatform('android', 'android|silk');
+	        return p.isPlatformMatch('android', ['android', 'silk'], ['windows phone']);
 	    },
 	    versionParser: function (p) {
 	        return p.matchUserAgentVersion(/Android (\d+).(\d+)?/);
@@ -62825,7 +62828,7 @@
 	        tapPolyfill: isIOSDevice,
 	    },
 	    isMatch: function (p) {
-	        return p.isPlatform('ios', 'iphone|ipad|ipod');
+	        return p.isPlatformMatch('ios', ['iphone', 'ipad', 'ipod']);
 	    },
 	    versionParser: function (p) {
 	        return p.matchUserAgentVersion(/OS (\d+)_(\d+)?/);
@@ -62838,7 +62841,7 @@
 	        keyboardHeight: 500,
 	    },
 	    isMatch: function (p) {
-	        return p.isPlatform('ios', 'ipad');
+	        return p.isPlatformMatch('ipad');
 	    }
 	});
 	platform_1.Platform.register({
@@ -62847,7 +62850,7 @@
 	        'phablet'
 	    ],
 	    isMatch: function (p) {
-	        return p.isPlatform('ios', 'iphone');
+	        return p.isPlatformMatch('iphone');
 	    }
 	});
 	platform_1.Platform.register({
@@ -62864,7 +62867,7 @@
 	        hoverCSS: false
 	    },
 	    isMatch: function (p) {
-	        return p.isPlatform('windows', 'windows');
+	        return p.isPlatformMatch('windows', ['windows phone']);
 	    },
 	    versionParser: function (p) {
 	        return p.matchUserAgentVersion(/Windows Phone (\d+).(\d+)?/);

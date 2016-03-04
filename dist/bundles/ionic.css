@@ -11003,7 +11003,7 @@ ion-icon {
     border: 1px solid #327eff; }
   .wp .alert-head {
     text-align: left;
-    padding: 20px 20px 5px 20px; }
+    padding: 20px 22px 5px 22px; }
   .wp .alert-title {
     font-size: 20px;
     font-weight: 400; }
@@ -11011,7 +11011,7 @@ ion-icon {
     font-size: 16px; }
   .wp .alert-message,
   .wp .alert-input-group {
-    padding: 0 20px;
+    padding: 0 22px 8px 22px;
     color: #000; }
   .wp .alert-message {
     font-size: 13px;
@@ -11119,7 +11119,7 @@ ion-icon {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg); }
   .wp .alert-button-group {
-    padding: 10px 20px;
+    padding: 20px 22px 20px 22px;
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
@@ -11138,7 +11138,7 @@ ion-icon {
     background: #B8B8B8;
     border-radius: 0;
     width: 49.5%;
-    font-weight: 300; }
+    font-weight: 400; }
     .wp .alert-button:first-child:not(:only-child) {
       margin-right: 1%; }
     .wp .alert-button.activated {

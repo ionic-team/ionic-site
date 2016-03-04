@@ -4711,7 +4711,7 @@ ion-alert .backdrop {
 
 .alert-head {
   text-align: left;
-  padding: 20px 20px 5px 20px; }
+  padding: 20px 22px 5px 22px; }
 
 .alert-title {
   font-size: 20px;
@@ -4722,7 +4722,7 @@ ion-alert .backdrop {
 
 .alert-message,
 .alert-input-group {
-  padding: 0 20px;
+  padding: 0 22px 8px 22px;
   color: #000; }
 
 .alert-message {
@@ -4842,7 +4842,7 @@ ion-alert .backdrop {
   transform: rotate(45deg); }
 
 .alert-button-group {
-  padding: 10px 20px;
+  padding: 20px 22px 20px 22px;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
@@ -4862,7 +4862,7 @@ ion-alert .backdrop {
   background: #B8B8B8;
   border-radius: 0;
   width: 49.5%;
-  font-weight: 300; }
+  font-weight: 400; }
   .alert-button:first-child:not(:only-child) {
     margin-right: 1%; }
   .alert-button.activated {

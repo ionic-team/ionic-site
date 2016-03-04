@@ -27873,9 +27873,8 @@
 	var config_1 = __webpack_require__(161);
 	var click_block_1 = __webpack_require__(160);
 	/**
-	 * @private
-	 * Component registry service.  For more information on registering
-	 * components see the [IdRef API reference](../id/IdRef/).
+	 * App utility service.  Allows you to look up components that have been
+	 * registered using the [Id directive](../Id/).
 	 */
 	var IonicApp = (function () {
 	    function IonicApp(_config, _clickBlock, _zone) {
@@ -27949,7 +27948,6 @@
 	        this._scrollTime = Date.now();
 	    };
 	    /**
-	     * @private
 	     * Boolean if the app is actively scrolling or not.
 	     * @return {boolean}
 	     */
@@ -27988,7 +27986,6 @@
 	        }
 	    };
 	    /**
-	     * @private
 	     * Get the component for the given key.
 	     */
 	    IonicApp.prototype.getComponent = function (id) {
@@ -60991,9 +60988,6 @@
 	 * The `id` attribute is an easy way to identify unique components in an app and access them
 	 * no matter where in the UI hierarchy you are. For example, this makes toggling
 	 * a global side menu possible from any place in the application.
-	 *
-	 * See the [Menu section](http://ionicframework.com/docs/v2/components/#menus) of
-	 * the Component docs for an example of how Menus rely on ID's.
 	 *
 	 * @usage
 	 * To give any component an ID, simply set its `id` property:

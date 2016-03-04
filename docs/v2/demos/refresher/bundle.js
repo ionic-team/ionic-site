@@ -58305,6 +58305,42 @@
 	    return AlertMdPopOut;
 	})(transition_1.Transition);
 	transition_1.Transition.register('alert-md-pop-out', AlertMdPopOut);
+	var AlertWpPopIn = (function (_super) {
+	    __extends(AlertWpPopIn, _super);
+	    function AlertWpPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.3', '1');
+	        backdrop.fromTo('opacity', '0.01', '0.5');
+	        this
+	            .easing('cubic-bezier(0, 0, 0.05, 1)')
+	            .duration(200)
+	            .add(backdrop)
+	            .add(wrapper);
+	    }
+	    return AlertWpPopIn;
+	})(transition_1.Transition);
+	transition_1.Transition.register('alert-wp-pop-in', AlertWpPopIn);
+	var AlertWpPopOut = (function (_super) {
+	    __extends(AlertWpPopOut, _super);
+	    function AlertWpPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '1.3');
+	        backdrop.fromTo('opacity', '0.5', '0');
+	        this
+	            .easing('ease-out')
+	            .duration(150)
+	            .add(backdrop)
+	            .add(wrapper);
+	    }
+	    return AlertWpPopOut;
+	})(transition_1.Transition);
+	transition_1.Transition.register('alert-wp-pop-out', AlertWpPopOut);
 	var alertIds = -1;
 
 /***/ },
@@ -62754,8 +62790,8 @@
 	    activator: 'highlight',
 	    actionSheetEnter: 'action-sheet-wp-slide-in',
 	    actionSheetLeave: 'action-sheet-wp-slide-out',
-	    alertEnter: 'alert-md-pop-in',
-	    alertLeave: 'alert-md-pop-out',
+	    alertEnter: 'alert-wp-pop-in',
+	    alertLeave: 'alert-wp-pop-out',
 	    backButtonText: '',
 	    backButtonIcon: 'ios-arrow-back',
 	    iconMode: 'ios',

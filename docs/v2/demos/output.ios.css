@@ -5982,17 +5982,16 @@ ion-label[fixed] {
   min-width: 100px;
   max-width: 200px; }
 
-.item-label-stacked,
-.item-label-floating {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start; }
+.item-label-stacked .item-inner,
+.item-label-floating .item-inner {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.item-label-stacked [item-right],
+.item-label-floating [item-right] {
+  margin-top: 0;
+  margin-bottom: 0; }
 
 ion-label[stacked],
 ion-label[floating] {
@@ -6000,7 +5999,10 @@ ion-label[floating] {
   -ms-flex-item-align: stretch;
   align-self: stretch;
   margin-bottom: 0;
-  max-width: 100%; }
+  max-width: 100%;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%; }
 
 ion-label[stacked],
 ion-label[floating] {

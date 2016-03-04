@@ -61012,13 +61012,14 @@
 	 * service:
 	 * ```ts
 	 * constructor(app: IonicApp) {
-	 *    this.app = app
+	 *   this.app = app
 	 * }
-	 * ngAfterViewInit{
-	 *  var checkbox = this.app.getComponent("myCheckbox");
-	 *  if (checkbox.checked) {
-	 *    console.log('checkbox is checked');
-	 *  }
+	 *
+	 * ngAfterViewInit() {
+	 *   var checkbox = this.app.getComponent("myCheckbox");
+	 *   if (checkbox.checked) {
+	 *     console.log('checkbox is checked');
+	 *   }
 	 * }
 	 * ```
 	 *

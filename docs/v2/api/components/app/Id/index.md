@@ -60,13 +60,14 @@ a global side menu possible from any place in the application.</p>
 <p>To get a reference to the registered component, inject the <a href="../IonicApp/">IonicApp</a>
 service:</p>
 <pre><code class="lang-ts">constructor(app: IonicApp) {
-   this.app = app
+  this.app = app
 }
-ngAfterViewInit{
- var checkbox = this.app.getComponent(&quot;myCheckbox&quot;);
- if (checkbox.checked) {
-   console.log(&#39;checkbox is checked&#39;);
- }
+
+ngAfterViewInit() {
+  var checkbox = this.app.getComponent(&quot;myCheckbox&quot;);
+  if (checkbox.checked) {
+    console.log(&#39;checkbox is checked&#39;);
+  }
 }
 </code></pre>
 <p><em>NOTE:</em> It is not recommended to use ID&#39;s across Pages, as there is often no

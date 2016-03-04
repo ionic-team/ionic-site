@@ -30,7 +30,7 @@ Contacts
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/contacts.ts#L187'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/contacts.ts#L187'>
 Improve this doc
 </a>
 

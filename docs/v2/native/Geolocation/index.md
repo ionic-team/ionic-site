@@ -30,7 +30,7 @@ Geolocation
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/geolocation.ts#L91'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/geolocation.ts#L91'>
 Improve this doc
 </a>
 

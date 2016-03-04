@@ -5705,7 +5705,8 @@ ion-icon {
     color: #7f7f7f; }
   .ios ion-label + ion-input .text-input,
   .ios ion-label + ion-textarea .text-input {
-    margin-left: 16px; }
+    margin-left: 16px;
+    width: calc(100% - 16px); }
   .ios ion-label[stacked] {
     font-size: 1.2rem;
     margin-bottom: 4px; }

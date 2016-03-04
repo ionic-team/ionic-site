@@ -6017,7 +6017,8 @@ ion-label {
 
 ion-label + ion-input .text-input,
 ion-label + ion-textarea .text-input {
-  margin-left: 16px; }
+  margin-left: 16px;
+  width: calc(100% - 16px); }
 
 ion-label[stacked] {
   font-size: 1.2rem;

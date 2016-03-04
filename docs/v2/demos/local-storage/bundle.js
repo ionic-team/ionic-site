@@ -60274,9 +60274,9 @@
 	    function SearchbarInput(_elementRef) {
 	        this._elementRef = _elementRef;
 	    }
-	    SearchbarInput.prototype.stopInput = function (event) {
-	        event.preventDefault();
-	        event.stopPropagation();
+	    SearchbarInput.prototype.stopInput = function (ev) {
+	        ev.preventDefault();
+	        ev.stopPropagation();
 	    };
 	    __decorate([
 	        core_1.HostListener('input', ['$event']), 
@@ -60319,6 +60319,10 @@
 	        _super.call(this, _elementRef);
 	        this._elementRef = _elementRef;
 	        this._config = _config;
+	        /**
+	         * @input {number} How long, in milliseconds, to wait to trigger the `input` event after each keystroke. Default `250`.
+	         */
+	        this.debounce = 250;
 	        /**
 	         * @output {event} When the Searchbar input has changed including cleared
 	         */
@@ -60435,9 +60439,14 @@
 	     * Update the Searchbar input value when the input changes
 	     */
 	    Searchbar.prototype.inputChanged = function (ev) {
-	        this.value = ev.target.value;
-	        this.onChange(this.value);
-	        this.input.emit(this);
+	        var _this = this;
+	        var value = ev.target.value;
+	        clearTimeout(this._tmr);
+	        this._tmr = setTimeout(function () {
+	            _this.value = value;
+	            _this.onChange(value);
+	            _this.input.emit(_this);
+	        }, Math.round(this.debounce));
 	    };
 	    /**
 	     * @private
@@ -60522,6 +60531,10 @@
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
 	    ], Searchbar.prototype, "hideCancelButton", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Number)
+	    ], Searchbar.prototype, "debounce", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)

@@ -46941,7 +46941,7 @@
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
 	        this._role = 'button'; // bar-button/item-button
-	        this._size = null; // large/small
+	        this._size = null; // large/small/default
 	        this._style = 'default'; // outline/clear/solid
 	        this._shape = null; // round/fab
 	        this._display = null; // block/full
@@ -47122,7 +47122,7 @@
 	    var _a, _b, _c;
 	})();
 	exports.Button = Button;
-	var BUTTON_SIZE_ATTRS = ['large', 'small'];
+	var BUTTON_SIZE_ATTRS = ['large', 'small', 'default'];
 	var BUTTON_STYLE_ATTRS = ['clear', 'outline', 'solid'];
 	var BUTTON_SHAPE_ATTRS = ['round', 'fab'];
 	var BUTTON_DISPLAY_ATTRS = ['block', 'full'];
@@ -56944,7 +56944,9 @@
 	         */
 	        set: function (buttons) {
 	            buttons.toArray().forEach(function (button) {
-	                if (!button.isItem) {
+	                // Don't add the item-button class if the user specifies
+	                // a different size button
+	                if (!button.isItem && !button._size) {
 	                    button.addClass('item-button');
 	                }
 	            });

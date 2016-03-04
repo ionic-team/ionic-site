@@ -26434,7 +26434,10 @@
 	     * @param {string} [value] - The config value being stored.
 	     */
 	    Config.prototype.set = function () {
-	        var args = arguments;
+	        var args = [];
+	        for (var _i = 0; _i < arguments.length; _i++) {
+	            args[_i - 0] = arguments[_i];
+	        }
 	        var arg0 = args[0];
 	        var arg1 = args[1];
 	        switch (args.length) {

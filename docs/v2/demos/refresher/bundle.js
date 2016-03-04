@@ -61855,7 +61855,7 @@
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
 	        backdrop.fromTo('opacity', 0.01, 0.26);
 	        wrapper.fromTo('translateY', '100%', '0%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetMdSlideIn;
 	})(transition_1.Transition);
@@ -61881,9 +61881,9 @@
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
-	        backdrop.fromTo('opacity', 0.01, 0.1);
+	        backdrop.fromTo('opacity', 0.01, 0.16);
 	        wrapper.fromTo('translateY', '100%', '0%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetWpSlideIn;
 	})(transition_1.Transition);

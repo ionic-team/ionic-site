@@ -7211,12 +7211,14 @@ ion-icon {
     color: #757575;
     text-align: left; }
   .md .action-sheet-button {
+    position: relative;
     padding: 0 16px;
     min-height: 4.8rem;
     font-size: 1.6rem;
     color: #222;
     background: transparent;
-    text-align: left; }
+    text-align: left;
+    overflow: hidden; }
     .md .action-sheet-button.activated {
       background: #f1f1f1; }
   .md .action-sheet-icon {

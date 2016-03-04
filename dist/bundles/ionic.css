@@ -732,6 +732,7 @@ ion-infinite-scroll-content {
   text-align: center; }
 
 .infinite-loading {
+  opacity: 0;
   width: 100%;
   margin: 0px 0px 32px 0px; }
 
@@ -739,7 +740,10 @@ ion-infinite-scroll-content {
   margin: 4px 32px 0 32px;
   color: #666; }
 
-ion-infinite-scroll-content[state=disabled] .infinite-loading {
+ion-infinite-scroll-content[state=loading] .infinite-loading {
+  opacity: 1; }
+
+ion-infinite-scroll-content[state=disabled] {
   display: none; }
 
 ion-menu {

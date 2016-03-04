@@ -111,6 +111,36 @@ class OtherPage {
   }
 }
 ```
-For more information on navigation controllers, check out the [Nav API reference](../api/components/nav/Nav/).
 
-But what if you have several "root" or "top-level" pages that don't have a parent-child relationship, but rather are siblings? You have two options: [Tabs](#tabs) and [Menu](#menu).
+For more information on basic navigation, check out the [Nav API reference](../api/components/nav/Nav/).
+
+
+<h3 id="navigating_from_root">Navigating from the Root Component</h3>
+What if you want to control navigation from your root app component (the one decorated with `@App`, not `@Page`)? You can't inject `NavController` because any components that are navigation controllers are _children_ of the root component so they aren't available to be injected.
+
+By adding an [`id`](../api/components/app/Id/) to `ion-nav`, you can use the [`IonicApp`](../api/components/app/IonicApp/) service to get a reference to the `Nav` component, which is a navigation controller (it extends `NavController`):
+
+```typescript
+@App({
+  template: '<ion-nav id="my-nav" [root]="rootPage"></ion-nav>'
+})
+export class MyApp {
+  constructor(app: IonicApp) {
+    this.rootPage = TabsPage;
+    this.app = app;
+  }
+
+  // Wait for the components in MyApp's template to be initialized
+  // In this case, we are waiting for the Nav with id="my-nav"
+  ngAfterViewInit() {
+    var nav = this.app.getComponent('my-nav');
+    // Let's navigate from TabsPage to Page1
+    nav.push(Page1);
+  }
+}
+```
+
+
+<h3 id="advanced_navigation">Advanced Navigation</h3>
+What if you have several "root" or "top-level" pages that don't have a parent-child relationship, but rather are siblings? You have two options: [Tabs](#tabs) and [Menu](#menu).
+

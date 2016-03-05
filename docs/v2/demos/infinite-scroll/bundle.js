@@ -58248,23 +58248,21 @@
 	        if (checkedInput) {
 	            this.activeId = checkedInput.id;
 	        }
-	        var self = this;
-	        self.keyUp = function (ev) {
-	            if (ev.keyCode === 13) {
-	                console.debug('alert, enter button');
-	                var button = self.d.buttons[self.d.buttons.length - 1];
-	                self.btnClick(button);
-	            }
-	            else if (ev.keyCode === 27) {
-	                console.debug('alert, escape button');
-	                self.bdClick();
-	            }
-	        };
-	        document.addEventListener('keyup', this.keyUp);
+	    };
+	    AlertCmp.prototype._keyUp = function (ev) {
+	        if (ev.keyCode === 13) {
+	            console.debug('alert, enter button');
+	            var button = this.d.buttons[this.d.buttons.length - 1];
+	            this.btnClick(button);
+	        }
+	        else if (ev.keyCode === 27) {
+	            console.debug('alert, escape button');
+	            this.bdClick();
+	        }
 	    };
 	    AlertCmp.prototype.onPageDidEnter = function () {
 	        var activeElement = document.activeElement;
-	        if (activeElement) {
+	        if (document.activeElement) {
 	            activeElement.blur();
 	        }
 	        if (this.d.inputs.length) {
@@ -58334,12 +58332,12 @@
 	        });
 	        return values;
 	    };
-	    AlertCmp.prototype.onPageWillLeave = function () {
-	        document.removeEventListener('keyup', this.keyUp);
-	    };
-	    AlertCmp.prototype.ngOnDestroy = function () {
-	        document.removeEventListener('keyup', this.keyUp);
-	    };
+	    __decorate([
+	        core_1.HostListener('body:keyup', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], AlertCmp.prototype, "_keyUp", null);
 	    AlertCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-alert',

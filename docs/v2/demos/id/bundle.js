@@ -60108,7 +60108,7 @@
 	     * @private
 	     */
 	    RadioButton.prototype.ngOnInit = function () {
-	        if (this._group && util_1.isDefined(this._group.value) && this._group.value === this.value) {
+	        if (this._group && util_1.isDefined(this._group.value) && this._group.value == this.value) {
 	            this.checked = true;
 	        }
 	    };
@@ -60296,7 +60296,7 @@
 	        this._btns.forEach(function (radioButton) {
 	            // check this radiobutton if its value is
 	            // the same as the radiogroups value
-	            radioButton.checked = (radioButton.value === _this.value);
+	            radioButton.checked = (radioButton.value == _this.value);
 	            if (radioButton.checked) {
 	                // if this button is checked, then set it as
 	                // the radiogroup's active descendant
@@ -60326,7 +60326,7 @@
 	    RadioGroup.prototype.remove = function (button) {
 	        var index = this._btns.indexOf(button);
 	        if (index > -1) {
-	            if (button.value === this.value) {
+	            if (button.value == this.value) {
 	                this.value = null;
 	            }
 	            this._btns.splice(index, 1);

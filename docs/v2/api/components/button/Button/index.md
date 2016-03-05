@@ -34,7 +34,7 @@ Button
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/button/button.ts#L3'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/button/button.ts#L4'>
 Improve this doc
 </a>
 
@@ -285,7 +285,91 @@ Dynamically set which color attribute this button should use.
 
 
 
-<!-- instance methods on the class --><!-- related link -->
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>large</td>
+      <td><code>string</code></td>
+      <td><p> Large button.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>small</td>
+      <td><code>string</code></td>
+      <td><p> Small button.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>default</td>
+      <td><code>string</code></td>
+      <td><p> Default button.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>outline</td>
+      <td><code>string</code></td>
+      <td><p> A transparent button with a border.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>clear</td>
+      <td><code>string</code></td>
+      <td><p> A transparent button without a border.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>solid</td>
+      <td><code>string</code></td>
+      <td><p> Force a solid button. Useful for buttons within an item.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>round</td>
+      <td><code>string</code></td>
+      <td><p> A button with rounded corners.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>block</td>
+      <td><code>string</code></td>
+      <td><p> A button that fills its parent container with a border-radius.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>full</td>
+      <td><code>string</code></td>
+      <td><p> A button that fills its parent container without a border-radius or borders on the left/right.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>color</td>
+      <td><code>string</code></td>
+      <td><p> Dynamically set which color attribute this button should use.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link -->
 
 <h2>Related</h2>
 

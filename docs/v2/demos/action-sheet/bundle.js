@@ -46929,6 +46929,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var config_1 = __webpack_require__(161);
+	var util_1 = __webpack_require__(163);
 	/**
 	  * @name Button
 	  * @module ionic
@@ -46965,7 +46966,6 @@
 	        this._style = 'default'; // outline/clear/solid
 	        this._shape = null; // round/fab
 	        this._display = null; // block/full
-	        this._lastColor = null;
 	        this._colors = []; // primary/secondary
 	        this._icon = null; // left/right/only
 	        this._disabled = false; // disabled
@@ -46984,27 +46984,125 @@
 	        }
 	        this._readAttrs(element);
 	    }
+	    Object.defineProperty(Button.prototype, "large", {
+	        /**
+	         * @input {string} Large button.
+	         */
+	        set: function (val) {
+	            this._attr('_size', 'large', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "small", {
+	        /**
+	         * @input {string} Small button.
+	         */
+	        set: function (val) {
+	            this._attr('_size', 'small', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "default", {
+	        /**
+	         * @input {string} Default button.
+	         */
+	        set: function (val) {
+	            this._attr('_size', 'default', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "outline", {
+	        /**
+	         * @input {string} A transparent button with a border.
+	         */
+	        set: function (val) {
+	            this._attr('_style', 'outline', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "clear", {
+	        /**
+	         * @input {string} A transparent button without a border.
+	         */
+	        set: function (val) {
+	            this._attr('_style', 'clear', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "solid", {
+	        /**
+	         * @input {string} Force a solid button. Useful for buttons within an item.
+	         */
+	        set: function (val) {
+	            this._attr('_style', 'solid', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "round", {
+	        /**
+	         * @input {string} A button with rounded corners.
+	         */
+	        set: function (val) {
+	            this._attr('_shape', 'round', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "block", {
+	        /**
+	         * @input {string} A button that fills its parent container with a border-radius.
+	         */
+	        set: function (val) {
+	            this._attr('_display', 'block', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "full", {
+	        /**
+	         * @input {string} A button that fills its parent container without a border-radius or borders on the left/right.
+	         */
+	        set: function (val) {
+	            this._attr('_display', 'full', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Button.prototype._attr = function (type, attrName, attrValue) {
+	        this._setClass(this[type], false);
+	        if (util_1.isTrueProperty(attrValue)) {
+	            this[type] = attrName;
+	            this._setClass(attrName, true);
+	        }
+	        else {
+	            this[type] = null;
+	        }
+	    };
+	    Object.defineProperty(Button.prototype, "color", {
+	        /**
+	         * @input {string} Dynamically set which color attribute this button should use.
+	         */
+	        set: function (val) {
+	            this._assignCss(false);
+	            this._colors = [val];
+	            this._assignCss(true);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     */
 	    Button.prototype.ngAfterContentInit = function () {
-	        this._lastColor = this.color;
-	        if (this.color) {
-	            this._colors = [this.color];
-	        }
+	        this._init = true;
 	        this._readIcon(this._elementRef.nativeElement);
 	        this._assignCss(true);
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype.ngAfterContentChecked = function () {
-	        if (this._lastColor !== this.color) {
-	            this._assignCss(false);
-	            this._lastColor = this.color;
-	            this._colors = [this.color];
-	            this._assignCss(true);
-	        }
 	    };
 	    /**
 	     * @private
@@ -47110,7 +47208,7 @@
 	     * @private
 	     */
 	    Button.prototype._setClass = function (type, assignCssClass) {
-	        if (type) {
+	        if (type && this._init) {
 	            this._renderer.setElementClass(this._elementRef.nativeElement, this._role + '-' + type, assignCssClass);
 	        }
 	    };
@@ -47125,8 +47223,54 @@
 	    };
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Button.prototype, "color", void 0);
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "large", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "small", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "default", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "outline", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "clear", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "solid", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "round", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "block", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "full", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String), 
+	        __metadata('design:paramtypes', [String])
+	    ], Button.prototype, "color", null);
 	    Button = __decorate([
 	        core_1.Component({
 	            selector: 'button:not([ion-item]),[button]',

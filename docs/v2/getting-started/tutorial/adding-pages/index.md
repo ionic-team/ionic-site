@@ -109,7 +109,7 @@ The rest of the template is standard Ionic code that sets up our content area an
 
 To create an additional page, we don't need to do much beyond making sure we correctly configure the title and anything else we want the navigation bar to display.
 
-Let's check out the contents of `app/list/list.js`. Inside, you will see a new page is defined:
+Let's check out the contents of `app/pages/list/list.js`. Inside, you will see a new page is defined:
 
 ```ts
 import {Page, NavController, NavParams} from 'ionic-angular';

@@ -57682,6 +57682,7 @@
 	        this._values = [];
 	        this._texts = [];
 	        this._text = '';
+	        this._isOpen = false;
 	        /**
 	         * @private
 	         * @input {string}  The text of the cancel button. Defatuls to `Cancel`
@@ -57719,13 +57720,22 @@
 	            console.error('parent <ion-nav> required for <ion-select>');
 	        }
 	    }
-	    /**
-	     * @private
-	     */
 	    Select.prototype._click = function (ev) {
-	        var _this = this;
+	        if (ev.detail === 0) {
+	            // do not continue if the click event came from a form submit
+	            return;
+	        }
 	        ev.preventDefault();
 	        ev.stopPropagation();
+	        this._open();
+	    };
+	    Select.prototype._keyup = function (ev) {
+	        if (!this._isOpen) {
+	            this._open();
+	        }
+	    };
+	    Select.prototype._open = function () {
+	        var _this = this;
 	        if (this._disabled)
 	            return;
 	        console.debug('select, open alert');
@@ -57771,6 +57781,10 @@
 	            }
 	        });
 	        this._nav.present(alert, alertOptions);
+	        this._isOpen = true;
+	        alert.onDismiss(function () {
+	            _this._isOpen = false;
+	        });
 	    };
 	    Object.defineProperty(Select.prototype, "multiple", {
 	        /**
@@ -57918,6 +57932,12 @@
 	        __metadata('design:paramtypes', [Object]), 
 	        __metadata('design:returntype', void 0)
 	    ], Select.prototype, "_click", null);
+	    __decorate([
+	        core_1.HostListener('keyup.space', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], Select.prototype, "_keyup", null);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)

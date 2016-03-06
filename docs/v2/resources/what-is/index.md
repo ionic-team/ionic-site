@@ -111,7 +111,7 @@ header_sub_title: Learn about the Ionic community's favorite tools
 
   <section id="karma">
     <h3><a href="#karma">Karma</a></h3>
-    <p><a href="https://karma-runner.github.io/0.13/index.html">Karama</a> is a test runner that will run your app's test inside a real browser. It's takes your test, written in any testing framework, and just runs them in browser. Orginially written for Angular 1.</p>
+    <p><a href="https://karma-runner.github.io/0.13/index.html">Karma</a> is a test runner that will run your app's test inside a real browser. It's takes your test, written in any testing framework, and just runs them in browser. Orginially written for Angular 1.</p>
   </section>
 
   <section id="module">

@@ -45580,8 +45580,8 @@
 	        */
 	        get: function () {
 	            if (this._inNavbar && this._viewCtrl) {
-	                if (this._viewCtrl.isRoot()) {
-	                    // this is the root view, so it should always show
+	                if (this._viewCtrl.isFirst()) {
+	                    // this is the first view, so it should always show
 	                    return false;
 	                }
 	                var menu = this._menu.get(this.menuToggle);
@@ -45785,10 +45785,24 @@
 	        configurable: true
 	    });
 	    /**
-	     * @returns {boolean} Returns if this Page is the root page of the NavController.
+	     * @private
 	     */
 	    ViewController.prototype.isRoot = function () {
-	        return (this.index === 0);
+	        // deprecated warning
+	        console.warn('ViewController isRoot() has been renamed to isFirst()');
+	        return this.isFirst();
+	    };
+	    /**
+	     * @returns {boolean} Returns if this Page is the first in the stack of pages within its NavController.
+	     */
+	    ViewController.prototype.isFirst = function () {
+	        return (this._nav ? this._nav.first() === this : false);
+	    };
+	    /**
+	     * @returns {boolean} Returns if this Page is the last in the stack of pages within its NavController.
+	     */
+	    ViewController.prototype.isLast = function () {
+	        return (this._nav ? this._nav.last() === this : false);
 	    };
 	    /**
 	     * @private
@@ -58205,14 +58219,16 @@
 	        }
 	    };
 	    AlertCmp.prototype._keyUp = function (ev) {
-	        if (ev.keyCode === 13) {
-	            console.debug('alert, enter button');
-	            var button = this.d.buttons[this.d.buttons.length - 1];
-	            this.btnClick(button);
-	        }
-	        else if (ev.keyCode === 27) {
-	            console.debug('alert, escape button');
-	            this.bdClick();
+	        if (this._viewCtrl.isLast()) {
+	            if (ev.keyCode === 13) {
+	                console.debug('alert, enter button');
+	                var button = this.d.buttons[this.d.buttons.length - 1];
+	                this.btnClick(button);
+	            }
+	            else if (ev.keyCode === 27) {
+	                console.debug('alert, escape button');
+	                this.bdClick();
+	            }
 	        }
 	    };
 	    AlertCmp.prototype.onPageDidEnter = function () {
@@ -58220,11 +58236,9 @@
 	        if (document.activeElement) {
 	            activeElement.blur();
 	        }
-	        if (this.d.inputs.length) {
-	            var firstInput = this._elementRef.nativeElement.querySelector('input');
-	            if (firstInput) {
-	                firstInput.focus();
-	            }
+	        var focusableEle = this._elementRef.nativeElement.querySelector('input,button');
+	        if (focusableEle) {
+	            focusableEle.focus();
 	        }
 	    };
 	    AlertCmp.prototype.btnClick = function (button, dismissDelay) {
@@ -61875,12 +61889,13 @@
 	* @private
 	*/
 	var ActionSheetCmp = (function () {
-	    function ActionSheetCmp(_viewCtrl, _config, elementRef, params, renderer) {
+	    function ActionSheetCmp(_viewCtrl, _config, _elementRef, params, renderer) {
 	        this._viewCtrl = _viewCtrl;
 	        this._config = _config;
+	        this._elementRef = _elementRef;
 	        this.d = params.data;
 	        if (this.d.cssClass) {
-	            renderer.setElementClass(elementRef.nativeElement, this.d.cssClass, true);
+	            renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
 	        }
 	    }
 	    ActionSheetCmp.prototype.onPageLoaded = function () {
@@ -61910,14 +61925,24 @@
 	            }
 	        });
 	        this.d.buttons = buttons;
-	        var self = this;
-	        self.keyUp = function (ev) {
+	    };
+	    ActionSheetCmp.prototype.onPageDidEnter = function () {
+	        var activeElement = document.activeElement;
+	        if (document.activeElement) {
+	            activeElement.blur();
+	        }
+	        var focusableEle = this._elementRef.nativeElement.querySelector('button');
+	        if (focusableEle) {
+	            focusableEle.focus();
+	        }
+	    };
+	    ActionSheetCmp.prototype._keyUp = function (ev) {
+	        if (this._viewCtrl.isLast()) {
 	            if (ev.keyCode === 27) {
 	                console.debug('actionsheet escape');
-	                self.bdClick();
+	                this.bdClick();
 	            }
-	        };
-	        document.addEventListener('keyup', this.keyUp);
+	        }
 	    };
 	    ActionSheetCmp.prototype.click = function (button, dismissDelay) {
 	        var _this = this;
@@ -61948,12 +61973,12 @@
 	    ActionSheetCmp.prototype.dismiss = function (role) {
 	        return this._viewCtrl.dismiss(null, role);
 	    };
-	    ActionSheetCmp.prototype.onPageWillLeave = function () {
-	        document.removeEventListener('keyup', this.keyUp);
-	    };
-	    ActionSheetCmp.prototype.ngOnDestroy = function () {
-	        document.removeEventListener('keyup', this.keyUp);
-	    };
+	    __decorate([
+	        core_1.HostListener('body:keyup', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], ActionSheetCmp.prototype, "_keyUp", null);
 	    ActionSheetCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-action-sheet',

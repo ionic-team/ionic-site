@@ -232,10 +232,10 @@ You can find out the index of the current view is in the current navigation stac
 
 
 
-<div id="isRoot"></div>
+<div id="isFirst"></div>
 
 <h3>
-<code>isRoot()</code>
+<code>isFirst()</code>
   
 
 </h3>
@@ -250,7 +250,31 @@ You can find out the index of the current view is in the current navigation stac
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Returns if this Page is the root page of the NavController.
+  <code>boolean</code> Returns if this Page is the first in the stack of pages within its NavController.
+</div>
+
+
+
+
+<div id="isLast"></div>
+
+<h3>
+<code>isLast()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>boolean</code> Returns if this Page is the last in the stack of pages within its NavController.
 </div>
 
 

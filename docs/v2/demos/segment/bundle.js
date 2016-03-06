@@ -61897,6 +61897,13 @@
 	        if (this.d.cssClass) {
 	            renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
 	        }
+	        this.id = (++actionSheetIds);
+	        if (this.d.title) {
+	            this.hdrId = 'acst-hdr-' + this.id;
+	        }
+	        if (this.d.subTitle) {
+	            this.descId = 'acst-subhdr-' + this.id;
+	        }
 	    }
 	    ActionSheetCmp.prototype.onPageLoaded = function () {
 	        var _this = this;
@@ -61986,8 +61993,8 @@
 	                '<div class="action-sheet-wrapper">' +
 	                '<div class="action-sheet-container">' +
 	                '<div class="action-sheet-group">' +
-	                '<div class="action-sheet-title" *ngIf="d.title">{{d.title}}</div>' +
-	                '<div class="action-sheet-sub-title" *ngIf="d.subTitle">{{d.subTitle}}</div>' +
+	                '<div class="action-sheet-title" id="{{hdrId}}" *ngIf="d.title">{{d.title}}</div>' +
+	                '<div class="action-sheet-sub-title" id="{{descId}}" *ngIf="d.subTitle">{{d.subTitle}}</div>' +
 	                '<button (click)="click(b)" *ngFor="#b of d.buttons" class="action-sheet-button disable-hover" [ngClass]="b.cssClass">' +
 	                '<ion-icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></ion-icon> ' +
 	                '{{b.text}}' +
@@ -62004,7 +62011,9 @@
 	                '</div>' +
 	                '</div>',
 	            host: {
-	                'role': 'dialog'
+	                'role': 'dialog',
+	                '[attr.aria-labelledby]': 'hdrId',
+	                '[attr.aria-describedby]': 'descId'
 	            },
 	            directives: [common_1.NgFor, common_1.NgIf, icon_1.Icon]
 	        }), 
@@ -62097,6 +62106,7 @@
 	    return ActionSheetWpSlideOut;
 	})(transition_1.Transition);
 	transition_1.Transition.register('action-sheet-wp-slide-out', ActionSheetWpSlideOut);
+	var actionSheetIds = -1;
 
 /***/ },
 /* 349 */

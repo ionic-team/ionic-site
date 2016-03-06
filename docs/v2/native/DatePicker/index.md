@@ -51,7 +51,7 @@ Improve this doc
 
 <p>The DatePicker plugin allows the user to fetch date or time using native dialogs.</p>
 <p>Platforms supported: iOS, Android, Windows</p>
-<p>Requires cordova-plugin-datepicker by VitaliiBlagodir that can be <a href="https://github.com/VitaliiBlagodir/cordova-plugin-datepicker">found here</a>.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-datepicker</code>. For more info, please see the <a href="https://github.com/VitaliiBlagodir/cordova-plugin-datepicker">Datepicker plugin docs</a>.</p>
 <p>Install the plugin by running the following command:</p>
 <pre><code class="lang-shell">ionic plugin add cordova-plugin-datepicker
 </code></pre>

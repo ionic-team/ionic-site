@@ -48767,7 +48767,7 @@
 	var STATE_REMOVE = 'remove';
 	var STATE_REMOVE_AFTER_TRANS = 'remove_after_trans';
 	var STATE_FORCE_ACTIVE = 'force_active';
-	var INIT_ZINDEX = 10;
+	var INIT_ZINDEX = 100;
 	var ctrlIds = -1;
 
 /***/ },

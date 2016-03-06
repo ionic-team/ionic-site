@@ -4613,6 +4613,16 @@ ion-alert {
   line-height: 20px;
   font-size: 14px; }
 
+.alert-tappable {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-size: inherit;
+  line-height: initial;
+  text-align: left;
+  background: transparent;
+  -webkit-appearance: none; }
+
 .alert-wrapper {
   max-width: 270px;
   border-radius: 13px;
@@ -4664,8 +4674,7 @@ ion-alert {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 44px;
-  cursor: pointer; }
+  min-height: 44px; }
 
 .alert-radio-label {
   -webkit-box-flex: 1;

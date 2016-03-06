@@ -27309,6 +27309,7 @@
 	exports.isFunction = function (val) { return typeof val === 'function'; };
 	exports.isDefined = function (val) { return typeof val !== 'undefined'; };
 	exports.isUndefined = function (val) { return typeof val === 'undefined'; };
+	exports.isPresent = function (val) { return val !== undefined && val !== null; };
 	exports.isBlank = function (val) { return val === undefined || val === null; };
 	exports.isObject = function (val) { return typeof val === 'object'; };
 	exports.isArray = Array.isArray;
@@ -45710,6 +45711,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var nav_params_1 = __webpack_require__(297);
+	var util_1 = __webpack_require__(163);
 	/**
 	 * @name ViewController
 	 * @description
@@ -45727,7 +45729,6 @@
 	 */
 	var ViewController = (function () {
 	    function ViewController(componentType, data) {
-	        if (data === void 0) { data = {}; }
 	        this.componentType = componentType;
 	        this._destroys = [];
 	        this._hdAttr = null;
@@ -45761,7 +45762,7 @@
 	         */
 	        this._emitter = new core_1.EventEmitter();
 	        // passed in data could be NavParams, but all we care about is its data object
-	        this.data = (data instanceof nav_params_1.NavParams ? data.data : data);
+	        this.data = (data instanceof nav_params_1.NavParams ? data.data : util_1.isPresent(data) ? data : {});
 	    }
 	    ViewController.prototype.subscribe = function (generatorOrNext) {
 	        return this._emitter.subscribe(generatorOrNext);
@@ -47445,8 +47446,6 @@
 	     * @returns {Promise} Returns a promise when done
 	     */
 	    NavController.prototype.setRoot = function (page, params, opts) {
-	        if (params === void 0) { params = {}; }
-	        if (opts === void 0) { opts = {}; }
 	        return this.setPages([{ page: page, params: params }], opts);
 	    };
 	    /**
@@ -47523,9 +47522,11 @@
 	     * @returns {Promise} Returns a promise when the pages are set
 	     */
 	    NavController.prototype.setPages = function (pages, opts) {
-	        if (opts === void 0) { opts = {}; }
 	        if (!pages || !pages.length) {
 	            return Promise.resolve(false);
+	        }
+	        if (util_1.isBlank(opts)) {
+	            opts = {};
 	        }
 	        // deprecated warning
 	        pages.forEach(function (pg) {
@@ -47563,7 +47564,6 @@
 	     * @private
 	     */
 	    NavController.prototype.setViews = function (components, opts) {
-	        if (opts === void 0) { opts = {}; }
 	        console.warn('setViews() deprecated, use setPages() instead');
 	        return this.setPages(components, opts);
 	    };
@@ -47633,8 +47633,6 @@
 	     * @returns {Promise} Returns a promise, which resolves when the transition has completed
 	     */
 	    NavController.prototype.push = function (page, params, opts) {
-	        if (params === void 0) { params = {}; }
-	        if (opts === void 0) { opts = {}; }
 	        return this.insertPages(-1, [{ page: page, params: params }], opts);
 	    };
 	    /**
@@ -47663,13 +47661,15 @@
 	     * @returns {Promise} Returns a promise, which resolves when the transition has completed
 	     */
 	    NavController.prototype.present = function (enteringView, opts) {
-	        if (opts === void 0) { opts = {}; }
 	        var rootNav = this.rootNav;
 	        if (rootNav['_tabs']) {
 	            // TODO: must have until this goes in
 	            // https://github.com/angular/angular/issues/5481
 	            console.error('A parent <ion-nav> is required for ActionSheet/Alert/Modal');
 	            return;
+	        }
+	        if (util_1.isBlank(opts)) {
+	            opts = {};
 	        }
 	        enteringView.setNav(rootNav);
 	        opts.keyboardClose = false;
@@ -47709,8 +47709,6 @@
 	     * @returns {Promise} Returns a promise when the page has been inserted into the navigation stack
 	     */
 	    NavController.prototype.insert = function (insertIndex, page, params, opts) {
-	        if (params === void 0) { params = {}; }
-	        if (opts === void 0) { opts = {}; }
 	        return this.insertPages(insertIndex, [{ page: page, params: params }], opts);
 	    };
 	    /**
@@ -47742,14 +47740,15 @@
 	     * @returns {Promise} Returns a promise when the pages have been inserted into the navigation stack
 	     */
 	    NavController.prototype.insertPages = function (insertIndex, insertPages, opts) {
-	        if (opts === void 0) { opts = {}; }
 	        var views = insertPages.map(function (p) { return new view_controller_1.ViewController(p.page, p.params); });
 	        return this._insertViews(insertIndex, views, opts);
 	    };
 	    NavController.prototype._insertViews = function (insertIndex, insertViews, opts) {
-	        if (opts === void 0) { opts = {}; }
 	        if (!insertViews || !insertViews.length) {
 	            return Promise.reject('invalid pages');
+	        }
+	        if (util_1.isBlank(opts)) {
+	            opts = {};
 	        }
 	        // insert the new page into the stack
 	        // returns the newly created entering view
@@ -47853,15 +47852,17 @@
 	     * @returns {Promise} Returns a promise when the transition is completed
 	     */
 	    NavController.prototype.pop = function (opts) {
-	        if (opts === void 0) { opts = {}; }
 	        // get the index of the active view
 	        // which will become the view to be leaving
 	        var activeView = this.getByState(STATE_TRANS_ENTER) ||
 	            this.getByState(STATE_INIT_ENTER) ||
 	            this.getActive();
+	        if (util_1.isBlank(opts)) {
+	            opts = {};
+	        }
 	        // if not set, by default climb up the nav controllers if
 	        // there isn't a previous view in this nav controller
-	        if (util_1.isUndefined(opts.climbNav)) {
+	        if (util_1.isBlank(opts.climbNav)) {
 	            opts.climbNav = true;
 	        }
 	        return this.remove(this.indexOf(activeView), 1, opts);
@@ -47871,7 +47872,6 @@
 	     * @param {object} [opts={}] Any options you want to use pass to transtion
 	     */
 	    NavController.prototype.popToRoot = function (opts) {
-	        if (opts === void 0) { opts = {}; }
 	        return this.popTo(this.first(), opts);
 	    };
 	    /**
@@ -47880,7 +47880,6 @@
 	     * @param {object} [opts={}]  Any options you want to use pass to transtion
 	     */
 	    NavController.prototype.popTo = function (view, opts) {
-	        if (opts === void 0) { opts = {}; }
 	        var startIndex = this.indexOf(view);
 	        var activeView = this.getByState(STATE_TRANS_ENTER) ||
 	            this.getByState(STATE_INIT_ENTER) ||
@@ -47910,12 +47909,14 @@
 	    NavController.prototype.remove = function (startIndex, removeCount, opts) {
 	        if (startIndex === void 0) { startIndex = -1; }
 	        if (removeCount === void 0) { removeCount = 1; }
-	        if (opts === void 0) { opts = {}; }
 	        if (startIndex === -1) {
 	            startIndex = this._views.length - 1;
 	        }
 	        else if (startIndex < 0 || startIndex >= this._views.length) {
 	            return Promise.reject("remove index out of range");
+	        }
+	        if (util_1.isBlank(opts)) {
+	            opts = {};
 	        }
 	        // default the direction to "back"
 	        opts.direction = opts.direction || 'back';
@@ -48090,8 +48091,10 @@
 	        }
 	        // lets time this sucker, ready go
 	        var wtfScope = instrumentation_1.wtfStartTimeRange('NavController#_transition', (enteringView && enteringView.name));
-	        if (this.config.get('animate') === false ||
-	            (this._views.length === 1 && !this._init)) {
+	        if (util_1.isBlank(opts)) {
+	            opts = {};
+	        }
+	        if (this.config.get('animate') === false || (this._views.length === 1 && !this._init)) {
 	            opts.animate = false;
 	        }
 	        if (!leavingView) {
@@ -56036,7 +56039,7 @@
 	    Tabs.prototype.ngAfterContentInit = function () {
 	        var _this = this;
 	        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
-	        var preloadTabs = (util_1.isUndefined(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
+	        var preloadTabs = (util_1.isBlank(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
 	        this._tabs.forEach(function (tab, index) {
 	            if (index === selectedIndex) {
 	                _this.select(tab);
@@ -56051,7 +56054,7 @@
 	     */
 	    Tabs.prototype._setConfig = function (attrKey, fallback) {
 	        var val = this[attrKey];
-	        if (util_1.isUndefined(val)) {
+	        if (util_1.isBlank(val)) {
 	            val = this._config.get(attrKey, fallback);
 	        }
 	        this._renderer.setElementAttribute(this._elementRef.nativeElement, attrKey, val);
@@ -58168,7 +58171,7 @@
 	        if (opts === void 0) { opts = {}; }
 	        opts.inputs = opts.inputs || [];
 	        opts.buttons = opts.buttons || [];
-	        opts.enableBackdropDismiss = util_1.isDefined(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, AlertCmp, opts);
 	        this.viewType = 'alert';
 	        this.isOverlay = true;
@@ -58286,9 +58289,9 @@
 	        data.inputs = data.inputs.map(function (input, index) {
 	            return {
 	                type: input.type || 'text',
-	                name: util_1.isDefined(input.name) ? input.name : index,
-	                placeholder: util_1.isDefined(input.placeholder) ? input.placeholder : '',
-	                value: util_1.isDefined(input.value) ? input.value : '',
+	                name: util_1.isPresent(input.name) ? input.name : index,
+	                placeholder: util_1.isPresent(input.placeholder) ? input.placeholder : '',
+	                value: util_1.isPresent(input.value) ? input.value : '',
 	                label: input.label,
 	                checked: !!input.checked,
 	                id: 'alert-input-' + _this.id + '-' + index
@@ -58609,7 +58612,7 @@
 	         * @input {any} The value of the option
 	         */
 	        get: function () {
-	            if (util_1.isDefined(this._value)) {
+	            if (util_1.isPresent(this._value)) {
 	                return this._value;
 	            }
 	            return this.text;
@@ -59915,7 +59918,7 @@
 	     * @private
 	     */
 	    SegmentButton.prototype.ngOnInit = function () {
-	        if (!util_1.isDefined(this.value)) {
+	        if (!util_1.isPresent(this.value)) {
 	            console.warn('<ion-segment-button> requires a "value" attribute');
 	        }
 	    };
@@ -60027,7 +60030,7 @@
 	     * Write a new value to the element.
 	     */
 	    Segment.prototype.writeValue = function (value) {
-	        this.value = util_1.isDefined(value) ? value : '';
+	        this.value = util_1.isPresent(value) ? value : '';
 	        if (this._buttons) {
 	            var buttons = this._buttons.toArray();
 	            for (var _i = 0; _i < buttons.length; _i++) {
@@ -60049,7 +60052,7 @@
 	                _this.onChange(selectedButton.value);
 	                _this.change.emit(selectedButton);
 	            });
-	            if (util_1.isDefined(this.value)) {
+	            if (util_1.isPresent(this.value)) {
 	                button.isActive = (button.value === this.value);
 	            }
 	        }
@@ -60210,7 +60213,7 @@
 	     * @private
 	     */
 	    RadioButton.prototype.ngOnInit = function () {
-	        if (this._group && util_1.isDefined(this._group.value) && this._group.value == this.value) {
+	        if (this._group && util_1.isPresent(this._group.value) && this._group.value == this.value) {
 	            this.checked = true;
 	        }
 	    };
@@ -60644,7 +60647,7 @@
 	    Searchbar.prototype.ngAfterViewInit = function () {
 	        // If the user passes an undefined variable to ngModel this will warn
 	        // and set the value to an empty string
-	        if (!util_1.isDefined(this.value)) {
+	        if (!util_1.isPresent(this.value)) {
 	            console.warn('Searchbar was passed an undefined value in ngModel. Please make sure the variable is defined.');
 	            this.value = '';
 	            this.onChange(this.value);
@@ -61909,7 +61912,7 @@
 	    function ActionSheet(opts) {
 	        if (opts === void 0) { opts = {}; }
 	        opts.buttons = opts.buttons || [];
-	        opts.enableBackdropDismiss = util_1.isDefined(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, ActionSheetCmp, opts);
 	        this.viewType = 'action-sheet';
 	        this.isOverlay = true;

@@ -60285,6 +60285,7 @@
 	        var _this = this;
 	        this._fn = fn;
 	        this.onChange = function (val) {
+	            // onChange used when there's an ngControl
 	            console.debug('radio group, onChange', val);
 	            fn(val);
 	            _this.value = val;
@@ -60360,7 +60361,14 @@
 	    /**
 	     * @private
 	     */
-	    RadioGroup.prototype.onChange = function (_) { };
+	    RadioGroup.prototype.onChange = function (val) {
+	        // onChange used when there is not an ngControl
+	        console.debug('radio group, onChange w/out ngControl', val);
+	        this.value = val;
+	        this._update();
+	        this.onTouched();
+	        this.change.emit(val);
+	    };
 	    /**
 	     * @private
 	     */

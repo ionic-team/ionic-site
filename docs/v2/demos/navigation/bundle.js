@@ -48385,7 +48385,17 @@
 	            _this._views.splice(_this.indexOf(view), 1);
 	            view.destroy();
 	        });
+	        // if any z-index goes under 0, then reset them all
+	        var shouldResetZIndex = this._views.some(function (v) { return v.zIndex < 0; });
+	        if (shouldResetZIndex) {
+	            this._views.forEach(function (view) {
+	                view.setZIndex(view.zIndex + INIT_ZINDEX + 1, _this._renderer);
+	            });
+	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    NavController.prototype.ngOnDestroy = function () {
 	        for (var i = this._views.length - 1; i >= 0; i--) {
 	            this._views[i].destroy();

@@ -55,6 +55,14 @@ We see that `this.rootPage` is set to `HelloIonicPage`, so `HelloIonicPage` will
 
 ### Creating a Page
 
+To create a new page use:
+
+`ionic g page MyPage`
+
+> Don't forget to add an import for test-page.scss in app/themes/app.core.scss:
+
+> @import "../pages/test-page/test-page.scss";
+
 Next, let's check out the `HelloIonicPage` that we are importing. Inside the `app/pages/hello-ionic/` folder, go and open up `hello-ionic.js`.
 
 > You may have noticed that each page has its own folder that is named after the page. Inside each folder, we also see a `.html` and a `.scss` file with the same name. For example, inside of `hello-ionic/` we will find `hello-ionic.js`, `hello-ionic.html`, and `hello-ionic.scss`. Although using this pattern is not required, it can be helpful to keep things organized.

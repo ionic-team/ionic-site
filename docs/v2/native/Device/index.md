@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.0.9"
+version: "1.0.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -30,7 +30,7 @@ Device
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/device.ts#L26'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/device.ts#L26'>
 Improve this doc
 </a>
 
@@ -63,8 +63,8 @@ https://github.com/apache/cordova-plugin-device
 
 <!-- @property tags -->
 <h2>Static Methods</h2>
-<div id="getDevice"></div>
-<h3><code>getDevice()</code>
+<div id="device"></div>
+<h3><code>device()</code>
   
 </h3>
 

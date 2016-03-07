@@ -3,7 +3,16 @@
 <a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/toolbar.html">
   Improve this Doc</a>
 
-A toolbar is a generic bar that can be used in an app as a header, sub-header, footer, or even sub-footer. Since `ion-toolbar` is based on flexbox, no matter how many toolbars you have in your page, they will be displayed correctly and `ion-content` will adjust accordingly.
+  A toolbar is a generic bar that can be used in an app as a header, sub-header, footer, or even sub-footer. Since `ion-toolbar` is based on flexbox, no matter how many toolbars you have in your page, they will be displayed correctly and `ion-content` will adjust accordingly.
+
+  <ul class="docs-content">
+    <li class="docs-content-header">Contents</li>
+    <li class="docs-content-item"><a href="#toolbar">Basic Usage</a></li>
+    <li class="docs-content-item"><a href="#toolbar-buttons">Buttons in Toolbars</a></li>
+    <li class="docs-content-item"><a href="#toolbar-segment">Segment in Toolbars</a></li>
+    <!-- <li class="docs-content-item"><a href="#toolbar-searchbar">Searchbar in Toolbars</a></li> -->
+
+  </ul>
 
 
 <h3 class="no-para">Basic Usage</h3>
@@ -11,40 +20,18 @@ A toolbar is a generic bar that can be used in an app as a header, sub-header, f
   Demo Source
 </a>
 
+Add the property `position="bottom"` to place the tool bar below the content:
+
 ```html
 <ion-toolbar>
   <ion-title>Toolbar</ion-title>
 </ion-toolbar>
 
 <ion-content></ion-content>
-```
-
-<h3 class="no-para">Footer</h3>
-
-Add the property `position="bottom"` to place the tool bar below the content
-
-```html
-<ion-content></ion-content>
 
 <ion-toolbar position="bottom">
   <ion-title>Footer</ion-title>
 </ion-toolbar>
-```
-
-<h3 class="no-para">Color</h3>
-
-To change the color of the toolbar, you can use the theme properties defined in your styles.
-
-```html
-<ion-toolbar primary>
-  <ion-title>Primary</ion-title>
-</ion-toolbar>
-
-<ion-toolbar danger>
-  <ion-title>Danger</ion-title>
-</ion-toolbar>
-
-<ion-content></ion-content>
 ```
 
 <h3 class="no-para">Header</h3>
@@ -69,4 +56,68 @@ One of the best uses of the toolbar is as a header.
   <p>There is a header above me!</p>
 </ion-content>
 
+```
+
+<h3 id="toolbar-buttons" class="section-nav">Buttons in Toolbars</h3>
+<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/toolbar.html">
+  Improve this Doc</a>
+
+Buttons can be added to both header and footer toolbars. To add a button to a toolbar, we need to first add an `ion-buttons` component. This component wraps one or more buttons, and can be given the `start` or `end` attributes to control the placement of the buttons it contains:
+
+```html
+<ion-toolbar>
+  <ion-buttons start>
+    <button royal>
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-title>Send To...</ion-title>
+  <ion-buttons end>
+    <button royal>
+      <ion-icon name="person-add"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content></ion-content>
+
+<ion-toolbar position="bottom">
+  <p>Ash, Misty, Brock</p>
+  <ion-buttons end>
+    <button royal>
+      Send
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>
+```
+
+
+<h3 id="toolbar-segment" class="section-nav">Segment in Toolbars</h3>
+<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/toolbar.html">
+  Improve this Doc</a>
+
+[Segments](#segment) are a great way to allow users to switch between different sets of data. Use the following markup to add a segment to a toolbar:
+
+```html
+<ion-toolbar>
+  <ion-buttons start>
+    <button>
+      <ion-icon name="create"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-segment>
+    <ion-segment-button value="new">
+      New
+    </ion-segment-button>
+    <ion-segment-button value="hot">
+      Hot
+    </ion-segment-button>
+  </ion-segment>
+  <ion-buttons end>
+    <button>
+      <ion-icon name="more"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>
 ```

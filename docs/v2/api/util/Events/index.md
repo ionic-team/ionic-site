@@ -43,7 +43,7 @@ Improve this doc
 
 
 
-<p>Events is a pub/sub style event system for sending and responding to application-level
+<p>Events is a publish-subscribe style event system for sending and responding to application-level
 events across your app.</p>
 
 <!-- @usage tag -->

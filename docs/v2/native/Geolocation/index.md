@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.0.9"
+version: "1.0.12"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -30,7 +30,7 @@ Geolocation
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/src/plugins/geolocation.ts#L91'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/geolocation.ts#L91'>
 Improve this doc
 </a>
 

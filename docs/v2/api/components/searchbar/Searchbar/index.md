@@ -34,7 +34,7 @@ Searchbar
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/searchbar/searchbar.ts#L30'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/searchbar/searchbar.ts#L28'>
 Improve this doc
 </a>
 
@@ -91,6 +91,13 @@ Improve this doc
       <td>hideCancelButton</td>
       <td><code>boolean</code></td>
       <td><p> Hides the cancel button</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>debounce</td>
+      <td><code>number</code></td>
+      <td><p> How long, in milliseconds, to wait to trigger the <code>input</code> event after each keystroke. Default <code>250</code>.</p>
 </td>
     </tr>
     

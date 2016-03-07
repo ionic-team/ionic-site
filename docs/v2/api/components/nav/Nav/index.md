@@ -135,7 +135,28 @@ swipe to go back:</p>
 
 
 
-<!-- instance methods on the class --><!-- related link -->
+<!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>root</td>
+      <td><code>Page</code></td>
+      <td><p> The Page component to load as the root page within this nav.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link -->
 
 <h2>Related</h2>
 

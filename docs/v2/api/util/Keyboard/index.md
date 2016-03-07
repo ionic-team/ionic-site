@@ -41,7 +41,7 @@ Improve this doc
 
 
 
-<p>The <code>Keyboard</code> class allows you to work with the keyboard events provide by the Ionic keyboard plugin.</p>
+<p>The <code>Keyboard</code> class allows you to work with the keyboard events provided by the Ionic keyboard plugin.</p>
 
 <!-- @usage tag -->
 

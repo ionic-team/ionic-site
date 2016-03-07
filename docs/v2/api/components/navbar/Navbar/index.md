@@ -44,7 +44,7 @@ Improve this doc
 
 
 <p>Navbar is a global level toolbar that gets updated every time a page gets
-loaded. You can pass the navbar a <code>ion-title</code> or any number of buttons.</p>
+loaded. You can pass the navbar an <code>ion-title</code>, any number of buttons, a segment, or a searchbar.</p>
 
 
 <h2>Component</h2>
@@ -54,12 +54,9 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
 <h2>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
-
-  &lt;ion-buttons start&gt;
-    &lt;button (click)=&quot;toggleItems()&quot;&gt;
-      toggle
-    &lt;/button&gt;
-  &lt;/ion-buttons&gt;
+  &lt;button menuToggle&gt;
+    &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
+  &lt;/button&gt;
 
   &lt;ion-title&gt;
     Page Title
@@ -67,7 +64,7 @@ loaded. You can pass the navbar a <code>ion-title</code> or any number of button
 
   &lt;ion-buttons end&gt;
     &lt;button (click)=&quot;openModal()&quot;&gt;
-      Modal
+      &lt;ion-icon name=&quot;options&quot;&gt;&lt;/ion-icon&gt;
     &lt;/button&gt;
   &lt;/ion-buttons&gt;
 &lt;/ion-navbar&gt;

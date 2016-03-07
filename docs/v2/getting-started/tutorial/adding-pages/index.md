@@ -26,29 +26,20 @@ Taking a look at `app/app.html`, we see this line near the bottom:
 <ion-nav id="nav" [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>
 ```
 
-Pay attention to the `[root]` property binding. This sets what is essentially the first, or "root" page for the `ion-nav` controller. When the navigation controller loads, the component referenced by `rootPage` will be the root page.
+Pay attention to the `[root]` property binding. This sets what is essentially the first, or "root" page for the `ion-nav` component. When `ion-nav` loads, the component referenced by the variable `rootPage` will be the root page.
 
-In `app/app.js`, the `MyApp` root component specifies this in its constructor:
+In `app/app.js`, the `MyApp` component specifies this in its constructor:
 
 ```ts
-import {App, IonicApp, Platform} from 'ionic/ionic';
+...
 import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
-import {ListPage} from './pages/list/list';
+...
 
 class MyApp {
+  ...
 
-  constructor(app: IonicApp, platform: Platform) {
-
-    // set up our app
-    this.app = app;
-    this.platform = platform;
-    this.initializeApp();
-
-    // set our app's pages
-    this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
-    ];
+  constructor(app, platform, menu) {
+    ...
 
     // make HelloIonicPage the root (or first) page
     this.rootPage = HelloIonicPage;
@@ -61,29 +52,26 @@ class MyApp {
 
 We see that `this.rootPage` is set to `HelloIonicPage`, so `HelloIonicPage` will be the first page loaded in the nav controller. Let's take a look at it.
 
+
 ### Creating a Page
 
-Next, let's check out the `HelloIonicPage` that we are importing. Inside the `app/pages/hello-ionic/` folder, let's open up `hello-ionic.js`.
+Next, let's check out the `HelloIonicPage` that we are importing. Inside the `app/pages/hello-ionic/` folder, go and open up `hello-ionic.js`.
 
-> You may have noticed that each page has its own folder that is named after the page. Inside each folder, we also see a `.html` and a `.scss` file with the same name. For example, inside of `hello-ionic/` we will find`hello-ionic.js`, `hello-ionic.html`, and `hello-ionic.scss`. Although using this pattern is not required, it can be helpful to keep things organized.
+> You may have noticed that each page has its own folder that is named after the page. Inside each folder, we also see a `.html` and a `.scss` file with the same name. For example, inside of `hello-ionic/` we will find `hello-ionic.js`, `hello-ionic.html`, and `hello-ionic.scss`. Although using this pattern is not required, it can be helpful to keep things organized.
 
 
-Below, you will see the `HelloIonicPage` class which has a `Page` [decorator](../../../resources/what-is/#decorators). This creates a Page - an Angular component and an Angular view configured with all the necessary directives already that is meant to be loaded dynamically, so it does not use a tag selector:
+Below, we see the `HelloIonicPage` class which has the `@Page` [decorator](../../../resources/what-is/#decorators). This creates a Page - an Angular component with all Ionic directives already provided, to be loaded using Ionic's navigation system.  Notice that because Pages are meant to be loaded dynamically, they don't have a selector:
 
 ```ts
-import {Page} from 'ionic/ionic';
+import {Page} from 'ionic-angular';
 
 @Page({
   templateUrl: 'build/pages/hello-ionic/hello-ionic.html'
 })
-export class HelloIonicPage {
-  constructor() {
-  }
-
-}
+export class HelloIonicPage {}
 ```
 
-All pages have both a class, and an associated template that's being compiled as well. Let's checkout `app/pages/hello-ionic/hello-ionic.html` - the template file for this page:
+All pages have both a class, and an associated template that's being compiled as well. Let's check out `app/pages/hello-ionic/hello-ionic.html` - the template file for this page:
 
 ```html
 {% raw %}
@@ -113,19 +101,18 @@ All pages have both a class, and an associated template that's being compiled as
 {% endraw %}
 ```
 
-The `<ion-navbar *navbar>` component functions as configuration data for the navigation bar. As we navigate to the page, the nav bar will be updated with the various `ion-nav-items` for buttons in the bar, and `<ion-title>` for the title of the bar.
+The `<ion-navbar *navbar>` is a template for the navigation bar on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
 
-The rest of the template is standard Ionic code that sets up our content area, and then renders our welcome message.
+The rest of the template is standard Ionic code that sets up our content area and prints our welcome message.
 
 ### Creating Additional Pages
 
 To create an additional page, we don't need to do much beyond making sure we correctly configure the title and anything else we want the navigation bar to display.
 
-Let's check out the contents of `app/list/list.js`. Inside, you will see a new page is being defined:
+Let's check out the contents of `app/pages/list/list.js`. Inside, you will see a new page is defined:
 
 ```ts
-{% raw %}
-import {Page, NavController, NavParams} from 'ionic/ionic';
+import {Page, NavController, NavParams} from 'ionic-angular';
 import {ItemDetailsPage} from '../item-details/item-details';
 
 
@@ -133,7 +120,12 @@ import {ItemDetailsPage} from '../item-details/item-details';
   templateUrl: 'build/pages/list/list.html'
 })
 export class ListPage {
-  constructor(nav: NavController, navParams: NavParams) {
+  // provide Angular with metadata about things it should inject in the constructor
+  static get parameters() {
+    return [[NavController], [NavParams]];
+  }
+
+  constructor(nav, navParams) {
     this.nav = nav;
 
     // If we navigated to this page, we will have an item available as a nav param
@@ -158,10 +150,10 @@ export class ListPage {
      });
   }
 }
-{% endraw %}
 ```
 
 This page will create a basic list page containing a number of items.
 
+> What the heck is that `static get parameters()`? Angular2 is written in TypeScript, and normally depends on [types](http://www.typescriptlang.org/Handbook#basic-types) to know what kind of objects to inject into class constructors as part of its [dependency injection](https://angular.io/docs/ts/latest/guide/dependency-injection.html) framework.  Since these examples are in JavaScript and not TypeScript, we need a way to tell Angular what "types" of objects should be injected, without actually using types. The way we do this is with the static getter `parameters` which attaches this type information to the class.
 
-Overall, this page is very similar to the `HelloIonicPage` we saw earlier. In the next section, we will learn about how this wiring up our navigation to a new page!
+Overall, this page is very similar to the `HelloIonicPage` we saw earlier. In the next section, we will learn how to navigate to a new page!

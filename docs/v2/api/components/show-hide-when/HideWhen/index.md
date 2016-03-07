@@ -34,7 +34,7 @@ HideWhen
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/show-hide-when/show-hide-when.ts#L95'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/show-hide-when/show-hide-when.ts#L113'>
 Improve this doc
 </a>
 
@@ -54,7 +54,25 @@ Complements the <a href="../ShowWhen">showWhen attribute</a>.</p>
 
 <h2>Usage</h2>
 
-<pre><code class="lang-html">&lt;div hideWhen=&quot;android&quot;&gt;I am hidden on Android!&lt;/div&gt;
+<pre><code class="lang-html">&lt;div hideWhen=&quot;android&quot;&gt;
+ I am hidden on Android!
+&lt;/div&gt;
+
+&lt;div hideWhen=&quot;ios&quot;&gt;
+ I am hidden on iOS!
+&lt;/div&gt;
+
+&lt;div hideWhen=&quot;android,ios&quot;&gt;
+ I am hidden on Android and iOS!
+&lt;/div&gt;
+
+&lt;div hideWhen=&quot;portrait&quot;&gt;
+ I am hidden on Portrait!
+&lt;/div&gt;
+
+&lt;div hideWhen=&quot;landscape&quot;&gt;
+ I am hidden on Landscape!
+&lt;/div&gt;
 </code></pre>
 
 

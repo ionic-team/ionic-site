@@ -46,12 +46,12 @@ Improve this doc
 <p>Icons can be used on their own, or inside of a number of Ionic components.
 For a full list of available icons, check out the
 <a href="../../../../resources/ionicons">Ionicons resource docs</a>.</p>
-<p>One feature of Ionicons is that when icon names are set, the actual icon
+<p>One feature of Ionicons in Ionic is when icon names are set, the actual icon
 which is rendered can change slightly depending on the mode the app is
 running from. For example, by setting the icon name of <code>alarm</code>, on iOS the
 icon will automatically apply <code>ios-alarm</code>, and on Material Design it will
-automatically apply <code>md-alarm</code>. This allow the developer to write the
-markup once, and let Ionic automatically apply the appropriate icon.</p>
+automatically apply <code>md-alarm</code>. This allows the developer to write the
+markup once while Ionic applies the appropriate icon based on the mode.</p>
 
 
 <h2>Directive</h2>

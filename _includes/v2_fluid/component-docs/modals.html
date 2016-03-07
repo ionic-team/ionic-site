@@ -12,10 +12,10 @@ Modals slide in off screen to display a temporary UI, often used for login or si
 </a>
 
 
-Next, we need to create the class that will control our modal. Let's import `Modal` and `NavController`:
+Next, we need to create the class that will control our modal. Let's import `Modal`, `NavController` and `ViewController`:
 
 ```typescript
-import {Modal, NavController} from 'ionic-framework/ionic';
+import {Modal, NavController, ViewController} from 'ionic-framework/ionic';
 ```
 
 Next, let's create our modal and define add its template:
@@ -29,7 +29,12 @@ Next, let's create our modal and define add its template:
   </ion-content>`
 })
 class MyModal {
-  constructor() {
+  constructor(viewCtrl: ViewController) {
+    this.viewCtrl = viewCtrl;
+  }
+  
+  close() {
+    this.viewCtrl.dismiss();
   }
 }
 ```

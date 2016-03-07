@@ -54,7 +54,7 @@ Improve this doc
 
 <pre><code class="lang-ts">@Page({
  template: `
-    &lt;ion-slides pager (change)=&quot;onSlideChanged($event)&quot; (move)=&quot;onSlideMove($event)&quot; loop=&quot;true&quot; autoplay=&quot;true&quot;&gt;
+    &lt;ion-slides pager (change)=&quot;onSlideChanged($event)&quot; (move)=&quot;onSlideMove($event)&quot;&gt;
      &lt;ion-slide&gt;
        &lt;h3&gt;Thank you for choosing the Awesome App!&lt;/h3&gt;
        &lt;p&gt;

@@ -43,11 +43,9 @@ Improve this doc
 
 
 
-<p>IdRef is an easy way to identify unique components in an app and access them
+<p>The <code>id</code> attribute is an easy way to identify unique components in an app and access them
 no matter where in the UI hierarchy you are. For example, this makes toggling
-a global side menu feasible from any place in the application.</p>
-<p>See the <a href="http://ionicframework.com/docs/v2/components/#menus">Menu section</a> of
-the Component docs for an example of how Menus rely on ID&#39;s.</p>
+a global side menu possible from any place in the application.</p>
 
 
 <h2>Directive</h2>
@@ -62,13 +60,14 @@ the Component docs for an example of how Menus rely on ID&#39;s.</p>
 <p>To get a reference to the registered component, inject the <a href="../IonicApp/">IonicApp</a>
 service:</p>
 <pre><code class="lang-ts">constructor(app: IonicApp) {
-   this.app = app
+  this.app = app
 }
-ngAfterViewInit{
- var checkbox = this.app.getComponent(&quot;myCheckbox&quot;);
- if (checkbox.checked) {
-   console.log(&#39;checkbox is checked&#39;);
- }
+
+ngAfterViewInit() {
+  var checkbox = this.app.getComponent(&quot;myCheckbox&quot;);
+  if (checkbox.checked) {
+    console.log(&#39;checkbox is checked&#39;);
+  }
 }
 </code></pre>
 <p><em>NOTE:</em> It is not recommended to use ID&#39;s across Pages, as there is often no

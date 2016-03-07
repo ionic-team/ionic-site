@@ -27303,7 +27303,7 @@
 	        var startIndex = url.indexOf('?');
 	        if (startIndex !== -1) {
 	            var queries = url.slice(startIndex + 1).split('&');
-	            queries.forEach(function (param) {
+	            queries.filter(function (param) { return param.indexOf('=') > 0; }).forEach(function (param) {
 	                var split = param.split('=');
 	                queryParams[split[0].toLowerCase()] = split[1].split('#')[0];
 	            });

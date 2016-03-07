@@ -57856,7 +57856,9 @@
 	        if (this._options) {
 	            this._options.toArray().forEach(function (option) {
 	                // check this option if the option's value is in the values array
-	                option.checked = (_this._values.indexOf(option.value) > -1);
+	                option.checked = _this._values.some(function (selectValue) {
+	                    return util_1.isCheckedProperty(selectValue, option.value);
+	                });
 	                if (option.checked) {
 	                    _this._texts.push(option.text);
 	                }
@@ -57913,7 +57915,13 @@
 	    /**
 	     * @private
 	     */
-	    Select.prototype.onChange = function (_) { };
+	    Select.prototype.onChange = function (val) {
+	        // onChange used when there is not an ngControl
+	        console.debug('select, onChange w/out ngControl', val);
+	        this._values = (Array.isArray(val) ? val : util_1.isBlank(val) ? [] : [val]);
+	        this._updOpts();
+	        this.onTouched();
+	    };
 	    /**
 	     * @private
 	     */

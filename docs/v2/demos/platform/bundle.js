@@ -58988,7 +58988,7 @@
 	            template: '<input [type]="type" [(ngModel)]="_value" [placeholder]="placeholder" class="text-input">' +
 	                '<input [type]="type" aria-hidden="true" next-input *ngIf="_useAssist">' +
 	                '<button clear *ngIf="clearInput && value" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
-	                '<div (touchstart)="pointerStart($event)" (touchend)="pointerEnd($event)" (mousedown)="pointerStart($event)" (mouseup)="pointerEnd($event)" class="input-cover" *ngIf="_useAssist"></div>',
+	                '<div (touchstart)="pointerStart($event)" (touchend)="pointerEnd($event)" (mousedown)="pointerStart($event)" (mouseup)="pointerEnd($event)" class="input-cover" tappable *ngIf="_useAssist"></div>',
 	            directives: [
 	                common_1.NgIf,
 	                native_input_1.NextInput,

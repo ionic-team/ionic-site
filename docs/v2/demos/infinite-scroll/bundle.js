@@ -27314,6 +27314,22 @@
 	    }
 	    return !!val;
 	};
+	exports.isCheckedProperty = function (a, b) {
+	    if (a === undefined || a === null || a === '') {
+	        return (b === undefined || b === null || b === '');
+	    }
+	    else if (a === true || a === 'true') {
+	        return (b === true || b === 'true');
+	    }
+	    else if (a === false || a === 'false') {
+	        return (b === false || b === 'false');
+	    }
+	    else if (a === 0 || a === '0') {
+	        return (b === 0 || b === '0');
+	    }
+	    // not using strict comparison on purpose
+	    return (a == b);
+	};
 	/**
 	 * Convert a string in the format thisIsAString to a slug format this-is-a-string
 	 */
@@ -60133,7 +60149,7 @@
 	        this._disabled = false;
 	        this._value = null;
 	        /**
-	         * @output {RadioButton} expression to be evaluated when selected
+	         * @output {any} expression to be evaluated when selected
 	         */
 	        this.select = new core_1.EventEmitter();
 	        _form.register(this);
@@ -60207,8 +60223,8 @@
 	     * @private
 	     */
 	    RadioButton.prototype.ngOnInit = function () {
-	        if (this._group && util_1.isPresent(this._group.value) && this._group.value == this.value) {
-	            this.checked = true;
+	        if (this._group && util_1.isPresent(this._group.value)) {
+	            this.checked = util_1.isCheckedProperty(this._group.value, this.value);
 	        }
 	    };
 	    /**
@@ -60282,6 +60298,7 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
 	var list_1 = __webpack_require__(323);
+	var util_1 = __webpack_require__(163);
 	var RADIO_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return RadioGroup; }), multi: true });
 	/**
 	 * @name RadioGroup
@@ -60393,14 +60410,16 @@
 	    RadioGroup.prototype._update = function () {
 	        var _this = this;
 	        // loop through each of the radiobuttons
+	        var hasChecked = false;
 	        this._btns.forEach(function (radioButton) {
 	            // check this radiobutton if its value is
 	            // the same as the radiogroups value
-	            radioButton.checked = (radioButton.value == _this.value);
+	            radioButton.checked = util_1.isCheckedProperty(_this.value, radioButton.value) && !hasChecked;
 	            if (radioButton.checked) {
 	                // if this button is checked, then set it as
 	                // the radiogroup's active descendant
 	                _this._setActive(radioButton);
+	                hasChecked = true;
 	            }
 	        });
 	    };

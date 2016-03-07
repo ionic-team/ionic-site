@@ -27316,7 +27316,8 @@
 	            var queries = url.slice(startIndex + 1).split('&');
 	            queries.filter(function (param) { return param.indexOf('=') > 0; }).forEach(function (param) {
 	                var split = param.split('=');
-	                queryParams[split[0].toLowerCase()] = split[1].split('#')[0];
+	                if (split.length > 1)
+	                    queryParams[split[0].toLowerCase()] = split[1].split('#')[0];
 	            });
 	        }
 	    }

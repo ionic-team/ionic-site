@@ -60960,6 +60960,7 @@
 	    __extends(Nav, _super);
 	    function Nav(hostNavCtrl, viewCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer) {
 	        _super.call(this, hostNavCtrl, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer);
+	        this._hasInit = false;
 	        if (viewCtrl) {
 	            // an ion-nav can also act as an ion-page within a parent ion-nav
 	            // this would happen when an ion-nav nests a child ion-nav.
@@ -60967,21 +60968,38 @@
 	            viewCtrl.setContentRef(elementRef);
 	        }
 	    }
+	    Object.defineProperty(Nav.prototype, "root", {
+	        /**
+	         * @input {Page} The Page component to load as the root page within this nav.
+	         */
+	        get: function () {
+	            return this._root;
+	        },
+	        set: function (page) {
+	            this._root = page;
+	            if (this._hasInit) {
+	                this.setRoot(page);
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     */
 	    Nav.prototype.ngOnInit = function () {
-	        if (this.root) {
-	            if (typeof this.root !== 'function') {
+	        this._hasInit = true;
+	        if (this._root) {
+	            if (typeof this._root !== 'function') {
 	                throw 'The [root] property in <ion-nav> must be given a reference to a component class from within the constructor.';
 	            }
-	            this.push(this.root);
+	            this.push(this._root);
 	        }
 	    };
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.Type !== 'undefined' && core_1.Type) === 'function' && _a) || Object)
-	    ], Nav.prototype, "root", void 0);
+	    ], Nav.prototype, "root", null);
 	    Nav = __decorate([
 	        core_1.Component({
 	            selector: 'ion-nav',

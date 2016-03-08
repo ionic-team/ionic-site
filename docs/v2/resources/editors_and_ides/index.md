@@ -25,7 +25,7 @@ The following are a list of editors and IDEs that we think will give you the mos
     <a href="#code">Visual Studio Code</a>
     </h3>
   <p>VS Code is a new editor that comes with support for ES6 syntax, as well as TypeScript support. It will also prompt users to include TypeScript definition files and download them from <a href="http://definitelytyped.org/">Definitely Typed</a>. Visual Studio Code is free and works on OS X, Windows, and Linux.</p>
-  <p><a href="https://code.visualstudio.com/">Offical website</a></p>
+  <p><a href="https://code.visualstudio.com/">Official website</a></p>
   </h3>
 
 </section>

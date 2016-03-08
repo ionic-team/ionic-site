@@ -75,7 +75,7 @@ header_sub_title: Ionic 2 Developer Preview
 
   <section id="debugging-vscode">
     <h3><a href="#debugging-vscode">Remote Debugging - VS Code Plugin</a></h3>
-    <p>VS Code has a dedicated plugin for debuggin apps built with Cordova. The <a href="https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools">plugin</a> creates bridg between the device and the debugger and allows you to set break points in your editor directly.</p>
+    <p>VS Code has a dedicated plugin for debugging apps built with Cordova. The <a href="https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools">plugin</a> creates bridge between the device and the debugger and allows you to set break points in your editor directly.</p>
   </section>
 
 

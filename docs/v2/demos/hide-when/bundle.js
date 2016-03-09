@@ -57685,11 +57685,14 @@
 	            selector: 'ion-item,[ion-item]',
 	            template: '<ng-content select="[item-left],ion-checkbox"></ng-content>' +
 	                '<div class="item-inner">' +
+	                '<div class="input-wrapper">' +
 	                '<ng-content select="ion-label"></ng-content>' +
 	                '<ion-label *ngIf="_viewLabel">' +
 	                '<ng-content></ng-content>' +
 	                '</ion-label>' +
-	                '<ng-content select="[item-right],ion-radio,ion-toggle,ion-select,ion-input,ion-textarea"></ng-content>' +
+	                '<ng-content select="ion-select,ion-input,ion-textarea"></ng-content>' +
+	                '</div>' +
+	                '<ng-content select="[item-right],ion-radio,ion-toggle"></ng-content>' +
 	                '</div>' +
 	                '<ion-button-effect></ion-button-effect>',
 	            host: {

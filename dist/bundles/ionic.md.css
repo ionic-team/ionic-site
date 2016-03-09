@@ -5979,6 +5979,30 @@ ion-input[clearInput] {
   -ms-flex-item-align: stretch;
   align-self: stretch; }
 
+.input-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: inherit;
+  -ms-flex-direction: inherit;
+  flex-direction: inherit;
+  -webkit-box-align: inherit;
+  -webkit-align-items: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  text-overflow: ellipsis;
+  overflow: hidden; }
+
 .item[no-lines],
 .item[no-lines] .item-inner {
   border: none; }
@@ -6272,23 +6296,12 @@ ion-label {
 
 ion-label[fixed] {
   -webkit-box-flex: 0;
-  -webkit-flex: 0 0 30%;
-  -ms-flex: 0 0 30%;
-  flex: 0 0 30%;
-  width: 30%;
+  -webkit-flex: 0 0 100px;
+  -ms-flex: 0 0 100px;
+  flex: 0 0 100px;
+  width: 100px;
   min-width: 100px;
   max-width: 200px; }
-
-.item-label-stacked .item-inner,
-.item-label-floating .item-inner {
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
-
-.item-label-stacked [item-right],
-.item-label-floating [item-right] {
-  margin-top: 0;
-  margin-bottom: 0; }
 
 ion-label[stacked],
 ion-label[floating] {
@@ -6299,14 +6312,20 @@ ion-label[floating] {
   max-width: 100%;
   -webkit-flex-basis: 100%;
   -ms-flex-preferred-size: 100%;
-  flex-basis: 100%; }
-
-ion-label[stacked],
-ion-label[floating] {
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
+  flex-basis: 100%;
   width: auto; }
+
+.item-label-stacked .input-wrapper,
+.item-label-floating .input-wrapper {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
 
 ion-label {
   margin: 13px 8px 13px 0; }
@@ -6342,6 +6361,10 @@ ion-label[floating] {
 .input-has-value ion-label[floating] {
   -webkit-transform: translate3d(0, 0, 0) scale(0.8);
   transform: translate3d(0, 0, 0) scale(0.8); }
+
+.item-label-stacked [item-right],
+.item-label-floating [item-right] {
+  margin-top: 11px; }
 
 ion-label[primary] {
   color: #327eff !important; }

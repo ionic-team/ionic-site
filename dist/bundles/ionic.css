@@ -5459,6 +5459,29 @@ ion-icon {
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch; }
+  .ios .input-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: inherit;
+    -ms-flex-direction: inherit;
+    flex-direction: inherit;
+    -webkit-box-align: inherit;
+    -webkit-align-items: inherit;
+    -ms-flex-align: inherit;
+    align-items: inherit;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    text-overflow: ellipsis;
+    overflow: hidden; }
   .ios .item[no-lines],
   .ios .item[no-lines] .item-inner {
     border: none; }
@@ -5701,21 +5724,12 @@ ion-icon {
     white-space: normal; }
   .ios ion-label[fixed] {
     -webkit-box-flex: 0;
-    -webkit-flex: 0 0 30%;
-    -ms-flex: 0 0 30%;
-    flex: 0 0 30%;
-    width: 30%;
+    -webkit-flex: 0 0 100px;
+    -ms-flex: 0 0 100px;
+    flex: 0 0 100px;
+    width: 100px;
     min-width: 100px;
     max-width: 200px; }
-  .ios .item-label-stacked .item-inner,
-  .ios .item-label-floating .item-inner {
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap; }
-  .ios .item-label-stacked [item-right],
-  .ios .item-label-floating [item-right] {
-    margin-top: 0;
-    margin-bottom: 0; }
   .ios ion-label[stacked],
   .ios ion-label[floating] {
     -webkit-align-self: stretch;
@@ -5725,13 +5739,19 @@ ion-icon {
     max-width: 100%;
     -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
-    flex-basis: 100%; }
-  .ios ion-label[stacked],
-  .ios ion-label[floating] {
-    -webkit-align-self: stretch;
-    -ms-flex-item-align: stretch;
-    align-self: stretch;
+    flex-basis: 100%;
     width: auto; }
+  .ios .item-label-stacked .input-wrapper,
+  .ios .item-label-floating .input-wrapper {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
   .ios ion-label {
     margin: 12px 8px 13px 0; }
   .ios .item-input ion-label {
@@ -5755,6 +5775,9 @@ ion-icon {
   .ios .input-has-value ion-label[floating] {
     -webkit-transform: translate3d(0, 0, 0) scale(0.8);
     transform: translate3d(0, 0, 0) scale(0.8); }
+  .ios .item-label-stacked [item-right],
+  .ios .item-label-floating [item-right] {
+    margin-top: 10px; }
   .ios ion-label[primary] {
     color: #327eff !important; }
   .ios ion-label[secondary] {
@@ -8503,6 +8526,29 @@ ion-icon {
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch; }
+  .md .input-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: inherit;
+    -ms-flex-direction: inherit;
+    flex-direction: inherit;
+    -webkit-box-align: inherit;
+    -webkit-align-items: inherit;
+    -ms-flex-align: inherit;
+    align-items: inherit;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    text-overflow: ellipsis;
+    overflow: hidden; }
   .md .item[no-lines],
   .md .item[no-lines] .item-inner {
     border: none; }
@@ -8756,21 +8802,12 @@ ion-icon {
     white-space: normal; }
   .md ion-label[fixed] {
     -webkit-box-flex: 0;
-    -webkit-flex: 0 0 30%;
-    -ms-flex: 0 0 30%;
-    flex: 0 0 30%;
-    width: 30%;
+    -webkit-flex: 0 0 100px;
+    -ms-flex: 0 0 100px;
+    flex: 0 0 100px;
+    width: 100px;
     min-width: 100px;
     max-width: 200px; }
-  .md .item-label-stacked .item-inner,
-  .md .item-label-floating .item-inner {
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap; }
-  .md .item-label-stacked [item-right],
-  .md .item-label-floating [item-right] {
-    margin-top: 0;
-    margin-bottom: 0; }
   .md ion-label[stacked],
   .md ion-label[floating] {
     -webkit-align-self: stretch;
@@ -8780,13 +8817,19 @@ ion-icon {
     max-width: 100%;
     -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
-    flex-basis: 100%; }
-  .md ion-label[stacked],
-  .md ion-label[floating] {
-    -webkit-align-self: stretch;
-    -ms-flex-item-align: stretch;
-    align-self: stretch;
+    flex-basis: 100%;
     width: auto; }
+  .md .item-label-stacked .input-wrapper,
+  .md .item-label-floating .input-wrapper {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
   .md ion-label {
     margin: 13px 8px 13px 0; }
   .md [text-wrap] ion-label {
@@ -8814,6 +8857,9 @@ ion-icon {
   .md .input-has-value ion-label[floating] {
     -webkit-transform: translate3d(0, 0, 0) scale(0.8);
     transform: translate3d(0, 0, 0) scale(0.8); }
+  .md .item-label-stacked [item-right],
+  .md .item-label-floating [item-right] {
+    margin-top: 11px; }
   .md ion-label[primary] {
     color: #327eff !important; }
   .md ion-label[secondary] {
@@ -12079,6 +12125,29 @@ ion-icon {
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch; }
+  .wp .input-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: inherit;
+    -ms-flex-direction: inherit;
+    flex-direction: inherit;
+    -webkit-box-align: inherit;
+    -webkit-align-items: inherit;
+    -ms-flex-align: inherit;
+    align-items: inherit;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    text-overflow: ellipsis;
+    overflow: hidden; }
   .wp .item[no-lines],
   .wp .item[no-lines] .item-inner {
     border: none; }
@@ -12333,21 +12402,12 @@ ion-icon {
     white-space: normal; }
   .wp ion-label[fixed] {
     -webkit-box-flex: 0;
-    -webkit-flex: 0 0 30%;
-    -ms-flex: 0 0 30%;
-    flex: 0 0 30%;
-    width: 30%;
+    -webkit-flex: 0 0 100px;
+    -ms-flex: 0 0 100px;
+    flex: 0 0 100px;
+    width: 100px;
     min-width: 100px;
     max-width: 200px; }
-  .wp .item-label-stacked .item-inner,
-  .wp .item-label-floating .item-inner {
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap; }
-  .wp .item-label-stacked [item-right],
-  .wp .item-label-floating [item-right] {
-    margin-top: 0;
-    margin-bottom: 0; }
   .wp ion-label[stacked],
   .wp ion-label[floating] {
     -webkit-align-self: stretch;
@@ -12357,13 +12417,19 @@ ion-icon {
     max-width: 100%;
     -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
-    flex-basis: 100%; }
-  .wp ion-label[stacked],
-  .wp ion-label[floating] {
-    -webkit-align-self: stretch;
-    -ms-flex-item-align: stretch;
-    align-self: stretch;
+    flex-basis: 100%;
     width: auto; }
+  .wp .item-label-stacked .input-wrapper,
+  .wp .item-label-floating .input-wrapper {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
   .wp ion-label {
     margin: 13px 8px 13px 0; }
   .wp .item-input ion-label {
@@ -12386,6 +12452,9 @@ ion-icon {
   .wp .input-has-value ion-label[floating] {
     -webkit-transform: translate3d(0, 0, 0) scale(0.8);
     transform: translate3d(0, 0, 0) scale(0.8); }
+  .wp .item-label-stacked [item-right],
+  .wp .item-label-floating [item-right] {
+    margin-top: 11px; }
   .wp ion-label[primary] {
     color: #327eff !important; }
   .wp ion-label[secondary] {

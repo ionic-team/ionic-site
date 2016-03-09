@@ -5999,6 +5999,12 @@ ion-input.ng-invalid.ng-touched:after {
   margin-top: 8px;
   margin-bottom: 8px; }
 
+.item-label-stacked ion-select,
+.item-label-floating ion-select {
+  padding-left: 0;
+  padding-top: 8px;
+  padding-bottom: 8px; }
+
 .item-label-floating .text-input.cloned-input {
   top: 32px; }
 
@@ -6454,6 +6460,15 @@ ion-label[floating] {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column; }
+
+.item-label-stacked ion-select,
+.item-label-floating ion-select {
+  width: 100%;
+  max-width: 100%; }
+
+.item-select ion-label[floating] {
+  -webkit-transform: translate3d(0, 0, 0) scale(0.8);
+  transform: translate3d(0, 0, 0) scale(0.8); }
 
 ion-label {
   margin: 13px 8px 13px 0; }

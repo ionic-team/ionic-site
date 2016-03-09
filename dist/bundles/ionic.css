@@ -5396,6 +5396,11 @@ ion-icon {
     margin-left: 0;
     margin-top: 8px;
     margin-bottom: 8px; }
+  .ios .item-label-stacked ion-select,
+  .ios .item-label-floating ion-select {
+    padding-left: 0;
+    padding-top: 8px;
+    padding-bottom: 8px; }
   .ios .item-label-floating .text-input.cloned-input,
   .ios .item-label-stacked .text-input.cloned-input {
     top: 30px; }
@@ -5752,6 +5757,13 @@ ion-icon {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
+  .ios .item-label-stacked ion-select,
+  .ios .item-label-floating ion-select {
+    width: 100%;
+    max-width: 100%; }
+  .ios .item-select ion-label[floating] {
+    -webkit-transform: translate3d(0, 0, 0) scale(0.8);
+    transform: translate3d(0, 0, 0) scale(0.8); }
   .ios ion-label {
     margin: 12px 8px 13px 0; }
   .ios .item-input ion-label {
@@ -8433,6 +8445,11 @@ ion-icon {
     margin-left: 0;
     margin-top: 8px;
     margin-bottom: 8px; }
+  .md .item-label-stacked ion-select,
+  .md .item-label-floating ion-select {
+    padding-left: 0;
+    padding-top: 8px;
+    padding-bottom: 8px; }
   .md .item-label-floating .text-input.cloned-input {
     top: 32px; }
   .md .item-label-stacked .text-input.cloned-input {
@@ -8831,6 +8848,13 @@ ion-icon {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
+  .md .item-label-stacked ion-select,
+  .md .item-label-floating ion-select {
+    width: 100%;
+    max-width: 100%; }
+  .md .item-select ion-label[floating] {
+    -webkit-transform: translate3d(0, 0, 0) scale(0.8);
+    transform: translate3d(0, 0, 0) scale(0.8); }
   .md ion-label {
     margin: 13px 8px 13px 0; }
   .md [text-wrap] ion-label {
@@ -12033,6 +12057,15 @@ ion-icon {
     margin-left: 0;
     margin-top: 8px;
     margin-bottom: 8px; }
+  .wp .item-label-stacked ion-select,
+  .wp .item-label-floating ion-select {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 8px;
+    margin-bottom: 8px; }
+    .wp .item-label-stacked ion-select .select-icon,
+    .wp .item-label-floating ion-select .select-icon {
+      margin-top: 5px; }
   .wp .item-label-floating .text-input.cloned-input {
     top: 32px; }
   .wp .item-label-stacked .text-input.cloned-input {
@@ -12432,6 +12465,13 @@ ion-icon {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
+  .wp .item-label-stacked ion-select,
+  .wp .item-label-floating ion-select {
+    width: 100%;
+    max-width: 100%; }
+  .wp .item-select ion-label[floating] {
+    -webkit-transform: translate3d(0, 0, 0) scale(0.8);
+    transform: translate3d(0, 0, 0) scale(0.8); }
   .wp ion-label {
     margin: 13px 8px 13px 0; }
   .wp .item-input ion-label {
@@ -13018,7 +13058,8 @@ ion-icon {
     pointer-events: none; }
   .wp ion-select {
     padding: 6.5px 8px 6.5px 8px;
-    border: 2px solid #B5B5B5; }
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    line-height: 3rem; }
   .wp .item-select ion-label {
     margin-left: 0; }
   .wp .select-icon {
@@ -13032,8 +13073,8 @@ ion-icon {
     height: 9px;
     left: 5px;
     top: 3px;
-    border-top: 2px solid #B5B5B5;
-    border-right: 2px solid #B5B5B5;
+    border-top: 2px solid rgba(0, 0, 0, 0.5);
+    border-right: 2px solid rgba(0, 0, 0, 0.5);
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
     pointer-events: none; }

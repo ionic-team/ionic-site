@@ -5777,7 +5777,8 @@ ion-icon {
     transform: translate3d(0, 0, 0) scale(0.8); }
   .ios .item-label-stacked [item-right],
   .ios .item-label-floating [item-right] {
-    margin-top: 10px; }
+    margin-top: 6px;
+    margin-bottom: 6px; }
   .ios ion-label[primary] {
     color: #327eff !important; }
   .ios ion-label[secondary] {
@@ -8859,7 +8860,8 @@ ion-icon {
     transform: translate3d(0, 0, 0) scale(0.8); }
   .md .item-label-stacked [item-right],
   .md .item-label-floating [item-right] {
-    margin-top: 11px; }
+    margin-top: 7px;
+    margin-bottom: 7px; }
   .md ion-label[primary] {
     color: #327eff !important; }
   .md ion-label[secondary] {
@@ -12454,7 +12456,8 @@ ion-icon {
     transform: translate3d(0, 0, 0) scale(0.8); }
   .wp .item-label-stacked [item-right],
   .wp .item-label-floating [item-right] {
-    margin-top: 11px; }
+    margin-top: 13px;
+    margin-bottom: 13px; }
   .wp ion-label[primary] {
     color: #327eff !important; }
   .wp ion-label[secondary] {

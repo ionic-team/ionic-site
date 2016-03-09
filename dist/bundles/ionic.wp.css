@@ -6290,7 +6290,8 @@ ion-label[floating] {
 
 .item-label-stacked [item-right],
 .item-label-floating [item-right] {
-  margin-top: 11px; }
+  margin-top: 13px;
+  margin-bottom: 13px; }
 
 ion-label[primary] {
   color: #327eff !important; }

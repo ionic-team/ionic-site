@@ -67,8 +67,20 @@ input[type="submit"] {
   cursor: pointer; }
 
 a,
+a div,
+a span,
+a ion-icon,
+a ion-label,
 button,
+button div,
+button span,
+button ion-icon,
+button ion-label,
 [tappable],
+[tappable] div,
+[tappable] span,
+[tappable] ion-icon,
+[tappable] ion-label,
 input,
 textarea {
   -ms-touch-action: manipulation;
@@ -4700,6 +4712,16 @@ ion-alert {
   line-height: 20px;
   font-size: 14px; }
 
+.alert-tappable {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-size: inherit;
+  line-height: initial;
+  text-align: left;
+  background: transparent;
+  -webkit-appearance: none; }
+
 .alert-wrapper {
   max-width: 280px;
   border-radius: 2px;
@@ -4750,8 +4772,7 @@ ion-alert {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 44px;
-  cursor: pointer; }
+  min-height: 44px; }
 
 .alert-radio-label {
   -webkit-box-flex: 1;
@@ -7212,7 +7233,7 @@ tab-highlight {
 
 .tab-badge {
   position: absolute;
-  top: 4%;
+  top: 6%;
   right: 4%;
   right: calc(50% - 50px);
   padding: 1px 6px;

@@ -66,8 +66,20 @@ input[type="submit"] {
   cursor: pointer; }
 
 a,
+a div,
+a span,
+a ion-icon,
+a ion-label,
 button,
+button div,
+button span,
+button ion-icon,
+button ion-label,
 [tappable],
+[tappable] div,
+[tappable] span,
+[tappable] ion-icon,
+[tappable] ion-label,
 input,
 textarea {
   -ms-touch-action: manipulation;
@@ -4584,6 +4596,15 @@ ion-icon {
     z-index: 0;
     line-height: 20px;
     font-size: 14px; }
+  .ios .alert-tappable {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: inherit;
+    line-height: initial;
+    text-align: left;
+    background: transparent;
+    -webkit-appearance: none; }
   .ios .alert-wrapper {
     max-width: 270px;
     border-radius: 13px;
@@ -4627,8 +4648,7 @@ ion-icon {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    min-height: 44px;
-    cursor: pointer; }
+    min-height: 44px; }
   .ios .alert-radio-label {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -6394,7 +6414,7 @@ ion-icon {
     display: none; }
   .ios .tab-badge {
     position: absolute;
-    top: 4%;
+    top: 6%;
     right: 4%;
     right: calc(50% - 50px);
     padding: 1px 6px;
@@ -6424,21 +6444,21 @@ ion-icon {
     color: #327eff; }
   .ios .tab-button-text {
     min-height: 11px;
-    font-size: 10px; }
+    font-size: 10px;
+    margin-top: 0;
+    margin-bottom: 0; }
   .ios .has-title-only .tab-button-text {
     font-size: 12px; }
   .ios .tab-button-icon {
-    font-size: 32px;
-    height: 32px;
-    min-width: 37px; }
+    font-size: 30px;
+    height: 30px;
+    min-width: 35px; }
     .ios .tab-button-icon:before {
       vertical-align: top; }
   .ios [tabbarLayout=icon-right] .tab-button .tab-button-text,
   .ios [tabbarLayout=icon-left] .tab-button .tab-button-text {
     font-size: 1.4rem;
-    line-height: 1.1;
-    margin-top: 0;
-    margin-bottom: 0; }
+    line-height: 1.1; }
   .ios [tabbarLayout=icon-right] .tab-button ion-icon,
   .ios [tabbarLayout=icon-left] .tab-button ion-icon {
     min-width: 24px;
@@ -6450,7 +6470,8 @@ ion-icon {
     .ios [tabbarLayout=icon-hide] .tab-button .tab-button-text,
     .ios .tab-button.has-title-only .tab-button-text {
       font-size: 1.4rem;
-      line-height: 1.1; }
+      line-height: 1.1;
+      margin: 2px 0px; }
   .ios [tabbarLayout=title-hide] .tab-button,
   .ios .tab-button.icon-only {
     min-height: 41px; }
@@ -7353,6 +7374,15 @@ ion-icon {
     z-index: 0;
     line-height: 20px;
     font-size: 14px; }
+  .md .alert-tappable {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: inherit;
+    line-height: initial;
+    text-align: left;
+    background: transparent;
+    -webkit-appearance: none; }
   .md .alert-wrapper {
     max-width: 280px;
     border-radius: 2px;
@@ -7395,8 +7425,7 @@ ion-icon {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    min-height: 44px;
-    cursor: pointer; }
+    min-height: 44px; }
   .md .alert-radio-label {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -9579,7 +9608,7 @@ ion-icon {
     display: none; }
   .md .tab-badge {
     position: absolute;
-    top: 4%;
+    top: 6%;
     right: 4%;
     right: calc(50% - 50px);
     padding: 1px 6px;
@@ -10995,6 +11024,15 @@ ion-icon {
     z-index: 0;
     line-height: 20px;
     font-size: 14px; }
+  .wp .alert-tappable {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: inherit;
+    line-height: initial;
+    text-align: left;
+    background: transparent;
+    -webkit-appearance: none; }
   .wp ion-alert .backdrop {
     background: white; }
   .wp .alert-wrapper {
@@ -11042,8 +11080,7 @@ ion-icon {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    min-height: 44px;
-    cursor: pointer; }
+    min-height: 44px; }
   .wp .alert-radio-label {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -13114,7 +13151,7 @@ ion-icon {
     display: none; }
   .wp .tab-badge {
     position: absolute;
-    top: 4%;
+    top: 6%;
     right: 4%;
     right: calc(50% - 50px);
     padding: 1px 6px;

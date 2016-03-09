@@ -67,8 +67,20 @@ input[type="submit"] {
   cursor: pointer; }
 
 a,
+a div,
+a span,
+a ion-icon,
+a ion-label,
 button,
+button div,
+button span,
+button ion-icon,
+button ion-label,
 [tappable],
+[tappable] div,
+[tappable] span,
+[tappable] ion-icon,
+[tappable] ion-label,
 input,
 textarea {
   -ms-touch-action: manipulation;
@@ -4337,7 +4349,7 @@ ion-spinner.spinner-paused svg {
 
 @font-face {
   font-family: "Ionicons";
-  src: url("/fonts/ionicons.woff2?v=3.0.0-alpha.3") format("woff2"), url("/fonts/ionicons.woff?v=3.0.0-alpha.3") format("woff"), url("/fonts/ionicons.ttf?v=3.0.0-alpha.3") format("truetype");
+  src: url("../fonts/ionicons.woff2?v=3.0.0-alpha.3") format("woff2"), url("../fonts/ionicons.woff?v=3.0.0-alpha.3") format("woff"), url("../fonts/ionicons.ttf?v=3.0.0-alpha.3") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -4364,25 +4376,25 @@ ion-icon {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 /**
   Roboto Font
@@ -4394,25 +4406,25 @@ ion-icon {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-content {
   color: #000; }
@@ -4534,25 +4546,25 @@ ion-icon[bright] {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-action-sheet {
   position: absolute;
@@ -4620,25 +4632,25 @@ ion-action-sheet {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-alert {
   position: absolute;
@@ -4728,6 +4740,16 @@ ion-alert {
   line-height: 20px;
   font-size: 14px; }
 
+.alert-tappable {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-size: inherit;
+  line-height: initial;
+  text-align: left;
+  background: transparent;
+  -webkit-appearance: none; }
+
 .alert-wrapper {
   max-width: 280px;
   border-radius: 2px;
@@ -4778,8 +4800,7 @@ ion-alert {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 44px;
-  cursor: pointer; }
+  min-height: 44px; }
 
 .alert-radio-label {
   -webkit-box-flex: 1;
@@ -4947,25 +4968,25 @@ ion-badge {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 .button {
   position: relative;
@@ -5433,25 +5454,25 @@ ion-button-effect {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-card {
   display: block;
@@ -5546,25 +5567,25 @@ ion-card + ion-card {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-checkbox {
   position: relative;
@@ -5751,25 +5772,25 @@ ion-chip ion-icon[bright] {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 [no-padding] {
   padding: 0; }
@@ -5838,25 +5859,25 @@ ion-content {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-input,
 ion-textarea {
@@ -6006,25 +6027,25 @@ ion-input[clearInput] {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 .item {
   display: -webkit-box;
@@ -6334,25 +6355,25 @@ ion-item-sliding {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-label {
   display: block;
@@ -6481,25 +6502,25 @@ ion-label[bright] {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-list-header {
   display: block;
@@ -6611,25 +6632,25 @@ ion-list[no-lines] .item .item-inner {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-menu {
   background: #fff; }
@@ -6653,25 +6674,25 @@ ion-menu[type=overlay] {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-page.modal {
   background-color: #fff; }
@@ -6686,25 +6707,25 @@ ion-page.modal {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-radio {
   position: relative;
@@ -6811,25 +6832,25 @@ ion-radio[bright] .radio-inner {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-searchbar {
   position: relative;
@@ -6956,25 +6977,25 @@ ion-searchbar {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-segment {
   display: -webkit-box;
@@ -7098,25 +7119,25 @@ ion-segment[bright] .segment-button {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-select {
   display: -webkit-box;
@@ -7179,25 +7200,25 @@ ion-select {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-tabs {
   display: -webkit-box;
@@ -7372,7 +7393,7 @@ tab-highlight {
 
 .tab-badge {
   position: absolute;
-  top: 4%;
+  top: 6%;
   right: 4%;
   right: calc(50% - 50px);
   padding: 1px 6px;
@@ -7530,25 +7551,25 @@ ion-tabs[bright] tabbar {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 ion-toggle {
   position: relative; }
@@ -7654,25 +7675,25 @@ ion-toggle[bright] .toggle-checked .toggle-inner {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url("/fonts/roboto-light.ttf") format("truetype"), url("/fonts/roboto-light.woff") format("woff"); }
+  src: local("Roboto Light"), local("Roboto-Light"), url("../fonts/roboto-light.ttf") format("truetype"), url("../fonts/roboto-light.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-regular.ttf") format("truetype"), url("/fonts/roboto-regular.woff") format("woff"); }
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-regular.ttf") format("truetype"), url("../fonts/roboto-regular.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url("/fonts/roboto-medium.ttf") format("truetype"), url("/fonts/roboto-medium.woff") format("woff"); }
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/roboto-medium.ttf") format("truetype"), url("../fonts/roboto-medium.woff") format("woff"); }
 
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/roboto-bold.ttf") format("truetype"), url("/fonts/roboto-bold.woff") format("woff"); }
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-bold.ttf") format("truetype"), url("../fonts/roboto-bold.woff") format("woff"); }
 
 .toolbar {
   position: relative;

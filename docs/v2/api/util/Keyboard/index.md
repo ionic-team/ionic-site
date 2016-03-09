@@ -120,7 +120,7 @@ export class MyClass{
  }
  closeCallback(){
     // call what ever functionality you want on keyboard close
-    console.log('Closing time");
+    console.log('Closing time');
  }
 }
 

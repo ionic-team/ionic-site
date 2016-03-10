@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -67,7 +68,7 @@ var MockProvider = (function () {
         __metadata('design:paramtypes', [])
     ], MockProvider);
     return MockProvider;
-})();
+}());
 exports.MockProvider = MockProvider;
 var ApiDemoApp = (function () {
     function ApiDemoApp(mockProvider) {
@@ -94,4 +95,4 @@ var ApiDemoApp = (function () {
         __metadata('design:paramtypes', [MockProvider])
     ], ApiDemoApp);
     return ApiDemoApp;
-})();
+}());

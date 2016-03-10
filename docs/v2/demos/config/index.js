@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -94,7 +95,7 @@ var ApiDemoApp = (function () {
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);
     return ApiDemoApp;
-})();
+}());
 var TabPage = (function () {
     function TabPage() {
         this.tabOne = InitialPage;
@@ -106,7 +107,7 @@ var TabPage = (function () {
         __metadata('design:paramtypes', [])
     ], TabPage);
     return TabPage;
-})();
+}());
 exports.TabPage = TabPage;
 var InitialPage = (function () {
     function InitialPage(platform, nav) {
@@ -146,7 +147,7 @@ var InitialPage = (function () {
     ], InitialPage);
     return InitialPage;
     var _a, _b;
-})();
+}());
 exports.InitialPage = InitialPage;
 var AnotherPage = (function () {
     function AnotherPage(nav) {
@@ -163,5 +164,5 @@ var AnotherPage = (function () {
     ], AnotherPage);
     return AnotherPage;
     var _a;
-})();
+}());
 exports.AnotherPage = AnotherPage;

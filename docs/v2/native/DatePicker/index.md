@@ -30,7 +30,7 @@ DatePicker
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/datepicker.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/datepicker.ts#L63'>
 Improve this doc
 </a>
 
@@ -40,7 +40,7 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add cordova-plugin-datepicker</code></pre>
+<pre><code>$ ionic plugin add https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git</code></pre>
 <p>Repo:
 <a href="">
 
@@ -51,16 +51,22 @@ Improve this doc
 
 <p>The DatePicker plugin allows the user to fetch date or time using native dialogs.</p>
 <p>Platforms supported: iOS, Android, Windows</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-datepicker</code>. For more info, please see the <a href="https://github.com/VitaliiBlagodir/cordova-plugin-datepicker">Datepicker plugin docs</a>.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-datepicker</code>. For more info, please see the <a href="https://github.com/VitaliiBlagodir/cordova-plugin-datepicker">DatePicker plugin docs</a>.</p>
 <p>Install the plugin by running the following command:</p>
-<pre><code class="lang-shell">ionic plugin add cordova-plugin-datepicker
+<pre><code class="lang-shell">cordova plugin add https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git
 </code></pre>
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">DatePicker.
+<pre><code class="lang-js">DatePicker.show({
+  date: new Date(),
+  mode: &#39;date&#39;
+}).then(
+  date =&gt; console.log(&quot;Got date: &quot;, date),
+  err =&gt; console.log(&quot;Error occurred while getting date:&quot;, err)
+);
 </code></pre>
 
 

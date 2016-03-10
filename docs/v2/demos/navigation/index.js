@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -21,7 +22,7 @@ var ApiDemoApp = (function () {
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);
     return ApiDemoApp;
-})();
+}());
 var InitialPage = (function () {
     function InitialPage(nav) {
         this.nav = nav;
@@ -37,7 +38,7 @@ var InitialPage = (function () {
     ], InitialPage);
     return InitialPage;
     var _a;
-})();
+}());
 exports.InitialPage = InitialPage;
 var Page2 = (function () {
     function Page2(nav) {
@@ -62,5 +63,5 @@ var Page2 = (function () {
     ], Page2);
     return Page2;
     var _a;
-})();
+}());
 exports.Page2 = Page2;

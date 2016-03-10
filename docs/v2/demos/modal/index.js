@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -25,7 +26,7 @@ var ApiDemoApp = (function () {
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);
     return ApiDemoApp;
-})();
+}());
 var ModalFirstPage = (function () {
     function ModalFirstPage(nav) {
         this.nav = nav;
@@ -53,7 +54,7 @@ var ModalFirstPage = (function () {
     ], ModalFirstPage);
     return ModalFirstPage;
     var _a;
-})();
+}());
 exports.ModalFirstPage = ModalFirstPage;
 var ModalContentPage = (function () {
     function ModalContentPage(nav, params, viewCtrl) {
@@ -72,7 +73,7 @@ var ModalContentPage = (function () {
     ], ModalContentPage);
     return ModalContentPage;
     var _a, _b, _c;
-})();
+}());
 exports.ModalContentPage = ModalContentPage;
 var FadeIn = (function (_super) {
     __extends(FadeIn, _super);
@@ -86,7 +87,7 @@ var FadeIn = (function (_super) {
             .before.addClass('show-page');
     }
     return FadeIn;
-})(ionic_angular_2.Animation);
+}(ionic_angular_2.Animation));
 ionic_angular_2.Animation.register('my-fade-in', FadeIn);
 var FadeOut = (function (_super) {
     __extends(FadeOut, _super);
@@ -99,5 +100,5 @@ var FadeOut = (function (_super) {
             .before.addClass('show-page');
     }
     return FadeOut;
-})(ionic_angular_2.Animation);
+}(ionic_angular_2.Animation));
 ionic_angular_2.Animation.register('my-fade-out', FadeOut);

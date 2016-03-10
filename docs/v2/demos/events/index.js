@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -25,7 +26,7 @@ var Login = (function () {
     ], Login);
     return Login;
     var _a;
-})();
+}());
 var Logout = (function () {
     function Logout(events) {
         this.events = events;
@@ -39,7 +40,7 @@ var Logout = (function () {
     ], Logout);
     return Logout;
     var _a;
-})();
+}());
 var ApiDemoApp = (function () {
     function ApiDemoApp(app, events) {
         this.app = app;
@@ -76,4 +77,4 @@ var ApiDemoApp = (function () {
     ], ApiDemoApp);
     return ApiDemoApp;
     var _a, _b;
-})();
+}());

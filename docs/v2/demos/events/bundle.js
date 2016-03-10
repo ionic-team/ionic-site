@@ -3183,6 +3183,7 @@
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3210,7 +3211,7 @@
 	    ], Login);
 	    return Login;
 	    var _a;
-	})();
+	}());
 	var Logout = (function () {
 	    function Logout(events) {
 	        this.events = events;
@@ -3224,7 +3225,7 @@
 	    ], Logout);
 	    return Logout;
 	    var _a;
-	})();
+	}());
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp(app, events) {
 	        this.app = app;
@@ -3261,12 +3262,13 @@
 	    ], ApiDemoApp);
 	    return ApiDemoApp;
 	    var _a, _b;
-	})();
+	}());
 
 /***/ },
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
@@ -3298,6 +3300,7 @@
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var core_1 = __webpack_require__(7);
 	var router_1 = __webpack_require__(117);
 	var http_1 = __webpack_require__(145);
@@ -26161,6 +26164,7 @@
 /* 160 */
 /***/ function(module, exports) {
 
+	"use strict";
 	var CSS_CLICK_BLOCK = 'click-block-active';
 	var DEFAULT_EXPIRE = 330;
 	var cbEle, fallbackTimerId;
@@ -26192,7 +26196,7 @@
 	        }
 	    };
 	    return ClickBlock;
-	})();
+	}());
 	exports.ClickBlock = ClickBlock;
 	function show(expire) {
 	    clearTimeout(fallbackTimerId);
@@ -26221,6 +26225,7 @@
 	* @description
 	* Config allows you to set the modes of your components
 	*/
+	"use strict";
 	var platform_1 = __webpack_require__(162);
 	var util_1 = __webpack_require__(163);
 	/**
@@ -26506,7 +26511,7 @@
 	        return modeConfigs[mode] || null;
 	    };
 	    return Config;
-	})();
+	}());
 	exports.Config = Config;
 	var modeConfigs = {};
 
@@ -26514,6 +26519,7 @@
 /* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var util_1 = __webpack_require__(163);
 	var dom_1 = __webpack_require__(164);
 	/**
@@ -27056,7 +27062,7 @@
 	        return rootNode;
 	    };
 	    return Platform;
-	})();
+	}());
 	exports.Platform = Platform;
 	function insertSuperset(platformNode) {
 	    var supersetPlaformName = platformNode.superset();
@@ -27145,7 +27151,7 @@
 	        return parentPlatformNames;
 	    };
 	    return PlatformNode;
-	})();
+	}());
 	var platformRegistry = {};
 	var platformDefault = null;
 
@@ -27153,6 +27159,7 @@
 /* 163 */
 /***/ function(module, exports) {
 
+	"use strict";
 	/**
 	 * Given a min and max, restrict the given number
 	 * to the range.
@@ -27400,6 +27407,7 @@
 /* 164 */
 /***/ function(module, exports) {
 
+	"use strict";
 	// RequestAnimationFrame Polyfill (Android 4.3 and below)
 	/*! @author Paul Irish */
 	/*! @source https://gist.github.com/paulirish/1579671 */
@@ -27659,6 +27667,7 @@
 /* 165 */
 /***/ function(module, exports) {
 
+	"use strict";
 	/**
 	 * @name Events
 	 * @description
@@ -27758,13 +27767,14 @@
 	        return responses;
 	    };
 	    return Events;
-	})();
+	}());
 	exports.Events = Events;
 
 /***/ },
 /* 166 */
 /***/ function(module, exports) {
 
+	"use strict";
 	var FeatureDetect = (function () {
 	    function FeatureDetect() {
 	        this._results = {};
@@ -27781,7 +27791,7 @@
 	        featureDetects[name] = fn;
 	    };
 	    return FeatureDetect;
-	})();
+	}());
 	exports.FeatureDetect = FeatureDetect;
 	var featureDetects = {};
 	// FeatureDetect.add('sticky', function(window, document) {
@@ -27814,6 +27824,7 @@
 /* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27895,13 +27906,14 @@
 	        __metadata('design:paramtypes', [])
 	    ], Form);
 	    return Form;
-	})();
+	}());
 	exports.Form = Form;
 
 /***/ },
 /* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -28054,7 +28066,7 @@
 	    ], IonicApp);
 	    return IonicApp;
 	    var _a, _b, _c;
-	})();
+	}());
 	exports.IonicApp = IonicApp;
 
 /***/ },
@@ -41815,6 +41827,7 @@
 /* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41994,7 +42007,7 @@
 	    ], Keyboard);
 	    return Keyboard;
 	    var _a, _b, _c;
-	})();
+	}());
 	exports.Keyboard = Keyboard;
 	var KEYBOARD_CLOSE_POLLING = 150;
 
@@ -42002,6 +42015,7 @@
 /* 281 */
 /***/ function(module, exports) {
 
+	"use strict";
 	/**
 	 * @name Menu
 	 * @description
@@ -42306,7 +42320,7 @@
 	        return new menuTypes[type](menuCmp);
 	    };
 	    return MenuController;
-	})();
+	}());
 	exports.MenuController = MenuController;
 	var menuTypes = {};
 
@@ -42314,6 +42328,7 @@
 /* 282 */
 /***/ function(module, exports) {
 
+	"use strict";
 	/**
 	 * @private
 	 * Map of possible pages that can be navigated to using an Ionic NavController
@@ -42335,13 +42350,14 @@
 	        this._pages.set(page.name, page);
 	    };
 	    return NavRegistry;
-	})();
+	}());
 	exports.NavRegistry = NavRegistry;
 
 /***/ },
 /* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var dom_1 = __webpack_require__(164);
 	var ScrollTo = (function () {
 	    function ScrollTo(ele) {
@@ -42430,7 +42446,7 @@
 	        this._el = null;
 	    };
 	    return ScrollTo;
-	})();
+	}());
 	exports.ScrollTo = ScrollTo;
 	// decelerating to zero velocity
 	function easeOutCubic(t) {
@@ -42441,6 +42457,7 @@
 /* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -42595,7 +42612,7 @@
 	    ], TapClick);
 	    return TapClick;
 	    var _a, _b, _c;
-	})();
+	}());
 	exports.TapClick = TapClick;
 	function getActivatableTarget(ele) {
 	    var targetEle = ele;
@@ -42640,6 +42657,7 @@
 /* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var dom_1 = __webpack_require__(164);
 	var Activator = (function () {
 	    function Activator(app, config, _zone) {
@@ -42722,7 +42740,7 @@
 	        return false;
 	    };
 	    return Activator;
-	})();
+	}());
 	exports.Activator = Activator;
 	var CLEAR_STATE_DEFERS = 5;
 
@@ -42730,6 +42748,7 @@
 /* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -42833,7 +42852,7 @@
 	        });
 	    };
 	    return RippleActivator;
-	})(activator_1.Activator);
+	}(activator_1.Activator));
 	exports.RippleActivator = RippleActivator;
 	var TOUCH_DOWN_ACCEL = 300;
 
@@ -42841,6 +42860,7 @@
 /* 287 */
 /***/ function(module, exports) {
 
+	"use strict";
 	/**
 	 * @private
 	 * Provide multi-language and i18n support in your app. Translate works by
@@ -42901,13 +42921,14 @@
 	        return map && map[key] || '';
 	    };
 	    return Translate;
-	})();
+	}());
 	exports.Translate = Translate;
 
 /***/ },
 /* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var common_1 = __webpack_require__(172);
 	var overlay_1 = __webpack_require__(289);
 	var menu_1 = __webpack_require__(290);
@@ -43088,6 +43109,7 @@
 /* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -43115,13 +43137,14 @@
 	        __metadata('design:paramtypes', [])
 	    ], OverlayNav);
 	    return OverlayNav;
-	})();
+	}());
 	exports.OverlayNav = OverlayNav;
 
 /***/ },
 /* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -43537,7 +43560,7 @@
 	    ], Menu);
 	    return Menu;
 	    var _a, _b, _c, _d, _e, _f, _g, _h;
-	})(ion_1.Ion);
+	}(ion_1.Ion));
 	exports.Menu = Menu;
 	/**
 	 * @private
@@ -43569,13 +43592,14 @@
 	    ], MenuBackdrop);
 	    return MenuBackdrop;
 	    var _a;
-	})();
+	}());
 	exports.MenuBackdrop = MenuBackdrop;
 
 /***/ },
 /* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var dom = __webpack_require__(164);
 	var ids = 0;
 	/**
@@ -43607,13 +43631,14 @@
 	        dom.clearDimensions(this._id);
 	    };
 	    return Ion;
-	})();
+	}());
 	exports.Ion = Ion;
 
 /***/ },
 /* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -43719,7 +43744,7 @@
 	        };
 	    };
 	    return MenuContentGesture;
-	})(slide_edge_gesture_1.SlideEdgeGesture);
+	}(slide_edge_gesture_1.SlideEdgeGesture));
 	exports.MenuContentGesture = MenuContentGesture;
 	/**
 	 * Gesture attached to the actual menu itself
@@ -43732,13 +43757,14 @@
 	        });
 	    }
 	    return MenuTargetGesture;
-	})(MenuContentGesture);
+	}(MenuContentGesture));
 	exports.MenuTargetGesture = MenuTargetGesture;
 
 /***/ },
 /* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -43782,13 +43808,14 @@
 	        }
 	    };
 	    return SlideEdgeGesture;
-	})(slide_gesture_1.SlideGesture);
+	}(slide_gesture_1.SlideGesture));
 	exports.SlideEdgeGesture = SlideEdgeGesture;
 
 /***/ },
 /* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -43861,13 +43888,14 @@
 	    SlideGesture.prototype.onSlide = function (slide, ev) { };
 	    SlideGesture.prototype.onSlideEnd = function (slide, ev) { };
 	    return SlideGesture;
-	})(drag_gesture_1.DragGesture);
+	}(drag_gesture_1.DragGesture));
 	exports.SlideGesture = SlideGesture;
 
 /***/ },
 /* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -43908,13 +43936,14 @@
 	    DragGesture.prototype.onDragStart = function (ev) { return true; };
 	    DragGesture.prototype.onDragEnd = function (ev) { };
 	    return DragGesture;
-	})(gesture_1.Gesture);
+	}(gesture_1.Gesture));
 	exports.DragGesture = DragGesture;
 
 /***/ },
 /* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var util_1 = __webpack_require__(297);
 	var hammer_1 = __webpack_require__(298);
 	/**
@@ -43976,13 +44005,14 @@
 	        this.element = this._options = null;
 	    };
 	    return Gesture;
-	})();
+	}());
 	exports.Gesture = Gesture;
 
 /***/ },
 /* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
@@ -43994,6 +44024,7 @@
 /* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var util_1 = __webpack_require__(163);
 	var win = window;
 	var doc = document;
@@ -46149,6 +46180,7 @@
 /* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -46247,13 +46279,14 @@
 	    ], MenuToggle);
 	    return MenuToggle;
 	    var _a, _b, _c, _d;
-	})();
+	}());
 	exports.MenuToggle = MenuToggle;
 
 /***/ },
 /* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -46707,7 +46740,7 @@
 	    ], ViewController.prototype, "_emitter", void 0);
 	    return ViewController;
 	    var _a;
-	})();
+	}());
 	exports.ViewController = ViewController;
 	function ctrlFn(viewCtrl, fnName) {
 	    if (viewCtrl.instance && viewCtrl.instance[fnName]) {
@@ -46724,6 +46757,7 @@
 /* 301 */
 /***/ function(module, exports) {
 
+	"use strict";
 	/**
 	 * @name NavParams
 	 * @description
@@ -46776,13 +46810,14 @@
 	        return this.data[param];
 	    };
 	    return NavParams;
-	})();
+	}());
 	exports.NavParams = NavParams;
 
 /***/ },
 /* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -46835,7 +46870,7 @@
 	    ], BackButton);
 	    return BackButton;
 	    var _a, _b;
-	})(ion_1.Ion);
+	}(ion_1.Ion));
 	var BackButtonText = (function () {
 	    function BackButtonText(elementRef, navbar) {
 	        navbar.setBackButtonTextRef(elementRef);
@@ -46849,7 +46884,7 @@
 	    ], BackButtonText);
 	    return BackButtonText;
 	    var _a;
-	})();
+	}());
 	var ToolbarBackground = (function () {
 	    function ToolbarBackground(elementRef, navbar) {
 	        navbar.setBackgroundRef(elementRef);
@@ -46863,7 +46898,7 @@
 	    ], ToolbarBackground);
 	    return ToolbarBackground;
 	    var _a;
-	})();
+	}());
 	/**
 	 * @name Navbar
 	 * @description
@@ -47011,7 +47046,7 @@
 	    ], Navbar);
 	    return Navbar;
 	    var _a, _b, _c, _d, _e;
-	})(toolbar_1.ToolbarBase);
+	}(toolbar_1.ToolbarBase));
 	exports.Navbar = Navbar;
 	/**
 	 * @private
@@ -47035,13 +47070,14 @@
 	    ], NavbarTemplate);
 	    return NavbarTemplate;
 	    var _a, _b, _c;
-	})();
+	}());
 	exports.NavbarTemplate = NavbarTemplate;
 
 /***/ },
 /* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -47229,13 +47265,14 @@
 	    ], Icon);
 	    return Icon;
 	    var _a, _b, _c;
-	})();
+	}());
 	exports.Icon = Icon;
 
 /***/ },
 /* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -47302,7 +47339,7 @@
 	        this.itemRefs.push(itemElementRef);
 	    };
 	    return ToolbarBase;
-	})(ion_1.Ion);
+	}(ion_1.Ion));
 	exports.ToolbarBase = ToolbarBase;
 	/**
 	 * @name Toolbar
@@ -47364,7 +47401,7 @@
 	    ], Toolbar);
 	    return Toolbar;
 	    var _a;
-	})(ToolbarBase);
+	}(ToolbarBase));
 	exports.Toolbar = Toolbar;
 	/**
 	 * @name Title
@@ -47413,7 +47450,7 @@
 	    ], ToolbarTitle);
 	    return ToolbarTitle;
 	    var _a, _b;
-	})(ion_1.Ion);
+	}(ion_1.Ion));
 	exports.ToolbarTitle = ToolbarTitle;
 	/**
 	 * @private
@@ -47463,13 +47500,14 @@
 	    ], ToolbarItem);
 	    return ToolbarItem;
 	    var _a, _b;
-	})();
+	}());
 	exports.ToolbarItem = ToolbarItem;
 
 /***/ },
 /* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -47753,9 +47791,9 @@
 	            this._setClass(this._display, assignCssClass); // button-full
 	            this._setClass(this._size, assignCssClass); // button-small
 	            this._setClass(this._icon, assignCssClass); // button-icon-left
-	            var colorStyle = (this._style !== 'default' ? this._style + '-' : '');
+	            var colorStyle_1 = (this._style !== 'default' ? this._style + '-' : '');
 	            this._colors.forEach(function (colorName) {
-	                _this._setClass(colorStyle + colorName, assignCssClass); // button-secondary, button-clear-secondary
+	                _this._setClass(colorStyle_1 + colorName, assignCssClass); // button-secondary, button-clear-secondary
 	            });
 	        }
 	    };
@@ -47839,7 +47877,7 @@
 	    ], Button);
 	    return Button;
 	    var _a, _b, _c;
-	})();
+	}());
 	exports.Button = Button;
 	var BUTTON_SIZE_ATTRS = ['large', 'small', 'default'];
 	var BUTTON_STYLE_ATTRS = ['clear', 'outline', 'solid'];
@@ -47853,6 +47891,7 @@
 /* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -48521,15 +48560,15 @@
 	                leavingView.state = STATE_ACTIVE;
 	                return Promise.resolve(false);
 	            }
-	            var resolve;
-	            var promise = new Promise(function (res) { resolve = res; });
+	            var resolve_1;
+	            var promise = new Promise(function (res) { resolve_1 = res; });
 	            if (!opts.animation) {
 	                opts.animation = leavingView.getTransitionName(opts.direction);
 	            }
 	            // start the transition, fire resolve when done...
 	            this._transition(enteringView, leavingView, opts, function (hasCompleted) {
 	                // transition has completed!!
-	                resolve(hasCompleted);
+	                resolve_1(hasCompleted);
 	            });
 	            return promise;
 	        }
@@ -49041,10 +49080,10 @@
 	            }
 	            var navbarTemplateRef = view.getNavbarTemplateRef();
 	            if (navbarContainerRef && navbarTemplateRef) {
-	                var navbarViewRef = navbarContainerRef.createEmbeddedView(navbarTemplateRef);
+	                var navbarViewRef_1 = navbarContainerRef.createEmbeddedView(navbarTemplateRef);
 	                view.addDestroy(function () {
-	                    var index = navbarContainerRef.indexOf(navbarViewRef);
-	                    if (!navbarViewRef.destroyed && index > -1) {
+	                    var index = navbarContainerRef.indexOf(navbarViewRef_1);
+	                    if (!navbarViewRef_1.destroyed && index > -1) {
 	                        navbarContainerRef.remove(index);
 	                    }
 	                });
@@ -49313,7 +49352,7 @@
 	        __metadata('design:type', Boolean)
 	    ], NavController.prototype, "swipeBackEnabled", null);
 	    return NavController;
-	})(ion_1.Ion);
+	}(ion_1.Ion));
 	exports.NavController = NavController;
 	var STATE_ACTIVE = 'active';
 	var STATE_INACTIVE = 'inactive';
@@ -49342,6 +49381,7 @@
 /* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -49388,13 +49428,14 @@
 	        this._nav.swipeBackEnd(shouldComplete, currentStepValue);
 	    };
 	    return SwipeBackGesture;
-	})(slide_edge_gesture_1.SlideEdgeGesture);
+	}(slide_edge_gesture_1.SlideEdgeGesture));
 	exports.SwipeBackGesture = SwipeBackGesture;
 
 /***/ },
 /* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -49423,7 +49464,7 @@
 	        TransitionRegistry[name] = TransitionClass;
 	    };
 	    return Transition;
-	})(animation_1.Animation);
+	}(animation_1.Animation));
 	exports.Transition = Transition;
 	var TransitionRegistry = {};
 
@@ -49431,6 +49472,7 @@
 /* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var dom_1 = __webpack_require__(164);
 	var util_1 = __webpack_require__(163);
 	/**
@@ -50078,7 +50120,7 @@
 	        AnimationRegistry[name] = AnimationClass;
 	    };
 	    return Animation;
-	})();
+	}());
 	exports.Animation = Animation;
 	var TRANSFORMS = {
 	    'translateX': 1, 'translateY': 1, 'translateZ': 1,
@@ -50093,6 +50135,7 @@
 /* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -50155,13 +50198,14 @@
 	    ], MenuClose);
 	    return MenuClose;
 	    var _a;
-	})();
+	}());
 	exports.MenuClose = MenuClose;
 
 /***/ },
 /* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -50218,13 +50262,14 @@
 	    ], Badge);
 	    return Badge;
 	    var _a, _b, _c;
-	})();
+	}());
 	exports.Badge = Badge;
 
 /***/ },
 /* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -50264,13 +50309,14 @@
 	    ], Blur);
 	    return Blur;
 	    var _a, _b;
-	})();
+	}());
 	exports.Blur = Blur;
 
 /***/ },
 /* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -50607,13 +50653,14 @@
 	    ], Content);
 	    return Content;
 	    var _a, _b, _c, _d, _e;
-	})(ion_1.Ion);
+	}(ion_1.Ion));
 	exports.Content = Content;
 
 /***/ },
 /* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -50707,13 +50754,14 @@
 	    ], Scroll);
 	    return Scroll;
 	    var _a;
-	})(ion_1.Ion);
+	}(ion_1.Ion));
 	exports.Scroll = Scroll;
 
 /***/ },
 /* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -50975,7 +51023,7 @@
 	    ], InfiniteScroll);
 	    return InfiniteScroll;
 	    var _a, _b, _c, _d;
-	})();
+	}());
 	exports.InfiniteScroll = InfiniteScroll;
 	var STATE_ENABLED = 'enabled';
 	var STATE_DISABLED = 'disabled';
@@ -50985,6 +51033,7 @@
 /* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -51041,13 +51090,14 @@
 	    ], InfiniteScrollContent);
 	    return InfiniteScrollContent;
 	    var _a, _b;
-	})();
+	}());
 	exports.InfiniteScrollContent = InfiniteScrollContent;
 
 /***/ },
 /* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -51252,7 +51302,7 @@
 	    ], Spinner);
 	    return Spinner;
 	    var _a;
-	})();
+	}());
 	exports.Spinner = Spinner;
 	var SPINNERS = {
 	    ios: {
@@ -51340,6 +51390,7 @@
 /* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -51844,7 +51895,7 @@
 	    ], Refresher);
 	    return Refresher;
 	    var _a, _b, _c, _d, _e, _f;
-	})();
+	}());
 	exports.Refresher = Refresher;
 	var STATE_INACTIVE = 'inactive';
 	var STATE_PULLING = 'pulling';
@@ -51857,6 +51908,7 @@
 /* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -51931,13 +51983,14 @@
 	    ], RefresherContent);
 	    return RefresherContent;
 	    var _a, _b;
-	})();
+	}());
 	exports.RefresherContent = RefresherContent;
 
 /***/ },
 /* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -52465,7 +52518,7 @@
 	    ], Slides);
 	    return Slides;
 	    var _a, _b, _c, _d;
-	})(ion_1.Ion);
+	}(ion_1.Ion));
 	exports.Slides = Slides;
 	/**
 	 * @name Slide
@@ -52495,7 +52548,7 @@
 	    ], Slide);
 	    return Slide;
 	    var _a;
-	})();
+	}());
 	exports.Slide = Slide;
 	/**
 	 * @private
@@ -52513,7 +52566,7 @@
 	        __metadata('design:paramtypes', [])
 	    ], SlideLazy);
 	    return SlideLazy;
-	})();
+	}());
 	exports.SlideLazy = SlideLazy;
 
 /***/ },
@@ -56480,6 +56533,7 @@
 /* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -56807,7 +56861,7 @@
 	    ], Tabs);
 	    return Tabs;
 	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
-	})(ion_1.Ion);
+	}(ion_1.Ion));
 	exports.Tabs = Tabs;
 	var tabIds = -1;
 	/**
@@ -56824,12 +56878,13 @@
 	    ], TabNavBarAnchor);
 	    return TabNavBarAnchor;
 	    var _a;
-	})();
+	}());
 
 /***/ },
 /* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -56904,13 +56959,14 @@
 	    ], TabButton);
 	    return TabButton;
 	    var _a, _b, _c, _d;
-	})(ion_1.Ion);
+	}(ion_1.Ion));
 	exports.TabButton = TabButton;
 
 /***/ },
 /* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -57145,13 +57201,14 @@
 	    ], Tab);
 	    return Tab;
 	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
-	})(nav_controller_1.NavController);
+	}(nav_controller_1.NavController));
 	exports.Tab = Tab;
 
 /***/ },
 /* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57192,13 +57249,14 @@
 	    ], TabHighlight);
 	    return TabHighlight;
 	    var _a;
-	})();
+	}());
 	exports.TabHighlight = TabHighlight;
 
 /***/ },
 /* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -57311,7 +57369,7 @@
 	    ], List);
 	    return List;
 	    var _a, _b;
-	})(ion_1.Ion);
+	}(ion_1.Ion));
 	exports.List = List;
 	/**
 	 * @private
@@ -57342,13 +57400,14 @@
 	    ], ListHeader);
 	    return ListHeader;
 	    var _a, _b;
-	})();
+	}());
 	exports.ListHeader = ListHeader;
 
 /***/ },
 /* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -57539,7 +57598,7 @@
 	        this.listEle = null;
 	    };
 	    return ItemSlidingGesture;
-	})(drag_gesture_1.DragGesture);
+	}(drag_gesture_1.DragGesture));
 	exports.ItemSlidingGesture = ItemSlidingGesture;
 	function isItemActive(ele, isActive) {
 	    ele.classList[isActive ? 'add' : 'remove']('active-slide');
@@ -57570,6 +57629,7 @@
 /* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57762,13 +57822,14 @@
 	    ], Item);
 	    return Item;
 	    var _a, _b, _c, _d, _e, _f, _g;
-	})();
+	}());
 	exports.Item = Item;
 
 /***/ },
 /* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57886,13 +57947,14 @@
 	    ], Label);
 	    return Label;
 	    var _a, _b;
-	})();
+	}());
 	exports.Label = Label;
 
 /***/ },
 /* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57954,7 +58016,7 @@
 	    ], ItemSliding);
 	    return ItemSliding;
 	    var _a, _b;
-	})();
+	}());
 	exports.ItemSliding = ItemSliding;
 	var slideIds = 0;
 
@@ -57962,6 +58024,7 @@
 /* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58165,13 +58228,14 @@
 	    ], Checkbox);
 	    return Checkbox;
 	    var _a, _b, _c;
-	})();
+	}());
 	exports.Checkbox = Checkbox;
 
 /***/ },
 /* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58593,13 +58657,14 @@
 	    ], Select);
 	    return Select;
 	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
-	})();
+	}());
 	exports.Select = Select;
 
 /***/ },
 /* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -58852,7 +58917,7 @@
 	        return new Alert(opts);
 	    };
 	    return Alert;
-	})(view_controller_1.ViewController);
+	}(view_controller_1.ViewController));
 	exports.Alert = Alert;
 	/**
 	 * @private
@@ -59073,7 +59138,7 @@
 	    ], AlertCmp);
 	    return AlertCmp;
 	    var _a, _b, _c, _d, _e;
-	})();
+	}());
 	/**
 	 * Animations for alerts
 	 */
@@ -59093,7 +59158,7 @@
 	            .add(wrapper);
 	    }
 	    return AlertPopIn;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('alert-pop-in', AlertPopIn);
 	var AlertPopOut = (function (_super) {
 	    __extends(AlertPopOut, _super);
@@ -59111,7 +59176,7 @@
 	            .add(wrapper);
 	    }
 	    return AlertPopOut;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('alert-pop-out', AlertPopOut);
 	var AlertMdPopIn = (function (_super) {
 	    __extends(AlertMdPopIn, _super);
@@ -59129,7 +59194,7 @@
 	            .add(wrapper);
 	    }
 	    return AlertMdPopIn;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('alert-md-pop-in', AlertMdPopIn);
 	var AlertMdPopOut = (function (_super) {
 	    __extends(AlertMdPopOut, _super);
@@ -59147,7 +59212,7 @@
 	            .add(wrapper);
 	    }
 	    return AlertMdPopOut;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('alert-md-pop-out', AlertMdPopOut);
 	var AlertWpPopIn = (function (_super) {
 	    __extends(AlertWpPopIn, _super);
@@ -59165,7 +59230,7 @@
 	            .add(wrapper);
 	    }
 	    return AlertWpPopIn;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('alert-wp-pop-in', AlertWpPopIn);
 	var AlertWpPopOut = (function (_super) {
 	    __extends(AlertWpPopOut, _super);
@@ -59183,7 +59248,7 @@
 	            .add(wrapper);
 	    }
 	    return AlertWpPopOut;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('alert-wp-pop-out', AlertWpPopOut);
 	var alertIds = -1;
 
@@ -59191,6 +59256,7 @@
 /* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59277,13 +59343,14 @@
 	    ], Option);
 	    return Option;
 	    var _a, _b;
-	})();
+	}());
 	exports.Option = Option;
 
 /***/ },
 /* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59547,13 +59614,14 @@
 	    ], Toggle);
 	    return Toggle;
 	    var _a, _b, _c, _d, _e;
-	})();
+	}());
 	exports.Toggle = Toggle;
 
 /***/ },
 /* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -59658,7 +59726,7 @@
 	    ], TextInput);
 	    return TextInput;
 	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
-	})(input_base_1.InputBase);
+	}(input_base_1.InputBase));
 	exports.TextInput = TextInput;
 	/**
 	 * @name TextArea
@@ -59731,13 +59799,14 @@
 	    ], TextArea);
 	    return TextArea;
 	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
-	})(input_base_1.InputBase);
+	}(input_base_1.InputBase));
 	exports.TextArea = TextArea;
 
 /***/ },
 /* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60258,7 +60327,7 @@
 	    ], InputBase.prototype, "_nextInput", null);
 	    return InputBase;
 	    var _a, _b, _c, _d, _e;
-	})();
+	}());
 	exports.InputBase = InputBase;
 	var SCROLL_ASSIST_SPEED = 0.3;
 	function getScrollAssistDuration(distanceToScroll) {
@@ -60272,6 +60341,7 @@
 /* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60332,22 +60402,22 @@
 	    NativeInput.prototype.relocate = function (shouldRelocate, inputRelativeY) {
 	        console.debug('native input relocate', shouldRelocate, inputRelativeY);
 	        if (this._relocated !== shouldRelocate) {
-	            var focusedInputEle = this.element();
+	            var focusedInputEle_1 = this.element();
 	            if (shouldRelocate) {
-	                var clonedInputEle = cloneInput(focusedInputEle, 'cloned-focus');
-	                focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
-	                focusedInputEle.style[dom_1.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
-	                focusedInputEle.style.opacity = '0';
+	                var clonedInputEle = cloneInput(focusedInputEle_1, 'cloned-focus');
+	                focusedInputEle_1.parentNode.insertBefore(clonedInputEle, focusedInputEle_1);
+	                focusedInputEle_1.style[dom_1.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
+	                focusedInputEle_1.style.opacity = '0';
 	                this.setFocus();
 	                dom_1.raf(function () {
-	                    focusedInputEle.classList.add('cloned-active');
+	                    focusedInputEle_1.classList.add('cloned-active');
 	                });
 	            }
 	            else {
-	                focusedInputEle.classList.remove('cloned-active');
-	                focusedInputEle.style[dom_1.CSS.transform] = '';
-	                focusedInputEle.style.opacity = '';
-	                removeClone(focusedInputEle, 'cloned-focus');
+	                focusedInputEle_1.classList.remove('cloned-active');
+	                focusedInputEle_1.style[dom_1.CSS.transform] = '';
+	                focusedInputEle_1.style.opacity = '';
+	                removeClone(focusedInputEle_1, 'cloned-focus');
 	            }
 	            this._relocated = shouldRelocate;
 	        }
@@ -60414,7 +60484,7 @@
 	    ], NativeInput);
 	    return NativeInput;
 	    var _a, _b, _c, _d, _e;
-	})();
+	}());
 	exports.NativeInput = NativeInput;
 	function cloneInput(focusedInputEle, addCssClass) {
 	    var clonedInputEle = focusedInputEle.cloneNode(true);
@@ -60460,13 +60530,14 @@
 	    ], NextInput);
 	    return NextInput;
 	    var _a;
-	})();
+	}());
 	exports.NextInput = NextInput;
 
 /***/ },
 /* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60586,7 +60657,7 @@
 	    ], SegmentButton);
 	    return SegmentButton;
 	    var _a, _b, _c;
-	})();
+	}());
 	exports.SegmentButton = SegmentButton;
 	/**
 	 * @name Segment
@@ -60657,8 +60728,8 @@
 	        this.value = util_1.isPresent(value) ? value : '';
 	        if (this._buttons) {
 	            var buttons = this._buttons.toArray();
-	            for (var _i = 0; _i < buttons.length; _i++) {
-	                var button = buttons[_i];
+	            for (var _i = 0, buttons_1 = buttons; _i < buttons_1.length; _i++) {
+	                var button = buttons_1[_i];
 	                button.isActive = (button.value === this.value);
 	            }
 	        }
@@ -60669,8 +60740,8 @@
 	    Segment.prototype.ngAfterViewInit = function () {
 	        var _this = this;
 	        var buttons = this._buttons.toArray();
-	        for (var _i = 0; _i < buttons.length; _i++) {
-	            var button = buttons[_i];
+	        for (var _i = 0, buttons_2 = buttons; _i < buttons_2.length; _i++) {
+	            var button = buttons_2[_i];
 	            button.select.subscribe(function (selectedButton) {
 	                _this.writeValue(selectedButton.value);
 	                _this.onChange(selectedButton.value);
@@ -60708,13 +60779,14 @@
 	    ], Segment);
 	    return Segment;
 	    var _a, _b, _c;
-	})();
+	}());
 	exports.Segment = Segment;
 
 /***/ },
 /* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60893,13 +60965,14 @@
 	    ], RadioButton);
 	    return RadioButton;
 	    var _a, _b, _c, _d;
-	})();
+	}());
 	exports.RadioButton = RadioButton;
 
 /***/ },
 /* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61117,7 +61190,7 @@
 	    ], RadioGroup);
 	    return RadioGroup;
 	    var _a, _b, _c;
-	})();
+	}());
 	exports.RadioGroup = RadioGroup;
 	var radioGroupIds = -1;
 
@@ -61125,6 +61198,7 @@
 /* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -61174,7 +61248,7 @@
 	    ], SearchbarInput);
 	    return SearchbarInput;
 	    var _a;
-	})();
+	}());
 	exports.SearchbarInput = SearchbarInput;
 	/**
 	 * @name Searchbar
@@ -61476,13 +61550,14 @@
 	    ], Searchbar);
 	    return Searchbar;
 	    var _a, _b, _c, _d, _e, _f, _g, _h;
-	})(ion_1.Ion);
+	}(ion_1.Ion));
 	exports.Searchbar = Searchbar;
 
 /***/ },
 /* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -61656,13 +61731,14 @@
 	    ], Nav);
 	    return Nav;
 	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
-	})(nav_controller_1.NavController);
+	}(nav_controller_1.NavController));
 	exports.Nav = Nav;
 
 /***/ },
 /* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61768,7 +61844,7 @@
 	    ], NavPush);
 	    return NavPush;
 	    var _a, _b;
-	})();
+	}());
 	exports.NavPush = NavPush;
 	/**
 	 * @name NavPop
@@ -61818,13 +61894,14 @@
 	    ], NavPop);
 	    return NavPop;
 	    var _a;
-	})();
+	}());
 	exports.NavPop = NavPop;
 
 /***/ },
 /* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -61923,7 +62000,7 @@
 	    ], NavRouter);
 	    return NavRouter;
 	    var _a, _b, _c, _d;
-	})(router_1.RouterOutlet);
+	}(router_1.RouterOutlet));
 	exports.NavRouter = NavRouter;
 	// TODO: hacked from
 	// https://github.com/angular/angular/blob/6ddfff5cd59aac9099aa6da5118c5598eea7ea11/modules/angular2/src/router/instruction.ts#L207
@@ -61939,12 +62016,13 @@
 	        return Promise.resolve(this.component);
 	    };
 	    return ResolvedInstruction;
-	})(router_1.Instruction);
+	}(router_1.Instruction));
 
 /***/ },
 /* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -62020,7 +62098,7 @@
 	    ], IdRef);
 	    return IdRef;
 	    var _a, _b, _c;
-	})();
+	}());
 	exports.IdRef = IdRef;
 	/**
 	 * @private
@@ -62048,13 +62126,14 @@
 	    ], Attr);
 	    return Attr;
 	    var _a, _b;
-	})();
+	}());
 	exports.Attr = Attr;
 
 /***/ },
 /* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -62116,7 +62195,7 @@
 	        }
 	    };
 	    return DisplayWhen;
-	})();
+	}());
 	exports.DisplayWhen = DisplayWhen;
 	/**
 	 *
@@ -62177,7 +62256,7 @@
 	    ], ShowWhen);
 	    return ShowWhen;
 	    var _a, _b;
-	})(DisplayWhen);
+	}(DisplayWhen));
 	exports.ShowWhen = ShowWhen;
 	/**
 	 * @name HideWhen
@@ -62238,13 +62317,14 @@
 	    ], HideWhen);
 	    return HideWhen;
 	    var _a, _b;
-	})(DisplayWhen);
+	}(DisplayWhen));
 	exports.HideWhen = HideWhen;
 
 /***/ },
 /* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var core_1 = __webpack_require__(7);
 	var browser_1 = __webpack_require__(169);
 	var app_1 = __webpack_require__(168);
@@ -62317,6 +62397,7 @@
 /* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var core_1 = __webpack_require__(7);
 	var directives_1 = __webpack_require__(288);
 	var _reflect = Reflect;
@@ -62407,6 +62488,7 @@
 /* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
@@ -62461,6 +62543,7 @@
 /* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -62621,7 +62704,7 @@
 	        return new ActionSheet(opts);
 	    };
 	    return ActionSheet;
-	})(view_controller_1.ViewController);
+	}(view_controller_1.ViewController));
 	exports.ActionSheet = ActionSheet;
 	/**
 	* @private
@@ -62759,7 +62842,7 @@
 	    ], ActionSheetCmp);
 	    return ActionSheetCmp;
 	    var _a, _b, _c, _d, _e;
-	})();
+	}());
 	var ActionSheetSlideIn = (function (_super) {
 	    __extends(ActionSheetSlideIn, _super);
 	    function ActionSheetSlideIn(enteringView, leavingView, opts) {
@@ -62772,7 +62855,7 @@
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetSlideIn;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('action-sheet-slide-in', ActionSheetSlideIn);
 	var ActionSheetSlideOut = (function (_super) {
 	    __extends(ActionSheetSlideOut, _super);
@@ -62786,7 +62869,7 @@
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetSlideOut;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('action-sheet-slide-out', ActionSheetSlideOut);
 	var ActionSheetMdSlideIn = (function (_super) {
 	    __extends(ActionSheetMdSlideIn, _super);
@@ -62800,7 +62883,7 @@
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetMdSlideIn;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
 	var ActionSheetMdSlideOut = (function (_super) {
 	    __extends(ActionSheetMdSlideOut, _super);
@@ -62814,7 +62897,7 @@
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetMdSlideOut;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
 	var ActionSheetWpSlideIn = (function (_super) {
 	    __extends(ActionSheetWpSlideIn, _super);
@@ -62828,7 +62911,7 @@
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetWpSlideIn;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('action-sheet-wp-slide-in', ActionSheetWpSlideIn);
 	var ActionSheetWpSlideOut = (function (_super) {
 	    __extends(ActionSheetWpSlideOut, _super);
@@ -62842,7 +62925,7 @@
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
 	    }
 	    return ActionSheetWpSlideOut;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('action-sheet-wp-slide-out', ActionSheetWpSlideOut);
 	var actionSheetIds = -1;
 
@@ -62850,6 +62933,7 @@
 /* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -62901,7 +62985,7 @@
 	        this.ani && this.ani.destroy();
 	    };
 	    return MenuType;
-	})();
+	}());
 	exports.MenuType = MenuType;
 	/**
 	 * @private
@@ -62922,7 +63006,7 @@
 	        this.ani.add(contentOpen);
 	    }
 	    return MenuRevealType;
-	})(MenuType);
+	}(MenuType));
 	menu_controller_1.MenuController.registerType('reveal', MenuRevealType);
 	/**
 	 * @private
@@ -62956,7 +63040,7 @@
 	        this.ani.add(contentApi);
 	    }
 	    return MenuPushType;
-	})(MenuType);
+	}(MenuType));
 	menu_controller_1.MenuController.registerType('push', MenuPushType);
 	/**
 	 * @private
@@ -62990,13 +63074,14 @@
 	        this.ani.add(backdropApi);
 	    }
 	    return MenuOverlayType;
-	})(MenuType);
+	}(MenuType));
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
 /* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -63128,7 +63213,7 @@
 	        return new Modal(componentType, data);
 	    };
 	    return Modal;
-	})(view_controller_1.ViewController);
+	}(view_controller_1.ViewController));
 	exports.Modal = Modal;
 	/**
 	 * Animations for modals
@@ -63151,7 +63236,7 @@
 	        }
 	    }
 	    return ModalSlideIn;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('modal-slide-in', ModalSlideIn);
 	var ModalSlideOut = (function (_super) {
 	    __extends(ModalSlideOut, _super);
@@ -63164,7 +63249,7 @@
 	            .fromTo('translateY', '0%', '100%');
 	    }
 	    return ModalSlideOut;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('modal-slide-out', ModalSlideOut);
 	var ModalMDSlideIn = (function (_super) {
 	    __extends(ModalMDSlideIn, _super);
@@ -63185,7 +63270,7 @@
 	        }
 	    }
 	    return ModalMDSlideIn;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('modal-md-slide-in', ModalMDSlideIn);
 	var ModalMDSlideOut = (function (_super) {
 	    __extends(ModalMDSlideOut, _super);
@@ -63199,13 +63284,14 @@
 	            .fadeOut();
 	    }
 	    return ModalMDSlideOut;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
 /* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
@@ -63217,6 +63303,7 @@
 /* 356 */
 /***/ function(module, exports) {
 
+	"use strict";
 	/**
 	 * Storage is an easy way to store key/value pairs and other complicated
 	 * data in a way that uses a variety of storage engines underneath.
@@ -63265,7 +63352,7 @@
 	        return this._strategy.query(query, params);
 	    };
 	    return Storage;
-	})();
+	}());
 	exports.Storage = Storage;
 	/**
 	 * @private
@@ -63287,13 +63374,14 @@
 	        throw Error("query() not implemented for this storage engine");
 	    };
 	    return StorageEngine;
-	})();
+	}());
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
 /* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -63381,13 +63469,14 @@
 	        });
 	    };
 	    return LocalStorage;
-	})(storage_1.StorageEngine);
+	}(storage_1.StorageEngine));
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
 /* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -63597,13 +63686,14 @@
 	    SqlStorage.BACKUP_LIBRARY = 1;
 	    SqlStorage.BACKUP_DOCUMENTS = 0;
 	    return SqlStorage;
-	})(storage_1.StorageEngine);
+	}(storage_1.StorageEngine));
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
 /* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63646,13 +63736,14 @@
 	    ], TranslatePipe);
 	    return TranslatePipe;
 	    var _a;
-	})();
+	}());
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
 /* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var config_1 = __webpack_require__(161);
 	// iOS Mode Settings
 	config_1.Config.setModeConfig('ios', {
@@ -63715,6 +63806,7 @@
 /* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var platform_1 = __webpack_require__(162);
 	var dom_1 = __webpack_require__(164);
 	var win = window;
@@ -63882,6 +63974,7 @@
 /* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -63898,7 +63991,7 @@
 	            .fromTo('translateY', '100%', '0%');
 	    }
 	    return SlideIn;
-	})(animation_1.Animation);
+	}(animation_1.Animation));
 	animation_1.Animation.register('slide-in', SlideIn);
 	var SlideOut = (function (_super) {
 	    __extends(SlideOut, _super);
@@ -63910,7 +64003,7 @@
 	            .fromTo('translateY', '0%', '100%');
 	    }
 	    return SlideOut;
-	})(animation_1.Animation);
+	}(animation_1.Animation));
 	animation_1.Animation.register('slide-out', SlideOut);
 	var FadeIn = (function (_super) {
 	    __extends(FadeIn, _super);
@@ -63922,7 +64015,7 @@
 	            .fadeIn();
 	    }
 	    return FadeIn;
-	})(animation_1.Animation);
+	}(animation_1.Animation));
 	animation_1.Animation.register('fade-in', FadeIn);
 	var FadeOut = (function (_super) {
 	    __extends(FadeOut, _super);
@@ -63934,13 +64027,14 @@
 	            .fadeOut();
 	    }
 	    return FadeOut;
-	})(animation_1.Animation);
+	}(animation_1.Animation));
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
 /* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -64107,13 +64201,14 @@
 	        }
 	    }
 	    return IOSTransition;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
 /* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -64170,13 +64265,14 @@
 	        }
 	    }
 	    return MDTransition;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('md-transition', MDTransition);
 
 /***/ },
 /* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -64231,7 +64327,7 @@
 	        }
 	    }
 	    return WPTransition;
-	})(transition_1.Transition);
+	}(transition_1.Transition));
 	transition_1.Transition.register('wp-transition', WPTransition);
 
 /***/ }

@@ -50,7 +50,7 @@ https://github.com/EddyVerbruggen/cordova-plugin-actionsheet
 <!-- description -->
 
 <p>The ActionSheet plugin shows a native list of options the user can choose from.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-actionsheet</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">ActionSheet plugin docs</a>.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-actionsheet</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet">ActionSheet plugin docs</a>.</p>
 
 <!-- @usage tag -->
 

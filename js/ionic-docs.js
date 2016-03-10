@@ -40,17 +40,30 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     if (platform == 'ios') {
       $scope.iosActive = true;
       $scope.androidActive = false;
+      $scope.windowsActive = false;
       $('#demo-device-android').css('display', 'none');
       $('#demo-device-ios').css('display', 'block');
+      $('#demo-device-windows').css('display', 'none');
+      return;
+    } else if (platform == 'windows') {
+      $scope.iosActive = false;
+      $scope.androidActive = false;
+      $scope.windowsActive = true;
+      $('#demo-device-android').css('display', 'none');
+      $('#demo-device-ios').css('display', 'none');
+      $('#demo-device-windows').css('display', 'block');
       return;
     }
     $scope.iosActive = false;
     $scope.androidActive = true;
+    $scope.windowsActive = false;
     $('#demo-device-ios').css('display', 'none');
     $('#demo-device-android').css('display', 'block');
+    $('#demo-device-windows').css('display', 'none');
   };
   var $androidIframe = $('iframe#demo-android');
   var $iosIframe = $('iframe#demo-ios');
+  var $windowsIframe = $('iframe#demo-windows');
   var $buttons = $('#components-buttons');
   var $cards = $('#components-cards');
   var $alerts = $('#components-alerts');
@@ -85,6 +98,9 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       hash: $hash
     }), '*');
     $androidIframe[0].contentWindow.postMessage(JSON.stringify({
+      hash: $hash
+    }), '*');
+    $windowsIframe[0].contentWindow.postMessage(JSON.stringify({
       hash: $hash
     }), '*');
   }, 500);
@@ -166,6 +182,10 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
         hash: window.location.hash
       }), '*');
       return;
+    } else if (platform === 'windows') {
+      $windowsIframe[0].contentWindow.postMessage(JSON.stringify({
+        hash: window.location.hash
+      }), '*');
     }
     $androidIframe[0].contentWindow.postMessage(JSON.stringify({
       hash: window.location.hash
@@ -190,13 +210,25 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     if (platform == 'ios') {
       $scope.iosActive = true;
       $scope.androidActive = false;
+      $scope.windowsActive = false;
       $('#demo-device-android').css('display', 'none');
+      $('#demo-device-windows').css('display', 'none');
       $('#demo-device-ios').css('display', 'block');
+      return;
+    } else if (platform == 'windows') {
+      $scope.iosActive = false;
+      $scope.androidActive = false;
+      $scope.windowsActive = true;
+      $('#demo-device-android').css('display', 'none');
+      $('#demo-device-ios').css('display', 'none');
+      $('#demo-device-windows').css('display', 'block');
       return;
     }
     $scope.iosActive = false;
     $scope.androidActive = true;
+    $scope.windowsActive = false;
     $('#demo-device-ios').css('display', 'none');
+    $('#demo-device-windows').css('display', 'none');
     $('#demo-device-android').css('display', 'block');
   };
   $scope.setPlatform('ios');

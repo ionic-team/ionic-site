@@ -8175,23 +8175,31 @@ a.footer-link {
         color: #4f8ff7;
         text-decoration: none; }
 
-#demo-device-ios, #demo-device-android {
+#demo-device-ios, #demo-device-android, #demo-device-windows {
   width: 467px;
   height: 800px;
-  background: center top no-repeat url("/img/device-preview-ios.jpg");
+  background: center top no-repeat url("/img/devices-sprite.jpg");
   background-size: 467px;
   margin: 0 auto; }
-  #demo-device-ios iframe, #demo-device-android iframe {
+  #demo-device-ios iframe, #demo-device-android iframe, #demo-device-windows iframe {
     margin-top: 85px;
     width: 320px;
     height: 568px; }
 
 #demo-device-android {
-  background-image: url("/img/device-preview-android.jpg"); }
+  background-position: center center; }
   #demo-device-android iframe {
     margin-top: 64px;
     width: 360px;
     height: 590px; }
+
+#demo-device-windows {
+  background-position: center bottom; }
+  #demo-device-windows iframe {
+    margin-top: 72px;
+    width: 350px;
+    height: 622px;
+    background: white; }
 
 li.nav-item-hidden {
   position: absolute;

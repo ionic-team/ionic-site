@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="id"></a>
 
 Id
 
@@ -48,11 +48,11 @@ no matter where in the UI hierarchy you are. For example, this makes toggling
 a global side menu possible from any place in the application.</p>
 
 
-<h2>Directive</h2>
+<h2><a name="Directive"></a>Directive</h2>
 <h3>selector: <code>[id]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <p>To give any component an ID, simply set its <code>id</code> property:</p>
 <pre><code class="lang-html">&lt;ion-checkbox id=&quot;myCheckbox&quot;&gt;&lt;/ion-checkbox&gt;

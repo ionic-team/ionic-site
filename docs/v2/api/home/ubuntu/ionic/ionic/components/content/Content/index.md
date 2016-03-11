@@ -21,7 +21,7 @@ docType: "class"
 
 
 <h1 class="api-title">
-
+<a name="content"></a>
 
 Content
 
@@ -47,11 +47,11 @@ methods to control the scrollable area.</p>
 <a href="../../scroll/Refresher">Refresher</a> component.</p>
 
 
-<h2>Component</h2>
+<h2><a name="Component"></a>Component</h2>
 <h3>selector: <code>ion-content</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
   Add your content here!
@@ -67,7 +67,7 @@ methods to control the scrollable area.</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a name="instance-methods"></a>Instance Methods</h2>
 
 <div id="onScrollElementTransitionEnd"></div>
 

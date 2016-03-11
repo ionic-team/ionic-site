@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="nav-params"></a>
 
 NavParams
 
@@ -49,7 +49,7 @@ option with a simple <code>get</code> method.</p>
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">export class MyClass{
  constructor(params: NavParams){
@@ -69,7 +69,7 @@ option with a simple <code>get</code> method.</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a name="instance-methods"></a>Instance Methods</h2>
 
 <div id="data"></div>
 
@@ -150,7 +150,7 @@ export class MyClass{
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h2><a name="related"></a>Related</h2>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
 <a href='../NavController/'>NavController API Docs</a>

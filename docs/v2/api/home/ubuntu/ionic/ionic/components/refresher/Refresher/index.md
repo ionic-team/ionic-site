@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="refresher"></a>
 
 Refresher
 
@@ -51,11 +51,11 @@ enough to kick off the refreshing process. Once the async operation
 has completed and the refreshing should end, call <code>complete()</code>.</p>
 
 
-<h2>Directive</h2>
+<h2><a name="Directive"></a>Directive</h2>
 <h3>selector: <code>ion-refresher</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
 
@@ -116,7 +116,7 @@ custom SVG or CSS animations.</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a name="instance-methods"></a>Instance Methods</h2>
 
 <div id="state"></div>
 
@@ -278,7 +278,7 @@ Changes the refresher's state from `refreshing` to `cancelling`.
 
 
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a name="input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -330,7 +330,7 @@ maximum will be the result of <code>pullMin + 60</code>.</p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2>Output Events</h2>
+<h2><a name="output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>

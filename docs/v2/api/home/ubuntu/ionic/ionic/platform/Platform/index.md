@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="platform"></a>
 
 Platform
 
@@ -50,7 +50,7 @@ With this information you can completely custimize your app to fit any device an
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">import {Platform} from &#39;ionic-angular&#39;;
 
@@ -71,7 +71,7 @@ export MyPage {
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a name="instance-methods"></a>Instance Methods</h2>
 
 <div id="is"></div>
 

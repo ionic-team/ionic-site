@@ -21,7 +21,7 @@ docType: "class"
 
 
 <h1 class="api-title">
-
+<a name="nav-controller"></a>
 
 NavController
 
@@ -119,7 +119,7 @@ class HelloWorld {
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a name="instance-methods"></a>Instance Methods</h2>
 
 <div id="setRoot"></div>
 
@@ -1478,7 +1478,7 @@ Returns the root NavController.
 
 
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a name="input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -1499,7 +1499,7 @@ Returns the root NavController.
   </tbody>
 </table><!-- related link -->
 
-<h2>Related</h2>
+<h2><a name="related"></a>Related</h2>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 

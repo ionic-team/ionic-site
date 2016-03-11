@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="nav-push"></a>
 
 NavPush
 
@@ -47,11 +47,11 @@ Improve this doc
 <a href='../NavController/#push'>NavController.push</a>. Similar to ui-router&#39;s <code>ui-sref</code>.</p>
 
 
-<h2>Directive</h2>
+<h2><a name="Directive"></a>Directive</h2>
 <h3>selector: <code>[navPush]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;button [navPush]=&quot;pushPage&quot;&gt;&lt;/button&gt;
 </code></pre>
@@ -86,7 +86,7 @@ NavPush:</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a name="instance-methods"></a>Instance Methods</h2>
 
 <div id="registry"></div>
 
@@ -107,7 +107,7 @@ NavPush:</p>
 
 
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a name="input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -135,7 +135,7 @@ NavPush:</p>
   </tbody>
 </table><!-- related link -->
 
-<h2>Related</h2>
+<h2><a name="related"></a>Related</h2>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
 <a href='../NavPop'>NavPop API Docs</a><!-- end content block -->

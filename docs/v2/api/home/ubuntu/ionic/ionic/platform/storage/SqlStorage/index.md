@@ -21,7 +21,7 @@ docType: "class"
 
 
 <h1 class="api-title">
-
+<a name="sql-storage"></a>
 
 SqlStorage
 
@@ -50,7 +50,7 @@ storage. The full SQL engine is exposed underneath through the <code>query</code
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-js">let storage = new Storage(SqlStorage, options);
 storage.set(&#39;name&#39;, &#39;Max&#39;);
@@ -72,7 +72,7 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2><a name="static-methods"></a>Static Methods</h2>
 <div id="BACKUP_LOCAL"></div>
 <h3><code>BACKUP_LOCAL()</code>
   
@@ -122,7 +122,7 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a name="instance-methods"></a>Instance Methods</h2>
 
 <div id="query"></div>
 

@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="toolbar"></a>
 
 Toolbar
 
@@ -52,11 +52,11 @@ below, you can add the property <code>position=&quot;bottom&quot;</code>. This w
 property.</p>
 
 
-<h2>Component</h2>
+<h2><a name="Component"></a>Component</h2>
 <h3>selector: <code>ion-toolbar</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-toolbar&gt;
   &lt;ion-title&gt;My Toolbar Title&lt;/ion-title&gt;
@@ -82,7 +82,7 @@ property.</p>
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h2><a name="attributes"></a>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -126,7 +126,7 @@ set position of the toolbar, top or bottom. If not set, defautls to top.
 
 <!-- instance methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h2><a name="related"></a>Related</h2>
 
 <a href='../../navbar/Navbar/'>Navbar API Docs</a><!-- end content block -->
 

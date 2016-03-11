@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="item"></a>
 
 Item
 
@@ -55,11 +55,11 @@ To hide this icon, add the <code>detail-none</code> attribute to the item (eg: <
 add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&gt;</code>).</p>
 
 
-<h2>Component</h2>
+<h2><a name="Component"></a>Component</h2>
 <h3>selector: <code>ion-item,[ion-item]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
 
@@ -80,7 +80,7 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 
 <!-- instance methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h2><a name="related"></a>Related</h2>
 
 <a href='/docs/v2/components#lists'>List Component Docs</a>
 <a href='../../list/List'>List API Docs</a><!-- end content block -->

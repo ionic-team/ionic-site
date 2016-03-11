@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="radio-button"></a>
 
 RadioButton
 
@@ -51,11 +51,11 @@ the radio group.</p>
 more info on forms and input.</p>
 
 
-<h2>Component</h2>
+<h2><a name="Component"></a>Component</h2>
 <h3>selector: <code>ion-radio</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Radio Label&lt;/ion-label&gt;
@@ -72,7 +72,7 @@ more info on forms and input.</p>
 
 <!-- instance methods on the class -->
 <!-- output events on the class -->
-<h2>Output Events</h2>
+<h2><a name="output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -91,7 +91,7 @@ more info on forms and input.</p>
   </tbody>
 </table><!-- related link -->
 
-<h2>Related</h2>
+<h2><a name="related"></a>Related</h2>
 
 <a href='/docs/v2/components#radio'>Radio Component Docs</a><!-- end content block -->
 

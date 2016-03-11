@@ -21,7 +21,7 @@ docType: "class"
 
 
 <h1 class="api-title">
-
+<a name="view-controller"></a>
 
 ViewController
 
@@ -45,7 +45,7 @@ Improve this doc
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">import {Page, ViewController} from &#39;ionic-angular&#39;;
 @Page....
@@ -65,7 +65,7 @@ export class MyPage{
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a name="instance-methods"></a>Instance Methods</h2>
 
 <div id="componentType"></div>
 

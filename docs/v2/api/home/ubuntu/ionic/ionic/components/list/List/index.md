@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="list"></a>
 
 List
 
@@ -53,7 +53,7 @@ interaction modes such as swipe to edit, drag to reorder, and
 removing items.</p>
 
 
-<h2>Directive</h2>
+<h2><a name="Directive"></a>Directive</h2>
 <h3>selector: <code>ion-list</code></h3>
 <!-- @usage tag -->
 
@@ -64,7 +64,7 @@ removing items.</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a name="instance-methods"></a>Instance Methods</h2>
 
 <div id="enableSlidingItems"></div>
 
@@ -160,7 +160,7 @@ export class MyClass {
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h2><a name="related"></a>Related</h2>
 
 <a href='/docs/v2/components#lists'>List Component Docs</a><!-- end content block -->
 

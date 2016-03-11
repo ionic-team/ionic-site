@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="local-storage"></a>
 
 LocalStorage
 
@@ -52,7 +52,7 @@ by the operating system (iOS).</p>
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">import {Page, Storage, LocalStorage} from &#39;ionic-angular&#39;;
 @Page({
@@ -75,7 +75,7 @@ export class MyClass{
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a name="instance-methods"></a>Instance Methods</h2>
 
 <div id="get"></div>
 
@@ -238,7 +238,7 @@ Remove a key from LocalStorage
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h2><a name="related"></a>Related</h2>
 
 <a href='/docs/v2/platform/storage/'>Storage Platform Docs</a><!-- end content block -->
 

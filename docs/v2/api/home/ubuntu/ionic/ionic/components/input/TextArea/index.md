@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="text-area"></a>
 
 TextArea
 
@@ -55,11 +55,11 @@ textarea&#39;s inner content.</p>
 to use <code>&lt;ion-input&gt;</code> instead.</p>
 
 
-<h2>Component</h2>
+<h2><a name="Component"></a>Component</h2>
 <h3>selector: <code>ion-textarea</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Comments&lt;/ion-label&gt;

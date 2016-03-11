@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="infinite-scroll"></a>
 
 InfiniteScroll
 
@@ -51,11 +51,11 @@ has finished its tasks, it should call the <code>complete()</code> method
 on the infinite scroll instance.</p>
 
 
-<h2>Directive</h2>
+<h2><a name="Directive"></a>Directive</h2>
 <h3>selector: <code>ion-infinite-scroll</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
 
@@ -128,7 +128,7 @@ You could replace our default content with custom SVG or CSS animations.</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a name="instance-methods"></a>Instance Methods</h2>
 
 <div id="state"></div>
 
@@ -227,7 +227,7 @@ the infinite scroll is no longer needed.
 
 
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a name="input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -255,7 +255,7 @@ Default is <code>15%</code>.</p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2>Output Events</h2>
+<h2><a name="output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>

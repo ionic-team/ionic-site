@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="show-when"></a>
 
 ShowWhen
 
@@ -48,11 +48,11 @@ The element the attribute is added to will only be shown when that platform or s
 Complements the <a href="../HideWhen">hideWhen attribute</a>.</p>
 
 
-<h2>Directive</h2>
+<h2><a name="Directive"></a>Directive</h2>
 <h3>selector: <code>[showWhen]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;div showWhen=&quot;android&quot;&gt;
  I am visible on Android!
@@ -84,7 +84,7 @@ Complements the <a href="../HideWhen">hideWhen attribute</a>.</p>
 
 <!-- instance methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h2><a name="related"></a>Related</h2>
 
 <a href='../HideWhen'>HideWhen API Docs</a><!-- end content block -->
 

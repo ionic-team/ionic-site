@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a name="icon"></a>
 
 Icon
 
@@ -54,11 +54,11 @@ automatically apply <code>md-alarm</code>. This allows the developer to write th
 markup once while Ionic applies the appropriate icon based on the mode.</p>
 
 
-<h2>Directive</h2>
+<h2><a name="Directive"></a>Directive</h2>
 <h3>selector: <code>ion-icon,icon</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a name="usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;!-- automatically uses the correct &quot;star&quot; icon depending on the mode --&gt;
 &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
@@ -80,7 +80,7 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a name="input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -122,7 +122,7 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
   </tbody>
 </table><!-- related link -->
 
-<h2>Related</h2>
+<h2><a name="related"></a>Related</h2>
 
 <a href='/docs/v2/components#icons'>Icon Component Docs</a><!-- end content block -->
 

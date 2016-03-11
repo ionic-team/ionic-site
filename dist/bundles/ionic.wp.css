@@ -1,5 +1,3 @@
-/*! Ionic: Windows */
-/*! normalize.css v3.0.2 | MIT License | github.com/necolas/normalize.css */
 audio,
 canvas,
 progress,
@@ -15,8 +13,8 @@ strong {
   font-weight: bold; }
 
 img {
-  border: 0;
-  max-width: 100%; }
+  max-width: 100%;
+  border: 0; }
 
 svg:not(:root) {
   overflow: hidden; }
@@ -25,9 +23,9 @@ figure {
   margin: 1em 40px; }
 
 hr {
-  box-sizing: content-box;
   height: 1px;
-  border-width: 0; }
+  border-width: 0;
+  box-sizing: content-box; }
 
 pre {
   overflow: auto; }
@@ -43,12 +41,12 @@ label,
 input,
 select,
 textarea {
-  line-height: normal;
-  font-family: inherit; }
+  font-family: inherit;
+  line-height: normal; }
 
 textarea {
-  height: auto;
   overflow: auto;
+  height: auto;
   font: inherit;
   color: inherit; }
 
@@ -56,15 +54,15 @@ form,
 input,
 optgroup,
 select {
-  color: inherit;
+  margin: 0;
   font: inherit;
-  margin: 0; }
+  color: inherit; }
 
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  -webkit-appearance: button;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-appearance: button; }
 
 a,
 a div,
@@ -88,28 +86,28 @@ textarea {
 
 button {
   border: 0;
-  line-height: 1;
   font-family: inherit;
-  font-variant: inherit;
   font-style: inherit;
+  font-variant: inherit;
+  line-height: 1;
   text-transform: none;
-  -webkit-appearance: button;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-appearance: button; }
 
 a[disabled],
-button[disabled]
+button[disabled],
 html input[disabled] {
   cursor: default; }
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
+  padding: 0;
+  border: 0; }
 
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box;
-  padding: 0; }
+  padding: 0;
+  box-sizing: border-box; }
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -140,48 +138,48 @@ html {
   -webkit-text-size-adjust: 100%; }
 
 body {
-  position: fixed;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0;
-  padding: 0;
-  word-wrap: break-word;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  -webkit-user-drag: none;
-  -ms-content-zooming: none;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -webkit-text-size-adjust: none;
-  -ms-text-size-adjust: none;
-  text-size-adjust: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+  position: fixed;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-user-drag: none;
+  -ms-content-zooming: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  word-wrap: break-word;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none; }
 
 ion-app,
 ion-nav,
 ion-tabs {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden; }
+  height: 100%; }
 
 ion-navbar-section {
   display: block;
@@ -189,25 +187,25 @@ ion-navbar-section {
   min-height: 50px; }
 
 ion-content-section {
+  position: relative;
   display: block;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  position: relative;
   width: 100%;
   height: 100%; }
 
 ion-page {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%; }
   ion-page.show-page {
@@ -219,55 +217,55 @@ ion-page {
 ion-content {
   position: relative;
   display: block;
-  width: 100%;
-  height: 100%;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
-  flex: 1; }
+  flex: 1;
+  width: 100%;
+  height: 100%; }
 
 scroll-content {
   position: absolute;
-  z-index: 1;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 1;
   display: block;
-  overflow-y: scroll;
   overflow-x: hidden;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   will-change: scroll-position; }
 
 ion-tabbar {
-  display: block;
   position: absolute;
   top: 0;
   left: 0;
+  display: block;
   width: 100%;
   min-height: 50px; }
 
 ion-tab-section {
-  display: block;
   position: relative;
   top: 0;
   left: 0;
+  display: block;
+  overflow: hidden;
   width: 100%;
-  height: 100%;
-  overflow: hidden; }
+  height: 100%; }
 
 ion-page.tab-subpage {
   position: fixed;
   z-index: 10; }
 
 ion-navbar {
-  display: block;
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 10;
+  display: block;
   width: 100%;
-  min-height: 50px;
-  z-index: 10; }
+  min-height: 50px; }
 
 ion-navbar-section ion-navbar.toolbar {
   position: absolute; }
@@ -289,18 +287,18 @@ ion-toolbar[position=bottom] {
   width: 9px; }
 
 .css-scrollbars ::-webkit-scrollbar-thumb:vertical {
-  background: rgba(0, 0, 0, 0.4);
+  min-height: 10px;
   border: 2px solid transparent;
   border-radius: 20px;
-  background-clip: padding-box;
-  min-height: 10px; }
+  background: rgba(0, 0, 0, 0.4);
+  background-clip: padding-box; }
 
 .css-scrollbars ::-webkit-scrollbar-thumb:vertical:active {
-  background: rgba(0, 0, 0, 0.6);
+  min-height: 10px;
   border: 2px solid transparent;
   border-radius: 20px;
-  background-clip: padding-box;
-  min-height: 10px; }
+  background: rgba(0, 0, 0, 0.6);
+  background-clip: padding-box; }
 
 html {
   font-size: 62.5%; }
@@ -309,29 +307,39 @@ a {
   background-color: transparent; }
 
 .enable-hover a:hover {
-  opacity: 0.7; }
+  opacity: .7; }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
-  line-height: 1.2;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 1.6rem;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.2; }
 
-[padding] h1:first-child, [padding] h2:first-child, [padding] h3:first-child, [padding] h4:first-child, [padding] h5:first-child, [padding] h6:first-child {
-  margin-top: -0.3rem; }
+[padding] h1:first-child,
+[padding] h2:first-child,
+[padding] h3:first-child,
+[padding] h4:first-child,
+[padding] h5:first-child,
+[padding] h6:first-child {
+  margin-top: -.3rem; }
 
 h1 + h2,
 h1 + h3,
 h2 + h3 {
-  margin-top: -0.3rem; }
+  margin-top: -.3rem; }
 
 h1 {
-  font-size: 2.6rem;
-  margin-top: 2rem; }
+  margin-top: 2rem;
+  font-size: 2.6rem; }
 
 h2 {
-  font-size: 2.4rem;
-  margin-top: 1.8rem; }
+  margin-top: 1.8rem;
+  font-size: 2.4rem; }
 
 h3 {
   font-size: 2.2rem; }
@@ -350,16 +358,16 @@ small {
 
 sub,
 sup {
+  position: relative;
   font-size: 75%;
   line-height: 0;
-  position: relative;
   vertical-align: baseline; }
 
 sup {
-  top: -0.5em; }
+  top: -.5em; }
 
 sub {
-  bottom: -0.25em; }
+  bottom: -.25em; }
 
 [text-left] {
   text-align: left; }
@@ -400,20 +408,20 @@ root-anchor {
   outline: none; }
 
 .focus-outline :focus {
-  outline-offset: -1px;
-  outline: thin dotted; }
+  outline: thin dotted;
+  outline-offset: -1px; }
 
 .focus-outline button:focus,
 .focus-outline [button]:focus {
   border-color: #51a7e8;
-  box-shadow: 0px 0px 8px 0px #51a7e8;
-  outline: thin solid #51a7e8; }
+  outline: thin solid #51a7e8;
+  box-shadow: 0 0 8px 0 #51a7e8; }
 
 .focus-outline ion-input.input-has-focus,
 .focus-outline button[ion-item]:focus,
 .focus-outline a[ion-item]:focus {
   border-color: #51a7e8;
-  box-shadow: inset 0px 0px 8px 0px #51a7e8 !important; }
+  box-shadow: inset 0 0 8px 0 #51a7e8 !important; }
 
 .focus-outline ion-input :focus {
   outline: none; }
@@ -424,41 +432,41 @@ focus-ctrl {
   focus-ctrl button {
     position: fixed;
     top: 1px;
-    width: 9px;
     left: -9999px;
     z-index: 9999;
+    width: 9px;
     pointer-events: none; }
 
 .backdrop {
   position: absolute;
-  z-index: 1;
   top: 0;
   left: 0;
+  z-index: 1;
+  display: block;
   width: 100%;
   height: 100%;
   background-color: #000;
-  opacity: 0.01;
-  display: block;
+  opacity: .01;
   -webkit-transform: translateZ(0);
   transform: translateZ(0); }
 
 click-block {
-  display: block;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  opacity: 0;
   z-index: 9999;
-  -webkit-transform: translate3d(0px, -100%, 0px);
-  transform: translate3d(0px, -100%, 0px);
-  -webkit-transform: translate3d(0px, calc(-100% + 1px), 0px);
-  transform: translate3d(0px, calc(-100% + 1px), 0px); }
+  display: block;
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  -webkit-transform: translate3d(0, calc(-100% + 1px), 0);
+  transform: translate3d(0, calc(-100% + 1px), 0); }
 
 .click-block-active {
-  -webkit-transform: translate3d(0px, 0px, 0px);
-  transform: translate3d(0px, 0px, 0px); }
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
 
 @-webkit-keyframes rotation {
   from {
@@ -485,12 +493,12 @@ ion-loading-icon {
   -ms-flex-item-align: center;
   align-self: center;
   margin: auto;
-  font-family: 'Ionicons';
+  font-family: "Ionicons";
   font-size: 128px;
-  color: #666666;
+  color: #666;
   -webkit-animation: rotation 45s infinite linear;
   animation: rotation 45s infinite linear; }
-  ion-loading-icon:before {
+  ion-loading-icon::before {
     content: "\f44e"; }
 
 ion-row {
@@ -537,11 +545,11 @@ ion-row + ion-row {
   padding-top: 0; }
 
 ion-col {
+  display: block;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  display: block;
   padding: 5px;
   width: 100%; }
   ion-col[top] {
@@ -564,107 +572,79 @@ ion-col {
     -webkit-align-self: baseline;
     -ms-flex-item-align: baseline;
     align-self: baseline; }
+  ion-col[offset-10] {
+    margin-left: 10%; }
+  ion-col[offset-20] {
+    margin-left: 20%; }
+  ion-col[offset-25] {
+    margin-left: 25%; }
+  ion-col[offset-33], ion-col[offset-34] {
+    margin-left: 33.3333%; }
+  ion-col[offset-50] {
+    margin-left: 50%; }
+  ion-col[offset-66], ion-col[offset-67] {
+    margin-left: 66.6666%; }
+  ion-col[offset-75] {
+    margin-left: 75%; }
+  ion-col[offset-80] {
+    margin-left: 80%; }
+  ion-col[offset-90] {
+    margin-left: 90%; }
+  ion-col[width-10] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 10%;
+    -ms-flex: 0 0 10%;
+    flex: 0 0 10%;
+    max-width: 10%; }
+  ion-col[width-20] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 20%;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%; }
+  ion-col[width-25] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%; }
+  ion-col[width-33], ion-col[width-34] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.3333%;
+    -ms-flex: 0 0 33.3333%;
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%; }
+  ion-col[width-50] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%; }
+  ion-col[width-66], ion-col[width-67] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 66.6666%;
+    -ms-flex: 0 0 66.6666%;
+    flex: 0 0 66.6666%;
+    max-width: 66.6666%; }
+  ion-col[width-75] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 75%;
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%; }
+  ion-col[width-80] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 80%;
+    -ms-flex: 0 0 80%;
+    flex: 0 0 80%;
+    max-width: 80%; }
+  ion-col[width-90] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 90%;
+    -ms-flex: 0 0 90%;
+    flex: 0 0 90%;
+    max-width: 90%; }
 
-/* Column Offsets */
-ion-col[offset-10] {
-  margin-left: 10%; }
-
-ion-col[offset-20] {
-  margin-left: 20%; }
-
-ion-col[offset-25] {
-  margin-left: 25%; }
-
-ion-col[offset-33], ion-col[offset-34] {
-  margin-left: 33.3333%; }
-
-ion-col[offset-50] {
-  margin-left: 50%; }
-
-ion-col[offset-66], ion-col[offset-67] {
-  margin-left: 66.6666%; }
-
-ion-col[offset-75] {
-  margin-left: 75%; }
-
-ion-col[offset-80] {
-  margin-left: 80%; }
-
-ion-col[offset-90] {
-  margin-left: 90%; }
-
-/* Explicit Column Percent Sizes */
-/* By default each grid column will evenly distribute */
-/* across the grid. However, you can specify individual */
-/* columns to take up a certain size of the available area */
-ion-col[width-10] {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 10%;
-  -ms-flex: 0 0 10%;
-  flex: 0 0 10%;
-  max-width: 10%; }
-
-ion-col[width-20] {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 20%;
-  -ms-flex: 0 0 20%;
-  flex: 0 0 20%;
-  max-width: 20%; }
-
-ion-col[width-25] {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 25%;
-  -ms-flex: 0 0 25%;
-  flex: 0 0 25%;
-  max-width: 25%; }
-
-ion-col[width-33], ion-col[width-34] {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 33.3333%;
-  -ms-flex: 0 0 33.3333%;
-  flex: 0 0 33.3333%;
-  max-width: 33.3333%; }
-
-ion-col[width-50] {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
-  max-width: 50%; }
-
-ion-col[width-66], ion-col[width-67] {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 66.6666%;
-  -ms-flex: 0 0 66.6666%;
-  flex: 0 0 66.6666%;
-  max-width: 66.6666%; }
-
-ion-col[width-75] {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 75%;
-  -ms-flex: 0 0 75%;
-  flex: 0 0 75%;
-  max-width: 75%; }
-
-ion-col[width-80] {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 80%;
-  -ms-flex: 0 0 80%;
-  flex: 0 0 80%;
-  max-width: 80%; }
-
-ion-col[width-90] {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 90%;
-  -ms-flex: 0 0 90%;
-  flex: 0 0 90%;
-  max-width: 90%; }
-
-/* Responsive Grid Classes */
-/* Adding a class of responsive-X to a row */
-/* will trigger the width-direction to */
-/* change to column and add some margin */
-/* to any columns in the row for clearity */
 @media (max-width: 567px) {
   [responsive-sm] {
     -webkit-box-orient: vertical;
@@ -679,8 +659,8 @@ ion-col[width-90] {
       flex: 1;
       margin-bottom: 15px;
       margin-left: 0;
-      max-width: 100%;
-      width: 100%; } }
+      width: 100%;
+      max-width: 100%; } }
 
 @media (max-width: 767px) {
   [responsive-md] {
@@ -696,8 +676,8 @@ ion-col[width-90] {
       flex: 1;
       margin-bottom: 15px;
       margin-left: 0;
-      max-width: 100%;
-      width: 100%; } }
+      width: 100%;
+      max-width: 100%; } }
 
 @media (max-width: 1023px) {
   [responsive-lg] {
@@ -713,8 +693,8 @@ ion-col[width-90] {
       flex: 1;
       margin-bottom: 15px;
       margin-left: 0;
-      max-width: 100%;
-      width: 100%; } }
+      width: 100%;
+      max-width: 100%; } }
 
 ion-icon {
   display: inline-block;
@@ -745,9 +725,9 @@ ion-infinite-scroll-content {
   text-align: center; }
 
 .infinite-loading {
-  opacity: 0;
+  margin: 0 0 32px 0;
   width: 100%;
-  margin: 0px 0px 32px 0px; }
+  opacity: 0; }
 
 .infinite-loading-text {
   margin: 4px 32px 0 32px;
@@ -765,7 +745,6 @@ ion-menu {
   right: auto;
   bottom: 0;
   left: 0;
-  width: 304px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -775,8 +754,9 @@ ion-menu {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-transform: translate3d(-9999px, 0px, 0px);
-  transform: translate3d(-9999px, 0px, 0px); }
+  width: 304px;
+  -webkit-transform: translate3d(-9999px, 0, 0);
+  transform: translate3d(-9999px, 0, 0); }
 
 ion-menu[side=right] {
   right: 0;
@@ -787,8 +767,8 @@ ion-menu .backdrop {
   display: none; }
 
 .menu-content {
-  -webkit-transform: translate3d(0px, 0px, 0px);
-  transform: translate3d(0px, 0px, 0px); }
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
 
 .menu-content-open ion-pane,
 .menu-content-open ion-content,
@@ -800,50 +780,50 @@ ion-menu .backdrop {
     width: 264px; } }
 
 ion-menu[type=reveal].show-menu {
-  -webkit-transform: translate3d(0px, 0px, 0px);
-  transform: translate3d(0px, 0px, 0px); }
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
 
 ion-menu[type=overlay] {
-  z-index: 80;
-  left: -8px; }
+  left: -8px;
+  z-index: 80; }
   ion-menu[type=overlay] .backdrop {
-    display: block;
-    -webkit-transform: translate3d(-9999px, 0px, 0px);
-    transform: translate3d(-9999px, 0px, 0px);
-    opacity: 0.01;
     left: -3000px;
-    width: 6000px; }
+    display: block;
+    width: 6000px;
+    opacity: .01;
+    -webkit-transform: translate3d(-9999px, 0, 0);
+    transform: translate3d(-9999px, 0, 0); }
     ion-menu[type=overlay] .backdrop.show-backdrop {
-      -webkit-transform: translate3d(0px, 0px, 0px);
-      transform: translate3d(0px, 0px, 0px); }
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0); }
 
 ion-menu[type=overlay][side=right] {
   left: 8px; }
 
 ion-menu[type=push][side=right] {
-  left: 0px; }
+  left: 0; }
 
 ion-page.modal {
   z-index: 1000;
-  -webkit-transform: translate3d(0px, 100%, 0px);
-  transform: translate3d(0px, 100%, 0px); }
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0); }
 
 ion-refresher {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 0;
+  display: none;
   width: 100%;
-  height: 60px;
-  display: none; }
+  height: 60px; }
   ion-refresher.refresher-active {
     display: block; }
 
 .has-refresher > scroll-content {
-  -webkit-transition: all 320ms cubic-bezier(0.36, 0.66, 0.04, 1);
-  transition: all 320ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  margin-top: -1px;
   border-top: 1px solid #ddd;
-  margin-top: -1px; }
+  -webkit-transition: all 320ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  transition: all 320ms cubic-bezier(0.36, 0.66, 0.04, 1); }
 
 ion-refresher-content {
   display: -webkit-box;
@@ -868,19 +848,19 @@ ion-refresher-content {
 
 .refresher-pulling-icon,
 .refresher-refreshing-icon {
+  font-size: 30px;
   text-align: center;
   color: #000;
-  font-size: 30px;
-  -webkit-transition: 200ms;
-  transition: 200ms;
   -webkit-transform-origin: center;
-  transform-origin: center; }
+  transform-origin: center;
+  -webkit-transition: 200ms;
+  transition: 200ms; }
 
 .refresher-pulling-text,
 .refresher-refreshing-text {
+  font-size: 16px;
   text-align: center;
-  color: #000;
-  font-size: 16px; }
+  color: #000; }
 
 ion-refresher-content[state=pulling] .refresher-pulling {
   display: block; }
@@ -1049,7 +1029,7 @@ ion-swipe-slides {
 
 .swiper-button-prev.swiper-button-disabled,
 .swiper-button-next.swiper-button-disabled {
-  opacity: 0.35;
+  opacity: .35;
   cursor: auto;
   pointer-events: none; }
 
@@ -1100,10 +1080,10 @@ ion-swipe-slides {
   display: inline-block;
   border-radius: 100%;
   background: #000;
-  opacity: 0.2; }
+  opacity: .2; }
 
 button.swiper-pagination-bullet {
-  border: none;
+  border: 0;
   margin: 0;
   padding: 0;
   box-shadow: none;
@@ -1277,7 +1257,7 @@ button.swiper-pagination-bullet {
   width: 100%;
   height: 100%;
   background: #000;
-  opacity: 0.6;
+  opacity: .6;
   -webkit-filter: blur(50px);
   filter: blur(50px);
   z-index: 0; }
@@ -1409,8 +1389,8 @@ ion-slides {
     max-height: 100%; }
 
 ion-spinner {
-  display: inline-block;
   position: relative;
+  display: inline-block;
   width: 28px;
   height: 28px; }
 
@@ -1468,10 +1448,10 @@ ion-spinner.spinner-paused svg {
   stroke-width: 0; }
 
 .spinner-dots svg {
-  -webkit-animation: spinner-dots 1s linear infinite;
-  animation: spinner-dots 1s linear infinite;
   -webkit-transform-origin: center;
-  transform-origin: center; }
+  transform-origin: center;
+  -webkit-animation: spinner-dots 1s linear infinite;
+  animation: spinner-dots 1s linear infinite; }
 
 @-webkit-keyframes spinner-fade-out {
   0% {
@@ -1519,29 +1499,29 @@ ion-spinner.spinner-paused svg {
 
 @-webkit-keyframes spinner-dots {
   0% {
-    opacity: 0.9;
+    opacity: .9;
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1); }
   50% {
-    opacity: 0.3;
+    opacity: .3;
     -webkit-transform: scale(0.4, 0.4);
     transform: scale(0.4, 0.4); }
   100% {
-    opacity: 0.9;
+    opacity: .9;
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1); } }
 
 @keyframes spinner-dots {
   0% {
-    opacity: 0.9;
+    opacity: .9;
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1); }
   50% {
-    opacity: 0.3;
+    opacity: .3;
     -webkit-transform: scale(0.4, 0.4);
     transform: scale(0.4, 0.4); }
   100% {
-    opacity: 0.9;
+    opacity: .9;
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1); } }
 
@@ -4356,72 +4336,60 @@ ion-spinner.spinner-paused svg {
 ion-icon {
   display: inline-block;
   font-family: "Ionicons";
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  text-rendering: auto;
-  line-height: 1;
-  speak: none;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-rendering: auto;
+  text-transform: none;
+  speak: none; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -4438,7 +4406,12 @@ a {
 hr {
   background-color: rgba(0, 0, 0, 0.08); }
 
-h1[primary], h2[primary], h3[primary], h4[primary], h5[primary], h6[primary],
+h1[primary],
+h2[primary],
+h3[primary],
+h4[primary],
+h5[primary],
+h6[primary],
 p[primary],
 span[primary],
 a:not([button])[primary],
@@ -4452,7 +4425,12 @@ sup[primary],
 ion-icon[primary] {
   color: #327eff !important; }
 
-h1[secondary], h2[secondary], h3[secondary], h4[secondary], h5[secondary], h6[secondary],
+h1[secondary],
+h2[secondary],
+h3[secondary],
+h4[secondary],
+h5[secondary],
+h6[secondary],
 p[secondary],
 span[secondary],
 a:not([button])[secondary],
@@ -4466,7 +4444,12 @@ sup[secondary],
 ion-icon[secondary] {
   color: #32db64 !important; }
 
-h1[danger], h2[danger], h3[danger], h4[danger], h5[danger], h6[danger],
+h1[danger],
+h2[danger],
+h3[danger],
+h4[danger],
+h5[danger],
+h6[danger],
 p[danger],
 span[danger],
 a:not([button])[danger],
@@ -4480,7 +4463,12 @@ sup[danger],
 ion-icon[danger] {
   color: #f53d3d !important; }
 
-h1[light], h2[light], h3[light], h4[light], h5[light], h6[light],
+h1[light],
+h2[light],
+h3[light],
+h4[light],
+h5[light],
+h6[light],
 p[light],
 span[light],
 a:not([button])[light],
@@ -4494,7 +4482,12 @@ sup[light],
 ion-icon[light] {
   color: #f4f4f4 !important; }
 
-h1[dark], h2[dark], h3[dark], h4[dark], h5[dark], h6[dark],
+h1[dark],
+h2[dark],
+h3[dark],
+h4[dark],
+h5[dark],
+h6[dark],
 p[dark],
 span[dark],
 a:not([button])[dark],
@@ -4508,55 +4501,49 @@ sup[dark],
 ion-icon[dark] {
   color: #222 !important; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-action-sheet {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1000;
   top: 0;
   left: 0;
-  display: block; }
+  z-index: 1000;
+  display: block;
+  width: 100%;
+  height: 100%; }
 
 .action-sheet-wrapper {
   position: absolute;
-  width: 100%;
-  max-width: 500px;
-  z-index: 10;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  z-index: 10;
   display: block;
   margin: auto;
+  width: 100%;
+  max-width: 500px;
   -webkit-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0); }
 
@@ -4564,95 +4551,87 @@ ion-action-sheet {
   width: 100%; }
 
 .action-sheet-wrapper {
-  box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2); }
 
 .action-sheet-title {
   padding: 19px 16px 17px;
   font-size: 2rem;
-  color: #4D4D4D;
-  text-align: left; }
+  text-align: left;
+  color: #4d4d4d; }
 
 .action-sheet-button {
   padding: 0 16px;
   min-height: 4.8rem;
   font-size: 1.5rem;
-  color: #4D4D4D;
-  background: transparent;
-  text-align: left; }
+  text-align: left;
+  color: #4d4d4d;
+  background: transparent; }
   .action-sheet-button.activated {
-    background: #AAAAAA; }
+    background: #aaa; }
 
 .action-sheet-icon {
   margin: 0 16px 0 0;
   min-width: 24px;
+  font-size: 2.4rem;
   text-align: center;
-  vertical-align: middle;
-  font-size: 2.4rem; }
+  vertical-align: middle; }
 
 .action-sheet-group {
-  background: #ffffff; }
+  background: #fff; }
   .action-sheet-group:last-child .action-sheet-button {
     margin-bottom: 8px; }
 
 .action-sheet-cancel {
   background: transparent; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-alert {
   position: absolute;
-  z-index: 1000;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  align-items: center; }
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
   ion-alert input {
     width: 100%; }
 
 .alert-wrapper {
   z-index: 10;
-  min-width: 250px;
-  max-height: 90%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4662,6 +4641,8 @@ ion-alert {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  min-width: 250px;
+  max-height: 90%;
   opacity: 0; }
 
 .alert-title {
@@ -4669,7 +4650,7 @@ ion-alert {
   padding: 0; }
 
 .alert-sub-title {
-  margin: 5px 0 0 0;
+  margin: 5px 0 0;
   padding: 0;
   font-weight: normal; }
 
@@ -4677,16 +4658,16 @@ ion-alert {
   overflow: auto; }
 
 .alert-input {
+  padding: 10px 0;
   border: 0;
-  background: inherit;
-  padding: 10px 0; }
+  background: inherit; }
   .alert-input::-moz-placeholder {
     color: #999; }
   .alert-input:-ms-input-placeholder {
     color: #999; }
   .alert-input::-webkit-input-placeholder {
-    color: #999;
-    text-indent: 0; }
+    text-indent: 0;
+    color: #999; }
 
 .alert-button-group {
   display: -webkit-box;
@@ -4709,11 +4690,11 @@ ion-alert {
     flex-wrap: nowrap; }
 
 .alert-button {
+  z-index: 0;
   display: block;
   margin: 0;
-  z-index: 0;
-  line-height: 20px;
-  font-size: 14px; }
+  font-size: 14px;
+  line-height: 20px; }
 
 .alert-tappable {
   margin: 0;
@@ -4726,18 +4707,18 @@ ion-alert {
   -webkit-appearance: none; }
 
 ion-alert .backdrop {
-  background: white; }
+  background: #fff; }
 
 .alert-wrapper {
   width: 100%;
   max-width: 520px;
+  border: 1px solid #327eff;
   border-radius: 0;
-  background: #E6E6E6;
-  border: 1px solid #327eff; }
+  background: #e6e6e6; }
 
 .alert-head {
-  text-align: left;
-  padding: 20px 22px 5px 22px; }
+  padding: 20px 22px 5px 22px;
+  text-align: left; }
 
 .alert-title {
   font-size: 20px;
@@ -4752,46 +4733,46 @@ ion-alert .backdrop {
   color: #000; }
 
 .alert-message {
-  font-size: 13px;
-  max-height: 240px; }
+  max-height: 240px;
+  font-size: 13px; }
   .alert-message:empty {
     padding: 0; }
 
 .alert-input {
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  color: #000000;
   margin: 5px 0 5px 0;
   padding: 0 8px;
-  line-height: 3rem; }
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  line-height: 3rem;
+  color: #000; }
   .alert-input:focus {
     border-color: #327eff; }
 
 .alert-radio-group,
 .alert-checkbox-group {
   position: relative;
-  border-top: 0 solid rgba(0, 0, 0, 0.5);
-  border-bottom: 0 solid rgba(0, 0, 0, 0.5);
+  overflow: auto;
   max-height: 240px;
-  overflow: auto; }
+  border-top: 0 solid rgba(0, 0, 0, 0.5);
+  border-bottom: 0 solid rgba(0, 0, 0, 0.5); }
 
 .alert-tappable {
   position: relative;
-  overflow: hidden;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
   min-height: 44px; }
 
 .alert-radio-label {
+  overflow: hidden;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  text-align: auto;
   padding: 13px 26px;
+  text-align: auto;
   text-overflow: ellipsis;
-  overflow: hidden;
   white-space: nowrap; }
 
 .alert-radio-icon {
@@ -4799,40 +4780,40 @@ ion-alert .backdrop {
   top: 13px;
   left: 13px;
   display: block;
+  margin: 0;
   width: 16px;
   height: 16px;
-  margin: 0;
   border-width: 2px;
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%; }
-  .alert-radio-icon:after {
+  border-radius: 50%;
+  border-color: rgba(0, 0, 0, 0.5); }
+  .alert-radio-icon::after {
     position: absolute;
     top: 2px;
     left: 2px;
+    display: none;
     width: 8px;
     height: 8px;
-    background: #327eff;
     border-radius: 50%;
-    content: '';
-    display: none; }
+    background: #327eff;
+    content: ""; }
 
 .alert-radio[aria-checked=true] {
   color: #000; }
   .alert-radio[aria-checked=true] .alert-radio-icon {
     border-color: rgba(0, 0, 0, 0.5); }
-  .alert-radio[aria-checked=true] .alert-radio-icon:after {
+  .alert-radio[aria-checked=true] .alert-radio-icon::after {
     display: block; }
 
 .alert-checkbox-label {
+  overflow: hidden;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  text-align: auto;
   padding: 13px 26px;
+  text-align: auto;
   text-overflow: ellipsis;
-  overflow: hidden;
   white-space: nowrap; }
 
 .alert-checkbox-icon {
@@ -4841,53 +4822,53 @@ ion-alert .backdrop {
   left: 13px;
   width: 16px;
   height: 16px;
-  border-radius: 0;
   border-width: 2px;
   border-style: solid;
+  border-radius: 0;
   border-color: rgba(0, 0, 0, 0.5);
   background: transparent; }
 
 .alert-checkbox[aria-checked=true] .alert-checkbox-icon {
-  background: #327eff;
-  border-color: #327eff; }
+  border-color: #327eff;
+  background: #327eff; }
 
 .alert-checkbox[aria-checked=true] .alert-checkbox-inner {
   position: absolute;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #E6E6E6;
   top: -2px;
   left: 3px;
   width: 6px;
   height: 12px;
-  border-left: none;
-  border-top: none;
-  content: '';
+  border-width: 1px;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-style: solid;
+  border-color: #e6e6e6;
+  content: "";
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg); }
 
 .alert-button-group {
-  padding: 20px 22px 20px 22px;
+  -webkit-flex-wrap: wrap-reverse;
+  -ms-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  -webkit-flex-wrap: wrap-reverse;
-  -ms-flex-wrap: wrap-reverse;
-  flex-wrap: wrap-reverse; }
+  padding: 20px 22px 20px 22px; }
   .alert-button-group.vertical .alert-button {
-    width: 100%;
-    margin-top: 5px; }
+    margin-top: 5px;
+    width: 100%; }
     .alert-button-group.vertical .alert-button:first-child:not(:only-child) {
       margin-top: 0; }
 
 .alert-button {
   padding: 5px;
-  color: #000;
-  background: #B8B8B8;
-  border-radius: 0;
   width: 49.5%;
-  font-weight: 400; }
+  border-radius: 0;
+  font-weight: 400;
+  color: #000;
+  background: #b8b8b8; }
   .alert-button:first-child:not(:only-child) {
     margin-right: 1%; }
   .alert-button.activated {
@@ -4897,104 +4878,98 @@ ion-badge {
   display: inline-block;
   padding: 3px 8px;
   min-width: 10px;
-  vertical-align: baseline;
-  text-align: center;
-  white-space: nowrap;
   font-size: 1.3rem;
   font-weight: bold;
-  line-height: 1; }
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline; }
   ion-badge:empty {
     display: none; }
 
 ion-badge {
   border-radius: 0;
-  background-color: #327eff;
-  color: white; }
+  color: #fff;
+  background-color: #327eff; }
 
 .badge-primary {
-  background-color: #327eff;
-  color: white; }
+  color: #fff;
+  background-color: #327eff; }
 
 .badge-secondary {
-  background-color: #32db64;
-  color: white; }
+  color: #fff;
+  background-color: #32db64; }
 
 .badge-danger {
-  background-color: #f53d3d;
-  color: white; }
+  color: #fff;
+  background-color: #f53d3d; }
 
 .badge-light {
-  background-color: #f4f4f4;
-  color: black; }
+  color: #000;
+  background-color: #f4f4f4; }
 
 .badge-dark {
-  background-color: #222;
-  color: white; }
+  color: #fff;
+  background-color: #222; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 .button {
-  position: relative;
-  display: inline-block;
-  -webkit-transition: background-color, opacity 100ms linear;
-  transition: background-color, opacity 100ms linear;
-  z-index: 0;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  text-align: center;
-  text-transform: none;
-  -webkit-font-kerning: none;
-  font-kerning: none;
-  vertical-align: top;
-  vertical-align: -webkit-baseline-middle;
-  cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -webkit-appearance: none;
-  -moz-appearance: none; }
+  -moz-appearance: none;
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle;
+  -webkit-transition: background-color, opacity 100ms linear;
+  transition: background-color, opacity 100ms linear;
+  -webkit-font-kerning: none;
+  font-kerning: none; }
 
 .button-inner {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
   -webkit-flex-flow: row nowrap;
   -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -5006,42 +4981,42 @@ ion-badge {
   width: 100%;
   height: 100%; }
 
-a.button, a[button] {
+a.button,
+a[button] {
   text-decoration: none; }
 
 .button[disabled] {
-  opacity: 0.4;
-  cursor: default !important;
+  cursor: default;
+  opacity: .4;
   pointer-events: none; }
 
 .button-block {
   display: block;
   clear: both;
   width: 100%; }
-  .button-block:after {
+  .button-block::after {
     clear: both; }
 
 .button-full {
   display: block;
   width: 100%; }
+  .button-full.button-outline {
+    border-right-width: 0;
+    border-left-width: 0;
+    border-radius: 0; }
 
 .button-round {
   padding: 0 2.6rem;
   border-radius: 64px; }
 
-.button-full.button-outline {
-  border-left-width: 0;
-  border-right-width: 0;
-  border-radius: 0; }
-
 .button {
   margin: 0.4rem 0.2rem;
   padding: 0 1.1em;
   height: 3.6rem;
-  border-radius: 0;
   border: 3px solid transparent;
+  border-radius: 0;
   font-size: 1.4rem;
-  color: white;
+  color: #fff;
   background-color: #327eff; }
   .button:hover:not(.disable-hover) {
     border-color: #2e74eb;
@@ -5058,35 +5033,34 @@ a.button, a[button] {
   padding: 0 0.9em;
   height: 2.1em;
   font-size: 1.3rem; }
-
-.button-small.button-icon-only ion-icon {
-  font-size: 1.4em; }
+  .button-small.button-icon-only ion-icon {
+    font-size: 1.4em; }
 
 .button-block {
-  margin-left: 0;
-  margin-right: 0; }
+  margin-right: 0;
+  margin-left: 0; }
 
 .button-full {
   margin-right: 0;
   margin-left: 0;
-  border-radius: 0;
   border-right-width: 0;
-  border-left-width: 0; }
+  border-left-width: 0;
+  border-radius: 0; }
 
 .button-outline {
   border-width: 1px;
   border-style: solid;
   border-color: #327eff;
-  background-color: transparent;
-  color: #327eff; }
+  color: #327eff;
+  background-color: transparent; }
   .button-outline:hover:not(.disable-hover) {
     background-color: rgba(158, 158, 158, 0.1); }
   .button-outline.activated {
     background-color: rgba(50, 126, 255, 0.16); }
 
 .button-clear {
-  background-color: transparent;
-  color: #327eff; }
+  color: #327eff;
+  background-color: transparent; }
   .button-clear.activated {
     background-color: rgba(158, 158, 158, 0.2); }
   .button-clear:hover:not(.disable-hover) {
@@ -5106,7 +5080,7 @@ ion-button-effect {
   display: none; }
 
 .button-primary {
-  color: white;
+  color: #fff;
   background-color: #327eff; }
   .button-primary:hover:not(.disable-hover) {
     border-color: #2e74eb;
@@ -5131,7 +5105,7 @@ ion-button-effect {
     color: #327eff; }
 
 .button-secondary {
-  color: white;
+  color: #fff;
   background-color: #32db64; }
   .button-secondary:hover:not(.disable-hover) {
     border-color: #2ec95c;
@@ -5156,7 +5130,7 @@ ion-button-effect {
     color: #32db64; }
 
 .button-danger {
-  color: white;
+  color: #fff;
   background-color: #f53d3d; }
   .button-danger:hover:not(.disable-hover) {
     border-color: #e13838;
@@ -5181,7 +5155,7 @@ ion-button-effect {
     color: #f53d3d; }
 
 .button-light {
-  color: black;
+  color: #000;
   background-color: #f4f4f4; }
   .button-light:hover:not(.disable-hover) {
     border-color: #e0e0e0;
@@ -5206,7 +5180,7 @@ ion-button-effect {
     color: #f4f4f4; }
 
 .button-dark {
-  color: white;
+  color: #fff;
   background-color: #222; }
   .button-dark:hover:not(.disable-hover) {
     border-color: #343434;
@@ -5232,15 +5206,15 @@ ion-button-effect {
 
 .button-fab {
   position: absolute;
-  width: 56px;
-  height: 56px;
-  line-height: 56px;
-  min-width: 0;
-  vertical-align: middle;
-  border-radius: 50%;
-  background-clip: padding-box;
   overflow: hidden;
-  font-size: 14px; }
+  width: 56px;
+  min-width: 0;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 56px;
+  vertical-align: middle;
+  background-clip: padding-box; }
   .button-fab ion-icon {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -5268,52 +5242,46 @@ ion-button-effect {
   position: fixed; }
 
 .button-icon-left ion-icon {
-  padding-right: 0.3em;
+  padding-right: .3em;
   font-size: 1.4em;
-  line-height: 0.67;
+  line-height: .67;
   pointer-events: none; }
 
 .button-icon-right ion-icon {
-  padding-left: 0.4em;
+  padding-left: .4em;
   font-size: 1.4em;
-  line-height: 0.67;
+  line-height: .67;
   pointer-events: none; }
 
 .button-icon-only {
   padding: 0;
-  min-width: 0.9em; }
+  min-width: .9em; }
   .button-icon-only ion-icon {
-    padding: 0 0.5em;
+    padding: 0 .5em;
     font-size: 1.8em;
-    line-height: 0.67;
+    line-height: .67;
     pointer-events: none; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -5329,18 +5297,18 @@ ion-card img {
 ion-card-header {
   display: block;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; }
+  text-overflow: ellipsis;
+  white-space: nowrap; }
 
 ion-card-content {
   display: block; }
 
 ion-card {
   margin: 8px 8px 8px 8px;
+  border-radius: 1px;
   font-size: 1.4rem;
   background: #fff;
-  border-radius: 1px;
-  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2); }
   ion-card ion-list {
     margin-bottom: 0; }
     ion-card ion-list ion-label {
@@ -5349,9 +5317,9 @@ ion-card {
       border-bottom: 1px solid transparent; }
     ion-card ion-list > .item:last-child,
     ion-card ion-list > ion-item-sliding:last-child .item {
-      border-bottom: none; }
+      border-bottom: 0; }
   ion-card .item-inner {
-    border: none; }
+    border: 0; }
   ion-card ion-card-content {
     padding: 13px 16px 13px 16px;
     font-size: 1.4rem;
@@ -5368,10 +5336,10 @@ ion-card {
     font-size: 1.3rem; }
   ion-card ion-card-title {
     display: block;
-    line-height: 1.2;
+    margin: 2px 0;
     padding: 8px 0 8px 0;
-    margin: 2px 0 2px;
     font-size: 2.4rem;
+    line-height: 1.2;
     color: #222; }
   ion-card h1 {
     margin: 0 0 2px;
@@ -5379,7 +5347,7 @@ ion-card {
     font-weight: normal;
     color: #222; }
   ion-card h2 {
-    margin: 2px 0 2px;
+    margin: 2px 0;
     font-size: 1.6rem;
     font-weight: normal;
     color: #222; }
@@ -5387,46 +5355,40 @@ ion-card {
   ion-card h4,
   ion-card h5,
   ion-card h6 {
-    margin: 2px 0 2px;
+    margin: 2px 0;
     font-size: 1.4rem;
     font-weight: normal;
     color: #222; }
   ion-card p {
-    font-size: 1.4rem;
     margin: 0 0 2px;
-    line-height: 1.5;
+    font-size: 1.4rem;
     font-weight: normal;
+    line-height: 1.5;
     color: #222; }
 
 ion-card + ion-card {
   margin-top: 0; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -5439,27 +5401,27 @@ ion-checkbox {
   position: relative;
   width: 16px;
   height: 16px;
-  border-radius: 0;
   border-width: 2px;
   border-style: solid;
-  border-color: #333333;
+  border-radius: 0;
+  border-color: #333;
   background-color: #fff; }
 
 .checkbox-checked {
-  background-color: #327eff;
-  border-color: #327eff; }
+  border-color: #327eff;
+  background-color: #327eff; }
 
 .checkbox-checked .checkbox-inner {
   position: absolute;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #fff;
   top: -2px;
   left: 3px;
   width: 6px;
   height: 12px;
-  border-left: none;
-  border-top: none;
+  border-width: 1px;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-style: solid;
+  border-color: #fff;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg); }
 
@@ -5477,45 +5439,36 @@ ion-checkbox + .item-inner ion-label {
   margin-left: 0; }
 
 ion-checkbox[primary] .checkbox-checked {
-  background-color: #327eff;
-  border-color: #327eff; }
+  border-color: #327eff;
+  background-color: #327eff; }
   ion-checkbox[primary] .checkbox-checked .checkbox-inner {
-    border-color: white; }
+    border-color: #fff; }
 
 ion-checkbox[secondary] .checkbox-checked {
-  background-color: #32db64;
-  border-color: #32db64; }
+  border-color: #32db64;
+  background-color: #32db64; }
   ion-checkbox[secondary] .checkbox-checked .checkbox-inner {
-    border-color: white; }
+    border-color: #fff; }
 
 ion-checkbox[danger] .checkbox-checked {
-  background-color: #f53d3d;
-  border-color: #f53d3d; }
+  border-color: #f53d3d;
+  background-color: #f53d3d; }
   ion-checkbox[danger] .checkbox-checked .checkbox-inner {
-    border-color: white; }
+    border-color: #fff; }
 
 ion-checkbox[light] .checkbox-checked {
-  background-color: #f4f4f4;
-  border-color: #f4f4f4; }
+  border-color: #f4f4f4;
+  background-color: #f4f4f4; }
   ion-checkbox[light] .checkbox-checked .checkbox-inner {
-    border-color: black; }
+    border-color: #000; }
 
 ion-checkbox[dark] .checkbox-checked {
-  background-color: #222;
-  border-color: #222; }
+  border-color: #222;
+  background-color: #222; }
   ion-checkbox[dark] .checkbox-checked .checkbox-inner {
-    border-color: white; }
+    border-color: #fff; }
 
 ion-chip {
-  background: rgba(0, 0, 0, 0.12);
-  display: inline-block;
-  height: 32px;
-  line-height: 32px;
-  border-radius: 16px;
-  padding: 0 12px;
-  margin: 2px 0;
-  box-sizing: border-box;
-  vertical-align: middle;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -5523,30 +5476,38 @@ ion-chip {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
+  margin: 2px 0;
+  padding: 0 12px;
+  height: 32px;
+  border-radius: 16px;
   font-size: 13px;
-  font-weight: normal; }
+  font-weight: normal;
+  line-height: 32px;
+  background: rgba(0, 0, 0, 0.12);
+  vertical-align: middle;
+  box-sizing: border-box; }
   ion-chip ion-label {
     margin: 0;
     color: rgba(0, 0, 0, 0.87); }
   ion-chip > ion-icon,
   ion-chip > ion-avatar {
+    margin-left: -12px;
     width: 32px;
     height: 32px;
-    margin-left: -12px;
-    vertical-align: top;
     border-radius: 50%;
-    text-align: center;
+    font-size: 18px;
     line-height: 32px;
+    text-align: center;
     color: rgba(0, 0, 0, 0.87);
-    font-size: 18px; }
+    vertical-align: top; }
     ion-chip > ion-icon img,
     ion-chip > ion-avatar img {
-      max-width: 100%;
-      max-height: 100%;
+      display: block;
       width: 100%;
+      max-width: 100%;
       height: 100%;
-      border-radius: 50%;
-      display: block; }
+      max-height: 100%;
+      border-radius: 50%; }
     ion-chip > ion-icon + ion-label,
     ion-chip > ion-avatar + ion-label {
       margin-left: 8px; }
@@ -5554,58 +5515,52 @@ ion-chip {
     min-width: 32px;
     min-height: 32px; }
   ion-chip .button {
-    height: inherit;
     margin: 0;
-    margin-right: -4px; }
+    margin-right: -4px;
+    height: inherit; }
   ion-chip ion-icon[name="close-circle"] {
     font-size: 1.2em; }
 
 ion-chip ion-icon[primary] {
-  background-color: #327eff;
-  color: white !important; }
+  color: #fff;
+  background-color: #327eff; }
 
 ion-chip ion-icon[secondary] {
-  background-color: #32db64;
-  color: white !important; }
+  color: #fff;
+  background-color: #32db64; }
 
 ion-chip ion-icon[danger] {
-  background-color: #f53d3d;
-  color: white !important; }
+  color: #fff;
+  background-color: #f53d3d; }
 
 ion-chip ion-icon[light] {
-  background-color: #f4f4f4;
-  color: black !important; }
+  color: #000;
+  background-color: #f4f4f4; }
 
 ion-chip ion-icon[dark] {
-  background-color: #222;
-  color: white !important; }
+  color: #fff;
+  background-color: #222; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -5667,32 +5622,26 @@ ion-content {
   margin-right: 16px;
   margin-left: 16px; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -5719,29 +5668,29 @@ ion-textarea {
 
 .text-input {
   display: inline-block;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
   width: 92%;
   width: calc(100% - 10px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   -webkit-appearance: none; }
   .text-input::-moz-placeholder {
     color: #999; }
   .text-input:-ms-input-placeholder {
     color: #999; }
   .text-input::-webkit-input-placeholder {
-    color: #999;
-    text-indent: 0; }
+    text-indent: 0;
+    color: #999; }
 
 textarea.text-input {
   display: block; }
 
 .text-input[disabled] {
-  opacity: 0.4; }
+  opacity: .4; }
 
 input.text-input:-webkit-autofill {
   background-color: transparent; }
@@ -5762,9 +5711,9 @@ input.text-input:-webkit-autofill {
 [next-input] {
   position: absolute;
   bottom: 1px;
+  padding: 0;
   width: 1px;
   height: 1px;
-  padding: 0;
   border: 0;
   background: transparent;
   pointer-events: none; }
@@ -5805,16 +5754,16 @@ ion-input.ng-invalid.ng-touched .text-input {
 
 .item-label-stacked .text-input,
 .item-label-floating .text-input {
-  margin-left: 0;
   margin-top: 8px;
-  margin-bottom: 8px; }
+  margin-bottom: 8px;
+  margin-left: 0; }
 
 .item-label-stacked ion-select,
 .item-label-floating ion-select {
-  padding-top: 0;
-  padding-bottom: 0;
   margin-top: 8px;
-  margin-bottom: 8px; }
+  margin-bottom: 8px;
+  padding-top: 0;
+  padding-bottom: 0; }
   .item-label-stacked ion-select .select-icon,
   .item-label-floating ion-select .select-icon {
     margin-top: 5px; }
@@ -5837,38 +5786,32 @@ ion-input[clearInput] {
     padding-right: 30px; }
 
 .text-input-clear-icon {
-  width: 30px;
   background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='rgba(0,%200,%200,%200.5)'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
-  background-size: 22px;
   right: 8px;
-  bottom: 2px; }
+  bottom: 2px;
+  width: 30px;
+  background-size: 22px; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -5878,23 +5821,23 @@ ion-input[clearInput] {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  overflow: hidden;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
-  border: 0;
   width: 100%;
   min-height: 4.4rem;
-  overflow: hidden;
-  text-align: initial;
+  border: 0;
   font-weight: normal;
   line-height: normal;
+  text-align: initial;
   text-decoration: none;
   color: inherit; }
 
@@ -5903,33 +5846,7 @@ ion-input[clearInput] {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin: 0;
-  padding: 0;
-  border: 0;
   overflow: hidden;
-  min-height: inherit;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: inherit;
-  -ms-flex-direction: inherit;
-  flex-direction: inherit;
-  -webkit-box-align: inherit;
-  -webkit-align-items: inherit;
-  -ms-flex-align: inherit;
-  align-items: inherit;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch; }
-
-.input-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -5946,25 +5863,51 @@ ion-input[clearInput] {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
-  text-overflow: ellipsis;
-  overflow: hidden; }
+  margin: 0;
+  padding: 0;
+  min-height: inherit;
+  border: 0; }
+
+.input-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: inherit;
+  -ms-flex-direction: inherit;
+  flex-direction: inherit;
+  -webkit-box-align: inherit;
+  -webkit-align-items: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  text-overflow: ellipsis; }
 
 .item[no-lines],
 .item[no-lines] .item-inner {
-  border: none; }
+  border: 0; }
 
 ion-item-group {
   display: block; }
 
 ion-item-divider {
+  z-index: 1000;
   display: block;
-  min-height: 30px;
   width: 100%;
-  z-index: 1000; }
+  min-height: 30px; }
   ion-item-divider[sticky] {
     position: -webkit-sticky;
     position: sticky;
-    top: 0px; }
+    top: 0; }
 
 [vertical-align-top],
 ion-input.item {
@@ -5984,17 +5927,17 @@ ion-input.item {
 
 .item > ion-icon,
 .item-inner > ion-icon {
-  line-height: 1;
+  min-height: 2.4rem;
   font-size: 2.4rem;
-  min-height: 2.4rem; }
+  line-height: 1; }
   .item > ion-icon[large],
   .item-inner > ion-icon[large] {
-    font-size: 3.2rem;
-    min-height: 3.2rem; }
+    min-height: 3.2rem;
+    font-size: 3.2rem; }
   .item > ion-icon[small],
   .item-inner > ion-icon[small] {
-    font-size: 1.8rem;
-    min-height: 1.8rem; }
+    min-height: 1.8rem;
+    font-size: 1.8rem; }
 
 ion-avatar,
 ion-thumbnail {
@@ -6005,35 +5948,35 @@ ion-thumbnail {
     display: block; }
 
 .item-cover {
-  cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: transparent; }
+  background: transparent;
+  cursor: pointer; }
 
 ion-item-sliding {
-  display: block;
   position: relative;
+  display: block;
   overflow: hidden; }
   ion-item-sliding .item {
     position: static; }
 
 ion-item-options {
-  display: none;
   position: absolute;
   top: 0;
   right: 0;
   z-index: 1;
+  display: none;
   height: 100%;
   visibility: hidden; }
 
 ion-item-options .button {
   margin: 0;
+  height: 100%;
   border-radius: 0;
-  box-shadow: none;
-  height: 100%; }
+  box-shadow: none; }
 
 ion-item-options:not([icon-left]) .button-icon-left {
   font-size: 14px; }
@@ -6044,9 +5987,9 @@ ion-item-options:not([icon-left]) .button-icon-left {
     -ms-flex-direction: column;
     flex-direction: column; }
   ion-item-options:not([icon-left]) .button-icon-left ion-icon {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-bottom: 0.3em; }
+    padding-right: 0;
+    padding-bottom: .3em;
+    padding-left: 0; }
 
 ion-item-sliding.active-slide .item,
 ion-item-sliding.active-slide .item.activated {
@@ -6071,8 +6014,8 @@ ion-item-sliding.active-slide.active-options ion-item-options {
   padding-right: 0;
   padding-left: 16px;
   font-size: 1.6rem;
-  text-transform: none;
   font-weight: normal;
+  text-transform: none;
   color: #000;
   background-color: #fff;
   box-shadow: none; }
@@ -6081,25 +6024,25 @@ ion-item-sliding.active-slide.active-options ion-item-options {
     font-size: 2.4rem;
     font-weight: normal; }
   .item h2 {
-    margin: 2px 0 2px;
+    margin: 2px 0;
     font-size: 1.6rem;
     font-weight: normal; }
   .item h3,
   .item h4,
   .item h5,
   .item h6 {
-    line-height: normal;
-    margin: 2px 0 2px;
+    margin: 2px 0;
     font-size: 1.4rem;
-    font-weight: normal; }
+    font-weight: normal;
+    line-height: normal; }
   .item p {
-    line-height: normal;
-    color: #666;
+    margin: 0 0 2px;
     font-size: 1.4rem;
-    margin: 0 0 2px; }
+    line-height: normal;
+    color: #666; }
 
 .item.activated {
-  background-color: #AAAAAA; }
+  background-color: #aaa; }
 
 .item[no-lines] {
   border-width: 0; }
@@ -6119,7 +6062,7 @@ ion-icon[item-right] {
   margin-left: 0; }
 
 .item-button {
-  padding: 0 0.6em;
+  padding: 0 .6em;
   height: 25px;
   font-size: 1.2rem; }
 
@@ -6163,80 +6106,74 @@ ion-note {
 
 ion-item-divider {
   padding: 13px 16px 13px 16px;
-  background-color: #fff;
-  color: #222; }
+  color: #222;
+  background-color: #fff; }
 
 ion-item-divider[primary] {
-  background-color: #327eff;
-  color: white; }
+  color: #fff;
+  background-color: #327eff; }
 
 ion-item-divider[secondary] {
-  background-color: #32db64;
-  color: white; }
+  color: #fff;
+  background-color: #32db64; }
 
 ion-item-divider[danger] {
-  background-color: #f53d3d;
-  color: white; }
+  color: #fff;
+  background-color: #f53d3d; }
 
 ion-item-divider[light] {
-  background-color: #f4f4f4;
-  color: black; }
+  color: #000;
+  background-color: #f4f4f4; }
 
 ion-item-divider[dark] {
-  background-color: #222;
-  color: white; }
+  color: #fff;
+  background-color: #222; }
 
 ion-item-sliding {
   background-color: #fff; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-label {
   display: block;
-  font-size: inherit;
-  white-space: nowrap;
-  margin: 0;
+  overflow: hidden;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  margin: 0;
+  font-size: inherit;
   text-overflow: ellipsis;
-  overflow: hidden; }
+  white-space: nowrap; }
 
 .item-input ion-label {
-  max-width: 200px;
   -webkit-box-flex: initial;
   -webkit-flex: initial;
   -ms-flex: initial;
   flex: initial;
+  max-width: 200px;
   pointer-events: none; }
 
 [text-wrap] ion-label {
@@ -6253,15 +6190,15 @@ ion-label[fixed] {
 
 ion-label[stacked],
 ion-label[floating] {
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
   margin-bottom: 0;
-  max-width: 100%;
-  -webkit-flex-basis: 100%;
-  -ms-flex-preferred-size: 100%;
-  flex-basis: 100%;
-  width: auto; }
+  width: auto;
+  max-width: 100%; }
 
 .item-label-stacked .input-wrapper,
 .item-label-floating .input-wrapper {
@@ -6294,15 +6231,15 @@ ion-label[stacked] {
   font-size: 1.2rem; }
 
 ion-label[floating] {
-  -webkit-transform-origin: left top;
-  transform-origin: left top;
   -webkit-transform: translate3d(8px, 34px, 0);
-  transform: translate3d(8px, 34px, 0); }
+  transform: translate3d(8px, 34px, 0);
+  -webkit-transform-origin: left top;
+  transform-origin: left top; }
 
 ion-label[stacked],
 ion-label[floating] {
-  margin-left: 0;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  margin-left: 0; }
 
 .input-has-focus ion-label[stacked],
 .input-has-focus ion-label[floating] {
@@ -6319,46 +6256,40 @@ ion-label[floating] {
   margin-bottom: 13px; }
 
 ion-label[primary] {
-  color: #327eff !important; }
+  color: #327eff; }
 
 ion-label[secondary] {
-  color: #32db64 !important; }
+  color: #32db64; }
 
 ion-label[danger] {
-  color: #f53d3d !important; }
+  color: #f53d3d; }
 
 ion-label[light] {
-  color: #f4f4f4 !important; }
+  color: #f4f4f4; }
 
 ion-label[dark] {
-  color: #222 !important; }
+  color: #222; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -6366,8 +6297,8 @@ ion-label[dark] {
 ion-list-header {
   display: block;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; }
+  text-overflow: ellipsis;
+  white-space: nowrap; }
 
 ion-list {
   display: block;
@@ -6380,14 +6311,11 @@ ion-list[inset] {
   -webkit-transform: translateZ(0);
   transform: translateZ(0); }
 
-/****************/
-/* DEFAULT LIST */
-/****************/
 ion-list-header,
 ion-item-divider {
-  border-bottom: 1px solid transparent;
   margin-left: 0;
   padding: 16px 16px 16px 16px;
+  border-bottom: 1px solid transparent;
   font-size: 2rem;
   color: #000; }
 
@@ -6405,15 +6333,11 @@ ion-list {
     ion-list > .item:last-child ion-label,
     ion-list > ion-item-sliding:last-child .item .item-inner,
     ion-list > ion-item-sliding:last-child .item ion-label {
-      border-bottom: none; }
-  ion-list > ion-input:last-child:after {
+      border-bottom: 0; }
+  ion-list > ion-input:last-child::after {
     left: 0; }
-  ion-list ion-item-options button, ion-list ion-item-options [button] {
-    height: calc(100% - 2px);
-    margin: 1px 0 1px 0;
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
+  ion-list ion-item-options button,
+  ion-list ion-item-options [button] {
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
     display: -ms-inline-flexbox;
@@ -6422,8 +6346,14 @@ ion-list {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    margin: 1px 0;
+    height: calc(100% - 2px);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
     box-sizing: border-box; }
-    ion-list ion-item-options button:before, ion-list ion-item-options [button]:before {
+    ion-list ion-item-options button::before,
+    ion-list ion-item-options [button]::before {
       margin: 0 auto; }
   ion-list .item[no-lines],
   ion-list .item[no-lines] .item-inner {
@@ -6434,20 +6364,17 @@ ion-list {
       margin-top: -16px;
       padding-top: 0; }
 
-/**************/
-/* INSET LIST */
-/**************/
 ion-list[inset] {
   margin: 16px 16px 16px 16px;
   border-radius: 2px; }
   ion-list[inset] .item:first-child {
     border-top-width: 0;
-    border-top-right-radius: 2px;
-    border-top-left-radius: 2px; }
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px; }
   ion-list[inset] .item:last-child {
     border-bottom-width: 0;
-    border-bottom-right-radius: 2px;
-    border-bottom-left-radius: 2px; }
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px; }
   ion-list[inset] .item-input {
     padding-right: 0;
     padding-left: 0; }
@@ -6456,72 +6383,57 @@ ion-list[inset] {
   ion-list[inset] ion-list-header {
     background-color: #fff; }
 
-/*****************/
-/* NO LINES LIST */
-/*****************/
 ion-list[no-lines] .item,
 ion-list[no-lines] .item .item-inner {
   border-width: 0; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 ion-menu {
-  background: #F2F2F2; }
+  background: #f2f2f2; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -6529,32 +6441,26 @@ ion-menu {
 ion-page.modal {
   background-color: #fff; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -6568,23 +6474,23 @@ ion-radio {
   top: 0;
   left: 0;
   display: block;
+  margin: 0;
   width: 16px;
   height: 16px;
-  margin: 0;
   border-width: 2px;
   border-style: solid;
-  border-color: #333333;
-  border-radius: 50%; }
+  border-radius: 50%;
+  border-color: #333; }
 
 .radio-inner {
   position: absolute;
   top: 2px;
   left: 2px;
+  display: none;
   width: 8px;
   height: 8px;
-  background-color: #333333;
   border-radius: 50%;
-  display: none; }
+  background-color: #333; }
 
 .radio-checked {
   border-color: #327eff; }
@@ -6600,11 +6506,11 @@ ion-radio {
 .item ion-radio {
   position: static;
   display: block;
-  margin: 9px 16px 9px 0;
   -webkit-box-ordinal-group: 0;
   -webkit-order: -1;
   -ms-flex-order: -1;
-  order: -1; }
+  order: -1;
+  margin: 9px 16px 9px 0; }
 
 .item-radio ion-label {
   margin-left: 0; }
@@ -6624,32 +6530,26 @@ ion-radio[light] .radio-checked {
 ion-radio[dark] .radio-checked {
   border-color: #222; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -6678,64 +6578,64 @@ ion-searchbar {
   width: 100%; }
 
 .searchbar-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   display: block;
   width: 100%;
-  border: none;
-  font-family: inherit;
-  -webkit-appearance: none;
-  -moz-appearance: none; }
+  border: 0;
+  font-family: inherit; }
 
 .searchbar-clear-icon {
-  min-height: 0;
+  margin: 0;
   padding: 0;
-  margin: 0; }
+  min-height: 0; }
 
 ion-searchbar {
   padding: 0;
-  background: transparent;
-  border: 2px solid rgba(0, 0, 0, 0.5); }
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  background: transparent; }
 
 .searchbar-search-icon {
-  width: 21px;
-  height: 21px;
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='#858585'%20d='M337.509,305.372h-17.501l-6.571-5.486c20.791-25.232,33.922-57.054,33.922-93.257C347.358,127.632,283.896,64,205.135,64C127.452,64,64,127.632,64,206.629s63.452,142.628,142.225,142.628c35.011,0,67.831-13.167,92.991-34.008l6.561,5.487v17.551L415.18,448L448,415.086L337.509,305.372z%20M206.225,305.372c-54.702,0-98.463-43.887-98.463-98.743c0-54.858,43.761-98.742,98.463-98.742c54.7,0,98.462,43.884,98.462,98.742C304.687,261.485,260.925,305.372,206.225,305.372z'/></svg>");
+  position: absolute;
   top: 5px;
   right: 8px;
-  background-size: 20px;
+  width: 21px;
+  height: 21px;
   background-repeat: no-repeat;
-  position: absolute;
-  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='#858585'%20d='M337.509,305.372h-17.501l-6.571-5.486c20.791-25.232,33.922-57.054,33.922-93.257C347.358,127.632,283.896,64,205.135,64C127.452,64,64,127.632,64,206.629s63.452,142.628,142.225,142.628c35.011,0,67.831-13.167,92.991-34.008l6.561,5.487v17.551L415.18,448L448,415.086L337.509,305.372z%20M206.225,305.372c-54.702,0-98.463-43.887-98.463-98.743c0-54.858,43.761-98.742,98.463-98.742c54.7,0,98.462,43.884,98.462,98.742C304.687,261.485,260.925,305.372,206.225,305.372z'/></svg>"); }
+  background-size: 20px; }
   .searchbar-search-icon.activated {
     background-color: transparent; }
 
 .searchbar-input {
   padding: 0 8px;
   height: auto;
-  line-height: 3rem;
+  border-radius: 0;
   font-size: 1.4rem;
   font-weight: 400;
-  border-radius: 0;
+  line-height: 3rem;
   color: #141414;
-  background-color: #FFFFFF;
+  background-color: #fff;
   background-position: 8px center; }
   .searchbar-input::-moz-placeholder {
     color: #858585; }
   .searchbar-input:-ms-input-placeholder {
     color: #858585; }
   .searchbar-input::-webkit-input-placeholder {
-    color: #858585;
-    text-indent: 0; }
+    text-indent: 0;
+    color: #858585; }
 
 .searchbar-clear-icon {
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='#858585'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
+  position: absolute;
+  top: 0;
+  right: 8px;
+  padding: 0;
   width: 22px;
   height: 100%;
-  padding: 0;
-  background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='#858585'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
-  background-size: 22px;
   background-repeat: no-repeat;
   background-position: center;
-  position: absolute;
-  right: 8px;
-  top: 0; }
+  background-size: 22px; }
   .searchbar-clear-icon.activated {
     background-color: transparent; }
 
@@ -6766,32 +6666,26 @@ ion-searchbar[light].searchbar-focused {
 ion-searchbar[dark].searchbar-focused {
   border-color: #222; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -6801,6 +6695,10 @@ ion-segment {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -6809,18 +6707,14 @@ ion-segment {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   width: 100%; }
 
 .segment-button {
   position: relative;
   display: block;
-  margin-left: 0;
-  margin-right: 0;
   overflow: hidden;
+  margin-right: 0;
+  margin-left: 0;
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -6835,13 +6729,13 @@ ion-segment {
 .segment-button {
   padding: 0 6px;
   height: 4rem;
-  line-height: 4rem;
   font-size: 1.3rem;
-  text-transform: uppercase;
   font-weight: bold;
-  opacity: 0.5;
+  line-height: 4rem;
+  text-transform: uppercase;
   color: #000;
-  background-color: transparent; }
+  background-color: transparent;
+  opacity: 0.5; }
   .segment-button ion-icon {
     font-size: 2.6rem;
     line-height: 4rem; }
@@ -6856,64 +6750,58 @@ ion-segment {
 ion-segment[primary] .segment-button {
   color: #327eff; }
   ion-segment[primary] .segment-button.activated, ion-segment[primary] .segment-button.segment-activated {
-    opacity: 1;
     border-color: #327eff;
-    color: #327eff; }
+    color: #327eff;
+    opacity: 1; }
 
 ion-segment[secondary] .segment-button {
   color: #32db64; }
   ion-segment[secondary] .segment-button.activated, ion-segment[secondary] .segment-button.segment-activated {
-    opacity: 1;
     border-color: #32db64;
-    color: #32db64; }
+    color: #32db64;
+    opacity: 1; }
 
 ion-segment[danger] .segment-button {
   color: #f53d3d; }
   ion-segment[danger] .segment-button.activated, ion-segment[danger] .segment-button.segment-activated {
-    opacity: 1;
     border-color: #f53d3d;
-    color: #f53d3d; }
+    color: #f53d3d;
+    opacity: 1; }
 
 ion-segment[light] .segment-button {
   color: #f4f4f4; }
   ion-segment[light] .segment-button.activated, ion-segment[light] .segment-button.segment-activated {
-    opacity: 1;
     border-color: #f4f4f4;
-    color: #f4f4f4; }
+    color: #f4f4f4;
+    opacity: 1; }
 
 ion-segment[dark] .segment-button {
   color: #222; }
   ion-segment[dark] .segment-button.activated, ion-segment[dark] .segment-button.segment-activated {
-    opacity: 1;
     border-color: #222;
-    color: #222; }
+    color: #222;
+    opacity: 1; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -6927,22 +6815,22 @@ ion-select {
   max-width: 45%; }
 
 .select-text {
+  overflow: hidden;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
   min-width: 16px;
   font-size: inherit;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; }
+  text-overflow: ellipsis;
+  white-space: nowrap; }
 
 .item-multiple-inputs ion-select {
   position: relative; }
 
 .select-disabled,
 .item-select-disabled ion-label {
-  opacity: 0.4;
+  opacity: .4;
   pointer-events: none; }
 
 ion-select {
@@ -6960,43 +6848,37 @@ ion-select {
 
 .select-icon .select-icon-inner {
   position: absolute;
+  top: 3px;
+  left: 5px;
   display: block;
   width: 9px;
   height: 9px;
-  left: 5px;
-  top: 3px;
   border-top: 2px solid rgba(0, 0, 0, 0.5);
   border-right: 2px solid rgba(0, 0, 0, 0.5);
   -webkit-transform: rotate(135deg);
   transform: rotate(135deg);
   pointer-events: none; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -7006,18 +6888,18 @@ ion-tabs {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%; }
 
 ion-tab {
   position: absolute;
@@ -7025,15 +6907,15 @@ ion-tab {
   right: 0;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  display: none;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  display: none; }
+  width: 100%;
+  height: 100%; }
   ion-tab.show-tab {
     display: -webkit-box;
     display: -webkit-flex;
@@ -7065,50 +6947,50 @@ tabbar {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
-  justify-content: center;
-  overflow: hidden; }
+  justify-content: center; }
 
 .tab-button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   position: relative;
   z-index: 0;
-  overflow: hidden;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin: 0;
-  text-align: center;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   border: 0;
   border-radius: 0;
-  background: none; }
+  text-align: center;
+  background: none;
+  cursor: pointer; }
 
 .tab-button-text {
   margin-top: 3px;
@@ -7116,15 +6998,15 @@ tabbar {
 
 .tab-button-text,
 .tab-button-icon {
+  display: none;
+  overflow: hidden;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   min-width: 26px;
   max-width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
-  display: none; }
+  white-space: nowrap; }
 
 .has-icon .tab-button-icon,
 .has-title .tab-button-text {
@@ -7149,8 +7031,8 @@ tab-highlight {
   -ms-flex-direction: row;
   flex-direction: row; }
   [tabbarLayout=icon-left] .tab-button .tab-button-icon {
-    text-align: right;
-    padding-right: 8px; }
+    padding-right: 8px;
+    text-align: right; }
 
 [tabbarLayout=icon-right] .tab-button {
   -webkit-box-orient: horizontal;
@@ -7163,8 +7045,8 @@ tab-highlight {
     -webkit-order: 10;
     -ms-flex-order: 10;
     order: 10;
-    text-align: left;
-    padding-left: 8px; }
+    padding-left: 8px;
+    text-align: left; }
 
 [tabbarLayout=icon-hide] .tab-button-icon {
   display: none; }
@@ -7196,17 +7078,17 @@ tabbar {
 .tab-button {
   padding: 12px 10px 5px 10px;
   min-height: 4.8rem;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
   font-size: 1.2rem;
   font-weight: normal;
-  opacity: 0.7;
+  color: #8c8c8c;
   box-shadow: none;
-  border-radius: 0;
-  border-bottom: 2px solid transparent;
-  color: #8c8c8c; }
+  opacity: .7; }
   .tab-button[aria-selected=true] {
-    opacity: 1.0;
+    border-bottom: 2px solid #327eff;
     color: #327eff;
-    border-bottom: 2px solid #327eff; }
+    opacity: 1; }
   .tab-button.activated {
     background: rgba(0, 0, 0, 0.1); }
 
@@ -7215,8 +7097,8 @@ tabbar {
   margin-bottom: 5px; }
 
 .tab-button-icon {
-  font-size: 2.4rem;
-  min-width: 2.4rem; }
+  min-width: 2.4rem;
+  font-size: 2.4rem; }
 
 [tabbarIcons=bottom] .tab-button {
   padding-top: 8px;
@@ -7231,79 +7113,73 @@ tabbar {
 
 .tab-button.icon-only,
 .tab-button.has-title-only {
-  padding: 6px 10px 6px 10px; }
+  padding: 6px 10px; }
 
 ion-tabs[primary] tabbar {
   background-color: #327eff; }
   ion-tabs[primary] tabbar .tab-button {
-    color: white; }
+    color: #fff; }
   ion-tabs[primary] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[primary] tabbar .tab-button[aria-selected=true] {
-    color: white;
-    border-color: white; }
+    border-color: #fff;
+    color: #fff; }
 
 ion-tabs[secondary] tabbar {
   background-color: #32db64; }
   ion-tabs[secondary] tabbar .tab-button {
-    color: white; }
+    color: #fff; }
   ion-tabs[secondary] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[secondary] tabbar .tab-button[aria-selected=true] {
-    color: white;
-    border-color: white; }
+    border-color: #fff;
+    color: #fff; }
 
 ion-tabs[danger] tabbar {
   background-color: #f53d3d; }
   ion-tabs[danger] tabbar .tab-button {
-    color: white; }
+    color: #fff; }
   ion-tabs[danger] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[danger] tabbar .tab-button[aria-selected=true] {
-    color: white;
-    border-color: white; }
+    border-color: #fff;
+    color: #fff; }
 
 ion-tabs[light] tabbar {
   background-color: #f4f4f4; }
   ion-tabs[light] tabbar .tab-button {
-    color: black; }
+    color: #000; }
   ion-tabs[light] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[light] tabbar .tab-button[aria-selected=true] {
-    color: black;
-    border-color: black; }
+    border-color: #000;
+    color: #000; }
 
 ion-tabs[dark] tabbar {
   background-color: #222; }
   ion-tabs[dark] tabbar .tab-button {
-    color: white; }
+    color: #fff; }
   ion-tabs[dark] tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[dark] tabbar .tab-button[aria-selected=true] {
-    color: white;
-    border-color: white; }
+    border-color: #fff;
+    color: #fff; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -7316,10 +7192,10 @@ ion-toggle {
   display: block;
   width: 40px;
   height: 18px;
-  pointer-events: none;
+  border: 2px solid #323232;
   border-radius: 18px;
   background-color: transparent;
-  border: 2px solid #323232; }
+  pointer-events: none; }
 
 .toggle-inner {
   position: absolute;
@@ -7331,11 +7207,11 @@ ion-toggle {
   background-color: #323232; }
 
 .toggle-checked {
-  background-color: #327eff;
-  border-color: #327eff; }
+  border-color: #327eff;
+  background-color: #327eff; }
 
 .toggle-checked .toggle-inner {
-  background-color: white;
+  background-color: #fff;
   -webkit-transform: translate3d(22px, 0, 0);
   transform: translate3d(22px, 0, 0); }
 
@@ -7356,66 +7232,60 @@ ion-toggle {
   margin-left: 0; }
 
 ion-toggle[primary] .toggle-checked {
-  background-color: #327eff;
-  border-color: #327eff; }
+  border-color: #327eff;
+  background-color: #327eff; }
 
 ion-toggle[primary] .toggle-checked .toggle-inner {
-  background-color: white; }
+  background-color: #fff; }
 
 ion-toggle[secondary] .toggle-checked {
-  background-color: #32db64;
-  border-color: #32db64; }
+  border-color: #32db64;
+  background-color: #32db64; }
 
 ion-toggle[secondary] .toggle-checked .toggle-inner {
-  background-color: white; }
+  background-color: #fff; }
 
 ion-toggle[danger] .toggle-checked {
-  background-color: #f53d3d;
-  border-color: #f53d3d; }
+  border-color: #f53d3d;
+  background-color: #f53d3d; }
 
 ion-toggle[danger] .toggle-checked .toggle-inner {
-  background-color: white; }
+  background-color: #fff; }
 
 ion-toggle[light] .toggle-checked {
-  background-color: #f4f4f4;
-  border-color: #f4f4f4; }
+  border-color: #f4f4f4;
+  background-color: #f4f4f4; }
 
 ion-toggle[light] .toggle-checked .toggle-inner {
-  background-color: black; }
+  background-color: #000; }
 
 ion-toggle[dark] .toggle-checked {
-  background-color: #222;
-  border-color: #222; }
+  border-color: #222;
+  background-color: #222; }
 
 ion-toggle[dark] .toggle-checked .toggle-inner {
-  background-color: white; }
+  background-color: #fff; }
 
-/**
-  Noto Sans Font
-  Google
-  Apache License, version 2.0
-  http://www.apache.org/licenses/LICENSE-2.0.html
- */
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 300;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   src: local("Noto Sans"), local("Noto-Sans-Regular"), url("../fonts/noto-sans-regular.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 500;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
 
 @font-face {
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../fonts/noto-sans-bold.ttf") format("truetype"); }
@@ -7427,6 +7297,11 @@ ion-toggle[dark] .toggle-checked .toggle-inner {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -7444,24 +7319,19 @@ ion-toggle[dark] .toggle-checked .toggle-inner {
   -webkit-order: -10;
   -ms-flex-order: -10;
   order: -10;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0;
-  -ms-flex: 0;
-  flex: 0;
-  width: 100%;
-  overflow: hidden; }
+  width: 100%; }
 
 .toolbar-background {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
+  z-index: -1;
   width: 100%;
   height: 100%;
-  z-index: -1;
   border: 0;
-  pointer-events: none;
-  -webkit-transform: translateZ(0px);
-  transform: translateZ(0px); }
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  pointer-events: none; }
 
 .toolbar[position=bottom] {
   -webkit-box-ordinal-group: 11;
@@ -7470,34 +7340,34 @@ ion-toggle[dark] .toggle-checked .toggle-inner {
   order: 10; }
 
 ion-title {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-transform: translateZ(0px);
-  transform: translateZ(0px); }
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0); }
 
 .toolbar-title {
   display: block;
+  overflow: hidden;
   width: 100%;
-  white-space: nowrap;
   text-overflow: ellipsis;
-  overflow: hidden; }
+  white-space: nowrap; }
 
 ion-buttons {
   display: block;
-  margin: 0 0.2rem;
-  pointer-events: none;
-  -webkit-transform: translateZ(0px);
-  transform: translateZ(0px); }
+  margin: 0 .2rem;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  pointer-events: none; }
 
 ion-buttons button,
 ion-buttons a,
@@ -7507,53 +7377,53 @@ ion-buttons div {
   pointer-events: auto; }
 
 .toolbar[transparent] .toolbar-background {
-  background: transparent;
-  border-color: transparent; }
+  border-color: transparent;
+  background: transparent; }
 
 ion-buttons,
 .bar-button-menutoggle {
-  -webkit-transform: translateZ(0px);
-  transform: translateZ(0px);
-  z-index: 99; }
+  z-index: 99;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0); }
 
 ion-navbar.toolbar {
-  -webkit-transform: translateZ(0px);
-  transform: translateZ(0px);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  opacity: 0; }
+  opacity: 0;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0); }
   ion-navbar.toolbar.show-navbar {
     opacity: 1; }
 
 .bar-button {
-  position: relative;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  text-align: center;
-  text-transform: none;
-  line-height: 1;
-  vertical-align: top;
-  vertical-align: -webkit-baseline-middle;
-  cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -webkit-appearance: none;
-  -moz-appearance: none; }
+  -moz-appearance: none;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: top;
+  vertical-align: -webkit-baseline-middle; }
 
-.bar-button:after {
+.bar-button::after {
   position: absolute;
-  content: '';
   top: -7px;
   right: -2px;
   bottom: -6px;
-  left: -2px; }
+  left: -2px;
+  content: ""; }
 
 .bar-button-menutoggle {
   display: -webkit-box;
@@ -7600,23 +7470,23 @@ ion-navbar-section {
   -webkit-order: 3;
   -ms-flex-order: 3;
   order: 3;
-  max-width: 100%;
-  min-width: 0; }
+  min-width: 0;
+  max-width: 100%; }
 
 .toolbar-title {
-  color: #000;
   padding: 0 6px;
   font-size: 1.5rem;
   font-weight: bold;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  color: #000; }
 
 ion-buttons {
   -webkit-box-ordinal-group: 5;
   -webkit-order: 4;
   -ms-flex-order: 4;
   order: 4;
-  -webkit-transform: translateZ(0px);
-  transform: translateZ(0px); }
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0); }
 
 ion-buttons[left] {
   -webkit-box-ordinal-group: 3;
@@ -7628,31 +7498,31 @@ ion-buttons[left] .bar-button:first-child {
   margin-left: 0; }
 
 ion-buttons[end] {
-  text-align: right;
   -webkit-box-ordinal-group: 6;
   -webkit-order: 5;
   -ms-flex-order: 5;
-  order: 5; }
+  order: 5;
+  text-align: right; }
 
 ion-buttons[right] {
-  text-align: right;
   -webkit-box-ordinal-group: 7;
   -webkit-order: 6;
   -ms-flex-order: 6;
-  order: 6; }
+  order: 6;
+  text-align: right; }
 
 .bar-button {
   margin-top: 0;
+  margin-right: .2rem;
   margin-bottom: 0;
-  margin-left: 0.2rem;
-  margin-right: 0.2rem;
+  margin-left: .2rem;
   padding: 0 5px;
   height: 32px;
   border: 0;
-  font-size: 1.4rem;
   border-radius: 2px;
-  text-transform: uppercase;
-  font-weight: 500; }
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: uppercase; }
 
 .bar-button-solid,
 .bar-button-outline {
@@ -7665,39 +7535,39 @@ ion-buttons[right] {
   color: #000;
   background-color: transparent; }
   .bar-button-outline:hover:not(.disable-hover) {
-    opacity: 0.4; }
+    opacity: .4; }
   .bar-button-outline.activated {
-    color: white;
+    color: #fff;
     background-color: #000; }
 
 .bar-button-solid {
-  color: white;
+  color: #fff;
   background-color: #000; }
   .bar-button-solid:hover:not(.disable-hover) {
-    color: white; }
+    color: #fff; }
   .bar-button-solid.activated {
-    color: white;
+    color: #fff;
     background-color: #141414; }
 
 .bar-button-icon-left ion-icon {
-  padding-right: 0.3em;
+  padding-right: .3em;
   font-size: 1.4em;
-  line-height: 0.67;
+  line-height: .67;
   pointer-events: none; }
 
 .bar-button-icon-right ion-icon {
-  padding-left: 0.4em;
+  padding-left: .4em;
   font-size: 1.4em;
-  line-height: 0.67;
+  line-height: .67;
   pointer-events: none; }
 
 .bar-button-icon-only {
   padding: 0; }
   .bar-button-icon-only ion-icon {
-    padding: 0 0.1em;
-    font-size: 1.8em;
-    line-height: 0.67;
+    padding: 0 .1em;
     min-width: 28px;
+    font-size: 1.8em;
+    line-height: .67;
     pointer-events: none; }
 
 .back-button {
@@ -7712,25 +7582,25 @@ ion-buttons[right] {
   text-align: left; }
 
 .bar-button-menutoggle {
-  margin: 0 6px;
-  padding: 0 2px;
-  min-width: 44px;
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
   -ms-flex-order: 1;
-  order: 1; }
+  order: 1;
+  margin: 0 6px;
+  padding: 0 2px;
+  min-width: 44px; }
   .bar-button-menutoggle ion-icon {
     padding: 0 6px;
     font-size: 2.4rem; }
 
 .bar-button-menutoggle[end],
 .bar-button-menutoggle[right] {
-  margin: 0 2px;
-  min-width: 28px;
   -webkit-box-ordinal-group: 8;
   -webkit-order: 7;
   -ms-flex-order: 7;
-  order: 7; }
+  order: 7;
+  margin: 0 2px;
+  min-width: 28px; }
 
 .bar-button-default {
   color: #000;
@@ -7744,14 +7614,14 @@ ion-buttons[right] {
 .toolbar[primary] .bar-button-default,
 .toolbar[primary] .bar-button-outline,
 .toolbar[primary] .toolbar-title {
-  color: white; }
+  color: #fff; }
 
 .toolbar[primary] .bar-button-default ion-button-effect,
 .toolbar[primary] .bar-button-outline ion-button-effect {
-  background-color: white; }
+  background-color: #fff; }
 
 .toolbar[primary] .bar-button-outline {
-  border-color: white; }
+  border-color: #fff; }
 
 .toolbar[primary] .bar-button-primary {
   color: #327eff;
@@ -7764,11 +7634,11 @@ ion-buttons[right] {
   color: #2e74eb;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-primary.activated {
-    color: white;
+    color: #fff;
     background-color: #2e74eb; }
 
 .toolbar[primary] .bar-button-solid-primary {
-  color: white;
+  color: #fff;
   background-color: #327eff; }
   .toolbar[primary] .bar-button-solid-primary.activated {
     background-color: #2e74eb; }
@@ -7784,11 +7654,11 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-secondary.activated {
-    color: white;
+    color: #fff;
     background-color: #2ec95c; }
 
 .toolbar[primary] .bar-button-solid-secondary {
-  color: white;
+  color: #fff;
   background-color: #32db64; }
   .toolbar[primary] .bar-button-solid-secondary.activated {
     background-color: #2ec95c; }
@@ -7804,11 +7674,11 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-danger.activated {
-    color: white;
+    color: #fff;
     background-color: #e13838; }
 
 .toolbar[primary] .bar-button-solid-danger {
-  color: white;
+  color: #fff;
   background-color: #f53d3d; }
   .toolbar[primary] .bar-button-solid-danger.activated {
     background-color: #e13838; }
@@ -7824,11 +7694,11 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-light.activated {
-    color: black;
+    color: #000;
     background-color: #e0e0e0; }
 
 .toolbar[primary] .bar-button-solid-light {
-  color: black;
+  color: #000;
   background-color: #f4f4f4; }
   .toolbar[primary] .bar-button-solid-light.activated {
     background-color: #e0e0e0; }
@@ -7844,11 +7714,11 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-dark.activated {
-    color: white;
+    color: #fff;
     background-color: #343434; }
 
 .toolbar[primary] .bar-button-solid-dark {
-  color: white;
+  color: #fff;
   background-color: #222; }
   .toolbar[primary] .bar-button-solid-dark.activated {
     background-color: #343434; }
@@ -7864,11 +7734,11 @@ ion-buttons[right] {
   color: #2e74eb;
   background-color: transparent; }
   .bar-button-outline-primary.activated {
-    color: white;
+    color: #fff;
     background-color: #2e74eb; }
 
 .bar-button-solid-primary {
-  color: white;
+  color: #fff;
   background-color: #327eff; }
   .bar-button-solid-primary.activated {
     background-color: #2e74eb; }
@@ -7879,14 +7749,14 @@ ion-buttons[right] {
 .toolbar[secondary] .bar-button-default,
 .toolbar[secondary] .bar-button-outline,
 .toolbar[secondary] .toolbar-title {
-  color: white; }
+  color: #fff; }
 
 .toolbar[secondary] .bar-button-default ion-button-effect,
 .toolbar[secondary] .bar-button-outline ion-button-effect {
-  background-color: white; }
+  background-color: #fff; }
 
 .toolbar[secondary] .bar-button-outline {
-  border-color: white; }
+  border-color: #fff; }
 
 .toolbar[secondary] .bar-button-primary {
   color: #327eff;
@@ -7899,11 +7769,11 @@ ion-buttons[right] {
   color: #2e74eb;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-primary.activated {
-    color: white;
+    color: #fff;
     background-color: #2e74eb; }
 
 .toolbar[secondary] .bar-button-solid-primary {
-  color: white;
+  color: #fff;
   background-color: #327eff; }
   .toolbar[secondary] .bar-button-solid-primary.activated {
     background-color: #2e74eb; }
@@ -7919,11 +7789,11 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-secondary.activated {
-    color: white;
+    color: #fff;
     background-color: #2ec95c; }
 
 .toolbar[secondary] .bar-button-solid-secondary {
-  color: white;
+  color: #fff;
   background-color: #32db64; }
   .toolbar[secondary] .bar-button-solid-secondary.activated {
     background-color: #2ec95c; }
@@ -7939,11 +7809,11 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-danger.activated {
-    color: white;
+    color: #fff;
     background-color: #e13838; }
 
 .toolbar[secondary] .bar-button-solid-danger {
-  color: white;
+  color: #fff;
   background-color: #f53d3d; }
   .toolbar[secondary] .bar-button-solid-danger.activated {
     background-color: #e13838; }
@@ -7959,11 +7829,11 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-light.activated {
-    color: black;
+    color: #000;
     background-color: #e0e0e0; }
 
 .toolbar[secondary] .bar-button-solid-light {
-  color: black;
+  color: #000;
   background-color: #f4f4f4; }
   .toolbar[secondary] .bar-button-solid-light.activated {
     background-color: #e0e0e0; }
@@ -7979,11 +7849,11 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-dark.activated {
-    color: white;
+    color: #fff;
     background-color: #343434; }
 
 .toolbar[secondary] .bar-button-solid-dark {
-  color: white;
+  color: #fff;
   background-color: #222; }
   .toolbar[secondary] .bar-button-solid-dark.activated {
     background-color: #343434; }
@@ -7999,11 +7869,11 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .bar-button-outline-secondary.activated {
-    color: white;
+    color: #fff;
     background-color: #2ec95c; }
 
 .bar-button-solid-secondary {
-  color: white;
+  color: #fff;
   background-color: #32db64; }
   .bar-button-solid-secondary.activated {
     background-color: #2ec95c; }
@@ -8014,14 +7884,14 @@ ion-buttons[right] {
 .toolbar[danger] .bar-button-default,
 .toolbar[danger] .bar-button-outline,
 .toolbar[danger] .toolbar-title {
-  color: white; }
+  color: #fff; }
 
 .toolbar[danger] .bar-button-default ion-button-effect,
 .toolbar[danger] .bar-button-outline ion-button-effect {
-  background-color: white; }
+  background-color: #fff; }
 
 .toolbar[danger] .bar-button-outline {
-  border-color: white; }
+  border-color: #fff; }
 
 .toolbar[danger] .bar-button-primary {
   color: #327eff;
@@ -8034,11 +7904,11 @@ ion-buttons[right] {
   color: #2e74eb;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-primary.activated {
-    color: white;
+    color: #fff;
     background-color: #2e74eb; }
 
 .toolbar[danger] .bar-button-solid-primary {
-  color: white;
+  color: #fff;
   background-color: #327eff; }
   .toolbar[danger] .bar-button-solid-primary.activated {
     background-color: #2e74eb; }
@@ -8054,11 +7924,11 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-secondary.activated {
-    color: white;
+    color: #fff;
     background-color: #2ec95c; }
 
 .toolbar[danger] .bar-button-solid-secondary {
-  color: white;
+  color: #fff;
   background-color: #32db64; }
   .toolbar[danger] .bar-button-solid-secondary.activated {
     background-color: #2ec95c; }
@@ -8074,11 +7944,11 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-danger.activated {
-    color: white;
+    color: #fff;
     background-color: #e13838; }
 
 .toolbar[danger] .bar-button-solid-danger {
-  color: white;
+  color: #fff;
   background-color: #f53d3d; }
   .toolbar[danger] .bar-button-solid-danger.activated {
     background-color: #e13838; }
@@ -8094,11 +7964,11 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-light.activated {
-    color: black;
+    color: #000;
     background-color: #e0e0e0; }
 
 .toolbar[danger] .bar-button-solid-light {
-  color: black;
+  color: #000;
   background-color: #f4f4f4; }
   .toolbar[danger] .bar-button-solid-light.activated {
     background-color: #e0e0e0; }
@@ -8114,11 +7984,11 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-dark.activated {
-    color: white;
+    color: #fff;
     background-color: #343434; }
 
 .toolbar[danger] .bar-button-solid-dark {
-  color: white;
+  color: #fff;
   background-color: #222; }
   .toolbar[danger] .bar-button-solid-dark.activated {
     background-color: #343434; }
@@ -8134,11 +8004,11 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .bar-button-outline-danger.activated {
-    color: white;
+    color: #fff;
     background-color: #e13838; }
 
 .bar-button-solid-danger {
-  color: white;
+  color: #fff;
   background-color: #f53d3d; }
   .bar-button-solid-danger.activated {
     background-color: #e13838; }
@@ -8149,14 +8019,14 @@ ion-buttons[right] {
 .toolbar[light] .bar-button-default,
 .toolbar[light] .bar-button-outline,
 .toolbar[light] .toolbar-title {
-  color: black; }
+  color: #000; }
 
 .toolbar[light] .bar-button-default ion-button-effect,
 .toolbar[light] .bar-button-outline ion-button-effect {
-  background-color: black; }
+  background-color: #000; }
 
 .toolbar[light] .bar-button-outline {
-  border-color: black; }
+  border-color: #000; }
 
 .toolbar[light] .bar-button-primary {
   color: #327eff;
@@ -8169,11 +8039,11 @@ ion-buttons[right] {
   color: #2e74eb;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-primary.activated {
-    color: white;
+    color: #fff;
     background-color: #2e74eb; }
 
 .toolbar[light] .bar-button-solid-primary {
-  color: white;
+  color: #fff;
   background-color: #327eff; }
   .toolbar[light] .bar-button-solid-primary.activated {
     background-color: #2e74eb; }
@@ -8189,11 +8059,11 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-secondary.activated {
-    color: white;
+    color: #fff;
     background-color: #2ec95c; }
 
 .toolbar[light] .bar-button-solid-secondary {
-  color: white;
+  color: #fff;
   background-color: #32db64; }
   .toolbar[light] .bar-button-solid-secondary.activated {
     background-color: #2ec95c; }
@@ -8209,11 +8079,11 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-danger.activated {
-    color: white;
+    color: #fff;
     background-color: #e13838; }
 
 .toolbar[light] .bar-button-solid-danger {
-  color: white;
+  color: #fff;
   background-color: #f53d3d; }
   .toolbar[light] .bar-button-solid-danger.activated {
     background-color: #e13838; }
@@ -8229,11 +8099,11 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-light.activated {
-    color: black;
+    color: #000;
     background-color: #e0e0e0; }
 
 .toolbar[light] .bar-button-solid-light {
-  color: black;
+  color: #000;
   background-color: #f4f4f4; }
   .toolbar[light] .bar-button-solid-light.activated {
     background-color: #e0e0e0; }
@@ -8249,11 +8119,11 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-dark.activated {
-    color: white;
+    color: #fff;
     background-color: #343434; }
 
 .toolbar[light] .bar-button-solid-dark {
-  color: white;
+  color: #fff;
   background-color: #222; }
   .toolbar[light] .bar-button-solid-dark.activated {
     background-color: #343434; }
@@ -8269,11 +8139,11 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .bar-button-outline-light.activated {
-    color: black;
+    color: #000;
     background-color: #e0e0e0; }
 
 .bar-button-solid-light {
-  color: black;
+  color: #000;
   background-color: #f4f4f4; }
   .bar-button-solid-light.activated {
     background-color: #e0e0e0; }
@@ -8284,14 +8154,14 @@ ion-buttons[right] {
 .toolbar[dark] .bar-button-default,
 .toolbar[dark] .bar-button-outline,
 .toolbar[dark] .toolbar-title {
-  color: white; }
+  color: #fff; }
 
 .toolbar[dark] .bar-button-default ion-button-effect,
 .toolbar[dark] .bar-button-outline ion-button-effect {
-  background-color: white; }
+  background-color: #fff; }
 
 .toolbar[dark] .bar-button-outline {
-  border-color: white; }
+  border-color: #fff; }
 
 .toolbar[dark] .bar-button-primary {
   color: #327eff;
@@ -8304,11 +8174,11 @@ ion-buttons[right] {
   color: #2e74eb;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-primary.activated {
-    color: white;
+    color: #fff;
     background-color: #2e74eb; }
 
 .toolbar[dark] .bar-button-solid-primary {
-  color: white;
+  color: #fff;
   background-color: #327eff; }
   .toolbar[dark] .bar-button-solid-primary.activated {
     background-color: #2e74eb; }
@@ -8324,11 +8194,11 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-secondary.activated {
-    color: white;
+    color: #fff;
     background-color: #2ec95c; }
 
 .toolbar[dark] .bar-button-solid-secondary {
-  color: white;
+  color: #fff;
   background-color: #32db64; }
   .toolbar[dark] .bar-button-solid-secondary.activated {
     background-color: #2ec95c; }
@@ -8344,11 +8214,11 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-danger.activated {
-    color: white;
+    color: #fff;
     background-color: #e13838; }
 
 .toolbar[dark] .bar-button-solid-danger {
-  color: white;
+  color: #fff;
   background-color: #f53d3d; }
   .toolbar[dark] .bar-button-solid-danger.activated {
     background-color: #e13838; }
@@ -8364,11 +8234,11 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-light.activated {
-    color: black;
+    color: #000;
     background-color: #e0e0e0; }
 
 .toolbar[dark] .bar-button-solid-light {
-  color: black;
+  color: #000;
   background-color: #f4f4f4; }
   .toolbar[dark] .bar-button-solid-light.activated {
     background-color: #e0e0e0; }
@@ -8384,11 +8254,11 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-dark.activated {
-    color: white;
+    color: #fff;
     background-color: #343434; }
 
 .toolbar[dark] .bar-button-solid-dark {
-  color: white;
+  color: #fff;
   background-color: #222; }
   .toolbar[dark] .bar-button-solid-dark.activated {
     background-color: #343434; }
@@ -8404,11 +8274,11 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .bar-button-outline-dark.activated {
-    color: white;
+    color: #fff;
     background-color: #343434; }
 
 .bar-button-solid-dark {
-  color: white;
+  color: #fff;
   background-color: #222; }
   .bar-button-solid-dark.activated {
     background-color: #343434; }

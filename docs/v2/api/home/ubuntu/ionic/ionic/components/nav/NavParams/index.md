@@ -74,6 +74,7 @@ option with a simple <code>get</code> method.</p>
 <div id="data"></div>
 
 <h3>
+<a class="anchor" name="data" href="#data"></a>
 <code>data()</code>
   
 
@@ -93,6 +94,7 @@ option with a simple <code>get</code> method.</p>
 <div id="get"></div>
 
 <h3>
+<a class="anchor" name="get" href="#get"></a>
 <code>get(parameter)</code>
   
 

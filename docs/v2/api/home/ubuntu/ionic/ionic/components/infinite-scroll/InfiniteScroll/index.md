@@ -133,6 +133,7 @@ You could replace our default content with custom SVG or CSS animations.</p>
 <div id="state"></div>
 
 <h3>
+<a class="anchor" name="state" href="#state"></a>
 <code>state()</code>
   
 
@@ -152,6 +153,7 @@ You could replace our default content with custom SVG or CSS animations.</p>
 <div id="complete"></div>
 
 <h3>
+<a class="anchor" name="complete" href="#complete"></a>
 <code>complete()</code>
   
 
@@ -179,6 +181,7 @@ to `enabled`.
 <div id="enable"></div>
 
 <h3>
+<a class="anchor" name="enable" href="#enable"></a>
 <code>enable(shouldEnable)</code>
   
 

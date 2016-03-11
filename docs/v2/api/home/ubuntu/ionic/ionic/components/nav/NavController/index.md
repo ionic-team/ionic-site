@@ -124,6 +124,7 @@ class HelloWorld {
 <div id="setRoot"></div>
 
 <h3>
+<a class="anchor" name="setRoot" href="#setRoot"></a>
 <code>setRoot(page,&nbsp;params,&nbsp;opts)</code>
   
 
@@ -212,6 +213,7 @@ Set the root for the current navigation stack
 <div id="setPages"></div>
 
 <h3>
+<a class="anchor" name="setPages" href="#setPages"></a>
 <code>setPages(pages,&nbsp;opts)</code>
   
 
@@ -350,6 +352,7 @@ import {Detail} from '../detail/detail';
 <div id="push"></div>
 
 <h3>
+<a class="anchor" name="push" href="#push"></a>
 <code>push(page,&nbsp;params,&nbsp;opts)</code>
   
 
@@ -496,6 +499,7 @@ class MyClass{
 <div id="present"></div>
 
 <h3>
+<a class="anchor" name="present" href="#present"></a>
 <code>present(enteringView,&nbsp;opts)</code>
   
 
@@ -586,6 +590,7 @@ class MyClass{
 <div id="insert"></div>
 
 <h3>
+<a class="anchor" name="insert" href="#insert"></a>
 <code>insert(insertIndex,&nbsp;page,&nbsp;params,&nbsp;opts)</code>
   
 
@@ -706,6 +711,7 @@ This will insert the `Info` page into the second slot of our navigation stack
 <div id="insertPages"></div>
 
 <h3>
+<a class="anchor" name="insertPages" href="#insertPages"></a>
 <code>insertPages(insertIndex,&nbsp;insertPages,&nbsp;opts)</code>
   
 
@@ -815,6 +821,7 @@ in and become the active page.
 <div id="pop"></div>
 
 <h3>
+<a class="anchor" name="pop" href="#pop"></a>
 <code>pop(opts)</code>
   
 
@@ -882,6 +889,7 @@ class SecondView{
 <div id="popToRoot"></div>
 
 <h3>
+<a class="anchor" name="popToRoot" href="#popToRoot"></a>
 <code>popToRoot(opts)</code>
   
 
@@ -930,6 +938,7 @@ Similar to `pop()`, this method let's you navigate back to the root of the stack
 <div id="popTo"></div>
 
 <h3>
+<a class="anchor" name="popTo" href="#popTo"></a>
 <code>popTo(view,&nbsp;opts)</code>
   
 
@@ -995,6 +1004,7 @@ Pop to a specific view in the history stack
 <div id="remove"></div>
 
 <h3>
+<a class="anchor" name="remove" href="#remove"></a>
 <code>remove(startIndex,&nbsp;removeCount,&nbsp;opts)</code>
   
 
@@ -1095,6 +1105,7 @@ export class Detail {
 <div id="canSwipeBack"></div>
 
 <h3>
+<a class="anchor" name="canSwipeBack" href="#canSwipeBack"></a>
 <code>canSwipeBack()</code>
   
 
@@ -1122,6 +1133,7 @@ will return true.
 <div id="canGoBack"></div>
 
 <h3>
+<a class="anchor" name="canGoBack" href="#canGoBack"></a>
 <code>canGoBack()</code>
   
 
@@ -1147,6 +1159,7 @@ Otherwise returns false.
 <div id="getByIndex"></div>
 
 <h3>
+<a class="anchor" name="getByIndex" href="#getByIndex"></a>
 <code>getByIndex(index)</code>
   
 
@@ -1201,6 +1214,7 @@ Otherwise returns false.
 <div id="getActive"></div>
 
 <h3>
+<a class="anchor" name="getActive" href="#getActive"></a>
 <code>getActive()</code>
   
 
@@ -1225,6 +1239,7 @@ Otherwise returns false.
 <div id="isActive"></div>
 
 <h3>
+<a class="anchor" name="isActive" href="#isActive"></a>
 <code>isActive(view)</code>
   
 
@@ -1278,6 +1293,7 @@ Otherwise returns false.
 <div id="getPrevious"></div>
 
 <h3>
+<a class="anchor" name="getPrevious" href="#getPrevious"></a>
 <code>getPrevious(view)</code>
   
 
@@ -1332,6 +1348,7 @@ Otherwise returns false.
 <div id="first"></div>
 
 <h3>
+<a class="anchor" name="first" href="#first"></a>
 <code>first()</code>
   
 
@@ -1356,6 +1373,7 @@ First page in this nav controller's stack.
 <div id="last"></div>
 
 <h3>
+<a class="anchor" name="last" href="#last"></a>
 <code>last()</code>
   
 
@@ -1380,6 +1398,7 @@ Last page in this nav controller's stack. This would not return a page which is 
 <div id="indexOf"></div>
 
 <h3>
+<a class="anchor" name="indexOf" href="#indexOf"></a>
 <code>indexOf(view)</code>
   
 
@@ -1433,6 +1452,7 @@ Last page in this nav controller's stack. This would not return a page which is 
 <div id="length"></div>
 
 <h3>
+<a class="anchor" name="length" href="#length"></a>
 <code>length()</code>
   
 
@@ -1457,6 +1477,7 @@ Number of sibling views in the nav controller.
 <div id="rootNav"></div>
 
 <h3>
+<a class="anchor" name="rootNav" href="#rootNav"></a>
 <code>rootNav()</code>
   
 

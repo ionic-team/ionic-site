@@ -76,6 +76,7 @@ events.subscribe(&#39;user:created&#39;, (user) =&gt; {
 <div id="subscribe"></div>
 
 <h3>
+<a class="anchor" name="subscribe" href="#subscribe"></a>
 <code>subscribe(topic,&nbsp;handler)</code>
   
 
@@ -142,6 +143,7 @@ Subscribe to an event topic. Events that get posted to that topic will trigger t
 <div id="unsubscribe"></div>
 
 <h3>
+<a class="anchor" name="unsubscribe" href="#unsubscribe"></a>
 <code>unsubscribe(topic,&nbsp;handler)</code>
   
 
@@ -216,6 +218,7 @@ Unsubscribe from the given topic. Your handler will no longer receive events pub
 <div id="publish"></div>
 
 <h3>
+<a class="anchor" name="publish" href="#publish"></a>
 <code>publish(topic,&nbsp;eventData)</code>
   
 

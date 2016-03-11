@@ -75,6 +75,7 @@ the screen, while on Android it is at the top.</p>
 <div id="select"></div>
 
 <h3>
+<a class="anchor" name="select" href="#select"></a>
 <code>select(index)</code>
   
 
@@ -123,6 +124,7 @@ the screen, while on Android it is at the top.</p>
 <div id="getByIndex"></div>
 
 <h3>
+<a class="anchor" name="getByIndex" href="#getByIndex"></a>
 <code>getByIndex(index)</code>
   
 
@@ -177,6 +179,7 @@ the screen, while on Android it is at the top.</p>
 <div id="getSelected"></div>
 
 <h3>
+<a class="anchor" name="getSelected" href="#getSelected"></a>
 <code>getSelected()</code>
   
 

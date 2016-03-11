@@ -140,7 +140,7 @@ class Profile {
 <!-- @property tags -->
 <h2><a class="anchor" name="static-methods" href="#static-methods"></a>Static Methods</h2>
 <div id="create"></div>
-<h3><code>create(componentType,&nbsp;data)</code>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(componentType,&nbsp;data)</code>
   
 </h3>
 

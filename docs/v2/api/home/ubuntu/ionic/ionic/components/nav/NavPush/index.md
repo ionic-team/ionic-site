@@ -91,6 +91,7 @@ NavPush:</p>
 <div id="registry"></div>
 
 <h3>
+<a class="anchor" name="registry" href="#registry"></a>
 <code>registry()</code>
   
 

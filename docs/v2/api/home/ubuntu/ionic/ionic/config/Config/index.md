@@ -204,6 +204,7 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 <div id="get"></div>
 
 <h3>
+<a class="anchor" name="get" href="#get"></a>
 <code>get(key,&nbsp;fallbackValue)</code>
   
 
@@ -269,6 +270,7 @@ Returns a single config value, given a key.
 <div id="getBoolean"></div>
 
 <h3>
+<a class="anchor" name="getBoolean" href="#getBoolean"></a>
 <code>getBoolean(key)</code>
   
 
@@ -317,6 +319,7 @@ Same as `get()`, however always returns a boolean value.
 <div id="set"></div>
 
 <h3>
+<a class="anchor" name="set" href="#set"></a>
 <code>set(platform,&nbsp;key,&nbsp;value)</code>
   
 

@@ -68,6 +68,7 @@ Improve this doc
 <div id="isOpen"></div>
 
 <h3>
+<a class="anchor" name="isOpen" href="#isOpen"></a>
 <code>isOpen()</code>
   
 
@@ -105,6 +106,7 @@ export class MyClass{
 <div id="onClose"></div>
 
 <h3>
+<a class="anchor" name="onClose" href="#onClose"></a>
 <code>onClose(callback)</code>
   
 
@@ -173,6 +175,7 @@ export class MyClass{
 <div id="close"></div>
 
 <h3>
+<a class="anchor" name="close" href="#close"></a>
 <code>close()</code>
   
 

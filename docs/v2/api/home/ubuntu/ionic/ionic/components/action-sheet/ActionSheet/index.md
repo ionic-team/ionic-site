@@ -110,7 +110,7 @@ presentActionSheet() {
 <!-- @property tags -->
 <h2><a class="anchor" name="static-methods" href="#static-methods"></a>Static Methods</h2>
 <div id="create"></div>
-<h3><code>create(opts)</code>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(opts)</code>
   
 </h3>
 
@@ -183,6 +183,7 @@ For the buttons:
 <div id="setTitle"></div>
 
 <h3>
+<a class="anchor" name="setTitle" href="#setTitle"></a>
 <code>setTitle(title)</code>
   
 
@@ -231,6 +232,7 @@ For the buttons:
 <div id="setSubTitle"></div>
 
 <h3>
+<a class="anchor" name="setSubTitle" href="#setSubTitle"></a>
 <code>setSubTitle(subTitle)</code>
   
 
@@ -279,6 +281,7 @@ For the buttons:
 <div id="addButton"></div>
 
 <h3>
+<a class="anchor" name="addButton" href="#addButton"></a>
 <code>addButton(button)</code>
   
 

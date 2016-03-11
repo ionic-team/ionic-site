@@ -69,6 +69,7 @@ removing items.</p>
 <div id="enableSlidingItems"></div>
 
 <h3>
+<a class="anchor" name="enableSlidingItems" href="#enableSlidingItems"></a>
 <code>enableSlidingItems(shouldEnable)</code>
   
 
@@ -129,6 +130,7 @@ export class MyClass {
 <div id="closeSlidingItems"></div>
 
 <h3>
+<a class="anchor" name="closeSlidingItems" href="#closeSlidingItems"></a>
 <code>closeSlidingItems()</code>
   
 

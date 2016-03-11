@@ -80,6 +80,7 @@ export class MyClass{
 <div id="get"></div>
 
 <h3>
+<a class="anchor" name="get" href="#get"></a>
 <code>get(key)</code>
   
 
@@ -128,6 +129,7 @@ Get the value of a key in LocalStorage
 <div id="set"></div>
 
 <h3>
+<a class="anchor" name="set" href="#set"></a>
 <code>set(key,&nbsp;value)</code>
   
 
@@ -193,6 +195,7 @@ Set a key value pair and save it to LocalStorage
 <div id="remove"></div>
 
 <h3>
+<a class="anchor" name="remove" href="#remove"></a>
 <code>remove(key)</code>
   
 

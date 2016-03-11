@@ -58,6 +58,7 @@ registered using the <a href="../Id/">Id directive</a>.</p>
 <div id="setTitle"></div>
 
 <h3>
+<a class="anchor" name="setTitle" href="#setTitle"></a>
 <code>setTitle(val)</code>
   
 
@@ -106,6 +107,7 @@ Sets the document title.
 <div id="isProd"></div>
 
 <h3>
+<a class="anchor" name="isProd" href="#isProd"></a>
 <code>isProd()</code>
   
 
@@ -132,6 +134,7 @@ to `false`.
 <div id="isScrolling"></div>
 
 <h3>
+<a class="anchor" name="isScrolling" href="#isScrolling"></a>
 <code>isScrolling()</code>
   
 
@@ -156,6 +159,7 @@ Boolean if the app is actively scrolling or not.
 <div id="getComponent"></div>
 
 <h3>
+<a class="anchor" name="getComponent" href="#getComponent"></a>
 <code>getComponent()</code>
   
 

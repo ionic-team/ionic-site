@@ -121,6 +121,7 @@ custom SVG or CSS animations.</p>
 <div id="state"></div>
 
 <h3>
+<a class="anchor" name="state" href="#state"></a>
 <code>state()</code>
   
 
@@ -148,6 +149,7 @@ The current state which the refresher is in. The refresher's states include:
 <div id="startY"></div>
 
 <h3>
+<a class="anchor" name="startY" href="#startY"></a>
 <code>startY()</code>
   
 
@@ -168,6 +170,7 @@ The Y coordinate of where the user started to the pull down the content.
 <div id="currentY"></div>
 
 <h3>
+<a class="anchor" name="currentY" href="#currentY"></a>
 <code>currentY()</code>
   
 
@@ -188,6 +191,7 @@ The current touch or mouse event's Y coordinate.
 <div id="deltaY"></div>
 
 <h3>
+<a class="anchor" name="deltaY" href="#deltaY"></a>
 <code>deltaY()</code>
   
 
@@ -209,6 +213,7 @@ mouse event's Y coordinate.
 <div id="progress"></div>
 
 <h3>
+<a class="anchor" name="progress" href="#progress"></a>
 <code>progress()</code>
   
 
@@ -235,6 +240,7 @@ position.
 <div id="complete"></div>
 
 <h3>
+<a class="anchor" name="complete" href="#complete"></a>
 <code>complete()</code>
   
 
@@ -261,6 +267,7 @@ the refresher. This method also changes the refresher's state from
 <div id="cancel"></div>
 
 <h3>
+<a class="anchor" name="cancel" href="#cancel"></a>
 <code>cancel()</code>
   
 

@@ -72,6 +72,7 @@ methods to control the scrollable area.</p>
 <div id="onScrollElementTransitionEnd"></div>
 
 <h3>
+<a class="anchor" name="onScrollElementTransitionEnd" href="#onScrollElementTransitionEnd"></a>
 <code>onScrollElementTransitionEnd()</code>
   
 
@@ -91,6 +92,7 @@ methods to control the scrollable area.</p>
 <div id="scrollTo"></div>
 
 <h3>
+<a class="anchor" name="scrollTo" href="#scrollTo"></a>
 <code>scrollTo(x,&nbsp;y,&nbsp;duration,&nbsp;tolerance)</code>
   
 
@@ -217,6 +219,7 @@ export class MyPage{
 <div id="scrollToTop"></div>
 
 <h3>
+<a class="anchor" name="scrollToTop" href="#scrollToTop"></a>
 <code>scrollToTop()</code>
   
 
@@ -262,6 +265,7 @@ export class MyPage{
 <div id="getContentDimensions"></div>
 
 <h3>
+<a class="anchor" name="getContentDimensions" href="#getContentDimensions"></a>
 <code>getContentDimensions()</code>
   
 

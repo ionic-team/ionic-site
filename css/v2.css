@@ -8100,6 +8100,28 @@ a.footer-link {
       .docs-container main h4:first-child,
       .docs-container main h5:first-child {
         margin-top: 0; }
+      .docs-container main h1 a.anchor:before,
+      .docs-container main h2 a.anchor:before,
+      .docs-container main h3 a.anchor:before,
+      .docs-container main h4 a.anchor:before,
+      .docs-container main h5 a.anchor:before {
+        content: '\f22a';
+        font-family: 'Ionicons';
+        margin-left: -15px;
+        margin-right: 5px;
+        font-size: 14px;
+        color: #e6e9ee;
+        transition: .3s color; }
+      .docs-container main h1 a.anchor:hover:before, .docs-container main h1 a.anchor:active:before,
+      .docs-container main h2 a.anchor:hover:before,
+      .docs-container main h2 a.anchor:active:before,
+      .docs-container main h3 a.anchor:hover:before,
+      .docs-container main h3 a.anchor:active:before,
+      .docs-container main h4 a.anchor:hover:before,
+      .docs-container main h4 a.anchor:active:before,
+      .docs-container main h5 a.anchor:hover:before,
+      .docs-container main h5 a.anchor:active:before {
+        color: rgba(79, 143, 247, 0.6); }
     .docs-container main h1 {
       margin-bottom: 0; }
     .docs-container main h2 {

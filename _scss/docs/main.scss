@@ -609,9 +609,27 @@ a.footer-link {
       font-size: 26px;
       font-weight: 400;
       letter-spacing: -0.01em;
+      // position: relative;
 
       &:first-child {
         margin-top: 0;
+      }
+
+      a.anchor {
+        &:before {
+          content: '\f22a';
+          font-family: 'Ionicons';
+          margin-left: -15px;
+          margin-right: 5px;
+          font-size: 14px;
+          color: $light-grey;
+          transition: .3s color;
+        }
+
+        &:hover:before,
+        &:active:before {
+          color: rgba($blue, .6);
+        }
       }
     }
 

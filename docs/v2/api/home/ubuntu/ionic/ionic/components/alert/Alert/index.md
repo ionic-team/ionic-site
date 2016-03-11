@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="alert"></a>
+<a class="anchor" name="alert" href="#alert"></a>
 
 Alert
 
@@ -75,7 +75,7 @@ building the form within a modal instead.</p>
 
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">constructor(nav: NavController) {
   this.nav = nav;
@@ -156,7 +156,7 @@ presentPrompt() {
 
 
 <!-- @property tags -->
-<h2><a name="static-methods"></a>Static Methods</h2>
+<h2><a class="anchor" name="static-methods" href="#static-methods"></a>Static Methods</h2>
 <div id="create"></div>
 <h3><code>create(opts)</code>
   
@@ -238,7 +238,7 @@ Alert options
 
 <!-- instance methods on the class -->
 
-<h2><a name="instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="setTitle"></div>
 

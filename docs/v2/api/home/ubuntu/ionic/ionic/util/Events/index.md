@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="events"></a>
+<a class="anchor" name="events" href="#events"></a>
 
 Events
 
@@ -48,7 +48,7 @@ events across your app.</p>
 
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">// first page (publish an event when a user is created)
 function createUser(user) {
@@ -71,7 +71,7 @@ events.subscribe(&#39;user:created&#39;, (user) =&gt; {
 
 <!-- instance methods on the class -->
 
-<h2><a name="instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="subscribe"></div>
 

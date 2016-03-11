@@ -21,7 +21,7 @@ docType: "class"
 
 
 <h1 class="api-title">
-<a name="keyboard"></a>
+<a class="anchor" name="keyboard" href="#keyboard"></a>
 
 Keyboard
 
@@ -45,7 +45,7 @@ Improve this doc
 
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">export class MyClass{
  constructor(keyboard: Keyboard){
@@ -63,7 +63,7 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2><a name="instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="isOpen"></div>
 

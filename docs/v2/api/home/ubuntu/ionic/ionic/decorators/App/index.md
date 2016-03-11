@@ -21,7 +21,7 @@ docType: "function"
 
 
 <h1 class="api-title">
-<a name="app"></a>
+<a class="anchor" name="app" href="#app"></a>
 
 App
 
@@ -49,7 +49,7 @@ to an external html template.</p>
 
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">import {App} from &#39;ionic-angular&#39;;
 
@@ -68,7 +68,7 @@ export class MyApp{
 
 <!-- @property tags -->
 
-<h2><a name="attributes"></a>Attributes:</h2>
+<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>

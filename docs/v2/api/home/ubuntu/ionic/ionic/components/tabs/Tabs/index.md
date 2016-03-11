@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="tabs"></a>
+<a class="anchor" name="tabs" href="#tabs"></a>
 
 Tabs
 
@@ -50,11 +50,11 @@ individual Tab components. On iOS, the TabBar is placed on the bottom of
 the screen, while on Android it is at the top.</p>
 
 
-<h2><a name="Component"></a>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-tabs</code></h3>
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-tabs&gt;
   &lt;ion-tab [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
@@ -70,7 +70,7 @@ the screen, while on Android it is at the top.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a name="instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="select"></div>
 
@@ -198,7 +198,7 @@ the screen, while on Android it is at the top.</p>
 
 
 <!-- input methods on the class -->
-<h2><a name="input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -247,7 +247,7 @@ the screen, while on Android it is at the top.</p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a name="output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -266,7 +266,7 @@ the screen, while on Android it is at the top.</p>
   </tbody>
 </table><!-- related link -->
 
-<h2><a name="related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#tabs'>Tabs Component Docs</a>
 <a href='../Tab'>Tab API Docs</a><!-- end content block -->

@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="slide"></a>
+<a class="anchor" name="slide" href="#slide"></a>
 
 Slide
 
@@ -46,7 +46,7 @@ Improve this doc
 <p><code>ion-slide</code> is a child component of <code>ion-slides</code> and is where all your individule slide content will be rendered too.</p>
 
 
-<h2><a name="Component"></a>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-slide</code></h3>
 <!-- @usage tag -->
 
@@ -57,7 +57,7 @@ Improve this doc
 
 <!-- instance methods on the class --><!-- related link -->
 
-<h2><a name="related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/api/components/slides/Slides/'>Slides API Docs</a><!-- end content block -->
 

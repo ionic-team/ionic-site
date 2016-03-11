@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="menu"></a>
+<a class="anchor" name="menu" href="#menu"></a>
 
 Menu
 
@@ -51,7 +51,7 @@ template HTML, or programmatically.</p>
 
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <p>In order to use Menu, you must specify a <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">reference</a>
 to the content element that Menu should listen on for drag events, using the <code>content</code> property.
@@ -153,7 +153,7 @@ to always show the menu toggle button in the navbar by setting
 
 <!-- instance methods on the class -->
 
-<h2><a name="instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="open"></div>
 
@@ -548,7 +548,7 @@ property. If a menu is not found then it'll return `null`.
 
 <!-- related link -->
 
-<h2><a name="related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#menus'>Menu Component Docs</a>
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>

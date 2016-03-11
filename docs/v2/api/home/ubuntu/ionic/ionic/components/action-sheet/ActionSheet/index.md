@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="action-sheet"></a>
+<a class="anchor" name="action-sheet" href="#action-sheet"></a>
 
 ActionSheet
 
@@ -67,7 +67,7 @@ instance has methods to add options, like <code>setTitle()</code> or <code>addBu
 
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">constructor(nav: NavController) {
   this.nav = nav;
@@ -108,7 +108,7 @@ presentActionSheet() {
 
 
 <!-- @property tags -->
-<h2><a name="static-methods"></a>Static Methods</h2>
+<h2><a class="anchor" name="static-methods" href="#static-methods"></a>Static Methods</h2>
 <div id="create"></div>
 <h3><code>create(opts)</code>
   
@@ -178,7 +178,7 @@ For the buttons:
 
 <!-- instance methods on the class -->
 
-<h2><a name="instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="setTitle"></div>
 
@@ -324,7 +324,7 @@ For the buttons:
 
 <!-- related link -->
 
-<h2><a name="related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#action-sheets'>ActionSheet Component Docs</a><!-- end content block -->
 

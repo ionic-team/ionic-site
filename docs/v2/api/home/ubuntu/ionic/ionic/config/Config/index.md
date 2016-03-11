@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="config"></a>
+<a class="anchor" name="config" href="#config"></a>
 
 Config
 
@@ -199,7 +199,7 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 
 <!-- instance methods on the class -->
 
-<h2><a name="instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="get"></div>
 

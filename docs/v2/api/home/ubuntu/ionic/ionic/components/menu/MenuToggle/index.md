@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="menu-toggle"></a>
+<a class="anchor" name="menu-toggle" href="#menu-toggle"></a>
 
 MenuToggle
 
@@ -47,11 +47,11 @@ Improve this doc
 automatically close an open menu.</p>
 
 
-<h2><a name="Directive"></a>Directive</h2>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>[menuToggle]</code></h3>
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;button menuToggle&gt;Toggle Menu&lt;/button&gt;
 </code></pre>
@@ -69,7 +69,7 @@ directive a value.</p>
 
 <!-- instance methods on the class --><!-- related link -->
 
-<h2><a name="related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#menus'>Menu Component Docs</a>
 <a href='../../menu/Menu'>Menu API Docs</a><!-- end content block -->

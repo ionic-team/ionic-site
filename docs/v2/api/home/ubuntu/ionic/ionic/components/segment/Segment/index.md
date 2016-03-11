@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="segment"></a>
+<a class="anchor" name="segment" href="#segment"></a>
 
 Segment
 
@@ -48,11 +48,11 @@ Segments provide functionality similar to tabs, selecting one will unselect all 
 You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> API. For an overview on how <code>FormBuilder</code> works, checkout <a href="http://learnangular2.com/forms/">Angular 2 Forms</a>, or <a href="https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html">Angular FormBuilder</a></p>
 
 
-<h2><a name="Directive"></a>Directive</h2>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>ion-segment</code></h3>
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; (change)=&quot;onSegmentChanged($event)&quot; danger&gt;
   &lt;ion-segment-button value=&quot;friends&quot;&gt;
@@ -88,7 +88,7 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
 
 <!-- instance methods on the class -->
 <!-- output events on the class -->
-<h2><a name="output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -107,7 +107,7 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
   </tbody>
 </table><!-- related link -->
 
-<h2><a name="related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#segment'>Segment Component Docs</a>
 [Angular 2 Forms](http://learnangular2.com/forms/)<!-- end content block -->

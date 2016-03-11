@@ -21,7 +21,7 @@ docType: "function"
 
 
 <h1 class="api-title">
-<a name="page"></a>
+<a class="anchor" name="page" href="#page"></a>
 
 Page
 
@@ -50,7 +50,7 @@ already provided to them, so you only need to supply custom components and direc
 
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">@Page({
   template: `

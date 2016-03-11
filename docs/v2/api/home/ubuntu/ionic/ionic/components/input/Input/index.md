@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="input"></a>
+<a class="anchor" name="input" href="#input"></a>
 
 Input
 
@@ -54,11 +54,11 @@ interactivity.</p>
 <code>checkbox</code>, <code>radio</code>, <code>toggle</code>, <code>range</code>, <code>select</code>, etc.</p>
 
 
-<h2><a name="Component"></a>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-input</code></h3>
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Username&lt;/ion-label&gt;
@@ -90,7 +90,7 @@ interactivity.</p>
 
 <!-- @property tags -->
 
-<h2><a name="attributes"></a>Attributes:</h2>
+<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>

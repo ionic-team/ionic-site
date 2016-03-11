@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="checkbox"></a>
+<a class="anchor" name="checkbox" href="#checkbox"></a>
 
 Checkbox
 
@@ -49,11 +49,11 @@ placed in an <code>ion-item</code> or used as a stand-alone checkbox.</p>
 for more info on forms and inputs.</p>
 
 
-<h2><a name="Component"></a>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-checkbox</code></h3>
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
 
@@ -84,7 +84,7 @@ for more info on forms and inputs.</p>
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2><a name="input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -112,7 +112,7 @@ for more info on forms and inputs.</p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a name="output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -131,7 +131,7 @@ for more info on forms and inputs.</p>
   </tbody>
 </table><!-- related link -->
 
-<h2><a name="related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#checkbox'>Checkbox Component Docs</a><!-- end content block -->
 

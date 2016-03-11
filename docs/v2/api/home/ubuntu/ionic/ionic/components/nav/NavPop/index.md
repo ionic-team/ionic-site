@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="nav-pop"></a>
+<a class="anchor" name="nav-pop" href="#nav-pop"></a>
 
 NavPop
 
@@ -46,11 +46,11 @@ Improve this doc
 <p>Directive for declaratively pop the current page off from the navigation stack.</p>
 
 
-<h2><a name="Directive"></a>Directive</h2>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>[nav-pop]</code></h3>
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
  &lt;div block button nav-pop&gt;go back&lt;/div&gt;
@@ -68,7 +68,7 @@ Improve this doc
 
 <!-- instance methods on the class --><!-- related link -->
 
-<h2><a name="related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
 <a href='../NavPush'>NavPush API Docs</a><!-- end content block -->

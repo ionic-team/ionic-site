@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="searchbar"></a>
+<a class="anchor" name="searchbar" href="#searchbar"></a>
 
 Searchbar
 
@@ -46,11 +46,11 @@ Improve this doc
 <p>Manages the display of a Searchbar which can be used to search or filter items.</p>
 
 
-<h2><a name="Component"></a>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-searchbar</code></h3>
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-searchbar
   [(ngModel)]=&quot;myInput&quot;
@@ -69,7 +69,7 @@ Improve this doc
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2><a name="input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -118,7 +118,7 @@ Improve this doc
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2><a name="output-events"></a>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -161,7 +161,7 @@ Improve this doc
   </tbody>
 </table><!-- related link -->
 
-<h2><a name="related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#searchbar'>Searchbar Component Docs</a><!-- end content block -->
 

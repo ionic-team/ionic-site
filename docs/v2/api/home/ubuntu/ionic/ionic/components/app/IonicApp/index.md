@@ -21,7 +21,7 @@ docType: "class"
 
 
 <h1 class="api-title">
-<a name="ionic-app"></a>
+<a class="anchor" name="ionic-app" href="#ionic-app"></a>
 
 IonicApp
 
@@ -53,7 +53,7 @@ registered using the <a href="../Id/">Id directive</a>.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a name="instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="setTitle"></div>
 

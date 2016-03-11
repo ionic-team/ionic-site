@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="navbar"></a>
+<a class="anchor" name="navbar" href="#navbar"></a>
 
 Navbar
 
@@ -47,11 +47,11 @@ Improve this doc
 loaded. You can pass the navbar an <code>ion-title</code>, any number of buttons, a segment, or a searchbar.</p>
 
 
-<h2><a name="Component"></a>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-navbar</code></h3>
 <!-- @usage tag -->
 
-<h2><a name="usage"></a>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
   &lt;button menuToggle&gt;
@@ -79,7 +79,7 @@ loaded. You can pass the navbar an <code>ion-title</code>, any number of buttons
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2><a name="input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -100,7 +100,7 @@ loaded. You can pass the navbar an <code>ion-title</code>, any number of buttons
   </tbody>
 </table><!-- related link -->
 
-<h2><a name="related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='../../toolbar/Toolbar/'>Toolbar API Docs</a><!-- end content block -->
 

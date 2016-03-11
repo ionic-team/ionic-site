@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-<a name="button"></a>
+<a class="anchor" name="button" href="#button"></a>
 
 Button
 
@@ -47,14 +47,14 @@ Improve this doc
 and be enhanced by a wide range of attributes.</p>
 
 
-<h2><a name="Component"></a>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>button:not([ion-item]),[button]</code></h3>
 <!-- @usage tag -->
 
 
 <!-- @property tags -->
 
-<h2><a name="attributes"></a>Attributes:</h2>
+<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -287,7 +287,7 @@ Dynamically set which color attribute this button should use.
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2><a name="input-properties"></a>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -371,7 +371,7 @@ Dynamically set which color attribute this button should use.
   </tbody>
 </table><!-- related link -->
 
-<h2><a name="related"></a>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#buttons'>Button Component Docs</a><!-- end content block -->
 

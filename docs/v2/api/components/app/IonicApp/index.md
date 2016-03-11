@@ -21,7 +21,7 @@ docType: "class"
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="ionic-app" href="#ionic-app"></a>
 
 IonicApp
 
@@ -32,7 +32,7 @@ IonicApp
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/app/app.ts#L5'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/app/app.ts#L5'>
 Improve this doc
 </a>
 
@@ -53,11 +53,12 @@ registered using the <a href="../Id/">Id directive</a>.</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="setTitle"></div>
 
 <h3>
+<a class="anchor" name="setTitle" href="#setTitle"></a>
 <code>setTitle(val)</code>
   
 
@@ -106,6 +107,7 @@ Sets the document title.
 <div id="isProd"></div>
 
 <h3>
+<a class="anchor" name="isProd" href="#isProd"></a>
 <code>isProd()</code>
   
 
@@ -132,6 +134,7 @@ to `false`.
 <div id="isScrolling"></div>
 
 <h3>
+<a class="anchor" name="isScrolling" href="#isScrolling"></a>
 <code>isScrolling()</code>
   
 
@@ -156,6 +159,7 @@ Boolean if the app is actively scrolling or not.
 <div id="getComponent"></div>
 
 <h3>
+<a class="anchor" name="getComponent" href="#getComponent"></a>
 <code>getComponent()</code>
   
 

@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="alert" href="#alert"></a>
 
 Alert
 
@@ -34,7 +34,7 @@ Alert
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/alert/alert.ts#L8'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/alert/alert.ts#L8'>
 Improve this doc
 </a>
 
@@ -75,7 +75,7 @@ building the form within a modal instead.</p>
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">constructor(nav: NavController) {
   this.nav = nav;
@@ -156,9 +156,9 @@ presentPrompt() {
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2><a class="anchor" name="static-methods" href="#static-methods"></a>Static Methods</h2>
 <div id="create"></div>
-<h3><code>create(opts)</code>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(opts)</code>
   
 </h3>
 
@@ -184,7 +184,7 @@ Alert options
  | placeHolder | `string`  | The input's placeholder (optional)                              |
  | value       | `string`  | The input's value (optional)                                    |
  | label       | `string`  | The input's label (optional)                                    |
- | chacked     | `boolean` | Whether or not the input is checked or not (optional)           |
+ | checked     | `boolean` | Whether or not the input is checked or not (optional)           |
  | id          | `string`  | The input's id (optional)                                       |
 
  Button options
@@ -238,11 +238,12 @@ Alert options
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="setTitle"></div>
 
 <h3>
+<a class="anchor" name="setTitle" href="#setTitle"></a>
 <code>setTitle(title)</code>
   
 
@@ -291,6 +292,7 @@ Alert options
 <div id="setSubTitle"></div>
 
 <h3>
+<a class="anchor" name="setSubTitle" href="#setSubTitle"></a>
 <code>setSubTitle(subTitle)</code>
   
 
@@ -339,6 +341,7 @@ Alert options
 <div id="setMessage"></div>
 
 <h3>
+<a class="anchor" name="setMessage" href="#setMessage"></a>
 <code>setMessage(message)</code>
   
 
@@ -387,6 +390,7 @@ Alert options
 <div id="addInput"></div>
 
 <h3>
+<a class="anchor" name="addInput" href="#addInput"></a>
 <code>addInput(input)</code>
   
 
@@ -435,6 +439,7 @@ Alert options
 <div id="addButton"></div>
 
 <h3>
+<a class="anchor" name="addButton" href="#addButton"></a>
 <code>addButton(button)</code>
   
 
@@ -483,6 +488,7 @@ Alert options
 <div id="setCssClass"></div>
 
 <h3>
+<a class="anchor" name="setCssClass" href="#setCssClass"></a>
 <code>setCssClass(cssClass)</code>
   
 

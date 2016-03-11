@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="item" href="#item"></a>
 
 Item
 
@@ -34,7 +34,7 @@ Item
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/item/item.ts#L6'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/item/item.ts#L6'>
 Improve this doc
 </a>
 
@@ -55,11 +55,11 @@ To hide this icon, add the <code>detail-none</code> attribute to the item (eg: <
 add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&gt;</code>).</p>
 
 
-<h2>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-item,[ion-item]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
 
@@ -80,7 +80,7 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 
 <!-- instance methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#lists'>List Component Docs</a>
 <a href='../../list/List'>List API Docs</a><!-- end content block -->

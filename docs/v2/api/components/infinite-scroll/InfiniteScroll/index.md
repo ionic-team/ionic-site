@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="infinite-scroll" href="#infinite-scroll"></a>
 
 InfiniteScroll
 
@@ -34,7 +34,7 @@ InfiniteScroll
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/infinite-scroll/infinite-scroll.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/infinite-scroll/infinite-scroll.ts#L2'>
 Improve this doc
 </a>
 
@@ -51,11 +51,11 @@ has finished its tasks, it should call the <code>complete()</code> method
 on the infinite scroll instance.</p>
 
 
-<h2>Directive</h2>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>ion-infinite-scroll</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
 
@@ -128,11 +128,12 @@ You could replace our default content with custom SVG or CSS animations.</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="state"></div>
 
 <h3>
+<a class="anchor" name="state" href="#state"></a>
 <code>state()</code>
   
 
@@ -152,6 +153,7 @@ You could replace our default content with custom SVG or CSS animations.</p>
 <div id="complete"></div>
 
 <h3>
+<a class="anchor" name="complete" href="#complete"></a>
 <code>complete()</code>
   
 
@@ -179,6 +181,7 @@ to `enabled`.
 <div id="enable"></div>
 
 <h3>
+<a class="anchor" name="enable" href="#enable"></a>
 <code>enable(shouldEnable)</code>
   
 
@@ -227,7 +230,7 @@ the infinite scroll is no longer needed.
 
 
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -255,7 +258,7 @@ Default is <code>15%</code>.</p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>

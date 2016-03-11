@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="nav-params" href="#nav-params"></a>
 
 NavParams
 
@@ -34,7 +34,7 @@ NavParams
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/nav-params.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/nav/nav-params.ts#L0'>
 Improve this doc
 </a>
 
@@ -49,7 +49,7 @@ option with a simple <code>get</code> method.</p>
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">export class MyClass{
  constructor(params: NavParams){
@@ -69,11 +69,12 @@ option with a simple <code>get</code> method.</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="data"></div>
 
 <h3>
+<a class="anchor" name="data" href="#data"></a>
 <code>data()</code>
   
 
@@ -93,6 +94,7 @@ option with a simple <code>get</code> method.</p>
 <div id="get"></div>
 
 <h3>
+<a class="anchor" name="get" href="#get"></a>
 <code>get(parameter)</code>
   
 
@@ -150,7 +152,7 @@ export class MyClass{
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
 <a href='../NavController/'>NavController API Docs</a>

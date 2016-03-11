@@ -21,7 +21,7 @@ docType: "class"
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="content" href="#content"></a>
 
 Content
 
@@ -32,7 +32,7 @@ Content
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/content/content.ts#L8'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/content/content.ts#L8'>
 Improve this doc
 </a>
 
@@ -47,11 +47,11 @@ methods to control the scrollable area.</p>
 <a href="../../scroll/Refresher">Refresher</a> component.</p>
 
 
-<h2>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-content</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
   Add your content here!
@@ -67,11 +67,12 @@ methods to control the scrollable area.</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="onScrollElementTransitionEnd"></div>
 
 <h3>
+<a class="anchor" name="onScrollElementTransitionEnd" href="#onScrollElementTransitionEnd"></a>
 <code>onScrollElementTransitionEnd()</code>
   
 
@@ -91,6 +92,7 @@ methods to control the scrollable area.</p>
 <div id="scrollTo"></div>
 
 <h3>
+<a class="anchor" name="scrollTo" href="#scrollTo"></a>
 <code>scrollTo(x,&nbsp;y,&nbsp;duration,&nbsp;tolerance)</code>
   
 
@@ -217,6 +219,7 @@ export class MyPage{
 <div id="scrollToTop"></div>
 
 <h3>
+<a class="anchor" name="scrollToTop" href="#scrollToTop"></a>
 <code>scrollToTop()</code>
   
 
@@ -262,6 +265,7 @@ export class MyPage{
 <div id="getContentDimensions"></div>
 
 <h3>
+<a class="anchor" name="getContentDimensions" href="#getContentDimensions"></a>
 <code>getContentDimensions()</code>
   
 

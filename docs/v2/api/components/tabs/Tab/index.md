@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="tab" href="#tab"></a>
 
 Tab
 
@@ -34,7 +34,7 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/tabs/tab.ts#L9'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/tabs/tab.ts#L9'>
 Improve this doc
 </a>
 
@@ -54,11 +54,11 @@ take a look at the <a href="../NavController/">NavController API reference</a>.<
 and the TabBar.</p>
 
 
-<h2>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-tab</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <p>For most cases, you can give tab a <code>[root]</code> property along with the component you want to load.</p>
 <pre><code class="lang-html">&lt;ion-tabs&gt;
@@ -101,7 +101,7 @@ class. Below is an example of presenting a modal from one of the tabs.</p>
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -157,7 +157,7 @@ class. Below is an example of presenting a modal from one of the tabs.</p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>

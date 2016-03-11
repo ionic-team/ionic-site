@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="events" href="#events"></a>
 
 Events
 
@@ -34,7 +34,7 @@ Events
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/util/events.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/util/events.ts#L0'>
 Improve this doc
 </a>
 
@@ -48,7 +48,7 @@ events across your app.</p>
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">// first page (publish an event when a user is created)
 function createUser(user) {
@@ -71,11 +71,12 @@ events.subscribe(&#39;user:created&#39;, (user) =&gt; {
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="subscribe"></div>
 
 <h3>
+<a class="anchor" name="subscribe" href="#subscribe"></a>
 <code>subscribe(topic,&nbsp;handler)</code>
   
 
@@ -142,6 +143,7 @@ Subscribe to an event topic. Events that get posted to that topic will trigger t
 <div id="unsubscribe"></div>
 
 <h3>
+<a class="anchor" name="unsubscribe" href="#unsubscribe"></a>
 <code>unsubscribe(topic,&nbsp;handler)</code>
   
 
@@ -216,6 +218,7 @@ Unsubscribe from the given topic. Your handler will no longer receive events pub
 <div id="publish"></div>
 
 <h3>
+<a class="anchor" name="publish" href="#publish"></a>
 <code>publish(topic,&nbsp;eventData)</code>
   
 

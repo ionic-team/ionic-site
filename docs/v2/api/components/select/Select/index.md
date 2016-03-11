@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="select" href="#select"></a>
 
 Select
 
@@ -34,7 +34,7 @@ Select
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/select/select.ts#L11'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/select/select.ts#L11'>
 Improve this doc
 </a>
 
@@ -108,7 +108,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 </code></pre>
 
 
-<h2>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-select</code></h3>
 <!-- @usage tag -->
 
@@ -119,7 +119,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -147,7 +147,7 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>

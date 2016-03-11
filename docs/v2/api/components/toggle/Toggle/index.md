@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="toggle" href="#toggle"></a>
 
 Toggle
 
@@ -34,7 +34,7 @@ Toggle
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/toggle/toggle.ts#L10'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/toggle/toggle.ts#L10'>
 Improve this doc
 </a>
 
@@ -51,11 +51,11 @@ attribute.</p>
 for more info on forms and inputs.</p>
 
 
-<h2>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-toggle</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
 
@@ -82,7 +82,7 @@ for more info on forms and inputs.</p>
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -146,7 +146,7 @@ whether the toggle is disabled or not
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -172,7 +172,7 @@ whether the toggle is disabled or not
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -191,7 +191,7 @@ whether the toggle is disabled or not
   </tbody>
 </table><!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#toggle'>Toggle Component Docs</a><!-- end content block -->
 

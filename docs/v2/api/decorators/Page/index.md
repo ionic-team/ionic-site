@@ -21,7 +21,7 @@ docType: "function"
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="page" href="#page"></a>
 
 Page
 
@@ -32,7 +32,7 @@ Page
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/decorators/page.ts#L28'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/decorators/page.ts#L28'>
 Improve this doc
 </a>
 
@@ -50,7 +50,7 @@ already provided to them, so you only need to supply custom components and direc
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">@Page({
   template: `

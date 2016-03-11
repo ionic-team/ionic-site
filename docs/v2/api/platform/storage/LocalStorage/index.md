@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="local-storage" href="#local-storage"></a>
 
 LocalStorage
 
@@ -34,7 +34,7 @@ LocalStorage
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/platform/storage/local-storage.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/platform/storage/local-storage.ts#L0'>
 Improve this doc
 </a>
 
@@ -52,7 +52,7 @@ by the operating system (iOS).</p>
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">import {Page, Storage, LocalStorage} from &#39;ionic-angular&#39;;
 @Page({
@@ -75,11 +75,12 @@ export class MyClass{
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="get"></div>
 
 <h3>
+<a class="anchor" name="get" href="#get"></a>
 <code>get(key)</code>
   
 
@@ -128,6 +129,7 @@ Get the value of a key in LocalStorage
 <div id="set"></div>
 
 <h3>
+<a class="anchor" name="set" href="#set"></a>
 <code>set(key,&nbsp;value)</code>
   
 
@@ -193,6 +195,7 @@ Set a key value pair and save it to LocalStorage
 <div id="remove"></div>
 
 <h3>
+<a class="anchor" name="remove" href="#remove"></a>
 <code>remove(key)</code>
   
 
@@ -238,7 +241,7 @@ Remove a key from LocalStorage
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/platform/storage/'>Storage Platform Docs</a><!-- end content block -->
 

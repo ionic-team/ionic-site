@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="nav-push" href="#nav-push"></a>
 
 NavPush
 
@@ -34,7 +34,7 @@ NavPush
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/nav-push.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/nav/nav-push.ts#L2'>
 Improve this doc
 </a>
 
@@ -47,11 +47,11 @@ Improve this doc
 <a href='../NavController/#push'>NavController.push</a>. Similar to ui-router&#39;s <code>ui-sref</code>.</p>
 
 
-<h2>Directive</h2>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>[navPush]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;button [navPush]=&quot;pushPage&quot;&gt;&lt;/button&gt;
 </code></pre>
@@ -86,11 +86,12 @@ NavPush:</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="registry"></div>
 
 <h3>
+<a class="anchor" name="registry" href="#registry"></a>
 <code>registry()</code>
   
 
@@ -107,7 +108,7 @@ NavPush:</p>
 
 
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -135,7 +136,7 @@ NavPush:</p>
   </tbody>
 </table><!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
 <a href='../NavPop'>NavPop API Docs</a><!-- end content block -->

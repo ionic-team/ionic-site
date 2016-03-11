@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="show-when" href="#show-when"></a>
 
 ShowWhen
 
@@ -34,7 +34,7 @@ ShowWhen
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/show-hide-when/show-hide-when.ts#L56'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/show-hide-when/show-hide-when.ts#L56'>
 Improve this doc
 </a>
 
@@ -48,11 +48,11 @@ The element the attribute is added to will only be shown when that platform or s
 Complements the <a href="../HideWhen">hideWhen attribute</a>.</p>
 
 
-<h2>Directive</h2>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>[showWhen]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;div showWhen=&quot;android&quot;&gt;
  I am visible on Android!
@@ -84,7 +84,7 @@ Complements the <a href="../HideWhen">hideWhen attribute</a>.</p>
 
 <!-- instance methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='../HideWhen'>HideWhen API Docs</a><!-- end content block -->
 

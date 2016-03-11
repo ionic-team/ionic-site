@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="modal" href="#modal"></a>
 
 Modal
 
@@ -34,7 +34,7 @@ Modal
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/modal/modal.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/modal/modal.ts#L2'>
 Improve this doc
 </a>
 
@@ -64,7 +64,7 @@ standard page.</p>
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">import {Page, Modal, NavController, NavParams} from &#39;ionic-angular&#39;;
 
@@ -138,9 +138,9 @@ class Profile {
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2><a class="anchor" name="static-methods" href="#static-methods"></a>Static Methods</h2>
 <div id="create"></div>
-<h3><code>create(componentType,&nbsp;data)</code>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(componentType,&nbsp;data)</code>
   
 </h3>
 
@@ -204,7 +204,7 @@ class Profile {
 
 <!-- instance methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#modals'>Modal Component Docs</a><!-- end content block -->
 

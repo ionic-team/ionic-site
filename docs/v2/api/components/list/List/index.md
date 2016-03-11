@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="list" href="#list"></a>
 
 List
 
@@ -34,7 +34,7 @@ List
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/list/list.ts#L3'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/list/list.ts#L3'>
 Improve this doc
 </a>
 
@@ -53,7 +53,7 @@ interaction modes such as swipe to edit, drag to reorder, and
 removing items.</p>
 
 
-<h2>Directive</h2>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>ion-list</code></h3>
 <!-- @usage tag -->
 
@@ -64,11 +64,12 @@ removing items.</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="enableSlidingItems"></div>
 
 <h3>
+<a class="anchor" name="enableSlidingItems" href="#enableSlidingItems"></a>
 <code>enableSlidingItems(shouldEnable)</code>
   
 
@@ -129,6 +130,7 @@ export class MyClass {
 <div id="closeSlidingItems"></div>
 
 <h3>
+<a class="anchor" name="closeSlidingItems" href="#closeSlidingItems"></a>
 <code>closeSlidingItems()</code>
   
 
@@ -160,7 +162,7 @@ export class MyClass {
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#lists'>List Component Docs</a><!-- end content block -->
 

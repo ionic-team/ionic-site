@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="action-sheet" href="#action-sheet"></a>
 
 ActionSheet
 
@@ -34,7 +34,7 @@ ActionSheet
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/action-sheet/action-sheet.ts#L9'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/action-sheet/action-sheet.ts#L9'>
 Improve this doc
 </a>
 
@@ -67,7 +67,7 @@ instance has methods to add options, like <code>setTitle()</code> or <code>addBu
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">constructor(nav: NavController) {
   this.nav = nav;
@@ -108,9 +108,9 @@ presentActionSheet() {
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2><a class="anchor" name="static-methods" href="#static-methods"></a>Static Methods</h2>
 <div id="create"></div>
-<h3><code>create(opts)</code>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(opts)</code>
   
 </h3>
 
@@ -178,11 +178,12 @@ For the buttons:
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="setTitle"></div>
 
 <h3>
+<a class="anchor" name="setTitle" href="#setTitle"></a>
 <code>setTitle(title)</code>
   
 
@@ -231,6 +232,7 @@ For the buttons:
 <div id="setSubTitle"></div>
 
 <h3>
+<a class="anchor" name="setSubTitle" href="#setSubTitle"></a>
 <code>setSubTitle(subTitle)</code>
   
 
@@ -279,6 +281,7 @@ For the buttons:
 <div id="addButton"></div>
 
 <h3>
+<a class="anchor" name="addButton" href="#addButton"></a>
 <code>addButton(button)</code>
   
 
@@ -324,7 +327,7 @@ For the buttons:
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#action-sheets'>ActionSheet Component Docs</a><!-- end content block -->
 

@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="radio-group" href="#radio-group"></a>
 
 RadioGroup
 
@@ -34,7 +34,7 @@ RadioGroup
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/radio/radio-group.ts#L8'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/radio/radio-group.ts#L8'>
 Improve this doc
 </a>
 
@@ -50,11 +50,11 @@ button in the group unchecks all others in the group.</p>
 for more info on forms and inputs.</p>
 
 
-<h2>Directive</h2>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>[radio-group]</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-list radio-group [(ngModel)]=&quot;autoManufacturers&quot;&gt;
 
@@ -99,7 +99,7 @@ for more info on forms and inputs.</p>
 
 <!-- instance methods on the class -->
 <!-- output events on the class -->
-<h2>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -118,7 +118,7 @@ for more info on forms and inputs.</p>
   </tbody>
 </table><!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#radio'>Radio Component Docs</a><!-- end content block -->
 

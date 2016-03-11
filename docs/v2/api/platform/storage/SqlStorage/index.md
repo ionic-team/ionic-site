@@ -21,7 +21,7 @@ docType: "class"
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="sql-storage" href="#sql-storage"></a>
 
 SqlStorage
 
@@ -32,7 +32,7 @@ SqlStorage
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/platform/storage/sql.ts#L5'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/platform/storage/sql.ts#L5'>
 Improve this doc
 </a>
 
@@ -50,7 +50,7 @@ storage. The full SQL engine is exposed underneath through the <code>query</code
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-js">let storage = new Storage(SqlStorage, options);
 storage.set(&#39;name&#39;, &#39;Max&#39;);
@@ -72,9 +72,9 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2><a class="anchor" name="static-methods" href="#static-methods"></a>Static Methods</h2>
 <div id="BACKUP_LOCAL"></div>
-<h3><code>BACKUP_LOCAL()</code>
+<h3><a class="anchor" name="BACKUP_LOCAL" href="#BACKUP_LOCAL"></a><code>BACKUP_LOCAL()</code>
   
 </h3>
 
@@ -89,7 +89,7 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 
 <div id="BACKUP_LIBRARY"></div>
-<h3><code>BACKUP_LIBRARY()</code>
+<h3><a class="anchor" name="BACKUP_LIBRARY" href="#BACKUP_LIBRARY"></a><code>BACKUP_LIBRARY()</code>
   
 </h3>
 
@@ -104,7 +104,7 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 
 <div id="BACKUP_DOCUMENTS"></div>
-<h3><code>BACKUP_DOCUMENTS()</code>
+<h3><a class="anchor" name="BACKUP_DOCUMENTS" href="#BACKUP_DOCUMENTS"></a><code>BACKUP_DOCUMENTS()</code>
   
 </h3>
 
@@ -122,11 +122,12 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="query"></div>
 
 <h3>
+<a class="anchor" name="query" href="#query"></a>
 <code>query(query,&nbsp;params)</code>
   
 
@@ -201,6 +202,7 @@ like SELECT, INSERT, and UPDATE.
 <div id="get"></div>
 
 <h3>
+<a class="anchor" name="get" href="#get"></a>
 <code>get(key)</code>
   
 
@@ -255,6 +257,7 @@ Get the value in the database identified by the given key.
 <div id="set"></div>
 
 <h3>
+<a class="anchor" name="set" href="#set"></a>
 <code>set(key,&nbsp;value)</code>
   
 
@@ -326,6 +329,7 @@ Set the value in the database for the given key. Existing values will be overwri
 <div id="remove"></div>
 
 <h3>
+<a class="anchor" name="remove" href="#remove"></a>
 <code>remove(key)</code>
   
 

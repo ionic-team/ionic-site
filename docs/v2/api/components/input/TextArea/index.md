@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="text-area" href="#text-area"></a>
 
 TextArea
 
@@ -34,7 +34,7 @@ TextArea
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/input/input.ts#L92'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/input/input.ts#L92'>
 Improve this doc
 </a>
 
@@ -55,11 +55,11 @@ textarea&#39;s inner content.</p>
 to use <code>&lt;ion-input&gt;</code> instead.</p>
 
 
-<h2>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-textarea</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Comments&lt;/ion-label&gt;

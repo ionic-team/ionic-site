@@ -21,7 +21,7 @@ docType: "class"
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="keyboard" href="#keyboard"></a>
 
 Keyboard
 
@@ -32,7 +32,7 @@ Keyboard
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/util/keyboard.ts#L4'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/util/keyboard.ts#L4'>
 Improve this doc
 </a>
 
@@ -45,7 +45,7 @@ Improve this doc
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">export class MyClass{
  constructor(keyboard: Keyboard){
@@ -63,11 +63,12 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="isOpen"></div>
 
 <h3>
+<a class="anchor" name="isOpen" href="#isOpen"></a>
 <code>isOpen()</code>
   
 
@@ -105,6 +106,7 @@ export class MyClass{
 <div id="onClose"></div>
 
 <h3>
+<a class="anchor" name="onClose" href="#onClose"></a>
 <code>onClose(callback)</code>
   
 
@@ -173,6 +175,7 @@ export class MyClass{
 <div id="close"></div>
 
 <h3>
+<a class="anchor" name="close" href="#close"></a>
 <code>close()</code>
   
 

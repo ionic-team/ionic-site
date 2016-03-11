@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="menu" href="#menu"></a>
 
 Menu
 
@@ -34,7 +34,7 @@ Menu
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/menu/menu-controller.ts#L1'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/menu/menu-controller.ts#L1'>
 Improve this doc
 </a>
 
@@ -51,7 +51,7 @@ template HTML, or programmatically.</p>
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <p>In order to use Menu, you must specify a <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">reference</a>
 to the content element that Menu should listen on for drag events, using the <code>content</code> property.
@@ -153,11 +153,12 @@ to always show the menu toggle button in the navbar by setting
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="open"></div>
 
 <h3>
+<a class="anchor" name="open" href="#open"></a>
 <code>open()</code>
   
 
@@ -182,6 +183,7 @@ Progamatically open the Menu.
 <div id="close"></div>
 
 <h3>
+<a class="anchor" name="close" href="#close"></a>
 <code>close(menuId)</code>
   
 
@@ -238,6 +240,7 @@ is given then it'll close that exact menu.
 <div id="toggle"></div>
 
 <h3>
+<a class="anchor" name="toggle" href="#toggle"></a>
 <code>toggle(menuId)</code>
   
 
@@ -293,6 +296,7 @@ will close.
 <div id="enable"></div>
 
 <h3>
+<a class="anchor" name="enable" href="#enable"></a>
 <code>enable(menuId)</code>
   
 
@@ -350,6 +354,7 @@ will also automatically disable all the others that are on the same side.
 <div id="swipeEnable"></div>
 
 <h3>
+<a class="anchor" name="swipeEnable" href="#swipeEnable"></a>
 <code>swipeEnable(shouldEnable,&nbsp;menuId)</code>
   
 
@@ -421,6 +426,7 @@ Used to enable or disable the ability to swipe open the menu.
 <div id="isOpen"></div>
 
 <h3>
+<a class="anchor" name="isOpen" href="#isOpen"></a>
 <code>isOpen()</code>
   
 
@@ -445,6 +451,7 @@ Used to enable or disable the ability to swipe open the menu.
 <div id="isEnabled"></div>
 
 <h3>
+<a class="anchor" name="isEnabled" href="#isEnabled"></a>
 <code>isEnabled()</code>
   
 
@@ -469,6 +476,7 @@ Used to enable or disable the ability to swipe open the menu.
 <div id="get"></div>
 
 <h3>
+<a class="anchor" name="get" href="#get"></a>
 <code>get(menuId)</code>
   
 
@@ -527,6 +535,7 @@ property. If a menu is not found then it'll return `null`.
 <div id="getMenus"></div>
 
 <h3>
+<a class="anchor" name="getMenus" href="#getMenus"></a>
 <code>getMenus()</code>
   
 
@@ -548,7 +557,7 @@ property. If a menu is not found then it'll return `null`.
 
 <!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#menus'>Menu Component Docs</a>
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a>

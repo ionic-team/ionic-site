@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="platform" href="#platform"></a>
 
 Platform
 
@@ -34,7 +34,7 @@ Platform
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/platform/platform.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/platform/platform.ts#L2'>
 Improve this doc
 </a>
 
@@ -50,7 +50,7 @@ With this information you can completely custimize your app to fit any device an
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">import {Platform} from &#39;ionic-angular&#39;;
 
@@ -71,11 +71,12 @@ export MyPage {
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="is"></div>
 
 <h3>
+<a class="anchor" name="is" href="#is"></a>
 <code>is(platformName)</code>
   
 
@@ -164,6 +165,7 @@ export MyPage {
 <div id="platforms"></div>
 
 <h3>
+<a class="anchor" name="platforms" href="#platforms"></a>
 <code>platforms()</code>
   
 
@@ -202,6 +204,7 @@ export MyPage {
 <div id="versions"></div>
 
 <h3>
+<a class="anchor" name="versions" href="#versions"></a>
 <code>versions(platformName)</code>
   
 
@@ -269,6 +272,7 @@ export MyPage {
 <div id="ready"></div>
 
 <h3>
+<a class="anchor" name="ready" href="#ready"></a>
 <code>ready()</code>
   
 
@@ -308,6 +312,7 @@ export MyPage {
 <div id="setDir"></div>
 
 <h3>
+<a class="anchor" name="setDir" href="#setDir"></a>
 <code>setDir(dir)</code>
   
 
@@ -361,6 +366,7 @@ direction needs to be dynamically changed per user/session.
 <div id="dir"></div>
 
 <h3>
+<a class="anchor" name="dir" href="#dir"></a>
 <code>dir()</code>
   
 
@@ -388,6 +394,7 @@ attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
 <div id="isRTL"></div>
 
 <h3>
+<a class="anchor" name="isRTL" href="#isRTL"></a>
 <code>isRTL()</code>
   
 
@@ -415,6 +422,7 @@ attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
 <div id="setLang"></div>
 
 <h3>
+<a class="anchor" name="setLang" href="#setLang"></a>
 <code>setLang(language)</code>
   
 
@@ -468,6 +476,7 @@ the language needs to be dynamically changed per user/session.
 <div id="lang"></div>
 
 <h3>
+<a class="anchor" name="lang" href="#lang"></a>
 <code>lang()</code>
   
 

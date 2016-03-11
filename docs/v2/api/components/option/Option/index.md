@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="option" href="#option"></a>
 
 Option
 
@@ -34,7 +34,7 @@ Option
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/option/option.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/option/option.ts#L2'>
 Improve this doc
 </a>
 
@@ -46,7 +46,7 @@ Improve this doc
 <p><code>ion-option</code> is a child component of <code>ion-select</code>. Similar to the native option element, <code>ion-option</code> can take a value and a checked property.</p>
 
 
-<h2>Directive</h2>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>ion-option</code></h3>
 <!-- @usage tag -->
 
@@ -57,7 +57,7 @@ Improve this doc
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -85,7 +85,7 @@ Improve this doc
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>

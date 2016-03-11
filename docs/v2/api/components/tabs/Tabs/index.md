@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="tabs" href="#tabs"></a>
 
 Tabs
 
@@ -34,7 +34,7 @@ Tabs
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/tabs/tabs.ts#L14'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/tabs/tabs.ts#L14'>
 Improve this doc
 </a>
 
@@ -50,11 +50,11 @@ individual Tab components. On iOS, the TabBar is placed on the bottom of
 the screen, while on Android it is at the top.</p>
 
 
-<h2>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-tabs</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-tabs&gt;
   &lt;ion-tab [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
@@ -70,11 +70,12 @@ the screen, while on Android it is at the top.</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="select"></div>
 
 <h3>
+<a class="anchor" name="select" href="#select"></a>
 <code>select(index)</code>
   
 
@@ -123,6 +124,7 @@ the screen, while on Android it is at the top.</p>
 <div id="getByIndex"></div>
 
 <h3>
+<a class="anchor" name="getByIndex" href="#getByIndex"></a>
 <code>getByIndex(index)</code>
   
 
@@ -177,6 +179,7 @@ the screen, while on Android it is at the top.</p>
 <div id="getSelected"></div>
 
 <h3>
+<a class="anchor" name="getSelected" href="#getSelected"></a>
 <code>getSelected()</code>
   
 
@@ -198,7 +201,7 @@ the screen, while on Android it is at the top.</p>
 
 
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -247,7 +250,7 @@ the screen, while on Android it is at the top.</p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -266,7 +269,7 @@ the screen, while on Android it is at the top.</p>
   </tbody>
 </table><!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#tabs'>Tabs Component Docs</a>
 <a href='../Tab'>Tab API Docs</a><!-- end content block -->

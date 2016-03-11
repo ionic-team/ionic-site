@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="nav" href="#nav"></a>
 
 Nav
 
@@ -34,7 +34,7 @@ Nav
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/nav.ts#L6'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/nav/nav.ts#L6'>
 Improve this doc
 </a>
 
@@ -56,11 +56,11 @@ component) to be loaded initially by any Nav you create, using
 the &#39;root&#39; property:</p>
 
 
-<h2>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-nav</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">import {GettingStartedPage} from &#39;getting-started&#39;;
 @App({
@@ -137,7 +137,7 @@ swipe to go back:</p>
 
 <!-- instance methods on the class -->
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -158,7 +158,7 @@ swipe to go back:</p>
   </tbody>
 </table><!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#navigation'>Navigation Component Docs</a><!-- end content block -->
 

@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="config" href="#config"></a>
 
 Config
 
@@ -34,7 +34,7 @@ Config
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/config/config.ts#L9'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/config/config.ts#L9'>
 Improve this doc
 </a>
 
@@ -199,11 +199,12 @@ config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="get"></div>
 
 <h3>
+<a class="anchor" name="get" href="#get"></a>
 <code>get(key,&nbsp;fallbackValue)</code>
   
 
@@ -269,6 +270,7 @@ Returns a single config value, given a key.
 <div id="getBoolean"></div>
 
 <h3>
+<a class="anchor" name="getBoolean" href="#getBoolean"></a>
 <code>getBoolean(key)</code>
   
 
@@ -317,6 +319,7 @@ Same as `get()`, however always returns a boolean value.
 <div id="set"></div>
 
 <h3>
+<a class="anchor" name="set" href="#set"></a>
 <code>set(platform,&nbsp;key,&nbsp;value)</code>
   
 

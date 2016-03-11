@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="item-sliding" href="#item-sliding"></a>
 
 ItemSliding
 
@@ -34,7 +34,7 @@ ItemSliding
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/item/item-sliding.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/item/item-sliding.ts#L2'>
 Improve this doc
 </a>
 
@@ -46,11 +46,11 @@ Improve this doc
 <p>Creates a list-item that can easily be swiped, deleted, reordered, edited, and more.</p>
 
 
-<h2>Component</h2>
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
 <h3>selector: <code>ion-item-sliding</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item-sliding *ngFor=&quot;#item of items&quot;&gt;
@@ -74,7 +74,7 @@ Improve this doc
 
 <!-- instance methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#lists'>List Component Docs</a>
 <a href='../../list/List'>List API Docs</a><!-- end content block -->

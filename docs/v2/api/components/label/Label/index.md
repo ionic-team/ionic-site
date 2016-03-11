@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="label" href="#label"></a>
 
 Label
 
@@ -34,7 +34,7 @@ Label
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/label/label.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/label/label.ts#L0'>
 Improve this doc
 </a>
 
@@ -47,11 +47,11 @@ Improve this doc
 to describe an <code>ion-input</code>, <code>ion-toggle</code>, <code>ion-checkbox</code>, and more.</p>
 
 
-<h2>Directive</h2>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>ion-label</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Username&lt;/ion-label&gt;
@@ -89,7 +89,7 @@ to describe an <code>ion-input</code>, <code>ion-toggle</code>, <code>ion-checkb
 
 <!-- @property tags -->
 
-<h2>Attributes:</h2>
+<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
 <table class="table" style="margin:0;">
 <thead>
 <tr>
@@ -155,7 +155,7 @@ A stacked label will always appear on top of the input
 
 <!-- instance methods on the class --><!-- related link -->
 
-<h2>Related</h2>
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='../../../../components#inputs'>Input Component Docs</a>
 <a href='../Input'>Input API Docs</a><!-- end content block -->

@@ -23,7 +23,7 @@ angular_controller: APIDemoCtrl
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="refresher" href="#refresher"></a>
 
 Refresher
 
@@ -34,7 +34,7 @@ Refresher
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/refresher/refresher.ts#L6'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/refresher/refresher.ts#L6'>
 Improve this doc
 </a>
 
@@ -51,11 +51,11 @@ enough to kick off the refreshing process. Once the async operation
 has completed and the refreshing should end, call <code>complete()</code>.</p>
 
 
-<h2>Directive</h2>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>ion-refresher</code></h3>
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
 
@@ -116,11 +116,12 @@ custom SVG or CSS animations.</p>
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="state"></div>
 
 <h3>
+<a class="anchor" name="state" href="#state"></a>
 <code>state()</code>
   
 
@@ -148,6 +149,7 @@ The current state which the refresher is in. The refresher's states include:
 <div id="startY"></div>
 
 <h3>
+<a class="anchor" name="startY" href="#startY"></a>
 <code>startY()</code>
   
 
@@ -168,6 +170,7 @@ The Y coordinate of where the user started to the pull down the content.
 <div id="currentY"></div>
 
 <h3>
+<a class="anchor" name="currentY" href="#currentY"></a>
 <code>currentY()</code>
   
 
@@ -188,6 +191,7 @@ The current touch or mouse event's Y coordinate.
 <div id="deltaY"></div>
 
 <h3>
+<a class="anchor" name="deltaY" href="#deltaY"></a>
 <code>deltaY()</code>
   
 
@@ -209,6 +213,7 @@ mouse event's Y coordinate.
 <div id="progress"></div>
 
 <h3>
+<a class="anchor" name="progress" href="#progress"></a>
 <code>progress()</code>
   
 
@@ -235,6 +240,7 @@ position.
 <div id="complete"></div>
 
 <h3>
+<a class="anchor" name="complete" href="#complete"></a>
 <code>complete()</code>
   
 
@@ -261,6 +267,7 @@ the refresher. This method also changes the refresher's state from
 <div id="cancel"></div>
 
 <h3>
+<a class="anchor" name="cancel" href="#cancel"></a>
 <code>cancel()</code>
   
 
@@ -278,7 +285,7 @@ Changes the refresher's state from `refreshing` to `cancelling`.
 
 
 <!-- input methods on the class -->
-<h2>Input Properties</h2>
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
@@ -330,7 +337,7 @@ maximum will be the result of <code>pullMin + 60</code>.</p>
   </tbody>
 </table>
 <!-- output events on the class -->
-<h2>Output Events</h2>
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>

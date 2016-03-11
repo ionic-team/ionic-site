@@ -21,7 +21,7 @@ docType: "class"
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="view-controller" href="#view-controller"></a>
 
 ViewController
 
@@ -32,7 +32,7 @@ ViewController
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/nav/view-controller.ts#L5'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/nav/view-controller.ts#L5'>
 Improve this doc
 </a>
 
@@ -45,7 +45,7 @@ Improve this doc
 
 <!-- @usage tag -->
 
-<h2>Usage</h2>
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">import {Page, ViewController} from &#39;ionic-angular&#39;;
 @Page....
@@ -65,11 +65,12 @@ export class MyPage{
 
 <!-- instance methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="componentType"></div>
 
 <h3>
+<a class="anchor" name="componentType" href="#componentType"></a>
 <code>componentType()</code>
   
 
@@ -89,6 +90,7 @@ export class MyPage{
 <div id="subscribe"></div>
 
 <h3>
+<a class="anchor" name="subscribe" href="#subscribe"></a>
 <code>subscribe()</code>
   
 
@@ -108,6 +110,7 @@ export class MyPage{
 <div id="onDismiss"></div>
 
 <h3>
+<a class="anchor" name="onDismiss" href="#onDismiss"></a>
 <code>onDismiss()</code>
   
 
@@ -127,6 +130,7 @@ export class MyPage{
 <div id="dismiss"></div>
 
 <h3>
+<a class="anchor" name="dismiss" href="#dismiss"></a>
 <code>dismiss()</code>
   
 
@@ -146,6 +150,7 @@ export class MyPage{
 <div id="enableBack"></div>
 
 <h3>
+<a class="anchor" name="enableBack" href="#enableBack"></a>
 <code>enableBack(Check)</code>
   
 
@@ -200,6 +205,7 @@ Check to see if you can go back in the navigation stack
 <div id="index"></div>
 
 <h3>
+<a class="anchor" name="index" href="#index"></a>
 <code>index()</code>
   
 
@@ -235,6 +241,7 @@ You can find out the index of the current view is in the current navigation stac
 <div id="isFirst"></div>
 
 <h3>
+<a class="anchor" name="isFirst" href="#isFirst"></a>
 <code>isFirst()</code>
   
 
@@ -259,6 +266,7 @@ You can find out the index of the current view is in the current navigation stac
 <div id="isLast"></div>
 
 <h3>
+<a class="anchor" name="isLast" href="#isLast"></a>
 <code>isLast()</code>
   
 
@@ -283,6 +291,7 @@ You can find out the index of the current view is in the current navigation stac
 <div id="hasNavbar"></div>
 
 <h3>
+<a class="anchor" name="hasNavbar" href="#hasNavbar"></a>
 <code>hasNavbar()</code>
   
 
@@ -319,6 +328,7 @@ export class Page1 {
 <div id="setBackButtonText"></div>
 
 <h3>
+<a class="anchor" name="setBackButtonText" href="#setBackButtonText"></a>
 <code>setBackButtonText(backButtonText)</code>
   
 
@@ -380,6 +390,7 @@ Make sure you use the view events when calling this method, otherwise the back-b
 <div id="showBackButton"></div>
 
 <h3>
+<a class="anchor" name="showBackButton" href="#showBackButton"></a>
 <code>showBackButton(Set)</code>
   
 

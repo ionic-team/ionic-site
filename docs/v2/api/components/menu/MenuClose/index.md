@@ -34,7 +34,7 @@ MenuClose
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/menu/menu-close.ts#L2'>
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/menu/menu-close.ts#L2">
 Improve this doc
 </a>
 

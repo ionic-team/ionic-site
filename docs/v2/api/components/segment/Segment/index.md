@@ -34,7 +34,7 @@ Segment
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/segment/segment.ts#L97'>
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/segment/segment.ts#L97">
 Improve this doc
 </a>
 

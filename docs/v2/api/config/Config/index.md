@@ -34,7 +34,7 @@ Config
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/config/config.ts#L9'>
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/config/config.ts#L9">
 Improve this doc
 </a>
 

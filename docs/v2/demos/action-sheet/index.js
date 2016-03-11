@@ -27,77 +27,42 @@ var InitialPage = (function () {
         this.platform = platform;
     }
     InitialPage.prototype.present = function () {
-        if (this.platform.is('android')) {
-            var androidSheet = {
-                title: 'Albums',
-                buttons: [
-                    {
-                        text: 'Delete',
-                        style: 'destructive',
-                        icon: 'md-trash',
-                        handler: function () {
-                            console.log('Destructive clicked');
-                        }
-                    },
-                    { text: 'Share',
-                        icon: 'share',
-                        handler: function () {
-                            console.log('Share clicked');
-                        }
-                    },
-                    { text: 'Play',
-                        icon: 'arrow-dropright-circle',
-                        handler: function () {
-                            console.log('Play clicked');
-                        }
-                    },
-                    { text: 'Favorite',
-                        icon: 'md-heart-outline',
-                        handler: function () {
-                            console.log('Favorite clicked');
-                        }
-                    },
-                    {
-                        text: 'Cancel',
-                        style: 'cancel',
-                        icon: 'md-close',
-                        handler: function () {
-                            console.log('Cancel clicked');
-                        }
-                    }
-                ],
-            };
-        }
-        var actionSheet = ionic_angular_1.ActionSheet.create(androidSheet || {
+        var actionSheet = ionic_angular_1.ActionSheet.create({
+            title: 'Albums',
             buttons: [
                 {
                     text: 'Delete',
-                    style: 'destructive',
+                    role: 'destructive',
+                    icon: !this.platform.is('ios') ? 'trash' : null,
                     handler: function () {
-                        console.log('Destructive clicked');
+                        console.log('Delete clicked');
                     }
                 },
                 {
                     text: 'Share',
+                    icon: !this.platform.is('ios') ? 'share' : null,
                     handler: function () {
                         console.log('Share clicked');
                     }
                 },
                 {
                     text: 'Play',
+                    icon: !this.platform.is('ios') ? 'arrow-dropright-circle' : null,
                     handler: function () {
                         console.log('Play clicked');
                     }
                 },
                 {
                     text: 'Favorite',
+                    icon: !this.platform.is('ios') ? 'heart-outline' : null,
                     handler: function () {
                         console.log('Favorite clicked');
                     }
                 },
                 {
                     text: 'Cancel',
-                    style: 'cancel',
+                    role: 'cancel',
+                    icon: !this.platform.is('ios') ? 'close' : null,
                     handler: function () {
                         console.log('Cancel clicked');
                     }

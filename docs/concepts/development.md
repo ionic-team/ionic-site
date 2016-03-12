@@ -12,7 +12,7 @@ Ionic is a collection of Angular.js, UI Router, Angular directives, Angular serv
 First, you must install the ionic CLI with npm:
 
 ```bash
-npm install ionic
+npm install -g ionic
 ```
 
 After that, you can start an app using one of our starter templates, or start from scratch, using the command 

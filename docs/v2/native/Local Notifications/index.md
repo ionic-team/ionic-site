@@ -50,8 +50,6 @@ Improve this doc
 <!-- description -->
 
 <p>This plugin allows you to display local notifications on the device</p>
-<pre><code class="lang-shell">cordova plugin add cordova-plugin-local-notifications
-</code></pre>
 
 <!-- @usage tag -->
 

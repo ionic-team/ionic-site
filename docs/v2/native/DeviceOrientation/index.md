@@ -50,9 +50,6 @@ https://github.com/apache/cordova-plugin-device-orientation
 <!-- description -->
 
 <p>Requires Cordova plugin: <code>cordova-plugin-device-orientation</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-device-orientation">Device Orientation docs</a>.</p>
-<pre><code class="lang-shell">cordova plugin add cordova-plugin-device-orientation
-`
-</code></pre>
 
 <!-- @usage tag -->
 

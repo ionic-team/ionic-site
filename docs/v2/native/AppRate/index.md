@@ -51,9 +51,6 @@ https://github.com/pushandplay/cordova-plugin-apprate
 
 <p>The AppRate plugin makes it easy to prompt the user to rate your app, either now, later, or never.</p>
 <p>Requires Cordova plugin: cordova-plugin-apprate. For more info, please see the <a href="https://github.com/pushandplay/cordova-plugin-apprate">AppRate plugin docs</a>.</p>
-<pre><code class="lang-shell">cordova plugin add cordova-plugin-apprate
-`
-</code></pre>
 
 <!-- @usage tag -->
 

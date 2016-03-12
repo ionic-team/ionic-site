@@ -50,8 +50,6 @@ https://github.com/apache/cordova-plugin-device
 <!-- description -->
 
 <p>Access information about the underlying device and platform.</p>
-<pre><code class="lang-shell">cordova plugin add cordova-plugin-device
-</code></pre>
 
 <!-- @usage tag -->
 

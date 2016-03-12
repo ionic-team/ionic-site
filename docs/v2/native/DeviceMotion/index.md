@@ -50,9 +50,6 @@ https://github.com/apache/cordova-plugin-device-motion
 <!-- description -->
 
 <p>Requires Cordova plugin: <code>cordova-plugin-device-motion</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-device-motion">Device Motion docs</a>.</p>
-<pre><code class="lang-shell">cordova plugin add cordova-plugin-device-motion
-`
-</code></pre>
 
 <!-- @usage tag -->
 

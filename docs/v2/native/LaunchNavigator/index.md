@@ -50,8 +50,6 @@ https://github.com/dpa99c/phonegap-launch-navigator.git
 <!-- description -->
 
 <p>Requires Cordova plugin: uk.co.workingedge.phonegap.plugin.launchnavigator. For more info, please see the <a href="https://github.com/dpa99c/phonegap-launch-navigator">LaunchNavigator plugin docs</a>.</p>
-<pre><code class="lang-shell">cordova plugin add uk.co.workingedge.phonegap.plugin.launchnavigator
-</code></pre>
 
 <!-- @usage tag -->
 

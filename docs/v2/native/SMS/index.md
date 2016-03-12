@@ -50,8 +50,6 @@ https://github.com/cordova-sms/cordova-sms-plugin.git
 <!-- description -->
 
 <p>Requires Cordova plugin: cordova-plugin-sms. For more info, please see the <a href="https://github.com/cordova-sms/cordova-sms-plugin">SMS plugin docs</a>.</p>
-<pre><code class="lang-shell">cordova plugin add cordova-sms-plugin
-</code></pre>
 
 <!-- @usage tag -->
 

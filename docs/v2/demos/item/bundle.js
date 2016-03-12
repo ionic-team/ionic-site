@@ -50874,11 +50874,6 @@
 	            return 3;
 	        }
 	        var d = this._content.getContentDimensions();
-	        if (d.scrollTop <= this._highestY) {
-	            // don't bother if scrollY is less than the highest Y seen
-	            return 4;
-	        }
-	        this._highestY = d.scrollTop;
 	        var reloadY = d.contentHeight;
 	        if (this._thrPc) {
 	            reloadY += (reloadY * this._thrPc);
@@ -50915,14 +50910,13 @@
 	     * trying to receive new data while scrolling. This method is useful
 	     * when it is known that there is no more data that can be added, and
 	     * the infinite scroll is no longer needed.
-	     * @param {boolean} shouldEnable  If the infinite scroll should be enabled or not. Setting to `false` will remove scroll event listeners and hide the display.
+	     * @param {boolean} shouldEnable  If the infinite scroll should be
+	     * enabled or not. Setting to `false` will remove scroll event listeners
+	     * and hide the display.
 	     */
 	    InfiniteScroll.prototype.enable = function (shouldEnable) {
 	        this.state = (shouldEnable ? STATE_ENABLED : STATE_DISABLED);
 	        this._setListeners(shouldEnable);
-	    };
-	    InfiniteScroll.prototype.resetHighestY = function () {
-	        this._highestY = 0;
 	    };
 	    InfiniteScroll.prototype._setListeners = function (shouldListen) {
 	        var _this = this;

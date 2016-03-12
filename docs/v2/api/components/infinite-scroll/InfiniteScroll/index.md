@@ -214,7 +214,9 @@ the infinite scroll is no longer needed.
   <code>boolean</code>
       </td>
       <td>
-        <p>If the infinite scroll should be enabled or not. Setting to <code>false</code> will remove scroll event listeners and hide the display.</p>
+        <p>If the infinite scroll should be
+enabled or not. Setting to <code>false</code> will remove scroll event listeners
+and hide the display.</p>
 
         
       </td>
@@ -222,26 +224,6 @@ the infinite scroll is no longer needed.
     
   </tbody>
 </table>
-
-
-
-
-
-
-
-
-<div id="resetHighestY"></div>
-
-<h3>
-<a class="anchor" name="resetHighestY" href="#resetHighestY"></a>
-<code>resetHighestY()</code>
-  
-
-</h3>
-
-
-
-
 
 
 

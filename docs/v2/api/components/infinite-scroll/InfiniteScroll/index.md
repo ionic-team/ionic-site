@@ -229,6 +229,26 @@ the infinite scroll is no longer needed.
 
 
 
+
+<div id="resetHighestY"></div>
+
+<h3>
+<a class="anchor" name="resetHighestY" href="#resetHighestY"></a>
+<code>resetHighestY()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

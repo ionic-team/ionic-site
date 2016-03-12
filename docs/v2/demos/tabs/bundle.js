@@ -50920,6 +50920,9 @@
 	        this.state = (shouldEnable ? STATE_ENABLED : STATE_DISABLED);
 	        this._setListeners(shouldEnable);
 	    };
+	    InfiniteScroll.prototype.resetHighestY = function () {
+	        this._highestY = 0;
+	    };
 	    InfiniteScroll.prototype._setListeners = function (shouldListen) {
 	        var _this = this;
 	        if (this._init) {

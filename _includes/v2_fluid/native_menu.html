@@ -2,6 +2,9 @@
 <li class="capitalize {% if page.id == 'actionsheet' %}active{% endif %}">
   <a href="/docs/v2/native/ActionSheet">ActionSheet</a>
 </li>
+<li class="capitalize {% if page.id == 'appavailability' %}active{% endif %}">
+  <a href="/docs/v2/native/AppAvailability">AppAvailability</a>
+</li>
 <li class="capitalize {% if page.id == 'apprate' %}active{% endif %}">
   <a href="/docs/v2/native/AppRate">AppRate</a>
 </li>
@@ -13,6 +16,27 @@
 </li>
 <li class="capitalize {% if page.id == 'barcodescanner' %}active{% endif %}">
   <a href="/docs/v2/native/BarcodeScanner">BarcodeScanner</a>
+</li>
+<li class="capitalize {% if page.id == 'battery-status
+
+requires-cordova-plugin:-cordova-plugin-batterystatus.-for-more-info,-please-see-the-[batterystatus-plugin-docs](https://github.com/apache/cordova-plugin-battery-status).
+
+```
+cordova-plugin-add-cordova-plugin-batterystatus
+```' %}active{% endif %}">
+  <a href="/docs/v2/native/Battery Status
+
+Requires Cordova plugin: cordova-plugin-batterystatus. For more info, please see the [BatteryStatus plugin docs](https://github.com/apache/cordova-plugin-battery-status).
+
+```
+cordova plugin add cordova-plugin-batterystatus
+```">Battery Status
+
+Requires Cordova plugin: cordova-plugin-batterystatus. For more info, please see the [BatteryStatus plugin docs](https://github.com/apache/cordova-plugin-battery-status).
+
+```
+cordova plugin add cordova-plugin-batterystatus
+```</a>
 </li>
 <li class="capitalize {% if page.id == 'ble' %}active{% endif %}">
   <a href="/docs/v2/native/BLE">BLE</a>
@@ -44,8 +68,20 @@
 <li class="capitalize {% if page.id == 'device' %}active{% endif %}">
   <a href="/docs/v2/native/Device">Device</a>
 </li>
+<li class="capitalize {% if page.id == 'devicemotion' %}active{% endif %}">
+  <a href="/docs/v2/native/DeviceMotion">DeviceMotion</a>
+</li>
+<li class="capitalize {% if page.id == 'deviceorientation' %}active{% endif %}">
+  <a href="/docs/v2/native/DeviceOrientation">DeviceOrientation</a>
+</li>
+<li class="capitalize {% if page.id == 'dialogs' %}active{% endif %}">
+  <a href="/docs/v2/native/Dialogs">Dialogs</a>
+</li>
 <li class="capitalize {% if page.id == 'facebook' %}active{% endif %}">
   <a href="/docs/v2/native/Facebook">Facebook</a>
+</li>
+<li class="capitalize {% if page.id == 'flashlight' %}active{% endif %}">
+  <a href="/docs/v2/native/Flashlight">Flashlight</a>
 </li>
 <li class="capitalize {% if page.id == 'geolocation' %}active{% endif %}">
   <a href="/docs/v2/native/Geolocation">Geolocation</a>
@@ -53,8 +89,116 @@
 <li class="capitalize {% if page.id == 'getplugin' %}active{% endif %}">
   <a href="/docs/v2/native/getPlugin">getPlugin</a>
 </li>
+<li class="capitalize {% if page.id == 'imagepicker' %}active{% endif %}">
+  <a href="/docs/v2/native/imagePicker">imagePicker</a>
+</li>
 <li class="capitalize {% if page.id == 'isinstalled' %}active{% endif %}">
   <a href="/docs/v2/native/isInstalled">isInstalled</a>
+</li>
+<li class="capitalize {% if page.id == 'launchnavigator' %}active{% endif %}">
+  <a href="/docs/v2/native/LaunchNavigator">LaunchNavigator</a>
+</li>
+<li class="capitalize {% if page.id == 'local-notifications
+
+usage:
+```ts
+//-schedule-a-single-notification
+localnotifications.schedule({
+--id:-1,
+--text:-"single-notification",
+--sound:-isandroid?-'file://sound.mp3'-:-'file://beep.caf'
+--data:-{-secret:-key-}
+});
+
+
+//-schedule-multiple-notifications
+localnotifications.schedule([{
+---id:-1,
+---text:-"multi-notification-1",
+---sound:-isandroid-?-'file://sound.mp3'-:-'file://beep.caf',
+---data:-{-secret:key-}
+--},{
+---id:-2,
+---title:-"local-notification-example",
+---text:-"multi-notification-2",
+---icon:-"http://example.com/icon.png"
+}]);
+
+
+//-schedule-delayed-notification
+localnotifications.schedule({
+--t-ext:-"delayed-notification",
+---at:-new-date(new-date()-+-3600),
+---led:-"ff0000",
+---sound:-null
+});' %}active{% endif %}">
+  <a href="/docs/v2/native/Local Notifications
+
+Usage:
+```ts
+// Schedule a single notification
+LocalNotifications.schedule({
+  id: 1,
+  text: "Single Notification",
+  sound: isAndroid? 'file://sound.mp3' : 'file://beep.caf'
+  data: { secret: key }
+});
+
+
+// Schedule multiple notifications
+LocalNotifications.schedule([{
+   id: 1,
+   text: "Multi Notification 1",
+   sound: isAndroid ? 'file://sound.mp3' : 'file://beep.caf',
+   data: { secret:key }
+  },{
+   id: 2,
+   title: "Local Notification Example",
+   text: "Multi Notification 2",
+   icon: "http://example.com/icon.png"
+}]);
+
+
+// Schedule delayed notification
+LocalNotifications.schedule({
+  t ext: "Delayed Notification",
+   at: new Date(new Date() + 3600),
+   led: "FF0000",
+   sound: null
+});">Local Notifications
+
+Usage:
+```ts
+// Schedule a single notification
+LocalNotifications.schedule({
+  id: 1,
+  text: "Single Notification",
+  sound: isAndroid? 'file://sound.mp3' : 'file://beep.caf'
+  data: { secret: key }
+});
+
+
+// Schedule multiple notifications
+LocalNotifications.schedule([{
+   id: 1,
+   text: "Multi Notification 1",
+   sound: isAndroid ? 'file://sound.mp3' : 'file://beep.caf',
+   data: { secret:key }
+  },{
+   id: 2,
+   title: "Local Notification Example",
+   text: "Multi Notification 2",
+   icon: "http://example.com/icon.png"
+}]);
+
+
+// Schedule delayed notification
+LocalNotifications.schedule({
+  t ext: "Delayed Notification",
+   at: new Date(new Date() + 3600),
+   led: "FF0000",
+   sound: null
+});</a>
 </li>
 <li class="capitalize {% if page.id == 'plugin' %}active{% endif %}">
   <a href="/docs/v2/native/Plugin">Plugin</a>
@@ -64,6 +208,9 @@
 </li>
 <li class="capitalize {% if page.id == 'push' %}active{% endif %}">
   <a href="/docs/v2/native/Push">Push</a>
+</li>
+<li class="capitalize {% if page.id == 'sms' %}active{% endif %}">
+  <a href="/docs/v2/native/SMS">SMS</a>
 </li>
 <li class="capitalize {% if page.id == 'statusbar' %}active{% endif %}">
   <a href="/docs/v2/native/StatusBar">StatusBar</a>

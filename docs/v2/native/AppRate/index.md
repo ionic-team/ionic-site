@@ -40,10 +40,10 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add https://github.com/pushandplay/cordova-plugin-apprate.git</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-apprate</code></pre>
 <p>Repo:
-<a href="">
-
+<a href="https://github.com/pushandplay/cordova-plugin-apprate">
+https://github.com/pushandplay/cordova-plugin-apprate
 </a>
 </p>
 
@@ -51,7 +51,7 @@ Improve this doc
 
 <p>The AppRate plugin makes it easy to prompt the user to rate your app, either now, later, or never.</p>
 <p>Requires Cordova plugin: cordova-plugin-apprate. For more info, please see the <a href="https://github.com/pushandplay/cordova-plugin-apprate">AppRate plugin docs</a>.</p>
-<pre><code>cordova plugin add https://github.com/pushandplay/cordova-plugin-apprate.git
+<pre><code class="lang-shell">cordova plugin add cordova-plugin-apprate
 `
 </code></pre>
 

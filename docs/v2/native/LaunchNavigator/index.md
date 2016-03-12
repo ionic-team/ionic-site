@@ -40,17 +40,17 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add https://github.com/dpa99c/phonegap-launch-navigator.git</code></pre>
+<pre><code>$ ionic plugin add uk.co.workingedge.phonegap.plugin.launchnavigator</code></pre>
 <p>Repo:
-<a href="">
-
+<a href="https://github.com/dpa99c/phonegap-launch-navigator.git">
+https://github.com/dpa99c/phonegap-launch-navigator.git
 </a>
 </p>
 
 <!-- description -->
 
 <p>Requires Cordova plugin: uk.co.workingedge.phonegap.plugin.launchnavigator. For more info, please see the <a href="https://github.com/dpa99c/phonegap-launch-navigator">LaunchNavigator plugin docs</a>.</p>
-<pre><code>cordova plugin add https://github.com/dpa99c/phonegap-launch-navigator.git
+<pre><code class="lang-shell">cordova plugin add uk.co.workingedge.phonegap.plugin.launchnavigator
 </code></pre>
 
 <!-- @usage tag -->

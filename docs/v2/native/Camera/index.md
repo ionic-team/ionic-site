@@ -51,6 +51,8 @@ https://github.com/apache/cordova-plugin-camera
 
 <p>Take a photo or capture video.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
+<pre><code class="lang-shell">cordova plugin add cordova-plugin-camera
+</code></pre>
 
 <!-- @usage tag -->
 

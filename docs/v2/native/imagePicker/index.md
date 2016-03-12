@@ -52,6 +52,8 @@ https://github.com/wymsee/cordova-imagePicker
 <p>Cordova Plugin For Multiple Image Selection</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-image-picker</code>.
 For more info, please see the <a href="https://github.com/wymsee/cordova-imagePicker">https://github.com/wymsee/cordova-imagePicker</a></p>
+<pre><code class="lang-shell">cordova plugin add cordova-plugin-image-picker
+</code></pre>
 
 <!-- @usage tag -->
 

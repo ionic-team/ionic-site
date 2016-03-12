@@ -52,7 +52,7 @@ Improve this doc
 <p>Clipboard management plugin for Cordova that supports iOS, Android, and Windows Phone 8.</p>
 <p>Requires Cordova plugin: <a href="https://github.com/VersoSolutions/CordovaClipboard">https://github.com/VersoSolutions/CordovaClipboard</a>
 For more info, please see the <a href="https://github.com/VersoSolutions/CordovaClipboard.git">Clipboard plugin docs</a>.</p>
-<pre><code>cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git
+<pre><code class="lang-shell">cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git
 </code></pre>
 
 <!-- @usage tag -->

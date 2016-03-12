@@ -44,6 +44,22 @@ Improve this doc
 
 <!-- @usage tag -->
 
+<h2>Usage</h2>
+
+<pre><code class="lang-ts">@Plugin({
+name: &#39;MyPlugin&#39;,
+plugin: &#39;cordova-plugin-myplugin&#39;,
+pluginRef: &#39;window.myplugin&#39;
+})
+export class MyPlugin {
+
+  // Plugin wrappers, properties, and functions go here ...
+
+}
+</code></pre>
+
+
+
 
 <!-- @property tags -->
 

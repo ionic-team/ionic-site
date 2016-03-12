@@ -40,17 +40,17 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add https://github.com/apache/cordova-plugin-device-orientation</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-device-orientation</code></pre>
 <p>Repo:
-<a href="">
-
+<a href="https://github.com/apache/cordova-plugin-device-orientation">
+https://github.com/apache/cordova-plugin-device-orientation
 </a>
 </p>
 
 <!-- description -->
 
 <p>Requires Cordova plugin: <code>cordova-plugin-device-orientation</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-device-orientation">Device Orientation docs</a>.</p>
-<pre><code>cordova plugin add https://github.com/apache/cordova-plugin-device-orientation.git
+<pre><code class="lang-shell">cordova plugin add cordova-plugin-device-orientation
 `
 </code></pre>
 

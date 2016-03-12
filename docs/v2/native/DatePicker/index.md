@@ -40,7 +40,7 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-datepicker</code></pre>
 <p>Repo:
 <a href="">
 
@@ -53,7 +53,7 @@ Improve this doc
 <p>Platforms supported: iOS, Android, Windows</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-datepicker</code>. For more info, please see the <a href="https://github.com/VitaliiBlagodir/cordova-plugin-datepicker">DatePicker plugin docs</a>.</p>
 <p>Install the plugin by running the following command:</p>
-<pre><code class="lang-shell">cordova plugin add https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.git
+<pre><code class="lang-shell">cordova plugin add cordova-plugin-datepicker
 </code></pre>
 
 <!-- @usage tag -->

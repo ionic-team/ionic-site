@@ -51,7 +51,7 @@ Improve this doc
 
 <p>Reads the version of your app from the target build settings.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-app-version</code>. For more info, please see the <a href="https://github.com/whiteoctober/cordova-plugin-app-version">Cordova App Version docs</a>.</p>
-<pre><code>cordova plugin add cordova-plugin-app-version
+<pre><code class="lang-shell">cordova plugin add cordova-plugin-app-version
 `
 </code></pre>
 

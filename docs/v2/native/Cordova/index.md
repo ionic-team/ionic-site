@@ -30,7 +30,7 @@ Cordova
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/plugin.ts#L151'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/plugin.ts#L165'>
 Improve this doc
 </a>
 

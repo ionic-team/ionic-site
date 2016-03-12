@@ -50,14 +50,15 @@ Improve this doc
 <!-- description -->
 
 <p>Requires Cordova plugin: cordova-plugin-sms. For more info, please see the <a href="https://github.com/cordova-sms/cordova-sms-plugin">SMS plugin docs</a>.</p>
-<pre><code>cordova plugin add https://github.com/cordova-sms/cordova-sms-plugin.git
+<pre><code class="lang-shell">cordova plugin add https://github.com/cordova-sms/cordova-sms-plugin.git
 </code></pre>
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">
+<pre><code class="lang-ts">// Send a text message using default options
+SMS.send(&#39;6476245170&#39;,&#39;Hello world!&#39;);
 </code></pre>
 
 

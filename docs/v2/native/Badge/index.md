@@ -51,7 +51,7 @@ Improve this doc
 
 <p>The essential purpose of badge numbers is to enable an application to inform its users that it has something for them — for example, unread messages — when the application isn’t running in the foreground.</p>
 <p>Requires Cordova plugin: cordova-plugin-badge. For more info, please see the <a href="https://github.com/katzer/cordova-plugin-badge">Badge plugin docs</a>.</p>
-<pre><code>cordova plugin add cordova-plugin-badge
+<pre><code class="lang-shell">cordova plugin add cordova-plugin-badge
 </code></pre>
 
 <!-- @usage tag -->

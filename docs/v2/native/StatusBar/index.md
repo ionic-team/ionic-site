@@ -51,8 +51,19 @@ https://github.com/apache/cordova-plugin-statusbar
 
 <p>Manage the appearance of the native status bar.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-statusbar</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-statusbar">StatusBar plugin docs</a>.</p>
+<pre><code class="lang-shell">cordova plugin add cordova-plugin-statusbar
+</code></pre>
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-ts">StatuBar.overlaysWebView(true);
+
+StatusBar.styleDefault();
+</code></pre>
+
+
 
 
 <!-- @property tags -->

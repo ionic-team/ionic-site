@@ -40,17 +40,17 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add https://github.com/cordova-sms/cordova-sms-plugin.git</code></pre>
+<pre><code>$ ionic plugin add cordova-sms-plugin</code></pre>
 <p>Repo:
-<a href="">
-
+<a href="https://github.com/cordova-sms/cordova-sms-plugin.git">
+https://github.com/cordova-sms/cordova-sms-plugin.git
 </a>
 </p>
 
 <!-- description -->
 
 <p>Requires Cordova plugin: cordova-plugin-sms. For more info, please see the <a href="https://github.com/cordova-sms/cordova-sms-plugin">SMS plugin docs</a>.</p>
-<pre><code class="lang-shell">cordova plugin add https://github.com/cordova-sms/cordova-sms-plugin.git
+<pre><code class="lang-shell">cordova plugin add cordova-sms-plugin
 </code></pre>
 
 <!-- @usage tag -->
@@ -58,7 +58,7 @@ Improve this doc
 <h2>Usage</h2>
 
 <pre><code class="lang-ts">// Send a text message using default options
-SMS.send(&#39;6476245170&#39;,&#39;Hello world!&#39;);
+SMS.send(&#39;416123456&#39;,&#39;Hello world!&#39;);
 </code></pre>
 
 

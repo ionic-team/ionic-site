@@ -46353,8 +46353,11 @@
 	        this._onDismiss = callback;
 	    };
 	    ViewController.prototype.dismiss = function (data, role) {
-	        this._onDismiss && this._onDismiss(data, role);
-	        return this._nav.remove(this._nav.indexOf(this), 1, this._leavingOpts);
+	        var _this = this;
+	        return this._nav.remove(this._nav.indexOf(this), 1, this._leavingOpts).then(function () {
+	            _this._onDismiss && _this._onDismiss(data, role);
+	            return data;
+	        });
 	    };
 	    /**
 	     * @private

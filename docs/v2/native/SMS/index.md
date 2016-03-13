@@ -30,7 +30,7 @@ SMS
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/sms.ts#L20'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/sms.ts#L23'>
 Improve this doc
 </a>
 
@@ -65,7 +65,7 @@ SMS.send(&#39;416123456&#39;,&#39;Hello world!&#39;);
 <!-- @property tags -->
 <h2>Static Methods</h2>
 <div id="send"></div>
-<h3><code>send(number,&nbsp;message,&nbsp;options,&nbsp;options.replaceLineBreaks,&nbsp;options.android.intent)</code>
+<h3><code>send(number,&nbsp;message,&nbsp;options)</code>
   
 </h3>
 
@@ -90,10 +90,10 @@ Sends sms to a number
       </td>
       <td>
         
-  
+  <code>string</code>|<code>Array.&lt;string&gt;</code>
       </td>
       <td>
-        <p>[string or array of strings] Phone number</p>
+        <p>Phone number</p>
 
         
       </td>
@@ -107,10 +107,10 @@ Sends sms to a number
       </td>
       <td>
         
-  
+  <code>string</code>
       </td>
       <td>
-        <p>[string] Message</p>
+        <p>Message</p>
 
         
       </td>
@@ -124,44 +124,10 @@ Sends sms to a number
       </td>
       <td>
         
-  
+  <code>smsOptions</code>
       </td>
       <td>
-        <p>[object] Options</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        options.replaceLineBreaks
-        
-        
-      </td>
-      <td>
-        
-  
-      </td>
-      <td>
-        <p>[boolean]  Set to true to replace \n by a new line. Default: false</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        options.android.intent
-        
-        
-      </td>
-      <td>
-        
-  
-      </td>
-      <td>
-        <p>[string] Set to &quot;INTENT&quot; to send SMS with the native android SMS messaging. Leaving it empty will send the SMS without opening any app.</p>
+        <p>Options</p>
 
         
       </td>
@@ -177,7 +143,7 @@ Sends sms to a number
 <div class="return-value" markdown="1">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise&lt;any&gt;</code> 
+  <code>Promise&lt;any&gt;</code> Resolves promise when the SMS has been sent
 </div>
 
 

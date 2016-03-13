@@ -42,8 +42,8 @@ Improve this doc
 
 <pre><code>$ ionic plugin add cordova-plugin-appavailability</code></pre>
 <p>Repo:
-<a href="">
-
+<a href="https://github.com/ohh2ahh/AppAvailability">
+https://github.com/ohh2ahh/AppAvailability
 </a>
 </p>
 

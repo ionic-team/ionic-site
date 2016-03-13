@@ -42,8 +42,8 @@ Improve this doc
 
 <pre><code>$ ionic plugin add cordova-plugin-app-version</code></pre>
 <p>Repo:
-<a href="">
-
+<a href="https://github.com/whiteoctober/cordova-plugin-app-version">
+https://github.com/whiteoctober/cordova-plugin-app-version
 </a>
 </p>
 

@@ -42,8 +42,8 @@ Improve this doc
 
 <pre><code>$ ionic plugin add cordova-plugin-geolocation</code></pre>
 <p>Repo:
-<a href="">
-
+<a href="https://github.com/apache/cordova-plugin-geolocation">
+https://github.com/apache/cordova-plugin-geolocation
 </a>
 </p>
 

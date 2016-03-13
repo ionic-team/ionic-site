@@ -42,8 +42,8 @@ Improve this doc
 
 <pre><code>$ ionic plugin add cordova-plugin-badge</code></pre>
 <p>Repo:
-<a href="">
-
+<a href="https://github.com/katzer/cordova-plugin-badge">
+https://github.com/katzer/cordova-plugin-badge
 </a>
 </p>
 

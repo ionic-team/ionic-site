@@ -42,8 +42,8 @@ Improve this doc
 
 <pre><code>$ ionic plugin add cordova-plugin-datepicker</code></pre>
 <p>Repo:
-<a href="">
-
+<a href="https://github.com/VitaliiBlagodir/cordova-plugin-datepicker">
+https://github.com/VitaliiBlagodir/cordova-plugin-datepicker
 </a>
 </p>
 

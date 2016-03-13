@@ -42,8 +42,8 @@ Improve this doc
 
 <pre><code>$ ionic plugin add https://github.com/VersoSolutions/CordovaClipboard.git</code></pre>
 <p>Repo:
-<a href="">
-
+<a href="https://github.com/VersoSolutions/CordovaClipboard">
+https://github.com/VersoSolutions/CordovaClipboard
 </a>
 </p>
 

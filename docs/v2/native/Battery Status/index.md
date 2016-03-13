@@ -42,8 +42,8 @@ Improve this doc
 
 <pre><code>$ ionic plugin add cordova-plugin-batterystatus</code></pre>
 <p>Repo:
-<a href="">
-
+<a href="https://github.com/apache/cordova-plugin-battery-status">
+https://github.com/apache/cordova-plugin-battery-status
 </a>
 </p>
 

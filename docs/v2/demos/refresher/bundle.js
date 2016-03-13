@@ -58969,6 +58969,7 @@
 	        this.subHdrId = 'alert-subhdr-' + this.id;
 	        this.msgId = 'alert-msg-' + this.id;
 	        this.activeId = '';
+	        this.created = Date.now();
 	        if (this.d.message) {
 	            this.descId = this.msgId;
 	        }
@@ -59023,7 +59024,7 @@
 	        }
 	    };
 	    AlertCmp.prototype._keyUp = function (ev) {
-	        if (this._viewCtrl.isLast()) {
+	        if (this.isEnabled() && this._viewCtrl.isLast()) {
 	            if (ev.keyCode === 13) {
 	                console.debug('alert, enter button');
 	                var button = this.d.buttons[this.d.buttons.length - 1];
@@ -59047,6 +59048,9 @@
 	    };
 	    AlertCmp.prototype.btnClick = function (button, dismissDelay) {
 	        var _this = this;
+	        if (!this.isEnabled()) {
+	            return;
+	        }
 	        var shouldDismiss = true;
 	        if (button.handler) {
 	            // a handler has been provided, execute it
@@ -59063,16 +59067,20 @@
 	        }
 	    };
 	    AlertCmp.prototype.rbClick = function (checkedInput) {
-	        this.d.inputs.forEach(function (input) {
-	            input.checked = (checkedInput === input);
-	        });
-	        this.activeId = checkedInput.id;
+	        if (this.isEnabled()) {
+	            this.d.inputs.forEach(function (input) {
+	                input.checked = (checkedInput === input);
+	            });
+	            this.activeId = checkedInput.id;
+	        }
 	    };
 	    AlertCmp.prototype.cbClick = function (checkedInput) {
-	        checkedInput.checked = !checkedInput.checked;
+	        if (this.isEnabled()) {
+	            checkedInput.checked = !checkedInput.checked;
+	        }
 	    };
 	    AlertCmp.prototype.bdClick = function () {
-	        if (this.d.enableBackdropDismiss) {
+	        if (this.isEnabled() && this.d.enableBackdropDismiss) {
 	            var cancelBtn = this.d.buttons.find(function (b) { return b.role === 'cancel'; });
 	            if (cancelBtn) {
 	                this.btnClick(cancelBtn, 1);
@@ -59104,6 +59112,9 @@
 	            values[i.name] = i.value;
 	        });
 	        return values;
+	    };
+	    AlertCmp.prototype.isEnabled = function () {
+	        return (this.created + 750 < Date.now());
 	    };
 	    __decorate([
 	        core_1.HostListener('body:keyup', ['$event']), 
@@ -62745,6 +62756,7 @@
 	        this._config = _config;
 	        this._elementRef = _elementRef;
 	        this.d = params.data;
+	        this.created = Date.now();
 	        if (this.d.cssClass) {
 	            renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
 	        }
@@ -62795,15 +62807,18 @@
 	        }
 	    };
 	    ActionSheetCmp.prototype._keyUp = function (ev) {
-	        if (this._viewCtrl.isLast()) {
+	        if (this.isEnabled() && this._viewCtrl.isLast()) {
 	            if (ev.keyCode === 27) {
-	                console.debug('actionsheet escape');
+	                console.debug('actionsheet, escape button');
 	                this.bdClick();
 	            }
 	        }
 	    };
 	    ActionSheetCmp.prototype.click = function (button, dismissDelay) {
 	        var _this = this;
+	        if (!this.isEnabled()) {
+	            return;
+	        }
 	        var shouldDismiss = true;
 	        if (button.handler) {
 	            // a handler has been provided, execute it
@@ -62819,7 +62834,7 @@
 	        }
 	    };
 	    ActionSheetCmp.prototype.bdClick = function () {
-	        if (this.d.enableBackdropDismiss) {
+	        if (this.isEnabled() && this.d.enableBackdropDismiss) {
 	            if (this.d.cancelButton) {
 	                this.click(this.d.cancelButton, 1);
 	            }
@@ -62830,6 +62845,9 @@
 	    };
 	    ActionSheetCmp.prototype.dismiss = function (role) {
 	        return this._viewCtrl.dismiss(null, role);
+	    };
+	    ActionSheetCmp.prototype.isEnabled = function () {
+	        return (this.created + 750 < Date.now());
 	    };
 	    __decorate([
 	        core_1.HostListener('body:keyup', ['$event']), 

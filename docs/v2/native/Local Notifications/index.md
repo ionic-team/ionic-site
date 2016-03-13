@@ -55,15 +55,16 @@ https://github.com/katzer/cordova-plugin-local-notifications
 
 <h2>Usage</h2>
 
-<p>```ts
-// Schedule a single notification
+<pre><code class="lang-ts">// Schedule a single notification
 LocalNotifications.schedule({
   id: 1,
   text: &quot;Single Notification&quot;,
   sound: isAndroid? &#39;file://sound.mp3&#39; : &#39;file://beep.caf&#39;
   data: { secret: key }
-});</p>
-<p>// Schedule multiple notifications
+});
+
+
+// Schedule multiple notifications
 LocalNotifications.schedule([{
    id: 1,
    text: &quot;Multi Notification 1&quot;,
@@ -73,15 +74,18 @@ LocalNotifications.schedule([{
    id: 2,
    title: &quot;Local Notification Example&quot;,
    text: &quot;Multi Notification 2&quot;,
-   icon: &quot;<a href="http://example.com/icon.png">http://example.com/icon.png</a>&quot;
-}]);</p>
-<p>// Schedule delayed notification
+   icon: &quot;http://example.com/icon.png&quot;
+}]);
+
+
+// Schedule delayed notification
 LocalNotifications.schedule({
   t ext: &quot;Delayed Notification&quot;,
    at: new Date(new Date() + 3600),
    led: &quot;FF0000&quot;,
    sound: null
-});</p>
+});
+</code></pre>
 
 
 

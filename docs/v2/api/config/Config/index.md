@@ -251,7 +251,9 @@ Returns a single config value, given a key.
   <code>any</code>
       </td>
       <td>
-        <p>a fallback value to use when the config value was not found, or is config value is <code>null</code>. Fallback value defaults to <code>null</code>.</p>
+        <p>a fallback value to use when the config
+value was not found, or is config value is <code>null</code>. Fallback value
+ defaults to <code>null</code>.</p>
 
         
       </td>
@@ -271,12 +273,16 @@ Returns a single config value, given a key.
 
 <h3>
 <a class="anchor" name="getBoolean" href="#getBoolean"></a>
-<code>getBoolean(key)</code>
+<code>getBoolean(key,&nbsp;fallbackValue)</code>
   
 
 </h3>
 
-Same as `get()`, however always returns a boolean value.
+Same as `get()`, however always returns a boolean value. If the
+value from `get()` is `null`, then it'll return the `fallbackValue`
+which defaults to `false`. Otherwise, `getBoolean()` will return
+if the config value is truthy or not. It also returns `true` if
+the config value was the string value `"true"`.
 
 
 <table class="table param-table" style="margin:0;">
@@ -301,6 +307,95 @@ Same as `get()`, however always returns a boolean value.
       </td>
       <td>
         <p>the key for the config value</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        fallbackValue
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>a fallback value to use when the config
+value was <code>null</code>. Fallback value defaults to <code>false</code>.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="getNumber"></div>
+
+<h3>
+<a class="anchor" name="getNumber" href="#getNumber"></a>
+<code>getNumber(key,&nbsp;fallbackValue)</code>
+  
+
+</h3>
+
+Same as `get()`, however always returns a number value. Uses `parseFloat()`
+on the value received from `get()`. If the result from the parse is `NaN`,
+then it will return the value passed to `fallbackValue`. If no fallback
+value was provided then it'll default to returning `NaN` when the result
+is not a valid number.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        key
+        
+        
+      </td>
+      <td>
+        
+  <code>string</code>
+      </td>
+      <td>
+        <p>the key for the config value</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        fallbackValue
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>a fallback value to use when the config
+value turned out to be <code>NaN</code>. Fallback value defaults to <code>NaN</code>.</p>
 
         
       </td>

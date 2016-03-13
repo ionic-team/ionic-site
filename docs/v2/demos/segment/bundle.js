@@ -59086,7 +59086,8 @@
 	        return values;
 	    };
 	    AlertCmp.prototype.isEnabled = function () {
-	        return (this.created + 750 < Date.now());
+	        var tm = this._config.getNumber('overlayCreatedDiff', 750);
+	        return (this.created + tm < Date.now());
 	    };
 	    __decorate([
 	        core_1.HostListener('body:keyup', ['$event']), 
@@ -62819,7 +62820,8 @@
 	        return this._viewCtrl.dismiss(null, role);
 	    };
 	    ActionSheetCmp.prototype.isEnabled = function () {
-	        return (this.created + 750 < Date.now());
+	        var tm = this._config.getNumber('overlayCreatedDiff', 750);
+	        return (this.created + tm < Date.now());
 	    };
 	    __decorate([
 	        core_1.HostListener('body:keyup', ['$event']), 

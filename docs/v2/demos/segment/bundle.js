@@ -58903,6 +58903,7 @@
 	        this.msgId = 'alert-msg-' + this.id;
 	        this.activeId = '';
 	        this.created = Date.now();
+	        this.lastClick = 0;
 	        if (this.d.message) {
 	            this.descId = this.msgId;
 	        }
@@ -58959,9 +58960,15 @@
 	    AlertCmp.prototype._keyUp = function (ev) {
 	        if (this.isEnabled() && this._viewCtrl.isLast()) {
 	            if (ev.keyCode === 13) {
-	                console.debug('alert, enter button');
-	                var button = this.d.buttons[this.d.buttons.length - 1];
-	                this.btnClick(button);
+	                if (this.lastClick + 1000 < Date.now()) {
+	                    // do not fire this click if there recently was already a click
+	                    // this can happen when the button has focus and used the enter
+	                    // key to click the button. However, both the click handler and
+	                    // this keyup event will fire, so only allow one of them to go.
+	                    console.debug('alert, enter button');
+	                    var button = this.d.buttons[this.d.buttons.length - 1];
+	                    this.btnClick(button);
+	                }
 	            }
 	            else if (ev.keyCode === 27) {
 	                console.debug('alert, escape button');
@@ -58984,6 +58991,8 @@
 	        if (!this.isEnabled()) {
 	            return;
 	        }
+	        // keep the time of the most recent button click
+	        this.lastClick = Date.now();
 	        var shouldDismiss = true;
 	        if (button.handler) {
 	            // a handler has been provided, execute it

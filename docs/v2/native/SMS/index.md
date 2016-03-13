@@ -42,8 +42,8 @@ Improve this doc
 
 <pre><code>$ ionic plugin add cordova-sms-plugin</code></pre>
 <p>Repo:
-<a href="https://github.com/cordova-sms/cordova-sms-plugin.git">
-https://github.com/cordova-sms/cordova-sms-plugin.git
+<a href="https://github.com/cordova-sms/cordova-sms-plugin">
+https://github.com/cordova-sms/cordova-sms-plugin
 </a>
 </p>
 

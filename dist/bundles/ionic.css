@@ -5741,14 +5741,17 @@ ion-icon {
     flex-direction: column; }
   .ios .item-label-stacked ion-select,
   .ios .item-label-floating ion-select {
-    width: 100%;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
     max-width: 100%; }
   .ios .item-select ion-label[floating] {
     -webkit-transform: translate3d(0, 0, 0) scale(0.8);
     transform: translate3d(0, 0, 0) scale(0.8); }
   .ios ion-label {
     margin: 12px 8px 13px 0; }
-  .ios .item-input ion-label {
+  .ios .item-input ion-label,
+  .ios .item-select ion-label {
     color: #7f7f7f; }
   .ios ion-label + ion-input .text-input,
   .ios ion-label + ion-textarea .text-input {
@@ -8773,7 +8776,9 @@ ion-icon {
     flex-direction: column; }
   .md .item-label-stacked ion-select,
   .md .item-label-floating ion-select {
-    width: 100%;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
     max-width: 100%; }
   .md .item-select ion-label[floating] {
     -webkit-transform: translate3d(0, 0, 0) scale(0.8);
@@ -8783,7 +8788,8 @@ ion-icon {
   .md [text-wrap] ion-label {
     font-size: 1.4rem;
     line-height: 1.5; }
-  .md .item-input ion-label {
+  .md .item-input ion-label,
+  .md .item-select ion-label {
     color: #999; }
   .md ion-label[stacked] {
     font-size: 1.2rem; }
@@ -11874,19 +11880,12 @@ ion-icon {
   .wp ion-input.ng-invalid.ng-touched .text-input {
     border-color: #f53d3d; }
   .wp .item-label-stacked .text-input,
-  .wp .item-label-floating .text-input {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-left: 0; }
+  .wp .item-label-floating .text-input,
   .wp .item-label-stacked ion-select,
   .wp .item-label-floating ion-select {
     margin-top: 8px;
     margin-bottom: 8px;
-    padding-top: 0;
-    padding-bottom: 0; }
-    .wp .item-label-stacked ion-select .select-icon,
-    .wp .item-label-floating ion-select .select-icon {
-      margin-top: 5px; }
+    margin-left: 0; }
   .wp .item-label-floating .text-input.cloned-input {
     top: 32px; }
   .wp .item-label-stacked .text-input.cloned-input {
@@ -12281,14 +12280,17 @@ ion-icon {
     flex-direction: column; }
   .wp .item-label-stacked ion-select,
   .wp .item-label-floating ion-select {
-    width: 100%;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
     max-width: 100%; }
   .wp .item-select ion-label[floating] {
     -webkit-transform: translate3d(0, 0, 0) scale(0.8);
     transform: translate3d(0, 0, 0) scale(0.8); }
   .wp ion-label {
     margin: 13px 8px 13px 0; }
-  .wp .item-input ion-label {
+  .wp .item-input ion-label,
+  .wp .item-select ion-label {
     color: #999; }
   .wp ion-label[stacked] {
     font-size: 1.2rem; }
@@ -12831,13 +12833,22 @@ ion-icon {
     opacity: .4;
     pointer-events: none; }
   .wp ion-select {
-    padding: 6.5px 8px 6.5px 8px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin: 13px 8px 13px 8px;
+    padding: 0 8px;
+    max-width: 100%;
     border: 2px solid rgba(0, 0, 0, 0.5);
     line-height: 3rem; }
   .wp .item-select ion-label {
     margin-left: 0; }
   .wp .select-icon {
     position: relative;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
     width: 18px;
     height: 18px; }
   .wp .select-icon .select-icon-inner {

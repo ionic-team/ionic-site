@@ -6398,7 +6398,9 @@ ion-label[floating] {
 
 .item-label-stacked ion-select,
 .item-label-floating ion-select {
-  width: 100%;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
   max-width: 100%; }
 
 .item-select ion-label[floating] {
@@ -6412,7 +6414,8 @@ ion-label {
   font-size: 1.4rem;
   line-height: 1.5; }
 
-.item-input ion-label {
+.item-input ion-label,
+.item-select ion-label {
   color: #999; }
 
 ion-label[stacked] {

@@ -5856,20 +5856,12 @@ ion-input.ng-invalid.ng-touched .text-input {
   border-color: #f53d3d; }
 
 .item-label-stacked .text-input,
-.item-label-floating .text-input {
-  margin-top: 8px;
-  margin-bottom: 8px;
-  margin-left: 0; }
-
+.item-label-floating .text-input,
 .item-label-stacked ion-select,
 .item-label-floating ion-select {
   margin-top: 8px;
   margin-bottom: 8px;
-  padding-top: 0;
-  padding-bottom: 0; }
-  .item-label-stacked ion-select .select-icon,
-  .item-label-floating ion-select .select-icon {
-    margin-top: 5px; }
+  margin-left: 0; }
 
 .item-label-floating .text-input.cloned-input {
   top: 32px; }
@@ -6325,7 +6317,9 @@ ion-label[floating] {
 
 .item-label-stacked ion-select,
 .item-label-floating ion-select {
-  width: 100%;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
   max-width: 100%; }
 
 .item-select ion-label[floating] {
@@ -6335,7 +6329,8 @@ ion-label[floating] {
 ion-label {
   margin: 13px 8px 13px 0; }
 
-.item-input ion-label {
+.item-input ion-label,
+.item-select ion-label {
   color: #999; }
 
 ion-label[stacked] {
@@ -6977,7 +6972,13 @@ ion-select {
   pointer-events: none; }
 
 ion-select {
-  padding: 6.5px 8px 6.5px 8px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin: 13px 8px 13px 8px;
+  padding: 0 8px;
+  max-width: 100%;
   border: 2px solid rgba(0, 0, 0, 0.5);
   line-height: 3rem; }
 
@@ -6986,6 +6987,9 @@ ion-select {
 
 .select-icon {
   position: relative;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
   width: 18px;
   height: 18px; }
 

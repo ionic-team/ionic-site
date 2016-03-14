@@ -134,8 +134,9 @@ th {
 html {
   width: 100%;
   height: 100%;
+  -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%; }
+  text-size-adjust: 100%; }
 
 body {
   -webkit-user-select: none;
@@ -5919,10 +5920,10 @@ ion-icon {
     width: 5px;
     height: 12px;
     border-width: 2px;
-    border-style: solid;
-    border-color: #327eff;
     border-top-width: 0;
     border-left-width: 0;
+    border-style: solid;
+    border-color: #327eff;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg); }
   .ios .radio-disabled,

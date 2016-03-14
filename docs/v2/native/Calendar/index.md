@@ -48,6 +48,16 @@ docType: "class"
 </p>
 
 
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Android</li>
+  
+  <li>iOS</li>
+  </ul>
+
+
 
 
 <!-- description -->

@@ -48,6 +48,30 @@ docType: "class"
 </p>
 
 
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Android</li>
+  
+  <li>BlackBerry</li>
+  
+  <li>Browser</li>
+  
+  <li>Firefox</li>
+  
+  <li>FireOS</li>
+  
+  <li>iOS</li>
+  
+  <li>Windows</li>
+  
+  <li>Windows Phone 8</li>
+  
+  <li>Ubuntu</li>
+  </ul>
+
+
 
 
 <!-- description -->
@@ -142,8 +166,6 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
  Returns a Promise
-
-
 </div>
 
 

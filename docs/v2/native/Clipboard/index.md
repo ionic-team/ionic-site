@@ -48,6 +48,30 @@ docType: "class"
 </p>
 
 
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Amazon Fire OS</li>
+  
+  <li>iOS</li>
+  
+  <li>Android</li>
+  
+  <li>BlackBerry 10</li>
+  
+  <li>Windows Phone 7</li>
+  
+  <li>Windows Phone 8</li>
+  
+  <li>Windows</li>
+  
+  <li>Firefox OS</li>
+  
+  <li>Browser</li>
+  </ul>
+
+
 
 
 <!-- description -->

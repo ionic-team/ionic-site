@@ -40,7 +40,7 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add de.appplant.cordova.plugin.local-notification</code></pre>
+<pre><code>$ cordova plugin add de.appplant.cordova.plugin.local-notification</code></pre>
 <p>Repo:
 <a href="https://github.com/katzer/cordova-plugin-local-notifications">
 https://github.com/katzer/cordova-plugin-local-notifications

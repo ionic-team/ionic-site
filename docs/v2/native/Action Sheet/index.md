@@ -40,7 +40,7 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add cordova-plugin-actionsheet</code></pre>
+<pre><code>$ cordova plugin add cordova-plugin-actionsheet</code></pre>
 <p>Repo:
 <a href="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet">
 https://github.com/EddyVerbruggen/cordova-plugin-actionsheet

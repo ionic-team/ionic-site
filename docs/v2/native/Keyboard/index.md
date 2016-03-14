@@ -40,7 +40,7 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add ionic-plugin-keyboard</code></pre>
+<pre><code>$ cordova plugin add ionic-plugin-keyboard</code></pre>
 <p>Repo:
 <a href="https://github.com/driftyco/ionic-plugin-keyboard">
 https://github.com/driftyco/ionic-plugin-keyboard

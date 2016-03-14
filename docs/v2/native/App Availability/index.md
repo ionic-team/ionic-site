@@ -40,7 +40,7 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add cordova-plugin-appavailability</code></pre>
+<pre><code>$ cordova plugin add cordova-plugin-appavailability</code></pre>
 <p>Repo:
 <a href="https://github.com/ohh2ahh/AppAvailability">
 https://github.com/ohh2ahh/AppAvailability

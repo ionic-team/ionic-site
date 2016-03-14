@@ -40,7 +40,7 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add cordova-plugin-dbmeter</code></pre>
+<pre><code>$ cordova plugin add cordova-plugin-dbmeter</code></pre>
 <p>Repo:
 <a href="https://github.com/akofman/cordova-plugin-dbmeter">
 https://github.com/akofman/cordova-plugin-dbmeter

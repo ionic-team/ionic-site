@@ -40,7 +40,7 @@ Improve this doc
 
 <!-- decorators -->
 
-<pre><code>$ ionic plugin add cordova-plugin-apprate</code></pre>
+<pre><code>$ cordova plugin add cordova-plugin-apprate</code></pre>
 <p>Repo:
 <a href="https://github.com/pushandplay/cordova-plugin-apprate">
 https://github.com/pushandplay/cordova-plugin-apprate

@@ -154,6 +154,13 @@ Take a picture or video, or load one from the library.
 
 </h3>
 
+
+<h4>Platforms:</h4>
+<ul>
+<li>iOS</li>
+</ul>
+
+
 Remove intermediate image files that are kept in temporary storage after calling camera.getPicture.
 Applies only when the value of Camera.sourceType equals Camera.PictureSourceType.CAMERA and the Camera.destinationType equals Camera.DestinationType.FILE_URI.
 
@@ -166,6 +173,8 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
  Returns a Promise
+
+
 </div>
 
 

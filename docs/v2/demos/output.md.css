@@ -4792,7 +4792,7 @@ ion-alert {
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
-  min-height: 44px; }
+  min-height: 4.4rem; }
 
 .alert-radio-label {
   overflow: hidden;
@@ -4801,7 +4801,6 @@ ion-alert {
   -ms-flex: 1;
   flex: 1;
   padding: 13px 26px;
-  text-align: auto;
   text-overflow: ellipsis;
   white-space: nowrap; }
 
@@ -4810,34 +4809,34 @@ ion-alert {
   top: 13px;
   left: 13px;
   display: block;
-  margin: 0;
   width: 16px;
   height: 16px;
   border-width: 2px;
   border-style: solid;
   border-radius: 50%;
   border-color: #787878; }
-  .alert-radio-icon::after {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #387ef5;
-    content: "";
-    -webkit-transform: scale3d(0, 0, 0);
-    transform: scale3d(0, 0, 0);
-    -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1); }
+
+.alert-radio-inner {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #387ef5;
+  -webkit-transform: scale3d(0, 0, 0);
+  transform: scale3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1); }
 
 .alert-radio[aria-checked=true] {
   color: #387ef5; }
   .alert-radio[aria-checked=true] .alert-radio-icon {
     border-color: #387ef5; }
-  .alert-radio[aria-checked=true] .alert-radio-icon::after {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); }
+
+.alert-radio[aria-checked=true] .alert-radio-inner {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1); }
 
 .alert-checkbox-label {
   overflow: hidden;
@@ -4846,7 +4845,6 @@ ion-alert {
   -ms-flex: 1;
   flex: 1;
   padding: 13px 26px;
-  text-align: auto;
   text-overflow: ellipsis;
   white-space: nowrap; }
 
@@ -4859,26 +4857,25 @@ ion-alert {
   border-width: 2px;
   border-style: solid;
   border-radius: 2px;
-  border-color: #787878;
-  background-color: transparent; }
+  border-color: #787878; }
 
 .alert-checkbox[aria-checked=true] .alert-checkbox-icon {
   border-color: #387ef5;
   background-color: #387ef5; }
-  .alert-checkbox[aria-checked=true] .alert-checkbox-icon::after {
-    position: absolute;
-    top: 0;
-    left: 3px;
-    width: 4px;
-    height: 8px;
-    border-width: 2px;
-    border-top-width: 0;
-    border-left-width: 0;
-    border-style: solid;
-    border-color: #fafafa;
-    content: "";
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg); }
+
+.alert-checkbox[aria-checked=true] .alert-checkbox-inner {
+  position: absolute;
+  top: 0;
+  left: 3px;
+  width: 6px;
+  height: 10px;
+  border-width: 2px;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-style: solid;
+  border-color: #fafafa;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg); }
 
 .alert-button-group {
   -webkit-flex-wrap: wrap-reverse;

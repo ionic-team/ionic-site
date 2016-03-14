@@ -4669,32 +4669,26 @@ ion-icon {
     min-width: 30px; }
   .ios .alert-radio[aria-checked=true] {
     color: #327eff; }
-    .ios .alert-radio[aria-checked=true] .alert-radio-icon::after {
-      position: absolute;
-      top: 13px;
-      left: 7px;
-      width: 4px;
-      height: 10px;
-      border-width: 2px;
-      border-top-width: 0;
-      border-left-width: 0;
-      border-style: solid;
-      border-color: #327eff;
-      content: "";
-      -webkit-transform: rotate(45deg);
-      transform: rotate(45deg); }
+  .ios .alert-radio[aria-checked=true] .alert-radio-inner {
+    position: absolute;
+    top: 13px;
+    left: 7px;
+    width: 6px;
+    height: 12px;
+    border-width: 2px;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-style: solid;
+    border-color: #327eff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
   .ios .alert-checkbox-label {
     overflow: hidden;
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    -webkit-box-ordinal-group: 1;
-    -webkit-order: 0;
-    -ms-flex-order: 0;
-    order: 0;
     padding: 13px;
-    text-align: auto;
     text-overflow: ellipsis;
     white-space: nowrap; }
   .ios .alert-checkbox-icon {
@@ -4710,19 +4704,19 @@ ion-icon {
   .ios .alert-checkbox[aria-checked=true] .alert-checkbox-icon {
     border-color: #327eff;
     background-color: #327eff; }
-    .ios .alert-checkbox[aria-checked=true] .alert-checkbox-icon .alert-checkbox-inner {
-      position: absolute;
-      top: 4px;
-      left: 7px;
-      width: 4px;
-      height: 9px;
-      border-width: 1px;
-      border-top-width: 0;
-      border-left-width: 0;
-      border-style: solid;
-      border-color: #fff;
-      -webkit-transform: rotate(45deg);
-      transform: rotate(45deg); }
+  .ios .alert-checkbox[aria-checked=true] .alert-checkbox-inner {
+    position: absolute;
+    top: 4px;
+    left: 7px;
+    width: 4px;
+    height: 9px;
+    border-width: 1px;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-style: solid;
+    border-color: #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
   .ios .alert-button-group {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
@@ -7450,7 +7444,7 @@ ion-icon {
     display: -ms-flexbox;
     display: flex;
     overflow: hidden;
-    min-height: 44px; }
+    min-height: 4.4rem; }
   .md .alert-radio-label {
     overflow: hidden;
     -webkit-box-flex: 1;
@@ -7458,7 +7452,6 @@ ion-icon {
     -ms-flex: 1;
     flex: 1;
     padding: 13px 26px;
-    text-align: auto;
     text-overflow: ellipsis;
     white-space: nowrap; }
   .md .alert-radio-icon {
@@ -7466,33 +7459,31 @@ ion-icon {
     top: 13px;
     left: 13px;
     display: block;
-    margin: 0;
     width: 16px;
     height: 16px;
     border-width: 2px;
     border-style: solid;
     border-radius: 50%;
     border-color: #787878; }
-    .md .alert-radio-icon::after {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: #327eff;
-      content: "";
-      -webkit-transform: scale3d(0, 0, 0);
-      transform: scale3d(0, 0, 0);
-      -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-      transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1); }
+  .md .alert-radio-inner {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #327eff;
+    -webkit-transform: scale3d(0, 0, 0);
+    transform: scale3d(0, 0, 0);
+    -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1); }
   .md .alert-radio[aria-checked=true] {
     color: #327eff; }
     .md .alert-radio[aria-checked=true] .alert-radio-icon {
       border-color: #327eff; }
-    .md .alert-radio[aria-checked=true] .alert-radio-icon::after {
-      -webkit-transform: scale3d(1, 1, 1);
-      transform: scale3d(1, 1, 1); }
+  .md .alert-radio[aria-checked=true] .alert-radio-inner {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); }
   .md .alert-checkbox-label {
     overflow: hidden;
     -webkit-box-flex: 1;
@@ -7500,7 +7491,6 @@ ion-icon {
     -ms-flex: 1;
     flex: 1;
     padding: 13px 26px;
-    text-align: auto;
     text-overflow: ellipsis;
     white-space: nowrap; }
   .md .alert-checkbox-icon {
@@ -7512,25 +7502,23 @@ ion-icon {
     border-width: 2px;
     border-style: solid;
     border-radius: 2px;
-    border-color: #787878;
-    background-color: transparent; }
+    border-color: #787878; }
   .md .alert-checkbox[aria-checked=true] .alert-checkbox-icon {
     border-color: #327eff;
     background-color: #327eff; }
-    .md .alert-checkbox[aria-checked=true] .alert-checkbox-icon::after {
-      position: absolute;
-      top: 0;
-      left: 3px;
-      width: 4px;
-      height: 8px;
-      border-width: 2px;
-      border-top-width: 0;
-      border-left-width: 0;
-      border-style: solid;
-      border-color: #fafafa;
-      content: "";
-      -webkit-transform: rotate(45deg);
-      transform: rotate(45deg); }
+  .md .alert-checkbox[aria-checked=true] .alert-checkbox-inner {
+    position: absolute;
+    top: 0;
+    left: 3px;
+    width: 6px;
+    height: 10px;
+    border-width: 2px;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-style: solid;
+    border-color: #fafafa;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
   .md .alert-button-group {
     -webkit-flex-wrap: wrap-reverse;
     -ms-flex-wrap: wrap-reverse;
@@ -11023,9 +11011,7 @@ ion-icon {
   .wp .alert-checkbox-group {
     position: relative;
     overflow: auto;
-    max-height: 240px;
-    border-top: 0 solid rgba(0, 0, 0, 0.5);
-    border-bottom: 0 solid rgba(0, 0, 0, 0.5); }
+    max-height: 240px; }
   .wp .alert-tappable {
     position: relative;
     display: -webkit-box;
@@ -11033,7 +11019,7 @@ ion-icon {
     display: -ms-flexbox;
     display: flex;
     overflow: hidden;
-    min-height: 44px; }
+    min-height: 4.4rem; }
   .wp .alert-radio-label {
     overflow: hidden;
     -webkit-box-flex: 1;
@@ -11041,7 +11027,6 @@ ion-icon {
     -ms-flex: 1;
     flex: 1;
     padding: 13px 26px;
-    text-align: auto;
     text-overflow: ellipsis;
     white-space: nowrap; }
   .wp .alert-radio-icon {
@@ -11056,22 +11041,21 @@ ion-icon {
     border-style: solid;
     border-radius: 50%;
     border-color: rgba(0, 0, 0, 0.5); }
-    .wp .alert-radio-icon::after {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      display: none;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #327eff;
-      content: ""; }
+  .wp .alert-radio-inner {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    display: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #327eff; }
   .wp .alert-radio[aria-checked=true] {
     color: #000; }
     .wp .alert-radio[aria-checked=true] .alert-radio-icon {
       border-color: rgba(0, 0, 0, 0.5); }
-    .wp .alert-radio[aria-checked=true] .alert-radio-icon::after {
-      display: block; }
+  .wp .alert-radio[aria-checked=true] .alert-radio-inner {
+    display: block; }
   .wp .alert-checkbox-label {
     overflow: hidden;
     -webkit-box-flex: 1;
@@ -11079,7 +11063,6 @@ ion-icon {
     -ms-flex: 1;
     flex: 1;
     padding: 13px 26px;
-    text-align: auto;
     text-overflow: ellipsis;
     white-space: nowrap; }
   .wp .alert-checkbox-icon {
@@ -11107,7 +11090,6 @@ ion-icon {
     border-left-width: 0;
     border-style: solid;
     border-color: #e6e6e6;
-    content: "";
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg); }
   .wp .alert-button-group {
@@ -13515,7 +13497,7 @@ ion-icon {
     box-shadow: none; }
   .wp .back-button-icon {
     margin: 0;
-    min-width: 44px;
+    min-width: 30px;
     font-size: 2.4rem;
     font-weight: normal;
     text-align: left; }

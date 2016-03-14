@@ -4790,9 +4790,7 @@ ion-alert .backdrop {
 .alert-checkbox-group {
   position: relative;
   overflow: auto;
-  max-height: 240px;
-  border-top: 0 solid rgba(0, 0, 0, 0.5);
-  border-bottom: 0 solid rgba(0, 0, 0, 0.5); }
+  max-height: 240px; }
 
 .alert-tappable {
   position: relative;
@@ -4801,7 +4799,7 @@ ion-alert .backdrop {
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
-  min-height: 44px; }
+  min-height: 4.4rem; }
 
 .alert-radio-label {
   overflow: hidden;
@@ -4810,7 +4808,6 @@ ion-alert .backdrop {
   -ms-flex: 1;
   flex: 1;
   padding: 13px 26px;
-  text-align: auto;
   text-overflow: ellipsis;
   white-space: nowrap; }
 
@@ -4826,23 +4823,24 @@ ion-alert .backdrop {
   border-style: solid;
   border-radius: 50%;
   border-color: rgba(0, 0, 0, 0.5); }
-  .alert-radio-icon::after {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    display: none;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #387ef5;
-    content: ""; }
+
+.alert-radio-inner {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #387ef5; }
 
 .alert-radio[aria-checked=true] {
   color: #000; }
   .alert-radio[aria-checked=true] .alert-radio-icon {
     border-color: rgba(0, 0, 0, 0.5); }
-  .alert-radio[aria-checked=true] .alert-radio-icon::after {
-    display: block; }
+
+.alert-radio[aria-checked=true] .alert-radio-inner {
+  display: block; }
 
 .alert-checkbox-label {
   overflow: hidden;
@@ -4851,7 +4849,6 @@ ion-alert .backdrop {
   -ms-flex: 1;
   flex: 1;
   padding: 13px 26px;
-  text-align: auto;
   text-overflow: ellipsis;
   white-space: nowrap; }
 
@@ -4882,7 +4879,6 @@ ion-alert .backdrop {
   border-left-width: 0;
   border-style: solid;
   border-color: #e6e6e6;
-  content: "";
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg); }
 
@@ -7765,7 +7761,7 @@ ion-buttons[right] {
 
 .back-button-icon {
   margin: 0;
-  min-width: 44px;
+  min-width: 30px;
   font-size: 2.4rem;
   font-weight: normal;
   text-align: left; }

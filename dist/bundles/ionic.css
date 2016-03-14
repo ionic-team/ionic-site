@@ -394,14 +394,9 @@ sub {
 [text-capitalize] {
   text-transform: capitalize; }
 
-.no-transition {
-  -webkit-transition: none !important;
-  transition: none !important; }
-
 .hide,
 [hidden],
-template,
-root-anchor {
+template {
   display: none !important; }
 
 :focus,
@@ -417,12 +412,6 @@ root-anchor {
   border-color: #51a7e8;
   outline: thin solid #51a7e8;
   box-shadow: 0 0 8px 0 #51a7e8; }
-
-.focus-outline ion-input.input-has-focus,
-.focus-outline button[ion-item]:focus,
-.focus-outline a[ion-item]:focus {
-  border-color: #51a7e8;
-  box-shadow: inset 0 0 8px 0 #51a7e8 !important; }
 
 .focus-outline ion-input :focus {
   outline: none; }
@@ -1421,7 +1410,7 @@ ion-spinner.spinner-paused svg {
   animation: spinner-fade-out 1s linear infinite; }
 
 .spinner-bubbles circle {
-  fill: black; }
+  fill: #000; }
 
 .spinner-bubbles svg {
   -webkit-animation: spinner-scale-out 1s linear infinite;
@@ -1436,7 +1425,7 @@ ion-spinner.spinner-paused svg {
 
 .spinner-crescent circle {
   fill: transparent;
-  stroke: black;
+  stroke: #000;
   stroke-width: 4px;
   stroke-dasharray: 128px;
   stroke-dashoffset: 82px; }
@@ -4379,7 +4368,7 @@ ion-icon {
   .ios sub[primary],
   .ios sup[primary],
   .ios ion-icon[primary] {
-    color: #327eff !important; }
+    color: #327eff; }
   .ios h1[secondary],
   .ios h2[secondary],
   .ios h3[secondary],
@@ -4397,7 +4386,7 @@ ion-icon {
   .ios sub[secondary],
   .ios sup[secondary],
   .ios ion-icon[secondary] {
-    color: #32db64 !important; }
+    color: #32db64; }
   .ios h1[danger],
   .ios h2[danger],
   .ios h3[danger],
@@ -4415,7 +4404,7 @@ ion-icon {
   .ios sub[danger],
   .ios sup[danger],
   .ios ion-icon[danger] {
-    color: #f53d3d !important; }
+    color: #f53d3d; }
   .ios h1[light],
   .ios h2[light],
   .ios h3[light],
@@ -4433,7 +4422,7 @@ ion-icon {
   .ios sub[light],
   .ios sup[light],
   .ios ion-icon[light] {
-    color: #f4f4f4 !important; }
+    color: #f4f4f4; }
   .ios h1[dark],
   .ios h2[dark],
   .ios h3[dark],
@@ -4451,7 +4440,7 @@ ion-icon {
   .ios sub[dark],
   .ios sup[dark],
   .ios ion-icon[dark] {
-    color: #222 !important; }
+    color: #222; }
   .ios ion-action-sheet {
     position: absolute;
     top: 0;
@@ -5082,9 +5071,9 @@ ion-icon {
         padding-right: 0; }
       .ios ion-card ion-list ion-label {
         padding: 0; }
-      .ios ion-card ion-list > .item:last-child,
-      .ios ion-card ion-list > ion-item-sliding:last-child .item {
-        border-bottom: 0; }
+    .ios ion-card > .item:last-child,
+    .ios ion-card > ion-item-sliding:last-child .item {
+      border-bottom: 0; }
     .ios ion-card .item-inner {
       border: 0; }
     .ios ion-card ion-card-content {
@@ -5824,9 +5813,9 @@ ion-icon {
     .ios ion-list > .item:last-child,
     .ios ion-list > ion-item-sliding:last-child .item {
       border-bottom: 1px solid #c8c7cc; }
-      .ios ion-list > .item:last-child .item-inner,
-      .ios ion-list > ion-item-sliding:last-child .item .item-inner {
-        border-bottom: 0; }
+    .ios ion-list > .item:last-child .item-inner,
+    .ios ion-list > ion-item-sliding:last-child .item-inner {
+      border-bottom: 0; }
     .ios ion-list .item-inner {
       border-bottom: 1px solid #c8c7cc; }
     .ios ion-list .item[no-lines],
@@ -6907,8 +6896,6 @@ ion-icon {
     .ios .bar-button-menutoggle ion-icon {
       padding: 0 6px;
       font-size: 2.8rem; }
-    .ios .bar-button-menutoggle.activated {
-      opacity: .4 !important; }
   .ios .bar-button-menutoggle[end],
   .ios .bar-button-menutoggle[right] {
     -webkit-box-ordinal-group: 8;
@@ -7144,7 +7131,7 @@ ion-icon {
   .md sub[primary],
   .md sup[primary],
   .md ion-icon[primary] {
-    color: #327eff !important; }
+    color: #327eff; }
   .md h1[secondary],
   .md h2[secondary],
   .md h3[secondary],
@@ -7162,7 +7149,7 @@ ion-icon {
   .md sub[secondary],
   .md sup[secondary],
   .md ion-icon[secondary] {
-    color: #32db64 !important; }
+    color: #32db64; }
   .md h1[danger],
   .md h2[danger],
   .md h3[danger],
@@ -7180,7 +7167,7 @@ ion-icon {
   .md sub[danger],
   .md sup[danger],
   .md ion-icon[danger] {
-    color: #f53d3d !important; }
+    color: #f53d3d; }
   .md h1[light],
   .md h2[light],
   .md h3[light],
@@ -7198,7 +7185,7 @@ ion-icon {
   .md sub[light],
   .md sup[light],
   .md ion-icon[light] {
-    color: #f4f4f4 !important; }
+    color: #f4f4f4; }
   .md h1[dark],
   .md h2[dark],
   .md h3[dark],
@@ -7216,7 +7203,7 @@ ion-icon {
   .md sub[dark],
   .md sup[dark],
   .md ion-icon[dark] {
-    color: #222 !important; }
+    color: #222; }
 
 @font-face {
   font-family: "Roboto";
@@ -7994,9 +7981,9 @@ ion-icon {
         padding: 0; }
       .md ion-card ion-list .item-inner {
         border-bottom: 1px solid #dedede; }
-      .md ion-card ion-list > .item:last-child,
-      .md ion-card ion-list > ion-item-sliding:last-child .item {
-        border-bottom: 0; }
+    .md ion-card > .item:last-child,
+    .md ion-card > ion-item-sliding:last-child .item {
+      border-bottom: 0; }
     .md ion-card .item-inner {
       border: 0; }
     .md ion-card ion-card-content {
@@ -8887,11 +8874,11 @@ ion-icon {
     .md ion-list > .item:last-child,
     .md ion-list > ion-item-sliding:last-child .item {
       border-bottom: 1px solid #dedede; }
-      .md ion-list > .item:last-child .item-inner,
-      .md ion-list > .item:last-child ion-label,
-      .md ion-list > ion-item-sliding:last-child .item .item-inner,
-      .md ion-list > ion-item-sliding:last-child .item ion-label {
-        border-bottom: 0; }
+    .md ion-list > .item:last-child ion-label,
+    .md ion-list > .item:last-child .item-inner,
+    .md ion-list > ion-item-sliding:last-child ion-label,
+    .md ion-list > ion-item-sliding:last-child .item-inner {
+      border-bottom: 0; }
     .md ion-list > ion-input:last-child::after {
       left: 0; }
     .md ion-list ion-item-options button,
@@ -10715,7 +10702,7 @@ ion-icon {
   .wp sub[primary],
   .wp sup[primary],
   .wp ion-icon[primary] {
-    color: #327eff !important; }
+    color: #327eff; }
   .wp h1[secondary],
   .wp h2[secondary],
   .wp h3[secondary],
@@ -10733,7 +10720,7 @@ ion-icon {
   .wp sub[secondary],
   .wp sup[secondary],
   .wp ion-icon[secondary] {
-    color: #32db64 !important; }
+    color: #32db64; }
   .wp h1[danger],
   .wp h2[danger],
   .wp h3[danger],
@@ -10751,7 +10738,7 @@ ion-icon {
   .wp sub[danger],
   .wp sup[danger],
   .wp ion-icon[danger] {
-    color: #f53d3d !important; }
+    color: #f53d3d; }
   .wp h1[light],
   .wp h2[light],
   .wp h3[light],
@@ -10769,7 +10756,7 @@ ion-icon {
   .wp sub[light],
   .wp sup[light],
   .wp ion-icon[light] {
-    color: #f4f4f4 !important; }
+    color: #f4f4f4; }
   .wp h1[dark],
   .wp h2[dark],
   .wp h3[dark],
@@ -10787,7 +10774,7 @@ ion-icon {
   .wp sub[dark],
   .wp sup[dark],
   .wp ion-icon[dark] {
-    color: #222 !important; }
+    color: #222; }
 
 @font-face {
   font-family: "Noto Sans";
@@ -11505,9 +11492,9 @@ ion-icon {
         padding: 0; }
       .wp ion-card ion-list .item-inner {
         border-bottom: 1px solid transparent; }
-      .wp ion-card ion-list > .item:last-child,
-      .wp ion-card ion-list > ion-item-sliding:last-child .item {
-        border-bottom: 0; }
+    .wp ion-card > .item:last-child,
+    .wp ion-card > ion-item-sliding:last-child .item {
+      border-bottom: 0; }
     .wp ion-card .item-inner {
       border: 0; }
     .wp ion-card ion-card-content {
@@ -12390,11 +12377,11 @@ ion-icon {
     .wp ion-list > .item:last-child,
     .wp ion-list > ion-item-sliding:last-child .item {
       border-bottom: 1px solid transparent; }
-      .wp ion-list > .item:last-child .item-inner,
-      .wp ion-list > .item:last-child ion-label,
-      .wp ion-list > ion-item-sliding:last-child .item .item-inner,
-      .wp ion-list > ion-item-sliding:last-child .item ion-label {
-        border-bottom: 0; }
+    .wp ion-list > .item:last-child ion-label,
+    .wp ion-list > .item:last-child .item-inner,
+    .wp ion-list > ion-item-sliding:last-child ion-label,
+    .wp ion-list > ion-item-sliding:last-child .item-inner {
+      border-bottom: 0; }
     .wp ion-list > ion-input:last-child::after {
       left: 0; }
     .wp ion-list ion-item-options button,

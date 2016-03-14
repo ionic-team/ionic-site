@@ -394,14 +394,9 @@ sub {
 [text-capitalize] {
   text-transform: capitalize; }
 
-.no-transition {
-  -webkit-transition: none !important;
-  transition: none !important; }
-
 .hide,
 [hidden],
-template,
-root-anchor {
+template {
   display: none !important; }
 
 :focus,
@@ -417,12 +412,6 @@ root-anchor {
   border-color: #51a7e8;
   outline: thin solid #51a7e8;
   box-shadow: 0 0 8px 0 #51a7e8; }
-
-.focus-outline ion-input.input-has-focus,
-.focus-outline button[ion-item]:focus,
-.focus-outline a[ion-item]:focus {
-  border-color: #51a7e8;
-  box-shadow: inset 0 0 8px 0 #51a7e8 !important; }
 
 .focus-outline ion-input :focus {
   outline: none; }
@@ -1421,7 +1410,7 @@ ion-spinner.spinner-paused svg {
   animation: spinner-fade-out 1s linear infinite; }
 
 .spinner-bubbles circle {
-  fill: black; }
+  fill: #000; }
 
 .spinner-bubbles svg {
   -webkit-animation: spinner-scale-out 1s linear infinite;
@@ -1436,7 +1425,7 @@ ion-spinner.spinner-paused svg {
 
 .spinner-crescent circle {
   fill: transparent;
-  stroke: black;
+  stroke: #000;
   stroke-width: 4px;
   stroke-dasharray: 128px;
   stroke-dashoffset: 82px; }
@@ -4425,7 +4414,7 @@ em[primary],
 sub[primary],
 sup[primary],
 ion-icon[primary] {
-  color: #387ef5 !important; }
+  color: #387ef5; }
 
 h1[secondary],
 h2[secondary],
@@ -4444,7 +4433,7 @@ em[secondary],
 sub[secondary],
 sup[secondary],
 ion-icon[secondary] {
-  color: #32db64 !important; }
+  color: #32db64; }
 
 h1[danger],
 h2[danger],
@@ -4463,7 +4452,7 @@ em[danger],
 sub[danger],
 sup[danger],
 ion-icon[danger] {
-  color: #f53d3d !important; }
+  color: #f53d3d; }
 
 h1[light],
 h2[light],
@@ -4482,7 +4471,7 @@ em[light],
 sub[light],
 sup[light],
 ion-icon[light] {
-  color: #f4f4f4 !important; }
+  color: #f4f4f4; }
 
 h1[dark],
 h2[dark],
@@ -4501,7 +4490,7 @@ em[dark],
 sub[dark],
 sup[dark],
 ion-icon[dark] {
-  color: #222 !important; }
+  color: #222; }
 
 h1[vibrant],
 h2[vibrant],
@@ -4520,7 +4509,7 @@ em[vibrant],
 sub[vibrant],
 sup[vibrant],
 ion-icon[vibrant] {
-  color: rebeccapurple !important; }
+  color: rebeccapurple; }
 
 h1[bright],
 h2[bright],
@@ -4539,7 +4528,7 @@ em[bright],
 sub[bright],
 sup[bright],
 ion-icon[bright] {
-  color: #FFC125 !important; }
+  color: #FFC125; }
 
 @font-face {
   font-family: "Noto Sans";
@@ -5409,9 +5398,9 @@ ion-card {
       padding: 0; }
     ion-card ion-list .item-inner {
       border-bottom: 1px solid transparent; }
-    ion-card ion-list > .item:last-child,
-    ion-card ion-list > ion-item-sliding:last-child .item {
-      border-bottom: 0; }
+  ion-card > .item:last-child,
+  ion-card > ion-item-sliding:last-child .item {
+    border-bottom: 0; }
   ion-card .item-inner {
     border: 0; }
   ion-card ion-card-content {
@@ -6457,11 +6446,11 @@ ion-list {
   ion-list > .item:last-child,
   ion-list > ion-item-sliding:last-child .item {
     border-bottom: 1px solid transparent; }
-    ion-list > .item:last-child .item-inner,
-    ion-list > .item:last-child ion-label,
-    ion-list > ion-item-sliding:last-child .item .item-inner,
-    ion-list > ion-item-sliding:last-child .item ion-label {
-      border-bottom: 0; }
+  ion-list > .item:last-child ion-label,
+  ion-list > .item:last-child .item-inner,
+  ion-list > ion-item-sliding:last-child ion-label,
+  ion-list > ion-item-sliding:last-child .item-inner {
+    border-bottom: 0; }
   ion-list > ion-input:last-child::after {
     left: 0; }
   ion-list ion-item-options button,

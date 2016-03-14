@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Launch Navigator
+  
 
-Launch Navigator
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/launchnavigator.ts#L46'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add uk.co.workingedge.phonegap.plugin.launchnavigator</code></pre>
 <p>Repo:
-<a href="https://github.com/dpa99c/phonegap-launch-navigator.git">
-https://github.com/dpa99c/phonegap-launch-navigator.git
-</a>
+  <a href="https://github.com/dpa99c/phonegap-launch-navigator.git">
+    https://github.com/dpa99c/phonegap-launch-navigator.git
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -69,72 +72,74 @@ https://github.com/dpa99c/phonegap-launch-navigator.git
 <h2>Static Methods</h2>
 <div id="navigate"></div>
 <h3><code>navigate(destination,&nbsp;start,&nbsp;options)</code>
-  
+
 </h3>
+
+
 
 Launches navigator app
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        destination
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        <p>Location name or coordinates</p>
+  <tr>
+    <td>
+      destination
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        start
-        
-        
-      </td>
-      <td>
-        
-  
-      </td>
-      <td>
-        <p>Location name or coordinates</p>
+    </td>
+    <td>
+      <p>Location name or coordinates</p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      start
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      <p>Location name or coordinates</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -143,9 +148,9 @@ Launches navigator app
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;any&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 

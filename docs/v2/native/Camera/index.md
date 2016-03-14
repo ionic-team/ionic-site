@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Camera
+  
 
-Camera
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/camera.ts#L84'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-camera</code></pre>
 <p>Repo:
-<a href="https://github.com/apache/cordova-plugin-camera">
-https://github.com/apache/cordova-plugin-camera
-</a>
+  <a href="https://github.com/apache/cordova-plugin-camera">
+    https://github.com/apache/cordova-plugin-camera
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -71,38 +74,40 @@ https://github.com/apache/cordova-plugin-camera
 <h2>Static Methods</h2>
 <div id="getPicture"></div>
 <h3><code>getPicture(options)</code>
-  
+
 </h3>
+
+
 
 Take a picture or video, or load one from the library.
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
-  <code>CameraOptions</code>
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>CameraOptions</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -111,9 +116,9 @@ Take a picture or video, or load one from the library.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves with Base64 encoding of the image data, or the image file URI, depending on cameraOptions, otherwise rejects with an error.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves with Base64 encoding of the image data, or the image file URI, depending on cameraOptions, otherwise rejects with an error.
 
 
 </div>
@@ -122,7 +127,7 @@ Take a picture or video, or load one from the library.
 
 <div id="cleanup"></div>
 <h3><code>cleanup()</code>
-  
+
 </h3>
 
 Remove intermediate image files that are kept in temporary storage after calling camera.getPicture.
@@ -134,9 +139,9 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise
 
 
 </div>

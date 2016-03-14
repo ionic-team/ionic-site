@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  App Availability
+  
 
-App Availability
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/appavailability.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-appavailability</code></pre>
 <p>Repo:
-<a href="https://github.com/ohh2ahh/AppAvailability">
-https://github.com/ohh2ahh/AppAvailability
-</a>
+  <a href="https://github.com/ohh2ahh/AppAvailability">
+    https://github.com/ohh2ahh/AppAvailability
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -78,7 +81,7 @@ AppAvailability.check(app)
 <h2>Static Methods</h2>
 <div id="check"></div>
 <h3><code>check(app)</code>
-  
+
 </h3>
 
 Checks if an app is available on device
@@ -86,31 +89,31 @@ Checks if an app is available on device
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        app
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        <p>Package name on android, or URI scheme on iOS</p>
+  <tr>
+    <td>
+      app
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
+    </td>
+    <td>
+      <p>Package name on android, or URI scheme on iOS</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -119,9 +122,9 @@ Checks if an app is available on device
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;boolean&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
 </div>
 
 

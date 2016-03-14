@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Vibration
+  
 
-Vibration
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/vibration.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-vibration</code></pre>
 <p>Repo:
-<a href="https://github.com/apache/cordova-plugin-vibration">
-https://github.com/apache/cordova-plugin-vibration
-</a>
+  <a href="https://github.com/apache/cordova-plugin-vibration">
+    https://github.com/apache/cordova-plugin-vibration
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -76,39 +79,41 @@ Vibration.vibrate(0);
 <h2>Static Methods</h2>
 <div id="vibrate"></div>
 <h3><code>vibrate(time)</code>
-  
+
 </h3>
+
+
 
 Vibrates the device for given amount of time.
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        time
-        
-        
-      </td>
-      <td>
-        
-  <code>Number</code>|<code>Array.&lt;Number&gt;</code>
-      </td>
-      <td>
-        <p>Milliseconds to vibrate the device. If passed an array of numbers, it will define a vibration pattern. Pass 0 to stop any vibration immediately.</p>
+  
+  <tr>
+    <td>
+      time
+      
+      
+    </td>
+    <td>
+      
+<code>Number</code>|<code>Array.&lt;Number&gt;</code>
+    </td>
+    <td>
+      <p>Milliseconds to vibrate the device. If passed an array of numbers, it will define a vibration pattern. Pass 0 to stop any vibration immediately.</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 

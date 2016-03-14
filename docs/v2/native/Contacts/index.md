@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Contacts
+  
 
-Contacts
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/contacts.ts#L187'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-contacts</code></pre>
 <p>Repo:
-<a href="https://github.com/apache/cordova-plugin-contacts">
-https://github.com/apache/cordova-plugin-contacts
-</a>
+  <a href="https://github.com/apache/cordova-plugin-contacts">
+    https://github.com/apache/cordova-plugin-contacts
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -70,8 +73,10 @@ For full info, please see the <a href="https://github.com/apache/cordova-plugin-
 <h2>Static Methods</h2>
 <div id="create"></div>
 <h3><code>create(options)</code>
-  
+
 </h3>
+
+
 
 Create a new Contact object.
 
@@ -79,31 +84,31 @@ Create a new Contact object.
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
-  <code>Object</code>
-      </td>
-      <td>
-        <p>Object whose properties the created Contact should have.</p>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>Object</code>
+    </td>
+    <td>
+      <p>Object whose properties the created Contact should have.</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -112,17 +117,19 @@ Create a new Contact object.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Contact</code> Returns the created contact
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Contact</code> Returns the created contact
 </div>
 
 
 
 <div id="find"></div>
 <h3><code>find(fields,&nbsp;options)</code>
-  
+
 </h3>
+
+
 
 Search for contacts in the Contacts list.
 
@@ -132,54 +139,54 @@ Example: Contacts.find(['*'], { filter: 'Max' }) // will search for a displayNam
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        fields
-        
-        
-      </td>
-      <td>
-        
-  <code>string[]</code>
-      </td>
-      <td>
-        <p>Contact fields to be used as a search qualifier.
+  
+  <tr>
+    <td>
+      fields
+      
+      
+    </td>
+    <td>
+      
+<code>string[]</code>
+    </td>
+    <td>
+      <p>Contact fields to be used as a search qualifier.
  A zero-length contactFields parameter is invalid and results in ContactError.INVALID_ARGUMENT_ERROR.
  A contactFields value of &quot;*&quot; searches all contact fields.</p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
-  <code>Object</code>
-      </td>
-      <td>
-        <p>the options to query with:
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>Object</code>
+    </td>
+    <td>
+      <p>the options to query with:
   filter: The search string used to find navigator.contacts. (string) (Default: &quot;&quot;)
   multiple: Determines if the find operation returns multiple navigator.contacts. (Boolean) (Default: false)
   desiredFields: Contact fields to be returned back. If specified, the resulting Contact object only features values for these fields. (DOMString[]) [Optional]
   hasPhoneNumber(Android only): Filters the search to only return contacts with a phone number informed. (Boolean) (Default: false)</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -188,9 +195,9 @@ Example: Contacts.find(['*'], { filter: 'Max' }) // will search for a displayNam
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves with the search results (an array of Contact objects)
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves with the search results (an array of Contact objects)
 
 
 </div>
@@ -199,7 +206,7 @@ Example: Contacts.find(['*'], { filter: 'Max' }) // will search for a displayNam
 
 <div id="pickContact"></div>
 <h3><code>pickContact()</code>
-  
+
 </h3>
 
 Select a single Contact.
@@ -210,9 +217,9 @@ Select a single Contact.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves with the selected Contact
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves with the selected Contact
 
 
 </div>

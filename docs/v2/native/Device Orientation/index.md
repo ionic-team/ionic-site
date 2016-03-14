@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Device Orientation
+  
 
-Device Orientation
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/deviceorientation.ts#L39'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-device-orientation</code></pre>
 <p>Repo:
-<a href="https://github.com/apache/cordova-plugin-device-orientation">
-https://github.com/apache/cordova-plugin-device-orientation
-</a>
+  <a href="https://github.com/apache/cordova-plugin-device-orientation">
+    https://github.com/apache/cordova-plugin-device-orientation
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -77,7 +80,7 @@ subscription.unsubscribe();
 <h2>Static Methods</h2>
 <div id="getCurrentHeading"></div>
 <h3><code>getCurrentHeading()</code>
-  
+
 </h3>
 
 Get the current compass heading.
@@ -88,17 +91,19 @@ Get the current compass heading.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;CompassHeading&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;CompassHeading&gt;</code> 
 </div>
 
 
 
 <div id="watchHeading"></div>
 <h3><code>watchHeading(options)</code>
-  
+
 </h3>
+
+
 
 Get the device current heading at a regular interval
 
@@ -107,30 +112,30 @@ Stop the watch by unsubscribing from the observable
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -139,9 +144,9 @@ Stop the watch by unsubscribing from the observable
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable&lt;CompassHeading&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;CompassHeading&gt;</code> 
 </div>
 
 

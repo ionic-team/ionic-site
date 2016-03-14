@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  App Rate
+  
 
-App Rate
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/apprate.ts#L2'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-apprate</code></pre>
 <p>Repo:
-<a href="https://github.com/pushandplay/cordova-plugin-apprate">
-https://github.com/pushandplay/cordova-plugin-apprate
-</a>
+  <a href="https://github.com/pushandplay/cordova-plugin-apprate">
+    https://github.com/pushandplay/cordova-plugin-apprate
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -70,7 +73,7 @@ AppRate.promptForRating();
 <h2>Static Methods</h2>
 <div id="preferences"></div>
 <h3><code>preferences()</code>
-  
+
 </h3>
 
 Rating dialog preferences
@@ -98,7 +101,7 @@ customLocale {Object} null - custom locale object
 
 <div id="promptForRating"></div>
 <h3><code>promptForRating(immediately)</code>
-  
+
 </h3>
 
 Prompts the user for rating
@@ -107,31 +110,31 @@ Prompts the user for rating
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        immediately
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>Show the rating prompt immediately.</p>
+  
+  <tr>
+    <td>
+      immediately
+      
+      
+    </td>
+    <td>
+      
+<code>boolean</code>
+    </td>
+    <td>
+      <p>Show the rating prompt immediately.</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 

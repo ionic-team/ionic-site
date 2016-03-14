@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Action Sheet
+  
 
-Action Sheet
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/actionsheet.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-actionsheet</code></pre>
 <p>Repo:
-<a href="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet">
-https://github.com/EddyVerbruggen/cordova-plugin-actionsheet
-</a>
+  <a href="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet">
+    https://github.com/EddyVerbruggen/cordova-plugin-actionsheet
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -76,7 +79,7 @@ ActionSheet.show({
 <h2>Static Methods</h2>
 <div id="show"></div>
 <h3><code>show(Options)</code>
-  
+
 </h3>
 
 Show the ActionSheet. The ActionSheet's options is an object with the following propterties.
@@ -96,31 +99,31 @@ Show the ActionSheet. The ActionSheet's options is an object with the following 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        Options
-        
-        
-      </td>
-      <td>
-        
-  <code>options</code>
-      </td>
-      <td>
-        <p>See table above</p>
+  
+  <tr>
+    <td>
+      Options
+      
+      
+    </td>
+    <td>
+      
+<code>options</code>
+    </td>
+    <td>
+      <p>See table above</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -129,9 +132,9 @@ Show the ActionSheet. The ActionSheet's options is an object with the following 
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> Returns a Promise that resolves with the index of the
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise that resolves with the index of the
   button pressed (1 based, so 1, 2, 3, etc.)
 </div>
 
@@ -139,7 +142,7 @@ Show the ActionSheet. The ActionSheet's options is an object with the following 
 
 <div id="hide"></div>
 <h3><code>hide()</code>
-  
+
 </h3>
 
 Hide the ActionSheet.

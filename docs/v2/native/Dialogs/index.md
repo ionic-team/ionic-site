@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Dialogs
+  
 
-Dialogs
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/dialogs.ts#L14'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-dialogs</code></pre>
 <p>Repo:
-<a href="https://github.com/apache/cordova-plugin-dialogs.git">
-https://github.com/apache/cordova-plugin-dialogs.git
-</a>
+  <a href="https://github.com/apache/cordova-plugin-dialogs.git">
+    https://github.com/apache/cordova-plugin-dialogs.git
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -66,73 +69,75 @@ https://github.com/apache/cordova-plugin-dialogs.git
 <h2>Static Methods</h2>
 <div id="alert"></div>
 <h3><code>alert(message,&nbsp;title,&nbsp;buttonName)</code>
-  
+
 </h3>
+
+
 
 Shows a custom alert or dialog box.
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        message
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        <p>Dialog message. (String)</p>
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        title
-        
-        
-      </td>
-      <td>
-        
+    </td>
+    <td>
+      <p>Dialog message. (String)</p>
+
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        <p>Dialog title. (String) (Optional, defaults to Alert)</p>
+  <tr>
+    <td>
+      title
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        buttonName
-        
-        
-      </td>
-      <td>
-        
+    </td>
+    <td>
+      <p>Dialog title. (String) (Optional, defaults to Alert)</p>
+
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        <p>Button name. (String) (Optional, defaults to OK)</p>
+  <tr>
+    <td>
+      buttonName
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
+    </td>
+    <td>
+      <p>Button name. (String) (Optional, defaults to OK)</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -141,82 +146,84 @@ Shows a custom alert or dialog box.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;any&gt;</code> Returns a blank promise once the user has dismissed the alert.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a blank promise once the user has dismissed the alert.
 </div>
 
 
 
 <div id="confirm"></div>
 <h3><code>confirm(message,&nbsp;title,&nbsp;buttonLabels)</code>
-  
+
 </h3>
+
+
 
 Displays a customizable confirmation dialog box.
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        message
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        <p>Dialog message. (String)</p>
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        title
-        
-        
-      </td>
-      <td>
-        
+    </td>
+    <td>
+      <p>Dialog message. (String)</p>
+
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        <p>Dialog title. (String) (Optional, defaults to Confirm)</p>
+  <tr>
+    <td>
+      title
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        buttonLabels
-        
-        
-      </td>
-      <td>
-        
+    </td>
+    <td>
+      <p>Dialog title. (String) (Optional, defaults to Confirm)</p>
+
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        <p>Array of strings specifying button labels. (Array) (Optional, defaults to [OK,Cancel])</p>
+  <tr>
+    <td>
+      buttonLabels
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
+    </td>
+    <td>
+      <p>Array of strings specifying button labels. (Array) (Optional, defaults to [OK,Cancel])</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -225,99 +232,101 @@ Displays a customizable confirmation dialog box.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;number&gt;</code> Returns a promise that resolves the button index that was clicked. Note that the index use one-based indexing.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;number&gt;</code> Returns a promise that resolves the button index that was clicked. Note that the index use one-based indexing.
 </div>
 
 
 
 <div id="prompt"></div>
 <h3><code>prompt(message,&nbsp;title,&nbsp;buttonLabels,&nbsp;defaultText)</code>
-  
+
 </h3>
+
+
 
 Displays a native dialog box that is more customizable than the browser's prompt function.
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        message
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        <p>Dialog message. (String)</p>
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        title
-        
-        
-      </td>
-      <td>
-        
+    </td>
+    <td>
+      <p>Dialog message. (String)</p>
+
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        <p>Dialog title (String) (Optional, defaults to Prompt)</p>
+  <tr>
+    <td>
+      title
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        buttonLabels
-        
-        
-      </td>
-      <td>
-        
+    </td>
+    <td>
+      <p>Dialog title (String) (Optional, defaults to Prompt)</p>
+
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        <p>Array of strings specifying button labels (Array) (Optional, defaults to [&quot;OK&quot;,&quot;Cancel&quot;])</p>
+  <tr>
+    <td>
+      buttonLabels
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        defaultText
-        
-        
-      </td>
-      <td>
-        
+    </td>
+    <td>
+      <p>Array of strings specifying button labels (Array) (Optional, defaults to [&quot;OK&quot;,&quot;Cancel&quot;])</p>
+
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        <p>Default textbox input value (String) (Optional, Default: empty string)</p>
+  <tr>
+    <td>
+      defaultText
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
+    </td>
+    <td>
+      <p>Default textbox input value (String) (Optional, Default: empty string)</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -326,48 +335,50 @@ Displays a native dialog box that is more customizable than the browser's prompt
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;any&gt;</code> Returns a promise that resolves an object with the button index clicked and the text entered
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise that resolves an object with the button index clicked and the text entered
 </div>
 
 
 
 <div id="beep"></div>
 <h3><code>beep(times)</code>
-  
+
 </h3>
+
+
 
 The device plays a beep sound.
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        times
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        <p>The number of times to repeat the beep. (Number)</p>
+  <tr>
+    <td>
+      times
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
+    </td>
+    <td>
+      <p>The number of times to repeat the beep. (Number)</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 

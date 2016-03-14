@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  TouchID
+  
 
-TouchID
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/touchid.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-touch-id</code></pre>
 <p>Repo:
-<a href="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">
-https://github.com/EddyVerbruggen/cordova-plugin-touch-id
-</a>
+  <a href="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">
+    https://github.com/EddyVerbruggen/cordova-plugin-touch-id
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -70,7 +73,7 @@ https://github.com/EddyVerbruggen/cordova-plugin-touch-id
 <h2>Static Methods</h2>
 <div id="verifyFingerprint"></div>
 <h3><code>verifyFingerprint(message)</code>
-  
+
 </h3>
 
 Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Password' button, brings up standard system passcode screen.
@@ -79,31 +82,31 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        message
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>The message to display</p>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>The message to display</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -112,16 +115,16 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
 </div>
 
 
 
 <div id="verifyFingerprintWithCustomPasswordFallback"></div>
 <h3><code>verifyFingerprintWithCustomPasswordFallback(message)</code>
-  
+
 </h3>
 
 Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Password' button, rejects with code '-3' (see above).
@@ -130,31 +133,31 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        message
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>The message to display</p>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>The message to display</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -163,16 +166,16 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
 </div>
 
 
 
 <div id="verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel"></div>
 <h3><code>verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel(message,&nbsp;enterPasswordLabel)</code>
-  
+
 </h3>
 
 Show TouchID dialog with custom 'Enter Password' message and wait for a fingerprint scan. If user taps 'Enter Password' button, rejects with code '-3' (see above).
@@ -181,48 +184,48 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        message
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>The message to display</p>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>The message to display</p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        enterPasswordLabel
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Custom text for the &#39;Enter Password&#39; button</p>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      enterPasswordLabel
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Custom text for the &#39;Enter Password&#39; button</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -231,9 +234,9 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise the resolves if the fingerprint scan was successful, rejects with an error code (see above).
 </div>
 
 
@@ -246,8 +249,8 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
 <div id="isAvailable"></div>
 
 <h3>
-<code>isAvailable()</code>
-  
+  <code>isAvailable()</code>
+
 
 </h3>
 
@@ -260,9 +263,9 @@ Whether TouchID is available or not.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> Returns a Promise that resolves if yes, rejects if no.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise that resolves if yes, rejects if no.
 </div>
 
 

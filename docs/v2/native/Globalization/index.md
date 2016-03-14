@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Globalization
+  
 
-Globalization
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/globalization.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-globalization</code></pre>
 <p>Repo:
-<a href="https://github.com/apache/cordova-plugin-globalization">
-https://github.com/apache/cordova-plugin-globalization
-</a>
+  <a href="https://github.com/apache/cordova-plugin-globalization">
+    https://github.com/apache/cordova-plugin-globalization
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -57,7 +60,7 @@ https://github.com/apache/cordova-plugin-globalization
 <h2>Static Methods</h2>
 <div id="getPreferredLanguage"></div>
 <h3><code>getPreferredLanguage()</code>
-  
+
 </h3>
 
 Returns the BCP-47 compliant language identifier tag to the successCallback with a properties object as a parameter. That object should have a value property with a String value.
@@ -68,16 +71,16 @@ Returns the BCP-47 compliant language identifier tag to the successCallback with
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;{value:string}&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;{value:string}&gt;</code> 
 </div>
 
 
 
 <div id="getLocaleName"></div>
 <h3><code>getLocaleName()</code>
-  
+
 </h3>
 
 Returns the BCP 47 compliant locale identifier string to the successCallback with a properties object as a parameter.
@@ -88,63 +91,65 @@ Returns the BCP 47 compliant locale identifier string to the successCallback wit
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;{value:string}&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;{value:string}&gt;</code> 
 </div>
 
 
 
 <div id="dateToString"></div>
 <h3><code>dateToString(date,&nbsp;options)</code>
-  
+
 </h3>
+
+
 
 Converts date to string
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        date
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
+  <tr>
+    <td>
+      date
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -153,63 +158,65 @@ Converts date to string
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;{value:string}&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;{value:string}&gt;</code> 
 </div>
 
 
 
 <div id="stringToDate"></div>
 <h3><code>stringToDate(dateString,&nbsp;options)</code>
-  
+
 </h3>
+
+
 
 
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        dateString
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
+  <tr>
+    <td>
+      dateString
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -221,38 +228,40 @@ Converts date to string
 
 <div id="getDatePattern"></div>
 <h3><code>getDatePattern(options)</code>
-  
+
 </h3>
+
+
 
 
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -264,38 +273,40 @@ Converts date to string
 
 <div id="getDateNames"></div>
 <h3><code>getDateNames(options)</code>
-  
+
 </h3>
+
+
 
 
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -307,7 +318,7 @@ Converts date to string
 
 <div id="isDayLightSavingsTime"></div>
 <h3><code>isDayLightSavingsTime(date)</code>
-  
+
 </h3>
 
 Check if day light saving is active
@@ -315,30 +326,30 @@ Check if day light saving is active
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        date
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      date
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -350,7 +361,7 @@ Check if day light saving is active
 
 <div id="getFirstDayOfWeek"></div>
 <h3><code>getFirstDayOfWeek()</code>
-  
+
 </h3>
 
 Get first day of week
@@ -366,38 +377,40 @@ Get first day of week
 
 <div id="numberToString"></div>
 <h3><code>numberToString(options)</code>
-  
+
 </h3>
+
+
 
 
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -409,54 +422,56 @@ Get first day of week
 
 <div id="stringToNumber"></div>
 <h3><code>stringToNumber(string,&nbsp;options)</code>
-  
+
 </h3>
+
+
 
 
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        string
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
+  <tr>
+    <td>
+      string
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -468,38 +483,40 @@ Get first day of week
 
 <div id="getNumberPattern"></div>
 <h3><code>getNumberPattern(options)</code>
-  
+
 </h3>
+
+
 
 
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -511,7 +528,7 @@ Get first day of week
 
 <div id="getCurrencyPattern"></div>
 <h3><code>getCurrencyPattern(currencyCode)</code>
-  
+
 </h3>
 
 
@@ -519,30 +536,30 @@ Get first day of week
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        currencyCode
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      currencyCode
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 

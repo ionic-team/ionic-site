@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Splashscreen
+  
 
-Splashscreen
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/splashscreen.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-splashscreen</code></pre>
 <p>Repo:
-<a href="https://github.com/apache/cordova-plugin-splashscreen">
-https://github.com/apache/cordova-plugin-splashscreen
-</a>
+  <a href="https://github.com/apache/cordova-plugin-splashscreen">
+    https://github.com/apache/cordova-plugin-splashscreen
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -67,8 +70,10 @@ Splashscreen.hide();
 <h2>Static Methods</h2>
 <div id="show"></div>
 <h3><code>show()</code>
-  
+
 </h3>
+
+
 
 Shows the splashscreen
 
@@ -83,8 +88,10 @@ Shows the splashscreen
 
 <div id="hide"></div>
 <h3><code>hide()</code>
-  
+
 </h3>
+
+
 
 Hides the splashscreen
 

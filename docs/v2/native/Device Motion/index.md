@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Device Motion
+  
 
-Device Motion
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/devicemotion.ts#L34'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-device-motion</code></pre>
 <p>Repo:
-<a href="https://github.com/apache/cordova-plugin-device-motion">
-https://github.com/apache/cordova-plugin-device-motion
-</a>
+  <a href="https://github.com/apache/cordova-plugin-device-motion">
+    https://github.com/apache/cordova-plugin-device-motion
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -77,7 +80,7 @@ subscription.unsubscribe();
 <h2>Static Methods</h2>
 <div id="getCurrentAcceleration"></div>
 <h3><code>getCurrentAcceleration()</code>
-  
+
 </h3>
 
 Get the current acceleration along the x, y, and z axes.
@@ -89,17 +92,19 @@ Get the current acceleration along the x, y, and z axes.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;any&gt;</code> Returns object with x, y, z, and timestamp properties
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns object with x, y, z, and timestamp properties
 </div>
 
 
 
 <div id="watchAcceleration"></div>
 <h3><code>watchAcceleration(options)</code>
-  
+
 </h3>
+
+
 
 Watch the device acceleration. Clear the watch by unsubscribing from the observable.
 
@@ -116,30 +121,30 @@ subscription.unsubscribe();
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -148,9 +153,9 @@ subscription.unsubscribe();
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable&lt;accelerationData&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;accelerationData&gt;</code> 
 </div>
 
 

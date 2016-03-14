@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Barcode Scanner
+  
 
-Barcode Scanner
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/barcodescanner.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add phonegap-plugin-barcodescanner</code></pre>
 <p>Repo:
-<a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">
-https://github.com/phonegap/phonegap-plugin-barcodescanner
-</a>
+  <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">
+    https://github.com/phonegap/phonegap-plugin-barcodescanner
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -70,7 +73,7 @@ https://github.com/phonegap/phonegap-plugin-barcodescanner
 <h2>Static Methods</h2>
 <div id="scan"></div>
 <h3><code>scan()</code>
-  
+
 </h3>
 
 Open the barcode scanner.
@@ -81,9 +84,9 @@ Open the barcode scanner.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves with scanner data, or rejects with an error.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves with scanner data, or rejects with an error.
 
 
 </div>

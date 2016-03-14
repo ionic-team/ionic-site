@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  App Version
+  
 
-App Version
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/appversion.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-app-version</code></pre>
 <p>Repo:
-<a href="https://github.com/whiteoctober/cordova-plugin-app-version">
-https://github.com/whiteoctober/cordova-plugin-app-version
-</a>
+  <a href="https://github.com/whiteoctober/cordova-plugin-app-version">
+    https://github.com/whiteoctober/cordova-plugin-app-version
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -69,7 +72,7 @@ AppVersion.getVersionNumber();
 <h2>Static Methods</h2>
 <div id="getAppName"></div>
 <h3><code>getAppName()</code>
-  
+
 </h3>
 
 Returns the name of the app
@@ -80,16 +83,16 @@ Returns the name of the app
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
 </div>
 
 
 
 <div id="getPackageName"></div>
 <h3><code>getPackageName()</code>
-  
+
 </h3>
 
 Returns the package name of the app
@@ -100,16 +103,16 @@ Returns the package name of the app
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
 </div>
 
 
 
 <div id="getVersionCode"></div>
 <h3><code>getVersionCode()</code>
-  
+
 </h3>
 
 Returns the build identifier of the app
@@ -120,16 +123,16 @@ Returns the build identifier of the app
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
 </div>
 
 
 
 <div id="getVersionNumber"></div>
 <h3><code>getVersionNumber()</code>
-  
+
 </h3>
 
 Returns the version of the app
@@ -140,9 +143,9 @@ Returns the version of the app
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> 
 </div>
 
 

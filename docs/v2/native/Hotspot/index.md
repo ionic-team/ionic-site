@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Hotspot
+  
 
-Hotspot
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/hotspot.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-hotspot</code></pre>
 <p>Repo:
-<a href="https://github.com/hypery2k/cordova-hotspot-plugin">
-https://github.com/hypery2k/cordova-hotspot-plugin
-</a>
+  <a href="https://github.com/hypery2k/cordova-hotspot-plugin">
+    https://github.com/hypery2k/cordova-hotspot-plugin
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -57,7 +60,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 <h2>Static Methods</h2>
 <div id="isAvailable"></div>
 <h3><code>isAvailable()</code>
-  
+
 </h3>
 
 
@@ -72,7 +75,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="toggleWifi"></div>
 <h3><code>toggleWifi()</code>
-  
+
 </h3>
 
 
@@ -87,7 +90,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="createHotspot"></div>
 <h3><code>createHotspot()</code>
-  
+
 </h3>
 
 
@@ -102,7 +105,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="startHotspot"></div>
 <h3><code>startHotspot()</code>
-  
+
 </h3>
 
 
@@ -117,7 +120,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="configureHotspot"></div>
 <h3><code>configureHotspot()</code>
-  
+
 </h3>
 
 
@@ -132,7 +135,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="stopHotspot"></div>
 <h3><code>stopHotspot()</code>
-  
+
 </h3>
 
 
@@ -147,7 +150,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="isHotspotEnabled"></div>
 <h3><code>isHotspotEnabled()</code>
-  
+
 </h3>
 
 
@@ -162,7 +165,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="getAllHotspotDevices"></div>
 <h3><code>getAllHotspotDevices()</code>
-  
+
 </h3>
 
 
@@ -177,7 +180,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="connectToHotspot"></div>
 <h3><code>connectToHotspot()</code>
-  
+
 </h3>
 
 
@@ -192,7 +195,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="connectToWifiAuthEncrypt"></div>
 <h3><code>connectToWifiAuthEncrypt()</code>
-  
+
 </h3>
 
 
@@ -207,7 +210,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="addWifiNetwork"></div>
 <h3><code>addWifiNetwork()</code>
-  
+
 </h3>
 
 
@@ -222,7 +225,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="removeWifiNetwork"></div>
 <h3><code>removeWifiNetwork()</code>
-  
+
 </h3>
 
 
@@ -237,7 +240,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="isConnectedToInternet"></div>
 <h3><code>isConnectedToInternet()</code>
-  
+
 </h3>
 
 
@@ -252,7 +255,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="isConnectedToInternetViaWifi"></div>
 <h3><code>isConnectedToInternetViaWifi()</code>
-  
+
 </h3>
 
 
@@ -267,7 +270,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="isWifiOn"></div>
 <h3><code>isWifiOn()</code>
-  
+
 </h3>
 
 
@@ -282,7 +285,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="isWifiSupported"></div>
 <h3><code>isWifiSupported()</code>
-  
+
 </h3>
 
 
@@ -297,7 +300,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="isWifiDirectSupported"></div>
 <h3><code>isWifiDirectSupported()</code>
-  
+
 </h3>
 
 
@@ -312,7 +315,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="scanWifi"></div>
 <h3><code>scanWifi()</code>
-  
+
 </h3>
 
 
@@ -327,7 +330,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="scanWifiByLevel"></div>
 <h3><code>scanWifiByLevel()</code>
-  
+
 </h3>
 
 
@@ -342,7 +345,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="startPeriodicallyScan"></div>
 <h3><code>startPeriodicallyScan()</code>
-  
+
 </h3>
 
 
@@ -357,7 +360,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="stopPeriodicallyScan"></div>
 <h3><code>stopPeriodicallyScan()</code>
-  
+
 </h3>
 
 
@@ -372,7 +375,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="getNetConfig"></div>
 <h3><code>getNetConfig()</code>
-  
+
 </h3>
 
 
@@ -387,7 +390,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="getConnectionInfo"></div>
 <h3><code>getConnectionInfo()</code>
-  
+
 </h3>
 
 
@@ -402,7 +405,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="pingHost"></div>
 <h3><code>pingHost()</code>
-  
+
 </h3>
 
 
@@ -417,7 +420,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="getMacAddressOfHost"></div>
 <h3><code>getMacAddressOfHost()</code>
-  
+
 </h3>
 
 
@@ -432,7 +435,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="isDnsLive"></div>
 <h3><code>isDnsLive()</code>
-  
+
 </h3>
 
 
@@ -447,7 +450,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="isPortLife"></div>
 <h3><code>isPortLife()</code>
-  
+
 </h3>
 
 
@@ -462,7 +465,7 @@ https://github.com/hypery2k/cordova-hotspot-plugin
 
 <div id="isRooted"></div>
 <h3><code>isRooted()</code>
-  
+
 </h3>
 
 

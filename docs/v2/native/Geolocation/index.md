@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Geolocation
+  
 
-Geolocation
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/geolocation.ts#L91'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-geolocation</code></pre>
 <p>Repo:
-<a href="https://github.com/apache/cordova-plugin-geolocation">
-https://github.com/apache/cordova-plugin-geolocation
-</a>
+  <a href="https://github.com/apache/cordova-plugin-geolocation">
+    https://github.com/apache/cordova-plugin-geolocation
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -75,8 +78,10 @@ watch.subscribe((data) =&gt; {
 <h2>Static Methods</h2>
 <div id="getCurrentPosition"></div>
 <h3><code>getCurrentPosition(options)</code>
-  
+
 </h3>
+
+
 
 Get the device's current position.
 
@@ -84,31 +89,31 @@ Get the device's current position.
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
-  <code>GeolocationOptions</code>
-      </td>
-      <td>
-        <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">geolocation options</a>.</p>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>GeolocationOptions</code>
+    </td>
+    <td>
+      <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">geolocation options</a>.</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -117,9 +122,9 @@ Get the device's current position.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or rejects with an error.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or rejects with an error.
 
 
 </div>
@@ -128,8 +133,10 @@ Get the device's current position.
 
 <div id="watchPosition"></div>
 <h3><code>watchPosition(options)</code>
-  
+
 </h3>
+
+
 
 Watch the current device's position.  Clear the watch by unsubscribing from
 Observable changes.
@@ -147,31 +154,31 @@ subscription.unsubscribe();
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
-  <code>GeolocationOptions</code>
-      </td>
-      <td>
-        <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">geolocation options</a>.</p>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>GeolocationOptions</code>
+    </td>
+    <td>
+      <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions">geolocation options</a>.</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -180,9 +187,9 @@ subscription.unsubscribe();
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns an Observable that notifies with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or errors.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns an Observable that notifies with the [position](https://developer.mozilla.org/en-US/docs/Web/API/Position) of the device, or errors.
 
 
 </div>

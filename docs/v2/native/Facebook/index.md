@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Facebook
+  
 
-Facebook
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/facebook.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-facebook4</code></pre>
 <p>Repo:
-<a href="https://github.com/jeduan/cordova-plugin-facebook4">
-https://github.com/jeduan/cordova-plugin-facebook4
-</a>
+  <a href="https://github.com/jeduan/cordova-plugin-facebook4">
+    https://github.com/jeduan/cordova-plugin-facebook4
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -93,7 +96,7 @@ https://github.com/jeduan/cordova-plugin-facebook4
 <h2>Static Methods</h2>
 <div id="login"></div>
 <h3><code>login(permissions)</code>
-  
+
 </h3>
 
 Login to Facebook to authenticate this app.
@@ -116,31 +119,31 @@ Login to Facebook to authenticate this app.
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        permissions
-        
-        
-      </td>
-      <td>
-        
-  <code>string[]</code>
-      </td>
-      <td>
-        <p>List of <a href="https://developers.facebook.com/docs/facebook-login/permissions">permissions</a> this app has upon logging in.</p>
+  
+  <tr>
+    <td>
+      permissions
+      
+      
+    </td>
+    <td>
+      
+<code>string[]</code>
+    </td>
+    <td>
+      <p>List of <a href="https://developers.facebook.com/docs/facebook-login/permissions">permissions</a> this app has upon logging in.</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -149,9 +152,9 @@ Login to Facebook to authenticate this app.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves with a status object if login succeeds, and rejects if login fails.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves with a status object if login succeeds, and rejects if login fails.
 
 
 </div>
@@ -160,7 +163,7 @@ Login to Facebook to authenticate this app.
 
 <div id="logout"></div>
 <h3><code>logout()</code>
-  
+
 </h3>
 
 Logout of Facebook.
@@ -173,9 +176,9 @@ For more info see the [Facebook docs](https://developers.facebook.com/docs/refer
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves on a successful logout, and rejects if logout fails.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves on a successful logout, and rejects if logout fails.
 
 
 </div>
@@ -184,7 +187,7 @@ For more info see the [Facebook docs](https://developers.facebook.com/docs/refer
 
 <div id="getLoginStatus"></div>
 <h3><code>getLoginStatus()</code>
-  
+
 </h3>
 
 Determine if a user is logged in to Facebook and has authenticated your app.  There are three possible states for a user:
@@ -217,9 +220,9 @@ For more information see the [Facebook docs](https://developers.facebook.com/doc
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves with a status, or rejects with an error
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves with a status, or rejects with an error
 
 
 </div>
@@ -228,7 +231,7 @@ For more information see the [Facebook docs](https://developers.facebook.com/doc
 
 <div id="getAccessToken"></div>
 <h3><code>getAccessToken()</code>
-  
+
 </h3>
 
 Get a Facebook access token for using Facebook services.
@@ -240,9 +243,9 @@ Get a Facebook access token for using Facebook services.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves with an access token, or rejects with an error
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves with an access token, or rejects with an error
 
 
 </div>
@@ -251,7 +254,7 @@ Get a Facebook access token for using Facebook services.
 
 <div id="showDialog"></div>
 <h3><code>showDialog()</code>
-  
+
 </h3>
 
 Show one of various Facebook dialogs. Example of options for a Share dialog:
@@ -274,9 +277,9 @@ For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves with success data, or rejects with an error
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves with success data, or rejects with an error
 
 
 </div>
@@ -285,7 +288,7 @@ For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova
 
 <div id="api"></div>
 <h3><code>api(requestPath,&nbsp;permissions)</code>
-  
+
 </h3>
 
 Make a call to Facebook Graph API. Can take additional permissions beyond those granted on login.
@@ -300,48 +303,48 @@ For more information see:
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        requestPath
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Graph API endpoint you want to call</p>
+  
+  <tr>
+    <td>
+      requestPath
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Graph API endpoint you want to call</p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        permissions
-        
-        
-      </td>
-      <td>
-        
-  <code>string[]</code>
-      </td>
-      <td>
-        <p>List of <a href="https://developers.facebook.com/docs/facebook-login/permissions">permissions</a> for this request.</p>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      permissions
+      
+      
+    </td>
+    <td>
+      
+<code>string[]</code>
+    </td>
+    <td>
+      <p>List of <a href="https://developers.facebook.com/docs/facebook-login/permissions">permissions</a> for this request.</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -350,9 +353,9 @@ For more information see:
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves with the result of the request, or rejects with an error
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves with the result of the request, or rejects with an error
 
 
 </div>
@@ -361,7 +364,7 @@ For more information see:
 
 <div id="logEvent"></div>
 <h3><code>logEvent(name,&nbsp;params,&nbsp;valueToSum)</code>
-  
+
 </h3>
 
 Log an event.  For more information see the Events section above.
@@ -370,65 +373,65 @@ Log an event.  For more information see the Events section above.
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        name
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Name of the event</p>
+  
+  <tr>
+    <td>
+      name
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Name of the event</p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        params
-        
-        
-      </td>
-      <td>
-        
-  <code>Object</code>
-      </td>
-      <td>
-        <p>An object containing extra data to log with the event</p>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      params
+      
+      
+    </td>
+    <td>
+      
+<code>Object</code>
+    </td>
+    <td>
+      <p>An object containing extra data to log with the event</p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        valueToSum
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>any value to be added to added to a sum on each event</p>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      valueToSum
+      
+      
+    </td>
+    <td>
+      
+<code>number</code>
+    </td>
+    <td>
+      <p>any value to be added to added to a sum on each event</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -437,16 +440,16 @@ Log an event.  For more information see the Events section above.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ 
 </div>
 
 
 
 <div id="logPurchase"></div>
 <h3><code>logPurchase(value,&nbsp;currency)</code>
-  
+
 </h3>
 
 Log a purchase. For more information see the Events section above.
@@ -455,48 +458,48 @@ Log a purchase. For more information see the Events section above.
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        value
-        
-        
-      </td>
-      <td>
-        
-  <code>number</code>
-      </td>
-      <td>
-        <p>Value of the purchase.</p>
+  
+  <tr>
+    <td>
+      value
+      
+      
+    </td>
+    <td>
+      
+<code>number</code>
+    </td>
+    <td>
+      <p>Value of the purchase.</p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        currency
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>The currency, as an <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217 currency code</a></p>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      currency
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>The currency, as an <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217 currency code</a></p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -505,9 +508,9 @@ Log a purchase. For more information see the Events section above.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise
 
 
 </div>
@@ -516,7 +519,7 @@ Log a purchase. For more information see the Events section above.
 
 <div id="appInvite"></div>
 <h3><code>appInvite(options)</code>
-  
+
 </h3>
 
 Open App Invite dialog. Does not require login.
@@ -531,33 +534,33 @@ For more information see:
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
-  <code>Object</code>
-      </td>
-      <td>
-        <p>An object containing an <a href="https://developers.facebook.com/docs/applinks">App Link</a> URL to your app and an optional image URL.
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>Object</code>
+    </td>
+    <td>
+      <p>An object containing an <a href="https://developers.facebook.com/docs/applinks">App Link</a> URL to your app and an optional image URL.
   url: <a href="https://developers.facebook.com/docs/applinks">App Link</a> to your app
   picture: image to be displayed in the App Invite dialog</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -566,9 +569,9 @@ For more information see:
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves with the result data, or rejects with an error
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves with the result data, or rejects with an error
 
 
 </div>

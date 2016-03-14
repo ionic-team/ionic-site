@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Local Notifications
+  
 
-Local Notifications
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/localnotifications.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add de.appplant.cordova.plugin.local-notification</code></pre>
 <p>Repo:
-<a href="https://github.com/katzer/cordova-plugin-local-notifications">
-https://github.com/katzer/cordova-plugin-local-notifications
-</a>
+  <a href="https://github.com/katzer/cordova-plugin-local-notifications">
+    https://github.com/katzer/cordova-plugin-local-notifications
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -94,38 +97,40 @@ LocalNotifications.schedule({
 <h2>Static Methods</h2>
 <div id="schedule"></div>
 <h3><code>schedule(options)</code>
-  
+
 </h3>
+
+
 
 Schedules a single or multiple notifications
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -137,38 +142,40 @@ Schedules a single or multiple notifications
 
 <div id="update"></div>
 <h3><code>update(options)</code>
-  
+
 </h3>
+
+
 
 Updates a previously scheduled notification. Must include the id in the options parameter.
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -180,7 +187,7 @@ Updates a previously scheduled notification. Must include the id in the options 
 
 <div id="clear"></div>
 <h3><code>clear(notificationId)</code>
-  
+
 </h3>
 
 Clears single or multiple notifications
@@ -188,31 +195,31 @@ Clears single or multiple notifications
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        notificationId
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        <p>A single notification id, or an array of notification ids.</p>
+  <tr>
+    <td>
+      notificationId
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
+    </td>
+    <td>
+      <p>A single notification id, or an array of notification ids.</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -224,8 +231,10 @@ Clears single or multiple notifications
 
 <div id="clearAll"></div>
 <h3><code>clearAll()</code>
-  
+
 </h3>
+
+
 
 Clears all notifications
 
@@ -240,7 +249,7 @@ Clears all notifications
 
 <div id="cancel"></div>
 <h3><code>cancel(notificationId)</code>
-  
+
 </h3>
 
 Cancels single or multiple notifications
@@ -248,31 +257,31 @@ Cancels single or multiple notifications
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        notificationId
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        <p>A single notification id, or an array of notification ids.</p>
+  <tr>
+    <td>
+      notificationId
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
+    </td>
+    <td>
+      <p>A single notification id, or an array of notification ids.</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -284,8 +293,10 @@ Cancels single or multiple notifications
 
 <div id="cancelAll"></div>
 <h3><code>cancelAll()</code>
-  
+
 </h3>
+
+
 
 Cancels all notifications
 
@@ -300,7 +311,7 @@ Cancels all notifications
 
 <div id="isPresent"></div>
 <h3><code>isPresent(notificationId)</code>
-  
+
 </h3>
 
 Checks presence of a notification
@@ -308,30 +319,30 @@ Checks presence of a notification
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        notificationId
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      notificationId
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -343,7 +354,7 @@ Checks presence of a notification
 
 <div id="isScheduled"></div>
 <h3><code>isScheduled(notificationId)</code>
-  
+
 </h3>
 
 Checks is a notification is scheduled
@@ -351,30 +362,30 @@ Checks is a notification is scheduled
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        notificationId
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      notificationId
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -386,7 +397,7 @@ Checks is a notification is scheduled
 
 <div id="isTriggered"></div>
 <h3><code>isTriggered(notificationId)</code>
-  
+
 </h3>
 
 Checks if a notification is triggered
@@ -394,30 +405,30 @@ Checks if a notification is triggered
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        notificationId
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      notificationId
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -429,7 +440,7 @@ Checks if a notification is triggered
 
 <div id="getAllIds"></div>
 <h3><code>getAllIds()</code>
-  
+
 </h3>
 
 Get all the notification ids
@@ -445,7 +456,7 @@ Get all the notification ids
 
 <div id="getTriggeredIds"></div>
 <h3><code>getTriggeredIds()</code>
-  
+
 </h3>
 
 Get the ids of triggered notifications
@@ -461,7 +472,7 @@ Get the ids of triggered notifications
 
 <div id="getScheduledIds"></div>
 <h3><code>getScheduledIds()</code>
-  
+
 </h3>
 
 Get the ids of scheduled notifications
@@ -477,7 +488,7 @@ Get the ids of scheduled notifications
 
 <div id="get"></div>
 <h3><code>get(notificationId)</code>
-  
+
 </h3>
 
 Get a notification object
@@ -485,31 +496,31 @@ Get a notification object
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        notificationId
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        <p>The id of the notification to get</p>
+  <tr>
+    <td>
+      notificationId
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
+    </td>
+    <td>
+      <p>The id of the notification to get</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -521,7 +532,7 @@ Get a notification object
 
 <div id="getScheduled"></div>
 <h3><code>getScheduled(notificationId)</code>
-  
+
 </h3>
 
 Get a scheduled notification object
@@ -529,31 +540,31 @@ Get a scheduled notification object
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        notificationId
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        <p>The id of the notification to get</p>
+  <tr>
+    <td>
+      notificationId
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
+    </td>
+    <td>
+      <p>The id of the notification to get</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -565,7 +576,7 @@ Get a scheduled notification object
 
 <div id="getTriggered"></div>
 <h3><code>getTriggered(notificationId)</code>
-  
+
 </h3>
 
 Get a triggered notification object
@@ -573,31 +584,31 @@ Get a triggered notification object
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        notificationId
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        <p>The id of the notification to get</p>
+  <tr>
+    <td>
+      notificationId
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
+    </td>
+    <td>
+      <p>The id of the notification to get</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -609,7 +620,7 @@ Get a triggered notification object
 
 <div id="getAll"></div>
 <h3><code>getAll()</code>
-  
+
 </h3>
 
 Get all notification objects
@@ -625,7 +636,7 @@ Get all notification objects
 
 <div id="getAllScheduled"></div>
 <h3><code>getAllScheduled()</code>
-  
+
 </h3>
 
 Get all scheduled notification objects
@@ -641,7 +652,7 @@ Get all scheduled notification objects
 
 <div id="getAllTriggered"></div>
 <h3><code>getAllTriggered()</code>
-  
+
 </h3>
 
 Get all triggered notification objects
@@ -657,56 +668,58 @@ Get all triggered notification objects
 
 <div id="on"></div>
 <h3><code>on(eventName,&nbsp;callback)</code>
-  
+
 </h3>
+
+
 
 Sets a callback for a specific event
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        eventName
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        <p>The name of the event. Available events: schedule, trigger, click, update, clear, clearall, cancel, cancelall</p>
+  <tr>
+    <td>
+      eventName
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        callback
-        
-        
-      </td>
-      <td>
-        
+    </td>
+    <td>
+      <p>The name of the event. Available events: schedule, trigger, click, update, clear, clearall, cancel, cancelall</p>
+
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        <p>Call back function. All events return notification and state parameter. clear and clearall return state parameter only.</p>
+  <tr>
+    <td>
+      callback
+      
+      
+    </td>
+    <td>
+      
 
-        
-      </td>
-    </tr>
-    
+    </td>
+    <td>
+      <p>Call back function. All events return notification and state parameter. clear and clearall return state parameter only.</p>
+
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 

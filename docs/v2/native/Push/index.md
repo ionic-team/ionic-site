@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Push
+  
 
-Push
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/push.ts#L245'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add phonegap-plugin-push</code></pre>
 <p>Repo:
-<a href="https://github.com/phonegap/phonegap-plugin-push">
-https://github.com/phonegap/phonegap-plugin-push
-</a>
+  <a href="https://github.com/phonegap/phonegap-plugin-push">
+    https://github.com/phonegap/phonegap-plugin-push
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -60,8 +63,10 @@ https://github.com/phonegap/phonegap-plugin-push
 <h2>Static Methods</h2>
 <div id="init"></div>
 <h3><code>init(options)</code>
-  
+
 </h3>
+
+
 
 Initialize the plugin on the native side.
 
@@ -83,31 +88,31 @@ var push = Push.init({
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
-  <code>PushOptions</code>
-      </td>
-      <td>
-        <p>The Push <a href="https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/API.md#parameters">options</a>.</p>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>PushOptions</code>
+    </td>
+    <td>
+      <p>The Push <a href="https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/API.md#parameters">options</a>.</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -116,16 +121,16 @@ var push = Push.init({
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>PushNotification</code> Returns a new [PushNotification](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/API.md#pushonevent-callback) object.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>PushNotification</code> Returns a new [PushNotification](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/API.md#pushonevent-callback) object.
 </div>
 
 
 
 <div id="hasPermission"></div>
 <h3><code>hasPermission()</code>
-  
+
 </h3>
 
 Check whether the push notification permission has been granted.
@@ -136,9 +141,9 @@ Check whether the push notification permission has been granted.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> Returns a Promise that resolves with an object with one property: isEnabled, a boolean that indicates if permission has been granted.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise that resolves with an object with one property: isEnabled, a boolean that indicates if permission has been granted.
 </div>
 
 

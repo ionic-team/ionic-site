@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Clipboard
+  
 
-Clipboard
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/clipboard.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git</code></pre>
 <p>Repo:
-<a href="https://github.com/VersoSolutions/CordovaClipboard">
-https://github.com/VersoSolutions/CordovaClipboard
-</a>
+  <a href="https://github.com/VersoSolutions/CordovaClipboard">
+    https://github.com/VersoSolutions/CordovaClipboard
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -77,7 +80,7 @@ Clipboard.paste().then(
 <h2>Static Methods</h2>
 <div id="copy"></div>
 <h3><code>copy(text)</code>
-  
+
 </h3>
 
 Copies the given text
@@ -85,30 +88,30 @@ Copies the given text
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        text
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      text
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -117,16 +120,16 @@ Copies the given text
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;T&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;T&gt;</code> 
 </div>
 
 
 
 <div id="paste"></div>
 <h3><code>paste()</code>
-  
+
 </h3>
 
 Pastes the text stored in clipboard
@@ -137,9 +140,9 @@ Pastes the text stored in clipboard
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;T&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;T&gt;</code> 
 </div>
 
 

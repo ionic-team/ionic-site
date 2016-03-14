@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Battery Status
+  
 
-Battery Status
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/batterystatus.ts#L1'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-batterystatus</code></pre>
 <p>Repo:
-<a href="https://github.com/apache/cordova-plugin-battery-status">
-https://github.com/apache/cordova-plugin-battery-status
-</a>
+  <a href="https://github.com/apache/cordova-plugin-battery-status">
+    https://github.com/apache/cordova-plugin-battery-status
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -73,10 +76,8 @@ subscription.unsubscribe();
 <h2>Static Methods</h2>
 <div id="onChange"></div>
 <h3><code>onChange()</code>
-  
-</h3>
 
-Watch the change in battery level
+</h3>Watch the change in battery level
 
 
 
@@ -84,19 +85,17 @@ Watch the change in battery level
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable</code> Returns an observable that pushes a status object
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable</code> Returns an observable that pushes a status object
 </div>
 
 
 
 <div id="onLow"></div>
 <h3><code>onLow()</code>
-  
-</h3>
 
-Watch when the battery level goes low
+</h3>Watch when the battery level goes low
 
 
 
@@ -104,19 +103,17 @@ Watch when the battery level goes low
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable&lt;StatusObject&gt;</code> Returns an observable that pushes a status object
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;StatusObject&gt;</code> Returns an observable that pushes a status object
 </div>
 
 
 
 <div id="onCritical"></div>
 <h3><code>onCritical()</code>
-  
-</h3>
 
-Watch when the battery level goes to critial
+</h3>Watch when the battery level goes to critial
 
 
 
@@ -124,9 +121,9 @@ Watch when the battery level goes to critial
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable&lt;StatusObject&gt;</code> Returns an observable that pushes a status object
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;StatusObject&gt;</code> Returns an observable that pushes a status object
 </div>
 
 

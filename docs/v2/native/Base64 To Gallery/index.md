@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Base64 To Gallery
+  
 
-Base64 To Gallery
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/base64togallery.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-base64-to-gallery</code></pre>
 <p>Repo:
-<a href="https://github.com/Nexxa/cordova-base64-to-gallery">
-https://github.com/Nexxa/cordova-base64-to-gallery
-</a>
+  <a href="https://github.com/Nexxa/cordova-base64-to-gallery">
+    https://github.com/Nexxa/cordova-base64-to-gallery
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -74,8 +77,8 @@ https://github.com/Nexxa/cordova-base64-to-gallery
 <div id="base64ToGallery"></div>
 
 <h3>
-<code>base64ToGallery(data,&nbsp;prefix)</code>
-  
+  <code>base64ToGallery(data,&nbsp;prefix)</code>
+
 
 </h3>
 
@@ -84,46 +87,46 @@ https://github.com/Nexxa/cordova-base64-to-gallery
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        data
-        
-        
-      </td>
-      <td>
-        
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        prefix
-        
-        
-      </td>
-      <td>
-        
+  <tr>
+    <td>
+      data
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
   
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  <tr>
+    <td>
+      prefix
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 

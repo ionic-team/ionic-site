@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Flashlight
+  
 
-Flashlight
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/flashlight.ts#L0'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-flashlight</code></pre>
 <p>Repo:
-<a href="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git">
-https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git
-</a>
+  <a href="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git">
+    https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -66,7 +69,7 @@ https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git
 <h2>Static Methods</h2>
 <div id="available"></div>
 <h3><code>available()</code>
-  
+
 </h3>
 
 Checks if the flash light is available
@@ -77,16 +80,16 @@ Checks if the flash light is available
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean stating if the flash light is available.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean stating if the flash light is available.
 </div>
 
 
 
 <div id="switchOn"></div>
 <h3><code>switchOn()</code>
-  
+
 </h3>
 
 Switches the flashlight on
@@ -97,16 +100,16 @@ Switches the flashlight on
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;boolean&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
 </div>
 
 
 
 <div id="switchOff"></div>
 <h3><code>switchOff()</code>
-  
+
 </h3>
 
 Switches the flash light off
@@ -117,16 +120,16 @@ Switches the flash light off
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;boolean&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
 </div>
 
 
 
 <div id="toggle"></div>
 <h3><code>toggle()</code>
-  
+
 </h3>
 
 Toggles the flashlight
@@ -137,17 +140,19 @@ Toggles the flashlight
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;any&gt;</code> 
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
 </div>
 
 
 
 <div id="isSwitchedOn"></div>
 <h3><code>isSwitchedOn()</code>
-  
+
 </h3>
+
+
 
 Checks if the flash light is turned on.
 Returns a boolean

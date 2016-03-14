@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  Image Picker
+  
 
-Image Picker
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/imagepicker.ts#L17'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-image-picker</code></pre>
 <p>Repo:
-<a href="https://github.com/wymsee/cordova-imagePicker">
-https://github.com/wymsee/cordova-imagePicker
-</a>
+  <a href="https://github.com/wymsee/cordova-imagePicker">
+    https://github.com/wymsee/cordova-imagePicker
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -72,38 +75,40 @@ For more info, please see the <a href="https://github.com/wymsee/cordova-imagePi
 <h2>Static Methods</h2>
 <div id="getPictures"></div>
 <h3><code>getPictures(options)</code>
-  
+
 </h3>
+
+
 
 Pick pictures from the library.
 
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
-  <code>ImagePickerOptions</code>
-      </td>
-      <td>
-        
-        
-      </td>
-    </tr>
-    
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>ImagePickerOptions</code>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -112,9 +117,9 @@ Pick pictures from the library.
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-   Returns a Promise that resolves the image file URI
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves the image file URI
 otherwise rejects with an error.
 
 

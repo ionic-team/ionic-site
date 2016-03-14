@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  SMS
+  
 
-SMS
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/sms.ts#L23'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-sms-plugin</code></pre>
 <p>Repo:
-<a href="https://github.com/cordova-sms/cordova-sms-plugin">
-https://github.com/cordova-sms/cordova-sms-plugin
-</a>
+  <a href="https://github.com/cordova-sms/cordova-sms-plugin">
+    https://github.com/cordova-sms/cordova-sms-plugin
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -66,7 +69,7 @@ SMS.send(&#39;416123456&#39;,&#39;Hello world!&#39;);
 <h2>Static Methods</h2>
 <div id="send"></div>
 <h3><code>send(number,&nbsp;message,&nbsp;options)</code>
-  
+
 </h3>
 
 Sends sms to a number
@@ -74,65 +77,65 @@ Sends sms to a number
 
 <table class="table param-table" style="margin:0;">
   <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
   </thead>
   <tbody>
-    
-    <tr>
-      <td>
-        number
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>|<code>Array.&lt;string&gt;</code>
-      </td>
-      <td>
-        <p>Phone number</p>
+  
+  <tr>
+    <td>
+      number
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>|<code>Array.&lt;string&gt;</code>
+    </td>
+    <td>
+      <p>Phone number</p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        message
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Message</p>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      message
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Message</p>
 
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        options
-        
-        
-      </td>
-      <td>
-        
-  <code>smsOptions</code>
-      </td>
-      <td>
-        <p>Options</p>
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>smsOptions</code>
+    </td>
+    <td>
+      <p>Options</p>
 
-        
-      </td>
-    </tr>
-    
+      
+    </td>
+  </tr>
+  
   </tbody>
 </table>
 
@@ -141,9 +144,9 @@ Sends sms to a number
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;any&gt;</code> Resolves promise when the SMS has been sent
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Resolves promise when the SMS has been sent
 </div>
 
 

@@ -20,18 +20,18 @@ docType: "class"
 
 <h1 class="api-title">
 
+  
+  DB Meter
+  
 
-DB Meter
+  
 
-
-
-
-
+  
 
 </h1>
 
 <a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/dbmeter.ts#L1'>
-Improve this doc
+  Improve this doc
 </a>
 
 
@@ -42,10 +42,13 @@ Improve this doc
 
 <pre><code>$ cordova plugin add cordova-plugin-dbmeter</code></pre>
 <p>Repo:
-<a href="https://github.com/akofman/cordova-plugin-dbmeter">
-https://github.com/akofman/cordova-plugin-dbmeter
-</a>
+  <a href="https://github.com/akofman/cordova-plugin-dbmeter">
+    https://github.com/akofman/cordova-plugin-dbmeter
+  </a>
 </p>
+
+
+
 
 <!-- description -->
 
@@ -82,8 +85,10 @@ DBMeter.delete().then(
 <h2>Static Methods</h2>
 <div id="start"></div>
 <h3><code>start()</code>
-  
+
 </h3>
+
+
 
 Starts listening
 
@@ -93,16 +98,16 @@ Starts listening
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Observable&lt;string&gt;</code> Returns an observable. Subscribe to start listening. Unsubscribe to stop listening.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable&lt;string&gt;</code> Returns an observable. Subscribe to start listening. Unsubscribe to stop listening.
 </div>
 
 
 
 <div id="stop"></div>
 <h3><code>stop()</code>
-  
+
 </h3>
 
 Stops listening
@@ -116,7 +121,7 @@ Stops listening
 
 <div id="isListening"></div>
 <h3><code>isListening()</code>
-  
+
 </h3>
 
 Check if the DB Meter is listening
@@ -127,16 +132,16 @@ Check if the DB Meter is listening
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that tells us whether the DB meter is listening
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean that tells us whether the DB meter is listening
 </div>
 
 
 
 <div id="delete"></div>
 <h3><code>delete()</code>
-  
+
 </h3>
 
 Delete the DB Meter instance
@@ -147,9 +152,9 @@ Delete the DB Meter instance
 
 
 <div class="return-value" markdown="1">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise&lt;any&gt;</code> Returns a promise that will resolve if the instance has been deleted, and rejects if errors occur.
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> Returns a promise that will resolve if the instance has been deleted, and rejects if errors occur.
 </div>
 
 

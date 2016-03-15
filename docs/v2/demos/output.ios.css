@@ -5635,7 +5635,8 @@ input.text-input:-webkit-autofill {
 
 .text-input {
   margin: 12px 8px 13px 0;
-  padding: 0; }
+  padding: 0;
+  width: calc(100% - 8px - 0); }
 
 .inset-input {
   margin: 6px 16px 6.5px 0;
@@ -5645,7 +5646,8 @@ input.text-input:-webkit-autofill {
 .item-label-floating .text-input {
   margin-top: 8px;
   margin-bottom: 8px;
-  margin-left: 0; }
+  margin-left: 0;
+  width: calc(100% - 8px); }
 
 .item-label-stacked ion-select,
 .item-label-floating ion-select {
@@ -6090,7 +6092,7 @@ ion-label {
 ion-label + ion-input .text-input,
 ion-label + ion-textarea .text-input {
   margin-left: 16px;
-  width: calc(100% - 16px); }
+  width: calc(100% - (16px / 2) - 16px); }
 
 ion-label[stacked] {
   margin-bottom: 4px;

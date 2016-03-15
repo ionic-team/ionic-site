@@ -5915,7 +5915,8 @@ input.text-input:-webkit-autofill {
 
 .text-input {
   margin: 13px 8px 13px 8px;
-  padding: 0; }
+  padding: 0;
+  width: calc(100% - 8px - 8px); }
 
 .inset-input {
   margin: 6.5px 16px 6.5px 16px;
@@ -5944,7 +5945,8 @@ ion-input.ng-invalid.ng-touched::after {
 .item-label-floating .text-input {
   margin-top: 8px;
   margin-bottom: 8px;
-  margin-left: 0; }
+  margin-left: 0;
+  width: calc(100% - 8px); }
 
 .item-label-stacked ion-select,
 .item-label-floating ion-select {

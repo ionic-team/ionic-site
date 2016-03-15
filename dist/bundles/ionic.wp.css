@@ -5723,6 +5723,7 @@ input.text-input:-webkit-autofill {
 .text-input {
   margin: 13px 8px 13px 8px;
   padding: 0 8px;
+  width: calc(100% - 8px - 8px);
   border: 2px solid rgba(0, 0, 0, 0.5);
   line-height: 3rem; }
 
@@ -5745,7 +5746,8 @@ ion-input.ng-invalid.ng-touched .text-input {
 .item-label-floating ion-select {
   margin-top: 8px;
   margin-bottom: 8px;
-  margin-left: 0; }
+  margin-left: 0;
+  width: calc(100% - 8px); }
 
 .item-label-floating .text-input.cloned-input {
   top: 32px; }

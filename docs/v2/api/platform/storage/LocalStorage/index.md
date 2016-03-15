@@ -239,6 +239,26 @@ Remove a key from LocalStorage
 
 
 
+
+
+<div id="clear"></div>
+
+<h3>
+<a class="anchor" name="clear" href="#clear"></a>
+<code>clear()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 <!-- related link -->
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>

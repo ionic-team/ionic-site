@@ -63386,6 +63386,9 @@
 	    Storage.prototype.query = function (query, params) {
 	        return this._strategy.query(query, params);
 	    };
+	    Storage.prototype.clear = function () {
+	        return this._strategy.clear();
+	    };
 	    return Storage;
 	}());
 	exports.Storage = Storage;
@@ -63396,7 +63399,7 @@
 	    function StorageEngine(options) {
 	        if (options === void 0) { options = {}; }
 	    }
-	    StorageEngine.prototype.get = function (key, value) {
+	    StorageEngine.prototype.get = function (key) {
 	        throw Error("get() not implemented for this storage engine");
 	    };
 	    StorageEngine.prototype.set = function (key, value) {
@@ -63407,6 +63410,9 @@
 	    };
 	    StorageEngine.prototype.query = function (query, params) {
 	        throw Error("query() not implemented for this storage engine");
+	    };
+	    StorageEngine.prototype.clear = function () {
+	        throw Error("clear() not implemented for this storage engine");
 	    };
 	    return StorageEngine;
 	}());
@@ -63503,6 +63509,17 @@
 	            }
 	        });
 	    };
+	    LocalStorage.prototype.clear = function () {
+	        return new Promise(function (resolve, reject) {
+	            try {
+	                window.localStorage.clear();
+	                resolve();
+	            }
+	            catch (e) {
+	                reject(e);
+	            }
+	        });
+	    };
 	    return LocalStorage;
 	}(storage_1.StorageEngine));
 	exports.LocalStorage = LocalStorage;
@@ -63589,11 +63606,8 @@
 	    };
 	    // Initialize the DB with our required tables
 	    SqlStorage.prototype._tryInit = function () {
-	        this._db.transaction(function (tx) {
-	            tx.executeSql('CREATE TABLE IF NOT EXISTS kv (key text primary key, value text)', [], function (tx, res) {
-	            }, function (tx, err) {
-	                console.error('Storage: Unable to create initial storage tables', tx, err);
-	            });
+	        this.query('CREATE TABLE IF NOT EXISTS kv (key text primary key, value text)').catch(function (err) {
+	            console.error('Storage: Unable to create initial storage tables', err.tx, err.err);
 	        });
 	    };
 	    /**
@@ -63611,23 +63625,11 @@
 	        return new Promise(function (resolve, reject) {
 	            try {
 	                _this._db.transaction(function (tx) {
-	                    tx.executeSql(query, params, function (tx, res) {
-	                        resolve({
-	                            tx: tx,
-	                            res: res
-	                        });
-	                    }, function (tx, err) {
-	                        reject({
-	                            tx: tx,
-	                            err: err
-	                        });
-	                    });
-	                }, function (err) {
-	                    reject(err);
-	                });
+	                    tx.executeSql(query, params, function (tx, res) { return resolve({ tx: tx, res: res }); }, function (tx, err) { return reject({ tx: tx, err: err }); });
+	                }, function (err) { return reject({ err: err }); });
 	            }
-	            catch (e) {
-	                reject(e);
+	            catch (err) {
+	                reject({ err: err });
 	            }
 	        });
 	    };
@@ -63637,28 +63639,9 @@
 	     * @return {Promise} that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 	     */
 	    SqlStorage.prototype.get = function (key) {
-	        var _this = this;
-	        return new Promise(function (resolve, reject) {
-	            try {
-	                _this._db.transaction(function (tx) {
-	                    tx.executeSql("select key, value from kv where key = ? limit 1", [key], function (tx, res) {
-	                        if (res.rows.length > 0) {
-	                            var item = res.rows.item(0);
-	                            resolve(item.value);
-	                        }
-	                        resolve(null);
-	                    }, function (tx, err) {
-	                        reject({
-	                            tx: tx,
-	                            err: err
-	                        });
-	                    });
-	                }, function (err) {
-	                    reject(err);
-	                });
-	            }
-	            catch (e) {
-	                reject(e);
+	        return this.query('select key, value from kv where key = ? limit 1', [key]).then(function (data) {
+	            if (data.res.rows.length > 0) {
+	                return data.res.rows.item(0);
 	            }
 	        });
 	    };
@@ -63669,26 +63652,7 @@
 	    * @return {Promise} that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 	    */
 	    SqlStorage.prototype.set = function (key, value) {
-	        var _this = this;
-	        return new Promise(function (resolve, reject) {
-	            try {
-	                _this._db.transaction(function (tx) {
-	                    tx.executeSql('insert or replace into kv(key, value) values (?, ?)', [key, value], function (tx, res) {
-	                        resolve();
-	                    }, function (tx, err) {
-	                        reject({
-	                            tx: tx,
-	                            err: err
-	                        });
-	                    });
-	                }, function (err) {
-	                    reject(err);
-	                });
-	            }
-	            catch (e) {
-	                reject(e);
-	            }
-	        });
+	        return this.query('insert or replace into kv(key, value) values (?, ?)', [key, value]);
 	    };
 	    /**
 	    * Remove the value in the database for the given key.
@@ -63696,26 +63660,10 @@
 	    * @return {Promise} that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
 	    */
 	    SqlStorage.prototype.remove = function (key) {
-	        var _this = this;
-	        return new Promise(function (resolve, reject) {
-	            try {
-	                _this._db.transaction(function (tx) {
-	                    tx.executeSql('delete from kv where key = ?', [key], function (tx, res) {
-	                        resolve();
-	                    }, function (tx, err) {
-	                        reject({
-	                            tx: tx,
-	                            err: err
-	                        });
-	                    });
-	                }, function (err) {
-	                    reject(err);
-	                });
-	            }
-	            catch (e) {
-	                reject(e);
-	            }
-	        });
+	        return this.query('delete from kv where key = ?', [key]);
+	    };
+	    SqlStorage.prototype.clear = function () {
+	        return this.query('delete from kv');
 	    };
 	    SqlStorage.BACKUP_LOCAL = 2;
 	    SqlStorage.BACKUP_LIBRARY = 1;

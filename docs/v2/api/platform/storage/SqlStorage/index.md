@@ -379,6 +379,26 @@ Remove the value in the database for the given key.
 </div>
 
 
+
+
+<div id="clear"></div>
+
+<h3>
+<a class="anchor" name="clear" href="#clear"></a>
+<code>clear()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
 <!-- related link --><!-- end content block -->
 
 

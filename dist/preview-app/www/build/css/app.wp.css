@@ -510,26 +510,31 @@ ion-row {
     -webkit-box-align: start;
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
+    -ms-grid-row-align: flex-start;
     align-items: flex-start; }
   ion-row[bottom] {
     -webkit-box-align: end;
     -webkit-align-items: flex-end;
     -ms-flex-align: end;
+    -ms-grid-row-align: flex-end;
     align-items: flex-end; }
   ion-row[center] {
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
+    -ms-grid-row-align: center;
     align-items: center; }
   ion-row[stretch] {
     -webkit-box-align: stretch;
     -webkit-align-items: stretch;
     -ms-flex-align: stretch;
+    -ms-grid-row-align: stretch;
     align-items: stretch; }
   ion-row[baseline] {
     -webkit-box-align: baseline;
     -webkit-align-items: baseline;
     -ms-flex-align: baseline;
+    -ms-grid-row-align: baseline;
     align-items: baseline; }
 
 ion-row + ion-row {
@@ -5873,6 +5878,7 @@ ion-textarea {
   -webkit-box-align: stretch;
   -webkit-align-items: stretch;
   -ms-flex-align: stretch;
+  -ms-grid-row-align: stretch;
   align-items: stretch; }
 
 .text-input {
@@ -6089,6 +6095,7 @@ ion-input.item {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
+  -ms-grid-row-align: flex-start;
   align-items: flex-start; }
 
 .item > ion-icon[small]:first-child,
@@ -9601,11 +9608,14 @@ body.ios img#ios-only {
   height: auto;
   z-index: 999; }
 
+body.wp {
+  border-top: 18px solid transparent; }
+
 body.wp img#wp-only {
   display: block !important;
   position: absolute;
   background-color: #F8F8F8;
-  top: -18;
+  top: -18px;
   width: 100%;
   height: auto; }
 
@@ -9910,12 +9920,3 @@ p.toolbar-buttons {
 body.md .toolbar-buttons-page div.toolbar-title,
 body.md .toolbar-buttons-page p.toolbar-buttons {
   color: #fff; }
-
-body.md .toolbar-segment-page p {
-  text-align: center;
-  color: #fff; }
-
-body.ios .toolbar-segment-page {
-  text-align: center; }
-  body.ios .toolbar-segment-page ion-buttons[start] {
-    text-align: left !important; }

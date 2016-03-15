@@ -139,7 +139,7 @@ Prompts the user for rating
 <code>boolean</code>
     </td>
     <td>
-      <p>Show the rating prompt immediately.</p>
+      <p>Show the rating prompt immediately</p>
 
       
     </td>

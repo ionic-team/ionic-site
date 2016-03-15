@@ -63882,7 +63882,7 @@
 	        tapPolyfill: isIOSDevice,
 	    },
 	    isMatch: function (p) {
-	        return p.isPlatformMatch('ios', ['iphone', 'ipad', 'ipod']);
+	        return p.isPlatformMatch('ios', ['iphone', 'ipad', 'ipod'], ['windows phone']);
 	    },
 	    versionParser: function (p) {
 	        return p.matchUserAgentVersion(/OS (\d+)_(\d+)?/);

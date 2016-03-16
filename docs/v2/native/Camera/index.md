@@ -77,13 +77,15 @@ docType: "class"
 <!-- description -->
 
 <p>Take a photo or capture video.</p>
-<p>Requires Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
+<p>Requires <a href='module:driftyco/ionic-native'>ionic-native</a> and the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">Camera.getPicture(options).then((imageData) =&gt; {
+<pre><code class="lang-js">import {Camera} from &#39;ionic-native&#39;;
+
+Camera.getPicture(options).then((imageData) =&gt; {
  // imageData is either a base64 encoded string or a file URI
  // If it&#39;s base64:
  let base64Image = &quot;data:image/jpeg;base64,&quot; + imageData;

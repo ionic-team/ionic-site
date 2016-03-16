@@ -51411,6 +51411,10 @@
 	 * enough to kick off the refreshing process. Once the async operation
 	 * has completed and the refreshing should end, call `complete()`.
 	 *
+	 * Note: Do not wrap the `ion-refresher` in a `*ngIf`. It will not render
+	 * properly this way. Please use the `enabled` property instead to
+	 * display or hide the refresher.
+	 *
 	 * @usage
 	 * ```html
 	 * <ion-content>
@@ -51567,7 +51571,7 @@
 	    }
 	    Object.defineProperty(Refresher.prototype, "enabled", {
 	        /**
-	         * @input {boolean} If the refresher is enabled or not. Default is `true`.
+	         * @input {boolean} If the refresher is enabled or not. This should be used in place of an `ngIf`. Default is `true`.
 	         */
 	        get: function () {
 	            return this._isEnabled;
@@ -59718,10 +59722,22 @@
 	    function TextInput(config, form, item, app, platform, elementRef, scrollView, nav, ngControl) {
 	        _super.call(this, config, form, item, app, platform, elementRef, scrollView, nav, ngControl);
 	    }
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.inputBlurred = function (event) {
+	        this.blur.emit(event);
+	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.inputFocused = function (event) {
+	        this.focus.emit(event);
+	    };
 	    TextInput = __decorate([
 	        core_1.Component({
 	            selector: 'ion-input',
-	            template: '<input [type]="type" [(ngModel)]="_value" [placeholder]="placeholder" class="text-input">' +
+	            template: '<input [type]="type" [(ngModel)]="_value" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" class="text-input">' +
 	                '<input [type]="type" aria-hidden="true" next-input *ngIf="_useAssist">' +
 	                '<button clear *ngIf="clearInput && value" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
 	                '<div (touchstart)="pointerStart($event)" (touchend)="pointerEnd($event)" (mousedown)="pointerStart($event)" (mouseup)="pointerEnd($event)" class="input-cover" tappable *ngIf="_useAssist"></div>',
@@ -59793,10 +59809,22 @@
 	            this._item.setCssClass('item-textarea', true);
 	        }
 	    };
+	    /**
+	     * @private
+	     */
+	    TextArea.prototype.inputBlurred = function (event) {
+	        this.blur.emit(event);
+	    };
+	    /**
+	     * @private
+	     */
+	    TextArea.prototype.inputFocused = function (event) {
+	        this.focus.emit(event);
+	    };
 	    TextArea = __decorate([
 	        core_1.Component({
 	            selector: 'ion-textarea',
-	            template: '<textarea [(ngModel)]="_value" [placeholder]="placeholder" class="text-input"></textarea>' +
+	            template: '<textarea [(ngModel)]="_value" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" class="text-input"></textarea>' +
 	                '<input type="text" aria-hidden="true" next-input *ngIf="_useAssist">' +
 	                '<div (touchstart)="pointerStart($event)" (touchend)="pointerEnd($event)" (mousedown)="pointerStart($event)" (mouseup)="pointerEnd($event)" class="input-cover" tappable *ngIf="_useAssist"></div>',
 	            directives: [
@@ -59848,6 +59876,8 @@
 	        this._useAssist = true;
 	        this._value = '';
 	        this.placeholder = '';
+	        this.blur = new core_1.EventEmitter;
+	        this.focus = new core_1.EventEmitter;
 	        this._useAssist = config.get('scrollAssist');
 	        this._keyboardHeight = config.get('keyboardHeight');
 	        this._autoFocusAssist = config.get('autoFocusAssist', 'delay');
@@ -60318,6 +60348,14 @@
 	        __metadata('design:type', (typeof (_a = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _a) || Object)
 	    ], InputBase.prototype, "_native", void 0);
 	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], InputBase.prototype, "blur", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
+	    ], InputBase.prototype, "focus", void 0);
+	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
 	    ], InputBase.prototype, "value", null);
@@ -60331,16 +60369,16 @@
 	    ], InputBase.prototype, "disabled", null);
 	    __decorate([
 	        core_1.ViewChild(native_input_1.NativeInput), 
-	        __metadata('design:type', (typeof (_b = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _b) || Object), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _c) || Object])
+	        __metadata('design:type', (typeof (_d = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _d) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_e = typeof native_input_1.NativeInput !== 'undefined' && native_input_1.NativeInput) === 'function' && _e) || Object])
 	    ], InputBase.prototype, "_nativeInput", null);
 	    __decorate([
 	        core_1.ViewChild(native_input_1.NextInput), 
-	        __metadata('design:type', (typeof (_d = typeof native_input_1.NextInput !== 'undefined' && native_input_1.NextInput) === 'function' && _d) || Object), 
-	        __metadata('design:paramtypes', [(typeof (_e = typeof native_input_1.NextInput !== 'undefined' && native_input_1.NextInput) === 'function' && _e) || Object])
+	        __metadata('design:type', (typeof (_f = typeof native_input_1.NextInput !== 'undefined' && native_input_1.NextInput) === 'function' && _f) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_g = typeof native_input_1.NextInput !== 'undefined' && native_input_1.NextInput) === 'function' && _g) || Object])
 	    ], InputBase.prototype, "_nextInput", null);
 	    return InputBase;
-	    var _a, _b, _c, _d, _e;
+	    var _a, _b, _c, _d, _e, _f, _g;
 	}());
 	exports.InputBase = InputBase;
 	var SCROLL_ASSIST_SPEED = 0.3;

@@ -49,6 +49,9 @@ Place the <code>ion-refresher</code> as the first child of your <code>ion-conten
 <code>refresh</code> output event is fired when the user has pulled down far
 enough to kick off the refreshing process. Once the async operation
 has completed and the refreshing should end, call <code>complete()</code>.</p>
+<p>Note: Do not wrap the <code>ion-refresher</code> in a <code>*ngIf</code>. It will not render
+properly this way. Please use the <code>enabled</code> property instead to
+display or hide the refresher.</p>
 
 
 <h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
@@ -98,13 +101,13 @@ adding properties to the child <code>ion-refresher-content</code> component.</p>
 &lt;/ion-content&gt;
 </code></pre>
 <h2 id="further-customizing-refresher-content">Further Customizing Refresher Content</h2>
-<p>The <code>ion-refresher</code> component holds the refresh logic. 
-It requires a child component in order to display the content. 
+<p>The <code>ion-refresher</code> component holds the refresh logic.
+It requires a child component in order to display the content.
 Ionic uses <code>ion-refresher-content</code> by default. This component
 displays the refresher and changes the look depending
 on the refresher&#39;s state. Separating these components
-allows developers to create their own refresher content 
-components. You could replace our default content with 
+allows developers to create their own refresher content
+components. You could replace our default content with
 custom SVG or CSS animations.</p>
 
 
@@ -330,7 +333,7 @@ maximum will be the result of <code>pullMin + 60</code>.</p>
     <tr>
       <td>enabled</td>
       <td><code>boolean</code></td>
-      <td><p> If the refresher is enabled or not. Default is <code>true</code>.</p>
+      <td><p> If the refresher is enabled or not. This should be used in place of an <code>ngIf</code>. Default is <code>true</code>.</p>
 </td>
     </tr>
     

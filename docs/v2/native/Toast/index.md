@@ -120,7 +120,7 @@ Show a native toast for the given duration at the specified position.
 <code>string</code>
     </td>
     <td>
-      <p>Duration to show the toast, either &#39;short&#39; or &#39;long&#39;.</p>
+      <p>Duration to show the toast, either &#39;short&#39;, &#39;long&#39; or any number of milliseconds: &#39;1500&#39;.</p>
 
       
     </td>
@@ -212,7 +212,7 @@ Show a native toast with the given options.
     <td>
       <p>Options for showing a toast. Available options:
   message  The message to display.
-  duration  Duration to show the toast, either &#39;short&#39; or &#39;long&#39;.
+  duration  Duration to show the toast, either &#39;short&#39;, &#39;long&#39; or any number of milliseconds: &#39;1500&#39;.
   position  Where to position the toast, either &#39;top&#39;, &#39;center&#39;, or &#39;bottom&#39;.
   addPixelsY  Offset in pixels to move the toast up or down from its specified position.</p>
 

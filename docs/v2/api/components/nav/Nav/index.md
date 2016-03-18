@@ -34,7 +34,7 @@ Nav
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/nav/nav.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//home/ubuntu/ionic/ionic/components/nav/nav.ts#L7">
 Improve this doc
 </a>
 
@@ -76,9 +76,9 @@ class MyApp {
 If a <a href="../NavController/#creating_pages">page</a> you navigate to has a <a href="../NavBar/">NavBar</a>,
 Nav will automatically add a back button to it if there is a page
 before the one you are navigating to in the navigation stack.</p>
-<p>Additionally, specifying the <code>swipe-back-enabled</code> property will allow you to
+<p>Additionally, specifying the <code>swipeBackEnabled</code> property will allow you to
 swipe to go back:</p>
-<pre><code class="lang-html">&lt;ion-nav swipe-back-enabled=&quot;false&quot; [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
+<pre><code class="lang-html">&lt;ion-nav swipeBackEnabled=&quot;false&quot; [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
 </code></pre>
 <p>Here is a diagram of how Nav animates smoothly between pages:</p>
 <div class="highlight less-margin">
@@ -152,6 +152,13 @@ swipe to go back:</p>
       <td>root</td>
       <td><code>Page</code></td>
       <td><p> The Page component to load as the root page within this nav.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>swipeBackEnabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether it&#39;s possible to swipe-to-go-back on this nav controller or not.</p>
 </td>
     </tr>
     

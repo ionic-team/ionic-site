@@ -1497,28 +1497,7 @@ Returns the root NavController.
 </div>
 
 
-
-<!-- input methods on the class -->
-<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Attr</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>swipeBackEnabled</td>
-      <td><code>boolean</code></td>
-      <td><p> Whether it&#39;s possible to swipe-to-go-back on this nav controller or not.</p>
-</td>
-    </tr>
-    
-  </tbody>
-</table><!-- related link -->
+<!-- related link -->
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 

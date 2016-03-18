@@ -47919,15 +47919,6 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
 	var core_1 = __webpack_require__(7);
 	var instrumentation_1 = __webpack_require__(307);
 	var ion_1 = __webpack_require__(291);
@@ -49192,19 +49183,6 @@
 	            }
 	        }
 	    };
-	    Object.defineProperty(NavController.prototype, "swipeBackEnabled", {
-	        /**
-	         * @input {boolean} Whether it's possible to swipe-to-go-back on this nav controller or not.
-	         */
-	        get: function () {
-	            return this._sbEnabled;
-	        },
-	        set: function (val) {
-	            this._sbEnabled = util_1.isTrueProperty(val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
 	    /**
 	     * If it's possible to use swipe back or not. If it's not possible
 	     * to go back, or swipe back is not enable then this will return false.
@@ -49380,10 +49358,6 @@
 	            }
 	        }
 	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean)
-	    ], NavController.prototype, "swipeBackEnabled", null);
 	    return NavController;
 	}(ion_1.Ion));
 	exports.NavController = NavController;
@@ -61668,6 +61642,7 @@
 	var app_1 = __webpack_require__(168);
 	var config_1 = __webpack_require__(161);
 	var keyboard_1 = __webpack_require__(280);
+	var util_1 = __webpack_require__(163);
 	var nav_controller_1 = __webpack_require__(306);
 	var view_controller_1 = __webpack_require__(300);
 	/**
@@ -61706,10 +61681,10 @@
 	 * Nav will automatically add a back button to it if there is a page
 	 * before the one you are navigating to in the navigation stack.
 	 *
-	 * Additionally, specifying the `swipe-back-enabled` property will allow you to
+	 * Additionally, specifying the `swipeBackEnabled` property will allow you to
 	 * swipe to go back:
 	 * ```html
-	 * <ion-nav swipe-back-enabled="false" [root]="rootPage"></ion-nav>
+	 * <ion-nav swipeBackEnabled="false" [root]="rootPage"></ion-nav>
 	 * ```
 	 *
 	 * Here is a diagram of how Nav animates smoothly between pages:
@@ -61793,6 +61768,19 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    Object.defineProperty(Nav.prototype, "swipeBackEnabled", {
+	        /**
+	         * @input {boolean} Whether it's possible to swipe-to-go-back on this nav controller or not.
+	         */
+	        get: function () {
+	            return this._sbEnabled;
+	        },
+	        set: function (val) {
+	            this._sbEnabled = util_1.isTrueProperty(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     */
@@ -61809,6 +61797,10 @@
 	        core_1.Input(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.Type !== 'undefined' && core_1.Type) === 'function' && _a) || Object)
 	    ], Nav.prototype, "root", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Nav.prototype, "swipeBackEnabled", null);
 	    Nav = __decorate([
 	        core_1.Component({
 	            selector: 'ion-nav',

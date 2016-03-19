@@ -274,7 +274,7 @@ export class MyClass {
    }
    // Here we have some method that will close the items
    // when called
-   closeItmes(){
+   closeItems(){
      this.list.closeSlidingItems();
    }
 }

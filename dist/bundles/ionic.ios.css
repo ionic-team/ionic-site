@@ -4497,6 +4497,7 @@ ion-action-sheet {
 
 .action-sheet-button {
   padding: 18px;
+  margin: 0;
   min-height: 5.6rem;
   border-bottom: 1px solid #d6d6da;
   font-size: 2rem;

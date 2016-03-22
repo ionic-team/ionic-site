@@ -5024,12 +5024,12 @@ ion-button-effect {
     background-color: #3474e1; }
 
 .button-outline-primary {
-  border-color: #3578e9;
-  color: #3578e9;
+  border-color: #387ef5;
+  color: #387ef5;
   background-color: transparent; }
   .button-outline-primary.activated {
     color: #fff;
-    background-color: #3578e9; }
+    background-color: #387ef5; }
 
 .button-clear-primary {
   border-color: transparent;
@@ -5047,12 +5047,12 @@ ion-button-effect {
     background-color: #2ec95c; }
 
 .button-outline-secondary {
-  border-color: #30d05f;
-  color: #30d05f;
+  border-color: #32db64;
+  color: #32db64;
   background-color: transparent; }
   .button-outline-secondary.activated {
     color: #fff;
-    background-color: #30d05f; }
+    background-color: #32db64; }
 
 .button-clear-secondary {
   border-color: transparent;
@@ -5070,12 +5070,12 @@ ion-button-effect {
     background-color: #e13838; }
 
 .button-outline-danger {
-  border-color: #e93a3a;
-  color: #e93a3a;
+  border-color: #f53d3d;
+  color: #f53d3d;
   background-color: transparent; }
   .button-outline-danger.activated {
     color: #fff;
-    background-color: #e93a3a; }
+    background-color: #f53d3d; }
 
 .button-clear-danger {
   border-color: transparent;
@@ -5093,12 +5093,12 @@ ion-button-effect {
     background-color: #e0e0e0; }
 
 .button-outline-light {
-  border-color: #e8e8e8;
-  color: #e8e8e8;
+  border-color: #f4f4f4;
+  color: #f4f4f4;
   background-color: transparent; }
   .button-outline-light.activated {
-    color: #fff;
-    background-color: #e8e8e8; }
+    color: #000;
+    background-color: #f4f4f4; }
 
 .button-clear-light {
   border-color: transparent;
@@ -5116,12 +5116,12 @@ ion-button-effect {
     background-color: #343434; }
 
 .button-outline-dark {
-  border-color: #2d2d2d;
-  color: #2d2d2d;
+  border-color: #222;
+  color: #222;
   background-color: transparent; }
   .button-outline-dark.activated {
     color: #fff;
-    background-color: #2d2d2d; }
+    background-color: #222; }
 
 .button-clear-dark {
   border-color: transparent;
@@ -5139,12 +5139,12 @@ ion-button-effect {
     background-color: #7243a1; }
 
 .button-outline-vibrant {
-  border-color: #6e3d9e;
-  color: #6e3d9e;
+  border-color: rebeccapurple;
+  color: rebeccapurple;
   background-color: transparent; }
   .button-outline-vibrant.activated {
     color: #fff;
-    background-color: #6e3d9e; }
+    background-color: rebeccapurple; }
 
 .button-clear-vibrant {
   border-color: transparent;
@@ -5162,12 +5162,12 @@ ion-button-effect {
     background-color: #ebb222; }
 
 .button-outline-bright {
-  border-color: #f2b723;
-  color: #f2b723;
+  border-color: #FFC125;
+  color: #FFC125;
   background-color: transparent; }
   .button-outline-bright.activated {
-    color: #fff;
-    background-color: #f2b723; }
+    color: #000;
+    background-color: #FFC125; }
 
 .button-clear-bright {
   border-color: transparent;
@@ -7546,6 +7546,7 @@ ion-buttons[right] {
   color: #fff;
   background-color: #387ef5; }
   .bar-button-solid-primary.activated {
+    color: #fff;
     background-color: #3474e1; }
 
 .toolbar[secondary] .toolbar-background {
@@ -7576,6 +7577,7 @@ ion-buttons[right] {
   color: #fff;
   background-color: #32db64; }
   .bar-button-solid-secondary.activated {
+    color: #fff;
     background-color: #2ec95c; }
 
 .toolbar[danger] .toolbar-background {
@@ -7606,6 +7608,7 @@ ion-buttons[right] {
   color: #fff;
   background-color: #f53d3d; }
   .bar-button-solid-danger.activated {
+    color: #fff;
     background-color: #e13838; }
 
 .toolbar[light] .toolbar-background {
@@ -7636,6 +7639,7 @@ ion-buttons[right] {
   color: #000;
   background-color: #f4f4f4; }
   .bar-button-solid-light.activated {
+    color: #000;
     background-color: #e0e0e0; }
 
 .toolbar[dark] .toolbar-background {
@@ -7666,6 +7670,7 @@ ion-buttons[right] {
   color: #fff;
   background-color: #222; }
   .bar-button-solid-dark.activated {
+    color: #fff;
     background-color: #343434; }
 
 .toolbar[vibrant] .toolbar-background {
@@ -7696,6 +7701,7 @@ ion-buttons[right] {
   color: #fff;
   background-color: rebeccapurple; }
   .bar-button-solid-vibrant.activated {
+    color: #fff;
     background-color: #7243a1; }
 
 .toolbar[bright] .toolbar-background {
@@ -7719,13 +7725,14 @@ ion-buttons[right] {
   color: #ebb222;
   background-color: transparent; }
   .bar-button-outline-bright.activated {
-    color: #fff;
+    color: #000;
     background-color: #ebb222; }
 
 .bar-button-solid-bright {
   color: #000;
   background-color: #FFC125; }
   .bar-button-solid-bright.activated {
+    color: #000;
     background-color: #ebb222; }
 
 .platform-cordova.platform-ios ion-navbar-section {

@@ -58,7 +58,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">let info = Device.getDevice();
+<pre><code class="lang-js">console.log(&#39;Device UUID is: &#39; + Device.device.uuid);
 </code></pre>
 
 

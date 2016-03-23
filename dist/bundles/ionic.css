@@ -10044,11 +10044,12 @@ ion-icon {
       line-height: .67;
       pointer-events: none; }
   .md .back-button {
-    margin: 0 0 0 12px;
+    margin: 0 6px;
+    min-width: 44px;
     box-shadow: none; }
   .md .back-button-icon {
     margin: 0;
-    min-width: 44px;
+    padding: 0 6px;
     font-size: 2.4rem;
     font-weight: normal;
     text-align: left; }
@@ -12706,7 +12707,7 @@ ion-icon {
     background-size: 22px; }
     .wp .searchbar-clear-icon.activated {
       background-color: transparent; }
-  .wp .searchbar-focused {
+  .wp .searchbar-focused .searchbar-input-container {
     border-color: #327eff; }
   .wp .searchbar-has-value .searchbar-search-icon {
     display: none; }
@@ -12714,15 +12715,17 @@ ion-icon {
     display: none; }
   .wp .searchbar-md-cancel {
     display: none; }
-  .wp ion-searchbar[primary].searchbar-focused {
+  .wp .toolbar ion-searchbar {
+    padding: 2px; }
+  .wp ion-searchbar[primary].searchbar-focused .searchbar-input-container {
     border-color: #327eff; }
-  .wp ion-searchbar[secondary].searchbar-focused {
+  .wp ion-searchbar[secondary].searchbar-focused .searchbar-input-container {
     border-color: #32db64; }
-  .wp ion-searchbar[danger].searchbar-focused {
+  .wp ion-searchbar[danger].searchbar-focused .searchbar-input-container {
     border-color: #f53d3d; }
-  .wp ion-searchbar[light].searchbar-focused {
+  .wp ion-searchbar[light].searchbar-focused .searchbar-input-container {
     border-color: #f4f4f4; }
-  .wp ion-searchbar[dark].searchbar-focused {
+  .wp ion-searchbar[dark].searchbar-focused .searchbar-input-container {
     border-color: #222; }
 
 @font-face {
@@ -13536,11 +13539,12 @@ ion-icon {
       line-height: .67;
       pointer-events: none; }
   .wp .back-button {
-    margin: 0 0 0 12px;
+    margin: 0 6px;
+    min-width: 44px;
     box-shadow: none; }
   .wp .back-button-icon {
     margin: 0;
-    min-width: 30px;
+    padding: 0 6px;
     font-size: 2.4rem;
     font-weight: normal;
     text-align: left; }

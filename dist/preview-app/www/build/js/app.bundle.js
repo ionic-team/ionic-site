@@ -3291,6 +3291,7 @@
 	        this.menu = menu;
 	        this.location = location;
 	        this.isProductionMode = false;
+	        this.currentPlatform = "ios";
 	        this.pages = [
 	            { title: 'Home', component: menus_1.PageOne },
 	            { title: 'Friends', component: menus_1.PageTwo },
@@ -3298,9 +3299,13 @@
 	        ];
 	        this.routes = ROUTES;
 	        this.menu.enable(true);
+	        if (platform.is("android"))
+	            this.currentPlatform = "android";
+	        else if (platform.is("windows"))
+	            this.currentPlatform = "windows";
 	        if (platform.query('production') == 'true') {
 	            this.isProductionMode = true;
-	            window.parent.postMessage(this.platform.is('ios') ? "ios" : "android", "*");
+	            window.parent.postMessage(this.currentPlatform, "*");
 	            if (helpers.hasScrollbar() === true) {
 	                setTimeout(function () {
 	                    var body = document.getElementsByTagName('body')[0];

@@ -4497,6 +4497,7 @@ ion-action-sheet {
 
 .action-sheet-button {
   padding: 18px;
+  margin: 0;
   min-height: 5.6rem;
   border-bottom: 1px solid #d6d6da;
   font-size: 2rem;
@@ -4977,12 +4978,12 @@ ion-button-effect {
     background-color: #2e74eb; }
 
 .button-outline-primary {
-  border-color: #3078f2;
-  color: #3078f2;
+  border-color: #327eff;
+  color: #327eff;
   background-color: transparent; }
   .button-outline-primary.activated {
     color: #fff;
-    background-color: #3078f2; }
+    background-color: #327eff; }
 
 .button-clear-primary {
   border-color: transparent;
@@ -5000,12 +5001,12 @@ ion-button-effect {
     background-color: #2ec95c; }
 
 .button-outline-secondary {
-  border-color: #30d05f;
-  color: #30d05f;
+  border-color: #32db64;
+  color: #32db64;
   background-color: transparent; }
   .button-outline-secondary.activated {
     color: #fff;
-    background-color: #30d05f; }
+    background-color: #32db64; }
 
 .button-clear-secondary {
   border-color: transparent;
@@ -5023,12 +5024,12 @@ ion-button-effect {
     background-color: #e13838; }
 
 .button-outline-danger {
-  border-color: #e93a3a;
-  color: #e93a3a;
+  border-color: #f53d3d;
+  color: #f53d3d;
   background-color: transparent; }
   .button-outline-danger.activated {
     color: #fff;
-    background-color: #e93a3a; }
+    background-color: #f53d3d; }
 
 .button-clear-danger {
   border-color: transparent;
@@ -5046,12 +5047,12 @@ ion-button-effect {
     background-color: #e0e0e0; }
 
 .button-outline-light {
-  border-color: #e8e8e8;
-  color: #e8e8e8;
+  border-color: #f4f4f4;
+  color: #f4f4f4;
   background-color: transparent; }
   .button-outline-light.activated {
-    color: #fff;
-    background-color: #e8e8e8; }
+    color: #000;
+    background-color: #f4f4f4; }
 
 .button-clear-light {
   border-color: transparent;
@@ -5069,12 +5070,12 @@ ion-button-effect {
     background-color: #343434; }
 
 .button-outline-dark {
-  border-color: #2d2d2d;
-  color: #2d2d2d;
+  border-color: #222;
+  color: #222;
   background-color: transparent; }
   .button-outline-dark.activated {
     color: #fff;
-    background-color: #2d2d2d; }
+    background-color: #222; }
 
 .button-clear-dark {
   border-color: transparent;
@@ -7341,6 +7342,7 @@ ion-buttons[right] {
   color: #fff;
   background-color: #327eff; }
   .bar-button-solid-primary.activated {
+    color: #fff;
     background-color: #2e74eb; }
 
 .toolbar[secondary] .toolbar-background {
@@ -7371,6 +7373,7 @@ ion-buttons[right] {
   color: #fff;
   background-color: #32db64; }
   .bar-button-solid-secondary.activated {
+    color: #fff;
     background-color: #2ec95c; }
 
 .toolbar[danger] .toolbar-background {
@@ -7401,6 +7404,7 @@ ion-buttons[right] {
   color: #fff;
   background-color: #f53d3d; }
   .bar-button-solid-danger.activated {
+    color: #fff;
     background-color: #e13838; }
 
 .toolbar[light] .toolbar-background {
@@ -7431,6 +7435,7 @@ ion-buttons[right] {
   color: #000;
   background-color: #f4f4f4; }
   .bar-button-solid-light.activated {
+    color: #000;
     background-color: #e0e0e0; }
 
 .toolbar[dark] .toolbar-background {
@@ -7461,6 +7466,7 @@ ion-buttons[right] {
   color: #fff;
   background-color: #222; }
   .bar-button-solid-dark.activated {
+    color: #fff;
     background-color: #343434; }
 
 .platform-cordova.platform-ios ion-navbar-section {

@@ -43,9 +43,9 @@
         <div id="demo-device-ios" ng-class="previewPlatform">
           <iframe id="demo-ios"
                 {% if page.preview_device_url %}
-                  src="{{ page.preview_device_url }}?ionicplatform=ios"
+                  src="{{ page.preview_device_url }}?production=true&ionicplatform=ios"
                 {% else %}
-                  src="/dist/preview-app/www/?ionicplatform=ios"
+                  src="/dist/preview-app/www/?production=true&ionicplatform=ios"
                 {% endif %}
                   frameborder="0">
           </iframe>
@@ -53,9 +53,9 @@
         <div id="demo-device-android" ng-class="previewPlatform">
           <iframe id="demo-android"
                 {% if page.preview_device_url %}
-                  src="{{ page.preview_device_url }}?ionicplatform=android"
+                  src="{{ page.preview_device_url }}?production=true&ionicplatform=android"
                 {% else %}
-                  src="/dist/preview-app/www/?ionicplatform=android"
+                  src="/dist/preview-app/www/?production=true&ionicplatform=android"
                 {% endif %}
                   frameborder="0">
           </iframe>
@@ -63,9 +63,9 @@
         <div id="demo-device-windows" ng-class="previewPlatform">
           <iframe id="demo-windows"
                 {% if page.preview_device_url %}
-                  src="{{ page.preview_device_url }}?ionicplatform=windows"
+                  src="{{ page.preview_device_url }}?production=true&ionicplatform=windows"
                 {% else %}
-                  src="/dist/preview-app/www/?ionicplatform=windows"
+                  src="/dist/preview-app/www/?production=true&ionicplatform=windows"
                 {% endif %}
                   frameborder="0">
           </iframe>

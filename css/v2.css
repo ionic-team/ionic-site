@@ -8183,8 +8183,8 @@ a.footer-link {
     .platform-preview .platform-toggle a {
       cursor: pointer;
       display: inline-block;
-      padding: 4px 16px 2px;
-      border-radius: 5px;
+      padding: 4px 16px;
+      border-radius: 16px;
       color: #9da5b3;
       font-size: 14px;
       font-weight: 500;

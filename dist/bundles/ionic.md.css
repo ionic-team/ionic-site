@@ -6831,8 +6831,8 @@ ion-segment {
     font-size: 2.6rem;
     line-height: 4rem; }
   .segment-button.activated, .segment-button.segment-activated {
-    opacity: 1;
-    border-color: #327eff; }
+    border-color: #327eff;
+    opacity: 1; }
 
 .toolbar ion-segment {
   margin: 0 auto; }

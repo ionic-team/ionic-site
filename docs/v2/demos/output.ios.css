@@ -4534,8 +4534,8 @@ ion-action-sheet {
   color: #8f8f8f; }
 
 .action-sheet-button {
-  padding: 18px;
   margin: 0;
+  padding: 18px;
   min-height: 5.6rem;
   border-bottom: 1px solid #d6d6da;
   font-size: 2rem;

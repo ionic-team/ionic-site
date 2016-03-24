@@ -50431,6 +50431,9 @@
 	        this.scrollElement.removeEventListener(type, handler);
 	        this.scrollElement.addEventListener(type, handler);
 	        return function () {
+	            if (!_this.scrollElement) {
+	                return;
+	            }
 	            _this.scrollElement.removeEventListener(type, handler);
 	        };
 	    };

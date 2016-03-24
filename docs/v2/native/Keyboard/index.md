@@ -68,11 +68,7 @@ docType: "class"
 <div id="hideKeyboardAccessoryBar"></div>
 <h3><code>hideKeyboardAccessoryBar(hide)</code>
 
-</h3>
-
-
-
-Hide the keyboard accessory bar with the next, previous and done buttons.
+</h3>Hide the keyboard accessory bar with the next, previous and done buttons.
 
 
 <table class="table param-table" style="margin:0;">
@@ -110,6 +106,22 @@ Hide the keyboard accessory bar with the next, previous and done buttons.
 
 
 
+<div id="show"></div>
+<h3><code>show()</code>
+
+</h3>
+
+
+
+Force keyboard to be shown.
+
+
+
+
+
+
+
+
 <div id="close"></div>
 <h3><code>close()</code>
 
@@ -126,15 +138,44 @@ Close the keyboard if open
 
 
 
-
-
 <div id="disableScroll"></div>
-<h3><code>disableScroll()</code>
+<h3><code>disableScroll(disable)</code>
 
 </h3>
 
 
 
+Prevents the native UIScrollView from moving when an input is focused.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      disable
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -142,18 +183,30 @@ Close the keyboard if open
 
 
 
-
-
-
-<div id="show"></div>
-<h3><code>show()</code>
+<div id="onKeybardShow"></div>
+<h3><code>onKeybardShow()</code>
 
 </h3>
 
 
 
+Creates an observable that notifies you when the keyboard is shown. Unsubscribe to observable to cancel event watch.
 
 
+
+
+
+
+
+
+<div id="onKeybardHide"></div>
+<h3><code>onKeybardHide()</code>
+
+</h3>
+
+
+
+Creates an observable that notifies you when the keyboard is hidden. Unsubscribe to observable to cancel event watch.
 
 
 

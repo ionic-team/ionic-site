@@ -105,7 +105,11 @@ subscription.unsubscribe();
 <div id="onChange"></div>
 <h3><code>onChange()</code>
 
-</h3>Watch the change in battery level
+</h3>
+
+
+
+Watch the change in battery level
 
 
 
@@ -123,7 +127,11 @@ subscription.unsubscribe();
 <div id="onLow"></div>
 <h3><code>onLow()</code>
 
-</h3>Watch when the battery level goes low
+</h3>
+
+
+
+Watch when the battery level goes low
 
 
 
@@ -141,7 +149,11 @@ subscription.unsubscribe();
 <div id="onCritical"></div>
 <h3><code>onCritical()</code>
 
-</h3>Watch when the battery level goes to critial
+</h3>
+
+
+
+Watch when the battery level goes to critial
 
 
 

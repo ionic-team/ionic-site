@@ -5255,6 +5255,7 @@ ion-card-content {
 
 ion-card {
   margin: 12px 12px 12px 12px;
+  width: calc(100% - 24px);
   border-radius: 2px;
   font-size: 1.4rem;
   background: #fff;

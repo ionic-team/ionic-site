@@ -5062,6 +5062,7 @@ ion-icon {
     display: block; }
   .ios ion-card {
     margin: 12px 12px 12px 12px;
+    width: calc(100% - 24px);
     border-radius: 2px;
     font-size: 1.4rem;
     background: #fff;
@@ -7982,6 +7983,7 @@ ion-icon {
     display: block; }
   .md ion-card {
     margin: 10px 10px 10px 10px;
+    width: calc(100% - 20px);
     border-radius: 2px;
     font-size: 1.4rem;
     background: #fff;
@@ -11530,6 +11532,7 @@ ion-icon {
     display: block; }
   .wp ion-card {
     margin: 8px 8px 8px 8px;
+    width: calc(100% - 16px);
     border-radius: 1px;
     font-size: 1.4rem;
     background: #fff;

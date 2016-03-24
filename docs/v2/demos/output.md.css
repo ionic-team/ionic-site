@@ -5459,6 +5459,7 @@ ion-card-content {
 
 ion-card {
   margin: 10px 10px 10px 10px;
+  width: calc(100% - 20px);
   border-radius: 2px;
   font-size: 1.4rem;
   background: #fff;

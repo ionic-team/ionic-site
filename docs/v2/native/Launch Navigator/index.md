@@ -47,12 +47,11 @@ docType: "class"
   </a>
 </p>
 
-
-
-
 <!-- description -->
 
 <p>Requires Cordova plugin: uk.co.workingedge.phonegap.plugin.launchnavigator. For more info, please see the <a href="https://github.com/dpa99c/phonegap-launch-navigator">LaunchNavigator plugin docs</a>.</p>
+
+
 
 <!-- @usage tag -->
 

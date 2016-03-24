@@ -47,9 +47,6 @@ docType: "class"
   </a>
 </p>
 
-
-
-
 <!-- description -->
 
 <p>Scan the fingerprint of a user with the TouchID sensor.</p>
@@ -65,6 +62,8 @@ docType: "class"
 <li><code>-6</code> - TouchID is not Available</li>
 <li><code>-8</code> - TouchID is locked out from too many tries</li>
 </ul>
+
+
 
 <!-- @usage tag -->
 

@@ -47,13 +47,12 @@ docType: "class"
   </a>
 </p>
 
-
-
-
 <!-- description -->
 
 <p>This plugin gives you ability to access and customize the device native dialogs.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-dialogs</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-dialogs">Dialogs plugin docs</a>.</p>
+
+
 
 <!-- @usage tag -->
 

@@ -47,6 +47,10 @@ docType: "class"
   </a>
 </p>
 
+<!-- description -->
+
+<p>This plugin allows you to save base64 data as a png image into the device</p>
+
 
 <!-- @platforms tag -->
 <h2>Supported platforms</h2>
@@ -59,12 +63,8 @@ docType: "class"
   <li>Windows Phone 8</li>
   </ul>
 
+<!-- @platforms tag end -->
 
-
-
-<!-- description -->
-
-<p>This plugin allows you to save base64 data as a png image into the device</p>
 
 <!-- @usage tag -->
 

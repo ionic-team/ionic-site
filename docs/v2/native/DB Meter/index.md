@@ -47,12 +47,11 @@ docType: "class"
   </a>
 </p>
 
-
-
-
 <!-- description -->
 
 <p>This plugin defines a global DBMeter object, which permits to get the decibel values from the microphone.</p>
+
+
 
 <!-- @usage tag -->
 

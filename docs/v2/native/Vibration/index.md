@@ -47,12 +47,11 @@ docType: "class"
   </a>
 </p>
 
-
-
-
 <!-- description -->
 
 <p>Vibrates the device</p>
+
+
 
 <!-- @usage tag -->
 

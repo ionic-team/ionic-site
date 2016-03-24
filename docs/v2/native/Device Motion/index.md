@@ -47,12 +47,11 @@ docType: "class"
   </a>
 </p>
 
-
-
-
 <!-- description -->
 
 <p>Requires Cordova plugin: <code>cordova-plugin-device-motion</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-device-motion">Device Motion docs</a>.</p>
+
+
 
 <!-- @usage tag -->
 

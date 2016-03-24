@@ -47,13 +47,12 @@ docType: "class"
   </a>
 </p>
 
-
-
-
 <!-- description -->
 
 <p>This plugin allows you to switch the flashlight / torch of the device on and off.</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-flashlight</code>. For more info, please see the <a href="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin">Flashlight plugin docs</a>.</p>
+
+
 
 <!-- @usage tag -->
 

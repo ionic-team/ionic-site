@@ -47,14 +47,13 @@ docType: "class"
   </a>
 </p>
 
-
-
-
 <!-- description -->
 
 <p>The DatePicker plugin allows the user to fetch date or time using native dialogs.</p>
 <p>Platforms supported: iOS, Android, Windows</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-datepicker</code>. For more info, please see the <a href="https://github.com/VitaliiBlagodir/cordova-plugin-datepicker">DatePicker plugin docs</a>.</p>
+
+
 
 <!-- @usage tag -->
 

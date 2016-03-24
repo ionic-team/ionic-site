@@ -47,9 +47,6 @@ docType: "class"
   </a>
 </p>
 
-
-
-
 <!-- description -->
 
 <p>Use the Facebook Connect plugin to obtain access to the native FB application on iOS and Android.</p>
@@ -88,6 +85,8 @@ docType: "class"
 <p>Activation events are automatically tracked for you in the plugin.</p>
 <p>Events are listed on the <a href="https://www.facebook.com/insights/">insights page</a>.</p>
 <p>For tracking events, see <code>logEvent</code> and <code>logPurchase</code>.</p>
+
+
 
 <!-- @usage tag -->
 

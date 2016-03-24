@@ -47,19 +47,6 @@ docType: "class"
   </a>
 </p>
 
-
-<!-- @platforms tag -->
-<h2>Supported platforms</h2>
-
-<ul>
-  <li>iOS</li>
-  
-  <li>Android</li>
-  </ul>
-
-
-
-
 <!-- description -->
 
 <p>This plugin enables communication between a phone and Bluetooth Low Energy (BLE) peripherals.</p>
@@ -73,6 +60,19 @@ docType: "class"
 </ul>
 <p>Advertising information is returned when scanning for peripherals. Service, characteristic, and property info is returned when connecting to a peripheral. All access is via service and characteristic UUIDs. The plugin manages handles internally.</p>
 <p>Simultaneous connections to multiple peripherals are supported.</p>
+
+
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>iOS</li>
+  
+  <li>Android</li>
+  </ul>
+
+<!-- @platforms tag end -->
+
 
 <!-- @usage tag -->
 

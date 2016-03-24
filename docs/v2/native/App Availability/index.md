@@ -47,6 +47,11 @@ docType: "class"
   </a>
 </p>
 
+<!-- description -->
+
+<p>This plugin allows you to check if an app is installed on the user&#39;s device. It requires an URI Scheme (e.g. twitter://) on iOS or a Package Name (e.g com.twitter.android) on Android.</p>
+<p>Requires Cordova plugin: cordova-plugin-appavailability. For more info, please see the <a href="https://github.com/ohh2ahh/AppAvailability">AppAvailability plugin docs</a>.</p>
+
 
 <!-- @platforms tag -->
 <h2>Supported platforms</h2>
@@ -57,13 +62,8 @@ docType: "class"
   <li>iOS</li>
   </ul>
 
+<!-- @platforms tag end -->
 
-
-
-<!-- description -->
-
-<p>This plugin allows you to check if an app is installed on the user&#39;s device. It requires an URI Scheme (e.g. twitter://) on iOS or a Package Name (e.g com.twitter.android) on Android.</p>
-<p>Requires Cordova plugin: cordova-plugin-appavailability. For more info, please see the <a href="https://github.com/ohh2ahh/AppAvailability">AppAvailability plugin docs</a>.</p>
 
 <!-- @usage tag -->
 

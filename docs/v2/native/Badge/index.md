@@ -47,6 +47,11 @@ docType: "class"
   </a>
 </p>
 
+<!-- description -->
+
+<p>The essential purpose of badge numbers is to enable an application to inform its users that it has something for them — for example, unread messages — when the application isn’t running in the foreground.</p>
+<p>Requires Cordova plugin: cordova-plugin-badge. For more info, please see the <a href="https://github.com/katzer/cordova-plugin-badge">Badge plugin docs</a>.</p>
+
 
 <!-- @platforms tag -->
 <h2>Supported platforms</h2>
@@ -65,13 +70,8 @@ docType: "class"
   <li>Windows Phone 8</li>
   </ul>
 
+<!-- @platforms tag end -->
 
-
-
-<!-- description -->
-
-<p>The essential purpose of badge numbers is to enable an application to inform its users that it has something for them — for example, unread messages — when the application isn’t running in the foreground.</p>
-<p>Requires Cordova plugin: cordova-plugin-badge. For more info, please see the <a href="https://github.com/katzer/cordova-plugin-badge">Badge plugin docs</a>.</p>
 
 <!-- @usage tag -->
 

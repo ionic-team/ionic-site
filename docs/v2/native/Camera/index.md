@@ -47,6 +47,11 @@ docType: "class"
   </a>
 </p>
 
+<!-- description -->
+
+<p>Take a photo or capture video.</p>
+<p>Requires <a href='module:driftyco/ionic-native'>ionic-native</a> and the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
+
 
 <!-- @platforms tag -->
 <h2>Supported platforms</h2>
@@ -71,13 +76,8 @@ docType: "class"
   <li>Ubuntu</li>
   </ul>
 
+<!-- @platforms tag end -->
 
-
-
-<!-- description -->
-
-<p>Take a photo or capture video.</p>
-<p>Requires <a href='module:driftyco/ionic-native'>ionic-native</a> and the Cordova plugin: <code>cordova-plugin-camera</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-camera">Cordova Camera Plugin Docs</a>.</p>
 
 <!-- @usage tag -->
 
@@ -157,10 +157,8 @@ Take a picture or video, or load one from the library.
 </h3>
 
 
-<h4>Platforms:</h4>
-<ul>
-<li>iOS</li>
-</ul>
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
 
 
 Remove intermediate image files that are kept in temporary storage after calling camera.getPicture.

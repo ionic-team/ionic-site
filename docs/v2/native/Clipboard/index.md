@@ -47,6 +47,12 @@ docType: "class"
   </a>
 </p>
 
+<!-- description -->
+
+<p>Clipboard management plugin for Cordova that supports iOS, Android, and Windows Phone 8.</p>
+<p>Requires Cordova plugin: <a href="https://github.com/VersoSolutions/CordovaClipboard">https://github.com/VersoSolutions/CordovaClipboard</a>
+For more info, please see the <a href="https://github.com/VersoSolutions/CordovaClipboard.git">Clipboard plugin docs</a>.</p>
+
 
 <!-- @platforms tag -->
 <h2>Supported platforms</h2>
@@ -71,14 +77,8 @@ docType: "class"
   <li>Browser</li>
   </ul>
 
+<!-- @platforms tag end -->
 
-
-
-<!-- description -->
-
-<p>Clipboard management plugin for Cordova that supports iOS, Android, and Windows Phone 8.</p>
-<p>Requires Cordova plugin: <a href="https://github.com/VersoSolutions/CordovaClipboard">https://github.com/VersoSolutions/CordovaClipboard</a>
-For more info, please see the <a href="https://github.com/VersoSolutions/CordovaClipboard.git">Clipboard plugin docs</a>.</p>
 
 <!-- @usage tag -->
 

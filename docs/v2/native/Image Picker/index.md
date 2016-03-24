@@ -47,14 +47,13 @@ docType: "class"
   </a>
 </p>
 
-
-
-
 <!-- description -->
 
 <p>Cordova Plugin For Multiple Image Selection</p>
 <p>Requires Cordova plugin: <code>cordova-plugin-image-picker</code>.
 For more info, please see the <a href="https://github.com/wymsee/cordova-imagePicker">https://github.com/wymsee/cordova-imagePicker</a></p>
+
+
 
 <!-- @usage tag -->
 

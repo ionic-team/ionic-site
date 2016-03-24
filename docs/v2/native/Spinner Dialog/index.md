@@ -47,6 +47,9 @@ docType: "class"
   </a>
 </p>
 
+<!-- description -->
+
+
 
 <!-- @platforms tag -->
 <h2>Supported platforms</h2>
@@ -59,10 +62,7 @@ docType: "class"
   <li>Windows Phone 8</li>
   </ul>
 
-
-
-
-<!-- description -->
+<!-- @platforms tag end -->
 
 
 <!-- @usage tag -->

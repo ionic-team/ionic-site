@@ -47,6 +47,10 @@ docType: "class"
   </a>
 </p>
 
+<!-- description -->
+
+<p>Requires Cordova plugin: cordova-plugin-sms. For more info, please see the <a href="https://github.com/cordova-sms/cordova-sms-plugin">SMS plugin docs</a>.</p>
+
 
 <!-- @platforms tag -->
 <h2>Supported platforms</h2>
@@ -59,12 +63,8 @@ docType: "class"
   <li>Windows Phone 8</li>
   </ul>
 
+<!-- @platforms tag end -->
 
-
-
-<!-- description -->
-
-<p>Requires Cordova plugin: cordova-plugin-sms. For more info, please see the <a href="https://github.com/cordova-sms/cordova-sms-plugin">SMS plugin docs</a>.</p>
 
 <!-- @usage tag -->
 

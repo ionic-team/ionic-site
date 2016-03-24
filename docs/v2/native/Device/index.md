@@ -47,12 +47,11 @@ docType: "class"
   </a>
 </p>
 
-
-
-
 <!-- description -->
 
 <p>Access information about the underlying device and platform.</p>
+
+
 
 <!-- @usage tag -->
 

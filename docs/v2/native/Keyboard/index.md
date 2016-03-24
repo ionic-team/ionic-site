@@ -47,10 +47,9 @@ docType: "class"
   </a>
 </p>
 
-
-
-
 <!-- description -->
+
+
 
 
 <!-- @usage tag -->

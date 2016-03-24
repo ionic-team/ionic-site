@@ -59,7 +59,9 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">Toast.show(&quot;I&#39;m a toast&quot;, 5000, &quot;center&quot;).subscribe(
+<pre><code class="lang-ts">import {Toast} from &#39;ionic-native&#39;;
+
+Toast.show(&quot;I&#39;m a toast&quot;, 5000, &quot;center&quot;).subscribe(
   toast =&gt; {
     console.log(toast);
   }

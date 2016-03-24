@@ -84,7 +84,11 @@ For more info, please see the <a href="https://github.com/VersoSolutions/Cordova
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">Clipboard.copy(&quot;Hello world&quot;);
+<pre><code class="lang-js">import {Clipboard} from &#39;ionic-native&#39;;
+
+
+
+Clipboard.copy(&quot;Hello world&quot;);
 
 Clipboard.paste().then(
    (resolve : string) =&gt; {

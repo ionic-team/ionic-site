@@ -70,7 +70,10 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">Base64ToGallery.base64ToGallery(base64Data, &#39;img_&#39;).then(
+<pre><code class="lang-ts">import {Base64ToGallery} from &#39;ionic-native&#39;;
+
+
+Base64ToGallery.base64ToGallery(base64Data, &#39;img_&#39;).then(
   res =&gt; console.log(&quot;Saved image to gallery &quot;, res),
   err =&gt; console.log(&quot;Error saving image to gallery &quot;, err)
 );

@@ -70,7 +70,11 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">// Send a text message using default options
+<pre><code class="lang-ts">import {SMS} from &#39;ionic-native&#39;;
+
+
+
+// Send a text message using default options
 SMS.send(&#39;416123456&#39;,&#39;Hello world!&#39;);
 </code></pre>
 

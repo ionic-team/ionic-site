@@ -69,7 +69,10 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">AppVersion.getAppName();
+<pre><code class="lang-js">import {AppVersion} from &#39;ionic-native&#39;;
+
+
+AppVersion.getAppName();
 AppVersion.getPackageName();
 AppVersion.getVersionCode();
 AppVersion.getVersionNumber();

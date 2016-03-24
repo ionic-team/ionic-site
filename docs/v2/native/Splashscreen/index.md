@@ -58,7 +58,11 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">Splashscreen.show();
+<pre><code class="lang-ts">import {Splashscreen} from &#39;ionic-native&#39;;
+
+
+
+Splashscreen.show();
 
 Splashscreen.hide();
 </code></pre>

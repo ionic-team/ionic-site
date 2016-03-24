@@ -59,7 +59,11 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">Geolocation.getCurrentPosition().then((resp) =&gt; {
+<pre><code class="lang-ts">import {Geolocation} from &#39;ionic-native&#39;;
+
+
+
+Geolocation.getCurrentPosition().then((resp) =&gt; {
  //resp.coords.latitude
  //resp.coords.longitude
 })

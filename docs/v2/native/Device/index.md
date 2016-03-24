@@ -58,7 +58,11 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">console.log(&#39;Device UUID is: &#39; + Device.device.uuid);
+<pre><code class="lang-js">import {Device} from &#39;ionic-native&#39;;
+
+
+
+console.log(&#39;Device UUID is: &#39; + Device.device.uuid);
 </code></pre>
 
 

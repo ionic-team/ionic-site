@@ -61,6 +61,8 @@ docType: "class"
 
 <pre><code class="lang-ts">import {Toast} from &#39;ionic-native&#39;;
 
+
+
 Toast.show(&quot;I&#39;m a toast&quot;, 5000, &quot;center&quot;).subscribe(
   toast =&gt; {
     console.log(toast);

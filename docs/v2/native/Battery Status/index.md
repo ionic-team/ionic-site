@@ -82,7 +82,11 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">// watch change in battery status
+<pre><code class="lang-js">import {BatteryStatus} from &#39;ionic-native&#39;;
+
+
+
+// watch change in battery status
 let subscription = BatteryStatus.onChange().subscribe(
  status =&gt; {
    console.log(status.level, status.isPlugged);

@@ -59,7 +59,7 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">
+<pre><code class="lang-js">import {Dialogs} from &#39;ionic-native&#39;;
 </code></pre>
 
 

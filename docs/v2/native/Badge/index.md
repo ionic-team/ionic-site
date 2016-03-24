@@ -77,7 +77,10 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">Badge.set(10);
+<pre><code class="lang-js">import {Badge} from &#39;ionic-native&#39;;
+
+
+Badge.set(10);
 Badge.increase();
 Badge.clear();
 </code></pre>

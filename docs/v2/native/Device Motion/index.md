@@ -58,7 +58,11 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">// Get the device current acceleration
+<pre><code class="lang-ts">import {DeviceMotion} from &#39;ionic-native&#39;;
+
+
+
+// Get the device current acceleration
 DeviceMotion.getCurrentAcceleration().then(
   acceleration =&gt; console.log(acceleration),
   error =&gt; console.log(error)

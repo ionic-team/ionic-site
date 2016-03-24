@@ -60,7 +60,11 @@ For full info, please see the <a href="https://github.com/apache/cordova-plugin-
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">Contacts.save({
+<pre><code class="lang-js">import {Contacts} from &#39;ionic-native&#39;;
+
+
+
+Contacts.save({
   displayName: &quot;Mr. Ionitron&quot;
 }).then((contact) =&gt; {}, (err) =&gt; {})
 </code></pre>

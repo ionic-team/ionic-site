@@ -60,7 +60,11 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">DatePicker.show({
+<pre><code class="lang-js">import {DatePicker} from &#39;ionic-native&#39;;
+
+
+
+DatePicker.show({
   date: new Date(),
   mode: &#39;date&#39;
 }).then(

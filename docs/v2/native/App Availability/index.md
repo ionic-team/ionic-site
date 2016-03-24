@@ -69,7 +69,10 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">var app;
+<pre><code class="lang-js">import {AppAvailability} from &#39;ionic-native&#39;;
+
+
+var app;
 
 if(device.platform === &#39;iOS&#39;) {
   app = &#39;twitter://&#39;;

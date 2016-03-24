@@ -58,7 +58,11 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">// Start listening
+<pre><code class="lang-ts">import {DBMeter} from &#39;ionic-native&#39;;
+
+
+
+// Start listening
 let subscription = DBMeter.start().subscribe(
   data =&gt; console.log(data)
 );

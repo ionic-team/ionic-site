@@ -60,7 +60,11 @@ For more info, please see the <a href="https://github.com/wymsee/cordova-imagePi
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">ImagePicker.getPictures(options).then((results) =&gt; {
+<pre><code class="lang-js">import {ImagePicker} from &#39;ionic-native&#39;;
+
+
+
+ImagePicker.getPictures(options).then((results) =&gt; {
   for (var i = 0; i &lt; results.length; i++) {
       console.log(&#39;Image URI: &#39; + results[i]);
   }

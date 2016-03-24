@@ -58,6 +58,13 @@ docType: "class"
 
 <!-- @usage tag -->
 
+<h2>Usage</h2>
+
+<pre><code class="lang-js">import {Push} from &#39;ionic-native&#39;;
+</code></pre>
+
+
+
 
 <!-- @property tags -->
 <h2>Static Methods</h2>

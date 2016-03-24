@@ -58,7 +58,11 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">// Schedule a single notification
+<pre><code class="lang-ts">import {LocalNotifications} from &#39;ionic-native&#39;;
+
+
+
+// Schedule a single notification
 LocalNotifications.schedule({
   id: 1,
   text: &quot;Single Notification&quot;,

@@ -58,7 +58,11 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-ts">// Get the device current compass heading
+<pre><code class="lang-ts">import {DeviceOrientation} from &#39;ionic-native&#39;;
+
+
+
+// Get the device current compass heading
 DeviceOrientation.getCurrentHeading().then(
   data =&gt; console.log(data),
   error =&gt; console.log(error)

@@ -58,11 +58,15 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">LaunchNavigator.navigate(&quot;Toronto, ON&quot;, &quot;London, ON&quot;)
-.then(
-  success =&gt; console.log(&quot;Launched navigator&quot;),
-  error =&gt; console.log(&quot;Error launching navigator&quot;, error)
-);
+<pre><code class="lang-js">import {LaunchNavigator} from &#39;ionic-native&#39;;
+
+
+
+LaunchNavigator.navigate(&quot;Toronto, ON&quot;, &quot;London, ON&quot;)
+  .then(
+    success =&gt; console.log(&quot;Launched navigator&quot;),
+    error =&gt; console.log(&quot;Error launching navigator&quot;, error)
+  );
 </code></pre>
 
 

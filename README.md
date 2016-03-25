@@ -11,11 +11,9 @@ gulp watch uses LiveReload. You may have to up your max file limit with the foll
 
 ## Local Build
 
-    npm install
-
-    gulp watch
-
-
+1. Install jekyll (may require sudo): `gem install jekyll`
+2. Run `npm install`
+3. Run `gulp watch`
 
 ## CI Explanation
 

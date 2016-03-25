@@ -14,6 +14,9 @@ header_sub_title: Ionic 2 Developer Preview
 
 If you’re completely new to Ionic and/or hybrid mobile app development, it can be helpful to get a high-level understanding of the core philosophy, concepts, and tools behind Ionic. The information below can help you familiarize yourself with what Ionic is and how it works.
 
+### The Ionic Show / Ionic 2
+[![Ionic 2](http://img.youtube.com/vi/u6BFxtv_L-8/0.jpg)](http://www.youtube.com/watch?v=u6BFxtv_L-8)
+
 ### What is Ionic Framework?
 
 Ionic Framework is an open source SDK that enables developers to build performant, high-quality mobile apps using familiar web technologies (HTML, CSS, and JavaScript).

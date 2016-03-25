@@ -111,8 +111,17 @@ docType: "class"
 </h3>
 
 
+<b>Platforms:</b>
+<code>Android</code>&nbsp;
+
+<code>BlackBerry 10</code>&nbsp;
+
+<code>Windows</code>&nbsp;
+
 
 Force keyboard to be shown.
+
+
 
 
 
@@ -127,8 +136,19 @@ Force keyboard to be shown.
 </h3>
 
 
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+
+<code>Android</code>&nbsp;
+
+<code>BlackBerry 10</code>&nbsp;
+
+<code>Windows</code>&nbsp;
+
 
 Close the keyboard if open
+
+
 
 
 
@@ -142,6 +162,11 @@ Close the keyboard if open
 
 </h3>
 
+
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+
+<code>Windows</code>&nbsp;
 
 
 Prevents the native UIScrollView from moving when an input is focused.
@@ -182,11 +207,20 @@ Prevents the native UIScrollView from moving when an input is focused.
 
 
 
-<div id="onKeybardShow"></div>
-<h3><code>onKeybardShow()</code>
+<div id="onKeyboardShow"></div>
+<h3><code>onKeyboardShow()</code>
 
 </h3>
 
+
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+
+<code>Android</code>&nbsp;
+
+<code>BlackBerry 10</code>&nbsp;
+
+<code>Windows</code>&nbsp;
 
 
 Creates an observable that notifies you when the keyboard is shown. Unsubscribe to observable to cancel event watch.
@@ -198,14 +232,27 @@ Creates an observable that notifies you when the keyboard is shown. Unsubscribe 
 
 
 
-<div id="onKeybardHide"></div>
-<h3><code>onKeybardHide()</code>
+
+
+<div id="onKeyboardHide"></div>
+<h3><code>onKeyboardHide()</code>
 
 </h3>
 
 
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+
+<code>Android</code>&nbsp;
+
+<code>BlackBerry 10</code>&nbsp;
+
+<code>Windows</code>&nbsp;
+
 
 Creates an observable that notifies you when the keyboard is hidden. Unsubscribe to observable to cancel event watch.
+
+
 
 
 

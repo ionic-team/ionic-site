@@ -51,6 +51,15 @@ docType: "class"
 
 
 
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Android</li>
+  </ul>
+
+<!-- @platforms tag end -->
+
 
 <!-- @usage tag -->
 

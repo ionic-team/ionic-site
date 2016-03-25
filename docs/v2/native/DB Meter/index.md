@@ -52,6 +52,17 @@ docType: "class"
 <p>This plugin defines a global DBMeter object, which permits to get the decibel values from the microphone.</p>
 
 
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>iOS</li>
+  
+  <li>Android</li>
+  </ul>
+
+<!-- @platforms tag end -->
+
 
 <!-- @usage tag -->
 

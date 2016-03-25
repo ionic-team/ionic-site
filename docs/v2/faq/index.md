@@ -51,6 +51,28 @@ class MyDir {
 class MyPage {}
 ```
 
+<h3 id="Angular_component">An Ionic component is not working inside my custom Angular 2 component!</h3>
+
+To include an Ionic component in your custom Angular 2 component you must import `IONIC_DIRECTIVES` and inject those into your component by placing them in the `directives` array. You will then be able to include Ionic components in your Angular 2 component. 
+
+```ts
+@Component({
+  selector: 'custom-component',
+  template: `
+    <h1>My awesome custom component</h1>
+    <ion-list>
+      <ion-item>
+        I am an awesome ionic component.
+      </ion-item>
+    </ion-list>
+  `,
+  directives: [IONIC_DIRECTIVES]
+})
+class MyComponent {
+  
+}
+```
+
 <h3 id="Common_mistakes">Common mistakes:</h3>
 
 - Forgetting `()` after an annotation: `@Injectable()`, `@Optional()`, etc.

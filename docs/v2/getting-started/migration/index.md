@@ -90,7 +90,7 @@ _index.html_
 {% raw %}
     <ion-content ng-controller="MainCtrl as main">
       <ion-item>
-        {{data.text}}
+        {{main.data.text}}
       </ion-item>
     </ion-content>
 {% endraw %}

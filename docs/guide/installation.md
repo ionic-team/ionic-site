@@ -12,7 +12,7 @@ In this chapter, we are going to walk through the process of downloading Ionic a
 
 ## Platform notes
 
-First, we need to start with a note about minimum requirements for building your app with the current release of Ionic. Ionic targets iPhone and Android devices (currently). We support iOS 6+, and Android 4.0+ (though 2.3 should work). However, since there are a lot of different Android devices, it's possible certain ones might not work. As always, we are looking for help testing and improving our device compatibility and would love help from the community on our [GitHub](https://github.com/driftyco/ionic) project.
+First, we need to start with a note about minimum requirements for building your app with the current release of Ionic. Ionic targets iPhone and Android devices (currently). We support iOS 7+, and Android 4.1+. However, since there are a lot of different Android devices, it's possible certain ones might not work. As always, we are looking for help testing and improving our device compatibility and would love help from the community on our [GitHub](https://github.com/driftyco/ionic) project.
 
 You can develop Ionic apps on any operating system you prefer. In fact, Ionic has been developed at various times on Mac OS X, Linux, and Windows. However, right now you'll need to use the command line in order to follow this guide and you must have OS X in order to develop and deploy iPhone apps, so OS X is recommended if possible.
 

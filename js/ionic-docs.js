@@ -35,6 +35,26 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 }])
 .controller('ComponentsCtrl', ['$scope', '$timeout',
                                 function($scope, $timeout) {
+  var $androidIframe = $('iframe#demo-android');
+  var $iosIframe = $('iframe#demo-ios');
+  var $windowsIframe = $('iframe#demo-windows');
+  var $buttons = $('#components-buttons');
+  var $cards = $('#components-cards');
+  var $alerts = $('#components-alerts');
+  var $forms = $('#components-forms');
+  var $lists = $('#components-lists');
+  var updateIframe =  debounce(function() {
+    $iosIframe[0].contentWindow.postMessage(JSON.stringify({
+      hash: $hash
+    }), '*');
+    $androidIframe[0].contentWindow.postMessage(JSON.stringify({
+      hash: $hash
+    }), '*');
+    $windowsIframe[0].contentWindow.postMessage(JSON.stringify({
+      hash: $hash
+    }), '*');
+    console.log($androidIframe, $hash);
+  }, 500);
   $scope.setPlatform = function(platform) {
     $scope.previewPlatform = platform;
     if (platform == 'ios') {
@@ -61,14 +81,6 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     $('#demo-device-android').css('display', 'block');
     $('#demo-device-windows').css('display', 'none');
   };
-  var $androidIframe = $('iframe#demo-android');
-  var $iosIframe = $('iframe#demo-ios');
-  var $windowsIframe = $('iframe#demo-windows');
-  var $buttons = $('#components-buttons');
-  var $cards = $('#components-cards');
-  var $alerts = $('#components-alerts');
-  var $forms = $('#components-forms');
-  var $lists = $('#components-lists');
   $scope.setPlatform('ios');
   var $scrollspy = $('body').scrollspy({
     target: '#components-index'
@@ -93,17 +105,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
   }());
   var $hash;
   var $node;
-  var updateIframe =  debounce(function() {
-    $iosIframe[0].contentWindow.postMessage(JSON.stringify({
-      hash: $hash
-    }), '*');
-    $androidIframe[0].contentWindow.postMessage(JSON.stringify({
-      hash: $hash
-    }), '*');
-    $windowsIframe[0].contentWindow.postMessage(JSON.stringify({
-      hash: $hash
-    }), '*');
-  }, 500);
+
   function onScrollSpyChange(e) {
     if (e.target.id === 'components-index') {
       return;

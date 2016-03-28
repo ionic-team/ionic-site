@@ -172,7 +172,7 @@ gulp.task('watch', ['server'], function() {
   gulp.watch(['_js/**/*.js', 'submit-issue/*/*.js'], ['server:js']);
   gulp.watch(['*.html', 'submit-issue/*.html', '_layouts/*', '_layouts/*/*',
     '_posts/*', '_includes/**/*', 'docs/v2/**/*.{md,html,js,css}',
-    '!docs/v2/2*', '!docs/v2/nightly'
+    '!docs/v2/2*', '!docs/v2/nightly', 'dist/preview-app/www/**/*'
   ], ['server:jekyll']);
 
 });

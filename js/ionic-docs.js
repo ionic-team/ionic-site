@@ -188,6 +188,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       $windowsIframe[0].contentWindow.postMessage(JSON.stringify({
         hash: window.location.hash
       }), '*');
+      return;
     }
     $androidIframe[0].contentWindow.postMessage(JSON.stringify({
       hash: window.location.hash
@@ -301,8 +302,6 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     }
     return iconObj.icons[2].name;
   };
-
-
 
 }]);
 

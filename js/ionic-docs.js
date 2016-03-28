@@ -53,7 +53,6 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     $windowsIframe[0].contentWindow.postMessage(JSON.stringify({
       hash: $hash
     }), '*');
-    console.log($androidIframe, $hash);
   }, 500);
   $scope.setPlatform = function(platform) {
     $scope.previewPlatform = platform;
@@ -64,7 +63,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       $('#demo-device-android').css('display', 'none');
       $('#demo-device-ios').css('display', 'block');
       $('#demo-device-windows').css('display', 'none');
-      return;
+      badChromeFix($('iframe#demo-ios'));
     } else if (platform == 'windows') {
       $scope.iosActive = false;
       $scope.androidActive = false;
@@ -72,14 +71,30 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       $('#demo-device-android').css('display', 'none');
       $('#demo-device-ios').css('display', 'none');
       $('#demo-device-windows').css('display', 'block');
-      return;
+      badChromeFix($('iframe#demo-windows'));
+    } else {
+      $scope.iosActive = false;
+      $scope.androidActive = true;
+      $scope.windowsActive = false;
+      $('#demo-device-ios').css('display', 'none');
+      $('#demo-device-android').css('display', 'block');
+      $('#demo-device-windows').css('display', 'none');
+      badChromeFix($('iframe#demo-android'));
     }
-    $scope.iosActive = false;
-    $scope.androidActive = true;
-    $scope.windowsActive = false;
-    $('#demo-device-ios').css('display', 'none');
-    $('#demo-device-android').css('display', 'block');
-    $('#demo-device-windows').css('display', 'none');
+    function badChromeFix(iframe) {
+      var raw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
+
+      var version =  raw ? parseInt(raw[2], 10) : false;
+      if (version === 49) {
+        $timeout(function() {
+          $('ion-content', iframe.contents()).hide();
+          $timeout(function() {
+            $('ion-content', iframe.contents()).show();
+            console.log('ges here', iframe);
+          },10);
+        }, 50);
+      }
+    }
   };
   $scope.setPlatform('ios');
   var $scrollspy = $('body').scrollspy({
@@ -289,9 +304,9 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
   };
 
   $scope.getIcon = function(iconObj, platform) {
-    console.log(iconObj);
+    //console.log(iconObj);
     if (iconObj === undefined) {
-      console.log('undefined');
+      //console.log('undefined');
       return;
     }
     if (iconObj.icons.length === 1 || platform === 'ios') {

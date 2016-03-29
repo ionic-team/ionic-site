@@ -40,6 +40,7 @@ docType: "class"
 
 <!-- decorators -->
 
+
 <pre><code>$ cordova plugin add cordova-plugin-dialogs</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-dialogs.git">

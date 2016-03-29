@@ -40,6 +40,7 @@ docType: "class"
 
 <!-- decorators -->
 
+
 <pre><code>$ cordova plugin add cordova-plugin-ble-central</code></pre>
 <p>Repo:
   <a href="https://github.com/don/cordova-plugin-ble-central">

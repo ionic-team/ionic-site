@@ -40,6 +40,7 @@ docType: "class"
 
 <!-- decorators -->
 
+
 <pre><code>$ cordova plugin add cordova-plugin-network-information</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-network-information">
@@ -95,8 +96,10 @@ disconnectSubscription.unsubscribe();
 
 // watch network for a connection
 let connectSubscription = Network.onConnect().subscribe(() =&gt; {
-  console.log(&#39;network connected!&#39;);
-  // use a timeout so that we can determine what type of connection we have
+  console.log(&#39;network connected!&#39;); 
+  // We just got a connection but we need to wait briefly
+ // before we determine the connection type.  Might need to wait 
+  // prior to doing any api requests as well.
   setTimeout(() =&gt; {
     console.log(Network.connection);
     if (Network.connection === Connection.WIFI) {

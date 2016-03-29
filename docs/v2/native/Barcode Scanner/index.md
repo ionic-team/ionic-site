@@ -40,6 +40,7 @@ docType: "class"
 
 <!-- decorators -->
 
+
 <pre><code>$ cordova plugin add phonegap-plugin-barcodescanner</code></pre>
 <p>Repo:
   <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">

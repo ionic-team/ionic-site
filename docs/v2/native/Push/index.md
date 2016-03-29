@@ -40,6 +40,7 @@ docType: "class"
 
 <!-- decorators -->
 
+
 <pre><code>$ cordova plugin add phonegap-plugin-push</code></pre>
 <p>Repo:
   <a href="https://github.com/phonegap/phonegap-plugin-push">

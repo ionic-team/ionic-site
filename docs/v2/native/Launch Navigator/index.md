@@ -40,7 +40,6 @@ docType: "class"
 
 <!-- decorators -->
 
-
 <pre><code>$ cordova plugin add uk.co.workingedge.phonegap.plugin.launchnavigator</code></pre>
 <p>Repo:
   <a href="https://github.com/dpa99c/phonegap-launch-navigator.git">

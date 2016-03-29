@@ -40,7 +40,6 @@ docType: "class"
 
 <!-- decorators -->
 
-
 <pre><code>$ cordova plugin add cordova-plugin-x-toast</code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin">

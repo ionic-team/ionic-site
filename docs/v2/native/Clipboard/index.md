@@ -40,7 +40,6 @@ docType: "class"
 
 <!-- decorators -->
 
-
 <pre><code>$ cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git</code></pre>
 <p>Repo:
   <a href="https://github.com/VersoSolutions/CordovaClipboard">

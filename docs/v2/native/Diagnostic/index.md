@@ -40,7 +40,6 @@ docType: "class"
 
 <!-- decorators -->
 
-
 <pre><code>$ cordova plugin add cordova.plugins.diagnostic</code></pre>
 <p>Repo:
   <a href="">

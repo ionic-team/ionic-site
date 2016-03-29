@@ -40,7 +40,6 @@ docType: "class"
 
 <!-- decorators -->
 
-
 <pre><code>$ cordova plugin add cordova-sms-plugin</code></pre>
 <p>Repo:
   <a href="https://github.com/cordova-sms/cordova-sms-plugin">

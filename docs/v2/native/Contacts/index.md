@@ -40,7 +40,6 @@ docType: "class"
 
 <!-- decorators -->
 
-
 <pre><code>$ cordova plugin add cordova-plugin-contacts</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-contacts">

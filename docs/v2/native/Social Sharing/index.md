@@ -40,7 +40,6 @@ docType: "class"
 
 <!-- decorators -->
 
-
 <pre><code>$ cordova plugin add cordova-plugin-x-socialsharing</code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin">

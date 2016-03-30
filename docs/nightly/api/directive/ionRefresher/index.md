@@ -202,7 +202,7 @@ spinner and the icon.</p>
       </td>
       <td>
         <p>The font icon to display after user lets go of the
-refresher. This is depreicated in favor of the SVG <a href="/docs/nightly/api/directive/ionSpinner/"><code>ionSpinner</code></a>.</p>
+refresher. This is deprecated in favor of the SVG <a href="/docs/nightly/api/directive/ionSpinner/"><code>ionSpinner</code></a>.</p>
 
         
       </td>

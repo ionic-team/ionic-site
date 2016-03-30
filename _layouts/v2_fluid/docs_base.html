@@ -40,7 +40,9 @@
           <a ng-class="{active: windowsActive}"
              ng-click="setPlatform('windows')">Windows</a>
         </div>
-        <div id="demo-device-ios" ng-class="previewPlatform">
+        <div id="demo-device-ios"
+             ng-class="previewPlatform"
+             ng-show="iosActive">
           <iframe id="demo-ios"
                 {% if page.preview_device_url %}
                   src="{{ page.preview_device_url }}?production=true&ionicplatform=ios"
@@ -50,7 +52,9 @@
                   frameborder="0">
           </iframe>
         </div>
-        <div id="demo-device-android" ng-class="previewPlatform">
+        <div id="demo-device-android"
+             ng-class="previewPlatform"
+             ng-show="androidActive">
           <iframe id="demo-android"
                 {% if page.preview_device_url %}
                   src="{{ page.preview_device_url }}?production=true&ionicplatform=android"
@@ -60,7 +64,9 @@
                   frameborder="0">
           </iframe>
         </div>
-        <div id="demo-device-windows" ng-class="previewPlatform">
+        <div id="demo-device-windows"
+             ng-class="previewPlatform"
+             ng-show="windowsActive">
           <iframe id="demo-windows"
                 {% if page.preview_device_url %}
                   src="{{ page.preview_device_url }}?production=true&ionicplatform=windows"

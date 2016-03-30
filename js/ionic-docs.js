@@ -34,15 +34,19 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
   };
 }])
 .controller('ComponentsCtrl', ['$scope', '$timeout',
-                                function($scope, $timeout) {
+                       function($scope, $timeout) {
   var $androidIframe = $('iframe#demo-android');
   var $iosIframe = $('iframe#demo-ios');
   var $windowsIframe = $('iframe#demo-windows');
-  var $buttons = $('#components-buttons');
-  var $cards = $('#components-cards');
-  var $alerts = $('#components-alerts');
-  var $forms = $('#components-forms');
-  var $lists = $('#components-lists');
+
+  var sectionsWithChildrenSimple = ['buttons', 'cards', 'alerts', 'forms',
+                                    'lists', 'tabs', 'toolbar'];
+  var sectionsWithChildren = {};
+  for (i in sectionsWithChildrenSimple) {
+    var section = sectionsWithChildrenSimple[i];
+    sectionsWithChildren[section] = $('#components-' + section);
+  }
+
   var updateIframe =  debounce(function() {
     $iosIframe[0].contentWindow.postMessage(JSON.stringify({
       hash: $hash
@@ -54,63 +58,60 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       hash: $hash
     }), '*');
   }, 500);
+
   $scope.setPlatform = function(platform) {
     $scope.previewPlatform = platform;
     if (platform == 'ios') {
-      $scope.iosActive = true;
       $scope.androidActive = false;
       $scope.windowsActive = false;
-      $('#demo-device-android').css('display', 'none');
-      $('#demo-device-ios').css('display', 'block');
-      $('#demo-device-windows').css('display', 'none');
+      $timeout(function() {
+        $scope.iosActive = true;
+      },30);
       badChromeFix($('iframe#demo-ios'));
     } else if (platform == 'windows') {
       $scope.iosActive = false;
       $scope.androidActive = false;
-      $scope.windowsActive = true;
-      $('#demo-device-android').css('display', 'none');
-      $('#demo-device-ios').css('display', 'none');
-      $('#demo-device-windows').css('display', 'block');
+      $timeout(function() {
+        $scope.windowsActive = true;
+      },30);
       badChromeFix($('iframe#demo-windows'));
     } else {
       $scope.iosActive = false;
-      $scope.androidActive = true;
       $scope.windowsActive = false;
-      $('#demo-device-ios').css('display', 'none');
-      $('#demo-device-android').css('display', 'block');
-      $('#demo-device-windows').css('display', 'none');
+      $timeout(function() {
+        $scope.androidActive = true;
+      },30);
       badChromeFix($('iframe#demo-android'));
     }
+
     function badChromeFix(iframe) {
       var raw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
-
       var version =  raw ? parseInt(raw[2], 10) : false;
       if (version === 49) {
+        $('ion-content', iframe.contents()).hide();
         $timeout(function() {
-          $('ion-content', iframe.contents()).hide();
-          $timeout(function() {
-            $('ion-content', iframe.contents()).show();
-            console.log('ges here', iframe);
-          },10);
-        }, 50);
+          $('ion-content', iframe.contents()).show();
+        }, 200);
       }
     }
   };
+
   $scope.setPlatform('ios');
+
   var $scrollspy = $('body').scrollspy({
     target: '#components-index'
   });
+
   $scrollspy.on('activate.bs.scrollspy', onScrollSpyChange);
+
   (function setSubSections() {
-    var sections = {
-      'components-buttons': null,
-      'components-alerts': null,
-      'components-cards': null,
-      'components-forms': null,
-      'components-lists': null
-    };
-    for (s in sections) {
-      var subSections = document.getElementById(s).nextElementSibling.children;
+    var sections = {};
+    for (s in sectionsWithChildren) {
+      // skip loop if the property is from prototype
+      if (!sectionsWithChildren.hasOwnProperty(s)) {
+        continue;
+      }
+      var subSections = sectionsWithChildren[s][0].nextElementSibling.children;
       for (var i = subSections.length - 1; i >= 0; i--) {
         var subSectionName = subSections[i].children[0].href.split('#')[1];
         sections[subSectionName] = s;
@@ -118,6 +119,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     };
     $scope.subSections = sections;
   }());
+
   var $hash;
   var $node;
 
@@ -127,10 +129,9 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
     }
     $hash = $('a[href^="#"]', e.target).attr('href').replace(/^#/, '');
     $node = $('#' + $hash);
+
     setActive($hash);
-    if ($hash.indexOf('button') > -1) {
-      $buttons.addClass('active');
-    }
+
     if ($node.length) {
       $node.attr('id', '');
     }
@@ -140,6 +141,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       return $node.attr('id', $hash);
     }
   }
+
   function debounce(func, wait, immediate) {
     var timeout;
     return function() {
@@ -159,26 +161,17 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       }
     };
   };
+
   function setActive(hash) {
     // given a url hash, set the correct section to 'active'
-    if (hash in $scope.subSections) {
-      if ($scope.subSections[hash] === 'components-buttons') {
-        $buttons.addClass('active');
-      }
-      if ($scope.subSections[hash] === 'components-cards') {
-        $cards.addClass('active');
-      }
-      if ($scope.subSections[hash] === 'components-forms') {
-        $forms.addClass('active');
-      }
-      if ($scope.subSections[hash] === 'components-lists') {
-        $lists.addClass('active');
-      }
-      if ($scope.subSections[hash] === 'components-alerts') {
-        $alerts.addClass('active');
-      }
+    if (hash in $scope.subSections &&
+        $scope.subSections[hash] in sectionsWithChildren) {
+      $timeout(function() {
+        sectionsWithChildren[$scope.subSections[hash]].addClass('active');
+      });
     }
   }
+
   (function setUpListeners() {
     var evMethod = window.addEventListener ? 'addEventListener' : 'attachEvent';
     var eventer = window[evMethod];
@@ -192,6 +185,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       ev.preventDefault();
     });
   })();
+
   function sendCurrentHash(platform) {
     // send the initial hash if possible
     if (platform === 'ios') {
@@ -209,6 +203,7 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
       hash: window.location.hash
     }), '*');
   };
+
   // positioning the platform preview appropriately on scroll
   var $platformPreview = $('#platform-preview');
   var $window = $(window);
@@ -226,28 +221,19 @@ var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
   $scope.setPlatform = function(platform) {
     $scope.previewPlatform = platform;
     if (platform == 'ios') {
-      $scope.iosActive = true;
       $scope.androidActive = false;
       $scope.windowsActive = false;
-      $('#demo-device-android').css('display', 'none');
-      $('#demo-device-windows').css('display', 'none');
-      $('#demo-device-ios').css('display', 'block');
+      $timeout(function() { $scope.iosActive = true; }, 30);
       return;
     } else if (platform == 'windows') {
       $scope.iosActive = false;
       $scope.androidActive = false;
-      $scope.windowsActive = true;
-      $('#demo-device-android').css('display', 'none');
-      $('#demo-device-ios').css('display', 'none');
-      $('#demo-device-windows').css('display', 'block');
+      $timeout(function() { $scope.windowsActive = true; }, 30);
       return;
     }
     $scope.iosActive = false;
-    $scope.androidActive = true;
     $scope.windowsActive = false;
-    $('#demo-device-ios').css('display', 'none');
-    $('#demo-device-windows').css('display', 'none');
-    $('#demo-device-android').css('display', 'block');
+    $timeout(function() { $scope.androidActive = true; }, 30);
   };
   $scope.setPlatform('ios');
   // Listen for scroll events on iframe - don't allow them to bubble to parent

@@ -35,6 +35,10 @@
   </li>
 
   {% comment %} Components {% endcomment %}
+
+ {% if page.category != 'components' %}
+   {% assign components_link = '/docs/v2/components/' %}
+ {% endif %}
   <li id="components-index"
       class="{% if page.category == 'components' %}active{% endif %}">
     <a ng-click="showComponents = !showComponents">Components</a>
@@ -43,9 +47,6 @@
        {% if page.category == 'components' %}
          ng-init="showComponents = true"
        {% endif %}>
-      {% if page.category != 'components' %}
-        {% assign components_link = '/docs/v2/components/' %}
-      {% endif %}
       <li><a href="{{components_link}}#overview">Overview</a></li>
       <li><a href="{{components_link}}#action-sheets">Action Sheets</a></li>
 
@@ -124,7 +125,7 @@
       <li><a href="{{components_link}}#select">Select</a></li>
       <li><a href="{{components_link}}#slides">Slides</a></li>
 
-      <li><a href="{{components_link}}#tabs">Tabs</a></li>
+      <li id="components-tabs"><a href="{{components_link}}#tabs">Tabs</a></li>
         <ul class="nav">
           <li class="nav-item-hidden"><a href="{{components_link}}#tabs-icon"></a></li>
           <li class="nav-item-hidden"><a href="{{components_link}}#tabs-icon-text"></a></li>
@@ -133,7 +134,7 @@
 
       <li><a href="{{components_link}}#toggle">Toggle</a></li>
 
-      <li><a href="{{components_link}}#toolbar">Toolbar</a></li>
+      <li id="components-toolbar"><a href="{{components_link}}#toolbar">Toolbar</a></li>
         <ul class="nav">
           <li class="nav-item-hidden"><a href="{{components_link}}#toolbar-buttons"></a></li>
           <li class="nav-item-hidden"><a href="{{components_link}}#toolbar-segment"></a></li>

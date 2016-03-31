@@ -27508,21 +27508,21 @@
 	})();
 	function transitionEnd(el, callback) {
 	    if (el) {
-	        function unregister() {
-	            exports.CSS.transitionEnd.split(' ').forEach(function (eventName) {
-	                el.removeEventListener(eventName, onEvent);
-	            });
-	        }
-	        function onEvent(ev) {
-	            if (el === ev.target) {
-	                unregister();
-	                callback(ev);
-	            }
-	        }
 	        exports.CSS.transitionEnd.split(' ').forEach(function (eventName) {
 	            el.addEventListener(eventName, onEvent);
 	        });
 	        return unregister;
+	    }
+	    function unregister() {
+	        exports.CSS.transitionEnd.split(' ').forEach(function (eventName) {
+	            el.removeEventListener(eventName, onEvent);
+	        });
+	    }
+	    function onEvent(ev) {
+	        if (el === ev.target) {
+	            unregister();
+	            callback(ev);
+	        }
 	    }
 	}
 	exports.transitionEnd = transitionEnd;
@@ -27536,15 +27536,15 @@
 	        callback();
 	    }
 	    else {
-	        function completed() {
-	            document.removeEventListener('DOMContentLoaded', completed, false);
-	            window.removeEventListener('load', completed, false);
-	            callback();
-	        }
 	        document.addEventListener('DOMContentLoaded', completed, false);
 	        window.addEventListener('load', completed, false);
 	    }
 	    return promise;
+	    function completed() {
+	        document.removeEventListener('DOMContentLoaded', completed, false);
+	        window.removeEventListener('load', completed, false);
+	        callback();
+	    }
 	}
 	exports.ready = ready;
 	function windowLoad(callback) {
@@ -27557,13 +27557,13 @@
 	        callback();
 	    }
 	    else {
-	        function completed() {
-	            window.removeEventListener('load', completed, false);
-	            callback();
-	        }
 	        window.addEventListener('load', completed, false);
 	    }
 	    return promise;
+	    function completed() {
+	        window.removeEventListener('load', completed, false);
+	        callback();
+	    }
 	}
 	exports.windowLoad = windowLoad;
 	function pointerCoord(ev) {

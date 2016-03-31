@@ -40,6 +40,7 @@ docType: "class"
 
 <!-- decorators -->
 
+
 <pre><code>$ cordova plugin add cordova-plugin-hotspot</code></pre>
 <p>Repo:
   <a href="https://github.com/hypery2k/cordova-hotspot-plugin">

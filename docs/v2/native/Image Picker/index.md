@@ -40,6 +40,7 @@ docType: "class"
 
 <!-- decorators -->
 
+
 <pre><code>$ cordova plugin add cordova-plugin-image-picker</code></pre>
 <p>Repo:
   <a href="https://github.com/wymsee/cordova-imagePicker">

@@ -40,6 +40,7 @@ docType: "class"
 
 <!-- decorators -->
 
+
 <pre><code>$ cordova plugin add ionic-plugin-keyboard</code></pre>
 <p>Repo:
   <a href="https://github.com/driftyco/ionic-plugin-keyboard">

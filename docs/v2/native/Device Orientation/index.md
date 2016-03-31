@@ -40,6 +40,7 @@ docType: "class"
 
 <!-- decorators -->
 
+
 <pre><code>$ cordova plugin add cordova-plugin-device-orientation</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-device-orientation">

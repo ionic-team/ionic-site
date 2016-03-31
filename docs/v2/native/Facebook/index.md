@@ -40,7 +40,8 @@ docType: "class"
 
 <!-- decorators -->
 
-<pre><code>$ cordova plugin add cordova-plugin-facebook4</code></pre>
+
+<pre><code>$ cordova plugin add cordova-plugin-facebook4 --variable APP_ID="123456789" --variable APP_NAME="myApplication"</code></pre>
 <p>Repo:
   <a href="https://github.com/jeduan/cordova-plugin-facebook4">
     https://github.com/jeduan/cordova-plugin-facebook4

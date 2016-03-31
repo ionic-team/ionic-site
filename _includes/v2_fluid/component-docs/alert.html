@@ -32,7 +32,7 @@ Basic Alerts are generally used to notify the user about new information (a chan
     let alert = Alert.create({
       title: 'New Friend!',
       subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
-      buttons: ['Ok']
+      buttons: ['OK']
     });
     this.nav.present(alert);
   }
@@ -125,7 +125,7 @@ Radio Alerts are simply another type of Confirmation Alert, but use the [Radio](
 
     alert.addButton('Cancel');
     alert.addButton({
-      text: 'Ok',
+      text: 'OK',
       handler: data => {
         this.testRadioOpen = false;
         this.testRadioResult = data;

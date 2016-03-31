@@ -47349,7 +47349,8 @@
 	 *
 	 *  ```
 	 *
-	 * @property {any} [position] - set position of the toolbar, top or bottom. If not set, defautls to top.
+	 * @property {any} [position] - set position of the toolbar, `top` or `bottom`.
+	 * Default `top`.
 	 * @demo /docs/v2/demos/toolbar/
 	 * @see {@link ../../navbar/Navbar/ Navbar API Docs}
 	 */
@@ -50903,7 +50904,6 @@
 	        var distanceFromInfinite = ((d.scrollHeight - infiniteHeight) - d.scrollTop) - reloadY;
 	        if (distanceFromInfinite < 0) {
 	            this._zone.run(function () {
-	                console.debug('infinite scroll');
 	                _this.state = STATE_LOADING;
 	                _this.infinite.emit(_this);
 	            });
@@ -51572,11 +51572,10 @@
 	        }
 	    };
 	    Refresher.prototype._onMove = function (ev) {
-	        var _this = this;
 	        // this method can get called like a bazillion times per second,
 	        // so it's built to be as efficient as possible, and does its
 	        // best to do any DOM read/writes only when absolutely necessary
-	        console.debug('Pull-to-refresh, onMove', ev.type);
+	        var _this = this;
 	        // if multitouch then get out immediately
 	        if (ev.touches && ev.touches.length > 1) {
 	            return 1;

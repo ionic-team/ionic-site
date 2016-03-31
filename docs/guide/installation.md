@@ -37,6 +37,10 @@ Drop `sudo` from the above command if running on Windows. Depending on the platf
   If you are on Ubuntu 13.04 or greater, `ia32-libs` has been removed. You can use the following packages instead:
   <code>$ sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0</code>
 </p>
+<p>If you are running 64-bit version of Fedora you'll need to install some 32-bit packages:
+  <code>$ sudo yum install -y glibc.i686 glibc-devel.i686 libstdc++.i686 zlib-devel.i686<br/>
+  ncurses-devel.i686 libX11-devel.i686 libXrender.i686 libXrandr.i686</code>
+</p>
 </div>
 
 <button type="button" class="btn btn-danger btn-sm" data-toggle="collapse" data-target="#java-note">
@@ -97,7 +101,7 @@ Now, we need to create a new Cordova project somewhere on the computer for the c
 That will create a folder called `todo` in the directory the command was run. Next, we will go into that directory and list the contents. Here is what the outer structure of your Ionic project will look like:
 
     $ cd todo && ls
-    
+
     ├── bower.json     // bower dependencies
     ├── config.xml     // cordova configuration
     ├── gulpfile.js    // gulp tasks

@@ -174,6 +174,9 @@ how it all works:
 <iframe width="560" height="315" src="//www.youtube.com/embed/dqJRoh8MnBo"
 frameborder="0" allowfullscreen></iframe>
 
+Note: We do not recommend using [resolve](https://github.com/angular-ui/ui-router/wiki#resolve)
+of AngularUI Router. The recommended approach is to execute any logic needed before beginning the state transition.
+
 
 <h2 id="api" style="clear:both;">API</h2>
 

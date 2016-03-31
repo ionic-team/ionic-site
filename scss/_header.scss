@@ -139,8 +139,8 @@
 
 .navbar-default .navbar-nav > li > a {
   margin: 0;
-  padding-right: 26px !important;
-  padding-left: 26px !important;
+  padding-right: 15px !important;
+  padding-left: 15px !important;
   border-top: 3px solid transparent;
   color: #fff;
   opacity: .6;
@@ -415,12 +415,12 @@
     padding-top: 22px;
     margin-left: 15px;
     display: inline-block;
+    float: left;
   }
 
   .beta-tag {
     top: -2px;
     margin-left: 25px;
-    position: relative;
     &:before {
       content: '';
       background: rgba(white, .2);
@@ -436,12 +436,13 @@
 
 .snap-bar {
   /*display: none;*/
-  position: static;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: 50px;
   line-height: 50px;
+  z-index: 1000;
 
   /*
   margin-top: -50px;

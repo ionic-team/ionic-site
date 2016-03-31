@@ -980,37 +980,6 @@
   }
 }
 
-// Safari fixes
-@supports (overflow:-webkit-marquee) and (justify-content:inherit) {
-  #slider {
-    top: -112px;
-
-    .slide-creator .creator-preview {
-      bottom: -21px;
-    }
-  }
-
-  .home #slider + .utility-bar {
-    margin-top: -212px;
-  }
-  @media (max-width: 991px) {
-    .home .container {
-      #slider {
-        top: -188px;
-
-        .slide-creator .creator-preview {
-          bottom: -78px;
-        }
-      }
-
-      #slider + .utility-bar {
-        margin-top: -318px;
-      }
-    }
-  }
-}
-
-
 // IE fixes
 $ieEightAndNine: "\0/";
 .home .navbar {

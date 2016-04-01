@@ -431,7 +431,7 @@ focus-ctrl {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   display: block;
   width: 100%;
   height: 100%;
@@ -5675,6 +5675,12 @@ ion-chip ion-icon[bright] {
 [no-margin] {
   margin: 0; }
 
+ion-fixed {
+  position: absolute;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  z-index: 2; }
+
 ion-content {
   background-color: #fff; }
 
@@ -6868,16 +6874,14 @@ ion-segment {
   color: #000;
   background-color: transparent;
   opacity: 0.5; }
+  .segment-button.segment-activated {
+    opacity: 1; }
   .segment-button ion-icon {
     font-size: 2.6rem;
     line-height: 4rem; }
 
 .toolbar ion-segment {
   margin: 0 auto; }
-
-.toolbar .segment-button.activated,
-.toolbar .segment-button.segment-activated {
-  opacity: 1; }
 
 ion-segment[primary] .segment-button {
   color: #387ef5; }

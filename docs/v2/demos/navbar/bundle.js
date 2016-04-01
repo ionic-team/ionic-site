@@ -47782,7 +47782,7 @@
 	     */
 	    Button.prototype._setClass = function (type, assignCssClass) {
 	        if (type && this._init) {
-	            this._renderer.setElementClass(this._elementRef.nativeElement, this._role + '-' + type, assignCssClass);
+	            this._renderer.setElementClass(this._elementRef.nativeElement, this._role + '-' + type.toLowerCase(), assignCssClass);
 	        }
 	    };
 	    /**

@@ -50692,6 +50692,7 @@
 	            template: '<scroll-content>' +
 	                '<ng-content></ng-content>' +
 	                '</scroll-content>' +
+	                '<ng-content select="ion-fixed"></ng-content>' +
 	                '<ng-content select="ion-refresher"></ng-content>'
 	        }),
 	        __param(4, core_1.Optional()), 

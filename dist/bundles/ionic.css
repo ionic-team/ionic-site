@@ -431,7 +431,7 @@ focus-ctrl {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   display: block;
   width: 100%;
   height: 100%;
@@ -5253,6 +5253,11 @@ ion-icon {
     padding: 0; }
   .ios [no-margin] {
     margin: 0; }
+  .ios ion-fixed {
+    position: absolute;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 2; }
   .ios ion-content {
     background-color: #fff; }
   .ios .outer-content {
@@ -8234,6 +8239,11 @@ ion-icon {
     padding: 0; }
   .md [no-margin] {
     margin: 0; }
+  .md ion-fixed {
+    position: absolute;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 2; }
   .md ion-content {
     background-color: #fff; }
   .md [padding],
@@ -11777,6 +11787,11 @@ ion-icon {
     padding: 0; }
   .wp [no-margin] {
     margin: 0; }
+  .wp ion-fixed {
+    position: absolute;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 2; }
   .wp ion-content {
     background-color: #fff; }
   .wp [padding],

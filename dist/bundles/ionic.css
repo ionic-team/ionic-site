@@ -12797,14 +12797,13 @@ ion-icon {
     color: #000;
     background-color: transparent;
     opacity: 0.5; }
+    .wp .segment-button.segment-activated {
+      opacity: 1; }
     .wp .segment-button ion-icon {
       font-size: 2.6rem;
       line-height: 4rem; }
   .wp .toolbar ion-segment {
     margin: 0 auto; }
-  .wp .toolbar .segment-button.activated,
-  .wp .toolbar .segment-button.segment-activated {
-    opacity: 1; }
   .wp ion-segment[primary] .segment-button {
     color: #327eff; }
     .wp ion-segment[primary] .segment-button.activated, .wp ion-segment[primary] .segment-button.segment-activated {

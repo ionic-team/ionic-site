@@ -6726,16 +6726,14 @@ ion-segment {
   color: #000;
   background-color: transparent;
   opacity: 0.5; }
+  .segment-button.segment-activated {
+    opacity: 1; }
   .segment-button ion-icon {
     font-size: 2.6rem;
     line-height: 4rem; }
 
 .toolbar ion-segment {
   margin: 0 auto; }
-
-.toolbar .segment-button.activated,
-.toolbar .segment-button.segment-activated {
-  opacity: 1; }
 
 ion-segment[primary] .segment-button {
   color: #327eff; }

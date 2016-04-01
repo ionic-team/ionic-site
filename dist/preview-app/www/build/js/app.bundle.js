@@ -66702,7 +66702,37 @@
 	var ionic_angular_1 = __webpack_require__(143);
 	var SearchbarPage = (function () {
 	    function SearchbarPage() {
+	        this.searchQuery = '';
+	        this.initializeItems();
 	    }
+	    SearchbarPage.prototype.initializeItems = function () {
+	        this.items = [
+	            'Angular 1.x',
+	            'Angular 2',
+	            'ReactJS',
+	            'EmberJS',
+	            'Meteor',
+	            'Typescript',
+	            'Dart',
+	            'CoffeeScript'
+	        ];
+	    };
+	    SearchbarPage.prototype.getItems = function (searchbar) {
+	        // Reset items back to all of the items
+	        this.initializeItems();
+	        // set q to the value of the searchbar
+	        var q = searchbar.value;
+	        // if the value is an empty string don't filter the items
+	        if (q.trim() == '') {
+	            return;
+	        }
+	        this.items = this.items.filter(function (v) {
+	            if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+	                return true;
+	            }
+	            return false;
+	        });
+	    };
 	    SearchbarPage = __decorate([
 	        ionic_angular_1.Page({
 	            templateUrl: './build/pages/toolbar/searchbar/template.html'

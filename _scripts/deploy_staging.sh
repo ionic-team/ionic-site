@@ -10,7 +10,7 @@ function deploy {
   echo "Committing to production branch"
   cd ./_site
   git add . --all
-  git commit -m "automated build of $CIRCLE_SHA1"
+  git commit -m "automated build of driftyco/$CIRCLE_PROJECT_REPONAME@$CIRCLE_SHA1"
 
   echo "Pushing production branch to origin"
   git push origin production

@@ -5728,7 +5728,7 @@ h1 + h2 + p {
       font-size: 18px; }
     #slider .slide-creator .creator-preview {
       background-size: 278px;
-      bottom: -28px; }
+      bottom: -15px; }
   .home .utility-bar {
     margin-top: -313px; } }
 
@@ -5764,7 +5764,7 @@ h1 + h2 + p {
       position: relative; }
     #slider .slide-creator .creator-preview {
       position: absolute;
-      bottom: 15px;
+      bottom: 48px;
       background-size: 200px; }
     #slider .slide-lab .logo {
       margin: 0 auto 15px; }
@@ -7359,11 +7359,15 @@ a {
 
 .navbar-default .navbar-nav > li > a {
   margin: 0;
-  padding-right: 15px !important;
-  padding-left: 15px !important;
+  padding-right: 26px !important;
+  padding-left: 26px !important;
   border-top: 3px solid transparent;
   color: #fff;
   opacity: .6; }
+  @media (max-width: 991px) {
+    .navbar-default .navbar-nav > li > a {
+      padding-right: 15px !important;
+      padding-left: 15px !important; } }
   .navbar-default .navbar-nav > li > a:hover {
     color: white; }
 
@@ -7565,7 +7569,8 @@ a {
 
 .navbar-header .beta-tag {
   top: -2px;
-  margin-left: 25px; }
+  margin-left: 25px;
+  position: relative; }
   .navbar-header .beta-tag:before {
     content: '';
     background: rgba(255, 255, 255, 0.2);

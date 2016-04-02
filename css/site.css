@@ -7363,7 +7363,8 @@ a {
   padding-left: 22px !important;
   border-top: 3px solid transparent;
   color: #fff;
-  opacity: .6; }
+  opacity: .6;
+  transition-duration: .25s; }
   @media (max-width: 991px) {
     .navbar-default .navbar-nav > li > a {
       padding-right: 15px !important;

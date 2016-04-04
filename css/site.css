@@ -5613,7 +5613,7 @@ h1 + h2 + p {
     font-size: 16px;
     margin-left: 4px; }
   #slider .slide-creator .creator-preview {
-    background: no-repeat center bottom url(/img/homepage/creator-preview-img.png);
+    background: no-repeat center bottom url("/img/homepage/creator-preview-img.png");
     background-size: 464px;
     min-height: 595px;
     position: absolute;
@@ -5630,28 +5630,40 @@ h1 + h2 + p {
     width: 210px;
     margin: 72px 0 32px; }
   #slider .slide-creator h2 {
-    margin: 20px 0 20px;
+    margin: 20px 0;
     font-weight: 500;
     font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: -0.02em; }
-  #slider .slide-lab h2 {
-    margin: 20px 0 20px;
+  #slider .slide-windows h2 {
+    margin: 150px 0 20px;
     font-weight: 500;
     font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: -0.02em; }
-  #slider .slide-lab h3 {
-    color: #C8E3FF;
-    max-width: 440px; }
-  #slider .slide-lab i {
+  #slider .slide-windows h3 {
+    max-width: 460px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500; }
+    #slider .slide-windows h3 strong {
+      color: white;
+      font-weight: 500; }
+  #slider .slide-windows i {
     display: inline; }
-  #slider .slide-lab .feature-img {
-    background: no-repeat center top url("/img/homepage/ionic-lab-preview-img.png");
-    background-size: 100%;
+  #slider .slide-windows .feature-img {
+    background: no-repeat center top url("/img/homepage/windows-ionic-img.png");
+    background-size: 73%;
     margin-top: 0;
     padding-top: 20px; }
-  #slider .slide-lab .logo {
-    width: 170px;
-    margin: 72px 0 32px; }
+  #slider .slide-windows .heart {
+    width: 44px;
+    display: inline-block; }
+  #slider .slide-windows .btn {
+    font-weight: 500; }
+    #slider .slide-windows .btn.btn-download {
+      color: #1e1632; }
+    #slider .slide-windows .btn.btn-get-started {
+      color: white;
+      border-color: white;
+      box-shadow: white 0 0 0 2px inset; }
   #slider .slide-market {
     color: #A1BEE4; }
     #slider .slide-market h3 {
@@ -5707,7 +5719,7 @@ h1 + h2 + p {
   #slider .slide-creator .creator-preview {
     background-position: right bottom;
     background-size: 390px; }
-  #slider .slide-lab .feature-img {
+  #slider .slide-windows .feature-img {
     background-position: right center; }
   #slider .slide-market .feature-img {
     background-position: right center; } }
@@ -5750,7 +5762,7 @@ h1 + h2 + p {
       margin: 0 auto;
       text-align: center; }
     #slider .slide-creator h2,
-    #slider .slide-lab h2 {
+    #slider .slide-windows h2 {
       font-size: 30px;
       margin: 0 auto 15px;
       text-align: center; }
@@ -5759,18 +5771,16 @@ h1 + h2 + p {
       margin: 0 auto;
       text-align: center; }
     #slider .logo {
-      margin: 0px auto 15px; }
+      margin: 0 auto 15px; }
     #slider .slide-creator .feature-img {
       position: relative; }
     #slider .slide-creator .creator-preview {
       position: absolute;
       bottom: 48px;
       background-size: 200px; }
-    #slider .slide-lab .logo {
-      margin: 0 auto 15px; }
-    #slider .slide-lab h2 {
+    #slider .slide-windows h2 {
       margin: 15px 0 20px; }
-    #slider .slide-lab .feature-img {
+    #slider .slide-windows .feature-img {
       background-size: 240px;
       background-position: center top; }
     #slider .slide-market .feature-img {
@@ -5783,9 +5793,10 @@ h1 + h2 + p {
   background: #2090d2;
   background: linear-gradient(to right, #2090d2 0%, #4db5f2 100%); }
 
-.slide-lab {
-  background: #3fbae2;
-  background: linear-gradient(to right, #3fbae2 0%, #7962ff 100%); }
+.slide-windows {
+  background: #2f2947 no-repeat center bottom;
+  background: url("/img/homepage/space-bg.jpg"), linear-gradient(to right, #171228 0%, #473e61 100%);
+  background-size: cover, 100%; }
 
 .slide-market {
   background: #0e419b;

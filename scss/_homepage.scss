@@ -905,9 +905,10 @@
     font-size: 16px;
     margin-left: 4px;
   }
-  .slide-creator{
-    .creator-preview{
-      background: no-repeat center bottom url(/img/homepage/creator-preview-img.png);
+
+  .slide-creator {
+    .creator-preview {
+      background: no-repeat center bottom url('/img/homepage/creator-preview-img.png');
       background-size: 464px;
       min-height: 595px;
       position: absolute;
@@ -915,50 +916,78 @@
       min-width: 464px;
       right: 40px;
     }
+
     .btn-row .btn-download {
-        color: #4DB5F2;
-        letter-spacing: -0.01em;
+      color: #4DB5F2;
+      letter-spacing: -0.01em;
     }
+
     h3 {
-        color: #A5DAF9;
-        max-width: 440px;
+      color: #A5DAF9;
+      max-width: 440px;
     }
-    .logo{
-      width:210px;
+
+    .logo {
+      width: 210px;
       margin: 72px 0 32px;
     }
-    h2{
-      margin: 20px 0 20px;
+
+    h2 {
+      margin: 20px 0;
       font-weight: 500;
       font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
       letter-spacing: -0.02em;
     }
   }
-  .slide-lab{
+
+  .slide-windows {
+
     h2 {
-        margin: 20px 0 20px;
-        font-weight: 500;
-        font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        letter-spacing: -0.02em;
+      margin: 150px 0 20px;
+      font-weight: 500;
+      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      letter-spacing: -0.02em;
     }
+
     h3 {
-        color: #C8E3FF;
-        max-width: 440px;
+      max-width: 460px;
+      color: rgba(255, 255, 255, .7);
+      font-weight: 500;
+
+      strong {
+        color: white;
+        font-weight: 500;
+      }
     }
+
     i {
       display: inline;
     }
 
     .feature-img {
-      background: no-repeat center top url('/img/homepage/ionic-lab-preview-img.png');
-      background-size: 100%;
+      background: no-repeat center top url('/img/homepage/windows-ionic-img.png');
+      background-size: 73%;
       margin-top: 0;
       padding-top: 20px;
     }
 
-    .logo {
-      width: 170px;
-      margin: 72px 0 32px;
+    .heart {
+      width: 44px;
+      display: inline-block;
+    }
+
+    .btn {
+      font-weight: 500;
+
+      &.btn-download {
+        color: #1e1632;
+      }
+
+      &.btn-get-started {
+        color: white;
+        border-color: white;
+        box-shadow: white 0 0 0 2px inset;
+      }
     }
   }
 
@@ -1042,7 +1071,7 @@ $ieEightAndNine: "\0/";
       background-position: right bottom;
       background-size: 390px;
     }
-    .slide-lab .feature-img {
+    .slide-windows .feature-img {
       background-position: right center;
     }
     .slide-market .feature-img {
@@ -1103,72 +1132,72 @@ $ieEightAndNine: "\0/";
       margin: 0 auto;
       text-align: center;
     }
+
     .slide-creator h2,
-    .slide-lab h2{
+    .slide-windows h2 {
       font-size: 30px;
       margin: 0 auto 15px;
       text-align: center;
     }
-    h3{
+
+    h3 {
       font-size: 14px;
       margin: 0 auto;
       text-align: center;
     }
+
     .logo {
-      margin: 0px auto 15px;
+      margin: 0 auto 15px;
     }
+
     .slide-creator {
       .feature-img {
         position: relative;
       }
+
       .creator-preview {
         position: absolute;
-        bottom:48px;
-        background-size:200px;
+        bottom: 48px;
+        background-size: 200px;
       }
     }
-    .slide-lab{
-      .logo {
-        margin: 0 auto 15px;
-      }
+
+    .slide-windows {
+
       h2 {
         margin: 15px 0 20px;
       }
+
       .feature-img {
         background-size: 240px;
         background-position: center top;
       }
     }
+
     .slide-market .feature-img {
       background-size: 240px;
       background-position: center center;
     }
   }
-  .home .utility-bar{
+
+  .home .utility-bar {
     margin-top: -628px;
   }
 }
+
 .slide-creator {
   background: #2090d2;
-  background: -moz-linear-gradient(left, #2090d2 0%, #4db5f2 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #2090d2), color-stop(100%, #4db5f2));
-  background: -webkit-linear-gradient(left, #2090d2 0%, #4db5f2 100%);
-  background: -o-linear-gradient(left, #2090d2 0%, #4db5f2 100%);
-  background: -ms-linear-gradient(left, #2090d2 0%, #4db5f2 100%);
-  background: linear-gradient(to right, #2090d2 0%, #4db5f2 100%); }
-.slide-lab {
-  background: #3fbae2;
-  background: -moz-linear-gradient(left, #3fbae2 0%, #7962ff 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #3fbae2), color-stop(100%, #7962ff));
-  background: -webkit-linear-gradient(left, #3fbae2 0%, #7962ff 100%);
-  background: -o-linear-gradient(left, #3fbae2 0%, #7962ff 100%);
-  background: -ms-linear-gradient(left, #3fbae2 0%, #7962ff 100%);
-  background: linear-gradient(to right, #3fbae2 0%, #7962ff 100%); }
+  background: linear-gradient(to right, #2090d2 0%, #4db5f2 100%);
+}
+
+.slide-windows {
+  background: #2f2947 no-repeat center bottom;
+  background: url('/img/homepage/space-bg.jpg'),
+              linear-gradient(to right, #171228 0%, #473e61 100%);
+  background-size: cover, 100%;
+}
+
 .slide-market {
   background: #0e419b;
-  background: -moz-linear-gradient(left, #0e419b 0%, #19859c 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #0e419b), color-stop(100%, #19859c));
-  background: -webkit-linear-gradient(left, #0e419b 0%, #19859c 100%);
-  background: -o-linear-gradient(left, #0e419b 0%, #19859c 100%);
-  background: -ms-linear-gradient(left, #0e419b 0%, #19859c 100%);
-  background: linear-gradient(to right, #0e419b 0%, #19859c 100%); }
+  background: linear-gradient(to right, #0e419b 0%, #19859c 100%);
+}

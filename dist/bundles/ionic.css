@@ -238,6 +238,14 @@ scroll-content {
   -webkit-overflow-scrolling: touch;
   will-change: scroll-position; }
 
+ion-content.js-scroll > scroll-content {
+  position: relative;
+  min-height: 100%;
+  overflow-x: initial;
+  overflow-y: initial;
+  -webkit-overflow-scrolling: auto;
+  will-change: initial; }
+
 ion-tabbar {
   position: absolute;
   top: 0;
@@ -692,6 +700,26 @@ ion-icon {
 
 ion-icon[small] {
   font-size: 1.1em; }
+
+ion-img {
+  position: relative;
+  display: block; }
+
+ion-img img {
+  display: block; }
+
+ion-img .img-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms; }
+
+ion-img.img-loaded .img-placeholder {
+  opacity: 0; }
 
 ion-infinite-scroll {
   display: block;
@@ -1550,6 +1578,20 @@ ion-spinner.spinner-paused svg {
     opacity: .9;
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1); } }
+
+.virtual-scroll {
+  position: relative; }
+
+.virtual-scroll .virtual-position,
+.virtual-scroll .virtual-position.item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition-duration: 0ms;
+  transition-duration: 0ms; }
+
+.virtual-scroll .virtual-hidden {
+  display: none; }
 
 .ion-ios-add:before {
   content: "\f102"; }

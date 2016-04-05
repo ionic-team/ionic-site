@@ -93,7 +93,7 @@ methods to control the scrollable area.</p>
 
 <h3>
 <a class="anchor" name="scrollTo" href="#scrollTo"></a>
-<code>scrollTo(x,&nbsp;y,&nbsp;duration,&nbsp;tolerance)</code>
+<code>scrollTo(x,&nbsp;y,&nbsp;duration)</code>
   
 
 </h3>
@@ -178,23 +178,6 @@ export class MyPage{
       </td>
       <td>
         <p>Duration of the scroll animation in ms.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        tolerance
-        
-        
-      </td>
-      <td>
-        
-  <code>TODO</code>
-      </td>
-      <td>
-        <p>TODO</p>
 
         
       </td>

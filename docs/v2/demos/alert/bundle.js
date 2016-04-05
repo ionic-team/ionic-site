@@ -3400,11 +3400,11 @@
 	__export(__webpack_require__(6));
 	__export(__webpack_require__(161));
 	__export(__webpack_require__(288));
-	__export(__webpack_require__(350));
-	__export(__webpack_require__(351));
-	__export(__webpack_require__(352));
+	__export(__webpack_require__(354));
+	__export(__webpack_require__(355));
+	__export(__webpack_require__(356));
 	__export(__webpack_require__(162));
-	__export(__webpack_require__(357));
+	__export(__webpack_require__(361));
 	__export(__webpack_require__(160));
 	__export(__webpack_require__(165));
 	__export(__webpack_require__(280));
@@ -3412,14 +3412,14 @@
 	__export(__webpack_require__(310));
 	__export(__webpack_require__(309));
 	__export(__webpack_require__(287));
-	__export(__webpack_require__(361));
+	__export(__webpack_require__(365));
 	// these modules don't export anything
-	__webpack_require__(362);
-	__webpack_require__(363);
-	__webpack_require__(364);
-	__webpack_require__(365);
 	__webpack_require__(366);
 	__webpack_require__(367);
+	__webpack_require__(368);
+	__webpack_require__(369);
+	__webpack_require__(370);
+	__webpack_require__(371);
 
 /***/ },
 /* 6 */
@@ -3440,7 +3440,7 @@
 	var nav_registry_1 = __webpack_require__(282);
 	var platform_1 = __webpack_require__(162);
 	var dom_1 = __webpack_require__(164);
-	var scroll_to_1 = __webpack_require__(283);
+	var scroll_view_1 = __webpack_require__(283);
 	var tap_click_1 = __webpack_require__(284);
 	var translate_1 = __webpack_require__(287);
 	/**
@@ -3549,8 +3549,8 @@
 	        }
 	        var content = dom_1.closest(el, 'scroll-content');
 	        if (content) {
-	            var scrollTo = new scroll_to_1.ScrollTo(content);
-	            scrollTo.start(0, 0, 300, 0);
+	            var scroll = new scroll_view_1.ScrollView(content);
+	            scroll.scrollTo(0, 0, 300);
 	        }
 	    });
 	    // start listening for resizes XXms after the app starts
@@ -27584,17 +27584,20 @@
 	        win.cancelAnimationFrame = function (id) { clearTimeout(id); };
 	    }
 	})();
-	exports.raf = window.requestAnimationFrame.bind(window);
+	// use native raf rather than the zone wrapped one
+	exports.raf = (window[window['Zone']['__symbol__']('requestAnimationFrame')] || window[window['Zone']['__symbol__']('webkitRequestAnimationFrame')])['bind'](window);
 	exports.cancelRaf = window.cancelAnimationFrame.bind(window);
+	exports.nativeTimeout = window[window['Zone']['__symbol__']('setTimeout')]['bind'](window);
+	exports.clearNativeTimeout = window[window['Zone']['__symbol__']('clearTimeout')]['bind'](window);
 	function rafFrames(framesToWait, callback) {
 	    framesToWait = Math.ceil(framesToWait);
 	    if (framesToWait < 2) {
 	        exports.raf(callback);
 	    }
 	    else {
-	        setTimeout(function () {
+	        exports.nativeTimeout(function () {
 	            exports.raf(callback);
-	        }, (framesToWait - 1) * 17);
+	        }, (framesToWait - 1) * 16.6667);
 	    }
 	}
 	exports.rafFrames = rafFrames;
@@ -42514,23 +42517,28 @@
 
 	"use strict";
 	var dom_1 = __webpack_require__(164);
-	var ScrollTo = (function () {
-	    function ScrollTo(ele) {
-	        if (typeof ele === 'string') {
-	            // string query selector
-	            ele = document.querySelector(ele);
-	        }
-	        if (ele) {
-	            if (ele.nativeElement) {
-	                // angular ElementRef
-	                ele = ele.nativeElement;
-	            }
-	            if (ele.nodeType === 1) {
-	                this._el = ele;
-	            }
-	        }
+	var ScrollView = (function () {
+	    function ScrollView(ele) {
+	        this._js = false;
+	        this._top = 0;
+	        this._el = ele;
 	    }
-	    ScrollTo.prototype.start = function (x, y, duration, tolerance) {
+	    ScrollView.prototype.getTop = function () {
+	        if (this._js) {
+	            return this._top;
+	        }
+	        return this._top = this._el.scrollTop;
+	    };
+	    ScrollView.prototype.setTop = function (top) {
+	        this._top = top;
+	        if (this._js) {
+	            this._el.style[dom_1.CSS.transform] = "translate3d(0px," + top * -1 + "px,0px)";
+	        }
+	        else {
+	            this._el.scrollTop = top;
+	        }
+	    };
+	    ScrollView.prototype.scrollTo = function (x, y, duration) {
 	        // scroll animation loop w/ easing
 	        // credit https://gist.github.com/dezinezync/5487119
 	        var self = this;
@@ -42540,47 +42548,32 @@
 	        }
 	        x = x || 0;
 	        y = y || 0;
-	        tolerance = tolerance || 0;
 	        var fromY = self._el.scrollTop;
 	        var fromX = self._el.scrollLeft;
 	        var xDistance = Math.abs(x - fromX);
 	        var yDistance = Math.abs(y - fromY);
-	        console.debug("scrollTo start, y: " + y + ", fromY: " + fromY + ", yDistance: " + yDistance + ", duration: " + duration + ", tolerance: " + tolerance);
-	        if (yDistance <= tolerance && xDistance <= tolerance) {
-	            // prevent scrolling if already close to there
-	            self._el = null;
-	            return Promise.resolve();
-	        }
-	        return new Promise(function (resolve, reject) {
+	        return new Promise(function (resolve) {
 	            var startTime;
 	            // scroll loop
 	            function step() {
-	                if (!self._el) {
+	                if (!self._el || !self.isPlaying) {
 	                    return resolve();
 	                }
 	                var time = Math.min(1, ((Date.now() - startTime) / duration));
 	                // where .5 would be 50% of time on a linear scale easedT gives a
 	                // fraction based on the easing method
-	                var easedT = easeOutCubic(time);
+	                var easedT = (--time) * time * time + 1;
 	                if (fromY != y) {
-	                    self._el.scrollTop = (easedT * (y - fromY)) + fromY;
+	                    self.setTop((easedT * (y - fromY)) + fromY);
 	                }
 	                if (fromX != x) {
 	                    self._el.scrollLeft = Math.round((easedT * (x - fromX)) + fromX);
 	                }
-	                console.debug("scrollTo step, easedT: " + easedT + ", scrollTop: " + self._el.scrollTop);
 	                if (time < 1 && self.isPlaying) {
 	                    dom_1.raf(step);
 	                }
-	                else if (!self.isPlaying) {
-	                    // stopped
-	                    self._el = null;
-	                    reject();
-	                }
 	                else {
 	                    // done
-	                    self._el = null;
-	                    console.debug("scrollTo done");
 	                    resolve();
 	                }
 	            }
@@ -42593,20 +42586,141 @@
 	            });
 	        });
 	    };
-	    ScrollTo.prototype.stop = function () {
+	    ScrollView.prototype.stop = function () {
 	        this.isPlaying = false;
 	    };
-	    ScrollTo.prototype.dispose = function () {
+	    /**
+	     * @private
+	     * JS Scrolling has been provided only as a temporary solution
+	     * until iOS apps can take advantage of scroll events at all times.
+	     * The goal is to eventually remove JS scrolling entirely. This
+	     * method may be removed in the future.
+	     */
+	    ScrollView.prototype.jsScroll = function (onScrollCallback) {
+	        var _this = this;
+	        this._js = true;
+	        this._cb = onScrollCallback;
+	        this._pos = [];
+	        this._el.addEventListener('touchstart', this._start.bind(this));
+	        this._el.addEventListener('touchmove', this._move.bind(this));
+	        this._el.addEventListener('touchend', this._end.bind(this));
+	        this._el.parentElement.classList.add('js-scroll');
+	        return function () {
+	            _this._el.removeEventListener('touchstart', _this._start.bind(_this));
+	            _this._el.removeEventListener('touchmove', _this._move.bind(_this));
+	            _this._el.removeEventListener('touchend', _this._end.bind(_this));
+	            _this._el.parentElement.classList.remove('js-scroll');
+	        };
+	    };
+	    /**
+	     * @private
+	     * Used for JS scrolling. May be removed in the future.
+	     */
+	    ScrollView.prototype._start = function (ev) {
+	        this._velocity = 0;
+	        this._pos.length = 0;
+	        this._max = null;
+	        this._pos.push(dom_1.pointerCoord(ev).y, Date.now());
+	    };
+	    /**
+	     * @private
+	     * Used for JS scrolling. May be removed in the future.
+	     */
+	    ScrollView.prototype._move = function (ev) {
+	        if (this._pos.length) {
+	            var y = dom_1.pointerCoord(ev).y;
+	            // ******** DOM READ ****************
+	            this._setMax();
+	            this._top -= (y - this._pos[this._pos.length - 2]);
+	            this._top = Math.min(Math.max(this._top, 0), this._max);
+	            this._pos.push(y, Date.now());
+	            // ******** DOM READ THEN DOM WRITE ****************
+	            this._cb(this._top);
+	            // ******** DOM WRITE ****************
+	            this.setTop(this._top);
+	        }
+	    };
+	    /**
+	     * @private
+	     * Used for JS scrolling. May be removed in the future.
+	     */
+	    ScrollView.prototype._setMax = function () {
+	        if (!this._max) {
+	            // ******** DOM READ ****************
+	            this._max = (this._el.offsetHeight - this._el.parentElement.offsetHeight + this._el.parentElement.offsetTop);
+	        }
+	    };
+	    /**
+	     * @private
+	     * Used for JS scrolling. May be removed in the future.
+	     */
+	    ScrollView.prototype._end = function (ev) {
+	        // figure out what the scroll position was about 100ms ago
+	        var positions = this._pos;
+	        this._velocity = 0;
+	        dom_1.cancelRaf(this._rafId);
+	        if (!positions.length)
+	            return;
+	        var y = dom_1.pointerCoord(ev).y;
+	        positions.push(y, Date.now());
+	        var endPos = (positions.length - 1);
+	        var startPos = endPos;
+	        var timeRange = (Date.now() - 100);
+	        // move pointer to position measured 100ms ago
+	        for (var i = endPos; i > 0 && positions[i] > timeRange; i -= 2) {
+	            startPos = i;
+	        }
+	        if (startPos !== endPos) {
+	            // compute relative movement between these two points
+	            var timeOffset = (positions[endPos] - positions[startPos]);
+	            var movedTop = (positions[startPos - 1] - positions[endPos - 1]);
+	            // based on XXms compute the movement to apply for each render step
+	            this._velocity = ((movedTop / timeOffset) * FRAME_MS);
+	            // verify that we have enough velocity to start deceleration
+	            if (Math.abs(this._velocity) > MIN_VELOCITY_START_DECELERATION) {
+	                // ******** DOM READ ****************
+	                this._setMax();
+	                this._rafId = dom_1.raf(this._decelerate.bind(this));
+	            }
+	        }
+	        positions.length = 0;
+	    };
+	    /**
+	     * @private
+	     * Used for JS scrolling. May be removed in the future.
+	     */
+	    ScrollView.prototype._decelerate = function () {
+	        var self = this;
+	        if (self._velocity) {
+	            self._velocity *= DECELERATION_FRICTION;
+	            // update top with updated velocity
+	            // clamp top within scroll limits
+	            self._top = Math.min(Math.max(self._top + self._velocity, 0), self._max);
+	            // ******** DOM READ THEN DOM WRITE ****************
+	            self._cb(self._top);
+	            // ******** DOM WRITE ****************
+	            self.setTop(self._top);
+	            if (self._top > 0 && self._top < self._max && Math.abs(self._velocity) > MIN_VELOCITY_CONTINUE_DECELERATION) {
+	                self._rafId = dom_1.raf(self._decelerate.bind(self));
+	            }
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    ScrollView.prototype.destroy = function () {
+	        this._velocity = 0;
 	        this.stop();
 	        this._el = null;
 	    };
-	    return ScrollTo;
+	    return ScrollView;
 	}());
-	exports.ScrollTo = ScrollTo;
-	// decelerating to zero velocity
-	function easeOutCubic(t) {
-	    return (--t) * t * t + 1;
-	}
+	exports.ScrollView = ScrollView;
+	var MAX_VELOCITY = 150;
+	var MIN_VELOCITY_START_DECELERATION = 4;
+	var MIN_VELOCITY_CONTINUE_DECELERATION = 0.12;
+	var DECELERATION_FRICTION = 0.97;
+	var FRAME_MS = (1000 / 60);
 
 /***/ },
 /* 284 */
@@ -43093,36 +43207,39 @@
 	var button_1 = __webpack_require__(305);
 	var blur_1 = __webpack_require__(313);
 	var content_1 = __webpack_require__(314);
-	var scroll_1 = __webpack_require__(315);
-	var infinite_scroll_1 = __webpack_require__(316);
-	var infinite_scroll_content_1 = __webpack_require__(317);
-	var refresher_1 = __webpack_require__(319);
-	var refresher_content_1 = __webpack_require__(320);
-	var slides_1 = __webpack_require__(321);
-	var tabs_1 = __webpack_require__(323);
-	var tab_1 = __webpack_require__(325);
-	var list_1 = __webpack_require__(327);
-	var item_1 = __webpack_require__(329);
-	var item_sliding_1 = __webpack_require__(331);
+	var img_1 = __webpack_require__(315);
+	var scroll_1 = __webpack_require__(316);
+	var infinite_scroll_1 = __webpack_require__(317);
+	var infinite_scroll_content_1 = __webpack_require__(318);
+	var refresher_1 = __webpack_require__(320);
+	var refresher_content_1 = __webpack_require__(321);
+	var slides_1 = __webpack_require__(322);
+	var tabs_1 = __webpack_require__(324);
+	var tab_1 = __webpack_require__(326);
+	var list_1 = __webpack_require__(328);
+	var item_1 = __webpack_require__(330);
+	var item_sliding_1 = __webpack_require__(332);
+	var virtual_scroll_1 = __webpack_require__(333);
+	var virtual_item_1 = __webpack_require__(334);
 	var toolbar_1 = __webpack_require__(304);
 	var icon_1 = __webpack_require__(303);
-	var spinner_1 = __webpack_require__(318);
-	var checkbox_1 = __webpack_require__(332);
-	var select_1 = __webpack_require__(333);
-	var option_1 = __webpack_require__(335);
-	var toggle_1 = __webpack_require__(336);
-	var input_1 = __webpack_require__(337);
-	var label_1 = __webpack_require__(330);
-	var segment_1 = __webpack_require__(340);
-	var radio_button_1 = __webpack_require__(341);
-	var radio_group_1 = __webpack_require__(342);
-	var searchbar_1 = __webpack_require__(343);
-	var nav_1 = __webpack_require__(344);
-	var nav_push_1 = __webpack_require__(346);
-	var nav_router_1 = __webpack_require__(347);
+	var spinner_1 = __webpack_require__(319);
+	var checkbox_1 = __webpack_require__(336);
+	var select_1 = __webpack_require__(337);
+	var option_1 = __webpack_require__(339);
+	var toggle_1 = __webpack_require__(340);
+	var input_1 = __webpack_require__(341);
+	var label_1 = __webpack_require__(331);
+	var segment_1 = __webpack_require__(344);
+	var radio_button_1 = __webpack_require__(345);
+	var radio_group_1 = __webpack_require__(346);
+	var searchbar_1 = __webpack_require__(347);
+	var nav_1 = __webpack_require__(348);
+	var nav_push_1 = __webpack_require__(350);
+	var nav_router_1 = __webpack_require__(351);
 	var navbar_1 = __webpack_require__(302);
-	var id_1 = __webpack_require__(348);
-	var show_hide_when_1 = __webpack_require__(349);
+	var id_1 = __webpack_require__(352);
+	var show_hide_when_1 = __webpack_require__(353);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @private
@@ -43153,6 +43270,8 @@
 	 * -  ListHeader
 	 * -  Item
 	 * -  ItemSliding
+	 * -  VirtualScroll
+	 * -  VirtualFor
 	 *
 	 * **Slides**
 	 * -  Slides
@@ -43215,11 +43334,16 @@
 	    infinite_scroll_content_1.InfiniteScrollContent,
 	    refresher_1.Refresher,
 	    refresher_content_1.RefresherContent,
+	    img_1.Img,
 	    // Lists
 	    list_1.List,
 	    list_1.ListHeader,
 	    item_1.Item,
 	    item_sliding_1.ItemSliding,
+	    virtual_scroll_1.VirtualScroll,
+	    virtual_item_1.VirtualItem,
+	    virtual_item_1.VirtualHeader,
+	    virtual_item_1.VirtualFooter,
 	    // Slides
 	    slides_1.Slides,
 	    slides_1.Slide,
@@ -50505,7 +50629,7 @@
 	var config_1 = __webpack_require__(161);
 	var dom_1 = __webpack_require__(164);
 	var view_controller_1 = __webpack_require__(300);
-	var scroll_to_1 = __webpack_require__(283);
+	var scroll_view_1 = __webpack_require__(283);
 	/**
 	 * @name Content
 	 * @description
@@ -50543,19 +50667,21 @@
 	    Content.prototype.ngOnInit = function () {
 	        var self = this;
 	        self.scrollElement = self._elementRef.nativeElement.children[0];
-	        if (self._config.get('tapPolyfill') === true) {
-	            self._zone.runOutsideAngular(function () {
+	        self._zone.runOutsideAngular(function () {
+	            self._scroll = new scroll_view_1.ScrollView(self.scrollElement);
+	            if (self._config.getBoolean('tapPolyfill')) {
 	                self._scLsn = self.addScrollListener(function () {
 	                    self._app.setScrolling();
 	                });
-	            });
-	        }
+	            }
+	        });
 	    };
 	    /**
 	     * @private
 	     */
 	    Content.prototype.ngOnDestroy = function () {
 	        this._scLsn && this._scLsn();
+	        this._scroll && this._scroll.destroy();
 	        this.scrollElement = this._scLsn = null;
 	    };
 	    /**
@@ -50696,15 +50822,10 @@
 	     * @param {number} x  The x-value to scroll to.
 	     * @param {number} y  The y-value to scroll to.
 	     * @param {number} duration  Duration of the scroll animation in ms.
-	     * @param {TODO} tolerance  TODO
 	     * @returns {Promise} Returns a promise when done
 	     */
-	    Content.prototype.scrollTo = function (x, y, duration, tolerance) {
-	        if (this._scrollTo) {
-	            this._scrollTo.dispose();
-	        }
-	        this._scrollTo = new scroll_to_1.ScrollTo(this.scrollElement);
-	        return this._scrollTo.start(x, y, duration, tolerance);
+	    Content.prototype.scrollTo = function (x, y, duration) {
+	        return this._scroll.scrollTo(x, y, duration);
 	    };
 	    /**
 	     * Scroll to the specified position.
@@ -50731,18 +50852,27 @@
 	     * ```
 	     * @returns {Promise} Returns a promise when done
 	     */
-	    Content.prototype.scrollToTop = function () {
-	        if (this._scrollTo) {
-	            this._scrollTo.dispose();
-	        }
-	        this._scrollTo = new scroll_to_1.ScrollTo(this.scrollElement);
-	        return this._scrollTo.start(0, 0, 300, 0);
+	    Content.prototype.scrollToTop = function (duration) {
+	        if (duration === void 0) { duration = 300; }
+	        return this.scrollTo(0, 0, duration);
+	    };
+	    /**
+	     * @private
+	     */
+	    Content.prototype.jsScroll = function (onScrollCallback) {
+	        return this._scroll.jsScroll(onScrollCallback);
 	    };
 	    /**
 	     * @private
 	     */
 	    Content.prototype.getScrollTop = function () {
-	        return this.getNativeElement().scrollTop;
+	        return this._scroll.getTop();
+	    };
+	    /**
+	     * @private
+	     */
+	    Content.prototype.setScrollTop = function (top) {
+	        this._scroll.setTop(top);
 	    };
 	    /**
 	     * @private
@@ -50827,6 +50957,135 @@
 
 /***/ },
 /* 315 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(7);
+	var util_1 = __webpack_require__(163);
+	var platform_1 = __webpack_require__(162);
+	var Img = (function () {
+	    function Img(_elementRef, _platform) {
+	        this._elementRef = _elementRef;
+	        this._platform = _platform;
+	        this._src = '';
+	        this._srcA = '';
+	        this._srcB = '';
+	        this._useA = true;
+	        this._enabled = true;
+	        this._loaded = false;
+	    }
+	    Object.defineProperty(Img.prototype, "src", {
+	        set: function (val) {
+	            val = (util_1.isPresent(val) ? val : '');
+	            if (this._src !== val) {
+	                this._src = val;
+	                this._loaded = false;
+	                this._srcA = this._srcB = '';
+	                this._useA = !this._useA;
+	                this._update();
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Img.prototype._update = function () {
+	        if (this._enabled && this.isVisible()) {
+	            if (this._useA) {
+	                this._srcA = this._src;
+	            }
+	            else {
+	                this._srcB = this._src;
+	            }
+	        }
+	    };
+	    Img.prototype.enable = function (shouldEnable) {
+	        this._enabled = shouldEnable;
+	        this._update();
+	    };
+	    Img.prototype.isVisible = function () {
+	        var bounds = this._elementRef.nativeElement.getBoundingClientRect();
+	        return bounds.bottom > 0 && bounds.top < this._platform.height();
+	    };
+	    Img.prototype._onLoad = function () {
+	        this._loaded = this.isLoaded();
+	    };
+	    Img.prototype.isLoaded = function () {
+	        var imgEle;
+	        if (this._useA && this._imgA) {
+	            imgEle = this._imgA.nativeElement;
+	        }
+	        else if (this._imgB) {
+	            imgEle = this._imgB.nativeElement;
+	        }
+	        return (imgEle && imgEle.src !== '' && imgEle.complete);
+	    };
+	    Object.defineProperty(Img.prototype, "width", {
+	        set: function (val) {
+	            this._w = (typeof val === 'number') ? val + 'px' : val;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Img.prototype, "height", {
+	        set: function (val) {
+	            this._h = (typeof val === 'number') ? val + 'px' : val;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    __decorate([
+	        core_1.ViewChild('imgA'), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object)
+	    ], Img.prototype, "_imgA", void 0);
+	    __decorate([
+	        core_1.ViewChild('imgB'), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object)
+	    ], Img.prototype, "_imgB", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String), 
+	        __metadata('design:paramtypes', [String])
+	    ], Img.prototype, "src", null);
+	    __decorate([
+	        core_1.HostBinding('class.img-loaded'), 
+	        __metadata('design:type', Boolean)
+	    ], Img.prototype, "_loaded", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], Img.prototype, "width", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], Img.prototype, "height", null);
+	    Img = __decorate([
+	        core_1.Component({
+	            selector: 'ion-img',
+	            template: '<div *ngIf="_useA" class="img-placeholder" [style.height]="_h" [style.width]="_w"></div>' +
+	                '<img #imgA *ngIf="_useA" (load)="_onLoad()" [src]="_srcA" [style.height]="_h" [style.width]="_w">' +
+	                '<div *ngIf="!_useA" class="img-placeholder" [style.height]="_h" [style.width]="_w"></div>' +
+	                '<img #imgB *ngIf="!_useA" (load)="_onLoad()" [src]="_srcB" [style.height]="_h" [style.width]="_w">'
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _d) || Object])
+	    ], Img);
+	    return Img;
+	    var _a, _b, _c, _d;
+	}());
+	exports.Img = Img;
+
+/***/ },
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50927,7 +51186,7 @@
 	exports.Scroll = Scroll;
 
 /***/ },
-/* 316 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51195,7 +51454,7 @@
 	var STATE_LOADING = 'loading';
 
 /***/ },
-/* 317 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51211,8 +51470,8 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
 	var config_1 = __webpack_require__(161);
-	var infinite_scroll_1 = __webpack_require__(316);
-	var spinner_1 = __webpack_require__(318);
+	var infinite_scroll_1 = __webpack_require__(317);
+	var spinner_1 = __webpack_require__(319);
 	/**
 	 * @private
 	 */
@@ -51259,7 +51518,7 @@
 	exports.InfiniteScrollContent = InfiniteScrollContent;
 
 /***/ },
-/* 318 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51552,7 +51811,7 @@
 	};
 
 /***/ },
-/* 319 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52073,7 +52332,7 @@
 	var STATE_COMPLETING = 'completing';
 
 /***/ },
-/* 320 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52090,8 +52349,8 @@
 	var common_1 = __webpack_require__(172);
 	var config_1 = __webpack_require__(161);
 	var icon_1 = __webpack_require__(303);
-	var refresher_1 = __webpack_require__(319);
-	var spinner_1 = __webpack_require__(318);
+	var refresher_1 = __webpack_require__(320);
+	var spinner_1 = __webpack_require__(319);
 	/**
 	 * @private
 	 */
@@ -52155,7 +52414,7 @@
 	exports.RefresherContent = RefresherContent;
 
 /***/ },
-/* 321 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52184,7 +52443,7 @@
 	var util_1 = __webpack_require__(297);
 	var dom_1 = __webpack_require__(164);
 	var util_2 = __webpack_require__(163);
-	var swiper_widget_1 = __webpack_require__(322);
+	var swiper_widget_1 = __webpack_require__(323);
 	/**
 	 * @name Slides
 	 * @description
@@ -52738,7 +52997,7 @@
 	exports.SlideLazy = SlideLazy;
 
 /***/ },
-/* 322 */
+/* 323 */
 /***/ function(module, exports) {
 
 	/**
@@ -56698,7 +56957,7 @@
 
 
 /***/ },
-/* 323 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56723,8 +56982,8 @@
 	var common_1 = __webpack_require__(172);
 	var app_1 = __webpack_require__(168);
 	var config_1 = __webpack_require__(161);
-	var tab_button_1 = __webpack_require__(324);
-	var tab_highlight_1 = __webpack_require__(326);
+	var tab_button_1 = __webpack_require__(325);
+	var tab_highlight_1 = __webpack_require__(327);
 	var ion_1 = __webpack_require__(291);
 	var platform_1 = __webpack_require__(162);
 	var nav_controller_1 = __webpack_require__(306);
@@ -57049,7 +57308,7 @@
 	}());
 
 /***/ },
-/* 324 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57068,7 +57327,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var tab_1 = __webpack_require__(325);
+	var tab_1 = __webpack_require__(326);
 	var ion_1 = __webpack_require__(291);
 	var config_1 = __webpack_require__(161);
 	/**
@@ -57131,7 +57390,7 @@
 	exports.TabButton = TabButton;
 
 /***/ },
-/* 325 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57158,7 +57417,7 @@
 	var config_1 = __webpack_require__(161);
 	var keyboard_1 = __webpack_require__(280);
 	var nav_controller_1 = __webpack_require__(306);
-	var tabs_1 = __webpack_require__(323);
+	var tabs_1 = __webpack_require__(324);
 	/**
 	 * @name Tab
 	 * @description
@@ -57373,7 +57632,7 @@
 	exports.Tab = Tab;
 
 /***/ },
-/* 326 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57421,7 +57680,7 @@
 	exports.TabHighlight = TabHighlight;
 
 /***/ },
-/* 327 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57444,7 +57703,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var ion_1 = __webpack_require__(291);
-	var item_sliding_gesture_1 = __webpack_require__(328);
+	var item_sliding_gesture_1 = __webpack_require__(329);
 	/**
 	 * The List is a widely used interface element in almost any mobile app,
 	 * and can include content ranging from basic text all the way to
@@ -57572,7 +57831,7 @@
 	exports.ListHeader = ListHeader;
 
 /***/ },
-/* 328 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57794,7 +58053,7 @@
 	var DRAG_THRESHOLD = 20;
 
 /***/ },
-/* 329 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57812,7 +58071,7 @@
 	var button_1 = __webpack_require__(305);
 	var form_1 = __webpack_require__(167);
 	var icon_1 = __webpack_require__(303);
-	var label_1 = __webpack_require__(330);
+	var label_1 = __webpack_require__(331);
 	/**
 	 * @name Item
 	 * @description
@@ -57994,7 +58253,7 @@
 	exports.Item = Item;
 
 /***/ },
-/* 330 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58119,7 +58378,7 @@
 	exports.Label = Label;
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58136,7 +58395,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var list_1 = __webpack_require__(327);
+	var list_1 = __webpack_require__(328);
 	/**
 	 * @name ItemSliding
 	 *
@@ -58189,7 +58448,1209 @@
 	var slideIds = 0;
 
 /***/ },
-/* 332 */
+/* 333 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(7);
+	var config_1 = __webpack_require__(161);
+	var content_1 = __webpack_require__(314);
+	var platform_1 = __webpack_require__(162);
+	var view_controller_1 = __webpack_require__(300);
+	var virtual_item_1 = __webpack_require__(334);
+	var virtual_util_1 = __webpack_require__(335);
+	var util_1 = __webpack_require__(163);
+	var dom_1 = __webpack_require__(164);
+	var img_1 = __webpack_require__(315);
+	/**
+	 * @name VirtualScroll
+	 * @description
+	 * Virtual scroll allows an app to render large lists of items more
+	 * performantly than `ngFor`. The difference is that virtual scroll
+	 * only renders a small amount of elements within the DOM, relative to
+	 * the actual number of items within the dataset.
+	 *
+	 * Basically, instead of rendering potentionally thousands of elements
+	 * within the DOM, it'll only render the few that are currently viewable
+	 * (and a few extra for good measure). Not only does it render item data,
+	 * but it can also dynamically insert section headers and footers based
+	 * off of user-provided functions.
+	 *
+	 *
+	 * ### The Basics
+	 *
+	 * The data given to the `virtualScroll` property must be an array. Note
+	 * that the `virtualScroll` property can be added to any element, not
+	 * just `ion-list`. Next, within the virtual scroll directive you must
+	 * provide an item template, using the `*virtualItem` attribute.
+	 *
+	 * ```html
+	 * <ion-list [virtualScroll]="items">
+	 *
+	 *   <ion-item *virtualItem="#item">
+	 *     {{ item }}
+	 *   </ion-item>
+	 *
+	 * </ion-list>
+	 * ```
+	 *
+	 *
+	 * ### Section Headers and Footers
+	 *
+	 * Section headers and footers, and the data used within their given
+	 * templates, can be dynamically created using custom user-defined functions.
+	 * For example, a large list of contacts usually has dividers between each
+	 * letter in the alphabet. App's can provide their own custom function
+	 * which is called on each record within the dataset. The logic within
+	 * the custom functions can decide if a section template should be used,
+	 * and what data to provide to the template. The custom function must
+	 * return `null` if a template shouldn't be created.
+	 *
+	 * ```html
+	 * <ion-list [virtualScroll]="items" [headerFn]="myHeaderFn">
+	 *
+	 *   <ion-item-divider *virtualHeader="#header">
+	 *     Header: {{ header }}
+	 *   </ion-item>
+	 *
+	 *   <ion-item *virtualItem="#item">
+	 *     Item: {{ item }}
+	 *   </ion-item>
+	 *
+	 * </ion-list>
+	 * ```
+	 *
+	 * Below is the user-defined function called on every record. Its
+	 * arguments are passed the individual record, the record's index number,
+	 * and the entire record dataset (think `Array.forEach`). In this example,
+	 * after every 20 items a header will be inserted. So between the 19th
+	 * and 20th records, between the 39th and 40th, and so on, a
+	 * `<ion-item-divider>` will be created and the template's data will come
+	 * from the function's returned data.
+	 *
+	 * ```ts
+	 * myHeaderFn(record, recordIndex, records) {
+	 *   if (recordIndex % 20 === 0) {
+	 *     return 'Header ' + recordIndex;
+	 *   }
+	 *   return null;
+	 * }
+	 * ```
+	 *
+	 *
+	 * ### Approximate Widths and Heights
+	 *
+	 * The approximate width and height of each template is used to help
+	 * determine how many cells should be created, and to help calculate
+	 * the height of the scrollable area. Note that the actual rendered size
+	 * of each cell comes from the app's CSS, whereas this approximation
+	 * is only used to help calculate initial dimensions.
+	 *
+	 * It's also important to know that Ionic's default item sizes have
+	 * slightly different heights between platforms, which is perfectly fine.
+	 * An exact pixel-perfect size is not necessary, but a good estimation
+	 * is important. Basically if each item is roughly 500px tall, rather than
+	 * the default of 40px tall, that's extremely important to know for virtual
+	 * scroll to calculate a good height.
+	 *
+	 *
+	 * ### Images Within Virtual Scroll
+	 *
+	 * With images, the moment the `<img>` tag hits the DOM, it immediately
+	 * makes a HTTP request for the image file in the `src` attribute. HTTP
+	 * requests, along with image decoding and image rendering, are great
+	 * sources of scroll jank. For virtual scrolling and these poor performance
+	 * implications, the natural effect of the `<img>` are not a desirable
+	 * features. A user's device shouldn't be firing up hundreds of
+	 * HTTP requests, image decoding and rendering, when they're mostly unnecessary
+	 * as the user scrolls pass many of them.
+	 *
+	 * Ionic provides `<ion-img>` so it can better manage HTTP requests and rendering.
+	 * Additionally, it includes a customizable placeholder element which shows
+	 * before the image has finished loading. While scrolling through items
+	 * quickly, `<ion-img>` knows not to make any images requests, and only loads
+	 * the images that are viewable after scrolling. It's also important for app
+	 * developers to ensure image sizes are locked in, and after images have fully
+	 * loaded they do not change size and affect any other element sizes.
+	 *
+	 * ```html
+	 * <ion-list [virtualScroll]="items">
+	 *
+	 *   <ion-item *virtualItem="#item">
+	 *     <ion-avatar item-left>
+	 *       <ion-img [src]="item.avatarUrl"></ion-img>
+	 *     </ion-avatar>
+	 *     {{ item.firstName }} {{ item.lastName }}
+	 *   </ion-item>
+	 *
+	 * </ion-list>
+	 * ```
+	 *
+	 *
+	 * ### Performance Tips
+	 *
+	 * - Use `<ion-img>` rather than `<img>` so images are lazy loaded
+	 *   while scrolling.
+	 * - Image sizes should be locked in, meaning the size of any element
+	 *   should not change after the image has loaded.
+	 * - Provide an approximate width and height so the virtual scroll can
+	 *   best calculate its height.
+	 * - Changing the dataset requires the entire virtual scroll to be
+	 *   reset, which is an expensive operation and should be avoided
+	 *   if possible.
+	 * - Do not performan any DOM manipulation within section header and
+	 *   footer functions. These functions are called for every record in the
+	 *   dataset, so please make sure they're performant.
+	 *
+	 */
+	var VirtualScroll = (function () {
+	    function VirtualScroll(_iterableDiffers, _elementRef, _renderer, _zone, _cd, _content, _platform, _ctrl, config) {
+	        this._iterableDiffers = _iterableDiffers;
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	        this._zone = _zone;
+	        this._cd = _cd;
+	        this._content = _content;
+	        this._platform = _platform;
+	        this._ctrl = _ctrl;
+	        this._records = [];
+	        this._cells = [];
+	        this._nodes = [];
+	        this._vHeight = 0;
+	        this._lastCheck = 0;
+	        this._data = {
+	            scrollTop: 0,
+	        };
+	        this._queue = null;
+	        /**
+	         * @input {number} The buffer ratio is used to decide how many cells
+	         * should get created when initially rendered. The number is a
+	         * multipler against the viewable area's height. For example, if it
+	         * takes `20` cells to fill up the height of the viewable area, then
+	         * with  a buffer ratio of `2` it'll create `40` cells that are
+	         * available for reuse while scrolling. For better performance, it's
+	         * better to have more cells than what are required to fill the
+	         * viewable area. Default is `2`.
+	         */
+	        this.bufferRatio = 2;
+	        /**
+	         * @input {string} The approximate width of each item template's cell.
+	         * This dimension is used to help determine how many cells should
+	         * be created when initialized, and to help calculate the height of
+	         * the scrollable area. This value can use either `px` or `%` units.
+	         * Note that the actual rendered size of each cell comes from the
+	         * app's CSS, whereas this approximation is used to help calculate
+	         * initial dimensions. Default is `100%`.
+	         */
+	        this.approxItemWidth = '100%';
+	        /**
+	         * @input {string} The approximate height of each item template's cell.
+	         * This dimension is used to help determine how many cells should
+	         * be created when initialized, and to help calculate the height of
+	         * the scrollable area. This height value can only use `px` units.
+	         * Note that the actual rendered size of each cell comes from the
+	         * app's CSS, whereas this approximation is used to help calculate
+	         * initial dimensions. Default is `40px`.
+	         */
+	        this.approxItemHeight = '40px';
+	        /**
+	         * @input {string} The approximate width of each header template's cell.
+	         * This dimension is used to help determine how many cells should
+	         * be created when initialized, and to help calculate the height of
+	         * the scrollable area. This value can use either `px` or `%` units.
+	         * Note that the actual rendered size of each cell comes from the
+	         * app's CSS, whereas this approximation is used to help calculate
+	         * initial dimensions. Default is `100%`.
+	         */
+	        this.approxHeaderWidth = '100%';
+	        /**
+	         * @input {string} The approximate height of each header template's cell.
+	         * This dimension is used to help determine how many cells should
+	         * be created when initialized, and to help calculate the height of
+	         * the scrollable area. This height value can only use `px` units.
+	         * Note that the actual rendered size of each cell comes from the
+	         * app's CSS, whereas this approximation is used to help calculate
+	         * initial dimensions. Default is `40px`.
+	         */
+	        this.approxHeaderHeight = '40px';
+	        /**
+	         * @input {string} The approximate width of each footer template's cell.
+	         * This dimension is used to help determine how many cells should
+	         * be created when initialized, and to help calculate the height of
+	         * the scrollable area. This value can use either `px` or `%` units.
+	         * Note that the actual rendered size of each cell comes from the
+	         * app's CSS, whereas this approximation is used to help calculate
+	         * initial dimensions. Default is `100%`.
+	         */
+	        this.approxFooterWidth = '100%';
+	        /**
+	         * @input {string} The approximate height of each footer template's cell.
+	         * This dimension is used to help determine how many cells should
+	         * be created when initialized, and to help calculate the height of
+	         * the scrollable area. This height value can only use `px` units.
+	         * Note that the actual rendered size of each cell comes from the
+	         * app's CSS, whereas this approximation is used to help calculate
+	         * initial dimensions. Default is `40px`.
+	         */
+	        this.approxFooterHeight = '40px';
+	        this._eventAssist = config.getBoolean('virtualScrollEventAssist');
+	    }
+	    Object.defineProperty(VirtualScroll.prototype, "virtualScroll", {
+	        /**
+	         * @input {array} The data that builds the items within the virtual scroll.
+	         * This as the same data that you'd pass to `ngFor`. It's important to note
+	         * that when this data has changed, then the entire virtual scroll is reset,
+	         * which is an expensive operation and should be avoided if possible.
+	         */
+	        set: function (val) {
+	            this._records = val;
+	            if (util_1.isBlank(this._differ) && util_1.isPresent(val)) {
+	                this._differ = this._iterableDiffers.find(val).create(this._cd, this._trackBy);
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(VirtualScroll.prototype, "headerFn", {
+	        /**
+	         * @input {function} Section headers and the data used within its given
+	         * template can be dynamically created by passing a function to `headerFn`.
+	         * For example, a large list of contacts usually has dividers between each
+	         * letter in the alphabet. App's can provide their own custom `headerFn`
+	         * which is called with each record within the dataset. The logic within
+	         * the header function can decide if the header template should be used,
+	         * and what data to give to the header template. The function must return
+	         * `null` if a header cell shouldn't be created.
+	         */
+	        set: function (val) {
+	            if (util_1.isFunction(val)) {
+	                this._hdrFn = val.bind((this._ctrl && this._ctrl.instance) || this);
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(VirtualScroll.prototype, "footerFn", {
+	        /**
+	         * @input {function} Section footers and the data used within its given
+	         * template can be dynamically created by passing a function to `footerFn`.
+	         * The logic within the footer function can decide if the footer template
+	         * should be used, and what data to give to the footer template. The function
+	         * must return `null` if a footer cell shouldn't be created.
+	         */
+	        set: function (val) {
+	            if (util_1.isFunction(val)) {
+	                this._ftrFn = val.bind((this._ctrl && this._ctrl.instance) || this);
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(VirtualScroll.prototype, "virtualTrackBy", {
+	        /**
+	         * @input {function} Same as `ngForTrackBy` which can be used on `ngFor`.
+	         */
+	        set: function (val) {
+	            this._trackBy = val;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     */
+	    VirtualScroll.prototype.ngDoCheck = function () {
+	        if (this._init) {
+	            this.update(true);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    VirtualScroll.prototype.ngAfterContentInit = function () {
+	        var _this = this;
+	        if (!this._init) {
+	            if (!this._itmTmp) {
+	                throw 'virtualItem required within virtualScroll';
+	            }
+	            this.update(true);
+	            this._platform.onResize(function () {
+	                console.debug('VirtualScroll, onResize');
+	                _this.update(false);
+	            });
+	        }
+	    };
+	    /**
+	     * @private
+	     * DOM READ THEN DOM WRITE
+	     */
+	    VirtualScroll.prototype.update = function (checkChanges) {
+	        var self = this;
+	        if (!self._records || !self._records.length)
+	            return;
+	        if (checkChanges) {
+	            if (util_1.isPresent(self._differ)) {
+	                var changes = self._differ.diff(self._records);
+	                if (!util_1.isPresent(changes))
+	                    return;
+	            }
+	        }
+	        console.debug('VirtualScroll, update, records:', self._records.length);
+	        // reset everything
+	        self._cells.length = 0;
+	        self._nodes.length = 0;
+	        self._itmTmp.viewContainer.clear();
+	        self._elementRef.nativeElement.parentElement.scrollTop = 0;
+	        var attempts = 0;
+	        function readDimensions(done /* cuz promises add unnecessary overhead here */) {
+	            if (self._data.valid) {
+	                // good to go, we already have good dimension data
+	                done();
+	            }
+	            else {
+	                // ******** DOM READ ****************
+	                virtual_util_1.calcDimensions(self._data, self._elementRef.nativeElement.parentElement, self.approxItemWidth, self.approxItemHeight, self.approxHeaderWidth, self.approxHeaderHeight, self.approxFooterWidth, self.approxFooterHeight, self.bufferRatio);
+	                if (self._data.valid) {
+	                    // sweet, we got some good dimension data!
+	                    done();
+	                }
+	                else if (attempts < 30) {
+	                    // oh no! the DOM doesn't have good data yet!
+	                    // let's try again in XXms, and give up eventually if we never get data
+	                    attempts++;
+	                    dom_1.raf(function () {
+	                        readDimensions(done);
+	                    });
+	                }
+	            }
+	        }
+	        // ******** DOM READ ****************
+	        readDimensions(function () {
+	            // we were able to read good DOM dimension data, let's do this!
+	            self._init = true;
+	            virtual_util_1.processRecords(self._data.renderHeight, self._records, self._cells, self._hdrFn, self._ftrFn, self._data);
+	            // ******** DOM WRITE ****************
+	            self.renderVirtual();
+	            // ******** DOM WRITE ****************
+	            self._renderer.setElementClass(self._elementRef.nativeElement, 'virtual-scroll', true);
+	            // list for scroll events
+	            self.addScrollListener();
+	        });
+	    };
+	    /**
+	     * @private
+	     * DOM WRITE
+	     */
+	    VirtualScroll.prototype.renderVirtual = function () {
+	        // initialize nodes with the correct cell data
+	        this._data.topCell = 0;
+	        this._data.bottomCell = (this._cells.length - 1);
+	        virtual_util_1.populateNodeData(0, this._data.bottomCell, this._data.viewWidth, true, this._cells, this._records, this._nodes, this._itmTmp.viewContainer, this._itmTmp.templateRef, this._hdrTmp && this._hdrTmp.templateRef, this._ftrTmp && this._ftrTmp.templateRef, true);
+	        // ******** DOM WRITE ****************
+	        this._cd.detectChanges();
+	        // wait a frame before trying to read and calculate the dimensions
+	        dom_1.raf(this.postRenderVirtual.bind(this));
+	    };
+	    /**
+	     * @private
+	     * DOM READ THEN DOM WRITE
+	     */
+	    VirtualScroll.prototype.postRenderVirtual = function () {
+	        // ******** DOM READ ****************
+	        virtual_util_1.calcDimensions(this._data, this._elementRef.nativeElement.parentElement, this.approxItemWidth, this.approxItemHeight, this.approxHeaderWidth, this.approxHeaderHeight, this.approxFooterWidth, this.approxFooterHeight, this.bufferRatio);
+	        // ******** DOM READ THEN DOM WRITE ****************
+	        virtual_util_1.initReadNodes(this._nodes, this._cells, this._data);
+	        // ******** DOM READS ABOVE / DOM WRITES BELOW ****************
+	        // ******** DOM WRITE ****************
+	        virtual_util_1.writeToNodes(this._nodes, this._cells, this._records.length);
+	        // ******** DOM WRITE ****************
+	        this.setVirtualHeight(virtual_util_1.estimateHeight(this._records.length, this._cells[this._cells.length - 1], this._vHeight, 0.25));
+	    };
+	    /**
+	     * @private
+	     */
+	    VirtualScroll.prototype.scrollUpdate = function () {
+	        dom_1.clearNativeTimeout(this._tmId);
+	        this._tmId = dom_1.nativeTimeout(this.onScrollEnd.bind(this), SCROLL_END_TIMEOUT_MS);
+	        var data = this._data;
+	        if (this._queue === QUEUE_CHANGE_DETECTION) {
+	            // ******** DOM WRITE ****************
+	            var node = void 0;
+	            for (var i = 0; i < this._nodes.length; i++) {
+	                node = this._nodes[i];
+	                if (node.hasChanges) {
+	                    node.view['changeDetectorRef'].detectChanges();
+	                    node.hasChanges = false;
+	                }
+	            }
+	            if (this._eventAssist) {
+	                // queue updating node positions in the next frame
+	                this._queue = QUEUE_WRITE_TO_NODES;
+	            }
+	            else {
+	                // update node positions right now
+	                // ******** DOM WRITE ****************
+	                virtual_util_1.writeToNodes(this._nodes, this._cells, this._records.length);
+	                this._queue = null;
+	            }
+	            // ******** DOM WRITE ****************
+	            this.setVirtualHeight(virtual_util_1.estimateHeight(this._records.length, this._cells[this._cells.length - 1], this._vHeight, 0.25));
+	        }
+	        else if (this._queue === QUEUE_WRITE_TO_NODES) {
+	            // ******** DOM WRITE ****************
+	            virtual_util_1.writeToNodes(this._nodes, this._cells, this._records.length);
+	            this._queue = null;
+	        }
+	        else {
+	            data.scrollDiff = (data.scrollTop - this._lastCheck);
+	            if (Math.abs(data.scrollDiff) > 10) {
+	                // don't bother updating if the scrollTop hasn't changed much
+	                this._lastCheck = data.scrollTop;
+	                if (data.scrollDiff > 0) {
+	                    // load data we may not have processed yet
+	                    var stopAtHeight = (data.scrollTop + data.renderHeight);
+	                    virtual_util_1.processRecords(stopAtHeight, this._records, this._cells, this._hdrFn, this._ftrFn, data);
+	                }
+	                // ******** DOM READ ****************
+	                virtual_util_1.updateDimensions(this._nodes, this._cells, data, false);
+	                virtual_util_1.adjustRendered(this._cells, data);
+	                var madeChanges = virtual_util_1.populateNodeData(data.topCell, data.bottomCell, data.viewWidth, data.scrollDiff > 0, this._cells, this._records, this._nodes, this._itmTmp.viewContainer, this._itmTmp.templateRef, this._hdrTmp && this._hdrTmp.templateRef, this._ftrTmp && this._ftrTmp.templateRef, false);
+	                if (madeChanges) {
+	                    // do not update images while scrolling
+	                    this._imgs.toArray().forEach(function (img) {
+	                        img.enable(false);
+	                    });
+	                    // queue making updates in the next frame
+	                    this._queue = QUEUE_CHANGE_DETECTION;
+	                }
+	                else {
+	                    this._queue = null;
+	                }
+	            }
+	        }
+	    };
+	    /**
+	     * @private
+	     * DOM WRITE
+	     */
+	    VirtualScroll.prototype.onScrollEnd = function () {
+	        // scrolling is done, allow images to be updated now
+	        this._imgs.toArray().forEach(function (img) {
+	            img.enable(true);
+	        });
+	        // ******** DOM READ ****************
+	        virtual_util_1.updateDimensions(this._nodes, this._cells, this._data, false);
+	        virtual_util_1.adjustRendered(this._cells, this._data);
+	        // ******** DOM WRITE ****************
+	        this._cd.detectChanges();
+	        // ******** DOM WRITE ****************
+	        this.setVirtualHeight(virtual_util_1.estimateHeight(this._records.length, this._cells[this._cells.length - 1], this._vHeight, 0.05));
+	    };
+	    /**
+	     * @private
+	     * DOM WRITE
+	     */
+	    VirtualScroll.prototype.setVirtualHeight = function (newVirtualHeight) {
+	        if (newVirtualHeight !== this._vHeight) {
+	            // ******** DOM WRITE ****************
+	            this._renderer.setElementStyle(this._elementRef.nativeElement, 'height', newVirtualHeight > 0 ? newVirtualHeight + 'px' : '');
+	            this._vHeight = newVirtualHeight;
+	            console.debug('VirtualScroll, height', newVirtualHeight);
+	        }
+	    };
+	    /**
+	     * @private
+	     * NO DOM
+	     */
+	    VirtualScroll.prototype.addScrollListener = function () {
+	        var self = this;
+	        if (!self._unreg) {
+	            self._zone.runOutsideAngular(function () {
+	                function onScroll() {
+	                    // ******** DOM READ ****************
+	                    self._data.scrollTop = self._content.getScrollTop();
+	                    // ******** DOM READ THEN DOM WRITE ****************
+	                    self.scrollUpdate();
+	                }
+	                if (self._eventAssist) {
+	                    // use JS scrolling for iOS UIWebView
+	                    // goal is to completely remove this when iOS
+	                    // fully supports scroll events
+	                    // listen to JS scroll events
+	                    self._unreg = self._content.jsScroll(onScroll);
+	                }
+	                else {
+	                    // listen to native scroll events
+	                    self._unreg = self._content.addScrollListener(onScroll);
+	                }
+	            });
+	        }
+	    };
+	    /**
+	     * @private
+	     * NO DOM
+	     */
+	    VirtualScroll.prototype.ngOnDestroy = function () {
+	        this._unreg && this._unreg();
+	        this._unreg = null;
+	    };
+	    __decorate([
+	        core_1.ContentChild(virtual_item_1.VirtualItem), 
+	        __metadata('design:type', (typeof (_a = typeof virtual_item_1.VirtualItem !== 'undefined' && virtual_item_1.VirtualItem) === 'function' && _a) || Object)
+	    ], VirtualScroll.prototype, "_itmTmp", void 0);
+	    __decorate([
+	        core_1.ContentChild(virtual_item_1.VirtualHeader), 
+	        __metadata('design:type', (typeof (_b = typeof virtual_item_1.VirtualHeader !== 'undefined' && virtual_item_1.VirtualHeader) === 'function' && _b) || Object)
+	    ], VirtualScroll.prototype, "_hdrTmp", void 0);
+	    __decorate([
+	        core_1.ContentChild(virtual_item_1.VirtualFooter), 
+	        __metadata('design:type', (typeof (_c = typeof virtual_item_1.VirtualFooter !== 'undefined' && virtual_item_1.VirtualFooter) === 'function' && _c) || Object)
+	    ], VirtualScroll.prototype, "_ftrTmp", void 0);
+	    __decorate([
+	        core_1.ContentChildren(img_1.Img), 
+	        __metadata('design:type', (typeof (_d = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _d) || Object)
+	    ], VirtualScroll.prototype, "_imgs", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], VirtualScroll.prototype, "virtualScroll", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Number)
+	    ], VirtualScroll.prototype, "bufferRatio", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], VirtualScroll.prototype, "approxItemWidth", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], VirtualScroll.prototype, "approxItemHeight", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], VirtualScroll.prototype, "approxHeaderWidth", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], VirtualScroll.prototype, "approxHeaderHeight", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], VirtualScroll.prototype, "approxFooterWidth", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], VirtualScroll.prototype, "approxFooterHeight", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], VirtualScroll.prototype, "headerFn", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], VirtualScroll.prototype, "footerFn", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', (typeof (_e = typeof core_1.TrackByFn !== 'undefined' && core_1.TrackByFn) === 'function' && _e) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_f = typeof core_1.TrackByFn !== 'undefined' && core_1.TrackByFn) === 'function' && _f) || Object])
+	    ], VirtualScroll.prototype, "virtualTrackBy", null);
+	    VirtualScroll = __decorate([
+	        core_1.Directive({
+	            selector: '[virtualScroll]'
+	        }),
+	        __param(7, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_g = typeof core_1.IterableDiffers !== 'undefined' && core_1.IterableDiffers) === 'function' && _g) || Object, (typeof (_h = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _h) || Object, (typeof (_j = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.ChangeDetectorRef !== 'undefined' && core_1.ChangeDetectorRef) === 'function' && _l) || Object, (typeof (_m = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _m) || Object, (typeof (_o = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _o) || Object, (typeof (_p = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _p) || Object, (typeof (_q = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _q) || Object])
+	    ], VirtualScroll);
+	    return VirtualScroll;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
+	}());
+	exports.VirtualScroll = VirtualScroll;
+	var SCROLL_END_TIMEOUT_MS = 140;
+	var QUEUE_CHANGE_DETECTION = 0;
+	var QUEUE_WRITE_TO_NODES = 1;
+
+/***/ },
+/* 334 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(7);
+	/**
+	 * @private
+	 */
+	var VirtualHeader = (function () {
+	    function VirtualHeader(templateRef) {
+	        this.templateRef = templateRef;
+	    }
+	    VirtualHeader = __decorate([
+	        core_1.Directive({ selector: '[virtualHeader]' }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.TemplateRef !== 'undefined' && core_1.TemplateRef) === 'function' && _a) || Object])
+	    ], VirtualHeader);
+	    return VirtualHeader;
+	    var _a;
+	}());
+	exports.VirtualHeader = VirtualHeader;
+	/**
+	 * @private
+	 */
+	var VirtualFooter = (function () {
+	    function VirtualFooter(templateRef) {
+	        this.templateRef = templateRef;
+	    }
+	    VirtualFooter = __decorate([
+	        core_1.Directive({ selector: '[virtualFooter]' }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.TemplateRef !== 'undefined' && core_1.TemplateRef) === 'function' && _a) || Object])
+	    ], VirtualFooter);
+	    return VirtualFooter;
+	    var _a;
+	}());
+	exports.VirtualFooter = VirtualFooter;
+	/**
+	 * @private
+	 */
+	var VirtualItem = (function () {
+	    function VirtualItem(templateRef, viewContainer) {
+	        this.templateRef = templateRef;
+	        this.viewContainer = viewContainer;
+	    }
+	    VirtualItem = __decorate([
+	        core_1.Directive({ selector: '[virtualItem]' }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.TemplateRef !== 'undefined' && core_1.TemplateRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _b) || Object])
+	    ], VirtualItem);
+	    return VirtualItem;
+	    var _a, _b;
+	}());
+	exports.VirtualItem = VirtualItem;
+
+/***/ },
+/* 335 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var dom_1 = __webpack_require__(164);
+	/**
+	 * NO DOM
+	 */
+	function processRecords(stopAtHeight, records, cells, headerFn, footerFn, data) {
+	    var record;
+	    var startRecordIndex;
+	    var previousCell;
+	    var tmpData;
+	    var lastRecordIndex = (records.length - 1);
+	    if (cells.length) {
+	        // we already have cells
+	        previousCell = cells[cells.length - 1];
+	        if (previousCell.top + previousCell.height > stopAtHeight) {
+	            return;
+	        }
+	        startRecordIndex = (previousCell.record + 1);
+	    }
+	    else {
+	        // no cells have been created yet
+	        previousCell = {
+	            row: 0,
+	            width: 0,
+	            height: 0,
+	            top: 0,
+	            left: 0,
+	            tmpl: -1
+	        };
+	        startRecordIndex = 0;
+	    }
+	    var processedTotal = 0;
+	    for (var recordIndex = startRecordIndex; recordIndex <= lastRecordIndex; recordIndex++) {
+	        record = records[recordIndex];
+	        if (headerFn) {
+	            tmpData = headerFn(record, recordIndex, records);
+	            if (tmpData !== null) {
+	                // add header data
+	                previousCell = addCell(previousCell, recordIndex, TEMPLATE_HEADER, tmpData, data.hdrWidth, data.hdrHeight, data.viewWidth);
+	                cells.push(previousCell);
+	            }
+	        }
+	        // add item data
+	        previousCell = addCell(previousCell, recordIndex, TEMPLATE_ITEM, null, data.itmWidth, data.itmHeight, data.viewWidth);
+	        cells.push(previousCell);
+	        if (footerFn) {
+	            tmpData = footerFn(record, recordIndex, records);
+	            if (tmpData !== null) {
+	                // add footer data
+	                previousCell = addCell(previousCell, recordIndex, TEMPLATE_FOOTER, tmpData, data.ftrWidth, data.ftrHeight, data.viewWidth);
+	                cells.push(previousCell);
+	            }
+	        }
+	        if (previousCell.record === lastRecordIndex) {
+	            previousCell.isLast = true;
+	        }
+	        // should always process at least 3 records
+	        processedTotal++;
+	        if (previousCell.top + previousCell.height + data.itmHeight > stopAtHeight && processedTotal > 3) {
+	            return;
+	        }
+	    }
+	}
+	exports.processRecords = processRecords;
+	function addCell(previousCell, recordIndex, tmpl, tmplData, cellWidth, cellHeight, viewportWidth) {
+	    var newCell;
+	    if (previousCell.left + previousCell.width + cellWidth > viewportWidth) {
+	        // add a new cell in a new row
+	        newCell = {
+	            record: recordIndex,
+	            tmpl: tmpl,
+	            row: (previousCell.row + 1),
+	            width: cellWidth,
+	            height: cellHeight,
+	            top: (previousCell.top + previousCell.height),
+	            left: 0,
+	            reads: 0,
+	        };
+	    }
+	    else {
+	        // add a new cell in the same row
+	        newCell = {
+	            record: recordIndex,
+	            tmpl: tmpl,
+	            row: previousCell.row,
+	            width: cellWidth,
+	            height: cellHeight,
+	            top: previousCell.top,
+	            left: (previousCell.left + previousCell.width),
+	            reads: 0,
+	        };
+	    }
+	    if (tmplData) {
+	        newCell.data = tmplData;
+	    }
+	    return newCell;
+	}
+	/**
+	 * NO DOM
+	 */
+	function populateNodeData(startCellIndex, endCellIndex, viewportWidth, scrollingDown, cells, records, nodes, viewContainer, itmTmp, hdrTmp, ftrTmp, initialLoad) {
+	    var madeChanges = false;
+	    var node;
+	    var availableNode;
+	    var cell;
+	    var previousCell;
+	    var isAlreadyRendered;
+	    var lastRecordIndex = (records.length - 1);
+	    var viewInsertIndex = null;
+	    var totalNodes = nodes.length;
+	    startCellIndex = Math.max(startCellIndex, 0);
+	    endCellIndex = Math.min(endCellIndex, cells.length - 1);
+	    for (var cellIndex = startCellIndex; cellIndex <= endCellIndex; cellIndex++) {
+	        cell = cells[cellIndex];
+	        availableNode = null;
+	        isAlreadyRendered = false;
+	        // find the first one that's available
+	        if (!initialLoad) {
+	            for (var i = 0; i < totalNodes; i++) {
+	                node = nodes[i];
+	                if (cell.tmpl !== node.tmpl || i === 0 && cellIndex !== 0) {
+	                    // the cell must use the correct template
+	                    // first node can only be used by the first cell (css :first-child reasons)
+	                    // this node is never available to be reused
+	                    continue;
+	                }
+	                else if (node.isLastRecord) {
+	                    // very last record, but could be a header/item/footer
+	                    if (cell.record === lastRecordIndex) {
+	                        availableNode = nodes[i];
+	                        availableNode.hidden = false;
+	                        break;
+	                    }
+	                    // this node is for the last record, but not actually the last
+	                    continue;
+	                }
+	                if (node.cell === cellIndex) {
+	                    isAlreadyRendered = true;
+	                    break;
+	                }
+	                if (node.cell < startCellIndex || node.cell > endCellIndex) {
+	                    if (!availableNode) {
+	                        // havent gotten an available node yet
+	                        availableNode = nodes[i];
+	                    }
+	                    else if (scrollingDown) {
+	                        // scrolling down
+	                        if (node.cell < availableNode.cell) {
+	                            availableNode = nodes[i];
+	                        }
+	                    }
+	                    else {
+	                        // scrolling up
+	                        if (node.cell > availableNode.cell) {
+	                            availableNode = nodes[i];
+	                        }
+	                    }
+	                }
+	            }
+	            if (isAlreadyRendered) {
+	                continue;
+	            }
+	        }
+	        if (!availableNode) {
+	            // did not find an available node to put the cell data into
+	            // insert a new node before the last record nodes
+	            if (viewInsertIndex === null) {
+	                viewInsertIndex = -1;
+	                for (var j = totalNodes - 1; j >= 0; j--) {
+	                    node = nodes[j];
+	                    if (node && !node.isLastRecord) {
+	                        viewInsertIndex = viewContainer.indexOf(node.view);
+	                        break;
+	                    }
+	                }
+	            }
+	            availableNode = {
+	                tmpl: cell.tmpl,
+	                view: viewContainer.createEmbeddedView(cell.tmpl === TEMPLATE_HEADER ? hdrTmp :
+	                    cell.tmpl === TEMPLATE_FOOTER ? ftrTmp :
+	                        itmTmp, viewInsertIndex)
+	            };
+	            totalNodes = nodes.push(availableNode);
+	        }
+	        //console.debug(`node was cell ${availableNode.cell} but is now ${cellIndex}, was top: ${cell.top}`);
+	        // assign who's the new cell index for this node
+	        availableNode.cell = cellIndex;
+	        // apply the cell's data to this node
+	        availableNode.view.setLocal('\$implicit', cell.data || records[cell.record]);
+	        availableNode.view.setLocal('index', cellIndex);
+	        availableNode.view.setLocal('even', (cellIndex % 2 == 0));
+	        availableNode.view.setLocal('odd', (cellIndex % 2 == 1));
+	        availableNode.hasChanges = true;
+	        availableNode.lastTransform = null;
+	        madeChanges = true;
+	    }
+	    if (initialLoad) {
+	        // add nodes that go at the very end, and only represent the last record
+	        addLastNodes(nodes, viewContainer, TEMPLATE_HEADER, hdrTmp);
+	        addLastNodes(nodes, viewContainer, TEMPLATE_ITEM, itmTmp);
+	        addLastNodes(nodes, viewContainer, TEMPLATE_FOOTER, ftrTmp);
+	    }
+	    return madeChanges;
+	}
+	exports.populateNodeData = populateNodeData;
+	function addLastNodes(nodes, viewContainer, templateType, templateRef) {
+	    if (templateRef) {
+	        var node = {
+	            tmpl: templateType,
+	            view: viewContainer.createEmbeddedView(templateRef),
+	            isLastRecord: true,
+	            hidden: true,
+	        };
+	        node.view.setLocal('\$implicit', {});
+	        nodes.push(node);
+	    }
+	}
+	/**
+	 * DOM READ THEN DOM WRITE
+	 */
+	function initReadNodes(nodes, cells, data) {
+	    if (nodes.length && cells.length) {
+	        // first node
+	        // ******** DOM READ ****************
+	        cells[0].top = getElement(nodes[0]).offsetTop;
+	        cells[0].row = 0;
+	        // ******** DOM READ ****************
+	        updateDimensions(nodes, cells, data, true);
+	        // ******** DOM READS ABOVE / DOM WRITES BELOW ****************
+	        for (var i = 0; i < nodes.length; i++) {
+	            if (nodes[i].hidden) {
+	                // ******** DOM WRITE ****************
+	                getElement(nodes[i]).classList.add('virtual-hidden');
+	            }
+	        }
+	    }
+	}
+	exports.initReadNodes = initReadNodes;
+	/**
+	 * DOM READ
+	 */
+	function updateDimensions(nodes, cells, data, initialUpdate) {
+	    var node;
+	    var element;
+	    var totalCells = cells.length;
+	    var cell;
+	    var previousCell;
+	    for (var i = 0; i < nodes.length; i++) {
+	        node = nodes[i];
+	        cell = cells[node.cell];
+	        // read element dimensions if they haven't been checked enough times
+	        if (cell && cell.reads < REQUIRED_DOM_READS && !node.hidden) {
+	            element = getElement(node);
+	            // ******** DOM READ ****************
+	            readElements(cell, element);
+	            if (initialUpdate) {
+	                // update estimated dimensions with more accurate dimensions
+	                if (cell.tmpl === TEMPLATE_HEADER) {
+	                    data.hdrHeight = cell.height;
+	                    if (cell.left === 0) {
+	                        data.hdrWidth = cell.width;
+	                    }
+	                }
+	                else if (cell.tmpl === TEMPLATE_FOOTER) {
+	                    data.ftrHeight = cell.height;
+	                    if (cell.left === 0) {
+	                        data.ftrWidth = cell.width;
+	                    }
+	                }
+	                else {
+	                    data.itmHeight = cell.height;
+	                    if (cell.left === 0) {
+	                        data.itmWidth = cell.width;
+	                    }
+	                }
+	            }
+	            cell.reads++;
+	        }
+	    }
+	    // figure out which cells are currently viewable within the viewport
+	    var viewableBottom = (data.scrollTop + data.viewHeight);
+	    data.topViewCell = totalCells;
+	    data.bottomViewCell = 0;
+	    // completely realign position to ensure they're all accurately placed
+	    for (var i = 1; i < totalCells; i++) {
+	        cell = cells[i];
+	        previousCell = cells[i - 1];
+	        if (previousCell.left + previousCell.width + cell.width > data.viewWidth) {
+	            // new row
+	            cell.row++;
+	            cell.top = (previousCell.top + previousCell.height);
+	            cell.left = 0;
+	        }
+	        else {
+	            // same row
+	            cell.row = previousCell.row;
+	            cell.top = previousCell.top;
+	            cell.left = (previousCell.left + previousCell.width);
+	        }
+	        // figure out which cells are viewable within the viewport
+	        if (cell.top + cell.height > data.scrollTop && i < data.topViewCell) {
+	            data.topViewCell = i;
+	        }
+	        else if (cell.top < viewableBottom && i > data.bottomViewCell) {
+	            data.bottomViewCell = i;
+	        }
+	    }
+	}
+	exports.updateDimensions = updateDimensions;
+	/**
+	 * DOM READ
+	 */
+	function readElements(cell, element) {
+	    // ******** DOM READ ****************
+	    var styles = window.getComputedStyle(element);
+	    // ******** DOM READ ****************
+	    cell.left = (element.offsetLeft - parseFloat(styles.marginLeft));
+	    // ******** DOM READ ****************
+	    cell.width = (element.offsetWidth + parseFloat(styles.marginLeft) + parseFloat(styles.marginRight));
+	    // ******** DOM READ ****************
+	    cell.height = (element.offsetHeight + parseFloat(styles.marginTop) + parseFloat(styles.marginBottom));
+	}
+	/**
+	 * DOM WRITE
+	 */
+	function writeToNodes(nodes, cells, totalRecords) {
+	    var node;
+	    var element;
+	    var cell;
+	    var totalCells = Math.max(totalRecords, cells.length).toString();
+	    var transform;
+	    for (var i = 0, ilen = nodes.length; i < ilen; i++) {
+	        node = nodes[i];
+	        if (node.hidden) {
+	            continue;
+	        }
+	        cell = cells[node.cell];
+	        transform = "translate3d(" + cell.left + "px," + cell.top + "px,0px)";
+	        if (node.lastTransform === transform) {
+	            continue;
+	        }
+	        element = getElement(node);
+	        if (element) {
+	            // ******** DOM WRITE ****************
+	            element.style[dom_1.CSS.transform] = node.lastTransform = transform;
+	            // ******** DOM WRITE ****************
+	            element.classList.add('virtual-position');
+	            if (node.isLastRecord) {
+	                // its the last record, now with data and safe to show
+	                // ******** DOM WRITE ****************
+	                element.classList.remove('virtual-hidden');
+	            }
+	            // https://www.w3.org/TR/wai-aria/states_and_properties#aria-posinset
+	            // ******** DOM WRITE ****************
+	            element.setAttribute('aria-posinset', (node.cell + 1).toString());
+	            // https://www.w3.org/TR/wai-aria/states_and_properties#aria-setsize
+	            // ******** DOM WRITE ****************
+	            element.setAttribute('aria-setsize', totalCells);
+	        }
+	    }
+	}
+	exports.writeToNodes = writeToNodes;
+	/**
+	 * NO DOM
+	 */
+	function adjustRendered(cells, data) {
+	    // figure out which cells should be rendered
+	    var cell;
+	    var lastRow = -1;
+	    var cellsRenderHeight = 0;
+	    var maxRenderHeight = (data.renderHeight - data.itmHeight);
+	    var totalCells = cells.length;
+	    var viewableRenderedPadding = (data.itmHeight < 90 ? VIEWABLE_RENDERED_PADDING : 0);
+	    if (data.scrollDiff > 0) {
+	        // scrolling down
+	        data.topCell = Math.max(data.topViewCell - viewableRenderedPadding, 0);
+	        data.bottomCell = Math.min(data.topCell + 2, totalCells - 1);
+	        for (var i = data.topCell; i < totalCells; i++) {
+	            cell = cells[i];
+	            if (cell.row !== lastRow) {
+	                cellsRenderHeight += cell.height;
+	                lastRow = cell.row;
+	            }
+	            if (i > data.bottomCell) {
+	                data.bottomCell = i;
+	            }
+	            if (cellsRenderHeight >= maxRenderHeight) {
+	                break;
+	            }
+	        }
+	    }
+	    else {
+	        // scroll up
+	        data.bottomCell = Math.min(data.bottomViewCell + viewableRenderedPadding, totalCells - 1);
+	        data.topCell = Math.max(data.bottomCell - 2, 0);
+	        for (var i = data.bottomCell; i >= 0; i--) {
+	            cell = cells[i];
+	            if (cell.row !== lastRow) {
+	                cellsRenderHeight += cell.height;
+	                lastRow = cell.row;
+	            }
+	            if (i < data.topCell) {
+	                data.topCell = i;
+	            }
+	            if (cellsRenderHeight >= maxRenderHeight) {
+	                break;
+	            }
+	        }
+	    }
+	    //console.log(`adjustRendered topCell: ${data.topCell}, bottomCell: ${data.bottomCell}, cellsRenderHeight: ${cellsRenderHeight}, data.renderHeight: ${data.renderHeight}`);
+	}
+	exports.adjustRendered = adjustRendered;
+	/**
+	 * NO DOM
+	 */
+	function getVirtualHeight(totalRecords, lastCell) {
+	    if (lastCell.record >= totalRecords - 1) {
+	        return (lastCell.top + lastCell.height);
+	    }
+	    var unknownRecords = (totalRecords - lastCell.record - 1);
+	    var knownHeight = (lastCell.top + lastCell.height);
+	    return Math.ceil(knownHeight + ((knownHeight / (totalRecords - unknownRecords)) * unknownRecords));
+	}
+	exports.getVirtualHeight = getVirtualHeight;
+	/**
+	 * NO DOM
+	 */
+	function estimateHeight(totalRecords, lastCell, existingHeight, difference) {
+	    var newHeight = getVirtualHeight(totalRecords, lastCell);
+	    var percentToBottom = (lastCell.record / (totalRecords - 1));
+	    var diff = Math.abs(existingHeight - newHeight);
+	    if ((diff > (newHeight * difference)) ||
+	        (percentToBottom > .995)) {
+	        return newHeight;
+	    }
+	    return existingHeight;
+	}
+	exports.estimateHeight = estimateHeight;
+	/**
+	 * DOM READ
+	 */
+	function calcDimensions(data, viewportElement, approxItemWidth, approxItemHeight, appoxHeaderWidth, approxHeaderHeight, approxFooterWidth, approxFooterHeight, bufferRatio) {
+	    // get the parent container's viewport height
+	    // ******** DOM READ ****************
+	    data.viewWidth = viewportElement.offsetWidth;
+	    // ******** DOM READ ****************
+	    data.viewHeight = viewportElement.offsetHeight;
+	    // the height we'd like to render, which is larger than viewable
+	    data.renderHeight = (data.viewHeight * bufferRatio);
+	    if (data.viewWidth > 0 && data.viewHeight > 0) {
+	        data.itmWidth = calcWidth(data.viewWidth, approxItemWidth);
+	        data.itmHeight = calcHeight(data.viewHeight, approxItemHeight);
+	        data.hdrWidth = calcWidth(data.viewWidth, appoxHeaderWidth);
+	        data.hdrHeight = calcHeight(data.viewHeight, approxHeaderHeight);
+	        data.ftrWidth = calcWidth(data.viewWidth, approxFooterWidth);
+	        data.ftrHeight = calcHeight(data.viewHeight, approxFooterHeight);
+	        data.valid = true;
+	    }
+	}
+	exports.calcDimensions = calcDimensions;
+	/**
+	 * NO DOM
+	 */
+	function calcWidth(viewportWidth, approxWidth) {
+	    if (approxWidth.indexOf('%') > 0) {
+	        return (viewportWidth * (parseFloat(approxWidth) / 100));
+	    }
+	    else if (approxWidth.indexOf('px') > 0) {
+	        return parseFloat(approxWidth);
+	    }
+	    throw 'virtual scroll width can only use "%" or "px" units';
+	}
+	/**
+	 * NO DOM
+	 */
+	function calcHeight(viewportHeight, approxHeight) {
+	    if (approxHeight.indexOf('px') > 0) {
+	        return parseFloat(approxHeight);
+	    }
+	    throw 'virtual scroll height must use "px" units';
+	}
+	/**
+	 * NO DOM
+	 */
+	function getElement(node) {
+	    var rootNodes = node.view.rootNodes;
+	    for (var i = 0; i < rootNodes.length; i++) {
+	        if (rootNodes[i].nodeType === 1) {
+	            return rootNodes[i];
+	        }
+	    }
+	}
+	var TEMPLATE_ITEM = 0;
+	var TEMPLATE_HEADER = 1;
+	var TEMPLATE_FOOTER = 2;
+	var VIEWABLE_RENDERED_PADDING = 3;
+	var REQUIRED_DOM_READS = 2;
+
+/***/ },
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58208,7 +59669,7 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
 	var form_1 = __webpack_require__(167);
-	var item_1 = __webpack_require__(329);
+	var item_1 = __webpack_require__(330);
 	var util_1 = __webpack_require__(163);
 	var CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 	/**
@@ -58400,7 +59861,7 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 333 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58418,12 +59879,12 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
-	var alert_1 = __webpack_require__(334);
+	var alert_1 = __webpack_require__(338);
 	var form_1 = __webpack_require__(167);
-	var item_1 = __webpack_require__(329);
+	var item_1 = __webpack_require__(330);
 	var util_1 = __webpack_require__(163);
 	var nav_controller_1 = __webpack_require__(306);
-	var option_1 = __webpack_require__(335);
+	var option_1 = __webpack_require__(339);
 	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 	/**
 	 * @name Select
@@ -58829,7 +60290,7 @@
 	exports.Select = Select;
 
 /***/ },
-/* 334 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59442,7 +60903,7 @@
 	var alertIds = -1;
 
 /***/ },
-/* 335 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59536,7 +60997,7 @@
 	exports.Option = Option;
 
 /***/ },
-/* 336 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59556,7 +61017,7 @@
 	var common_1 = __webpack_require__(172);
 	var form_1 = __webpack_require__(167);
 	var util_1 = __webpack_require__(163);
-	var item_1 = __webpack_require__(329);
+	var item_1 = __webpack_require__(330);
 	var dom_1 = __webpack_require__(164);
 	var TOGGLE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
 	/**
@@ -59807,7 +61268,7 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 337 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59834,10 +61295,10 @@
 	var config_1 = __webpack_require__(161);
 	var content_1 = __webpack_require__(314);
 	var form_1 = __webpack_require__(167);
-	var input_base_1 = __webpack_require__(338);
+	var input_base_1 = __webpack_require__(342);
 	var app_1 = __webpack_require__(168);
-	var item_1 = __webpack_require__(329);
-	var native_input_1 = __webpack_require__(339);
+	var item_1 = __webpack_require__(330);
+	var native_input_1 = __webpack_require__(343);
 	var nav_controller_1 = __webpack_require__(306);
 	var platform_1 = __webpack_require__(162);
 	/**
@@ -60016,7 +61477,7 @@
 	exports.TextArea = TextArea;
 
 /***/ },
-/* 338 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60032,7 +61493,7 @@
 	var core_1 = __webpack_require__(7);
 	var util_1 = __webpack_require__(163);
 	var dom_1 = __webpack_require__(164);
-	var native_input_1 = __webpack_require__(339);
+	var native_input_1 = __webpack_require__(343);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
 	        this._form = _form;
@@ -60561,7 +62022,7 @@
 	}
 
 /***/ },
-/* 339 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60757,7 +62218,7 @@
 	exports.NextInput = NextInput;
 
 /***/ },
-/* 340 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61006,7 +62467,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 341 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61025,8 +62486,8 @@
 	var core_1 = __webpack_require__(7);
 	var form_1 = __webpack_require__(167);
 	var util_1 = __webpack_require__(163);
-	var item_1 = __webpack_require__(329);
-	var radio_group_1 = __webpack_require__(342);
+	var item_1 = __webpack_require__(330);
+	var radio_group_1 = __webpack_require__(346);
 	/**
 	 * @description
 	 * A radio button with a unique value. Note that all `<ion-radio>`
@@ -61192,7 +62653,7 @@
 	exports.RadioButton = RadioButton;
 
 /***/ },
-/* 342 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61207,7 +62668,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
-	var list_1 = __webpack_require__(327);
+	var list_1 = __webpack_require__(328);
 	var util_1 = __webpack_require__(163);
 	var RADIO_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return RadioGroup; }), multi: true });
 	/**
@@ -61418,7 +62879,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 343 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61777,7 +63238,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 344 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61804,7 +63265,7 @@
 	var keyboard_1 = __webpack_require__(280);
 	var util_1 = __webpack_require__(163);
 	var nav_controller_1 = __webpack_require__(306);
-	var nav_portal_1 = __webpack_require__(345);
+	var nav_portal_1 = __webpack_require__(349);
 	var view_controller_1 = __webpack_require__(300);
 	/**
 	 * @name Nav
@@ -61990,7 +63451,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 345 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62039,7 +63500,7 @@
 	exports.Portal = Portal;
 
 /***/ },
-/* 346 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62202,7 +63663,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 347 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62225,7 +63686,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var router_1 = __webpack_require__(117);
-	var nav_1 = __webpack_require__(344);
+	var nav_1 = __webpack_require__(348);
 	/**
 	 * @private
 	 */
@@ -62323,7 +63784,7 @@
 	}(router_1.Instruction));
 
 /***/ },
-/* 348 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62434,7 +63895,7 @@
 	exports.Attr = Attr;
 
 /***/ },
-/* 349 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62625,7 +64086,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 350 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62698,7 +64159,7 @@
 	exports.App = App;
 
 /***/ },
-/* 351 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62789,7 +64250,7 @@
 	exports.Page = Page;
 
 /***/ },
-/* 352 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62797,55 +64258,56 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(168));
-	__export(__webpack_require__(348));
-	__export(__webpack_require__(353));
-	__export(__webpack_require__(334));
+	__export(__webpack_require__(352));
+	__export(__webpack_require__(357));
+	__export(__webpack_require__(338));
 	__export(__webpack_require__(313));
 	__export(__webpack_require__(305));
-	__export(__webpack_require__(332));
+	__export(__webpack_require__(336));
 	__export(__webpack_require__(314));
 	__export(__webpack_require__(303));
-	__export(__webpack_require__(316));
 	__export(__webpack_require__(317));
-	__export(__webpack_require__(337));
-	__export(__webpack_require__(329));
-	__export(__webpack_require__(331));
+	__export(__webpack_require__(318));
+	__export(__webpack_require__(341));
+	__export(__webpack_require__(330));
+	__export(__webpack_require__(332));
 	__export(__webpack_require__(281));
 	__export(__webpack_require__(290));
-	__export(__webpack_require__(354));
+	__export(__webpack_require__(358));
 	__export(__webpack_require__(299));
 	__export(__webpack_require__(311));
-	__export(__webpack_require__(330));
-	__export(__webpack_require__(327));
-	__export(__webpack_require__(355));
-	__export(__webpack_require__(349));
-	__export(__webpack_require__(356));
-	__export(__webpack_require__(344));
+	__export(__webpack_require__(331));
+	__export(__webpack_require__(328));
+	__export(__webpack_require__(359));
+	__export(__webpack_require__(353));
+	__export(__webpack_require__(360));
+	__export(__webpack_require__(348));
 	__export(__webpack_require__(306));
 	__export(__webpack_require__(300));
 	__export(__webpack_require__(301));
-	__export(__webpack_require__(346));
-	__export(__webpack_require__(347));
+	__export(__webpack_require__(350));
+	__export(__webpack_require__(351));
 	__export(__webpack_require__(302));
-	__export(__webpack_require__(335));
+	__export(__webpack_require__(339));
 	__export(__webpack_require__(289));
-	__export(__webpack_require__(321));
-	__export(__webpack_require__(341));
-	__export(__webpack_require__(342));
-	__export(__webpack_require__(319));
+	__export(__webpack_require__(322));
+	__export(__webpack_require__(345));
+	__export(__webpack_require__(346));
 	__export(__webpack_require__(320));
-	__export(__webpack_require__(315));
-	__export(__webpack_require__(343));
-	__export(__webpack_require__(340));
-	__export(__webpack_require__(333));
-	__export(__webpack_require__(323));
-	__export(__webpack_require__(325));
+	__export(__webpack_require__(321));
+	__export(__webpack_require__(316));
+	__export(__webpack_require__(347));
+	__export(__webpack_require__(344));
+	__export(__webpack_require__(337));
+	__export(__webpack_require__(324));
+	__export(__webpack_require__(326));
 	__export(__webpack_require__(284));
-	__export(__webpack_require__(336));
+	__export(__webpack_require__(340));
 	__export(__webpack_require__(304));
+	__export(__webpack_require__(333));
 
 /***/ },
-/* 353 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63243,7 +64705,7 @@
 	var actionSheetIds = -1;
 
 /***/ },
-/* 354 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63391,7 +64853,7 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 355 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63414,7 +64876,7 @@
 	var animation_1 = __webpack_require__(310);
 	var transition_1 = __webpack_require__(309);
 	var config_1 = __webpack_require__(161);
-	var spinner_1 = __webpack_require__(318);
+	var spinner_1 = __webpack_require__(319);
 	var util_1 = __webpack_require__(163);
 	var nav_params_1 = __webpack_require__(301);
 	var view_controller_1 = __webpack_require__(300);
@@ -63721,7 +65183,7 @@
 	var loadingIds = -1;
 
 /***/ },
-/* 356 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63931,19 +65393,19 @@
 	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 357 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(358));
-	__export(__webpack_require__(359));
-	__export(__webpack_require__(360));
+	__export(__webpack_require__(362));
+	__export(__webpack_require__(363));
+	__export(__webpack_require__(364));
 
 /***/ },
-/* 358 */
+/* 362 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -64027,7 +65489,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 359 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64036,7 +65498,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(358);
+	var storage_1 = __webpack_require__(362);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -64133,7 +65595,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 360 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64142,7 +65604,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(358);
+	var storage_1 = __webpack_require__(362);
 	var util_1 = __webpack_require__(163);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -64281,7 +65743,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 361 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64331,7 +65793,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 362 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64401,7 +65863,7 @@
 	});
 
 /***/ },
-/* 363 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64495,6 +65957,11 @@
 	        swipeBackEnabled: isIOSDevice,
 	        swipeBackThreshold: 40,
 	        tapPolyfill: isIOSDevice,
+	        virtualScrollEventAssist: function () {
+	            // UIWebView needs help getting scroll events
+	            // WKWebView does not (WKWebView supports indexDB)
+	            return !(window.indexedDB);
+	        }
 	    },
 	    isMatch: function (p) {
 	        return p.isPlatformMatch('ios', ['iphone', 'ipad', 'ipod'], ['windows phone']);
@@ -64569,7 +66036,7 @@
 	}
 
 /***/ },
-/* 364 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64629,7 +66096,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 365 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64803,7 +66270,7 @@
 	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 366 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64867,7 +66334,7 @@
 	transition_1.Transition.register('md-transition', MDTransition);
 
 /***/ },
-/* 367 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

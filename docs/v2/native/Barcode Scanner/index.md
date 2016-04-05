@@ -54,6 +54,27 @@ docType: "class"
 <p>Requires Cordova plugin: <code>phonegap-plugin-barcodescanner</code>. For more info, please see the <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">BarcodeScanner plugin docs</a>.</p>
 
 
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Android</li>
+  
+  <li>iOS</li>
+  
+  <li>Windows Phone 8</li>
+  
+  <li>Windows 10</li>
+  
+  <li>Windows 8</li>
+  
+  <li>BlackBerry 10</li>
+  
+  <li>Browser</li>
+  </ul>
+
+<!-- @platforms tag end -->
+
 
 <!-- @usage tag -->
 

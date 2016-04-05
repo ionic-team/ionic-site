@@ -48823,7 +48823,9 @@
 	            var transAnimation = transition_1.Transition.createTransition(enteringView, leavingView, transitionOpts);
 	            _this._trans && _this._trans.destroy();
 	            _this._trans = transAnimation;
-	            if (opts.animate === false) {
+	            // Portal elements should always animate
+	            // so ignore this if it is a portal
+	            if (opts.animate === false && _this._portal) {
 	                // force it to not animate the elements, just apply the "to" styles
 	                transAnimation.duration(0);
 	            }

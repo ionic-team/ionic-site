@@ -48160,6 +48160,10 @@
 	        this._ids = -1;
 	        this._trnsTime = 0;
 	        this._views = [];
+	        /**
+	         * @private
+	         */
+	        this.routers = [];
 	        this.parent = parent;
 	        this.config = config;
 	        this._trnsDelay = config.get('pageTransitionDelay');
@@ -49128,9 +49132,12 @@
 	            // allow clicks and enable the app again
 	            this._app && this._app.setEnabled(true);
 	            this.setTransitioning(false);
-	            if (this.router && direction !== null && hasCompleted) {
+	            if (direction !== null && hasCompleted && this._portal) {
 	                // notify router of the state change if a direction was provided
-	                this.router.stateChange(direction, enteringView);
+	                // multiple routers can exist and each should be notified
+	                this.routers.forEach(function (router) {
+	                    router.stateChange(direction, enteringView);
+	                });
 	            }
 	            // see if we should add the swipe back gesture listeners or not
 	            this._sbCheck();
@@ -49460,10 +49467,9 @@
 	    });
 	    /**
 	     * @private
-	     * @param {TODO} router  TODO
 	     */
 	    NavController.prototype.registerRouter = function (router) {
-	        this.router = router;
+	        this.routers.push(router);
 	    };
 	    /**
 	     * @private

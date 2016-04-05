@@ -32,7 +32,7 @@ NavController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/nav/nav-controller.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/nav/nav-controller.ts#L14">
 Improve this doc
 </a>
 
@@ -120,6 +120,26 @@ class HelloWorld {
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+
+<div id="setPortal"></div>
+
+<h3>
+<a class="anchor" name="setPortal" href="#setPortal"></a>
+<code>setPortal()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="setRoot"></div>
 

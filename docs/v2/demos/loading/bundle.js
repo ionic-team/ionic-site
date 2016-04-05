@@ -3193,164 +3193,114 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	if (!window.localStorage) {
-	    Object.defineProperty(window, "localStorage", new (function () {
-	        var aKeys = [], oStorage = {};
-	        Object.defineProperty(oStorage, "getItem", {
-	            value: function (sKey) { return sKey ? this[sKey] : null; },
-	            writable: false,
-	            configurable: false,
-	            enumerable: false
-	        });
-	        Object.defineProperty(oStorage, "key", {
-	            value: function (nKeyId) { return aKeys[nKeyId]; },
-	            writable: false,
-	            configurable: false,
-	            enumerable: false
-	        });
-	        Object.defineProperty(oStorage, "setItem", {
-	            value: function (sKey, sValue) {
-	                if (!sKey) {
-	                    return;
-	                }
-	                document.cookie = escape(sKey) + "=" + escape(sValue) + "; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
-	            },
-	            writable: false,
-	            configurable: false,
-	            enumerable: false
-	        });
-	        Object.defineProperty(oStorage, "length", {
-	            get: function () { return aKeys.length; },
-	            configurable: false,
-	            enumerable: false
-	        });
-	        Object.defineProperty(oStorage, "removeItem", {
-	            value: function (sKey) {
-	                if (!sKey) {
-	                    return;
-	                }
-	                document.cookie = escape(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
-	            },
-	            writable: false,
-	            configurable: false,
-	            enumerable: false
-	        });
-	        this.get = function () {
-	            var iThisIndx;
-	            for (var sKey in oStorage) {
-	                iThisIndx = aKeys.indexOf(sKey);
-	                if (iThisIndx === -1) {
-	                    oStorage.setItem(sKey, oStorage[sKey]);
-	                }
-	                else {
-	                    aKeys.splice(iThisIndx, 1);
-	                }
-	                delete oStorage[sKey];
-	            }
-	            for (aKeys; aKeys.length > 0; aKeys.splice(0, 1)) {
-	                oStorage.removeItem(aKeys[0]);
-	            }
-	            for (var aCouple, iKey, nIdx = 0, aCouples = document.cookie.split(/\s*;\s*/); nIdx < aCouples.length; nIdx++) {
-	                aCouple = aCouples[nIdx].split(/\s*=\s*/);
-	                if (aCouple.length > 1) {
-	                    oStorage[iKey = unescape(aCouple[0])] = unescape(aCouple[1]);
-	                    aKeys.push(iKey);
-	                }
-	            }
-	            return oStorage;
-	        };
-	        this.configurable = false;
-	        this.enumerable = true;
-	    })());
-	}
-	var CONFIG_DEMO = null;
-	if (window.localStorage.getItem('configDemo')) {
-	    CONFIG_DEMO = JSON.parse(window.localStorage.getItem('configDemo'));
-	}
 	var ionic_angular_1 = __webpack_require__(5);
-	var ApiDemoApp = (function () {
-	    function ApiDemoApp() {
-	        this.rootPage = TabPage;
-	    }
-	    ApiDemoApp = __decorate([
-	        ionic_angular_1.App({
-	            template: '<ion-nav id="nav" [root]="rootPage" #content></ion-nav>',
-	            config: CONFIG_DEMO || {}
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], ApiDemoApp);
-	    return ApiDemoApp;
-	}());
-	var TabPage = (function () {
-	    function TabPage() {
-	        this.tabOne = InitialPage;
-	    }
-	    TabPage = __decorate([
-	        ionic_angular_1.Page({
-	            templateUrl: 'tabs.html'
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], TabPage);
-	    return TabPage;
-	}());
-	exports.TabPage = TabPage;
-	var InitialPage = (function () {
-	    function InitialPage(platform, nav) {
-	        this.platform = platform;
+	var E2EPage = (function () {
+	    function E2EPage(nav, platform) {
 	        this.nav = nav;
-	        if (window.localStorage.getItem('configDemo') !== null) {
-	            this.config = JSON.parse(window.localStorage.getItem('configDemo'));
-	        }
-	        else if (platform.is('ios')) {
-	            this.config = {
-	                'backButtonIcon': 'ios-arrow-back',
-	                'iconMode': 'ios',
-	                'tabbarPlacement': 'bottom'
-	            };
-	        }
-	        else {
-	            this.config = {
-	                'backButtonIcon': 'md-arrow-back',
-	                'iconMode': 'md',
-	                'tabbarPlacement': 'top'
-	            };
-	        }
-	        this.initialConfig = JSON.parse(JSON.stringify(this.config));
+	        this.platform = platform;
 	    }
-	    InitialPage.prototype.load = function () {
-	        window.localStorage.setItem('configDemo', JSON.stringify(this.config));
-	        window.location.reload();
+	    E2EPage.prototype.presentLoadingIos = function () {
+	        var loading = ionic_angular_1.Loading.create({
+	            spinner: 'ios',
+	            content: 'This is the "ios" spinner. It will dismiss after 3 seconds.',
+	            duration: 3000
+	        });
+	        this.nav.present(loading);
 	    };
-	    InitialPage.prototype.push = function () {
-	        this.nav.push(AnotherPage);
+	    E2EPage.prototype.presentLoadingDots = function () {
+	        var loading = ionic_angular_1.Loading.create({
+	            spinner: 'dots',
+	            content: 'This is the "dots" spinner. It will dismiss after 3 seconds.',
+	            duration: 3000
+	        });
+	        this.nav.present(loading);
 	    };
-	    InitialPage = __decorate([
+	    E2EPage.prototype.presentLoadingBubbles = function () {
+	        var loading = ionic_angular_1.Loading.create({
+	            spinner: 'bubbles',
+	            content: 'This is the "bubbles" spinner. It will dismiss after 3 seconds.',
+	            duration: 3000
+	        });
+	        this.nav.present(loading);
+	    };
+	    E2EPage.prototype.presentLoadingCircles = function () {
+	        var loading = ionic_angular_1.Loading.create({
+	            spinner: 'circles',
+	            content: 'This is the "circles" spinner. It will dismiss after 3 seconds.',
+	            duration: 3000
+	        });
+	        this.nav.present(loading);
+	    };
+	    E2EPage.prototype.presentLoadingCrescent = function () {
+	        var loading = ionic_angular_1.Loading.create({
+	            spinner: 'crescent',
+	            content: 'This is the "crescent" spinner. It will dismiss after 3 seconds.',
+	            duration: 3000
+	        });
+	        this.nav.present(loading);
+	    };
+	    E2EPage.prototype.presentLoadingDefault = function () {
+	        var loading = ionic_angular_1.Loading.create({
+	            content: 'This is the mode specific spinner. It will dismiss after 3 seconds.',
+	            duration: 3000
+	        });
+	        this.nav.present(loading);
+	    };
+	    E2EPage.prototype.presentLoadingCustom = function () {
+	        var loading = ionic_angular_1.Loading.create({
+	            spinner: 'hide',
+	            content: "\n        <div class=\"custom-spinner-container\">\n          <div class=\"custom-spinner-box\"></div>\n        </div>\n        <div>This is a custom spinner. It will dismiss after 3 seconds.</div>",
+	            duration: 3000
+	        });
+	        this.nav.present(loading);
+	    };
+	    E2EPage.prototype.presentLoadingText = function () {
+	        var loading = ionic_angular_1.Loading.create({
+	            spinner: 'hide',
+	            content: 'This has no spinner, only text. It will dismiss after 3 seconds.',
+	            duration: 3000
+	        });
+	        this.nav.present(loading);
+	    };
+	    E2EPage.prototype.goToPage2 = function () {
+	        this.nav.push(Page2);
+	    };
+	    E2EPage = __decorate([
 	        ionic_angular_1.Page({
 	            templateUrl: 'main.html'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _b) || Object])
-	    ], InitialPage);
-	    return InitialPage;
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _b) || Object])
+	    ], E2EPage);
+	    return E2EPage;
 	    var _a, _b;
 	}());
-	exports.InitialPage = InitialPage;
-	var AnotherPage = (function () {
-	    function AnotherPage(nav) {
+	var Page2 = (function () {
+	    function Page2(nav, platform) {
 	        this.nav = nav;
+	        this.platform = platform;
 	    }
-	    AnotherPage.prototype.pop = function () {
-	        this.nav.pop();
-	    };
-	    AnotherPage = __decorate([
+	    Page2 = __decorate([
 	        ionic_angular_1.Page({
-	            templateUrl: 'page.html'
+	            template: "\n    <ion-navbar *navbar>\n      <ion-title>Page 2</ion-title>\n    </ion-navbar>\n    <ion-content padding>Some content</ion-content>\n  "
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
-	    ], AnotherPage);
-	    return AnotherPage;
-	    var _a;
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _b) || Object])
+	    ], Page2);
+	    return Page2;
+	    var _a, _b;
 	}());
-	exports.AnotherPage = AnotherPage;
+	var E2EApp = (function () {
+	    function E2EApp() {
+	        this.root = E2EPage;
+	    }
+	    E2EApp = __decorate([
+	        ionic_angular_1.App({
+	            template: '<ion-nav [root]="root"></ion-nav>'
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], E2EApp);
+	    return E2EApp;
+	}());
+	document.body.innerHTML += '<link href="styles.css" rel="stylesheet">';
 
 /***/ },
 /* 5 */

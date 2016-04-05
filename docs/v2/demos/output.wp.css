@@ -730,6 +730,41 @@ ion-infinite-scroll-content[state=loading] .infinite-loading {
 ion-infinite-scroll-content[state=disabled] {
   display: none; }
 
+ion-loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.loading-wrapper {
+  z-index: 10;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 0; }
+
+.hide-backdrop {
+  display: none; }
+
 ion-menu {
   position: absolute;
   top: 0;
@@ -6507,6 +6542,68 @@ ion-list[inset] {
 ion-list[no-lines] .item,
 ion-list[no-lines] .item .item-inner {
   border-width: 0; }
+
+ion-loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.loading-wrapper {
+  z-index: 10;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 0; }
+
+.hide-backdrop {
+  display: none; }
+
+.loading-wrapper {
+  padding: 20px;
+  max-width: 280px;
+  max-height: 90%;
+  border-radius: 2px;
+  color: #fff;
+  background: #000; }
+
+.loading-spinner + .loading-content {
+  margin-left: 16px; }
+
+.loading-spinner .spinner-ios line,
+.loading-spinner .spinner-ios-small line {
+  stroke: #fff; }
+
+.loading-spinner .spinner-bubbles circle {
+  fill: #fff; }
+
+.loading-spinner .spinner-circles circle {
+  fill: #fff; }
+
+.loading-spinner .spinner-crescent circle {
+  stroke: #fff; }
+
+.loading-spinner .spinner-dots circle {
+  fill: #fff; }
 
 @font-face {
   font-family: "Noto Sans";

@@ -730,6 +730,41 @@ ion-infinite-scroll-content[state=loading] .infinite-loading {
 ion-infinite-scroll-content[state=disabled] {
   display: none; }
 
+ion-loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.loading-wrapper {
+  z-index: 10;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  opacity: 0; }
+
+.hide-backdrop {
+  display: none; }
+
 ion-menu {
   position: absolute;
   top: 0;
@@ -5896,6 +5931,60 @@ ion-icon {
   .ios.hairlines ion-list[no-lines] .item,
   .ios.hairlines ion-list[no-lines] .item .item-inner {
     border-width: 0; }
+  .ios ion-loading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .ios .loading-wrapper {
+    z-index: 10;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    opacity: 0; }
+  .ios .hide-backdrop {
+    display: none; }
+  .ios .loading-wrapper {
+    padding: 24px 34px;
+    max-width: 270px;
+    max-height: 90%;
+    border-radius: 8px;
+    color: #000;
+    background: #f8f8f8; }
+  .ios .loading-content {
+    font-weight: bold; }
+  .ios .loading-spinner + .loading-content {
+    margin-left: 16px; }
+  .ios .loading-spinner .spinner-ios line,
+  .ios .loading-spinner .spinner-ios-small line {
+    stroke: #69717d; }
+  .ios .loading-spinner .spinner-bubbles circle {
+    fill: #69717d; }
+  .ios .loading-spinner .spinner-circles circle {
+    fill: #69717d; }
+  .ios .loading-spinner .spinner-crescent circle {
+    stroke: #69717d; }
+  .ios .loading-spinner .spinner-dots circle {
+    fill: #69717d; }
   .ios ion-menu {
     background: #fff; }
   .ios .menu-content-reveal {
@@ -8957,6 +9046,59 @@ ion-icon {
   .md ion-list[no-lines] .item,
   .md ion-list[no-lines] .item .item-inner {
     border-width: 0; }
+  .md ion-loading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .md .loading-wrapper {
+    z-index: 10;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    opacity: 0; }
+  .md .hide-backdrop {
+    display: none; }
+  .md .loading-wrapper {
+    padding: 24px;
+    max-width: 280px;
+    max-height: 90%;
+    border-radius: 2px;
+    color: rgba(0, 0, 0, 0.5);
+    background: #fafafa;
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4); }
+  .md .loading-spinner + .loading-content {
+    margin-left: 16px; }
+  .md .loading-spinner .spinner-ios line,
+  .md .loading-spinner .spinner-ios-small line {
+    stroke: #327eff; }
+  .md .loading-spinner .spinner-bubbles circle {
+    fill: #327eff; }
+  .md .loading-spinner .spinner-circles circle {
+    fill: #327eff; }
+  .md .loading-spinner .spinner-crescent circle {
+    stroke: #327eff; }
+  .md .loading-spinner .spinner-dots circle {
+    fill: #327eff; }
 
 @font-face {
   font-family: "Roboto";
@@ -12496,6 +12638,58 @@ ion-icon {
   .wp ion-list[no-lines] .item,
   .wp ion-list[no-lines] .item .item-inner {
     border-width: 0; }
+  .wp ion-loading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .wp .loading-wrapper {
+    z-index: 10;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    opacity: 0; }
+  .wp .hide-backdrop {
+    display: none; }
+  .wp .loading-wrapper {
+    padding: 20px;
+    max-width: 280px;
+    max-height: 90%;
+    border-radius: 2px;
+    color: #fff;
+    background: #000; }
+  .wp .loading-spinner + .loading-content {
+    margin-left: 16px; }
+  .wp .loading-spinner .spinner-ios line,
+  .wp .loading-spinner .spinner-ios-small line {
+    stroke: #fff; }
+  .wp .loading-spinner .spinner-bubbles circle {
+    fill: #fff; }
+  .wp .loading-spinner .spinner-circles circle {
+    fill: #fff; }
+  .wp .loading-spinner .spinner-crescent circle {
+    stroke: #fff; }
+  .wp .loading-spinner .spinner-dots circle {
+    fill: #fff; }
 
 @font-face {
   font-family: "Noto Sans";

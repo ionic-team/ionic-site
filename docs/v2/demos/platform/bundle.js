@@ -3221,11 +3221,11 @@
 	__export(__webpack_require__(6));
 	__export(__webpack_require__(161));
 	__export(__webpack_require__(288));
-	__export(__webpack_require__(349));
 	__export(__webpack_require__(350));
 	__export(__webpack_require__(351));
+	__export(__webpack_require__(352));
 	__export(__webpack_require__(162));
-	__export(__webpack_require__(355));
+	__export(__webpack_require__(357));
 	__export(__webpack_require__(160));
 	__export(__webpack_require__(165));
 	__export(__webpack_require__(280));
@@ -3233,14 +3233,14 @@
 	__export(__webpack_require__(310));
 	__export(__webpack_require__(309));
 	__export(__webpack_require__(287));
-	__export(__webpack_require__(359));
+	__export(__webpack_require__(361));
 	// these modules don't export anything
-	__webpack_require__(360);
-	__webpack_require__(361);
 	__webpack_require__(362);
 	__webpack_require__(363);
 	__webpack_require__(364);
 	__webpack_require__(365);
+	__webpack_require__(366);
+	__webpack_require__(367);
 
 /***/ },
 /* 6 */
@@ -42939,11 +42939,11 @@
 	var radio_group_1 = __webpack_require__(342);
 	var searchbar_1 = __webpack_require__(343);
 	var nav_1 = __webpack_require__(344);
-	var nav_push_1 = __webpack_require__(345);
-	var nav_router_1 = __webpack_require__(346);
+	var nav_push_1 = __webpack_require__(346);
+	var nav_router_1 = __webpack_require__(347);
 	var navbar_1 = __webpack_require__(302);
-	var id_1 = __webpack_require__(347);
-	var show_hide_when_1 = __webpack_require__(348);
+	var id_1 = __webpack_require__(348);
+	var show_hide_when_1 = __webpack_require__(349);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @private
@@ -46323,6 +46323,10 @@
 	        /**
 	         * @private
 	         */
+	        this.usePortal = false;
+	        /**
+	         * @private
+	         */
 	        this._emitter = new core_1.EventEmitter();
 	        // passed in data could be NavParams, but all we care about is its data object
 	        this.data = (data instanceof nav_params_1.NavParams ? data.data : util_1.isPresent(data) ? data : {});
@@ -48002,6 +48006,9 @@
 	            core_1.provide(NavController, { useValue: this })
 	        ]);
 	    }
+	    NavController.prototype.setPortal = function (val) {
+	        this._portal = val;
+	    };
 	    /**
 	     * Set the root for the current navigation stack
 	     * @param {Type} page  The name of the component you want to push on the navigation stack
@@ -48229,7 +48236,7 @@
 	        if (rootNav['_tabs']) {
 	            // TODO: must have until this goes in
 	            // https://github.com/angular/angular/issues/5481
-	            console.error('A parent <ion-nav> is required for ActionSheet/Alert/Modal');
+	            console.error('A parent <ion-nav> is required for ActionSheet/Alert/Modal/Loading');
 	            return;
 	        }
 	        if (util_1.isBlank(opts)) {
@@ -48246,6 +48253,10 @@
 	            direction: 'back',
 	            animation: enteringView.getTransitionName('back')
 	        });
+	        if (enteringView.usePortal && this._portal) {
+	            this._portal.present(enteringView);
+	            return;
+	        }
 	        // start the transition
 	        return rootNav._insertViews(-1, [enteringView], opts);
 	    };
@@ -48335,7 +48346,7 @@
 	                // already active or it is about to enter
 	                if (this._views[i] === enteringView) {
 	                    // cool, so the last valid view is also our entering view!!
-	                    // this means we should animate that bad boy in so its the active view
+	                    // this means we should animate that bad boy in so it's the active view
 	                    // return a promise and resolve when the transition has completed
 	                    // get the leaving view which the _insert() already set
 	                    var leavingView = this.getByState(STATE_INIT_LEAVE);
@@ -48505,8 +48516,8 @@
 	            // to happen and the previously active view is going to animate out
 	            // get the view thats ready to enter
 	            var enteringView = this.getByState(STATE_INIT_ENTER);
-	            if (!enteringView) {
-	                // oh knows! no entering view to go to!
+	            if (!enteringView && this._portal) {
+	                // oh nos! no entering view to go to!
 	                // if there is no previous view that would enter in this nav stack
 	                // and the option is set to climb up the nav parent looking
 	                // for the next nav we could transition to instead
@@ -48956,6 +48967,13 @@
 	            }
 	            // see if we should add the swipe back gesture listeners or not
 	            this._sbCheck();
+	            if (this._portal) {
+	                this._portal._views.forEach(function (view) {
+	                    if (view.data && view.data.dismissOnPageChange) {
+	                        view.dismiss();
+	                    }
+	                });
+	            }
 	        }
 	        else {
 	            // darn, so this wasn't the most recent transition
@@ -49303,7 +49321,7 @@
 	                }
 	                else {
 	                    // this is the initial view
-	                    enteringView.setZIndex(INIT_ZINDEX, this._renderer);
+	                    enteringView.setZIndex(this._portal ? INIT_ZINDEX : PORTAL_ZINDEX, this._renderer);
 	                }
 	            }
 	            else if (direction === 'back') {
@@ -49329,6 +49347,7 @@
 	var STATE_REMOVE_AFTER_TRANS = 'remove_after_trans';
 	var STATE_FORCE_ACTIVE = 'force_active';
 	var INIT_ZINDEX = 100;
+	var PORTAL_ZINDEX = 9999;
 	var ctrlIds = -1;
 
 /***/ },
@@ -61604,6 +61623,7 @@
 	var keyboard_1 = __webpack_require__(280);
 	var util_1 = __webpack_require__(163);
 	var nav_controller_1 = __webpack_require__(306);
+	var nav_portal_1 = __webpack_require__(345);
 	var view_controller_1 = __webpack_require__(300);
 	/**
 	 * @name Nav
@@ -61753,6 +61773,13 @@
 	            this.push(this._root);
 	        }
 	    };
+	    Object.defineProperty(Nav.prototype, "_navPortal", {
+	        set: function (val) {
+	            this.setPortal(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.Type !== 'undefined' && core_1.Type) === 'function' && _a) || Object)
@@ -61761,22 +61788,77 @@
 	        core_1.Input(), 
 	        __metadata('design:type', Boolean)
 	    ], Nav.prototype, "swipeBackEnabled", null);
+	    __decorate([
+	        core_1.ViewChild(nav_portal_1.Portal), 
+	        __metadata('design:type', (typeof (_b = typeof nav_portal_1.Portal !== 'undefined' && nav_portal_1.Portal) === 'function' && _b) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_c = typeof nav_portal_1.Portal !== 'undefined' && nav_portal_1.Portal) === 'function' && _c) || Object])
+	    ], Nav.prototype, "_navPortal", null);
 	    Nav = __decorate([
 	        core_1.Component({
 	            selector: 'ion-nav',
-	            template: '<div #contents></div>'
+	            template: '<div #contents></div><div portal></div>',
+	            directives: [nav_portal_1.Portal]
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _b) || Object, (typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Compiler !== 'undefined' && core_1.Compiler) === 'function' && _h) || Object, (typeof (_j = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object])
+	        __metadata('design:paramtypes', [(typeof (_d = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _d) || Object, (typeof (_e = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _e) || Object, (typeof (_f = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _f) || Object, (typeof (_g = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _g) || Object, (typeof (_h = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _h) || Object, (typeof (_j = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _j) || Object, (typeof (_k = typeof core_1.Compiler !== 'undefined' && core_1.Compiler) === 'function' && _k) || Object, (typeof (_l = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _l) || Object, (typeof (_m = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _m) || Object, (typeof (_o = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _o) || Object])
 	    ], Nav);
 	    return Nav;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
 	}(nav_controller_1.NavController));
 	exports.Nav = Nav;
 
 /***/ },
 /* 345 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(7);
+	var app_1 = __webpack_require__(168);
+	var config_1 = __webpack_require__(161);
+	var keyboard_1 = __webpack_require__(280);
+	var nav_controller_1 = __webpack_require__(306);
+	var view_controller_1 = __webpack_require__(300);
+	/**
+	 * @private
+	 */
+	var Portal = (function (_super) {
+	    __extends(Portal, _super);
+	    function Portal(hostNavCtrl, viewCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer) {
+	        _super.call(this, hostNavCtrl, app, config, keyboard, elementRef, null, compiler, viewManager, zone, renderer);
+	    }
+	    Portal = __decorate([
+	        core_1.Directive({
+	            selector: '[portal]'
+	        }),
+	        __param(0, core_1.Optional()),
+	        __param(1, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof core_1.Compiler !== 'undefined' && core_1.Compiler) === 'function' && _g) || Object, (typeof (_h = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _h) || Object, (typeof (_j = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _j) || Object, (typeof (_k = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _k) || Object])
+	    ], Portal);
+	    return Portal;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+	}(nav_controller_1.NavController));
+	exports.Portal = Portal;
+
+/***/ },
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61939,7 +62021,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 346 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62060,7 +62142,7 @@
 	}(router_1.Instruction));
 
 /***/ },
-/* 347 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62171,7 +62253,7 @@
 	exports.Attr = Attr;
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62362,7 +62444,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62435,7 +62517,7 @@
 	exports.App = App;
 
 /***/ },
-/* 350 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62526,7 +62608,7 @@
 	exports.Page = Page;
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62534,8 +62616,8 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(168));
-	__export(__webpack_require__(347));
-	__export(__webpack_require__(352));
+	__export(__webpack_require__(348));
+	__export(__webpack_require__(353));
 	__export(__webpack_require__(334));
 	__export(__webpack_require__(313));
 	__export(__webpack_require__(305));
@@ -62549,19 +62631,20 @@
 	__export(__webpack_require__(331));
 	__export(__webpack_require__(281));
 	__export(__webpack_require__(290));
-	__export(__webpack_require__(353));
+	__export(__webpack_require__(354));
 	__export(__webpack_require__(299));
 	__export(__webpack_require__(311));
 	__export(__webpack_require__(330));
 	__export(__webpack_require__(327));
-	__export(__webpack_require__(348));
-	__export(__webpack_require__(354));
+	__export(__webpack_require__(355));
+	__export(__webpack_require__(349));
+	__export(__webpack_require__(356));
 	__export(__webpack_require__(344));
 	__export(__webpack_require__(306));
 	__export(__webpack_require__(300));
 	__export(__webpack_require__(301));
-	__export(__webpack_require__(345));
 	__export(__webpack_require__(346));
+	__export(__webpack_require__(347));
 	__export(__webpack_require__(302));
 	__export(__webpack_require__(335));
 	__export(__webpack_require__(289));
@@ -62581,7 +62664,7 @@
 	__export(__webpack_require__(304));
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62979,7 +63062,7 @@
 	var actionSheetIds = -1;
 
 /***/ },
-/* 353 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63127,7 +63210,337 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 354 */
+/* 355 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(7);
+	var common_1 = __webpack_require__(172);
+	var animation_1 = __webpack_require__(310);
+	var transition_1 = __webpack_require__(309);
+	var config_1 = __webpack_require__(161);
+	var spinner_1 = __webpack_require__(318);
+	var util_1 = __webpack_require__(163);
+	var nav_params_1 = __webpack_require__(301);
+	var view_controller_1 = __webpack_require__(300);
+	/**
+	 * @name Loading
+	 * @description
+	 * An overlay that can be used to indicate activity while blocking user
+	 * interaction. The loading indicator appears on top of the app's content,
+	 * and can be dismissed by the app to resume user interaction with
+	 * the app. It includes an optional backdrop, which can be disabled
+	 * by setting `showBackdrop: false` upon creation.
+	 *
+	 * ### Creating
+	 * You can pass all of the loading options in the first argument of
+	 * the create method: `Loading.create(opts)`. The spinner name should be
+	 * passed in the `spinner` property, and any optional HTML can be passed
+	 * in the `content` property. If you do not pass a value to `spinner`
+	 * the loading indicator will use the spinner specified by the mode. To
+	 * set the spinner name across the app, set the value of `loadingSpinner`
+	 * in your app's config. To hide the spinner, set `loadingSpinner: 'hide'`
+	 * in the apps' config or pass `spinner: 'hide'` in the loading
+	 * options. See the create method below for all available options.
+	 *
+	 * ### Dismissing
+	 * The loading indicator can be dismissed automatically after a specific
+	 * amount of time by passing the number of milliseconds to display it in
+	 * the `duration` of the loading options. By default the loading indicator
+	 * will show even during page changes, but this can be disabled by setting
+	 * `dismissOnPageChange` to `true`. To dismiss the loading indicator after
+	 * creation, call the `dismiss()` method on the Loading instance.
+	 *
+	 * ### Limitations
+	 * The element is styled to appear on top of other content by setting its
+	 * `z-index` property. You must ensure no element has a stacking context with
+	 * a higher `z-index` than this element.
+	 *
+	 * @usage
+	 * ```ts
+	 * constructor(nav: NavController) {
+	 *   this.nav = nav;
+	 * }
+	 *
+	 * presentLoadingDefault() {
+	 *   let loading = Loading.create({
+	 *     content: 'Please wait...'
+	 *   });
+	 *
+	 *   this.nav.present(loading);
+	 *
+	 *   setTimeout(() => {
+	 *     loading.dismiss();
+	 *   }, 5000);
+	 * }
+	 *
+	 * presentLoadingCustom() {
+	 *   let loading = Loading.create({
+	 *     spinner: 'hide',
+	 *     content: `
+	 *       <div class="custom-spinner-container">
+	 *         <div class="custom-spinner-box"></div>
+	 *       </div>`,
+	 *     duration: 5000
+	 *   });
+	 *
+	 *   this.nav.present(loading);
+	 * }
+	 *
+	 * presentLoadingText() {
+	 *   let loading = Loading.create({
+	 *     spinner: 'hide',
+	 *     content: 'Loading Please Wait...'
+	 *   });
+	 *
+	 *   this.nav.present(loading);
+	 *
+	 *   setTimeout(() => {
+	 *     this.nav.push(Page2);
+	 *   }, 1000);
+	 *
+	 *   setTimeout(() => {
+	 *     loading.dismiss();
+	 *   }, 5000);
+	 * }
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/loading/
+	 * @see {@link /docs/v2/api/components/spinner/Spinner Spinner API Docs}
+	 */
+	var Loading = (function (_super) {
+	    __extends(Loading, _super);
+	    function Loading(opts) {
+	        if (opts === void 0) { opts = {}; }
+	        opts.showBackdrop = util_1.isPresent(opts.showBackdrop) ? !!opts.showBackdrop : true;
+	        opts.dismissOnPageChange = util_1.isPresent(opts.dismissOnPageChange) ? !!opts.dismissOnPageChange : false;
+	        _super.call(this, LoadingCmp, opts);
+	        this.viewType = 'loading';
+	        this.isOverlay = true;
+	        this.usePortal = true;
+	        // by default, loading indicators should not fire lifecycle events of other views
+	        // for example, when an loading indicators enters, the current active view should
+	        // not fire its lifecycle events because it's not conceptually leaving
+	        this.fireOtherLifecycles = false;
+	    }
+	    /**
+	    * @private
+	    */
+	    Loading.prototype.getTransitionName = function (direction) {
+	        var key = (direction === 'back' ? 'loadingLeave' : 'loadingEnter');
+	        return this._nav && this._nav.config.get(key);
+	    };
+	    /**
+	     * Create a loading indicator with the following options
+	     *
+	     * | Option                | Type       | Description                                                                                                      |
+	     * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
+	     * | spinner               |`string`    | The name of the SVG spinner for the loading indicator.                                                                           |
+	     * | content               |`string`    | The html content for the loading indicator.                                                                      |
+	     * | cssClass              |`string`    | An additional class for custom styles.                                                                           |
+	     * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
+	     * | dismissOnPageChange   |`boolean`   | Whether to dismiss the indicator when navigating to a new page. Default false.                                   |
+	     * | duration              |`number`    | How many milliseconds to wait before hiding the indicator. By default, it will show until `hide()` is called.    |
+	     *
+	     *
+	     * @param {object} opts Loading options
+	     */
+	    Loading.create = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        return new Loading(opts);
+	    };
+	    return Loading;
+	}(view_controller_1.ViewController));
+	exports.Loading = Loading;
+	/**
+	* @private
+	*/
+	var LoadingCmp = (function () {
+	    function LoadingCmp(_viewCtrl, _config, _elementRef, params, renderer) {
+	        this._viewCtrl = _viewCtrl;
+	        this._config = _config;
+	        this._elementRef = _elementRef;
+	        this.d = params.data;
+	        this.created = Date.now();
+	        if (this.d.cssClass) {
+	            renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
+	        }
+	        this.id = (++loadingIds);
+	    }
+	    LoadingCmp.prototype.ngOnInit = function () {
+	        // If no spinner was passed in loading options we need to fall back
+	        // to the loadingSpinner in the app's config, then the mode spinner
+	        if (util_1.isUndefined(this.d.spinner)) {
+	            this.d.spinner = this._config.get('loadingSpinner', this._config.get('spinner', 'ios'));
+	        }
+	        // If the user passed hide to the spinner we don't want to show it
+	        this.showSpinner = util_1.isDefined(this.d.spinner) && this.d.spinner !== 'hide';
+	    };
+	    LoadingCmp.prototype.onPageDidEnter = function () {
+	        var _this = this;
+	        var activeElement = document.activeElement;
+	        if (document.activeElement) {
+	            activeElement.blur();
+	        }
+	        // If there is a duration, dismiss after that amount of time
+	        this.d.duration ? setTimeout(function () { return _this.dismiss('backdrop'); }, this.d.duration) : null;
+	    };
+	    LoadingCmp.prototype.dismiss = function (role) {
+	        return this._viewCtrl.dismiss(null, role);
+	    };
+	    LoadingCmp.prototype.isEnabled = function () {
+	        var tm = this._config.getNumber('overlayCreatedDiff', 750);
+	        return (this.created + tm < Date.now());
+	    };
+	    LoadingCmp = __decorate([
+	        core_1.Component({
+	            selector: 'ion-loading',
+	            template: '<div disable-activated class="backdrop" [class.hide-backdrop]="!d.showBackdrop" role="presentation"></div>' +
+	                '<div class="loading-wrapper">' +
+	                '<div *ngIf="showSpinner" class="loading-spinner">' +
+	                '<ion-spinner [name]="d.spinner"></ion-spinner>' +
+	                '</div>' +
+	                '<div *ngIf="d.content" [innerHTML]="d.content" class="loading-content"></div>' +
+	                '</div>',
+	            host: {
+	                'role': 'dialog'
+	            },
+	            directives: [common_1.NgIf, spinner_1.Spinner]
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
+	    ], LoadingCmp);
+	    return LoadingCmp;
+	    var _a, _b, _c, _d, _e;
+	}());
+	/**
+	 * Animations for loading
+	 */
+	var LoadingPopIn = (function (_super) {
+	    __extends(LoadingPopIn, _super);
+	    function LoadingPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.loading-wrapper'));
+	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
+	        backdrop.fromTo('opacity', '0.01', '0.3');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop)
+	            .add(wrapper);
+	    }
+	    return LoadingPopIn;
+	}(transition_1.Transition));
+	transition_1.Transition.register('loading-pop-in', LoadingPopIn);
+	var LoadingPopOut = (function (_super) {
+	    __extends(LoadingPopOut, _super);
+	    function LoadingPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.loading-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
+	        backdrop.fromTo('opacity', '0.3', '0');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop)
+	            .add(wrapper);
+	    }
+	    return LoadingPopOut;
+	}(transition_1.Transition));
+	transition_1.Transition.register('loading-pop-out', LoadingPopOut);
+	var LoadingMdPopIn = (function (_super) {
+	    __extends(LoadingMdPopIn, _super);
+	    function LoadingMdPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.loading-wrapper'));
+	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
+	        backdrop.fromTo('opacity', '0.01', '0.50');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop)
+	            .add(wrapper);
+	    }
+	    return LoadingMdPopIn;
+	}(transition_1.Transition));
+	transition_1.Transition.register('loading-md-pop-in', LoadingMdPopIn);
+	var LoadingMdPopOut = (function (_super) {
+	    __extends(LoadingMdPopOut, _super);
+	    function LoadingMdPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.loading-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
+	        backdrop.fromTo('opacity', '0.50', '0');
+	        this
+	            .easing('ease-in-out')
+	            .duration(200)
+	            .add(backdrop)
+	            .add(wrapper);
+	    }
+	    return LoadingMdPopOut;
+	}(transition_1.Transition));
+	transition_1.Transition.register('loading-md-pop-out', LoadingMdPopOut);
+	var LoadingWpPopIn = (function (_super) {
+	    __extends(LoadingWpPopIn, _super);
+	    function LoadingWpPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.loading-wrapper'));
+	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.3', '1');
+	        backdrop.fromTo('opacity', '0.01', '0.16');
+	        this
+	            .easing('cubic-bezier(0,0 0.05,1)')
+	            .duration(200)
+	            .add(backdrop)
+	            .add(wrapper);
+	    }
+	    return LoadingWpPopIn;
+	}(transition_1.Transition));
+	transition_1.Transition.register('loading-wp-pop-in', LoadingWpPopIn);
+	var LoadingWpPopOut = (function (_super) {
+	    __extends(LoadingWpPopOut, _super);
+	    function LoadingWpPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.loading-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '1.3');
+	        backdrop.fromTo('opacity', '0.16', '0');
+	        this
+	            .easing('ease-out')
+	            .duration(150)
+	            .add(backdrop)
+	            .add(wrapper);
+	    }
+	    return LoadingWpPopOut;
+	}(transition_1.Transition));
+	transition_1.Transition.register('loading-wp-pop-out', LoadingWpPopOut);
+	var loadingIds = -1;
+
+/***/ },
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63337,19 +63750,19 @@
 	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 355 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(356));
-	__export(__webpack_require__(357));
 	__export(__webpack_require__(358));
+	__export(__webpack_require__(359));
+	__export(__webpack_require__(360));
 
 /***/ },
-/* 356 */
+/* 358 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -63433,7 +63846,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 357 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63442,7 +63855,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(356);
+	var storage_1 = __webpack_require__(358);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -63539,7 +63952,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 358 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63548,7 +63961,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(356);
+	var storage_1 = __webpack_require__(358);
 	var util_1 = __webpack_require__(163);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -63687,7 +64100,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 359 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63737,7 +64150,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 360 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63752,6 +64165,8 @@
 	    backButtonText: 'Back',
 	    backButtonIcon: 'ios-arrow-back',
 	    iconMode: 'ios',
+	    loadingEnter: 'loading-pop-in',
+	    loadingLeave: 'loading-pop-out',
 	    menuType: 'reveal',
 	    modalEnter: 'modal-slide-in',
 	    modalLeave: 'modal-slide-out',
@@ -63770,6 +64185,8 @@
 	    backButtonText: '',
 	    backButtonIcon: 'md-arrow-back',
 	    iconMode: 'md',
+	    loadingEnter: 'loading-md-pop-in',
+	    loadingLeave: 'loading-md-pop-out',
 	    menuType: 'overlay',
 	    modalEnter: 'modal-md-slide-in',
 	    modalLeave: 'modal-md-slide-out',
@@ -63790,17 +64207,20 @@
 	    backButtonText: '',
 	    backButtonIcon: 'ios-arrow-back',
 	    iconMode: 'ios',
+	    loadingEnter: 'loading-wp-pop-in',
+	    loadingLeave: 'loading-wp-pop-out',
 	    menuType: 'overlay',
 	    modalEnter: 'modal-md-slide-in',
 	    modalLeave: 'modal-md-slide-out',
 	    pageTransition: 'wp-transition',
 	    pageTransitionDelay: 96,
+	    spinner: 'circles',
 	    tabbarPlacement: 'top',
 	    tabSubPages: true,
 	});
 
 /***/ },
-/* 361 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63968,7 +64388,7 @@
 	}
 
 /***/ },
-/* 362 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64028,7 +64448,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 363 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64202,7 +64622,7 @@
 	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 364 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64266,7 +64686,7 @@
 	transition_1.Transition.register('md-transition', MDTransition);
 
 /***/ },
-/* 365 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

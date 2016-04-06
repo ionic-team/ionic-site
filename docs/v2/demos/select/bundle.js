@@ -41922,24 +41922,22 @@
 	            // a callback wasn't provided, so let's return a promise instead
 	            promise = new Promise(function (resolve) { callback = resolve; });
 	        }
-	        self._zone.runOutsideAngular(function () {
-	            function checkKeyboard() {
-	                console.debug('keyboard isOpen', self.isOpen(), checks);
-	                if (!self.isOpen() || checks > 100) {
-	                    dom_1.rafFrames(30, function () {
-	                        self._zone.run(function () {
-	                            console.debug('keyboard closed');
-	                            callback();
-	                        });
+	        function checkKeyboard() {
+	            console.debug('keyboard isOpen', self.isOpen(), checks);
+	            if (!self.isOpen() || checks > 100) {
+	                dom_1.rafFrames(30, function () {
+	                    self._zone.run(function () {
+	                        console.debug('keyboard closed');
+	                        callback();
 	                    });
-	                }
-	                else {
-	                    setTimeout(checkKeyboard, pollingInternval);
-	                }
-	                checks++;
+	                });
 	            }
-	            setTimeout(checkKeyboard, pollingInternval);
-	        });
+	            else {
+	                dom_1.nativeTimeout(checkKeyboard, pollingInternval);
+	            }
+	            checks++;
+	        }
+	        dom_1.nativeTimeout(checkKeyboard, pollingInternval);
 	        return promise;
 	    };
 	    /**
@@ -49945,7 +49943,7 @@
 	        self._unregTrans = dom_1.transitionEnd(self._transEl(), onTransitionEnd);
 	        // set a fallback timeout if the transition end event never fires, or is too slow
 	        // transition end fallback: (animation duration + XXms)
-	        self._tmr = setTimeout(onTransitionFallback, duration + 400);
+	        self._tmr = dom_1.nativeTimeout(onTransitionFallback, duration + 400);
 	    };
 	    Animation.prototype._clearAsync = function () {
 	        this._unregTrans && this._unregTrans();

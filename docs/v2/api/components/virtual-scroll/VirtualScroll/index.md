@@ -41,20 +41,18 @@ Improve this doc
 
 
 
-<p>Virtual scroll allows an app to render large lists of items more
-performantly than <code>ngFor</code>. The difference is that virtual scroll
-only renders a small amount of elements within the DOM, relative to
-the actual number of items within the dataset.</p>
-<p>Basically, instead of rendering potentionally thousands of elements
-within the DOM, it&#39;ll only render the few that are currently viewable
-(and a few extra for good measure). Not only does it render item data,
-but it can also dynamically insert section headers and footers based
-off of user-provided functions.</p>
+<p>Virtual Scroll displays a virtual, &quot;infinite&quot; list. An array of records
+is passed to the virtual scroll containing the data to create templates
+for. The template created for each record, referred to as a cell, can
+consist of items, headers, and footers.</p>
+<p>For performance reasons, not every record in the list is rendered at once;
+instead a small subset of records (enough to fill the viewport) are rendered
+and reused as the user scrolls.</p>
 <h3 id="the-basics">The Basics</h3>
-<p>The data given to the <code>virtualScroll</code> property must be an array. Note
-that the <code>virtualScroll</code> property can be added to any element, not
-just <code>ion-list</code>. Next, within the virtual scroll directive you must
-provide an item template, using the <code>*virtualItem</code> attribute.</p>
+<p>The array of records should be passed to the <code>virtualScroll</code> property.
+The data given to the <code>virtualScroll</code> property must be an array. An item
+template with the <code>*virtualItem</code> property is required in the <code>virtualScroll</code>.
+The <code>virtualScroll</code> and <code>*virtualItem</code> properties can be added to any element.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
 
   &lt;ion-item *virtualItem=&quot;#item&quot;&gt;
@@ -64,13 +62,12 @@ provide an item template, using the <code>*virtualItem</code> attribute.</p>
 &lt;/ion-list&gt;
 </code></pre>
 <h3 id="section-headers-and-footers">Section Headers and Footers</h3>
-<p>Section headers and footers, and the data used within their given
-templates, can be dynamically created using custom user-defined functions.
-For example, a large list of contacts usually has dividers between each
-letter in the alphabet. App&#39;s can provide their own custom function
-which is called on each record within the dataset. The logic within
-the custom functions can decide if a section template should be used,
-and what data to provide to the template. The custom function must
+<p>Section headers and footers are optional. They can be dynamically created
+from developer-defined functions. For example, a large list of contacts
+usually has a divider for each letter in the alphabet. Developers provide
+their own custom function to be called on each record. The logic in the
+custom function should determine whether to create the section template
+and what data to provide to the template. The custom function should
 return <code>null</code> if a template shouldn&#39;t be created.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot; [headerFn]=&quot;myHeaderFn&quot;&gt;
 
@@ -84,13 +81,13 @@ return <code>null</code> if a template shouldn&#39;t be created.</p>
 
 &lt;/ion-list&gt;
 </code></pre>
-<p>Below is the user-defined function called on every record. Its
-arguments are passed the individual record, the record&#39;s index number,
-and the entire record dataset (think <code>Array.forEach</code>). In this example,
-after every 20 items a header will be inserted. So between the 19th
-and 20th records, between the 39th and 40th, and so on, a
-<code>&lt;ion-item-divider&gt;</code> will be created and the template&#39;s data will come
-from the function&#39;s returned data.</p>
+<p>Below is an example of a custom function called on every record. It
+gets passed the individual record, the record&#39;s index number,
+and the entire array of records. In this example, after every 20
+records a header will be inserted. So between the 19th and 20th records,
+between the 39th and 40th, and so on, a <code>&lt;ion-item-divider&gt;</code> will
+be created and the template&#39;s data will come from the function&#39;s
+returned data.</p>
 <pre><code class="lang-ts">myHeaderFn(record, recordIndex, records) {
   if (recordIndex % 20 === 0) {
     return &#39;Header &#39; + recordIndex;
@@ -108,24 +105,21 @@ is only used to help calculate initial dimensions.</p>
 slightly different heights between platforms, which is perfectly fine.
 An exact pixel-perfect size is not necessary, but a good estimation
 is important. Basically if each item is roughly 500px tall, rather than
-the default of 40px tall, that&#39;s extremely important to know for virtual
+the default of 40px tall, it&#39;s extremely important to know for virtual
 scroll to calculate a good height.</p>
 <h3 id="images-within-virtual-scroll">Images Within Virtual Scroll</h3>
-<p>With images, the moment the <code>&lt;img&gt;</code> tag hits the DOM, it immediately
-makes a HTTP request for the image file in the <code>src</code> attribute. HTTP
-requests, along with image decoding and image rendering, are great
-sources of scroll jank. For virtual scrolling and these poor performance
-implications, the natural effect of the <code>&lt;img&gt;</code> are not a desirable
-features. A user&#39;s device shouldn&#39;t be firing up hundreds of
-HTTP requests, image decoding and rendering, when they&#39;re mostly unnecessary
-as the user scrolls pass many of them.</p>
-<p>Ionic provides <code>&lt;ion-img&gt;</code> so it can better manage HTTP requests and rendering.
+<p>Ionic provides <code>&lt;ion-img&gt;</code> to manage HTTP requests and image rendering.
 Additionally, it includes a customizable placeholder element which shows
 before the image has finished loading. While scrolling through items
-quickly, <code>&lt;ion-img&gt;</code> knows not to make any images requests, and only loads
+quickly, <code>&lt;ion-img&gt;</code> knows not to make any image requests, and only loads
 the images that are viewable after scrolling. It&#39;s also important for app
 developers to ensure image sizes are locked in, and after images have fully
 loaded they do not change size and affect any other element sizes.</p>
+<p>We recommend using our <code>&lt;ion-img&gt;</code> element over the native <code>&lt;img&gt;</code> element
+because when an <code>&lt;img&gt;</code> element is added to the DOM, it immediately
+makes a HTTP request for the image file. HTTP requests, image
+decoding, and image rendering can cause issues while scrolling. For virtual
+scrolling, the natural effects of the <code>&lt;img&gt;</code> are not desirable features.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
 
   &lt;ion-item *virtualItem=&quot;#item&quot;&gt;
@@ -144,11 +138,11 @@ while scrolling.</li>
 <li>Image sizes should be locked in, meaning the size of any element
 should not change after the image has loaded.</li>
 <li>Provide an approximate width and height so the virtual scroll can
-best calculate its height.</li>
+best calculate the cell height.</li>
 <li>Changing the dataset requires the entire virtual scroll to be
 reset, which is an expensive operation and should be avoided
 if possible.</li>
-<li>Do not performan any DOM manipulation within section header and
+<li>Do not perform any DOM manipulation within section header and
 footer functions. These functions are called for every record in the
 dataset, so please make sure they&#39;re performant.</li>
 </ul>
@@ -179,8 +173,8 @@ dataset, so please make sure they&#39;re performant.</li>
     <tr>
       <td>virtualScroll</td>
       <td><code>array</code></td>
-      <td><p> The data that builds the items within the virtual scroll.
-This as the same data that you&#39;d pass to <code>ngFor</code>. It&#39;s important to note
+      <td><p> The data that builds the templates within the virtual scroll.
+This is the same data that you&#39;d pass to <code>ngFor</code>. It&#39;s important to note
 that when this data has changed, then the entire virtual scroll is reset,
 which is an expensive operation and should be avoided if possible.</p>
 </td>
@@ -191,9 +185,9 @@ which is an expensive operation and should be avoided if possible.</p>
       <td><code>number</code></td>
       <td><p> The buffer ratio is used to decide how many cells
 should get created when initially rendered. The number is a
-multipler against the viewable area&#39;s height. For example, if it
+multiplier against the viewable area&#39;s height. For example, if it
 takes <code>20</code> cells to fill up the height of the viewable area, then
-with  a buffer ratio of <code>2</code> it&#39;ll create <code>40</code> cells that are
+with a buffer ratio of <code>2</code> it will create <code>40</code> cells that are
 available for reuse while scrolling. For better performance, it&#39;s
 better to have more cells than what are required to fill the
 viewable area. Default is <code>2</code>.</p>

@@ -63528,14 +63528,17 @@
 	 */
 	var NavRouter = (function (_super) {
 	    __extends(NavRouter, _super);
-	    function NavRouter(elementRef, loader, parentRouter, nameAttr, _nav) {
+	    function NavRouter(elementRef, loader, parentRouter, nameAttr, nav) {
+	        if (nav.parent) {
+	            parentRouter = parentRouter.childRouter(nav);
+	        }
 	        _super.call(this, elementRef, loader, parentRouter, nameAttr);
-	        this.parentRouter = parentRouter;
-	        this._nav = _nav;
+	        this._nav = nav;
+	        this._parent = parentRouter;
 	        // register this router with Ionic's NavController
 	        // Ionic's NavController will call this NavRouter's "stateChange"
 	        // method when the NavController has...changed its state
-	        _nav.registerRouter(this);
+	        nav.registerRouter(this);
 	    }
 	    NavRouter.prototype.stateChange = function (direction, viewCtrl) {
 	        // stateChange is called by Ionic's NavController
@@ -63556,7 +63559,7 @@
 	                if (url === this._lastUrl)
 	                    return;
 	                this._lastUrl = url;
-	                this['_parentRouter'].navigateByInstruction(instruction);
+	                this._parent.navigateByInstruction(instruction);
 	                console.debug('NavRouter, stateChange, name:', viewCtrl.name, 'id:', viewCtrl.id, 'url:', url);
 	            }
 	        }
@@ -63565,7 +63568,7 @@
 	        var previousInstruction = this['_currentInstruction'];
 	        this['_currentInstruction'] = nextInstruction;
 	        var componentType = nextInstruction.componentType;
-	        var childRouter = this['_parentRouter'].childRouter(componentType);
+	        var childRouter = this._parent.childRouter(componentType);
 	        // prevent double navigations to the same view
 	        var instruction = new ResolvedInstruction(nextInstruction, null, null);
 	        var url;
@@ -63584,7 +63587,7 @@
 	    };
 	    NavRouter.prototype.getPathRecognizerByComponent = function (componentType) {
 	        // given a componentType, figure out the best PathRecognizer to use
-	        var rules = this.parentRouter.registry['_rules'];
+	        var rules = this._parent.registry['_rules'];
 	        var pathRecognizer = null;
 	        rules.forEach(function (rule) {
 	            pathRecognizer = rule.rules.find(function (routeRule) {

@@ -260,6 +260,58 @@ forward views cached and not reset on each load.
 
 
 
+<div id="views.swipeBackEnabled"></div>
+<h2>
+  <code>views.swipeBackEnabled(value)</code>
+
+</h2>
+
+By default on iOS devices, swipe to go back functionality is enabled by default.
+This method can be used to disable it globally, or on a per-view basis.
+Note: This functionality is only supported on iOS.
+
+
+
+<table class="table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        value
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+* Returns: 
+  <code>boolean</code> 
+
+
+
+
 <div id="scrolling.jsScrolling"></div>
 <h2>
   <code>scrolling.jsScrolling(value)</code>

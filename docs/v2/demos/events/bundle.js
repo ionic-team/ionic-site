@@ -42428,10 +42428,14 @@
 	        var yDistance = Math.abs(y - fromY);
 	        return new Promise(function (resolve) {
 	            var startTime;
+	            var attempts = 0;
 	            // scroll loop
 	            function step() {
-	                if (!self._el || !self.isPlaying) {
-	                    return resolve();
+	                attempts++;
+	                if (!self._el || !self.isPlaying || attempts > 200) {
+	                    self.isPlaying = false;
+	                    resolve();
+	                    return;
 	                }
 	                var time = Math.min(1, ((Date.now() - startTime) / duration));
 	                // where .5 would be 50% of time on a linear scale easedT gives a
@@ -42441,9 +42445,9 @@
 	                    self.setTop((easedT * (y - fromY)) + fromY);
 	                }
 	                if (fromX != x) {
-	                    self._el.scrollLeft = Math.round((easedT * (x - fromX)) + fromX);
+	                    self._el.scrollLeft = Math.floor((easedT * (x - fromX)) + fromX);
 	                }
-	                if (time < 1 && self.isPlaying) {
+	                if (easedT < 1) {
 	                    dom_1.raf(step);
 	                }
 	                else {

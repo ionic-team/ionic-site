@@ -46592,6 +46592,10 @@
 	         * @private
 	         */
 	        this.routers = [];
+	        /**
+	         * @private
+	         */
+	        this.isPortal = false;
 	        this.parent = parent;
 	        this.config = config;
 	        this._trnsDelay = config.get('pageTransitionDelay');
@@ -46839,6 +46843,9 @@
 	        if (util_1.isBlank(opts)) {
 	            opts = {};
 	        }
+	        if (enteringView.usePortal && this._portal) {
+	            return this._portal.present(enteringView, opts);
+	        }
 	        enteringView.setNav(rootNav);
 	        opts.keyboardClose = false;
 	        opts.direction = 'forward';
@@ -46850,10 +46857,6 @@
 	            direction: 'back',
 	            animation: enteringView.getTransitionName('back')
 	        });
-	        if (enteringView.usePortal && this._portal) {
-	            this._portal.present(enteringView);
-	            return;
-	        }
 	        // start the transition
 	        return rootNav._insertViews(-1, [enteringView], opts);
 	    };
@@ -47113,7 +47116,7 @@
 	            // to happen and the previously active view is going to animate out
 	            // get the view thats ready to enter
 	            var enteringView = this.getByState(STATE_INIT_ENTER);
-	            if (!enteringView && this._portal) {
+	            if (!enteringView && !this.isPortal) {
 	                // oh nos! no entering view to go to!
 	                // if there is no previous view that would enter in this nav stack
 	                // and the option is set to climb up the nav parent looking
@@ -47266,9 +47269,7 @@
 	        if (util_1.isBlank(opts)) {
 	            opts = {};
 	        }
-	        if (this.config.get('animate') === false || (this._views.length === 1 && !this._init)) {
-	            opts.animate = false;
-	        }
+	        this._setAnimate(opts);
 	        if (!leavingView) {
 	            // if no leaving view then create a bogus one
 	            leavingView = new view_controller_1.ViewController();
@@ -47291,6 +47292,11 @@
 	            instrumentation_1.wtfEndTimeRange(wtfScope);
 	            done(hasCompleted);
 	        });
+	    };
+	    NavController.prototype._setAnimate = function (opts) {
+	        if ((this._views.length === 1 && !this._init && !this.isPortal) || this.config.get('animate') === false) {
+	            opts.animate = false;
+	        }
 	    };
 	    /**
 	     * @private
@@ -47424,9 +47430,7 @@
 	            var transAnimation = transition_1.Transition.createTransition(enteringView, leavingView, transitionOpts);
 	            _this._trans && _this._trans.destroy();
 	            _this._trans = transAnimation;
-	            // Portal elements should always animate
-	            // so ignore this if it is a portal
-	            if (opts.animate === false && _this._portal) {
+	            if (opts.animate === false) {
 	                // force it to not animate the elements, just apply the "to" styles
 	                transAnimation.duration(0);
 	            }
@@ -47560,7 +47564,7 @@
 	            // allow clicks and enable the app again
 	            this._app && this._app.setEnabled(true);
 	            this.setTransitioning(false);
-	            if (direction !== null && hasCompleted && this._portal) {
+	            if (direction !== null && hasCompleted && !this.isPortal) {
 	                // notify router of the state change if a direction was provided
 	                // multiple routers can exist and each should be notified
 	                this.routers.forEach(function (router) {
@@ -47922,7 +47926,7 @@
 	                }
 	                else {
 	                    // this is the initial view
-	                    enteringView.setZIndex(this._portal ? INIT_ZINDEX : PORTAL_ZINDEX, this._renderer);
+	                    enteringView.setZIndex(this.isPortal ? PORTAL_ZINDEX : INIT_ZINDEX, this._renderer);
 	                }
 	            }
 	            else if (direction === 'back') {
@@ -61774,6 +61778,7 @@
 	    __extends(Portal, _super);
 	    function Portal(hostNavCtrl, viewCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer) {
 	        _super.call(this, hostNavCtrl, app, config, keyboard, elementRef, null, compiler, viewManager, zone, renderer);
+	        this.isPortal = true;
 	    }
 	    Portal = __decorate([
 	        core_1.Directive({

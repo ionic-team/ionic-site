@@ -3292,12 +3292,12 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(6));
-	__export(__webpack_require__(161));
+	__export(__webpack_require__(162));
 	__export(__webpack_require__(288));
 	__export(__webpack_require__(354));
 	__export(__webpack_require__(355));
 	__export(__webpack_require__(356));
-	__export(__webpack_require__(162));
+	__export(__webpack_require__(163));
 	__export(__webpack_require__(361));
 	__export(__webpack_require__(160));
 	__export(__webpack_require__(165));
@@ -3324,7 +3324,7 @@
 	var router_1 = __webpack_require__(117);
 	var http_1 = __webpack_require__(145);
 	var click_block_1 = __webpack_require__(160);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var events_1 = __webpack_require__(165);
 	var feature_detect_1 = __webpack_require__(166);
 	var form_1 = __webpack_require__(167);
@@ -3332,8 +3332,8 @@
 	var keyboard_1 = __webpack_require__(280);
 	var menu_controller_1 = __webpack_require__(281);
 	var nav_registry_1 = __webpack_require__(282);
-	var platform_1 = __webpack_require__(162);
-	var dom_1 = __webpack_require__(164);
+	var platform_1 = __webpack_require__(163);
+	var dom_1 = __webpack_require__(161);
 	var scroll_view_1 = __webpack_require__(283);
 	var tap_click_1 = __webpack_require__(284);
 	var translate_1 = __webpack_require__(287);
@@ -26181,9 +26181,10 @@
 
 /***/ },
 /* 160 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var dom_1 = __webpack_require__(161);
 	var CSS_CLICK_BLOCK = 'click-block-active';
 	var DEFAULT_EXPIRE = 330;
 	var cbEle, fallbackTimerId;
@@ -26219,7 +26220,7 @@
 	exports.ClickBlock = ClickBlock;
 	function show(expire) {
 	    clearTimeout(fallbackTimerId);
-	    fallbackTimerId = setTimeout(hide, expire || DEFAULT_EXPIRE);
+	    fallbackTimerId = dom_1.nativeTimeout(hide, expire || DEFAULT_EXPIRE);
 	    if (!isShowing) {
 	        cbEle.classList.add(CSS_CLICK_BLOCK);
 	        isShowing = true;
@@ -26235,6 +26236,269 @@
 
 /***/ },
 /* 161 */
+/***/ function(module, exports) {
+
+	"use strict";
+	// RequestAnimationFrame Polyfill (Android 4.3 and below)
+	/*! @author Paul Irish */
+	/*! @source https://gist.github.com/paulirish/1579671 */
+	(function () {
+	    var rafLastTime = 0;
+	    var win = window;
+	    if (!win.requestAnimationFrame) {
+	        win.requestAnimationFrame = function (callback, element) {
+	            var currTime = Date.now();
+	            var timeToCall = Math.max(0, 16 - (currTime - rafLastTime));
+	            var id = window.setTimeout(function () {
+	                callback(currTime + timeToCall);
+	            }, timeToCall);
+	            rafLastTime = currTime + timeToCall;
+	            return id;
+	        };
+	    }
+	    if (!win.cancelAnimationFrame) {
+	        win.cancelAnimationFrame = function (id) { clearTimeout(id); };
+	    }
+	})();
+	// use native raf rather than the zone wrapped one
+	exports.raf = (window[window['Zone']['__symbol__']('requestAnimationFrame')] || window[window['Zone']['__symbol__']('webkitRequestAnimationFrame')])['bind'](window);
+	exports.cancelRaf = window.cancelAnimationFrame.bind(window);
+	exports.nativeTimeout = window[window['Zone']['__symbol__']('setTimeout')]['bind'](window);
+	exports.clearNativeTimeout = window[window['Zone']['__symbol__']('clearTimeout')]['bind'](window);
+	function rafFrames(framesToWait, callback) {
+	    framesToWait = Math.ceil(framesToWait);
+	    if (framesToWait < 2) {
+	        exports.raf(callback);
+	    }
+	    else {
+	        exports.nativeTimeout(function () {
+	            exports.raf(callback);
+	        }, (framesToWait - 1) * 16.6667);
+	    }
+	}
+	exports.rafFrames = rafFrames;
+	exports.CSS = {};
+	(function () {
+	    // transform
+	    var i, keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
+	        '-moz-transform', 'moz-transform', 'MozTransform', 'mozTransform', 'msTransform'];
+	    for (i = 0; i < keys.length; i++) {
+	        if (document.documentElement.style[keys[i]] !== undefined) {
+	            exports.CSS.transform = keys[i];
+	            break;
+	        }
+	    }
+	    // transition
+	    keys = ['webkitTransition', 'mozTransition', 'msTransition', 'transition'];
+	    for (i = 0; i < keys.length; i++) {
+	        if (document.documentElement.style[keys[i]] !== undefined) {
+	            exports.CSS.transition = keys[i];
+	            break;
+	        }
+	    }
+	    // The only prefix we care about is webkit for transitions.
+	    var isWebkit = exports.CSS.transition.indexOf('webkit') > -1;
+	    // transition duration
+	    exports.CSS.transitionDuration = (isWebkit ? '-webkit-' : '') + 'transition-duration';
+	    // transition timing function
+	    exports.CSS.transitionTimingFn = (isWebkit ? '-webkit-' : '') + 'transition-timing-function';
+	    // transition delay
+	    exports.CSS.transitionDelay = (isWebkit ? '-webkit-' : '') + 'transition-delay';
+	    // To be sure transitionend works everywhere, include *both* the webkit and non-webkit events
+	    exports.CSS.transitionEnd = (isWebkit ? 'webkitTransitionEnd ' : '') + 'transitionend';
+	})();
+	function transitionEnd(el, callback) {
+	    if (el) {
+	        exports.CSS.transitionEnd.split(' ').forEach(function (eventName) {
+	            el.addEventListener(eventName, onEvent);
+	        });
+	        return unregister;
+	    }
+	    function unregister() {
+	        exports.CSS.transitionEnd.split(' ').forEach(function (eventName) {
+	            el.removeEventListener(eventName, onEvent);
+	        });
+	    }
+	    function onEvent(ev) {
+	        if (el === ev.target) {
+	            unregister();
+	            callback(ev);
+	        }
+	    }
+	}
+	exports.transitionEnd = transitionEnd;
+	function ready(callback) {
+	    var promise = null;
+	    if (!callback) {
+	        // a callback wasn't provided, so let's return a promise instead
+	        promise = new Promise(function (resolve) { callback = resolve; });
+	    }
+	    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+	        callback();
+	    }
+	    else {
+	        document.addEventListener('DOMContentLoaded', completed, false);
+	        window.addEventListener('load', completed, false);
+	    }
+	    return promise;
+	    function completed() {
+	        document.removeEventListener('DOMContentLoaded', completed, false);
+	        window.removeEventListener('load', completed, false);
+	        callback();
+	    }
+	}
+	exports.ready = ready;
+	function windowLoad(callback) {
+	    var promise = null;
+	    if (!callback) {
+	        // a callback wasn't provided, so let's return a promise instead
+	        promise = new Promise(function (resolve) { callback = resolve; });
+	    }
+	    if (document.readyState === 'complete') {
+	        callback();
+	    }
+	    else {
+	        window.addEventListener('load', completed, false);
+	    }
+	    return promise;
+	    function completed() {
+	        window.removeEventListener('load', completed, false);
+	        callback();
+	    }
+	}
+	exports.windowLoad = windowLoad;
+	function pointerCoord(ev) {
+	    // get coordinates for either a mouse click
+	    // or a touch depending on the given event
+	    var c = { x: 0, y: 0 };
+	    if (ev) {
+	        var touches = ev.touches && ev.touches.length ? ev.touches : [ev];
+	        var e = (ev.changedTouches && ev.changedTouches[0]) || touches[0];
+	        if (e) {
+	            c.x = e.clientX || e.pageX || 0;
+	            c.y = e.clientY || e.pageY || 0;
+	        }
+	    }
+	    return c;
+	}
+	exports.pointerCoord = pointerCoord;
+	function hasPointerMoved(threshold, startCoord, endCoord) {
+	    return startCoord && endCoord &&
+	        (Math.abs(startCoord.x - endCoord.x) > threshold || Math.abs(startCoord.y - endCoord.y) > threshold);
+	}
+	exports.hasPointerMoved = hasPointerMoved;
+	function isActive(ele) {
+	    return !!(ele && (document.activeElement === ele));
+	}
+	exports.isActive = isActive;
+	function hasFocus(ele) {
+	    return isActive(ele) && (ele.parentElement.querySelector(':focus') === ele);
+	}
+	exports.hasFocus = hasFocus;
+	function isTextInput(ele) {
+	    return !!ele &&
+	        (ele.tagName == 'TEXTAREA' ||
+	            ele.contentEditable === 'true' ||
+	            (ele.tagName == 'INPUT' && !(/^(radio|checkbox|range|file|submit|reset|color|image|button)$/i).test(ele.type)));
+	}
+	exports.isTextInput = isTextInput;
+	function hasFocusedTextInput() {
+	    var ele = document.activeElement;
+	    if (isTextInput(ele)) {
+	        return (ele.parentElement.querySelector(':focus') === ele);
+	    }
+	    return false;
+	}
+	exports.hasFocusedTextInput = hasFocusedTextInput;
+	var skipInputAttrsReg = /^(value|checked|disabled|type|class|style|id|autofocus|autocomplete|autocorrect)$/i;
+	function copyInputAttributes(srcElement, destElement) {
+	    // copy attributes from one element to another
+	    // however, skip over a few of them as they're already
+	    // handled in the angular world
+	    var attrs = srcElement.attributes;
+	    for (var i = 0; i < attrs.length; i++) {
+	        var attr = attrs[i];
+	        if (!skipInputAttrsReg.test(attr.name)) {
+	            destElement.setAttribute(attr.name, attr.value);
+	        }
+	    }
+	}
+	exports.copyInputAttributes = copyInputAttributes;
+	var matchesFn;
+	var matchesMethods = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'];
+	matchesMethods.some(function (fn) {
+	    if (typeof document.documentElement[fn] === 'function') {
+	        matchesFn = fn;
+	        return true;
+	    }
+	});
+	function closest(ele, selector, checkSelf) {
+	    if (ele && matchesFn) {
+	        // traverse parents
+	        ele = (checkSelf ? ele : ele.parentElement);
+	        while (ele !== null) {
+	            if (ele[matchesFn](selector)) {
+	                return ele;
+	            }
+	            ele = ele.parentElement;
+	        }
+	    }
+	    return null;
+	}
+	exports.closest = closest;
+	/**
+	 * Get the element offsetWidth and offsetHeight. Values are cached
+	 * to reduce DOM reads. Cache is cleared on a window resize.
+	 */
+	function getDimensions(ele, id) {
+	    var dimensions = dimensionCache[id];
+	    if (!dimensions) {
+	        // make sure we got good values before caching
+	        if (ele.offsetWidth && ele.offsetHeight) {
+	            dimensions = dimensionCache[id] = {
+	                width: ele.offsetWidth,
+	                height: ele.offsetHeight,
+	                left: ele.offsetLeft,
+	                top: ele.offsetTop
+	            };
+	        }
+	        else {
+	            // do not cache bad values
+	            return { width: 0, height: 0, left: 0, top: 0 };
+	        }
+	    }
+	    return dimensions;
+	}
+	exports.getDimensions = getDimensions;
+	function clearDimensions(id) {
+	    delete dimensionCache[id];
+	}
+	exports.clearDimensions = clearDimensions;
+	function windowDimensions() {
+	    if (!dimensionCache.win) {
+	        // make sure we got good values before caching
+	        if (window.innerWidth && window.innerHeight) {
+	            dimensionCache.win = {
+	                width: window.innerWidth,
+	                height: window.innerHeight
+	            };
+	        }
+	        else {
+	            // do not cache bad values
+	            return { width: 0, height: 0 };
+	        }
+	    }
+	    return dimensionCache.win;
+	}
+	exports.windowDimensions = windowDimensions;
+	function flushDimensionCache() {
+	    dimensionCache = {};
+	}
+	exports.flushDimensionCache = flushDimensionCache;
+	var dimensionCache = {};
+
+/***/ },
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -26245,8 +26509,8 @@
 	* Config allows you to set the modes of your components
 	*/
 	"use strict";
-	var platform_1 = __webpack_require__(162);
-	var util_1 = __webpack_require__(163);
+	var platform_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	/**
 	 * @name Config
 	 * @demo /docs/v2/demos/config/
@@ -26565,12 +26829,12 @@
 	var modeConfigs = {};
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var util_1 = __webpack_require__(163);
-	var dom_1 = __webpack_require__(164);
+	var util_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	/**
 	 * @name Platform
 	 * @description
@@ -27205,7 +27469,7 @@
 	var platformDefault = null;
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -27451,269 +27715,6 @@
 	    };
 	}
 	exports.throttle = throttle;
-
-/***/ },
-/* 164 */
-/***/ function(module, exports) {
-
-	"use strict";
-	// RequestAnimationFrame Polyfill (Android 4.3 and below)
-	/*! @author Paul Irish */
-	/*! @source https://gist.github.com/paulirish/1579671 */
-	(function () {
-	    var rafLastTime = 0;
-	    var win = window;
-	    if (!win.requestAnimationFrame) {
-	        win.requestAnimationFrame = function (callback, element) {
-	            var currTime = Date.now();
-	            var timeToCall = Math.max(0, 16 - (currTime - rafLastTime));
-	            var id = window.setTimeout(function () {
-	                callback(currTime + timeToCall);
-	            }, timeToCall);
-	            rafLastTime = currTime + timeToCall;
-	            return id;
-	        };
-	    }
-	    if (!win.cancelAnimationFrame) {
-	        win.cancelAnimationFrame = function (id) { clearTimeout(id); };
-	    }
-	})();
-	// use native raf rather than the zone wrapped one
-	exports.raf = (window[window['Zone']['__symbol__']('requestAnimationFrame')] || window[window['Zone']['__symbol__']('webkitRequestAnimationFrame')])['bind'](window);
-	exports.cancelRaf = window.cancelAnimationFrame.bind(window);
-	exports.nativeTimeout = window[window['Zone']['__symbol__']('setTimeout')]['bind'](window);
-	exports.clearNativeTimeout = window[window['Zone']['__symbol__']('clearTimeout')]['bind'](window);
-	function rafFrames(framesToWait, callback) {
-	    framesToWait = Math.ceil(framesToWait);
-	    if (framesToWait < 2) {
-	        exports.raf(callback);
-	    }
-	    else {
-	        exports.nativeTimeout(function () {
-	            exports.raf(callback);
-	        }, (framesToWait - 1) * 16.6667);
-	    }
-	}
-	exports.rafFrames = rafFrames;
-	exports.CSS = {};
-	(function () {
-	    // transform
-	    var i, keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
-	        '-moz-transform', 'moz-transform', 'MozTransform', 'mozTransform', 'msTransform'];
-	    for (i = 0; i < keys.length; i++) {
-	        if (document.documentElement.style[keys[i]] !== undefined) {
-	            exports.CSS.transform = keys[i];
-	            break;
-	        }
-	    }
-	    // transition
-	    keys = ['webkitTransition', 'mozTransition', 'msTransition', 'transition'];
-	    for (i = 0; i < keys.length; i++) {
-	        if (document.documentElement.style[keys[i]] !== undefined) {
-	            exports.CSS.transition = keys[i];
-	            break;
-	        }
-	    }
-	    // The only prefix we care about is webkit for transitions.
-	    var isWebkit = exports.CSS.transition.indexOf('webkit') > -1;
-	    // transition duration
-	    exports.CSS.transitionDuration = (isWebkit ? '-webkit-' : '') + 'transition-duration';
-	    // transition timing function
-	    exports.CSS.transitionTimingFn = (isWebkit ? '-webkit-' : '') + 'transition-timing-function';
-	    // transition delay
-	    exports.CSS.transitionDelay = (isWebkit ? '-webkit-' : '') + 'transition-delay';
-	    // To be sure transitionend works everywhere, include *both* the webkit and non-webkit events
-	    exports.CSS.transitionEnd = (isWebkit ? 'webkitTransitionEnd ' : '') + 'transitionend';
-	})();
-	function transitionEnd(el, callback) {
-	    if (el) {
-	        exports.CSS.transitionEnd.split(' ').forEach(function (eventName) {
-	            el.addEventListener(eventName, onEvent);
-	        });
-	        return unregister;
-	    }
-	    function unregister() {
-	        exports.CSS.transitionEnd.split(' ').forEach(function (eventName) {
-	            el.removeEventListener(eventName, onEvent);
-	        });
-	    }
-	    function onEvent(ev) {
-	        if (el === ev.target) {
-	            unregister();
-	            callback(ev);
-	        }
-	    }
-	}
-	exports.transitionEnd = transitionEnd;
-	function ready(callback) {
-	    var promise = null;
-	    if (!callback) {
-	        // a callback wasn't provided, so let's return a promise instead
-	        promise = new Promise(function (resolve) { callback = resolve; });
-	    }
-	    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-	        callback();
-	    }
-	    else {
-	        document.addEventListener('DOMContentLoaded', completed, false);
-	        window.addEventListener('load', completed, false);
-	    }
-	    return promise;
-	    function completed() {
-	        document.removeEventListener('DOMContentLoaded', completed, false);
-	        window.removeEventListener('load', completed, false);
-	        callback();
-	    }
-	}
-	exports.ready = ready;
-	function windowLoad(callback) {
-	    var promise = null;
-	    if (!callback) {
-	        // a callback wasn't provided, so let's return a promise instead
-	        promise = new Promise(function (resolve) { callback = resolve; });
-	    }
-	    if (document.readyState === 'complete') {
-	        callback();
-	    }
-	    else {
-	        window.addEventListener('load', completed, false);
-	    }
-	    return promise;
-	    function completed() {
-	        window.removeEventListener('load', completed, false);
-	        callback();
-	    }
-	}
-	exports.windowLoad = windowLoad;
-	function pointerCoord(ev) {
-	    // get coordinates for either a mouse click
-	    // or a touch depending on the given event
-	    var c = { x: 0, y: 0 };
-	    if (ev) {
-	        var touches = ev.touches && ev.touches.length ? ev.touches : [ev];
-	        var e = (ev.changedTouches && ev.changedTouches[0]) || touches[0];
-	        if (e) {
-	            c.x = e.clientX || e.pageX || 0;
-	            c.y = e.clientY || e.pageY || 0;
-	        }
-	    }
-	    return c;
-	}
-	exports.pointerCoord = pointerCoord;
-	function hasPointerMoved(threshold, startCoord, endCoord) {
-	    return startCoord && endCoord &&
-	        (Math.abs(startCoord.x - endCoord.x) > threshold || Math.abs(startCoord.y - endCoord.y) > threshold);
-	}
-	exports.hasPointerMoved = hasPointerMoved;
-	function isActive(ele) {
-	    return !!(ele && (document.activeElement === ele));
-	}
-	exports.isActive = isActive;
-	function hasFocus(ele) {
-	    return isActive(ele) && (ele.parentElement.querySelector(':focus') === ele);
-	}
-	exports.hasFocus = hasFocus;
-	function isTextInput(ele) {
-	    return !!ele &&
-	        (ele.tagName == 'TEXTAREA' ||
-	            ele.contentEditable === 'true' ||
-	            (ele.tagName == 'INPUT' && !(/^(radio|checkbox|range|file|submit|reset|color|image|button)$/i).test(ele.type)));
-	}
-	exports.isTextInput = isTextInput;
-	function hasFocusedTextInput() {
-	    var ele = document.activeElement;
-	    if (isTextInput(ele)) {
-	        return (ele.parentElement.querySelector(':focus') === ele);
-	    }
-	    return false;
-	}
-	exports.hasFocusedTextInput = hasFocusedTextInput;
-	var skipInputAttrsReg = /^(value|checked|disabled|type|class|style|id|autofocus|autocomplete|autocorrect)$/i;
-	function copyInputAttributes(srcElement, destElement) {
-	    // copy attributes from one element to another
-	    // however, skip over a few of them as they're already
-	    // handled in the angular world
-	    var attrs = srcElement.attributes;
-	    for (var i = 0; i < attrs.length; i++) {
-	        var attr = attrs[i];
-	        if (!skipInputAttrsReg.test(attr.name)) {
-	            destElement.setAttribute(attr.name, attr.value);
-	        }
-	    }
-	}
-	exports.copyInputAttributes = copyInputAttributes;
-	var matchesFn;
-	var matchesMethods = ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector'];
-	matchesMethods.some(function (fn) {
-	    if (typeof document.documentElement[fn] === 'function') {
-	        matchesFn = fn;
-	        return true;
-	    }
-	});
-	function closest(ele, selector, checkSelf) {
-	    if (ele && matchesFn) {
-	        // traverse parents
-	        ele = (checkSelf ? ele : ele.parentElement);
-	        while (ele !== null) {
-	            if (ele[matchesFn](selector)) {
-	                return ele;
-	            }
-	            ele = ele.parentElement;
-	        }
-	    }
-	    return null;
-	}
-	exports.closest = closest;
-	/**
-	 * Get the element offsetWidth and offsetHeight. Values are cached
-	 * to reduce DOM reads. Cache is cleared on a window resize.
-	 */
-	function getDimensions(ele, id) {
-	    var dimensions = dimensionCache[id];
-	    if (!dimensions) {
-	        // make sure we got good values before caching
-	        if (ele.offsetWidth && ele.offsetHeight) {
-	            dimensions = dimensionCache[id] = {
-	                width: ele.offsetWidth,
-	                height: ele.offsetHeight,
-	                left: ele.offsetLeft,
-	                top: ele.offsetTop
-	            };
-	        }
-	        else {
-	            // do not cache bad values
-	            return { width: 0, height: 0, left: 0, top: 0 };
-	        }
-	    }
-	    return dimensions;
-	}
-	exports.getDimensions = getDimensions;
-	function clearDimensions(id) {
-	    delete dimensionCache[id];
-	}
-	exports.clearDimensions = clearDimensions;
-	function windowDimensions() {
-	    if (!dimensionCache.win) {
-	        // make sure we got good values before caching
-	        if (window.innerWidth && window.innerHeight) {
-	            dimensionCache.win = {
-	                width: window.innerWidth,
-	                height: window.innerHeight
-	            };
-	        }
-	        else {
-	            // do not cache bad values
-	            return { width: 0, height: 0 };
-	        }
-	    }
-	    return dimensionCache.win;
-	}
-	exports.windowDimensions = windowDimensions;
-	function flushDimensionCache() {
-	    dimensionCache = {};
-	}
-	exports.flushDimensionCache = flushDimensionCache;
-	var dimensionCache = {};
 
 /***/ },
 /* 165 */
@@ -27977,7 +27978,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var browser_1 = __webpack_require__(169);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var click_block_1 = __webpack_require__(160);
 	/**
 	 * App utility service.  Allows you to look up components that have been
@@ -41890,9 +41891,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var form_1 = __webpack_require__(167);
-	var dom_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	/**
 	 * @name Keyboard
 	 * @description
@@ -42410,7 +42411,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var dom_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	var ScrollView = (function () {
 	    function ScrollView(ele) {
 	        this._js = false;
@@ -42632,8 +42633,8 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var app_1 = __webpack_require__(168);
-	var config_1 = __webpack_require__(161);
-	var dom_1 = __webpack_require__(164);
+	var config_1 = __webpack_require__(162);
+	var dom_1 = __webpack_require__(161);
 	var activator_1 = __webpack_require__(285);
 	var ripple_1 = __webpack_require__(286);
 	/**
@@ -42821,7 +42822,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var dom_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	var Activator = (function () {
 	    function Activator(app, config, _zone) {
 	        this.app = app;
@@ -42918,7 +42919,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var activator_1 = __webpack_require__(285);
-	var dom_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	var win = window;
 	/**
 	 * @private
@@ -43337,12 +43338,12 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var ion_1 = __webpack_require__(291);
-	var config_1 = __webpack_require__(161);
-	var platform_1 = __webpack_require__(162);
+	var config_1 = __webpack_require__(162);
+	var platform_1 = __webpack_require__(163);
 	var keyboard_1 = __webpack_require__(280);
 	var menu_gestures_1 = __webpack_require__(292);
 	var menu_controller_1 = __webpack_require__(281);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	/**
 	 * @private
 	 */
@@ -43773,7 +43774,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var dom = __webpack_require__(164);
+	var dom = __webpack_require__(161);
 	var ids = 0;
 	/**
 	 * Base class for all Ionic components. Exposes some common functionality
@@ -43818,7 +43819,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var slide_edge_gesture_1 = __webpack_require__(293);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	/**
 	 * Gesture attached to the content which the menu is assigned to
 	 */
@@ -43944,8 +43945,8 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var slide_gesture_1 = __webpack_require__(294);
-	var util_1 = __webpack_require__(163);
-	var dom_1 = __webpack_require__(164);
+	var util_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	var SlideEdgeGesture = (function (_super) {
 	    __extends(SlideEdgeGesture, _super);
 	    function SlideEdgeGesture(element, opts) {
@@ -44189,16 +44190,16 @@
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	var domUtil = __webpack_require__(164);
+	var domUtil = __webpack_require__(161);
 	exports.dom = domUtil;
-	__export(__webpack_require__(163));
+	__export(__webpack_require__(164));
 
 /***/ },
 /* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var win = window;
 	var doc = document;
 	/*! Hammer.JS - v2.0.6 - 2015-12-23
@@ -46471,7 +46472,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var nav_params_1 = __webpack_require__(301);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	/**
 	 * @name ViewController
 	 * @description
@@ -47019,9 +47020,9 @@
 	var ion_1 = __webpack_require__(291);
 	var icon_1 = __webpack_require__(303);
 	var toolbar_1 = __webpack_require__(304);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var app_1 = __webpack_require__(168);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var view_controller_1 = __webpack_require__(300);
 	var nav_controller_1 = __webpack_require__(306);
 	var BackButton = (function (_super) {
@@ -47268,7 +47269,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	/**
 	 * @name Icon
 	 * @description
@@ -47702,8 +47703,8 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var config_1 = __webpack_require__(161);
-	var util_1 = __webpack_require__(163);
+	var config_1 = __webpack_require__(162);
+	var util_1 = __webpack_require__(164);
 	/**
 	  * @name Button
 	  * @module ionic
@@ -48082,7 +48083,7 @@
 	var instrumentation_1 = __webpack_require__(307);
 	var ion_1 = __webpack_require__(291);
 	var nav_params_1 = __webpack_require__(301);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var swipe_back_1 = __webpack_require__(308);
 	var transition_1 = __webpack_require__(309);
 	var view_controller_1 = __webpack_require__(300);
@@ -49577,7 +49578,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var slide_edge_gesture_1 = __webpack_require__(293);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var SwipeBackGesture = (function (_super) {
 	    __extends(SwipeBackGesture, _super);
 	    function SwipeBackGesture(element, options, _nav) {
@@ -49662,8 +49663,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var dom_1 = __webpack_require__(164);
-	var util_1 = __webpack_require__(163);
+	var dom_1 = __webpack_require__(161);
+	var util_1 = __webpack_require__(164);
 	/**
 	 * @private
 	 **/
@@ -50405,7 +50406,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	/**
 	  * @name Badge
 	  * @module ionic
@@ -50526,8 +50527,8 @@
 	var core_1 = __webpack_require__(7);
 	var ion_1 = __webpack_require__(291);
 	var app_1 = __webpack_require__(168);
-	var config_1 = __webpack_require__(161);
-	var dom_1 = __webpack_require__(164);
+	var config_1 = __webpack_require__(162);
+	var dom_1 = __webpack_require__(161);
 	var view_controller_1 = __webpack_require__(300);
 	var scroll_view_1 = __webpack_require__(283);
 	/**
@@ -50870,8 +50871,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var util_1 = __webpack_require__(163);
-	var platform_1 = __webpack_require__(162);
+	var util_1 = __webpack_require__(164);
+	var platform_1 = __webpack_require__(163);
 	var Img = (function () {
 	    function Img(_elementRef, _platform) {
 	        this._elementRef = _elementRef;
@@ -51369,7 +51370,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var infinite_scroll_1 = __webpack_require__(317);
 	var spinner_1 = __webpack_require__(319);
 	/**
@@ -51433,7 +51434,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	/**
 	 * @name Spinner
 	 * @description
@@ -51729,8 +51730,8 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var content_1 = __webpack_require__(314);
-	var util_1 = __webpack_require__(163);
-	var dom_1 = __webpack_require__(164);
+	var util_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	/**
 	 * @name Refresher
 	 * @description
@@ -52247,7 +52248,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var icon_1 = __webpack_require__(303);
 	var refresher_1 = __webpack_require__(320);
 	var spinner_1 = __webpack_require__(319);
@@ -52341,8 +52342,8 @@
 	var animation_1 = __webpack_require__(310);
 	var gesture_1 = __webpack_require__(296);
 	var util_1 = __webpack_require__(297);
-	var dom_1 = __webpack_require__(164);
-	var util_2 = __webpack_require__(163);
+	var dom_1 = __webpack_require__(161);
+	var util_2 = __webpack_require__(164);
 	var swiper_widget_1 = __webpack_require__(323);
 	/**
 	 * @name Slides
@@ -56881,15 +56882,15 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
 	var app_1 = __webpack_require__(168);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var tab_button_1 = __webpack_require__(325);
 	var tab_highlight_1 = __webpack_require__(327);
 	var ion_1 = __webpack_require__(291);
-	var platform_1 = __webpack_require__(162);
+	var platform_1 = __webpack_require__(163);
 	var nav_controller_1 = __webpack_require__(306);
 	var view_controller_1 = __webpack_require__(300);
 	var icon_1 = __webpack_require__(303);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	/**
 	 * @name Tabs
 	 * @description
@@ -57229,7 +57230,7 @@
 	var core_1 = __webpack_require__(7);
 	var tab_1 = __webpack_require__(326);
 	var ion_1 = __webpack_require__(291);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	/**
 	 * @private
 	 */
@@ -57314,7 +57315,7 @@
 	var core_1 = __webpack_require__(7);
 	var core_2 = __webpack_require__(7);
 	var app_1 = __webpack_require__(168);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var keyboard_1 = __webpack_require__(280);
 	var nav_controller_1 = __webpack_require__(306);
 	var tabs_1 = __webpack_require__(324);
@@ -57546,7 +57547,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var dom_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	/**
 	 * @private
 	 */
@@ -57742,7 +57743,7 @@
 	};
 	var hammer_1 = __webpack_require__(298);
 	var drag_gesture_1 = __webpack_require__(295);
-	var dom_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	var ItemSlidingGesture = (function (_super) {
 	    __extends(ItemSlidingGesture, _super);
 	    function ItemSlidingGesture(list, listEle) {
@@ -58365,14 +58366,14 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var content_1 = __webpack_require__(314);
-	var platform_1 = __webpack_require__(162);
+	var platform_1 = __webpack_require__(163);
 	var view_controller_1 = __webpack_require__(300);
 	var virtual_item_1 = __webpack_require__(334);
 	var virtual_util_1 = __webpack_require__(335);
-	var util_1 = __webpack_require__(163);
-	var dom_1 = __webpack_require__(164);
+	var util_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	var img_1 = __webpack_require__(315);
 	/**
 	 * @name VirtualScroll
@@ -59052,7 +59053,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var dom_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	/**
 	 * NO DOM
 	 */
@@ -59570,7 +59571,7 @@
 	var common_1 = __webpack_require__(172);
 	var form_1 = __webpack_require__(167);
 	var item_1 = __webpack_require__(330);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 	/**
 	 * @name Checkbox
@@ -59782,7 +59783,7 @@
 	var alert_1 = __webpack_require__(338);
 	var form_1 = __webpack_require__(167);
 	var item_1 = __webpack_require__(330);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var nav_controller_1 = __webpack_require__(306);
 	var option_1 = __webpack_require__(339);
 	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
@@ -60212,8 +60213,8 @@
 	var common_1 = __webpack_require__(172);
 	var animation_1 = __webpack_require__(310);
 	var transition_1 = __webpack_require__(309);
-	var config_1 = __webpack_require__(161);
-	var util_1 = __webpack_require__(163);
+	var config_1 = __webpack_require__(162);
+	var util_1 = __webpack_require__(164);
 	var nav_params_1 = __webpack_require__(301);
 	var view_controller_1 = __webpack_require__(300);
 	/**
@@ -60817,7 +60818,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	/**
 	 * @name Option
 	 * @description
@@ -60916,9 +60917,9 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
 	var form_1 = __webpack_require__(167);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var item_1 = __webpack_require__(330);
-	var dom_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	var TOGGLE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
 	/**
 	 * @name Toggle
@@ -61192,7 +61193,7 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
 	var button_1 = __webpack_require__(305);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var content_1 = __webpack_require__(314);
 	var form_1 = __webpack_require__(167);
 	var input_base_1 = __webpack_require__(342);
@@ -61200,7 +61201,7 @@
 	var item_1 = __webpack_require__(330);
 	var native_input_1 = __webpack_require__(343);
 	var nav_controller_1 = __webpack_require__(306);
-	var platform_1 = __webpack_require__(162);
+	var platform_1 = __webpack_require__(163);
 	/**
 	 * @name Input
 	 * @description
@@ -61391,8 +61392,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(7);
-	var util_1 = __webpack_require__(163);
-	var dom_1 = __webpack_require__(164);
+	var util_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	var native_input_1 = __webpack_require__(343);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
@@ -61937,7 +61938,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
-	var dom_1 = __webpack_require__(164);
+	var dom_1 = __webpack_require__(161);
 	/**
 	 * @private
 	 */
@@ -62136,7 +62137,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	/**
 	 * @name SegmentButton
 	 * @description
@@ -62385,7 +62386,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var form_1 = __webpack_require__(167);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var item_1 = __webpack_require__(330);
 	var radio_group_1 = __webpack_require__(346);
 	/**
@@ -62569,7 +62570,7 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
 	var list_1 = __webpack_require__(328);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var RADIO_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return RadioGroup; }), multi: true });
 	/**
 	 * @name RadioGroup
@@ -62803,10 +62804,10 @@
 	var core_1 = __webpack_require__(7);
 	var common_1 = __webpack_require__(172);
 	var ion_1 = __webpack_require__(291);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var icon_1 = __webpack_require__(303);
 	var button_1 = __webpack_require__(305);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	/**
 	* @private
 	*/
@@ -63161,9 +63162,9 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var app_1 = __webpack_require__(168);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var keyboard_1 = __webpack_require__(280);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var nav_controller_1 = __webpack_require__(306);
 	var nav_portal_1 = __webpack_require__(349);
 	var view_controller_1 = __webpack_require__(300);
@@ -63374,7 +63375,7 @@
 	};
 	var core_1 = __webpack_require__(7);
 	var app_1 = __webpack_require__(168);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var keyboard_1 = __webpack_require__(280);
 	var nav_controller_1 = __webpack_require__(306);
 	var view_controller_1 = __webpack_require__(300);
@@ -63821,7 +63822,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(7);
-	var platform_1 = __webpack_require__(162);
+	var platform_1 = __webpack_require__(163);
 	/**
 	 * @private
 	 */
@@ -64233,9 +64234,9 @@
 	var common_1 = __webpack_require__(172);
 	var animation_1 = __webpack_require__(310);
 	var transition_1 = __webpack_require__(309);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var icon_1 = __webpack_require__(303);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var nav_params_1 = __webpack_require__(301);
 	var view_controller_1 = __webpack_require__(300);
 	/**
@@ -64779,9 +64780,9 @@
 	var common_1 = __webpack_require__(172);
 	var animation_1 = __webpack_require__(310);
 	var transition_1 = __webpack_require__(309);
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	var spinner_1 = __webpack_require__(319);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var nav_params_1 = __webpack_require__(301);
 	var view_controller_1 = __webpack_require__(300);
 	/**
@@ -65509,7 +65510,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var storage_1 = __webpack_require__(362);
-	var util_1 = __webpack_require__(163);
+	var util_1 = __webpack_require__(164);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
 	/**
@@ -65701,7 +65702,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var config_1 = __webpack_require__(161);
+	var config_1 = __webpack_require__(162);
 	// iOS Mode Settings
 	config_1.Config.setModeConfig('ios', {
 	    activator: 'highlight',
@@ -65771,8 +65772,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var platform_1 = __webpack_require__(162);
-	var dom_1 = __webpack_require__(164);
+	var platform_1 = __webpack_require__(163);
+	var dom_1 = __webpack_require__(161);
 	var win = window;
 	var doc = document;
 	platform_1.Platform.register({

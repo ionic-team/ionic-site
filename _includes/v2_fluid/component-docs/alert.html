@@ -10,6 +10,19 @@ From a UI perspective, you can think of Alerts as a type of “floating” modal
 
 Alerts are quite flexible, and can easily be customized. Check out the [API docs](../api/components/alert/Alert) for more information.
 
+Note: If you would like to open an alert as soon as the view loads you should use onPageDidEnter(). Here is a simple example:
+
+```
+onPageDidEnter() {
+    let alert = Alert.create({
+        title: 'New Friend!',
+        subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
+        buttons: ['Ok']
+    });
+    this.nav.present(alert);
+}
+```
+
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
   <li class="docs-content-item"><a href="#alerts">Basic Alerts</a></li>

@@ -5454,9 +5454,9 @@ ion-chip ion-icon[dark] {
 
 ion-fixed {
   position: absolute;
+  z-index: 2;
   -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  z-index: 2; }
+  transform: translateZ(0); }
 
 ion-content {
   background-color: #fff; }

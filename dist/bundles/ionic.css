@@ -5332,9 +5332,9 @@ ion-icon {
     margin: 0; }
   .ios ion-fixed {
     position: absolute;
+    z-index: 2;
     -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    z-index: 2; }
+    transform: translateZ(0); }
   .ios ion-content {
     background-color: #fff; }
   .ios .outer-content {
@@ -8372,9 +8372,9 @@ ion-icon {
     margin: 0; }
   .md ion-fixed {
     position: absolute;
+    z-index: 2;
     -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    z-index: 2; }
+    transform: translateZ(0); }
   .md ion-content {
     background-color: #fff; }
   .md [padding],
@@ -11973,9 +11973,9 @@ ion-icon {
     margin: 0; }
   .wp ion-fixed {
     position: absolute;
+    z-index: 2;
     -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    z-index: 2; }
+    transform: translateZ(0); }
   .wp ion-content {
     background-color: #fff; }
   .wp [padding],

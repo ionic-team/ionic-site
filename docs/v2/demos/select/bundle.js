@@ -24523,9 +24523,9 @@
 	exports.hasFocus = hasFocus;
 	function isTextInput(ele) {
 	    return !!ele &&
-	        (ele.tagName == 'TEXTAREA' ||
+	        (ele.tagName === 'TEXTAREA' ||
 	            ele.contentEditable === 'true' ||
-	            (ele.tagName == 'INPUT' && !(/^(radio|checkbox|range|file|submit|reset|color|image|button)$/i).test(ele.type)));
+	            (ele.tagName === 'INPUT' && !(/^(radio|checkbox|range|file|submit|reset|color|image|button)$/i).test(ele.type)));
 	}
 	exports.isTextInput = isTextInput;
 	function hasFocusedTextInput() {
@@ -25745,7 +25745,9 @@
 	        return (b === 0 || b === '0');
 	    }
 	    // not using strict comparison on purpose
+	    /* tslint:disable */
 	    return (a == b);
+	    /* tslint:enable */
 	};
 	/**
 	 * Convert a string in the format thisIsAString to a slug format this-is-a-string
@@ -40445,7 +40447,7 @@
 	        }
 	        // default is to add the focus-outline when the tab key is used
 	        function keyDown(ev) {
-	            if (!isKeyInputEnabled && ev.keyCode == 9) {
+	            if (!isKeyInputEnabled && ev.keyCode === 9) {
 	                isKeyInputEnabled = true;
 	                enableKeyInput();
 	            }
@@ -40875,10 +40877,10 @@
 	                // where .5 would be 50% of time on a linear scale easedT gives a
 	                // fraction based on the easing method
 	                var easedT = (--time) * time * time + 1;
-	                if (fromY != y) {
+	                if (fromY !== y) {
 	                    self.setTop((easedT * (y - fromY)) + fromY);
 	                }
-	                if (fromX != x) {
+	                if (fromX !== x) {
 	                    self._el.scrollLeft = Math.floor((easedT * (x - fromX)) + fromX);
 	                }
 	                if (easedT < 1) {
@@ -42562,7 +42564,7 @@
 	        util_1.assign(this._options, opts);
 	    };
 	    Gesture.prototype.on = function (type, cb) {
-	        if (type == 'pinch' || type == 'rotate') {
+	        if (type === 'pinch' || type === 'rotate') {
 	            this._hammer.get('pinch').set({ enable: true });
 	        }
 	        this._hammer.on(type, cb);
@@ -42616,6 +42618,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	/* tslint:disable */
 	var util_1 = __webpack_require__(169);
 	var win = window;
 	var doc = document;
@@ -48216,7 +48219,7 @@
 	            if (!isNaN(num)) {
 	                fxState.num = num;
 	            }
-	            fxState.unit = (r[0] != r[2] ? r[2] : '');
+	            fxState.unit = (r[0] !== r[2] ? r[2] : '');
 	        }
 	        else if (typeof val === 'number') {
 	            fxState.num = val;

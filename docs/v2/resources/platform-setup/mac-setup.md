@@ -8,7 +8,7 @@ header_sub_title: Ionic 2 Developer Preview
 ---
 
 ## OSX
-### Common tools
+### Common Tools
 
 For the most part, Node and NPM are going to be used extensively for Ionic and Cordova. You can use the installer from [the Node website](https://nodejs.org) or various package managers.
 
@@ -20,13 +20,13 @@ Once installed, you should have access to both `node` and `npm` from your comman
 
 
 ### iOS
-You'll want to install Xcode from Apple. You can either do this from the Mac App store, or from Apple's Developer portal. The Mac App store is the easiest approach. Once Xcode is installed, you'll have Xcode, the iOS SDK, xcode command line tools, and all the build tools to output a native app.
+You'll want to install Xcode from Apple. You can either do this from the Mac App store or from Apple's Developer portal. The Mac App store is the easiest approach. Once XCode is installed, you'll have XCode, the iOS SDK, XCode command line tools, and all the build tools to output a native app.
 
 ### Java
-We'll need to download Java from [their website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). The install puts Java in your `/Library/Java/JavaVirtualMachines/` folder, so navigate there and pick the version of Java you've installed. Copy this location (including the version number) as we'll need it for later.
+You'll need to download Java from [their website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). The install puts Java in your `/Library/Java/JavaVirtualMachines/` folder, so navigate there and pick the version of Java you've installed. Copy this location (including the version number) as we'll need it for later.
 
 ### Android
-Download Android Studio and go threw the installer and set the IDE up. It should print out a location for where the Android SDK get's installed to, copy this down for future use.
+Download Android Studio and go through the installer and set up the IDE. It should print out a location for where the Android SDK get's installed to; copy this down for future use.
 
 Next, inside the new `SDK` location, we'll run `tools/android` to open the Android SDK Manager. We'll want to install:
 
@@ -70,4 +70,4 @@ java -version
 android
 ```
 
-Now you should be able to create and build and android project from the command line.
+Now, you should be able to create and build an android project from the command line.

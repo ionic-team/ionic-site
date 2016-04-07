@@ -16,7 +16,7 @@ $ ionic setup sass
 ```
 
 You can start to write your sass in your `./scss/ionic.app.scss` file.
-If you need any more help working with sass, we have an [article on our learn site](http://learn.ionicframework.com/formulas/working-with-sass/) that covers the basics.
+If you need any more help working with sass, we have a [YouTube video](https://www.youtube.com/watch?v=_frPHsE2PZk) that covers the basics.
 
 
 #### Setup Sass Manually

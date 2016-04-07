@@ -12,10 +12,9 @@ This position comes with a lot of visibility. For many of the hundreds of thousa
 
 **Responsibilities**
 
-  * Build out our [Learn](http://learn.ionicframework.com/) site.
   * Create demo and example apps for our community
   * Host workshops and webinars
-  * Speak at conferences and meetups 
+  * Speak at conferences and meetups
 
 **Requirements**
 
@@ -28,4 +27,3 @@ This position comes with a lot of visibility. For many of the hundreds of thousa
   * Competitive salary and equity
   * Full health, vision, and dental benefits
   * Your choice of computer and equipment setup
-

@@ -5,6 +5,7 @@ url: http://ionicframework.com/blog
 markdown: kramdown
 kramdown:
   input: GFM
+  hard_wrap: false
 timezone: "US/Central"
 highlighter: rouge
 

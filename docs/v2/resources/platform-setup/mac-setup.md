@@ -26,7 +26,7 @@ You'll want to install Xcode from Apple. You can either do this from the Mac App
 You'll need to download Java from [their website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). The install puts Java in your `/Library/Java/JavaVirtualMachines/` folder, so navigate there and pick the version of Java you've installed. Copy this location (including the version number) as we'll need it for later.
 
 ### Android
-Download Android Studio and go through the installer and set up the IDE. It should print out a location for where the Android SDK get's installed to; copy this down for future use.
+Download Android Studio and go through the installer and set up the IDE. It should print out a location for where the Android SDK gets installed; copy this down for future use.
 
 Next, inside the new `SDK` location, we'll run `tools/android` to open the Android SDK Manager. We'll want to install:
 
@@ -46,7 +46,7 @@ touch .bash_profile
 
 Then open that file in your favorite editor.
 
-From here, we'll need to add a few lines. These are the reference to Java and the Android SDK location we've copied down earlier.
+From here, we'll need to add a few lines. These are the reference to Java and the Android SDK location we copied down earlier.
 
 If you've used the paths suggested, you should have something like this.
 
@@ -70,4 +70,4 @@ java -version
 android
 ```
 
-Now, you should be able to create and build an android project from the command line.
+Now, you should be able to create and build an Android project from the command line.

@@ -208,7 +208,7 @@ export class MyPage{
 
 </h3>
 
-Scroll to the specified position.
+Scroll to the top of the content component.
 
 ```ts
 @Page({
@@ -226,7 +226,7 @@ export class MyPage{
     this.content = this.app.getComponent('my-content');
   }
    scrollTop() {
-     this.content.scrollTop();
+     this.content.scrollToTop();
    }
 }
 ```

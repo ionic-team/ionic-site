@@ -41035,10 +41035,10 @@
 	        this.disableClick = 0;
 	        this.lastActivated = 0;
 	        var self = this;
-	        if (config.get('activator') == 'ripple') {
+	        if (config.get('activator') === 'ripple') {
 	            self.activator = new ripple_1.RippleActivator(app, config, zone);
 	        }
-	        else if (config.get('activator') == 'highlight') {
+	        else if (config.get('activator') === 'highlight') {
 	            self.activator = new activator_1.Activator(app, config, zone);
 	        }
 	        self.usePolyfill = (config.get('tapPolyfill') === true);
@@ -44832,7 +44832,7 @@
 	            selector: '[menuToggle]',
 	            host: {
 	                '[hidden]': 'isHidden',
-	                'menuToggle': '' //ensures the attr is there for css when using [menuToggle]
+	                'menuToggle': '' // ensures the attr is there for css when using [menuToggle]
 	            }
 	        }),
 	        __param(2, core_1.Optional()),
@@ -44915,7 +44915,7 @@
 	         */
 	        this._emitter = new core_1.EventEmitter();
 	        // passed in data could be NavParams, but all we care about is its data object
-	        this.data = (data instanceof nav_params_1.NavParams ? data.data : util_1.isPresent(data) ? data : {});
+	        this.data = (data instanceof nav_params_1.NavParams ? data.data : (util_1.isPresent(data) ? data : {}));
 	    }
 	    ViewController.prototype.subscribe = function (generatorOrNext) {
 	        return this._emitter.subscribe(generatorOrNext);
@@ -45788,7 +45788,7 @@
 	        else {
 	            css += this._name;
 	        }
-	        if (this.mode == 'ios' && !this.isActive) {
+	        if (this.mode === 'ios' && !this.isActive) {
 	            css += '-outline';
 	        }
 	        if (this._css !== css) {
@@ -47081,7 +47081,7 @@
 	            startIndex = this._views.length - 1;
 	        }
 	        else if (startIndex < 0 || startIndex >= this._views.length) {
-	            return Promise.reject("remove index out of range");
+	            return Promise.reject('remove index out of range');
 	        }
 	        if (util_1.isBlank(opts)) {
 	            opts = {};
@@ -48825,7 +48825,7 @@
 	                continue;
 	            attrName = elementAttrs[i].name;
 	            // Ignore attributes item-left, item-right
-	            if (attrName.indexOf('item') == -1) {
+	            if (attrName.indexOf('item') === -1) {
 	                this._setClass(attrName);
 	            }
 	        }
@@ -50945,8 +50945,8 @@
 	            _this.zoomElement.style[dom_1.CSS.transform] = 'scale(' + _this.scale + ')';
 	            zoomRect = _this.zoomElement.getBoundingClientRect();
 	        });
-	        this.zoomGesture.on('pinchend', function (e) {
-	            //last_scale = Math.max(1, Math.min(last_scale * e.scale, 10));
+	        this.zoomGesture.on('pinchend', function () {
+	            // last_scale = Math.max(1, Math.min(last_scale * e.scale, 10));
 	            if (_this.scale > _this.maxScale) {
 	                var za = new animation_1.Animation(_this.zoomElement)
 	                    .duration(_this.zoomDuration)
@@ -51012,25 +51012,25 @@
 	        var za = new animation_1.Animation();
 	        za.add(zi);
 	        if (this.scale > 1) {
-	            // Zoom out
-	            //zw.fromTo('translateX', posX + 'px', '0px');
-	            //zw.fromTo('translateY', posY + 'px', '0px');
+	            // zoom out
+	            // zw.fromTo('translateX', posX + 'px', '0px');
+	            // zw.fromTo('translateY', posY + 'px', '0px');
 	            zi.from('scale', this.scale);
 	            zi.to('scale', 1);
 	            za.play();
-	            //posX = 0;
-	            //posY = 0;
+	            // posX = 0;
+	            // posY = 0;
 	            this.scale = 1;
 	        }
 	        else {
-	            // Zoom in
-	            //zw.fromTo('translateX', posX + 'px', tx + 'px');
-	            //zw.fromTo('translateY', posY + 'px', ty + 'px');
+	            // zoom in
+	            // zw.fromTo('translateX', posX + 'px', tx + 'px');
+	            // zw.fromTo('translateY', posY + 'px', ty + 'px');
 	            zi.from('scale', this.scale);
 	            zi.to('scale', this.maxScale);
 	            za.play();
-	            //posX = tx;
-	            //posY = ty;
+	            // posX = tx;
+	            // posY = ty;
 	            this.scale = this.maxScale;
 	        }
 	    };
@@ -51049,7 +51049,7 @@
 	     */
 	    Slides.prototype.onTouchStart = function (e) {
 	        console.debug('Touch start', e);
-	        //TODO: Support mice as well
+	        // TODO: Support mice as well
 	        var target = util_1.dom.closest(e.target, '.slide').children[0].children[0];
 	        this.touch = {
 	            x: null,
@@ -51066,7 +51066,7 @@
 	            zoomableHeight: target.offsetHeight
 	        };
 	        console.debug('Target', this.touch.target);
-	        //TODO: android prevent default
+	        // TODO: android prevent default
 	    };
 	    /**
 	     * @private
@@ -51086,7 +51086,7 @@
 	            return;
 	        }
 	        console.debug('PAN', e);
-	        // Move image
+	        // move image
 	        this.touch.x = this.touch.deltaX + this.touch.lastX;
 	        this.touch.y = this.touch.deltaY + this.touch.lastY;
 	        if (this.touch.x < x1) {
@@ -51101,7 +51101,7 @@
 	        }
 	        else {
 	            console.debug('TRANSFORM', this.touch.x, this.touch.y, this.touch.target);
-	            //this.touch.target.style[CSS.transform] = 'translateX(' + this.touch.x + 'px) translateY(' + this.touch.y + 'px)';
+	            // this.touch.target.style[CSS.transform] = 'translateX(' + this.touch.x + 'px) translateY(' + this.touch.y + 'px)';
 	            this.touch.target.style[dom_1.CSS.transform] = 'translateX(' + this.touch.x + 'px) translateY(' + this.touch.y + 'px)';
 	            e.preventDefault();
 	            e.stopPropagation();
@@ -55348,7 +55348,7 @@
 	        this._setConfig('tabbarLayout', 'icon-top');
 	        this._setConfig('tabbarIcons', 'top');
 	        if (this.tabbarIcons) {
-	            console.warn("DEPRECATION WARNING: 'tabbarIcons' is no longer supported and will be removed in next major release. Use 'tabbarLayout' instead. Available values: 'icon-top', 'icon-left', 'icon-right', 'icon-bottom', 'icon-hide', 'title-hide'.");
+	            console.warn('DEPRECATION WARNING: "tabbarIcons" is no longer supported and will be removed in next major release. Use "tabbarLayout" instead. Available values: "icon-top", "icon-left", "icon-right", "icon-bottom", "icon-hide", "title-hide".');
 	        }
 	        if (this._useHighlight) {
 	            this._platform.onResize(function () {
@@ -55491,7 +55491,7 @@
 	        }
 	        // Otherwise, if the page we're on is not our real root, reset it to our
 	        // default root type
-	        if (tab.root != active.componentType) {
+	        if (tab.root !== active.componentType) {
 	            return tab.setRoot(tab.root);
 	        }
 	        // And failing all of that, we do something safe and secure
@@ -55638,7 +55638,7 @@
 	        this.tab.btn = this;
 	        this._layout = this.tab.parent.tabbarLayout || this._layout;
 	        this.hasTitle = !!this.tab.tabTitle;
-	        this.hasIcon = !!this.tab.tabIcon && this._layout != 'icon-hide';
+	        this.hasIcon = !!this.tab.tabIcon && this._layout !== 'icon-hide';
 	        this.hasTitleOnly = (this.hasTitle && !this.hasIcon);
 	        this.hasIconOnly = (this.hasIcon && !this.hasTitle);
 	        this.hasBadge = !!this.tab.tabBadge;
@@ -57621,14 +57621,14 @@
 	            };
 	            totalNodes = nodes.push(availableNode);
 	        }
-	        //console.debug(`node was cell ${availableNode.cell} but is now ${cellIndex}, was top: ${cell.top}`);
+	        // console.debug(`node was cell ${availableNode.cell} but is now ${cellIndex}, was top: ${cell.top}`);
 	        // assign who's the new cell index for this node
 	        availableNode.cell = cellIndex;
 	        // apply the cell's data to this node
 	        availableNode.view.setLocal('\$implicit', cell.data || records[cell.record]);
 	        availableNode.view.setLocal('index', cellIndex);
-	        availableNode.view.setLocal('even', (cellIndex % 2 == 0));
-	        availableNode.view.setLocal('odd', (cellIndex % 2 == 1));
+	        availableNode.view.setLocal('even', (cellIndex % 2 === 0));
+	        availableNode.view.setLocal('odd', (cellIndex % 2 === 1));
 	        availableNode.hasChanges = true;
 	        availableNode.lastTransform = null;
 	        madeChanges = true;
@@ -57846,7 +57846,7 @@
 	            }
 	        }
 	    }
-	    //console.log(`adjustRendered topCell: ${data.topCell}, bottomCell: ${data.bottomCell}, cellsRenderHeight: ${cellsRenderHeight}, data.renderHeight: ${data.renderHeight}`);
+	    // console.log(`adjustRendered topCell: ${data.topCell}, bottomCell: ${data.bottomCell}, cellsRenderHeight: ${cellsRenderHeight}, data.renderHeight: ${data.renderHeight}`);
 	}
 	exports.adjustRendered = adjustRendered;
 	/**
@@ -60101,7 +60101,7 @@
 	      * @private
 	     */
 	    InputBase.prototype.clearTextInput = function () {
-	        console.debug("Should clear input");
+	        console.debug('Should clear input');
 	    };
 	    /**
 	     * @private
@@ -60301,7 +60301,6 @@
 	exports.InputBase = InputBase;
 	var SCROLL_ASSIST_SPEED = 0.3;
 	function getScrollAssistDuration(distanceToScroll) {
-	    //return 3000;
 	    distanceToScroll = Math.abs(distanceToScroll);
 	    var duration = distanceToScroll / SCROLL_ASSIST_SPEED;
 	    return Math.min(400, Math.max(150, duration));
@@ -61102,7 +61101,7 @@
 	    RadioGroup.prototype.remove = function (button) {
 	        var index = this._btns.indexOf(button);
 	        if (index > -1) {
-	            if (button.value == this.value) {
+	            if (button.value === this.value) {
 	                this.value = null;
 	            }
 	            this._btns.splice(index, 1);
@@ -61305,7 +61304,7 @@
 	        if (this.ngModel)
 	            this.value = this.ngModel;
 	        this.onChange(this.value);
-	        this.shouldLeftAlign = this.value && this.value.trim() != '';
+	        this.shouldLeftAlign = this.value && this.value.trim() !== '';
 	        // Using querySelector instead of searchbarInput because at this point it doesn't exist
 	        this.inputElement = this._elementRef.nativeElement.querySelector('.searchbar-input');
 	        this.searchIconElement = this._elementRef.nativeElement.querySelector('.searchbar-search-icon');
@@ -61333,8 +61332,8 @@
 	        if (this.mode !== 'ios')
 	            return;
 	        if (this.shouldLeftAlign) {
-	            this.inputElement.removeAttribute("style");
-	            this.searchIconElement.removeAttribute("style");
+	            this.inputElement.removeAttribute('style');
+	            this.searchIconElement.removeAttribute('style');
 	        }
 	        else {
 	            this.addElementLeft();
@@ -61354,10 +61353,10 @@
 	        var textWidth = tempSpan.offsetWidth;
 	        tempSpan.remove();
 	        // Set the input padding left
-	        var inputLeft = "calc(50% - " + (textWidth / 2) + "px)";
+	        var inputLeft = 'calc(50% - ' + (textWidth / 2) + 'px)';
 	        this.inputElement.style.paddingLeft = inputLeft;
 	        // Set the icon margin left
-	        var iconLeft = "calc(50% - " + ((textWidth / 2) + 30) + "px)";
+	        var iconLeft = 'calc(50% - ' + ((textWidth / 2) + 30) + 'px)';
 	        this.searchIconElement.style.marginLeft = iconLeft;
 	    };
 	    /**
@@ -61392,14 +61391,14 @@
 	    Searchbar.prototype.inputBlurred = function () {
 	        // blurInput determines if it should blur
 	        // if we are clearing the input we still want to stay focused in the input
-	        if (this.blurInput == false) {
+	        if (this.blurInput === false) {
 	            this.searchbarInput._elementRef.nativeElement.focus();
 	            this.blurInput = true;
 	            return;
 	        }
 	        this.blur.emit(this);
 	        this.isFocused = false;
-	        this.shouldLeftAlign = this.value && this.value.trim() != '';
+	        this.shouldLeftAlign = this.value && this.value.trim() !== '';
 	        this.setElementLeft();
 	    };
 	    /**
@@ -61870,7 +61869,7 @@
 	            destination = this.navPush;
 	            params = this.navParams;
 	        }
-	        if (typeof destination === "string") {
+	        if (typeof destination === 'string') {
 	            destination = this.registry.get(destination);
 	        }
 	        this._nav && this._nav.push(destination, params);
@@ -62240,11 +62239,11 @@
 	    }
 	    DisplayWhen.prototype.orientation = function () {
 	        for (var i = 0; i < this.conditions.length; i++) {
-	            if (this.conditions[i] == 'portrait') {
+	            if (this.conditions[i] === 'portrait') {
 	                this.isMatch = this.platform.isPortrait();
 	                return true;
 	            }
-	            if (this.conditions[i] == 'landscape') {
+	            if (this.conditions[i] === 'landscape') {
 	                this.isMatch = this.platform.isLandscape();
 	                return true;
 	            }
@@ -63063,7 +63062,7 @@
 	    __extends(MenuRevealType, _super);
 	    function MenuRevealType(menu) {
 	        _super.call(this);
-	        var openedX = (menu.width() * (menu.side == 'right' ? -1 : 1)) + 'px';
+	        var openedX = (menu.width() * (menu.side === 'right' ? -1 : 1)) + 'px';
 	        this.ani
 	            .easing('ease')
 	            .duration(250);
@@ -63088,7 +63087,7 @@
 	            .easing('ease')
 	            .duration(250);
 	        var contentOpenedX, menuClosedX, menuOpenedX;
-	        if (menu.side == 'right') {
+	        if (menu.side === 'right') {
 	            contentOpenedX = -menu.width() + 'px';
 	            menuOpenedX = (menu._platform.width() - menu.width()) + 'px';
 	            menuClosedX = menu._platform.width() + 'px';
@@ -63122,7 +63121,7 @@
 	            .easing('ease')
 	            .duration(250);
 	        var closedX, openedX;
-	        if (menu.side == 'right') {
+	        if (menu.side === 'right') {
 	            // right side
 	            closedX = menu._platform.width() + 'px';
 	            openedX = (menu._platform.width() - menu.width() - 8) + 'px';
@@ -63706,7 +63705,7 @@
 	 *
 	 * For most cases, we recommend the SqlStorage system as it will store
 	 * data in a file in the app's sandbox. LocalStorage should ONLY be used
-	 * for temporary data as it may be "cleaned up" by the operation system
+	 * for temporary data as it may be 'cleaned up' by the operation system
 	 * during low disk space situations.
 	 */
 	/**
@@ -63761,19 +63760,19 @@
 	        if (options === void 0) { options = {}; }
 	    }
 	    StorageEngine.prototype.get = function (key) {
-	        throw Error("get() not implemented for this storage engine");
+	        throw Error('get() not implemented for this storage engine');
 	    };
 	    StorageEngine.prototype.set = function (key, value) {
-	        throw Error("set() not implemented for this storage engine");
+	        throw Error('set() not implemented for this storage engine');
 	    };
 	    StorageEngine.prototype.remove = function (key) {
-	        throw Error("remove() not implemented for this storage engine");
+	        throw Error('remove() not implemented for this storage engine');
 	    };
 	    StorageEngine.prototype.query = function (query, params) {
-	        throw Error("query() not implemented for this storage engine");
+	        throw Error('query() not implemented for this storage engine');
 	    };
 	    StorageEngine.prototype.clear = function () {
-	        throw Error("clear() not implemented for this storage engine");
+	        throw Error('clear() not implemented for this storage engine');
 	    };
 	    return StorageEngine;
 	}());

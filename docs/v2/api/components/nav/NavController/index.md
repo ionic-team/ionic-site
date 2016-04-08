@@ -1122,6 +1122,66 @@ export class Detail {
 
 
 
+<div id="getActiveChildNav"></div>
+
+<h3>
+<a class="anchor" name="getActiveChildNav" href="#getActiveChildNav"></a>
+<code>getActiveChildNav()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="registerChildNav"></div>
+
+<h3>
+<a class="anchor" name="registerChildNav" href="#registerChildNav"></a>
+<code>registerChildNav()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="unregisterChildNav"></div>
+
+<h3>
+<a class="anchor" name="unregisterChildNav" href="#unregisterChildNav"></a>
+<code>unregisterChildNav()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="canSwipeBack"></div>
 
 <h3>

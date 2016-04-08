@@ -27482,16 +27482,16 @@
 	 * registered using the [Id directive](../Id/).
 	 */
 	var IonicApp = (function () {
-	    function IonicApp(_config, _clickBlock, _zone) {
+	    function IonicApp(_config, _clickBlock) {
 	        this._config = _config;
 	        this._clickBlock = _clickBlock;
-	        this._zone = _zone;
 	        this._cmps = {};
 	        this._disTime = 0;
 	        this._scrollTime = 0;
 	        this._title = '';
 	        this._titleSrv = new browser_1.Title();
 	        this._isProd = false;
+	        this._rootNav = null;
 	    }
 	    /**
 	     * Sets the document title.
@@ -27561,6 +27561,33 @@
 	    };
 	    /**
 	     * @private
+	     */
+	    IonicApp.prototype.getActiveNav = function () {
+	        var nav = this._rootNav || null;
+	        var activeChildNav;
+	        while (nav) {
+	            activeChildNav = nav.getActiveChildNav();
+	            if (!activeChildNav) {
+	                break;
+	            }
+	            nav = activeChildNav;
+	        }
+	        return nav;
+	    };
+	    /**
+	     * @private
+	     */
+	    IonicApp.prototype.getRootNav = function () {
+	        return this._rootNav;
+	    };
+	    /**
+	     * @private
+	     */
+	    IonicApp.prototype.setRootNav = function (nav) {
+	        this._rootNav = nav;
+	    };
+	    /**
+	     * @private
 	     * Register a known component with a key, for easy lookups later.
 	     * @param {string} id  The id to use to register the component
 	     * @param {object} component  The component to register
@@ -27612,10 +27639,10 @@
 	    };
 	    IonicApp = __decorate([
 	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof click_block_1.ClickBlock !== 'undefined' && click_block_1.ClickBlock) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof click_block_1.ClickBlock !== 'undefined' && click_block_1.ClickBlock) === 'function' && _b) || Object])
 	    ], IonicApp);
 	    return IonicApp;
-	    var _a, _b, _c;
+	    var _a, _b;
 	}());
 	exports.IonicApp = IonicApp;
 
@@ -47979,6 +48006,7 @@
 	        this._renderer = _renderer;
 	        this._transIds = 0;
 	        this._init = false;
+	        this._children = [];
 	        this._ids = -1;
 	        this._trnsTime = 0;
 	        this._views = [];
@@ -47993,8 +48021,8 @@
 	        this.parent = parent;
 	        this.config = config;
 	        this._trnsDelay = config.get('pageTransitionDelay');
-	        this._sbEnabled = config.getBoolean('swipeBackEnabled') || false;
-	        this._sbThreshold = config.get('swipeBackThreshold') || 40;
+	        this._sbEnabled = config.getBoolean('swipeBackEnabled');
+	        this._sbThreshold = config.getNumber('swipeBackThreshold', 40);
 	        this.id = (++ctrlIds).toString();
 	        // build a new injector for child ViewControllers to use
 	        this.providers = core_1.Injector.resolve([
@@ -49015,6 +49043,18 @@
 	            });
 	        }
 	    };
+	    NavController.prototype.getActiveChildNav = function () {
+	        return this._children[this._children.length - 1];
+	    };
+	    NavController.prototype.registerChildNav = function (nav) {
+	        this._children.push(nav);
+	    };
+	    NavController.prototype.unregisterChildNav = function (nav) {
+	        var index = this._children.indexOf(nav);
+	        if (index > -1) {
+	            this._children.splice(index, 1);
+	        }
+	    };
 	    /**
 	     * @private
 	     */
@@ -49022,7 +49062,10 @@
 	        for (var i = this._views.length - 1; i >= 0; i--) {
 	            this._views[i].destroy();
 	        }
-	        this._views = [];
+	        this._views.length = 0;
+	        if (this.parent) {
+	            this.parent.unregisterChildNav(this);
+	        }
 	    };
 	    /**
 	     * @private
@@ -56709,7 +56752,7 @@
 	 */
 	var Tabs = (function (_super) {
 	    __extends(Tabs, _super);
-	    function Tabs(viewCtrl, parent, _app, _config, _elementRef, _platform, _renderer) {
+	    function Tabs(parent, viewCtrl, _app, _config, _elementRef, _platform, _renderer) {
 	        var _this = this;
 	        _super.call(this, _elementRef);
 	        this._app = _app;
@@ -56729,6 +56772,14 @@
 	        this.id = ++tabIds;
 	        this.subPages = _config.getBoolean('tabSubPages');
 	        this._useHighlight = _config.getBoolean('tabbarHighlight');
+	        if (parent) {
+	            // this Tabs has a parent Nav
+	            parent.registerChildNav(this);
+	        }
+	        else if (this._app) {
+	            // this is the root navcontroller for the entire app
+	            this._app.setRootNav(this);
+	        }
 	        // Tabs may also be an actual ViewController which was navigated to
 	        // if Tabs is static and not navigated to within a NavController
 	        // then skip this and don't treat it as it's own ViewController
@@ -56867,6 +56918,12 @@
 	    /**
 	     * @private
 	     */
+	    Tabs.prototype.getActiveChildNav = function () {
+	        return this.getSelected();
+	    };
+	    /**
+	     * @private
+	     */
 	    Tabs.prototype.getIndex = function (tab) {
 	        return this._tabs.indexOf(tab);
 	    };
@@ -56978,7 +57035,7 @@
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _d) || Object, (typeof (_e = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _h) || Object, (typeof (_j = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _j) || Object])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _c) || Object, (typeof (_d = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _d) || Object, (typeof (_e = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _h) || Object, (typeof (_j = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _j) || Object])
 	    ], Tabs);
 	    return Tabs;
 	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
@@ -63050,14 +63107,22 @@
 	 */
 	var Nav = (function (_super) {
 	    __extends(Nav, _super);
-	    function Nav(hostNavCtrl, viewCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer) {
-	        _super.call(this, hostNavCtrl, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer);
+	    function Nav(parent, viewCtrl, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer) {
+	        _super.call(this, parent, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer);
 	        this._hasInit = false;
 	        if (viewCtrl) {
 	            // an ion-nav can also act as an ion-page within a parent ion-nav
 	            // this would happen when an ion-nav nests a child ion-nav.
 	            viewCtrl.setContent(this);
 	            viewCtrl.setContentRef(elementRef);
+	        }
+	        if (parent) {
+	            // this Nav has a parent Nav
+	            parent.registerChildNav(this);
+	        }
+	        else if (app) {
+	            // this is the root navcontroller for the entire app
+	            this._app.setRootNav(this);
 	        }
 	    }
 	    Object.defineProperty(Nav.prototype, "root", {

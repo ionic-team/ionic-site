@@ -6118,9 +6118,12 @@ ion-icon {
     border: 0;
     font-family: inherit; }
   .ios .searchbar-clear-icon {
+    display: none;
     margin: 0;
     padding: 0;
     min-height: 0; }
+  .ios .searchbar-has-value.searchbar-focused .searchbar-clear-icon {
+    display: block; }
   .ios ion-searchbar {
     padding: 0 8px;
     min-height: 44px;
@@ -9339,9 +9342,12 @@ ion-icon {
     border: 0;
     font-family: inherit; }
   .md .searchbar-clear-icon {
+    display: none;
     margin: 0;
     padding: 0;
     min-height: 0; }
+  .md .searchbar-has-value.searchbar-focused .searchbar-clear-icon {
+    display: block; }
   .md ion-searchbar {
     padding: 8px;
     background: inherit; }
@@ -12912,9 +12918,12 @@ ion-icon {
     border: 0;
     font-family: inherit; }
   .wp .searchbar-clear-icon {
+    display: none;
     margin: 0;
     padding: 0;
     min-height: 0; }
+  .wp .searchbar-has-value.searchbar-focused .searchbar-clear-icon {
+    display: block; }
   .wp ion-searchbar {
     padding: 8px;
     background: transparent; }

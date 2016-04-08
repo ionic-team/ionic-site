@@ -8124,6 +8124,8 @@ a.footer-link {
         color: rgba(79, 143, 247, 0.6); }
     .docs-container main h1 {
       margin-bottom: 0; }
+      .docs-container main h1 a.anchor:before {
+        margin-left: -23px; }
     .docs-container main h2 {
       padding: 2em 0 0;
       font-size: 24px; }

@@ -635,6 +635,10 @@ a.footer-link {
 
     h1 {
       margin-bottom: 0;
+
+      a.anchor:before {
+        margin-left: -23px;
+      }
     }
 
     h2 {

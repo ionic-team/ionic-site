@@ -34,7 +34,7 @@ Platform
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/platform/platform.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/platform/platform.ts#L3">
 Improve this doc
 </a>
 
@@ -210,7 +210,7 @@ export MyPage {
 
 </h3>
 
-Returns an object containing information about the paltform
+Returns an object containing information about the platforms.
 
 ```
 import {Platform} from 'ionic-angular';
@@ -218,8 +218,7 @@ import {Platform} from 'ionic-angular';
 @Page({...})
 export MyPage {
    constructor(platform: Platform) {
-     this.platform = platform;
-     console.log(this.platform.versions());
+     console.log(platform.versions());
    }
 }
 ```
@@ -278,7 +277,11 @@ export MyPage {
 
 </h3>
 
-Returns a promise when the platform is ready and native functionality can be called
+Returns a promise when the platform is ready and native functionality
+can be called. If the app is running from within a web browser, then
+the promise will resolve when the DOM is ready. When the app is running
+from an application engine such as Cordova, then the promise
+will resolve when Cordova triggers the `deviceready` event.
 
 ```
 import {Platform} from 'ionic-angular';
@@ -286,8 +289,7 @@ import {Platform} from 'ionic-angular';
 @Page({...})
 export MyPage {
    constructor(platform: Platform) {
-     this.platform = platform;
-     this.platform.ready().then(() => {
+     platform.ready().then(() => {
        console.log('Platform ready');
        // The platform is now ready, execute any native code you want
       });
@@ -303,7 +305,7 @@ export MyPage {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>promise</code> Returns a promsie when device ready has fired
+  <code>promise</code> 
 </div>
 
 

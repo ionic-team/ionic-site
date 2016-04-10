@@ -2551,7 +2551,7 @@
 	    platform.setUrl(window.location.href);
 	    platform.setUserAgent(window.navigator.userAgent);
 	    platform.setNavigatorPlatform(window.navigator.platform);
-	    platform.load();
+	    platform.load(config);
 	    config.setPlatform(platform);
 	    var clickBlock = new click_block_1.ClickBlock();
 	    var events = new events_1.Events();
@@ -2559,7 +2559,7 @@
 	    setupDom(window, document, config, platform, clickBlock, featureDetect);
 	    bindEvents(window, document, platform, events);
 	    // prepare the ready promise to fire....when ready
-	    platform.prepareReady(config);
+	    platform.prepareReady();
 	    return [
 	        app_1.IonicApp,
 	        core_1.provide(click_block_1.ClickBlock, { useValue: clickBlock }),
@@ -26348,6 +26348,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var core_1 = __webpack_require__(8);
 	var util_1 = __webpack_require__(171);
 	var dom_1 = __webpack_require__(168);
 	/**
@@ -26377,6 +26378,20 @@
 	        if (platforms === void 0) { platforms = []; }
 	        this._versions = {};
 	        this._onResizes = [];
+	        // Events meant to be triggered by the engine
+	        // **********************************************
+	        /**
+	        * @private
+	        */
+	        this.backButton = new core_1.EventEmitter();
+	        /**
+	        * @private
+	        */
+	        this.pause = new core_1.EventEmitter();
+	        /**
+	        * @private
+	        */
+	        this.resume = new core_1.EventEmitter();
 	        this._platforms = platforms;
 	        this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
 	    }
@@ -26451,7 +26466,7 @@
 	        return this._platforms;
 	    };
 	    /**
-	     * Returns an object containing information about the paltform
+	     * Returns an object containing information about the platforms.
 	     *
 	     * ```
 	     * import {Platform} from 'ionic-angular';
@@ -26459,8 +26474,7 @@
 	     * @Page({...})
 	     * export MyPage {
 	     *    constructor(platform: Platform) {
-	     *      this.platform = platform;
-	     *      console.log(this.platform.versions());
+	     *      console.log(platform.versions());
 	     *    }
 	     * }
 	     * ```
@@ -26469,11 +26483,7 @@
 	     * @returns {object} An object with various platform info
 	     *
 	     */
-	    Platform.prototype.versions = function (platformName) {
-	        if (arguments.length) {
-	            // get a specific platform's version
-	            return this._versions[platformName];
-	        }
+	    Platform.prototype.versions = function () {
 	        // get all the platforms that have a valid parsed version
 	        return this._versions;
 	    };
@@ -26489,7 +26499,11 @@
 	        return {};
 	    };
 	    /**
-	     * Returns a promise when the platform is ready and native functionality can be called
+	     * Returns a promise when the platform is ready and native functionality
+	     * can be called. If the app is running from within a web browser, then
+	     * the promise will resolve when the DOM is ready. When the app is running
+	     * from an application engine such as Cordova, then the promise
+	     * will resolve when Cordova triggers the `deviceready` event.
 	     *
 	     * ```
 	     * import {Platform} from 'ionic-angular';
@@ -26497,36 +26511,35 @@
 	     * @Page({...})
 	     * export MyPage {
 	     *    constructor(platform: Platform) {
-	     *      this.platform = platform;
-	     *      this.platform.ready().then(() => {
+	     *      platform.ready().then(() => {
 	     *        console.log('Platform ready');
 	     *        // The platform is now ready, execute any native code you want
 	     *       });
 	     *    }
 	     * }
 	     * ```
-	     * @returns {promise} Returns a promsie when device ready has fired
+	     * @returns {promise}
 	     */
 	    Platform.prototype.ready = function () {
+	        // this is the default if it's not replaced by the engine
+	        // if there was no custom ready method from the engine
+	        // then use the default DOM ready
 	        return this._readyPromise;
 	    };
 	    /**
 	     * @private
 	     */
-	    Platform.prototype.prepareReady = function (config) {
-	        var self = this;
-	        function resolve() {
-	            self._readyResolve(config);
-	        }
-	        if (this._engineReady) {
-	            // the engine provide a ready promise, use this instead
-	            this._engineReady(resolve);
-	        }
-	        else {
-	            // there is no custom ready method from the engine
-	            // use the default dom ready
-	            dom_1.ready(resolve);
-	        }
+	    Platform.prototype.triggerReady = function () {
+	        this._readyResolve();
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.prepareReady = function () {
+	        // this is the default prepareReady if it's not replaced by the engine
+	        // if there was no custom ready method from the engine
+	        // then use the default DOM ready
+	        dom_1.ready(this.triggerReady.bind(this));
 	    };
 	    /**
 	    * Set the app's language direction, which will update the `dir` attribute
@@ -26591,31 +26604,11 @@
 	    // Methods meant to be overridden by the engine
 	    // **********************************************
 	    // Provided NOOP methods so they do not error when
-	    // called by engines (the browser) doesn't provide them
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.on = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.onHardwareBackButton = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.registerBackButtonAction = function () { };
+	    // called by engines (the browser)that do not provide them
 	    /**
 	    * @private
 	    */
 	    Platform.prototype.exitApp = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.fullScreen = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.showStatusBar = function () { };
 	    // Getter/Setter Methods
 	    // **********************************************
 	    /**
@@ -26797,13 +26790,12 @@
 	    /**
 	     * @private
 	     */
-	    Platform.prototype.load = function (platformOverride) {
-	        var rootPlatformNode = null;
-	        var engineNode = null;
+	    Platform.prototype.load = function (config) {
+	        var rootPlatformNode;
+	        var enginePlatformNode;
 	        var self = this;
-	        this.platformOverride = platformOverride;
 	        // figure out the most specific platform and active engine
-	        var tmpPlatform = null;
+	        var tmpPlatform;
 	        for (var platformName in platformRegistry) {
 	            tmpPlatform = this.matchPlatform(platformName);
 	            if (tmpPlatform) {
@@ -26812,7 +26804,7 @@
 	                if (tmpPlatform.isEngine) {
 	                    // because it matched then this should be the active engine
 	                    // you cannot have more than one active engine
-	                    engineNode = tmpPlatform;
+	                    enginePlatformNode = tmpPlatform;
 	                }
 	                else if (!rootPlatformNode || tmpPlatform.depth > rootPlatformNode.depth) {
 	                    // only find the root node for platforms that are not engines
@@ -26829,19 +26821,13 @@
 	        // hierarchy of active platforms and settings
 	        if (rootPlatformNode) {
 	            // check if we found an engine node (cordova/node-webkit/etc)
-	            if (engineNode) {
+	            if (enginePlatformNode) {
 	                // add the engine to the first in the platform hierarchy
 	                // the original rootPlatformNode now becomes a child
 	                // of the engineNode, which is not the new root
-	                engineNode.child = rootPlatformNode;
-	                rootPlatformNode.parent = engineNode;
-	                rootPlatformNode = engineNode;
-	                // add any events which the engine would provide
-	                // for example, Cordova provides its own ready event
-	                var engineMethods = engineNode.methods();
-	                engineMethods._engineReady = engineMethods.ready;
-	                delete engineMethods.ready;
-	                util_1.assign(this, engineMethods);
+	                enginePlatformNode.child = rootPlatformNode;
+	                rootPlatformNode.parent = enginePlatformNode;
+	                rootPlatformNode = enginePlatformNode;
 	            }
 	            var platformNode = rootPlatformNode;
 	            while (platformNode) {
@@ -26857,11 +26843,12 @@
 	            }
 	            platformNode = rootPlatformNode;
 	            while (platformNode) {
+	                platformNode.initialize(this, config);
 	                // set the array of active platforms with
 	                // the last one in the array the most important
-	                this._platforms.push(platformNode.name());
+	                this._platforms.push(platformNode.name);
 	                // get the platforms version if a version parser was provided
-	                this._versions[platformNode.name()] = platformNode.version(this);
+	                this._versions[platformNode.name] = platformNode.version(this);
 	                // go to the next platform child
 	                platformNode = platformNode.child;
 	            }
@@ -26906,31 +26893,26 @@
 	        platformNode.parent = supersetPlatform;
 	    }
 	}
+	/**
+	 * @private
+	 */
 	var PlatformNode = (function () {
 	    function PlatformNode(platformName) {
 	        this.c = Platform.get(platformName);
+	        this.name = platformName;
 	        this.isEngine = this.c.isEngine;
 	    }
-	    PlatformNode.prototype.name = function () {
-	        return this.c.name;
-	    };
 	    PlatformNode.prototype.settings = function () {
 	        return this.c.settings || {};
 	    };
 	    PlatformNode.prototype.superset = function () {
 	        return this.c.superset;
 	    };
-	    PlatformNode.prototype.methods = function () {
-	        return this.c.methods || {};
-	    };
 	    PlatformNode.prototype.isMatch = function (p) {
-	        if (p.platformOverride && !this.isEngine) {
-	            return (p.platformOverride === this.c.name);
-	        }
-	        else if (!this.c.isMatch) {
-	            return false;
-	        }
-	        return this.c.isMatch(p);
+	        return this.c.isMatch && this.c.isMatch(p) || false;
+	    };
+	    PlatformNode.prototype.initialize = function (platform, config) {
+	        this.c.initialize && this.c.initialize(platform, config);
 	    };
 	    PlatformNode.prototype.version = function (p) {
 	        if (this.c.versionParser) {
@@ -26948,7 +26930,7 @@
 	    };
 	    PlatformNode.prototype.getRoot = function (p) {
 	        if (this.isMatch(p)) {
-	            var parents = this.getSubsetParents(this.name());
+	            var parents = this.getSubsetParents(this.name);
 	            if (!parents.length) {
 	                return this;
 	            }
@@ -65792,16 +65774,33 @@
 	platform_1.Platform.register({
 	    name: 'cordova',
 	    isEngine: true,
-	    methods: {
-	        ready: function (resolve) {
-	            function isReady() {
-	                doc.removeEventListener('deviceready', isReady);
-	                resolve();
-	            }
+	    initialize: function (p, config) {
+	        // prepare a custom "ready" for cordova "deviceready"
+	        p.prepareReady = function () {
+	            // 1) ionic bootstrapped
 	            dom_1.windowLoad(function () {
-	                doc.addEventListener('deviceready', isReady);
+	                // 2) window onload triggered or completed
+	                doc.addEventListener('deviceready', function () {
+	                    // 3) cordova deviceready event triggered
+	                    // add cordova listeners to fire platform events
+	                    doc.addEventListener('backbutton', function () {
+	                        p.backButton.emit(null);
+	                    });
+	                    // doc.addEventListener('pause', function() {
+	                    //   p.pause.emit(null);
+	                    // });
+	                    // doc.addEventListener('resume', function() {
+	                    //   p.resume.emit(null);
+	                    // });
+	                    // cordova has fully loaded and we've added listeners
+	                    p.triggerReady();
+	                });
 	            });
-	        }
+	        };
+	        // cordova has its own exitApp method
+	        p.exitApp = function () {
+	            win.navigator.app.exitApp();
+	        };
 	    },
 	    isMatch: function () {
 	        return !!(win.cordova || win.PhoneGap || win.phonegap);

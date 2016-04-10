@@ -27449,12 +27449,14 @@
 	var browser_1 = __webpack_require__(176);
 	var config_1 = __webpack_require__(169);
 	var click_block_1 = __webpack_require__(167);
+	var platform_1 = __webpack_require__(170);
 	/**
 	 * App utility service.  Allows you to look up components that have been
 	 * registered using the [Id directive](../Id/).
 	 */
 	var IonicApp = (function () {
-	    function IonicApp(_config, _clickBlock) {
+	    function IonicApp(_config, _clickBlock, platform) {
+	        var _this = this;
 	        this._config = _config;
 	        this._clickBlock = _clickBlock;
 	        this._cmps = {};
@@ -27464,6 +27466,17 @@
 	        this._titleSrv = new browser_1.Title();
 	        this._isProd = false;
 	        this._rootNav = null;
+	        platform.backButton.subscribe(function () {
+	            var activeNav = _this.getActiveNav();
+	            if (activeNav) {
+	                if (activeNav.length() === 1) {
+	                    platform.exitApp();
+	                }
+	                else {
+	                    activeNav.pop();
+	                }
+	            }
+	        });
 	    }
 	    /**
 	     * Sets the document title.
@@ -27611,10 +27624,10 @@
 	    };
 	    IonicApp = __decorate([
 	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof click_block_1.ClickBlock !== 'undefined' && click_block_1.ClickBlock) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof click_block_1.ClickBlock !== 'undefined' && click_block_1.ClickBlock) === 'function' && _b) || Object, (typeof (_c = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _c) || Object])
 	    ], IonicApp);
 	    return IonicApp;
-	    var _a, _b;
+	    var _a, _b, _c;
 	}());
 	exports.IonicApp = IonicApp;
 

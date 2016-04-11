@@ -61001,6 +61001,7 @@
 	                '<div class="toggle-inner"></div>' +
 	                '</div>' +
 	                '<button role="checkbox" ' +
+	                'type="button" ' +
 	                '[id]="id" ' +
 	                '[attr.aria-checked]="_checked" ' +
 	                '[attr.aria-labelledby]="_labelId" ' +
@@ -62396,6 +62397,7 @@
 	                '<div class="radio-inner"></div>' +
 	                '</div>' +
 	                '<button role="radio" ' +
+	                'type="button" ' +
 	                '[id]="id" ' +
 	                '[attr.aria-checked]="_checked" ' +
 	                '[attr.aria-labelledby]="_labelId" ' +

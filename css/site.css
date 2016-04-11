@@ -6417,8 +6417,8 @@ pre {
       margin-top: 15px; }
     #getting-started #template-images .template-image {
       display: inline-block;
-      width: 308px;
-      height: 263px; }
+      width: 330px;
+      height: 270px; }
   #getting-started #start-template-blank-image,
   #getting-started #start-template-tabs-image,
   #getting-started #start-template-sidemenu-image {
@@ -6462,7 +6462,9 @@ pre {
       #getting-started .what-next .item:last-child {
         margin-right: 0; }
       #getting-started .what-next .item h3 {
-        font-size: 18px; }
+        font-size: 18px;
+        font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 600; }
       #getting-started .what-next .item p {
         color: #818893;
         font-size: 13px;

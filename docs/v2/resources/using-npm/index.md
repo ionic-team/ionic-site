@@ -44,15 +44,11 @@ Then we can use the CLI from the command line by running `ionic <command>`.
 The framework is available on NPM under the name `ionic-angular`. When you create a project using the CLI, you will automatically get the Ionic Angular package installed. The package and its version are managed through NPM and a project's `package.json`. A simple project should have a `package.json` that looks like this.
 
 
-```javascript
+```json
 {
-  "devDependencies": {
-  // List of devDependencies
-  },
   "dependencies": {
-    "ionic-angular": "2.0.0-beta.3"
+    "ionic-angular": "2.0.0-beta.4"
   }
-  // and anything else
 }
 ```
 
@@ -62,7 +58,7 @@ Here we are saying that this project depends on the `ionic-angular` package and 
 npm outdated
 
 Package                           Current          Wanted          Latest  Location
-ionic-angular                2.0.0-beta.2    2.0.0-beta.2    2.0.0-beta.3  myApp
+ionic-angular                2.0.0-beta.3    2.0.0-beta.3    2.0.0-beta.4  myApp
 ```
 
-This tells us that there is an update to the ionic-framework package, version `2.0.0-beta.3`. To get this update, we can run `npm install ionic-angular@latest`. Alternatively, we could update our `package.json` to `"ionic-angular": "2.0.0-beta.3"`, and then run `npm update`.
+This tells us that there is an update to the ionic-framework package, version `2.0.0-beta.4`. To get this update, we can run `npm install ionic-angular@latest`. Alternatively, we could update our `package.json` to `"ionic-angular": "2.0.0-beta.4"`, and then run `npm update`.

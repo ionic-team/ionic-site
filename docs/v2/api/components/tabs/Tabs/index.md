@@ -75,8 +75,8 @@ on creation of the tabs:</p>
 </code></pre>
 <p>Since the index starts at <code>0</code>, this will select the 3rd tab which has
 root set to <code>tab3Root</code>. You can also grab the <code>Tabs</code> instance and call
-the <code>select()</code> method. This requires the <code>&lt;ion-tab&gt;</code> element to have an
-<code>id</code>. For example, set the <code>id</code> to <code>myTabs</code>:</p>
+the <code>select()</code> method. This requires the <code>&lt;ion-tabs&gt;</code> element to have
+an <code>id</code>. For example, set the <code>id</code> to <code>myTabs</code>:</p>
 <pre><code class="lang-html">&lt;ion-tabs id=&quot;myTabs&quot;&gt;
   &lt;ion-tab [root]=&quot;tab1Root&quot;&gt;&lt;/ion-tab&gt;
   &lt;ion-tab [root]=&quot;tab2Root&quot;&gt;&lt;/ion-tab&gt;
@@ -84,8 +84,12 @@ the <code>select()</code> method. This requires the <code>&lt;ion-tab&gt;</code>
 &lt;/ion-tabs&gt;
 </code></pre>
 <p>Then in your JavaScript you can grab the <code>Tabs</code> instance and call <code>select()</code>.
-In the following code <code>app</code> is of type <code>IonicApp</code>:</p>
-<pre><code class="lang-js">onPageDidEnter() {
+In the following code <code>app</code> is of type <a href="../../app/IonicApp/"><code>IonicApp</code></a>:</p>
+<pre><code class="lang-js">constructor(app: IonicApp) {
+  this.app = app;
+}
+
+onPageDidEnter() {
   let tabs = this.app.getComponent(&#39;myTabs&#39;);
   tabs.select(2);
 }
@@ -98,8 +102,10 @@ In the following code <code>app</code> is of type <code>IonicApp</code>:</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-tabs&gt;
-  &lt;ion-tab [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
+<pre><code class="lang-html">&lt;ion-tabs [selectedIndex]=&quot;mySelectedIndex&quot; tabbarLayout=&quot;icon-bottom&quot; secondary&gt;
+  &lt;ion-tab [root]=&quot;tab1Root&quot;&gt;&lt;/ion-tab&gt;
+  &lt;ion-tab [root]=&quot;tab2Root&quot;&gt;&lt;/ion-tab&gt;
+  &lt;ion-tab [root]=&quot;tab3Root&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 

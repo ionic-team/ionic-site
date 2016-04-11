@@ -32,7 +32,7 @@ App
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/decorators/app.ts#L34">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/decorators/app.ts#L32">
 Improve this doc
 </a>
 
@@ -45,7 +45,8 @@ Improve this doc
 number of arguments that act as global config variables for the app.
 <code>@App</code> is similar to Angular&#39;s <code>@Component</code> in which it can accept a <code>template</code>
 property that has an inline template, or a <code>templateUrl</code> property that points
-to an external html template.</p>
+to an external html template. The <code>@App</code> decorator runs the Angular bootstrapping
+process automatically, however you can bootstrap your app separately if you prefer.</p>
 
 <!-- @usage tag -->
 

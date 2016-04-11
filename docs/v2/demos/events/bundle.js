@@ -2569,8 +2569,6 @@
 	    var featureDetect = new feature_detect_1.FeatureDetect();
 	    setupDom(window, document, config, platform, clickBlock, featureDetect);
 	    bindEvents(window, document, platform, events);
-	    // prepare the ready promise to fire....when ready
-	    platform.prepareReady();
 	    return [
 	        app_1.IonicApp,
 	        core_1.provide(click_block_1.ClickBlock, { useValue: clickBlock }),
@@ -2590,6 +2588,15 @@
 	    ];
 	}
 	exports.ionicProviders = ionicProviders;
+	function postBootstrap(appRef, prodMode) {
+	    appRef.injector.get(tap_click_1.TapClick);
+	    var app = appRef.injector.get(app_1.IonicApp);
+	    var platform = appRef.injector.get(platform_1.Platform);
+	    var zone = appRef.injector.get(core_1.NgZone);
+	    platform.prepareReady(zone);
+	    app.setProd(prodMode);
+	}
+	exports.postBootstrap = postBootstrap;
 	function setupDom(window, document, config, platform, clickBlock, featureDetect) {
 	    var bodyEle = document.body;
 	    var mode = config.get('mode');
@@ -26541,15 +26548,19 @@
 	     * @private
 	     */
 	    Platform.prototype.triggerReady = function () {
-	        this._readyResolve();
+	        var _this = this;
+	        this._zone.run(function () {
+	            _this._readyResolve();
+	        });
 	    };
 	    /**
 	     * @private
 	     */
-	    Platform.prototype.prepareReady = function () {
+	    Platform.prototype.prepareReady = function (zone) {
 	        // this is the default prepareReady if it's not replaced by the engine
 	        // if there was no custom ready method from the engine
 	        // then use the default DOM ready
+	        this._zone = zone;
 	        dom_1.ready(this.triggerReady.bind(this));
 	    };
 	    /**
@@ -63926,8 +63937,6 @@
 	"use strict";
 	var core_1 = __webpack_require__(8);
 	var browser_1 = __webpack_require__(176);
-	var app_1 = __webpack_require__(175);
-	var tap_click_1 = __webpack_require__(293);
 	var bootstrap_1 = __webpack_require__(7);
 	var directives_1 = __webpack_require__(297);
 	var _reflect = Reflect;
@@ -63938,7 +63947,8 @@
 	* number of arguments that act as global config variables for the app.
 	* `@App` is similar to Angular's `@Component` in which it can accept a `template`
 	* property that has an inline template, or a `templateUrl` property that points
-	* to an external html template.
+	* to an external html template. The `@App` decorator runs the Angular bootstrapping
+	* process automatically, however you can bootstrap your app separately if you prefer.
 	*
 	* @usage
 	* ```ts
@@ -63983,9 +63993,7 @@
 	            core_1.enableProdMode();
 	        }
 	        browser_1.bootstrap(cls, providers).then(function (appRef) {
-	            appRef.injector.get(tap_click_1.TapClick);
-	            var app = appRef.injector.get(app_1.IonicApp);
-	            app.setProd(args.prodMode);
+	            bootstrap_1.postBootstrap(appRef, args.prodMode);
 	        });
 	        return cls;
 	    };

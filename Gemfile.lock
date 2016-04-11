@@ -1,0 +1,11 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    jekyll (3.0.1)
+      kramdown
+      rouge
+
+dependencies
+  jekyll
+  kramdown
+  rouge

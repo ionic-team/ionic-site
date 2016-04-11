@@ -6867,7 +6867,11 @@ ion-toggle {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #323232; }
+  background-color: #323232;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -webkit-transition-property: -webkit-transform, background-color;
+  transition-property: transform, background-color; }
 
 .toggle-checked {
   border-color: #327eff;

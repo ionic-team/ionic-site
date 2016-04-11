@@ -11,6 +11,8 @@ dependencies:
   post:
     - gem install jekyll -v 3.0.1 && gem install kramdown && gem install rouge
     - ./_scripts/prepare.sh
+  cache_directories:
+    - "./_site" # cache prod
 test:
   override:
     - ./_scripts/test.sh

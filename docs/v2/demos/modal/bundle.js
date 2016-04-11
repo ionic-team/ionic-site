@@ -43599,6 +43599,7 @@
 	                '<div tappable disable-activated class="backdrop"></div>',
 	            directives: [core_1.forwardRef(function () { return MenuBackdrop; })],
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_b = typeof menu_controller_1.MenuController !== 'undefined' && menu_controller_1.MenuController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _h) || Object])
 	    ], Menu);
@@ -47497,6 +47498,7 @@
 	                '<ng-content></ng-content>' +
 	                '</div>',
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()),
@@ -47927,6 +47929,7 @@
 	                '</span>' +
 	                '<ion-button-effect></ion-button-effect>',
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(3, core_1.Attribute('ion-item')), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, String])
@@ -50742,6 +50745,7 @@
 	                '<ng-content select="ion-fixed"></ng-content>' +
 	                '<ng-content select="ion-refresher"></ng-content>',
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(4, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _c) || Object, (typeof (_d = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _d) || Object, (typeof (_e = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _e) || Object])
@@ -50871,7 +50875,8 @@
 	            template: '<div *ngIf="_useA" class="img-placeholder" [style.height]="_h" [style.width]="_w"></div>' +
 	                '<img #imgA *ngIf="_useA" (load)="_onLoad()" [src]="_srcA" [style.height]="_h" [style.width]="_w">' +
 	                '<div *ngIf="!_useA" class="img-placeholder" [style.height]="_h" [style.width]="_w"></div>' +
-	                '<img #imgB *ngIf="!_useA" (load)="_onLoad()" [src]="_srcB" [style.height]="_h" [style.width]="_w">'
+	                '<img #imgB *ngIf="!_useA" (load)="_onLoad()" [src]="_srcB" [style.height]="_h" [style.width]="_w">',
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _d) || Object])
 	    ], Img);
@@ -50974,6 +50979,7 @@
 	                '</div>' +
 	                '</scroll-content>',
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
 	    ], Scroll);
@@ -51305,7 +51311,8 @@
 	            directives: [common_1.NgIf, spinner_1.Spinner],
 	            host: {
 	                '[attr.state]': 'inf.state'
-	            }
+	            },
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof infinite_scroll_1.InfiniteScroll !== 'undefined' && infinite_scroll_1.InfiniteScroll) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
 	    ], InfiniteScrollContent);
@@ -51519,6 +51526,7 @@
 	                '[class.spinner-paused]': 'paused'
 	            },
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object])
 	    ], Spinner);
@@ -52202,7 +52210,9 @@
 	            directives: [common_1.NgIf, icon_1.Icon, spinner_1.Spinner],
 	            host: {
 	                '[attr.state]': 'r.state'
-	            }
+	            },
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof refresher_1.Refresher !== 'undefined' && refresher_1.Refresher) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
 	    ], RefresherContent);
@@ -52739,6 +52749,7 @@
 	                '</div>',
 	            directives: [common_1.NgClass],
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object])
 	    ], Slides);
@@ -52769,6 +52780,7 @@
 	            selector: 'ion-slide',
 	            template: '<div class="slide-zoom"><ng-content></ng-content></div>',
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(1, core_1.Host()), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Slides])
@@ -57094,7 +57106,8 @@
 	                tab_button_1.TabButton,
 	                tab_highlight_1.TabHighlight,
 	                core_1.forwardRef(function () { return TabNavBarAnchor; })
-	            ]
+	            ],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
@@ -57435,7 +57448,8 @@
 	                '[attr.aria-labelledby]': '_btnId',
 	                'role': 'tabpanel'
 	            },
-	            template: '<div #contents></div>'
+	            template: '<div #contents></div>',
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(0, core_1.Inject(core_1.forwardRef(function () { return tabs_1.Tabs; }))), 
 	        __metadata('design:paramtypes', [(typeof (_c = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Compiler !== 'undefined' && core_1.Compiler) === 'function' && _h) || Object, (typeof (_j = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object])
@@ -58059,6 +58073,7 @@
 	            },
 	            directives: [common_1.NgIf, label_1.Label],
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_e = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object])
 	    ], Item);
@@ -58253,6 +58268,7 @@
 	            template: '<ng-content select="ion-item,[ion-item]"></ng-content>' +
 	                '<ng-content select="ion-item-options"></ng-content>',
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(0, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof list_1.List !== 'undefined' && list_1.List) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
@@ -59659,7 +59675,8 @@
 	            host: {
 	                '[class.checkbox-disabled]': '_disabled'
 	            },
-	            providers: [CHECKBOX_VALUE_ACCESSOR]
+	            providers: [CHECKBOX_VALUE_ACCESSOR],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(1, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _c) || Object])
@@ -60087,7 +60104,8 @@
 	            host: {
 	                '[class.select-disabled]': '_disabled'
 	            },
-	            providers: [SELECT_VALUE_ACCESSOR]
+	            providers: [SELECT_VALUE_ACCESSOR],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(3, core_1.Optional()),
 	        __param(4, core_1.Optional()), 
@@ -60593,6 +60611,7 @@
 	            },
 	            directives: [common_1.NgClass, common_1.NgSwitch, common_1.NgIf, common_1.NgFor],
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
 	    ], AlertCmp);
@@ -61067,7 +61086,8 @@
 	            host: {
 	                '[class.toggle-disabled]': '_disabled'
 	            },
-	            providers: [TOGGLE_VALUE_ACCESSOR]
+	            providers: [TOGGLE_VALUE_ACCESSOR],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(3, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _e) || Object])
@@ -61188,7 +61208,8 @@
 	                native_input_1.NextInput,
 	                native_input_1.NativeInput,
 	                button_1.Button
-	            ]
+	            ],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(2, core_1.Optional()),
 	        __param(6, core_1.Optional()),
@@ -61273,7 +61294,8 @@
 	                common_1.NgIf,
 	                native_input_1.NextInput,
 	                native_input_1.NativeInput
-	            ]
+	            ],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(2, core_1.Optional()),
 	        __param(6, core_1.Optional()),
@@ -62144,7 +62166,8 @@
 	                'tappable': '',
 	                'class': 'segment-button',
 	                'role': 'button'
-	            }
+	            },
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object])
 	    ], SegmentButton);
@@ -62450,7 +62473,8 @@
 	                '</button>',
 	            host: {
 	                '[class.radio-disabled]': '_disabled'
-	            }
+	            },
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()), 
@@ -63036,7 +63060,8 @@
 	                '<button clear class="searchbar-clear-icon" (click)="clearInput()" (mousedown)="clearInput()"></button>' +
 	                '</div>' +
 	                '<button clear (click)="cancelSearchbar()" (mousedown)="cancelSearchbar()" [hidden]="hideCancelButton" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
-	            directives: [common_1.FORM_DIRECTIVES, common_1.NgIf, common_1.NgClass, icon_1.Icon, button_1.Button, SearchbarInput]
+	            directives: [common_1.FORM_DIRECTIVES, common_1.NgIf, common_1.NgClass, icon_1.Icon, button_1.Button, SearchbarInput],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(2, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _g) || Object, (typeof (_h = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _h) || Object])
@@ -63256,7 +63281,8 @@
 	        core_1.Component({
 	            selector: 'ion-nav',
 	            template: '<div #contents></div><div portal></div>',
-	            directives: [nav_portal_1.Portal]
+	            directives: [nav_portal_1.Portal],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
@@ -64435,6 +64461,7 @@
 	            },
 	            directives: [common_1.NgFor, common_1.NgIf, icon_1.Icon],
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
 	    ], ActionSheetCmp);
@@ -64887,6 +64914,7 @@
 	            },
 	            directives: [common_1.NgIf, spinner_1.Spinner],
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
 	    ], LoadingCmp);

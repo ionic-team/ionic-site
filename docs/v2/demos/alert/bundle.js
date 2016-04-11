@@ -59774,6 +59774,7 @@
 	                '<div class="checkbox-inner"></div>' +
 	                '</div>' +
 	                '<button role="checkbox" ' +
+	                'type="button" ' +
 	                '[id]="id" ' +
 	                '[attr.aria-checked]="_checked" ' +
 	                '[attr.aria-labelledby]="_labelId" ' +

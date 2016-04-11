@@ -5805,9 +5805,6 @@ ion-icon {
     max-width: 200px; }
   .ios ion-label[stacked],
   .ios ion-label[floating] {
-    -webkit-flex-basis: 100%;
-    -ms-flex-preferred-size: 100%;
-    flex-basis: 100%;
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch;
@@ -8910,9 +8907,6 @@ ion-icon {
     max-width: 200px; }
   .md ion-label[stacked],
   .md ion-label[floating] {
-    -webkit-flex-basis: 100%;
-    -ms-flex-preferred-size: 100%;
-    flex-basis: 100%;
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch;
@@ -12520,9 +12514,6 @@ ion-icon {
     max-width: 200px; }
   .wp ion-label[stacked],
   .wp ion-label[floating] {
-    -webkit-flex-basis: 100%;
-    -ms-flex-preferred-size: 100%;
-    flex-basis: 100%;
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch;

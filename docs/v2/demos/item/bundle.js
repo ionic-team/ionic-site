@@ -50384,9 +50384,9 @@
 	     */
 	    Content.prototype.ngOnInit = function () {
 	        var self = this;
-	        self.scrollElement = self._elementRef.nativeElement.children[0];
+	        self._scrollEle = self._elementRef.nativeElement.children[0];
 	        self._zone.runOutsideAngular(function () {
-	            self._scroll = new scroll_view_1.ScrollView(self.scrollElement);
+	            self._scroll = new scroll_view_1.ScrollView(self._scrollEle);
 	            if (self._config.getBoolean('tapPolyfill')) {
 	                self._scLsn = self.addScrollListener(function () {
 	                    self._app.setScrolling();
@@ -50400,7 +50400,7 @@
 	    Content.prototype.ngOnDestroy = function () {
 	        this._scLsn && this._scLsn();
 	        this._scroll && this._scroll.destroy();
-	        this.scrollElement = this._scLsn = null;
+	        this._scrollEle = this._scLsn = null;
 	    };
 	    /**
 	     * @private
@@ -50469,17 +50469,16 @@
 	    };
 	    Content.prototype._addListener = function (type, handler) {
 	        var _this = this;
-	        if (!this.scrollElement) {
+	        if (!this._scrollEle) {
 	            return;
 	        }
 	        // ensure we're not creating duplicates
-	        this.scrollElement.removeEventListener(type, handler);
-	        this.scrollElement.addEventListener(type, handler);
+	        this._scrollEle.removeEventListener(type, handler);
+	        this._scrollEle.addEventListener(type, handler);
 	        return function () {
-	            if (!_this.scrollElement) {
-	                return;
+	            if (_this._scrollEle) {
+	                _this._scrollEle.removeEventListener(type, handler);
 	            }
-	            _this.scrollElement.removeEventListener(type, handler);
 	        };
 	    };
 	    /**
@@ -50490,7 +50489,7 @@
 	    Content.prototype.onScrollEnd = function (callback) {
 	        var lastScrollTop = null;
 	        var framesUnchanged = 0;
-	        var _scrollEle = this.scrollElement;
+	        var _scrollEle = this._scrollEle;
 	        function next() {
 	            var currentScrollTop = _scrollEle.scrollTop;
 	            if (lastScrollTop !== null) {
@@ -50512,7 +50511,7 @@
 	        setTimeout(next, 100);
 	    };
 	    Content.prototype.onScrollElementTransitionEnd = function (callback) {
-	        dom_1.transitionEnd(this.scrollElement, callback);
+	        dom_1.transitionEnd(this._scrollEle, callback);
 	    };
 	    /**
 	     * Scroll to the specified position.
@@ -50608,7 +50607,7 @@
 	     * @private
 	     */
 	    Content.prototype.setScrollElementStyle = function (prop, val) {
-	        this.scrollElement.style[prop] = val;
+	        this._scrollEle.style[prop] = val;
 	    };
 	    /**
 	     * Returns the content and scroll elements' dimensions.
@@ -50627,7 +50626,7 @@
 	     * {number} dimensions.scrollRight  scroll scrollLeft + scrollWidth
 	     */
 	    Content.prototype.getContentDimensions = function () {
-	        var _scrollEle = this.scrollElement;
+	        var _scrollEle = this._scrollEle;
 	        var parentElement = _scrollEle.parentElement;
 	        return {
 	            contentHeight: parentElement.offsetHeight,
@@ -50653,7 +50652,7 @@
 	        if (newPadding > this._padding) {
 	            console.debug('content addScrollPadding', newPadding);
 	            this._padding = newPadding;
-	            this.scrollElement.style.paddingBottom = newPadding + 'px';
+	            this._scrollEle.style.paddingBottom = newPadding + 'px';
 	        }
 	    };
 	    Content = __decorate([

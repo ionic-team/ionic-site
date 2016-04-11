@@ -41,3 +41,10 @@
     white-space: nowrap;
   }
 }
+
+// safari only
+@supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+  .news a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}

@@ -6269,6 +6269,27 @@ pre {
   background: url("/img/getting-started/ionitron-avatar.png") no-repeat transparent;
   width: 156px;
   height: 156px; }
+  #ionitron-image.header-ionitron {
+    float: left;
+    margin-right: 10px; }
+    @media screen and (max-width: 800px) {
+      #ionitron-image.header-ionitron {
+        background-size: 48px 48px;
+        width: 48px;
+        height: 48px; } }
+    @media screen and (max-width: 400px) {
+      #ionitron-image.header-ionitron {
+        background-size: 32px 32px;
+        width: 32px;
+        height: 32px; }
+        #ionitron-image.header-ionitron ~ h3 {
+          font-size: 20px;
+          line-height: 34px;
+          margin: 0 0 4px; }
+        #ionitron-image.header-ionitron ~ h4 {
+          font-size: 16px;
+          line-height: 18px;
+          color: #ECF3FF; } }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124dpi) {
   #ionitron-image {
@@ -6284,40 +6305,18 @@ pre {
   #vs-start-box b {
     color: #46364a; }
   #vs-start-box img {
-    margin: 15px 15px 0 15px;
+    margin: 15px 15px 0;
     display: block;
     float: left; }
   #vs-start-box .info {
     padding: 15px; }
 
-#ionitron-image.header-ionitron {
-  float: left;
-  margin-right: 10px; }
-  @media screen and (max-width: 800px) {
-    #ionitron-image.header-ionitron {
-      background-size: 48px 48px;
-      width: 48px;
-      height: 48px; } }
-  @media screen and (max-width: 400px) {
-    #ionitron-image.header-ionitron {
-      background-size: 32px 32px;
-      width: 32px;
-      height: 32px; }
-      #ionitron-image.header-ionitron ~ h3 {
-        font-size: 20px;
-        line-height: 34px;
-        margin: 0 0 4px 0; }
-      #ionitron-image.header-ionitron ~ h4 {
-        font-size: 16px;
-        line-height: 18px;
-        color: #ECF3FF; } }
-
 #getting-started {
-  padding: 40px 0px; }
+  padding: 40px 0; }
   #getting-started .italic {
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
-    margin: 20px 0px;
+    margin: 20px 0;
     line-height: 26px; }
   #getting-started i {
     color: #999; }
@@ -6383,7 +6382,7 @@ pre {
       text-align: center;
       float: left;
       width: 308px;
-      margin: 0px 68px; }
+      margin: 0 68px; }
       #getting-started #template-images .template:first-child {
         margin-left: 0;
         margin-right: 0; }
@@ -6393,23 +6392,26 @@ pre {
       @media (max-width: 1200px) {
         #getting-started #template-images .template {
           width: 272px;
-          margin: 0px 20px; }
+          margin: 0 20px; }
           #getting-started #template-images .template .template-image {
-            width: 100%;
-            background-size: contain; } }
+            width: 220px;
+            height: 180px;
+            background-size: 220px; } }
       @media (max-width: 992px) {
         #getting-started #template-images .template {
           width: 226px;
-          margin: 0px 20px; } }
+          margin: 0 20px; } }
       @media (max-width: 768px) {
         #getting-started #template-images .template {
           width: 100%;
           float: none;
-          margin: 20px 0px; }
+          margin: 20px 0; }
           #getting-started #template-images .template .template-image {
-            width: 308px;
             display: block;
-            margin: auto; } }
+            margin: 0 auto;
+            background-size: 330px;
+            height: 270px;
+            width: 330px; } }
     #getting-started #template-images code {
       display: inline-block;
       margin-top: 15px; }
@@ -6417,22 +6419,80 @@ pre {
       display: inline-block;
       width: 308px;
       height: 263px; }
-  #getting-started #start-template-blank-image {
-    background: url("/img/getting-started/blank-app.png") no-repeat transparent; }
-  #getting-started #start-template-tabs-image {
-    background: url("/img/getting-started/tabs-app.png") no-repeat transparent; }
+  #getting-started #start-template-blank-image,
+  #getting-started #start-template-tabs-image,
   #getting-started #start-template-sidemenu-image {
-    background: url("/img/getting-started/menu-app.png") no-repeat transparent; }
-  @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124dpi) {
-    #getting-started #start-template-blank-image {
-      background: url("/img/getting-started/blank-app@2x.png") no-repeat transparent;
-      background-size: 308px 263px; }
-    #getting-started #start-template-tabs-image {
-      background: url("/img/getting-started/tabs-app@2x.png") no-repeat transparent;
-      background-size: 308px 263px; }
-    #getting-started #start-template-sidemenu-image {
-      background: url("/img/getting-started/menu-app@2x.png") no-repeat transparent;
-      background-size: 308px 263px; } }
+    background: transparent no-repeat bottom center url("/img/starter-app-thumbnails.png");
+    background-size: 330px; }
+  #getting-started #start-template-tabs-image {
+    background-position: center center; }
+  #getting-started #start-template-sidemenu-image {
+    background-position: center top; }
+  #getting-started .what-next {
+    border-top: 1px solid #e9ecf3;
+    padding-top: 74px; }
+    #getting-started .what-next hgroup {
+      text-align: center;
+      padding-top: 92px;
+      background: transparent no-repeat top center url("/img/getting-started/ionic-checkmark.png");
+      background-size: 53px;
+      max-width: 575px;
+      margin: 0 auto; }
+    #getting-started .what-next .items {
+      max-width: 950px;
+      margin: 82px auto; }
+    #getting-started .what-next .item {
+      padding-top: 107px;
+      display: inline-block;
+      width: 278px;
+      margin-right: 47px;
+      position: relative; }
+      #getting-started .what-next .item:before {
+        background: transparent no-repeat url("/img/getting-started/whats-next-icons.png");
+        background-size: 80px;
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        top: 0;
+        content: ''; }
+      #getting-started .what-next .item.platform:before {
+        background-position: center -80px; }
+      #getting-started .what-next .item.enterprise:before {
+        background-position: center -160px; }
+      #getting-started .what-next .item:last-child {
+        margin-right: 0; }
+      #getting-started .what-next .item h3 {
+        font-size: 18px; }
+      #getting-started .what-next .item p {
+        color: #818893;
+        font-size: 13px;
+        line-height: 2em; }
+      #getting-started .what-next .item .more {
+        font-weight: bold;
+        position: relative;
+        transition-duration: .3s; }
+        #getting-started .what-next .item .more:after {
+          font-family: 'Ionicons';
+          content: '\f3d6';
+          font-size: 20px;
+          font-weight: 700;
+          position: relative;
+          right: -10px;
+          top: 3px; }
+        #getting-started .what-next .item .more:hover {
+          color: #1e6ff5; }
+      @media (max-width: 992px) {
+        #getting-started .what-next .item {
+          margin-right: 5px;
+          width: 240px; } }
+      @media (max-width: 768px) {
+        #getting-started .what-next .item {
+          display: block;
+          width: 100%;
+          max-width: 400px;
+          margin: 0 auto 40px; }
+          #getting-started .what-next .item:last-child {
+            margin-right: auto; } }
 
 #showcase #apps {
   margin-top: 40px; }
@@ -7669,6 +7729,10 @@ a {
     height: 26px;
     text-overflow: ellipsis;
     white-space: nowrap; }
+
+@supports (overflow: -webkit-marquee) and ((-webkit-justify-content: inherit) or (-ms-flex-pack: inherit) or (justify-content: inherit)) {
+  .news a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; } }
 
 @-webkit-keyframes spin {
   100% {

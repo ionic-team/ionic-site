@@ -56817,8 +56817,8 @@
 	 *
 	 * Since the index starts at `0`, this will select the 3rd tab which has
 	 * root set to `tab3Root`. You can also grab the `Tabs` instance and call
-	 * the `select()` method. This requires the `<ion-tab>` element to have an
-	 * `id`. For example, set the `id` to `myTabs`:
+	 * the `select()` method. This requires the `<ion-tabs>` element to have
+	 * an `id`. For example, set the `id` to `myTabs`:
 	 *
 	 * ```html
 	 * <ion-tabs id="myTabs">
@@ -56829,9 +56829,13 @@
 	 * ```
 	 *
 	 * Then in your JavaScript you can grab the `Tabs` instance and call `select()`.
-	 * In the following code `app` is of type `IonicApp`:
+	 * In the following code `app` is of type [`IonicApp`](../../app/IonicApp/):
 	 *
 	 *```js
+	 * constructor(app: IonicApp) {
+	 *   this.app = app;
+	 * }
+	 *
 	 * onPageDidEnter() {
 	 *   let tabs = this.app.getComponent('myTabs');
 	 *   tabs.select(2);
@@ -56841,8 +56845,10 @@
 	 *
 	 * @usage
 	 * ```html
-	 * <ion-tabs>
-	 *   <ion-tab [root]="tabRoot"></ion-tab>
+	 * <ion-tabs [selectedIndex]="mySelectedIndex" tabbarLayout="icon-bottom" secondary>
+	 *   <ion-tab [root]="tab1Root"></ion-tab>
+	 *   <ion-tab [root]="tab2Root"></ion-tab>
+	 *   <ion-tab [root]="tab3Root"></ion-tab>
 	 * </ion-tabs>
 	 * ```
 	 *

@@ -43,11 +43,53 @@ Improve this doc
 
 
 
-<p><em>For basic Tabs usage, see the <a href="../../../../components/#tabs">Tabs section</a>
-of the Component docs.</em></p>
-<p>The Tabs component is a container with a TabBar and any number of
-individual Tab components. On iOS, the TabBar is placed on the bottom of
-the screen, while on Android it is at the top.</p>
+<p>Tabs make it easy to navigate between different pages or functional
+aspects of an app. The Tabs component, written as <code>&lt;ion-tabs&gt;</code>, is
+a container of individual <a href="../Tab/">Tab</a> components.</p>
+<h3 id="placement">Placement</h3>
+<p>The position of the tabs relative to the content varies based on
+the mode. By default the tabs are placed at the bottom of the screen
+in <code>ios</code> mode, and at the top for <code>wp</code> and <code>md</code> mode. You can
+configure the position using the <code>tabbarPlacement</code> property on the
+<code>&lt;ion-tabs&gt;</code> element, or in your app&#39;s <a href="../../config/Config/">config</a>.
+See the <a href="#input-properties">Input Properties</a> below for the available
+values of <code>tabbarPlacement</code>.</p>
+<h3 id="layout">Layout</h3>
+<p>The layout for all of the tabs can be defined using the <code>tabbarLayout</code>
+property. If the individual tab has a title and icon, the icons will
+show on top of the title in a tab. All tabs can be changed by setting
+the value of <code>tabbarLayout</code> on the <code>&lt;ion-tabs&gt;</code> element, or in your
+app&#39;s <a href="../../config/Config/">config</a>. For example, this is useful if
+you want to show tabs with a title only on Android, but show icons
+and a title for iOS. See the <a href="#input-properties">Input Properties</a>
+below for the available values of <code>tabbarLayout</code>.</p>
+<h3 id="selecting-a-tab">Selecting a Tab</h3>
+<p>There are different ways you can select a specific tab from the tabs
+component. You can use the <code>selectedIndex</code> property to set the index
+on creation of the tabs:</p>
+<pre><code class="lang-html">&lt;ion-tabs selectedIndex=&quot;2&quot;&gt;
+  &lt;ion-tab [root]=&quot;tab1Root&quot;&gt;&lt;/ion-tab&gt;
+  &lt;ion-tab [root]=&quot;tab2Root&quot;&gt;&lt;/ion-tab&gt;
+  &lt;ion-tab [root]=&quot;tab3Root&quot;&gt;&lt;/ion-tab&gt;
+&lt;/ion-tabs&gt;
+</code></pre>
+<p>Since the index starts at <code>0</code>, this will select the 3rd tab which has
+root set to <code>tab3Root</code>. You can also grab the <code>Tabs</code> instance and call
+the <code>select()</code> method. This requires the <code>&lt;ion-tab&gt;</code> element to have an
+<code>id</code>. For example, set the <code>id</code> to <code>myTabs</code>:</p>
+<pre><code class="lang-html">&lt;ion-tabs id=&quot;myTabs&quot;&gt;
+  &lt;ion-tab [root]=&quot;tab1Root&quot;&gt;&lt;/ion-tab&gt;
+  &lt;ion-tab [root]=&quot;tab2Root&quot;&gt;&lt;/ion-tab&gt;
+  &lt;ion-tab [root]=&quot;tab3Root&quot;&gt;&lt;/ion-tab&gt;
+&lt;/ion-tabs&gt;
+</code></pre>
+<p>Then in your JavaScript you can grab the <code>Tabs</code> instance and call <code>select()</code>.
+In the following code <code>app</code> is of type <code>IonicApp</code>:</p>
+<pre><code class="lang-js">onPageDidEnter() {
+  let tabs = this.app.getComponent(&#39;myTabs&#39;);
+  tabs.select(2);
+}
+</code></pre>
 
 
 <h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
@@ -272,7 +314,8 @@ the screen, while on Android it is at the top.</p>
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#tabs'>Tabs Component Docs</a>
-<a href='../Tab'>Tab API Docs</a><!-- end content block -->
+<a href='../Tab'>Tab API Docs</a>
+<a href='../../config/Config'>Config API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

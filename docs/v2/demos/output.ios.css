@@ -7508,8 +7508,8 @@ ion-navbar-section {
   border-bottom-width: 0.55px; }
 
 .toolbar[position=bottom] .toolbar-background {
-  border-bottom-width: 0;
-  border-top-width: 1px; }
+  border-top-width: 1px;
+  border-bottom-width: 0; }
 
 .hairlines .toolbar[position=bottom] .toolbar-background {
   border-top-width: 0.55px; }

@@ -73,6 +73,15 @@ class MyComponent {
 }
 ```
 
+<h3 id="Angular_component">I added a click method to my div and there is a click delay on my ios device!</h3>
+
+In general, we always recommend to only add `(click)` to elements that are normally clickable such as buttons, inputs etc, but there are times when you may need to add a `(click)` to an element that is not normally clickable such as a div. When you do this you may experience a 300ms click delay on your ios device from when you tap the element to when your click event actually fires. To fix this issue you can add the `tappable` attribute to your element. This will mark this element as clickable to Ionic so that we can remove the 300ms delay on that element just like ionic does on buttons and inputs.
+
+```
+ <div tappable (click)="doAwesome()">I am clickable!</div>
+```
+
+
 <h3 id="Common_mistakes">Common mistakes:</h3>
 
 - Forgetting `()` after an annotation: `@Injectable()`, `@Optional()`, etc.

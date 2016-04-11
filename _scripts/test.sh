@@ -7,7 +7,7 @@ ARG_DEFS=(
 
 function buildforjekyll {
   echo "Building site with jekyll"
-  jekyll build
+  jekyll build --incremental
 }
 
 if [ -d "_scripts" ]; then

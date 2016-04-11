@@ -6905,11 +6905,16 @@ ion-icon {
     min-height: 44px; }
   .ios .toolbar-background {
     border-bottom-width: 1px;
-    border-bottom-style: solid;
+    border-style: solid;
     border-color: #b2b2b2;
     background: #f8f8f8; }
   .ios.hairlines .toolbar-background {
     border-bottom-width: 0.55px; }
+  .ios .toolbar[position=bottom] .toolbar-background {
+    border-bottom-width: 0;
+    border-top-width: 1px; }
+  .ios.hairlines .toolbar[position=bottom] .toolbar-background {
+    border-top-width: 0.55px; }
   .ios .toolbar-content {
     -webkit-box-flex: 1;
     -webkit-flex: 1;

@@ -7296,12 +7296,19 @@ ion-navbar-section {
 
 .toolbar-background {
   border-bottom-width: 1px;
-  border-bottom-style: solid;
+  border-style: solid;
   border-color: #b2b2b2;
   background: #f8f8f8; }
 
 .hairlines .toolbar-background {
   border-bottom-width: 0.55px; }
+
+.toolbar[position=bottom] .toolbar-background {
+  border-bottom-width: 0;
+  border-top-width: 1px; }
+
+.hairlines .toolbar[position=bottom] .toolbar-background {
+  border-top-width: 0.55px; }
 
 .toolbar-content {
   -webkit-box-flex: 1;

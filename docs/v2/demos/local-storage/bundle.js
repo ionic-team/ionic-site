@@ -50734,42 +50734,77 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
+	var dom_1 = __webpack_require__(168);
 	var util_1 = __webpack_require__(171);
 	var platform_1 = __webpack_require__(170);
 	var Img = (function () {
-	    function Img(_elementRef, _platform) {
+	    function Img(_elementRef, _platform, _zone) {
 	        this._elementRef = _elementRef;
 	        this._platform = _platform;
+	        this._zone = _zone;
 	        this._src = '';
-	        this._srcA = '';
-	        this._srcB = '';
-	        this._useA = true;
+	        this._normalizeSrc = '';
+	        this._imgs = [];
 	        this._enabled = true;
-	        this._loaded = false;
 	    }
 	    Object.defineProperty(Img.prototype, "src", {
 	        set: function (val) {
-	            val = (util_1.isPresent(val) ? val : '');
-	            if (this._src !== val) {
-	                this._src = val;
-	                this._loaded = false;
-	                this._srcA = this._srcB = '';
-	                this._useA = !this._useA;
-	                this._update();
-	            }
+	            var tmpImg = new Image();
+	            tmpImg.src = util_1.isPresent(val) ? val : '';
+	            this._src = util_1.isPresent(val) ? val : '';
+	            this._normalizeSrc = tmpImg.src;
+	            this._update();
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
 	    Img.prototype._update = function () {
-	        if (this._enabled && this.isVisible()) {
-	            if (this._useA) {
-	                this._srcA = this._src;
+	        var _this = this;
+	        if (this._enabled && this._src !== '' && this.isVisible()) {
+	            // actively update the image
+	            for (var i = this._imgs.length - 1; i >= 0; i--) {
+	                if (this._imgs[i].src === this._normalizeSrc) {
+	                    // this is the active image
+	                    if (this._imgs[i].complete) {
+	                        this._loaded(true);
+	                    }
+	                }
+	                else {
+	                    // no longer the active image
+	                    if (this._imgs[i].parentElement) {
+	                        this._imgs[i].parentElement.removeChild(this._imgs[i]);
+	                    }
+	                    this._imgs.splice(i, 1);
+	                }
 	            }
-	            else {
-	                this._srcB = this._src;
+	            if (!this._imgs.length) {
+	                this._zone.runOutsideAngular(function () {
+	                    var img = new Image();
+	                    img.style.width = _this._w;
+	                    img.style.height = _this._h;
+	                    img.addEventListener('load', function () {
+	                        if (img.src === _this._normalizeSrc) {
+	                            _this._elementRef.nativeElement.appendChild(img);
+	                            dom_1.raf(function () {
+	                                _this._update();
+	                            });
+	                        }
+	                    });
+	                    img.src = _this._src;
+	                    _this._imgs.push(img);
+	                    _this._loaded(false);
+	                });
 	            }
 	        }
+	        else {
+	            // do not actively update the image
+	            if (!this._imgs.some(function (img) { return img.src === _this._normalizeSrc; })) {
+	                this._loaded(false);
+	            }
+	        }
+	    };
+	    Img.prototype._loaded = function (isLoaded) {
+	        this._elementRef.nativeElement.classList[isLoaded ? 'add' : 'remove']('img-loaded');
 	    };
 	    Img.prototype.enable = function (shouldEnable) {
 	        this._enabled = shouldEnable;
@@ -50778,19 +50813,6 @@
 	    Img.prototype.isVisible = function () {
 	        var bounds = this._elementRef.nativeElement.getBoundingClientRect();
 	        return bounds.bottom > 0 && bounds.top < this._platform.height();
-	    };
-	    Img.prototype._onLoad = function () {
-	        this._loaded = this.isLoaded();
-	    };
-	    Img.prototype.isLoaded = function () {
-	        var imgEle;
-	        if (this._useA && this._imgA) {
-	            imgEle = this._imgA.nativeElement;
-	        }
-	        else if (this._imgB) {
-	            imgEle = this._imgB.nativeElement;
-	        }
-	        return (imgEle && imgEle.src !== '' && imgEle.complete);
 	    };
 	    Object.defineProperty(Img.prototype, "width", {
 	        set: function (val) {
@@ -50807,22 +50829,10 @@
 	        configurable: true
 	    });
 	    __decorate([
-	        core_1.ViewChild('imgA'), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object)
-	    ], Img.prototype, "_imgA", void 0);
-	    __decorate([
-	        core_1.ViewChild('imgB'), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object)
-	    ], Img.prototype, "_imgB", void 0);
-	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String), 
 	        __metadata('design:paramtypes', [String])
 	    ], Img.prototype, "src", null);
-	    __decorate([
-	        core_1.HostBinding('class.img-loaded'), 
-	        __metadata('design:type', Boolean)
-	    ], Img.prototype, "_loaded", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object), 
@@ -50836,16 +50846,14 @@
 	    Img = __decorate([
 	        core_1.Component({
 	            selector: 'ion-img',
-	            template: '<div *ngIf="_useA" class="img-placeholder" [style.height]="_h" [style.width]="_w"></div>' +
-	                '<img #imgA *ngIf="_useA" (load)="_onLoad()" [src]="_srcA" [style.height]="_h" [style.width]="_w">' +
-	                '<div *ngIf="!_useA" class="img-placeholder" [style.height]="_h" [style.width]="_w"></div>' +
-	                '<img #imgB *ngIf="!_useA" (load)="_onLoad()" [src]="_srcB" [style.height]="_h" [style.width]="_w">',
+	            template: '<div class="img-placeholder" [style.height]="_h" [style.width]="_w"></div>',
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
 	    ], Img);
 	    return Img;
-	    var _a, _b, _c, _d;
+	    var _a, _b, _c;
 	}());
 	exports.Img = Img;
 
@@ -64078,6 +64086,7 @@
 	__export(__webpack_require__(345));
 	__export(__webpack_require__(323));
 	__export(__webpack_require__(312));
+	__export(__webpack_require__(324));
 	__export(__webpack_require__(326));
 	__export(__webpack_require__(327));
 	__export(__webpack_require__(350));

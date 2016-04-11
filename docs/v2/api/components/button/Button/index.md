@@ -275,7 +275,7 @@ color
 
 
 <td>
-Dynamically set which color attribute this button should use.
+Dynamically set which predefined color this button should use (e.g. default, secondary, danger, etc).
 
 </td>
 </tr>
@@ -364,7 +364,7 @@ Dynamically set which color attribute this button should use.
     <tr>
       <td>color</td>
       <td><code>string</code></td>
-      <td><p> Dynamically set which color attribute this button should use.</p>
+      <td><p> Dynamically set which predefined color this button should use (e.g. default, secondary, danger, etc).</p>
 </td>
     </tr>
     

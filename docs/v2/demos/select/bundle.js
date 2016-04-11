@@ -2536,15 +2536,13 @@
 	    platform.setUrl(window.location.href);
 	    platform.setUserAgent(window.navigator.userAgent);
 	    platform.setNavigatorPlatform(window.navigator.platform);
-	    platform.load();
+	    platform.load(config);
 	    config.setPlatform(platform);
 	    var clickBlock = new click_block_1.ClickBlock();
 	    var events = new events_1.Events();
 	    var featureDetect = new feature_detect_1.FeatureDetect();
 	    setupDom(window, document, config, platform, clickBlock, featureDetect);
 	    bindEvents(window, document, platform, events);
-	    // prepare the ready promise to fire....when ready
-	    platform.prepareReady(config);
 	    return [
 	        app_1.IonicApp,
 	        core_1.provide(click_block_1.ClickBlock, { useValue: clickBlock }),
@@ -2564,6 +2562,15 @@
 	    ];
 	}
 	exports.ionicProviders = ionicProviders;
+	function postBootstrap(appRef, prodMode) {
+	    appRef.injector.get(tap_click_1.TapClick);
+	    var app = appRef.injector.get(app_1.IonicApp);
+	    var platform = appRef.injector.get(platform_1.Platform);
+	    var zone = appRef.injector.get(core_1.NgZone);
+	    platform.prepareReady(zone);
+	    app.setProd(prodMode);
+	}
+	exports.postBootstrap = postBootstrap;
 	function setupDom(window, document, config, platform, clickBlock, featureDetect) {
 	    var bodyEle = document.body;
 	    var mode = config.get('mode');
@@ -26333,6 +26340,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var core_1 = __webpack_require__(8);
 	var util_1 = __webpack_require__(171);
 	var dom_1 = __webpack_require__(168);
 	/**
@@ -26362,6 +26370,20 @@
 	        if (platforms === void 0) { platforms = []; }
 	        this._versions = {};
 	        this._onResizes = [];
+	        // Events meant to be triggered by the engine
+	        // **********************************************
+	        /**
+	        * @private
+	        */
+	        this.backButton = new core_1.EventEmitter();
+	        /**
+	        * @private
+	        */
+	        this.pause = new core_1.EventEmitter();
+	        /**
+	        * @private
+	        */
+	        this.resume = new core_1.EventEmitter();
 	        this._platforms = platforms;
 	        this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
 	    }
@@ -26436,7 +26458,7 @@
 	        return this._platforms;
 	    };
 	    /**
-	     * Returns an object containing information about the paltform
+	     * Returns an object containing information about the platforms.
 	     *
 	     * ```
 	     * import {Platform} from 'ionic-angular';
@@ -26444,8 +26466,7 @@
 	     * @Page({...})
 	     * export MyPage {
 	     *    constructor(platform: Platform) {
-	     *      this.platform = platform;
-	     *      console.log(this.platform.versions());
+	     *      console.log(platform.versions());
 	     *    }
 	     * }
 	     * ```
@@ -26454,11 +26475,7 @@
 	     * @returns {object} An object with various platform info
 	     *
 	     */
-	    Platform.prototype.versions = function (platformName) {
-	        if (arguments.length) {
-	            // get a specific platform's version
-	            return this._versions[platformName];
-	        }
+	    Platform.prototype.versions = function () {
 	        // get all the platforms that have a valid parsed version
 	        return this._versions;
 	    };
@@ -26474,7 +26491,11 @@
 	        return {};
 	    };
 	    /**
-	     * Returns a promise when the platform is ready and native functionality can be called
+	     * Returns a promise when the platform is ready and native functionality
+	     * can be called. If the app is running from within a web browser, then
+	     * the promise will resolve when the DOM is ready. When the app is running
+	     * from an application engine such as Cordova, then the promise
+	     * will resolve when Cordova triggers the `deviceready` event.
 	     *
 	     * ```
 	     * import {Platform} from 'ionic-angular';
@@ -26482,36 +26503,39 @@
 	     * @Page({...})
 	     * export MyPage {
 	     *    constructor(platform: Platform) {
-	     *      this.platform = platform;
-	     *      this.platform.ready().then(() => {
+	     *      platform.ready().then(() => {
 	     *        console.log('Platform ready');
 	     *        // The platform is now ready, execute any native code you want
 	     *       });
 	     *    }
 	     * }
 	     * ```
-	     * @returns {promise} Returns a promsie when device ready has fired
+	     * @returns {promise}
 	     */
 	    Platform.prototype.ready = function () {
+	        // this is the default if it's not replaced by the engine
+	        // if there was no custom ready method from the engine
+	        // then use the default DOM ready
 	        return this._readyPromise;
 	    };
 	    /**
 	     * @private
 	     */
-	    Platform.prototype.prepareReady = function (config) {
-	        var self = this;
-	        function resolve() {
-	            self._readyResolve(config);
-	        }
-	        if (this._engineReady) {
-	            // the engine provide a ready promise, use this instead
-	            this._engineReady(resolve);
-	        }
-	        else {
-	            // there is no custom ready method from the engine
-	            // use the default dom ready
-	            dom_1.ready(resolve);
-	        }
+	    Platform.prototype.triggerReady = function () {
+	        var _this = this;
+	        this._zone.run(function () {
+	            _this._readyResolve();
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.prepareReady = function (zone) {
+	        // this is the default prepareReady if it's not replaced by the engine
+	        // if there was no custom ready method from the engine
+	        // then use the default DOM ready
+	        this._zone = zone;
+	        dom_1.ready(this.triggerReady.bind(this));
 	    };
 	    /**
 	    * Set the app's language direction, which will update the `dir` attribute
@@ -26576,31 +26600,11 @@
 	    // Methods meant to be overridden by the engine
 	    // **********************************************
 	    // Provided NOOP methods so they do not error when
-	    // called by engines (the browser) doesn't provide them
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.on = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.onHardwareBackButton = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.registerBackButtonAction = function () { };
+	    // called by engines (the browser)that do not provide them
 	    /**
 	    * @private
 	    */
 	    Platform.prototype.exitApp = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.fullScreen = function () { };
-	    /**
-	    * @private
-	    */
-	    Platform.prototype.showStatusBar = function () { };
 	    // Getter/Setter Methods
 	    // **********************************************
 	    /**
@@ -26782,13 +26786,12 @@
 	    /**
 	     * @private
 	     */
-	    Platform.prototype.load = function (platformOverride) {
-	        var rootPlatformNode = null;
-	        var engineNode = null;
+	    Platform.prototype.load = function (config) {
+	        var rootPlatformNode;
+	        var enginePlatformNode;
 	        var self = this;
-	        this.platformOverride = platformOverride;
 	        // figure out the most specific platform and active engine
-	        var tmpPlatform = null;
+	        var tmpPlatform;
 	        for (var platformName in platformRegistry) {
 	            tmpPlatform = this.matchPlatform(platformName);
 	            if (tmpPlatform) {
@@ -26797,7 +26800,7 @@
 	                if (tmpPlatform.isEngine) {
 	                    // because it matched then this should be the active engine
 	                    // you cannot have more than one active engine
-	                    engineNode = tmpPlatform;
+	                    enginePlatformNode = tmpPlatform;
 	                }
 	                else if (!rootPlatformNode || tmpPlatform.depth > rootPlatformNode.depth) {
 	                    // only find the root node for platforms that are not engines
@@ -26814,19 +26817,13 @@
 	        // hierarchy of active platforms and settings
 	        if (rootPlatformNode) {
 	            // check if we found an engine node (cordova/node-webkit/etc)
-	            if (engineNode) {
+	            if (enginePlatformNode) {
 	                // add the engine to the first in the platform hierarchy
 	                // the original rootPlatformNode now becomes a child
 	                // of the engineNode, which is not the new root
-	                engineNode.child = rootPlatformNode;
-	                rootPlatformNode.parent = engineNode;
-	                rootPlatformNode = engineNode;
-	                // add any events which the engine would provide
-	                // for example, Cordova provides its own ready event
-	                var engineMethods = engineNode.methods();
-	                engineMethods._engineReady = engineMethods.ready;
-	                delete engineMethods.ready;
-	                util_1.assign(this, engineMethods);
+	                enginePlatformNode.child = rootPlatformNode;
+	                rootPlatformNode.parent = enginePlatformNode;
+	                rootPlatformNode = enginePlatformNode;
 	            }
 	            var platformNode = rootPlatformNode;
 	            while (platformNode) {
@@ -26842,11 +26839,12 @@
 	            }
 	            platformNode = rootPlatformNode;
 	            while (platformNode) {
+	                platformNode.initialize(this, config);
 	                // set the array of active platforms with
 	                // the last one in the array the most important
-	                this._platforms.push(platformNode.name());
+	                this._platforms.push(platformNode.name);
 	                // get the platforms version if a version parser was provided
-	                this._versions[platformNode.name()] = platformNode.version(this);
+	                this._versions[platformNode.name] = platformNode.version(this);
 	                // go to the next platform child
 	                platformNode = platformNode.child;
 	            }
@@ -26891,31 +26889,26 @@
 	        platformNode.parent = supersetPlatform;
 	    }
 	}
+	/**
+	 * @private
+	 */
 	var PlatformNode = (function () {
 	    function PlatformNode(platformName) {
 	        this.c = Platform.get(platformName);
+	        this.name = platformName;
 	        this.isEngine = this.c.isEngine;
 	    }
-	    PlatformNode.prototype.name = function () {
-	        return this.c.name;
-	    };
 	    PlatformNode.prototype.settings = function () {
 	        return this.c.settings || {};
 	    };
 	    PlatformNode.prototype.superset = function () {
 	        return this.c.superset;
 	    };
-	    PlatformNode.prototype.methods = function () {
-	        return this.c.methods || {};
-	    };
 	    PlatformNode.prototype.isMatch = function (p) {
-	        if (p.platformOverride && !this.isEngine) {
-	            return (p.platformOverride === this.c.name);
-	        }
-	        else if (!this.c.isMatch) {
-	            return false;
-	        }
-	        return this.c.isMatch(p);
+	        return this.c.isMatch && this.c.isMatch(p) || false;
+	    };
+	    PlatformNode.prototype.initialize = function (platform, config) {
+	        this.c.initialize && this.c.initialize(platform, config);
 	    };
 	    PlatformNode.prototype.version = function (p) {
 	        if (this.c.versionParser) {
@@ -26933,7 +26926,7 @@
 	    };
 	    PlatformNode.prototype.getRoot = function (p) {
 	        if (this.isMatch(p)) {
-	            var parents = this.getSubsetParents(this.name());
+	            var parents = this.getSubsetParents(this.name);
 	            if (!parents.length) {
 	                return this;
 	            }
@@ -27233,7 +27226,7 @@
 	 * ```ts
 	 * import {Events} from 'ionic-angular';
 	 *
-	 * constructor(public events: Event) {}
+	 * constructor(public events: Events) {}
 	 *
 	 * // first page (publish an event when a user is created)
 	 * function createUser(user) {
@@ -27486,12 +27479,14 @@
 	var browser_1 = __webpack_require__(176);
 	var config_1 = __webpack_require__(169);
 	var click_block_1 = __webpack_require__(167);
+	var platform_1 = __webpack_require__(170);
 	/**
 	 * App utility service.  Allows you to look up components that have been
 	 * registered using the [Id directive](../Id/).
 	 */
 	var IonicApp = (function () {
-	    function IonicApp(_config, _clickBlock) {
+	    function IonicApp(_config, _clickBlock, platform) {
+	        var _this = this;
 	        this._config = _config;
 	        this._clickBlock = _clickBlock;
 	        this._cmps = {};
@@ -27501,6 +27496,17 @@
 	        this._titleSrv = new browser_1.Title();
 	        this._isProd = false;
 	        this._rootNav = null;
+	        platform.backButton.subscribe(function () {
+	            var activeNav = _this.getActiveNav();
+	            if (activeNav) {
+	                if (activeNav.length() === 1) {
+	                    platform.exitApp();
+	                }
+	                else {
+	                    activeNav.pop();
+	                }
+	            }
+	        });
 	    }
 	    /**
 	     * Sets the document title.
@@ -27648,10 +27654,10 @@
 	    };
 	    IonicApp = __decorate([
 	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof click_block_1.ClickBlock !== 'undefined' && click_block_1.ClickBlock) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof click_block_1.ClickBlock !== 'undefined' && click_block_1.ClickBlock) === 'function' && _b) || Object, (typeof (_c = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _c) || Object])
 	    ], IonicApp);
 	    return IonicApp;
-	    var _a, _b;
+	    var _a, _b, _c;
 	}());
 	exports.IonicApp = IonicApp;
 
@@ -43552,7 +43558,9 @@
 	            },
 	            template: '<ng-content></ng-content>' +
 	                '<div tappable disable-activated class="backdrop"></div>',
-	            directives: [core_1.forwardRef(function () { return MenuBackdrop; })]
+	            directives: [core_1.forwardRef(function () { return MenuBackdrop; })],
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_b = typeof menu_controller_1.MenuController !== 'undefined' && menu_controller_1.MenuController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _h) || Object])
 	    ], Menu);
@@ -47402,7 +47410,8 @@
 	                '</div>',
 	            host: {
 	                'class': 'toolbar'
-	            }
+	            },
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
 	    ], Toolbar);
@@ -47448,7 +47457,9 @@
 	            selector: 'ion-title',
 	            template: '<div class="toolbar-title">' +
 	                '<ng-content></ng-content>' +
-	                '</div>'
+	                '</div>',
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()),
@@ -47552,7 +47563,7 @@
 	  * @property [fab-center] - Position a fab button towards the center.
 	  * @property [fab-top] - Position a fab button towards the top.
 	  * @property [fab-bottom] - Position a fab button towards the bottom.
-	  * @property [color] - Dynamically set which color attribute this button should use.
+	  * @property [color] - Dynamically set which predefined color this button should use (e.g. default, secondary, danger, etc).
 	  *
 	  * @demo /docs/v2/demos/button/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
@@ -47686,7 +47697,7 @@
 	    };
 	    Object.defineProperty(Button.prototype, "color", {
 	        /**
-	         * @input {string} Dynamically set which color attribute this button should use.
+	         * @input {string} Dynamically set which predefined color this button should use (e.g. default, secondary, danger, etc).
 	         */
 	        set: function (val) {
 	            this._assignCss(false);
@@ -47877,7 +47888,9 @@
 	            template: '<span class="button-inner">' +
 	                '<ng-content></ng-content>' +
 	                '</span>' +
-	                '<ion-button-effect></ion-button-effect>'
+	                '<ion-button-effect></ion-button-effect>',
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(3, core_1.Attribute('ion-item')), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, String])
@@ -50412,9 +50425,9 @@
 	     */
 	    Content.prototype.ngOnInit = function () {
 	        var self = this;
-	        self.scrollElement = self._elementRef.nativeElement.children[0];
+	        self._scrollEle = self._elementRef.nativeElement.children[0];
 	        self._zone.runOutsideAngular(function () {
-	            self._scroll = new scroll_view_1.ScrollView(self.scrollElement);
+	            self._scroll = new scroll_view_1.ScrollView(self._scrollEle);
 	            if (self._config.getBoolean('tapPolyfill')) {
 	                self._scLsn = self.addScrollListener(function () {
 	                    self._app.setScrolling();
@@ -50428,7 +50441,7 @@
 	    Content.prototype.ngOnDestroy = function () {
 	        this._scLsn && this._scLsn();
 	        this._scroll && this._scroll.destroy();
-	        this.scrollElement = this._scLsn = null;
+	        this._scrollEle = this._scLsn = null;
 	    };
 	    /**
 	     * @private
@@ -50497,17 +50510,16 @@
 	    };
 	    Content.prototype._addListener = function (type, handler) {
 	        var _this = this;
-	        if (!this.scrollElement) {
+	        if (!this._scrollEle) {
 	            return;
 	        }
 	        // ensure we're not creating duplicates
-	        this.scrollElement.removeEventListener(type, handler);
-	        this.scrollElement.addEventListener(type, handler);
+	        this._scrollEle.removeEventListener(type, handler);
+	        this._scrollEle.addEventListener(type, handler);
 	        return function () {
-	            if (!_this.scrollElement) {
-	                return;
+	            if (_this._scrollEle) {
+	                _this._scrollEle.removeEventListener(type, handler);
 	            }
-	            _this.scrollElement.removeEventListener(type, handler);
 	        };
 	    };
 	    /**
@@ -50518,7 +50530,7 @@
 	    Content.prototype.onScrollEnd = function (callback) {
 	        var lastScrollTop = null;
 	        var framesUnchanged = 0;
-	        var _scrollEle = this.scrollElement;
+	        var _scrollEle = this._scrollEle;
 	        function next() {
 	            var currentScrollTop = _scrollEle.scrollTop;
 	            if (lastScrollTop !== null) {
@@ -50540,7 +50552,7 @@
 	        setTimeout(next, 100);
 	    };
 	    Content.prototype.onScrollElementTransitionEnd = function (callback) {
-	        dom_1.transitionEnd(this.scrollElement, callback);
+	        dom_1.transitionEnd(this._scrollEle, callback);
 	    };
 	    /**
 	     * Scroll to the specified position.
@@ -50636,7 +50648,7 @@
 	     * @private
 	     */
 	    Content.prototype.setScrollElementStyle = function (prop, val) {
-	        this.scrollElement.style[prop] = val;
+	        this._scrollEle.style[prop] = val;
 	    };
 	    /**
 	     * Returns the content and scroll elements' dimensions.
@@ -50655,7 +50667,7 @@
 	     * {number} dimensions.scrollRight  scroll scrollLeft + scrollWidth
 	     */
 	    Content.prototype.getContentDimensions = function () {
-	        var _scrollEle = this.scrollElement;
+	        var _scrollEle = this._scrollEle;
 	        var parentElement = _scrollEle.parentElement;
 	        return {
 	            contentHeight: parentElement.offsetHeight,
@@ -50681,7 +50693,7 @@
 	        if (newPadding > this._padding) {
 	            console.debug('content addScrollPadding', newPadding);
 	            this._padding = newPadding;
-	            this.scrollElement.style.paddingBottom = newPadding + 'px';
+	            this._scrollEle.style.paddingBottom = newPadding + 'px';
 	        }
 	    };
 	    Content = __decorate([
@@ -50691,7 +50703,9 @@
 	                '<ng-content></ng-content>' +
 	                '</scroll-content>' +
 	                '<ng-content select="ion-fixed"></ng-content>' +
-	                '<ng-content select="ion-refresher"></ng-content>'
+	                '<ng-content select="ion-refresher"></ng-content>',
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(4, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _c) || Object, (typeof (_d = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _d) || Object, (typeof (_e = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _e) || Object])
@@ -50716,42 +50730,77 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
+	var dom_1 = __webpack_require__(168);
 	var util_1 = __webpack_require__(171);
 	var platform_1 = __webpack_require__(170);
 	var Img = (function () {
-	    function Img(_elementRef, _platform) {
+	    function Img(_elementRef, _platform, _zone) {
 	        this._elementRef = _elementRef;
 	        this._platform = _platform;
+	        this._zone = _zone;
 	        this._src = '';
-	        this._srcA = '';
-	        this._srcB = '';
-	        this._useA = true;
+	        this._normalizeSrc = '';
+	        this._imgs = [];
 	        this._enabled = true;
-	        this._loaded = false;
 	    }
 	    Object.defineProperty(Img.prototype, "src", {
 	        set: function (val) {
-	            val = (util_1.isPresent(val) ? val : '');
-	            if (this._src !== val) {
-	                this._src = val;
-	                this._loaded = false;
-	                this._srcA = this._srcB = '';
-	                this._useA = !this._useA;
-	                this._update();
-	            }
+	            var tmpImg = new Image();
+	            tmpImg.src = util_1.isPresent(val) ? val : '';
+	            this._src = util_1.isPresent(val) ? val : '';
+	            this._normalizeSrc = tmpImg.src;
+	            this._update();
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
 	    Img.prototype._update = function () {
-	        if (this._enabled && this.isVisible()) {
-	            if (this._useA) {
-	                this._srcA = this._src;
+	        var _this = this;
+	        if (this._enabled && this._src !== '' && this.isVisible()) {
+	            // actively update the image
+	            for (var i = this._imgs.length - 1; i >= 0; i--) {
+	                if (this._imgs[i].src === this._normalizeSrc) {
+	                    // this is the active image
+	                    if (this._imgs[i].complete) {
+	                        this._loaded(true);
+	                    }
+	                }
+	                else {
+	                    // no longer the active image
+	                    if (this._imgs[i].parentElement) {
+	                        this._imgs[i].parentElement.removeChild(this._imgs[i]);
+	                    }
+	                    this._imgs.splice(i, 1);
+	                }
 	            }
-	            else {
-	                this._srcB = this._src;
+	            if (!this._imgs.length) {
+	                this._zone.runOutsideAngular(function () {
+	                    var img = new Image();
+	                    img.style.width = _this._w;
+	                    img.style.height = _this._h;
+	                    img.addEventListener('load', function () {
+	                        if (img.src === _this._normalizeSrc) {
+	                            _this._elementRef.nativeElement.appendChild(img);
+	                            dom_1.raf(function () {
+	                                _this._update();
+	                            });
+	                        }
+	                    });
+	                    img.src = _this._src;
+	                    _this._imgs.push(img);
+	                    _this._loaded(false);
+	                });
 	            }
 	        }
+	        else {
+	            // do not actively update the image
+	            if (!this._imgs.some(function (img) { return img.src === _this._normalizeSrc; })) {
+	                this._loaded(false);
+	            }
+	        }
+	    };
+	    Img.prototype._loaded = function (isLoaded) {
+	        this._elementRef.nativeElement.classList[isLoaded ? 'add' : 'remove']('img-loaded');
 	    };
 	    Img.prototype.enable = function (shouldEnable) {
 	        this._enabled = shouldEnable;
@@ -50760,19 +50809,6 @@
 	    Img.prototype.isVisible = function () {
 	        var bounds = this._elementRef.nativeElement.getBoundingClientRect();
 	        return bounds.bottom > 0 && bounds.top < this._platform.height();
-	    };
-	    Img.prototype._onLoad = function () {
-	        this._loaded = this.isLoaded();
-	    };
-	    Img.prototype.isLoaded = function () {
-	        var imgEle;
-	        if (this._useA && this._imgA) {
-	            imgEle = this._imgA.nativeElement;
-	        }
-	        else if (this._imgB) {
-	            imgEle = this._imgB.nativeElement;
-	        }
-	        return (imgEle && imgEle.src !== '' && imgEle.complete);
 	    };
 	    Object.defineProperty(Img.prototype, "width", {
 	        set: function (val) {
@@ -50789,22 +50825,10 @@
 	        configurable: true
 	    });
 	    __decorate([
-	        core_1.ViewChild('imgA'), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object)
-	    ], Img.prototype, "_imgA", void 0);
-	    __decorate([
-	        core_1.ViewChild('imgB'), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object)
-	    ], Img.prototype, "_imgB", void 0);
-	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String), 
 	        __metadata('design:paramtypes', [String])
 	    ], Img.prototype, "src", null);
-	    __decorate([
-	        core_1.HostBinding('class.img-loaded'), 
-	        __metadata('design:type', Boolean)
-	    ], Img.prototype, "_loaded", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object), 
@@ -50818,15 +50842,14 @@
 	    Img = __decorate([
 	        core_1.Component({
 	            selector: 'ion-img',
-	            template: '<div *ngIf="_useA" class="img-placeholder" [style.height]="_h" [style.width]="_w"></div>' +
-	                '<img #imgA *ngIf="_useA" (load)="_onLoad()" [src]="_srcA" [style.height]="_h" [style.width]="_w">' +
-	                '<div *ngIf="!_useA" class="img-placeholder" [style.height]="_h" [style.width]="_w"></div>' +
-	                '<img #imgB *ngIf="!_useA" (load)="_onLoad()" [src]="_srcB" [style.height]="_h" [style.width]="_w">'
+	            template: '<div class="img-placeholder" [style.height]="_h" [style.width]="_w"></div>',
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object])
 	    ], Img);
 	    return Img;
-	    var _a, _b, _c, _d;
+	    var _a, _b, _c;
 	}());
 	exports.Img = Img;
 
@@ -50922,7 +50945,9 @@
 	                '<div class="scroll-zoom-wrapper">' +
 	                '<ng-content></ng-content>' +
 	                '</div>' +
-	                '</scroll-content>'
+	                '</scroll-content>',
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
 	    ], Scroll);
@@ -51254,7 +51279,8 @@
 	            directives: [common_1.NgIf, spinner_1.Spinner],
 	            host: {
 	                '[attr.state]': 'inf.state'
-	            }
+	            },
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof infinite_scroll_1.InfiniteScroll !== 'undefined' && infinite_scroll_1.InfiniteScroll) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
 	    ], InfiniteScrollContent);
@@ -51466,7 +51492,9 @@
 	            host: {
 	                '[class]': '_applied',
 	                '[class.spinner-paused]': 'paused'
-	            }
+	            },
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object])
 	    ], Spinner);
@@ -52150,7 +52178,9 @@
 	            directives: [common_1.NgIf, icon_1.Icon, spinner_1.Spinner],
 	            host: {
 	                '[attr.state]': 'r.state'
-	            }
+	            },
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof refresher_1.Refresher !== 'undefined' && refresher_1.Refresher) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
 	    ], RefresherContent);
@@ -52685,7 +52715,9 @@
 	                '</div>' +
 	                '<div [class.hide]="!showPager" class="swiper-pagination"></div>' +
 	                '</div>',
-	            directives: [common_1.NgClass]
+	            directives: [common_1.NgClass],
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object])
 	    ], Slides);
@@ -52714,7 +52746,9 @@
 	    Slide = __decorate([
 	        core_1.Component({
 	            selector: 'ion-slide',
-	            template: '<div class="slide-zoom"><ng-content></ng-content></div>'
+	            template: '<div class="slide-zoom"><ng-content></ng-content></div>',
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(1, core_1.Host()), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Slides])
@@ -57040,7 +57074,8 @@
 	                tab_button_1.TabButton,
 	                tab_highlight_1.TabHighlight,
 	                core_1.forwardRef(function () { return TabNavBarAnchor; })
-	            ]
+	            ],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
@@ -57381,7 +57416,8 @@
 	                '[attr.aria-labelledby]': '_btnId',
 	                'role': 'tabpanel'
 	            },
-	            template: '<div #contents></div>'
+	            template: '<div #contents></div>',
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(0, core_1.Inject(core_1.forwardRef(function () { return tabs_1.Tabs; }))), 
 	        __metadata('design:paramtypes', [(typeof (_c = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Compiler !== 'undefined' && core_1.Compiler) === 'function' && _h) || Object, (typeof (_j = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object])
@@ -58003,7 +58039,9 @@
 	            host: {
 	                'class': 'item'
 	            },
-	            directives: [common_1.NgIf, label_1.Label]
+	            directives: [common_1.NgIf, label_1.Label],
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_e = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object])
 	    ], Item);
@@ -58196,7 +58234,9 @@
 	        core_1.Component({
 	            selector: 'ion-item-sliding',
 	            template: '<ng-content select="ion-item,[ion-item]"></ng-content>' +
-	                '<ng-content select="ion-item-options"></ng-content>'
+	                '<ng-content select="ion-item-options"></ng-content>',
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(0, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof list_1.List !== 'undefined' && list_1.List) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
@@ -58279,7 +58319,7 @@
 	 *
 	 *   <ion-item-divider *virtualHeader="#header">
 	 *     Header: {{ header }}
-	 *   </ion-item>
+	 *   </ion-item-divider>
 	 *
 	 *   <ion-item *virtualItem="#item">
 	 *     Item: {{ item }}
@@ -59594,6 +59634,7 @@
 	                '<div class="checkbox-inner"></div>' +
 	                '</div>' +
 	                '<button role="checkbox" ' +
+	                'type="button" ' +
 	                '[id]="id" ' +
 	                '[attr.aria-checked]="_checked" ' +
 	                '[attr.aria-labelledby]="_labelId" ' +
@@ -59603,7 +59644,8 @@
 	            host: {
 	                '[class.checkbox-disabled]': '_disabled'
 	            },
-	            providers: [CHECKBOX_VALUE_ACCESSOR]
+	            providers: [CHECKBOX_VALUE_ACCESSOR],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(1, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _c) || Object])
@@ -60031,7 +60073,8 @@
 	            host: {
 	                '[class.select-disabled]': '_disabled'
 	            },
-	            providers: [SELECT_VALUE_ACCESSOR]
+	            providers: [SELECT_VALUE_ACCESSOR],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(3, core_1.Optional()),
 	        __param(4, core_1.Optional()), 
@@ -60535,7 +60578,9 @@
 	                '[attr.aria-labelledby]': 'hdrId',
 	                '[attr.aria-describedby]': 'descId'
 	            },
-	            directives: [common_1.NgClass, common_1.NgSwitch, common_1.NgIf, common_1.NgFor]
+	            directives: [common_1.NgClass, common_1.NgSwitch, common_1.NgIf, common_1.NgFor],
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
 	    ], AlertCmp);
@@ -60994,6 +61039,7 @@
 	                '<div class="toggle-inner"></div>' +
 	                '</div>' +
 	                '<button role="checkbox" ' +
+	                'type="button" ' +
 	                '[id]="id" ' +
 	                '[attr.aria-checked]="_checked" ' +
 	                '[attr.aria-labelledby]="_labelId" ' +
@@ -61010,7 +61056,8 @@
 	            host: {
 	                '[class.toggle-disabled]': '_disabled'
 	            },
-	            providers: [TOGGLE_VALUE_ACCESSOR]
+	            providers: [TOGGLE_VALUE_ACCESSOR],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(3, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_b = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _e) || Object])
@@ -61131,7 +61178,8 @@
 	                native_input_1.NextInput,
 	                native_input_1.NativeInput,
 	                button_1.Button
-	            ]
+	            ],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(2, core_1.Optional()),
 	        __param(6, core_1.Optional()),
@@ -61216,7 +61264,8 @@
 	                common_1.NgIf,
 	                native_input_1.NextInput,
 	                native_input_1.NativeInput
-	            ]
+	            ],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(2, core_1.Optional()),
 	        __param(6, core_1.Optional()),
@@ -62087,7 +62136,8 @@
 	                'tappable': '',
 	                'class': 'segment-button',
 	                'role': 'button'
-	            }
+	            },
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object])
 	    ], SegmentButton);
@@ -62385,6 +62435,7 @@
 	                '<div class="radio-inner"></div>' +
 	                '</div>' +
 	                '<button role="radio" ' +
+	                'type="button" ' +
 	                '[id]="id" ' +
 	                '[attr.aria-checked]="_checked" ' +
 	                '[attr.aria-labelledby]="_labelId" ' +
@@ -62393,7 +62444,8 @@
 	                '</button>',
 	            host: {
 	                '[class.radio-disabled]': '_disabled'
-	            }
+	            },
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(1, core_1.Optional()),
 	        __param(2, core_1.Optional()), 
@@ -62979,7 +63031,8 @@
 	                '<button clear class="searchbar-clear-icon" (click)="clearInput()" (mousedown)="clearInput()"></button>' +
 	                '</div>' +
 	                '<button clear (click)="cancelSearchbar()" (mousedown)="cancelSearchbar()" [hidden]="hideCancelButton" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
-	            directives: [common_1.FORM_DIRECTIVES, common_1.NgIf, common_1.NgClass, icon_1.Icon, button_1.Button, SearchbarInput]
+	            directives: [common_1.FORM_DIRECTIVES, common_1.NgIf, common_1.NgClass, icon_1.Icon, button_1.Button, SearchbarInput],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(2, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _g) || Object, (typeof (_h = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _h) || Object])
@@ -63199,7 +63252,8 @@
 	        core_1.Component({
 	            selector: 'ion-nav',
 	            template: '<div #contents></div><div portal></div>',
-	            directives: [nav_portal_1.Portal]
+	            directives: [nav_portal_1.Portal],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
@@ -63857,8 +63911,6 @@
 	"use strict";
 	var core_1 = __webpack_require__(8);
 	var browser_1 = __webpack_require__(176);
-	var app_1 = __webpack_require__(175);
-	var tap_click_1 = __webpack_require__(293);
 	var bootstrap_1 = __webpack_require__(7);
 	var directives_1 = __webpack_require__(297);
 	var _reflect = Reflect;
@@ -63869,7 +63921,8 @@
 	* number of arguments that act as global config variables for the app.
 	* `@App` is similar to Angular's `@Component` in which it can accept a `template`
 	* property that has an inline template, or a `templateUrl` property that points
-	* to an external html template.
+	* to an external html template. The `@App` decorator runs the Angular bootstrapping
+	* process automatically, however you can bootstrap your app separately if you prefer.
 	*
 	* @usage
 	* ```ts
@@ -63914,9 +63967,7 @@
 	            core_1.enableProdMode();
 	        }
 	        browser_1.bootstrap(cls, providers).then(function (appRef) {
-	            appRef.injector.get(tap_click_1.TapClick);
-	            var app = appRef.injector.get(app_1.IonicApp);
-	            app.setProd(args.prodMode);
+	            bootstrap_1.postBootstrap(appRef, args.prodMode);
 	        });
 	        return cls;
 	    };
@@ -64031,6 +64082,7 @@
 	__export(__webpack_require__(345));
 	__export(__webpack_require__(323));
 	__export(__webpack_require__(312));
+	__export(__webpack_require__(324));
 	__export(__webpack_require__(326));
 	__export(__webpack_require__(327));
 	__export(__webpack_require__(350));
@@ -64376,7 +64428,9 @@
 	                '[attr.aria-labelledby]': 'hdrId',
 	                '[attr.aria-describedby]': 'descId'
 	            },
-	            directives: [common_1.NgFor, common_1.NgIf, icon_1.Icon]
+	            directives: [common_1.NgFor, common_1.NgIf, icon_1.Icon],
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
 	    ], ActionSheetCmp);
@@ -64827,7 +64881,9 @@
 	            host: {
 	                'role': 'dialog'
 	            },
-	            directives: [common_1.NgIf, spinner_1.Spinner]
+	            directives: [common_1.NgIf, spinner_1.Spinner],
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
 	    ], LoadingCmp);
@@ -65777,16 +65833,33 @@
 	platform_1.Platform.register({
 	    name: 'cordova',
 	    isEngine: true,
-	    methods: {
-	        ready: function (resolve) {
-	            function isReady() {
-	                doc.removeEventListener('deviceready', isReady);
-	                resolve();
-	            }
+	    initialize: function (p, config) {
+	        // prepare a custom "ready" for cordova "deviceready"
+	        p.prepareReady = function () {
+	            // 1) ionic bootstrapped
 	            dom_1.windowLoad(function () {
-	                doc.addEventListener('deviceready', isReady);
+	                // 2) window onload triggered or completed
+	                doc.addEventListener('deviceready', function () {
+	                    // 3) cordova deviceready event triggered
+	                    // add cordova listeners to fire platform events
+	                    doc.addEventListener('backbutton', function () {
+	                        p.backButton.emit(null);
+	                    });
+	                    // doc.addEventListener('pause', function() {
+	                    //   p.pause.emit(null);
+	                    // });
+	                    // doc.addEventListener('resume', function() {
+	                    //   p.resume.emit(null);
+	                    // });
+	                    // cordova has fully loaded and we've added listeners
+	                    p.triggerReady();
+	                });
 	            });
-	        }
+	        };
+	        // cordova has its own exitApp method
+	        p.exitApp = function () {
+	            win.navigator.app.exitApp();
+	        };
 	    },
 	    isMatch: function () {
 	        return !!(win.cordova || win.PhoneGap || win.phonegap);

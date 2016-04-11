@@ -6134,9 +6134,6 @@ ion-label[fixed] {
 
 ion-label[stacked],
 ion-label[floating] {
-  -webkit-flex-basis: 100%;
-  -ms-flex-preferred-size: 100%;
-  flex-basis: 100%;
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
@@ -7503,12 +7500,19 @@ ion-navbar-section {
 
 .toolbar-background {
   border-bottom-width: 1px;
-  border-bottom-style: solid;
+  border-style: solid;
   border-color: #b2b2b2;
   background: #f8f8f8; }
 
 .hairlines .toolbar-background {
   border-bottom-width: 0.55px; }
+
+.toolbar[position=bottom] .toolbar-background {
+  border-bottom-width: 0;
+  border-top-width: 1px; }
+
+.hairlines .toolbar[position=bottom] .toolbar-background {
+  border-top-width: 0.55px; }
 
 .toolbar-content {
   -webkit-box-flex: 1;
@@ -7889,8 +7893,8 @@ ion-buttons[right] {
     background-color: #ebb222; }
 
 .platform-cordova.platform-ios ion-navbar-section {
-  height: 64px;
-  min-height: 64px; }
+  height: calc(44px + 20px);
+  min-height: calc(44px + 20px); }
 
 .platform-cordova.platform-ios ion-navbar ion-title,
 .platform-cordova.platform-ios ion-navbar ion-segment {
@@ -7906,9 +7910,9 @@ ion-buttons[right] {
 .platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child,
 .platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title,
 .platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-segment {
-  padding-top: 24px;
-  height: 64px;
-  min-height: 64px; }
+  padding-top: calc(4px + 20px);
+  height: calc(44px + 20px);
+  min-height: calc(44px + 20px); }
 
 body {
   font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;

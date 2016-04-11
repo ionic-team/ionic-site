@@ -73,7 +73,7 @@ return <code>null</code> if a template shouldn&#39;t be created.</p>
 
   &lt;ion-item-divider *virtualHeader=&quot;#header&quot;&gt;
     Header: {{ header }}
-  &lt;/ion-item&gt;
+  &lt;/ion-item-divider&gt;
 
   &lt;ion-item *virtualItem=&quot;#item&quot;&gt;
     Item: {{ item }}

@@ -87,8 +87,8 @@ LocalNotifications.schedule([{
 
 // Schedule delayed notification
 LocalNotifications.schedule({
-  t ext: &quot;Delayed Notification&quot;,
-   at: new Date(new Date() + 3600),
+   text: &quot;Delayed Notification&quot;,
+   at: new Date(new Date().getTime() + 3600),
    led: &quot;FF0000&quot;,
    sound: null
 });

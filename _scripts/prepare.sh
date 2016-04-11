@@ -8,8 +8,10 @@ ARG_DEFS=(
 function clone_site {
   PROD_DIR="_site"
 
-  if [ ! gem list jekyll -i ]
-    gem install jekyll -v 3.0.1 && gem install kramdown && gem install rouge
+  if [ ! gem list jekyll -i ]; then
+    gem install jekyll -v 3.0.1
+    gem install kramdown
+    gem install rouge
   fi
 
   if [ ! -d "$PROD_DIR" ]; then

@@ -58315,7 +58315,7 @@
 	 *
 	 *   <ion-item-divider *virtualHeader="#header">
 	 *     Header: {{ header }}
-	 *   </ion-item>
+	 *   </ion-item-divider>
 	 *
 	 *   <ion-item *virtualItem="#item">
 	 *     Item: {{ item }}

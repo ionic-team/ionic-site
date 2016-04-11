@@ -6911,8 +6911,8 @@ ion-icon {
   .ios.hairlines .toolbar-background {
     border-bottom-width: 0.55px; }
   .ios .toolbar[position=bottom] .toolbar-background {
-    border-bottom-width: 0;
-    border-top-width: 1px; }
+    border-top-width: 1px;
+    border-bottom-width: 0; }
   .ios.hairlines .toolbar[position=bottom] .toolbar-background {
     border-top-width: 0.55px; }
   .ios .toolbar-content {

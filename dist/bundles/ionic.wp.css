@@ -8460,6 +8460,18 @@ ion-buttons[right] {
     color: #fff;
     background-color: #343434; }
 
+.platform-cordova.platform-ios ion-navbar-section {
+  height: calc(4.6rem + 20px);
+  min-height: calc(4.6rem + 20px); }
+
+.platform-cordova.platform-ios ion-navbar,
+.platform-cordova.platform-ios ion-app > ion-toolbar:first-child,
+.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
+.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child {
+  padding-top: calc(4px + 20px);
+  height: calc(4.6rem + 20px);
+  min-height: calc(4.6rem + 20px); }
+
 body {
   font-family: "Segoe UI", "Noto Sans", sans-serif;
   font-size: 1.4rem;

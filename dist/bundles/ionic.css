@@ -7186,8 +7186,8 @@ ion-icon {
       color: #fff;
       background-color: #343434; }
   .ios.platform-cordova.platform-ios ion-navbar-section {
-    height: 64px;
-    min-height: 64px; }
+    height: calc(44px + 20px);
+    min-height: calc(44px + 20px); }
   .ios.platform-cordova.platform-ios ion-navbar ion-title,
   .ios.platform-cordova.platform-ios ion-navbar ion-segment {
     padding-top: 20px; }
@@ -7201,9 +7201,9 @@ ion-icon {
   .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child,
   .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title,
   .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-segment {
-    padding-top: 24px;
-    height: 64px;
-    min-height: 64px; }
+    padding-top: calc(4px + 20px);
+    height: calc(44px + 20px);
+    min-height: calc(44px + 20px); }
 
 .md {
   font-family: "Roboto", "Helvetica Neue", sans-serif;
@@ -10874,6 +10874,16 @@ ion-icon {
     .md .bar-button-solid-dark.activated {
       color: #fff;
       background-color: #343434; }
+  .md.platform-cordova.platform-ios ion-navbar-section {
+    height: calc(5.6rem + 20px);
+    min-height: calc(5.6rem + 20px); }
+  .md.platform-cordova.platform-ios ion-navbar,
+  .md.platform-cordova.platform-ios ion-app > ion-toolbar:first-child,
+  .md.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
+  .md.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child {
+    padding-top: calc(4px + 20px);
+    height: calc(5.6rem + 20px);
+    min-height: calc(5.6rem + 20px); }
 
 .wp {
   font-family: "Segoe UI", "Noto Sans", sans-serif;
@@ -14429,3 +14439,13 @@ ion-icon {
     .wp .bar-button-solid-dark.activated {
       color: #fff;
       background-color: #343434; }
+  .wp.platform-cordova.platform-ios ion-navbar-section {
+    height: calc(4.6rem + 20px);
+    min-height: calc(4.6rem + 20px); }
+  .wp.platform-cordova.platform-ios ion-navbar,
+  .wp.platform-cordova.platform-ios ion-app > ion-toolbar:first-child,
+  .wp.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
+  .wp.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child {
+    padding-top: calc(4px + 20px);
+    height: calc(4.6rem + 20px);
+    min-height: calc(4.6rem + 20px); }

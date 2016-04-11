@@ -7889,8 +7889,8 @@ ion-buttons[right] {
     background-color: #ebb222; }
 
 .platform-cordova.platform-ios ion-navbar-section {
-  height: 64px;
-  min-height: 64px; }
+  height: calc(44px + 20px);
+  min-height: calc(44px + 20px); }
 
 .platform-cordova.platform-ios ion-navbar ion-title,
 .platform-cordova.platform-ios ion-navbar ion-segment {
@@ -7906,9 +7906,9 @@ ion-buttons[right] {
 .platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child,
 .platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title,
 .platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-segment {
-  padding-top: 24px;
-  height: 64px;
-  min-height: 64px; }
+  padding-top: calc(4px + 20px);
+  height: calc(44px + 20px);
+  min-height: calc(44px + 20px); }
 
 body {
   font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;

@@ -9,6 +9,8 @@ function deploy {
 
   echo "Committing to production branch"
   cd ./_site
+  git config --global user.email "hi@ionicframework.com"
+  git config --global user.name "ionitron"
   git add . --all
   git commit -m "automated build of driftyco/$CIRCLE_PROJECT_REPONAME@$CIRCLE_SHA1"
 

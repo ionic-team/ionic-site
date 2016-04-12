@@ -65818,7 +65818,7 @@
 	platform_1.Platform.register({
 	    name: 'core',
 	    settings: {
-	        mode: 'ios',
+	        mode: 'md',
 	        keyboardHeight: 290,
 	    }
 	});

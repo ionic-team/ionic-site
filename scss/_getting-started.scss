@@ -229,11 +229,11 @@
 
   #start-template-tabs-image { background-position: center center;}
   #start-template-sidemenu-image { background-position: center top;}
-
+}
+#getting-started-cont {
+  border-top: 1px solid #e9ecf3;
+  padding-top: 74px;
   .what-next {
-    border-top: 1px solid #e9ecf3;
-    padding-top: 74px;
-
     hgroup {
       text-align: center;
       padding-top: 92px;
@@ -289,6 +289,8 @@
         font-weight: bold;
         position: relative;
         transition-duration: .3s;
+        font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 600;
 
         &:after {
           font-family: 'Ionicons';

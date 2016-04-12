@@ -1164,6 +1164,10 @@
 		    var clearNative = utils_1.patchMethod(window.XMLHttpRequest.prototype, 'abort', function (delegate) { return function (self, args) {
 		        var task = findPendingTask(self);
 		        if (task && typeof task.type == 'string') {
+		            // If the XHR has already completed, do nothing.
+		            if (task.cancelFn == null) {
+		                return;
+		            }
 		            task.zone.cancelTask(task);
 		        }
 		        // Otherwise, we are trying to abort an XHR which has not yet been sent, so there is no task to cancel. Do nothing.
@@ -9217,7 +9221,6 @@
 	        }
 	    };
 	    IterableDiffers = __decorate([
-	        di_1.Injectable(),
 	        lang_1.CONST(), 
 	        __metadata('design:paramtypes', [Array])
 	    ], IterableDiffers);
@@ -9976,7 +9979,6 @@
 	        }
 	    };
 	    KeyValueDiffers = __decorate([
-	        di_1.Injectable(),
 	        lang_1.CONST(), 
 	        __metadata('design:paramtypes', [Array])
 	    ], KeyValueDiffers);
@@ -21694,6 +21696,11 @@
 	    var match = lang_1.RegExpWrapper.firstMatch(SEGMENT_RE, str);
 	    return lang_1.isPresent(match) ? match[0] : '';
 	}
+	var QUERY_PARAM_VALUE_RE = lang_1.RegExpWrapper.create('^[^\\(\\)\\?;&#]+');
+	function matchUrlQueryParamValue(str) {
+	    var match = lang_1.RegExpWrapper.firstMatch(QUERY_PARAM_VALUE_RE, str);
+	    return lang_1.isPresent(match) ? match[0] : '';
+	}
 	var UrlParser = (function () {
 	    function UrlParser() {
 	    }
@@ -21765,10 +21772,10 @@
 	    UrlParser.prototype.parseQueryParams = function () {
 	        var params = {};
 	        this.capture('?');
-	        this.parseParam(params);
+	        this.parseQueryParam(params);
 	        while (this._remaining.length > 0 && this.peekStartsWith('&')) {
 	            this.capture('&');
-	            this.parseParam(params);
+	            this.parseQueryParam(params);
 	        }
 	        return params;
 	    };
@@ -21790,6 +21797,23 @@
 	        if (this.peekStartsWith('=')) {
 	            this.capture('=');
 	            var valueMatch = matchUrlSegment(this._remaining);
+	            if (lang_1.isPresent(valueMatch)) {
+	                value = valueMatch;
+	                this.capture(value);
+	            }
+	        }
+	        params[key] = value;
+	    };
+	    UrlParser.prototype.parseQueryParam = function (params) {
+	        var key = matchUrlSegment(this._remaining);
+	        if (lang_1.isBlank(key)) {
+	            return;
+	        }
+	        this.capture(key);
+	        var value = true;
+	        if (this.peekStartsWith('=')) {
+	            this.capture('=');
+	            var valueMatch = matchUrlQueryParamValue(this._remaining);
 	            if (lang_1.isPresent(valueMatch)) {
 	                value = valueMatch;
 	                this.capture(value);
@@ -31494,10 +31518,66 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var async_1 = __webpack_require__(54);
 	var control_value_accessor_1 = __webpack_require__(209);
 	var lang_1 = __webpack_require__(11);
+	var collection_1 = __webpack_require__(18);
 	var SELECT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new core_1.Provider(control_value_accessor_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return SelectControlValueAccessor; }), multi: true }));
+	function _buildValueString(id, value) {
+	    if (lang_1.isBlank(id))
+	        return "" + value;
+	    if (!lang_1.isPrimitive(value))
+	        value = "Object";
+	    return lang_1.StringWrapper.slice(id + ": " + value, 0, 50);
+	}
+	function _extractId(valueString) {
+	    return valueString.split(":")[0];
+	}
+	/**
+	 * The accessor for writing a value and listening to changes on a select element.
+	 */
+	var SelectControlValueAccessor = (function () {
+	    function SelectControlValueAccessor(_renderer, _elementRef) {
+	        this._renderer = _renderer;
+	        this._elementRef = _elementRef;
+	        this._optionMap = new Map();
+	        this._idCounter = 0;
+	        this.onChange = function (_) { };
+	        this.onTouched = function () { };
+	    }
+	    SelectControlValueAccessor.prototype.writeValue = function (value) {
+	        this.value = value;
+	        var valueString = _buildValueString(this._getOptionId(value), value);
+	        this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', valueString);
+	    };
+	    SelectControlValueAccessor.prototype.registerOnChange = function (fn) {
+	        var _this = this;
+	        this.onChange = function (valueString) { fn(_this._getOptionValue(valueString)); };
+	    };
+	    SelectControlValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+	    SelectControlValueAccessor.prototype._registerOption = function () { return (this._idCounter++).toString(); };
+	    SelectControlValueAccessor.prototype._getOptionId = function (value) {
+	        for (var _i = 0, _a = collection_1.MapWrapper.keys(this._optionMap); _i < _a.length; _i++) {
+	            var id = _a[_i];
+	            if (lang_1.looseIdentical(this._optionMap.get(id), value))
+	                return id;
+	        }
+	        return null;
+	    };
+	    SelectControlValueAccessor.prototype._getOptionValue = function (valueString) {
+	        var value = this._optionMap.get(_extractId(valueString));
+	        return lang_1.isPresent(value) ? value : valueString;
+	    };
+	    SelectControlValueAccessor = __decorate([
+	        core_1.Directive({
+	            selector: 'select[ngControl],select[ngFormControl],select[ngModel]',
+	            host: { '(input)': 'onChange($event.target.value)', '(blur)': 'onTouched()' },
+	            providers: [SELECT_VALUE_ACCESSOR]
+	        }), 
+	        __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef])
+	    ], SelectControlValueAccessor);
+	    return SelectControlValueAccessor;
+	})();
+	exports.SelectControlValueAccessor = SelectControlValueAccessor;
 	/**
 	 * Marks `<option>` as dynamic, so Angular can be notified when options change.
 	 *
@@ -31510,48 +31590,62 @@
 	 * ```
 	 */
 	var NgSelectOption = (function () {
-	    function NgSelectOption() {
+	    function NgSelectOption(_element, _renderer, _select) {
+	        this._element = _element;
+	        this._renderer = _renderer;
+	        this._select = _select;
+	        if (lang_1.isPresent(this._select))
+	            this.id = this._select._registerOption();
 	    }
+	    Object.defineProperty(NgSelectOption.prototype, "ngValue", {
+	        set: function (value) {
+	            if (this._select == null)
+	                return;
+	            this._select._optionMap.set(this.id, value);
+	            this._setElementValue(_buildValueString(this.id, value));
+	            this._select.writeValue(this._select.value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(NgSelectOption.prototype, "value", {
+	        set: function (value) {
+	            if (this._select == null)
+	                return;
+	            this._setElementValue(value);
+	            this._select.writeValue(this._select.value);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    NgSelectOption.prototype._setElementValue = function (value) {
+	        this._renderer.setElementProperty(this._element.nativeElement, 'value', value);
+	    };
+	    NgSelectOption.prototype.ngOnDestroy = function () {
+	        if (lang_1.isPresent(this._select)) {
+	            this._select._optionMap.delete(this.id);
+	            this._select.writeValue(this._select.value);
+	        }
+	    };
+	    __decorate([
+	        core_1.Input('ngValue'), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], NgSelectOption.prototype, "ngValue", null);
+	    __decorate([
+	        core_1.Input('value'), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], NgSelectOption.prototype, "value", null);
 	    NgSelectOption = __decorate([
-	        core_1.Directive({ selector: 'option' }), 
-	        __metadata('design:paramtypes', [])
+	        core_1.Directive({ selector: 'option' }),
+	        __param(2, core_1.Optional()),
+	        __param(2, core_1.Host()), 
+	        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, SelectControlValueAccessor])
 	    ], NgSelectOption);
 	    return NgSelectOption;
 	})();
 	exports.NgSelectOption = NgSelectOption;
-	/**
-	 * The accessor for writing a value and listening to changes on a select element.
-	 */
-	var SelectControlValueAccessor = (function () {
-	    function SelectControlValueAccessor(_renderer, _elementRef, query) {
-	        this._renderer = _renderer;
-	        this._elementRef = _elementRef;
-	        this.onChange = function (_) { };
-	        this.onTouched = function () { };
-	        this._updateValueWhenListOfOptionsChanges(query);
-	    }
-	    SelectControlValueAccessor.prototype.writeValue = function (value) {
-	        this.value = value;
-	        this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', value);
-	    };
-	    SelectControlValueAccessor.prototype.registerOnChange = function (fn) { this.onChange = fn; };
-	    SelectControlValueAccessor.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
-	    SelectControlValueAccessor.prototype._updateValueWhenListOfOptionsChanges = function (query) {
-	        var _this = this;
-	        async_1.ObservableWrapper.subscribe(query.changes, function (_) { return _this.writeValue(_this.value); });
-	    };
-	    SelectControlValueAccessor = __decorate([
-	        core_1.Directive({
-	            selector: 'select[ngControl],select[ngFormControl],select[ngModel]',
-	            host: { '(input)': 'onChange($event.target.value)', '(blur)': 'onTouched()' },
-	            bindings: [SELECT_VALUE_ACCESSOR]
-	        }),
-	        __param(2, core_1.Query(NgSelectOption, { descendants: true })), 
-	        __metadata('design:paramtypes', [core_1.Renderer, core_1.ElementRef, core_1.QueryList])
-	    ], SelectControlValueAccessor);
-	    return SelectControlValueAccessor;
-	})();
-	exports.SelectControlValueAccessor = SelectControlValueAccessor;
 
 
 /***/ },
@@ -32702,7 +32796,8 @@
 	var lang_1 = __webpack_require__(11);
 	var validators_1 = __webpack_require__(211);
 	var lang_2 = __webpack_require__(11);
-	var REQUIRED_VALIDATOR = lang_1.CONST_EXPR(new core_1.Provider(validators_1.NG_VALIDATORS, { useValue: validators_1.Validators.required, multi: true }));
+	var REQUIRED = validators_1.Validators.required;
+	var REQUIRED_VALIDATOR = lang_1.CONST_EXPR(new core_1.Provider(validators_1.NG_VALIDATORS, { useValue: REQUIRED, multi: true }));
 	/**
 	 * A Directive that adds the `required` validator to any controls marked with the
 	 * `required` attribute, via the {@link NG_VALIDATORS} binding.

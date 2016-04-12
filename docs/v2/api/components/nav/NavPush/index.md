@@ -138,7 +138,7 @@ NavPush:</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#navigation'>Navigation Component Docs</a>
+<a href='/docs/v2/components#navigation'>Navigation Component Docs</a>,
 <a href='../NavPop'>NavPop API Docs</a><!-- end content block -->
 
 

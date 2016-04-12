@@ -313,8 +313,8 @@ onPageDidEnter() {
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#tabs'>Tabs Component Docs</a>
-<a href='../Tab'>Tab API Docs</a>
+<a href='/docs/v2/components#tabs'>Tabs Component Docs</a>,
+<a href='../Tab'>Tab API Docs</a>,
 <a href='../../config/Config'>Config API Docs</a><!-- end content block -->
 
 

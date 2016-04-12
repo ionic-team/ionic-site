@@ -157,7 +157,7 @@ A stacked label will always appear on top of the input
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='../../../../components#inputs'>Input Component Docs</a>
+<a href='../../../../components#inputs'>Input Component Docs</a>,
 <a href='../Input'>Input API Docs</a><!-- end content block -->
 
 

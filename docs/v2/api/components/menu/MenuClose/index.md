@@ -71,7 +71,7 @@ directive a value.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#menus'>Menu Component Docs</a>
+<a href='/docs/v2/components#menus'>Menu Component Docs</a>,
 <a href='../../menu/Menu'>Menu API Docs</a><!-- end content block -->
 
 

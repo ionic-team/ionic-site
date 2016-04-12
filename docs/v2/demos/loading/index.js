@@ -78,7 +78,17 @@ var E2EPage = (function () {
         this.nav.present(loading);
     };
     E2EPage.prototype.goToPage2 = function () {
-        this.nav.push(Page2);
+        var _this = this;
+        var loading = ionic_angular_1.Loading.create({
+            content: 'This will navigate to the next page and then dismiss after 3 seconds.'
+        });
+        this.nav.present(loading);
+        setTimeout(function () {
+            _this.nav.push(Page2);
+        }, 1000);
+        setTimeout(function () {
+            loading.dismiss();
+        }, 4000);
     };
     E2EPage = __decorate([
         ionic_angular_1.Page({
@@ -96,7 +106,7 @@ var Page2 = (function () {
     }
     Page2 = __decorate([
         ionic_angular_1.Page({
-            template: "\n    <ion-navbar *navbar>\n      <ion-title>Page 2</ion-title>\n    </ion-navbar>\n    <ion-content padding>Some content</ion-content>\n  "
+            template: "\n    <ion-navbar *navbar>\n      <ion-title>Page 2</ion-title>\n    </ion-navbar>\n    <ion-content padding>This is another page!</ion-content>\n  "
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _b) || Object])
     ], Page2);

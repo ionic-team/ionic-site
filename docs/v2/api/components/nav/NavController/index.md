@@ -351,7 +351,7 @@ import {Detail} from '../detail/detail';
   <code>object</code>
       </td>
       <td>
-        <p>Nav options you to go with this transition.</p>
+        <p>Nav options to go with this transition.</p>
 
         
       </td>
@@ -499,7 +499,7 @@ class MyClass{
   <code>object</code>
       </td>
       <td>
-        <p>Nav options you to go with this transition.</p>
+        <p>Nav options to go with this transition.</p>
 
         
       </td>
@@ -590,7 +590,7 @@ class MyClass{
   <code>object</code>
       </td>
       <td>
-        <p>Nav options you to go with this transition.</p>
+        <p>Nav options to go with this transition.</p>
 
         
       </td>
@@ -711,7 +711,7 @@ This will insert the `Info` page into the second slot of our navigation stack.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options you to go with this transition.</p>
+        <p>Nav options to go with this transition.</p>
 
         
       </td>
@@ -821,7 +821,7 @@ in and become the active page.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options you to go with this transition.</p>
+        <p>Nav options to go with this transition.</p>
 
         
       </td>
@@ -890,7 +890,7 @@ class SecondView{
   <code>object</code>
       </td>
       <td>
-        <p>Nav options you to go with this transition.</p>
+        <p>Nav options to go with this transition.</p>
 
         
       </td>
@@ -946,7 +946,7 @@ the stack, no matter how many pages back that is.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options you to go with this transition.</p>
+        <p>Nav options to go with this transition.</p>
 
         
       </td>
@@ -1018,7 +1018,7 @@ Pop to a specific view in the history stack.
   <code>object</code>
       </td>
       <td>
-        <p>Nav options you to go with this transition.</p>
+        <p>Nav options to go with this transition.</p>
 
         
       </td>

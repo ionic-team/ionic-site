@@ -41,8 +41,8 @@ Improve this doc
 
 
 
-<p>The Content component provides an easy to use content area with some useful
-methods to control the scrollable area.</p>
+<p>The Content component provides an easy to use content area with
+some useful methods to control the scrollable area.</p>
 <p>The content area can also implement pull-to-refresh with the
 <a href="../../scroll/Refresher">Refresher</a> component.</p>
 
@@ -56,6 +56,20 @@ methods to control the scrollable area.</p>
 <pre><code class="lang-html">&lt;ion-content&gt;
   Add your content here!
 &lt;/ion-content&gt;
+</code></pre>
+<p>To get a reference to the content component from a Page&#39;s logic,
+you can use Angular&#39;s <code>@ViewChild</code> annotation:</p>
+<pre><code class="lang-ts">import {ViewChild} from &#39;angular2/core&#39;;
+import {Content} from &#39;ionic-angular&#39;;
+
+@Page({...}
+export class MyPage{
+  @ViewChild(Content) content: Content;
+
+  scrollToTop() {
+    this.content.scrollToTop();
+  }
+}
 </code></pre>
 
 

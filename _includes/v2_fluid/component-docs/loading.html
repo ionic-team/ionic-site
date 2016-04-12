@@ -1,0 +1,28 @@
+<h2 id="loading" class="section-header">Loading</h2>
+
+<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/loading.html">
+  Improve this Doc
+</a>
+
+The Loading component is an overlay that prevents user interaction while indicating activity.
+By default, it shows a spinner based on the mode. It can also be passed any HTML content to
+display with the spinner. You can hide or change the spinner to any of our predefined
+spinners. The loading indicator is styled to display on top of other content even during
+navigation.
+
+Check out the [API docs](../api/components/loading/Loading) for more information.
+
+<h3 class="section-nav">Basic Usage</h3>
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/loading/basic">
+  Demo Source
+</a>
+
+```typescript
+presentLoading() {
+  let loading = Loading.create({
+    content: "Please wait...",
+    duration: 3000
+  });
+  this.nav.present(loading);
+}
+```

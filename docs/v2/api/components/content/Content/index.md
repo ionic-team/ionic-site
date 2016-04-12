@@ -32,7 +32,7 @@ Content
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/content/content.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/content/content.ts#L9">
 Improve this doc
 </a>
 
@@ -278,6 +278,26 @@ Returns the content and scroll elements' dimensions.
 {number} dimensions.scrollLeft  scroll scrollLeft
 {number} dimensions.scrollRight  scroll scrollLeft + scrollWidth
 </div>
+
+
+
+
+<div id="clearScrollPaddingFocusOut"></div>
+
+<h3>
+<a class="anchor" name="clearScrollPaddingFocusOut" href="#clearScrollPaddingFocusOut"></a>
+<code>clearScrollPaddingFocusOut()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
 
 
 <!-- related link --><!-- end content block -->

@@ -41776,8 +41776,9 @@
 	     * @param {function} callback method you want to call when the keyboard has been closed
 	     * @return {function} returns a callback that gets fired when the keyboard is closed
 	     */
-	    Keyboard.prototype.onClose = function (callback, pollingInternval) {
+	    Keyboard.prototype.onClose = function (callback, pollingInternval, pollingChecksMax) {
 	        if (pollingInternval === void 0) { pollingInternval = KEYBOARD_CLOSE_POLLING; }
+	        if (pollingChecksMax === void 0) { pollingChecksMax = KEYBOARD_POLLING_CHECKS_MAX; }
 	        console.debug('keyboard onClose');
 	        var self = this;
 	        var checks = 0;
@@ -41788,7 +41789,7 @@
 	        }
 	        function checkKeyboard() {
 	            console.debug('keyboard isOpen', self.isOpen(), checks);
-	            if (!self.isOpen() || checks > 100) {
+	            if (!self.isOpen() || checks > pollingChecksMax) {
 	                dom_1.rafFrames(30, function () {
 	                    self._zone.run(function () {
 	                        console.debug('keyboard closed');
@@ -41880,6 +41881,7 @@
 	}());
 	exports.Keyboard = Keyboard;
 	var KEYBOARD_CLOSE_POLLING = 150;
+	var KEYBOARD_POLLING_CHECKS_MAX = 100;
 
 /***/ },
 /* 290 */
@@ -50374,6 +50376,7 @@
 	var ion_1 = __webpack_require__(300);
 	var app_1 = __webpack_require__(175);
 	var config_1 = __webpack_require__(169);
+	var keyboard_1 = __webpack_require__(289);
 	var dom_1 = __webpack_require__(168);
 	var view_controller_1 = __webpack_require__(309);
 	var scroll_view_1 = __webpack_require__(292);
@@ -50396,13 +50399,15 @@
 	 */
 	var Content = (function (_super) {
 	    __extends(Content, _super);
-	    function Content(_elementRef, _config, _app, _zone, viewCtrl) {
+	    function Content(_elementRef, _config, _app, _keyboard, _zone, viewCtrl) {
 	        _super.call(this, _elementRef);
 	        this._elementRef = _elementRef;
 	        this._config = _config;
 	        this._app = _app;
+	        this._keyboard = _keyboard;
 	        this._zone = _zone;
 	        this._padding = 0;
+	        this._inputPolling = false;
 	        if (viewCtrl) {
 	            viewCtrl.setContent(this);
 	            viewCtrl.setContentRef(_elementRef);
@@ -50684,6 +50689,18 @@
 	            this._scrollEle.style.paddingBottom = newPadding + 'px';
 	        }
 	    };
+	    Content.prototype.clearScrollPaddingFocusOut = function () {
+	        var _this = this;
+	        if (!this._inputPolling) {
+	            this._inputPolling = true;
+	            this._keyboard.onClose(function () {
+	                _this._padding = 0;
+	                _this._scrollEle.style.paddingBottom = '';
+	                _this._inputPolling = false;
+	                _this.addScrollPadding(0);
+	            }, 200, Infinity);
+	        }
+	    };
 	    Content = __decorate([
 	        core_1.Component({
 	            selector: 'ion-content',
@@ -50695,11 +50712,11 @@
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
-	        __param(4, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _c) || Object, (typeof (_d = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _d) || Object, (typeof (_e = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _e) || Object])
+	        __param(5, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _c) || Object, (typeof (_d = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object, (typeof (_f = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _f) || Object])
 	    ], Content);
 	    return Content;
-	    var _a, _b, _c, _d, _e;
+	    var _a, _b, _c, _d, _e, _f;
 	}(ion_1.Ion));
 	exports.Content = Content;
 
@@ -61355,13 +61372,13 @@
 	        this._nav = _nav;
 	        this._disabled = false;
 	        this._type = 'text';
-	        this._useAssist = true;
 	        this._value = '';
 	        this.placeholder = '';
 	        this.blur = new core_1.EventEmitter;
 	        this.focus = new core_1.EventEmitter;
-	        this._useAssist = config.get('scrollAssist');
-	        this._keyboardHeight = config.get('keyboardHeight');
+	        this._useAssist = config.getBoolean('scrollAssist', false);
+	        this._usePadding = config.getBoolean('scrollPadding', this._useAssist);
+	        this._keyboardHeight = config.getNumber('keyboardHeight');
 	        this._autoFocusAssist = config.get('autoFocusAssist', 'delay');
 	        this._autoComplete = config.get('autocomplete', 'off');
 	        this._autoCorrect = config.get('autocorrect', 'off');
@@ -61632,8 +61649,10 @@
 	                this.regScrollMove();
 	                return;
 	            }
-	            // add padding to the bottom of the scroll view (if needed)
-	            scrollView.addScrollPadding(scrollData.scrollPadding);
+	            if (this._usePadding) {
+	                // add padding to the bottom of the scroll view (if needed)
+	                scrollView.addScrollPadding(scrollData.scrollPadding);
+	            }
 	            // manually scroll the text input to the top
 	            // do not allow any clicks while it's scrolling
 	            var scrollDuration = getScrollAssistDuration(scrollData.scrollAmount);
@@ -61653,6 +61672,9 @@
 	                _this._app.setEnabled(true);
 	                _this._nav && _this._nav.setTransitioning(false);
 	                _this.regScrollMove();
+	                if (_this._usePadding) {
+	                    _this._scrollView.clearScrollPaddingFocusOut();
+	                }
 	            });
 	        }
 	        else {

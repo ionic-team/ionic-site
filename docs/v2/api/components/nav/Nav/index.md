@@ -50,7 +50,7 @@ docs.</em></p>
 you use it to navigate to pages in your app and manipulate the navigation stack.
 Nav automatically animates transitions between pages for you.</p>
 <p>For more information on using navigation controllers like Nav or <a href="../../Tabs/Tab/">Tab</a>,
-take a look at the <a href="../NavController/">NavController API reference</a>.</p>
+take a look at the <a href="../NavController/">NavController API Docs</a>.</p>
 <p>You must set a root page (where page is any <a href="../../config/Page/">@Page</a>
 component) to be loaded initially by any Nav you create, using
 the &#39;root&#39; property:</p>

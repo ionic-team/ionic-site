@@ -89,7 +89,7 @@ performance overhead, so there is really no reason to not always use it.</p>
 <p>Pages have their content automatically wrapped in <code>&lt;ion-view&gt;</code>, so although
 you may see these tags if you inspect your markup, you don&#39;t need to include
 them in your templates.</p>
-<p>For more information on how pages are created, see the <a href="../../components/nav/NavController/#creating_pages">NavController API reference</a></p>
+<p>For more information on how pages are created, see the <a href="../../components/nav/NavController/#creating_pages">NavController API Docs</a></p>
 
 
 

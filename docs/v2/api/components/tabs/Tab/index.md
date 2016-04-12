@@ -43,15 +43,15 @@ Improve this doc
 
 
 
-<p><em>For basic Tabs usage, see the <a href="../../../../components/#tabs">Tabs section</a>
-of the Component docs.</em></p>
-<p>Tab components are basic navigation controllers used with Tabs.  Much like
-Nav, they are a subclass of NavController and can be used to navigate
-to pages in and manipulate the navigation stack of a particular tab.</p>
+<p>The Tab component, written <code>&lt;ion-tab&gt;</code>, is styled based on the mode and should
+be used in conjunction with the <a href="../Tabs/">Tabs</a> component.</p>
+<p>Each tab has a basic navigation controller. Similar to the <a href="../../nav/Nav/">Nav</a>
+component, the tab navigation controller is a subclass of
+<a href="../../nav/NavController">NavController</a>. It can be used to navigate and manipulate
+pages in the navigation stack of the tab.</p>
 <p>For more information on using navigation controllers like Tab or <a href="../../nav/Nav/">Nav</a>,
-take a look at the <a href="../NavController/">NavController API reference</a>.</p>
-<p>See the <a href="../Tabs/">Tabs API reference</a> for more details on configuring Tabs
-and the TabBar.</p>
+take a look at the <a href="../../nav/NavController/">NavController API Docs</a>.</p>
+<p>See the <a href="../Tabs/">Tabs API Docs</a> for more details on configuring Tabs.</p>
 
 
 <h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
@@ -174,7 +174,14 @@ class. Below is an example of presenting a modal from one of the tabs.</p>
     </tr>
     
   </tbody>
-</table><!-- related link --><!-- end content block -->
+</table><!-- related link -->
+
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+
+<a href='/docs/v2/components#tabs'>Tabs Component Docs</a>
+<a href='../../tabs/Tabs'>Tabs API Docs</a>
+<a href='../../nav/Nav'>Nav API Docs</a>
+<a href='../../nav/NavController'>NavController API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

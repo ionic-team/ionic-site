@@ -50603,6 +50603,9 @@
 	        }
 	        setTimeout(next, 100);
 	    };
+	    /**
+	     * @private
+	     */
 	    Content.prototype.onScrollElementTransitionEnd = function (callback) {
 	        dom_1.transitionEnd(this._scrollEle, callback);
 	    };
@@ -50610,79 +50613,79 @@
 	     * Scroll to the specified position.
 	     *
 	     * ```ts
+	     * import {ViewChild} from 'angular2/core';
+	     * import {Content} from 'ionic-angular';
+	     *
 	     * @Page({
-	     *   template: `<ion-content id="my-content">
-	     *      <button (click)="scrollTo()"> Down 500px</button>
-	     *   </ion-content>`
+	     *   template: `<ion-content>
+	     *                <button (click)="scrollTo()">Down 500px</button>
+	     *              </ion-content>`
 	     * )}
 	     * export class MyPage{
-	     *    constructor(app: IonicApp){
-	     *        this.app = app;
-	     *    }
-	     *   // Need to wait until the component has been initialized
-	     *   ngAfterViewInit() {
-	     *     // Here 'my-content' is the ID of my ion-content
-	     *     this.content = this.app.getComponent('my-content');
+	     *   @ViewChild(Content) content: Content;
+	     *
+	     *   scrollTo() {
+	     *     // set the scrollLeft to 0px, and scrollTop to 500px
+	     *     // the scroll duration should take 200ms
+	     *     this.content.scrollTo(0, 500, 200);
 	     *   }
-	     *    scrollTo() {
-	     *      this.content.scrollTo(0, 500, 200);
-	     *    }
 	     * }
 	     * ```
 	     * @param {number} x  The x-value to scroll to.
 	     * @param {number} y  The y-value to scroll to.
-	     * @param {number} duration  Duration of the scroll animation in ms.
-	     * @returns {Promise} Returns a promise when done
+	     * @param {number} [duration]  Duration of the scroll animation in milliseconds. Defaults to `300`.
+	     * @returns {Promise} Returns a promise which is resolved when the scroll has completed.
 	     */
 	    Content.prototype.scrollTo = function (x, y, duration) {
+	        if (duration === void 0) { duration = 300; }
 	        return this._scroll.scrollTo(x, y, duration);
 	    };
 	    /**
 	     * Scroll to the top of the content component.
 	     *
 	     * ```ts
+	     * import {ViewChild} from 'angular2/core';
+	     * import {Content} from 'ionic-angular';
+	     *
 	     * @Page({
-	     *   template: `<ion-content id="my-content">
-	     *      <button (click)="scrollTop()"> Down 500px</button>
-	     *   </ion-content>`
+	     *   template: `<ion-content>
+	     *                <button (click)="scrollToTop()">Scroll to top</button>
+	     *              </ion-content>`
 	     * )}
 	     * export class MyPage{
-	     *    constructor(app: IonicApp){
-	     *        this.app = app;
-	     *    }
-	     *   // Need to wait until the component has been initialized
-	     *   ngAfterViewInit() {
-	     *     // Here 'my-content' is the ID of my ion-content
-	     *     this.content = this.app.getComponent('my-content');
+	     *   @ViewChild(Content) content: Content;
+	     *
+	     *   scrollToTop() {
+	     *     this.content.scrollToTop();
 	     *   }
-	     *    scrollTop() {
-	     *      this.content.scrollToTop();
-	     *    }
 	     * }
 	     * ```
-	     * @returns {Promise} Returns a promise when done
+	     * @param {number} [duration]  Duration of the scroll animation in milliseconds. Defaults to `300`.
+	     * @returns {Promise} Returns a promise which is resolved when the scroll has completed.
 	     */
 	    Content.prototype.scrollToTop = function (duration) {
 	        if (duration === void 0) { duration = 300; }
 	        return this.scrollTo(0, 0, duration);
 	    };
 	    /**
-	     * @private
-	     */
-	    Content.prototype.jsScroll = function (onScrollCallback) {
-	        return this._scroll.jsScroll(onScrollCallback);
-	    };
-	    /**
-	     * @private
+	     * Get the `scrollTop` property of the content's scrollable element.
+	     * @returns {number}
 	     */
 	    Content.prototype.getScrollTop = function () {
 	        return this._scroll.getTop();
 	    };
 	    /**
-	     * @private
+	     * Set the `scrollTop` property of the content's scrollable element.
+	     * @param {number} top
 	     */
 	    Content.prototype.setScrollTop = function (top) {
 	        this._scroll.setTop(top);
+	    };
+	    /**
+	     * @private
+	     */
+	    Content.prototype.jsScroll = function (onScrollCallback) {
+	        return this._scroll.jsScroll(onScrollCallback);
 	    };
 	    /**
 	     * @private
@@ -50748,6 +50751,9 @@
 	            this._scrollEle.style.paddingBottom = newPadding + 'px';
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    Content.prototype.clearScrollPaddingFocusOut = function () {
 	        var _this = this;
 	        if (!this._inputPolling) {

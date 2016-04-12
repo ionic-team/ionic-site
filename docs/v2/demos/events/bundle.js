@@ -58678,6 +58678,7 @@
 	            if (!this._itmTmp) {
 	                throw 'virtualItem required within virtualScroll';
 	            }
+	            this._init = true;
 	            this.update(true);
 	            this._platform.onResize(function () {
 	                console.debug('VirtualScroll, onResize');
@@ -58731,8 +58732,6 @@
 	        }
 	        // ******** DOM READ ****************
 	        readDimensions(function () {
-	            // we were able to read good DOM dimension data, let's do this!
-	            self._init = true;
 	            virtual_util_1.processRecords(self._data.renderHeight, self._records, self._cells, self._hdrFn, self._ftrFn, self._data);
 	            // ******** DOM WRITE ****************
 	            self.renderVirtual();

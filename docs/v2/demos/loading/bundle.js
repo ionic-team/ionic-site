@@ -2493,7 +2493,17 @@
 	        this.nav.present(loading);
 	    };
 	    E2EPage.prototype.goToPage2 = function () {
-	        this.nav.push(Page2);
+	        var _this = this;
+	        var loading = ionic_angular_1.Loading.create({
+	            content: 'This will navigate to the next page and then dismiss after 3 seconds.'
+	        });
+	        this.nav.present(loading);
+	        setTimeout(function () {
+	            _this.nav.push(Page2);
+	        }, 1000);
+	        setTimeout(function () {
+	            loading.dismiss();
+	        }, 4000);
 	    };
 	    E2EPage = __decorate([
 	        ionic_angular_1.Page({
@@ -2511,7 +2521,7 @@
 	    }
 	    Page2 = __decorate([
 	        ionic_angular_1.Page({
-	            template: "\n    <ion-navbar *navbar>\n      <ion-title>Page 2</ion-title>\n    </ion-navbar>\n    <ion-content padding>Some content</ion-content>\n  "
+	            template: "\n    <ion-navbar *navbar>\n      <ion-title>Page 2</ion-title>\n    </ion-navbar>\n    <ion-content padding>This is another page!</ion-content>\n  "
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _b) || Object])
 	    ], Page2);
@@ -48201,7 +48211,7 @@
 	     *```
 	     *
 	     * @param {array<Type>} pages  An arry of page components and their params to load in the stack.
-	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.setPages = function (pages, opts) {
@@ -48313,7 +48323,7 @@
 	     * ```
 	     * @param {Type} page  The page component class you want to push on to the navigation stack
 	     * @param {object} [params={}] Any nav-params you want to pass along to the next view
-	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.push = function (page, params, opts) {
@@ -48341,7 +48351,7 @@
 	     * ```
 	     *
 	     * @param {ViewController} enteringView The component you want to push on the navigation stack.
-	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.present = function (enteringView, opts) {
@@ -48392,7 +48402,7 @@
 	     * @param {number} insertIndex  The index where to insert the page.
 	     * @param {Type} page  The component you want to insert into the nav stack.
 	     * @param {object} [params={}] Any nav-params you want to pass along to the next page.
-	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.insert = function (insertIndex, page, params, opts) {
@@ -48423,7 +48433,7 @@
 	     *
 	     * @param {number} insertIndex  The index where you want to insert the page.
 	     * @param {array<{page: Type, params=: any}>} insertPages  An array of objects, each with a `page` and optionally `params` property.
-	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.insertPages = function (insertIndex, insertPages, opts) {
@@ -48536,7 +48546,7 @@
 	     * }
 	     * ```
 	     *
-	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.pop = function (opts) {
@@ -48558,7 +48568,7 @@
 	    /**
 	     * Similar to `pop()`, this method let's you navigate back to the root of
 	     * the stack, no matter how many pages back that is.
-	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.popToRoot = function (opts) {
@@ -48567,7 +48577,7 @@
 	    /**
 	     * Pop to a specific view in the history stack.
 	     * @param {ViewController} view  to pop to
-	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.popTo = function (view, opts) {

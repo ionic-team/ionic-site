@@ -48035,20 +48035,21 @@
 	        this._portal = val;
 	    };
 	    /**
-	     * Set the root for the current navigation stack
-	     * @param {Type} page  The name of the component you want to push on the navigation stack
-	     * @param {object} [params={}] Any nav-params you want to pass along to the next view
-	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {Promise} Returns a promise when done
+	     * Set the root for the current navigation stack.
+	     * @param {Type} page  The name of the component you want to push on the navigation stack.
+	     * @param {object} [params={}] Any nav-params you want to pass along to the next view.
+	     * @param {object} [opts={}] Any options you want to use pass to transtion.
+	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.setRoot = function (page, params, opts) {
 	        return this.setPages([{ page: page, params: params }], opts);
 	    };
 	    /**
-	     * You can set the views of the current navigation stack and navigate to the last view past
+	     * You can set the views of the current navigation stack and navigate to the
+	     * last view.
 	     *
 	     *
-	     *```typescript
+	     *```ts
 	     * import {Page, NavController} from 'ionic-angular'
 	     * import {Detail} from '../detail/detail'
 	     * import {Info} from '../info/info'
@@ -48064,12 +48065,15 @@
 	     *```
 	     *
 	     *
-	     *In this example, we're giving the current nav stack an array of pages. Then the navigation stack will navigate to the last view in the array and remove the orignal view you came from.
+	     * In this example, we're giving the current nav stack an array of pages.
+	     * Then the navigation stack will navigate to the last page in the array
+	     * and remove the previously active page.
 	     *
-	     * By default, animations are disabled, but they can be enabled by passing options to the navigation controller
+	     * By default animations are disabled, but they can be enabled by passing
+	     * options to the navigation controller.
 	     *
 	     *
-	     *```typescript
+	     * ```ts
 	     * import {Page, NavController} from 'ionic-angular'
 	     * import {Detail} from '../detail/detail'
 	     *
@@ -48083,13 +48087,13 @@
 	     *      });
 	     *    }
 	     *  }
-	     *```
+	     * ```
+	     *
+	     * You can also pass any navigation params to the individual pages in
+	     * the array.
 	     *
 	     *
-	     *You can also pass any navigation params to the individual pages in the array.
-	     *
-	     *
-	     *```typescript
+	     * ```ts
 	     * import {Page, NavController} from 'ionic-angular';
 	     * import {Info} from '../info/info';
 	     * import {List} from '../list/list';
@@ -48113,9 +48117,9 @@
 	     *  }
 	     *```
 	     *
-	     * @param {array<Type>} pages  An arry of page components and their params to load in the stack
-	     * @param {object} [opts={}] Any options you want to use pass
-	     * @returns {Promise} Returns a promise when the pages are set
+	     * @param {array<Type>} pages  An arry of page components and their params to load in the stack.
+	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.setPages = function (pages, opts) {
 	        if (!pages || !pages.length) {
@@ -48164,9 +48168,10 @@
 	        return this.setPages(components, opts);
 	    };
 	    /**
-	     * Push is how we can pass components and navigate to them. We push the component we want to navigate to on to the navigation stack.
+	     * Push is how we can pass components and navigate to them. We push the component
+	     * we want to navigate to on to the navigation stack.
 	     *
-	     * ```typescript
+	     * ```ts
 	     * class MyClass{
 	     *    constructor(nav:NavController){
 	     *      this.nav = nav;
@@ -48178,31 +48183,31 @@
 	     * }
 	     * ```
 	     *
-	     * We can also pass along parameters to the next view, such as data that we have on the current view. This is a similar concept to to V1 apps with `$stateParams`.
+	     * We can also pass along parameters to the next view, such as data that we have
+	     * on the current view. This is a similar concept to to V1 apps with `$stateParams`.
 	     *
-	     * ```typescript
+	     * ```ts
 	     * class MyClass{
 	     *    constructor(nav:NavController){
 	     *      this.nav = nav;
 	     *    }
 	     *
 	     *    pushPage(user){
-	     *      this.nav.push(SecondView,{
 	     *       // user is an object we have in our view
 	     *       // typically this comes from an ngFor or some array
 	     *       // here we can create an object with a property of
-	     *       // paramUser, and set it's value to the user object we passed in
-	     *       paramUser: user
-	     *      });
+	     *       // paramUser, and set its value to the user object we passed in
+	     *      this.nav.push(SecondView, { paramUser: user });
 	     *    }
 	     * }
 	     * ```
 	     *
-	     * We'll look at how we can access that data in the `SecondView` in the navParam docs
+	     * We'll look at how we can access that data in the `SecondView` in the
+	     * navParam docs.
 	     *
-	     * We can also pass any options to the transtion from that same method
+	     * We can also pass any options to the transtion from that same method.
 	     *
-	     * ```typescript
+	     * ```ts
 	     * class MyClass{
 	     *    constructor(nav: NavController){
 	     *      this.nav = nav;
@@ -48225,21 +48230,21 @@
 	     * ```
 	     * @param {Type} page  The page component class you want to push on to the navigation stack
 	     * @param {object} [params={}] Any nav-params you want to pass along to the next view
-	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {Promise} Returns a promise, which resolves when the transition has completed
+	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.push = function (page, params, opts) {
 	        return this.insertPages(-1, [{ page: page, params: params }], opts);
 	    };
 	    /**
-	     * Present is how we display overlays on top of the content, from within the
+	     * Present is how app display overlays on top of the content, from within the
 	     * root level `NavController`. The `present` method is used by overlays, such
 	     * as `ActionSheet`, `Alert`, and `Modal`. The main difference between `push`
-	     * and `present`, is that `present` takes a `ViewController` instance, whereas
+	     * and `present` is that `present` takes a `ViewController` instance, whereas
 	     * `push` takes a `Page` component class. Additionally, `present` will place
 	     * the overlay in the root NavController's stack.
 	     *
-	     * ```typescript
+	     * ```ts
 	     * class MyClass{
 	     *    constructor(nav: NavController) {
 	     *      this.nav = nav;
@@ -48252,9 +48257,9 @@
 	     * }
 	     * ```
 	     *
-	     * @param {ViewController} enteringView The name of the component you want to push on the navigation stack
-	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {Promise} Returns a promise, which resolves when the transition has completed
+	     * @param {ViewController} enteringView The component you want to push on the navigation stack.
+	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.present = function (enteringView, opts) {
 	        var rootNav = this.rootNav;
@@ -48285,10 +48290,10 @@
 	        return rootNav._insertViews(-1, [enteringView], opts);
 	    };
 	    /**
-	     * Inserts a view into the nav stack at the specified index.
-	     * This is useful if you need to add a view at any point in your navigation stack
+	     * Inserts a view into the nav stack at the specified index. This is useful if
+	     * you need to add a view at any point in your navigation stack.
 	     *
-	     * ```typescript
+	     * ```ts
 	     * export class Detail {
 	     *    constructor(nav: NavController) {
 	     *      this.nav = nav;
@@ -48299,13 +48304,13 @@
 	     *  }
 	     * ```
 	     *
-	     * This will insert the `Info` page into the second slot of our navigation stack
+	     * This will insert the `Info` page into the second slot of our navigation stack.
 	     *
-	     * @param {number} insertIndex  The index where you want to insert the page
-	     * @param {Type} page  The name of the component you want to insert into the nav stack
-	     * @param {object} [params={}] Any nav-params you want to pass along to the next page
-	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {Promise} Returns a promise when the page has been inserted into the navigation stack
+	     * @param {number} insertIndex  The index where to insert the page.
+	     * @param {Type} page  The component you want to insert into the nav stack.
+	     * @param {object} [params={}] Any nav-params you want to pass along to the next page.
+	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.insert = function (insertIndex, page, params, opts) {
 	        return this.insertPages(insertIndex, [{ page: page, params: params }], opts);
@@ -48313,7 +48318,7 @@
 	    /**
 	     * Inserts multiple pages into the nav stack at the specified index.
 	     *
-	     * ```typescript
+	     * ```ts
 	     * export class Detail {
 	     *    constructor(nav: NavController) {
 	     *      this.nav = nav;
@@ -48333,10 +48338,10 @@
 	     * (second index) of the nav stack. The last page in the array will animate
 	     * in and become the active page.
 	     *
-	     * @param {number} insertIndex  The index where you want to insert the page
-	     * @param {array<{page: Type, params=: any}>} insertPages  An array of objects, each with a `page` and optionally `params` property
-	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {Promise} Returns a promise when the pages have been inserted into the navigation stack
+	     * @param {number} insertIndex  The index where you want to insert the page.
+	     * @param {array<{page: Type, params=: any}>} insertPages  An array of objects, each with a `page` and optionally `params` property.
+	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.insertPages = function (insertIndex, insertPages, opts) {
 	        var views = insertPages.map(function (p) { return new view_controller_1.ViewController(p.page, p.params); });
@@ -48433,10 +48438,11 @@
 	        return insertView;
 	    };
 	    /**
-	     * If you wanted to navigate back from a current view, you can use the back-button or programatically call `pop()`
-	     * Similar to `push()`, you can pass animation options.
+	     * If you wanted to navigate back from a current view, you can use the
+	     * back-button or programatically call `pop()`. Similar to `push()`, you
+	     * can also pass navigation options.
 	     *
-	     * ```typescript
+	     * ```ts
 	     * class SecondView{
 	     *    constructor(nav:NavController){
 	     *      this.nav = nav;
@@ -48447,8 +48453,8 @@
 	     * }
 	     * ```
 	     *
-	     * @param {object} [opts={}] Any options you want to use pass to transtion
-	     * @returns {Promise} Returns a promise when the transition is completed
+	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.pop = function (opts) {
 	        // get the index of the active view
@@ -48467,16 +48473,19 @@
 	        return this.remove(this.indexOf(activeView), 1, opts);
 	    };
 	    /**
-	     * Similar to `pop()`, this method let's you navigate back to the root of the stack, no matter how many views that is
-	     * @param {object} [opts={}] Any options you want to use pass to transtion
+	     * Similar to `pop()`, this method let's you navigate back to the root of
+	     * the stack, no matter how many pages back that is.
+	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.popToRoot = function (opts) {
 	        return this.popTo(this.first(), opts);
 	    };
 	    /**
-	     * Pop to a specific view in the history stack
+	     * Pop to a specific view in the history stack.
 	     * @param {ViewController} view  to pop to
-	     * @param {object} [opts={}]  Any options you want to use pass to transtion
+	     * @param {object} [opts={}] Nav options you to go with this transition.
+	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.popTo = function (view, opts) {
 	        var startIndex = this.indexOf(view);
@@ -48487,14 +48496,14 @@
 	        return this.remove(startIndex + 1, removeCount, opts);
 	    };
 	    /**
-	     * Removes a view from the nav stack at the specified index.
+	     * Removes a page from the nav stack at the specified index.
 	     *
-	     * ```typescript
+	     * ```ts
 	     * export class Detail {
 	     *    constructor(nav: NavController) {
 	     *      this.nav = nav;
 	     *    }
-	     *    removeView(){
+	     *    removePage(){
 	     *      this.nav.remove(1);
 	     *    }
 	     *  }
@@ -48503,7 +48512,7 @@
 	     * @param {number} [startIndex]  The starting index to remove pages from the stack. Default is the index of the last page.
 	     * @param {number} [removeCount]  The number of pages to remove, defaults to remove `1`.
 	     * @param {object} [opts={}] Any options you want to use pass to transtion.
-	     * @returns {Promise} Returns a promise when the page has been removed.
+	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
 	    NavController.prototype.remove = function (startIndex, removeCount, opts) {
 	        if (startIndex === void 0) { startIndex = -1; }
@@ -49045,12 +49054,21 @@
 	            });
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    NavController.prototype.getActiveChildNav = function () {
 	        return this._children[this._children.length - 1];
 	    };
+	    /**
+	     * @private
+	     */
 	    NavController.prototype.registerChildNav = function (nav) {
 	        this._children.push(nav);
 	    };
+	    /**
+	     * @private
+	     */
 	    NavController.prototype.unregisterChildNav = function (nav) {
 	        var index = this._children.indexOf(nav);
 	        if (index > -1) {
@@ -49206,18 +49224,18 @@
 	    };
 	    /**
 	     * If it's possible to use swipe back or not. If it's not possible
-	     * to go back, or swipe back is not enable then this will return false.
+	     * to go back, or swipe back is not enabled, then this will return `false`.
 	     * If it is possible to go back, and swipe back is enabled, then this
-	     * will return true.
-	     * @returns {boolean} Whether you can swipe to go back
+	     * will return `true`.
+	     * @returns {boolean}
 	     */
 	    NavController.prototype.canSwipeBack = function () {
 	        return (this._sbEnabled && !this.isTransitioning() && this._app.isEnabled() && this.canGoBack());
 	    };
 	    /**
-	     * Returns `true` if there's a valid previous page that we can pop back to.
-	     * Otherwise returns false.
-	     * @returns {boolean} Whether there is a page to go back to
+	     * Returns `true` if there's a valid previous page that we can pop
+	     * back to. Otherwise returns `false`.
+	     * @returns {boolean}
 	     */
 	    NavController.prototype.canGoBack = function () {
 	        var activeView = this.getActive();
@@ -49227,8 +49245,7 @@
 	        return false;
 	    };
 	    /**
-	     * Boolean if the nav controller is actively transitioning or not.
-	     * @private
+	     * Returns if the nav controller is actively transitioning or not.
 	     * @return {boolean}
 	     */
 	    NavController.prototype.isTransitioning = function () {
@@ -49236,7 +49253,6 @@
 	    };
 	    /**
 	     * @private
-	     * @return {boolean}
 	     */
 	    NavController.prototype.setTransitioning = function (isTransitioning, fallback) {
 	        if (fallback === void 0) { fallback = 700; }
@@ -49244,7 +49260,6 @@
 	    };
 	    /**
 	     * @private
-	     * @returns {boolean}
 	     */
 	    NavController.prototype.hasOverlay = function () {
 	        for (var i = this._views.length - 1; i >= 0; i--) {
@@ -49256,7 +49271,6 @@
 	    };
 	    /**
 	     * @private
-	     * @returns {ViewController}
 	     */
 	    NavController.prototype.getByState = function (state) {
 	        for (var i = this._views.length - 1; i >= 0; i--) {
@@ -49267,8 +49281,8 @@
 	        return null;
 	    };
 	    /**
-	     * @param {number} index  The index of the page you want to get
-	     * @returns {ViewController} Returns the component that matches the index given
+	     * @param {number} index  The index of the page to get.
+	     * @returns {ViewController} Returns the view controller that matches the given index.
 	     */
 	    NavController.prototype.getByIndex = function (index) {
 	        return (index < this._views.length && index > -1 ? this._views[index] : null);
@@ -49287,43 +49301,45 @@
 	        return !!(view && view.state === STATE_ACTIVE);
 	    };
 	    /**
-	     * @param {ViewController} view  The ViewController to get the previous view to
+	     * Returns the view controller which is before the given view controller.
+	     * @param {ViewController} view
 	     * @returns {viewController}
 	     */
 	    NavController.prototype.getPrevious = function (view) {
 	        return this.getByIndex(this.indexOf(view) - 1);
 	    };
 	    /**
-	     * First page in this nav controller's stack.
-	     * @returns {ViewController} Returns the first component page in the current stack
+	     * Returns the first view controller in this nav controller's stack.
+	     * @returns {ViewController}
 	     */
 	    NavController.prototype.first = function () {
 	        return (this._views.length ? this._views[0] : null);
 	    };
 	    /**
-	     * Last page in this nav controller's stack. This would not return a page which is about to be destroyed.
-	     * @returns {ViewController} Returns the last component page in the current stack
+	     * Returns the last page in this nav controller's stack.
+	     * @returns {ViewController}
 	     */
 	    NavController.prototype.last = function () {
 	        return (this._views.length ? this._views[this._views.length - 1] : null);
 	    };
 	    /**
+	     * Returns the index number of the given view controller.
 	     * @param {ViewController} view
-	     * @returns {number} Returns the index number of the view
+	     * @returns {number}
 	     */
 	    NavController.prototype.indexOf = function (view) {
 	        return this._views.indexOf(view);
 	    };
 	    /**
-	     * Number of sibling views in the nav controller.
-	     * @returns {number} The number of views in stack, including the current view
+	     * Returns the number of views in this nav controller.
+	     * @returns {number} The number of views in this stack, including the current view.
 	     */
 	    NavController.prototype.length = function () {
 	        return this._views.length;
 	    };
 	    Object.defineProperty(NavController.prototype, "rootNav", {
 	        /**
-	         * Returns the root NavController.
+	         * Returns the root `NavController`.
 	         * @returns {NavController}
 	         */
 	        get: function () {

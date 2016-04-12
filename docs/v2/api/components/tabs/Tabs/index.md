@@ -48,8 +48,8 @@ aspects of an app. The Tabs component, written as <code>&lt;ion-tabs&gt;</code>,
 a container of individual <a href="../Tab/">Tab</a> components.</p>
 <h3 id="placement">Placement</h3>
 <p>The position of the tabs relative to the content varies based on
-the mode. By default the tabs are placed at the bottom of the screen
-in <code>ios</code> mode, and at the top for <code>wp</code> and <code>md</code> mode. You can
+the mode. By default, the tabs are placed at the bottom of the screen
+for <code>ios</code> mode, and at the top for the <code>md</code> and <code>wp</code> modes. You can
 configure the position using the <code>tabbarPlacement</code> property on the
 <code>&lt;ion-tabs&gt;</code> element, or in your app&#39;s <a href="../../config/Config/">config</a>.
 See the <a href="#input-properties">Input Properties</a> below for the available
@@ -57,7 +57,7 @@ values of <code>tabbarPlacement</code>.</p>
 <h3 id="layout">Layout</h3>
 <p>The layout for all of the tabs can be defined using the <code>tabbarLayout</code>
 property. If the individual tab has a title and icon, the icons will
-show on top of the title in a tab. All tabs can be changed by setting
+show on top of the title by default. All tabs can be changed by setting
 the value of <code>tabbarLayout</code> on the <code>&lt;ion-tabs&gt;</code> element, or in your
 app&#39;s <a href="../../config/Config/">config</a>. For example, this is useful if
 you want to show tabs with a title only on Android, but show icons
@@ -76,15 +76,16 @@ on creation of the tabs:</p>
 <p>Since the index starts at <code>0</code>, this will select the 3rd tab which has
 root set to <code>tab3Root</code>. You can also grab the <code>Tabs</code> instance and call
 the <code>select()</code> method. This requires the <code>&lt;ion-tabs&gt;</code> element to have
-an <code>id</code>. For example, set the <code>id</code> to <code>myTabs</code>:</p>
+an <code>id</code>. For example, set the value of <code>id</code> to <code>myTabs</code>:</p>
 <pre><code class="lang-html">&lt;ion-tabs id=&quot;myTabs&quot;&gt;
   &lt;ion-tab [root]=&quot;tab1Root&quot;&gt;&lt;/ion-tab&gt;
   &lt;ion-tab [root]=&quot;tab2Root&quot;&gt;&lt;/ion-tab&gt;
   &lt;ion-tab [root]=&quot;tab3Root&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
-<p>Then in your JavaScript you can grab the <code>Tabs</code> instance and call <code>select()</code>.
-In the following code <code>app</code> is of type <a href="../../app/IonicApp/"><code>IonicApp</code></a>:</p>
+<p>Then in your JavaScript you can grab the <code>Tabs</code> instance and call <code>select()</code>,
+passing the index of the tab as the argument. In the following code <code>app</code> is
+of type <a href="../../app/IonicApp/"><code>IonicApp</code></a>:</p>
 <pre><code class="lang-js">constructor(app: IonicApp) {
   this.app = app;
 }
@@ -271,13 +272,6 @@ onPageDidEnter() {
       <td>preloadTabs</td>
       <td><code>boolean</code></td>
       <td><p> Set whether to preload all the tabs: <code>true</code>, <code>false</code>.</p>
-</td>
-    </tr>
-    
-    <tr>
-      <td>tabbarIcons</td>
-      <td><code>string</code></td>
-      <td><p> Deprecated, use <code>tabbarLayout</code> instead. Set the position of the tabbar&#39;s icons: <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>, <code>hide</code>.</p>
 </td>
     </tr>
     

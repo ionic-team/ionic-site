@@ -56,8 +56,8 @@ in the <code>content</code> property. If you do not pass a value to <code>spinne
 the loading indicator will use the spinner specified by the mode. To
 set the spinner name across the app, set the value of <code>loadingSpinner</code>
 in your app&#39;s config. To hide the spinner, set <code>loadingSpinner: &#39;hide&#39;</code>
-in the apps&#39; config or pass <code>spinner: &#39;hide&#39;</code> in the loading
-options. See the create method below for all available options.</p>
+in the app&#39;s config or pass <code>spinner: &#39;hide&#39;</code> in the loading
+options. See the <a href="#create">create</a> method below for all available options.</p>
 <h3 id="dismissing">Dismissing</h3>
 <p>The loading indicator can be dismissed automatically after a specific
 amount of time by passing the number of milliseconds to display it in
@@ -135,12 +135,12 @@ Create a loading indicator with the following options
 
 | Option                | Type       | Description                                                                                                      |
 |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
-| spinner               |`string`    | The name of the SVG spinner for the loading indicator.                                                                           |
+| spinner               |`string`    | The name of the SVG spinner for the loading indicator.                                                           |
 | content               |`string`    | The html content for the loading indicator.                                                                      |
 | cssClass              |`string`    | An additional class for custom styles.                                                                           |
 | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
 | dismissOnPageChange   |`boolean`   | Whether to dismiss the indicator when navigating to a new page. Default false.                                   |
-| duration              |`number`    | How many milliseconds to wait before hiding the indicator. By default, it will show until `hide()` is called.    |
+| duration              |`number`    | How many milliseconds to wait before hiding the indicator. By default, it will show until `dismiss()` is called. |
 
 
 

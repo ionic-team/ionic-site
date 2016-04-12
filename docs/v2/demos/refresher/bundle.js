@@ -50807,19 +50807,19 @@
 	    };
 	    /**
 	     * Returns the content and scroll elements' dimensions.
-	     * @returns {object} dimensions  The content and scroll elements' dimensions
-	     * {number} dimensions.contentHeight  content offsetHeight
-	     * {number} dimensions.contentTop  content offsetTop
-	     * {number} dimensions.contentBottom  content offsetTop+offsetHeight
-	     * {number} dimensions.contentWidth  content offsetWidth
-	     * {number} dimensions.contentLeft  content offsetLeft
-	     * {number} dimensions.contentRight  content offsetLeft + offsetWidth
-	     * {number} dimensions.scrollHeight  scroll scrollHeight
-	     * {number} dimensions.scrollTop  scroll scrollTop
-	     * {number} dimensions.scrollBottom  scroll scrollTop + scrollHeight
-	     * {number} dimensions.scrollWidth  scroll scrollWidth
-	     * {number} dimensions.scrollLeft  scroll scrollLeft
-	     * {number} dimensions.scrollRight  scroll scrollLeft + scrollWidth
+	     * @returns {object} dimensions  The content and scroll elements' dimensions <br>
+	     * &nbsp; &nbsp; &nbsp; <code>number</code> dimensions.contentHeight  content offsetHeight <br>
+	     * &nbsp; &nbsp; &nbsp; <code>number</code> dimensions.contentTop  content offsetTop <br>
+	     * &nbsp; &nbsp; &nbsp; <code>number</code> dimensions.contentBottom  content offsetTop+offsetHeight <br>
+	     * &nbsp; &nbsp; &nbsp; <code>number</code> dimensions.contentWidth  content offsetWidth <br>
+	     * &nbsp; &nbsp; &nbsp; <code>number</code> dimensions.contentLeft  content offsetLeft <br>
+	     * &nbsp; &nbsp; &nbsp; <code>number</code> dimensions.contentRight  content offsetLeft + offsetWidth <br>
+	     * &nbsp; &nbsp; &nbsp; <code>number</code> dimensions.scrollHeight  scroll scrollHeight <br>
+	     * &nbsp; &nbsp; &nbsp; <code>number</code> dimensions.scrollTop  scroll scrollTop <br>
+	     * &nbsp; &nbsp; &nbsp; <code>number</code> dimensions.scrollBottom  scroll scrollTop + scrollHeight <br>
+	     * &nbsp; &nbsp; &nbsp; <code>number</code> dimensions.scrollWidth  scroll scrollWidth <br>
+	     * &nbsp; &nbsp; &nbsp; <code>number</code> dimensions.scrollLeft  scroll scrollLeft <br>
+	     * &nbsp; &nbsp; &nbsp; <code>number</code> dimensions.scrollRight  scroll scrollLeft + scrollWidth <br>
 	     */
 	    Content.prototype.getContentDimensions = function () {
 	        var _scrollEle = this._scrollEle;
@@ -64311,6 +64311,7 @@
 	__export(__webpack_require__(361));
 	__export(__webpack_require__(366));
 	__export(__webpack_require__(347));
+	__export(__webpack_require__(321));
 	__export(__webpack_require__(322));
 	__export(__webpack_require__(314));
 	__export(__webpack_require__(345));
@@ -64322,15 +64323,14 @@
 	__export(__webpack_require__(350));
 	__export(__webpack_require__(339));
 	__export(__webpack_require__(341));
-	__export(__webpack_require__(290));
-	__export(__webpack_require__(299));
-	__export(__webpack_require__(367));
-	__export(__webpack_require__(308));
-	__export(__webpack_require__(320));
 	__export(__webpack_require__(340));
 	__export(__webpack_require__(337));
+	__export(__webpack_require__(367));
+	__export(__webpack_require__(290));
+	__export(__webpack_require__(299));
 	__export(__webpack_require__(368));
-	__export(__webpack_require__(362));
+	__export(__webpack_require__(308));
+	__export(__webpack_require__(320));
 	__export(__webpack_require__(369));
 	__export(__webpack_require__(357));
 	__export(__webpack_require__(315));
@@ -64341,7 +64341,6 @@
 	__export(__webpack_require__(311));
 	__export(__webpack_require__(348));
 	__export(__webpack_require__(298));
-	__export(__webpack_require__(331));
 	__export(__webpack_require__(354));
 	__export(__webpack_require__(355));
 	__export(__webpack_require__(329));
@@ -64350,6 +64349,9 @@
 	__export(__webpack_require__(356));
 	__export(__webpack_require__(353));
 	__export(__webpack_require__(346));
+	__export(__webpack_require__(362));
+	__export(__webpack_require__(331));
+	__export(__webpack_require__(328));
 	__export(__webpack_require__(333));
 	__export(__webpack_require__(335));
 	__export(__webpack_require__(293));
@@ -64767,154 +64769,6 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var menu_controller_1 = __webpack_require__(290);
-	var animation_1 = __webpack_require__(319);
-	/**
-	 * @private
-	 * Menu Type
-	 * Base class which is extended by the various types. Each
-	 * type will provide their own animations for open and close
-	 * and registers itself with Menu.
-	 */
-	var MenuType = (function () {
-	    function MenuType() {
-	        this.ani = new animation_1.Animation();
-	    }
-	    MenuType.prototype.setOpen = function (shouldOpen, done) {
-	        this.ani
-	            .onFinish(done, true)
-	            .reverse(!shouldOpen)
-	            .play();
-	    };
-	    MenuType.prototype.setProgressStart = function (isOpen) {
-	        this.isOpening = !isOpen;
-	        // the cloned animation should not use an easing curve during seek
-	        this.ani
-	            .reverse(isOpen)
-	            .progressStart();
-	    };
-	    MenuType.prototype.setProgessStep = function (stepValue) {
-	        // adjust progress value depending if it opening or closing
-	        this.ani.progressStep(stepValue);
-	    };
-	    MenuType.prototype.setProgressEnd = function (shouldComplete, currentStepValue, done) {
-	        var _this = this;
-	        var isOpen = (this.isOpening && shouldComplete);
-	        if (!this.isOpening && !shouldComplete) {
-	            isOpen = true;
-	        }
-	        this.ani.onFinish(function () {
-	            _this.isOpening = false;
-	            done(isOpen);
-	        }, true);
-	        this.ani.progressEnd(shouldComplete, currentStepValue);
-	    };
-	    MenuType.prototype.destroy = function () {
-	        this.ani && this.ani.destroy();
-	    };
-	    return MenuType;
-	}());
-	exports.MenuType = MenuType;
-	/**
-	 * @private
-	 * Menu Reveal Type
-	 * The content slides over to reveal the menu underneath.
-	 * The menu itself, which is under the content, does not move.
-	 */
-	var MenuRevealType = (function (_super) {
-	    __extends(MenuRevealType, _super);
-	    function MenuRevealType(menu) {
-	        _super.call(this);
-	        var openedX = (menu.width() * (menu.side === 'right' ? -1 : 1)) + 'px';
-	        this.ani
-	            .easing('ease')
-	            .duration(250);
-	        var contentOpen = new animation_1.Animation(menu.getContentElement());
-	        contentOpen.fromTo('translateX', '0px', openedX);
-	        this.ani.add(contentOpen);
-	    }
-	    return MenuRevealType;
-	}(MenuType));
-	menu_controller_1.MenuController.registerType('reveal', MenuRevealType);
-	/**
-	 * @private
-	 * Menu Push Type
-	 * The content slides over to reveal the menu underneath.
-	 * The menu itself also slides over to reveal its bad self.
-	 */
-	var MenuPushType = (function (_super) {
-	    __extends(MenuPushType, _super);
-	    function MenuPushType(menu) {
-	        _super.call(this);
-	        this.ani
-	            .easing('ease')
-	            .duration(250);
-	        var contentOpenedX, menuClosedX, menuOpenedX;
-	        if (menu.side === 'right') {
-	            contentOpenedX = -menu.width() + 'px';
-	            menuOpenedX = (menu._platform.width() - menu.width()) + 'px';
-	            menuClosedX = menu._platform.width() + 'px';
-	        }
-	        else {
-	            contentOpenedX = menu.width() + 'px';
-	            menuOpenedX = '0px';
-	            menuClosedX = -menu.width() + 'px';
-	        }
-	        var menuAni = new animation_1.Animation(menu.getMenuElement());
-	        menuAni.fromTo('translateX', menuClosedX, menuOpenedX);
-	        this.ani.add(menuAni);
-	        var contentApi = new animation_1.Animation(menu.getContentElement());
-	        contentApi.fromTo('translateX', '0px', contentOpenedX);
-	        this.ani.add(contentApi);
-	    }
-	    return MenuPushType;
-	}(MenuType));
-	menu_controller_1.MenuController.registerType('push', MenuPushType);
-	/**
-	 * @private
-	 * Menu Overlay Type
-	 * The menu slides over the content. The content
-	 * itself, which is under the menu, does not move.
-	 */
-	var MenuOverlayType = (function (_super) {
-	    __extends(MenuOverlayType, _super);
-	    function MenuOverlayType(menu) {
-	        _super.call(this);
-	        this.ani
-	            .easing('ease')
-	            .duration(250);
-	        var closedX, openedX;
-	        if (menu.side === 'right') {
-	            // right side
-	            closedX = menu._platform.width() + 'px';
-	            openedX = (menu._platform.width() - menu.width() - 8) + 'px';
-	        }
-	        else {
-	            // left side
-	            closedX = -menu.width() + 'px';
-	            openedX = '8px';
-	        }
-	        var menuAni = new animation_1.Animation(menu.getMenuElement());
-	        menuAni.fromTo('translateX', closedX, openedX);
-	        this.ani.add(menuAni);
-	        var backdropApi = new animation_1.Animation(menu.getBackdropElement());
-	        backdropApi.fromTo('opacity', 0.01, 0.35);
-	        this.ani.add(backdropApi);
-	    }
-	    return MenuOverlayType;
-	}(MenuType));
-	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
-
-/***/ },
-/* 368 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64950,8 +64804,8 @@
 	 * the loading indicator will use the spinner specified by the mode. To
 	 * set the spinner name across the app, set the value of `loadingSpinner`
 	 * in your app's config. To hide the spinner, set `loadingSpinner: 'hide'`
-	 * in the apps' config or pass `spinner: 'hide'` in the loading
-	 * options. See the create method below for all available options.
+	 * in the app's config or pass `spinner: 'hide'` in the loading
+	 * options. See the [create](#create) method below for all available options.
 	 *
 	 * ### Dismissing
 	 * The loading indicator can be dismissed automatically after a specific
@@ -65045,12 +64899,12 @@
 	     *
 	     * | Option                | Type       | Description                                                                                                      |
 	     * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
-	     * | spinner               |`string`    | The name of the SVG spinner for the loading indicator.                                                                           |
+	     * | spinner               |`string`    | The name of the SVG spinner for the loading indicator.                                                           |
 	     * | content               |`string`    | The html content for the loading indicator.                                                                      |
 	     * | cssClass              |`string`    | An additional class for custom styles.                                                                           |
 	     * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
 	     * | dismissOnPageChange   |`boolean`   | Whether to dismiss the indicator when navigating to a new page. Default false.                                   |
-	     * | duration              |`number`    | How many milliseconds to wait before hiding the indicator. By default, it will show until `hide()` is called.    |
+	     * | duration              |`number`    | How many milliseconds to wait before hiding the indicator. By default, it will show until `dismiss()` is called. |
 	     *
 	     *
 	     * @param {object} opts Loading options
@@ -65236,6 +65090,154 @@
 	}(transition_1.Transition));
 	transition_1.Transition.register('loading-wp-pop-out', LoadingWpPopOut);
 	var loadingIds = -1;
+
+/***/ },
+/* 368 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var menu_controller_1 = __webpack_require__(290);
+	var animation_1 = __webpack_require__(319);
+	/**
+	 * @private
+	 * Menu Type
+	 * Base class which is extended by the various types. Each
+	 * type will provide their own animations for open and close
+	 * and registers itself with Menu.
+	 */
+	var MenuType = (function () {
+	    function MenuType() {
+	        this.ani = new animation_1.Animation();
+	    }
+	    MenuType.prototype.setOpen = function (shouldOpen, done) {
+	        this.ani
+	            .onFinish(done, true)
+	            .reverse(!shouldOpen)
+	            .play();
+	    };
+	    MenuType.prototype.setProgressStart = function (isOpen) {
+	        this.isOpening = !isOpen;
+	        // the cloned animation should not use an easing curve during seek
+	        this.ani
+	            .reverse(isOpen)
+	            .progressStart();
+	    };
+	    MenuType.prototype.setProgessStep = function (stepValue) {
+	        // adjust progress value depending if it opening or closing
+	        this.ani.progressStep(stepValue);
+	    };
+	    MenuType.prototype.setProgressEnd = function (shouldComplete, currentStepValue, done) {
+	        var _this = this;
+	        var isOpen = (this.isOpening && shouldComplete);
+	        if (!this.isOpening && !shouldComplete) {
+	            isOpen = true;
+	        }
+	        this.ani.onFinish(function () {
+	            _this.isOpening = false;
+	            done(isOpen);
+	        }, true);
+	        this.ani.progressEnd(shouldComplete, currentStepValue);
+	    };
+	    MenuType.prototype.destroy = function () {
+	        this.ani && this.ani.destroy();
+	    };
+	    return MenuType;
+	}());
+	exports.MenuType = MenuType;
+	/**
+	 * @private
+	 * Menu Reveal Type
+	 * The content slides over to reveal the menu underneath.
+	 * The menu itself, which is under the content, does not move.
+	 */
+	var MenuRevealType = (function (_super) {
+	    __extends(MenuRevealType, _super);
+	    function MenuRevealType(menu) {
+	        _super.call(this);
+	        var openedX = (menu.width() * (menu.side === 'right' ? -1 : 1)) + 'px';
+	        this.ani
+	            .easing('ease')
+	            .duration(250);
+	        var contentOpen = new animation_1.Animation(menu.getContentElement());
+	        contentOpen.fromTo('translateX', '0px', openedX);
+	        this.ani.add(contentOpen);
+	    }
+	    return MenuRevealType;
+	}(MenuType));
+	menu_controller_1.MenuController.registerType('reveal', MenuRevealType);
+	/**
+	 * @private
+	 * Menu Push Type
+	 * The content slides over to reveal the menu underneath.
+	 * The menu itself also slides over to reveal its bad self.
+	 */
+	var MenuPushType = (function (_super) {
+	    __extends(MenuPushType, _super);
+	    function MenuPushType(menu) {
+	        _super.call(this);
+	        this.ani
+	            .easing('ease')
+	            .duration(250);
+	        var contentOpenedX, menuClosedX, menuOpenedX;
+	        if (menu.side === 'right') {
+	            contentOpenedX = -menu.width() + 'px';
+	            menuOpenedX = (menu._platform.width() - menu.width()) + 'px';
+	            menuClosedX = menu._platform.width() + 'px';
+	        }
+	        else {
+	            contentOpenedX = menu.width() + 'px';
+	            menuOpenedX = '0px';
+	            menuClosedX = -menu.width() + 'px';
+	        }
+	        var menuAni = new animation_1.Animation(menu.getMenuElement());
+	        menuAni.fromTo('translateX', menuClosedX, menuOpenedX);
+	        this.ani.add(menuAni);
+	        var contentApi = new animation_1.Animation(menu.getContentElement());
+	        contentApi.fromTo('translateX', '0px', contentOpenedX);
+	        this.ani.add(contentApi);
+	    }
+	    return MenuPushType;
+	}(MenuType));
+	menu_controller_1.MenuController.registerType('push', MenuPushType);
+	/**
+	 * @private
+	 * Menu Overlay Type
+	 * The menu slides over the content. The content
+	 * itself, which is under the menu, does not move.
+	 */
+	var MenuOverlayType = (function (_super) {
+	    __extends(MenuOverlayType, _super);
+	    function MenuOverlayType(menu) {
+	        _super.call(this);
+	        this.ani
+	            .easing('ease')
+	            .duration(250);
+	        var closedX, openedX;
+	        if (menu.side === 'right') {
+	            // right side
+	            closedX = menu._platform.width() + 'px';
+	            openedX = (menu._platform.width() - menu.width() - 8) + 'px';
+	        }
+	        else {
+	            // left side
+	            closedX = -menu.width() + 'px';
+	            openedX = '8px';
+	        }
+	        var menuAni = new animation_1.Animation(menu.getMenuElement());
+	        menuAni.fromTo('translateX', closedX, openedX);
+	        this.ani.add(menuAni);
+	        var backdropApi = new animation_1.Animation(menu.getBackdropElement());
+	        backdropApi.fromTo('opacity', 0.01, 0.35);
+	        this.ani.add(backdropApi);
+	    }
+	    return MenuOverlayType;
+	}(MenuType));
+	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
 /* 369 */

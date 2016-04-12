@@ -50415,29 +50415,6 @@
 	    };
 	    /**
 	     * @private
-	     * Adds the specified scroll handler to the content' scroll element.
-	     *
-	     * ```ts
-	     * @Page({
-	     *   template: `<ion-content id="my-content"></ion-content>`
-	     * )}
-	     * export class MyPage{
-	     *    constructor(app: IonicApp){
-	     *        this.app = app;
-	     *    }
-	     *   // Need to wait until the component has been initialized
-	     *   ngAfterViewInit() {
-	     *     // Here 'my-content' is the ID of my ion-content
-	     *     this.content = this.app.getComponent('my-content');
-	     *     this.content.addScrollListener(this.myScroll);
-	     *   }
-	     *     myScroll() {
-	     *      console.info('They see me scrolling...');
-	     *    }
-	     * }
-	     * ```
-	     * @param {Function} handler  The method you want perform when scrolling
-	     * @returns {Function} A function that removes the scroll handler.
 	     */
 	    Content.prototype.addScrollListener = function (handler) {
 	        return this._addListener('scroll', handler);

@@ -15,7 +15,7 @@ app.use(function(req, res, next) {
   } else if (parts.path.indexOf('/creator/') == 0) {
     res.redirect(301, 'https://creator.ionic.io/' + req.url.replace(/^\/creator\//, ''))
   } else if (req.headers.host.indexOf('learn.') == 0) {
-    res.redirect(301, 'http://ionicframework.com/getting-started');
+    res.redirect(301, 'http://ionicframework.com/docs/');
   } else {
     next();
   }

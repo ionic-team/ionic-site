@@ -8158,6 +8158,8 @@ a.footer-link {
     .docs-container main strong {
       font-weight: 500;
       color: #26292e; }
+    .docs-container main .fixed-width {
+      font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
     .docs-container main .nav a {
       padding-top: 5px;
       padding-bottom: 5px; }

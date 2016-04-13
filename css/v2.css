@@ -8308,6 +8308,9 @@ ul.docs-example {
   .docs-container h3 a:not([role='button']):hover {
     color: #26292e !important; }
 
+.faq-section {
+  margin: 80px auto; }
+
 .docs-home img.docs-home-logo {
   width: 100%;
   max-width: 276px; }

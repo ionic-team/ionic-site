@@ -205,6 +205,7 @@ class MyIcon {
 }
 ```
 
+<hr class="faq-section" />
 
 <h3 id="no_provider">No provider for ParamType! (MyClass -> ParamType)</h3>
 
@@ -294,6 +295,7 @@ class MyDir {
 }
 ```
 
+<hr class="faq-section" />
 
 <h3 id="cant_bind">Can't bind to 'propertyName' since it isn't a known property of the 'elementName' element and there are no matching directives with a corresponding property</h3>
 
@@ -304,6 +306,7 @@ This happens when you try and bind a property on an element that doesn't have th
 <div [foo]="bar"></div>
 ```
 
+<hr class="faq-section" />
 
 <h3 id="no_provider_control">No provider for ControlContainer! (NgControlName -> ControlContainer)</h3>
 

@@ -575,6 +575,16 @@ Sets whether the app is fullscreen or not (in Cordova).
 
 
 
+<div id="ua"></div>
+* <h3>
+  <code>string</code> <code>ua</code></h3>
+
+  What User Agent is.
+
+  
+
+
+
 
 
 

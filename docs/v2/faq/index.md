@@ -5,53 +5,64 @@ category: faq
 title: Ionic Frequently Asked Questions
 ---
 
-<h1 id="Troubleshooting">Troubleshooting Your Ionic App</h1>
+<h1 id="troubleshooting">Troubleshooting Your Ionic App</h1>
 
-Can't find a solution on this page? Check out the [Ionic Forums](http://forum.ionicframework.com), where the friendly Ions of the community will help you!
+Can't find a solution on this page? Check out the [Ionic Forums](http://forum.ionicframework.com) or join the [Ionic Worldwide Slack Channel](http://ionicworldwide.herokuapp.com/), where the friendly Ions of the community will help you!
 
-<h3 id="Blank_app">Help! My app is blank and there are no errors</h3>
 
-- Make sure your @App has a `template` or `templateUrl`
-- Make sure your @App template has an `<ion-nav></ion-nav>` with a `root` property:
-```
-  <ion-nav [root]="firstPage"></ion-nav>
-```
+<h2 id="blank_app">I have no errors in my app. Why does it show a blank screen?</h2>
 
-<h3 id="Directive_not_working">My component/directive isn't loading!</h3>
+There are different reasons this can happen. If you are unable to find a solution on the forums, make sure:
 
-If your custom component or directive isn't working, there are a few things you can check. Make sure:
+- `@App` has a `template` or `templateUrl`.
+- `@App` template has an `<ion-nav>` with a `root` property:
 
-- you include it in the `directives` array of any components whose templates contain your component or directive
-- your selector doesn't have any misspellings
-- you're using the selector correctly, as an attribute, element or class
-- your selector has the [proper syntax](http://learnangular2.com/components/):
+  ```html
+  <ion-nav [root]="rootPage"></ion-nav>
+  ```
+
+
+<h2 id="directive_not_working">Why is my custom component/directive not working?</h2>
+
+There are a few things you can check. Make sure:
+
+- You include it in the `directives` array of the `@Page` or `@Component` you want to use it in.
+- Your selector doesn't have any misspellings.
+- You're using the selector correctly as an attribute, element or class.
+- Your selector has the [proper syntax](http://learnangular2.com/components/):
   - `[attr]` if it's an attribute selector
   - `element` if it's an element selector
   - `.class` if it's a class selector
+
+Here's an example using an attribute selector:
 
 ```ts
 @Directive({
   selector: '[my-dir]' // <-- [my-dir] because it's an attribute
 })                     // Could be my-dir, [my-dir], .my-dir
 class MyDir {
-  constructor(){ console.log("I'm alive!"); }
+  constructor() {
+    console.log("I'm alive!");
+  }
 }
 
 @Page({
-  template: `<div my-dir>Hello World</div>`
+  // We add my-dir as an attribute to match the directive's selector
+  template: `<div my-dir>Hello World</div>`,
 
-  // Or, depending on your directive's type
-  //template: `<my-dir>Hello World</my-dir>`
-  //template: `<div class="my-dir">Hello World</div>`
+  // Alternatively, if you were attaching the directive to an element it would be:
+  // template: `<my-dir>Hello World</my-dir>`
+  // and if you were attaching by class the template would be:
+  // template: `<div class="my-dir">Hello World</div>`  
 
   directives: [MyDir] // <-- Don't forget me!
 })
 class MyPage {}
 ```
 
-<h3 id="Angular_component">An Ionic component is not working inside my custom Angular 2 component!</h3>
+<h2 id="angular_component">Why is an Ionic component not working in my custom Angular component?</h2>
 
-To include an Ionic component in your custom Angular 2 component you must import `IONIC_DIRECTIVES` and inject those into your component by placing them in the `directives` array. You will then be able to include Ionic components in your Angular 2 component.
+To include an Ionic component in your custom Angular component you need to import `IONIC_DIRECTIVES` and inject those into your component by placing them in the `directives` array. You will then be able to include Ionic components in your Angular component.
 
 ```ts
 @Component({
@@ -64,6 +75,9 @@ To include an Ionic component in your custom Angular 2 component you must import
       </ion-item>
     </ion-list>
   `,
+
+  // This is required to use Ionic components in a
+  // @Component or @Directive
   directives: [IONIC_DIRECTIVES]
 })
 class MyComponent {
@@ -71,18 +85,23 @@ class MyComponent {
 }
 ```
 
-<h3 id="Angular_component">I added a click method to my div and there is a click delay on my ios device!</h3>
 
-In general, we always recommend to only add `(click)` to elements that are normally clickable such as buttons, inputs etc, but there are times when you may need to add a `(click)` to an element that is not normally clickable such as a div. When you do this you may experience a 300ms click delay on your ios device from when you tap the element to when your click event actually fires. To fix this issue you can add the `tappable` attribute to your element. This will mark this element as clickable to Ionic so that we can remove the 300ms delay on that element just like ionic does on buttons and inputs.
+<h2 id="tappable_attribute">Why is there a delay on my click event?</h2>
+
+In general, we recommend only adding `(click)` events to elements that are normally clickable. This includes `<button>` and `<a>` elements. This improves accessibility as a screen reader will be able to tell that the element is clickable.
+
+However, you may need to add a `(click)` event to an element that is not normally clickable. When you do this you may experience a `300ms` delay from the time you click the element to the event firing. To remove this delay, you can add the `tappable` attribute to your element.
 
 ```
- <div tappable (click)="doAwesome()">I am clickable!</div>
+ <div tappable (click)="doClick()">I am clickable!</div>
 ```
 
 
-<h3 id="Common_mistakes">Common mistakes:</h3>
+<h2 id="common_mistakes">Common mistakes</h2>
 
-- Forgetting `()` after an annotation: `@Injectable()`, `@Optional()`, etc.
+<h3 id="forgetting_parentheses">Forgetting the parentheses on a decorator</h3>
+
+Decorators should have parentheses `()` after an annotation. Some examples include: `@Injectable()`, `@Optional()`, `@Input()`, etc.
 
 ```ts
 @Directive({
@@ -95,12 +114,19 @@ class MyDirective {
 }
 ```
 
-- Adding providers to every component when you mean to have the same provider instance injected to each component (services for example).  For a class to be injectable it only needs to be in the `providers` array of that component or any parent component (for example `@App`), but not both.  Putting it in both the component that has that provider injected in addition to a parent or ancestor will create two separate provider instances. The following example illustrates the issue:
+
+<h3 id="multiple_instances"> Multiple instances of a provider</h3>
+
+If you inject a provider in every component because you want it available to all of them you will end up with multiple instances of the provider. You should inject the provider once in the parent component if you want it to be available to the child components. `@App` is the parent component in the below example:
 
 ```ts
 let id = 0;
-class MyService {
-  constructor(){ this.id = id++; }
+export class MyService {
+  id:number;
+
+  constructor() {
+    this.id = id++;
+  }
 }
 
 @Component({
@@ -110,7 +136,9 @@ class MyService {
 })                       // Unnecessary because MyService is in App's providers
 class MyComp {
   // id is 1, s is a different MyService instance than MyApp
-  constructor(s: MyService) { console.log("MyService id is: " + s.id); }
+  constructor(s: MyService) {
+    console.log("MyService id is: " + s.id);
+  }
 }
 
 @App({
@@ -120,48 +148,54 @@ class MyComp {
 })
 class MyApp {
   // id is 0
-  constructor(s: MyService) { console.log("MyService id is: " + s.id); }
+  constructor(s: MyService) {
+    console.log("MyService id is: " + s.id);
+  }
 }
 ```
-Plunker: http://plnkr.co/edit/QzgR5H0r8FijHeVtv2dd
 
-<h3 id="Common_JS_errors">Common JS errors:</h3>
+Plunker: [http://plnkr.co/edit/QzgR5H0r8FijHeVtv2dd](http://plnkr.co/edit/QzgR5H0r8FijHeVtv2dd)
 
-`Cannot resolve all parameters for YourClass(?). Make sure they all have valid type or annotations.`
 
-May also be preceded by `Error during instantiation of Token(Promise<ComponentRef>)` if it's on your `@App` component.
+<h2 id="common_pitfalls">Common Pitfalls</h2>
 
-This means that Angular is confused about one or more of the parameters for YourClass's constructor.  In order to do dependency injection (DI) Angular needs to know what kind of thing it's supposed to inject.  You let Angular know by specifying the class (the type) of the parameter. Make sure:
+<h3>Cannot resolve all parameters for 'YourClass'(?). Make sure that all the parameters are decorated with Inject or have valid type annotations and that 'YourClass' is decorated with Injectable.</h3>
 
-- you are importing the parameter's class
-- you have properly annotated the parameter or specified its type
+This exception means that Angular is confused about one or more of the parameters for `YourClass`'s constructor. In order to do [dependency injection](https://angular.io/docs/ts/latest/guide/dependency-injection.html) Angular needs to know the type of the parameter to inject. You let Angular know this by specifying the class of the parameter. Make sure:
+
+- You are importing the parameter's class.
+- You have properly annotated the parameter or specified its type.
 
 ```ts
-import {MyService} from 'myservice'; //Don't forget to import me!
+import {MyService} from 'my-service'; //Don't forget to import me!
 
 @Page({
   template: `Hello World`
 })
 export class MyClass {
-  constructor(service: MyService){}
-    /* Or if not using typescriptPackage */
-  constructor(@Inject(MyService) service){}
+  // service is of type MyService
+  constructor(service: MyService) {
+
+  }
 }
 ```
 
-Sometimes circular references within your code can cause this error.  Circular references mean that two objects depend on each other, and so there is no way to declare both of them before each other.  To get around this, we can use the [`forwardRef`]() function built in to Angular 2.
+Sometimes circular references within your code can cause this error. Circular references mean that two objects depend on each other, and so there is no way to declare both of them before each other. To get around this, we can use the [`forwardRef`](https://angular.io/docs/ts/latest/api/core/forwardRef-function.html) function built in to Angular.
 
 ```ts
 import {forwardRef} from 'angular2/core';
 
 @Component({
-  selector: 'my-button'
+  selector: 'my-button',
   template: `<div>
                <icon></icon>
                <input type="button" />
-             </div>`
+             </div>`,
   directives: [forwardRef(() => MyIcon)] // MyIcon has not been defined yet
 })                                       // forwardRef resolves as MyIcon when MyIcon is needed
+class MyButton {
+  constructor() {}
+}
 
 @Directive({
   selector: 'icon'  
@@ -171,17 +205,16 @@ class MyIcon {
 }
 ```
 
--------
 
-`No provider for ParamType! (MyClass -> ParamType)`
+<h3 id="no_provider">No provider for ParamType! (MyClass -> ParamType)</h3>
 
-This means Angular knows what type of thing it is supposed to inject, but it doesn't know how to inject it. Make sure:
+This means Angular knows the type of parameter it is supposed to inject, but it doesn't know how to inject it.
 
-- if the parameter is a service, you have added the specified class to the list of providers available to your app
+If the parameter is a service, make sure you have added the specified class to the list of providers available to your app:
 
 
 ```ts
-import {MyService} from 'myservice';
+import {MyService} from 'my-service';
 
 @App({
   templateUrl: 'app/app.html',
@@ -190,27 +223,30 @@ import {MyService} from 'myservice';
 class MyApp {
 ```
 
-If the parameter is another component or directive (for example, a parent component), adding it to your list of providers will make the error go away, but this will have the same effect as #4 of the [Common Mistakes](#Common_mistakes) above.  That is, you'll be creating a new instance of the component class (you can kind of think of it as service-ifying your component), but you aren't actually getting a reference to the component instance you want (the one from angular compiling your app).  Instead, make sure that the directive or component you expect to be injected is available to your component (e.g. that it is actually a parent if you are expecting it to be a parent). This is probably easiest understood with an example:
+If the parameter is another component or directive (for example, a parent component), adding it to your list of providers will make the error go away, but this will have the same effect as the [Multiple instances of a provider](#multiple_instances) above. You'll be creating a new instance of the component class, and you won't get a reference to the component instance you want. Instead, make sure that the directive or component you expect to be injected is available to your component (e.g. that it is actually a parent if you are expecting it to be a parent). This is probably easiest understood with an example:
 
 ```ts
 @Component({
-  selector: 'my-comp'
-  template: '<div my-dir></div>',
+  selector: 'my-comp',
+  template: '<p my-dir></p>',
   directives: [forwardRef(() => MyDir)]
 })
 class MyComp {
-  constructor(){ this.name = "My Component"; }
+  constructor() {
+    this.name = "My Component";
+  }
 }
 
 @Directive({
   selector: '[my-dir]'
 })
 class MyDir {
-  constructor(c: MyComp) { <-- This is the line of interest
+  constructor(c: MyComp) { // <-- This is the line of interest
 
     // Errors when directive is on regular div because there is no MyComp in the
     // component tree so there is no MyComp to inject
     console.log("Host component's name: " + c.name);
+
   }
 }
 
@@ -237,7 +273,7 @@ Here's a diagram illustrating what injectors are available:
 +-------------+          +--------+--------+                      
        ^                          |                                       
 No MyComp to inject        +------+------+
-                           | Div (MyDir) | <- MyComp can be injected from parent
+                           | P (MyDir)   | <- MyComp can be injected from parent
                            +-------------+
 ```
 
@@ -258,20 +294,18 @@ class MyDir {
 }
 ```
 
---------
 
-`Can't bind to 'propertyName' since it isn't a known property of the 'elementName' element and there are no matching`
-`directives with a corresponding property`
+<h3 id="cant_bind">Can't bind to 'propertyName' since it isn't a known property of the 'elementName' element and there are no matching directives with a corresponding property</h3>
 
-This one is pretty self explanatory, it happens when you try and bind a property on an element that doesn't have that property.  If the element is a component or has one or more directives on it, neither the component nor the directives have that property either.
+This happens when you try and bind a property on an element that doesn't have that property. If the element is a component or has one or more directives on it, neither the component nor the directives have that property either.
 
 ```html
 <!-- div doesn't have a 'foo' property -->
 <div [foo]="bar"></div>
 ```
---------
 
-`EXCEPTION: No provider for ControlContainer! (NgControlName -> ControlContainer)`
+
+<h3 id="no_provider_control">No provider for ControlContainer! (NgControlName -> ControlContainer)</h3>
 
 This error is a more specific version of the `No provider` error above.  It happens when you use a form control like [NgControlName](https://angular.io/docs/js/latest/api/core/NgControlName-class.html) without specifying a parent [NgForm](https://angular.io/docs/js/latest/api/core/NgForm-class.html) or [NgFormModel](https://angular.io/docs/js/latest/api/core/NgFormModel-class.html).  In most cases, this can be resolved by making sure your form control is within an actual form element.  NgForm uses `form` as a selector so this will instantiate a new NgForm:
 
@@ -279,7 +313,7 @@ This error is a more specific version of the `No provider` error above.  It happ
 @Page({
   template:
     '<form>' +
-      '<input ng-control='login'>' +
+      '<input ngControl="login">' +
     '</form>'
 })
 ```

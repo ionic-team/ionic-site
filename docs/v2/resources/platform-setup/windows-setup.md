@@ -1,7 +1,7 @@
 ---
 layout: v2_fluid/docs_base
 category: resources
-id: editors_and_ides
+id: windows_setup
 title: Ionic 2 Resources | Windows Platform Setup
 header_title: Setting up Windows for development
 header_sub_title: Ionic 2 Developer Preview

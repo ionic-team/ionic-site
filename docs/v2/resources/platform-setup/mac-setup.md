@@ -1,13 +1,14 @@
 ---
 layout: v2_fluid/docs_base
 category: resources
-id: editors_and_ides
+id: mac_setup
 title: Ionic 2 Resources | OSX Platform Setup
 header_title: Setting up a Mac for development
 header_sub_title: Ionic 2 Developer Preview
 ---
 
 ## OSX
+
 ### Common Tools
 
 For the most part, Node and NPM are going to be used extensively for Ionic and Cordova. You can use the installer from [the Node website](https://nodejs.org) or various package managers.

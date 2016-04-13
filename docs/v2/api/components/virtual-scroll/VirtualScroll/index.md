@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "virtualscroll"
 title: "VirtualScroll"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "VirtualScroll"
 docType: "class"
 

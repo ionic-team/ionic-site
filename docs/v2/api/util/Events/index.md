@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "events"
 title: "Events"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "Events"
 docType: "class"
 show_preview_device: true
@@ -212,6 +212,7 @@ Unsubscribe from the given topic. Your handler will no longer receive events pub
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
    true if a handler was removed
+
 
 
 </div>

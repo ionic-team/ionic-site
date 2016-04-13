@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "localstorage"
 title: "LocalStorage"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "LocalStorage"
 docType: "class"
 show_preview_device: true

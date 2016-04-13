@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "navcontroller"
 title: "NavController"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "NavController"
 docType: "class"
 
@@ -225,6 +225,7 @@ Set the root for the current navigation stack.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise which is resolved when the transition has completed.
+
 </div>
 
 
@@ -368,6 +369,7 @@ import {Detail} from '../detail/detail';
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise which is resolved when the transition has completed.
+
 </div>
 
 
@@ -516,6 +518,7 @@ class MyClass{
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise which is resolved when the transition has completed.
+
 </div>
 
 
@@ -607,6 +610,7 @@ class MyClass{
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise which is resolved when the transition has completed.
+
 </div>
 
 
@@ -728,6 +732,7 @@ This will insert the `Info` page into the second slot of our navigation stack.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise which is resolved when the transition has completed.
+
 </div>
 
 
@@ -838,6 +843,7 @@ in and become the active page.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise which is resolved when the transition has completed.
+
 </div>
 
 
@@ -907,6 +913,7 @@ class SecondView{
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise which is resolved when the transition has completed.
+
 </div>
 
 
@@ -963,6 +970,7 @@ the stack, no matter how many pages back that is.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise which is resolved when the transition has completed.
+
 </div>
 
 
@@ -1035,6 +1043,7 @@ Pop to a specific view in the history stack.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise which is resolved when the transition has completed.
+
 </div>
 
 
@@ -1136,6 +1145,7 @@ export class Detail {
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise which is resolved when the transition has completed.
+
 </div>
 
 
@@ -1164,6 +1174,7 @@ will return `true`.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> 
+
 </div>
 
 
@@ -1190,6 +1201,7 @@ back to. Otherwise returns `false`.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> 
+
 </div>
 
 
@@ -1215,6 +1227,7 @@ Returns if the nav controller is actively transitioning or not.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> 
+
 </div>
 
 
@@ -1270,6 +1283,7 @@ Returns if the nav controller is actively transitioning or not.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>ViewController</code> Returns the view controller that matches the given index.
+
 </div>
 
 
@@ -1295,6 +1309,7 @@ Returns if the nav controller is actively transitioning or not.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>ViewController</code> Returns the active page's view controller.
+
 </div>
 
 
@@ -1349,6 +1364,7 @@ Returns if the nav controller is actively transitioning or not.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> 
+
 </div>
 
 
@@ -1403,6 +1419,7 @@ Returns the view controller which is before the given view controller.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>viewController</code> 
+
 </div>
 
 
@@ -1428,6 +1445,7 @@ Returns the first view controller in this nav controller's stack.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>ViewController</code> 
+
 </div>
 
 
@@ -1453,6 +1471,7 @@ Returns the last page in this nav controller's stack.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>ViewController</code> 
+
 </div>
 
 
@@ -1507,6 +1526,7 @@ Returns the index number of the given view controller.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>number</code> 
+
 </div>
 
 
@@ -1532,6 +1552,7 @@ Returns the number of views in this nav controller.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>number</code> The number of views in this stack, including the current view.
+
 </div>
 
 
@@ -1557,6 +1578,7 @@ Returns the root `NavController`.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>NavController</code> 
+
 </div>
 
 

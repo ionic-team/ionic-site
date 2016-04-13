@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "actionsheet"
 title: "ActionSheet"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "ActionSheet"
 docType: "class"
 show_preview_device: true

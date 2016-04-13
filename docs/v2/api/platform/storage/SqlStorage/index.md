@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "sqlstorage"
 title: "SqlStorage"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "SqlStorage"
 docType: "class"
 
@@ -194,6 +194,7 @@ like SELECT, INSERT, and UPDATE.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+
 </div>
 
 
@@ -249,6 +250,7 @@ Get the value in the database identified by the given key.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+
 </div>
 
 
@@ -321,6 +323,7 @@ Set the value in the database for the given key. Existing values will be overwri
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+
 </div>
 
 
@@ -376,6 +379,7 @@ Remove the value in the database for the given key.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+
 </div>
 
 

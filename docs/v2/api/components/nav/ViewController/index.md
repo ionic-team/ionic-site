@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "viewcontroller"
 title: "ViewController"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "ViewController"
 docType: "class"
 
@@ -197,6 +197,7 @@ Check to see if you can go back in the navigation stack
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> Returns if it's possible to go back from this Page.
+
 </div>
 
 
@@ -233,6 +234,7 @@ You can find out the index of the current view is in the current navigation stac
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>number</code> Returns the index of this page within its NavController.
+
 </div>
 
 
@@ -258,6 +260,7 @@ You can find out the index of the current view is in the current navigation stac
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> Returns if this Page is the first in the stack of pages within its NavController.
+
 </div>
 
 
@@ -283,6 +286,7 @@ You can find out the index of the current view is in the current navigation stac
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> Returns if this Page is the last in the stack of pages within its NavController.
+
 </div>
 
 
@@ -320,6 +324,7 @@ export class Page1 {
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> Returns a boolean if this Page has a navbar or not.
+
 </div>
 
 

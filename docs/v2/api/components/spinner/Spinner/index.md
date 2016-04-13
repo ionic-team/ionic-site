@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "spinner"
 title: "Spinner"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "Spinner"
 docType: "class"
 

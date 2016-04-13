@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "tabs"
 title: "Tabs"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "Tabs"
 docType: "class"
 show_preview_device: true
@@ -220,6 +220,7 @@ onPageDidEnter() {
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Tab</code> Returns the tab who's index matches the one passed
+
 </div>
 
 
@@ -245,6 +246,7 @@ onPageDidEnter() {
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Tab</code> Returns the currently selected tab
+
 </div>
 
 

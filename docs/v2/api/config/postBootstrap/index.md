@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "postbootstrap"
 title: "postBootstrap"
-header_sub_title: "Function in module "
+header_sub_title: "Ionic API Documentation"
 doc: "postBootstrap"
 docType: "function"
 

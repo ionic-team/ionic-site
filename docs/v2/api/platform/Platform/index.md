@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "platform"
 title: "Platform"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "Platform"
 docType: "class"
 show_preview_device: true
@@ -157,6 +157,7 @@ export MyPage {
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> returns true/false based on platform.
+
 </div>
 
 
@@ -196,6 +197,7 @@ export MyPage {
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>array</code> the array of platforms
+
 </div>
 
 
@@ -263,6 +265,7 @@ export MyPage {
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>object</code> An object with various platform info
+
 </div>
 
 
@@ -306,6 +309,7 @@ export MyPage {
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>promise</code> 
+
 </div>
 
 
@@ -388,6 +392,7 @@ attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>string</code> 
+
 </div>
 
 
@@ -416,6 +421,7 @@ attribute value set, such as `<html dir="ltr">` or `<html dir="rtl">`.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> 
+
 </div>
 
 
@@ -498,6 +504,7 @@ attribute value set, such as `<html lang="en">`.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>string</code> 
+
 </div>
 
 

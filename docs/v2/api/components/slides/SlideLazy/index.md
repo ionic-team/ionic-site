@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "slidelazy"
 title: "SlideLazy"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "SlideLazy"
 docType: "class"
 
@@ -15,22 +15,13 @@ docType: "class"
 
 
 
-<div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/slides/slides.ts#L586'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/slides/slides.ts#L586'>
-    Improve this doc
-  </a>
 
-</div>
 
 
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="slide-lazy" href="#slide-lazy"></a>
 
 SlideLazy
 
@@ -41,21 +32,27 @@ SlideLazy
 
 </h1>
 
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/slides/slides.ts#L696">
+Improve this doc
+</a>
 
 
 
 
 
-<h2>Description</h2>
 
 
 
-<h2>Directive</h2>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>slide-lazy</code></h3>
+<!-- @usage tag -->
+
+
+<!-- @property tags -->
 
 
 
-<!-- end content block -->
+<!-- instance methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

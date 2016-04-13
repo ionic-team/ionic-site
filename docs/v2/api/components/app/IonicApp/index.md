@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "ionicapp"
 title: "IonicApp"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "IonicApp"
 docType: "class"
 
@@ -126,6 +126,7 @@ to `false`.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> 
+
 </div>
 
 
@@ -151,6 +152,7 @@ Boolean if the app is actively scrolling or not.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> 
+
 </div>
 
 

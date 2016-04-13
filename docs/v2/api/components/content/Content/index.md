@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "content"
 title: "Content"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "Content"
 docType: "class"
 
@@ -187,6 +187,7 @@ export class MyPage{
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise which is resolved when the scroll has completed.
+
 </div>
 
 
@@ -260,6 +261,7 @@ export class MyPage{
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>Promise</code> Returns a promise which is resolved when the scroll has completed.
+
 </div>
 
 
@@ -285,6 +287,7 @@ Get the `scrollTop` property of the content's scrollable element.
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>number</code> 
+
 </div>
 
 
@@ -357,19 +360,10 @@ Returns the content and scroll elements' dimensions.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>object</code> dimensions  The content and scroll elements' dimensions <br>
-&nbsp; &nbsp; &nbsp; <code>number</code> dimensions.contentHeight  content offsetHeight <br>
-&nbsp; &nbsp; &nbsp; <code>number</code> dimensions.contentTop  content offsetTop <br>
-&nbsp; &nbsp; &nbsp; <code>number</code> dimensions.contentBottom  content offsetTop+offsetHeight <br>
-&nbsp; &nbsp; &nbsp; <code>number</code> dimensions.contentWidth  content offsetWidth <br>
-&nbsp; &nbsp; &nbsp; <code>number</code> dimensions.contentLeft  content offsetLeft <br>
-&nbsp; &nbsp; &nbsp; <code>number</code> dimensions.contentRight  content offsetLeft + offsetWidth <br>
-&nbsp; &nbsp; &nbsp; <code>number</code> dimensions.scrollHeight  scroll scrollHeight <br>
-&nbsp; &nbsp; &nbsp; <code>number</code> dimensions.scrollTop  scroll scrollTop <br>
-&nbsp; &nbsp; &nbsp; <code>number</code> dimensions.scrollBottom  scroll scrollTop + scrollHeight <br>
-&nbsp; &nbsp; &nbsp; <code>number</code> dimensions.scrollWidth  scroll scrollWidth <br>
-&nbsp; &nbsp; &nbsp; <code>number</code> dimensions.scrollLeft  scroll scrollLeft <br>
-&nbsp; &nbsp; &nbsp; <code>number</code> dimensions.scrollRight  scroll scrollLeft + scrollWidth <br>
+  <code>object</code> <span class="fixed-width">dimensions</span>  The content and scroll elements' dimensions
+
+<br><code>number</code> <span class="fixed-width">dimensions.contentHeight</span> content offsetHeight<br><code>number</code> <span class="fixed-width">dimensions.contentTop</span> content offsetTop<br><code>number</code> <span class="fixed-width">dimensions.contentBottom</span> content offsetTop+offsetHeight<br><code>number</code> <span class="fixed-width">dimensions.contentWidth</span> content offsetWidth<br><code>number</code> <span class="fixed-width">dimensions.contentLeft</span> content offsetLeft<br><code>number</code> <span class="fixed-width">dimensions.contentRight</span> content offsetLeft + offsetWidth<br><code>number</code> <span class="fixed-width">dimensions.scrollHeight</span> scroll scrollHeight<br><code>number</code> <span class="fixed-width">dimensions.scrollTop</span> scroll scrollTop<br><code>number</code> <span class="fixed-width">dimensions.scrollBottom</span> scroll scrollTop + scrollHeight<br><code>number</code> <span class="fixed-width">dimensions.scrollWidth</span> scroll scrollWidth<br><code>number</code> <span class="fixed-width">dimensions.scrollLeft</span> scroll scrollLeft<br><code>number</code> <span class="fixed-width">dimensions.scrollRight</span> scroll scrollLeft + scrollWidth<br>
+
 </div>
 
 

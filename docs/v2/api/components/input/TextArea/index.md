@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "textarea"
 title: "TextArea"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "TextArea"
 docType: "class"
 show_preview_device: true

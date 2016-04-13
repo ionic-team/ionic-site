@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "hidewhen"
 title: "HideWhen"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "HideWhen"
 docType: "class"
 show_preview_device: true

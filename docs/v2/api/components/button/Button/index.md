@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "button"
 title: "Button"
-header_sub_title: "Class in module ionic"
+header_sub_title: "Ionic API Documentation"
 doc: "Button"
 docType: "class"
 show_preview_device: true

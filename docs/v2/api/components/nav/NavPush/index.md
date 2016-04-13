@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "navpush"
 title: "NavPush"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "NavPush"
 docType: "class"
 show_preview_device: true

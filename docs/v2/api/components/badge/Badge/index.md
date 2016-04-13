@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "badge"
 title: "Badge"
-header_sub_title: "Class in module ionic"
+header_sub_title: "Ionic API Documentation"
 doc: "Badge"
 docType: "class"
 

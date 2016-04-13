@@ -1,52 +1,82 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
 id: "listheader"
 title: "ListHeader"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "ListHeader"
 docType: "class"
+
 ---
 
 
-<div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L109'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/list/list.ts#L109'>
-    Improve this doc
-  </a>
-</div>
+
+
+
 
 
 
 
 <h1 class="api-title">
+<a class="anchor" name="list-header" href="#list-header"></a>
 
-  ListHeader
+ListHeader
+
+
+
 
 
 
 </h1>
 
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/list/list.ts#L105">
+Improve this doc
+</a>
 
 
 
 
 
 
-<h1 class="class export">ListHeader <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/list/list.ts#L110-L122">ionic/components/list/list.ts (line 110)</a>
-</p>
-<h2>Directive</h2>
-  <span>selector: ion-list-header</span>
-
-  <span>inputs: id</span>
 
 
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
+<h3>selector: <code>ion-list-header</code></h3>
+<!-- @usage tag -->
+
+
+<!-- @property tags -->
+
+
+
+<!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+
+<div id="id"></div>
+
+<h3>
+<a class="anchor" name="id" href="#id"></a>
+<code>id()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+<!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

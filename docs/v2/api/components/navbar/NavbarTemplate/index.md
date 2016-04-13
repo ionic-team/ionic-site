@@ -1,50 +1,59 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "2.0.0-alpha.38"
+version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
 id: "navbartemplate"
 title: "NavbarTemplate"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "NavbarTemplate"
 docType: "class"
+
 ---
 
 
-<div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L188'>
-    View Source
-  </a>
-  &nbsp;
-  <a href='http://github.com/driftyco/ionic2/edit/master/ionic/components/navbar/navbar.ts#L188'>
-    Improve this doc
-  </a>
-</div>
+
+
+
 
 
 
 
 <h1 class="api-title">
+<a class="anchor" name="navbar-template" href="#navbar-template"></a>
 
-  NavbarTemplate
+NavbarTemplate
+
+
+
 
 
 
 </h1>
 
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/navbar/navbar.ts#L217">
+Improve this doc
+</a>
 
 
 
 
 
 
-<h1 class="class export">NavbarTemplate <span class="type">class</span></h1>
-<p class="module">exported from <a href='undefined'>ionic/ionic</a><br/>
-defined in <a href="https://github.com/driftyco/ionic2/tree/master/ionic/components/navbar/navbar.ts#L189-L212">ionic/components/navbar/navbar.ts (line 189)</a>
-</p>
-<h2>Directive</h2>
-  <span>selector: template[navbar]</span>
 
 
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
+<h3>selector: <code>template[navbar]</code></h3>
+<!-- @usage tag -->
+
+
+<!-- @property tags -->
+
+
+
+<!-- instance methods on the class --><!-- related link --><!-- end content block -->
+
+
+<!-- end body block -->
 

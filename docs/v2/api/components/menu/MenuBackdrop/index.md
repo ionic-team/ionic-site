@@ -4,9 +4,9 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "{{MenuBackdrop | slugify}}"
+id: "menubackdrop"
 title: "MenuBackdrop"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "MenuBackdrop"
 docType: "class"
 
@@ -21,7 +21,7 @@ docType: "class"
 
 
 <h1 class="api-title">
-
+<a class="anchor" name="menu-backdrop" href="#menu-backdrop"></a>
 
 MenuBackdrop
 
@@ -32,7 +32,7 @@ MenuBackdrop
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic/edit/2.0/ionic/components/menu/menu.ts#L440'>
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/menu/menu.ts#L443">
 Improve this doc
 </a>
 
@@ -41,11 +41,9 @@ Improve this doc
 
 
 
-<!-- description -->
 
 
-
-<h3>Directive</h3>
+<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
 <h3>selector: <code>.backdrop</code></h3>
 <!-- @usage tag -->
 
@@ -53,32 +51,15 @@ Improve this doc
 <!-- @property tags -->
 
 
-<!-- methods on the class -->
 
-<h3>Methods</h3>
+<!-- instance methods on the class -->
 
-<div id="menu"></div>
-
-<h3>
-<code>menu()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
+<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
 
 <div id="elementRef"></div>
 
 <h3>
+<a class="anchor" name="elementRef" href="#elementRef"></a>
 <code>elementRef()</code>
   
 

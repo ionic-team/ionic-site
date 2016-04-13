@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "radiobutton"
 title: "RadioButton"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "RadioButton"
 docType: "class"
 show_preview_device: true

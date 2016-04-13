@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "toggle"
 title: "Toggle"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "Toggle"
 docType: "class"
 show_preview_device: true

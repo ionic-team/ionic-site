@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "keyboard"
 title: "Keyboard"
-header_sub_title: "Class in module "
+header_sub_title: "Ionic API Documentation"
 doc: "Keyboard"
 docType: "class"
 
@@ -98,6 +98,7 @@ export class MyClass{
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>boolean</code> returns a true or flase value if the keyboard is open or not
+
 </div>
 
 
@@ -167,6 +168,7 @@ export class MyClass{
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
   <code>function</code> returns a callback that gets fired when the keyboard is closed
+
 </div>
 
 

@@ -6,7 +6,7 @@ path: ""
 category: api
 id: "checkbox"
 title: "Checkbox"
-header_sub_title: "Class in module ionic"
+header_sub_title: "Ionic API Documentation"
 doc: "Checkbox"
 docType: "class"
 show_preview_device: true

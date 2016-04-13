@@ -8154,6 +8154,15 @@ a.footer-link {
       transition: .2s color; }
       .docs-container main a:not(.btn):hover {
         color: #98befa; }
+    .docs-container main table {
+      width: 100%; }
+    .docs-container main td,
+    .docs-container main th {
+      white-space: nowrap; }
+      .docs-container main td:last-child,
+      .docs-container main th:last-child {
+        white-space: normal;
+        width: 99%; }
     .docs-container main b,
     .docs-container main strong {
       font-weight: 500;
@@ -8298,9 +8307,6 @@ ul.docs-example {
   color: #26292e !important; }
   .docs-container h3 a:not([role='button']):hover {
     color: #26292e !important; }
-
-td, th {
-  width: 25%; }
 
 .docs-home img.docs-home-logo {
   width: 100%;

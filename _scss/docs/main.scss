@@ -685,6 +685,20 @@ a.footer-link {
       }
     }
 
+    table {
+      width: 100%;
+    }
+
+    td,
+    th {
+      white-space: nowrap;
+
+      &:last-child {
+        white-space: normal;
+        width: 99%;
+      }
+    }
+
     b,
     strong {
       font-weight: 500;
@@ -894,8 +908,4 @@ ul.docs-example {
   &:hover {
     color: #26292e !important;
   }
-}
-
-td, th{
-   width: 25%;
 }

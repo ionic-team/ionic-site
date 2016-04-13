@@ -80,8 +80,8 @@ interactivity.</p>
   &lt;ion-input type=&quot;tel&quot;&gt;&lt;/ion-input&gt;
 &lt;/ion-item&gt;
 
-&lt;ion-item clearInput&gt;
-  &lt;ion-input placeholder=&quot;Username&quot;&gt;&lt;/ion-input&gt;
+&lt;ion-item&gt;
+  &lt;ion-input placeholder=&quot;Username&quot; clearInput&gt;&lt;/ion-input&gt;
 &lt;/ion-item&gt;
 </code></pre>
 

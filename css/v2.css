@@ -8299,6 +8299,9 @@ ul.docs-example {
   .docs-container h3 a:not([role='button']):hover {
     color: #26292e !important; }
 
+td, th {
+  width: 25%; }
+
 .docs-home img.docs-home-logo {
   width: 100%;
   max-width: 276px; }

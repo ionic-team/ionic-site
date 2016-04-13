@@ -362,7 +362,174 @@ Returns the content and scroll elements' dimensions.
 <b>Returns:</b> 
   <code>object</code> <span class="fixed-width">dimensions</span>  The content and scroll elements' dimensions
 
-<br><code>number</code> <span class="fixed-width">dimensions.contentHeight</span> content offsetHeight<br><code>number</code> <span class="fixed-width">dimensions.contentTop</span> content offsetTop<br><code>number</code> <span class="fixed-width">dimensions.contentBottom</span> content offsetTop+offsetHeight<br><code>number</code> <span class="fixed-width">dimensions.contentWidth</span> content offsetWidth<br><code>number</code> <span class="fixed-width">dimensions.contentLeft</span> content offsetLeft<br><code>number</code> <span class="fixed-width">dimensions.contentRight</span> content offsetLeft + offsetWidth<br><code>number</code> <span class="fixed-width">dimensions.scrollHeight</span> scroll scrollHeight<br><code>number</code> <span class="fixed-width">dimensions.scrollTop</span> scroll scrollTop<br><code>number</code> <span class="fixed-width">dimensions.scrollBottom</span> scroll scrollTop + scrollHeight<br><code>number</code> <span class="fixed-width">dimensions.scrollWidth</span> scroll scrollWidth<br><code>number</code> <span class="fixed-width">dimensions.scrollLeft</span> scroll scrollLeft<br><code>number</code> <span class="fixed-width">dimensions.scrollRight</span> scroll scrollLeft + scrollWidth<br>
+<table class="table returns-object-table param-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td class="fixed-width">
+            dimensions.contentHeight
+          </td>
+          <td>
+            <code>number</code>
+          </td>
+          <td>
+            <p>content offsetHeight</p>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="fixed-width">
+            dimensions.contentTop
+          </td>
+          <td>
+            <code>number</code>
+          </td>
+          <td>
+            <p>content offsetTop</p>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="fixed-width">
+            dimensions.contentBottom
+          </td>
+          <td>
+            <code>number</code>
+          </td>
+          <td>
+            <p>content offsetTop+offsetHeight</p>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="fixed-width">
+            dimensions.contentWidth
+          </td>
+          <td>
+            <code>number</code>
+          </td>
+          <td>
+            <p>content offsetWidth</p>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="fixed-width">
+            dimensions.contentLeft
+          </td>
+          <td>
+            <code>number</code>
+          </td>
+          <td>
+            <p>content offsetLeft</p>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="fixed-width">
+            dimensions.contentRight
+          </td>
+          <td>
+            <code>number</code>
+          </td>
+          <td>
+            <p>content offsetLeft + offsetWidth</p>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="fixed-width">
+            dimensions.scrollHeight
+          </td>
+          <td>
+            <code>number</code>
+          </td>
+          <td>
+            <p>scroll scrollHeight</p>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="fixed-width">
+            dimensions.scrollTop
+          </td>
+          <td>
+            <code>number</code>
+          </td>
+          <td>
+            <p>scroll scrollTop</p>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="fixed-width">
+            dimensions.scrollBottom
+          </td>
+          <td>
+            <code>number</code>
+          </td>
+          <td>
+            <p>scroll scrollTop + scrollHeight</p>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="fixed-width">
+            dimensions.scrollWidth
+          </td>
+          <td>
+            <code>number</code>
+          </td>
+          <td>
+            <p>scroll scrollWidth</p>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="fixed-width">
+            dimensions.scrollLeft
+          </td>
+          <td>
+            <code>number</code>
+          </td>
+          <td>
+            <p>scroll scrollLeft</p>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="fixed-width">
+            dimensions.scrollRight
+          </td>
+          <td>
+            <code>number</code>
+          </td>
+          <td>
+            <p>scroll scrollLeft + scrollWidth</p>
+
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
 
 </div>
 

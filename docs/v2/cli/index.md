@@ -2,9 +2,7 @@
 layout: v2_fluid/docs_base
 category: cli
 id: cli-intro
-title: Ionic 2 | CLI | Intro
-header_title: Ionic CLI
-header_sub_title: Ionic 2 Developer Preview
+title: Ionic CLI Documentation
 ---
 
 
@@ -18,7 +16,7 @@ To install the CLI, you will need to first install [node](../resources/what-is#n
 
 ```bash
 $ npm install -g ionic@beta
-``` 
+```
 
 On Mac and Linux, you'll need to add `sudo` to install Ionic globally:
 

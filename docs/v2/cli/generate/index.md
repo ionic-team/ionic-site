@@ -3,9 +3,8 @@ layout: v2_fluid/docs_cli_base
 category: cli
 id: cli-generate
 command_name: generate
-title: Ionic 2 | CLI | Generators
-header_title: Ionic CLI
-header_sub_title: Ionic 2 Developer Preview
+title: Generate
+header_sub_title: Ionic CLI
 ---
 
 ## Description
@@ -39,4 +38,3 @@ This will create a standard class with a simple `http` get request using Angular
 ### A quick note on naming conventions
 
 Ionic 2 uses kebob-casing for file names (`my-about-page.html`) and css classes (`.my-about-page`), and uses PascalCasing for JavaScript classes in ES6/TypeScript (`MyAboutPage`). Using this convention, developers can pick up any Ionic 2 project and quickly become productive, similar to Rails.
-

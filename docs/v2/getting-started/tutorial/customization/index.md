@@ -2,9 +2,8 @@
 layout: v2_fluid/docs_base
 category: getting-started
 id: tutorial
-title: Ionic 2 Guide | Customizing Styles
-header_title: Customizing Styles - Ionic 2 Guide
-header_sub_title: Ionic 2 Developer Preview
+title: Customizing Styles - Tutorial
+header_sub_title: Getting Started with Ionic
 ---
 
 <a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/adding-pages/index.md'>

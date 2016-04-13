@@ -2,9 +2,8 @@
 layout: v2_fluid/docs_base
 category: getting-started
 id: tutorial
-title: Ionic 2 Guide | Building Forms
-header_title: Building Forms - Ionic 2 Guide
-header_sub_title: Ionic 2 Developer Preview
+title: Building Forms - Tutorial
+header_sub_title: Getting Started with Ionic
 ---
 
 <a class="improve-v2-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/guide/adding-pages/index.md'>

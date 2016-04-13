@@ -3,9 +3,8 @@ layout: v2_fluid/docs_base
 category: getting-started
 id: tutorial
 subid: tutorial
-title: Ionic 2 Guide | Navigating
-header_title: Navigating - Ionic 2 Guide
-header_sub_title: Ionic 2 Developer Preview
+title: Navigating - Tutorial
+header_sub_title: Getting Started with Ionic
 next_page_title: Component Docs
 next_page_link: /docs/v2/components
 prev_page_title: Adding Pages

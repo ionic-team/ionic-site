@@ -2,7 +2,8 @@
 layout: v2_fluid/docs_base
 category: getting-started
 id: welcome
-title: Ionic 2 Documentation - Welcome
+title: Welcome to Ionic
+header_sub_title: Getting Started with Ionic
 next_page_title: Installing the new CLI
 next_page_link: /docs/v2/getting-started/installation/
 ---

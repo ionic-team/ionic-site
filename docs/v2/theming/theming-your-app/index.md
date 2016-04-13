@@ -2,9 +2,8 @@
 layout: v2_fluid/docs_base
 category: theming
 id: theming-your-app
-title: Theming your Ionic app
-header_title: Theming your App
-header_sub_title: Customizing your app to fit your brand
+title: Theming your Ionic App
+header_sub_title: Ionic Theming
 prev_page_title: Intro
 prev_page_link: /docs/v2/theming/
 next_page_title: Sass Variables

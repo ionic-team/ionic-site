@@ -2,9 +2,8 @@
 layout: v2_fluid/docs_base
 category: resources
 id: developer-tips
-title: Ionic 2 Resources | Developer Tips
-header_title: Developer Tips - Ionic 2 Resources
-header_sub_title: Ionic 2 Developer Preview
+title: Developer Tips
+header_sub_title: Ionic Resources
 ---
 
 

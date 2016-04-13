@@ -2,9 +2,8 @@
 layout: v2_fluid/docs_base
 category: resources
 id: ionicons
-title: Ionic 2 | Ionicons
-header_title: Ionicons - Ionic 2
-header_sub_title: Ionic 2 Developer Preview
+title: Ionicons
+header_sub_title: Ionic Resources
 ---
 
 <div class="docs-ionicons" ng-controller="IoniconDocsCtrl">

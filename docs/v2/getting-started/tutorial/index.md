@@ -3,9 +3,8 @@ layout: v2_fluid/docs_base
 category: getting-started
 id: tutorial
 subid: tutorial
-title: Ionic 2 | Getting Started | Tutorial
-header_title: Getting Started - Tutorial
-header_sub_title: Ionic 2 Developer Preview
+title: Tutorial
+header_sub_title: Getting Started with Ionic
 prev_page_title: Installing Ionic
 prev_page_link: /docs/v2/getting-started/installation/
 next_page_title: Project Structure

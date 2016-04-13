@@ -3,9 +3,8 @@ layout: v2_fluid/docs_base
 category: getting-started
 id: tutorial
 subid: tutorial
-title: Ionic 2 Guide | Adding Pages
-header_title: Adding Pages - Ionic 2 Guide
-header_sub_title: Ionic 2 Developer Preview
+title: Adding Pages - Tutorial
+header_sub_title: Getting Started with Ionic
 prev_page_title: Project Structure
 prev_page_link: /docs/v2/getting-started/tutorial/project-structure
 next_page_title: Navigating to Pages

@@ -2,7 +2,7 @@
 layout: v2_fluid/docs_base
 category: home
 id: home
-title: Ionic 2 Documentation - Welcome
+title: Ionic Documentation
 hide_header_search: true
 ---
 <div class="docs-home text-center">

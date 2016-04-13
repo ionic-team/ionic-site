@@ -2,9 +2,7 @@
 layout: v2_fluid/docs_base
 category: components
 id: components
-title: Ionic 2 Components
-header_title: Ionic 2 Components
-header_sub_title: Ionic 2 Developer Preview
+title: Ionic Component Documentation
 show_preview_device: true
 angular_controller: ComponentsCtrl
 next_page_title: API Docs

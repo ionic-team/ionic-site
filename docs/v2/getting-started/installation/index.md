@@ -2,9 +2,8 @@
 layout: v2_fluid/docs_base
 category: getting-started
 id: installation
-title: Ionic 2 | Installing
-header_title: Developer Tips - Building to a Device
-header_sub_title: Ionic 2 Developer Preview
+title: Installing Ionic
+header_sub_title: Getting Started with Ionic
 prev_page_title: Welcome to Ionic
 prev_page_link: /docs/v2/getting-started/
 next_page_title: Learn the basics

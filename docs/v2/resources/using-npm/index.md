@@ -2,9 +2,8 @@
 layout: v2_fluid/docs_base
 category: resources
 id: using_npm
-title: Ionic 2 | Resources | Using NPM
-header_title: Resources - Using NPM
-header_sub_title: Ionic 2 Developer Preview
+title: Using NPM
+header_sub_title: Ionic Resources
 ---
 
 # Using NPM

@@ -40,11 +40,44 @@ To add custom colors, just add them to the `$colors` map:
 $colors: (
   // ...
   twitter:    #55acee
+
 )
 ```
+
+You can customize this further by suppling a base and contrast property.
+
+```scss
+$colors: (
+  // ...
+  twitter:(
+    base: #55acee,
+    contrast: #ffffff
+  )
+)
+```
+Base normally actuals as the background color for elements and contrast acts as the text color. This provides a much more flexible control over your styles.
+
 
 Ionic makes the `$colors` keys available as a property to many components. For example, to use our `twitter` color, add the key as a property:
 
 ```html
 <button twitter>I'm a button</button>
 ```
+
+For any custom components, you can use the `color` function to get the right colors.
+
+```scss
+my-component {
+  background : color($colors, twitter, contrast)
+}
+```
+
+The `color` function will look up the right color based on the map, the property, and the variant you pass it.
+In this case the compile output would be:
+
+```css
+my-component {
+  background : #55acee
+}
+```
+

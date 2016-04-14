@@ -5430,6 +5430,11 @@ ion-icon {
     height: 100%; }
   .ios .input-has-focus .input-cover {
     display: none; }
+  .ios .input-has-focus {
+    pointer-events: none; }
+  .ios .input-has-focus input,
+  .ios .input-has-focus textarea {
+    pointer-events: auto; }
   .ios [next-input] {
     position: absolute;
     bottom: 1px;
@@ -5446,7 +5451,7 @@ ion-icon {
     background-repeat: no-repeat;
     background-position: center; }
   .ios .text-input.cloned-input {
-    position: absolute;
+    position: relative;
     top: 0;
     pointer-events: none; }
   .ios .item-input:not(.item-label-floating) .text-input.cloned-active {
@@ -8276,6 +8281,11 @@ ion-icon {
     height: 100%; }
   .md .input-has-focus .input-cover {
     display: none; }
+  .md .input-has-focus {
+    pointer-events: none; }
+  .md .input-has-focus input,
+  .md .input-has-focus textarea {
+    pointer-events: auto; }
   .md [next-input] {
     position: absolute;
     bottom: 1px;
@@ -8292,7 +8302,7 @@ ion-icon {
     background-repeat: no-repeat;
     background-position: center; }
   .md .text-input.cloned-input {
-    position: absolute;
+    position: relative;
     top: 0;
     pointer-events: none; }
   .md .item-input:not(.item-label-floating) .text-input.cloned-active {
@@ -11407,6 +11417,11 @@ ion-icon {
     height: 100%; }
   .wp .input-has-focus .input-cover {
     display: none; }
+  .wp .input-has-focus {
+    pointer-events: none; }
+  .wp .input-has-focus input,
+  .wp .input-has-focus textarea {
+    pointer-events: auto; }
   .wp [next-input] {
     position: absolute;
     bottom: 1px;
@@ -11423,7 +11438,7 @@ ion-icon {
     background-repeat: no-repeat;
     background-position: center; }
   .wp .text-input.cloned-input {
-    position: absolute;
+    position: relative;
     top: 0;
     pointer-events: none; }
   .wp .item-input:not(.item-label-floating) .text-input.cloned-active {

@@ -41892,7 +41892,7 @@
 	            promise = new Promise(function (resolve) { callback = resolve; });
 	        }
 	        function checkKeyboard() {
-	            console.debug('keyboard isOpen', self.isOpen(), checks);
+	            console.debug('keyboard isOpen', self.isOpen());
 	            if (!self.isOpen() || checks > pollingChecksMax) {
 	                dom_1.rafFrames(30, function () {
 	                    self._zone.run(function () {
@@ -61755,11 +61755,9 @@
 	        if (scrollView) {
 	            // this input is inside of a scroll view
 	            // find out if text input should be manually scrolled into view
+	            // get container of this input, probably an ion-item a few nodes up
 	            var ele = this._elementRef.nativeElement;
-	            var itemEle = dom_1.closest(ele, 'ion-item');
-	            if (itemEle) {
-	                ele = itemEle;
-	            }
+	            ele = dom_1.closest(ele, 'ion-item,[ion-item]') || ele;
 	            var scrollData = InputBase.getScrollData(ele.offsetTop, ele.offsetHeight, scrollView.getContentDimensions(), this._keyboardHeight, this._platform.height());
 	            if (scrollData.scrollAmount > -3 && scrollData.scrollAmount < 3) {
 	                // the text input is in a safe position that doesn't
@@ -61780,12 +61778,13 @@
 	            // temporarily move the focus to the focus holder so the browser
 	            // doesn't freak out while it's trying to get the input in place
 	            // at this point the native text input still does not have focus
-	            this._native.relocate(true, scrollData.inputSafeY);
+	            this._native.beginFocus(true, scrollData.inputSafeY);
 	            // scroll the input into place
 	            scrollView.scrollTo(0, scrollData.scrollTo, scrollDuration).then(function () {
 	                // the scroll view is in the correct position now
 	                // give the native text input focus
-	                _this._native.relocate(false, 0);
+	                _this._native.beginFocus(false, 0);
+	                // ensure this is the focused input
 	                _this.setFocus();
 	                // all good, allow clicks again
 	                _this._app.setEnabled(true);
@@ -61815,6 +61814,7 @@
 	        // immediately set focus
 	        this._form.setAsFocused(this);
 	        // set focus on the actual input element
+	        console.debug("input-base, setFocus " + this._native.element().value);
 	        this._native.setFocus();
 	        // ensure the body hasn't scrolled down
 	        document.body.scrollTop = 0;
@@ -62027,33 +62027,26 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(179);
+	var config_1 = __webpack_require__(169);
 	var dom_1 = __webpack_require__(168);
 	/**
 	 * @private
 	 */
 	var NativeInput = (function () {
-	    function NativeInput(_elementRef, _renderer, ngControl) {
+	    function NativeInput(_elementRef, _renderer, config, ngControl) {
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
 	        this.ngControl = ngControl;
 	        this.focusChange = new core_1.EventEmitter();
 	        this.valueChange = new core_1.EventEmitter();
+	        this._clone = config.getBoolean('inputCloning', false);
 	    }
-	    /**
-	     * @private
-	     */
 	    NativeInput.prototype._change = function (ev) {
 	        this.valueChange.emit(ev.target.value);
 	    };
-	    /**
-	     * @private
-	     */
 	    NativeInput.prototype._focus = function () {
 	        this.focusChange.emit(true);
 	    };
-	    /**
-	     * @private
-	     */
 	    NativeInput.prototype._blur = function () {
 	        this.focusChange.emit(false);
 	        this.hideFocus(false);
@@ -62064,44 +62057,60 @@
 	    NativeInput.prototype.isDisabled = function (val) {
 	        this._renderer.setElementAttribute(this._elementRef.nativeElement, 'disabled', val ? '' : null);
 	    };
-	    /**
-	     * @private
-	     */
 	    NativeInput.prototype.setFocus = function () {
-	        this.element().focus();
-	    };
-	    /**
-	     * @private
-	     */
-	    NativeInput.prototype.relocate = function (shouldRelocate, inputRelativeY) {
-	        console.debug('native input relocate', shouldRelocate, inputRelativeY);
-	        if (this._relocated !== shouldRelocate) {
-	            var focusedInputEle_1 = this.element();
-	            if (shouldRelocate) {
-	                var clonedInputEle = cloneInput(focusedInputEle_1, 'cloned-focus');
-	                focusedInputEle_1.parentNode.insertBefore(clonedInputEle, focusedInputEle_1);
-	                focusedInputEle_1.style[dom_1.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
-	                focusedInputEle_1.style.opacity = '0';
-	                this.setFocus();
-	                dom_1.raf(function () {
-	                    focusedInputEle_1.classList.add('cloned-active');
-	                });
-	            }
-	            else {
-	                focusedInputEle_1.classList.remove('cloned-active');
-	                focusedInputEle_1.style[dom_1.CSS.transform] = '';
-	                focusedInputEle_1.style.opacity = '';
-	                removeClone(focusedInputEle_1, 'cloned-focus');
-	            }
-	            this._relocated = shouldRelocate;
+	        // let's set focus to the element
+	        // but only if it does not already have focus
+	        if (document.activeElement !== this.element()) {
+	            this.element().focus();
 	        }
 	    };
-	    /**
-	     * @private
-	     */
+	    NativeInput.prototype.beginFocus = function (shouldFocus, inputRelativeY) {
+	        if (this._relocated !== shouldFocus) {
+	            var focusedInputEle = this.element();
+	            if (shouldFocus) {
+	                // we should focus into this element
+	                if (this._clone) {
+	                    // this platform needs the input to be cloned
+	                    // this allows for the actual input to receive the focus from
+	                    // the user's touch event, but before it receives focus, it
+	                    // moves the actual input to a location that will not screw
+	                    // up the app's layout, and does not allow the native browser
+	                    // to attempt to scroll the input into place (messing up headers/footers)
+	                    // the cloned input fills the area of where native input should be
+	                    // while the native input fakes out the browser by relocating itself
+	                    // before it receives the actual focus event
+	                    var clonedInputEle = cloneInput(focusedInputEle, 'cloned-focus');
+	                    focusedInputEle.parentNode.insertBefore(clonedInputEle, focusedInputEle);
+	                    // move the native input to a location safe to receive focus
+	                    // according to the browser, the native input receives focus in an
+	                    // area which doesn't require the browser to scroll the input into place
+	                    focusedInputEle.style[dom_1.CSS.transform] = "translate3d(-9999px," + inputRelativeY + "px,0)";
+	                    focusedInputEle.style.opacity = '0';
+	                }
+	                // let's now set focus to the actual native element
+	                // at this point it is safe to assume the browser will not attempt
+	                // to scroll the input into view itself (screwing up headers/footers)
+	                this.setFocus();
+	                if (this._clone) {
+	                    focusedInputEle.classList.add('cloned-active');
+	                }
+	            }
+	            else {
+	                // should remove the focus
+	                if (this._clone) {
+	                    // should remove the cloned node
+	                    focusedInputEle.classList.remove('cloned-active');
+	                    focusedInputEle.style[dom_1.CSS.transform] = '';
+	                    focusedInputEle.style.opacity = '';
+	                    removeClone(focusedInputEle, 'cloned-focus');
+	                }
+	            }
+	            this._relocated = shouldFocus;
+	        }
+	    };
 	    NativeInput.prototype.hideFocus = function (shouldHideFocus) {
-	        console.debug('native input hideFocus', shouldHideFocus);
 	        var focusedInputEle = this.element();
+	        console.debug("native input hideFocus, shouldHideFocus: " + shouldHideFocus + ", input value: " + focusedInputEle.value);
 	        if (shouldHideFocus) {
 	            var clonedInputEle = cloneInput(focusedInputEle, 'cloned-move');
 	            focusedInputEle.classList.add('cloned-active');
@@ -62118,9 +62127,6 @@
 	    NativeInput.prototype.getValue = function () {
 	        return this.element().value;
 	    };
-	    /**
-	     * @private
-	     */
 	    NativeInput.prototype.element = function () {
 	        return this._elementRef.nativeElement;
 	    };
@@ -62154,10 +62160,10 @@
 	        core_1.Directive({
 	            selector: '.text-input'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _e) || Object])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _f) || Object])
 	    ], NativeInput);
 	    return NativeInput;
-	    var _a, _b, _c, _d, _e;
+	    var _a, _b, _c, _d, _e, _f;
 	}());
 	exports.NativeInput = NativeInput;
 	function cloneInput(focusedInputEle, addCssClass) {
@@ -62168,6 +62174,8 @@
 	    clonedInputEle.removeAttribute('aria-labelledby');
 	    clonedInputEle.tabIndex = -1;
 	    clonedInputEle.style.width = (focusedInputEle.offsetWidth + 10) + 'px';
+	    clonedInputEle.style.height = focusedInputEle.offsetHeight + 'px';
+	    clonedInputEle.value = focusedInputEle.value;
 	    return clonedInputEle;
 	}
 	function removeClone(focusedInputEle, queryCssClass) {
@@ -62184,6 +62192,7 @@
 	        this.focused = new core_1.EventEmitter();
 	    }
 	    NextInput.prototype.receivedFocus = function () {
+	        console.debug('native-input, next-input received focus');
 	        this.focused.emit(true);
 	    };
 	    __decorate([
@@ -65943,7 +65952,6 @@
 	        hoverCSS: false,
 	        keyboardHeight: 300,
 	        mode: 'md',
-	        scrollAssist: true,
 	    },
 	    isMatch: function (p) {
 	        return p.isPlatformMatch('android', ['android', 'silk'], ['windows phone']);
@@ -65963,6 +65971,7 @@
 	        autoFocusAssist: 'delay',
 	        clickBlock: true,
 	        hoverCSS: false,
+	        inputCloning: isIOSDevice,
 	        keyboardHeight: 300,
 	        mode: 'ios',
 	        scrollAssist: isIOSDevice,

@@ -55,7 +55,7 @@ markup once while Ionic applies the appropriate icon based on the mode.</p>
 
 
 <h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>ion-icon,icon</code></h3>
+<h3>selector: <code>ion-icon</code></h3>
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

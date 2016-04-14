@@ -47228,12 +47228,6 @@
 	        this._md = '';
 	        this._css = '';
 	        this.mode = config.get('iconMode');
-	        if (_elementRef.nativeElement.tagName === 'ICON') {
-	            // deprecated warning
-	            console.warn('<icon> has been renamed to <ion-icon>');
-	            console.warn('<ion-icon> requires the "name" attribute w/ a value');
-	            console.warn('<icon home></icon> should now be <ion-icon name="home"></ion-icon>');
-	        }
 	    }
 	    /**
 	     * @private
@@ -47355,7 +47349,7 @@
 	    ], Icon.prototype, "isActive", null);
 	    Icon = __decorate([
 	        core_1.Directive({
-	            selector: 'ion-icon,icon',
+	            selector: 'ion-icon',
 	            host: {
 	                'role': 'img'
 	            }
@@ -48267,13 +48261,6 @@
 	            resolve(hasCompleted);
 	        });
 	        return promise;
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype.setViews = function (components, opts) {
-	        console.warn('setViews() deprecated, use setPages() instead');
-	        return this.setPages(components, opts);
 	    };
 	    /**
 	     * Push is how we can pass components and navigate to them. We push the component

@@ -5326,9 +5326,11 @@ ion-icon {
   .ios ion-chip ion-icon[dark] {
     color: #fff;
     background-color: #222; }
-  .ios [no-padding] {
+  .ios [no-padding],
+  .ios [no-padding] > scroll-content {
     padding: 0; }
-  .ios [no-margin] {
+  .ios [no-margin],
+  .ios [no-margin] > scroll-content {
     margin: 0; }
   .ios ion-fixed {
     position: absolute;
@@ -5343,39 +5345,49 @@ ion-icon {
   .ios ion-tab.has-views {
     background: #000; }
   .ios [padding],
-  .ios [padding] > scroll-content {
+  .ios [padding] scroll-content {
     padding: 16px; }
-  .ios [padding-top] {
+  .ios [padding-top],
+  .ios [padding-top] scroll-content {
     padding-top: 16px; }
-  .ios [padding-left] {
+  .ios [padding-left],
+  .ios [padding-left] scroll-content {
     padding-left: 16px; }
-  .ios [padding-right] {
+  .ios [padding-right],
+  .ios [padding-right] scroll-content {
     padding-right: 16px; }
-  .ios [padding-bottom] {
+  .ios [padding-bottom],
+  .ios [padding-bottom] scroll-content {
     padding-bottom: 16px; }
-  .ios [padding-vertical] {
+  .ios [padding-vertical],
+  .ios [padding-vertical] scroll-content {
     padding-top: 16px;
     padding-bottom: 16px; }
-  .ios [padding-horizontal] {
+  .ios [padding-horizontal],
+  .ios [padding-horizontal] scroll-content {
     padding-right: 16px;
     padding-left: 16px; }
-  .ios [no-padding] {
-    padding: 0; }
   .ios [margin],
-  .ios [margin] > scroll-content {
+  .ios [margin] scroll-content {
     margin: 16px; }
-  .ios [margin-top] {
+  .ios [margin-top],
+  .ios [margin-top] scroll-content {
     margin-top: 16px; }
-  .ios [margin-left] {
+  .ios [margin-left],
+  .ios [margin-left] scroll-content {
     margin-left: 16px; }
-  .ios [margin-right] {
+  .ios [margin-right],
+  .ios [margin-right] scroll-content {
     margin-right: 16px; }
-  .ios [margin-bottom] {
+  .ios [margin-bottom],
+  .ios [margin-bottom] scroll-content {
     margin-bottom: 16px; }
-  .ios [margin-vertical] {
+  .ios [margin-vertical],
+  .ios [margin-vertical] scroll-content {
     margin-top: 16px;
     margin-bottom: 16px; }
-  .ios [margin-horizontal] {
+  .ios [margin-horizontal],
+  .ios [margin-horizontal] scroll-content {
     margin-right: 16px;
     margin-left: 16px; }
   .ios ion-input,
@@ -8184,9 +8196,11 @@ ion-icon {
   .md ion-chip ion-icon[dark] {
     color: #fff;
     background-color: #222; }
-  .md [no-padding] {
+  .md [no-padding],
+  .md [no-padding] > scroll-content {
     padding: 0; }
-  .md [no-margin] {
+  .md [no-margin],
+  .md [no-margin] > scroll-content {
     margin: 0; }
   .md ion-fixed {
     position: absolute;
@@ -8196,37 +8210,49 @@ ion-icon {
   .md ion-content {
     background-color: #fff; }
   .md [padding],
-  .md [padding] > scroll-content {
+  .md [padding] scroll-content {
     padding: 16px; }
-  .md [padding-top] {
+  .md [padding-top],
+  .md [padding-top] scroll-content {
     padding-top: 16px; }
-  .md [padding-left] {
+  .md [padding-left],
+  .md [padding-left] scroll-content {
     padding-left: 16px; }
-  .md [padding-right] {
+  .md [padding-right],
+  .md [padding-right] scroll-content {
     padding-right: 16px; }
-  .md [padding-bottom] {
+  .md [padding-bottom],
+  .md [padding-bottom] scroll-content {
     padding-bottom: 16px; }
-  .md [padding-vertical] {
+  .md [padding-vertical],
+  .md [padding-vertical] scroll-content {
     padding-top: 16px;
     padding-bottom: 16px; }
-  .md [padding-horizontal] {
+  .md [padding-horizontal],
+  .md [padding-horizontal] scroll-content {
     padding-right: 16px;
     padding-left: 16px; }
   .md [margin],
-  .md [margin] > scroll-content {
+  .md [margin] scroll-content {
     margin: 16px; }
-  .md [margin-top] {
+  .md [margin-top],
+  .md [margin-top] scroll-content {
     margin-top: 16px; }
-  .md [margin-left] {
+  .md [margin-left],
+  .md [margin-left] scroll-content {
     margin-left: 16px; }
-  .md [margin-right] {
+  .md [margin-right],
+  .md [margin-right] scroll-content {
     margin-right: 16px; }
-  .md [margin-bottom] {
+  .md [margin-bottom],
+  .md [margin-bottom] scroll-content {
     margin-bottom: 16px; }
-  .md [margin-vertical] {
+  .md [margin-vertical],
+  .md [margin-vertical] scroll-content {
     margin-top: 16px;
     margin-bottom: 16px; }
-  .md [margin-horizontal] {
+  .md [margin-horizontal],
+  .md [margin-horizontal] scroll-content {
     margin-right: 16px;
     margin-left: 16px; }
   .md ion-input,
@@ -11320,9 +11346,11 @@ ion-icon {
   .wp ion-chip ion-icon[dark] {
     color: #fff;
     background-color: #222; }
-  .wp [no-padding] {
+  .wp [no-padding],
+  .wp [no-padding] > scroll-content {
     padding: 0; }
-  .wp [no-margin] {
+  .wp [no-margin],
+  .wp [no-margin] > scroll-content {
     margin: 0; }
   .wp ion-fixed {
     position: absolute;
@@ -11332,37 +11360,49 @@ ion-icon {
   .wp ion-content {
     background-color: #fff; }
   .wp [padding],
-  .wp [padding] > scroll-content {
+  .wp [padding] scroll-content {
     padding: 16px; }
-  .wp [padding-top] {
+  .wp [padding-top],
+  .wp [padding-top] scroll-content {
     padding-top: 16px; }
-  .wp [padding-left] {
+  .wp [padding-left],
+  .wp [padding-left] scroll-content {
     padding-left: 16px; }
-  .wp [padding-right] {
+  .wp [padding-right],
+  .wp [padding-right] scroll-content {
     padding-right: 16px; }
-  .wp [padding-bottom] {
+  .wp [padding-bottom],
+  .wp [padding-bottom] scroll-content {
     padding-bottom: 16px; }
-  .wp [padding-vertical] {
+  .wp [padding-vertical],
+  .wp [padding-vertical] scroll-content {
     padding-top: 16px;
     padding-bottom: 16px; }
-  .wp [padding-horizontal] {
+  .wp [padding-horizontal],
+  .wp [padding-horizontal] scroll-content {
     padding-right: 16px;
     padding-left: 16px; }
   .wp [margin],
-  .wp [margin] > scroll-content {
+  .wp [margin] scroll-content {
     margin: 16px; }
-  .wp [margin-top] {
+  .wp [margin-top],
+  .wp [margin-top] scroll-content {
     margin-top: 16px; }
-  .wp [margin-left] {
+  .wp [margin-left],
+  .wp [margin-left] scroll-content {
     margin-left: 16px; }
-  .wp [margin-right] {
+  .wp [margin-right],
+  .wp [margin-right] scroll-content {
     margin-right: 16px; }
-  .wp [margin-bottom] {
+  .wp [margin-bottom],
+  .wp [margin-bottom] scroll-content {
     margin-bottom: 16px; }
-  .wp [margin-vertical] {
+  .wp [margin-vertical],
+  .wp [margin-vertical] scroll-content {
     margin-top: 16px;
     margin-bottom: 16px; }
-  .wp [margin-horizontal] {
+  .wp [margin-horizontal],
+  .wp [margin-horizontal] scroll-content {
     margin-right: 16px;
     margin-left: 16px; }
   .wp ion-input,

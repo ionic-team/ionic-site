@@ -50925,6 +50925,7 @@
 	        this._zone = _zone;
 	        this._padding = 0;
 	        this._inputPolling = false;
+	        this._sbPadding = _config.getBoolean('statusbarPadding', false);
 	        if (viewCtrl) {
 	            viewCtrl.setContent(this);
 	            viewCtrl.setContentRef(_elementRef);
@@ -51211,6 +51212,9 @@
 	                '<ng-content select="ion-refresher"></ng-content>',
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
+	            host: {
+	                '[class.statusbar-padding]': '_sbPadding'
+	            }
 	        }),
 	        __param(5, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _c) || Object, (typeof (_d = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object, (typeof (_f = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _f) || Object])

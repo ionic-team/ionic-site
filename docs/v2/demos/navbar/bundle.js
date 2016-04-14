@@ -57474,6 +57474,7 @@
 	 *     console.log("Passed params", navParams.data);
 	 *   }
 	 * }
+	 * ```
 	 *
 	 * Sometimes you may want to call a method instead of navigating to a new
 	 * page. You can use the `(select)` event to call a method on your class when

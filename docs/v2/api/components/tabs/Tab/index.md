@@ -9,7 +9,9 @@ title: "Tab"
 header_sub_title: "Ionic API Documentation"
 doc: "Tab"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/tabs/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -100,14 +102,12 @@ export class Tabs {
     console.log(&quot;Passed params&quot;, navParams.data);
   }
 }
-
-Sometimes you may want to call a method instead of navigating to a new
-page. You can use the `(select)` event to call a method on your class when
+</code></pre>
+<p>Sometimes you may want to call a method instead of navigating to a new
+page. You can use the <code>(select)</code> event to call a method on your class when
 the tab is selected. Below is an example of presenting a modal from one of
-the tabs.
-
-```html
-&lt;ion-tabs preloadTabs=&quot;false&quot;&gt;
+the tabs.</p>
+<pre><code class="lang-html">&lt;ion-tabs preloadTabs=&quot;false&quot;&gt;
   &lt;ion-tab (select)=&quot;chat()&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
@@ -122,11 +122,6 @@ the tabs.
   }
 }
 </code></pre>
-<p>@demo /docs/v2/demos/tabs/
-@see <a href='/docs/v2/components#tabs'>Tabs Component Docs</a>
-@see <a href='../../tabs/Tabs'>Tabs API Docs</a>
-@see <a href='../../nav/Nav'>Nav API Docs</a>
-@see <a href='../../nav/NavController'>NavController API Docs</a></p>
 
 
 
@@ -210,7 +205,14 @@ the tabs.
     </tr>
     
   </tbody>
-</table><!-- related link --><!-- end content block -->
+</table><!-- related link -->
+
+<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
+
+<a href='/docs/v2/components#tabs'>Tabs Component Docs</a>,
+<a href='../../tabs/Tabs'>Tabs API Docs</a>,
+<a href='../../nav/Nav'>Nav API Docs</a>,
+<a href='../../nav/NavController'>NavController API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

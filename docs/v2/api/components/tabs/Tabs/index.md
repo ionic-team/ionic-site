@@ -67,7 +67,7 @@ below for the available values of <code>tabbarLayout</code>.</p>
 <p>There are different ways you can select a specific tab from the tabs
 component. You can use the <code>selectedIndex</code> property to set the index
 on the <code>&lt;ion-tabs&gt;</code> element, or you can call <code>select()</code> from the <code>Tabs</code>
-instance after creation. See usage below for more information.</p>
+instance after creation. See <a href="#usage">usage</a> below for more information.</p>
 
 
 <h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>

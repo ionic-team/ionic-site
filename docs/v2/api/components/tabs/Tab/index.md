@@ -9,9 +9,7 @@ title: "Tab"
 header_sub_title: "Ionic API Documentation"
 doc: "Tab"
 docType: "class"
-show_preview_device: true
-preview_device_url: "/docs/v2/demos/tabs/"
-angular_controller: APIDemoCtrl 
+
 ---
 
 
@@ -45,12 +43,8 @@ Improve this doc
 
 <p>The Tab component, written <code>&lt;ion-tab&gt;</code>, is styled based on the mode and should
 be used in conjunction with the <a href="../Tabs/">Tabs</a> component.</p>
-<p>Each tab has a basic navigation controller. Similar to the <a href="../../nav/Nav/">Nav</a>
-component, the tab navigation controller is a subclass of
-<a href="../../nav/NavController">NavController</a>. It can be used to navigate and manipulate
-pages in the navigation stack of the tab.</p>
-<p>For more information on using navigation controllers like Tab or <a href="../../nav/Nav/">Nav</a>,
-take a look at the <a href="../../nav/NavController/">NavController API Docs</a>.</p>
+<p>Each tab has a separate navigation controller. For more information on using
+navigation controllers take a look at the <a href="../../nav/NavController/">NavController API Docs</a>.</p>
 <p>See the <a href="../Tabs/">Tabs API Docs</a> for more details on configuring Tabs.</p>
 
 
@@ -60,37 +54,79 @@ take a look at the <a href="../../nav/NavController/">NavController API Docs</a>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<p>For most cases, you can give tab a <code>[root]</code> property along with the component you want to load.</p>
+<p>To add a basic tab, you can use the following markup where the <code>root</code> property
+is the page you want to load for that tab, <code>tabTitle</code> is the optional text to
+display on the tab, and <code>tabIcon</code> is the optional <a href="../../icon/Icon/">icon</a>.</p>
 <pre><code class="lang-html">&lt;ion-tabs&gt;
  &lt;ion-tab [root]=&quot;chatRoot&quot; tabTitle=&quot;Chat&quot; tabIcon=&quot;chat&quot;&gt;&lt;ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
-<pre><code class="lang-ts">import {Chat} from &#39;../chat/chat&#39;;
+<p>Then, in your class you can set <code>chatRoot</code> to an imported class:</p>
+<pre><code class="lang-ts">import {ChatPage} from &#39;../chat/chat&#39;;
+
 export class Tabs {
-   constructor(){
-     // here we&#39;ll set the property of chatRoot to
-     // the imported class of Chat
-     this.chatRoot = Chat
-   }
+  // here we&#39;ll set the property of chatRoot to
+  // the imported class of ChatPage
+  chatRoot = ChatPage;
+
+  constructor() {
+
+  }
 }
 </code></pre>
-<p>In other cases, you may not want to navigate to a new component, but just
-call a method. You can use the <code>(select)</code> event to call a method on your
-class. Below is an example of presenting a modal from one of the tabs.</p>
-<pre><code class="lang-html">&lt;ion-tabs preloadTabs=&quot;false&quot;&gt;
+<p>You can also pass some parameters to the root page of the tab through
+<code>rootParams</code>. Below we pass <code>chatParams</code> to the Chat tab:</p>
+<pre><code class="lang-html">&lt;ion-tabs&gt;
+ &lt;ion-tab [root]=&quot;chatRoot&quot; [rootParams]=&quot;chatParams&quot; tabTitle=&quot;Chat&quot; tabIcon=&quot;chat&quot;&gt;&lt;ion-tab&gt;
+&lt;/ion-tabs&gt;
+</code></pre>
+<pre><code class="lang-ts">export class Tabs {
+  chatRoot = ChatPage;
+
+  // set some user information on chatParams
+  chatParams = {
+    user1: &quot;admin&quot;,
+    user2: &quot;ionic&quot;
+  };
+
+  constructor() {
+
+  }
+}
+</code></pre>
+<p>And in <code>ChatPage</code> you can get the data from <code>NavParams</code>:</p>
+<pre><code class="lang-ts">export class ChatPage {
+  constructor(navParams: NavParams) {
+    console.log(&quot;Passed params&quot;, navParams.data);
+  }
+}
+
+Sometimes you may want to call a method instead of navigating to a new
+page. You can use the `(select)` event to call a method on your class when
+the tab is selected. Below is an example of presenting a modal from one of
+the tabs.
+
+```html
+&lt;ion-tabs preloadTabs=&quot;false&quot;&gt;
   &lt;ion-tab (select)=&quot;chat()&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <pre><code class="lang-ts">export class Tabs {
-  constructor(nav: NavController){
+  constructor(nav: NavController) {
     this.nav = nav;
   }
+
   chat() {
     let modal = Modal.create(ChatPage);
     this.nav.present(modal);
   }
 }
 </code></pre>
+<p>@demo /docs/v2/demos/tabs/
+@see <a href='/docs/v2/components#tabs'>Tabs Component Docs</a>
+@see <a href='../../tabs/Tabs'>Tabs API Docs</a>
+@see <a href='../../nav/Nav'>Nav API Docs</a>
+@see <a href='../../nav/NavController'>NavController API Docs</a></p>
 
 
 
@@ -174,14 +210,7 @@ class. Below is an example of presenting a modal from one of the tabs.</p>
     </tr>
     
   </tbody>
-</table><!-- related link -->
-
-<h2><a class="anchor" name="related" href="#related"></a>Related</h2>
-
-<a href='/docs/v2/components#tabs'>Tabs Component Docs</a>,
-<a href='../../tabs/Tabs'>Tabs API Docs</a>,
-<a href='../../nav/Nav'>Nav API Docs</a>,
-<a href='../../nav/NavController'>NavController API Docs</a><!-- end content block -->
+</table><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -47059,6 +47059,7 @@
 	        viewCtrl && viewCtrl.setNavbar(this);
 	        this._bbIcon = config.get('backButtonIcon');
 	        this._bbText = config.get('backButtonText');
+	        this._sbPadding = config.getBoolean('statusbarPadding', false);
 	    }
 	    Object.defineProperty(Navbar.prototype, "hideBackButton", {
 	        /**
@@ -47158,7 +47159,8 @@
 	                '</div>',
 	            host: {
 	                '[hidden]': '_hidden',
-	                'class': 'toolbar'
+	                'class': 'toolbar',
+	                '[class.statusbar-padding]': '_sbPadding'
 	            },
 	            directives: [BackButton, BackButtonText, icon_1.Icon, ToolbarBackground]
 	        }),
@@ -47412,9 +47414,10 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
+	var button_1 = __webpack_require__(314);
+	var config_1 = __webpack_require__(169);
 	var ion_1 = __webpack_require__(300);
 	var navbar_1 = __webpack_require__(311);
-	var button_1 = __webpack_require__(314);
 	/**
 	 * @private
 	 */
@@ -47502,8 +47505,9 @@
 	 */
 	var Toolbar = (function (_super) {
 	    __extends(Toolbar, _super);
-	    function Toolbar(elementRef) {
+	    function Toolbar(elementRef, config) {
 	        _super.call(this, elementRef);
+	        this._sbPadding = config.getBoolean('statusbarPadding', false);
 	    }
 	    Toolbar = __decorate([
 	        core_1.Component({
@@ -47516,14 +47520,15 @@
 	                '<ng-content></ng-content>' +
 	                '</div>',
 	            host: {
-	                'class': 'toolbar'
+	                'class': 'toolbar',
+	                '[class.statusbar-padding]': '_sbPadding'
 	            },
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
 	    ], Toolbar);
 	    return Toolbar;
-	    var _a;
+	    var _a, _b;
 	}(ToolbarBase));
 	exports.Toolbar = Toolbar;
 	/**
@@ -57047,6 +57052,7 @@
 	        this.id = ++tabIds;
 	        this.subPages = _config.getBoolean('tabSubPages');
 	        this._useHighlight = _config.getBoolean('tabbarHighlight');
+	        this._sbPadding = _config.getBoolean('statusbarPadding', false);
 	        if (parent) {
 	            // this Tabs has a parent Nav
 	            parent.registerChildNav(this);
@@ -57274,7 +57280,7 @@
 	    Tabs = __decorate([
 	        core_1.Component({
 	            selector: 'ion-tabs',
-	            template: '<ion-navbar-section>' +
+	            template: '<ion-navbar-section [class.statusbar-padding]="_sbPadding">' +
 	                '<template navbar-anchor></template>' +
 	                '</ion-navbar-section>' +
 	                '<ion-tabbar-section>' +
@@ -66018,14 +66024,11 @@
 	        keyboardHeight: 300,
 	        mode: 'ios',
 	        scrollAssist: isIOSDevice,
+	        statusbarPadding: !!(win.cordova),
 	        swipeBackEnabled: isIOSDevice,
 	        swipeBackThreshold: 40,
 	        tapPolyfill: isIOSDevice,
-	        virtualScrollEventAssist: function () {
-	            // UIWebView needs help getting scroll events
-	            // WKWebView does not (WKWebView supports indexDB)
-	            return !(window.indexedDB);
-	        }
+	        virtualScrollEventAssist: !(window.indexedDB)
 	    },
 	    isMatch: function (p) {
 	        return p.isPlatformMatch('ios', ['iphone', 'ipad', 'ipod'], ['windows phone']);

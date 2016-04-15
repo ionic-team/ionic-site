@@ -6540,6 +6540,14 @@ ion-icon {
     text-align: center;
     background: none;
     cursor: pointer; }
+  .ios .tab-disabled {
+    pointer-events: none; }
+    .ios .tab-disabled ion-badge,
+    .ios .tab-disabled ion-icon,
+    .ios .tab-disabled span {
+      opacity: 0.4; }
+  .ios .tab-hidden {
+    display: none; }
   .ios .tab-button-text {
     margin-top: 3px;
     margin-bottom: 2px; }
@@ -9301,6 +9309,14 @@ ion-icon {
     text-align: center;
     background: none;
     cursor: pointer; }
+  .md .tab-disabled {
+    pointer-events: none; }
+    .md .tab-disabled ion-badge,
+    .md .tab-disabled ion-icon,
+    .md .tab-disabled span {
+      opacity: 0.4; }
+  .md .tab-hidden {
+    display: none; }
   .md .tab-button-text {
     margin-top: 3px;
     margin-bottom: 2px; }
@@ -12423,6 +12439,14 @@ ion-icon {
     text-align: center;
     background: none;
     cursor: pointer; }
+  .wp .tab-disabled {
+    pointer-events: none; }
+    .wp .tab-disabled ion-badge,
+    .wp .tab-disabled ion-icon,
+    .wp .tab-disabled span {
+      opacity: 0.4; }
+  .wp .tab-hidden {
+    display: none; }
   .wp .tab-button-text {
     margin-top: 3px;
     margin-bottom: 2px; }

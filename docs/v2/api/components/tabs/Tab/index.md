@@ -34,7 +34,7 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/tabs/tab.ts#L9">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/tabs/tab.ts#L10">
 Improve this doc
 </a>
 
@@ -146,42 +146,60 @@ the tabs.</p>
     <tr>
       <td>root</td>
       <td><code>Page</code></td>
-      <td><p> Set the root page for this tab</p>
+      <td><p> Set the root page for this tab.</p>
 </td>
     </tr>
     
     <tr>
       <td>rootParams</td>
       <td><code>object</code></td>
-      <td><p> Any nav-params you want to pass to the root page of the tab</p>
+      <td><p> Any nav-params to pass to the root page of this tab.</p>
 </td>
     </tr>
     
     <tr>
       <td>tabTitle</td>
       <td><code>string</code></td>
-      <td><p> Set the title of this tab</p>
+      <td><p> The title of the tab button.</p>
 </td>
     </tr>
     
     <tr>
       <td>tabIcon</td>
       <td><code>string</code></td>
-      <td><p> Set the icon for this tab</p>
+      <td><p> The icon for the tab button.</p>
 </td>
     </tr>
     
     <tr>
       <td>tabBadge</td>
       <td><code>string</code></td>
-      <td><p> Set the badge for this tab</p>
+      <td><p> The badge for the tab button.</p>
 </td>
     </tr>
     
     <tr>
       <td>tabBadgeStyle</td>
       <td><code>string</code></td>
-      <td><p> Set the badge color for this tab</p>
+      <td><p> The badge color for the tab button.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>enabled</td>
+      <td><code>boolean</code></td>
+      <td><p> If the tab is enabled or not. If the tab
+is not enabled then the tab button will still show, however,
+the button will appear grayed out and will not be clickable.
+Defaults to <code>true</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>show</td>
+      <td><code>boolean</code></td>
+      <td><p> If the tab button is visible within the
+tabbar or not. Defaults to <code>true</code>.</p>
 </td>
     </tr>
     

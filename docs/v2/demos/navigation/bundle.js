@@ -57661,7 +57661,7 @@
 	                '</ion-navbar-section>' +
 	                '<ion-tabbar-section>' +
 	                '<tabbar role="tablist">' +
-	                '<a *ngFor="#t of _tabs" [tab]="t" class="tab-button" role="tab">' +
+	                '<a *ngFor="#t of _tabs" [tab]="t" class="tab-button" [class.tab-disabled]="!t.enabled" [class.tab-hidden]="!t.show" role="tab">' +
 	                '<ion-icon *ngIf="t.tabIcon" [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></ion-icon>' +
 	                '<span *ngIf="t.tabTitle" class="tab-button-text">{{t.tabTitle}}</span>' +
 	                '<ion-badge *ngIf="t.tabBadge" class="tab-badge" [ngClass]="\'badge-\' + t.tabBadgeStyle">{{t.tabBadge}}</ion-badge>' +
@@ -57816,6 +57816,7 @@
 	var core_2 = __webpack_require__(8);
 	var app_1 = __webpack_require__(174);
 	var config_1 = __webpack_require__(168);
+	var util_1 = __webpack_require__(170);
 	var keyboard_1 = __webpack_require__(289);
 	var nav_controller_1 = __webpack_require__(314);
 	var tabs_1 = __webpack_require__(332);
@@ -57929,6 +57930,8 @@
 	    function Tab(parentTabs, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer) {
 	        // A Tab is a NavController for its child pages
 	        _super.call(this, parentTabs, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer);
+	        this._isEnabled = true;
+	        this._isShown = true;
 	        /**
 	         * @output {Tab} Method to call when the current tab is selected
 	         */
@@ -57937,6 +57940,36 @@
 	        this._panelId = 'tabpanel-' + this.id;
 	        this._btnId = 'tab-' + this.id;
 	    }
+	    Object.defineProperty(Tab.prototype, "enabled", {
+	        /**
+	         * @input {boolean} If the tab is enabled or not. If the tab
+	         * is not enabled then the tab button will still show, however,
+	         * the button will appear grayed out and will not be clickable.
+	         * Defaults to `true`.
+	         */
+	        get: function () {
+	            return this._isEnabled;
+	        },
+	        set: function (val) {
+	            this._isEnabled = util_1.isTrueProperty(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Tab.prototype, "show", {
+	        /**
+	         * @input {boolean} If the tab button is visible within the
+	         * tabbar or not. Defaults to `true`.
+	         */
+	        get: function () {
+	            return this._isShown;
+	        },
+	        set: function (val) {
+	            this._isShown = util_1.isTrueProperty(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     */
@@ -58052,6 +58085,14 @@
 	        core_2.Input(), 
 	        __metadata('design:type', String)
 	    ], Tab.prototype, "tabBadgeStyle", void 0);
+	    __decorate([
+	        core_2.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Tab.prototype, "enabled", null);
+	    __decorate([
+	        core_2.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Tab.prototype, "show", null);
 	    __decorate([
 	        core_2.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_2.EventEmitter !== 'undefined' && core_2.EventEmitter) === 'function' && _b) || Object)

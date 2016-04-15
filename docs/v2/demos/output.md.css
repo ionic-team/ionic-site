@@ -6967,6 +6967,16 @@ tabbar {
   background: none;
   cursor: pointer; }
 
+.tab-disabled {
+  pointer-events: none; }
+  .tab-disabled ion-badge,
+  .tab-disabled ion-icon,
+  .tab-disabled span {
+    opacity: 0.4; }
+
+.tab-hidden {
+  display: none; }
+
 .tab-button-text {
   margin-top: 3px;
   margin-bottom: 2px; }

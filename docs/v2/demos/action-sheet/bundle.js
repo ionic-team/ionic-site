@@ -62569,19 +62569,19 @@
 	    NativeInput.prototype._focus = function () {
 	        var self = this;
 	        self.focusChange.emit(true);
+	        function docTouchEnd(ev) {
+	            var tappedElement = ev.target;
+	            if (tappedElement && self.element()) {
+	                if (tappedElement.tagName !== "INPUT" && tappedElement.tagName !== "TEXTAREA") {
+	                    self.element().blur();
+	                }
+	            }
+	        }
 	        if (self._blurring) {
 	            // automatically blur input if:
 	            // 1) this input has focus
 	            // 2) the newly tapped document element is not an input
 	            console.debug('input blurring enabled');
-	            function docTouchEnd(ev) {
-	                var tappedElement = ev.target;
-	                if (tappedElement && self.element()) {
-	                    if (tappedElement.tagName !== 'INPUT' && tappedElement.tagName !== 'TEXTAREA') {
-	                        self.element().blur();
-	                    }
-	                }
-	            }
 	            document.addEventListener('touchend', docTouchEnd, true);
 	            self._unrefBlur = function () {
 	                console.debug('input blurring disabled');

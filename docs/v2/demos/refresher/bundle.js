@@ -2611,6 +2611,9 @@
 	    ];
 	}
 	exports.ionicProviders = ionicProviders;
+	/**
+	 * @private
+	 */
 	function postBootstrap(appRef, prodMode) {
 	    appRef.injector.get(tap_click_1.TapClick);
 	    var app = appRef.injector.get(app_1.IonicApp);

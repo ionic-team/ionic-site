@@ -48876,8 +48876,8 @@
 	        if (util_1.isBlank(opts)) {
 	            opts = {};
 	        }
-	        if (enteringView.usePortal && this._portal) {
-	            return this._portal.present(enteringView, opts);
+	        if (enteringView.usePortal && rootNav._portal) {
+	            return rootNav._portal.present(enteringView, opts);
 	        }
 	        enteringView.setNav(rootNav);
 	        opts.keyboardClose = false;

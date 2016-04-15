@@ -66028,7 +66028,7 @@
 	 * export class MyClass{
 	 *  constructor(){
 	 *    this.local = new Storage(LocalStorage);
-	 *    this.local.set('didTutorial', true);
+	 *    this.local.set('didTutorial', 'true');
 	 *  }
 	 *}
 	 *```
@@ -66043,7 +66043,7 @@
 	    }
 	    /**
 	     * Get the value of a key in LocalStorage
-	     * @param {String} key the key you want to lookup in LocalStorage
+	     * @param {string} key the key you want to lookup in LocalStorage
 	     */
 	    LocalStorage.prototype.get = function (key) {
 	        return new Promise(function (resolve, reject) {
@@ -66058,8 +66058,8 @@
 	    };
 	    /**
 	     * Set a key value pair and save it to LocalStorage
-	     * @param {String} key the key you want to save to LocalStorage
-	     * @param {Any} value the value of the key you're saving
+	     * @param {string} key the key you want to save to LocalStorage
+	     * @param {string} value the value of the key you're saving
 	     */
 	    LocalStorage.prototype.set = function (key, value) {
 	        return new Promise(function (resolve, reject) {
@@ -66074,7 +66074,7 @@
 	    };
 	    /**
 	     * Remove a key from LocalStorage
-	     * @param {String} key the key you want to remove from LocalStorage
+	     * @param {string} key the key you want to remove from LocalStorage
 	     */
 	    LocalStorage.prototype.remove = function (key) {
 	        return new Promise(function (resolve, reject) {

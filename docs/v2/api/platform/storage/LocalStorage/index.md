@@ -61,7 +61,7 @@ by the operating system (iOS).</p>
 export class MyClass{
  constructor(){
    this.local = new Storage(LocalStorage);
-   this.local.set(&#39;didTutorial&#39;, true);
+   this.local.set(&#39;didTutorial&#39;, &#39;true&#39;);
  }
 }
 </code></pre>
@@ -107,7 +107,7 @@ Get the value of a key in LocalStorage
       </td>
       <td>
         
-  <code>String</code>
+  <code>string</code>
       </td>
       <td>
         <p>the key you want to lookup in LocalStorage</p>
@@ -156,7 +156,7 @@ Set a key value pair and save it to LocalStorage
       </td>
       <td>
         
-  <code>String</code>
+  <code>string</code>
       </td>
       <td>
         <p>the key you want to save to LocalStorage</p>
@@ -173,7 +173,7 @@ Set a key value pair and save it to LocalStorage
       </td>
       <td>
         
-  <code>Any</code>
+  <code>string</code>
       </td>
       <td>
         <p>the value of the key you&#39;re saving</p>
@@ -222,7 +222,7 @@ Remove a key from LocalStorage
       </td>
       <td>
         
-  <code>String</code>
+  <code>string</code>
       </td>
       <td>
         <p>the key you want to remove from LocalStorage</p>

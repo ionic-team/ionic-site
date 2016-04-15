@@ -43,10 +43,13 @@ Improve this doc
 
 
 
-<p>Platform returns the availble information about your current platform.
-Platforms in Ionic 2 are much more complex then in V1, returns not just a single platform,
-but a hierarchy of information, such as a devices OS, phone vs tablet, or mobile vs browser.
-With this information you can completely custimize your app to fit any device and platform.</p>
+<p>The Platform service can be used to get information about your current device.
+You can get all of the platforms associated with the device using the <a href="#platforms">platforms</a>
+method, including whether the app is being viewed from a tablet, if it&#39;s
+on a mobile device or browser, and the exact platform (ios, android, etc).
+You can also get the orientation of the device, if it uses right-to-left
+language direction, and much much more. With this information you can completely
+customize your app to fit any device.</p>
 
 <!-- @usage tag -->
 
@@ -56,9 +59,9 @@ With this information you can completely custimize your app to fit any device an
 
 @Page({...})
 export MyPage {
-   constructor(platform: Platform){
-     this.platform = platform;
-   }
+  constructor(platform: Platform) {
+    this.platform = platform;
+  }
 }
 </code></pre>
 
@@ -88,36 +91,37 @@ for more than one platform name. For example, an app running from
 an iPad would return `true` for the platform names: `mobile`,
 `ios`, `ipad`, and `tablet`. Additionally, if the app was running
 from Cordova then `cordova` would be true, and if it was running
-from a web browser on the iPad then then `mobileweb` would also
-be `true`.
-
-Possible built-in platform names:
-
-- `android`
-- `cordova`
-- `core`
-- `ios`
-- `ipad`
-- `iphone`
-- `mobile`
-- `mobileweb`
-- `phablet`
-- `tablet`
-- `windows`
+from a web browser on the iPad then `mobileweb` would be `true`.
 
 ```
 import {Platform} from 'ionic-angular';
 
 @Page({...})
 export MyPage {
-   constructor(platform: Platform) {
-     if (platform.is('ios')) {
-       // what ever you need to do
-       // if the platform is ios
-     }
-   }
+  constructor(platform: Platform) {
+    this.platform = platform;
+
+    if (this.platform.is('ios')) {
+      // This will only print when on ios
+      console.log("I'm an ios device!");
+    }
+  }
 }
 ```
+
+| Platform Name   | Description                        |
+|-----------------|------------------------------------|
+| android         | on a device running Android.       |
+| cordova         | on a device running Cordova.       |
+| core            | on a desktop device.               |
+| ios             | on a device running iOS.           |
+| ipad            | on an iPad device.                 |
+| iphone          | on an iPhone device.               |
+| mobile          | on a mobile device.                |
+| mobileweb       | in a browser on a mobile device.   |
+| phablet         | on a phablet device.               |
+| tablet          | on a tablet device.                |
+| windows         | on a device running Windows.       |
 
 
 <table class="table param-table" style="margin:0;">
@@ -174,17 +178,19 @@ export MyPage {
 
 Depending on what device you are on, `platforms` can return multiple values.
 Each possible value is a hierarchy of platforms. For example, on an iPhone,
-it would return mobile, ios, and iphone.
+it would return `mobile`, `ios`, and `iphone`.
 
 ```
 import {Platform} from 'ionic-angular';
+
+@Page({...})
 export MyPage {
-   constructor(platform: Platform) {
-     this.platform = platform;
-     console.log(this.platform.platforms());
-     // This will return an array of all the availble platforms
-     // From if your on mobile, to mobile os, and device name
-   }
+  constructor(platform: Platform) {
+    this.platform = platform;
+
+    // This will print an array of the current platforms
+    console.log(this.platform.platforms());
+  }
 }
 ```
 
@@ -212,16 +218,20 @@ export MyPage {
 
 </h3>
 
-Returns an object containing information about the platforms.
+Returns an object containing version information about all of the platforms.
 
 ```
 import {Platform} from 'ionic-angular';
 
 @Page({...})
 export MyPage {
-   constructor(platform: Platform) {
-     console.log(platform.versions());
-   }
+  constructor(platform: Platform) {
+    this.platform = platform;
+
+    // This will print an object containing
+    // all of the platforms and their versions
+    console.log(platform.versions());
+  }
 }
 ```
 
@@ -291,12 +301,12 @@ import {Platform} from 'ionic-angular';
 
 @Page({...})
 export MyPage {
-   constructor(platform: Platform) {
-     platform.ready().then(() => {
-       console.log('Platform ready');
-       // The platform is now ready, execute any native code you want
-      });
-   }
+  constructor(platform: Platform) {
+    platform.ready().then(() => {
+      console.log('Platform ready');
+      // The platform is now ready, execute any native code you want
+    });
+  }
 }
 ```
 

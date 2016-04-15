@@ -64560,21 +64560,11 @@
 	    function ShowWhen(showWhen, platform, ngZone) {
 	        _super.call(this, showWhen, platform, ngZone);
 	    }
-	    Object.defineProperty(ShowWhen.prototype, "hidden", {
-	        /**
-	         * @private
-	         */
-	        get: function () {
-	            return !this.isMatch;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
 	    ShowWhen = __decorate([
 	        core_1.Directive({
 	            selector: '[showWhen]',
 	            host: {
-	                '[hidden]': 'hidden'
+	                '[class.hidden-show-when]': '!isMatch'
 	            }
 	        }),
 	        __param(0, core_1.Attribute('showWhen')), 
@@ -64621,21 +64611,11 @@
 	    function HideWhen(hideWhen, platform, ngZone) {
 	        _super.call(this, hideWhen, platform, ngZone);
 	    }
-	    Object.defineProperty(HideWhen.prototype, "hidden", {
-	        /**
-	         * @private
-	         */
-	        get: function () {
-	            return this.isMatch;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
 	    HideWhen = __decorate([
 	        core_1.Directive({
 	            selector: '[hideWhen]',
 	            host: {
-	                '[hidden]': 'hidden'
+	                '[class.hidden-hide-when]': 'isMatch'
 	            }
 	        }),
 	        __param(0, core_1.Attribute('hideWhen')), 

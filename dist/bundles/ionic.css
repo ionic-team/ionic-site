@@ -974,6 +974,12 @@ ion-scroll {
     -webkit-overflow-scrolling: touch;
     will-change: scroll-position; }
 
+.hidden-show-when {
+  display: none; }
+
+.hidden-hide-when {
+  display: none; }
+
 ion-swipe-slides {
   display: block;
   width: 100%;

@@ -304,6 +304,23 @@ cross history stacks, meaning it can only go as far back as the current history.
 
 
 
+<div id="removeBackView"></div>
+<h2>
+  <code>removeBackView()</code>
+
+</h2>
+
+Remove the previous view from the history completely, including the
+cached element and scope (if they exist).
+
+
+
+
+
+
+
+
+
 <div id="clearHistory"></div>
 <h2>
   <code>clearHistory()</code>

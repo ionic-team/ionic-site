@@ -5439,11 +5439,11 @@ ion-chip ion-icon[dark] {
   background-color: #222; }
 
 [no-padding],
-[no-padding] > scroll-content {
+[no-padding] scroll-content {
   padding: 0; }
 
 [no-margin],
-[no-margin] > scroll-content {
+[no-margin] scroll-content {
   margin: 0; }
 
 ion-fixed {
@@ -7990,17 +7990,30 @@ ion-buttons[right] {
     color: #fff;
     background-color: #343434; }
 
-.platform-cordova.platform-ios ion-navbar-section {
+ion-navbar-section.statusbar-padding {
   height: calc(4.6rem + 20px);
   min-height: calc(4.6rem + 20px); }
 
-.platform-cordova.platform-ios ion-navbar,
-.platform-cordova.platform-ios ion-app > ion-toolbar:first-child,
-.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
-.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child {
-  padding-top: calc(4px + 20px);
+ion-navbar-section.statusbar-padding > .toolbar {
+  padding-top: 20px;
   height: calc(4.6rem + 20px);
   min-height: calc(4.6rem + 20px); }
+
+ion-nav > ion-page > .toolbar.statusbar-padding:first-child,
+ion-menu > .toolbar.statusbar-padding:first-child {
+  padding-top: 20px;
+  height: calc(4.6rem + 20px);
+  min-height: calc(4.6rem + 20px); }
+
+ion-nav > ion-page > ion-content.statusbar-padding:first-child scroll-content,
+ion-menu > ion-content.statusbar-padding:first-child scroll-content {
+  padding-top: 20px; }
+
+ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
+ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
+ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,
+ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
+  padding-top: calc(16px + 20px); }
 
 @font-face {
   font-family: "Noto Sans";

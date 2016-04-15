@@ -5327,10 +5327,10 @@ ion-icon {
     color: #fff;
     background-color: #222; }
   .ios [no-padding],
-  .ios [no-padding] > scroll-content {
+  .ios [no-padding] scroll-content {
     padding: 0; }
   .ios [no-margin],
-  .ios [no-margin] > scroll-content {
+  .ios [no-margin] scroll-content {
     margin: 0; }
   .ios ion-fixed {
     position: absolute;
@@ -7212,25 +7212,32 @@ ion-icon {
     .ios .bar-button-solid-dark.activated {
       color: #fff;
       background-color: #343434; }
-  .ios.platform-cordova.platform-ios ion-navbar-section {
+  .ios ion-navbar-section.statusbar-padding {
     height: calc(44px + 20px);
     min-height: calc(44px + 20px); }
-  .ios.platform-cordova.platform-ios ion-navbar ion-title,
-  .ios.platform-cordova.platform-ios ion-navbar ion-segment {
+  .ios ion-navbar-section.statusbar-padding > .toolbar ion-segment,
+  .ios ion-navbar-section.statusbar-padding > .toolbar ion-title,
+  .ios ion-navbar-section.statusbar-padding > .toolbar {
+    padding-top: 20px;
+    height: calc(44px + 20px);
+    min-height: calc(44px + 20px); }
+  .ios ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-segment,
+  .ios ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-title,
+  .ios ion-nav > ion-page > .toolbar.statusbar-padding:first-child,
+  .ios ion-menu > .toolbar.statusbar-padding:first-child ion-segment,
+  .ios ion-menu > .toolbar.statusbar-padding:first-child ion-title,
+  .ios ion-menu > .toolbar.statusbar-padding:first-child {
+    padding-top: 20px;
+    height: calc(44px + 20px);
+    min-height: calc(44px + 20px); }
+  .ios ion-nav > ion-page > ion-content.statusbar-padding:first-child scroll-content,
+  .ios ion-menu > ion-content.statusbar-padding:first-child scroll-content {
     padding-top: 20px; }
-  .ios.platform-cordova.platform-ios ion-navbar,
-  .ios.platform-cordova.platform-ios ion-app > ion-toolbar:first-child,
-  .ios.platform-cordova.platform-ios ion-app > ion-toolbar:first-child ion-title,
-  .ios.platform-cordova.platform-ios ion-app > ion-toolbar:first-child ion-segment,
-  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
-  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child ion-title,
-  .ios.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child ion-segment,
-  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child,
-  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-title,
-  .ios.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child ion-segment {
-    padding-top: calc(4px + 20px);
-    height: calc(44px + 20px);
-    min-height: calc(44px + 20px); }
+  .ios ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .ios ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
+  .ios ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .ios ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
+    padding-top: calc(16px + 20px); }
 
 .md {
   font-family: "Roboto", "Helvetica Neue", sans-serif;
@@ -8205,10 +8212,10 @@ ion-icon {
     color: #fff;
     background-color: #222; }
   .md [no-padding],
-  .md [no-padding] > scroll-content {
+  .md [no-padding] scroll-content {
     padding: 0; }
   .md [no-margin],
-  .md [no-margin] > scroll-content {
+  .md [no-margin] scroll-content {
     margin: 0; }
   .md ion-fixed {
     position: absolute;
@@ -10421,16 +10428,26 @@ ion-icon {
     .md .bar-button-solid-dark.activated {
       color: #fff;
       background-color: #343434; }
-  .md.platform-cordova.platform-ios ion-navbar-section {
+  .md ion-navbar-section.statusbar-padding {
     height: calc(5.6rem + 20px);
     min-height: calc(5.6rem + 20px); }
-  .md.platform-cordova.platform-ios ion-navbar,
-  .md.platform-cordova.platform-ios ion-app > ion-toolbar:first-child,
-  .md.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
-  .md.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child {
-    padding-top: calc(4px + 20px);
+  .md ion-navbar-section.statusbar-padding > .toolbar {
+    padding-top: 20px;
     height: calc(5.6rem + 20px);
     min-height: calc(5.6rem + 20px); }
+  .md ion-nav > ion-page > .toolbar.statusbar-padding:first-child,
+  .md ion-menu > .toolbar.statusbar-padding:first-child {
+    padding-top: 20px;
+    height: calc(5.6rem + 20px);
+    min-height: calc(5.6rem + 20px); }
+  .md ion-nav > ion-page > ion-content.statusbar-padding:first-child scroll-content,
+  .md ion-menu > ion-content.statusbar-padding:first-child scroll-content {
+    padding-top: 20px; }
+  .md ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .md ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
+  .md ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .md ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
+    padding-top: calc(16px + 20px); }
 
 @font-face {
   font-family: "Roboto";
@@ -11363,10 +11380,10 @@ ion-icon {
     color: #fff;
     background-color: #222; }
   .wp [no-padding],
-  .wp [no-padding] > scroll-content {
+  .wp [no-padding] scroll-content {
     padding: 0; }
   .wp [no-margin],
-  .wp [no-margin] > scroll-content {
+  .wp [no-margin] scroll-content {
     margin: 0; }
   .wp ion-fixed {
     position: absolute;
@@ -13536,16 +13553,26 @@ ion-icon {
     .wp .bar-button-solid-dark.activated {
       color: #fff;
       background-color: #343434; }
-  .wp.platform-cordova.platform-ios ion-navbar-section {
+  .wp ion-navbar-section.statusbar-padding {
     height: calc(4.6rem + 20px);
     min-height: calc(4.6rem + 20px); }
-  .wp.platform-cordova.platform-ios ion-navbar,
-  .wp.platform-cordova.platform-ios ion-app > ion-toolbar:first-child,
-  .wp.platform-cordova.platform-ios ion-menu > ion-toolbar:first-child,
-  .wp.platform-cordova.platform-ios ion-page.modal > ion-toolbar:first-child {
-    padding-top: calc(4px + 20px);
+  .wp ion-navbar-section.statusbar-padding > .toolbar {
+    padding-top: 20px;
     height: calc(4.6rem + 20px);
     min-height: calc(4.6rem + 20px); }
+  .wp ion-nav > ion-page > .toolbar.statusbar-padding:first-child,
+  .wp ion-menu > .toolbar.statusbar-padding:first-child {
+    padding-top: 20px;
+    height: calc(4.6rem + 20px);
+    min-height: calc(4.6rem + 20px); }
+  .wp ion-nav > ion-page > ion-content.statusbar-padding:first-child scroll-content,
+  .wp ion-menu > ion-content.statusbar-padding:first-child scroll-content {
+    padding-top: 20px; }
+  .wp ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .wp ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
+  .wp ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .wp ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
+    padding-top: calc(16px + 20px); }
 
 @font-face {
   font-family: "Noto Sans";

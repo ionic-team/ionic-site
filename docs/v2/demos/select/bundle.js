@@ -2573,8 +2573,8 @@
 	    appRef.injector.get(tap_click_1.TapClick);
 	    var app = appRef.injector.get(app_1.IonicApp);
 	    var platform = appRef.injector.get(platform_1.Platform);
-	    var zone = appRef.injector.get(core_1.NgZone);
-	    platform.prepareReady(zone);
+	    platform.setZone(appRef.injector.get(core_1.NgZone));
+	    platform.prepareReady();
 	    app.setProd(prodMode);
 	}
 	exports.postBootstrap = postBootstrap;
@@ -26568,6 +26568,12 @@
 	        this._platforms = platforms;
 	        this._readyPromise = new Promise(function (res) { _this._readyResolve = res; });
 	    }
+	    /**
+	     * @private
+	     */
+	    Platform.prototype.setZone = function (zone) {
+	        this._zone = zone;
+	    };
 	    // Methods
 	    // **********************************************
 	    /**
@@ -26719,11 +26725,10 @@
 	    /**
 	     * @private
 	     */
-	    Platform.prototype.prepareReady = function (zone) {
+	    Platform.prototype.prepareReady = function () {
 	        // this is the default prepareReady if it's not replaced by the engine
 	        // if there was no custom ready method from the engine
 	        // then use the default DOM ready
-	        this._zone = zone;
 	        dom_1.ready(this.triggerReady.bind(this));
 	    };
 	    /**
@@ -66492,7 +66497,7 @@
 	        swipeBackEnabled: isIOSDevice,
 	        swipeBackThreshold: 40,
 	        tapPolyfill: isIOSDevice,
-	        virtualScrollEventAssist: !(window.indexedDB)
+	        virtualScrollEventAssist: !(win.indexedDB)
 	    },
 	    isMatch: function (p) {
 	        return p.isPlatformMatch('ios', ['iphone', 'ipad', 'ipod'], ['windows phone']);

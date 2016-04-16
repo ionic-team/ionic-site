@@ -42783,13 +42783,14 @@
 	        var fromX = self._el.scrollLeft;
 	        var xDistance = Math.abs(x - fromX);
 	        var yDistance = Math.abs(y - fromY);
+	        var maxAttempts = (duration / 16) + 100;
 	        return new Promise(function (resolve) {
 	            var startTime;
 	            var attempts = 0;
 	            // scroll loop
 	            function step() {
 	                attempts++;
-	                if (!self._el || !self.isPlaying || attempts > 200) {
+	                if (!self._el || !self.isPlaying || attempts > maxAttempts) {
 	                    self.isPlaying = false;
 	                    resolve();
 	                    return;

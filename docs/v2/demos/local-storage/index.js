@@ -10,13 +10,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var ionic_angular_2 = require('ionic-angular');
+var core_1 = require('angular2/core');
+var CleanLocalDataPipe = (function () {
+    function CleanLocalDataPipe() {
+    }
+    CleanLocalDataPipe.prototype.transform = function (obj) {
+        this.validKeys = ['username', 'name', 'email', 'address'];
+        this.output = {};
+        this.data = JSON.parse(obj);
+        for (var i = 0; i < Object.keys(this.data).length; i++) {
+            if (this.validKeys.indexOf(Object.keys(this.data)[i]) > -1) {
+                this.output[Object.keys(this.data)[i]] = this.data[Object.keys(this.data)[i]];
+            }
+        }
+        return JSON.stringify(this.output, null, 2);
+    };
+    CleanLocalDataPipe = __decorate([
+        core_1.Pipe({ name: 'cleanLocalData' }),
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], CleanLocalDataPipe);
+    return CleanLocalDataPipe;
+}());
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
         this.root = MainPage;
     }
     ApiDemoApp = __decorate([
         ionic_angular_1.App({
-            template: '<ion-nav [root]="root"></ion-nav>'
+            template: '<ion-nav [root]="root"></ion-nav>',
+            pipes: [CleanLocalDataPipe]
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);
@@ -61,7 +84,8 @@ var MainPage = (function () {
     };
     MainPage = __decorate([
         ionic_angular_1.Page({
-            templateUrl: 'main.html'
+            templateUrl: 'main.html',
+            pipes: [CleanLocalDataPipe]
         }), 
         __metadata('design:paramtypes', [])
     ], MainPage);

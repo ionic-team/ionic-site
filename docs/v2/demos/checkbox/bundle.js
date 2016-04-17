@@ -57932,9 +57932,10 @@
 	 */
 	var Tab = (function (_super) {
 	    __extends(Tab, _super);
-	    function Tab(parentTabs, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer) {
+	    function Tab(parentTabs, app, config, keyboard, elementRef, compiler, viewManager, zone, renderer, _cd) {
 	        // A Tab is a NavController for its child pages
 	        _super.call(this, parentTabs, app, config, keyboard, elementRef, 'contents', compiler, viewManager, zone, renderer);
+	        this._cd = _cd;
 	        this._isEnabled = true;
 	        this._isShown = true;
 	        /**
@@ -58038,6 +58039,14 @@
 	     */
 	    Tab.prototype.setSelected = function (isSelected) {
 	        this.isSelected = isSelected;
+	        if (isSelected) {
+	            // this is the selected tab, detect changes
+	            this._cd.reattach();
+	        }
+	        else {
+	            // this tab is not selected, do not detect changes
+	            this._cd.detach();
+	        }
 	        this.hideNavbars(!isSelected);
 	    };
 	    /**
@@ -58115,10 +58124,10 @@
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(0, core_1.Inject(core_1.forwardRef(function () { return tabs_1.Tabs; }))), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Compiler !== 'undefined' && core_1.Compiler) === 'function' && _h) || Object, (typeof (_j = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _c) || Object, (typeof (_d = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Compiler !== 'undefined' && core_1.Compiler) === 'function' && _h) || Object, (typeof (_j = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object, (typeof (_m = typeof core_1.ChangeDetectorRef !== 'undefined' && core_1.ChangeDetectorRef) === 'function' && _m) || Object])
 	    ], Tab);
 	    return Tab;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 	}(nav_controller_1.NavController));
 	exports.Tab = Tab;
 

@@ -203,7 +203,7 @@ Use the blackOpaque statusbar (light text, for dark backgrounds).
 Set the status bar to a specific named color. Valid options:
 black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown.
 
-iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
+iOS note: you must call StatusBar.overlaysWebView(false) to enable color changing.
 
 
 
@@ -252,7 +252,7 @@ iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
 
 Set the status bar to a specific hex color (CSS shorthand supported!).
 
-iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
+iOS note: you must call StatusBar.overlaysWebView(false) to enable color changing.
 
 
 

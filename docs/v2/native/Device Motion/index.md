@@ -69,7 +69,7 @@ DeviceMotion.getCurrentAcceleration().then(
 );
 
 // Watch device acceleration
-var subscription = DeviceMotion.watchPosition().subscribe(acceleration =&gt; {
+var subscription = DeviceMotion.watchAcceleration().subscribe(acceleration =&gt; {
   console.log(acceleration);
 });
 

@@ -62530,9 +62530,9 @@
 	        var self = this;
 	        self.focusChange.emit(true);
 	        function docTouchEnd(ev) {
-	            var tappedElement = ev.target;
-	            if (tappedElement && self.element()) {
-	                if (tappedElement.tagName !== "INPUT" && tappedElement.tagName !== "TEXTAREA") {
+	            var tapped = ev.target;
+	            if (tapped && self.element()) {
+	                if (tapped.tagName !== "INPUT" && tapped.tagName !== "TEXTAREA" && !tapped.classList.contains('input-cover')) {
 	                    self.element().blur();
 	                }
 	            }

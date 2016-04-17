@@ -46912,6 +46912,12 @@
 	    /**
 	     * @private
 	     */
+	    ViewController.prototype.setChangeDetector = function (cd) {
+	        this._cd = cd;
+	    };
+	    /**
+	     * @private
+	     */
 	    ViewController.prototype.setInstance = function (instance) {
 	        this.instance = instance;
 	    };
@@ -47187,6 +47193,12 @@
 	     * The view is about to enter and become the active view.
 	     */
 	    ViewController.prototype.willEnter = function () {
+	        if (this._cd) {
+	            // ensure this has been re-attached to the change detector
+	            this._cd.reattach();
+	            // detect changes before we run any user code
+	            this._cd.detectChanges();
+	        }
 	        ctrlFn(this, 'onPageWillEnter');
 	    };
 	    /**
@@ -47213,6 +47225,9 @@
 	     */
 	    ViewController.prototype.didLeave = function () {
 	        ctrlFn(this, 'onPageDidLeave');
+	        // when this is not the active page
+	        // we no longer need to detect changes
+	        this._cd && this._cd.detach();
 	    };
 	    /**
 	     * @private
@@ -49626,6 +49641,8 @@
 	            // a new ComponentRef has been created
 	            // set the ComponentRef's instance to this ViewController
 	            view.setInstance(component);
+	            // remember the ChangeDetectorRef for this ViewController
+	            view.setChangeDetector(hostViewRef.changeDetectorRef);
 	            // remember the ElementRef to the ion-page elementRef that was just created
 	            view.setPageRef(pageElementRef);
 	            if (!navbarContainerRef) {

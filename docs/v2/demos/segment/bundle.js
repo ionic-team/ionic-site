@@ -2461,9 +2461,9 @@
 	__export(__webpack_require__(7));
 	__export(__webpack_require__(168));
 	__export(__webpack_require__(297));
-	__export(__webpack_require__(362));
 	__export(__webpack_require__(363));
 	__export(__webpack_require__(364));
+	__export(__webpack_require__(365));
 	__export(__webpack_require__(169));
 	__export(__webpack_require__(369));
 	__export(__webpack_require__(166));
@@ -43463,20 +43463,20 @@
 	var spinner_1 = __webpack_require__(327);
 	var checkbox_1 = __webpack_require__(344);
 	var select_1 = __webpack_require__(345);
-	var option_1 = __webpack_require__(347);
-	var toggle_1 = __webpack_require__(348);
-	var input_1 = __webpack_require__(349);
+	var option_1 = __webpack_require__(348);
+	var toggle_1 = __webpack_require__(349);
+	var input_1 = __webpack_require__(350);
 	var label_1 = __webpack_require__(339);
-	var segment_1 = __webpack_require__(352);
-	var radio_button_1 = __webpack_require__(353);
-	var radio_group_1 = __webpack_require__(354);
-	var searchbar_1 = __webpack_require__(355);
-	var nav_1 = __webpack_require__(356);
-	var nav_push_1 = __webpack_require__(358);
-	var nav_router_1 = __webpack_require__(359);
+	var segment_1 = __webpack_require__(353);
+	var radio_button_1 = __webpack_require__(354);
+	var radio_group_1 = __webpack_require__(355);
+	var searchbar_1 = __webpack_require__(356);
+	var nav_1 = __webpack_require__(357);
+	var nav_push_1 = __webpack_require__(359);
+	var nav_router_1 = __webpack_require__(360);
 	var navbar_1 = __webpack_require__(310);
-	var id_1 = __webpack_require__(360);
-	var show_hide_when_1 = __webpack_require__(361);
+	var id_1 = __webpack_require__(361);
+	var show_hide_when_1 = __webpack_require__(362);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @private
@@ -60349,11 +60349,12 @@
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(179);
 	var alert_1 = __webpack_require__(346);
+	var action_sheet_1 = __webpack_require__(347);
 	var form_1 = __webpack_require__(173);
 	var item_1 = __webpack_require__(338);
 	var util_1 = __webpack_require__(170);
 	var nav_controller_1 = __webpack_require__(314);
-	var option_1 = __webpack_require__(347);
+	var option_1 = __webpack_require__(348);
 	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 	/**
 	 * @name Select
@@ -60475,6 +60476,10 @@
 	         */
 	        this.checked = false;
 	        /**
+	         * @private
+	         */
+	        this.interface = '';
+	        /**
 	         * @output {any} Any expression you want to evaluate when the selection has changed
 	         */
 	        this.change = new core_1.EventEmitter();
@@ -60508,8 +60513,9 @@
 	    };
 	    Select.prototype._open = function () {
 	        var _this = this;
-	        if (this._disabled)
+	        if (this._disabled) {
 	            return;
+	        }
 	        console.debug('select, open alert');
 	        // the user may have assigned some options specifically for the alert
 	        var alertOptions = util_1.merge({}, this.alertOptions);
@@ -60517,6 +60523,7 @@
 	        // and we create a new array for the alert's two buttons
 	        alertOptions.buttons = [{
 	                text: this.cancelText,
+	                role: 'cancel',
 	                handler: function () {
 	                    _this.cancel.emit(null);
 	                }
@@ -60525,36 +60532,62 @@
 	        if (!alertOptions.title && this._item) {
 	            alertOptions.title = this._item.getLabelText();
 	        }
-	        // user cannot provide inputs from alertOptions
-	        // alert inputs must be created by ionic from ion-options
-	        alertOptions.inputs = this._options.toArray().map(function (input) {
-	            return {
-	                type: (_this._multi ? 'checkbox' : 'radio'),
-	                label: input.text,
-	                value: input.value,
-	                checked: input.checked
-	            };
-	        });
-	        // create the alert instance from our built up alertOptions
-	        var alert = alert_1.Alert.create(alertOptions);
-	        if (this._multi) {
-	            // use checkboxes
-	            alert.setCssClass('select-alert multiple-select-alert');
+	        var options = this._options.toArray();
+	        if (this.interface === 'action-sheet' && options.length > 6) {
+	            this.interface = null;
+	        }
+	        var overlay;
+	        if (this.interface === 'action-sheet') {
+	            if (this._multi) {
+	                throw new Error('action-sheet interface cannot use multivalue selector');
+	            }
+	            alertOptions.buttons = alertOptions.buttons.concat(options.map(function (input) {
+	                return {
+	                    role: (input.checked ? 'selected' : ''),
+	                    text: input.text,
+	                    handler: function () {
+	                        _this.onChange(input.value);
+	                        _this.change.emit(input.value);
+	                    }
+	                };
+	            }));
+	            alertOptions.cssClass = 'select-action-sheet';
+	            overlay = action_sheet_1.ActionSheet.create(alertOptions);
 	        }
 	        else {
-	            // use radio buttons
-	            alert.setCssClass('select-alert single-select-alert');
-	        }
-	        alert.addButton({
-	            text: this.okText,
-	            handler: function (selectedValues) {
-	                _this.onChange(selectedValues);
-	                _this.change.emit(selectedValues);
+	            // default to use the alert interface
+	            this.interface = 'alert';
+	            // user cannot provide inputs from alertOptions
+	            // alert inputs must be created by ionic from ion-options
+	            alertOptions.inputs = this._options.toArray().map(function (input) {
+	                return {
+	                    type: (_this._multi ? 'checkbox' : 'radio'),
+	                    label: input.text,
+	                    value: input.value,
+	                    checked: input.checked
+	                };
+	            });
+	            // create the alert instance from our built up alertOptions
+	            overlay = alert_1.Alert.create(alertOptions);
+	            if (this._multi) {
+	                // use checkboxes
+	                overlay.setCssClass('select-alert multiple-select-alert');
 	            }
-	        });
-	        this._nav.present(alert, alertOptions);
+	            else {
+	                // use radio buttons
+	                overlay.setCssClass('select-alert single-select-alert');
+	            }
+	            overlay.addButton({
+	                text: this.okText,
+	                handler: function (selectedValues) {
+	                    _this.onChange(selectedValues);
+	                    _this.change.emit(selectedValues);
+	                }
+	            });
+	        }
+	        this._nav.present(overlay, alertOptions);
 	        this._isOpen = true;
-	        alert.onDismiss(function () {
+	        overlay.onDismiss(function () {
 	            _this._isOpen = false;
 	        });
 	    };
@@ -60698,6 +60731,10 @@
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
 	    ], Select.prototype, "checked", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Select.prototype, "interface", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
@@ -61379,6 +61416,409 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(179);
+	var animation_1 = __webpack_require__(318);
+	var transition_1 = __webpack_require__(317);
+	var config_1 = __webpack_require__(168);
+	var icon_1 = __webpack_require__(311);
+	var util_1 = __webpack_require__(170);
+	var nav_params_1 = __webpack_require__(309);
+	var view_controller_1 = __webpack_require__(308);
+	/**
+	 * @name ActionSheet
+	 * @description
+	 * An Action Sheet is a dialog that lets the user choose from a set of
+	 * options. It appears on top of the app's content, and must be manually
+	 * dismissed by the user before they can resume interaction with the app.
+	 * Dangerous (destructive) options are made obvious in `ios` mode. There are easy
+	 * ways to cancel out of the action sheet, such as tapping the backdrop or
+	 * hitting the escape key on desktop.
+	 *
+	 * An action sheet is created from an array of `buttons`, with each button
+	 * including properties for its `text`, and optionally a `handler` and `role`.
+	 * If a handler returns `false` then the action sheet will not be dismissed. An
+	 * action sheet can also optionally have a `title` and a `subTitle`.
+	 *
+	 * A button's `role` property can either be `destructive` or `cancel`. Buttons
+	 * without a role property will have the default look for the platform. Buttons
+	 * with the `cancel` role will always load as the bottom button, no matter where
+	 * they are in the array. All other buttons will be displayed in the order they
+	 * have been added to the `buttons` array. Note: We recommend that `destructive`
+	 * buttons are always the first button in the array, making them the top button.
+	 * Additionally, if the action sheet is dismissed by tapping the backdrop, then
+	 * it will fire the handler from the button with the cancel role.
+	 *
+	 * You can pass all of the action sheet's options in the first argument of
+	 * the create method: `ActionSheet.create(opts)`. Otherwise the action sheet's
+	 * instance has methods to add options, like `setTitle()` or `addButton()`.
+	 *
+	 * @usage
+	 * ```ts
+	 * constructor(nav: NavController) {
+	 *   this.nav = nav;
+	 * }
+	 *
+	 * presentActionSheet() {
+	 *   let actionSheet = ActionSheet.create({
+	 *     title: 'Modify your album',
+	 *     buttons: [
+	 *       {
+	 *         text: 'Destructive',
+	 *         role: 'destructive',
+	 *         handler: () => {
+	 *           console.log('Destructive clicked');
+	 *         }
+	 *       },
+	 *       {
+	 *         text: 'Archive',
+	 *         handler: () => {
+	 *           console.log('Archive clicked');
+	 *         }
+	 *       },
+	 *       {
+	 *         text: 'Cancel',
+	 *         role: 'cancel',
+	 *         handler: () => {
+	 *           console.log('Cancel clicked');
+	 *         }
+	 *       }
+	 *     ]
+	 *   });
+	 *
+	 *   this.nav.present(actionSheet);
+	 * }
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/action-sheet/
+	 * @see {@link /docs/v2/components#action-sheets ActionSheet Component Docs}
+	 */
+	var ActionSheet = (function (_super) {
+	    __extends(ActionSheet, _super);
+	    function ActionSheet(opts) {
+	        if (opts === void 0) { opts = {}; }
+	        opts.buttons = opts.buttons || [];
+	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+	        _super.call(this, ActionSheetCmp, opts);
+	        this.viewType = 'action-sheet';
+	        this.isOverlay = true;
+	        // by default, actionsheets should not fire lifecycle events of other views
+	        // for example, when an actionsheets enters, the current active view should
+	        // not fire its lifecycle events because it's not conceptually leaving
+	        this.fireOtherLifecycles = false;
+	    }
+	    /**
+	    * @private
+	    */
+	    ActionSheet.prototype.getTransitionName = function (direction) {
+	        var key = 'actionSheet' + (direction === 'back' ? 'Leave' : 'Enter');
+	        return this._nav && this._nav.config.get(key);
+	    };
+	    /**
+	     * @param {string} title Action sheet title
+	     */
+	    ActionSheet.prototype.setTitle = function (title) {
+	        this.data.title = title;
+	    };
+	    /**
+	     * @param {string} subTitle Action sheet subtitle
+	     */
+	    ActionSheet.prototype.setSubTitle = function (subTitle) {
+	        this.data.subTitle = subTitle;
+	    };
+	    /**
+	     * @param {object} button Action sheet button
+	     */
+	    ActionSheet.prototype.addButton = function (button) {
+	        this.data.buttons.push(button);
+	    };
+	    /**
+	     * Open an action sheet with the following options
+	     *
+	     * | Option                | Type       | Description                                                     |
+	     * |-----------------------|------------|-----------------------------------------------------------------|
+	     * | title                 |`string`    | The title for the actionsheet                                   |
+	     * | subTitle              |`string`    | The sub-title for the actionsheet                               |
+	     * | cssClass              |`string`    | An additional class for custom styles                           |
+	     * | enableBackdropDismiss |`boolean`   | If the actionsheet should close when the user taps the backdrop |
+	     * | buttons               |`array<any>`| An array of buttons to display                                  |
+	     *
+	     * For the buttons:
+	     *
+	     * | Option   | Type     | Description                                                                                                                                      |
+	     * |----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+	     * | text     | `string` | The buttons text                                                                                                                                 |
+	     * | icon     | `icon`   | The buttons icons                                                                                                                                |
+	     * | handler  | `any`    | An express the button should evaluate                                                                                                            |
+	     * | cssClass | `string` | An additional class for custom styles                                                                                                            |
+	     * | role     | `string` | How the button should be displayed, `destructive` or `cancel`. If not role is provided, it will display the button without any additional styles |
+	     *
+	     *
+	     *
+	     * @param {object} opts Action sheet options
+	     */
+	    ActionSheet.create = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        return new ActionSheet(opts);
+	    };
+	    return ActionSheet;
+	}(view_controller_1.ViewController));
+	exports.ActionSheet = ActionSheet;
+	/**
+	* @private
+	*/
+	var ActionSheetCmp = (function () {
+	    function ActionSheetCmp(_viewCtrl, _config, _elementRef, params, renderer) {
+	        this._viewCtrl = _viewCtrl;
+	        this._config = _config;
+	        this._elementRef = _elementRef;
+	        this.d = params.data;
+	        this.created = Date.now();
+	        if (this.d.cssClass) {
+	            renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
+	        }
+	        this.id = (++actionSheetIds);
+	        if (this.d.title) {
+	            this.hdrId = 'acst-hdr-' + this.id;
+	        }
+	        if (this.d.subTitle) {
+	            this.descId = 'acst-subhdr-' + this.id;
+	        }
+	    }
+	    ActionSheetCmp.prototype.onPageLoaded = function () {
+	        var _this = this;
+	        // normalize the data
+	        var buttons = [];
+	        this.d.buttons.forEach(function (button) {
+	            if (typeof button === 'string') {
+	                button = { text: button };
+	            }
+	            if (!button.cssClass) {
+	                button.cssClass = '';
+	            }
+	            // deprecated warning
+	            if (button.style) {
+	                console.warn('Alert "style" property has been renamed to "role"');
+	                button.role = button.style;
+	            }
+	            if (button.role === 'cancel') {
+	                _this.d.cancelButton = button;
+	            }
+	            else {
+	                if (button.role === 'destructive') {
+	                    button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive';
+	                }
+	                else if (button.role === 'selected') {
+	                    button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-selected';
+	                }
+	                buttons.push(button);
+	            }
+	        });
+	        this.d.buttons = buttons;
+	    };
+	    ActionSheetCmp.prototype.onPageDidEnter = function () {
+	        var activeElement = document.activeElement;
+	        if (document.activeElement) {
+	            activeElement.blur();
+	        }
+	        var focusableEle = this._elementRef.nativeElement.querySelector('button');
+	        if (focusableEle) {
+	            focusableEle.focus();
+	        }
+	    };
+	    ActionSheetCmp.prototype._keyUp = function (ev) {
+	        if (this.isEnabled() && this._viewCtrl.isLast()) {
+	            if (ev.keyCode === 27) {
+	                console.debug('actionsheet, escape button');
+	                this.bdClick();
+	            }
+	        }
+	    };
+	    ActionSheetCmp.prototype.click = function (button, dismissDelay) {
+	        var _this = this;
+	        if (!this.isEnabled()) {
+	            return;
+	        }
+	        var shouldDismiss = true;
+	        if (button.handler) {
+	            // a handler has been provided, execute it
+	            if (button.handler() === false) {
+	                // if the return value of the handler is false then do not dismiss
+	                shouldDismiss = false;
+	            }
+	        }
+	        if (shouldDismiss) {
+	            setTimeout(function () {
+	                _this.dismiss(button.role);
+	            }, dismissDelay || this._config.get('pageTransitionDelay'));
+	        }
+	    };
+	    ActionSheetCmp.prototype.bdClick = function () {
+	        if (this.isEnabled() && this.d.enableBackdropDismiss) {
+	            if (this.d.cancelButton) {
+	                this.click(this.d.cancelButton, 1);
+	            }
+	            else {
+	                this.dismiss('backdrop');
+	            }
+	        }
+	    };
+	    ActionSheetCmp.prototype.dismiss = function (role) {
+	        return this._viewCtrl.dismiss(null, role);
+	    };
+	    ActionSheetCmp.prototype.isEnabled = function () {
+	        var tm = this._config.getNumber('overlayCreatedDiff', 750);
+	        return (this.created + tm < Date.now());
+	    };
+	    __decorate([
+	        core_1.HostListener('body:keyup', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], ActionSheetCmp.prototype, "_keyUp", null);
+	    ActionSheetCmp = __decorate([
+	        core_1.Component({
+	            selector: 'ion-action-sheet',
+	            template: '<div (click)="bdClick()" tappable disable-activated class="backdrop" role="presentation"></div>' +
+	                '<div class="action-sheet-wrapper">' +
+	                '<div class="action-sheet-container">' +
+	                '<div class="action-sheet-group">' +
+	                '<div class="action-sheet-title" id="{{hdrId}}" *ngIf="d.title">{{d.title}}</div>' +
+	                '<div class="action-sheet-sub-title" id="{{descId}}" *ngIf="d.subTitle">{{d.subTitle}}</div>' +
+	                '<button (click)="click(b)" *ngFor="#b of d.buttons" class="action-sheet-button disable-hover" [ngClass]="b.cssClass">' +
+	                '<ion-icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></ion-icon> ' +
+	                '{{b.text}}' +
+	                '<ion-button-effect></ion-button-effect>' +
+	                '</button>' +
+	                '</div>' +
+	                '<div class="action-sheet-group" *ngIf="d.cancelButton">' +
+	                '<button (click)="click(d.cancelButton)" class="action-sheet-button action-sheet-cancel disable-hover" [ngClass]="d.cancelButton.cssClass">' +
+	                '<ion-icon [name]="d.cancelButton.icon" *ngIf="d.cancelButton.icon" class="action-sheet-icon"></ion-icon> ' +
+	                '{{d.cancelButton.text}}' +
+	                '<ion-button-effect></ion-button-effect>' +
+	                '</button>' +
+	                '</div>' +
+	                '</div>' +
+	                '</div>',
+	            host: {
+	                'role': 'dialog',
+	                '[attr.aria-labelledby]': 'hdrId',
+	                '[attr.aria-describedby]': 'descId'
+	            },
+	            directives: [common_1.NgFor, common_1.NgIf, icon_1.Icon],
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
+	    ], ActionSheetCmp);
+	    return ActionSheetCmp;
+	    var _a, _b, _c, _d, _e;
+	}());
+	var ActionSheetSlideIn = (function (_super) {
+	    __extends(ActionSheetSlideIn, _super);
+	    function ActionSheetSlideIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
+	        backdrop.fromTo('opacity', 0.01, 0.4);
+	        wrapper.fromTo('translateY', '100%', '0%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
+	    }
+	    return ActionSheetSlideIn;
+	}(transition_1.Transition));
+	transition_1.Transition.register('action-sheet-slide-in', ActionSheetSlideIn);
+	var ActionSheetSlideOut = (function (_super) {
+	    __extends(ActionSheetSlideOut, _super);
+	    function ActionSheetSlideOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
+	        backdrop.fromTo('opacity', 0.4, 0);
+	        wrapper.fromTo('translateY', '0%', '100%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add(backdrop).add(wrapper);
+	    }
+	    return ActionSheetSlideOut;
+	}(transition_1.Transition));
+	transition_1.Transition.register('action-sheet-slide-out', ActionSheetSlideOut);
+	var ActionSheetMdSlideIn = (function (_super) {
+	    __extends(ActionSheetMdSlideIn, _super);
+	    function ActionSheetMdSlideIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
+	        backdrop.fromTo('opacity', 0.01, 0.26);
+	        wrapper.fromTo('translateY', '100%', '0%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
+	    }
+	    return ActionSheetMdSlideIn;
+	}(transition_1.Transition));
+	transition_1.Transition.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
+	var ActionSheetMdSlideOut = (function (_super) {
+	    __extends(ActionSheetMdSlideOut, _super);
+	    function ActionSheetMdSlideOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
+	        backdrop.fromTo('opacity', 0.26, 0);
+	        wrapper.fromTo('translateY', '0%', '100%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
+	    }
+	    return ActionSheetMdSlideOut;
+	}(transition_1.Transition));
+	transition_1.Transition.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
+	var ActionSheetWpSlideIn = (function (_super) {
+	    __extends(ActionSheetWpSlideIn, _super);
+	    function ActionSheetWpSlideIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
+	        backdrop.fromTo('opacity', 0.01, 0.16);
+	        wrapper.fromTo('translateY', '100%', '0%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
+	    }
+	    return ActionSheetWpSlideIn;
+	}(transition_1.Transition));
+	transition_1.Transition.register('action-sheet-wp-slide-in', ActionSheetWpSlideIn);
+	var ActionSheetWpSlideOut = (function (_super) {
+	    __extends(ActionSheetWpSlideOut, _super);
+	    function ActionSheetWpSlideOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
+	        backdrop.fromTo('opacity', 0.1, 0);
+	        wrapper.fromTo('translateY', '0%', '100%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
+	    }
+	    return ActionSheetWpSlideOut;
+	}(transition_1.Transition));
+	transition_1.Transition.register('action-sheet-wp-slide-out', ActionSheetWpSlideOut);
+	var actionSheetIds = -1;
+
+/***/ },
+/* 348 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61469,7 +61909,7 @@
 	exports.Option = Option;
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61742,7 +62182,7 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61769,10 +62209,10 @@
 	var config_1 = __webpack_require__(168);
 	var content_1 = __webpack_require__(322);
 	var form_1 = __webpack_require__(173);
-	var input_base_1 = __webpack_require__(350);
+	var input_base_1 = __webpack_require__(351);
 	var app_1 = __webpack_require__(174);
 	var item_1 = __webpack_require__(338);
-	var native_input_1 = __webpack_require__(351);
+	var native_input_1 = __webpack_require__(352);
 	var nav_controller_1 = __webpack_require__(314);
 	var platform_1 = __webpack_require__(169);
 	/**
@@ -61953,7 +62393,7 @@
 	exports.TextArea = TextArea;
 
 /***/ },
-/* 350 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61969,7 +62409,7 @@
 	var core_1 = __webpack_require__(8);
 	var util_1 = __webpack_require__(170);
 	var dom_1 = __webpack_require__(167);
-	var native_input_1 = __webpack_require__(351);
+	var native_input_1 = __webpack_require__(352);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
 	        this._form = _form;
@@ -62502,7 +62942,7 @@
 	}
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62733,7 +63173,7 @@
 	exports.NextInput = NextInput;
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62983,7 +63423,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 353 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63003,7 +63443,7 @@
 	var form_1 = __webpack_require__(173);
 	var util_1 = __webpack_require__(170);
 	var item_1 = __webpack_require__(338);
-	var radio_group_1 = __webpack_require__(354);
+	var radio_group_1 = __webpack_require__(355);
 	/**
 	 * @description
 	 * A radio button with a unique value. Note that all `<ion-radio>`
@@ -63171,7 +63611,7 @@
 	exports.RadioButton = RadioButton;
 
 /***/ },
-/* 354 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63397,7 +63837,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 355 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63757,7 +64197,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 356 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63784,7 +64224,7 @@
 	var keyboard_1 = __webpack_require__(289);
 	var util_1 = __webpack_require__(170);
 	var nav_controller_1 = __webpack_require__(314);
-	var nav_portal_1 = __webpack_require__(357);
+	var nav_portal_1 = __webpack_require__(358);
 	var view_controller_1 = __webpack_require__(308);
 	/**
 	 * @name Nav
@@ -63979,7 +64419,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 357 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64029,7 +64469,7 @@
 	exports.Portal = Portal;
 
 /***/ },
-/* 358 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64192,7 +64632,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 359 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64215,7 +64655,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var router_1 = __webpack_require__(121);
-	var nav_1 = __webpack_require__(356);
+	var nav_1 = __webpack_require__(357);
 	/**
 	 * @private
 	 */
@@ -64317,7 +64757,7 @@
 	}(router_1.Instruction));
 
 /***/ },
-/* 360 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64428,7 +64868,7 @@
 	exports.Attr = Attr;
 
 /***/ },
-/* 361 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64599,7 +65039,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 362 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64669,7 +65109,7 @@
 	exports.App = App;
 
 /***/ },
-/* 363 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64760,7 +65200,7 @@
 	exports.Page = Page;
 
 /***/ },
-/* 364 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64768,8 +65208,8 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(174));
-	__export(__webpack_require__(360));
-	__export(__webpack_require__(365));
+	__export(__webpack_require__(361));
+	__export(__webpack_require__(347));
 	__export(__webpack_require__(346));
 	__export(__webpack_require__(320));
 	__export(__webpack_require__(321));
@@ -64780,7 +65220,7 @@
 	__export(__webpack_require__(323));
 	__export(__webpack_require__(325));
 	__export(__webpack_require__(326));
-	__export(__webpack_require__(349));
+	__export(__webpack_require__(350));
 	__export(__webpack_require__(338));
 	__export(__webpack_require__(340));
 	__export(__webpack_require__(339));
@@ -64792,431 +65232,31 @@
 	__export(__webpack_require__(307));
 	__export(__webpack_require__(319));
 	__export(__webpack_require__(368));
-	__export(__webpack_require__(356));
+	__export(__webpack_require__(357));
 	__export(__webpack_require__(314));
 	__export(__webpack_require__(308));
 	__export(__webpack_require__(309));
-	__export(__webpack_require__(358));
 	__export(__webpack_require__(359));
+	__export(__webpack_require__(360));
 	__export(__webpack_require__(310));
-	__export(__webpack_require__(347));
-	__export(__webpack_require__(353));
+	__export(__webpack_require__(348));
 	__export(__webpack_require__(354));
+	__export(__webpack_require__(355));
 	__export(__webpack_require__(328));
 	__export(__webpack_require__(329));
 	__export(__webpack_require__(324));
-	__export(__webpack_require__(355));
-	__export(__webpack_require__(352));
+	__export(__webpack_require__(356));
+	__export(__webpack_require__(353));
 	__export(__webpack_require__(345));
-	__export(__webpack_require__(361));
+	__export(__webpack_require__(362));
 	__export(__webpack_require__(330));
 	__export(__webpack_require__(327));
 	__export(__webpack_require__(332));
 	__export(__webpack_require__(334));
 	__export(__webpack_require__(293));
-	__export(__webpack_require__(348));
+	__export(__webpack_require__(349));
 	__export(__webpack_require__(312));
 	__export(__webpack_require__(341));
-
-/***/ },
-/* 365 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(179);
-	var animation_1 = __webpack_require__(318);
-	var transition_1 = __webpack_require__(317);
-	var config_1 = __webpack_require__(168);
-	var icon_1 = __webpack_require__(311);
-	var util_1 = __webpack_require__(170);
-	var nav_params_1 = __webpack_require__(309);
-	var view_controller_1 = __webpack_require__(308);
-	/**
-	 * @name ActionSheet
-	 * @description
-	 * An Action Sheet is a dialog that lets the user choose from a set of
-	 * options. It appears on top of the app's content, and must be manually
-	 * dismissed by the user before they can resume interaction with the app.
-	 * Dangerous (destructive) options are made obvious in `ios` mode. There are easy
-	 * ways to cancel out of the action sheet, such as tapping the backdrop or
-	 * hitting the escape key on desktop.
-	 *
-	 * An action sheet is created from an array of `buttons`, with each button
-	 * including properties for its `text`, and optionally a `handler` and `role`.
-	 * If a handler returns `false` then the action sheet will not be dismissed. An
-	 * action sheet can also optionally have a `title` and a `subTitle`.
-	 *
-	 * A button's `role` property can either be `destructive` or `cancel`. Buttons
-	 * without a role property will have the default look for the platform. Buttons
-	 * with the `cancel` role will always load as the bottom button, no matter where
-	 * they are in the array. All other buttons will be displayed in the order they
-	 * have been added to the `buttons` array. Note: We recommend that `destructive`
-	 * buttons are always the first button in the array, making them the top button.
-	 * Additionally, if the action sheet is dismissed by tapping the backdrop, then
-	 * it will fire the handler from the button with the cancel role.
-	 *
-	 * You can pass all of the action sheet's options in the first argument of
-	 * the create method: `ActionSheet.create(opts)`. Otherwise the action sheet's
-	 * instance has methods to add options, like `setTitle()` or `addButton()`.
-	 *
-	 * @usage
-	 * ```ts
-	 * constructor(nav: NavController) {
-	 *   this.nav = nav;
-	 * }
-	 *
-	 * presentActionSheet() {
-	 *   let actionSheet = ActionSheet.create({
-	 *     title: 'Modify your album',
-	 *     buttons: [
-	 *       {
-	 *         text: 'Destructive',
-	 *         role: 'destructive',
-	 *         handler: () => {
-	 *           console.log('Destructive clicked');
-	 *         }
-	 *       },
-	 *       {
-	 *         text: 'Archive',
-	 *         handler: () => {
-	 *           console.log('Archive clicked');
-	 *         }
-	 *       },
-	 *       {
-	 *         text: 'Cancel',
-	 *         role: 'cancel',
-	 *         handler: () => {
-	 *           console.log('Cancel clicked');
-	 *         }
-	 *       }
-	 *     ]
-	 *   });
-	 *
-	 *   this.nav.present(actionSheet);
-	 * }
-	 * ```
-	 *
-	 * @demo /docs/v2/demos/action-sheet/
-	 * @see {@link /docs/v2/components#action-sheets ActionSheet Component Docs}
-	 */
-	var ActionSheet = (function (_super) {
-	    __extends(ActionSheet, _super);
-	    function ActionSheet(opts) {
-	        if (opts === void 0) { opts = {}; }
-	        opts.buttons = opts.buttons || [];
-	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
-	        _super.call(this, ActionSheetCmp, opts);
-	        this.viewType = 'action-sheet';
-	        this.isOverlay = true;
-	        // by default, actionsheets should not fire lifecycle events of other views
-	        // for example, when an actionsheets enters, the current active view should
-	        // not fire its lifecycle events because it's not conceptually leaving
-	        this.fireOtherLifecycles = false;
-	    }
-	    /**
-	    * @private
-	    */
-	    ActionSheet.prototype.getTransitionName = function (direction) {
-	        var key = 'actionSheet' + (direction === 'back' ? 'Leave' : 'Enter');
-	        return this._nav && this._nav.config.get(key);
-	    };
-	    /**
-	     * @param {string} title Action sheet title
-	     */
-	    ActionSheet.prototype.setTitle = function (title) {
-	        this.data.title = title;
-	    };
-	    /**
-	     * @param {string} subTitle Action sheet subtitle
-	     */
-	    ActionSheet.prototype.setSubTitle = function (subTitle) {
-	        this.data.subTitle = subTitle;
-	    };
-	    /**
-	     * @param {object} button Action sheet button
-	     */
-	    ActionSheet.prototype.addButton = function (button) {
-	        this.data.buttons.push(button);
-	    };
-	    /**
-	     * Open an action sheet with the following options
-	     *
-	     * | Option                | Type       | Description                                                     |
-	     * |-----------------------|------------|-----------------------------------------------------------------|
-	     * | title                 |`string`    | The title for the actionsheet                                   |
-	     * | subTitle              |`string`    | The sub-title for the actionsheet                               |
-	     * | cssClass              |`string`    | An additional class for custom styles                           |
-	     * | enableBackdropDismiss |`boolean`   | If the actionsheet should close when the user taps the backdrop |
-	     * | buttons               |`array<any>`| An array of buttons to display                                  |
-	     *
-	     * For the buttons:
-	     *
-	     * | Option   | Type     | Description                                                                                                                                      |
-	     * |----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-	     * | text     | `string` | The buttons text                                                                                                                                 |
-	     * | icon     | `icon`   | The buttons icons                                                                                                                                |
-	     * | handler  | `any`    | An express the button should evaluate                                                                                                            |
-	     * | cssClass | `string` | An additional class for custom styles                                                                                                            |
-	     * | role     | `string` | How the button should be displayed, `destructive` or `cancel`. If not role is provided, it will display the button without any additional styles |
-	     *
-	     *
-	     *
-	     * @param {object} opts Action sheet options
-	     */
-	    ActionSheet.create = function (opts) {
-	        if (opts === void 0) { opts = {}; }
-	        return new ActionSheet(opts);
-	    };
-	    return ActionSheet;
-	}(view_controller_1.ViewController));
-	exports.ActionSheet = ActionSheet;
-	/**
-	* @private
-	*/
-	var ActionSheetCmp = (function () {
-	    function ActionSheetCmp(_viewCtrl, _config, _elementRef, params, renderer) {
-	        this._viewCtrl = _viewCtrl;
-	        this._config = _config;
-	        this._elementRef = _elementRef;
-	        this.d = params.data;
-	        this.created = Date.now();
-	        if (this.d.cssClass) {
-	            renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
-	        }
-	        this.id = (++actionSheetIds);
-	        if (this.d.title) {
-	            this.hdrId = 'acst-hdr-' + this.id;
-	        }
-	        if (this.d.subTitle) {
-	            this.descId = 'acst-subhdr-' + this.id;
-	        }
-	    }
-	    ActionSheetCmp.prototype.onPageLoaded = function () {
-	        var _this = this;
-	        // normalize the data
-	        var buttons = [];
-	        this.d.buttons.forEach(function (button) {
-	            if (typeof button === 'string') {
-	                button = { text: button };
-	            }
-	            if (!button.cssClass) {
-	                button.cssClass = '';
-	            }
-	            // deprecated warning
-	            if (button.style) {
-	                console.warn('Alert "style" property has been renamed to "role"');
-	                button.role = button.style;
-	            }
-	            if (button.role === 'cancel') {
-	                _this.d.cancelButton = button;
-	            }
-	            else {
-	                if (button.role === 'destructive') {
-	                    button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive';
-	                }
-	                buttons.push(button);
-	            }
-	        });
-	        this.d.buttons = buttons;
-	    };
-	    ActionSheetCmp.prototype.onPageDidEnter = function () {
-	        var activeElement = document.activeElement;
-	        if (document.activeElement) {
-	            activeElement.blur();
-	        }
-	        var focusableEle = this._elementRef.nativeElement.querySelector('button');
-	        if (focusableEle) {
-	            focusableEle.focus();
-	        }
-	    };
-	    ActionSheetCmp.prototype._keyUp = function (ev) {
-	        if (this.isEnabled() && this._viewCtrl.isLast()) {
-	            if (ev.keyCode === 27) {
-	                console.debug('actionsheet, escape button');
-	                this.bdClick();
-	            }
-	        }
-	    };
-	    ActionSheetCmp.prototype.click = function (button, dismissDelay) {
-	        var _this = this;
-	        if (!this.isEnabled()) {
-	            return;
-	        }
-	        var shouldDismiss = true;
-	        if (button.handler) {
-	            // a handler has been provided, execute it
-	            if (button.handler() === false) {
-	                // if the return value of the handler is false then do not dismiss
-	                shouldDismiss = false;
-	            }
-	        }
-	        if (shouldDismiss) {
-	            setTimeout(function () {
-	                _this.dismiss(button.role);
-	            }, dismissDelay || this._config.get('pageTransitionDelay'));
-	        }
-	    };
-	    ActionSheetCmp.prototype.bdClick = function () {
-	        if (this.isEnabled() && this.d.enableBackdropDismiss) {
-	            if (this.d.cancelButton) {
-	                this.click(this.d.cancelButton, 1);
-	            }
-	            else {
-	                this.dismiss('backdrop');
-	            }
-	        }
-	    };
-	    ActionSheetCmp.prototype.dismiss = function (role) {
-	        return this._viewCtrl.dismiss(null, role);
-	    };
-	    ActionSheetCmp.prototype.isEnabled = function () {
-	        var tm = this._config.getNumber('overlayCreatedDiff', 750);
-	        return (this.created + tm < Date.now());
-	    };
-	    __decorate([
-	        core_1.HostListener('body:keyup', ['$event']), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
-	        __metadata('design:returntype', void 0)
-	    ], ActionSheetCmp.prototype, "_keyUp", null);
-	    ActionSheetCmp = __decorate([
-	        core_1.Component({
-	            selector: 'ion-action-sheet',
-	            template: '<div (click)="bdClick()" tappable disable-activated class="backdrop" role="presentation"></div>' +
-	                '<div class="action-sheet-wrapper">' +
-	                '<div class="action-sheet-container">' +
-	                '<div class="action-sheet-group">' +
-	                '<div class="action-sheet-title" id="{{hdrId}}" *ngIf="d.title">{{d.title}}</div>' +
-	                '<div class="action-sheet-sub-title" id="{{descId}}" *ngIf="d.subTitle">{{d.subTitle}}</div>' +
-	                '<button (click)="click(b)" *ngFor="#b of d.buttons" class="action-sheet-button disable-hover" [ngClass]="b.cssClass">' +
-	                '<ion-icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></ion-icon> ' +
-	                '{{b.text}}' +
-	                '<ion-button-effect></ion-button-effect>' +
-	                '</button>' +
-	                '</div>' +
-	                '<div class="action-sheet-group" *ngIf="d.cancelButton">' +
-	                '<button (click)="click(d.cancelButton)" class="action-sheet-button action-sheet-cancel disable-hover" [ngClass]="d.cancelButton.cssClass">' +
-	                '<ion-icon [name]="d.cancelButton.icon" *ngIf="d.cancelButton.icon" class="action-sheet-icon"></ion-icon> ' +
-	                '{{d.cancelButton.text}}' +
-	                '<ion-button-effect></ion-button-effect>' +
-	                '</button>' +
-	                '</div>' +
-	                '</div>' +
-	                '</div>',
-	            host: {
-	                'role': 'dialog',
-	                '[attr.aria-labelledby]': 'hdrId',
-	                '[attr.aria-describedby]': 'descId'
-	            },
-	            directives: [common_1.NgFor, common_1.NgIf, icon_1.Icon],
-	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
-	            encapsulation: core_1.ViewEncapsulation.None,
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
-	    ], ActionSheetCmp);
-	    return ActionSheetCmp;
-	    var _a, _b, _c, _d, _e;
-	}());
-	var ActionSheetSlideIn = (function (_super) {
-	    __extends(ActionSheetSlideIn, _super);
-	    function ActionSheetSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
-	        backdrop.fromTo('opacity', 0.01, 0.4);
-	        wrapper.fromTo('translateY', '100%', '0%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
-	    }
-	    return ActionSheetSlideIn;
-	}(transition_1.Transition));
-	transition_1.Transition.register('action-sheet-slide-in', ActionSheetSlideIn);
-	var ActionSheetSlideOut = (function (_super) {
-	    __extends(ActionSheetSlideOut, _super);
-	    function ActionSheetSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
-	        backdrop.fromTo('opacity', 0.4, 0);
-	        wrapper.fromTo('translateY', '0%', '100%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add(backdrop).add(wrapper);
-	    }
-	    return ActionSheetSlideOut;
-	}(transition_1.Transition));
-	transition_1.Transition.register('action-sheet-slide-out', ActionSheetSlideOut);
-	var ActionSheetMdSlideIn = (function (_super) {
-	    __extends(ActionSheetMdSlideIn, _super);
-	    function ActionSheetMdSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
-	        backdrop.fromTo('opacity', 0.01, 0.26);
-	        wrapper.fromTo('translateY', '100%', '0%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
-	    }
-	    return ActionSheetMdSlideIn;
-	}(transition_1.Transition));
-	transition_1.Transition.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
-	var ActionSheetMdSlideOut = (function (_super) {
-	    __extends(ActionSheetMdSlideOut, _super);
-	    function ActionSheetMdSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
-	        backdrop.fromTo('opacity', 0.26, 0);
-	        wrapper.fromTo('translateY', '0%', '100%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
-	    }
-	    return ActionSheetMdSlideOut;
-	}(transition_1.Transition));
-	transition_1.Transition.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
-	var ActionSheetWpSlideIn = (function (_super) {
-	    __extends(ActionSheetWpSlideIn, _super);
-	    function ActionSheetWpSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
-	        backdrop.fromTo('opacity', 0.01, 0.16);
-	        wrapper.fromTo('translateY', '100%', '0%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
-	    }
-	    return ActionSheetWpSlideIn;
-	}(transition_1.Transition));
-	transition_1.Transition.register('action-sheet-wp-slide-in', ActionSheetWpSlideIn);
-	var ActionSheetWpSlideOut = (function (_super) {
-	    __extends(ActionSheetWpSlideOut, _super);
-	    function ActionSheetWpSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
-	        backdrop.fromTo('opacity', 0.1, 0);
-	        wrapper.fromTo('translateY', '0%', '100%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
-	    }
-	    return ActionSheetWpSlideOut;
-	}(transition_1.Transition));
-	transition_1.Transition.register('action-sheet-wp-slide-out', ActionSheetWpSlideOut);
-	var actionSheetIds = -1;
 
 /***/ },
 /* 366 */

@@ -4583,6 +4583,9 @@ ion-action-sheet {
   .action-sheet-group:last-child .action-sheet-button {
     margin-bottom: 8px; }
 
+.action-sheet-selected {
+  font-weight: bold; }
+
 ion-alert {
   position: absolute;
   top: 0;

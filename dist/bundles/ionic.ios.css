@@ -4594,6 +4594,10 @@ ion-action-sheet {
     border-bottom-color: #ebebeb;
     background: #ebebeb; }
 
+.action-sheet-selected {
+  font-weight: bold;
+  background: white; }
+
 .action-sheet-destructive {
   color: #f53d3d; }
 

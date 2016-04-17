@@ -4580,6 +4580,9 @@ ion-icon {
       border-top: 1px solid #ebebeb;
       border-bottom-color: #ebebeb;
       background: #ebebeb; }
+  .ios .action-sheet-selected {
+    font-weight: bold;
+    background: white; }
   .ios .action-sheet-destructive {
     color: #f53d3d; }
   .ios .action-sheet-cancel {
@@ -7396,6 +7399,8 @@ ion-icon {
     background: #fafafa; }
     .md .action-sheet-group:last-child .action-sheet-button {
       margin-bottom: 8px; }
+  .md .action-sheet-selected {
+    font-weight: bold; }
   .md ion-alert {
     position: absolute;
     top: 0;
@@ -10629,6 +10634,8 @@ ion-icon {
     background: #fff; }
     .wp .action-sheet-group:last-child .action-sheet-button {
       margin-bottom: 8px; }
+  .wp .action-sheet-selected {
+    font-weight: bold; }
   .wp .action-sheet-cancel {
     background: transparent; }
   .wp ion-alert {

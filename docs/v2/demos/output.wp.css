@@ -4621,6 +4621,9 @@ ion-action-sheet {
   .action-sheet-group:last-child .action-sheet-button {
     margin-bottom: 8px; }
 
+.action-sheet-selected {
+  font-weight: bold; }
+
 .action-sheet-cancel {
   background: transparent; }
 

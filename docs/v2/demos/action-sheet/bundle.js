@@ -53210,6 +53210,12 @@
 	    /**
 	     * @private
 	     */
+	    Slides.prototype.slideTo = function (slideIndex, speed, runCallbacks) {
+	        this.slider.slideTo(slideIndex, speed, runCallbacks);
+	    };
+	    /**
+	     * @private
+	     */
 	    Slides.prototype.next = function () {
 	        this.slider.slideNext();
 	    };

@@ -49,7 +49,7 @@ The element the attribute is added to will only be hidden when that platform or 
 element that also has the <code>showWhen</code> attribute, the element will not show if <code>hideWhen</code> evaluates
 to <code>true</code> or <code>showWhen</code> evaluates to <code>false</code>. If the <code>hidden</code> attribute is also added, the element
 will not show if <code>hidden</code> evaluates to <code>true</code>.</p>
-<p>View the <a href="../../platform/Platform">Platform API docs</a> for more information on the different
+<p>View the <a href="../../../platform/Platform">Platform API docs</a> for more information on the different
 platforms you can use.</p>
 
 
@@ -92,7 +92,7 @@ platforms you can use.</p>
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='../ShowWhen'>ShowWhen API Docs</a>,
-<a href='../../platform/Platform'>Platform API Docs</a><!-- end content block -->
+<a href='../../../platform/Platform'>Platform API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

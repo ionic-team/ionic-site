@@ -60506,7 +60506,7 @@
 	 *     <ion-option>Pepperoni</ion-option>
 	 *     <ion-option>Sausage</ion-option>
 	 *   </ion-select>
-	 * <ion-item>
+	 * </ion-item>
 	 * ```
 	 *
 	 * ### Alert Buttons

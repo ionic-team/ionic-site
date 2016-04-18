@@ -83,7 +83,7 @@ a <code>value</code>, then it&#39;ll use its text as the value instead.</p>
     &lt;ion-option&gt;Pepperoni&lt;/ion-option&gt;
     &lt;ion-option&gt;Sausage&lt;/ion-option&gt;
   &lt;/ion-select&gt;
-&lt;ion-item&gt;
+&lt;/ion-item&gt;
 </code></pre>
 <h3 id="alert-buttons">Alert Buttons</h3>
 <p>By default, the two buttons read <code>Cancel</code> and <code>OK</code>. The each button&#39;s text

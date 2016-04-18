@@ -84,6 +84,10 @@ textarea {
   -ms-touch-action: manipulation;
   touch-action: manipulation; }
 
+button ion-label,
+a ion-label {
+  pointer-events: none; }
+
 button {
   border: 0;
   font-family: inherit;

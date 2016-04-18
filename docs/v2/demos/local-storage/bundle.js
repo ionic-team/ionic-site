@@ -64867,6 +64867,7 @@
 	var core_1 = __webpack_require__(8);
 	var app_1 = __webpack_require__(174);
 	/**
+	 * @private
 	 * @name Id
 	 * @description
 	 * The `id` attribute is an easy way to identify unique components in an app and access them

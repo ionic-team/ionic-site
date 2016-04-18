@@ -72,7 +72,7 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-methods" href="#static-methods"></a>Static Methods</h2>
+<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <div id="BACKUP_LOCAL"></div>
 <h3><a class="anchor" name="BACKUP_LOCAL" href="#BACKUP_LOCAL"></a><code>BACKUP_LOCAL()</code>
   
@@ -122,7 +122,7 @@ storage.query(&#39;select * from projects&#39;).then((resp) =&gt; {})
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="query"></div>
 

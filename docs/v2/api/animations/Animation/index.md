@@ -46,7 +46,7 @@ Improve this doc
 
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-methods" href="#static-methods"></a>Static Methods</h2>
+<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <div id="create"></div>
 <h3><a class="anchor" name="create" href="#create"></a><code>create()</code>
   
@@ -81,13 +81,13 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="isPlaying"></div>
 
 <h3>
 <a class="anchor" name="isPlaying" href="#isPlaying"></a>
-<code>isPlaying()</code>
+<code>isPlaying</code>
   
 
 </h3>
@@ -107,7 +107,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="hasTween" href="#hasTween"></a>
-<code>hasTween()</code>
+<code>hasTween</code>
   
 
 </h3>
@@ -127,7 +127,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="hasCompleted" href="#hasCompleted"></a>
-<code>hasCompleted()</code>
+<code>hasCompleted</code>
   
 
 </h3>
@@ -387,7 +387,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="before" href="#before"></a>
-<code>before()</code>
+<code>before</code>
   
 
 </h3>
@@ -407,7 +407,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="after" href="#after"></a>
-<code>after()</code>
+<code>after</code>
   
 
 </h3>

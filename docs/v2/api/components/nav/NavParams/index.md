@@ -69,13 +69,13 @@ option with a simple <code>get</code> method.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="data"></div>
 
 <h3>
 <a class="anchor" name="data" href="#data"></a>
-<code>data()</code>
+<code>data</code>
   
 
 </h3>

@@ -54,13 +54,13 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="r"></div>
 
 <h3>
 <a class="anchor" name="r" href="#r"></a>
-<code>r()</code>
+<code>r</code>
   
 
 </h3>

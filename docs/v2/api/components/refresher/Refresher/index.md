@@ -119,13 +119,13 @@ custom SVG or CSS animations.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="state"></div>
 
 <h3>
 <a class="anchor" name="state" href="#state"></a>
-<code>state()</code>
+<code>state</code>
   
 
 </h3>
@@ -153,7 +153,7 @@ The current state which the refresher is in. The refresher's states include:
 
 <h3>
 <a class="anchor" name="startY" href="#startY"></a>
-<code>startY()</code>
+<code>startY</code>
   
 
 </h3>
@@ -174,7 +174,7 @@ The Y coordinate of where the user started to the pull down the content.
 
 <h3>
 <a class="anchor" name="currentY" href="#currentY"></a>
-<code>currentY()</code>
+<code>currentY</code>
   
 
 </h3>
@@ -195,7 +195,7 @@ The current touch or mouse event's Y coordinate.
 
 <h3>
 <a class="anchor" name="deltaY" href="#deltaY"></a>
-<code>deltaY()</code>
+<code>deltaY</code>
   
 
 </h3>
@@ -217,7 +217,7 @@ mouse event's Y coordinate.
 
 <h3>
 <a class="anchor" name="progress" href="#progress"></a>
-<code>progress()</code>
+<code>progress</code>
   
 
 </h3>

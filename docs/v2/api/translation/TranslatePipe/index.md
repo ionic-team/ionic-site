@@ -60,13 +60,13 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="translate"></div>
 
 <h3>
 <a class="anchor" name="translate" href="#translate"></a>
-<code>translate()</code>
+<code>translate</code>
   
 
 </h3>

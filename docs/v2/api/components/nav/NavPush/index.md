@@ -86,13 +86,13 @@ NavPush:</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="registry"></div>
 
 <h3>
 <a class="anchor" name="registry" href="#registry"></a>
-<code>registry()</code>
+<code>registry</code>
   
 
 </h3>

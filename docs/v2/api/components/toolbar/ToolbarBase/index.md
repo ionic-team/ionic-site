@@ -51,13 +51,13 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="itemRefs"></div>
 
 <h3>
 <a class="anchor" name="itemRefs" href="#itemRefs"></a>
-<code>itemRefs()</code>
+<code>itemRefs</code>
   
 
 </h3>
@@ -77,7 +77,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="titleRef" href="#titleRef"></a>
-<code>titleRef()</code>
+<code>titleRef</code>
   
 
 </h3>
@@ -97,7 +97,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="titleCmp" href="#titleCmp"></a>
-<code>titleCmp()</code>
+<code>titleCmp</code>
   
 
 </h3>

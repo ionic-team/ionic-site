@@ -46,7 +46,7 @@ Improve this doc
 
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-methods" href="#static-methods"></a>Static Methods</h2>
+<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <div id="createTransition"></div>
 <h3><a class="anchor" name="createTransition" href="#createTransition"></a><code>createTransition()</code>
   

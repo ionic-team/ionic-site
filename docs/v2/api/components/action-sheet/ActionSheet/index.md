@@ -108,7 +108,7 @@ presentActionSheet() {
 
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-methods" href="#static-methods"></a>Static Methods</h2>
+<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <div id="create"></div>
 <h3><a class="anchor" name="create" href="#create"></a><code>create(opts)</code>
   
@@ -178,7 +178,7 @@ For the buttons:
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="setTitle"></div>
 

@@ -51,13 +51,13 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="ani"></div>
 
 <h3>
 <a class="anchor" name="ani" href="#ani"></a>
-<code>ani()</code>
+<code>ani</code>
   
 
 </h3>
@@ -77,7 +77,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="isOpening" href="#isOpening"></a>
-<code>isOpening()</code>
+<code>isOpening</code>
   
 
 </h3>

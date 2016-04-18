@@ -128,13 +128,13 @@ You could replace our default content with custom SVG or CSS animations.</p>
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="state"></div>
 
 <h3>
 <a class="anchor" name="state" href="#state"></a>
-<code>state()</code>
+<code>state</code>
   
 
 </h3>

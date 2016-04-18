@@ -51,13 +51,13 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="lastTouch"></div>
 
 <h3>
 <a class="anchor" name="lastTouch" href="#lastTouch"></a>
-<code>lastTouch()</code>
+<code>lastTouch</code>
   
 
 </h3>
@@ -77,7 +77,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="disableClick" href="#disableClick"></a>
-<code>disableClick()</code>
+<code>disableClick</code>
   
 
 </h3>
@@ -97,7 +97,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="lastActivated" href="#lastActivated"></a>
-<code>lastActivated()</code>
+<code>lastActivated</code>
   
 
 </h3>
@@ -117,7 +117,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="usePolyfill" href="#usePolyfill"></a>
-<code>usePolyfill()</code>
+<code>usePolyfill</code>
   
 
 </h3>
@@ -137,7 +137,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="activator" href="#activator"></a>
-<code>activator()</code>
+<code>activator</code>
   
 
 </h3>
@@ -157,7 +157,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="startCoord" href="#startCoord"></a>
-<code>startCoord()</code>
+<code>startCoord</code>
   
 
 </h3>
@@ -177,7 +177,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="pointerMove" href="#pointerMove"></a>
-<code>pointerMove()</code>
+<code>pointerMove</code>
   
 
 </h3>
@@ -197,7 +197,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="app" href="#app"></a>
-<code>app()</code>
+<code>app</code>
   
 
 </h3>
@@ -217,7 +217,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="zone" href="#zone"></a>
-<code>zone()</code>
+<code>zone</code>
   
 
 </h3>

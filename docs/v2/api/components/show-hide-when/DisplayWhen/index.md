@@ -51,13 +51,13 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="isMatch"></div>
 
 <h3>
 <a class="anchor" name="isMatch" href="#isMatch"></a>
-<code>isMatch()</code>
+<code>isMatch</code>
   
 
 </h3>
@@ -77,7 +77,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="platform" href="#platform"></a>
-<code>platform()</code>
+<code>platform</code>
   
 
 </h3>
@@ -97,7 +97,7 @@ Improve this doc
 
 <h3>
 <a class="anchor" name="conditions" href="#conditions"></a>
-<code>conditions()</code>
+<code>conditions</code>
   
 
 </h3>

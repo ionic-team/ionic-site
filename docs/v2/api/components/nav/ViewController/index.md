@@ -65,13 +65,13 @@ export class MyPage{
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="componentType"></div>
 
 <h3>
 <a class="anchor" name="componentType" href="#componentType"></a>
-<code>componentType()</code>
+<code>componentType</code>
   
 
 </h3>
@@ -207,7 +207,7 @@ Check to see if you can go back in the navigation stack
 
 <h3>
 <a class="anchor" name="index" href="#index"></a>
-<code>index()</code>
+<code>index</code>
   
 
 </h3>

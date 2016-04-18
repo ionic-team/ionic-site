@@ -119,7 +119,7 @@ class HelloWorld {
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-methods" href="#instance-methods"></a>Instance Methods</h2>
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
 <div id="setPortal"></div>
 
@@ -1562,7 +1562,7 @@ Returns the number of views in this nav controller.
 
 <h3>
 <a class="anchor" name="rootNav" href="#rootNav"></a>
-<code>rootNav()</code>
+<code>rootNav</code>
   
 
 </h3>

@@ -2433,7 +2433,6 @@
 	        this.isIos = platform.is('ios');
 	        this.isAndroid = platform.is('android');
 	        this.isWindows = platform.is('windows');
-	        this.userAgent = platform.userAgent();
 	    }
 	    ApiDemoApp = __decorate([
 	        ionic_angular_1.App({

@@ -65211,6 +65211,9 @@
 	* property that has an inline template, or a `templateUrl` property that points
 	* to an external html template. The `@App` decorator runs the Angular bootstrapping
 	* process automatically, however you can bootstrap your app separately if you prefer.
+	* Additionally, `@App` will automatically bootstrap with all of Ionic's
+	* core components, meaning they won't all have to be individually imported and added
+	* to each component's `directives` property.
 	*
 	* @usage
 	* ```ts
@@ -65239,8 +65242,6 @@
 	        // get current annotations
 	        var annotations = _reflect.getMetadata('annotations', cls) || [];
 	        args.selector = 'ion-app';
-	        // auto add Ionic directives
-	        args.directives = args.directives ? args.directives.concat(directives_1.IONIC_DIRECTIVES) : directives_1.IONIC_DIRECTIVES;
 	        // if no template was provided, default so it has a root <ion-nav>
 	        if (!args.templateUrl && !args.template) {
 	            args.template = '<ion-nav></ion-nav>';
@@ -65251,6 +65252,10 @@
 	        _reflect.defineMetadata('annotations', annotations, cls);
 	        // define array of bootstrap providers
 	        var providers = bootstrap_1.ionicProviders(args).concat(args.providers || []);
+	        // auto add Ionic directives
+	        var directives = args.directives ? args.directives.concat(directives_1.IONIC_DIRECTIVES) : directives_1.IONIC_DIRECTIVES;
+	        // automatically provide all of Ionic's directives to every component
+	        providers.push(core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: [directives], multi: true }));
 	        if (args.prodMode) {
 	            core_1.enableProdMode();
 	        }
@@ -65268,19 +65273,21 @@
 
 	"use strict";
 	var core_1 = __webpack_require__(8);
-	var directives_1 = __webpack_require__(297);
 	var _reflect = Reflect;
 	/**
 	 * @name Page
 	 * @description
 	 *
 	 * The Page decorator indicates that the decorated class is an Ionic
-	 * navigation component, meaning it can be navigated to using a NavController.
+	 * navigation component, meaning it can be navigated to using a
+	 * [NavController](../../nav/NavController).
 	 *
-	 * Pages have all `IONIC_DIRECTIVES`, which include all Ionic components and directives,
-	 * as well as Angular's [CORE_DIRECTIVES](https://angular.io/docs/js/latest/api/core/CORE_DIRECTIVES-const.html)
-	 * and [FORM_DIRECTIVES](https://angular.io/docs/js/latest/api/core/FORM_DIRECTIVES-const.html),
-	 * already provided to them, so you only need to supply custom components and directives to your pages:
+	 * Since the app has already been bootstrapped with Ionic's core directives, it
+	 * is not needed to include `IONIC_DIRECTIVES` in the directives property. Additionally,
+	 * Angular's [CORE_DIRECTIVES](https://angular.io/docs/ts/latest/api/common/CORE_DIRECTIVES-let.html)
+	 * and [FORM_DIRECTIVES](https://angular.io/docs/ts/latest/api/common/FORM_DIRECTIVES-let.html),
+	 * are also already provided, so you only need to supply any custom components and directives
+	 * to your pages:
 	 *
 	 * @usage
 	 *
@@ -65295,44 +65302,7 @@
 	 * class MyPage {}
 	 * ```
 	 *
-	 * Here [Content](../../../components/content/Content/) will load because
-	 * it is in `IONIC_DIRECTIVES`, so there is no need to add a `directives` array.
-	 *
-	 *
-	 * Say you built a custom component that uses the already existing Ionic component.
-	 * In this case, you would add `IONIC_DIRECTIVES` to your directives array.
-	 *
-	 * ```ts
-	 * import {IONIC_DIRECTIVES} from 'ionic-angular';
-	 * @Component({
-	 *   selector: 'my-component'
-	 *   template: `<div class="my-style">
-	 *   						  <ion-checkbox></ion-checkbox>
-	 *   						</div>`,
-	 *   directives: [IONIC_DIRECTIVES]
-	 * })
-	 * class MyCustomCheckbox {}
-	 *```
-
-	 * Alternatively, you could:
-	 *
-	 * ```ts
-	 * import {Checkbox, Icon} from 'ionic-angular'
-	 * ```
-	 *
-	 * along with any other components and add them individually:
-	 *
-	 * ```
-	 * @Component({
-	 *   ...
-	 *   directives: [Checkbox, Icon]
-	 * })
-	 * ```
-	 *
-	 * However, using IONIC_DIRECTIVES will always *Just Work* with no
-	 * performance overhead, so there is really no reason to not always use it.
-	 *
-	 * Pages have their content automatically wrapped in `<ion-view>`, so although
+	 * Pages have their content automatically wrapped in `<ion-page>`, so although
 	 * you may see these tags if you inspect your markup, you don't need to include
 	 * them in your templates.
 	 *
@@ -65341,7 +65311,6 @@
 	function Page(config) {
 	    return function (cls) {
 	        config.selector = 'ion-page';
-	        config.directives = config.directives ? config.directives.concat(directives_1.IONIC_DIRECTIVES) : directives_1.IONIC_DIRECTIVES;
 	        config.host = config.host || {};
 	        config.host['[hidden]'] = '_hidden';
 	        config.host['[class.tab-subpage]'] = '_tabSubPage';

@@ -46,7 +46,10 @@ number of arguments that act as global config variables for the app.
 <code>@App</code> is similar to Angular&#39;s <code>@Component</code> in which it can accept a <code>template</code>
 property that has an inline template, or a <code>templateUrl</code> property that points
 to an external html template. The <code>@App</code> decorator runs the Angular bootstrapping
-process automatically, however you can bootstrap your app separately if you prefer.</p>
+process automatically, however you can bootstrap your app separately if you prefer.
+Additionally, <code>@App</code> will automatically bootstrap with all of Ionic&#39;s
+core components, meaning they won&#39;t all have to be individually imported and added
+to each component&#39;s <code>directives</code> property.</p>
 
 <!-- @usage tag -->
 

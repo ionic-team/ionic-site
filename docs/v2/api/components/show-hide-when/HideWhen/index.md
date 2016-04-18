@@ -34,7 +34,7 @@ HideWhen
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/show-hide-when/show-hide-when.ts#L106">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/show-hide-when/show-hide-when.ts#L115">
 Improve this doc
 </a>
 
@@ -44,8 +44,13 @@ Improve this doc
 
 
 <p>The <code>hideWhen</code> attribute takes a string that represents a plaform or screen orientation.
-The element the attribute is added to will only be hidden when that platform or screen orientation is active.
-Complements the <a href="../ShowWhen">showWhen attribute</a>.</p>
+The element the attribute is added to will only be hidden when that platform or screen orientation is active.</p>
+<p>Complements the <a href="../ShowWhen">showWhen attribute</a>. If the <code>hideWhen</code> attribute is used on an
+element that also has the <code>showWhen</code> attribute, the element will not show if <code>hideWhen</code> evaluates
+to <code>true</code> or <code>showWhen</code> evaluates to <code>false</code>. If the <code>hidden</code> attribute is also added, the element
+will not show if <code>hidden</code> evaluates to <code>true</code>.</p>
+<p>View the <a href="../../platform/Platform">Platform API docs</a> for more information on the different
+platforms you can use.</p>
 
 
 <h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
@@ -86,7 +91,8 @@ Complements the <a href="../ShowWhen">showWhen attribute</a>.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='../ShowWhen'>ShowWhen API Docs</a><!-- end content block -->
+<a href='../ShowWhen'>ShowWhen API Docs</a>,
+<a href='../../platform/Platform'>Platform API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

@@ -52987,6 +52987,8 @@
 	        this.rapidUpdate = util_2.debounce(function () {
 	            _this.update();
 	        }, 10);
+	        this.id = ++slidesId;
+	        this.slideId = 'slides-' + this.id;
 	    }
 	    /**
 	     * @private
@@ -52997,8 +52999,9 @@
 	            this.options = {};
 	        }
 	        this.showPager = util_2.isTrueProperty(this.pager);
+	        var paginationId = '#' + this.slideId + ' .swiper-pagination';
 	        var options = util_2.defaults({
-	            pagination: '.swiper-pagination',
+	            pagination: paginationId,
 	        }, this.options);
 	        options.onTap = function (swiper, e) {
 	            _this.onTap(swiper, e);
@@ -53410,6 +53413,9 @@
 	                '<div [class.hide]="!showPager" class="swiper-pagination"></div>' +
 	                '</div>',
 	            directives: [common_1.NgClass],
+	            host: {
+	                '[id]': 'slideId'
+	            },
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
@@ -53469,6 +53475,7 @@
 	    return SlideLazy;
 	}());
 	exports.SlideLazy = SlideLazy;
+	var slidesId = -1;
 
 /***/ },
 /* 331 */

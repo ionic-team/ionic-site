@@ -177,6 +177,80 @@ Get the component for the given key.
 
 
 
+
+
+<div id="setAppInjector"></div>
+
+<h3>
+<a class="anchor" name="setAppInjector" href="#setAppInjector"></a>
+<code>setAppInjector(injector)</code>
+  
+
+</h3>
+
+Set the global app injector that contains references to all of the instantiated providers
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        injector
+        
+        
+      </td>
+      <td>
+        
+  
+      </td>
+      <td>
+        
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="getAppInjector"></div>
+
+<h3>
+<a class="anchor" name="getAppInjector" href="#getAppInjector"></a>
+<code>getAppInjector()</code>
+  
+
+</h3>
+
+Get an instance of the global app injector that contains references to all of the instantiated providers
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Injector</code> 
+
+</div>
+
+
 <!-- related link --><!-- end content block -->
 
 

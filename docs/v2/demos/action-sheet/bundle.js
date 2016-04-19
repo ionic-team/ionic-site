@@ -2605,6 +2605,7 @@
 	    platform.setZone(appRef.injector.get(core_1.NgZone));
 	    platform.prepareReady();
 	    app.setProd(prodMode);
+	    app.setAppInjector(appRef.injector);
 	}
 	exports.postBootstrap = postBootstrap;
 	function setupDom(window, document, config, platform, clickBlock, featureDetect) {
@@ -27874,6 +27875,20 @@
 	                '}');
 	        }
 	        return this._cmps[id];
+	    };
+	    /**
+	     * Set the global app injector that contains references to all of the instantiated providers
+	     * @param injector
+	     */
+	    IonicApp.prototype.setAppInjector = function (injector) {
+	        this._appInjector = injector;
+	    };
+	    /**
+	     * Get an instance of the global app injector that contains references to all of the instantiated providers
+	     * @returns {Injector}
+	     */
+	    IonicApp.prototype.getAppInjector = function () {
+	        return this._appInjector;
 	    };
 	    IonicApp = __decorate([
 	        core_1.Injectable(), 

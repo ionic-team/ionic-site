@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add cordova-base64-to-gallery</code></pre>
+<pre><code>$ ionic plugin add cordova-base64-to-gallery</code></pre>
 <p>Repo:
   <a href="https://github.com/Nexxa/cordova-base64-to-gallery">
     https://github.com/Nexxa/cordova-base64-to-gallery

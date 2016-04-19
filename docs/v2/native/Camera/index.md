@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add cordova-plugin-camera</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-camera</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-camera">
     https://github.com/apache/cordova-plugin-camera

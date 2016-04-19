@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add cordova-plugin-network-information</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-network-information</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-network-information">
     https://github.com/apache/cordova-plugin-network-information

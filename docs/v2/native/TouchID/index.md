@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add cordova-plugin-touch-id</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-touch-id</code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">
     https://github.com/EddyVerbruggen/cordova-plugin-touch-id

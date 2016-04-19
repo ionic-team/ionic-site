@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add cordova-sms-plugin</code></pre>
+<pre><code>$ ionic plugin add cordova-sms-plugin</code></pre>
 <p>Repo:
   <a href="https://github.com/cordova-sms/cordova-sms-plugin">
     https://github.com/cordova-sms/cordova-sms-plugin

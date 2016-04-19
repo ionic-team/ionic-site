@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add cordova-plugin-datepicker</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-datepicker</code></pre>
 <p>Repo:
   <a href="https://github.com/VitaliiBlagodir/cordova-plugin-datepicker">
     https://github.com/VitaliiBlagodir/cordova-plugin-datepicker

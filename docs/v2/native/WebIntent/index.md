@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add https://github.com/Initsogar/cordova-webintent.git</code></pre>
+<pre><code>$ ionic plugin add https://github.com/Initsogar/cordova-webintent.git</code></pre>
 <p>Repo:
   <a href="https://github.com/Initsogar/cordova-webintent.git">
     https://github.com/Initsogar/cordova-webintent.git

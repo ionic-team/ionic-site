@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git</code></pre>
+<pre><code>$ ionic plugin add https://github.com/VersoSolutions/CordovaClipboard.git</code></pre>
 <p>Repo:
   <a href="https://github.com/VersoSolutions/CordovaClipboard">
     https://github.com/VersoSolutions/CordovaClipboard

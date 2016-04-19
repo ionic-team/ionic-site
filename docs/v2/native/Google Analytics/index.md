@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add cordova-plugin-google-analytics</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-google-analytics</code></pre>
 <p>Repo:
   <a href="https://github.com/danwilson/google-analytics-plugin">
     https://github.com/danwilson/google-analytics-plugin

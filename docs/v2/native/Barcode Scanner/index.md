@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add phonegap-plugin-barcodescanner</code></pre>
+<pre><code>$ ionic plugin add phonegap-plugin-barcodescanner</code></pre>
 <p>Repo:
   <a href="https://github.com/phonegap/phonegap-plugin-barcodescanner">
     https://github.com/phonegap/phonegap-plugin-barcodescanner

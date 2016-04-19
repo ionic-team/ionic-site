@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add cordova-plugin-calendar</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-calendar</code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin">
     https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin

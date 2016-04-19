@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add cordova-plugin-flashlight</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-flashlight</code></pre>
 <p>Repo:
   <a href="https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git">
     https://github.com/EddyVerbruggen/Flashlight-PhoneGap-Plugin.git

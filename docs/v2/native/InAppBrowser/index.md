@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add cordova-plugin-inappbrowser</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-inappbrowser</code></pre>
 <p>Repo:
   <a href="">
     

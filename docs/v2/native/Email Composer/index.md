@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ cordova plugin add cordova-plugin-email-composer</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-email-composer</code></pre>
 <p>Repo:
   <a href="https://github.com/katzer/cordova-plugin-email-composer.git">
     https://github.com/katzer/cordova-plugin-email-composer.git

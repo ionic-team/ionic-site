@@ -57735,8 +57735,27 @@
 	     */
 	    Tabs.prototype.ngAfterContentInit = function () {
 	        var _this = this;
-	        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
 	        var preloadTabs = (util_1.isBlank(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
+	        // get the selected index
+	        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
+	        // ensure the selectedIndex isn't a hidden or disabled tab
+	        // also find the first available index incase we need it later
+	        var availableIndex = -1;
+	        this._tabs.forEach(function (tab, index) {
+	            if (tab.enabled && tab.show && availableIndex < 0) {
+	                // we know this tab index is safe to show
+	                availableIndex = index;
+	            }
+	            if (index === selectedIndex && (!tab.enabled || !tab.show)) {
+	                // the selectedIndex is not safe to show
+	                selectedIndex = -1;
+	            }
+	        });
+	        if (selectedIndex < 0) {
+	            // the selected index wasn't safe to show
+	            // instead use an available index found to be safe to show
+	            selectedIndex = availableIndex;
+	        }
 	        this._tabs.forEach(function (tab, index) {
 	            if (index === selectedIndex) {
 	                _this.select(tab);

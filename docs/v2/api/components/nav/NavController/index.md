@@ -100,15 +100,44 @@ class HelloWorld {
   }
 }
 </code></pre>
-<ul>
-<li><code>onPageLoaded</code> - Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The <code>onPageLoaded</code> event is good place to put your setup code for the page.</li>
-<li><code>onPageWillEnter</code> - Runs when the page is about to enter and become the active page.</li>
-<li><code>onPageDidEnter</code> - Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.</li>
-<li><code>onPageWillLeave</code> - Runs when the page is about to leave and no longer be the active page.</li>
-<li><code>onPageDidLeave</code> - Runs when the page has finished leaving and is no longer the active page.</li>
-<li><code>onPageWillUnload</code> - Runs when the page is about to be destroyed and have its elements removed.</li>
-<li><code>onPageDidUnload</code> - Runs after the page has been destroyed and its elements have been removed.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Page Event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>onPageLoaded</code></td>
+<td>Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The <code>onPageLoaded</code> event is good place to put your setup code for the page.</td>
+</tr>
+<tr>
+<td><code>onPageWillEnter</code></td>
+<td>Runs when the page is about to enter and become the active page.</td>
+</tr>
+<tr>
+<td><code>onPageDidEnter</code></td>
+<td>Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.</td>
+</tr>
+<tr>
+<td><code>onPageWillLeave</code></td>
+<td>Runs when the page is about to leave and no longer be the active page.</td>
+</tr>
+<tr>
+<td><code>onPageDidLeave</code></td>
+<td>Runs when the page has finished leaving and is no longer the active page.</td>
+</tr>
+<tr>
+<td><code>onPageWillUnload</code></td>
+<td>Runs when the page is about to be destroyed and have its elements removed.</td>
+</tr>
+<tr>
+<td><code>onPageDidUnload</code></td>
+<td>Runs after the page has been destroyed and its elements have been removed.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="nav-transition-promises">Nav Transition Promises</h3>
 <p>Navigation transitions are asynchronous, meaning they take a few moments to finish, and
 the duration of a transition could be any number. In most cases the async nature of a

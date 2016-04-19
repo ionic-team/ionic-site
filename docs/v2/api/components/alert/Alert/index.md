@@ -176,7 +176,7 @@ out first, <em>then</em> start the next transition.</p>
       let navTransition = alert.dismiss();
 
       // start some async method
-      someAsyncOperation(() =&gt; {
+      someAsyncOperation().then(() =&gt; {
         // once the async operation has completed
         // then run the next nav transition after the
         // first transition has finished animating out

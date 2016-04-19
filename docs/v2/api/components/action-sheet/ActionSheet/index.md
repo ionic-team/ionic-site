@@ -103,6 +103,54 @@ presentActionSheet() {
   this.nav.present(actionSheet);
 }
 </code></pre>
+<h3 id="dismissing-and-async-navigation">Dismissing And Async Navigation</h3>
+<p>After an action sheet has been dismissed, the app may need to also transition
+to another page depending on the handler&#39;s logic. However, because multiple
+transitions were fired at roughly the same time, it&#39;s difficult for the
+nav controller to cleanly animate multiple transitions that may
+have been kicked off asynchronously. This is further described in the
+<a href="../../nav/NavController"><code>Nav Transition Promises</code></a> section. For action sheets,
+this means it&#39;s best to wait for the action sheet to finish its transition
+out before starting a new transition on the same nav controller.</p>
+<p>In the example below, after the button has been clicked, its handler
+waits on async operation to complete, <em>then</em> it uses <code>pop</code> to navigate
+back a page in the same stack. The potential problem is that the async operation
+may have been completed before the action sheet has even finished its transition
+out. In this case, it&#39;s best to ensure the action sheet has finished its transition
+out first, <em>then</em> start the next transition.</p>
+<pre><code class="lang-ts">let actionSheet = ActionSheet.create({
+  title: &#39;Hello&#39;,
+  buttons: [{
+    text: &#39;Ok&#39;,
+    handler: () =&gt; {
+      // user has clicked the action sheet button
+      // begin the action sheet&#39;s dimiss transition
+      let navTransition = actionSheet.dismiss();
+
+      // start some async method
+      someAsyncOperation().then(() =&gt; {
+        // once the async operation has completed
+        // then run the next nav transition after the
+        // first transition has finished animating out
+
+        navTransition.then(() =&gt; {
+          this.nav.pop();
+        });
+      });
+      return false;
+    }
+  }]
+});
+
+this.nav.present(actionSheet);
+</code></pre>
+<p>It&#39;s important to note that the the handler returns <code>false</code>. A feature of
+button handlers is that they automatically dismiss the action sheet when their button
+was clicked, however, we&#39;ll need more control regarding the transition. Because
+the handler returns <code>false</code>, then the action sheet does not automatically dismiss
+itself. Instead, you now have complete control of when the action sheet has finished
+transitioning, and the ability to wait for the action sheet to finish transitioning
+out before starting a new transition.</p>
 
 
 

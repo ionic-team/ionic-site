@@ -109,6 +109,37 @@ class HelloWorld {
 <li><code>onPageWillUnload</code> - Runs when the page is about to be destroyed and have its elements removed.</li>
 <li><code>onPageDidUnload</code> - Runs after the page has been destroyed and its elements have been removed.</li>
 </ul>
+<h3 id="nav-transition-promises">Nav Transition Promises</h3>
+<p>Navigation transitions are asynchronous, meaning they take a few moments to finish, and
+the duration of a transition could be any number. In most cases the async nature of a
+transition doesn&#39;t cause any problems and the nav controller is pretty good about handling
+which transition was the most recent when multiple transitions have been kicked off.
+However, when an app begins firing off many transitions, on the same stack at
+<em>roughly</em> the same time, the nav controller can start to get lost as to which transition
+should be finishing, and which transitions should not be animated.</p>
+<p>In cases where an app&#39;s navigation can be altered by other async tasks, which may or
+may not take a long time, it&#39;s best to rely on each nav transition&#39;s returned
+promise. So instead of firing and forgetting multiple <code>push</code> or <code>pop</code> nav transitions,
+it&#39;s better to fire the next nav transition when the previous on has finished.</p>
+<p>In the example below, after we receive some data asynchronously, we then want transition
+to another page. Where the problem comes in, is that if we received the data 200ms after
+the first transition started, then kicking off another transition halfway through
+the first transition ends up with a janky transition. Instead, it&#39;s best to always
+ensure the first transition has already finished before starting the next.</p>
+<pre><code class="lang-ts">// begin the first transition
+let navTransition = this.nav.push(SomePage);
+
+// start an async call, we&#39;re not sure how long it&#39;ll take
+getSomeAsyncData().then(() =&gt; {
+  // incase we received the data faster than the time it
+  // took to finish the first transition, this logic should
+  // always wait that the previous transition has resolved
+  // first before kicking off the next transition
+  navTransition.then(() =&gt; {
+    this.nav.push(AnotherPage);
+  });
+});
+</code></pre>
 
 <!-- @usage tag -->
 
@@ -120,26 +151,6 @@ class HelloWorld {
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="setPortal"></div>
-
-<h3>
-<a class="anchor" name="setPortal" href="#setPortal"></a>
-<code>setPortal()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="setRoot"></div>
 

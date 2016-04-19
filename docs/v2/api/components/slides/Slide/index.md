@@ -34,7 +34,7 @@ Slide
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/slides/slides.ts#L683">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/slides/slides.ts#L798">
 Improve this doc
 </a>
 
@@ -43,7 +43,10 @@ Improve this doc
 
 
 
-<p><code>ion-slide</code> is a child component of <code>ion-slides</code> and is where all your individule slide content will be rendered too.</p>
+<p>The Slide component is a child component of <a href="../Slides">Slides</a>. The template
+should be written as <code>ion-slide</code>. Any slide content should be written
+in this component and it should be used in conjunction with <a href="../Slides">Slides</a>.</p>
+<p>See the <a href="../Slides">Slides API Docs</a> for more usage information.</p>
 
 
 <h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>

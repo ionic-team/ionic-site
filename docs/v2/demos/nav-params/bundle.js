@@ -52869,38 +52869,88 @@
 	/**
 	 * @name Slides
 	 * @description
-	 * Slides is a slide box implementation based on Swiper.js
+	 * The Slides component is a multi-section container. Each section can be swiped
+	 * or dragged between. It contains any number of [Slide](../Slide) components.
+	 *
+	 *
+	 * ### Creating
+	 * You should use a template to create slides and listen to slide events. The template
+	 * should contain the slide container, an `<ion-slides>` element, and any number of
+	 * [Slide](../Slide) components, written as `<ion-slide>`. Any configuration of the
+	 * slides should be passed in the `options` property of the `<ion-slides>` element.
+	 * You can listen to events such as the slide changing by placing the event on the
+	 * `<ion-slides>` element. See [Usage](#usage) below for more information on
+	 * creating slides.
+	 *
+	 *
+	 * ### Configuring
+	 * There are several configuration options that can be passed to Slides. These should
+	 * be passed in the `options` property of the `<ion-slides>` element upon creation.
+	 * You can allow the slides to loop around from the last to the first, set autoplay
+	 * on the slides so it will automatically switch between them, and more.
+	 *
+	 * Properties to pass in options:
+	 *
+	 * | Property              | Type      | Default        | Description                                                                                |
+	 * |-----------------------|-----------|----------------|--------------------------------------------------------------------------------------------|
+	 * | autoplay              | `number`  | -              | Delay between transitions (in ms). If this parameter is not passed, autoplay is disabled.  |
+	 * | direction             | `string`  | 'horizontal'   | Swipe direction: 'horizontal' or 'vertical'.                                               |
+	 * | initialSlide          | `number`  | 0              | Index number of initial slide                                                              |
+	 * | loop                  | `boolean` | false          | Whether to continuously loop from the last slide to the first slide.                       |
+	 * | speed                 | `number`  | 300            | Duration of transition between slides (in ms).                                             |
+	 *
+	 * See [Usage](#usage) below for more information on configuring slides.
+	 *
+	 *
+	 * ### Navigating
+	 * After creating and configuring the slides, you can navigate between them
+	 * by swiping or calling methods on the `Slides` instance. You can call `slideTo()` to
+	 * navigate to a specific slide, or `slideNext()` to change to the slide that follows
+	 * the active slide. All of the [methods](#instance-methods) provided by the `Slides`
+	 * instance are listed below. See [Usage](#usage) below for more information on
+	 * navigating between slides.
+	 *
+	 *
+	 * ### Limitations
+	 * The Slides component wraps the [Swiper](http://www.idangero.us/swiper/) component
+	 * built by iDangero.us. This means that all of the Swiper API isn't exposed on the
+	 * Slides component. See the [`getSlider()`](#getSlider) method for information on
+	 * getting the `Swiper` instance and using its methods directly.
+	 *
 	 *
 	 * @usage
-	 * ```ts
-	 * @Page({
-	 *  template: `
-	 *     <ion-slides pager (change)="onSlideChanged($event)" (move)="onSlideMove($event)">
-	 *      <ion-slide>
-	 *        <h3>Thank you for choosing the Awesome App!</h3>
-	 *        <p>
-	 *          The number one app for everything awesome.
-	 *        </p>
-	 *      </ion-slide>
-	 *      <ion-slide>
-	 *        <h3>Using Awesome</h3>
-	 *         <div id="list">
-	 *           <h5>Just three steps:</h5>
-	 *           <ol>
-	 *             <li>Be awesome</li>
-	 *             <li>Stay awesome</li>
-	 *             <li>There is no step 3</li>
-	 *           </ol>
-	 *         </div>
-	 *      </ion-slide>
-	 *      <ion-slide>
-	 *        <h3>Any questions?</h3>
-	 *      </ion-slide>
-	 *    </ion-slides>
-	 *    `
-	 *})
+	 * ```html
+	 * <ion-slides>
+	 *   <ion-slide>
+	 *     <p>Slide 1</p>
+	 *     <button (click)="goToSlide(3)">Navigate</button>
+	 *   </ion-slide>
+	 *   <ion-slide>
+	 *     <p>Slide 2</p>
+	 *   </ion-slide>
+	 *   <ion-slide>
+	 *     <p>Slide 3</p>
+	 *   </ion-slide>
+	 * </ion-slides>
+	 * ```
 	 *
-	 *```
+	 * ```ts
+	 * import {ViewChild} from 'angular2/core';
+	 * import {App, Slides} from 'ionic-angular';
+	 *
+	 *
+	 * @App({
+	 *   templateUrl: 'main.html'
+	 * })
+	 * class MyApp {
+	 *   @ViewChild(Slides) slider: Slides;
+	 *
+	 *   goToSlide(index) {
+	 *     this.slider.slideTo(index, 500);
+	 *   }
+	 * }
+	 * ```
+	 *
 	 * @demo /docs/v2/demos/slides/
 	 * @see {@link /docs/v2/components#slides Slides Component Docs}
 	 *
@@ -52917,23 +52967,27 @@
 	 */
 	var Slides = (function (_super) {
 	    __extends(Slides, _super);
-	    /**
-	     * @private
-	     * @param {ElementRef} elementRef  TODO
-	     */
 	    function Slides(elementRef) {
 	        var _this = this;
 	        _super.call(this, elementRef);
 	        /**
-	         * @output {any} expression to evaluate when a slide has been changed
-	         */
-	        this.change = new core_1.EventEmitter();
-	        /**
-	         * @output {any} expression to evaluate when a slide change starts
+	         * @private Deprecated
 	         */
 	        this.slideChangeStart = new core_1.EventEmitter();
 	        /**
-	         * @output {any} expression to evaluate when a slide moves
+	         * @private Deprecated
+	         */
+	        this.change = new core_1.EventEmitter();
+	        /**
+	         * @output {any} Expression to evaluate when a slide change starts.
+	         */
+	        this.willChange = new core_1.EventEmitter();
+	        /**
+	         * @output {any} Expression to evaluate when a slide change ends.
+	         */
+	        this.didChange = new core_1.EventEmitter();
+	        /**
+	         * @output {any} Expression to evaluate when a slide moves.
 	         */
 	        this.move = new core_1.EventEmitter();
 	        this.rapidUpdate = util_2.debounce(function () {
@@ -52950,10 +53004,34 @@
 	        if (!this.options) {
 	            this.options = {};
 	        }
-	        this.showPager = util_2.isTrueProperty(this.pager);
-	        var paginationId = '#' + this.slideId + ' .swiper-pagination';
+	        if (util_2.isPresent(this.pager)) {
+	            // beta.5 2016-04-18 deprecated warning
+	            // Pager should be passed as an option
+	            console.warn('The "pager" attribute has been deprecated. Please pass it in options.');
+	            // Remove this with the deprecation warning
+	            this.showPager = util_2.isTrueProperty(this.pager);
+	        }
+	        if (util_2.isPresent(this.zoom)) {
+	            // beta.5 2016-04-18 deprecated warning
+	            // Zoom should be passed as an option
+	            console.warn('The "zoom" attribute has been deprecated. Please pass it in options.');
+	        }
+	        if (util_2.isPresent(this.change)) {
+	            // beta.5 2016-04-18 deprecated warning
+	            // change has been renamed to didChange
+	            console.warn('The "change" event has been deprecated. Please use "didChange" instead.');
+	        }
+	        if (util_2.isPresent(this.slideChangeStart)) {
+	            // beta.5 2016-04-18 deprecated warning
+	            // slideChangeStart has been renamed to willChange
+	            console.warn('The "slideChangeStart" event has been deprecated. Please use "willChange" instead.');
+	        }
+	        if (util_2.isPresent(this.options.pager)) {
+	            this.showPager = util_2.isTrueProperty(this.options.pager);
+	        }
+	        var paginationId = '.' + this.slideId + ' .swiper-pagination';
 	        var options = util_2.defaults({
-	            pagination: paginationId,
+	            pagination: paginationId
 	        }, this.options);
 	        options.onTap = function (swiper, e) {
 	            _this.onTap(swiper, e);
@@ -52976,11 +53054,15 @@
 	            return _this.options.onTransitionEnd && _this.options.onTransitionEnd(swiper, e);
 	        };
 	        options.onSlideChangeStart = function (swiper) {
+	            // TODO deprecated 2016-04-18
 	            _this.slideChangeStart.emit(swiper);
+	            _this.willChange.emit(swiper);
 	            return _this.options.onSlideChangeStart && _this.options.onSlideChangeStart(swiper);
 	        };
 	        options.onSlideChangeEnd = function (swiper) {
+	            // TODO deprecated 2016-04-18
 	            _this.change.emit(swiper);
+	            _this.didChange.emit(swiper);
 	            return _this.options.onSlideChangeEnd && _this.options.onSlideChangeEnd(swiper);
 	        };
 	        options.onLazyImageLoad = function (swiper, slide, img) {
@@ -52999,7 +53081,7 @@
 	        });
 	        /*
 	        * TODO: Finish this
-	        if (util.isTrueProperty(this.zoom)) {
+	        if (isTrueProperty(this.zoom)) {
 	          this.enableZoom = true;
 	          setTimeout(() => {
 	            this.initZoom();
@@ -53276,67 +53358,91 @@
 	        setTimeout(function () {
 	            _this.slider.update();
 	            // Don't allow pager to show with > 10 slides
-	            if (_this.slider.slides.length > 10) {
+	            if (_this.length() > 10) {
 	                _this.showPager = false;
 	            }
 	        });
 	    };
 	    /**
-	     * @private
+	     * Transition to the specified slide.
+	     *
+	     * @param {number} index  The index number of the slide.
+	     * @param {number} speed  Transition duration (in ms). Optional.
+	     * @param {boolean} runCallbacks  Whether or not to emit the `willChange`/`didChange` events. Optional. Default true.
 	     */
-	    Slides.prototype.slideTo = function (slideIndex, speed, runCallbacks) {
-	        this.slider.slideTo(slideIndex, speed, runCallbacks);
+	    Slides.prototype.slideTo = function (index, speed, runCallbacks) {
+	        this.slider.slideTo(index, speed, runCallbacks);
 	    };
 	    /**
-	     * @private
+	     * Transition to the next slide.
+	     *
+	     * @param {number} speed  Transition duration (in ms). Optional.
+	     * @param {boolean} runCallbacks  Whether or not to emit the `willChange`/`didChange` events. Optional. Default true.
 	     */
-	    Slides.prototype.next = function () {
-	        this.slider.slideNext();
+	    Slides.prototype.slideNext = function (speed, runCallbacks) {
+	        this.slider.slideNext(runCallbacks, speed);
 	    };
 	    /**
-	     * @private
+	     * Transition to the previous slide.
+	     *
+	     * @param {number} speed  Transition duration (in ms). Optional.
+	     * @param {boolean} runCallbacks  Whether or not to emit the `willChange`/`didChange` events. Optional. Default true.
 	     */
-	    Slides.prototype.prev = function () {
-	        this.slider.slidePrev();
+	    Slides.prototype.slidePrev = function (speed, runCallbacks) {
+	        this.slider.slidePrev(runCallbacks, speed);
 	    };
 	    /**
-	     * @private
+	     * Get the index of the active slide.
+	     *
+	     * @returns {number} The index number of the current slide.
 	     */
-	    Slides.prototype.getIndex = function () {
+	    Slides.prototype.getActiveIndex = function () {
 	        return this.slider.activeIndex;
 	    };
 	    /**
-	     * @private
+	     * Get the total number of slides.
+	     *
+	     * @returns {number} The total number of slides.
 	     */
-	    Slides.prototype.getNumSlides = function () {
+	    Slides.prototype.length = function () {
 	        return this.slider.slides.length;
 	    };
 	    /**
-	     * @private
+	     * Get whether or not the current slide is the last slide.
+	     *
+	     * @returns {boolean} If the slide is the last slide or not.
 	     */
-	    Slides.prototype.isAtEnd = function () {
+	    Slides.prototype.isEnd = function () {
 	        return this.slider.isEnd;
 	    };
 	    /**
-	     * @private
+	     * Get whether or not the current slide is the first slide.
+	     *
+	     * @returns {boolean} If the slide is the first slide or not.
 	     */
-	    Slides.prototype.isAtBeginning = function () {
+	    Slides.prototype.isBeginning = function () {
 	        return this.slider.isBeginning;
 	    };
 	    /**
-	     * @private
+	     * Get the `Swiper` instance.
+	     *
+	     * The Slides component wraps the `Swiper` component built by iDangero.us. See the
+	     * [Swiper API Docs](http://idangero.us/swiper/api/) for information on using
+	     * the `Swiper` instance directly.
+	     *
+	     * @returns {Swiper}
 	     */
-	    Slides.prototype.getSliderWidget = function () {
+	    Slides.prototype.getSlider = function () {
 	        return this.slider;
 	    };
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
-	    ], Slides.prototype, "pager", void 0);
+	    ], Slides.prototype, "options", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
-	    ], Slides.prototype, "options", void 0);
+	    ], Slides.prototype, "pager", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
@@ -53352,14 +53458,22 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Slides.prototype, "change", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
 	    ], Slides.prototype, "slideChangeStart", void 0);
 	    __decorate([
 	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], Slides.prototype, "change", void 0);
+	    __decorate([
+	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
+	    ], Slides.prototype, "willChange", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_d = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _d) || Object)
+	    ], Slides.prototype, "didChange", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_e = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _e) || Object)
 	    ], Slides.prototype, "move", void 0);
 	    Slides = __decorate([
 	        core_1.Component({
@@ -53372,21 +53486,25 @@
 	                '</div>',
 	            directives: [common_1.NgClass],
 	            host: {
-	                '[id]': 'slideId'
+	                '[class]': 'slideId'
 	            },
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [(typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object])
 	    ], Slides);
 	    return Slides;
-	    var _a, _b, _c, _d;
+	    var _a, _b, _c, _d, _e, _f;
 	}(ion_1.Ion));
 	exports.Slides = Slides;
 	/**
 	 * @name Slide
 	 * @description
-	 * `ion-slide` is a child component of `ion-slides` and is where all your individule slide content will be rendered too.
+	 * The Slide component is a child component of [Slides](../Slides). The template
+	 * should be written as `ion-slide`. Any slide content should be written
+	 * in this component and it should be used in conjunction with [Slides](../Slides).
+	 *
+	 * See the [Slides API Docs](../Slides) for more usage information.
 	 *
 	 * @demo /docs/v2/demos/slides/
 	 * @see {@link /docs/v2/api/components/slides/Slides/ Slides API Docs}

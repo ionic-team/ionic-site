@@ -58,8 +58,8 @@ the current page will navigate to the previous page in the stack.</p>
 <p>Unless you are using a directive like <a href="../NavPush/">NavPush</a>, or need a
 specific NavController, most times you will inject and use a reference to the
 nearest NavController to manipulate the navigation stack.</p>
-<p><h3 id="injecting_nav_controller">Injecting NavController</h3>
-Injecting NavController will always get you an instance of the nearest
+<h3 id="injecting-navcontroller">Injecting NavController</h3>
+<p>Injecting NavController will always get you an instance of the nearest
 NavController, regardless of whether it is a Tab or a Nav.</p>
 <p>Behind the scenes, when Ionic instantiates a new NavController, it creates an
 injector with NavController bound to that instance (usually either a Nav or
@@ -74,8 +74,8 @@ navigation controller for most situations (for more advanced situations, see
   }
 }
 </code></pre>
-<p><h2 id="creating_pages">Page creation</h2>
-<em>For more information on the <code>@Page</code> decorator see the <a href="../../../decorators/Page/">@Page API
+<h2 id="page-creation">Page creation</h2>
+<p><em>For more information on the <code>@Page</code> decorator see the <a href="../../../decorators/Page/">@Page API
 reference</a>.</em></p>
 <p>Pages are created when they are added to the navigation stack.  For methods
 like <a href="#push">push()</a>, the NavController takes any component class that is
@@ -85,8 +85,8 @@ compiles that component, adds it to the app and animates it into view.</p>
 from but still in the navigation stack (the exiting page on a <code>push()</code> for
 example).  They are destroyed when removed from the navigation stack (on
 <a href="#pop">pop()</a> or <a href="#setRoot">setRoot()</a>).</p>
-<p><h2 id="Lifecycle">Lifecycle events</h2>
-Lifecycle events are fired during various stages of navigation.  They can be
+<h2 id="lifecycle-events">Lifecycle events</h2>
+<p>Lifecycle events are fired during various stages of navigation.  They can be
 defined in any <code>@Page</code> decorated component class.</p>
 <pre><code class="lang-ts">@Page({
   template: &#39;Hello World&#39;

@@ -138,7 +138,7 @@ class HelloWorld {
 </tr>
 </tbody>
 </table>
-<h3 id="nav-transition-promises">Nav Transition Promises</h3>
+<h2 id="nav-transition-promises">Nav Transition Promises</h2>
 <p>Navigation transitions are asynchronous, meaning they take a few moments to finish, and
 the duration of a transition could be any number. In most cases the async nature of a
 transition doesn&#39;t cause any problems and the nav controller is pretty good about handling
@@ -149,20 +149,20 @@ should be finishing, and which transitions should not be animated.</p>
 <p>In cases where an app&#39;s navigation can be altered by other async tasks, which may or
 may not take a long time, it&#39;s best to rely on each nav transition&#39;s returned
 promise. So instead of firing and forgetting multiple <code>push</code> or <code>pop</code> nav transitions,
-it&#39;s better to fire the next nav transition when the previous on has finished.</p>
-<p>In the example below, after we receive some data asynchronously, we then want transition
-to another page. Where the problem comes in, is that if we received the data 200ms after
-the first transition started, then kicking off another transition halfway through
-the first transition ends up with a janky transition. Instead, it&#39;s best to always
-ensure the first transition has already finished before starting the next.</p>
+it&#39;s better to fire the next nav transition when the previous one has finished.</p>
+<p>In the example below, after the async operation has completed, we then want to transition
+to another page. Where the potential problem comes in, is that if the async operation
+completed 100ms after the first transition started, then kicking off another transition
+halfway through the first transition ends up with a janky animation. Instead, it&#39;s best
+to always ensure the first transition has already finished before starting the next.</p>
 <pre><code class="lang-ts">// begin the first transition
 let navTransition = this.nav.push(SomePage);
 
 // start an async call, we&#39;re not sure how long it&#39;ll take
-getSomeAsyncData().then(() =&gt; {
-  // incase we received the data faster than the time it
-  // took to finish the first transition, this logic should
-  // always wait that the previous transition has resolved
+someAsyncOperation().then(() =&gt; {
+  // incase the async operation completed faster than the time
+  // it took to finish the first transition, this logic should
+  // always ensure that the previous transition has resolved
   // first before kicking off the next transition
   navTransition.then(() =&gt; {
     this.nav.push(AnotherPage);

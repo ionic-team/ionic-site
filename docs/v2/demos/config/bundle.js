@@ -42960,6 +42960,16 @@
 	            });
 	        });
 	    };
+	    ScrollView.prototype.scrollToTop = function (duration) {
+	        return this.scrollTo(0, 0, duration);
+	    };
+	    ScrollView.prototype.scrollToBottom = function (duration) {
+	        var y = 0;
+	        if (this._el) {
+	            y = this._el.scrollHeight - this._el.clientHeight;
+	        }
+	        return this.scrollTo(0, y, duration);
+	    };
 	    ScrollView.prototype.stop = function () {
 	        this.isPlaying = false;
 	    };
@@ -51249,7 +51259,7 @@
 	     */
 	    Content.prototype.scrollToTop = function (duration) {
 	        if (duration === void 0) { duration = 300; }
-	        return this.scrollTo(0, 0, duration);
+	        return this._scroll.scrollToTop(duration);
 	    };
 	    /**
 	     * Get the `scrollTop` property of the content's scrollable element.
@@ -51264,6 +51274,15 @@
 	     */
 	    Content.prototype.setScrollTop = function (top) {
 	        this._scroll.setTop(top);
+	    };
+	    /**
+	     * Scroll to the bottom of the content component.
+	     * @param {number} [duration]  Duration of the scroll animation in milliseconds. Defaults to `300`.
+	     * @returns {Promise} Returns a promise which is resolved when the scroll has completed.
+	     */
+	    Content.prototype.scrollToBottom = function (duration) {
+	        if (duration === void 0) { duration = 300; }
+	        return this._scroll.scrollToBottom(duration);
 	    };
 	    /**
 	     * @private

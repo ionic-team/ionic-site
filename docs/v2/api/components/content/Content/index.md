@@ -341,6 +341,62 @@ Set the `scrollTop` property of the content's scrollable element.
 
 
 
+<div id="scrollToBottom"></div>
+
+<h3>
+<a class="anchor" name="scrollToBottom" href="#scrollToBottom"></a>
+<code>scrollToBottom(duration)</code>
+  
+
+</h3>
+
+Scroll to the bottom of the content component.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        duration
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Duration of the scroll animation in milliseconds. Defaults to <code>300</code>.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> Returns a promise which is resolved when the scroll has completed.
+
+</div>
+
+
+
+
 <div id="getContentDimensions"></div>
 
 <h3>

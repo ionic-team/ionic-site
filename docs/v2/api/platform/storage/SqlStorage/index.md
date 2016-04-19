@@ -193,7 +193,8 @@ like SELECT, INSERT, and UPDATE.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+  <code>Promise</code> <p>that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}</p>
+
 
 </div>
 
@@ -249,7 +250,8 @@ Get the value in the database identified by the given key.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+  <code>Promise</code> <p>that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}</p>
+
 
 </div>
 
@@ -322,7 +324,8 @@ Set the value in the database for the given key. Existing values will be overwri
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+  <code>Promise</code> <p>that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}</p>
+
 
 </div>
 
@@ -378,7 +381,8 @@ Remove the value in the database for the given key.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+  <code>Promise</code> <p>that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}</p>
+
 
 </div>
 

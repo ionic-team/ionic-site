@@ -186,7 +186,8 @@ export class MyPage{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise which is resolved when the scroll has completed.
+  <code>Promise</code> <p>Returns a promise which is resolved when the scroll has completed.</p>
+
 
 </div>
 
@@ -260,7 +261,8 @@ export class MyPage{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise which is resolved when the scroll has completed.
+  <code>Promise</code> <p>Returns a promise which is resolved when the scroll has completed.</p>
+
 
 </div>
 
@@ -390,7 +392,8 @@ Scroll to the bottom of the content component.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> Returns a promise which is resolved when the scroll has completed.
+  <code>Promise</code> <p>Returns a promise which is resolved when the scroll has completed.</p>
+
 
 </div>
 
@@ -416,7 +419,8 @@ Returns the content and scroll elements' dimensions.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>object</code> <span class="fixed-width">dimensions</span>  The content and scroll elements' dimensions
+  <code>object</code> <p><span class="fixed-width">dimensions</span>  The content and scroll elements&#39; dimensions</p>
+
 
 <table class="table returns-object-table param-table">
       <thead>

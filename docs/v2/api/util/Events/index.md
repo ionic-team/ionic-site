@@ -211,8 +211,7 @@ Unsubscribe from the given topic. Your handler will no longer receive events pub
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-   true if a handler was removed
-
+   <p>true if a handler was removed</p>
 
 
 </div>

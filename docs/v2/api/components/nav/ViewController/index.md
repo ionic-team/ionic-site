@@ -196,7 +196,8 @@ Check to see if you can go back in the navigation stack
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Returns if it's possible to go back from this Page.
+  <code>boolean</code> <p>Returns if it&#39;s possible to go back from this Page.</p>
+
 
 </div>
 
@@ -233,7 +234,8 @@ You can find out the index of the current view is in the current navigation stac
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>number</code> Returns the index of this page within its NavController.
+  <code>number</code> <p>Returns the index of this page within its NavController.</p>
+
 
 </div>
 
@@ -259,7 +261,8 @@ You can find out the index of the current view is in the current navigation stac
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Returns if this Page is the first in the stack of pages within its NavController.
+  <code>boolean</code> <p>Returns if this Page is the first in the stack of pages within its NavController.</p>
+
 
 </div>
 
@@ -285,7 +288,8 @@ You can find out the index of the current view is in the current navigation stac
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Returns if this Page is the last in the stack of pages within its NavController.
+  <code>boolean</code> <p>Returns if this Page is the last in the stack of pages within its NavController.</p>
+
 
 </div>
 
@@ -323,7 +327,8 @@ export class Page1 {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Returns a boolean if this Page has a navbar or not.
+  <code>boolean</code> <p>Returns a boolean if this Page has a navbar or not.</p>
+
 
 </div>
 

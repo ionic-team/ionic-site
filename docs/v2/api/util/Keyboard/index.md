@@ -97,7 +97,8 @@ export class MyClass{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> returns a true or flase value if the keyboard is open or not
+  <code>boolean</code> <p>returns a true or flase value if the keyboard is open or not</p>
+
 
 </div>
 
@@ -167,7 +168,8 @@ export class MyClass{
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>function</code> returns a callback that gets fired when the keyboard is closed
+  <code>function</code> <p>returns a callback that gets fired when the keyboard is closed</p>
+
 
 </div>
 

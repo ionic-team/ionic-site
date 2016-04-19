@@ -160,7 +160,8 @@ export MyPage {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> returns true/false based on platform.
+  <code>boolean</code> <p>returns true/false based on platform.</p>
+
 
 </div>
 
@@ -202,7 +203,8 @@ export MyPage {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>array</code> the array of platforms
+  <code>array</code> <p>the array of platforms</p>
+
 
 </div>
 
@@ -274,7 +276,8 @@ export MyPage {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>object</code> An object with various platform info
+  <code>object</code> <p>An object with various platform info</p>
+
 
 </div>
 

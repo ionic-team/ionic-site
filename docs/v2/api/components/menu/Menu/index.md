@@ -105,7 +105,8 @@ Sets the state of the Menu to open or not.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> returns a promise once set
+  <code>Promise</code> <p>returns a promise once set</p>
+
 
 </div>
 
@@ -131,7 +132,8 @@ Progamatically open the Menu.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> returns a promise when the menu is fully opened.
+  <code>Promise</code> <p>returns a promise when the menu is fully opened.</p>
+
 
 </div>
 
@@ -157,7 +159,8 @@ Progamatically close the Menu.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> returns a promise when the menu is fully closed.
+  <code>Promise</code> <p>returns a promise when the menu is fully closed.</p>
+
 
 </div>
 
@@ -183,7 +186,8 @@ Toggle the menu. If it's closed, it will open, and if opened, it will close.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> returns a promise when the menu has been toggled.
+  <code>Promise</code> <p>returns a promise when the menu has been toggled.</p>
+
 
 </div>
 
@@ -242,7 +246,8 @@ will also automatically disable all the others that are on the same side.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
+  <code>Menu</code> <p>Returns the instance of the menu, which is useful for chaining.</p>
+
 
 </div>
 
@@ -298,7 +303,8 @@ Used to enable or disable the ability to swipe open the menu.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
+  <code>Menu</code> <p>Returns the instance of the menu, which is useful for chaining.</p>
+
 
 </div>
 
@@ -308,8 +314,7 @@ Used to enable or disable the ability to swipe open the menu.
 
 <!-- end body block -->
 
-ypes</h3>
-<p>Menu supports two display types: <code>overlay</code>, <code>reveal</code> and <code>push</code>. Overlay
+ode>overlay</code>, <code>reveal</code> and <code>push</code>. Overlay
 is the traditional Material Design drawer type, and Reveal is the traditional
 iOS type. By default, menus will use to the correct type for the platform,
 but this can be overriden using the <code>type</code> property:</p>
@@ -358,7 +363,8 @@ Progamatically open the Menu.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> returns a promise when the menu is fully opened
+  <code>Promise</code> <p>returns a promise when the menu is fully opened</p>
+
 
 </div>
 
@@ -416,7 +422,8 @@ is given then it'll close that exact menu.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> returns a promise when the menu is fully closed
+  <code>Promise</code> <p>returns a promise when the menu is fully closed</p>
+
 
 </div>
 
@@ -473,7 +480,8 @@ will close.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Promise</code> returns a promise when the menu has been toggled
+  <code>Promise</code> <p>returns a promise when the menu has been toggled</p>
+
 
 </div>
 
@@ -532,7 +540,8 @@ will also automatically disable all the others that are on the same side.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
+  <code>Menu</code> <p>Returns the instance of the menu, which is useful for chaining.</p>
+
 
 </div>
 
@@ -605,7 +614,8 @@ Used to enable or disable the ability to swipe open the menu.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Menu</code> Returns the instance of the menu, which is useful for chaining.
+  <code>Menu</code> <p>Returns the instance of the menu, which is useful for chaining.</p>
+
 
 </div>
 
@@ -631,7 +641,8 @@ Used to enable or disable the ability to swipe open the menu.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Returns true if the menu is currently open, otherwise false.
+  <code>boolean</code> <p>Returns true if the menu is currently open, otherwise false.</p>
+
 
 </div>
 
@@ -657,7 +668,8 @@ Used to enable or disable the ability to swipe open the menu.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>boolean</code> Returns true if the menu is currently enabled, otherwise false.
+  <code>boolean</code> <p>Returns true if the menu is currently enabled, otherwise false.</p>
+
 
 </div>
 
@@ -717,7 +729,8 @@ property. If a menu is not found then it'll return `null`.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Menu</code> Returns the instance of the menu if found, otherwise `null`.
+  <code>Menu</code> <p>Returns the instance of the menu if found, otherwise <code>null</code>.</p>
+
 
 </div>
 
@@ -743,7 +756,8 @@ property. If a menu is not found then it'll return `null`.
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Array&lt;Menu&gt;</code> Returns an array of all menu instances.
+  <code>Array&lt;Menu&gt;</code> <p>Returns an array of all menu instances.</p>
+
 
 </div>
 

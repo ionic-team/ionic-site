@@ -243,7 +243,8 @@ onPageDidEnter() {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Tab</code> Returns the tab who's index matches the one passed
+  <code>Tab</code> <p>Returns the tab who&#39;s index matches the one passed</p>
+
 
 </div>
 
@@ -269,7 +270,8 @@ onPageDidEnter() {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>Tab</code> Returns the currently selected tab
+  <code>Tab</code> <p>Returns the currently selected tab</p>
+
 
 </div>
 

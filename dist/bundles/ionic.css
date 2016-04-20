@@ -10885,11 +10885,6 @@ ion-icon {
       margin-right: 1%; }
     .wp .alert-button.activated {
       background: darkgray; }
-    .wp .alert-button .button-inner {
-      -webkit-box-pack: end;
-      -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-      justify-content: flex-end; }
   .wp ion-badge {
     display: inline-block;
     padding: 3px 8px;

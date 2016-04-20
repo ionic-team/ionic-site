@@ -456,6 +456,34 @@ Get the index of the active slide.
 
 
 
+<div id="getPreviousIndex"></div>
+
+<h3>
+<a class="anchor" name="getPreviousIndex" href="#getPreviousIndex"></a>
+<code>getPreviousIndex()</code>
+  
+
+</h3>
+
+Get the index of the previous slide.
+
+
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>number</code> <p>The index number of the previous slide.</p>
+
+
+</div>
+
+
+
+
 <div id="length"></div>
 
 <h3>

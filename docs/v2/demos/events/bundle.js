@@ -53149,16 +53149,9 @@
 	            // Zoom should be passed as an option
 	            console.warn('The "zoom" attribute has been deprecated. Please pass it in options.');
 	        }
-	        if (util_2.isPresent(this.change)) {
-	            // beta.5 2016-04-18 deprecated warning
-	            // change has been renamed to didChange
-	            console.warn('The "change" event has been deprecated. Please use "didChange" instead.');
-	        }
-	        if (util_2.isPresent(this.slideChangeStart)) {
-	            // beta.5 2016-04-18 deprecated warning
-	            // slideChangeStart has been renamed to willChange
-	            console.warn('The "slideChangeStart" event has been deprecated. Please use "willChange" instead.');
-	        }
+	        // Deprecated 04-18 beta.5
+	        console.warn('The "slideChangeStart" event has been deprecated. Please use "willChange" instead. Ignore this if you aren\'t using it.');
+	        console.warn('The "change" event has been deprecated. Please use "didChange" instead. Ignore this if you aren\'t using it.');
 	        if (util_2.isPresent(this.options.pager)) {
 	            this.showPager = util_2.isTrueProperty(this.options.pager);
 	        }
@@ -53531,6 +53524,14 @@
 	     */
 	    Slides.prototype.getActiveIndex = function () {
 	        return this.slider.activeIndex;
+	    };
+	    /**
+	     * Get the index of the previous slide.
+	     *
+	     * @returns {number} The index number of the previous slide.
+	     */
+	    Slides.prototype.getPreviousIndex = function () {
+	        return this.slider.previousIndex;
 	    };
 	    /**
 	     * Get the total number of slides.

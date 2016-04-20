@@ -61479,7 +61479,7 @@
 	     *  | cssClass | `string` | An additional CSS class for the button                         |
 	     *  | role     | `string` | The buttons role, null or `cancel`                             |
 	     *
-	     * @param {object} opts Alert. See the tabel above
+	     * @param {object} opts Alert. See the table above
 	     */
 	    Alert.create = function (opts) {
 	        if (opts === void 0) { opts = {}; }

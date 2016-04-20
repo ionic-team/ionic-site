@@ -267,7 +267,7 @@ Alert options
   <code>object</code>
       </td>
       <td>
-        <p>Alert. See the tabel above</p>
+        <p>Alert. See the table above</p>
 
         
       </td>

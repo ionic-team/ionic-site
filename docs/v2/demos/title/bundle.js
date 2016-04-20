@@ -2500,7 +2500,7 @@
 	__export(__webpack_require__(364));
 	__export(__webpack_require__(365));
 	__export(__webpack_require__(169));
-	__export(__webpack_require__(369));
+	__export(__webpack_require__(370));
 	__export(__webpack_require__(166));
 	__export(__webpack_require__(171));
 	__export(__webpack_require__(289));
@@ -2508,14 +2508,14 @@
 	__export(__webpack_require__(318));
 	__export(__webpack_require__(317));
 	__export(__webpack_require__(296));
-	__export(__webpack_require__(373));
+	__export(__webpack_require__(374));
 	// these modules don't export anything
-	__webpack_require__(374);
 	__webpack_require__(375);
 	__webpack_require__(376);
 	__webpack_require__(377);
 	__webpack_require__(378);
 	__webpack_require__(379);
+	__webpack_require__(380);
 
 /***/ },
 /* 7 */
@@ -65755,6 +65755,7 @@
 	__export(__webpack_require__(334));
 	__export(__webpack_require__(293));
 	__export(__webpack_require__(349));
+	__export(__webpack_require__(369));
 	__export(__webpack_require__(312));
 	__export(__webpack_require__(341));
 
@@ -66453,15 +66454,271 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(370));
-	__export(__webpack_require__(371));
-	__export(__webpack_require__(372));
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(179);
+	var button_1 = __webpack_require__(313);
+	var icon_1 = __webpack_require__(311);
+	var animation_1 = __webpack_require__(318);
+	var transition_1 = __webpack_require__(317);
+	var config_1 = __webpack_require__(168);
+	var util_1 = __webpack_require__(170);
+	var nav_params_1 = __webpack_require__(309);
+	var nav_controller_1 = __webpack_require__(314);
+	var view_controller_1 = __webpack_require__(308);
+	/**
+	 * @name Toast
+	 * @description
+	 * An Toast is a small message that appears in the lower part of the screen.
+	 * It's useful for displaying success messages, error messages, etc.
+	 *
+	 * @usage
+	 * ```ts
+	 * constructor(nav: NavController) {
+	 *   this.nav = nav;
+	 * }
+	 *
+	 * presentToast() {
+	 *   let toast = Toast.create({
+	 *     message: 'User was added successfully',
+	 *     duration: 3000
+	 *   });
+	 *   this.nav.present(toast);
+	 * }
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/toast/
+	 */
+	var Toast = (function (_super) {
+	    __extends(Toast, _super);
+	    function Toast(opts) {
+	        if (opts === void 0) { opts = {}; }
+	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+	        _super.call(this, ToastCmp, opts);
+	        this.viewType = 'toast';
+	        this.isOverlay = false;
+	        // by default, toasts should not fire lifecycle events of other views
+	        // for example, when an toast enters, the current active view should
+	        // not fire its lifecycle events because it's not conceptually leaving
+	        this.fireOtherLifecycles = false;
+	    }
+	    /**
+	    * @private
+	    */
+	    Toast.prototype.getTransitionName = function (direction) {
+	        var key = 'toast' + (direction === 'back' ? 'Leave' : 'Enter');
+	        return this._nav && this._nav.config.get(key);
+	    };
+	    /**
+	     * @param {string} message  Toast message content
+	     */
+	    Toast.prototype.setMessage = function (message) {
+	        this.data.message = message;
+	    };
+	    /**
+	     *
+	     *  Toast options
+	     *
+	     *  | Property              | Type      | Description                                                                   |
+	     *  |-----------------------|-----------|---------------------------------------------------------------------------    |
+	     *  | message               | `string`  | The message for the toast. Long strings will wrap and the toast container will expand. **(required)**                                                     |
+	     *  | duration              | `number`  | The amount of time in milliseconds the toast should appear *(optional)*         |
+	     *  | cssClass              | `string`  | Any additional class for the toast *(optional)*                                 |
+	     *  | showCloseButton       | `boolean` | Whether or not to show an optional button to close the toast. *(optional)*      |
+	     *  | closeButtonText       | `string`  | Text to display in the close button. *(optional)*                               |
+	     *  | enableBackdropDismiss | `boolean` | Whether the the toast should be dismissed by tapping the backdrop *(optional)*  |
+	     *
+	     * @param {object} ToastOptions Toast. See the above table for available options.
+	     */
+	    Toast.create = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        return new Toast(opts);
+	    };
+	    return Toast;
+	}(view_controller_1.ViewController));
+	exports.Toast = Toast;
+	/**
+	* @private
+	*/
+	var ToastCmp = (function () {
+	    function ToastCmp(_nav, _viewCtrl, _config, _elementRef, params, renderer) {
+	        this._nav = _nav;
+	        this._viewCtrl = _viewCtrl;
+	        this._config = _config;
+	        this._elementRef = _elementRef;
+	        this.dismissTimeout = undefined;
+	        this.d = params.data;
+	        this.created = Date.now();
+	        if (this.d.cssClass) {
+	            renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
+	        }
+	        if (this.d.message) {
+	            this.hdrId = 'acst-hdr-' + this.id;
+	        }
+	    }
+	    ToastCmp.prototype.onPageDidEnter = function () {
+	        var _this = this;
+	        var activeElement = document.activeElement;
+	        if (activeElement) {
+	            activeElement.blur();
+	        }
+	        var focusableEle = this._elementRef.nativeElement.querySelector('button');
+	        if (focusableEle) {
+	            focusableEle.focus();
+	        }
+	        // if there's a `duration` set, automatically dismiss.
+	        this.dismissTimeout = setTimeout(function () { return _this.dismiss('backdrop'); }, this.d.duration ? this.d.duration : 3000);
+	    };
+	    ToastCmp.prototype.click = function (button, dismissDelay) {
+	        var _this = this;
+	        if (!this.isEnabled()) {
+	            return;
+	        }
+	        var shouldDismiss = true;
+	        if (shouldDismiss) {
+	            setTimeout(function () {
+	                _this.dismiss(button.role);
+	            }, dismissDelay || this._config.get('pageTransitionDelay'));
+	        }
+	    };
+	    ToastCmp.prototype.bdClick = function () {
+	        if (this.isEnabled() && this.d.enableBackdropDismiss) {
+	            this.dismiss('backdrop');
+	        }
+	    };
+	    ToastCmp.prototype.dismiss = function (role) {
+	        clearTimeout(this.dismissTimeout);
+	        this.dismissTimeout = undefined;
+	        return this._viewCtrl.dismiss(null, role);
+	    };
+	    ToastCmp.prototype.isEnabled = function () {
+	        var tm = this._config.getNumber('overlayCreatedDiff', 750);
+	        return (this.created + tm < Date.now());
+	    };
+	    ToastCmp = __decorate([
+	        core_1.Component({
+	            selector: 'ion-toast',
+	            template: "\n    <div (click)=\"bdClick()\" tappable disable-activated class=\"backdrop\" role=\"presentation\"></div>\n    <div class=\"toast-wrapper\">\n      <div class=\"toast-container\">\n        <div class=\"toast-message\" id=\"{{hdrId}}\" *ngIf=\"d.message\">{{d.message}}</div>\n        <button clear class=\"toast-button\" *ngIf=\"d.showCloseButton\" (click)=\"bdClick()\">\n          {{ d.closeButtonText }}\n          <ion-button-effect></ion-button-effect>\n         </button>\n      </div>\n    </div>\n  ",
+	            host: {
+	                'role': 'dialog',
+	                '[attr.aria-labelledby]': 'hdrId',
+	                '[attr.aria-describedby]': 'descId'
+	            },
+	            directives: [common_1.NgIf, icon_1.Icon, button_1.Button]
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object])
+	    ], ToastCmp);
+	    return ToastCmp;
+	    var _a, _b, _c, _d, _e, _f;
+	}());
+	var ToastSlideIn = (function (_super) {
+	    __extends(ToastSlideIn, _super);
+	    function ToastSlideIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
+	        wrapper.fromTo('translateY', '100%', '0%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(wrapper);
+	    }
+	    return ToastSlideIn;
+	}(transition_1.Transition));
+	var ToastSlideOut = (function (_super) {
+	    __extends(ToastSlideOut, _super);
+	    function ToastSlideOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
+	        wrapper.fromTo('translateY', '0%', '100%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add(wrapper);
+	    }
+	    return ToastSlideOut;
+	}(transition_1.Transition));
+	var ToastMdSlideIn = (function (_super) {
+	    __extends(ToastMdSlideIn, _super);
+	    function ToastMdSlideIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
+	        backdrop.fromTo('opacity', 0, 0);
+	        wrapper.fromTo('translateY', '100%', '0%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
+	    }
+	    return ToastMdSlideIn;
+	}(transition_1.Transition));
+	var ToastMdSlideOut = (function (_super) {
+	    __extends(ToastMdSlideOut, _super);
+	    function ToastMdSlideOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        wrapper.fromTo('translateY', '0%', '100%');
+	        backdrop.fromTo('opacity', 0, 0);
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
+	    }
+	    return ToastMdSlideOut;
+	}(transition_1.Transition));
+	var ToastWpPopIn = (function (_super) {
+	    __extends(ToastWpPopIn, _super);
+	    function ToastWpPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
+	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.3', '1');
+	        backdrop.fromTo('opacity', 0, 0);
+	        this.easing('cubic-bezier(0,0 0.05,1)').duration(200).add(backdrop).add(wrapper);
+	    }
+	    return ToastWpPopIn;
+	}(transition_1.Transition));
+	var ToastWpPopOut = (function (_super) {
+	    __extends(ToastWpPopOut, _super);
+	    function ToastWpPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '1.3');
+	        backdrop.fromTo('opacity', 0, 0);
+	        this.easing('ease-out').duration(150).add(backdrop).add(wrapper);
+	    }
+	    return ToastWpPopOut;
+	}(transition_1.Transition));
+	transition_1.Transition.register('toast-slide-in', ToastSlideIn);
+	transition_1.Transition.register('toast-slide-out', ToastSlideOut);
+	transition_1.Transition.register('toast-md-slide-in', ToastMdSlideIn);
+	transition_1.Transition.register('toast-md-slide-out', ToastMdSlideOut);
+	transition_1.Transition.register('toast-wp-slide-out', ToastWpPopOut);
+	transition_1.Transition.register('toast-wp-slide-in', ToastWpPopIn);
 
 /***/ },
 /* 370 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(371));
+	__export(__webpack_require__(372));
+	__export(__webpack_require__(373));
+
+/***/ },
+/* 371 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -66545,7 +66802,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 371 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66554,7 +66811,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(370);
+	var storage_1 = __webpack_require__(371);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -66651,7 +66908,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 372 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66660,7 +66917,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(370);
+	var storage_1 = __webpack_require__(371);
 	var util_1 = __webpack_require__(170);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -66799,7 +67056,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 373 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66849,7 +67106,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 374 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66859,6 +67116,8 @@
 	    activator: 'highlight',
 	    actionSheetEnter: 'action-sheet-slide-in',
 	    actionSheetLeave: 'action-sheet-slide-out',
+	    toastEnter: 'toast-slide-in',
+	    toastLeave: 'toast-slide-out',
 	    alertEnter: 'alert-pop-in',
 	    alertLeave: 'alert-pop-out',
 	    backButtonText: 'Back',
@@ -66879,6 +67138,8 @@
 	    activator: 'ripple',
 	    actionSheetEnter: 'action-sheet-md-slide-in',
 	    actionSheetLeave: 'action-sheet-md-slide-out',
+	    toastEnter: 'toast-md-slide-in',
+	    toastLeave: 'toast-md-slide-out',
 	    alertEnter: 'alert-md-pop-in',
 	    alertLeave: 'alert-md-pop-out',
 	    backButtonText: '',
@@ -66901,6 +67162,8 @@
 	    activator: 'highlight',
 	    actionSheetEnter: 'action-sheet-wp-slide-in',
 	    actionSheetLeave: 'action-sheet-wp-slide-out',
+	    toastEnter: 'toast-wp-slide-in',
+	    toastLeave: 'toast-wp-slide-out',
 	    alertEnter: 'alert-wp-pop-in',
 	    alertLeave: 'alert-wp-pop-out',
 	    backButtonText: '',
@@ -66919,7 +67182,7 @@
 	});
 
 /***/ },
-/* 375 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67107,7 +67370,7 @@
 	}
 
 /***/ },
-/* 376 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67167,7 +67430,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 377 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67341,7 +67604,7 @@
 	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 378 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67405,7 +67668,7 @@
 	transition_1.Transition.register('md-transition', MDTransition);
 
 /***/ },
-/* 379 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

@@ -4596,7 +4596,7 @@ ion-action-sheet {
 
 .action-sheet-selected {
   font-weight: bold;
-  background: white; }
+  background: #fff; }
 
 .action-sheet-destructive {
   color: #f53d3d; }
@@ -6881,7 +6881,7 @@ tabbar {
   .tab-disabled ion-badge,
   .tab-disabled ion-icon,
   .tab-disabled span {
-    opacity: 0.4; }
+    opacity: .4; }
 
 .tab-hidden {
   display: none; }

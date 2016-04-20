@@ -63510,7 +63510,7 @@
 	        function docTouchEnd(ev) {
 	            var tapped = ev.target;
 	            if (tapped && self.element()) {
-	                if (tapped.tagName !== "INPUT" && tapped.tagName !== "TEXTAREA" && !tapped.classList.contains('input-cover')) {
+	                if (tapped.tagName !== 'INPUT' && tapped.tagName !== 'TEXTAREA' && !tapped.classList.contains('input-cover')) {
 	                    self.element().blur();
 	                }
 	            }

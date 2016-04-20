@@ -47608,7 +47608,7 @@
 	        core_1.Component({
 	            selector: 'ion-navbar',
 	            template: '<div class="toolbar-background"></div>' +
-	                '<button class="back-button bar-button bar-button-default" [hidden]="_hideBb">' +
+	                '<button category="bar-button" class="back-button" [hidden]="_hideBb">' +
 	                '<span class="button-inner">' +
 	                '<ion-icon class="back-button-icon" [name]="_bbIcon"></ion-icon>' +
 	                '<span class="back-button-text">' +
@@ -52918,6 +52918,7 @@
 	 * | direction             | `string`  | 'horizontal'   | Swipe direction: 'horizontal' or 'vertical'.                                               |
 	 * | initialSlide          | `number`  | 0              | Index number of initial slide                                                              |
 	 * | loop                  | `boolean` | false          | Whether to continuously loop from the last slide to the first slide.                       |
+	 * | pager                 | `boolean` | false          | Show the pagination bullets.                                                               |
 	 * | speed                 | `number`  | 300            | Duration of transition between slides (in ms).                                             |
 	 *
 	 * See [Usage](#usage) below for more information on configuring slides.
@@ -61729,7 +61730,7 @@
 	                '</template>' +
 	                '</div>' +
 	                '<div class="alert-button-group" [ngClass]="{vertical: d.buttons.length>2}">' +
-	                '<button category="alert-button" *ngFor="#b of d.buttons" (click)="btnClick(b)" [ngClass]="b.cssClass" class="alert-button">' +
+	                '<button category="alert-button" *ngFor="#b of d.buttons" (click)="btnClick(b)" [ngClass]="b.cssClass">' +
 	                '{{b.text}}' +
 	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +
@@ -62206,14 +62207,14 @@
 	                '<div class="action-sheet-group">' +
 	                '<div class="action-sheet-title" id="{{hdrId}}" *ngIf="d.title">{{d.title}}</div>' +
 	                '<div class="action-sheet-sub-title" id="{{descId}}" *ngIf="d.subTitle">{{d.subTitle}}</div>' +
-	                '<button category="action-sheet-button" (click)="click(b)" *ngFor="#b of d.buttons" class="action-sheet-button disable-hover" [ngClass]="b.cssClass">' +
+	                '<button category="action-sheet-button" (click)="click(b)" *ngFor="#b of d.buttons" class="disable-hover" [ngClass]="b.cssClass">' +
 	                '<ion-icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></ion-icon> ' +
 	                '{{b.text}}' +
 	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +
 	                '</div>' +
 	                '<div class="action-sheet-group" *ngIf="d.cancelButton">' +
-	                '<button category="action-sheet-button" (click)="click(d.cancelButton)" class="action-sheet-button action-sheet-cancel disable-hover" [ngClass]="d.cancelButton.cssClass">' +
+	                '<button category="action-sheet-button" (click)="click(d.cancelButton)" class="action-sheet-cancel disable-hover" [ngClass]="d.cancelButton.cssClass">' +
 	                '<ion-icon [name]="d.cancelButton.icon" *ngIf="d.cancelButton.icon" class="action-sheet-icon"></ion-icon> ' +
 	                '{{d.cancelButton.text}}' +
 	                '<ion-button-effect></ion-button-effect>' +

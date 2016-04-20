@@ -94,6 +94,12 @@ on the slides so it will automatically switch between them, and more.</p>
 <td>Whether to continuously loop from the last slide to the first slide.</td>
 </tr>
 <tr>
+<td>pager</td>
+<td><code>boolean</code></td>
+<td>false</td>
+<td>Show the pagination bullets.</td>
+</tr>
+<tr>
 <td>speed</td>
 <td><code>number</code></td>
 <td>300</td>

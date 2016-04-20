@@ -299,6 +299,13 @@ Dynamically set which predefined color this button should use (e.g. default, sec
   <tbody>
     
     <tr>
+      <td>category</td>
+      <td><code>string</code></td>
+      <td><p> The category of the button.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>large</td>
       <td><code>string</code></td>
       <td><p> Large button.</p>

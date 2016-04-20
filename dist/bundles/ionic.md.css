@@ -4582,6 +4582,11 @@ ion-action-sheet {
   background: #fafafa; }
   .action-sheet-group:last-child .action-sheet-button {
     margin-bottom: 8px; }
+  .action-sheet-group .button-inner {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
 
 .action-sheet-selected {
   font-weight: bold; }
@@ -4748,7 +4753,7 @@ ion-alert {
 
 .alert-radio-icon {
   position: relative;
-  top: 13px;
+  top: 0;
   left: 13px;
   display: block;
   width: 16px;
@@ -4792,7 +4797,7 @@ ion-alert {
 
 .alert-checkbox-icon {
   position: relative;
-  top: 13px;
+  top: 0;
   left: 13px;
   width: 16px;
   height: 16px;
@@ -4842,6 +4847,11 @@ ion-alert {
   background-color: transparent; }
   .alert-button.activated {
     background-color: rgba(158, 158, 158, 0.2); }
+  .alert-button .button-inner {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
 
 ion-badge {
   display: inline-block;

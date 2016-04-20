@@ -4748,7 +4748,7 @@ ion-icon {
     color: #327eff; }
   .ios .alert-radio[aria-checked=true] .alert-radio-inner {
     position: absolute;
-    top: 13px;
+    top: -7px;
     left: 7px;
     width: 6px;
     height: 12px;
@@ -7399,6 +7399,11 @@ ion-icon {
     background: #fafafa; }
     .md .action-sheet-group:last-child .action-sheet-button {
       margin-bottom: 8px; }
+    .md .action-sheet-group .button-inner {
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start; }
   .md .action-sheet-selected {
     font-weight: bold; }
   .md ion-alert {
@@ -7544,7 +7549,7 @@ ion-icon {
     white-space: nowrap; }
   .md .alert-radio-icon {
     position: relative;
-    top: 13px;
+    top: 0;
     left: 13px;
     display: block;
     width: 16px;
@@ -7583,7 +7588,7 @@ ion-icon {
     white-space: nowrap; }
   .md .alert-checkbox-icon {
     position: relative;
-    top: 13px;
+    top: 0;
     left: 13px;
     width: 16px;
     height: 16px;
@@ -7629,6 +7634,11 @@ ion-icon {
     background-color: transparent; }
     .md .alert-button.activated {
       background-color: rgba(158, 158, 158, 0.2); }
+    .md .alert-button .button-inner {
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+      justify-content: flex-end; }
   .md ion-badge {
     display: inline-block;
     padding: 3px 8px;
@@ -10634,6 +10644,11 @@ ion-icon {
     background: #fff; }
     .wp .action-sheet-group:last-child .action-sheet-button {
       margin-bottom: 8px; }
+    .wp .action-sheet-group .button-inner {
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start; }
   .wp .action-sheet-selected {
     font-weight: bold; }
   .wp .action-sheet-cancel {
@@ -10784,7 +10799,7 @@ ion-icon {
     white-space: nowrap; }
   .wp .alert-radio-icon {
     position: relative;
-    top: 13px;
+    top: 0;
     left: 13px;
     display: block;
     margin: 0;
@@ -10820,7 +10835,7 @@ ion-icon {
     white-space: nowrap; }
   .wp .alert-checkbox-icon {
     position: relative;
-    top: 13px;
+    top: 0;
     left: 13px;
     width: 16px;
     height: 16px;
@@ -10870,6 +10885,11 @@ ion-icon {
       margin-right: 1%; }
     .wp .alert-button.activated {
       background: darkgray; }
+    .wp .alert-button .button-inner {
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+      justify-content: flex-end; }
   .wp ion-badge {
     display: inline-block;
     padding: 3px 8px;

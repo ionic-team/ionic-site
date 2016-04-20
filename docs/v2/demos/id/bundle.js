@@ -48302,6 +48302,15 @@
 	    /**
 	     * @private
 	     */
+	    Button.prototype.ngOnInit = function () {
+	        // If the button has a role applied to it
+	        if (this.category) {
+	            this.setRole(this.category);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
 	    Button.prototype.ngAfterContentInit = function () {
 	        this._init = true;
 	        this._readIcon(this._elementRef.nativeElement);
@@ -48424,6 +48433,10 @@
 	            button.setRole(role);
 	        });
 	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Button.prototype, "category", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Boolean), 
@@ -60709,6 +60722,7 @@
 	                '</div>' +
 	                '<button role="checkbox" ' +
 	                'type="button" ' +
+	                'category="item-cover" ' +
 	                '[id]="id" ' +
 	                '[attr.aria-checked]="_checked" ' +
 	                '[attr.aria-labelledby]="_labelId" ' +
@@ -61177,6 +61191,7 @@
 	                '</div>' +
 	                '<button aria-haspopup="true" ' +
 	                '[id]="id" ' +
+	                'category="item-cover" ' +
 	                '[attr.aria-labelledby]="_labelId" ' +
 	                '[attr.aria-disabled]="_disabled" ' +
 	                'class="item-cover">' +
@@ -61707,7 +61722,7 @@
 	                '<div *ngIf="d.inputs.length" [ngSwitch]="inputType">' +
 	                '<template ngSwitchWhen="radio">' +
 	                '<div class="alert-radio-group" role="radiogroup" [attr.aria-labelledby]="hdrId" [attr.aria-activedescendant]="activeId">' +
-	                '<button *ngFor="#i of d.inputs" (click)="rbClick(i)" [attr.aria-checked]="i.checked" [attr.id]="i.id" class="alert-tappable alert-radio" role="radio">' +
+	                '<button category="alert-radio-button" *ngFor="#i of d.inputs" (click)="rbClick(i)" [attr.aria-checked]="i.checked" [attr.id]="i.id" class="alert-tappable alert-radio" role="radio">' +
 	                '<div class="alert-radio-icon"><div class="alert-radio-inner"></div></div>' +
 	                '<div class="alert-radio-label">' +
 	                '{{i.label}}' +
@@ -61717,7 +61732,7 @@
 	                '</template>' +
 	                '<template ngSwitchWhen="checkbox">' +
 	                '<div class="alert-checkbox-group">' +
-	                '<button *ngFor="#i of d.inputs" (click)="cbClick(i)" [attr.aria-checked]="i.checked" class="alert-tappable alert-checkbox" role="checkbox">' +
+	                '<button category="alert-checkbox-button" *ngFor="#i of d.inputs" (click)="cbClick(i)" [attr.aria-checked]="i.checked" class="alert-tappable alert-checkbox" role="checkbox">' +
 	                '<div class="alert-checkbox-icon"><div class="alert-checkbox-inner"></div></div>' +
 	                '<div class="alert-checkbox-label">' +
 	                '{{i.label}}' +
@@ -61734,7 +61749,7 @@
 	                '</template>' +
 	                '</div>' +
 	                '<div class="alert-button-group" [ngClass]="{vertical: d.buttons.length>2}">' +
-	                '<button *ngFor="#b of d.buttons" (click)="btnClick(b)" [ngClass]="b.cssClass" class="alert-button">' +
+	                '<button category="alert-button" *ngFor="#b of d.buttons" (click)="btnClick(b)" [ngClass]="b.cssClass" class="alert-button">' +
 	                '{{b.text}}' +
 	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +
@@ -62211,14 +62226,14 @@
 	                '<div class="action-sheet-group">' +
 	                '<div class="action-sheet-title" id="{{hdrId}}" *ngIf="d.title">{{d.title}}</div>' +
 	                '<div class="action-sheet-sub-title" id="{{descId}}" *ngIf="d.subTitle">{{d.subTitle}}</div>' +
-	                '<button (click)="click(b)" *ngFor="#b of d.buttons" class="action-sheet-button disable-hover" [ngClass]="b.cssClass">' +
+	                '<button category="action-sheet-button" (click)="click(b)" *ngFor="#b of d.buttons" class="action-sheet-button disable-hover" [ngClass]="b.cssClass">' +
 	                '<ion-icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></ion-icon> ' +
 	                '{{b.text}}' +
 	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +
 	                '</div>' +
 	                '<div class="action-sheet-group" *ngIf="d.cancelButton">' +
-	                '<button (click)="click(d.cancelButton)" class="action-sheet-button action-sheet-cancel disable-hover" [ngClass]="d.cancelButton.cssClass">' +
+	                '<button category="action-sheet-button" (click)="click(d.cancelButton)" class="action-sheet-button action-sheet-cancel disable-hover" [ngClass]="d.cancelButton.cssClass">' +
 	                '<ion-icon [name]="d.cancelButton.icon" *ngIf="d.cancelButton.icon" class="action-sheet-icon"></ion-icon> ' +
 	                '{{d.cancelButton.text}}' +
 	                '<ion-button-effect></ion-button-effect>' +
@@ -62666,6 +62681,7 @@
 	                '</div>' +
 	                '<button role="checkbox" ' +
 	                'type="button" ' +
+	                'category="item-cover" ' +
 	                '[id]="id" ' +
 	                '[attr.aria-checked]="_checked" ' +
 	                '[attr.aria-labelledby]="_labelId" ' +
@@ -64102,6 +64118,7 @@
 	                '</div>' +
 	                '<button role="radio" ' +
 	                'type="button" ' +
+	                'category="item-cover" ' +
 	                '[id]="id" ' +
 	                '[attr.aria-checked]="_checked" ' +
 	                '[attr.aria-labelledby]="_labelId" ' +

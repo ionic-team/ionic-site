@@ -4825,7 +4825,7 @@ ion-alert {
 
 .alert-radio[aria-checked=true] .alert-radio-inner {
   position: absolute;
-  top: 13px;
+  top: -7px;
   left: 7px;
   width: 6px;
   height: 12px;

@@ -2792,7 +2792,7 @@ var ColorsPage = (function () {
     };
     ColorsPage = __decorate([
         ionic_angular_1.Page({
-            template: "\n      <ion-navbar *navbar primary>\n      <ion-title>Pirmary</ion-title>\n      </ion-navbar>\n\n      <ion-content>\n      <button block (click)=\"pushPage()\">Go to new page</button>\n      </ion-content>\n  "
+            template: "\n      <ion-navbar *navbar primary>\n      <ion-title>Primary</ion-title>\n      </ion-navbar>\n\n      <ion-content>\n      <button block (click)=\"pushPage()\">Go to new page</button>\n      </ion-content>\n  "
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.NavController])
     ], ColorsPage);

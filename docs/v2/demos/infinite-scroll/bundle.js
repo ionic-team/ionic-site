@@ -59214,9 +59214,9 @@
 	 * Labels are placed inside of an `ion-item` element and can be used
 	 * to describe an `ion-input`, `ion-toggle`, `ion-checkbox`, and more.
 	 *
-	 * @property [fixed] - a persistant label that sits next the the input
-	 * @property [floating] - a label that will float about the input if the input is empty of looses focus
-	 * @property [stacked] - A stacked label will always appear on top of the input
+	 * @property [fixed] - A persistant label that sits next the input.
+	 * @property [floating] - A label that will float about the input if the input is empty of looses focus.
+	 * @property [stacked] - A stacked label will always appear on top of the input.
 
 	 *
 	 * @usage
@@ -61456,7 +61456,7 @@
 	 * this.nav.present(alert);
 	 * ```
 	 *
-	 * It's important to note that the the handler returns `false`. A feature of
+	 * It's important to note that the handler returns `false`. A feature of
 	 * button handlers is that they automatically dismiss the alert when their button
 	 * was clicked, however, we'll need more control regarding the transition. Because
 	 * the handler returns `false`, then the alert does not automatically dismiss
@@ -62074,7 +62074,7 @@
 	 * this.nav.present(actionSheet);
 	 * ```
 	 *
-	 * It's important to note that the the handler returns `false`. A feature of
+	 * It's important to note that the handler returns `false`. A feature of
 	 * button handlers is that they automatically dismiss the action sheet when their button
 	 * was clicked, however, we'll need more control regarding the transition. Because
 	 * the handler returns `false`, then the action sheet does not automatically dismiss
@@ -66608,7 +66608,7 @@
 	     *  | cssClass              | `string`  | Any additional class for the toast *(optional)*                                 |
 	     *  | showCloseButton       | `boolean` | Whether or not to show an optional button to close the toast. *(optional)*      |
 	     *  | closeButtonText       | `string`  | Text to display in the close button. *(optional)*                               |
-	     *  | enableBackdropDismiss | `boolean` | Whether the the toast should be dismissed by tapping the backdrop *(optional)*  |
+	     *  | enableBackdropDismiss | `boolean` | Whether the toast should be dismissed by tapping the backdrop *(optional)*      |
 	     *
 	     * @param {object} ToastOptions Toast. See the above table for available options.
 	     */

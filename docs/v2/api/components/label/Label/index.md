@@ -118,7 +118,7 @@ fixed
 
 
 <td>
-a persistant label that sits next the the input
+A persistant label that sits next the input.
 </td>
 </tr>
 
@@ -130,7 +130,7 @@ floating
 
 
 <td>
-a label that will float about the input if the input is empty of looses focus
+A label that will float about the input if the input is empty of looses focus.
 </td>
 </tr>
 
@@ -142,7 +142,7 @@ stacked
 
 
 <td>
-A stacked label will always appear on top of the input
+A stacked label will always appear on top of the input.
 
 
 </td>

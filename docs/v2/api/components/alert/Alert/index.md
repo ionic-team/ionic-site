@@ -192,7 +192,7 @@ out first, <em>then</em> start the next transition.</p>
 
 this.nav.present(alert);
 </code></pre>
-<p>It&#39;s important to note that the the handler returns <code>false</code>. A feature of
+<p>It&#39;s important to note that the handler returns <code>false</code>. A feature of
 button handlers is that they automatically dismiss the alert when their button
 was clicked, however, we&#39;ll need more control regarding the transition. Because
 the handler returns <code>false</code>, then the alert does not automatically dismiss

@@ -32,7 +32,7 @@ IONIC_DIRECTIVES
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/config/directives.ts#L144">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/config/directives.ts#L142">
 Improve this doc
 </a>
 
@@ -81,7 +81,6 @@ bootstrap(App,ionicProviders())
 <li>MenuClose</li>
 <li>Badge</li>
 <li>Button</li>
-<li>Blur</li>
 <li>Content</li>
 <li>Scroll</li>
 <li>InfiniteScroll</li>

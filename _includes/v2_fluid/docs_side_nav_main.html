@@ -191,6 +191,11 @@
     </ul>
   </li>
 
+  {% comment %} ### Ionicons ### {% endcomment %}
+  <li class="{% if page.category == 'ionicons' %}top-level active{% endif %}">
+    <a href="/docs/v2/ionicons/">Ionicons</a>
+  </li>
+
   {% comment %} ### CLI ### {% endcomment %}
   <li class="{% if page.category == 'cli' %}active{% endif %}">
     <a ng-click="showCli = !showCli">CLI</a>
@@ -256,9 +261,6 @@
       </li>
       <li class="{% if page.id == 'what-is' %}active{% endif %}">
         <a href="/docs/v2/resources/what-is/">Glossary</a>
-      </li>
-      <li class="{% if page.id == 'ionicons' %}active{% endif %}">
-        <a href="/docs/v2/resources/ionicons/">Ionicons</a>
       </li>
       <li class="{% if page.id == 'editors_and_ides' %}active{% endif %}">
         <a href="/docs/v2/resources/editors_and_ides/">Editors and IDEs</a>

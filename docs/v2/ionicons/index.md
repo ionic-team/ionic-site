@@ -1,6 +1,6 @@
 ---
 layout: v2_fluid/docs_base
-category: resources
+category: ionicons
 id: ionicons
 title: Ionicons
 header_sub_title: Ionic Resources

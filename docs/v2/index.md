@@ -36,7 +36,7 @@ hide_header_search: true
       <p>Learn how to easily customize and modify your app’s design to fit your brand.</p>
     </a>
     <a class="section ionicons-link"
-       href="/docs/v2/resources/ionicons/">
+       href="/docs/v2/ionicons/">
       <h3>Ionicons</h3>
       <p>Over 900 custom-designed font/SVG icons. MIT licensed & ready to use with Ionic.</p>
     </a>

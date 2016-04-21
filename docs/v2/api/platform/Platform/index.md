@@ -215,7 +215,7 @@ export MyPage {
 
 <h3>
 <a class="anchor" name="versions" href="#versions"></a>
-<code>versions(platformName)</code>
+<code>versions()</code>
   
 
 </h3>
@@ -239,36 +239,6 @@ export MyPage {
 
 
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        platformName
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>optional platformName</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
 
 
 
@@ -276,7 +246,7 @@ export MyPage {
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>object</code> <p>An object with various platform info</p>
+  <code>object</code> <p>An object containing all of the platforms and their versions.</p>
 
 
 </div>

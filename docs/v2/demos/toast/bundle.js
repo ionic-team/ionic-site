@@ -2496,7 +2496,7 @@
 	    };
 	    ApiPage.prototype.showToastWithCloseButton = function () {
 	        var toast = ionic_angular_1.Toast.create({
-	            message: 'Your internet connection appears to be offline. Data integrity is not gauranteed.',
+	            message: 'Your internet connection appears to be offline. Data integrity is not guaranteed.',
 	            showCloseButton: true,
 	            closeButtonText: 'Ok'
 	        });
@@ -26723,9 +26723,7 @@
 	     * }
 	     * ```
 	     *
-	     * @param {string} [platformName] optional platformName
-	     * @returns {object} An object with various platform info
-	     *
+	     * @returns {object} An object containing all of the platforms and their versions.
 	     */
 	    Platform.prototype.versions = function () {
 	        // get all the platforms that have a valid parsed version

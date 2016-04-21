@@ -49,7 +49,7 @@ With the list code and the Angular `ng-repeat`, the center content becomes:
   <ion-content>
     <!-- our list and list items -->
     <ion-list>
-      <ion-item ng-repeat="task in tasks">
+      <ion-item ng-repeat="task in activeProject.tasks">
         {{task.title}}
       </ion-item>
     </ion-list>
@@ -370,7 +370,7 @@ angular.module('todo', ['ionic'])
         }
       }
     }
-  });
+  }, 1000);
 
 });
 {% endraw %}

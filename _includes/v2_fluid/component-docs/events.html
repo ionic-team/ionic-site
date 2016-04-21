@@ -1,0 +1,23 @@
+<h2 id="events" class="section-header">Events</h2>
+
+<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/events.html">
+  Improve this Doc
+</a>
+
+You an target specific events to trigger specific functionality. Built on top of Hammer.js, you can bind to `tap`, `press`, `pan`, `swipe`, `rotate`, and `pinch`.
+Methods can be bound to these events they say way you bind events to the `click`A
+
+
+<h3 class="no-para">Basic Usage</h3>
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/events">
+  Demo Source
+</a>
+
+```html
+  <ion-card (tap)="tapEvent($event)">
+    <ion-item>
+      Tapped: {{tap}} times
+    </ion-item>
+  </ion-card>
+
+```

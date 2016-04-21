@@ -980,10 +980,10 @@ ion-scroll {
     will-change: scroll-position; }
 
 .hidden-show-when {
-  display: none; }
+  display: none !important; }
 
 .hidden-hide-when {
-  display: none; }
+  display: none !important; }
 
 /**
  * Swiper 3.1.2

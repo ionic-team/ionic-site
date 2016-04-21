@@ -197,6 +197,9 @@ var DemoApp = (function () {
                     android: {
                         activator: 'ripple',
                         backButtonIcon: 'md-arrow-back'
+                    },
+                    ios: {
+                        statusbarPadding: true
                     }
                 }
             },

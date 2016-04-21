@@ -1,0 +1,34 @@
+<h2 id="toast" class="section-header">Toast</h2>
+
+<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/toast.html">
+  Improve this Doc
+</a>
+
+_For more details on the Toast component, see the [Toast API reference](../api/components/toast/Toast/)._
+
+Toast is a simple component that allows you display a notification at the bottom of the screen. The toast appears on top of the app's content, and can be dismissed by the app to resume user interaction with the app. It includes a backdrop, which can optionally be clicked to dismiss the toast.
+
+
+
+<h3 class="section-nav">Basic Usage</h3>
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/toast/basic">
+  Demo Source
+</a>
+
+
+```typescript
+
+presentToast() {
+  let toast = Toast.create({
+    message: 'User was added successfully',
+    duration: 3000
+  });
+
+  toast.onDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  this.nav.present(toast);
+  }
+
+```

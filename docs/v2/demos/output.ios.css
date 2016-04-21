@@ -1585,46 +1585,6 @@ ion-spinner.spinner-paused svg {
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1); } }
 
-ion-toast {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  display: block;
-  width: 100%;
-  height: 100%; }
-
-.toast-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center; }
-  .toast-container button {
-    font-size: 1.5rem;
-    padding: 19px 16px 17px; }
-
-.toast-message {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1; }
-
-.toast-wrapper {
-  bottom: 0;
-  display: block;
-  left: 0;
-  margin: auto;
-  max-width: 700px;
-  position: absolute;
-  right: 0;
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0);
-  z-index: 10; }
-
 .virtual-scroll {
   position: relative; }
 
@@ -7101,7 +7061,7 @@ tabbar {
   .tab-disabled ion-badge,
   .tab-disabled ion-icon,
   .tab-disabled span {
-    opacity: 0.4; }
+    opacity: .4; }
 
 .tab-hidden {
   display: none; }
@@ -7410,32 +7370,72 @@ ion-toggle[bright] .toggle-checked {
   background-color: #FFC125; }
 
 ion-toast {
-  display: block;
-  height: 100%;
-  left: 0;
   position: absolute;
   top: 0;
-  width: 100%;
-  z-index: 1000; }
-
-.toast-wrapper {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 0.65rem;
-  bottom: 10px;
+  left: 0;
+  z-index: 1000;
   display: block;
-  left: 10px;
-  margin: auto;
-  max-width: 700px;
-  position: absolute;
-  right: 10px;
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0);
-  z-index: 10; }
+  width: 100%;
+  height: 100%; }
+
+.toast-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .toast-container button {
+    padding: 19px 16px 17px;
+    font-size: 1.5rem; }
 
 .toast-message {
-  color: #fff;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+
+.toast-wrapper {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: block;
+  margin: auto;
+  max-width: 700px;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0); }
+
+ion-toast {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+.toast-wrapper {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  z-index: 10;
+  display: block;
+  margin: auto;
+  max-width: 700px;
+  border-radius: 0.65rem;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0); }
+
+.toast-message {
+  padding: 1.5rem;
   font-size: 1.4rem;
-  padding: 1.5rem; }
+  color: #fff; }
 
 .toolbar {
   position: relative;

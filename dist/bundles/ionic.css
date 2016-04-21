@@ -1585,46 +1585,6 @@ ion-spinner.spinner-paused svg {
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1); } }
 
-ion-toast {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  display: block;
-  width: 100%;
-  height: 100%; }
-
-.toast-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center; }
-  .toast-container button {
-    font-size: 1.5rem;
-    padding: 19px 16px 17px; }
-
-.toast-message {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1; }
-
-.toast-wrapper {
-  bottom: 0;
-  display: block;
-  left: 0;
-  margin: auto;
-  max-width: 700px;
-  position: absolute;
-  right: 0;
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0);
-  z-index: 10; }
-
 .virtual-scroll {
   position: relative; }
 
@@ -6594,7 +6554,7 @@ ion-icon {
     .ios .tab-disabled ion-badge,
     .ios .tab-disabled ion-icon,
     .ios .tab-disabled span {
-      opacity: 0.4; }
+      opacity: .4; }
   .ios .tab-hidden {
     display: none; }
   .ios .tab-button-text {
@@ -6828,30 +6788,66 @@ ion-icon {
   .ios ion-toggle[dark] .toggle-checked {
     background-color: #222; }
   .ios ion-toast {
-    display: block;
-    height: 100%;
-    left: 0;
     position: absolute;
     top: 0;
-    width: 100%;
-    z-index: 1000; }
-  .ios .toast-wrapper {
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 0.65rem;
-    bottom: 10px;
+    left: 0;
+    z-index: 1000;
     display: block;
-    left: 10px;
+    width: 100%;
+    height: 100%; }
+  .ios .toast-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .ios .toast-container button {
+      padding: 19px 16px 17px;
+      font-size: 1.5rem; }
+  .ios .toast-message {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+  .ios .toast-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
     margin: auto;
     max-width: 700px;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  .ios ion-toast {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%; }
+  .ios .toast-wrapper {
     position: absolute;
     right: 10px;
+    bottom: 10px;
+    left: 10px;
+    z-index: 10;
+    display: block;
+    margin: auto;
+    max-width: 700px;
+    border-radius: 0.65rem;
+    background: rgba(0, 0, 0, 0.7);
     -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-    z-index: 10; }
+    transform: translate3d(0, 100%, 0); }
   .ios .toast-message {
-    color: #fff;
+    padding: 1.5rem;
     font-size: 1.4rem;
-    padding: 1.5rem; }
+    color: #fff; }
   .ios .toolbar {
     position: relative;
     z-index: 10;
@@ -9407,7 +9403,7 @@ ion-icon {
     .md .tab-disabled ion-badge,
     .md .tab-disabled ion-icon,
     .md .tab-disabled span {
-      opacity: 0.4; }
+      opacity: .4; }
   .md .tab-hidden {
     display: none; }
   .md .tab-button-text {
@@ -9639,30 +9635,66 @@ ion-icon {
   .md ion-toggle[dark] .toggle-checked .toggle-inner {
     background-color: #222; }
   .md ion-toast {
-    display: block;
-    height: 100%;
-    left: 0;
     position: absolute;
     top: 0;
-    width: 100%;
-    z-index: 1000; }
-  .md .toast-wrapper {
-    background: #333333;
-    bottom: 0;
-    display: block;
     left: 0;
-    margin: auto;
-    max-width: 700px;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%; }
+  .md .toast-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .md .toast-container button {
+      padding: 19px 16px 17px;
+      font-size: 1.5rem; }
+  .md .toast-message {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+  .md .toast-wrapper {
     position: absolute;
     right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
+    margin: auto;
+    max-width: 700px;
     -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  .md ion-toast {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
     width: 100%;
-    z-index: 10; }
+    height: 100%; }
+  .md .toast-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 700px;
+    background: #333;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
   .md .toast-message {
-    color: #fff;
+    padding: 19px 16px 17px;
     font-size: 1.5rem;
-    padding: 19px 16px 17px; }
+    color: #fff; }
   .md .toolbar {
     position: relative;
     z-index: 10;
@@ -12579,7 +12611,7 @@ ion-icon {
     .wp .tab-disabled ion-badge,
     .wp .tab-disabled ion-icon,
     .wp .tab-disabled span {
-      opacity: 0.4; }
+      opacity: .4; }
   .wp .tab-hidden {
     display: none; }
   .wp .tab-button-text {
@@ -12794,22 +12826,58 @@ ion-icon {
     background-color: #222; }
   .wp ion-toggle[dark] .toggle-checked .toggle-inner {
     background-color: #fff; }
-  .wp .toast-wrapper {
-    background: black;
-    border-radius: 0;
-    bottom: 0;
-    display: block;
+  .wp ion-toast {
+    position: absolute;
+    top: 0;
     left: 0;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%; }
+  .wp .toast-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .wp .toast-container button {
+      padding: 19px 16px 17px;
+      font-size: 1.5rem; }
+  .wp .toast-message {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+  .wp .toast-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
     margin: auto;
     max-width: 700px;
-    position: absolute;
     -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-    z-index: 10; }
+    transform: translate3d(0, 100%, 0); }
+  .wp .toast-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
+    margin: auto;
+    max-width: 700px;
+    border-radius: 0;
+    background: black;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
   .wp .toast-message {
-    color: #fff;
+    padding: 1.5rem;
     font-size: 1.4rem;
-    padding: 1.5rem; }
+    color: #fff; }
   .wp .toast-button {
     color: #fff; }
   .wp .toolbar {

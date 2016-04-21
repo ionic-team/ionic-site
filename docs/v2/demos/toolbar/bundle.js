@@ -66579,7 +66579,9 @@
 	            focusableEle.focus();
 	        }
 	        // if there's a `duration` set, automatically dismiss.
-	        this.dismissTimeout = setTimeout(function () { return _this.dismiss('backdrop'); }, this.d.duration ? this.d.duration : 3000);
+	        this.dismissTimeout = setTimeout(function () {
+	            return _this.dismiss('backdrop');
+	        }, this.d.duration ? this.d.duration : 3000);
 	    };
 	    ToastCmp.prototype.click = function (button, dismissDelay) {
 	        var _this = this;

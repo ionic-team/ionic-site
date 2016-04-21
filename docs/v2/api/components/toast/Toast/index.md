@@ -107,6 +107,7 @@ Toast options
  | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
  | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |
  | enableBackdropDismiss | `boolean` | true            | Whether the toast should be dismissed by tapping the backdrop.                                                |
+ | dismissOnPageChange   | `boolean` | false           | Whether to dismiss the toast when navigating to a new page.                                                   |
 
 
 

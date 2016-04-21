@@ -6841,7 +6841,7 @@ ion-icon {
     margin: auto;
     max-width: 700px;
     border-radius: 0.65rem;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.9);
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0); }
   .ios .toast-message {

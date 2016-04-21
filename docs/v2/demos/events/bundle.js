@@ -66590,10 +66590,11 @@
 	    function Toast(opts) {
 	        if (opts === void 0) { opts = {}; }
 	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
-	        console.log(opts.enableBackdropDismiss);
+	        opts.dismissOnPageChange = util_1.isPresent(opts.dismissOnPageChange) ? !!opts.dismissOnPageChange : false;
 	        _super.call(this, ToastCmp, opts);
 	        this.viewType = 'toast';
-	        this.isOverlay = false;
+	        this.isOverlay = true;
+	        this.usePortal = true;
 	        // by default, toasts should not fire lifecycle events of other views
 	        // for example, when an toast enters, the current active view should
 	        // not fire its lifecycle events because it's not conceptually leaving
@@ -66624,6 +66625,7 @@
 	     *  | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
 	     *  | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |
 	     *  | enableBackdropDismiss | `boolean` | true            | Whether the toast should be dismissed by tapping the backdrop.                                                |
+	     *  | dismissOnPageChange   | `boolean` | false           | Whether to dismiss the toast when navigating to a new page.                                                   |
 	     *
 	     * @param {object} opts Toast options. See the above table for available options.
 	     */
@@ -66713,7 +66715,7 @@
 	        _super.call(this, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
-	        wrapper.fromTo('translateY', '100%', '0%');
+	        wrapper.fromTo('translateY', '120%', '0%');
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(wrapper);
 	    }
 	    return ToastSlideIn;
@@ -66724,7 +66726,7 @@
 	        _super.call(this, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
-	        wrapper.fromTo('translateY', '0%', '100%');
+	        wrapper.fromTo('translateY', '0%', '120%');
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add(wrapper);
 	    }
 	    return ToastSlideOut;
@@ -66737,7 +66739,7 @@
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
 	        backdrop.fromTo('opacity', 0, 0);
-	        wrapper.fromTo('translateY', '100%', '0%');
+	        wrapper.fromTo('translateY', '120%', '0%');
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
 	    }
 	    return ToastMdSlideIn;
@@ -66749,7 +66751,7 @@
 	        var ele = leavingView.pageRef().nativeElement;
 	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        wrapper.fromTo('translateY', '0%', '100%');
+	        wrapper.fromTo('translateY', '0%', '120%');
 	        backdrop.fromTo('opacity', 0, 0);
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
 	    }

@@ -64,7 +64,9 @@ amount of time by passing the number of milliseconds to display it in
 the <code>duration</code> of the loading options. By default the loading indicator
 will show even during page changes, but this can be disabled by setting
 <code>dismissOnPageChange</code> to <code>true</code>. To dismiss the loading indicator after
-creation, call the <code>dismiss()</code> method on the Loading instance.</p>
+creation, call the <code>dismiss()</code> method on the Loading instance. The
+<code>onDismiss</code> function can be called to perform an action after the loading
+indicator is dismissed.</p>
 <h3 id="limitations">Limitations</h3>
 <p>The element is styled to appear on top of other content by setting its
 <code>z-index</code> property. You must ensure no element has a stacking context with
@@ -98,6 +100,10 @@ presentLoadingCustom() {
         &lt;div class=&quot;custom-spinner-box&quot;&gt;&lt;/div&gt;
       &lt;/div&gt;`,
     duration: 5000
+  });
+
+  loading.onDismiss(() =&gt; {
+    console.log(&#39;Dismissed loading&#39;);
   });
 
   this.nav.present(loading);

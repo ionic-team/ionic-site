@@ -43,8 +43,27 @@ Improve this doc
 
 
 
-<p>An Toast is a small message that appears in the lower part of the screen.
-It&#39;s useful for displaying success messages, error messages, etc.</p>
+<p>A Toast is a subtle notification that appears at the bottom of the
+screen. It can be used to provide feedback about an operation or to
+display a system message. The toast appears on top of the app&#39;s content,
+and can be dismissed by the app to resume user interaction with
+the app. It includes a backdrop, which can optionally be clicked to
+dismiss the toast.</p>
+<h3 id="creating">Creating</h3>
+<p>All of the toast options should be passed in the first argument of
+the create method: <code>Toast.create(opts)</code>. The message to display should be
+passed in the <code>message</code> property. The <code>showCloseButton</code> option can be set to
+true in order to display a close button on the toast. See the <a href="#create">create</a>
+method below for all available options.</p>
+<h3 id="dismissing">Dismissing</h3>
+<p>The toast can be dismissed automatically after a specific amount of time
+by passing the number of milliseconds to display it in the <code>duration</code> of
+the toast options. It can also be dismissed by clicking on the backdrop,
+unless <code>enableBackdropDismiss</code> is set to <code>false</code> upon creation. If <code>showCloseButton</code>
+is set to true, then the close button will dismiss the toast. To dismiss
+the toast after creation, call the <code>dismiss()</code> method on the Toast instance.
+The <code>onDismiss</code> function can be called to perform an action after the toast
+is dismissed.</p>
 
 <!-- @usage tag -->
 
@@ -59,6 +78,11 @@ presentToast() {
     message: &#39;User was added successfully&#39;,
     duration: 3000
   });
+
+  toast.onDismiss(() =&gt; {
+    console.log(&#39;Dismissed toast&#39;);
+  });
+
   this.nav.present(toast);
 }
 </code></pre>
@@ -69,20 +93,20 @@ presentToast() {
 <!-- @property tags -->
 <h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <div id="create"></div>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(ToastOptions)</code>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(opts)</code>
   
 </h3>
 
 Toast options
 
- | Property              | Type      | Description                                                                   |
- |-----------------------|-----------|---------------------------------------------------------------------------    |
- | message               | `string`  | The message for the toast. Long strings will wrap and the toast container will expand. **(required)**                                                     |
- | duration              | `number`  | The amount of time in milliseconds the toast should appear *(optional)*         |
- | cssClass              | `string`  | Any additional class for the toast *(optional)*                                 |
- | showCloseButton       | `boolean` | Whether or not to show an optional button to close the toast. *(optional)*      |
- | closeButtonText       | `string`  | Text to display in the close button. *(optional)*                               |
- | enableBackdropDismiss | `boolean` | Whether the toast should be dismissed by tapping the backdrop *(optional)*      |
+ | Property              | Type      | Default         | Description                                                                                                   |
+ |-----------------------|-----------|-----------------|---------------------------------------------------------------------------------------------------------------|
+ | message               | `string`  | -               | The message for the toast. Long strings will wrap and the toast container will expand.                        |
+ | duration              | `number`  | -               | How many milliseconds to wait before hiding the toast. By default, it will show until `dismiss()` is called.  |
+ | cssClass              | `string`  | -               | Any additional class for custom styles.                                                                       |
+ | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
+ | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |
+ | enableBackdropDismiss | `boolean` | true            | Whether the toast should be dismissed by tapping the backdrop.                                                |
 
 
 
@@ -98,7 +122,7 @@ Toast options
     
     <tr>
       <td>
-        ToastOptions
+        opts
         
         
       </td>
@@ -107,7 +131,7 @@ Toast options
   <code>object</code>
       </td>
       <td>
-        <p>Toast. See the above table for available options.</p>
+        <p>Toast options. See the above table for available options.</p>
 
         
       </td>

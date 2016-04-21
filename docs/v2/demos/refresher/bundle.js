@@ -65883,7 +65883,9 @@
 	 * the `duration` of the loading options. By default the loading indicator
 	 * will show even during page changes, but this can be disabled by setting
 	 * `dismissOnPageChange` to `true`. To dismiss the loading indicator after
-	 * creation, call the `dismiss()` method on the Loading instance.
+	 * creation, call the `dismiss()` method on the Loading instance. The
+	 * `onDismiss` function can be called to perform an action after the loading
+	 * indicator is dismissed.
 	 *
 	 * ### Limitations
 	 * The element is styled to appear on top of other content by setting its
@@ -65916,6 +65918,10 @@
 	 *         <div class="custom-spinner-box"></div>
 	 *       </div>`,
 	 *     duration: 5000
+	 *   });
+	 *
+	 *   loading.onDismiss(() => {
+	 *     console.log('Dismissed loading');
 	 *   });
 	 *
 	 *   this.nav.present(loading);
@@ -66552,8 +66558,29 @@
 	/**
 	 * @name Toast
 	 * @description
-	 * An Toast is a small message that appears in the lower part of the screen.
-	 * It's useful for displaying success messages, error messages, etc.
+	 * A Toast is a subtle notification that appears at the bottom of the
+	 * screen. It can be used to provide feedback about an operation or to
+	 * display a system message. The toast appears on top of the app's content,
+	 * and can be dismissed by the app to resume user interaction with
+	 * the app. It includes a backdrop, which can optionally be clicked to
+	 * dismiss the toast.
+	 *
+	 * ### Creating
+	 * All of the toast options should be passed in the first argument of
+	 * the create method: `Toast.create(opts)`. The message to display should be
+	 * passed in the `message` property. The `showCloseButton` option can be set to
+	 * true in order to display a close button on the toast. See the [create](#create)
+	 * method below for all available options.
+	 *
+	 * ### Dismissing
+	 * The toast can be dismissed automatically after a specific amount of time
+	 * by passing the number of milliseconds to display it in the `duration` of
+	 * the toast options. It can also be dismissed by clicking on the backdrop,
+	 * unless `enableBackdropDismiss` is set to `false` upon creation. If `showCloseButton`
+	 * is set to true, then the close button will dismiss the toast. To dismiss
+	 * the toast after creation, call the `dismiss()` method on the Toast instance.
+	 * The `onDismiss` function can be called to perform an action after the toast
+	 * is dismissed.
 	 *
 	 * @usage
 	 * ```ts
@@ -66566,6 +66593,11 @@
 	 *     message: 'User was added successfully',
 	 *     duration: 3000
 	 *   });
+	 *
+	 *   toast.onDismiss(() => {
+	 *     console.log('Dismissed toast');
+	 *   });
+	 *
 	 *   this.nav.present(toast);
 	 * }
 	 * ```
@@ -66577,6 +66609,7 @@
 	    function Toast(opts) {
 	        if (opts === void 0) { opts = {}; }
 	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+	        console.log(opts.enableBackdropDismiss);
 	        _super.call(this, ToastCmp, opts);
 	        this.viewType = 'toast';
 	        this.isOverlay = false;
@@ -66602,16 +66635,16 @@
 	     *
 	     *  Toast options
 	     *
-	     *  | Property              | Type      | Description                                                                   |
-	     *  |-----------------------|-----------|---------------------------------------------------------------------------    |
-	     *  | message               | `string`  | The message for the toast. Long strings will wrap and the toast container will expand. **(required)**                                                     |
-	     *  | duration              | `number`  | The amount of time in milliseconds the toast should appear *(optional)*         |
-	     *  | cssClass              | `string`  | Any additional class for the toast *(optional)*                                 |
-	     *  | showCloseButton       | `boolean` | Whether or not to show an optional button to close the toast. *(optional)*      |
-	     *  | closeButtonText       | `string`  | Text to display in the close button. *(optional)*                               |
-	     *  | enableBackdropDismiss | `boolean` | Whether the toast should be dismissed by tapping the backdrop *(optional)*      |
+	     *  | Property              | Type      | Default         | Description                                                                                                   |
+	     *  |-----------------------|-----------|-----------------|---------------------------------------------------------------------------------------------------------------|
+	     *  | message               | `string`  | -               | The message for the toast. Long strings will wrap and the toast container will expand.                        |
+	     *  | duration              | `number`  | -               | How many milliseconds to wait before hiding the toast. By default, it will show until `dismiss()` is called.  |
+	     *  | cssClass              | `string`  | -               | Any additional class for custom styles.                                                                       |
+	     *  | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
+	     *  | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |
+	     *  | enableBackdropDismiss | `boolean` | true            | Whether the toast should be dismissed by tapping the backdrop.                                                |
 	     *
-	     * @param {object} ToastOptions Toast. See the above table for available options.
+	     * @param {object} opts Toast options. See the above table for available options.
 	     */
 	    Toast.create = function (opts) {
 	        if (opts === void 0) { opts = {}; }
@@ -66651,25 +66684,21 @@
 	            focusableEle.focus();
 	        }
 	        // if there's a `duration` set, automatically dismiss.
-	        this.dismissTimeout = setTimeout(function () {
-	            return _this.dismiss('backdrop');
-	        }, this.d.duration ? this.d.duration : 3000);
-	    };
-	    ToastCmp.prototype.click = function (button, dismissDelay) {
-	        var _this = this;
-	        if (!this.isEnabled()) {
-	            return;
-	        }
-	        var shouldDismiss = true;
-	        if (shouldDismiss) {
-	            setTimeout(function () {
-	                _this.dismiss(button.role);
-	            }, dismissDelay || this._config.get('pageTransitionDelay'));
+	        if (this.d.duration) {
+	            this.dismissTimeout =
+	                setTimeout(function () {
+	                    _this.dismiss('backdrop');
+	                }, this.d.duration);
 	        }
 	    };
 	    ToastCmp.prototype.bdClick = function () {
 	        if (this.isEnabled() && this.d.enableBackdropDismiss) {
 	            this.dismiss('backdrop');
+	        }
+	    };
+	    ToastCmp.prototype.cbClick = function () {
+	        if (this.isEnabled()) {
+	            this.dismiss('close');
 	        }
 	    };
 	    ToastCmp.prototype.dismiss = function (role) {
@@ -66684,7 +66713,7 @@
 	    ToastCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-toast',
-	            template: "\n    <div (click)=\"bdClick()\" tappable disable-activated class=\"backdrop\" role=\"presentation\"></div>\n    <div class=\"toast-wrapper\">\n      <div class=\"toast-container\">\n        <div class=\"toast-message\" id=\"{{hdrId}}\" *ngIf=\"d.message\">{{d.message}}</div>\n        <button clear class=\"toast-button\" *ngIf=\"d.showCloseButton\" (click)=\"bdClick()\">\n          {{ d.closeButtonText }}\n          <ion-button-effect></ion-button-effect>\n         </button>\n      </div>\n    </div>\n  ",
+	            template: "\n    <div (click)=\"bdClick()\" tappable disable-activated class=\"backdrop\" role=\"presentation\"></div>\n    <div class=\"toast-wrapper\">\n      <div class=\"toast-container\">\n        <div class=\"toast-message\" id=\"{{hdrId}}\" *ngIf=\"d.message\">{{d.message}}</div>\n        <button clear class=\"toast-button\" *ngIf=\"d.showCloseButton\" (click)=\"cbClick()\">\n          {{ d.closeButtonText || 'Close' }}\n          <ion-button-effect></ion-button-effect>\n         </button>\n      </div>\n    </div>\n  ",
 	            host: {
 	                'role': 'dialog',
 	                '[attr.aria-labelledby]': 'hdrId',

@@ -66592,8 +66592,9 @@
 	        if (this.d.cssClass) {
 	            renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
 	        }
+	        this.id = (++toastIds);
 	        if (this.d.message) {
-	            this.hdrId = 'acst-hdr-' + this.id;
+	            this.hdrId = 'toast-hdr-' + this.id;
 	        }
 	    }
 	    ToastCmp.prototype.onPageDidEnter = function () {
@@ -66731,6 +66732,7 @@
 	transition_1.Transition.register('toast-md-slide-out', ToastMdSlideOut);
 	transition_1.Transition.register('toast-wp-slide-out', ToastWpPopOut);
 	transition_1.Transition.register('toast-wp-slide-in', ToastWpPopIn);
+	var toastIds = -1;
 
 /***/ },
 /* 370 */

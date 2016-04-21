@@ -49724,7 +49724,7 @@
 	            this._views[i].destroy();
 	        }
 	        this._views.length = 0;
-	        if (this.parent) {
+	        if (this.parent && this.parent.unregisterChildNav) {
 	            this.parent.unregisterChildNav(this);
 	        }
 	    };

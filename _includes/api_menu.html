@@ -10,6 +10,13 @@
 
   
     
+{% elsif page.versionHref == "/docs/1.2.1" %}
+    
+  {% include api_menu_1.2.1.html %}
+  
+
+  
+    
 {% elsif page.versionHref == "/docs/1.2.0" %}
     
   {% include api_menu_1.2.0.html %}
@@ -122,5 +129,5 @@
 
 
 {% else %}
-  {% include api_menu_1.2.1.html %}
+  {% include api_menu_1.3.0.html %}
 {% endif %}

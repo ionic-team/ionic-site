@@ -57,7 +57,7 @@ modal can later be closed or &quot;dismissed&quot; by using the ViewController&#
 <code>dismiss</code> method. Additionally, you can dismiss any overlay by using <code>pop</code>
 on the root nav controller.</p>
 <p>Data can be passed to a new modal through <code>Modal.create()</code> as the second
-argument. The data can gen be accessed from the opened page by injecting
+argument. The data can then be accessed from the opened page by injecting
 <code>NavParams</code>. Note that the page, which opened as a modal, has no special
 &quot;modal&quot; logic within it, but uses <code>NavParams</code> no differently than a
 standard page.</p>

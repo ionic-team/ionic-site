@@ -66391,7 +66391,7 @@
 	 * on the root nav controller.
 	 *
 	 * Data can be passed to a new modal through `Modal.create()` as the second
-	 * argument. The data can gen be accessed from the opened page by injecting
+	 * argument. The data can then be accessed from the opened page by injecting
 	 * `NavParams`. Note that the page, which opened as a modal, has no special
 	 * "modal" logic within it, but uses `NavParams` no differently than a
 	 * standard page.

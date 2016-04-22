@@ -26854,18 +26854,25 @@
 	     * Returns a promise when the platform is ready and native functionality
 	     * can be called. If the app is running from within a web browser, then
 	     * the promise will resolve when the DOM is ready. When the app is running
-	     * from an application engine such as Cordova, then the promise
-	     * will resolve when Cordova triggers the `deviceready` event.
+	     * from an application engine such as Cordova, then the promise will
+	     * resolve when Cordova triggers the `deviceready` event.
+	     *
+	     * The resolved value is the `readySource`, which states which platform
+	     * ready was used. For example, when Cordova is ready, the resolved ready
+	     * source is `cordova`. The default ready source value will be `dom`. The
+	     * `readySource` is useful if different logic should run depending on the
+	     * platform the app is running from. For example, only Cordova can execute
+	     * the status bar plugin, so the web should not run status bar plugin logic.
 	     *
 	     * ```
-	     * import {Platform} from 'ionic-angular';
+	     * import {App, Platform} from 'ionic-angular';
 	     *
-	     * @Page({...})
-	     * export MyPage {
+	     * @App({...})
+	     * export MyApp {
 	     *   constructor(platform: Platform) {
-	     *     platform.ready().then(() => {
-	     *       console.log('Platform ready');
-	     *       // The platform is now ready, execute any native code you want
+	     *     platform.ready().then((readySource) => {
+	     *       console.log('Platform ready from', readySource);
+	     *       // Platform now ready, execute any required native code
 	     *     });
 	     *   }
 	     * }
@@ -26873,28 +26880,33 @@
 	     * @returns {promise}
 	     */
 	    Platform.prototype.ready = function () {
-	        // this is the default if it's not replaced by the engine
-	        // if there was no custom ready method from the engine
-	        // then use the default DOM ready
 	        return this._readyPromise;
 	    };
 	    /**
 	     * @private
+	     * This should be triggered by the engine when the platform is
+	     * ready. If there was no custom prepareReady method from the engine,
+	     * such as Cordova or Electron, then it uses the default DOM ready.
 	     */
-	    Platform.prototype.triggerReady = function () {
+	    Platform.prototype.triggerReady = function (readySource) {
 	        var _this = this;
 	        this._zone.run(function () {
-	            _this._readyResolve();
+	            _this._readyResolve(readySource);
 	        });
 	    };
 	    /**
 	     * @private
+	     * This is the default prepareReady if it's not replaced by an engine,
+	     * such as Cordova or Electron. If there was no custom prepareReady
+	     * method from an engine then it uses the method below, which triggers
+	     * the platform ready on the DOM ready event, and the default resolved
+	     * value is `dom`.
 	     */
 	    Platform.prototype.prepareReady = function () {
-	        // this is the default prepareReady if it's not replaced by the engine
-	        // if there was no custom ready method from the engine
-	        // then use the default DOM ready
-	        dom_1.ready(this.triggerReady.bind(this));
+	        var _this = this;
+	        dom_1.ready(function () {
+	            _this.triggerReady('dom');
+	        });
 	    };
 	    /**
 	    * Set the app's language direction, which will update the `dir` attribute
@@ -67474,7 +67486,7 @@
 	                // 2) window onload triggered or completed
 	                doc.addEventListener('deviceready', function () {
 	                    // 3) cordova deviceready event triggered
-	                    // add cordova listeners to fire platform events
+	                    // add cordova listeners to emit platform events
 	                    doc.addEventListener('backbutton', function () {
 	                        p.backButton.emit(null);
 	                    });
@@ -67484,14 +67496,14 @@
 	                    doc.addEventListener('resume', function () {
 	                        p.resume.emit(null);
 	                    });
+	                    // cordova has its own exitApp method
+	                    p.exitApp = function () {
+	                        win.navigator.app.exitApp();
+	                    };
 	                    // cordova has fully loaded and we've added listeners
-	                    p.triggerReady();
+	                    p.triggerReady('cordova');
 	                });
 	            });
-	        };
-	        // cordova has its own exitApp method
-	        p.exitApp = function () {
-	            win.navigator.app.exitApp();
 	        };
 	    },
 	    isMatch: function () {

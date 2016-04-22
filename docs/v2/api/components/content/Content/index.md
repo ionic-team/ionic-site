@@ -44,7 +44,7 @@ Improve this doc
 <p>The Content component provides an easy to use content area with
 some useful methods to control the scrollable area.</p>
 <p>The content area can also implement pull-to-refresh with the
-<a href="../../scroll/Refresher">Refresher</a> component.</p>
+<a href="../../refresher/Refresher">Refresher</a> component.</p>
 
 
 <h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>

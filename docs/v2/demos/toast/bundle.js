@@ -51055,7 +51055,7 @@
 	 * some useful methods to control the scrollable area.
 	 *
 	 * The content area can also implement pull-to-refresh with the
-	 * [Refresher](../../scroll/Refresher) component.
+	 * [Refresher](../../refresher/Refresher) component.
 	 *
 	 * @usage
 	 * ```html

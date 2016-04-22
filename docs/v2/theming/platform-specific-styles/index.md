@@ -41,14 +41,14 @@ Here is a chart of the default mode that gets added based on platform:
     <td>Applies Material Design styling to all components.</td>
   </tr>
   <tr>
-    <td>Windows Phone</td>
-    <td>md</td>
-    <td>Applies Material Design styling to all components.</td>
+    <td>Windows</td>
+    <td>wp</td>
+    <td>Applies Windows styling to all components.</td>
   </tr>
   <tr>
     <td>All Other Platforms</td>
-    <td>ios</td>
-    <td>If you are not on one of the above devices, the app will get iOS styling by default.</td>
+    <td>md</td>
+    <td>If you are not on one of the above devices, the app will get Material Design styling by default.</td>
   </tr>
 </table>
 

@@ -48,16 +48,21 @@ Ionic&#39;s select component makes it easier for users to sort through and selec
 the preferred option or options. When users tap the select component, a
 dialog will appear with all of the options in a large, easy to select list
 for users.</p>
-<p>Under-the-hood the <code>ion-select</code> actually uses the
-<a href='../../alert/Alert'>Alert API</a> to open up the overlay of options
-which the user is presented with. Select can take numerous child
-<code>ion-option</code> components. If <code>ion-option</code> is not given a <code>value</code> attribute
-then it will use its text as the value.</p>
+<p>The select component takes child <code>ion-option</code> components. If <code>ion-option</code> is not
+given a <code>value</code> attribute then it will use its text as the value.</p>
+<h3 id="interfaces">Interfaces</h3>
+<p>By default, the <code>ion-select</code> uses the <a href='../../alert/Alert'>Alert API</a> to
+open up the overlay of options in an alert. The interface can be changed to use the
+<a href='../../action-sheet/ActionSheet'>ActionSheet API</a> by passing <code>action-sheet</code> to
+the <code>interface</code> property. Read the other sections for the limitations of the
+action sheet interface.</p>
 <h3 id="single-value-radio-buttons">Single Value: Radio Buttons</h3>
 <p>The standard <code>ion-select</code> component allows the user to select only one
-option. When selecting only one option the alert overlay presents users with
-a radio button styled list of options. The <code>ion-select</code> component&#39;s value
-receives the value of the selected option&#39;s value.</p>
+option. When selecting only one option the alert interface presents users with
+a radio button styled list of options. The action sheet interface can only be
+used with a single value select. If the number of options exceed 6, it will
+use the <code>alert</code> interface even if <code>action-sheet</code> is passed. The <code>ion-select</code>
+component&#39;s value receives the value of the selected option&#39;s value.</p>
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Gender&lt;/ion-label&gt;
   &lt;ion-select [(ngModel)]=&quot;gender&quot;&gt;
@@ -73,6 +78,7 @@ overlay presents users with a checkbox styled list of options. The
 <code>ion-select multiple=&quot;true&quot;</code> component&#39;s value receives an array of all the
 selected option values. In the example below, because each option is not given
 a <code>value</code>, then it&#39;ll use its text as the value instead.</p>
+<p>Note: the action sheet interface will not work with a multi-value select.</p>
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Toppings&lt;/ion-label&gt;
   &lt;ion-select [(ngModel)]=&quot;toppings&quot; multiple=&quot;true&quot;&gt;
@@ -85,18 +91,21 @@ a <code>value</code>, then it&#39;ll use its text as the value instead.</p>
   &lt;/ion-select&gt;
 &lt;/ion-item&gt;
 </code></pre>
-<h3 id="alert-buttons">Alert Buttons</h3>
-<p>By default, the two buttons read <code>Cancel</code> and <code>OK</code>. The each button&#39;s text
+<h3 id="select-buttons">Select Buttons</h3>
+<p>By default, the two buttons read <code>Cancel</code> and <code>OK</code>. Each button&#39;s text
 can be customized using the <code>cancelText</code> and <code>okText</code> attributes:</p>
 <pre><code class="lang-html">&lt;ion-select okText=&quot;Okay&quot; cancelText=&quot;Dismiss&quot;&gt;
   ...
 &lt;/ion-select&gt;
 </code></pre>
+<p>The action sheet interface does not have an <code>OK</code> button, clicking
+on any of the options will automatically close the overlay and select
+that value.</p>
 <h3 id="alert-options">Alert Options</h3>
-<p>Remember how <code>ion-select</code> is really just a wrapper to <code>Alert</code>? By using
-the <code>alertOptions</code> property you can pass custom options to the alert
-overlay. This would be useful if there is a custom alert title,
-subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
+<p>Since <code>ion-select</code> is a wrapper to <code>Alert</code>, by default, it can be
+passed options in the <code>alertOptions</code> property. This can be used to
+pass a custom alert title, subtitle or message. See the <a href='../../alert/Alert'>Alert API docs</a>
+for more properties.</p>
 <pre><code class="lang-html">&lt;ion-select [alertOptions]=&quot;alertOptions&quot;&gt;
   ...
 &lt;/ion-select&gt;
@@ -131,16 +140,45 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
   <tbody>
     
     <tr>
+      <td>cancelText</td>
+      <td><code>string</code></td>
+      <td><p> The text to display on the cancel button. Default: <code>Cancel</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>okText</td>
+      <td><code>string</code></td>
+      <td><p> The text to display on the ok button. Default: <code>OK</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>alertOptions</td>
+      <td><code>any</code></td>
+      <td><p> Any addition options that the alert interface can take.
+See the <a href="../../alert/Alert">Alert API docs</a> for the create options.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>interface</td>
+      <td><code>string</code></td>
+      <td><p> The interface the select should use: <code>action-sheet</code> or <code>alert</code>. Default: <code>alert</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>multiple</td>
       <td><code>boolean</code></td>
-      <td><p> Whether or not the select component can accept multipl selections</p>
+      <td><p> Whether or not the select component can accept multiple values. Default: <code>false</code>.</p>
 </td>
     </tr>
     
     <tr>
       <td>disabled</td>
       <td><code>boolean</code></td>
-      <td><p> Whether or not the select component is disabled or not</p>
+      <td><p> Whether or not the select component is disabled. Default <code>false</code>.</p>
 </td>
     </tr>
     
@@ -159,13 +197,13 @@ subtitle or message. <a href='../../alert/Alert'>Alert API</a></p>
     
     <tr>
       <td>change</td>
-      <td><p> Any expression you want to evaluate when the selection has changed</p>
+      <td><p> Any expression you want to evaluate when the selection has changed.</p>
 </td>
     </tr>
     
     <tr>
       <td>cancel</td>
-      <td><p> Any expression you want to evaluate when the selection was cancelled</p>
+      <td><p> Any expression you want to evaluate when the selection was cancelled.</p>
 </td>
     </tr>
     

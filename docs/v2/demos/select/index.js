@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ionic_angular_1 = require('ionic-angular');
 var MainPage = (function () {
     function MainPage() {
+        this.notifications = 'mute_1';
+        this.rating = 2;
         this.gender = 'f';
         this.gaming = 'n64';
         this.petAlertOpts = {

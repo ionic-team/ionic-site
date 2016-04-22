@@ -6632,7 +6632,6 @@ ion-icon {
     border-bottom: 1px solid #b2b2b2; }
   .ios .tab-button {
     padding: 0 10px;
-    min-width: 80px;
     max-width: 240px;
     min-height: 49px;
     color: #8c8c8c; }

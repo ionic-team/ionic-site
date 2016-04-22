@@ -491,6 +491,104 @@ attribute value set, such as `<html lang="en">`.
 </div>
 
 
+
+
+<div id="exitApp"></div>
+
+<h3>
+<a class="anchor" name="exitApp" href="#exitApp"></a>
+<code>exitApp()</code>
+  
+
+</h3>
+
+The `exitApp` method is useful when running from a native platform,
+such as Cordova. This adds the ability to place the Cordova app
+in the background.
+
+
+
+
+
+
+
+
+
+
+
+<div id="backButton"></div>
+
+<h3>
+<a class="anchor" name="backButton" href="#backButton"></a>
+<code>backButton</code>
+  
+
+</h3>
+
+The back button event is emitted when the user presses the native
+platform's back button, also referred to as the "hardware" back button.
+This event is only emitted within Cordova apps running on Android and
+Windows platforms. This event is not fired on iOS since iOS doesn't come
+with a hardware back button in the same sense an Android or Windows device
+does. It's important to note that this event does not emit when the Ionic
+app's back button within the navbar is clicked, but this event is only
+referencing the platform's hardward back button.
+
+
+
+
+
+
+
+
+
+
+
+<div id="pause"></div>
+
+<h3>
+<a class="anchor" name="pause" href="#pause"></a>
+<code>pause</code>
+  
+
+</h3>
+
+The pause event emits when the native platform puts the application
+into the background, typically when the user switches to a different
+application. This event would emit when a Cordova app is put into
+the background, however, it would not fire on a standard web browser.
+
+
+
+
+
+
+
+
+
+
+
+<div id="resume"></div>
+
+<h3>
+<a class="anchor" name="resume" href="#resume"></a>
+<code>resume</code>
+  
+
+</h3>
+
+The resume event emits when the native platform pulls the application
+out from the background. This event would emit when a Cordova app comes
+out from the background, however, it would not fire on a standard web browser.
+
+
+
+
+
+
+
+
+
 <!-- related link --><!-- end content block -->
 
 

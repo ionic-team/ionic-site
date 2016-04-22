@@ -26709,15 +26709,27 @@
 	        // Events meant to be triggered by the engine
 	        // **********************************************
 	        /**
-	        * @private
+	        * The back button event is emitted when the user presses the native
+	        * platform's back button, also referred to as the "hardware" back button.
+	        * This event is only emitted within Cordova apps running on Android and
+	        * Windows platforms. This event is not fired on iOS since iOS doesn't come
+	        * with a hardware back button in the same sense an Android or Windows device
+	        * does. It's important to note that this event does not emit when the Ionic
+	        * app's back button within the navbar is clicked, but this event is only
+	        * referencing the platform's hardward back button.
 	        */
 	        this.backButton = new core_1.EventEmitter();
 	        /**
-	        * @private
+	        * The pause event emits when the native platform puts the application
+	        * into the background, typically when the user switches to a different
+	        * application. This event would emit when a Cordova app is put into
+	        * the background, however, it would not fire on a standard web browser.
 	        */
 	        this.pause = new core_1.EventEmitter();
 	        /**
-	        * @private
+	        * The resume event emits when the native platform pulls the application
+	        * out from the background. This event would emit when a Cordova app comes
+	        * out from the background, however, it would not fire on a standard web browser.
 	        */
 	        this.resume = new core_1.EventEmitter();
 	        this._platforms = platforms;
@@ -26949,7 +26961,9 @@
 	    // Provided NOOP methods so they do not error when
 	    // called by engines (the browser)that do not provide them
 	    /**
-	    * @private
+	    * The `exitApp` method is useful when running from a native platform,
+	    * such as Cordova. This adds the ability to place the Cordova app
+	    * in the background.
 	    */
 	    Platform.prototype.exitApp = function () { };
 	    // Getter/Setter Methods
@@ -67460,24 +67474,24 @@
 	                // 2) window onload triggered or completed
 	                doc.addEventListener('deviceready', function () {
 	                    // 3) cordova deviceready event triggered
-	                    // add cordova listeners to fire platform events
+	                    // add cordova listeners to emit platform events
 	                    doc.addEventListener('backbutton', function () {
 	                        p.backButton.emit(null);
 	                    });
-	                    // doc.addEventListener('pause', function() {
-	                    //   p.pause.emit(null);
-	                    // });
-	                    // doc.addEventListener('resume', function() {
-	                    //   p.resume.emit(null);
-	                    // });
+	                    doc.addEventListener('pause', function () {
+	                        p.pause.emit(null);
+	                    });
+	                    doc.addEventListener('resume', function () {
+	                        p.resume.emit(null);
+	                    });
+	                    // cordova has its own exitApp method
+	                    p.exitApp = function () {
+	                        win.navigator.app.exitApp();
+	                    };
 	                    // cordova has fully loaded and we've added listeners
 	                    p.triggerReady();
 	                });
 	            });
-	        };
-	        // cordova has its own exitApp method
-	        p.exitApp = function () {
-	            win.navigator.app.exitApp();
 	        };
 	    },
 	    isMatch: function () {

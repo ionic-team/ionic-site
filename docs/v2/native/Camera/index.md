@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/camera.ts#L84'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/camera.ts#L85'>
   Improve this doc
 </a>
 
@@ -177,6 +177,78 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
 
 
 </div>
+
+
+
+<div id="DestinationType"></div>
+<h3><code>DestinationType()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+<div id="EncodingType"></div>
+<h3><code>EncodingType()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+<div id="MediaType"></div>
+<h3><code>MediaType()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+<div id="PictureSourceType"></div>
+<h3><code>PictureSourceType()</code>
+
+</h3>
+
+
+
+
+
+
+
+
+<div id="PopoverArrowDirection"></div>
+<h3><code>PopoverArrowDirection()</code>
+
+</h3>Matches iOS UIPopoverArrowDirection constants to specify arrow location on popover.
+
+
+
+
+
+
+
+
+<div id="Direction"></div>
+<h3><code>Direction()</code>
+
+</h3>
+
+
+
+
+
 
 
 

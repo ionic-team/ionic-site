@@ -62778,7 +62778,7 @@
 	            selector: 'ion-input',
 	            template: '<input [type]="type" [(ngModel)]="_value" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" [placeholder]="placeholder" class="text-input">' +
 	                '<input [type]="type" aria-hidden="true" next-input *ngIf="_useAssist">' +
-	                '<button clear *ngIf="clearInput && value" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
+	                '<button clear *ngIf="clearInput && value" type="button" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
 	                '<div (touchstart)="pointerStart($event)" (touchend)="pointerEnd($event)" (mousedown)="pointerStart($event)" (mouseup)="pointerEnd($event)" class="input-cover" tappable *ngIf="_useAssist"></div>',
 	            directives: [
 	                common_1.NgIf,
@@ -63229,6 +63229,7 @@
 	     */
 	    InputBase.prototype.clearTextInput = function () {
 	        console.debug('Should clear input');
+	        this._value = '';
 	    };
 	    /**
 	     * @private

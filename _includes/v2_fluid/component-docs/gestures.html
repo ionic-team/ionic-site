@@ -1,0 +1,21 @@
+<h2 id="gestures" class="section-header">Gestures</h2>
+
+<a target="_blank" class="improve-v2-docs" href="https://github.com/driftyco/ionic-site/edit/master/_includes/v2_fluid/component-docs/gestures.html">
+  Improve this Doc
+</a>
+
+You can target specific gestures to trigger specific functionality. Built on top of Hammer.js, you can bind to `tap`, `press`, `pan`, `swipe`, `rotate`, and `pinch`.
+
+<h3 class="no-para">Basic Usage</h3>
+<a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/gestures">
+  Demo Source
+</a>
+
+```html
+  <ion-card (tap)="tapEvent($event)">
+    <ion-item>
+      Tapped: {{tap}} times
+    </ion-item>
+  </ion-card>
+
+```

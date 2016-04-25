@@ -26,7 +26,7 @@ var badges = require('./pages/badges/badges');
 var buttons = require('./pages/buttons/buttons');
 var cards = require('./pages/cards/cards');
 var checkboxes = require('./pages/checkboxes/checkboxes');
-var events = require('./pages/events/events');
+var gestures = require('./pages/gestures/gestures');
 var grid = require('./pages/grid/grid');
 var icons = require('./pages/icons/icons');
 var inputs = require('./pages/inputs/inputs');
@@ -72,7 +72,7 @@ var ROUTES = [
     { path: '/cards/image', component: cards.ImagePage },
     { path: '/cards/list', component: cards.ListPage },
     { path: '/checkboxes/basic', component: checkboxes.BasicPage },
-    { path: '/events/basic', component: events.BasicPage },
+    { path: '/gestures/basic', component: gestures.BasicPage },
     { path: '/grid/basic', component: grid.BasicPage },
     { path: '/icons/basic', component: icons.BasicPage },
     { path: '/inputs/basic', component: inputs.BasicPage },
@@ -211,7 +211,7 @@ var DemoApp = (function () {
     return DemoApp;
 }());
 
-},{"./directives/helpers":2,"./pages/action-sheets/action-sheets":3,"./pages/alerts/alerts":5,"./pages/badges/badges":11,"./pages/buttons/buttons":15,"./pages/cards/cards":29,"./pages/checkboxes/checkboxes":34,"./pages/events/events":36,"./pages/grid/grid":38,"./pages/icons/icons":40,"./pages/inputs/inputs":45,"./pages/lists/lists":55,"./pages/loading/loading":61,"./pages/menus/menus":63,"./pages/modals/modals":65,"./pages/navigation/navigation":67,"./pages/radios/radios":69,"./pages/ranges/ranges":71,"./pages/searchbars/searchbars":73,"./pages/segments/segments":75,"./pages/selects/selects":77,"./pages/slides/slides":79,"./pages/tabs/tabs":84,"./pages/toast/toast":86,"./pages/toggles/toggles":88,"./pages/toolbar/toolbar":94,"./pipes/display-route":95,"angular2/core":98,"angular2/router":103,"ionic-angular":429}],2:[function(require,module,exports){
+},{"./directives/helpers":2,"./pages/action-sheets/action-sheets":3,"./pages/alerts/alerts":5,"./pages/badges/badges":11,"./pages/buttons/buttons":15,"./pages/cards/cards":29,"./pages/checkboxes/checkboxes":34,"./pages/gestures/gestures":36,"./pages/grid/grid":38,"./pages/icons/icons":40,"./pages/inputs/inputs":45,"./pages/lists/lists":55,"./pages/loading/loading":61,"./pages/menus/menus":63,"./pages/modals/modals":65,"./pages/navigation/navigation":67,"./pages/radios/radios":69,"./pages/ranges/ranges":71,"./pages/searchbars/searchbars":73,"./pages/segments/segments":75,"./pages/selects/selects":77,"./pages/slides/slides":79,"./pages/tabs/tabs":84,"./pages/toast/toast":86,"./pages/toggles/toggles":88,"./pages/toolbar/toolbar":94,"./pipes/display-route":95,"angular2/core":98,"angular2/router":103,"ionic-angular":429}],2:[function(require,module,exports){
 "use strict";
 var actionSheets = require('../pages/action-sheets/action-sheets');
 var alerts = require('../pages/alerts/alerts');
@@ -219,7 +219,7 @@ var badges = require('../pages/badges/badges');
 var buttons = require('../pages/buttons/buttons');
 var cards = require('../pages/cards/cards');
 var checkboxes = require('../pages/checkboxes/checkboxes');
-var events = require('../pages/events/events');
+var gestures = require('../pages/gestures/gestures');
 var grid = require('../pages/grid/grid');
 var icons = require('../pages/icons/icons');
 var inputs = require('../pages/inputs/inputs');
@@ -294,7 +294,7 @@ function getPages() {
         'card-advanced-social': cards.AdvancedSocialPage,
         'card-advanced-weather': cards.AdvancedWeatherPage,
         'checkbox': checkboxes.BasicPage,
-        'events': events.BasicPage,
+        'gestures': gestures.BasicPage,
         'radio': radios.BasicPage,
         'range': ranges.BasicPage,
         'segment': segments.BasicPage,
@@ -362,7 +362,7 @@ function debounce(func, wait, immediate) {
 exports.debounce = debounce;
 ;
 
-},{"../pages/action-sheets/action-sheets":3,"../pages/alerts/alerts":5,"../pages/badges/badges":11,"../pages/buttons/buttons":15,"../pages/cards/cards":29,"../pages/checkboxes/checkboxes":34,"../pages/events/events":36,"../pages/grid/grid":38,"../pages/icons/icons":40,"../pages/inputs/inputs":45,"../pages/lists/lists":55,"../pages/loading/loading":61,"../pages/menus/menus":63,"../pages/modals/modals":65,"../pages/navigation/navigation":67,"../pages/radios/radios":69,"../pages/ranges/ranges":71,"../pages/searchbars/searchbars":73,"../pages/segments/segments":75,"../pages/selects/selects":77,"../pages/slides/slides":79,"../pages/tabs/tabs":84,"../pages/toast/toast":86,"../pages/toggles/toggles":88,"../pages/toolbar/toolbar":94}],3:[function(require,module,exports){
+},{"../pages/action-sheets/action-sheets":3,"../pages/alerts/alerts":5,"../pages/badges/badges":11,"../pages/buttons/buttons":15,"../pages/cards/cards":29,"../pages/checkboxes/checkboxes":34,"../pages/gestures/gestures":36,"../pages/grid/grid":38,"../pages/icons/icons":40,"../pages/inputs/inputs":45,"../pages/lists/lists":55,"../pages/loading/loading":61,"../pages/menus/menus":63,"../pages/modals/modals":65,"../pages/navigation/navigation":67,"../pages/radios/radios":69,"../pages/ranges/ranges":71,"../pages/searchbars/searchbars":73,"../pages/segments/segments":75,"../pages/selects/selects":77,"../pages/slides/slides":79,"../pages/tabs/tabs":84,"../pages/toast/toast":86,"../pages/toggles/toggles":88,"../pages/toolbar/toolbar":94}],3:[function(require,module,exports){
 "use strict";
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
@@ -1331,7 +1331,7 @@ var BasicPage = (function () {
     };
     BasicPage = __decorate([
         ionic_angular_1.Page({
-            templateUrl: './build/pages/events/basic/template.html'
+            templateUrl: './build/pages/gestures/basic/template.html'
         }), 
         __metadata('design:paramtypes', [])
     ], BasicPage);

@@ -64,11 +64,10 @@ For full info, please see the <a href="https://github.com/apache/cordova-plugin-
 
 
 
-Contacts.save({
+Contacts.create({
   displayName: &quot;Mr. Ionitron&quot;
 }).then((contact) =&gt; {}, (err) =&gt; {})
 </code></pre>
-<p>See the <code>save()</code> docs for a full list of fields.</p>
 
 
 

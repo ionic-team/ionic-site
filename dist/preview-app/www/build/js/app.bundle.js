@@ -2841,9 +2841,12 @@ var Page4 = (function () {
     function Page4(nav) {
         this.nav = nav;
     }
+    Page4.prototype.goBack = function () {
+        this.nav.setRoot(ColorsPage);
+    };
     Page4 = __decorate([
         ionic_angular_1.Page({
-            template: "\n      <ion-navbar *navbar dark>\n      <ion-title>Dark</ion-title>\n      </ion-navbar>\n      <ion-content>\n      </ion-content>\n  "
+            template: "\n    <ion-navbar *navbar light>\n      <ion-title>Toolbar: Light</ion-title>\n    </ion-navbar>\n    <ion-content padding>\n      <button block (click)=\"goBack()\">Go Back to Beginning</button>\n    </ion-content>\n  "
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.NavController])
     ], Page4);
@@ -2859,7 +2862,7 @@ var Page3 = (function () {
     };
     Page3 = __decorate([
         ionic_angular_1.Page({
-            template: "\n      <ion-navbar *navbar danger>\n      <ion-title>Danger</ion-title>\n      </ion-navbar>\n\n      <ion-content>\n      <button block (click)=\"pushPage()\">Go to new page</button>\n      </ion-content>\n  "
+            template: "\n    <ion-navbar *navbar danger>\n      <ion-title>Toolbar: Danger</ion-title>\n    </ion-navbar>\n\n    <ion-content padding>\n      <button block (click)=\"pushPage()\">Next Page</button>\n    </ion-content>\n  "
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.NavController])
     ], Page3);
@@ -2875,7 +2878,7 @@ var Page2 = (function () {
     };
     Page2 = __decorate([
         ionic_angular_1.Page({
-            template: "\n      <ion-navbar *navbar secondary>\n      <ion-title>Secondary</ion-title>\n      </ion-navbar>\n\n      <ion-content>\n      <button block (click)=\"pushPage()\">Go to new page</button>\n      </ion-content>\n  "
+            template: "\n    <ion-navbar *navbar secondary>\n      <ion-title>Toolbar: Secondary</ion-title>\n    </ion-navbar>\n\n    <ion-content padding>\n      <button block (click)=\"pushPage()\">Next Page</button>\n    </ion-content>\n  "
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.NavController])
     ], Page2);
@@ -2891,7 +2894,7 @@ var ColorsPage = (function () {
     };
     ColorsPage = __decorate([
         ionic_angular_1.Page({
-            template: "\n      <ion-navbar *navbar primary>\n      <ion-title>Primary</ion-title>\n      </ion-navbar>\n\n      <ion-content>\n      <button block (click)=\"pushPage()\">Go to new page</button>\n      </ion-content>\n  "
+            template: "\n    <ion-navbar *navbar primary>\n      <ion-title>Toolbar: Primary</ion-title>\n    </ion-navbar>\n\n    <ion-content padding>\n      <button block (click)=\"pushPage()\">Next Page</button>\n    </ion-content>\n  "
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.NavController])
     ], ColorsPage);

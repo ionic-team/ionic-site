@@ -9438,29 +9438,29 @@ ion-buttons[right] {
     background-color: #535353; }
 
 ion-navbar-section.statusbar-padding {
-  height: calc(5.6rem + 20px);
-  min-height: calc(5.6rem + 20px); }
+  height: calc(5.6rem + 29px);
+  min-height: calc(5.6rem + 29px); }
 
 ion-navbar-section.statusbar-padding > .toolbar {
-  padding-top: 20px;
-  height: calc(5.6rem + 20px);
-  min-height: calc(5.6rem + 20px); }
+  padding-top: 29px;
+  height: calc(5.6rem + 29px);
+  min-height: calc(5.6rem + 29px); }
 
 ion-nav > ion-page > .toolbar.statusbar-padding:first-child,
 ion-menu > .toolbar.statusbar-padding:first-child {
-  padding-top: 20px;
-  height: calc(5.6rem + 20px);
-  min-height: calc(5.6rem + 20px); }
+  padding-top: 29px;
+  height: calc(5.6rem + 29px);
+  min-height: calc(5.6rem + 29px); }
 
 ion-nav > ion-page > ion-content.statusbar-padding:first-child scroll-content,
 ion-menu > ion-content.statusbar-padding:first-child scroll-content {
-  padding-top: 20px; }
+  padding-top: 29px; }
 
 ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
 ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
 ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,
 ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
-  padding-top: calc(16px + 20px); }
+  padding-top: calc(16px + 29px); }
 
 @font-face {
   font-family: "Roboto";
@@ -9548,19 +9548,14 @@ ion-content.cards-bg {
 .demo-list-icons icon#secondary {
   color: #32DB64; }
 
-body.md {
-  border-top: 24px solid black; }
-
-body.md backdrop {
-  top: -24px;
-  height: 107%; }
-
 body.md img#md-only {
   display: block !important;
   position: absolute;
-  top: -24px;
+  background-color: transparent;
+  top: 0px;
   width: 100%;
-  height: auto; }
+  height: auto;
+  z-index: 999; }
 
 body.md img#md-tabs-icon, body.md img#md-tabs-icon-text {
   display: none;
@@ -9579,16 +9574,15 @@ body.ios img#ios-only {
   height: auto;
   z-index: 999; }
 
-body.wp {
-  border-top: 18px solid transparent; }
-
 body.wp img#wp-only {
   display: block !important;
   position: absolute;
-  background-color: #F8F8F8;
-  top: -18px;
+  background-color: transparent;
+  padding: 5px 0;
+  top: 0px;
   width: 100%;
-  height: auto; }
+  height: auto;
+  z-index: 999; }
 
 .md .ion-md-share {
   color: #ED4248; }

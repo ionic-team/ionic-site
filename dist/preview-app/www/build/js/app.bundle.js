@@ -193,13 +193,11 @@ var DemoApp = (function () {
         ionic_angular_1.App({
             templateUrl: './build/app.html',
             config: {
+                statusbarPadding: true,
                 platforms: {
                     android: {
                         activator: 'ripple',
                         backButtonIcon: 'md-arrow-back'
-                    },
-                    ios: {
-                        statusbarPadding: true
                     }
                 }
             },

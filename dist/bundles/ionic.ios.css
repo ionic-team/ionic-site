@@ -504,19 +504,29 @@ ion-loading-icon {
   ion-loading-icon::before {
     content: "\f44e"; }
 
+ion-grid {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 5px;
+  width: 100%; }
+
 ion-row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 5px;
   width: 100%; }
   ion-row[wrap] {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-  ion-row[flush] {
-    padding: 0; }
   ion-row[top] {
     -webkit-box-align: start;
     -webkit-align-items: flex-start;
@@ -542,10 +552,6 @@ ion-row {
     -webkit-align-items: baseline;
     -ms-flex-align: baseline;
     align-items: baseline; }
-
-ion-row + ion-row {
-  margin-top: -5px;
-  padding-top: 0; }
 
 ion-col {
   display: block;

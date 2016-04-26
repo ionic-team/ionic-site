@@ -48301,7 +48301,7 @@
 	  * @property [fab-center] - Position a fab button towards the center.
 	  * @property [fab-top] - Position a fab button towards the top.
 	  * @property [fab-bottom] - Position a fab button towards the bottom.
-	  * @property [color] - Dynamically set which predefined color this button should use (e.g. default, secondary, danger, etc).
+	  * @property [color] - Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).
 	  *
 	  * @demo /docs/v2/demos/button/
 	  * @see {@link /docs/v2/components#buttons Button Component Docs}
@@ -48430,17 +48430,24 @@
 	            this._setClass(attrName, true);
 	        }
 	        else {
-	            this[type] = null;
+	            // Special handling for '_style' which defaults to 'default'.
+	            this[type] = (type === '_style' ? 'default' : null);
+	        }
+	        if (type === '_style') {
+	            this._setColor(attrName, util_1.isTrueProperty(attrValue));
 	        }
 	    };
 	    Object.defineProperty(Button.prototype, "color", {
 	        /**
-	         * @input {string} Dynamically set which predefined color this button should use (e.g. default, secondary, danger, etc).
+	         * @input {string} Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).
 	         */
 	        set: function (val) {
-	            this._assignCss(false);
-	            this._colors = [val];
-	            this._assignCss(true);
+	            // Clear the colors for all styles including the default one.
+	            this._setColor(BUTTON_STYLE_ATTRS.concat(['default']), false);
+	            // Support array input which is also supported via multiple attributes (e.g. primary, secondary, etc).
+	            this._colors = (val instanceof Array ? val : [val]);
+	            // Set the colors for the currently effective style.
+	            this._setColor(this._style, true);
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -48547,7 +48554,6 @@
 	     * @private
 	     */
 	    Button.prototype._assignCss = function (assignCssClass) {
-	        var _this = this;
 	        var role = this._role;
 	        if (role) {
 	            this._renderer.setElementClass(this._elementRef.nativeElement, role, assignCssClass); // button
@@ -48556,10 +48562,7 @@
 	            this._setClass(this._display, assignCssClass); // button-full
 	            this._setClass(this._size, assignCssClass); // button-small
 	            this._setClass(this._icon, assignCssClass); // button-icon-left
-	            var colorStyle_1 = (this._style !== 'default' ? this._style + '-' : '');
-	            this._colors.forEach(function (colorName) {
-	                _this._setClass(colorStyle_1 + colorName, assignCssClass); // button-secondary, button-clear-secondary
-	            });
+	            this._setColor(this._style, assignCssClass); // button-secondary, button-clear-secondary
 	        }
 	    };
 	    /**
@@ -48568,6 +48571,22 @@
 	    Button.prototype._setClass = function (type, assignCssClass) {
 	        if (type && this._init) {
 	            this._renderer.setElementClass(this._elementRef.nativeElement, this._role + '-' + type.toLowerCase(), assignCssClass);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype._setColor = function (type, assignCssClass) {
+	        var _this = this;
+	        if (type && this._init) {
+	            // Support array to allow removal of many styles at once.
+	            var styles = (type instanceof Array ? type : [type]);
+	            styles.forEach(function (styleName) {
+	                var colorStyle = (styleName !== null && styleName !== 'default' ? styleName.toLowerCase() + '-' : '');
+	                _this._colors.forEach(function (colorName) {
+	                    _this._setClass(colorStyle + colorName, assignCssClass); // button-secondary, button-clear-secondary
+	                });
+	            });
 	        }
 	    };
 	    /**
@@ -48630,8 +48649,8 @@
 	    ], Button.prototype, "full", null);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', String), 
-	        __metadata('design:paramtypes', [String])
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
 	    ], Button.prototype, "color", null);
 	    Button = __decorate([
 	        core_1.Component({

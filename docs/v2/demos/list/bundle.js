@@ -25956,18 +25956,20 @@
 	    }
 	})();
 	// use native raf rather than the zone wrapped one
-	exports.raf = (window[window['Zone']['__symbol__']('requestAnimationFrame')] || window[window['Zone']['__symbol__']('webkitRequestAnimationFrame')])['bind'](window);
+	exports.nativeRaf = (window[window['Zone']['__symbol__']('requestAnimationFrame')] || window[window['Zone']['__symbol__']('webkitRequestAnimationFrame')])['bind'](window);
+	// zone wrapped raf
+	exports.raf = window.requestAnimationFrame.bind(window);
 	exports.cancelRaf = window.cancelAnimationFrame.bind(window);
 	exports.nativeTimeout = window[window['Zone']['__symbol__']('setTimeout')]['bind'](window);
 	exports.clearNativeTimeout = window[window['Zone']['__symbol__']('clearTimeout')]['bind'](window);
 	function rafFrames(framesToWait, callback) {
 	    framesToWait = Math.ceil(framesToWait);
 	    if (framesToWait < 2) {
-	        exports.raf(callback);
+	        exports.nativeRaf(callback);
 	    }
 	    else {
 	        exports.nativeTimeout(function () {
-	            exports.raf(callback);
+	            exports.nativeRaf(callback);
 	        }, (framesToWait - 1) * 16.6667);
 	    }
 	}
@@ -42404,7 +42406,7 @@
 	    Keyboard.prototype.close = function () {
 	        var _this = this;
 	        console.debug('keyboard close()');
-	        dom_1.raf(function () {
+	        dom_1.nativeRaf(function () {
 	            if (dom_1.hasFocusedTextInput()) {
 	                // only focus out when a text input has focus
 	                _this._form.focusOut();
@@ -42429,7 +42431,7 @@
 	        var self = this;
 	        var isKeyInputEnabled = false;
 	        function cssClass() {
-	            dom_1.raf(function () {
+	            dom_1.nativeRaf(function () {
 	                document.body.classList[isKeyInputEnabled ? 'add' : 'remove']('focus-outline');
 	            });
 	        }
@@ -42878,7 +42880,7 @@
 	                    self._el.scrollLeft = Math.floor((easedT * (x - fromX)) + fromX);
 	                }
 	                if (easedT < 1) {
-	                    dom_1.raf(step);
+	                    dom_1.nativeRaf(step);
 	                }
 	                else {
 	                    // done
@@ -42888,9 +42890,9 @@
 	            // start scroll loop
 	            self.isPlaying = true;
 	            // chill out for a frame first
-	            dom_1.raf(function () {
+	            dom_1.nativeRaf(function () {
 	                startTime = Date.now();
-	                dom_1.raf(step);
+	                dom_1.nativeRaf(step);
 	            });
 	        });
 	    };
@@ -42998,7 +43000,7 @@
 	            if (Math.abs(this._velocity) > MIN_VELOCITY_START_DECELERATION) {
 	                // ******** DOM READ ****************
 	                this._setMax();
-	                this._rafId = dom_1.raf(this._decelerate.bind(this));
+	                this._rafId = dom_1.nativeRaf(this._decelerate.bind(this));
 	            }
 	        }
 	        positions.length = 0;
@@ -43019,7 +43021,7 @@
 	            // ******** DOM WRITE ****************
 	            self.setTop(self._top);
 	            if (self._top > 0 && self._top < self._max && Math.abs(self._velocity) > MIN_VELOCITY_CONTINUE_DECELERATION) {
-	                self._rafId = dom_1.raf(self._decelerate.bind(self));
+	                self._rafId = dom_1.nativeRaf(self._decelerate.bind(self));
 	            }
 	        }
 	    };
@@ -43160,7 +43162,7 @@
 	    };
 	    TapClick.prototype.pointerEnd = function (ev) {
 	        var activatableEle = getActivatableTarget(ev.target);
-	        if (activatableEle) {
+	        if (activatableEle && this.startCoord) {
 	            this.activator && this.activator.upAction(ev, activatableEle, this.startCoord.x, this.startCoord.y);
 	        }
 	        this.moveListeners(false);
@@ -43360,7 +43362,7 @@
 	        // queue to have this element activated
 	        self._queue.push(activatableEle);
 	        this._zone.runOutsideAngular(function () {
-	            dom_1.raf(function () {
+	            dom_1.nativeRaf(function () {
 	                var i;
 	                for (i = 0; i < self._queue.length; i++) {
 	                    var queuedEle = self._queue[i];
@@ -51154,8 +51156,8 @@
 	                }
 	            }
 	            lastScrollTop = currentScrollTop;
-	            dom_1.raf(function () {
-	                dom_1.raf(next);
+	            dom_1.nativeRaf(function () {
+	                dom_1.nativeRaf(next);
 	            });
 	        }
 	        dom_1.nativeTimeout(next, 100);
@@ -51420,7 +51422,7 @@
 	                    img.addEventListener('load', function () {
 	                        if (img.src === _this._normalizeSrc) {
 	                            _this._elementRef.nativeElement.appendChild(img);
-	                            dom_1.raf(function () {
+	                            dom_1.nativeRaf(function () {
 	                                _this._update();
 	                            });
 	                        }
@@ -58765,7 +58767,7 @@
 	            itemContainerEle.addEventListener('mouseout', this.onMouseOut);
 	            itemData.hasMouseOut = true;
 	        }
-	        dom_1.raf(function () {
+	        dom_1.nativeRaf(function () {
 	            if (!_this.dragEnded && !_this.preventDrag) {
 	                isItemActive(itemContainerEle, true);
 	                _this.open(itemContainerEle, newX, false);
@@ -58795,7 +58797,7 @@
 	        }
 	        itemContainerEle.removeEventListener('mouseout', this.onMouseOut);
 	        itemData.hasMouseOut = false;
-	        dom_1.raf(function () {
+	        dom_1.nativeRaf(function () {
 	            _this.open(itemContainerEle, restingPoint, true);
 	        });
 	    };
@@ -59665,7 +59667,7 @@
 	                    // oh no! the DOM doesn't have good data yet!
 	                    // let's try again in XXms, and give up eventually if we never get data
 	                    attempts++;
-	                    dom_1.raf(function () {
+	                    dom_1.nativeRaf(function () {
 	                        readDimensions(done);
 	                    });
 	                }
@@ -59694,7 +59696,7 @@
 	        // ******** DOM WRITE ****************
 	        this._cd.detectChanges();
 	        // wait a frame before trying to read and calculate the dimensions
-	        dom_1.raf(this.postRenderVirtual.bind(this));
+	        dom_1.nativeRaf(this.postRenderVirtual.bind(this));
 	    };
 	    /**
 	     * @private
@@ -65723,6 +65725,7 @@
 	__export(__webpack_require__(359));
 	__export(__webpack_require__(310));
 	__export(__webpack_require__(347));
+	__export(__webpack_require__(368));
 	__export(__webpack_require__(353));
 	__export(__webpack_require__(354));
 	__export(__webpack_require__(327));
@@ -65738,7 +65741,6 @@
 	__export(__webpack_require__(333));
 	__export(__webpack_require__(293));
 	__export(__webpack_require__(348));
-	__export(__webpack_require__(368));
 	__export(__webpack_require__(312));
 	__export(__webpack_require__(340));
 
@@ -66458,138 +66460,391 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(179);
-	var button_1 = __webpack_require__(313);
-	var icon_1 = __webpack_require__(311);
 	var animation_1 = __webpack_require__(318);
 	var transition_1 = __webpack_require__(317);
 	var config_1 = __webpack_require__(168);
 	var util_1 = __webpack_require__(170);
 	var nav_params_1 = __webpack_require__(309);
-	var nav_controller_1 = __webpack_require__(314);
 	var view_controller_1 = __webpack_require__(308);
+	var dom_1 = __webpack_require__(167);
 	/**
-	 * @name Toast
+	 * @name Picker
 	 * @description
-	 * A Toast is a subtle notification that appears at the bottom of the
-	 * screen. It can be used to provide feedback about an operation or to
-	 * display a system message. The toast appears on top of the app's content,
-	 * and can be dismissed by the app to resume user interaction with
-	 * the app. It includes a backdrop, which can optionally be clicked to
-	 * dismiss the toast.
 	 *
-	 * ### Creating
-	 * All of the toast options should be passed in the first argument of
-	 * the create method: `Toast.create(opts)`. The message to display should be
-	 * passed in the `message` property. The `showCloseButton` option can be set to
-	 * true in order to display a close button on the toast. See the [create](#create)
-	 * method below for all available options.
-	 *
-	 * ### Dismissing
-	 * The toast can be dismissed automatically after a specific amount of time
-	 * by passing the number of milliseconds to display it in the `duration` of
-	 * the toast options. It can also be dismissed by clicking on the backdrop,
-	 * unless `enableBackdropDismiss` is set to `false` upon creation. If `showCloseButton`
-	 * is set to true, then the close button will dismiss the toast. To dismiss
-	 * the toast after creation, call the `dismiss()` method on the Toast instance.
-	 * The `onDismiss` function can be called to perform an action after the toast
-	 * is dismissed.
-	 *
-	 * @usage
-	 * ```ts
-	 * constructor(nav: NavController) {
-	 *   this.nav = nav;
-	 * }
-	 *
-	 * presentToast() {
-	 *   let toast = Toast.create({
-	 *     message: 'User was added successfully',
-	 *     duration: 3000
-	 *   });
-	 *
-	 *   toast.onDismiss(() => {
-	 *     console.log('Dismissed toast');
-	 *   });
-	 *
-	 *   this.nav.present(toast);
-	 * }
-	 * ```
-	 *
-	 * @demo /docs/v2/demos/toast/
 	 */
-	var Toast = (function (_super) {
-	    __extends(Toast, _super);
-	    function Toast(opts) {
+	var Picker = (function (_super) {
+	    __extends(Picker, _super);
+	    function Picker(opts) {
 	        if (opts === void 0) { opts = {}; }
+	        opts.columns = opts.columns || [];
+	        opts.buttons = opts.buttons || [];
 	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
-	        opts.dismissOnPageChange = util_1.isPresent(opts.dismissOnPageChange) ? !!opts.dismissOnPageChange : false;
-	        _super.call(this, ToastCmp, opts);
-	        this.viewType = 'toast';
+	        _super.call(this, PickerDisplayCmp, opts);
+	        this.viewType = 'picker';
 	        this.isOverlay = true;
-	        this.usePortal = true;
-	        // by default, toasts should not fire lifecycle events of other views
-	        // for example, when an toast enters, the current active view should
+	        // by default, pickers should not fire lifecycle events of other views
+	        // for example, when an picker enters, the current active view should
 	        // not fire its lifecycle events because it's not conceptually leaving
 	        this.fireOtherLifecycles = false;
+	        this.usePortal = true;
 	    }
 	    /**
 	    * @private
 	    */
-	    Toast.prototype.getTransitionName = function (direction) {
-	        var key = 'toast' + (direction === 'back' ? 'Leave' : 'Enter');
+	    Picker.prototype.getTransitionName = function (direction) {
+	        var key = (direction === 'back' ? 'pickerLeave' : 'pickerEnter');
 	        return this._nav && this._nav.config.get(key);
 	    };
 	    /**
-	     * @param {string} message  Toast message content
+	     * @param {any} button Picker toolbar button
 	     */
-	    Toast.prototype.setMessage = function (message) {
-	        this.data.message = message;
+	    Picker.prototype.addButton = function (button) {
+	        this.data.buttons.push(button);
 	    };
 	    /**
-	     *
-	     *  Toast options
-	     *
-	     *  | Property              | Type      | Default         | Description                                                                                                   |
-	     *  |-----------------------|-----------|-----------------|---------------------------------------------------------------------------------------------------------------|
-	     *  | message               | `string`  | -               | The message for the toast. Long strings will wrap and the toast container will expand.                        |
-	     *  | duration              | `number`  | -               | How many milliseconds to wait before hiding the toast. By default, it will show until `dismiss()` is called.  |
-	     *  | cssClass              | `string`  | -               | Any additional class for custom styles.                                                                       |
-	     *  | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
-	     *  | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |
-	     *  | enableBackdropDismiss | `boolean` | true            | Whether the toast should be dismissed by tapping the backdrop.                                                |
-	     *  | dismissOnPageChange   | `boolean` | false           | Whether to dismiss the toast when navigating to a new page.                                                   |
-	     *
-	     * @param {object} opts Toast options. See the above table for available options.
+	     * @param {any} button Picker toolbar button
 	     */
-	    Toast.create = function (opts) {
-	        if (opts === void 0) { opts = {}; }
-	        return new Toast(opts);
+	    Picker.prototype.addColumn = function (column) {
+	        this.data.columns.push(column);
 	    };
-	    return Toast;
+	    /**
+	     * @param {string} cssClass CSS class name to add to the picker's outer wrapper.
+	     */
+	    Picker.prototype.setCssClass = function (cssClass) {
+	        this.data.cssClass = cssClass;
+	    };
+	    Picker.create = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        return new Picker(opts);
+	    };
+	    return Picker;
 	}(view_controller_1.ViewController));
-	exports.Toast = Toast;
+	exports.Picker = Picker;
 	/**
-	* @private
-	*/
-	var ToastCmp = (function () {
-	    function ToastCmp(_nav, _viewCtrl, _config, _elementRef, params, renderer) {
-	        this._nav = _nav;
-	        this._viewCtrl = _viewCtrl;
-	        this._config = _config;
-	        this._elementRef = _elementRef;
-	        this.dismissTimeout = undefined;
-	        this.d = params.data;
-	        this.created = Date.now();
-	        if (this.d.cssClass) {
-	            renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
-	        }
-	        this.id = (++toastIds);
-	        if (this.d.message) {
-	            this.hdrId = 'toast-hdr-' + this.id;
-	        }
+	 * @private
+	 */
+	var PickerColumnCmp = (function () {
+	    function PickerColumnCmp(config) {
+	        this.y = 0;
+	        this.pos = [];
+	        this.msPrv = 0;
+	        this.startY = null;
+	        this.rotateFactor = config.getNumber('pickerRotateFactor', 0);
 	    }
-	    ToastCmp.prototype.onPageDidEnter = function () {
-	        var _this = this;
+	    PickerColumnCmp.prototype.ngAfterViewInit = function () {
+	        // get the scrollable element within the column
+	        var colEle = this.colEle.nativeElement;
+	        this.colHeight = colEle.clientHeight;
+	        // get the height of one option
+	        this.optHeight = (colEle.firstElementChild ? colEle.firstElementChild.clientHeight : 0);
+	        // set the scroll position for the selected option
+	        var selectedIndex = this.col.options.indexOf(this.col.selected);
+	        this.setSelected(selectedIndex, 0);
+	    };
+	    PickerColumnCmp.prototype.pointerStart = function (ev) {
+	        console.debug('picker, pointerStart', ev.type, this.startY);
+	        if (this.isPrevented(ev)) {
+	            // do not both with mouse events if a touch event already fired
+	            return;
+	        }
+	        // cancel any previous raf's that haven't fired yet
+	        dom_1.cancelRaf(this.rafId);
+	        // remember where the pointer started from`
+	        this.startY = dom_1.pointerCoord(ev).y;
+	        // reset everything
+	        this.velocity = 0;
+	        this.pos.length = 0;
+	        this.pos.push(this.startY, Date.now());
+	        this.maxY = (this.optHeight * (this.col.options.length - 1)) * -1;
+	    };
+	    PickerColumnCmp.prototype.pointerMove = function (ev) {
+	        ev.preventDefault();
+	        ev.stopPropagation();
+	        if (this.startY !== null) {
+	            if (this.isPrevented(ev)) {
+	                return;
+	            }
+	            var currentY = dom_1.pointerCoord(ev).y;
+	            this.pos.push(currentY, Date.now());
+	            // update the scroll position relative to pointer start position
+	            var y = this.y + (currentY - this.startY);
+	            if (y > 0) {
+	                // scrolling up higher than scroll area
+	                y = Math.pow(y, 0.8);
+	                this.bounceFrom = y;
+	            }
+	            else if (y < this.maxY) {
+	                // scrolling down below scroll area
+	                y = y + Math.pow(this.maxY - y, 0.9);
+	                this.bounceFrom = y;
+	            }
+	            else {
+	                this.bounceFrom = 0;
+	            }
+	            this.update(y, 0, false);
+	        }
+	    };
+	    PickerColumnCmp.prototype.pointerEnd = function (ev) {
+	        if (this.isPrevented(ev)) {
+	            return;
+	        }
+	        this.velocity = 0;
+	        if (this.bounceFrom > 0) {
+	            // bounce back up
+	            this.update(0, 100, true);
+	        }
+	        else if (this.bounceFrom < 0) {
+	            // bounce back down
+	            this.update(this.maxY, 100, true);
+	        }
+	        else if (this.startY !== null) {
+	            var endY = dom_1.pointerCoord(ev).y;
+	            console.debug('picker, pointerEnd', ev.type, endY);
+	            this.pos.push(endY, Date.now());
+	            var endPos = (this.pos.length - 1);
+	            var startPos = endPos;
+	            var timeRange = (Date.now() - 100);
+	            // move pointer to position measured 100ms ago
+	            for (var i = endPos; i > 0 && this.pos[i] > timeRange; i -= 2) {
+	                startPos = i;
+	            }
+	            if (startPos !== endPos) {
+	                // compute relative movement between these two points
+	                var timeOffset = (this.pos[endPos] - this.pos[startPos]);
+	                var movedTop = (this.pos[startPos - 1] - this.pos[endPos - 1]);
+	                // based on XXms compute the movement to apply for each render step
+	                this.velocity = ((movedTop / timeOffset) * FRAME_MS);
+	            }
+	            if (Math.abs(endY - this.startY) > 3) {
+	                ev.preventDefault();
+	                ev.stopPropagation();
+	                var y = this.y + (endY - this.startY);
+	                this.update(y, 0, true);
+	            }
+	        }
+	        this.startY = null;
+	        this.decelerate();
+	    };
+	    PickerColumnCmp.prototype.mouseOut = function (ev) {
+	        if (ev.target.classList.contains('picker-col')) {
+	            this.pointerEnd(ev);
+	        }
+	    };
+	    PickerColumnCmp.prototype.decelerate = function () {
+	        var y = 0;
+	        dom_1.cancelRaf(this.rafId);
+	        if (isNaN(this.y) || !this.optHeight) {
+	            // fallback in case numbers get outta wack
+	            this.update(y, 0, true);
+	        }
+	        else if (Math.abs(this.velocity) > 0) {
+	            // still decelerating
+	            this.velocity *= DECELERATION_FRICTION;
+	            // do not let it go slower than a velocity of 1
+	            this.velocity = (this.velocity > 0 ? Math.max(this.velocity, 1) : Math.min(this.velocity, -1));
+	            y = Math.round(this.y - this.velocity);
+	            if (y > 0) {
+	                // whoops, it's trying to scroll up farther than the options we have!
+	                y = 0;
+	                this.velocity = 0;
+	            }
+	            else if (y < this.maxY) {
+	                // gahh, it's trying to scroll down farther than we can!
+	                y = this.maxY;
+	                this.velocity = 0;
+	            }
+	            console.log("decelerate y: " + y + ", velocity: " + this.velocity + ", optHeight: " + this.optHeight);
+	            this.update(y, 0, true);
+	            if (y % this.optHeight !== 0 || Math.abs(this.velocity) > 1) {
+	                // isn't locked in yet, keep decelerating until it is
+	                this.rafId = dom_1.nativeRaf(this.decelerate.bind(this));
+	            }
+	        }
+	        else if (this.y % this.optHeight !== 0) {
+	            // needs to still get locked into a position so options line up
+	            var currentPos = Math.abs(this.y % this.optHeight);
+	            // create a velocity in the direction it needs to scroll
+	            this.velocity = (currentPos > (this.optHeight / 2) ? 1 : -1);
+	            this.decelerate();
+	        }
+	    };
+	    PickerColumnCmp.prototype.optClick = function (ev, index) {
+	        if (!this.velocity) {
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	            this.setSelected(index, 150);
+	        }
+	    };
+	    PickerColumnCmp.prototype.setSelected = function (selectedIndex, duration) {
+	        // if there is a selected index, then figure out it's y position
+	        // if there isn't a selected index, then just use the top y position
+	        var y = (selectedIndex > -1) ? ((selectedIndex * this.optHeight) * -1) : 0;
+	        dom_1.cancelRaf(this.rafId);
+	        this.velocity = 0;
+	        // so what y position we're at
+	        this.update(y, duration, true);
+	    };
+	    PickerColumnCmp.prototype.update = function (y, duration, saveY) {
+	        // ensure we've got a good round number :)
+	        y = Math.round(y);
+	        var selectedIndex = Math.abs(Math.round(y / this.optHeight));
+	        this.col.selected = this.col.options[selectedIndex];
+	        var colEle = this.colEle.nativeElement;
+	        var optElements = colEle.querySelectorAll('.picker-opt');
+	        for (var i = 0; i < optElements.length; i++) {
+	            var optEle = optElements[i];
+	            var optTop = (i * this.optHeight);
+	            var optOffset = (optTop + y);
+	            var rotateX = (optOffset * this.rotateFactor);
+	            var translateX = 0;
+	            var translateY = 0;
+	            var translateZ = 0;
+	            if (this.rotateFactor !== 0) {
+	                translateX = 10;
+	                translateZ = 90;
+	                if (rotateX > 90 || rotateX < -90) {
+	                    translateX = -9999;
+	                    rotateX = 0;
+	                }
+	            }
+	            else {
+	                translateY = optOffset;
+	            }
+	            optEle.style[dom_1.CSS.transform] = "rotateX(" + rotateX + "deg) translate3d(" + translateX + "px," + translateY + "px," + translateZ + "px)";
+	            optEle.style[dom_1.CSS.transitionDuration] = (duration > 0 ? duration + 'ms' : '');
+	            optEle.classList[i === selectedIndex ? 'add' : 'remove']('picker-opt-selected');
+	        }
+	        if (saveY) {
+	            this.y = y;
+	        }
+	    };
+	    PickerColumnCmp.prototype.isPrevented = function (ev) {
+	        if (ev.type.indexOf('touch') > -1) {
+	            // this is a touch event, so prevent mouse events for a while
+	            this.msPrv = Date.now() + 2000;
+	        }
+	        else if (this.msPrv > Date.now() && ev.type.indexOf('mouse') > -1) {
+	            // this is a mouse event, and a touch event already happend recently
+	            // prevent the calling method from continuing
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	            return true;
+	        }
+	    };
+	    __decorate([
+	        core_1.ViewChild('colEle'), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object)
+	    ], PickerColumnCmp.prototype, "colEle", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], PickerColumnCmp.prototype, "col", void 0);
+	    PickerColumnCmp = __decorate([
+	        core_1.Component({
+	            selector: '.picker-col',
+	            template: '<div *ngIf="col.prefix" class="picker-prefix" [style.width]="col.prefixWidth">{{col.prefix}}</div>' +
+	                '<div class="picker-opts" #colEle [style.width]="col.optionsWidth">' +
+	                '<button *ngFor="#o of col.options; #i=index" (click)="optClick($event, i)" type="button" category="picker-opt">' +
+	                '{{o.text}}' +
+	                '</button>' +
+	                '</div>' +
+	                '<div *ngIf="col.suffix" class="picker-suffix" [style.width]="col.suffixWidth">{{col.suffix}}</div>',
+	            host: {
+	                '[style.min-width]': 'col.columnWidth',
+	                '[class.picker-opts-left]': 'col.align=="left"',
+	                '[class.picker-opts-right]': 'col.align=="right"',
+	                '(touchstart)': 'pointerStart($event)',
+	                '(touchmove)': 'pointerMove($event)',
+	                '(touchend)': 'pointerEnd($event)',
+	                '(mousedown)': 'pointerStart($event)',
+	                '(mousemove)': 'pointerMove($event)',
+	                '(body:mouseup)': 'pointerEnd($event)',
+	                '(body:mouseout)': 'mouseOut($event)',
+	            }
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
+	    ], PickerColumnCmp);
+	    return PickerColumnCmp;
+	    var _a, _b;
+	}());
+	/**
+	 * @private
+	 */
+	var PickerDisplayCmp = (function () {
+	    function PickerDisplayCmp(_viewCtrl, _elementRef, _config, params, renderer) {
+	        this._viewCtrl = _viewCtrl;
+	        this._elementRef = _elementRef;
+	        this._config = _config;
+	        this.d = params.data;
+	        if (this.d.cssClass) {
+	            this.d.cssClass.split(' ').forEach(function (cssClass) {
+	                renderer.setElementClass(_elementRef.nativeElement, cssClass, true);
+	            });
+	        }
+	        this.id = (++pickerIds);
+	        this.created = Date.now();
+	        this.lastClick = 0;
+	    }
+	    PickerDisplayCmp.prototype.onPageLoaded = function () {
+	        // normalize the data
+	        var data = this.d;
+	        data.buttons = data.buttons.map(function (button) {
+	            if (util_1.isString(button)) {
+	                return { text: button };
+	            }
+	            if (button.role) {
+	                button.cssRole = "picker-toolbar-" + button.role;
+	            }
+	            return button;
+	        });
+	        // clean up dat data
+	        data.columns = data.columns.map(function (column) {
+	            if (!util_1.isPresent(column.columnWidth)) {
+	                column.columnWidth = (100 / data.columns.length) + '%';
+	            }
+	            if (!util_1.isPresent(column.options)) {
+	                column.options = [];
+	            }
+	            column.options = column.options.map(function (inputOpt) {
+	                var opt = {
+	                    text: '',
+	                    value: ''
+	                };
+	                if (util_1.isPresent(inputOpt)) {
+	                    if (util_1.isString(inputOpt) || util_1.isNumber(inputOpt)) {
+	                        opt.text = inputOpt;
+	                        opt.value = inputOpt;
+	                    }
+	                    else {
+	                        opt.text = util_1.isPresent(inputOpt.text) ? inputOpt.text : inputOpt.value;
+	                        opt.value = util_1.isPresent(inputOpt.value) ? inputOpt.value : inputOpt.text;
+	                    }
+	                }
+	                return opt;
+	            });
+	            return column;
+	        });
+	    };
+	    PickerDisplayCmp.prototype._keyUp = function (ev) {
+	        if (this.isEnabled() && this._viewCtrl.isLast()) {
+	            if (ev.keyCode === 13) {
+	                if (this.lastClick + 1000 < Date.now()) {
+	                    // do not fire this click if there recently was already a click
+	                    // this can happen when the button has focus and used the enter
+	                    // key to click the button. However, both the click handler and
+	                    // this keyup event will fire, so only allow one of them to go.
+	                    console.debug('picker, enter button');
+	                    var button = this.d.buttons[this.d.buttons.length - 1];
+	                    this.btnClick(button);
+	                }
+	            }
+	            else if (ev.keyCode === 27) {
+	                console.debug('picker, escape button');
+	                this.bdClick();
+	            }
+	        }
+	    };
+	    PickerDisplayCmp.prototype.onPageDidEnter = function () {
 	        var activeElement = document.activeElement;
 	        if (activeElement) {
 	            activeElement.blur();
@@ -66598,130 +66853,119 @@
 	        if (focusableEle) {
 	            focusableEle.focus();
 	        }
-	        // if there's a `duration` set, automatically dismiss.
-	        if (this.d.duration) {
-	            this.dismissTimeout =
-	                setTimeout(function () {
-	                    _this.dismiss('backdrop');
-	                }, this.d.duration);
+	    };
+	    PickerDisplayCmp.prototype.btnClick = function (button, dismissDelay) {
+	        var _this = this;
+	        if (!this.isEnabled()) {
+	            return;
+	        }
+	        // keep the time of the most recent button click
+	        this.lastClick = Date.now();
+	        var shouldDismiss = true;
+	        if (button.handler) {
+	            // a handler has been provided, execute it
+	            // pass the handler the values from the inputs
+	            if (button.handler(this.getValues()) === false) {
+	                // if the return value of the handler is false then do not dismiss
+	                shouldDismiss = false;
+	            }
+	        }
+	        if (shouldDismiss) {
+	            setTimeout(function () {
+	                _this.dismiss(button.role);
+	            }, dismissDelay || this._config.get('pageTransitionDelay'));
 	        }
 	    };
-	    ToastCmp.prototype.bdClick = function () {
+	    PickerDisplayCmp.prototype.bdClick = function () {
 	        if (this.isEnabled() && this.d.enableBackdropDismiss) {
 	            this.dismiss('backdrop');
 	        }
 	    };
-	    ToastCmp.prototype.cbClick = function () {
-	        if (this.isEnabled()) {
-	            this.dismiss('close');
-	        }
+	    PickerDisplayCmp.prototype.dismiss = function (role) {
+	        return this._viewCtrl.dismiss(this.getValues(), role);
 	    };
-	    ToastCmp.prototype.dismiss = function (role) {
-	        clearTimeout(this.dismissTimeout);
-	        this.dismissTimeout = undefined;
-	        return this._viewCtrl.dismiss(null, role);
+	    PickerDisplayCmp.prototype.getValues = function () {
+	        // this is an alert with text inputs
+	        // return an object of all the values with the input name as the key
+	        var values = {};
+	        this.d.columns.forEach(function (col) {
+	            values[col.name] = col.selected ? col.selected.value : null;
+	        });
+	        return values;
 	    };
-	    ToastCmp.prototype.isEnabled = function () {
+	    PickerDisplayCmp.prototype.isEnabled = function () {
 	        var tm = this._config.getNumber('overlayCreatedDiff', 750);
 	        return (this.created + tm < Date.now());
 	    };
-	    ToastCmp = __decorate([
+	    __decorate([
+	        core_1.HostListener('body:keyup', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], PickerDisplayCmp.prototype, "_keyUp", null);
+	    PickerDisplayCmp = __decorate([
 	        core_1.Component({
-	            selector: 'ion-toast',
-	            template: "\n    <div (click)=\"bdClick()\" tappable disable-activated class=\"backdrop\" role=\"presentation\"></div>\n    <div class=\"toast-wrapper\">\n      <div class=\"toast-container\">\n        <div class=\"toast-message\" id=\"{{hdrId}}\" *ngIf=\"d.message\">{{d.message}}</div>\n        <button clear class=\"toast-button\" *ngIf=\"d.showCloseButton\" (click)=\"cbClick()\">\n          {{ d.closeButtonText || 'Close' }}\n          <ion-button-effect></ion-button-effect>\n         </button>\n      </div>\n    </div>\n  ",
+	            selector: 'ion-picker-cmp',
+	            template: '<div (click)="bdClick()" tappable disable-activated class="backdrop" role="presentation"></div>' +
+	                '<div class="picker-wrapper">' +
+	                '<div class="picker-toolbar">' +
+	                '<div *ngFor="#b of d.buttons" class="picker-toolbar-button" [ngClass]="b.cssRole">' +
+	                '<button (click)="btnClick(b)" [ngClass]="b.cssClass" class="picker-button" clear>' +
+	                '{{b.text}}' +
+	                '</button>' +
+	                '</div>' +
+	                '</div>' +
+	                '<div class="picker-columns">' +
+	                '<div class="picker-above-highlight"></div>' +
+	                '<div *ngFor="#c of d.columns" [col]="c" class="picker-col"></div>' +
+	                '<div class="picker-below-highlight"></div>' +
+	                '</div>' +
+	                '</div>',
 	            host: {
-	                'role': 'dialog',
-	                '[attr.aria-labelledby]': 'hdrId',
-	                '[attr.aria-describedby]': 'descId'
+	                'role': 'dialog'
 	            },
-	            directives: [common_1.NgIf, icon_1.Icon, button_1.Button]
+	            directives: [PickerColumnCmp],
+	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object])
-	    ], ToastCmp);
-	    return ToastCmp;
-	    var _a, _b, _c, _d, _e, _f;
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
+	    ], PickerDisplayCmp);
+	    return PickerDisplayCmp;
+	    var _a, _b, _c, _d, _e;
 	}());
-	var ToastSlideIn = (function (_super) {
-	    __extends(ToastSlideIn, _super);
-	    function ToastSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
-	        wrapper.fromTo('translateY', '120%', '0%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(wrapper);
-	    }
-	    return ToastSlideIn;
-	}(transition_1.Transition));
-	var ToastSlideOut = (function (_super) {
-	    __extends(ToastSlideOut, _super);
-	    function ToastSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
-	        wrapper.fromTo('translateY', '0%', '120%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add(wrapper);
-	    }
-	    return ToastSlideOut;
-	}(transition_1.Transition));
-	var ToastMdSlideIn = (function (_super) {
-	    __extends(ToastMdSlideIn, _super);
-	    function ToastMdSlideIn(enteringView, leavingView, opts) {
+	/**
+	 * Animations for pickers
+	 */
+	var PickerSlideIn = (function (_super) {
+	    __extends(PickerSlideIn, _super);
+	    function PickerSlideIn(enteringView, leavingView, opts) {
 	        _super.call(this, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
-	        backdrop.fromTo('opacity', 0, 0);
-	        wrapper.fromTo('translateY', '120%', '0%');
+	        var wrapper = new animation_1.Animation(ele.querySelector('.picker-wrapper'));
+	        backdrop.fromTo('opacity', 0.01, 0.26);
+	        wrapper.fromTo('translateY', '100%', '0%');
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
 	    }
-	    return ToastMdSlideIn;
+	    return PickerSlideIn;
 	}(transition_1.Transition));
-	var ToastMdSlideOut = (function (_super) {
-	    __extends(ToastMdSlideOut, _super);
-	    function ToastMdSlideOut(enteringView, leavingView, opts) {
+	transition_1.Transition.register('picker-slide-in', PickerSlideIn);
+	var PickerSlideOut = (function (_super) {
+	    __extends(PickerSlideOut, _super);
+	    function PickerSlideOut(enteringView, leavingView, opts) {
 	        _super.call(this, opts);
 	        var ele = leavingView.pageRef().nativeElement;
-	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        wrapper.fromTo('translateY', '0%', '120%');
-	        backdrop.fromTo('opacity', 0, 0);
+	        var wrapper = new animation_1.Animation(ele.querySelector('.picker-wrapper'));
+	        backdrop.fromTo('opacity', 0.26, 0);
+	        wrapper.fromTo('translateY', '0%', '100%');
 	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
 	    }
-	    return ToastMdSlideOut;
+	    return PickerSlideOut;
 	}(transition_1.Transition));
-	var ToastWpPopIn = (function (_super) {
-	    __extends(ToastWpPopIn, _super);
-	    function ToastWpPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.3', '1');
-	        backdrop.fromTo('opacity', 0, 0);
-	        this.easing('cubic-bezier(0,0 0.05,1)').duration(200).add(backdrop).add(wrapper);
-	    }
-	    return ToastWpPopIn;
-	}(transition_1.Transition));
-	var ToastWpPopOut = (function (_super) {
-	    __extends(ToastWpPopOut, _super);
-	    function ToastWpPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.toast-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '1.3');
-	        backdrop.fromTo('opacity', 0, 0);
-	        this.easing('ease-out').duration(150).add(backdrop).add(wrapper);
-	    }
-	    return ToastWpPopOut;
-	}(transition_1.Transition));
-	transition_1.Transition.register('toast-slide-in', ToastSlideIn);
-	transition_1.Transition.register('toast-slide-out', ToastSlideOut);
-	transition_1.Transition.register('toast-md-slide-in', ToastMdSlideIn);
-	transition_1.Transition.register('toast-md-slide-out', ToastMdSlideOut);
-	transition_1.Transition.register('toast-wp-slide-out', ToastWpPopOut);
-	transition_1.Transition.register('toast-wp-slide-in', ToastWpPopIn);
-	var toastIds = -1;
+	transition_1.Transition.register('picker-slide-out', PickerSlideOut);
+	var pickerIds = -1;
+	var DECELERATION_FRICTION = 0.97;
+	var FRAME_MS = (1000 / 60);
 
 /***/ },
 /* 369 */
@@ -67148,6 +67392,9 @@
 	    modalLeave: 'modal-slide-out',
 	    pageTransition: 'ios-transition',
 	    pageTransitionDelay: 16,
+	    pickerEnter: 'picker-slide-in',
+	    pickerLeave: 'picker-slide-out',
+	    pickerRotateFactor: -0.46,
 	    spinner: 'ios',
 	    tabbarPlacement: 'bottom',
 	});
@@ -67170,6 +67417,8 @@
 	    modalLeave: 'modal-md-slide-out',
 	    pageTransition: 'md-transition',
 	    pageTransitionDelay: 96,
+	    pickerEnter: 'picker-slide-in',
+	    pickerLeave: 'picker-slide-out',
 	    spinner: 'crescent',
 	    tabbarHighlight: true,
 	    tabbarPlacement: 'top',
@@ -67194,6 +67443,8 @@
 	    modalLeave: 'modal-md-slide-out',
 	    pageTransition: 'wp-transition',
 	    pageTransitionDelay: 96,
+	    pickerEnter: 'picker-slide-in',
+	    pickerLeave: 'picker-slide-out',
 	    spinner: 'circles',
 	    tabbarPlacement: 'top',
 	    tabSubPages: true,

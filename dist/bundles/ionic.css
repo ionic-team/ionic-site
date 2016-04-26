@@ -6066,6 +6066,197 @@ ion-icon {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); }
   .ios ion-page.modal {
     background-color: #fff; }
+  .ios ion-picker-cmp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%; }
+  .ios .picker-toolbar {
+    z-index: 1; }
+  .ios .picker-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  .ios .picker-columns {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .ios .picker-col {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    max-height: 100%; }
+  .ios .picker-opts {
+    position: relative;
+    width: 100%;
+    min-width: 50px;
+    max-width: 100%; }
+  .ios .picker-prefix {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 50px;
+    min-width: 45%;
+    text-align: right;
+    white-space: nowrap; }
+  .ios .picker-suffix {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 50px;
+    min-width: 45%;
+    text-align: left;
+    white-space: nowrap; }
+  .ios .picker-opt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .ios .picker-opts-left .button-inner {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+  .ios .picker-opts-right .button-inner {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
+  .ios .picker-above-highlight,
+  .ios .picker-below-highlight {
+    display: none;
+    pointer-events: none; }
+  .ios .picker-wrapper {
+    height: 260px;
+    border-top: 1px solid #c8c7cc;
+    background: #fff; }
+  .ios .picker-toolbar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 44px;
+    border-bottom: 1px solid #c8c7cc;
+    background: #fff; }
+  .ios .hairlines .picker-wrapper,
+  .ios .hairlines .picker-toolbar {
+    border-width: 0.55px; }
+  .ios .picker-toolbar-button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: right; }
+  .ios .picker-toolbar-cancel {
+    font-weight: normal;
+    text-align: left; }
+  .ios .picker-button,
+  .ios .picker-button.activated {
+    margin: 0;
+    height: 44px;
+    color: #327eff;
+    background: transparent; }
+  .ios .picker-columns {
+    height: 216px;
+    -webkit-perspective: 1800px;
+    perspective: 1800px; }
+  .ios .picker-col {
+    padding: 0 12px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d; }
+  .ios .picker-prefix,
+  .ios .picker-suffix,
+  .ios .picker-opts {
+    top: 77px;
+    font-size: 22px;
+    line-height: 42px;
+    color: #000;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    pointer-events: none; }
+  .ios .picker-opt {
+    margin: 0;
+    padding: 0 10px;
+    width: calc(100% - 24px);
+    font-size: 22px;
+    line-height: 42px;
+    background: transparent;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    pointer-events: auto; }
+  .ios .picker-above-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
+    width: 100%;
+    height: 81px;
+    border-bottom: 1px solid #c8c7cc;
+    background: -webkit-linear-gradient(top, white 20%, rgba(255, 255, 255, 0.7) 100%);
+    background: linear-gradient(to bottom, white 20%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-transform: translate3d(0, 0, 90px);
+    transform: translate3d(0, 0, 90px); }
+  .ios .picker-below-highlight {
+    position: absolute;
+    top: 115px;
+    left: 0;
+    z-index: 11;
+    display: block;
+    width: 100%;
+    height: 119px;
+    border-top: 1px solid #c8c7cc;
+    background: -webkit-linear-gradient(bottom, white 30%, rgba(255, 255, 255, 0.7) 100%);
+    background: linear-gradient(to top, white 30%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-transform: translate3d(0, 0, 90px);
+    transform: translate3d(0, 0, 90px); }
   .ios ion-radio {
     position: relative;
     display: inline-block; }
@@ -9003,6 +9194,196 @@ ion-icon {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); }
   .md ion-page.modal {
     background-color: #fff; }
+  .md ion-picker-cmp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%; }
+  .md .picker-toolbar {
+    z-index: 1; }
+  .md .picker-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  .md .picker-columns {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .md .picker-col {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    max-height: 100%; }
+  .md .picker-opts {
+    position: relative;
+    width: 100%;
+    min-width: 50px;
+    max-width: 100%; }
+  .md .picker-prefix {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 50px;
+    min-width: 45%;
+    text-align: right;
+    white-space: nowrap; }
+  .md .picker-suffix {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 50px;
+    min-width: 45%;
+    text-align: left;
+    white-space: nowrap; }
+  .md .picker-opt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .md .picker-opts-left .button-inner {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+  .md .picker-opts-right .button-inner {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
+  .md .picker-above-highlight,
+  .md .picker-below-highlight {
+    display: none;
+    pointer-events: none; }
+  .md .picker-wrapper {
+    height: 260px;
+    border-top: 1px solid #dedede;
+    background: #fff; }
+  .md .picker-toolbar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    height: 44px;
+    background: #fff; }
+  .md .hairlines .picker-wrapper,
+  .md .hairlines .picker-toolbar {
+    border-width: 0.55px; }
+  .md .picker-button,
+  .md .picker-button.activated {
+    margin: 0;
+    height: 44px;
+    color: #327eff;
+    background: transparent;
+    box-shadow: none; }
+  .md .picker-columns {
+    height: 216px;
+    -webkit-perspective: 1800px;
+    perspective: 1800px; }
+  .md .picker-col {
+    padding: 0 12px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d; }
+  .md .picker-prefix,
+  .md .picker-suffix,
+  .md .picker-opts {
+    top: 77px;
+    font-size: 18px;
+    line-height: 42px;
+    color: #000;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    pointer-events: none; }
+  .md .picker-opts ion-button-effect {
+    display: none; }
+  .md .picker-opt {
+    margin: 0;
+    padding: 0 10px;
+    width: calc(100% - 24px);
+    font-size: 18px;
+    line-height: 42px;
+    background: transparent;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    pointer-events: auto; }
+  .md .picker-opt .button-inner {
+    -webkit-transition: 200ms;
+    transition: 200ms; }
+  .md .picker-prefix,
+  .md .picker-suffix,
+  .md .picker-opt-selected {
+    font-size: 24px;
+    color: #327eff; }
+  .md .picker-above-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 81px;
+    border-bottom: 1px solid #dedede;
+    background: -webkit-linear-gradient(top, white 20%, rgba(255, 255, 255, 0.7) 100%);
+    background: linear-gradient(to bottom, white 20%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-transform: translate3d(0, 0, 90px);
+    transform: translate3d(0, 0, 90px); }
+  .md .picker-below-highlight {
+    position: absolute;
+    top: 115px;
+    left: 0;
+    z-index: 11;
+    width: 100%;
+    height: 119px;
+    border-top: 1px solid #dedede;
+    background: -webkit-linear-gradient(bottom, white 30%, rgba(255, 255, 255, 0.7) 100%);
+    background: linear-gradient(to top, white 30%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-transform: translate3d(0, 0, 90px);
+    transform: translate3d(0, 0, 90px); }
   .md ion-radio {
     position: relative;
     display: inline-block; }
@@ -12223,6 +12604,205 @@ ion-icon {
     background: #f2f2f2; }
   .wp ion-page.modal {
     background-color: #fff; }
+  .wp ion-picker-cmp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    width: 100%;
+    height: 100%; }
+  .wp .picker-toolbar {
+    z-index: 1; }
+  .wp .picker-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  .wp .picker-columns {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+  .wp .picker-col {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    max-height: 100%; }
+  .wp .picker-opts {
+    position: relative;
+    width: 100%;
+    min-width: 50px;
+    max-width: 100%; }
+  .wp .picker-prefix {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 50px;
+    min-width: 45%;
+    text-align: right;
+    white-space: nowrap; }
+  .wp .picker-suffix {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 50px;
+    min-width: 45%;
+    text-align: left;
+    white-space: nowrap; }
+  .wp .picker-opt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .wp .picker-opts-left .button-inner {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+  .wp .picker-opts-right .button-inner {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
+  .wp .picker-above-highlight,
+  .wp .picker-below-highlight {
+    display: none;
+    pointer-events: none; }
+  .wp .picker-wrapper {
+    height: 260px;
+    border-top: 1px solid transparent;
+    background: #fff; }
+  .wp .picker-toolbar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    height: 44px;
+    background: #fff; }
+  .wp .hairlines .picker-wrapper,
+  .wp .hairlines .picker-toolbar {
+    border-width: 0.55px; }
+  .wp .picker-toolbar-button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: right; }
+  .wp .picker-toolbar-cancel {
+    font-weight: normal;
+    text-align: left; }
+  .wp .picker-button,
+  .wp .picker-button.activated {
+    margin: 0;
+    height: 44px;
+    color: #327eff;
+    background: transparent;
+    box-shadow: none; }
+  .wp .picker-columns {
+    height: 216px;
+    -webkit-perspective: 1800px;
+    perspective: 1800px; }
+  .wp .picker-col {
+    padding: 0 12px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d; }
+  .wp .picker-prefix,
+  .wp .picker-suffix,
+  .wp .picker-opts {
+    top: 77px;
+    font-size: 18px;
+    line-height: 42px;
+    color: #000;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    pointer-events: none; }
+  .wp .picker-opts ion-button-effect {
+    display: none; }
+  .wp .picker-opt {
+    margin: 0;
+    padding: 0 10px;
+    width: calc(100% - 24px);
+    font-size: 18px;
+    line-height: 42px;
+    background: transparent;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    pointer-events: auto; }
+  .wp .picker-opt .button-inner {
+    -webkit-transition: 200ms;
+    transition: 200ms; }
+  .wp .picker-prefix,
+  .wp .picker-suffix,
+  .wp .picker-opt-selected {
+    font-size: 24px;
+    color: #327eff; }
+  .wp .picker-above-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 81px;
+    border-bottom: 1px solid transparent;
+    background: -webkit-linear-gradient(top, white 20%, rgba(255, 255, 255, 0.7) 100%);
+    background: linear-gradient(to bottom, white 20%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-transform: translate3d(0, 0, 90px);
+    transform: translate3d(0, 0, 90px); }
+  .wp .picker-below-highlight {
+    position: absolute;
+    top: 115px;
+    left: 0;
+    z-index: 11;
+    width: 100%;
+    height: 119px;
+    border-top: 1px solid transparent;
+    background: -webkit-linear-gradient(bottom, white 30%, rgba(255, 255, 255, 0.7) 100%);
+    background: linear-gradient(to top, white 30%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-transform: translate3d(0, 0, 90px);
+    transform: translate3d(0, 0, 90px); }
   .wp ion-radio {
     position: relative;
     display: inline-block; }

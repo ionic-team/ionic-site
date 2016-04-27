@@ -135,8 +135,69 @@ Images often vary in size, so it is important that they adopt a consistent style
   Demo Source
 </a>
 
-*Coming soon.*
+Cards can be used to achieve a multitude of designs. We provide many of the elements to achieve common designs, but sometimes it will be necessary to add custom styles. Adding background images to cards is a perfect example of how adding custom styles can achieve a completely different look.
 
+The following html can be added to the content of a page:
+
+```html
+<ion-content class="card-background-page">
+
+  <ion-card>
+    <img src="img/card-saopaolo.png"/>
+    <div class="card-title">São Paulo</div>
+    <div class="card-subtitle">41 Listings</div>
+  </ion-card>
+
+  <ion-card>
+    <img src="img/card-amsterdam.png"/>
+    <div class="card-title">Amsterdam</div>
+    <div class="card-subtitle">64 Listings</div>
+  </ion-card>
+
+  <ion-card>
+    <img src="img/card-sf.png"/>
+    <div class="card-title">San Francisco</div>
+    <div class="card-subtitle">72 Listings</div>
+  </ion-card>
+
+  <ion-card>
+    <img src="img/card-madison.png"/>
+    <div class="card-title">Madison</div>
+    <div class="card-subtitle">28 Listings</div>
+  </ion-card>
+
+</ion-content>
+```
+
+Then, in the Sass file for the page:
+
+```scss
+.card-background-page {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+
+}
+```
 
 <h2 id="advanced-cards" class="section-header">Advanced Cards</h2>
 
@@ -147,8 +208,8 @@ The styles from different types of cards can be combined to create advanced card
   <li class="docs-content-header">Contents</li>
   <li class="docs-content-item"><a href="#card-advanced-social">Social Cards</a></li>
   <li class="docs-content-item"><a href="#card-advanced-map">Map Cards</a></li>
-<!--   <li class="docs-content-item"><a href="#card-advanced-weather">Weather Cards</a></li>
- --></ul>
+  <!--<li class="docs-content-item"><a href="#card-advanced-weather">Weather Cards</a></li>-->
+</ul>
 
 <h3 class="section-nav" id="card-advanced-social">Social Cards</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/cards/advanced-social">

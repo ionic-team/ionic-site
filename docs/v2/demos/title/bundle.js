@@ -48441,7 +48441,9 @@
 	            // Support array to allow removal of many styles at once.
 	            var styles = (type instanceof Array ? type : [type]);
 	            styles.forEach(function (styleName) {
-	                var colorStyle = (styleName !== null && styleName !== 'default' && styleName !== 'solid' ? styleName.toLowerCase() + '-' : '');
+	                // If the role is not a bar-button, don't apply the solid style
+	                styleName = (_this._role !== 'bar-button' && styleName === 'solid' ? 'default' : styleName);
+	                var colorStyle = (styleName !== null && styleName !== 'default' ? styleName.toLowerCase() + '-' : '');
 	                _this._colors.forEach(function (colorName) {
 	                    _this._setClass(colorStyle + colorName, assignCssClass); // button-secondary, button-clear-secondary
 	                });

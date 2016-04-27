@@ -63797,11 +63797,32 @@
 	    function SegmentButton(_renderer, _elementRef) {
 	        this._renderer = _renderer;
 	        this._elementRef = _elementRef;
+	        this._disabled = false;
 	        /**
 	         * @output {SegmentButton} expression to evaluate when a segment button has been clicked
 	         */
 	        this.select = new core_1.EventEmitter();
 	    }
+	    Object.defineProperty(SegmentButton.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
+	        get: function () {
+	            return this._disabled;
+	        },
+	        set: function (val) {
+	            this._disabled = util_1.isTrueProperty(val);
+	            this.setCssClass('segment-button-disabled', this._disabled);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     */
+	    SegmentButton.prototype.setCssClass = function (cssClass, shouldAdd) {
+	        this._renderer.setElementClass(this._elementRef.nativeElement, cssClass, shouldAdd);
+	    };
 	    /**
 	     * @private
 	     * On click of a SegmentButton
@@ -63837,6 +63858,10 @@
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], SegmentButton.prototype, "select", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], SegmentButton.prototype, "disabled", null);
 	    __decorate([
 	        core_1.HostListener('click', ['$event']), 
 	        __metadata('design:type', Function), 
@@ -63906,6 +63931,7 @@
 	 */
 	var Segment = (function () {
 	    function Segment(ngControl) {
+	        this._disabled = false;
 	        /**
 	         * @output {Any}  expression to evaluate when a segment button has been changed
 	         */
@@ -63922,6 +63948,26 @@
 	            ngControl.valueAccessor = this;
 	        }
 	    }
+	    Object.defineProperty(Segment.prototype, "disabled", {
+	        /**
+	         * @private
+	         */
+	        get: function () {
+	            return this._disabled;
+	        },
+	        set: function (val) {
+	            this._disabled = util_1.isTrueProperty(val);
+	            if (this._buttons) {
+	                var buttons = this._buttons.toArray();
+	                for (var _i = 0, buttons_1 = buttons; _i < buttons_1.length; _i++) {
+	                    var button = buttons_1[_i];
+	                    button.setCssClass('segment-button-disabled', this._disabled);
+	                }
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     * Write a new value to the element.
@@ -63930,8 +63976,8 @@
 	        this.value = util_1.isPresent(value) ? value : '';
 	        if (this._buttons) {
 	            var buttons = this._buttons.toArray();
-	            for (var _i = 0, buttons_1 = buttons; _i < buttons_1.length; _i++) {
-	                var button = buttons_1[_i];
+	            for (var _i = 0, buttons_2 = buttons; _i < buttons_2.length; _i++) {
+	                var button = buttons_2[_i];
 	                button.isActive = (button.value === this.value);
 	            }
 	        }
@@ -63942,8 +63988,8 @@
 	    Segment.prototype.ngAfterViewInit = function () {
 	        var _this = this;
 	        var buttons = this._buttons.toArray();
-	        for (var _i = 0, buttons_2 = buttons; _i < buttons_2.length; _i++) {
-	            var button = buttons_2[_i];
+	        for (var _i = 0, buttons_3 = buttons; _i < buttons_3.length; _i++) {
+	            var button = buttons_3[_i];
 	            button.select.subscribe(function (selectedButton) {
 	                _this.writeValue(selectedButton.value);
 	                _this.onChange(selectedButton.value);
@@ -63951,6 +63997,9 @@
 	            });
 	            if (util_1.isPresent(this.value)) {
 	                button.isActive = (button.value === this.value);
+	            }
+	            if (util_1.isTrueProperty(this._disabled)) {
+	                button.setCssClass('segment-button-disabled', this._disabled);
 	            }
 	        }
 	    };
@@ -63972,6 +64021,10 @@
 	        core_1.ContentChildren(SegmentButton), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _b) || Object)
 	    ], Segment.prototype, "_buttons", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Segment.prototype, "disabled", null);
 	    Segment = __decorate([
 	        core_1.Directive({
 	            selector: 'ion-segment'

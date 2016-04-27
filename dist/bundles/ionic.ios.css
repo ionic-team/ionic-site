@@ -6854,6 +6854,10 @@ ion-segment {
     border-left-width: 0;
     border-radius: 0 4px 4px 0; }
 
+.segment-button-disabled {
+  color: rgba(50, 126, 255, 0.3);
+  pointer-events: none; }
+
 .toolbar ion-segment {
   position: absolute;
   top: 0;
@@ -6881,6 +6885,9 @@ ion-segment[primary] .segment-button {
     color: #fff;
     background-color: #327eff; }
 
+ion-segment[primary] .segment-button-disabled {
+  color: rgba(50, 126, 255, 0.3); }
+
 .toolbar[primary] .segment-button.segment-activated {
   color: #327eff; }
 
@@ -6894,6 +6901,9 @@ ion-segment[secondary] .segment-button {
   ion-segment[secondary] .segment-button.segment-activated {
     color: #fff;
     background-color: #32db64; }
+
+ion-segment[secondary] .segment-button-disabled {
+  color: rgba(50, 219, 100, 0.3); }
 
 .toolbar[secondary] .segment-button.segment-activated {
   color: #32db64; }
@@ -6909,6 +6919,9 @@ ion-segment[danger] .segment-button {
     color: #fff;
     background-color: #f53d3d; }
 
+ion-segment[danger] .segment-button-disabled {
+  color: rgba(245, 61, 61, 0.3); }
+
 .toolbar[danger] .segment-button.segment-activated {
   color: #f53d3d; }
 
@@ -6923,6 +6936,9 @@ ion-segment[light] .segment-button {
     color: #000;
     background-color: #f4f4f4; }
 
+ion-segment[light] .segment-button-disabled {
+  color: rgba(244, 244, 244, 0.3); }
+
 .toolbar[light] .segment-button.segment-activated {
   color: #f4f4f4; }
 
@@ -6936,6 +6952,9 @@ ion-segment[dark] .segment-button {
   ion-segment[dark] .segment-button.segment-activated {
     color: #fff;
     background-color: #222; }
+
+ion-segment[dark] .segment-button-disabled {
+  color: rgba(34, 34, 34, 0.3); }
 
 .toolbar[dark] .segment-button.segment-activated {
   color: #222; }

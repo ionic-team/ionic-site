@@ -6893,6 +6893,10 @@ ion-segment {
     font-size: 2.6rem;
     line-height: 4rem; }
 
+.segment-button-disabled {
+  opacity: 0.3;
+  pointer-events: none; }
+
 .toolbar ion-segment {
   margin: 0 auto; }
 

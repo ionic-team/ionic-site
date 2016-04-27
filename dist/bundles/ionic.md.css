@@ -6825,7 +6825,7 @@ ion-segment {
   text-transform: uppercase;
   color: #327eff;
   background-color: transparent;
-  opacity: .7;
+  opacity: 0.7;
   -webkit-transition: 100ms all linear;
   transition: 100ms all linear; }
   .segment-button ion-icon {
@@ -6834,6 +6834,10 @@ ion-segment {
   .segment-button.activated, .segment-button.segment-activated {
     border-color: #327eff;
     opacity: 1; }
+
+.segment-button-disabled {
+  opacity: 0.3;
+  pointer-events: none; }
 
 .toolbar ion-segment {
   margin: 0 auto; }

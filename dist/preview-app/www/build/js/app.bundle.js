@@ -387,6 +387,7 @@ var BasicPage = (function () {
     BasicPage.prototype.openMenu = function () {
         var actionSheet = ionic_angular_1.ActionSheet.create({
             title: 'Albums',
+            cssClass: 'action-sheets-basic-page',
             buttons: [
                 {
                     text: 'Delete',
@@ -2655,11 +2656,13 @@ var TabIconPage = (function () {
     return TabIconPage;
 }());
 var IconPage = (function () {
-    function IconPage() {
+    function IconPage(platform) {
         this.tabOne = TabIconPage;
         this.tabTwo = TabIconPage;
         this.tabThree = TabIconPage;
         this.tabFour = TabIconPage;
+        this.isAndroid = false;
+        this.isAndroid = platform.is('android');
     }
     IconPage.prototype.onPageWillLeave = function () {
         document.getElementById('md-tabs-icon').style.display = "none";
@@ -2667,14 +2670,14 @@ var IconPage = (function () {
     };
     IconPage = __decorate([
         ionic_angular_1.Page({
-            template: '<ion-tabs class="tabs-icon">' +
+            template: '<ion-tabs class="tabs-icon" [attr.danger]="isAndroid ? \'\' : null">' +
                 '<ion-tab tabIcon="contact" [root]="tabOne"></ion-tab>' +
                 '<ion-tab tabIcon="compass" [root]="tabTwo"></ion-tab>' +
                 '<ion-tab tabIcon="analytics" [root]="tabThree"></ion-tab>' +
                 '<ion-tab tabIcon="settings" [root]="tabFour"></ion-tab>' +
                 '</ion-tabs>',
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [ionic_angular_1.Platform])
     ], IconPage);
     return IconPage;
 }());

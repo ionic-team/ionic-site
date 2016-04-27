@@ -5100,7 +5100,8 @@ ion-button-effect {
 
 .button-outline-primary {
   border-color: #3578e9;
-  color: #3578e9; }
+  color: #3578e9;
+  background-color: transparent; }
   .button-outline-primary:hover:not(.disable-hover) {
     border-color: #3578e9;
     background-color: rgba(158, 158, 158, 0.1); }
@@ -5108,7 +5109,8 @@ ion-button-effect {
     background-color: rgba(53, 120, 233, 0.16); }
 
 .button-clear-primary {
-  color: #387ef5; }
+  color: #387ef5;
+  background-color: transparent; }
   .button-clear-primary.activated {
     background-color: rgba(158, 158, 158, 0.2); }
   .button-clear-primary:hover:not(.disable-hover) {
@@ -5125,7 +5127,8 @@ ion-button-effect {
 
 .button-outline-secondary {
   border-color: #30d05f;
-  color: #30d05f; }
+  color: #30d05f;
+  background-color: transparent; }
   .button-outline-secondary:hover:not(.disable-hover) {
     border-color: #30d05f;
     background-color: rgba(158, 158, 158, 0.1); }
@@ -5133,7 +5136,8 @@ ion-button-effect {
     background-color: rgba(48, 208, 95, 0.16); }
 
 .button-clear-secondary {
-  color: #32db64; }
+  color: #32db64;
+  background-color: transparent; }
   .button-clear-secondary.activated {
     background-color: rgba(158, 158, 158, 0.2); }
   .button-clear-secondary:hover:not(.disable-hover) {
@@ -5150,7 +5154,8 @@ ion-button-effect {
 
 .button-outline-danger {
   border-color: #e93a3a;
-  color: #e93a3a; }
+  color: #e93a3a;
+  background-color: transparent; }
   .button-outline-danger:hover:not(.disable-hover) {
     border-color: #e93a3a;
     background-color: rgba(158, 158, 158, 0.1); }
@@ -5158,7 +5163,8 @@ ion-button-effect {
     background-color: rgba(233, 58, 58, 0.16); }
 
 .button-clear-danger {
-  color: #f53d3d; }
+  color: #f53d3d;
+  background-color: transparent; }
   .button-clear-danger.activated {
     background-color: rgba(158, 158, 158, 0.2); }
   .button-clear-danger:hover:not(.disable-hover) {
@@ -5175,7 +5181,8 @@ ion-button-effect {
 
 .button-outline-light {
   border-color: #e8e8e8;
-  color: #e8e8e8; }
+  color: #e8e8e8;
+  background-color: transparent; }
   .button-outline-light:hover:not(.disable-hover) {
     border-color: #e8e8e8;
     background-color: rgba(158, 158, 158, 0.1); }
@@ -5183,7 +5190,8 @@ ion-button-effect {
     background-color: rgba(232, 232, 232, 0.16); }
 
 .button-clear-light {
-  color: #f4f4f4; }
+  color: #f4f4f4;
+  background-color: transparent; }
   .button-clear-light.activated {
     background-color: rgba(158, 158, 158, 0.2); }
   .button-clear-light:hover:not(.disable-hover) {
@@ -5200,7 +5208,8 @@ ion-button-effect {
 
 .button-outline-dark {
   border-color: #2d2d2d;
-  color: #2d2d2d; }
+  color: #2d2d2d;
+  background-color: transparent; }
   .button-outline-dark:hover:not(.disable-hover) {
     border-color: #2d2d2d;
     background-color: rgba(158, 158, 158, 0.1); }
@@ -5208,7 +5217,8 @@ ion-button-effect {
     background-color: rgba(45, 45, 45, 0.16); }
 
 .button-clear-dark {
-  color: #222; }
+  color: #222;
+  background-color: transparent; }
   .button-clear-dark.activated {
     background-color: rgba(158, 158, 158, 0.2); }
   .button-clear-dark:hover:not(.disable-hover) {
@@ -5225,7 +5235,8 @@ ion-button-effect {
 
 .button-outline-vibrant {
   border-color: #6e3d9e;
-  color: #6e3d9e; }
+  color: #6e3d9e;
+  background-color: transparent; }
   .button-outline-vibrant:hover:not(.disable-hover) {
     border-color: #6e3d9e;
     background-color: rgba(158, 158, 158, 0.1); }
@@ -5233,7 +5244,8 @@ ion-button-effect {
     background-color: rgba(110, 61, 158, 0.16); }
 
 .button-clear-vibrant {
-  color: rebeccapurple; }
+  color: rebeccapurple;
+  background-color: transparent; }
   .button-clear-vibrant.activated {
     background-color: rgba(158, 158, 158, 0.2); }
   .button-clear-vibrant:hover:not(.disable-hover) {
@@ -5250,7 +5262,8 @@ ion-button-effect {
 
 .button-outline-bright {
   border-color: #f2b723;
-  color: #f2b723; }
+  color: #f2b723;
+  background-color: transparent; }
   .button-outline-bright:hover:not(.disable-hover) {
     border-color: #f2b723;
     background-color: rgba(158, 158, 158, 0.1); }
@@ -5258,7 +5271,8 @@ ion-button-effect {
     background-color: rgba(242, 183, 35, 0.16); }
 
 .button-clear-bright {
-  color: #FFC125; }
+  color: #FFC125;
+  background-color: transparent; }
   .button-clear-bright.activated {
     background-color: rgba(158, 158, 158, 0.2); }
   .button-clear-bright:hover:not(.disable-hover) {

@@ -11559,14 +11559,16 @@ ion-icon {
       background-color: #2e74eb; }
   .wp .button-outline-primary {
     border-color: #3078f2;
-    color: #3078f2; }
+    color: #3078f2;
+    background-color: transparent; }
     .wp .button-outline-primary:hover:not(.disable-hover) {
       border-color: #3078f2;
       background-color: rgba(158, 158, 158, 0.1); }
     .wp .button-outline-primary.activated {
       background-color: rgba(48, 120, 242, 0.16); }
   .wp .button-clear-primary {
-    color: #327eff; }
+    color: #327eff;
+    background-color: transparent; }
     .wp .button-clear-primary.activated {
       background-color: rgba(158, 158, 158, 0.2); }
     .wp .button-clear-primary:hover:not(.disable-hover) {
@@ -11581,14 +11583,16 @@ ion-icon {
       background-color: #2ec95c; }
   .wp .button-outline-secondary {
     border-color: #30d05f;
-    color: #30d05f; }
+    color: #30d05f;
+    background-color: transparent; }
     .wp .button-outline-secondary:hover:not(.disable-hover) {
       border-color: #30d05f;
       background-color: rgba(158, 158, 158, 0.1); }
     .wp .button-outline-secondary.activated {
       background-color: rgba(48, 208, 95, 0.16); }
   .wp .button-clear-secondary {
-    color: #32db64; }
+    color: #32db64;
+    background-color: transparent; }
     .wp .button-clear-secondary.activated {
       background-color: rgba(158, 158, 158, 0.2); }
     .wp .button-clear-secondary:hover:not(.disable-hover) {
@@ -11603,14 +11607,16 @@ ion-icon {
       background-color: #e13838; }
   .wp .button-outline-danger {
     border-color: #e93a3a;
-    color: #e93a3a; }
+    color: #e93a3a;
+    background-color: transparent; }
     .wp .button-outline-danger:hover:not(.disable-hover) {
       border-color: #e93a3a;
       background-color: rgba(158, 158, 158, 0.1); }
     .wp .button-outline-danger.activated {
       background-color: rgba(233, 58, 58, 0.16); }
   .wp .button-clear-danger {
-    color: #f53d3d; }
+    color: #f53d3d;
+    background-color: transparent; }
     .wp .button-clear-danger.activated {
       background-color: rgba(158, 158, 158, 0.2); }
     .wp .button-clear-danger:hover:not(.disable-hover) {
@@ -11625,14 +11631,16 @@ ion-icon {
       background-color: #e0e0e0; }
   .wp .button-outline-light {
     border-color: #e8e8e8;
-    color: #e8e8e8; }
+    color: #e8e8e8;
+    background-color: transparent; }
     .wp .button-outline-light:hover:not(.disable-hover) {
       border-color: #e8e8e8;
       background-color: rgba(158, 158, 158, 0.1); }
     .wp .button-outline-light.activated {
       background-color: rgba(232, 232, 232, 0.16); }
   .wp .button-clear-light {
-    color: #f4f4f4; }
+    color: #f4f4f4;
+    background-color: transparent; }
     .wp .button-clear-light.activated {
       background-color: rgba(158, 158, 158, 0.2); }
     .wp .button-clear-light:hover:not(.disable-hover) {
@@ -11647,14 +11655,16 @@ ion-icon {
       background-color: #343434; }
   .wp .button-outline-dark {
     border-color: #2d2d2d;
-    color: #2d2d2d; }
+    color: #2d2d2d;
+    background-color: transparent; }
     .wp .button-outline-dark:hover:not(.disable-hover) {
       border-color: #2d2d2d;
       background-color: rgba(158, 158, 158, 0.1); }
     .wp .button-outline-dark.activated {
       background-color: rgba(45, 45, 45, 0.16); }
   .wp .button-clear-dark {
-    color: #222; }
+    color: #222;
+    background-color: transparent; }
     .wp .button-clear-dark.activated {
       background-color: rgba(158, 158, 158, 0.2); }
     .wp .button-clear-dark:hover:not(.disable-hover) {

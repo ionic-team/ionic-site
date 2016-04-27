@@ -48619,7 +48619,7 @@
 	            // Support array to allow removal of many styles at once.
 	            var styles = (type instanceof Array ? type : [type]);
 	            styles.forEach(function (styleName) {
-	                var colorStyle = (styleName !== null && styleName !== 'default' ? styleName.toLowerCase() + '-' : '');
+	                var colorStyle = (styleName !== null && styleName !== 'default' && styleName !== 'solid' ? styleName.toLowerCase() + '-' : '');
 	                _this._colors.forEach(function (colorName) {
 	                    _this._setClass(colorStyle + colorName, assignCssClass); // button-secondary, button-clear-secondary
 	                });

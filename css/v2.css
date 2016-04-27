@@ -8311,6 +8311,10 @@ ul.docs-example {
 .faq-section {
   margin: 80px auto; }
 
+@media (max-width: 991px) and (min-width: 768px) {
+  .hide-sm {
+    display: none !important; } }
+
 .docs-home img.docs-home-logo {
   width: 100%;
   max-width: 276px; }

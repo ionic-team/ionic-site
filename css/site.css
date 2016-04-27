@@ -7443,8 +7443,8 @@ a {
   transition-duration: .25s; }
   @media (max-width: 991px) {
     .navbar-default .navbar-nav > li > a {
-      padding-right: 15px !important;
-      padding-left: 15px !important; } }
+      padding-right: 13px !important;
+      padding-left: 13px !important; } }
   .navbar-default .navbar-nav > li > a:hover {
     color: white; }
 
@@ -7702,6 +7702,10 @@ a {
     display: inline-block; }
   .snap-bar .large {
     display: none; } }
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .hide-sm {
+    display: none !important; } }
 
 .news {
   position: absolute;

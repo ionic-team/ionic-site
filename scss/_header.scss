@@ -147,8 +147,8 @@
   transition-duration: .25s;
 
   @media (max-width: 991px) {
-    padding-right: 15px !important;
-    padding-left: 15px !important;
+    padding-right: 13px !important;
+    padding-left: 13px !important;
   }
 
   &:hover {
@@ -498,5 +498,11 @@
   }
   .snap-bar .large {
     display: none;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .hide-sm {
+    display: none !important;
   }
 }

@@ -9342,42 +9342,6 @@ body {
 .hidden-hide-when {
   display: none !important; }
 
-body.md img#md-only {
-  display: block !important;
-  position: absolute;
-  background-color: transparent;
-  top: 0px;
-  width: 100%;
-  height: auto;
-  z-index: 999; }
-
-body.md img#md-tabs-icon, body.md img#md-tabs-icon-text {
-  display: none;
-  position: absolute;
-  top: -24px;
-  width: 100%;
-  height: auto; }
-
-body.ios img#ios-only {
-  display: block !important;
-  position: absolute;
-  background-color: transparent;
-  padding: 5px 0;
-  top: 0px;
-  width: 100%;
-  height: auto;
-  z-index: 999; }
-
-body.wp img#wp-only {
-  display: block !important;
-  position: absolute;
-  background-color: transparent;
-  padding: 5px 0;
-  top: 0px;
-  width: 100%;
-  height: auto;
-  z-index: 999; }
-
 body, body:hover, body a, body button, body media-switch {
   cursor: url("http://ionicframework.com/img/finger.png") 8 8, auto; }
 
@@ -9460,22 +9424,6 @@ scroll-content {
 
 ion-card.cards-list-demo ion-card-header {
   color: #387ef5; }
-
-body.ios ion-card .advanced-weather-tabs tabbar {
-  height: 88px; }
-
-body.md ion-card .advanced-weather-tabs tabbar {
-  height: 100px; }
-
-body.md ion-card .advanced-weather-tabs tabbar a span.tab-button-text {
-  text-transform: uppercase; }
-
-body.md .cards-bg tab-highlight {
-  background-color: #fff !important;
-  top: 0; }
-
-body.ios ion-card p.advanced-background-title-large span {
-  font-weight: 300; }
 
 ion-content ion-card ion-item.advanced-trans p {
   color: #fff; }
@@ -9655,22 +9603,6 @@ body.ios .tab-button[aria-selected="false"] {
 body.ios .tab-button[aria-selected="true"] {
   color: #f53d3d !important; }
 
-body.md .tabs-icon-text ion-title div.toolbar-title {
-  color: #fff !important; }
-
-body.md .tabs-icon-text tabbar {
-  background-color: #7e60ff; }
-  body.md .tabs-icon-text tabbar a {
-    color: #fff !important; }
-
-body.md .tabs-icon-text tab-highlight {
-  color: #fff;
-  background-color: #fff; }
-
-body.ios .tabs-icon-text tabbar .tab-button[aria-selected=true],
-body.ios .tabs-icon-text tabbar .tab-button:hover:not(.disable-hover) {
-  color: #7e60ff; }
-
 .toolbar-buttons-page .footer-title {
   padding: 0 1rem; }
 
@@ -9678,3 +9610,13 @@ body.ios .tabs-icon-text tabbar .tab-button:hover:not(.disable-hover) {
   font-size: 1.6rem;
   text-align: left;
   padding: 0; }
+
+img#wp-only {
+  display: block !important;
+  position: absolute;
+  background-color: transparent;
+  padding: 5px 0;
+  top: 0px;
+  width: 100%;
+  height: auto;
+  z-index: 999; }

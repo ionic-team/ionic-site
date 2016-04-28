@@ -2674,11 +2674,11 @@
 	__export(__webpack_require__(7));
 	__export(__webpack_require__(168));
 	__export(__webpack_require__(297));
+	__export(__webpack_require__(361));
 	__export(__webpack_require__(362));
 	__export(__webpack_require__(363));
-	__export(__webpack_require__(364));
 	__export(__webpack_require__(169));
-	__export(__webpack_require__(370));
+	__export(__webpack_require__(369));
 	__export(__webpack_require__(166));
 	__export(__webpack_require__(171));
 	__export(__webpack_require__(289));
@@ -2686,14 +2686,14 @@
 	__export(__webpack_require__(318));
 	__export(__webpack_require__(317));
 	__export(__webpack_require__(296));
-	__export(__webpack_require__(374));
+	__export(__webpack_require__(373));
 	// these modules don't export anything
+	__webpack_require__(374);
 	__webpack_require__(375);
 	__webpack_require__(376);
 	__webpack_require__(377);
 	__webpack_require__(378);
 	__webpack_require__(379);
-	__webpack_require__(380);
 
 /***/ },
 /* 7 */
@@ -27901,7 +27901,6 @@
 	        var _this = this;
 	        this._config = _config;
 	        this._clickBlock = _clickBlock;
-	        this._cmps = {};
 	        this._disTime = 0;
 	        this._scrollTime = 0;
 	        this._title = '';
@@ -28015,54 +28014,19 @@
 	    };
 	    /**
 	     * @private
-	     * Register a known component with a key, for easy lookups later.
-	     * @param {string} id  The id to use to register the component
-	     * @param {object} component  The component to register
-	     */
-	    IonicApp.prototype.register = function (id, component) {
-	        this._cmps[id] = component;
-	    };
-	    /**
-	     * @private
-	     * Unregister a known component with a key.
-	     * @param {string} id  The id to use to unregister
-	     */
-	    IonicApp.prototype.unregister = function (id) {
-	        delete this._cmps[id];
-	    };
-	    /**
-	     * @private
-	     * Get a registered component with the given type (returns the first)
-	     * @param {object} cls the type to search for
-	     * @return {object} the matching component, or undefined if none was found
 	     */
 	    IonicApp.prototype.getRegisteredComponent = function (cls) {
-	        for (var key in this._cmps) {
-	            var component = this._cmps[key];
-	            if (component instanceof cls) {
-	                return component;
-	            }
-	        }
+	        // deprecated warning: added 2016-04-28, beta7
+	        console.warn('Using app.getRegisteredComponent() to query components has been deprecated. ' +
+	            'Please use Angular\'s ViewChild annotation instead:\n\nhttp://learnangular2.com/viewChild/');
 	    };
 	    /**
-	     * Get the component for the given key.
+	     * @private
 	     */
 	    IonicApp.prototype.getComponent = function (id) {
-	        // deprecated warning
-	        if (/menu/i.test(id)) {
-	            console.warn('Using app.getComponent(menuId) to control menus has been deprecated as of alpha55.\n' +
-	                'Instead inject MenuController, for example:\n\n' +
-	                'constructor(menu: MenuController) {\n' +
-	                '  this.menu = menu;\n' +
-	                '}\n' +
-	                'toggleMenu() {\n' +
-	                '  this.menu.toggle();\n' +
-	                '}\n' +
-	                'openRightMenu() {\n' +
-	                '  this.menu.open("right");\n' +
-	                '}');
-	        }
-	        return this._cmps[id];
+	        // deprecated warning: added 2016-04-28, beta7
+	        console.warn('Using app.getComponent() to query components has been deprecated. ' +
+	            'Please use Angular\'s ViewChild annotation instead:\n\nhttp://learnangular2.com/viewChild/');
 	    };
 	    /**
 	     * Set the global app injector that contains references to all of the instantiated providers
@@ -43738,8 +43702,7 @@
 	var nav_push_1 = __webpack_require__(358);
 	var nav_router_1 = __webpack_require__(359);
 	var navbar_1 = __webpack_require__(310);
-	var id_1 = __webpack_require__(360);
-	var show_hide_when_1 = __webpack_require__(361);
+	var show_hide_when_1 = __webpack_require__(360);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @description
@@ -43900,7 +43863,6 @@
 	    nav_push_1.NavPush,
 	    nav_push_1.NavPop,
 	    nav_router_1.NavRouter,
-	    id_1.IdRef,
 	    show_hide_when_1.ShowWhen,
 	    show_hide_when_1.HideWhen
 	];
@@ -65515,118 +65477,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var app_1 = __webpack_require__(174);
-	/**
-	 * @private
-	 * @name Id
-	 * @description
-	 * The `id` attribute is an easy way to identify unique components in an app and access them
-	 * no matter where in the UI hierarchy you are. For example, this makes toggling
-	 * a global side menu possible from any place in the application.
-	 *
-	 * @usage
-	 * To give any component an ID, simply set its `id` property:
-	 * ```html
-	 * <ion-checkbox id="myCheckbox"></ion-checkbox>
-	 * ```
-	 *
-	 * To get a reference to the registered component, inject the [IonicApp](../IonicApp/)
-	 * service:
-	 * ```ts
-	 * constructor(app: IonicApp) {
-	 *   this.app = app
-	 * }
-	 *
-	 * ngAfterViewInit() {
-	 *   var checkbox = this.app.getComponent("myCheckbox");
-	 *   if (checkbox.checked) {
-	 *     console.log('checkbox is checked');
-	 *   }
-	 * }
-	 * ```
-	 *
-	 * *NOTE:* It is not recommended to use ID's across Pages, as there is often no
-	 * guarantee that the registered component has not been destroyed if its Page
-	 * has been navigated away from.
-	 *
-	 * @demo /docs/v2/demos/id/
-	 */
-	var IdRef = (function () {
-	    function IdRef(_app, elementRef, appViewManager) {
-	        this._app = _app;
-	        // Grab the component this directive is attached to
-	        this._component = appViewManager.getComponent(elementRef);
-	    }
-	    /**
-	     * @private
-	     */
-	    IdRef.prototype.ngOnInit = function () {
-	        this._app.register(this.id, this._component);
-	    };
-	    /**
-	     * @private
-	     */
-	    IdRef.prototype.ngOnDestroy = function () {
-	        this._app.unregister(this.id);
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], IdRef.prototype, "id", void 0);
-	    IdRef = __decorate([
-	        core_1.Directive({
-	            selector: '[id]'
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.AppViewManager !== 'undefined' && core_1.AppViewManager) === 'function' && _c) || Object])
-	    ], IdRef);
-	    return IdRef;
-	    var _a, _b, _c;
-	}());
-	exports.IdRef = IdRef;
-	/**
-	 * @private
-	 */
-	var Attr = (function () {
-	    function Attr(_renderer, _elementRef) {
-	        this._renderer = _renderer;
-	        this._elementRef = _elementRef;
-	    }
-	    /**
-	     * @private
-	     */
-	    Attr.prototype.ngOnInit = function () {
-	        this._renderer.setElementAttribute(this._elementRef.nativeElement, this.attr, '');
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Attr.prototype, "attr", void 0);
-	    Attr = __decorate([
-	        core_1.Directive({
-	            selector: '[attr]'
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
-	    ], Attr);
-	    return Attr;
-	    var _a, _b;
-	}());
-	exports.Attr = Attr;
-
-/***/ },
-/* 361 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -65812,7 +65662,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 362 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65887,7 +65737,7 @@
 	exports.App = App;
 
 /***/ },
-/* 363 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65942,7 +65792,7 @@
 	exports.Page = Page;
 
 /***/ },
-/* 364 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65950,7 +65800,6 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(174));
-	__export(__webpack_require__(360));
 	__export(__webpack_require__(346));
 	__export(__webpack_require__(345));
 	__export(__webpack_require__(320));
@@ -65966,13 +65815,13 @@
 	__export(__webpack_require__(339));
 	__export(__webpack_require__(338));
 	__export(__webpack_require__(335));
-	__export(__webpack_require__(365));
+	__export(__webpack_require__(364));
 	__export(__webpack_require__(290));
 	__export(__webpack_require__(298));
-	__export(__webpack_require__(366));
+	__export(__webpack_require__(365));
 	__export(__webpack_require__(307));
 	__export(__webpack_require__(319));
-	__export(__webpack_require__(367));
+	__export(__webpack_require__(366));
 	__export(__webpack_require__(356));
 	__export(__webpack_require__(314));
 	__export(__webpack_require__(308));
@@ -65981,7 +65830,7 @@
 	__export(__webpack_require__(359));
 	__export(__webpack_require__(310));
 	__export(__webpack_require__(347));
-	__export(__webpack_require__(368));
+	__export(__webpack_require__(367));
 	__export(__webpack_require__(353));
 	__export(__webpack_require__(354));
 	__export(__webpack_require__(327));
@@ -65990,19 +65839,19 @@
 	__export(__webpack_require__(355));
 	__export(__webpack_require__(352));
 	__export(__webpack_require__(344));
-	__export(__webpack_require__(361));
+	__export(__webpack_require__(360));
 	__export(__webpack_require__(329));
 	__export(__webpack_require__(326));
 	__export(__webpack_require__(331));
 	__export(__webpack_require__(333));
 	__export(__webpack_require__(293));
-	__export(__webpack_require__(369));
+	__export(__webpack_require__(368));
 	__export(__webpack_require__(348));
 	__export(__webpack_require__(312));
 	__export(__webpack_require__(340));
 
 /***/ },
-/* 365 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66340,7 +66189,7 @@
 	var loadingIds = -1;
 
 /***/ },
-/* 366 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66488,7 +66337,7 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 367 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66698,7 +66547,7 @@
 	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 368 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67225,7 +67074,7 @@
 	var FRAME_MS = (1000 / 60);
 
 /***/ },
-/* 369 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67510,19 +67359,19 @@
 	var toastIds = -1;
 
 /***/ },
-/* 370 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
+	__export(__webpack_require__(370));
 	__export(__webpack_require__(371));
 	__export(__webpack_require__(372));
-	__export(__webpack_require__(373));
 
 /***/ },
-/* 371 */
+/* 370 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -67606,7 +67455,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 372 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67615,7 +67464,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(371);
+	var storage_1 = __webpack_require__(370);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -67712,7 +67561,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 373 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67721,7 +67570,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(371);
+	var storage_1 = __webpack_require__(370);
 	var util_1 = __webpack_require__(170);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -67860,7 +67709,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 374 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67910,7 +67759,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 375 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67993,7 +67842,7 @@
 	});
 
 /***/ },
-/* 376 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68181,7 +68030,7 @@
 	}
 
 /***/ },
-/* 377 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68241,7 +68090,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 378 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68415,7 +68264,7 @@
 	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 379 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68479,7 +68328,7 @@
 	transition_1.Transition.register('md-transition', MDTransition);
 
 /***/ },
-/* 380 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

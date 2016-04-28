@@ -158,27 +158,6 @@ Boolean if the app is actively scrolling or not.
 
 
 
-<div id="getComponent"></div>
-
-<h3>
-<a class="anchor" name="getComponent" href="#getComponent"></a>
-<code>getComponent()</code>
-  
-
-</h3>
-
-Get the component for the given key.
-
-
-
-
-
-
-
-
-
-
-
 <div id="setAppInjector"></div>
 
 <h3>

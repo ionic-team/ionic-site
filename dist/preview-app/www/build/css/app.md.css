@@ -7727,23 +7727,23 @@ ion-buttons[right] {
 .bar-button-outline {
   border-width: 1px;
   border-style: solid;
-  border-color: #fff;
-  color: #fff;
+  border-color: #424242;
+  color: #424242;
   background-color: transparent; }
   .bar-button-outline:hover:not(.disable-hover) {
     opacity: .4; }
   .bar-button-outline.activated {
-    color: #000;
-    background-color: #fff; }
+    color: #fff;
+    background-color: #424242; }
 
 .bar-button-solid {
-  color: #000;
-  background-color: #fff; }
+  color: #fff;
+  background-color: #424242; }
   .bar-button-solid:hover:not(.disable-hover) {
-    color: #000; }
+    color: #fff; }
   .bar-button-solid.activated {
-    color: #000;
-    background-color: #ebebeb; }
+    color: #fff;
+    background-color: #515151; }
 
 .bar-button-icon-left ion-icon {
   padding-right: .3em;
@@ -7800,10 +7800,10 @@ ion-buttons[right] {
   min-width: 28px; }
 
 .bar-button-default {
-  color: #fff;
+  color: #424242;
   background-color: transparent; }
   .bar-button-default:hover:not(.disable-hover) {
-    color: #fff; }
+    color: #424242; }
 
 .toolbar[primary] .toolbar-background {
   background: #387ef5; }
@@ -8423,14 +8423,14 @@ ion-buttons[right] {
 .toolbar[light] .bar-button-default,
 .toolbar[light] .bar-button-outline,
 .toolbar[light] .toolbar-title {
-  color: #fff; }
+  color: #424242; }
 
 .toolbar[light] .bar-button-default ion-button-effect,
 .toolbar[light] .bar-button-outline ion-button-effect {
-  background-color: #fff; }
+  background-color: #424242; }
 
 .toolbar[light] .bar-button-outline {
-  border-color: #fff; }
+  border-color: #424242; }
 
 .toolbar[light] .bar-button-primary {
   color: #387ef5;
@@ -8831,14 +8831,14 @@ ion-buttons[right] {
 .toolbar[energized] .bar-button-default,
 .toolbar[energized] .bar-button-outline,
 .toolbar[energized] .toolbar-title {
-  color: #fff; }
+  color: #424242; }
 
 .toolbar[energized] .bar-button-default ion-button-effect,
 .toolbar[energized] .bar-button-outline ion-button-effect {
-  background-color: #fff; }
+  background-color: #424242; }
 
 .toolbar[energized] .bar-button-outline {
-  border-color: #fff; }
+  border-color: #424242; }
 
 .toolbar[energized] .bar-button-primary {
   color: #387ef5;

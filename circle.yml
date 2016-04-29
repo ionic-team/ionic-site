@@ -20,4 +20,4 @@ deployment:
   staging:
     branch: master
     commands:
-      - ./_scripts/deploy_staging.sh
+      #- ./_scripts/deploy_staging.sh

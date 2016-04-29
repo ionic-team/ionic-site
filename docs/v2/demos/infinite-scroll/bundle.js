@@ -2576,8 +2576,8 @@
 	__export(__webpack_require__(148));
 	__export(__webpack_require__(296));
 	__export(__webpack_require__(150));
-	__export(__webpack_require__(325));
 	__export(__webpack_require__(324));
+	__export(__webpack_require__(323));
 	__export(__webpack_require__(303));
 	__export(__webpack_require__(380));
 	// these modules don't export anything
@@ -45941,33 +45941,33 @@
 	var common_1 = __webpack_require__(155);
 	var menu_1 = __webpack_require__(305);
 	var menu_toggle_1 = __webpack_require__(314);
-	var menu_close_1 = __webpack_require__(326);
-	var badge_1 = __webpack_require__(327);
-	var button_1 = __webpack_require__(320);
-	var content_1 = __webpack_require__(328);
-	var img_1 = __webpack_require__(329);
-	var scroll_1 = __webpack_require__(330);
-	var infinite_scroll_1 = __webpack_require__(331);
-	var infinite_scroll_content_1 = __webpack_require__(332);
-	var refresher_1 = __webpack_require__(334);
-	var refresher_content_1 = __webpack_require__(335);
-	var slides_1 = __webpack_require__(336);
-	var tabs_1 = __webpack_require__(338);
-	var tab_1 = __webpack_require__(340);
-	var list_1 = __webpack_require__(342);
-	var item_1 = __webpack_require__(344);
-	var item_sliding_1 = __webpack_require__(346);
-	var virtual_scroll_1 = __webpack_require__(347);
-	var virtual_item_1 = __webpack_require__(348);
-	var toolbar_1 = __webpack_require__(319);
-	var icon_1 = __webpack_require__(318);
-	var spinner_1 = __webpack_require__(333);
+	var menu_close_1 = __webpack_require__(325);
+	var badge_1 = __webpack_require__(326);
+	var button_1 = __webpack_require__(319);
+	var content_1 = __webpack_require__(327);
+	var img_1 = __webpack_require__(328);
+	var scroll_1 = __webpack_require__(329);
+	var infinite_scroll_1 = __webpack_require__(330);
+	var infinite_scroll_content_1 = __webpack_require__(331);
+	var refresher_1 = __webpack_require__(332);
+	var refresher_content_1 = __webpack_require__(333);
+	var slides_1 = __webpack_require__(334);
+	var tabs_1 = __webpack_require__(336);
+	var tab_1 = __webpack_require__(338);
+	var list_1 = __webpack_require__(340);
+	var item_1 = __webpack_require__(342);
+	var item_sliding_1 = __webpack_require__(345);
+	var virtual_scroll_1 = __webpack_require__(346);
+	var virtual_item_1 = __webpack_require__(347);
+	var toolbar_1 = __webpack_require__(318);
+	var icon_1 = __webpack_require__(343);
+	var spinner_1 = __webpack_require__(349);
 	var checkbox_1 = __webpack_require__(350);
 	var select_1 = __webpack_require__(351);
 	var option_1 = __webpack_require__(354);
 	var toggle_1 = __webpack_require__(355);
 	var input_1 = __webpack_require__(356);
-	var label_1 = __webpack_require__(345);
+	var label_1 = __webpack_require__(344);
 	var segment_1 = __webpack_require__(359);
 	var radio_button_1 = __webpack_require__(360);
 	var radio_group_1 = __webpack_require__(361);
@@ -50019,13 +50019,12 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var ion_1 = __webpack_require__(306);
-	var icon_1 = __webpack_require__(318);
-	var toolbar_1 = __webpack_require__(319);
+	var toolbar_1 = __webpack_require__(318);
 	var config_1 = __webpack_require__(145);
 	var app_1 = __webpack_require__(151);
 	var util_1 = __webpack_require__(147);
 	var view_controller_1 = __webpack_require__(315);
-	var nav_controller_1 = __webpack_require__(321);
+	var nav_controller_1 = __webpack_require__(320);
 	var BackButton = (function (_super) {
 	    __extends(BackButton, _super);
 	    function BackButton(_nav, elementRef, navbar) {
@@ -50210,7 +50209,6 @@
 	                '<span class="back-default">{{_bbText}}</span>' +
 	                '</span>' +
 	                '</span>' +
-	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +
 	                '<ng-content select="[menuToggle],ion-buttons[left]"></ng-content>' +
 	                '<ng-content select="ion-buttons[start]"></ng-content>' +
@@ -50223,7 +50221,7 @@
 	                'class': 'toolbar',
 	                '[class.statusbar-padding]': '_sbPadding'
 	            },
-	            directives: [BackButton, BackButtonText, icon_1.Icon, ToolbarBackground]
+	            directives: [BackButton, BackButtonText, ToolbarBackground]
 	        }),
 	        __param(1, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.IonicApp !== 'undefined' && app_1.IonicApp) === 'function' && _a) || Object, (typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
@@ -50262,195 +50260,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var config_1 = __webpack_require__(145);
-	/**
-	 * @name Icon
-	 * @description
-	 * Icons can be used on their own, or inside of a number of Ionic components.
-	 * For a full list of available icons, check out the
-	 * [Ionicons docs](../../../../ionicons).
-	 *
-	 * One feature of Ionicons in Ionic is when icon names are set, the actual icon
-	 * which is rendered can change slightly depending on the mode the app is
-	 * running from. For example, by setting the icon name of `alarm`, on iOS the
-	 * icon will automatically apply `ios-alarm`, and on Material Design it will
-	 * automatically apply `md-alarm`. This allows the developer to write the
-	 * markup once while Ionic applies the appropriate icon based on the mode.
-	 *
-	 * @usage
-	 * ```html
-	 * <!-- automatically uses the correct "star" icon depending on the mode -->
-	 * <ion-icon name="star"></ion-icon>
-	 *
-	 * <!-- explicity set the icon for each mode -->
-	 * <ion-icon ios="ios-home" md="md-home"></ion-icon>
-	 *
-	 * <!-- always use the same icon, no matter what the mode -->
-	 * <ion-icon name="ios-clock"></ion-icon>
-	 * <ion-icon name="logo-twitter"></ion-icon>
-	 * ```
-	 *
-	 * @demo /docs/v2/demos/icon/
-	 * @see {@link /docs/v2/components#icons Icon Component Docs}
-	 *
-	 */
-	var Icon = (function () {
-	    function Icon(config, _elementRef, _renderer) {
-	        this._elementRef = _elementRef;
-	        this._renderer = _renderer;
-	        this._name = '';
-	        this._ios = '';
-	        this._md = '';
-	        this._css = '';
-	        this.mode = config.get('iconMode');
-	    }
-	    /**
-	     * @private
-	     */
-	    Icon.prototype.ngOnDestroy = function () {
-	        if (this._css) {
-	            this._renderer.setElementClass(this._elementRef.nativeElement, this._css, false);
-	        }
-	    };
-	    Object.defineProperty(Icon.prototype, "name", {
-	        /**
-	         * @input {string} Icon to use. Will load the appropriate icon for each mode
-	         */
-	        get: function () {
-	            return this._name;
-	        },
-	        set: function (val) {
-	            if (!(/^md-|^ios-|^logo-/.test(val))) {
-	                // this does not have one of the defaults
-	                // so lets auto add in the mode prefix for them
-	                val = this.mode + '-' + val;
-	            }
-	            this._name = val;
-	            this.update();
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Icon.prototype, "ios", {
-	        /**
-	         * @input {string} Explicitly set the icon to use on iOS
-	         */
-	        get: function () {
-	            return this._ios;
-	        },
-	        set: function (val) {
-	            this._ios = val;
-	            this.update();
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Icon.prototype, "md", {
-	        /**
-	         * @input {string} Explicitly set the icon to use on MD
-	         */
-	        get: function () {
-	            return this._md;
-	        },
-	        set: function (val) {
-	            this._md = val;
-	            this.update();
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Icon.prototype, "isActive", {
-	        /**
-	         * @input {bool} Whether or not the icon has an "active" appearance. On iOS an active icon is filled in or full appearance, and an inactive icon on iOS will use an outlined version of the icon same icon. Material Design icons do not change appearance depending if they're active or not. The `isActive` property is largely used by the tabbar.
-	         */
-	        get: function () {
-	            return (this._isActive === undefined || this._isActive === true || this._isActive === 'true');
-	        },
-	        set: function (val) {
-	            this._isActive = val;
-	            this.update();
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @private
-	     */
-	    Icon.prototype.update = function () {
-	        var css = 'ion-';
-	        if (this._ios && this.mode === 'ios') {
-	            css += this._ios;
-	        }
-	        else if (this._md && this.mode === 'md') {
-	            css += this._md;
-	        }
-	        else {
-	            css += this._name;
-	        }
-	        if (this.mode === 'ios' && !this.isActive) {
-	            css += '-outline';
-	        }
-	        if (this._css !== css) {
-	            if (this._css) {
-	                this._renderer.setElementClass(this._elementRef.nativeElement, this._css, false);
-	            }
-	            this._css = css;
-	            this._renderer.setElementClass(this._elementRef.nativeElement, css, true);
-	            this._renderer.setElementAttribute(this._elementRef.nativeElement, 'aria-label', css.replace('ion-', '').replace('ios-', '').replace('md-', '').replace('-', ' '));
-	        }
-	    };
-	    /**
-	     * @private
-	     * @param {string} add class name
-	     */
-	    Icon.prototype.addClass = function (className) {
-	        this._renderer.setElementClass(this._elementRef.nativeElement, className, true);
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Icon.prototype, "name", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Icon.prototype, "ios", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Icon.prototype, "md", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean)
-	    ], Icon.prototype, "isActive", null);
-	    Icon = __decorate([
-	        core_1.Directive({
-	            selector: 'ion-icon',
-	            host: {
-	                'role': 'img'
-	            }
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
-	    ], Icon);
-	    return Icon;
-	    var _a, _b, _c;
-	}());
-	exports.Icon = Icon;
-
-/***/ },
-/* 319 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -50469,7 +50278,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var button_1 = __webpack_require__(320);
+	var button_1 = __webpack_require__(319);
 	var config_1 = __webpack_require__(145);
 	var ion_1 = __webpack_require__(306);
 	var navbar_1 = __webpack_require__(317);
@@ -50689,7 +50498,7 @@
 	exports.ToolbarItem = ToolbarItem;
 
 /***/ },
-/* 320 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51109,7 +50918,7 @@
 	var ICON = 2;
 
 /***/ },
-/* 321 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51119,12 +50928,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(8);
-	var instrumentation_1 = __webpack_require__(322);
+	var instrumentation_1 = __webpack_require__(321);
 	var ion_1 = __webpack_require__(306);
 	var nav_params_1 = __webpack_require__(316);
 	var util_1 = __webpack_require__(147);
-	var swipe_back_1 = __webpack_require__(323);
-	var transition_1 = __webpack_require__(324);
+	var swipe_back_1 = __webpack_require__(322);
+	var transition_1 = __webpack_require__(323);
 	var view_controller_1 = __webpack_require__(315);
 	/**
 	 * @name NavController
@@ -52676,7 +52485,7 @@
 	var ctrlIds = -1;
 
 /***/ },
-/* 322 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';"use strict";
@@ -52688,7 +52497,7 @@
 
 
 /***/ },
-/* 323 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52742,7 +52551,7 @@
 	exports.SwipeBackGesture = SwipeBackGesture;
 
 /***/ },
-/* 324 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52751,7 +52560,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(325);
+	var animation_1 = __webpack_require__(324);
 	/**
 	 * @private
 	 **/
@@ -52779,7 +52588,7 @@
 	var TransitionRegistry = {};
 
 /***/ },
-/* 325 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53442,7 +53251,7 @@
 	var AnimationRegistry = {};
 
 /***/ },
-/* 326 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53514,7 +53323,7 @@
 	exports.MenuClose = MenuClose;
 
 /***/ },
-/* 327 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53578,7 +53387,7 @@
 	exports.Badge = Badge;
 
 /***/ },
-/* 328 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53961,7 +53770,7 @@
 	exports.Content = Content;
 
 /***/ },
-/* 329 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54099,7 +53908,7 @@
 	exports.Img = Img;
 
 /***/ },
-/* 330 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54202,7 +54011,7 @@
 	exports.Scroll = Scroll;
 
 /***/ },
-/* 331 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54219,7 +54028,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var content_1 = __webpack_require__(328);
+	var content_1 = __webpack_require__(327);
 	/**
 	 * @name InfiniteScroll
 	 * @description
@@ -54470,7 +54279,7 @@
 	var STATE_LOADING = 'loading';
 
 /***/ },
-/* 332 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54484,10 +54293,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(155);
 	var config_1 = __webpack_require__(145);
-	var infinite_scroll_1 = __webpack_require__(331);
-	var spinner_1 = __webpack_require__(333);
+	var infinite_scroll_1 = __webpack_require__(330);
 	/**
 	 * @private
 	 */
@@ -54521,7 +54328,6 @@
 	                '</div>' +
 	                '<div class="infinite-loading-text" [innerHTML]="loadingText" *ngIf="loadingText"></div>' +
 	                '</div>',
-	            directives: [common_1.NgIf, spinner_1.Spinner],
 	            host: {
 	                '[attr.state]': 'inf.state'
 	            },
@@ -54535,308 +54341,7 @@
 	exports.InfiniteScrollContent = InfiniteScrollContent;
 
 /***/ },
-/* 333 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(155);
-	var config_1 = __webpack_require__(145);
-	/**
-	 * @name Spinner
-	 * @description
-	 * The `ion-spinner` component provides a variety of animated SVG spinners.
-	 * Spinners enables you to give users feedback that the app is actively
-	 * processing/thinking/waiting/chillin’ out, or whatever you’d like it to indicate.
-	 * By default, the `ion-refresher` feature uses this spinner component while it's
-	 * the refresher is in the `refreshing` state.
-	 *
-	 * Ionic offers a handful of spinners out of the box, and by default, it will use
-	 * the appropriate spinner for the platform on which it’s running.
-	 *
-	 * <table class="table spinner-table">
-	 *  <tr>
-	 *    <th>
-	 *      <code>ios</code>
-	 *    </th>
-	 *    <td>
-	 *      <ion-spinner name="ios"></ion-spinner>
-	 *    </td>
-	 *  </tr>
-	 *  <tr>
-	 *    <th>
-	 *      <code>ios-small</code>
-	 *    </th>
-	 *    <td>
-	 *      <ion-spinner name="ios-small"></ion-spinner>
-	 *    </td>
-	 *  </tr>
-	 *  <tr>
-	 *    <th>
-	 *      <code>bubbles</code>
-	 *    </th>
-	 *    <td>
-	 *      <ion-spinner name="bubbles"></ion-spinner>
-	 *    </td>
-	 *  </tr>
-	 *  <tr>
-	 *    <th>
-	 *      <code>circles</code>
-	 *    </th>
-	 *    <td>
-	 *      <ion-spinner name="circles"></ion-spinner>
-	 *    </td>
-	 *  </tr>
-	 *  <tr>
-	 *    <th>
-	 *      <code>crescent</code>
-	 *    </th>
-	 *    <td>
-	 *      <ion-spinner name="crescent"></ion-spinner>
-	 *    </td>
-	 *  </tr>
-	 *  <tr>
-	 *    <th>
-	 *      <code>dots</code>
-	 *    </th>
-	 *    <td>
-	 *      <ion-spinner name="dots"></ion-spinner>
-	 *    </td>
-	 *  </tr>
-	 * </table>
-	 *
-	 * @usage
-	 * The following code would use the default spinner for the platform it's
-	 * running from. If it's neither iOS or Android, it'll default to use `ios`.
-	 *
-	 * ```html
-	 * <ion-spinner></ion-spinner>
-	 * ```
-	 *
-	 * By setting the `name` property, you can specify which predefined spinner to
-	 * use, no matter what the platform is.
-	 *
-	 * ```html
-	 * <ion-spinner name="bubbles"></ion-spinner>
-	 * ```
-	 *
-	 * ## Styling SVG with CSS
-	 * One cool thing about SVG is its ability to be styled with CSS! One thing to note
-	 * is that some of the CSS properties on an SVG element have different names. For
-	 * example, SVG uses the term `stroke` instead of `border`, and `fill` instead
-	 * of `background-color`.
-	 *
-	 * ```css
-	 * ion-spinner svg {
-	 *   width: 28px;
-	 *   height: 28px;
-	 *   stroke: #444;
-	 *   fill: #222;
-	 * }
-	 * ```
-	 */
-	var Spinner = (function () {
-	    function Spinner(_config) {
-	        this._config = _config;
-	        this._dur = null;
-	        /**
-	         * @input {string} If the animation is paused or not. Defaults to `false`.
-	         */
-	        this.paused = false;
-	    }
-	    Object.defineProperty(Spinner.prototype, "name", {
-	        /**
-	         * @input {string} SVG spinner name.
-	         */
-	        get: function () {
-	            return this._name;
-	        },
-	        set: function (val) {
-	            this._name = val;
-	            this.load();
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Spinner.prototype, "duration", {
-	        /**
-	         * @input {string} How long it takes it to do one loop.
-	         */
-	        get: function () {
-	            return this._dur;
-	        },
-	        set: function (val) {
-	            this._dur = val;
-	            this.load();
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @private
-	     */
-	    Spinner.prototype.ngOnInit = function () {
-	        this._init = true;
-	        this.load();
-	    };
-	    /**
-	     * @private
-	     */
-	    Spinner.prototype.load = function () {
-	        if (this._init) {
-	            this._l = [];
-	            this._c = [];
-	            var name = this._name || this._config.get('spinner', 'ios');
-	            var spinner = SPINNERS[name];
-	            if (spinner) {
-	                this._applied = 'spinner-' + name;
-	                if (spinner.lines) {
-	                    for (var i = 0, l = spinner.lines; i < l; i++) {
-	                        this._l.push(this._loadEle(spinner, i, l));
-	                    }
-	                }
-	                else if (spinner.circles) {
-	                    for (var i = 0, l = spinner.circles; i < l; i++) {
-	                        this._c.push(this._loadEle(spinner, i, l));
-	                    }
-	                }
-	            }
-	        }
-	    };
-	    Spinner.prototype._loadEle = function (spinner, index, total) {
-	        var duration = this._dur || spinner.dur;
-	        var data = spinner.fn(duration, index, total);
-	        data.style.animationDuration = duration + 'ms';
-	        return data;
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Spinner.prototype, "name", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Number)
-	    ], Spinner.prototype, "duration", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean)
-	    ], Spinner.prototype, "paused", void 0);
-	    Spinner = __decorate([
-	        core_1.Component({
-	            selector: 'ion-spinner',
-	            template: '<svg viewBox="0 0 64 64" *ngFor="#i of _c" [ngStyle]="i.style">' +
-	                '<circle [attr.r]="i.r" transform="translate(32,32)"></circle>' +
-	                '</svg>' +
-	                '<svg viewBox="0 0 64 64" *ngFor="#i of _l" [ngStyle]="i.style">' +
-	                '<line [attr.y1]="i.y1" [attr.y2]="i.y2" transform="translate(32,32)"></line>' +
-	                '</svg>',
-	            directives: [common_1.NgStyle],
-	            host: {
-	                '[class]': '_applied',
-	                '[class.spinner-paused]': 'paused'
-	            },
-	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
-	            encapsulation: core_1.ViewEncapsulation.None,
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object])
-	    ], Spinner);
-	    return Spinner;
-	    var _a;
-	}());
-	exports.Spinner = Spinner;
-	var SPINNERS = {
-	    ios: {
-	        dur: 1000,
-	        lines: 12,
-	        fn: function (dur, index, total) {
-	            return {
-	                y1: 17,
-	                y2: 29,
-	                style: {
-	                    transform: 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
-	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
-	                }
-	            };
-	        }
-	    },
-	    'ios-small': {
-	        dur: 1000,
-	        lines: 12,
-	        fn: function (dur, index, total) {
-	            return {
-	                y1: 12,
-	                y2: 20,
-	                style: {
-	                    transform: 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
-	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
-	                }
-	            };
-	        }
-	    },
-	    bubbles: {
-	        dur: 1000,
-	        circles: 9,
-	        fn: function (dur, index, total) {
-	            return {
-	                r: 5,
-	                style: {
-	                    top: 9 * Math.sin(2 * Math.PI * index / total),
-	                    left: 9 * Math.cos(2 * Math.PI * index / total),
-	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
-	                }
-	            };
-	        }
-	    },
-	    circles: {
-	        dur: 1000,
-	        circles: 8,
-	        fn: function (dur, index, total) {
-	            return {
-	                r: 5,
-	                style: {
-	                    top: 9 * Math.sin(2 * Math.PI * index / total),
-	                    left: 9 * Math.cos(2 * Math.PI * index / total),
-	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
-	                }
-	            };
-	        }
-	    },
-	    crescent: {
-	        dur: 750,
-	        circles: 1,
-	        fn: function (dur) {
-	            return {
-	                r: 26,
-	                style: {}
-	            };
-	        }
-	    },
-	    dots: {
-	        dur: 750,
-	        circles: 3,
-	        fn: function (dur, index, total) {
-	            return {
-	                r: 6,
-	                style: {
-	                    left: (9 - (9 * index)),
-	                    animationDelay: -(110 * index) + 'ms'
-	                }
-	            };
-	        }
-	    }
-	};
-
-/***/ },
-/* 334 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54853,7 +54358,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var content_1 = __webpack_require__(328);
+	var content_1 = __webpack_require__(327);
 	var util_1 = __webpack_require__(147);
 	var dom_1 = __webpack_require__(144);
 	/**
@@ -55357,7 +54862,7 @@
 	var STATE_COMPLETING = 'completing';
 
 /***/ },
-/* 335 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55371,11 +54876,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(155);
 	var config_1 = __webpack_require__(145);
-	var icon_1 = __webpack_require__(318);
-	var refresher_1 = __webpack_require__(334);
-	var spinner_1 = __webpack_require__(333);
+	var refresher_1 = __webpack_require__(332);
 	/**
 	 * @private
 	 */
@@ -55426,11 +54928,9 @@
 	                '</div>' +
 	                '<div class="refresher-refreshing-text" [innerHTML]="refreshingText" *ngIf="refreshingText"></div>' +
 	                '</div>',
-	            directives: [common_1.NgIf, icon_1.Icon, spinner_1.Spinner],
 	            host: {
 	                '[attr.state]': 'r.state'
 	            },
-	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof refresher_1.Refresher !== 'undefined' && refresher_1.Refresher) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
@@ -55441,7 +54941,7 @@
 	exports.RefresherContent = RefresherContent;
 
 /***/ },
-/* 336 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55465,12 +54965,12 @@
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(155);
 	var ion_1 = __webpack_require__(306);
-	var animation_1 = __webpack_require__(325);
+	var animation_1 = __webpack_require__(324);
 	var gesture_1 = __webpack_require__(311);
 	var util_1 = __webpack_require__(312);
 	var dom_1 = __webpack_require__(144);
 	var util_2 = __webpack_require__(147);
-	var swiper_widget_1 = __webpack_require__(337);
+	var swiper_widget_1 = __webpack_require__(335);
 	/**
 	 * @name Slides
 	 * @description
@@ -56231,7 +55731,7 @@
 	var slidesId = -1;
 
 /***/ },
-/* 337 */
+/* 335 */
 /***/ function(module, exports) {
 
 	/**
@@ -60191,7 +59691,7 @@
 
 
 /***/ },
-/* 338 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60213,16 +59713,14 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(155);
 	var app_1 = __webpack_require__(151);
 	var config_1 = __webpack_require__(145);
-	var tab_button_1 = __webpack_require__(339);
-	var tab_highlight_1 = __webpack_require__(341);
+	var tab_button_1 = __webpack_require__(337);
+	var tab_highlight_1 = __webpack_require__(339);
 	var ion_1 = __webpack_require__(306);
 	var platform_1 = __webpack_require__(146);
-	var nav_controller_1 = __webpack_require__(321);
+	var nav_controller_1 = __webpack_require__(320);
 	var view_controller_1 = __webpack_require__(315);
-	var icon_1 = __webpack_require__(318);
 	var util_1 = __webpack_require__(147);
 	/**
 	 * @name Tabs
@@ -60623,9 +60121,6 @@
 	                '<ng-content></ng-content>' +
 	                '</ion-content-section>',
 	            directives: [
-	                icon_1.Icon,
-	                common_1.NgFor,
-	                common_1.NgIf,
 	                tab_button_1.TabButton,
 	                tab_highlight_1.TabHighlight,
 	                core_1.forwardRef(function () { return TabNavBarAnchor; })
@@ -60658,7 +60153,7 @@
 	}());
 
 /***/ },
-/* 339 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60677,7 +60172,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var tab_1 = __webpack_require__(340);
+	var tab_1 = __webpack_require__(338);
 	var ion_1 = __webpack_require__(306);
 	var config_1 = __webpack_require__(145);
 	/**
@@ -60740,7 +60235,7 @@
 	exports.TabButton = TabButton;
 
 /***/ },
-/* 340 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60766,8 +60261,8 @@
 	var config_1 = __webpack_require__(145);
 	var util_1 = __webpack_require__(147);
 	var keyboard_1 = __webpack_require__(296);
-	var nav_controller_1 = __webpack_require__(321);
-	var tabs_1 = __webpack_require__(338);
+	var nav_controller_1 = __webpack_require__(320);
+	var tabs_1 = __webpack_require__(336);
 	/**
 	 * @name Tab
 	 * @description
@@ -61090,7 +60585,7 @@
 	exports.Tab = Tab;
 
 /***/ },
-/* 341 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61138,7 +60633,7 @@
 	exports.TabHighlight = TabHighlight;
 
 /***/ },
-/* 342 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61161,7 +60656,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var ion_1 = __webpack_require__(306);
-	var item_sliding_gesture_1 = __webpack_require__(343);
+	var item_sliding_gesture_1 = __webpack_require__(341);
 	/**
 	 * The List is a widely used interface element in almost any mobile app,
 	 * and can include content ranging from basic text all the way to
@@ -61289,7 +60784,7 @@
 	exports.ListHeader = ListHeader;
 
 /***/ },
-/* 343 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61511,7 +61006,7 @@
 	var DRAG_THRESHOLD = 20;
 
 /***/ },
-/* 344 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61525,11 +61020,10 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(155);
-	var button_1 = __webpack_require__(320);
+	var button_1 = __webpack_require__(319);
 	var form_1 = __webpack_require__(150);
-	var icon_1 = __webpack_require__(318);
-	var label_1 = __webpack_require__(345);
+	var icon_1 = __webpack_require__(343);
+	var label_1 = __webpack_require__(344);
 	/**
 	 * @name Item
 	 * @description
@@ -61701,7 +61195,6 @@
 	            host: {
 	                'class': 'item'
 	            },
-	            directives: [common_1.NgIf, label_1.Label],
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
@@ -61713,7 +61206,196 @@
 	exports.Item = Item;
 
 /***/ },
-/* 345 */
+/* 343 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var config_1 = __webpack_require__(145);
+	/**
+	 * @name Icon
+	 * @description
+	 * Icons can be used on their own, or inside of a number of Ionic components.
+	 * For a full list of available icons, check out the
+	 * [Ionicons docs](../../../../ionicons).
+	 *
+	 * One feature of Ionicons in Ionic is when icon names are set, the actual icon
+	 * which is rendered can change slightly depending on the mode the app is
+	 * running from. For example, by setting the icon name of `alarm`, on iOS the
+	 * icon will automatically apply `ios-alarm`, and on Material Design it will
+	 * automatically apply `md-alarm`. This allows the developer to write the
+	 * markup once while Ionic applies the appropriate icon based on the mode.
+	 *
+	 * @usage
+	 * ```html
+	 * <!-- automatically uses the correct "star" icon depending on the mode -->
+	 * <ion-icon name="star"></ion-icon>
+	 *
+	 * <!-- explicity set the icon for each mode -->
+	 * <ion-icon ios="ios-home" md="md-home"></ion-icon>
+	 *
+	 * <!-- always use the same icon, no matter what the mode -->
+	 * <ion-icon name="ios-clock"></ion-icon>
+	 * <ion-icon name="logo-twitter"></ion-icon>
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/icon/
+	 * @see {@link /docs/v2/components#icons Icon Component Docs}
+	 *
+	 */
+	var Icon = (function () {
+	    function Icon(config, _elementRef, _renderer) {
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	        this._name = '';
+	        this._ios = '';
+	        this._md = '';
+	        this._css = '';
+	        this.mode = config.get('iconMode');
+	    }
+	    /**
+	     * @private
+	     */
+	    Icon.prototype.ngOnDestroy = function () {
+	        if (this._css) {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, this._css, false);
+	        }
+	    };
+	    Object.defineProperty(Icon.prototype, "name", {
+	        /**
+	         * @input {string} Icon to use. Will load the appropriate icon for each mode
+	         */
+	        get: function () {
+	            return this._name;
+	        },
+	        set: function (val) {
+	            if (!(/^md-|^ios-|^logo-/.test(val))) {
+	                // this does not have one of the defaults
+	                // so lets auto add in the mode prefix for them
+	                val = this.mode + '-' + val;
+	            }
+	            this._name = val;
+	            this.update();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Icon.prototype, "ios", {
+	        /**
+	         * @input {string} Explicitly set the icon to use on iOS
+	         */
+	        get: function () {
+	            return this._ios;
+	        },
+	        set: function (val) {
+	            this._ios = val;
+	            this.update();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Icon.prototype, "md", {
+	        /**
+	         * @input {string} Explicitly set the icon to use on MD
+	         */
+	        get: function () {
+	            return this._md;
+	        },
+	        set: function (val) {
+	            this._md = val;
+	            this.update();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Icon.prototype, "isActive", {
+	        /**
+	         * @input {bool} Whether or not the icon has an "active" appearance. On iOS an active icon is filled in or full appearance, and an inactive icon on iOS will use an outlined version of the icon same icon. Material Design icons do not change appearance depending if they're active or not. The `isActive` property is largely used by the tabbar.
+	         */
+	        get: function () {
+	            return (this._isActive === undefined || this._isActive === true || this._isActive === 'true');
+	        },
+	        set: function (val) {
+	            this._isActive = val;
+	            this.update();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     */
+	    Icon.prototype.update = function () {
+	        var css = 'ion-';
+	        if (this._ios && this.mode === 'ios') {
+	            css += this._ios;
+	        }
+	        else if (this._md && this.mode === 'md') {
+	            css += this._md;
+	        }
+	        else {
+	            css += this._name;
+	        }
+	        if (this.mode === 'ios' && !this.isActive) {
+	            css += '-outline';
+	        }
+	        if (this._css !== css) {
+	            if (this._css) {
+	                this._renderer.setElementClass(this._elementRef.nativeElement, this._css, false);
+	            }
+	            this._css = css;
+	            this._renderer.setElementClass(this._elementRef.nativeElement, css, true);
+	            this._renderer.setElementAttribute(this._elementRef.nativeElement, 'aria-label', css.replace('ion-', '').replace('ios-', '').replace('md-', '').replace('-', ' '));
+	        }
+	    };
+	    /**
+	     * @private
+	     * @param {string} add class name
+	     */
+	    Icon.prototype.addClass = function (className) {
+	        this._renderer.setElementClass(this._elementRef.nativeElement, className, true);
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Icon.prototype, "name", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Icon.prototype, "ios", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Icon.prototype, "md", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Icon.prototype, "isActive", null);
+	    Icon = __decorate([
+	        core_1.Directive({
+	            selector: 'ion-icon',
+	            host: {
+	                'role': 'img'
+	            }
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+	    ], Icon);
+	    return Icon;
+	    var _a, _b, _c;
+	}());
+	exports.Icon = Icon;
+
+/***/ },
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61838,7 +61520,7 @@
 	exports.Label = Label;
 
 /***/ },
-/* 346 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61855,7 +61537,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var list_1 = __webpack_require__(342);
+	var list_1 = __webpack_require__(340);
 	/**
 	 * @name ItemSliding
 	 *
@@ -61910,7 +61592,7 @@
 	var slideIds = 0;
 
 /***/ },
-/* 347 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61928,14 +61610,14 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var config_1 = __webpack_require__(145);
-	var content_1 = __webpack_require__(328);
+	var content_1 = __webpack_require__(327);
 	var platform_1 = __webpack_require__(146);
 	var view_controller_1 = __webpack_require__(315);
-	var virtual_item_1 = __webpack_require__(348);
-	var virtual_util_1 = __webpack_require__(349);
+	var virtual_item_1 = __webpack_require__(347);
+	var virtual_util_1 = __webpack_require__(348);
 	var util_1 = __webpack_require__(147);
 	var dom_1 = __webpack_require__(144);
-	var img_1 = __webpack_require__(329);
+	var img_1 = __webpack_require__(328);
 	/**
 	 * @name VirtualScroll
 	 * @description
@@ -62540,7 +62222,7 @@
 	var QUEUE_WRITE_TO_NODES = 1;
 
 /***/ },
-/* 348 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62602,7 +62284,7 @@
 	exports.VirtualItem = VirtualItem;
 
 /***/ },
-/* 349 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63104,6 +62786,307 @@
 	var REQUIRED_DOM_READS = 2;
 
 /***/ },
+/* 349 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(155);
+	var config_1 = __webpack_require__(145);
+	/**
+	 * @name Spinner
+	 * @description
+	 * The `ion-spinner` component provides a variety of animated SVG spinners.
+	 * Spinners enables you to give users feedback that the app is actively
+	 * processing/thinking/waiting/chillin’ out, or whatever you’d like it to indicate.
+	 * By default, the `ion-refresher` feature uses this spinner component while it's
+	 * the refresher is in the `refreshing` state.
+	 *
+	 * Ionic offers a handful of spinners out of the box, and by default, it will use
+	 * the appropriate spinner for the platform on which it’s running.
+	 *
+	 * <table class="table spinner-table">
+	 *  <tr>
+	 *    <th>
+	 *      <code>ios</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="ios"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>ios-small</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="ios-small"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>bubbles</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="bubbles"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>circles</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="circles"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>crescent</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="crescent"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 *  <tr>
+	 *    <th>
+	 *      <code>dots</code>
+	 *    </th>
+	 *    <td>
+	 *      <ion-spinner name="dots"></ion-spinner>
+	 *    </td>
+	 *  </tr>
+	 * </table>
+	 *
+	 * @usage
+	 * The following code would use the default spinner for the platform it's
+	 * running from. If it's neither iOS or Android, it'll default to use `ios`.
+	 *
+	 * ```html
+	 * <ion-spinner></ion-spinner>
+	 * ```
+	 *
+	 * By setting the `name` property, you can specify which predefined spinner to
+	 * use, no matter what the platform is.
+	 *
+	 * ```html
+	 * <ion-spinner name="bubbles"></ion-spinner>
+	 * ```
+	 *
+	 * ## Styling SVG with CSS
+	 * One cool thing about SVG is its ability to be styled with CSS! One thing to note
+	 * is that some of the CSS properties on an SVG element have different names. For
+	 * example, SVG uses the term `stroke` instead of `border`, and `fill` instead
+	 * of `background-color`.
+	 *
+	 * ```css
+	 * ion-spinner svg {
+	 *   width: 28px;
+	 *   height: 28px;
+	 *   stroke: #444;
+	 *   fill: #222;
+	 * }
+	 * ```
+	 */
+	var Spinner = (function () {
+	    function Spinner(_config) {
+	        this._config = _config;
+	        this._dur = null;
+	        /**
+	         * @input {string} If the animation is paused or not. Defaults to `false`.
+	         */
+	        this.paused = false;
+	    }
+	    Object.defineProperty(Spinner.prototype, "name", {
+	        /**
+	         * @input {string} SVG spinner name.
+	         */
+	        get: function () {
+	            return this._name;
+	        },
+	        set: function (val) {
+	            this._name = val;
+	            this.load();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Spinner.prototype, "duration", {
+	        /**
+	         * @input {string} How long it takes it to do one loop.
+	         */
+	        get: function () {
+	            return this._dur;
+	        },
+	        set: function (val) {
+	            this._dur = val;
+	            this.load();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     */
+	    Spinner.prototype.ngOnInit = function () {
+	        this._init = true;
+	        this.load();
+	    };
+	    /**
+	     * @private
+	     */
+	    Spinner.prototype.load = function () {
+	        if (this._init) {
+	            this._l = [];
+	            this._c = [];
+	            var name = this._name || this._config.get('spinner', 'ios');
+	            var spinner = SPINNERS[name];
+	            if (spinner) {
+	                this._applied = 'spinner-' + name;
+	                if (spinner.lines) {
+	                    for (var i = 0, l = spinner.lines; i < l; i++) {
+	                        this._l.push(this._loadEle(spinner, i, l));
+	                    }
+	                }
+	                else if (spinner.circles) {
+	                    for (var i = 0, l = spinner.circles; i < l; i++) {
+	                        this._c.push(this._loadEle(spinner, i, l));
+	                    }
+	                }
+	            }
+	        }
+	    };
+	    Spinner.prototype._loadEle = function (spinner, index, total) {
+	        var duration = this._dur || spinner.dur;
+	        var data = spinner.fn(duration, index, total);
+	        data.style.animationDuration = duration + 'ms';
+	        return data;
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Spinner.prototype, "name", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Number)
+	    ], Spinner.prototype, "duration", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Spinner.prototype, "paused", void 0);
+	    Spinner = __decorate([
+	        core_1.Component({
+	            selector: 'ion-spinner',
+	            template: '<svg viewBox="0 0 64 64" *ngFor="#i of _c" [ngStyle]="i.style">' +
+	                '<circle [attr.r]="i.r" transform="translate(32,32)"></circle>' +
+	                '</svg>' +
+	                '<svg viewBox="0 0 64 64" *ngFor="#i of _l" [ngStyle]="i.style">' +
+	                '<line [attr.y1]="i.y1" [attr.y2]="i.y2" transform="translate(32,32)"></line>' +
+	                '</svg>',
+	            directives: [common_1.NgStyle],
+	            host: {
+	                '[class]': '_applied',
+	                '[class.spinner-paused]': 'paused'
+	            },
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object])
+	    ], Spinner);
+	    return Spinner;
+	    var _a;
+	}());
+	exports.Spinner = Spinner;
+	var SPINNERS = {
+	    ios: {
+	        dur: 1000,
+	        lines: 12,
+	        fn: function (dur, index, total) {
+	            return {
+	                y1: 17,
+	                y2: 29,
+	                style: {
+	                    transform: 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
+	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
+	                }
+	            };
+	        }
+	    },
+	    'ios-small': {
+	        dur: 1000,
+	        lines: 12,
+	        fn: function (dur, index, total) {
+	            return {
+	                y1: 12,
+	                y2: 20,
+	                style: {
+	                    transform: 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)',
+	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
+	                }
+	            };
+	        }
+	    },
+	    bubbles: {
+	        dur: 1000,
+	        circles: 9,
+	        fn: function (dur, index, total) {
+	            return {
+	                r: 5,
+	                style: {
+	                    top: 9 * Math.sin(2 * Math.PI * index / total),
+	                    left: 9 * Math.cos(2 * Math.PI * index / total),
+	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
+	                }
+	            };
+	        }
+	    },
+	    circles: {
+	        dur: 1000,
+	        circles: 8,
+	        fn: function (dur, index, total) {
+	            return {
+	                r: 5,
+	                style: {
+	                    top: 9 * Math.sin(2 * Math.PI * index / total),
+	                    left: 9 * Math.cos(2 * Math.PI * index / total),
+	                    animationDelay: -(dur - ((dur / total) * index)) + 'ms'
+	                }
+	            };
+	        }
+	    },
+	    crescent: {
+	        dur: 750,
+	        circles: 1,
+	        fn: function (dur) {
+	            return {
+	                r: 26,
+	                style: {}
+	            };
+	        }
+	    },
+	    dots: {
+	        dur: 750,
+	        circles: 3,
+	        fn: function (dur, index, total) {
+	            return {
+	                r: 6,
+	                style: {
+	                    left: (9 - (9 * index)),
+	                    animationDelay: -(110 * index) + 'ms'
+	                }
+	            };
+	        }
+	    }
+	};
+
+/***/ },
 /* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -63123,7 +63106,7 @@
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(155);
 	var form_1 = __webpack_require__(150);
-	var item_1 = __webpack_require__(344);
+	var item_1 = __webpack_require__(342);
 	var util_1 = __webpack_require__(147);
 	var CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 	/**
@@ -63339,9 +63322,9 @@
 	var alert_1 = __webpack_require__(352);
 	var action_sheet_1 = __webpack_require__(353);
 	var form_1 = __webpack_require__(150);
-	var item_1 = __webpack_require__(344);
+	var item_1 = __webpack_require__(342);
 	var util_1 = __webpack_require__(147);
-	var nav_controller_1 = __webpack_require__(321);
+	var nav_controller_1 = __webpack_require__(320);
 	var option_1 = __webpack_require__(354);
 	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 	/**
@@ -63818,9 +63801,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(155);
-	var animation_1 = __webpack_require__(325);
-	var transition_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(324);
+	var transition_1 = __webpack_require__(323);
 	var config_1 = __webpack_require__(145);
 	var util_1 = __webpack_require__(147);
 	var nav_params_1 = __webpack_require__(316);
@@ -64338,7 +64320,6 @@
 	                '<div class="alert-button-group" [ngClass]="{vertical: d.buttons.length>2}">' +
 	                '<button category="alert-button" *ngFor="#b of d.buttons" (click)="btnClick(b)" [ngClass]="b.cssClass">' +
 	                '{{b.text}}' +
-	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +
 	                '</div>' +
 	                '</div>',
@@ -64347,8 +64328,6 @@
 	                '[attr.aria-labelledby]': 'hdrId',
 	                '[attr.aria-describedby]': 'descId'
 	            },
-	            directives: [common_1.NgClass, common_1.NgSwitch, common_1.NgIf, common_1.NgFor],
-	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
@@ -64489,11 +64468,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(155);
-	var animation_1 = __webpack_require__(325);
-	var transition_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(324);
+	var transition_1 = __webpack_require__(323);
 	var config_1 = __webpack_require__(145);
-	var icon_1 = __webpack_require__(318);
 	var util_1 = __webpack_require__(147);
 	var nav_params_1 = __webpack_require__(316);
 	var view_controller_1 = __webpack_require__(315);
@@ -64816,14 +64793,12 @@
 	                '<button category="action-sheet-button" (click)="click(b)" *ngFor="#b of d.buttons" class="disable-hover" [ngClass]="b.cssClass">' +
 	                '<ion-icon [name]="b.icon" *ngIf="b.icon" class="action-sheet-icon"></ion-icon> ' +
 	                '{{b.text}}' +
-	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +
 	                '</div>' +
 	                '<div class="action-sheet-group" *ngIf="d.cancelButton">' +
 	                '<button category="action-sheet-button" (click)="click(d.cancelButton)" class="action-sheet-cancel disable-hover" [ngClass]="d.cancelButton.cssClass">' +
 	                '<ion-icon [name]="d.cancelButton.icon" *ngIf="d.cancelButton.icon" class="action-sheet-icon"></ion-icon> ' +
 	                '{{d.cancelButton.text}}' +
-	                '<ion-button-effect></ion-button-effect>' +
 	                '</button>' +
 	                '</div>' +
 	                '</div>' +
@@ -64833,8 +64808,6 @@
 	                '[attr.aria-labelledby]': 'hdrId',
 	                '[attr.aria-describedby]': 'descId'
 	            },
-	            directives: [common_1.NgFor, common_1.NgIf, icon_1.Icon],
-	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
@@ -65043,7 +65016,7 @@
 	var common_1 = __webpack_require__(155);
 	var form_1 = __webpack_require__(150);
 	var util_1 = __webpack_require__(147);
-	var item_1 = __webpack_require__(344);
+	var item_1 = __webpack_require__(342);
 	var dom_1 = __webpack_require__(144);
 	var TOGGLE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
 	/**
@@ -65320,15 +65293,14 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(155);
-	var button_1 = __webpack_require__(320);
 	var config_1 = __webpack_require__(145);
-	var content_1 = __webpack_require__(328);
+	var content_1 = __webpack_require__(327);
 	var form_1 = __webpack_require__(150);
 	var input_base_1 = __webpack_require__(357);
 	var app_1 = __webpack_require__(151);
-	var item_1 = __webpack_require__(344);
+	var item_1 = __webpack_require__(342);
 	var native_input_1 = __webpack_require__(358);
-	var nav_controller_1 = __webpack_require__(321);
+	var nav_controller_1 = __webpack_require__(320);
 	var platform_1 = __webpack_require__(146);
 	/**
 	 * @name Input
@@ -65403,10 +65375,8 @@
 	                '<button clear *ngIf="clearInput && value" type="button" class="text-input-clear-icon" (click)="clearTextInput()" (mousedown)="clearTextInput()"></button>' +
 	                '<div (touchstart)="pointerStart($event)" (touchend)="pointerEnd($event)" (mousedown)="pointerStart($event)" (mouseup)="pointerEnd($event)" class="input-cover" tappable *ngIf="_useAssist"></div>',
 	            directives: [
-	                common_1.NgIf,
 	                native_input_1.NextInput,
 	                native_input_1.NativeInput,
-	                button_1.Button
 	            ],
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
@@ -65490,7 +65460,6 @@
 	                '<input type="text" aria-hidden="true" next-input *ngIf="_useAssist">' +
 	                '<div (touchstart)="pointerStart($event)" (touchend)="pointerEnd($event)" (mousedown)="pointerStart($event)" (mouseup)="pointerEnd($event)" class="input-cover" tappable *ngIf="_useAssist"></div>',
 	            directives: [
-	                common_1.NgIf,
 	                native_input_1.NextInput,
 	                native_input_1.NativeInput
 	            ],
@@ -66611,7 +66580,7 @@
 	var core_1 = __webpack_require__(8);
 	var form_1 = __webpack_require__(150);
 	var util_1 = __webpack_require__(147);
-	var item_1 = __webpack_require__(344);
+	var item_1 = __webpack_require__(342);
 	var radio_group_1 = __webpack_require__(361);
 	/**
 	 * @description
@@ -66796,7 +66765,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(155);
-	var list_1 = __webpack_require__(342);
+	var list_1 = __webpack_require__(340);
 	var util_1 = __webpack_require__(147);
 	var RADIO_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return RadioGroup; }), multi: true });
 	/**
@@ -67032,8 +67001,6 @@
 	var common_1 = __webpack_require__(155);
 	var ion_1 = __webpack_require__(306);
 	var config_1 = __webpack_require__(145);
-	var icon_1 = __webpack_require__(318);
-	var button_1 = __webpack_require__(320);
 	var util_1 = __webpack_require__(147);
 	/**
 	* @private
@@ -67355,7 +67322,7 @@
 	                '<button clear class="searchbar-clear-icon" (click)="clearInput()" (mousedown)="clearInput()"></button>' +
 	                '</div>' +
 	                '<button clear (click)="cancelSearchbar()" (mousedown)="cancelSearchbar()" [hidden]="hideCancelButton" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
-	            directives: [common_1.FORM_DIRECTIVES, common_1.NgIf, common_1.NgClass, icon_1.Icon, button_1.Button, SearchbarInput],
+	            directives: [SearchbarInput],
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(2, core_1.Optional()), 
@@ -67393,7 +67360,7 @@
 	var config_1 = __webpack_require__(145);
 	var keyboard_1 = __webpack_require__(296);
 	var util_1 = __webpack_require__(147);
-	var nav_controller_1 = __webpack_require__(321);
+	var nav_controller_1 = __webpack_require__(320);
 	var nav_portal_1 = __webpack_require__(364);
 	var view_controller_1 = __webpack_require__(315);
 	/**
@@ -67630,7 +67597,7 @@
 	var app_1 = __webpack_require__(151);
 	var config_1 = __webpack_require__(145);
 	var keyboard_1 = __webpack_require__(296);
-	var nav_controller_1 = __webpack_require__(321);
+	var nav_controller_1 = __webpack_require__(320);
 	var view_controller_1 = __webpack_require__(315);
 	/**
 	 * @private
@@ -67673,7 +67640,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var nav_controller_1 = __webpack_require__(321);
+	var nav_controller_1 = __webpack_require__(320);
 	var nav_registry_1 = __webpack_require__(298);
 	/**
 	 * @name NavPush
@@ -68273,28 +68240,28 @@
 	__export(__webpack_require__(151));
 	__export(__webpack_require__(353));
 	__export(__webpack_require__(352));
-	__export(__webpack_require__(327));
-	__export(__webpack_require__(320));
+	__export(__webpack_require__(326));
+	__export(__webpack_require__(319));
 	__export(__webpack_require__(350));
+	__export(__webpack_require__(327));
+	__export(__webpack_require__(343));
 	__export(__webpack_require__(328));
-	__export(__webpack_require__(318));
-	__export(__webpack_require__(329));
+	__export(__webpack_require__(330));
 	__export(__webpack_require__(331));
-	__export(__webpack_require__(332));
 	__export(__webpack_require__(356));
-	__export(__webpack_require__(344));
-	__export(__webpack_require__(346));
-	__export(__webpack_require__(345));
 	__export(__webpack_require__(342));
+	__export(__webpack_require__(345));
+	__export(__webpack_require__(344));
+	__export(__webpack_require__(340));
 	__export(__webpack_require__(371));
 	__export(__webpack_require__(297));
 	__export(__webpack_require__(305));
 	__export(__webpack_require__(372));
 	__export(__webpack_require__(314));
-	__export(__webpack_require__(326));
+	__export(__webpack_require__(325));
 	__export(__webpack_require__(373));
 	__export(__webpack_require__(363));
-	__export(__webpack_require__(321));
+	__export(__webpack_require__(320));
 	__export(__webpack_require__(315));
 	__export(__webpack_require__(316));
 	__export(__webpack_require__(365));
@@ -68304,22 +68271,22 @@
 	__export(__webpack_require__(374));
 	__export(__webpack_require__(360));
 	__export(__webpack_require__(361));
-	__export(__webpack_require__(334));
-	__export(__webpack_require__(335));
-	__export(__webpack_require__(330));
+	__export(__webpack_require__(332));
+	__export(__webpack_require__(333));
+	__export(__webpack_require__(329));
 	__export(__webpack_require__(362));
 	__export(__webpack_require__(359));
 	__export(__webpack_require__(351));
 	__export(__webpack_require__(367));
+	__export(__webpack_require__(334));
+	__export(__webpack_require__(349));
 	__export(__webpack_require__(336));
-	__export(__webpack_require__(333));
 	__export(__webpack_require__(338));
-	__export(__webpack_require__(340));
 	__export(__webpack_require__(300));
 	__export(__webpack_require__(375));
 	__export(__webpack_require__(355));
-	__export(__webpack_require__(319));
-	__export(__webpack_require__(347));
+	__export(__webpack_require__(318));
+	__export(__webpack_require__(346));
 
 /***/ },
 /* 371 */
@@ -68341,11 +68308,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(155);
-	var animation_1 = __webpack_require__(325);
-	var transition_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(324);
+	var transition_1 = __webpack_require__(323);
 	var config_1 = __webpack_require__(145);
-	var spinner_1 = __webpack_require__(333);
 	var util_1 = __webpack_require__(147);
 	var nav_params_1 = __webpack_require__(316);
 	var view_controller_1 = __webpack_require__(315);
@@ -68537,8 +68502,6 @@
 	            host: {
 	                'role': 'dialog'
 	            },
-	            directives: [common_1.NgIf, spinner_1.Spinner],
-	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
@@ -68670,7 +68633,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var menu_controller_1 = __webpack_require__(297);
-	var animation_1 = __webpack_require__(325);
+	var animation_1 = __webpack_require__(324);
 	/**
 	 * @private
 	 * Menu Type
@@ -68818,8 +68781,8 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var view_controller_1 = __webpack_require__(315);
-	var animation_1 = __webpack_require__(325);
-	var transition_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(324);
+	var transition_1 = __webpack_require__(323);
 	/**
 	 * @name Modal
 	 * @description
@@ -69037,8 +69000,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var animation_1 = __webpack_require__(325);
-	var transition_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(324);
+	var transition_1 = __webpack_require__(323);
 	var config_1 = __webpack_require__(145);
 	var util_1 = __webpack_require__(147);
 	var nav_params_1 = __webpack_require__(316);
@@ -69564,15 +69527,12 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var common_1 = __webpack_require__(155);
-	var button_1 = __webpack_require__(320);
-	var icon_1 = __webpack_require__(318);
-	var animation_1 = __webpack_require__(325);
-	var transition_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(324);
+	var transition_1 = __webpack_require__(323);
 	var config_1 = __webpack_require__(145);
 	var util_1 = __webpack_require__(147);
 	var nav_params_1 = __webpack_require__(316);
-	var nav_controller_1 = __webpack_require__(321);
+	var nav_controller_1 = __webpack_require__(320);
 	var view_controller_1 = __webpack_require__(315);
 	/**
 	 * @name Toast
@@ -69734,13 +69694,12 @@
 	    ToastCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-toast',
-	            template: "\n    <div (click)=\"bdClick()\" tappable disable-activated class=\"backdrop\" role=\"presentation\"></div>\n    <div class=\"toast-wrapper\">\n      <div class=\"toast-container\">\n        <div class=\"toast-message\" id=\"{{hdrId}}\" *ngIf=\"d.message\">{{d.message}}</div>\n        <button clear class=\"toast-button\" *ngIf=\"d.showCloseButton\" (click)=\"cbClick()\">\n          {{ d.closeButtonText || 'Close' }}\n          <ion-button-effect></ion-button-effect>\n         </button>\n      </div>\n    </div>\n  ",
+	            template: "\n    <div (click)=\"bdClick()\" tappable disable-activated class=\"backdrop\" role=\"presentation\"></div>\n    <div class=\"toast-wrapper\">\n      <div class=\"toast-container\">\n        <div class=\"toast-message\" id=\"{{hdrId}}\" *ngIf=\"d.message\">{{d.message}}</div>\n        <button clear class=\"toast-button\" *ngIf=\"d.showCloseButton\" (click)=\"cbClick()\">\n          {{ d.closeButtonText || 'Close' }}\n         </button>\n      </div>\n    </div>\n  ",
 	            host: {
 	                'role': 'dialog',
 	                '[attr.aria-labelledby]': 'hdrId',
-	                '[attr.aria-describedby]': 'descId'
+	                '[attr.aria-describedby]': 'descId',
 	            },
-	            directives: [common_1.NgIf, icon_1.Icon, button_1.Button]
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object])
 	    ], ToastCmp);
@@ -70510,7 +70469,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(325);
+	var animation_1 = __webpack_require__(324);
 	var SlideIn = (function (_super) {
 	    __extends(SlideIn, _super);
 	    function SlideIn(element) {
@@ -70570,8 +70529,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(325);
-	var transition_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(324);
+	var transition_1 = __webpack_require__(323);
 	var DURATION = 500;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	var OPACITY = 'opacity';
@@ -70744,8 +70703,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(325);
-	var transition_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(324);
+	var transition_1 = __webpack_require__(323);
 	var TRANSLATEY = 'translateY';
 	var OFF_BOTTOM = '40px';
 	var CENTER = '0px';
@@ -70808,8 +70767,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(325);
-	var transition_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(324);
+	var transition_1 = __webpack_require__(323);
 	var SHOW_BACK_BTN_CSS = 'show-back-button';
 	var SCALE_SMALL = .95;
 	var WPTransition = (function (_super) {

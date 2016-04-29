@@ -34,7 +34,7 @@ Toast
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/toast/toast.ts#L13">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/toast/toast.ts#L10">
 Improve this doc
 </a>
 

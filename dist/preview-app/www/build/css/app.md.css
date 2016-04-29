@@ -9785,14 +9785,6 @@ img#md-only {
   height: auto;
   z-index: 999; }
 
-img#md-tabs-icon,
-img#md-tabs-icon-text {
-  display: none;
-  position: absolute;
-  top: -24px;
-  width: 100%;
-  height: auto; }
-
 .tabs-icon-text ion-title div.toolbar-title {
   color: #fff !important; }
 

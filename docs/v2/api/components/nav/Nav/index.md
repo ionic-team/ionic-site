@@ -72,8 +72,8 @@ class MyApp {
   }
 }
 </code></pre>
-<p><h2 id="back_navigation">Back navigation</h2>
-If a <a href="../NavController/#creating_pages">page</a> you navigate to has a <a href="../NavBar/">NavBar</a>,
+<h3 id="back-navigation">Back Navigation</h3>
+<p>If a <a href="../NavController/#creating_pages">page</a> you navigate to has a <a href="../NavBar/">NavBar</a>,
 Nav will automatically add a back button to it if there is a page
 before the one you are navigating to in the navigation stack.</p>
 <p>Additionally, specifying the <code>swipeBackEnabled</code> property will allow you to

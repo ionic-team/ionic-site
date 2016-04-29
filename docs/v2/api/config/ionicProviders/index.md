@@ -32,7 +32,7 @@ ionicProviders
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/config/bootstrap.ts#L17">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/config/bootstrap.ts#L18">
 Improve this doc
 </a>
 

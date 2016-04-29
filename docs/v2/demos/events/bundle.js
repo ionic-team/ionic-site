@@ -60180,12 +60180,14 @@
 	 * by using ViewChild.
 	 *
 	 *```ts
-	 * constructor() {
-	 *  @ViewChild('myTabs) tabRef: Tabs
-	 * }
+	 * export class TabsPage {
+	 *
+	 * @ViewChild('myTabs) tabRef: Tabs
 	 *
 	 * onPageDidEnter() {
 	 *   this.tabRef.select(2);
+	 *  }
+	 *
 	 * }
 	 *```
 	 *

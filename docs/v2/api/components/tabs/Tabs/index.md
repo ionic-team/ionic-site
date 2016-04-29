@@ -124,12 +124,14 @@ example, set the value of <code>id</code> to <code>myTabs</code>:</p>
 <p>Then in your class you can grab the <code>Tabs</code> instance and call <code>select()</code>,
 passing the index of the tab as the argument. Here we&#39;re grabbing the tabs
 by using ViewChild.</p>
-<pre><code class="lang-ts">constructor() {
- @ViewChild(&#39;myTabs) tabRef: Tabs
-}
+<pre><code class="lang-ts">export class TabsPage {
+
+@ViewChild(&#39;myTabs) tabRef: Tabs
 
 onPageDidEnter() {
   this.tabRef.select(2);
+ }
+
 }
 </code></pre>
 

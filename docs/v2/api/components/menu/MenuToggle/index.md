@@ -43,8 +43,10 @@ Improve this doc
 
 
 
-<p>The <code>menuToggle</code> directive can be placed on any button to
-automatically close an open menu.</p>
+<p>The <code>menuToggle</code> directive can be placed on any button to toggle a menu open or closed.
+If it is added to the <a href="../../nav/NavBar">NavBar</a> of a page, the button will only appear
+when the page it&#39;s in is currently a root page. See the <a href="../Menu#navigation-bar-behavior">Menu Navigation Bar Behavior</a>
+docs for more information.</p>
 
 
 <h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
@@ -53,6 +55,7 @@ automatically close an open menu.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
+<p>A simple <code>menuToggle</code> button can be added using the following markup:</p>
 <pre><code class="lang-html">&lt;button menuToggle&gt;Toggle Menu&lt;/button&gt;
 </code></pre>
 <p>To toggle a certain menu by its id or side, give the <code>menuToggle</code>

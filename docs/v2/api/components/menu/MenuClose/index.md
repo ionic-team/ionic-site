@@ -43,8 +43,7 @@ Improve this doc
 
 
 
-<p>The <code>menuClose</code> directive can be placed on any button to
-automatically close an open menu.</p>
+<p>The <code>menuClose</code> directive can be placed on any button to close an open menu.</p>
 
 
 <h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
@@ -53,6 +52,7 @@ automatically close an open menu.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
+<p>A simple <code>menuClose</code> button can be added using the following markup:</p>
 <pre><code class="lang-html">&lt;button menuClose&gt;Close Menu&lt;/button&gt;
 </code></pre>
 <p>To close a certain menu by its id or side, give the <code>menuClose</code>

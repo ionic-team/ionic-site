@@ -65,8 +65,8 @@ See <a href="#usage">usage</a> below for examples of changing the menu type.</p>
 <h3 id="navigation-bar-behavior">Navigation Bar Behavior</h3>
 <p>If a <a href="../MenuToggle">MenuToggle</a> button is added to the <a href="../../nav/NavBar">NavBar</a> of
 a page, the button will only appear when the page it&#39;s in is currently a root page. The
-root page is the initial page loaded in the app, or it can be set using the <a href="../../nav/NavController/#setRoot">setRoot</a>
-method on the <a href="../../nav/NavController">NavController</a>.</p>
+root page is the initial page loaded in the app, or a page that has been set as the root
+using the <a href="../../nav/NavController/#setRoot">setRoot</a> method on the <a href="../../nav/NavController">NavController</a>.</p>
 <p>For example, say the application has two pages, <code>Page1</code> and <code>Page2</code>, and both have a
 <code>MenuToggle</code> button in their navigation bars. Assume the initial page loaded into the app
 is <code>Page1</code>, making it the root page. <code>Page1</code> will display the <code>MenuToggle</code> button, but once

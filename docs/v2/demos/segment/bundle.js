@@ -46139,8 +46139,8 @@
 	 *
 	 * If a [MenuToggle](../MenuToggle) button is added to the [NavBar](../../nav/NavBar) of
 	 * a page, the button will only appear when the page it's in is currently a root page. The
-	 * root page is the initial page loaded in the app, or it can be set using the [setRoot](../../nav/NavController/#setRoot)
-	 * method on the [NavController](../../nav/NavController).
+	 * root page is the initial page loaded in the app, or a page that has been set as the root
+	 * using the [setRoot](../../nav/NavController/#setRoot) method on the [NavController](../../nav/NavController).
 	 *
 	 * For example, say the application has two pages, `Page1` and `Page2`, and both have a
 	 * `MenuToggle` button in their navigation bars. Assume the initial page loaded into the app
@@ -49288,10 +49288,16 @@
 	/**
 	 * @name MenuToggle
 	 * @description
-	 * The `menuToggle` directive can be placed on any button to
-	 * automatically close an open menu.
+	 * The `menuToggle` directive can be placed on any button to toggle a menu open or closed.
+	 * If it is added to the [NavBar](../../nav/NavBar) of a page, the button will only appear
+	 * when the page it's in is currently a root page. See the [Menu Navigation Bar Behavior](../Menu#navigation-bar-behavior)
+	 * docs for more information.
+	 *
 	 *
 	 * @usage
+	 *
+	 * A simple `menuToggle` button can be added using the following markup:
+	 *
 	 * ```html
 	 * <button menuToggle>Toggle Menu</button>
 	 * ```
@@ -53388,10 +53394,12 @@
 	/**
 	 * @name MenuClose
 	 * @description
-	 * The `menuClose` directive can be placed on any button to
-	 * automatically close an open menu.
+	 * The `menuClose` directive can be placed on any button to close an open menu.
 	 *
 	 * @usage
+	 *
+	 * A simple `menuClose` button can be added using the following markup:
+	 *
 	 * ```html
 	 * <button menuClose>Close Menu</button>
 	 * ```

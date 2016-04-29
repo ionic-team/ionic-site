@@ -54585,10 +54585,16 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /**
+	     * @private
+	     */
 	    Spinner.prototype.ngOnInit = function () {
 	        this._init = true;
 	        this.load();
 	    };
+	    /**
+	     * @private
+	     */
 	    Spinner.prototype.load = function () {
 	        if (this._init) {
 	            this._l = [];

@@ -134,48 +134,6 @@ of <code>background-color</code>.</p>
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="ngOnInit"></div>
-
-<h3>
-<a class="anchor" name="ngOnInit" href="#ngOnInit"></a>
-<code>ngOnInit()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="load"></div>
-
-<h3>
-<a class="anchor" name="load" href="#load"></a>
-<code>load()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

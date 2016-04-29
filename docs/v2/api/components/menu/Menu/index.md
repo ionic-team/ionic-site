@@ -34,7 +34,7 @@ Menu
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/menu/menu-controller.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/menu/menu.ts#L9">
 Improve this doc
 </a>
 
@@ -43,18 +43,53 @@ Improve this doc
 
 
 
-<p>Menu is a side-menu interface that can be dragged and toggled to open or close.
-An Ionic app can have numerous menus, all of which can be controlled within
-template HTML, or programmatically.</p>
+<p>The Menu component is a navigation drawer that slides in from the side of the current
+view. By default, it slides in from the left, but the side can be overridden. The menu
+will be displayed differently based on the mode, however the display type can be changed
+to any of the available <a href="#menu-types">menu types</a>. The menu element should be a sibling
+to the app&#39;s content element. There can be any number of menus attached to the content.
+These can be controlled from the templates, or programmatically using the <a href="../MenuController">MenuController</a>.</p>
+<h3 id="opening-closing-menus">Opening/Closing Menus</h3>
+<p>There are several ways to open or close a menu. The menu can be <strong>toggled</strong> open or closed
+from the template using the <a href="../MenuToggle">MenuToggle</a> directive. It can also be
+<strong>closed</strong> from the template using the <a href="../MenuClose">MenuClose</a> directive. To display a menu
+programmatically, inject the <a href="../MenuController">MenuController</a> provider and call any of the
+<code>MenuController</code> methods.</p>
+<h3 id="menu-types">Menu Types</h3>
+<p>The menu supports several display types: <code>overlay</code>, <code>reveal</code> and <code>push</code>. By default,
+it will use the correct type based on the mode, but this can be changed. The default
+type for both Material Design and Windows mode is <code>overlay</code>, and <code>reveal</code> is the default
+type for iOS mode. The menu type can be changed in the app&#39;s <a href="../../config/Config">config</a>
+via the <code>menuType</code> property, or passed in the <code>type</code> property on the <code>&lt;ion-menu&gt;</code> element.
+See <a href="#usage">usage</a> below for examples of changing the menu type.</p>
+<h3 id="navigation-bar-behavior">Navigation Bar Behavior</h3>
+<p>If a <a href="../MenuToggle">MenuToggle</a> button is added to the <a href="../../nav/NavBar">NavBar</a> of
+a page, the button will only appear when the page it&#39;s in is currently a root page. The
+root page is the initial page loaded in the app, or it can be set using the <a href="../../nav/NavController/#setRoot">setRoot</a>
+method on the <a href="../../nav/NavController">NavController</a>.</p>
+<p>For example, say the application has two pages, <code>Page1</code> and <code>Page2</code>, and both have a
+<code>MenuToggle</code> button in their navigation bars. Assume the initial page loaded into the app
+is <code>Page1</code>, making it the root page. <code>Page1</code> will display the <code>MenuToggle</code> button, but once
+<code>Page2</code> is pushed onto the navigation stack, the <code>MenuToggle</code> will not be displayed.</p>
+<h3 id="persistent-menus">Persistent Menus</h3>
+<p>Persistent menus display the <a href="../MenuToggle">MenuToggle</a> button in the <a href="../../nav/NavBar">NavBar</a>
+on all pages in the navigation stack. To make a menu persistent set <code>persistent</code> to <code>true</code> on the
+<code>&lt;ion-menu&gt;</code> element. Note that this will only affect the <code>MenuToggle</code> button in the <code>NavBar</code> attached
+to the <code>Menu</code> with <code>persistent</code> set to true, any other <code>MenuToggle</code> buttons will not be affected.</p>
 
+
+<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
+<h3>selector: <code>ion-menu</code></h3>
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<p>In order to use Menu, you must specify a <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">reference</a>
-to the content element that Menu should listen on for drag events, using the <code>content</code> property.
-This is telling the menu which content the menu is attached to, so it knows which element to
-move over, and to respond to drag events. Note that a <strong>menu is a sibling to its content</strong>.</p>
+<p>To add a menu to an application, the <code>&lt;ion-menu&gt;</code> element should be added as a sibling to
+the content it belongs to. A <a href="https://angular.io/docs/ts/latest/guide/user-input.html#local-variables">local variable</a>
+should be added to the content element and passed to the menu element in the <code>content</code> property.
+This tells the menu which content it is attached to, so it knows which element to watch for
+gestures. In the below example, <code>content</code> is using <a href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#property-binding">property binding</a>
+because <code>mycontent</code> is a reference to the <code>&lt;ion-nav&gt;</code> element, and not a string.</p>
 <pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot;&gt;
   &lt;ion-content&gt;
     &lt;ion-list&gt;
@@ -65,82 +100,66 @@ move over, and to respond to drag events. Note that a <strong>menu is a sibling 
 
 &lt;ion-nav #mycontent [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
 </code></pre>
-<p>By default, Menus are on the left, but this can be overridden with the <code>side</code>
-property:</p>
+<h3 id="menu-side">Menu Side</h3>
+<p>By default, menus slide in from the left, but this can be overridden by passing <code>right</code>
+to the <code>side</code> property:</p>
 <pre><code class="lang-html">&lt;ion-menu side=&quot;right&quot; [content]=&quot;mycontent&quot;&gt;...&lt;/ion-menu&gt;
 </code></pre>
-<h3 id="programmatic-interaction">Programmatic Interaction</h3>
-<p>To programmatically interact with any menu, you can inject the <code>MenuController</code>
-provider into any component or directive. This makes it easy get ahold of and
-control the correct menu instance. By default Ionic will find the app&#39;s menu
-without requiring a menu ID.</p>
+<h3 id="menu-type">Menu Type</h3>
+<p>The menu type can be changed by passing the value to <code>type</code> on the <code>&lt;ion-menu&gt;</code>:</p>
+<pre><code class="lang-html">&lt;ion-menu type=&quot;overlay&quot; [content]=&quot;mycontent&quot;&gt;...&lt;/ion-menu&gt;
+</code></pre>
+<p>It can also be set in the app&#39;s config. The below will set the menu type to
+<code>push</code> for all modes, and then set the type to <code>overlay</code> for the <code>ios</code> mode.</p>
+<pre><code class="lang-ts">@App({
+  templateUrl: &#39;build/app.html&#39;,
+  config: {
+    menuType: &#39;push&#39;,
+    platforms: {
+     ios: {
+       menuType: &#39;overlay&#39;,
+     }
+    }
+  }
+})
+</code></pre>
+<h3 id="displaying-the-menu">Displaying the Menu</h3>
+<p>To toggle a menu from the template, add a button with the <code>menuToggle</code>
+directive anywhere in the page&#39;s template:</p>
+<pre><code class="lang-html">&lt;button menuToggle&gt;Toggle Menu&lt;/button&gt;
+</code></pre>
+<p>To close a menu, add the <code>menuClose</code> button. It can be added anywhere
+in the content, or even the menu itself. Below it is added to the menu&#39;s
+content:</p>
+<pre><code class="lang-html">&lt;ion-menu [content]=&quot;mycontent&quot;&gt;
+  &lt;ion-content&gt;
+    &lt;ion-list&gt;
+      &lt;button menuClose ion-item detail-none&gt;Close Menu&lt;/button&gt;
+    &lt;/ion-list&gt;
+  &lt;/ion-content&gt;
+&lt;/ion-menu&gt;
+</code></pre>
+<p>See the <a href="../MenuToggle">MenuToggle</a> and <a href="../MenuClose">MenuClose</a> docs
+for more information on these directives.</p>
+<p>The menu can also be controlled from the Page by using the <code>MenuController</code>.
+Inject the <code>MenuController</code> provider into the page and then call any of its
+methods. In the below example, the <code>openMenu</code> method will open the menu
+when it is called.</p>
 <pre><code class="lang-ts">import{Page, MenuController} from &#39;ionic-angular&#39;;
+
 @Page({...})
 export class MyPage {
- constructor(menu: MenuController) {
-   this.menu = menu;
+ constructor(private menu: MenuController) {
+
  }
 
  openMenu() {
    this.menu.open();
  }
-
 }
 </code></pre>
-<p>Note that if you want to easily toggle or close a menu just from a page&#39;s
-template, you can use <code>menuToggle</code> and/or <code>menuClose</code> to accomplish the same
-tasks as above.</p>
-<h3 id="apps-with-left-and-right-menus">Apps With Left And Right Menus</h3>
-<p>For apps with a left and right menu, you can control the desired
-menu by passing in the side of the menu.</p>
-<pre><code class="lang-html">&lt;ion-menu side=&quot;left&quot; [content]=&quot;mycontent&quot;&gt;...&lt;/ion-menu&gt;
-&lt;ion-menu side=&quot;right&quot; [content]=&quot;mycontent&quot;&gt;...&lt;/ion-menu&gt;
-&lt;ion-nav #mycontent [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
-</code></pre>
-<pre><code class="lang-ts">openLeftMenu() {
-  this.menu.open(&#39;left&#39;);
-}
-
-closeRightMenu() {
-  this.menu.close(&#39;right&#39;);
-}
-</code></pre>
-<h3 id="apps-with-multiple-same-side-menus">Apps With Multiple, Same Side Menus</h3>
-<p>Since more than one menu on a the same side is possible, and you wouldn&#39;t want
-both to be open at the same time, an app can decide which menu should be enabled.
-For apps with multiple menus on the same side, it&#39;s required to give each menu a
-unique ID. In the example below, we&#39;re saying that the left menu with the
-<code>authenticated</code> id should be enabled, and the left menu with the <code>unauthenticated</code>
-id be disabled.</p>
-<pre><code class="lang-html">&lt;ion-menu id=&quot;authenticated&quot; side=&quot;left&quot; [content]=&quot;mycontent&quot;&gt;...&lt;/ion-menu&gt;
-&lt;ion-menu id=&quot;unauthenticated&quot; side=&quot;left&quot; [content]=&quot;mycontent&quot;&gt;...&lt;/ion-menu&gt;
-&lt;ion-nav #mycontent [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;
-</code></pre>
-<pre><code class="lang-ts">enableAuthenticatedMenu() {
-  this.menu.enable(true, &#39;authenticated&#39;);
-  this.menu.enable(false, &#39;unauthenticated&#39;);
-}
-</code></pre>
-<p>Note that if an app only had one menu, there is no reason to pass a menu id.</p>
-<h3 id="menu-types">Menu Types</h3>
-<p>Menu supports two display types: <code>overlay</code>, <code>reveal</code> and <code>push</code>. Overlay
-is the traditional Material Design drawer type, and Reveal is the traditional
-iOS type. By default, menus will use to the correct type for the platform,
-but this can be overriden using the <code>type</code> property:</p>
-<pre><code class="lang-html">&lt;ion-menu type=&quot;overlay&quot; [content]=&quot;mycontent&quot;&gt;...&lt;/ion-menu&gt;
-</code></pre>
-<h3 id="persistent-menus">Persistent Menus</h3>
-<p>By default, menus, and specifically their menu toggle buttons in the navbar,
-only show on the root page within its <code>NavController</code>. For example, on Page 1
-the menu toggle will show in the navbar. However, when navigating to Page 2,
-because it is not the root Page for that <code>NavController</code>, the menu toggle
-will not show in the navbar.</p>
-<p>Not showing the menu toggle button in the navbar is commonly seen within
-native apps after navigating past the root Page. However, it is still possible
-to always show the menu toggle button in the navbar by setting
-<code>persistent=&quot;true&quot;</code> on the <code>ion-menu</code> component.</p>
-<pre><code class="lang-html">&lt;ion-menu persistent=&quot;true&quot; [content]=&quot;content&quot;&gt;...&lt;/ion-menu&gt;
-</code></pre>
+<p>See the <a href="../MenuController">MenuController</a> API docs for all of the methods
+and usage information.</p>
 
 
 
@@ -150,54 +169,12 @@ to always show the menu toggle button in the navbar by setting
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="open"></div>
-
-<h3>
-<a class="anchor" name="open" href="#open"></a>
-<code>open()</code>
-  
-
-</h3>
-
-Progamatically open the Menu.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> <p>returns a promise when the menu is fully opened</p>
-
-
-</div>
-
-
-
-
-<div id="close"></div>
-
-<h3>
-<a class="anchor" name="close" href="#close"></a>
-<code>close(menuId)</code>
-  
-
-</h3>
-
-Progamatically close the Menu. If no `menuId` is given as the first
-argument then it'll close any menu which is open. If a `menuId`
-is given then it'll close that exact menu.
-
-
+<!-- input methods on the class -->
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
-      <th>Param</th>
+      <th>Attr</th>
       <th>Type</th>
       <th>Details</th>
     </tr>
@@ -205,379 +182,84 @@ is given then it'll close that exact menu.
   <tbody>
     
     <tr>
-      <td>
-        menuId
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Optionally get the menu by its id, or side.</p>
-
-        
-      </td>
+      <td>content</td>
+      <td><code>any</code></td>
+      <td><p> A reference to the content element the menu should use.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>id</td>
+      <td><code>string</code></td>
+      <td><p> An id for the menu.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>side</td>
+      <td><code>string</code></td>
+      <td><p> Which side of the view the menu should be placed. Default <code>&quot;left&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>type</td>
+      <td><code>string</code></td>
+      <td><p> The display type of the menu. Default varies based on the mode,
+see the <code>menuType</code> in the <a href="../../config/Config">config</a>. Available options:
+<code>&quot;overlay&quot;</code>, <code>&quot;reveal&quot;</code>, <code>&quot;push&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>enabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether or not the menu should be enabled. Default <code>true</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>swipeEnabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether or not swiping the menu should be enabled. Default <code>true</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>persistent</td>
+      <td><code>string</code></td>
+      <td><p> Whether or not the menu should persist on child pages. Default <code>false</code>.</p>
+</td>
     </tr>
     
   </tbody>
 </table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> <p>returns a promise when the menu is fully closed</p>
-
-
-</div>
-
-
-
-
-<div id="toggle"></div>
-
-<h3>
-<a class="anchor" name="toggle" href="#toggle"></a>
-<code>toggle(menuId)</code>
-  
-
-</h3>
-
-Toggle the menu. If it's closed, it will open, and if opened, it
-will close.
-
-
+<!-- output events on the class -->
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
   <thead>
     <tr>
-      <th>Param</th>
-      <th>Type</th>
+      <th>Attr</th>
       <th>Details</th>
     </tr>
   </thead>
   <tbody>
     
     <tr>
-      <td>
-        menuId
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Optionally get the menu by its id, or side.</p>
-
-        
-      </td>
+      <td>opening</td>
+      <td><p> When the menu is being dragged open.</p>
+</td>
     </tr>
     
   </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> <p>returns a promise when the menu has been toggled</p>
-
-
-</div>
-
-
-
-
-<div id="enable"></div>
-
-<h3>
-<a class="anchor" name="enable" href="#enable"></a>
-<code>enable(menuId)</code>
-  
-
-</h3>
-
-Used to enable or disable a menu. For example, there could be multiple
-left menus, but only one of them should be able to be opened at the same
-time. If there are multiple menus on the same side, then enabling one menu
-will also automatically disable all the others that are on the same side.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        menuId
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Optionally get the menu by its id, or side.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Menu</code> <p>Returns the instance of the menu, which is useful for chaining.</p>
-
-
-</div>
-
-
-
-
-<div id="swipeEnable"></div>
-
-<h3>
-<a class="anchor" name="swipeEnable" href="#swipeEnable"></a>
-<code>swipeEnable(shouldEnable,&nbsp;menuId)</code>
-  
-
-</h3>
-
-Used to enable or disable the ability to swipe open the menu.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        shouldEnable
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>True if it should be swipe-able, false if not.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        menuId
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Optionally get the menu by its id, or side.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Menu</code> <p>Returns the instance of the menu, which is useful for chaining.</p>
-
-
-</div>
-
-
-
-
-<div id="isOpen"></div>
-
-<h3>
-<a class="anchor" name="isOpen" href="#isOpen"></a>
-<code>isOpen()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> <p>Returns true if the menu is currently open, otherwise false.</p>
-
-
-</div>
-
-
-
-
-<div id="isEnabled"></div>
-
-<h3>
-<a class="anchor" name="isEnabled" href="#isEnabled"></a>
-<code>isEnabled()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> <p>Returns true if the menu is currently enabled, otherwise false.</p>
-
-
-</div>
-
-
-
-
-<div id="get"></div>
-
-<h3>
-<a class="anchor" name="get" href="#get"></a>
-<code>get(menuId)</code>
-  
-
-</h3>
-
-Used to get a menu instance. If a `menuId` is not provided then it'll
-return the first menu found. If a `menuId` is `left` or `right`, then
-it'll return the enabled menu on that side. Otherwise, if a `menuId` is
-provided, then it'll try to find the menu using the menu's `id`
-property. If a menu is not found then it'll return `null`.
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        menuId
-        
-        
-      </td>
-      <td>
-        
-  <code>string</code>
-      </td>
-      <td>
-        <p>Optionally get the menu by its id, or side.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Menu</code> <p>Returns the instance of the menu if found, otherwise <code>null</code>.</p>
-
-
-</div>
-
-
-
-
-<div id="getMenus"></div>
-
-<h3>
-<a class="anchor" name="getMenus" href="#getMenus"></a>
-<code>getMenus()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Array&lt;Menu&gt;</code> <p>Returns an array of all menu instances.</p>
-
-
-</div>
-
-
-<!-- related link -->
+</table><!-- related link -->
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
 <a href='/docs/v2/components#menus'>Menu Component Docs</a>,
-<a href='/docs/v2/components#navigation'>Navigation Component Docs</a>,
-<a href='../../nav/Nav'>Nav API Docs</a><!-- end content block -->
+<a href='../MenuController'>MenuController API Docs</a>,
+<a href='../../nav/Nav'>Nav API Docs</a>,
+<a href='../../nav/NavController'>NavController API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

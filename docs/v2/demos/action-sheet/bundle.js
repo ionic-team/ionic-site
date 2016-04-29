@@ -44920,17 +44920,18 @@
 
 	"use strict";
 	/**
-	 * @name Menu
+	 * @name MenuController
 	 * @description
-	 * Menu is a side-menu interface that can be dragged and toggled to open or close.
-	 * An Ionic app can have numerous menus, all of which can be controlled within
-	 * template HTML, or programmatically.
+	 * The MenuController is a provider which makes it easy to control a [Menu](../Menu).
+	 * Its methods can be used to display the menu, enable the menu, toggle the menu, and more.
+	 * The controller will grab a reference to the menu by the `side`, `id`, or, if neither
+	 * of these are passed to it, it will grab the first menu it finds.
+	 *
 	 *
 	 * @usage
-	 * In order to use Menu, you must specify a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables)
-	 * to the content element that Menu should listen on for drag events, using the `content` property.
-	 * This is telling the menu which content the menu is attached to, so it knows which element to
-	 * move over, and to respond to drag events. Note that a **menu is a sibling to its content**.
+	 *
+	 * Add a basic menu component to start with. See the [Menu](../Menu) API docs
+	 * for more information on adding menu components.
 	 *
 	 * ```html
 	 * <ion-menu [content]="mycontent">
@@ -44944,45 +44945,44 @@
 	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
 	 * ```
 	 *
-	 * By default, Menus are on the left, but this can be overridden with the `side`
-	 * property:
-	 *
-	 * ```html
-	 * <ion-menu side="right" [content]="mycontent">...</ion-menu>
-	 * ```
-	 *
-	 *
-	 * ### Programmatic Interaction
-	 *
-	 * To programmatically interact with any menu, you can inject the `MenuController`
-	 * provider into any component or directive. This makes it easy get ahold of and
-	 * control the correct menu instance. By default Ionic will find the app's menu
-	 * without requiring a menu ID.
+	 * To call the controller methods, inject the `MenuController` provider
+	 * into the page. Then, create some methods for opening, closing, and
+	 * toggling the menu.
 	 *
 	 * ```ts
 	 * import{Page, MenuController} from 'ionic-angular';
+	 *
 	 * @Page({...})
 	 * export class MyPage {
-	 *  constructor(menu: MenuController) {
-	 *    this.menu = menu;
+	 *
+	 *  constructor(private menu: MenuController) {
+	 *
 	 *  }
 	 *
 	 *  openMenu() {
 	 *    this.menu.open();
 	 *  }
 	 *
+	 *  closeMenu() {
+	 *    this.menu.close();
+	 *  }
+	 *
+	 *  toggleMenu() {
+	 *    this.menu.toggle();
+	 *  }
+	 *
 	 * }
 	 * ```
 	 *
-	 * Note that if you want to easily toggle or close a menu just from a page's
-	 * template, you can use `menuToggle` and/or `menuClose` to accomplish the same
-	 * tasks as above.
+	 * Since only one menu exists, the `MenuController` will grab the
+	 * correct menu and call the correct method for each.
 	 *
 	 *
-	 * ### Apps With Left And Right Menus
+	 * ### Multiple Menus on Different Sides
 	 *
-	 * For apps with a left and right menu, you can control the desired
-	 * menu by passing in the side of the menu.
+	 * For applications with both a left and right menu, the desired menu can be
+	 * grabbed by passing the `side` of the menu. If nothing is passed, it will
+	 * default to the `"left"` menu.
 	 *
 	 * ```html
 	 * <ion-menu side="left" [content]="mycontent">...</ion-menu>
@@ -44991,24 +44991,22 @@
 	 * ```
 	 *
 	 * ```ts
-	 *  openLeftMenu() {
-	 *    this.menu.open('left');
+	 *  toggleLeftMenu() {
+	 *    this.menu.toggle();
 	 *  }
 	 *
-	 *  closeRightMenu() {
-	 *    this.menu.close('right');
+	 *  toggleRightMenu() {
+	 *    this.menu.toggle('right');
 	 *  }
 	 * ```
 	 *
 	 *
-	 * ### Apps With Multiple, Same Side Menus
+	 * ### Multiple Menus on the Same Side
 	 *
-	 * Since more than one menu on a the same side is possible, and you wouldn't want
-	 * both to be open at the same time, an app can decide which menu should be enabled.
-	 * For apps with multiple menus on the same side, it's required to give each menu a
-	 * unique ID. In the example below, we're saying that the left menu with the
-	 * `authenticated` id should be enabled, and the left menu with the `unauthenticated`
-	 * id be disabled.
+	 * An application can have multiple menus on the same side. In order to determine
+	 * the menu to control, an `id` should be passed. In the example below, the menu
+	 * with the `authenticated` id will be enabled, and the menu with the `unauthenticated`
+	 * id will be disabled.
 	 *
 	 * ```html
 	 * <ion-menu id="authenticated" side="left" [content]="mycontent">...</ion-menu>
@@ -45023,43 +45021,13 @@
 	 *  }
 	 * ```
 	 *
-	 * Note that if an app only had one menu, there is no reason to pass a menu id.
+	 * Note: if an app only has one menu, there is no reason to pass an `id`.
 	 *
-	 *
-	 * ### Menu Types
-	 *
-	 * Menu supports two display types: `overlay`, `reveal` and `push`. Overlay
-	 * is the traditional Material Design drawer type, and Reveal is the traditional
-	 * iOS type. By default, menus will use to the correct type for the platform,
-	 * but this can be overriden using the `type` property:
-	 *
-	 * ```html
-	 * <ion-menu type="overlay" [content]="mycontent">...</ion-menu>
-	 * ```
-	 *
-	 *
-	 * ### Persistent Menus
-	 *
-	 * By default, menus, and specifically their menu toggle buttons in the navbar,
-	 * only show on the root page within its `NavController`. For example, on Page 1
-	 * the menu toggle will show in the navbar. However, when navigating to Page 2,
-	 * because it is not the root Page for that `NavController`, the menu toggle
-	 * will not show in the navbar.
-	 *
-	 * Not showing the menu toggle button in the navbar is commonly seen within
-	 * native apps after navigating past the root Page. However, it is still possible
-	 * to always show the menu toggle button in the navbar by setting
-	 * `persistent="true"` on the `ion-menu` component.
-	 *
-	 * ```html
-	 * <ion-menu persistent="true" [content]="content">...</ion-menu>
-	 * ```
 	 *
 	 * @demo /docs/v2/demos/menu/
 	 *
 	 * @see {@link /docs/v2/components#menus Menu Component Docs}
-	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
-	 * @see {@link ../../nav/Nav Nav API Docs}
+	 * @see {@link ../Menu Menu API Docs}
 	 *
 	 */
 	var MenuController = (function () {
@@ -46189,7 +46157,169 @@
 	var menu_controller_1 = __webpack_require__(297);
 	var util_1 = __webpack_require__(147);
 	/**
-	 * @private
+	 * @name Menu
+	 * @description
+	 * The Menu component is a navigation drawer that slides in from the side of the current
+	 * view. By default, it slides in from the left, but the side can be overridden. The menu
+	 * will be displayed differently based on the mode, however the display type can be changed
+	 * to any of the available [menu types](#menu-types). The menu element should be a sibling
+	 * to the app's content element. There can be any number of menus attached to the content.
+	 * These can be controlled from the templates, or programmatically using the [MenuController](../MenuController).
+	 *
+	 *
+	 * ### Opening/Closing Menus
+	 *
+	 * There are several ways to open or close a menu. The menu can be **toggled** open or closed
+	 * from the template using the [MenuToggle](../MenuToggle) directive. It can also be
+	 * **closed** from the template using the [MenuClose](../MenuClose) directive. To display a menu
+	 * programmatically, inject the [MenuController](../MenuController) provider and call any of the
+	 * `MenuController` methods.
+	 *
+	 *
+	 * ### Menu Types
+	 *
+	 * The menu supports several display types: `overlay`, `reveal` and `push`. By default,
+	 * it will use the correct type based on the mode, but this can be changed. The default
+	 * type for both Material Design and Windows mode is `overlay`, and `reveal` is the default
+	 * type for iOS mode. The menu type can be changed in the app's [config](../../config/Config)
+	 * via the `menuType` property, or passed in the `type` property on the `<ion-menu>` element.
+	 * See [usage](#usage) below for examples of changing the menu type.
+	 *
+	 *
+	 * ### Navigation Bar Behavior
+	 *
+	 * If a [MenuToggle](../MenuToggle) button is added to the [NavBar](../../nav/NavBar) of
+	 * a page, the button will only appear when the page it's in is currently a root page. The
+	 * root page is the initial page loaded in the app, or it can be set using the [setRoot](../../nav/NavController/#setRoot)
+	 * method on the [NavController](../../nav/NavController).
+	 *
+	 * For example, say the application has two pages, `Page1` and `Page2`, and both have a
+	 * `MenuToggle` button in their navigation bars. Assume the initial page loaded into the app
+	 * is `Page1`, making it the root page. `Page1` will display the `MenuToggle` button, but once
+	 * `Page2` is pushed onto the navigation stack, the `MenuToggle` will not be displayed.
+	 *
+	 *
+	 * ### Persistent Menus
+	 *
+	 * Persistent menus display the [MenuToggle](../MenuToggle) button in the [NavBar](../../nav/NavBar)
+	 * on all pages in the navigation stack. To make a menu persistent set `persistent` to `true` on the
+	 * `<ion-menu>` element. Note that this will only affect the `MenuToggle` button in the `NavBar` attached
+	 * to the `Menu` with `persistent` set to true, any other `MenuToggle` buttons will not be affected.
+	 *
+	 *
+	 * @usage
+	 *
+	 * To add a menu to an application, the `<ion-menu>` element should be added as a sibling to
+	 * the content it belongs to. A [local variable](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables)
+	 * should be added to the content element and passed to the menu element in the `content` property.
+	 * This tells the menu which content it is attached to, so it knows which element to watch for
+	 * gestures. In the below example, `content` is using [property binding](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#property-binding)
+	 * because `mycontent` is a reference to the `<ion-nav>` element, and not a string.
+	 *
+	 * ```html
+	 * <ion-menu [content]="mycontent">
+	 *   <ion-content>
+	 *     <ion-list>
+	 *     ...
+	 *     </ion-list>
+	 *   </ion-content>
+	 * </ion-menu>
+	 *
+	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * ```
+	 *
+	 * ### Menu Side
+	 *
+	 * By default, menus slide in from the left, but this can be overridden by passing `right`
+	 * to the `side` property:
+	 *
+	 * ```html
+	 * <ion-menu side="right" [content]="mycontent">...</ion-menu>
+	 * ```
+	 *
+	 *
+	 * ### Menu Type
+	 *
+	 * The menu type can be changed by passing the value to `type` on the `<ion-menu>`:
+	 *
+	 * ```html
+	 * <ion-menu type="overlay" [content]="mycontent">...</ion-menu>
+	 * ```
+	 *
+	 * It can also be set in the app's config. The below will set the menu type to
+	 * `push` for all modes, and then set the type to `overlay` for the `ios` mode.
+	 *
+	 * ```ts
+	 * @App({
+	 *   templateUrl: 'build/app.html',
+	 *   config: {
+	 *     menuType: 'push',
+	 *     platforms: {
+	 *      ios: {
+	 *        menuType: 'overlay',
+	 *      }
+	 *     }
+	 *   }
+	 * })
+	 * ```
+	 *
+	 *
+	 * ### Displaying the Menu
+	 *
+	 * To toggle a menu from the template, add a button with the `menuToggle`
+	 * directive anywhere in the page's template:
+	 *
+	 * ```html
+	 * <button menuToggle>Toggle Menu</button>
+	 * ```
+	 *
+	 * To close a menu, add the `menuClose` button. It can be added anywhere
+	 * in the content, or even the menu itself. Below it is added to the menu's
+	 * content:
+	 *
+	 * ```html
+	 * <ion-menu [content]="mycontent">
+	 *   <ion-content>
+	 *     <ion-list>
+	 *       <button menuClose ion-item detail-none>Close Menu</button>
+	 *     </ion-list>
+	 *   </ion-content>
+	 * </ion-menu>
+	 * ```
+	 *
+	 * See the [MenuToggle](../MenuToggle) and [MenuClose](../MenuClose) docs
+	 * for more information on these directives.
+	 *
+	 * The menu can also be controlled from the Page by using the `MenuController`.
+	 * Inject the `MenuController` provider into the page and then call any of its
+	 * methods. In the below example, the `openMenu` method will open the menu
+	 * when it is called.
+	 *
+	 * ```ts
+	 * import{Page, MenuController} from 'ionic-angular';
+	 *
+	 * @Page({...})
+	 * export class MyPage {
+	 *  constructor(private menu: MenuController) {
+	 *
+	 *  }
+	 *
+	 *  openMenu() {
+	 *    this.menu.open();
+	 *  }
+	 * }
+	 * ```
+	 *
+	 * See the [MenuController](../MenuController) API docs for all of the methods
+	 * and usage information.
+	 *
+	 *
+	 * @demo /docs/v2/demos/menu/
+	 *
+	 * @see {@link /docs/v2/components#menus Menu Component Docs}
+	 * @see {@link ../MenuController MenuController API Docs}
+	 * @see {@link ../../nav/Nav Nav API Docs}
+	 * @see {@link ../../nav/NavController NavController API Docs}
 	 */
 	var Menu = (function (_super) {
 	    __extends(Menu, _super);
@@ -46212,13 +46342,13 @@
 	         */
 	        this.isOpen = false;
 	        /**
-	         * @private
+	         * @output {event} When the menu is being dragged open.
 	         */
 	        this.opening = new core_1.EventEmitter();
 	    }
 	    Object.defineProperty(Menu.prototype, "enabled", {
 	        /**
-	         * @private
+	         * @input {boolean} Whether or not the menu should be enabled. Default `true`.
 	         */
 	        get: function () {
 	            return this._isEnabled;
@@ -46232,7 +46362,7 @@
 	    });
 	    Object.defineProperty(Menu.prototype, "swipeEnabled", {
 	        /**
-	         * @private
+	         * @input {boolean} Whether or not swiping the menu should be enabled. Default `true`.
 	         */
 	        get: function () {
 	            return this._isSwipeEnabled;
@@ -46246,7 +46376,7 @@
 	    });
 	    Object.defineProperty(Menu.prototype, "persistent", {
 	        /**
-	         * @private
+	         * @input {string} Whether or not the menu should persist on child pages. Default `false`.
 	         */
 	        get: function () {
 	            return this._isPers;
@@ -46341,14 +46471,12 @@
 	        return this._type;
 	    };
 	    /**
-	     * Sets the state of the Menu to open or not.
-	     * @param {boolean} shouldOpen  If the Menu is open or not.
-	     * @return {Promise} returns a promise once set
+	     * @private
 	     */
 	    Menu.prototype.setOpen = function (shouldOpen) {
 	        var _this = this;
 	        // _isPrevented is used to prevent unwanted opening/closing after swiping open/close
-	        // or swiping open the menu while pressing down on the menuToggle button
+	        // or swiping open the menu while pressing down on the MenuToggle button
 	        if ((shouldOpen && this.isOpen) || this._isPrevented()) {
 	            return Promise.resolve(this.isOpen);
 	        }
@@ -46434,7 +46562,7 @@
 	     */
 	    Menu.prototype._prevent = function () {
 	        // used to prevent unwanted opening/closing after swiping open/close
-	        // or swiping open the menu while pressing down on the menuToggle
+	        // or swiping open the menu while pressing down on the MenuToggle
 	        this._preventTime = Date.now() + 20;
 	    };
 	    /**
@@ -46444,33 +46572,25 @@
 	        return this._preventTime > Date.now();
 	    };
 	    /**
-	     * Progamatically open the Menu.
-	     * @return {Promise} returns a promise when the menu is fully opened.
+	     * @private
 	     */
 	    Menu.prototype.open = function () {
 	        return this.setOpen(true);
 	    };
 	    /**
-	     * Progamatically close the Menu.
-	     * @return {Promise} returns a promise when the menu is fully closed.
+	     * @private
 	     */
 	    Menu.prototype.close = function () {
 	        return this.setOpen(false);
 	    };
 	    /**
-	     * Toggle the menu. If it's closed, it will open, and if opened, it will close.
-	     * @return {Promise} returns a promise when the menu has been toggled.
+	     * @private
 	     */
 	    Menu.prototype.toggle = function () {
 	        return this.setOpen(!this.isOpen);
 	    };
 	    /**
-	     * Used to enable or disable a menu. For example, there could be multiple
-	     * left menus, but only one of them should be able to be opened at the same
-	     * time. If there are multiple menus on the same side, then enabling one menu
-	     * will also automatically disable all the others that are on the same side.
-	     * @param {boolean} shouldEnable  True if it should be enabled, false if not.
-	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
+	     * @private
 	     */
 	    Menu.prototype.enable = function (shouldEnable) {
 	        var _this = this;
@@ -46491,9 +46611,7 @@
 	        return this;
 	    };
 	    /**
-	     * Used to enable or disable the ability to swipe open the menu.
-	     * @param {boolean} shouldEnable  True if it should be swipe-able, false if not.
-	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
+	     * @private
 	     */
 	    Menu.prototype.swipeEnable = function (shouldEnable) {
 	        this.swipeEnabled = shouldEnable;

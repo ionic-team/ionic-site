@@ -115,22 +115,21 @@ your class, you could use <a href="https://angular.io/docs/ts/latest/guide/templ
 <p>Alternatively, you can grab the <code>Tabs</code> instance and call the <code>select()</code>
 method. This requires the <code>&lt;ion-tabs&gt;</code> element to have an <code>id</code>. For
 example, set the value of <code>id</code> to <code>myTabs</code>:</p>
-<pre><code class="lang-html">&lt;ion-tabs id=&quot;myTabs&quot;&gt;
+<pre><code class="lang-html">&lt;ion-tabs #myTabs&gt;
   &lt;ion-tab [root]=&quot;tab1Root&quot;&gt;&lt;/ion-tab&gt;
   &lt;ion-tab [root]=&quot;tab2Root&quot;&gt;&lt;/ion-tab&gt;
   &lt;ion-tab [root]=&quot;tab3Root&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <p>Then in your class you can grab the <code>Tabs</code> instance and call <code>select()</code>,
-passing the index of the tab as the argument. In the following code <code>app</code> is
-of type <a href="../../app/IonicApp/"><code>IonicApp</code></a>:</p>
-<pre><code class="lang-ts">constructor(app: IonicApp) {
-  this.app = app;
+passing the index of the tab as the argument. Here we&#39;re grabbing the tabs
+by using ViewChild.</p>
+<pre><code class="lang-ts">constructor() {
+ @ViewChild(&#39;myTabs) tabRef: Tabs
 }
 
 onPageDidEnter() {
-  let tabs = this.app.getComponent(&#39;myTabs&#39;);
-  tabs.select(2);
+  this.tabRef.select(2);
 }
 </code></pre>
 

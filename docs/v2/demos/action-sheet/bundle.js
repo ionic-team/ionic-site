@@ -60171,7 +60171,7 @@
 	 * example, set the value of `id` to `myTabs`:
 	 *
 	 * ```html
-	 * <ion-tabs id="myTabs">
+	 * <ion-tabs #myTabs>
 	 *   <ion-tab [root]="tab1Root"></ion-tab>
 	 *   <ion-tab [root]="tab2Root"></ion-tab>
 	 *   <ion-tab [root]="tab3Root"></ion-tab>
@@ -60179,17 +60179,16 @@
 	 * ```
 	 *
 	 * Then in your class you can grab the `Tabs` instance and call `select()`,
-	 * passing the index of the tab as the argument. In the following code `app` is
-	 * of type [`IonicApp`](../../app/IonicApp/):
+	 * passing the index of the tab as the argument. Here we're grabbing the tabs
+	 * by using ViewChild.
 	 *
 	 *```ts
-	 * constructor(app: IonicApp) {
-	 *   this.app = app;
+	 * constructor() {
+	 *  @ViewChild('myTabs) tabRef: Tabs
 	 * }
 	 *
 	 * onPageDidEnter() {
-	 *   let tabs = this.app.getComponent('myTabs');
-	 *   tabs.select(2);
+	 *   this.tabRef.select(2);
 	 * }
 	 *```
 	 *

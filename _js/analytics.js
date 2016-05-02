@@ -21,3 +21,6 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', 'UA-44023830-1', 'ionicframework.com');
 ga('send', 'pageview');
+
+ga('create', 'UA-77242104-1', 'auto');
+ga('send', 'pageview');

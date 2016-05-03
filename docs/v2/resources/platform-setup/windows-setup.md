@@ -57,6 +57,7 @@ android
 ```
 
 Now, you should be able to create and build an Android project from the command line.
+
 ### Windows Universal Apps
 
 To build apps for Windows Universal, download and install Visual Studio 2015 Community Edition. During the installation, Select "Tools for Cross Platform Development" as well as the SDK for Windows Universal Apps.

@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.1.1"
+version: "1.2.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -85,7 +85,7 @@ SMS.send(&#39;416123456&#39;,&#39;Hello world!&#39;);
 <!-- @property tags -->
 <h2>Static Methods</h2>
 <div id="send"></div>
-<h3><code>send(number,&nbsp;message,&nbsp;options)</code>
+<h3><code>send(phoneNumber,&nbsp;message,&nbsp;options)</code>
 
 </h3>
 
@@ -104,7 +104,7 @@ Sends sms to a number
   
   <tr>
     <td>
-      number
+      phoneNumber
       
       
     </td>
@@ -144,7 +144,7 @@ Sends sms to a number
     </td>
     <td>
       
-<code>smsOptions</code>
+<code>SmsOptions</code>
     </td>
     <td>
       <p>Options</p>

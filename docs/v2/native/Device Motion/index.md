@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.1.1"
+version: "1.2.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -159,7 +159,7 @@ subscription.unsubscribe();
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;accelerationData&gt;</code> 
+<code>Observable&lt;AccelerationData&gt;</code> 
 </div>
 
 

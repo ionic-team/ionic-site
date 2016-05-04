@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.1.1"
+version: "1.2.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -108,7 +108,7 @@ Clear the badge of the app icon.
 
 
 <div id="set"></div>
-<h3><code>set(number)</code>
+<h3><code>set(badgeNumber)</code>
 
 </h3>
 
@@ -127,7 +127,7 @@ Set the badge of the app icon.
   
   <tr>
     <td>
-      number
+      badgeNumber
       
       
     </td>
@@ -178,7 +178,7 @@ Get the badge of the app icon.
 
 
 <div id="increase"></div>
-<h3><code>increase(count)</code>
+<h3><code>increase(increaseBy)</code>
 
 </h3>
 
@@ -197,7 +197,7 @@ Increase the badge number.
   
   <tr>
     <td>
-      count
+      increaseBy
       
       
     </td>
@@ -228,7 +228,7 @@ Increase the badge number.
 
 
 <div id="decrease"></div>
-<h3><code>decrease(count)</code>
+<h3><code>decrease(decreaseBy)</code>
 
 </h3>
 
@@ -247,7 +247,7 @@ Decrease the badge number.
   
   <tr>
     <td>
-      count
+      decreaseBy
       
       
     </td>

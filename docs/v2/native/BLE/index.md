@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.1.1"
+version: "1.2.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -457,7 +457,7 @@ Disconnect from a peripheral.
 
 
 <div id="read"></div>
-<h3><code>read(device_id,&nbsp;service_uuid,&nbsp;characteristic_uuid)</code>
+<h3><code>read(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code>
 
 </h3>
 
@@ -477,7 +477,7 @@ Read the value of a characteristic.
   
   <tr>
     <td>
-      device_id
+      deviceId
       
       
     </td>
@@ -494,7 +494,7 @@ Read the value of a characteristic.
   
   <tr>
     <td>
-      service_uuid
+      serviceUUID
       
       
     </td>
@@ -511,7 +511,7 @@ Read the value of a characteristic.
   
   <tr>
     <td>
-      characteristic_uuid
+      characteristicUUID
       
       
     </td>
@@ -544,7 +544,7 @@ Read the value of a characteristic.
 
 
 <div id="write"></div>
-<h3><code>write(device_id,&nbsp;service_uuid,&nbsp;characteristic_uuid,&nbsp;value)</code>
+<h3><code>write(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code>
 
 </h3>
 
@@ -563,7 +563,7 @@ Write the value of a characteristic.
   
   <tr>
     <td>
-      device_id
+      deviceId
       
       
     </td>
@@ -580,7 +580,7 @@ Write the value of a characteristic.
   
   <tr>
     <td>
-      service_uuid
+      serviceUUID
       
       
     </td>
@@ -597,7 +597,7 @@ Write the value of a characteristic.
   
   <tr>
     <td>
-      characteristic_uuid
+      characteristicUUID
       
       
     </td>
@@ -647,7 +647,7 @@ Write the value of a characteristic.
 
 
 <div id="writeWithoutResponse"></div>
-<h3><code>writeWithoutResponse(device_id,&nbsp;service_uuid,&nbsp;characteristic_uuid,&nbsp;value)</code>
+<h3><code>writeWithoutResponse(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code>
 
 </h3>
 
@@ -667,7 +667,7 @@ Write the value of a characteristic without waiting for confirmation from the pe
   
   <tr>
     <td>
-      device_id
+      deviceId
       
       
     </td>
@@ -684,7 +684,7 @@ Write the value of a characteristic without waiting for confirmation from the pe
   
   <tr>
     <td>
-      service_uuid
+      serviceUUID
       
       
     </td>
@@ -701,7 +701,7 @@ Write the value of a characteristic without waiting for confirmation from the pe
   
   <tr>
     <td>
-      characteristic_uuid
+      characteristicUUID
       
       
     </td>
@@ -751,7 +751,7 @@ Write the value of a characteristic without waiting for confirmation from the pe
 
 
 <div id="startNotification"></div>
-<h3><code>startNotification(device_id,&nbsp;service_uuid,&nbsp;characteristic_uuid)</code>
+<h3><code>startNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code>
 
 </h3>
 
@@ -773,7 +773,7 @@ Register to be notified when the value of a characteristic changes.
   
   <tr>
     <td>
-      device_id
+      deviceId
       
       
     </td>
@@ -790,7 +790,7 @@ Register to be notified when the value of a characteristic changes.
   
   <tr>
     <td>
-      service_uuid
+      serviceUUID
       
       
     </td>
@@ -807,7 +807,7 @@ Register to be notified when the value of a characteristic changes.
   
   <tr>
     <td>
-      characteristic_uuid
+      characteristicUUID
       
       
     </td>
@@ -840,7 +840,7 @@ Register to be notified when the value of a characteristic changes.
 
 
 <div id="stopNotification"></div>
-<h3><code>stopNotification(device_id,&nbsp;service_uuid,&nbsp;characteristic_uuid)</code>
+<h3><code>stopNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code>
 
 </h3>
 
@@ -860,7 +860,7 @@ Stop being notified when the value of a characteristic changes.
   
   <tr>
     <td>
-      device_id
+      deviceId
       
       
     </td>
@@ -877,7 +877,7 @@ Stop being notified when the value of a characteristic changes.
   
   <tr>
     <td>
-      service_uuid
+      serviceUUID
       
       
     </td>
@@ -894,7 +894,7 @@ Stop being notified when the value of a characteristic changes.
   
   <tr>
     <td>
-      characteristic_uuid
+      characteristicUUID
       
       
     </td>
@@ -927,7 +927,7 @@ Stop being notified when the value of a characteristic changes.
 
 
 <div id="isConnected"></div>
-<h3><code>isConnected(device_id)</code>
+<h3><code>isConnected(deviceId)</code>
 
 </h3>
 
@@ -947,7 +947,7 @@ Report the connection status.
   
   <tr>
     <td>
-      device_id
+      deviceId
       
       
     </td>

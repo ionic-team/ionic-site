@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.1.1"
+version: "1.2.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -105,7 +105,7 @@ let connectSubscription = Network.onConnect().subscribe(() =&gt; {
     if (Network.connection === Connection.WIFI) {
       console.log(&#39;we got a wifi connection, woohoo!&#39;);
     }
-  });
+  }, 3000);
 });
 
 // stop connect watch
@@ -140,7 +140,7 @@ Return the network connection type
 
 
 
-Watch the network for a disconnect (i.e. network goes offline)
+Get notified when the device goes offline
 
 
 
@@ -162,7 +162,7 @@ Watch the network for a disconnect (i.e. network goes offline)
 
 
 
-Watch the network for a connection (i.e. network goes online)
+Get notified when the device goes online
 
 
 

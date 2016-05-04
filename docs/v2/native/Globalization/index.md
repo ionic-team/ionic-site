@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.1.1"
+version: "1.2.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -43,8 +43,8 @@ docType: "class"
 
 <pre><code>$ ionic plugin add cordova-plugin-globalization</code></pre>
 <p>Repo:
-  <a href="https://github.com/apache/cordova-plugin-globalization">
-    https://github.com/apache/cordova-plugin-globalization
+  <a href="https: //github.com/apache/cordova-plugin-globalization">
+    https: //github.com/apache/cordova-plugin-globalization
   </a>
 </p>
 
@@ -80,7 +80,7 @@ Returns the BCP-47 compliant language identifier tag to the successCallback with
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;{value:string}&gt;</code> 
+<code>Promise&lt;{value: string}&gt;</code> 
 </div>
 
 
@@ -100,7 +100,7 @@ Returns the BCP 47 compliant locale identifier string to the successCallback wit
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;{value:string}&gt;</code> 
+<code>Promise&lt;{value: string}&gt;</code> 
 </div>
 
 
@@ -167,7 +167,7 @@ Converts date to string
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;{value:string}&gt;</code> 
+<code>Promise&lt;{value: string}&gt;</code> 
 </div>
 
 
@@ -428,7 +428,7 @@ Get first day of week
 
 
 <div id="stringToNumber"></div>
-<h3><code>stringToNumber(string,&nbsp;options)</code>
+<h3><code>stringToNumber(stringToConvert,&nbsp;options)</code>
 
 </h3>
 
@@ -449,7 +449,7 @@ Get first day of week
   
   <tr>
     <td>
-      string
+      stringToConvert
       
       
     </td>

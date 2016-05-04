@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.1.1"
+version: "1.2.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -261,7 +261,7 @@ Displays the email composer pre-filled with data.
     </td>
     <td>
       
-<code>email</code>
+<code>Email</code>
     </td>
     <td>
       <p>Email</p>

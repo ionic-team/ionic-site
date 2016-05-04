@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.1.1"
+version: "1.2.0"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -66,7 +66,7 @@ docType: "class"
 LocalNotifications.schedule({
   id: 1,
   text: &quot;Single Notification&quot;,
-  sound: isAndroid? &#39;file://sound.mp3&#39; : &#39;file://beep.caf&#39;
+  sound: isAndroid? &#39;file://sound.mp3&#39;: &#39;file://beep.caf&#39;
   data: { secret: key }
 });
 
@@ -75,7 +75,7 @@ LocalNotifications.schedule({
 LocalNotifications.schedule([{
    id: 1,
    text: &quot;Multi Notification 1&quot;,
-   sound: isAndroid ? &#39;file://sound.mp3&#39; : &#39;file://beep.caf&#39;,
+   sound: isAndroid ? &#39;file://sound.mp3&#39;: &#39;file://beep.caf&#39;,
    data: { secret:key }
   },{
    id: 2,

@@ -470,7 +470,7 @@ var BasicPage = (function () {
     BasicPage.prototype.doAlert = function () {
         var alert = ionic_angular_1.Alert.create({
             title: 'New Friend!',
-            message: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
+            message: 'Your friend, Obi wan Kenobi, just approved your friend request!',
             buttons: ['Ok']
         });
         this.nav.present(alert);

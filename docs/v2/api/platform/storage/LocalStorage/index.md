@@ -123,6 +123,14 @@ Get the value of a key in LocalStorage
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the value has been retrieved</p>
+
+
+</div>
+
 
 
 
@@ -189,6 +197,14 @@ Set a key value pair and save it to LocalStorage
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the key value pair have been set</p>
+
+
+</div>
+
 
 
 
@@ -238,6 +254,14 @@ Remove a key from LocalStorage
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the key has been removed</p>
+
+
+</div>
+
 
 
 
@@ -250,13 +274,20 @@ Remove a key from LocalStorage
 
 </h3>
 
+Clear data stored in LocalStorage
 
 
 
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>Returns a promise which is resolved when the data have been cleared</p>
 
+
+</div>
 
 
 <!-- related link -->

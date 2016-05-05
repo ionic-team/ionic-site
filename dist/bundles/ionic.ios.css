@@ -5358,6 +5358,8 @@ ion-checkbox {
   position: static;
   display: block;
   margin: 8px 16px 8px 2px; }
+  .item ion-checkbox[item-right] {
+    margin: 10px 8px 9px 0; }
 
 ion-checkbox[primary] .checkbox-checked {
   border-color: #327eff;
@@ -6571,7 +6573,9 @@ ion-radio {
 .item ion-radio {
   position: static;
   display: block;
-  margin: 8px 8px 8px 8px; }
+  margin: 8px 11px 8px 8px; }
+  .item ion-radio[item-left] {
+    margin: 8px 21px 8px 3px; }
 
 .item-radio ion-label {
   margin-left: 0; }
@@ -7388,6 +7392,8 @@ ion-toggle {
 .item ion-toggle {
   margin: 0;
   padding: 6px 8px 5px 16px; }
+  .item ion-toggle[item-left] {
+    padding: 6px 16px 5px 0; }
 
 ion-toggle[primary] .toggle-checked {
   background-color: #327eff; }
@@ -7982,6 +7988,9 @@ ion-navbar-section.statusbar-padding > .toolbar {
   height: calc(44px + 20px);
   min-height: calc(44px + 20px); }
 
+.tab-subpage > .toolbar.statusbar-padding:first-child ion-segment,
+.tab-subpage > .toolbar.statusbar-padding:first-child ion-title,
+.tab-subpage > .toolbar.statusbar-padding:first-child,
 ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-segment,
 ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-title,
 ion-nav > ion-page > .toolbar.statusbar-padding:first-child,
@@ -7992,10 +8001,13 @@ ion-menu > .toolbar.statusbar-padding:first-child {
   height: calc(44px + 20px);
   min-height: calc(44px + 20px); }
 
+.tab-subpage > ion-content.statusbar-padding:first-child scroll-content,
 ion-nav > ion-page > ion-content.statusbar-padding:first-child scroll-content,
 ion-menu > ion-content.statusbar-padding:first-child scroll-content {
   padding-top: 20px; }
 
+.tab-subpage > ion-content.statusbar-padding:first-child[padding] scroll-content,
+.tab-subpage > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
 ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
 ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
 ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,

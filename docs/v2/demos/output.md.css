@@ -5529,6 +5529,8 @@ ion-checkbox {
   position: static;
   display: block;
   margin: 9px 36px 9px 4px; }
+  .item ion-checkbox[item-right] {
+    margin: 11px 10px 10px 0; }
 
 ion-checkbox + .item-inner ion-label {
   margin-left: 0; }
@@ -6765,7 +6767,9 @@ ion-radio {
 .item ion-radio {
   position: static;
   display: block;
-  margin: 9px 8px 9px 0; }
+  margin: 9px 10px 9px 0; }
+  .item ion-radio[item-left] {
+    margin: 11px 36px 10px 4px; }
 
 .item-radio ion-label {
   margin-left: 0; }
@@ -7481,6 +7485,8 @@ ion-toggle {
   margin: 0;
   padding: 12px 8px 12px 16px;
   cursor: pointer; }
+  .item ion-toggle[item-left] {
+    padding: 12px 18px 12px 2px; }
 
 .item-toggle ion-label {
   margin-left: 0; }
@@ -7841,7 +7847,8 @@ ion-buttons[right] {
   .bar-button-outline:hover:not(.disable-hover) {
     opacity: .4; }
   .bar-button-outline.activated {
-    color: #fff;
+    background-color: transparent; }
+  .bar-button-outline ion-button-effect {
     background-color: #424242; }
 
 .bar-button-solid {
@@ -7939,7 +7946,8 @@ ion-buttons[right] {
   color: #3474e1;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-primary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[primary] .bar-button-outline-primary ion-button-effect {
     background-color: #3474e1; }
 
 .toolbar[primary] .bar-button-solid-primary {
@@ -7960,7 +7968,8 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-secondary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[primary] .bar-button-outline-secondary ion-button-effect {
     background-color: #2ec95c; }
 
 .toolbar[primary] .bar-button-solid-secondary {
@@ -7981,7 +7990,8 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-danger.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[primary] .bar-button-outline-danger ion-button-effect {
     background-color: #e13838; }
 
 .toolbar[primary] .bar-button-solid-danger {
@@ -8002,7 +8012,8 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-light.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[primary] .bar-button-outline-light ion-button-effect {
     background-color: #e0e0e0; }
 
 .toolbar[primary] .bar-button-solid-light {
@@ -8023,7 +8034,8 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-dark.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[primary] .bar-button-outline-dark ion-button-effect {
     background-color: #343434; }
 
 .toolbar[primary] .bar-button-solid-dark {
@@ -8044,7 +8056,8 @@ ion-buttons[right] {
   color: #7243a1;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-vibrant.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[primary] .bar-button-outline-vibrant ion-button-effect {
     background-color: #7243a1; }
 
 .toolbar[primary] .bar-button-solid-vibrant {
@@ -8065,7 +8078,8 @@ ion-buttons[right] {
   color: #ebb222;
   background-color: transparent; }
   .toolbar[primary] .bar-button-outline-bright.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[primary] .bar-button-outline-bright ion-button-effect {
     background-color: #ebb222; }
 
 .toolbar[primary] .bar-button-solid-bright {
@@ -8086,7 +8100,8 @@ ion-buttons[right] {
   color: #3474e1;
   background-color: transparent; }
   .bar-button-outline-primary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .bar-button-outline-primary ion-button-effect {
     background-color: #3474e1; }
 
 .bar-button-solid-primary {
@@ -8122,7 +8137,8 @@ ion-buttons[right] {
   color: #3474e1;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-primary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[secondary] .bar-button-outline-primary ion-button-effect {
     background-color: #3474e1; }
 
 .toolbar[secondary] .bar-button-solid-primary {
@@ -8143,7 +8159,8 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-secondary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[secondary] .bar-button-outline-secondary ion-button-effect {
     background-color: #2ec95c; }
 
 .toolbar[secondary] .bar-button-solid-secondary {
@@ -8164,7 +8181,8 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-danger.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[secondary] .bar-button-outline-danger ion-button-effect {
     background-color: #e13838; }
 
 .toolbar[secondary] .bar-button-solid-danger {
@@ -8185,7 +8203,8 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-light.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[secondary] .bar-button-outline-light ion-button-effect {
     background-color: #e0e0e0; }
 
 .toolbar[secondary] .bar-button-solid-light {
@@ -8206,7 +8225,8 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-dark.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[secondary] .bar-button-outline-dark ion-button-effect {
     background-color: #343434; }
 
 .toolbar[secondary] .bar-button-solid-dark {
@@ -8227,7 +8247,8 @@ ion-buttons[right] {
   color: #7243a1;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-vibrant.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[secondary] .bar-button-outline-vibrant ion-button-effect {
     background-color: #7243a1; }
 
 .toolbar[secondary] .bar-button-solid-vibrant {
@@ -8248,7 +8269,8 @@ ion-buttons[right] {
   color: #ebb222;
   background-color: transparent; }
   .toolbar[secondary] .bar-button-outline-bright.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[secondary] .bar-button-outline-bright ion-button-effect {
     background-color: #ebb222; }
 
 .toolbar[secondary] .bar-button-solid-bright {
@@ -8269,7 +8291,8 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .bar-button-outline-secondary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .bar-button-outline-secondary ion-button-effect {
     background-color: #2ec95c; }
 
 .bar-button-solid-secondary {
@@ -8305,7 +8328,8 @@ ion-buttons[right] {
   color: #3474e1;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-primary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[danger] .bar-button-outline-primary ion-button-effect {
     background-color: #3474e1; }
 
 .toolbar[danger] .bar-button-solid-primary {
@@ -8326,7 +8350,8 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-secondary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[danger] .bar-button-outline-secondary ion-button-effect {
     background-color: #2ec95c; }
 
 .toolbar[danger] .bar-button-solid-secondary {
@@ -8347,7 +8372,8 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-danger.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[danger] .bar-button-outline-danger ion-button-effect {
     background-color: #e13838; }
 
 .toolbar[danger] .bar-button-solid-danger {
@@ -8368,7 +8394,8 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-light.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[danger] .bar-button-outline-light ion-button-effect {
     background-color: #e0e0e0; }
 
 .toolbar[danger] .bar-button-solid-light {
@@ -8389,7 +8416,8 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-dark.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[danger] .bar-button-outline-dark ion-button-effect {
     background-color: #343434; }
 
 .toolbar[danger] .bar-button-solid-dark {
@@ -8410,7 +8438,8 @@ ion-buttons[right] {
   color: #7243a1;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-vibrant.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[danger] .bar-button-outline-vibrant ion-button-effect {
     background-color: #7243a1; }
 
 .toolbar[danger] .bar-button-solid-vibrant {
@@ -8431,7 +8460,8 @@ ion-buttons[right] {
   color: #ebb222;
   background-color: transparent; }
   .toolbar[danger] .bar-button-outline-bright.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[danger] .bar-button-outline-bright ion-button-effect {
     background-color: #ebb222; }
 
 .toolbar[danger] .bar-button-solid-bright {
@@ -8452,7 +8482,8 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .bar-button-outline-danger.activated {
-    color: #fff;
+    background-color: transparent; }
+  .bar-button-outline-danger ion-button-effect {
     background-color: #e13838; }
 
 .bar-button-solid-danger {
@@ -8488,7 +8519,8 @@ ion-buttons[right] {
   color: #3474e1;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-primary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[light] .bar-button-outline-primary ion-button-effect {
     background-color: #3474e1; }
 
 .toolbar[light] .bar-button-solid-primary {
@@ -8509,7 +8541,8 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-secondary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[light] .bar-button-outline-secondary ion-button-effect {
     background-color: #2ec95c; }
 
 .toolbar[light] .bar-button-solid-secondary {
@@ -8530,7 +8563,8 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-danger.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[light] .bar-button-outline-danger ion-button-effect {
     background-color: #e13838; }
 
 .toolbar[light] .bar-button-solid-danger {
@@ -8551,7 +8585,8 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-light.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[light] .bar-button-outline-light ion-button-effect {
     background-color: #e0e0e0; }
 
 .toolbar[light] .bar-button-solid-light {
@@ -8572,7 +8607,8 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-dark.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[light] .bar-button-outline-dark ion-button-effect {
     background-color: #343434; }
 
 .toolbar[light] .bar-button-solid-dark {
@@ -8593,7 +8629,8 @@ ion-buttons[right] {
   color: #7243a1;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-vibrant.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[light] .bar-button-outline-vibrant ion-button-effect {
     background-color: #7243a1; }
 
 .toolbar[light] .bar-button-solid-vibrant {
@@ -8614,7 +8651,8 @@ ion-buttons[right] {
   color: #ebb222;
   background-color: transparent; }
   .toolbar[light] .bar-button-outline-bright.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[light] .bar-button-outline-bright ion-button-effect {
     background-color: #ebb222; }
 
 .toolbar[light] .bar-button-solid-bright {
@@ -8635,7 +8673,8 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .bar-button-outline-light.activated {
-    color: #000;
+    background-color: transparent; }
+  .bar-button-outline-light ion-button-effect {
     background-color: #e0e0e0; }
 
 .bar-button-solid-light {
@@ -8671,7 +8710,8 @@ ion-buttons[right] {
   color: #3474e1;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-primary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[dark] .bar-button-outline-primary ion-button-effect {
     background-color: #3474e1; }
 
 .toolbar[dark] .bar-button-solid-primary {
@@ -8692,7 +8732,8 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-secondary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[dark] .bar-button-outline-secondary ion-button-effect {
     background-color: #2ec95c; }
 
 .toolbar[dark] .bar-button-solid-secondary {
@@ -8713,7 +8754,8 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-danger.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[dark] .bar-button-outline-danger ion-button-effect {
     background-color: #e13838; }
 
 .toolbar[dark] .bar-button-solid-danger {
@@ -8734,7 +8776,8 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-light.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[dark] .bar-button-outline-light ion-button-effect {
     background-color: #e0e0e0; }
 
 .toolbar[dark] .bar-button-solid-light {
@@ -8755,7 +8798,8 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-dark.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[dark] .bar-button-outline-dark ion-button-effect {
     background-color: #343434; }
 
 .toolbar[dark] .bar-button-solid-dark {
@@ -8776,7 +8820,8 @@ ion-buttons[right] {
   color: #7243a1;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-vibrant.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[dark] .bar-button-outline-vibrant ion-button-effect {
     background-color: #7243a1; }
 
 .toolbar[dark] .bar-button-solid-vibrant {
@@ -8797,7 +8842,8 @@ ion-buttons[right] {
   color: #ebb222;
   background-color: transparent; }
   .toolbar[dark] .bar-button-outline-bright.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[dark] .bar-button-outline-bright ion-button-effect {
     background-color: #ebb222; }
 
 .toolbar[dark] .bar-button-solid-bright {
@@ -8818,7 +8864,8 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .bar-button-outline-dark.activated {
-    color: #fff;
+    background-color: transparent; }
+  .bar-button-outline-dark ion-button-effect {
     background-color: #343434; }
 
 .bar-button-solid-dark {
@@ -8854,7 +8901,8 @@ ion-buttons[right] {
   color: #3474e1;
   background-color: transparent; }
   .toolbar[vibrant] .bar-button-outline-primary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[vibrant] .bar-button-outline-primary ion-button-effect {
     background-color: #3474e1; }
 
 .toolbar[vibrant] .bar-button-solid-primary {
@@ -8875,7 +8923,8 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .toolbar[vibrant] .bar-button-outline-secondary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[vibrant] .bar-button-outline-secondary ion-button-effect {
     background-color: #2ec95c; }
 
 .toolbar[vibrant] .bar-button-solid-secondary {
@@ -8896,7 +8945,8 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .toolbar[vibrant] .bar-button-outline-danger.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[vibrant] .bar-button-outline-danger ion-button-effect {
     background-color: #e13838; }
 
 .toolbar[vibrant] .bar-button-solid-danger {
@@ -8917,7 +8967,8 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .toolbar[vibrant] .bar-button-outline-light.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[vibrant] .bar-button-outline-light ion-button-effect {
     background-color: #e0e0e0; }
 
 .toolbar[vibrant] .bar-button-solid-light {
@@ -8938,7 +8989,8 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .toolbar[vibrant] .bar-button-outline-dark.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[vibrant] .bar-button-outline-dark ion-button-effect {
     background-color: #343434; }
 
 .toolbar[vibrant] .bar-button-solid-dark {
@@ -8959,7 +9011,8 @@ ion-buttons[right] {
   color: #7243a1;
   background-color: transparent; }
   .toolbar[vibrant] .bar-button-outline-vibrant.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[vibrant] .bar-button-outline-vibrant ion-button-effect {
     background-color: #7243a1; }
 
 .toolbar[vibrant] .bar-button-solid-vibrant {
@@ -8980,7 +9033,8 @@ ion-buttons[right] {
   color: #ebb222;
   background-color: transparent; }
   .toolbar[vibrant] .bar-button-outline-bright.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[vibrant] .bar-button-outline-bright ion-button-effect {
     background-color: #ebb222; }
 
 .toolbar[vibrant] .bar-button-solid-bright {
@@ -9001,7 +9055,8 @@ ion-buttons[right] {
   color: #7243a1;
   background-color: transparent; }
   .bar-button-outline-vibrant.activated {
-    color: #fff;
+    background-color: transparent; }
+  .bar-button-outline-vibrant ion-button-effect {
     background-color: #7243a1; }
 
 .bar-button-solid-vibrant {
@@ -9037,7 +9092,8 @@ ion-buttons[right] {
   color: #3474e1;
   background-color: transparent; }
   .toolbar[bright] .bar-button-outline-primary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[bright] .bar-button-outline-primary ion-button-effect {
     background-color: #3474e1; }
 
 .toolbar[bright] .bar-button-solid-primary {
@@ -9058,7 +9114,8 @@ ion-buttons[right] {
   color: #2ec95c;
   background-color: transparent; }
   .toolbar[bright] .bar-button-outline-secondary.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[bright] .bar-button-outline-secondary ion-button-effect {
     background-color: #2ec95c; }
 
 .toolbar[bright] .bar-button-solid-secondary {
@@ -9079,7 +9136,8 @@ ion-buttons[right] {
   color: #e13838;
   background-color: transparent; }
   .toolbar[bright] .bar-button-outline-danger.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[bright] .bar-button-outline-danger ion-button-effect {
     background-color: #e13838; }
 
 .toolbar[bright] .bar-button-solid-danger {
@@ -9100,7 +9158,8 @@ ion-buttons[right] {
   color: #e0e0e0;
   background-color: transparent; }
   .toolbar[bright] .bar-button-outline-light.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[bright] .bar-button-outline-light ion-button-effect {
     background-color: #e0e0e0; }
 
 .toolbar[bright] .bar-button-solid-light {
@@ -9121,7 +9180,8 @@ ion-buttons[right] {
   color: #343434;
   background-color: transparent; }
   .toolbar[bright] .bar-button-outline-dark.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[bright] .bar-button-outline-dark ion-button-effect {
     background-color: #343434; }
 
 .toolbar[bright] .bar-button-solid-dark {
@@ -9142,7 +9202,8 @@ ion-buttons[right] {
   color: #7243a1;
   background-color: transparent; }
   .toolbar[bright] .bar-button-outline-vibrant.activated {
-    color: #fff;
+    background-color: transparent; }
+  .toolbar[bright] .bar-button-outline-vibrant ion-button-effect {
     background-color: #7243a1; }
 
 .toolbar[bright] .bar-button-solid-vibrant {
@@ -9163,7 +9224,8 @@ ion-buttons[right] {
   color: #ebb222;
   background-color: transparent; }
   .toolbar[bright] .bar-button-outline-bright.activated {
-    color: #000;
+    background-color: transparent; }
+  .toolbar[bright] .bar-button-outline-bright ion-button-effect {
     background-color: #ebb222; }
 
 .toolbar[bright] .bar-button-solid-bright {
@@ -9184,7 +9246,8 @@ ion-buttons[right] {
   color: #ebb222;
   background-color: transparent; }
   .bar-button-outline-bright.activated {
-    color: #000;
+    background-color: transparent; }
+  .bar-button-outline-bright ion-button-effect {
     background-color: #ebb222; }
 
 .bar-button-solid-bright {
@@ -9203,16 +9266,20 @@ ion-navbar-section.statusbar-padding > .toolbar {
   height: calc(5.6rem + 20px);
   min-height: calc(5.6rem + 20px); }
 
+.tab-subpage > .toolbar.statusbar-padding:first-child,
 ion-nav > ion-page > .toolbar.statusbar-padding:first-child,
 ion-menu > .toolbar.statusbar-padding:first-child {
   padding-top: 20px;
   height: calc(5.6rem + 20px);
   min-height: calc(5.6rem + 20px); }
 
+.tab-subpage > ion-content.statusbar-padding:first-child scroll-content,
 ion-nav > ion-page > ion-content.statusbar-padding:first-child scroll-content,
 ion-menu > ion-content.statusbar-padding:first-child scroll-content {
   padding-top: 20px; }
 
+.tab-subpage > ion-content.statusbar-padding:first-child[padding] scroll-content,
+.tab-subpage > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
 ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
 ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content,
 ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,

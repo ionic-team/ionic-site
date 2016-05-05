@@ -55213,7 +55213,7 @@
 	 */
 	var Slides = (function (_super) {
 	    __extends(Slides, _super);
-	    function Slides(elementRef) {
+	    function Slides(elementRef, renderer) {
 	        var _this = this;
 	        _super.call(this, elementRef);
 	        /**
@@ -55241,6 +55241,7 @@
 	        }, 10);
 	        this.id = ++slidesId;
 	        this.slideId = 'slides-' + this.id;
+	        renderer.setElementClass(elementRef.nativeElement, this.slideId, true);
 	    }
 	    /**
 	     * @private
@@ -55732,16 +55733,13 @@
 	                '<div [class.hide]="!showPager" class="swiper-pagination"></div>' +
 	                '</div>',
 	            directives: [common_1.NgClass],
-	            host: {
-	                '[class]': 'slideId'
-	            },
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object])
+	        __metadata('design:paramtypes', [(typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _g) || Object])
 	    ], Slides);
 	    return Slides;
-	    var _a, _b, _c, _d, _e, _f;
+	    var _a, _b, _c, _d, _e, _f, _g;
 	}(ion_1.Ion));
 	exports.Slides = Slides;
 	/**
@@ -61250,7 +61248,7 @@
 	    Item = __decorate([
 	        core_1.Component({
 	            selector: 'ion-item,[ion-item]',
-	            template: '<ng-content select="[item-left],ion-checkbox"></ng-content>' +
+	            template: '<ng-content select="[item-left],ion-checkbox:not([item-right])"></ng-content>' +
 	                '<div class="item-inner">' +
 	                '<div class="input-wrapper">' +
 	                '<ng-content select="ion-label"></ng-content>' +
@@ -70002,6 +70000,7 @@
 	    /**
 	     * Get the value of a key in LocalStorage
 	     * @param {string} key the key you want to lookup in LocalStorage
+	     * @returns {Promise} Returns a promise which is resolved when the value has been retrieved
 	     */
 	    LocalStorage.prototype.get = function (key) {
 	        return new Promise(function (resolve, reject) {
@@ -70018,6 +70017,7 @@
 	     * Set a key value pair and save it to LocalStorage
 	     * @param {string} key the key you want to save to LocalStorage
 	     * @param {string} value the value of the key you're saving
+	     * @returns {Promise} Returns a promise which is resolved when the key value pair have been set
 	     */
 	    LocalStorage.prototype.set = function (key, value) {
 	        return new Promise(function (resolve, reject) {
@@ -70033,6 +70033,7 @@
 	    /**
 	     * Remove a key from LocalStorage
 	     * @param {string} key the key you want to remove from LocalStorage
+	     * @returns {Promise} Returns a promise which is resolved when the key has been removed
 	     */
 	    LocalStorage.prototype.remove = function (key) {
 	        return new Promise(function (resolve, reject) {
@@ -70045,6 +70046,10 @@
 	            }
 	        });
 	    };
+	    /**
+	     * Clear data stored in LocalStorage
+	     * @returns {Promise} Returns a promise which is resolved when the data have been cleared
+	     */
 	    LocalStorage.prototype.clear = function () {
 	        return new Promise(function (resolve, reject) {
 	            try {

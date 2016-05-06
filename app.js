@@ -42,7 +42,7 @@ app.set('trust proxy', true);
 app.use(wwwRedirect);
 app.use(compress());
 app.use(function(req, res, next) {
-  var staticURLS = ['/img/','/css/','/js/','/favicon.ico'];
+  var staticURLS = ['/img/','/css/','/js/','/fonts/','/favicon.ico'];
   for (var i = 0; i < staticURLS.length; i++) {
     if (req.url.indexOf(staticURLS[i]) === 0) {
       res.setHeader('Cache-Control', 'public, max-age=345600'); // 4 days

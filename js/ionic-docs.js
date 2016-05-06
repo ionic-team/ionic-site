@@ -32,8 +32,11 @@ ga('send', 'pageview');
 
 var IonicDocsModule = angular.module('IonicDocs', ['ngAnimate'])
 .controller('DocsNavCtrl', ['$scope', '$timeout', function($scope, $timeout) {
-  $('#side-nav')[0].scrollTop = $('#side-nav > ul > .active').offset().top;
-
+  var navItemPos = $('#side-nav > ul > .active').offset().top;
+  $sideNav = $('#side-nav');
+  if ($sideNav[0].offsetHeight < navItemPos + 100) {
+    $sideNav[0].scrollTop =  navItemPos - 300;
+  }
 }])
 .controller('ComponentsCtrl', ['$scope', '$timeout',
                        function($scope, $timeout) {

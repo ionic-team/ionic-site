@@ -2,6 +2,7 @@ body {
   font-family: $font-family-default;
   position: relative;
   background: linear-gradient(90deg, $whiteish, $whiteish ($sidenav-width), white ($sidenav-width), white 100%);
+  overflow-x: hidden;
 
   @media (max-width: $screen-xs-max) {
     width: 100%;

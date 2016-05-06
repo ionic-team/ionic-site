@@ -7613,7 +7613,8 @@ pre {
 body {
   font-family: "Avenir Next", "Nunito", "Helvetica Neue", Helvetica, sans-serif;
   position: relative;
-  background: linear-gradient(90deg, #f9fafb, #f9fafb 230px, white 230px, white 100%); }
+  background: linear-gradient(90deg, #f9fafb, #f9fafb 230px, white 230px, white 100%);
+  overflow-x: hidden; }
   @media (max-width: 767px) {
     body {
       width: 100%;

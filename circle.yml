@@ -14,9 +14,9 @@ dependencies:
   cache_directories:
     - "./_site" # cache prod
     - ".jekyll-metadata"
-# test:
-#   override:
-#     - ./_scripts/test.sh
+test:
+  override:
+    - ./_scripts/test.sh
 deployment:
  staging:
    branch: master

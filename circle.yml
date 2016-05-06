@@ -8,12 +8,13 @@ machine:
   ruby:
     version: 2.2.3
 dependencies:
-  post:
+  pre:
     - gem install jekyll -v 3.0.1 && gem install kramdown && gem install rouge
     - ./_scripts/prepare.sh
   cache_directories:
     - "./_site" # cache prod
     - ".jekyll-metadata"
+    - "~/.rvm/gems/ruby-2.2.3/gems/"
 test:
   override:
     - ./_scripts/test.sh

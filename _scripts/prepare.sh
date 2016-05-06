@@ -12,9 +12,12 @@ function clone_site {
     echo "Cloning ionic-site in _site"
     mkdir $PROD_DIR
     cd $PROD_DIR
-    git clone --depth 1 --branch=production https://$GH_AUTH_TOKEN@github.com/driftyco/ionic-site.git .
+
+
     git config --global user.email "hi@ionicframework.com"
     git config --global user.name "ionitron"
+
+    git clone --depth 1 --branch=production git@github.com:driftyco/ionic-site.git .
     cd ..
   else
     echo "using existing"
@@ -24,6 +27,12 @@ function clone_site {
   fi
 }
 
+function buildforjekyll {
+  echo "Building site with jekyll"
+  jekyll build --incremental
+}
+
 if [ -d "_scripts" ]; then
   clone_site
+  buildforjekyll
 fi

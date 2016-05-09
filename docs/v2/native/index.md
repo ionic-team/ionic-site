@@ -9,8 +9,8 @@ title: "Ionic Native"
 header_sub_title: ""
 ---
 
-<h1 id="Overview">Overview</h1>
-Ionic Native is a curated set of wrappers for Cordova plugins that make adding any native functionality you need to your [Ionic](http://ionicframework.com/), Cordova, or Web View mobile app easy.
+<h1 id="Overview">Ionic Native</h1>
+Ionic Native is a curated set of ES6/TypeScript wrappers for Cordova/PhoneGap plugins that make adding any native functionality you need to your [Ionic](http://ionicframework.com/), Cordova, or Web View mobile app easy.
 
 <h3 id="Promises_and_Observables">Promises and Observables</h3>
 Ionic Native wraps plugin callbacks in a Promise or [Observable](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), providing a common interface for all plugins and ensuring that native events trigger change detection in Angular 2.

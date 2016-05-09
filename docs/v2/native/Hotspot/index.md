@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/hotspot.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/hotspot.ts#L5'>
   Improve this doc
 </a>
 
@@ -66,7 +66,13 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {Hotspot} from &#39;ionic-native&#39;;
+<pre><code class="lang-js">import {Hotspot, Network} from &#39;ionic-native&#39;;
+
+...
+    Hotspot.scanWifi().then((networks: Array&lt;Network&gt;) =&gt; {
+        console.log(networks);
+    });
+...
 </code></pre>
 
 
@@ -105,17 +111,87 @@ docType: "class"
 
 
 <div id="createHotspot"></div>
-<h3><code>createHotspot()</code>
+<h3><code>createHotspot(SSID,&nbsp;mode,&nbsp;password)</code>
 
 </h3>
 
+Configures and starts hotspot with SSID and Password
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      SSID
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>SSID of your new Access Point</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      mode
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>encryption mode (Open, WEP, WPA, WPA_PSK)</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      password
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>password for your new Access Point</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
 
-
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> - Promise to call once hotspot is started, or reject upon failure
+</div>
 
 
 
@@ -124,6 +200,7 @@ docType: "class"
 
 </h3>
 
+Turns on Access Point
 
 
 
@@ -131,21 +208,96 @@ docType: "class"
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> - true if AP is started
+</div>
 
 
 
 <div id="configureHotspot"></div>
-<h3><code>configureHotspot()</code>
+<h3><code>configureHotspot(SSID,&nbsp;mode,&nbsp;password)</code>
 
 </h3>
 
+Configures hotspot with SSID and Password
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      SSID
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>SSID of your new Access Point</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      mode
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>encryption mode (Open, WEP, WPA, WPA_PSK)</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      password
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>password for your new Access Point</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
 
-
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> - Promise to call when hotspot is configured, or reject upon failure
+</div>
 
 
 
@@ -154,6 +306,7 @@ docType: "class"
 
 </h3>
 
+Turns off Access Point
 
 
 
@@ -161,6 +314,11 @@ docType: "class"
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> - Promise to turn off the hotspot, true on success, false on failure
+</div>
 
 
 
@@ -169,6 +327,7 @@ docType: "class"
 
 </h3>
 
+Checks if hotspot is enabled
 
 
 
@@ -176,6 +335,11 @@ docType: "class"
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> - Promise that hotspot is enabled, rejected if it is not enabled
+</div>
 
 
 
@@ -194,63 +358,309 @@ docType: "class"
 
 
 
-<div id="connectToHotspot"></div>
-<h3><code>connectToHotspot()</code>
+<div id="connectToWifi"></div>
+<h3><code>connectToWifi(ssid,&nbsp;password)</code>
 
 </h3>
 
+Connect to a WiFi network
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      ssid
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>SSID to connect</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      password
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>password to use</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
 
-
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> Promise that connection to the WiFi network was successfull, rejected if unsuccessful
+</div>
 
 
 
 <div id="connectToWifiAuthEncrypt"></div>
-<h3><code>connectToWifiAuthEncrypt()</code>
+<h3><code>connectToWifiAuthEncrypt(ssid,&nbsp;password,&nbsp;authentication,&nbsp;encryption)</code>
 
 </h3>
 
+Connect to a WiFi network
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      ssid
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>SSID to connect</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      password
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Password to use</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      authentication
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Authentication modes to use (LEAP, SHARED, OPEN)</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      encryption
+      
+      
+    </td>
+    <td>
+      
+<code>string[]</code>
+    </td>
+    <td>
+      <p>Encryption modes to use (CCMP, TKIP, WEP104, WEP40)</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
 
-
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> Promise that connection to the WiFi network was successfull, rejected if unsuccessful
+</div>
 
 
 
 <div id="addWifiNetwork"></div>
-<h3><code>addWifiNetwork()</code>
+<h3><code>addWifiNetwork(ssid,&nbsp;mode,&nbsp;password)</code>
 
 </h3>
 
+Add a WiFi network
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      ssid
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>SSID of network</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      mode
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Authentication mode of (Open, WEP, WPA, WPA_PSK)</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      password
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Password for network</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
 
-
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> Promise that adding the WiFi network was successfull, rejected if unsuccessful
+</div>
 
 
 
 <div id="removeWifiNetwork"></div>
-<h3><code>removeWifiNetwork()</code>
+<h3><code>removeWifiNetwork(ssid)</code>
 
 </h3>
 
+Remove a WiFi network
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      ssid
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>SSID of network</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
 
-
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;void&gt;</code> Promise that removing the WiFi network was successfull, rejected if unsuccessful
+</div>
 
 
 
@@ -359,8 +769,8 @@ docType: "class"
 
 
 
-<div id="startPeriodicallyScan"></div>
-<h3><code>startPeriodicallyScan()</code>
+<div id="startWifiPeriodicallyScan"></div>
+<h3><code>startWifiPeriodicallyScan()</code>
 
 </h3>
 
@@ -374,8 +784,8 @@ docType: "class"
 
 
 
-<div id="stopPeriodicallyScan"></div>
-<h3><code>stopPeriodicallyScan()</code>
+<div id="stopWifiPeriodicallyScan"></div>
+<h3><code>stopWifiPeriodicallyScan()</code>
 
 </h3>
 
@@ -435,47 +845,155 @@ docType: "class"
 
 
 <div id="getMacAddressOfHost"></div>
-<h3><code>getMacAddressOfHost()</code>
+<h3><code>getMacAddressOfHost(ip)</code>
 
 </h3>
 
+Gets MAC Address associated with IP Address from ARP File
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      ip
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>IP Address that you want the MAC Address of</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
 
-
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;string&gt;</code> - A Promise for the MAC Address
+</div>
 
 
 
 <div id="isDnsLive"></div>
-<h3><code>isDnsLive()</code>
+<h3><code>isDnsLive(ip)</code>
 
 </h3>
 
+Checks if IP is live using DNS
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      ip
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>IP Address you want to test</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> - A Promise for whether the IP Address is reachable
+</div>
 
 
 
-
-
-<div id="isPortLife"></div>
-<h3><code>isPortLife()</code>
+<div id="isPortLive"></div>
+<h3><code>isPortLive(ip)</code>
 
 </h3>
 
+Checks if IP is live using socket And PORT
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      ip
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>IP Address you want to test</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
 
 
-
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> - A Promise for whether the IP Address is reachable
+</div>
 
 
 
@@ -484,6 +1002,7 @@ docType: "class"
 
 </h3>
 
+Checks if device is rooted
 
 
 
@@ -491,6 +1010,11 @@ docType: "class"
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> - A Promise for whether the device is rooted
+</div>
 
 
 

@@ -50,11 +50,9 @@ Ionic Native will *not* install plugins for you automatically. You still need to
 
 Required plugin names are available on the documentation for each plugin.
 
-<h4 id="Using_Ionic_Native_Wrappers">Usage</h4>
+<h4 id="Using_Ionic_Native_Wrappers">Example</h4>
 
-To use an Ionic Native plugin, import the desired plugin and call it directly. 
-
-Additionally, Ionic Native can be used by AngularJS 1.x and vanilla ES5 projects as shown in the first two examples below>
+There are a few ways to use Ionic Native depending on whether the project is Ionic 2/Angular 2, vanilla ES6/TypeScript, Angular 1.x, or vanilla ES5, as shown in the examples below:
 
 ```js
 // Example with plain JS

@@ -169,6 +169,45 @@ someAsyncOperation().then(() =&gt; {
   });
 });
 </code></pre>
+<h2 id="navoptions">NavOptions</h2>
+<p>Some methods on <code>NavController</code> allow for customizing the current transition.
+To do this, we can pass an object with the modified properites.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>animate</td>
+<td><code>boolean</code></td>
+<td>Whether or not the transition should animate</td>
+</tr>
+<tr>
+<td>animation</td>
+<td><code>string</code></td>
+<td>What kind of animation should be used</td>
+</tr>
+<tr>
+<td>direction</td>
+<td><code>string</code></td>
+<td>The direction the page should animate</td>
+</tr>
+<tr>
+<td>duration</td>
+<td><code>number</code></td>
+<td>The length in milliseconds the animation should take</td>
+</tr>
+<tr>
+<td>easing</td>
+<td><code>string</code></td>
+<td>The easing for the animation</td>
+</tr>
+</tbody>
+</table>
 
 <!-- @usage tag -->
 

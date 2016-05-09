@@ -50999,6 +50999,20 @@
 	 * });
 	 * ```
 	 *
+	 * ## NavOptions
+	 *
+	 * Some methods on `NavController` allow for customizing the current transition.
+	 * To do this, we can pass an object with the modified properites.
+	 *
+	 * | Property  | Value     | Description                                          |
+	 * |-----------|-----------|------------------------------------------------------|
+	 * | animate   | `boolean` | Whether or not the transition should animate         |
+	 * | animation | `string`  | What kind of animation should be used                |
+	 * | direction | `string`  | The direction the page should animate                |
+	 * | duration  | `number`  | The length in milliseconds the animation should take |
+	 * | easing    | `string`  | The easing for the animation                         |
+	 *
+	 *
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 */
 	var NavController = (function (_super) {

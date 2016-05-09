@@ -54,7 +54,7 @@ will not align correctly.  This will be fixed soon.
 <h2 id="usage">Usage</h2>
 
 ```html
-<ion-content>
+<ion-content class="has-footer">
   Some content!
 </ion-content>
 <ion-footer-bar align-title="left" class="bar-assertive">

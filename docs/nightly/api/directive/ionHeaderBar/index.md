@@ -60,7 +60,7 @@ See [the header CSS docs](/docs/components/#subheader).
     <button class="button">Right Button</button>
   </div>
 </ion-header-bar>
-<ion-content>
+<ion-content class="has-header">
   Some content!
 </ion-content>
 ```

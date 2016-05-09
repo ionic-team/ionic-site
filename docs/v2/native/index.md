@@ -50,6 +50,7 @@ Ionic Native will *not* install plugins for you automatically. You still need to
 
 <h4 id="Using_Ionic_Native_Wrappers">Use Ionic Native Wrappers</h4>
 We can call the functions of that plugin directly without the requirement of performing any checks, such as ensuring that the `deviceready` event has fired.
+
 ```js
 // Example with plain JS
 window.IonicNative.Camera.getPicture().then(

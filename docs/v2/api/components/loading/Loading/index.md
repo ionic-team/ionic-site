@@ -67,6 +67,12 @@ will show even during page changes, but this can be disabled by setting
 creation, call the <code>dismiss()</code> method on the Loading instance. The
 <code>onDismiss</code> function can be called to perform an action after the loading
 indicator is dismissed.</p>
+<blockquote>
+<p>Note that after the component is dissmised, it will not be usable anymore
+and another one must be created. This can be avoided by wrapping the
+creation and presentation of the component in a reusable function as show
+on the <code>usage</code> section below.</p>
+</blockquote>
 <h3 id="limitations">Limitations</h3>
 <p>The element is styled to appear on top of other content by setting its
 <code>z-index</code> property. You must ensure no element has a stacking context with

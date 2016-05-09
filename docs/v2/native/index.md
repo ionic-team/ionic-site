@@ -48,8 +48,13 @@ If you are using Angular 2.0, you do not need to include any JavaScript files in
 <h4 id="Install_Plugins_Needed">Install The Needed Plugins</h4>
 Ionic Native will *not* install plugins for you automatically. You still need to install the plugins you need using the Cordova CLI or Ionic CLI. Ionic Native will notify you if you are missing a plugin, and will also provide you with the plugin name to install.
 
-<h4 id="Using_Ionic_Native_Wrappers">Use Ionic Native Wrappers</h4>
-We can call the functions of that plugin directly without the requirement of performing any checks, such as ensuring that the `deviceready` event has fired.
+Required plugin names are available on the documentation for each plugin.
+
+<h4 id="Using_Ionic_Native_Wrappers">Usage</h4>
+
+To use an Ionic Native plugin, import the desired plugin and call it directly. 
+
+Additionally, Ionic Native can be used by AngularJS 1.x and vanilla ES5 projects as shown in the first two examples below>
 
 ```js
 // Example with plain JS

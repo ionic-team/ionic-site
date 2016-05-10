@@ -66667,7 +66667,9 @@
 	     */
 	    RadioButton.prototype.ngOnDestroy = function () {
 	        this._form.deregister(this);
-	        this._group.remove(this);
+	        if (this._group) {
+	            this._group.remove(this);
+	        }
 	    };
 	    __decorate([
 	        core_1.Output(), 

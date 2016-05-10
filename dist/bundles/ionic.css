@@ -13179,6 +13179,8 @@ ion-icon {
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
     pointer-events: none; }
+  .wp .select-text {
+    min-height: 3rem; }
   .wp ion-tabs {
     display: -webkit-box;
     display: -webkit-flex;

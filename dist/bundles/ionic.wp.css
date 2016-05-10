@@ -6859,6 +6859,9 @@ ion-select {
   transform: rotate(135deg);
   pointer-events: none; }
 
+.select-text {
+  min-height: 3rem; }
+
 ion-tabs {
   display: -webkit-box;
   display: -webkit-flex;

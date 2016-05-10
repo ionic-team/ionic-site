@@ -23,9 +23,9 @@ Ionic provides a set SCSS/CSS utility attributes that can help when developing y
 
 | Attribute         | Description                                           |
 |-------------------|-------------------------------------------------------|
-| `text-left`       | align the text of the element to it's left            |
-| `text-center`     | align the text of the element to it's center          |
-| `text-right`      | align the text of the element to it's right           |
+| `text-left`       | align the text of the element to its left            |
+| `text-center`     | align the text of the element to its center          |
+| `text-right`      | align the text of the element to its right           |
 | `text-justify`    | Stretches the lines so that each line has equal width |
 | `text-nowrap`     | don't wrap text                                       |
 | `text-uppercase`  | transforms text to all caps                           |
@@ -45,5 +45,3 @@ Ionic provides a set SCSS/CSS utility attributes that can help when developing y
 | `padding-vertical`   | adds padding to the top and botttom |
 | `padding-horizontal` | adds padding to the left and right  |
 | `no-padding`         | removes any padding                 |
-
-

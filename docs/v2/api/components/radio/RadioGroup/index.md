@@ -43,11 +43,12 @@ Improve this doc
 
 
 
-<p>A radio group is a group of radio button components, and its value
-comes from the checked radio button&#39;s value. Selecting a radio
-button in the group unchecks all others in the group.</p>
-<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a>
-for more info on forms and inputs.</p>
+<p>A radio group is a group of <a href="../RadioButton">radio buttons</a>. It allows
+a user to select at most one radio button from a set. Checking one radio
+button that belongs to a radio group unchecks any previous checked
+radio button within the same group.</p>
+<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular Forms Docs</a>
+for more information on forms and inputs.</p>
 
 
 <h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
@@ -120,7 +121,8 @@ for more info on forms and inputs.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#radio'>Radio Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#radio'>Radio Component Docs</a>,
+<a href='../RadioButton'>RadioButton API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

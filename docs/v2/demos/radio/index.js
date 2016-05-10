@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ionic_angular_1 = require('ionic-angular');
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
+        this.isDisabled = true;
     }
     ApiDemoApp = __decorate([
         ionic_angular_1.App({

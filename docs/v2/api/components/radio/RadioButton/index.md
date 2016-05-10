@@ -43,12 +43,15 @@ Improve this doc
 
 
 
-<p>A radio button with a unique value. Note that all <code>&lt;ion-radio&gt;</code>
-components must be wrapped within a <code>&lt;ion-list radio-group&gt;</code>,
-and there must be at least two <code>&lt;ion-radio&gt;</code> components within
-the radio group.</p>
-<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular 2 Docs</a> for
-more info on forms and input.</p>
+<p>A radio button is a button that can be either checked or unchecked. A user can tap
+the button to check or uncheck it. It can also be checked from the template using
+the <code>checked</code> property.</p>
+<p>Use an element with a <code>radio-group</code> attribute to group a set of radio buttons. When
+radio buttons are inside a <a href="../RadioGroup">radio group</a>, exactly one radio button
+in the group can be checked at any time. If a radio button is not placed in a group,
+they will all have the ability to be checked at the same time.</p>
+<p>See the <a href="https://angular.io/docs/ts/latest/guide/forms.html">Angular Forms Docs</a> for
+more information on forms and input.</p>
 
 
 <h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
@@ -57,10 +60,20 @@ more info on forms and input.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-item&gt;
-  &lt;ion-label&gt;Radio Label&lt;/ion-label&gt;
-  &lt;ion-radio value=&quot;radio-value&quot;&gt;&lt;/ion-radio&gt;
-&lt;/ion-item&gt;
+<pre><code class="lang-html">&lt;ion-list radio-group [(ngModel)]=&quot;relationship&quot;&gt;
+  &lt;ion-item&gt;
+    &lt;ion-label&gt;Friends&lt;/ion-label&gt;
+    &lt;ion-radio value=&quot;friends&quot; checked&gt;&lt;/ion-radio&gt;
+  &lt;/ion-item&gt;
+  &lt;ion-item&gt;
+    &lt;ion-label&gt;Family&lt;/ion-label&gt;
+    &lt;ion-radio value=&quot;family&quot;&gt;&lt;/ion-radio&gt;
+  &lt;/ion-item&gt;
+  &lt;ion-item&gt;
+    &lt;ion-label&gt;Enemies&lt;/ion-label&gt;
+    &lt;ion-radio value=&quot;enemies&quot; [disabled]=&quot;isDisabled&quot;&gt;&lt;/ion-radio&gt;
+  &lt;/ion-item&gt;
+&lt;/ion-list&gt;
 </code></pre>
 
 
@@ -71,6 +84,41 @@ more info on forms and input.</p>
 
 
 <!-- instance methods on the class -->
+<!-- input methods on the class -->
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>value</td>
+      <td><code>any</code></td>
+      <td><p> The value of the radio button. Defaults to the generated id.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>checked</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether the radio button should be checked or not. Default false.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether the radio button should be disabled or not. Default false.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
 <!-- output events on the class -->
 <h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
 <table class="table param-table" style="margin:0;">
@@ -93,7 +141,8 @@ more info on forms and input.</p>
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 
-<a href='/docs/v2/components#radio'>Radio Component Docs</a><!-- end content block -->
+<a href='/docs/v2/components#radio'>Radio Component Docs</a>,
+<a href='../RadioGroup'>RadioGroup API Docs</a><!-- end content block -->
 
 
 <!-- end body block -->

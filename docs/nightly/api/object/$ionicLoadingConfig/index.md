@@ -53,7 +53,10 @@ app.constant('$ionicLoadingConfig', {
 });
 app.controller('AppCtrl', function($scope, $ionicLoading) {
   $scope.showLoading = function() {
-    $ionicLoading.show(); //options default to values in $ionicLoadingConfig
+    //options default to values in $ionicLoadingConfig
+    $ionicLoading.show().then(function(){
+       console.log("The loading indicator is now displayed");
+    });
   };
 });
 ```

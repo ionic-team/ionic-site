@@ -11,11 +11,11 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/loading.js#L12'>
+<a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/loading.js#L8'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/loading.js#L12'>
+<a href='http://github.com/driftyco/ionic/edit/master/js/angular/service/loading.js#L8'>
 Improve this doc
 </a>
 </div>
@@ -53,10 +53,14 @@ angular.module('LoadingApp', ['ionic'])
   $scope.show = function() {
     $ionicLoading.show({
       template: 'Loading...'
+    }).then(function(){
+       console.log("The loading indicator is now displayed");
     });
   };
   $scope.hide = function(){
-    $ionicLoading.hide();
+    $ionicLoading.hide().then(function(){
+       console.log("The loading indicator is now hidden");
+    });
   };
 });
 ```
@@ -74,9 +78,7 @@ angular.module('LoadingApp', ['ionic'])
 </h2>
 
 Shows a loading indicator. If the indicator is already shown,
-it will set the options given and keep the indicator shown. Note: While this
-function still returns an $ionicLoading instance for backwards compatiblity,
-its use has been deprecated.
+it will set the options given and keep the indicator shown.
 
 
 
@@ -126,6 +128,9 @@ hiding the indicator. By default, the indicator will be shown until <code>.hide(
 
 
 
+* Returns: 
+  <code>promise</code> A promise which is resolved when the loading indicator is presented.
+
 
 
 
@@ -141,6 +146,9 @@ Hides the loading indicator, if shown.
 
 
 
+
+* Returns: 
+  <code>promise</code> A promise which is resolved when the loading indicator is hidden.
 
 
 

@@ -46,7 +46,7 @@ Improve this doc
 <p>The Platform service can be used to get information about your current device.
 You can get all of the platforms associated with the device using the <a href="#platforms">platforms</a>
 method, including whether the app is being viewed from a tablet, if it&#39;s
-on a mobile device or browser, and the exact platform (ios, android, etc).
+on a mobile device or browser, and the exact platform (iOS, Android, etc).
 You can also get the orientation of the device, if it uses right-to-left
 language direction, and much much more. With this information you can completely
 customize your app to fit any device.</p>
@@ -102,8 +102,8 @@ export MyPage {
     this.platform = platform;
 
     if (this.platform.is('ios')) {
-      // This will only print when on ios
-      console.log("I'm an ios device!");
+      // This will only print when on iOS
+      console.log("I'm an iOS device!");
     }
   }
 }

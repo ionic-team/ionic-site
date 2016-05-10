@@ -118,7 +118,7 @@ fixed
 
 
 <td>
-A persistant label that sits next the input.
+A persistent label that sits next the input.
 </td>
 </tr>
 
@@ -130,7 +130,7 @@ floating
 
 
 <td>
-A label that will float about the input if the input is empty of looses focus.
+A label that will float about the input if the input is empty or loses focus.
 </td>
 </tr>
 

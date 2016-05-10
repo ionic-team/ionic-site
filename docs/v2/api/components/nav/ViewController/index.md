@@ -41,7 +41,7 @@ Improve this doc
 
 
 
-<p>Access various features and information about the current view</p>
+<p>Access various features and information about the current view.</p>
 
 <!-- @usage tag -->
 
@@ -156,7 +156,7 @@ export class MyPage{
 
 </h3>
 
-Check to see if you can go back in the navigation stack
+Check to see if you can go back in the navigation stack.
 
 
 <table class="table param-table" style="margin:0;">
@@ -213,7 +213,7 @@ Check to see if you can go back in the navigation stack
 
 </h3>
 
-You can find out the index of the current view is in the current navigation stack
+You can find out the index of the current view is in the current navigation stack.
 
 ```typescript
  export class Page1 {

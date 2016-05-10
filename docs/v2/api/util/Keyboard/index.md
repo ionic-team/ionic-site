@@ -185,7 +185,7 @@ export class MyClass{
 
 </h3>
 
-Progamatically close they keyboard
+Programmatically close the keyboard
 
 
 

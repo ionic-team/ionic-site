@@ -21389,7 +21389,7 @@
 	 * The Platform service can be used to get information about your current device.
 	 * You can get all of the platforms associated with the device using the [platforms](#platforms)
 	 * method, including whether the app is being viewed from a tablet, if it's
-	 * on a mobile device or browser, and the exact platform (ios, android, etc).
+	 * on a mobile device or browser, and the exact platform (iOS, Android, etc).
 	 * You can also get the orientation of the device, if it uses right-to-left
 	 * language direction, and much much more. With this information you can completely
 	 * customize your app to fit any device.
@@ -21470,8 +21470,8 @@
 	     *     this.platform = platform;
 	     *
 	     *     if (this.platform.is('ios')) {
-	     *       // This will only print when on ios
-	     *       console.log("I'm an ios device!");
+	     *       // This will only print when on iOS
+	     *       console.log("I'm an iOS device!");
 	     *     }
 	     *   }
 	     * }
@@ -44821,7 +44821,7 @@
 	        return promise;
 	    };
 	    /**
-	     * Progamatically close they keyboard
+	     * Programmatically close the keyboard
 	     *
 	     */
 	    Keyboard.prototype.close = function () {
@@ -49431,7 +49431,7 @@
 	/**
 	 * @name ViewController
 	 * @description
-	 * Access various features and information about the current view
+	 * Access various features and information about the current view.
 	 * @usage
 	 *  ```ts
 	 *  import {Page, ViewController} from 'ionic-angular';
@@ -49528,7 +49528,7 @@
 	        this._leavingOpts = opts;
 	    };
 	    /**
-	     * Check to see if you can go back in the navigation stack
+	     * Check to see if you can go back in the navigation stack.
 	     * @param {boolean} Check whether or not you can go back from this page
 	     * @returns {boolean} Returns if it's possible to go back from this Page.
 	     */
@@ -49566,7 +49566,7 @@
 	    });
 	    Object.defineProperty(ViewController.prototype, "index", {
 	        /**
-	         * You can find out the index of the current view is in the current navigation stack
+	         * You can find out the index of the current view is in the current navigation stack.
 	         *
 	         * ```typescript
 	         *  export class Page1 {
@@ -61399,8 +61399,8 @@
 	 * Labels are placed inside of an `ion-item` element and can be used
 	 * to describe an `ion-input`, `ion-toggle`, `ion-checkbox`, and more.
 	 *
-	 * @property [fixed] - A persistant label that sits next the input.
-	 * @property [floating] - A label that will float about the input if the input is empty of looses focus.
+	 * @property [fixed] - A persistent label that sits next the input.
+	 * @property [floating] - A label that will float about the input if the input is empty or loses focus.
 	 * @property [stacked] - A stacked label will always appear on top of the input.
 
 	 *
@@ -65376,17 +65376,17 @@
 	 * @description
 	 *
 	 * `ion-textarea` is is used for multi-line text inputs. Ionic still
-	 * uses an actual `<textarea>` HTML element within the component,
-	 * however, with Ionic wrapping the native HTML textarea element then
-	 * Ionic is able to better handle the user experience and interactivity.
+	 * uses an actual `<textarea>` HTML element within the component;
+	 * however, with Ionic wrapping the native HTML text area element, Ionic
+	 * is able to better handle the user experience and interactivity.
 	 *
 	 * Not that `<ion-textarea>` must load its value from the `value` or
 	 * `[(ngModel)]` attribute. Unlike the native `<textarea>` element,
 	 * `<ion-textarea>` does not support loading its value from the
 	 * textarea's inner content.
 	 *
-	 * When requiring only a single-line text input it's recommended
-	 * to use `<ion-input>` instead.
+	 * When requiring only a single-line text input, we recommend using
+	 * `<ion-input>` instead.
 	 *
 	 * @usage
 	 * ```html

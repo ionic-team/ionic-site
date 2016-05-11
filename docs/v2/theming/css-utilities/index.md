@@ -17,20 +17,20 @@ next_page_link: /docs/v2/theming/platform-specific-styles/
   Improve this doc
 </a>
 
-Ionic provides a set SCSS/CSS utility attributes that can help when developing your app.
+Ionic provides a set of SCSS/CSS utility attributes that can help when developing your app.
 
 ### Text Transformation
 
 | Attribute         | Description                                           |
 |-------------------|-------------------------------------------------------|
-| `text-left`       | align the text of the element to its left            |
-| `text-center`     | align the text of the element to its center          |
-| `text-right`      | align the text of the element to its right           |
-| `text-justify`    | Stretches the lines so that each line has equal width |
+| `text-left`       | aligns the text of the element to its left            |
+| `text-center`     | aligns the text of the element to its center          |
+| `text-right`      | aligns the text of the element to its right           |
+| `text-justify`    | stretches the lines so that each line has equal width |
 | `text-nowrap`     | don't wrap text                                       |
 | `text-uppercase`  | transforms text to all caps                           |
 | `text-lowercase ` | transforms text to all lowercase                      |
-| `text-capitalize` | transforms the first letter of the text to capitals.  |
+| `text-capitalize` | transforms the first letter of the text to capitals  |
 
 ### Element Padding
 

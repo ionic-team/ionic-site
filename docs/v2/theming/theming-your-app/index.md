@@ -44,7 +44,7 @@ $colors: (
 )
 ```
 
-You can customize this further by suppling a base and contrast property.
+You can customize this further by supplying a base and contrast property.
 
 ```scss
 $colors: (
@@ -55,7 +55,7 @@ $colors: (
   )
 )
 ```
-Base normally actuals as the background color for elements and contrast acts as the text color. This provides a much more flexible control over your styles.
+Base normally acts as the background color for elements and contrast acts as the text color. This provides a much more flexible control over your styles.
 
 
 Ionic makes the `$colors` keys available as a property to many components. For example, to use our `twitter` color, add the key as a property:

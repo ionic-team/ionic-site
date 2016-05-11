@@ -32,7 +32,7 @@ This website and documentation content (found in the [ionic-site](https://github
 
 ### What is the Ionic CLI?
 
-The [CLI](../../resources/what-is/#cli), or command line interface, is a tool that provides a number of helpful commands to Ionic developers. In addition to installing and updating Ionic, the CLI comes with a built in development server, build and debugging tools, and much more. If you are using the [Ionic Platform](http://ionic.io/), the CLI can be used to export code and even interact with your account programmatically.
+The [CLI](../../resources/what-is/#cli), or command line interface, is a tool that provides a number of helpful commands to Ionic developers. In addition to installing and updating Ionic, the CLI comes with a built-in development server, build and debugging tools, and much more. If you are using the [Ionic Platform](http://ionic.io/), the CLI can be used to export code and even interact with your account programmatically.
 
 ### What are components?
 
@@ -50,4 +50,4 @@ Navigation works like a stack &mdash; **push** a page to the stack to navigate t
 
 Ionic was originally built by [@benjsperry](https://twitter.com/benjsperry), [@adamdbradley](https://twitter.com/adamdbradley), and [@maxlynch](https://twitter.com/maxlynch). After releasing an alpha version of Ionic in November 2013, we released a 1.0 beta in March 2014 and a 1.0 final in May 2015.
 
-Now, Ionic has a massive international community of developers and contributors propelling its growth and adoption. Companies small and large are using Ionic to build better apps, faster. In 2015 Ionic developers reportedly created over 1.3M apps with the Ionic, a number that continues to grow each day.
+Now, Ionic has a massive international community of developers and contributors propelling its growth and adoption. Companies small and large are using Ionic to build better apps, faster. In 2015 Ionic developers reportedly created over 1.3M apps with Ionic, a number that continues to grow each day.

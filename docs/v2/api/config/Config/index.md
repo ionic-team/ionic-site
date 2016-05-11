@@ -92,166 +92,138 @@ Simply add <code>?ionic&lt;PROPERTYNAME&gt;=&lt;value&gt;</code> to the url.</p>
 // from any page in your app:
 config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
 </code></pre>
-<p>A config value can come from anywhere and be anything, but there are a default set of values.</p>
+<p>A config value can come from anywhere and be anything, but there are default
+values for each mode. The <a href="../../../theming/platform-specific-styles/">theming</a>
+documentation has a chart of the default mode configuration. The following
+chart displays each property with a description of what it controls.</p>
 <table>
 <thead>
 <tr>
-<th>Config property</th>
-<th>Default <code>ios</code> Value</th>
-<th>Default <code>md</code> Value</th>
-<th>Default <code>wp</code> Value</th>
+<th>Config Property</th>
+<th>Type</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>activator</td>
-<td>&quot;highlight&quot;</td>
-<td>&quot;ripple&quot;</td>
-<td>&quot;highlight&quot;</td>
+<td><code>activator</code></td>
+<td><code>string</code></td>
+<td>Used for buttons, changes the effect of pressing on a button. Available options: <code>&quot;ripple&quot;</code>, <code>&quot;highlight&quot;</code>.</td>
 </tr>
 <tr>
-<td>actionSheetEnter</td>
-<td>&quot;action-sheet-slide-in&quot;</td>
-<td>&quot;action-sheet-md-slide-in&quot;</td>
-<td>&quot;action-sheet-wp-slide-in&quot;</td>
+<td><code>actionSheetEnter</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while an action sheet is presented.</td>
 </tr>
 <tr>
-<td>actionSheetLeave</td>
-<td>&quot;action-sheet-slide-out&quot;</td>
-<td>&quot;action-sheet-md-slide-out&quot;</td>
-<td>&quot;action-sheet-wp-slide-out&quot;</td>
+<td><code>actionSheetLeave</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while an action sheet is dismissed.</td>
 </tr>
 <tr>
-<td>alertEnter</td>
-<td>&quot;alert-pop-in&quot;</td>
-<td>&quot;alert-md-pop-in&quot;</td>
-<td>&quot;alert-wp-pop-in&quot;</td>
+<td><code>alertEnter</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while an alert is presented.</td>
 </tr>
 <tr>
-<td>alertLeave</td>
-<td>&quot;alert-pop-out&quot;</td>
-<td>&quot;alert-md-pop-out&quot;</td>
-<td>&quot;alert-wp-pop-out&quot;</td>
+<td><code>alertLeave</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while an alert is dismissed.</td>
 </tr>
 <tr>
-<td>backButtonText</td>
-<td>&quot;Back&quot;</td>
-<td>&quot;&quot;</td>
-<td>&quot;&quot;</td>
+<td><code>backButtonText</code></td>
+<td><code>string</code></td>
+<td>The text to display by the back button icon in the navbar.</td>
 </tr>
 <tr>
-<td>backButtonIcon</td>
-<td>&quot;ios-arrow-back&quot;</td>
-<td>&quot;md-arrow-back&quot;</td>
-<td>&quot;ios-arrow-back&quot;</td>
+<td><code>backButtonIcon</code></td>
+<td><code>string</code></td>
+<td>The icon to use as the back button icon.</td>
 </tr>
 <tr>
-<td>iconMode</td>
-<td>&quot;ios&quot;</td>
-<td>&quot;md&quot;</td>
-<td>&quot;ios&quot;</td>
+<td><code>iconMode</code></td>
+<td><code>string</code></td>
+<td>The mode to use for all icons throughout the application. Available options: <code>&quot;ios&quot;</code>, <code>&quot;md&quot;</code></td>
 </tr>
 <tr>
-<td>loadingEnter</td>
-<td>&quot;loading-pop-in&quot;</td>
-<td>&quot;loading-md-pop-in&quot;</td>
-<td>&quot;loading-wp-pop-in&quot;</td>
+<td><code>loadingEnter</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while a loading indicator is presented.</td>
 </tr>
 <tr>
-<td>loadingLeave</td>
-<td>&quot;loading-pop-out&quot;</td>
-<td>&quot;loading-md-pop-out&quot;</td>
-<td>&quot;loading-wp-pop-out&quot;</td>
+<td><code>loadingLeave</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while a loading indicator is dismissed.</td>
 </tr>
 <tr>
-<td>menuType</td>
-<td>&quot;reveal&quot;</td>
-<td>&quot;overlay&quot;</td>
-<td>&quot;overlay&quot;</td>
+<td><code>menuType</code></td>
+<td><code>string</code></td>
+<td>Type of menu to display. Available options: <code>&quot;overlay&quot;</code>, <code>&quot;reveal&quot;</code>, <code>&quot;push&quot;</code>.</td>
 </tr>
 <tr>
-<td>modalEnter</td>
-<td>&quot;modal-slide-in&quot;</td>
-<td>&quot;modal-md-slide-in&quot;</td>
-<td>&quot;modal-md-slide-in&quot;</td>
+<td><code>modalEnter</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while a modal is presented.</td>
 </tr>
 <tr>
-<td>modalLeave</td>
-<td>&quot;modal-slide-out&quot;</td>
-<td>&quot;modal-md-slide-out&quot;</td>
-<td>&quot;modal-md-slide-out&quot;</td>
+<td><code>modalLeave</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while a modal is dismiss.</td>
 </tr>
 <tr>
-<td>pageTransition</td>
-<td>&quot;ios-transition&quot;</td>
-<td>&quot;md-transition&quot;</td>
-<td>&quot;wp-transition&quot;</td>
+<td><code>pageTransition</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while changing pages.</td>
 </tr>
 <tr>
-<td>pageTransitionDelay</td>
-<td>16</td>
-<td>96</td>
-<td>96</td>
+<td><code>pageTransitionDelay</code></td>
+<td><code>number</code></td>
+<td>The delay in milliseconds before the transition starts while changing pages.</td>
 </tr>
 <tr>
-<td>pickerEnter</td>
-<td>&quot;picker-slide-in&quot;</td>
-<td>&quot;picker-slide-in&quot;</td>
-<td>&quot;picker-slide-in&quot;</td>
+<td><code>pickerEnter</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while a picker is presented.</td>
 </tr>
 <tr>
-<td>pickerLeave</td>
-<td>&quot;picker-slide-out&quot;</td>
-<td>&quot;picker-slide-out&quot;</td>
-<td>&quot;picker-slide-out&quot;</td>
+<td><code>pickerLeave</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while a picker is dismissed.</td>
 </tr>
 <tr>
-<td>pickerRotateFactor</td>
-<td>-0.46</td>
-<td></td>
-<td></td>
+<td><code>spinner</code></td>
+<td><code>string</code></td>
+<td>The default spinner to use when a name is not defined.</td>
 </tr>
 <tr>
-<td>spinner</td>
-<td>&quot;ios&quot;</td>
-<td>&quot;crescent&quot;</td>
-<td>&quot;circles&quot;</td>
+<td><code>tabbarHighlight</code></td>
+<td><code>boolean</code></td>
+<td>Whether to show a highlight line under the tab when it is selected.</td>
 </tr>
 <tr>
-<td>tabbarHighlight</td>
-<td></td>
-<td>true</td>
-<td></td>
+<td><code>tabbarLayout</code></td>
+<td><code>string</code></td>
+<td>The layout to use for all tabs. Available options: <code>&quot;icon-top&quot;</code>, <code>&quot;icon-left&quot;</code>, <code>&quot;icon-right&quot;</code>, <code>&quot;icon-bottom&quot;</code>, <code>&quot;icon-hide&quot;</code>, <code>&quot;title-hide&quot;</code>.</td>
 </tr>
 <tr>
-<td>tabbarLayout</td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>tabbarPlacement</code></td>
+<td><code>string</code></td>
+<td>The position of the tabs. Available options: <code>&quot;top&quot;</code>, <code>&quot;bottom&quot;</code></td>
 </tr>
 <tr>
-<td>tabbarPlacement</td>
-<td>&quot;bottom&quot;</td>
-<td>&quot;top&quot;</td>
-<td>&quot;top&quot;</td>
+<td><code>tabSubPages</code></td>
+<td><code>boolean</code></td>
+<td>Whether to hide the tabs on child pages or not. If <code>true</code> it will not show the tabs on child pages.</td>
 </tr>
 <tr>
-<td>tabSubPages</td>
-<td></td>
-<td>true</td>
-<td>true</td>
+<td><code>toastEnter</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while a toast is presented.</td>
 </tr>
 <tr>
-<td>toastEnter</td>
-<td>&quot;toast-slide-in&quot;</td>
-<td>&quot;toast-md-slide-in&quot;</td>
-<td>&quot;toast-wp-slide-in&quot;</td>
-</tr>
-<tr>
-<td>toastLeave</td>
-<td>&quot;toast-slide-out&quot;</td>
-<td>&quot;toast-md-slide-out&quot;</td>
-<td>&quot;toast-wp-slide-out&quot;</td>
+<td><code>toastLeave</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while a toast is dismissed.</td>
 </tr>
 </tbody>
 </table>

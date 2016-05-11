@@ -16,43 +16,55 @@ next_page_link: /docs/v2/theming/overriding-ionic-variables/
 </a>
 
 
-Ionic uses modes to customize the look of components to match the platform you are using. For example, when you are viewing the app on an Android device, the `<body>` will have `class="md"` added to it by default:
+Ionic uses **modes** to customize the look of components. Each **platform** has a default **mode**, but this can be overridden. For example, an app being viewed on an Android platform will use the `md` (Material Design) mode. The `<body>` will have `class="md"` added to it by default and all of the components will use Material Design styles:
 
 ```html
 <body class="md">
 ```
 
-Here is a chart of the default mode that gets added based on platform:
+The following chart displays the default **mode** that is added to each **platform**:
 
-<table class="table">
-  <tr>
-    <th>Platform</th>
-    <th>Mode</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>iOS</td>
-    <td>ios</td>
-    <td>Applies iOS styling to all components.</td>
-  </tr>
-  <tr>
-    <td>Android</td>
-    <td>md</td>
-    <td>Applies Material Design styling to all components.</td>
-  </tr>
-  <tr>
-    <td>Windows</td>
-    <td>wp</td>
-    <td>Applies Windows styling to all components.</td>
-  </tr>
-  <tr>
-    <td>All Other Platforms</td>
-    <td>md</td>
-    <td>If you are not on one of the above devices, the app will get Material Design styling by default.</td>
-  </tr>
-</table>
+| Platform        | Mode       | Details                                                                                        |
+|-----------------|------------|------------------------------------------------------------------------------------------------|
+| `ios`           | `ios`      | Viewing on an `iphone`, `ipad`, or `ipod` will use the iOS styles.                             |
+| `android`       | `md`       | Viewing on any android device will use the Material Design styles.                             |
+| `windows`       | `wp`       | Viewing on any windows device inside cordova or electron uses the Windows styles.              |
+| `core`          | `md`       | Any platform that doesn't fit any of the above platforms will use the Material Design styles.  |
 
-You can change the mode that gets assigned in the configuration of your app. Therefore, if you wanted the Material Design `md` mode on iOS, you could do it.
+
+It is important to note that the **platform** and the **mode** are not the same thing. The platform can be set to use any mode in the [config](../../api/config/Config) of an app. See the following section for the default config values for each mode.
+
+## Default Mode Configuration
+
+Each mode has a default configuration. The [configuration properties](../../api/config/Config) can be changed per platform or for all platforms. The following chart displays the default configuration value for each configuration property. See the [Config API Docs](../../api/config/Config) for a description of each property and more information on overriding these values.
+
+| Config Property       | Default `ios` Value        | Default `md` Value            | Default `wp` Value            |
+|-----------------------|----------------------------|-------------------------------|-------------------------------|
+| `activator`           | `"highlight"`              | `"ripple"`                    | `"highlight"`                 |
+| `actionSheetEnter`    | `"action-sheet-slide-in"`  | `"action-sheet-md-slide-in"`  | `"action-sheet-wp-slide-in"`  |
+| `actionSheetLeave`    | `"action-sheet-slide-out"` | `"action-sheet-md-slide-out"` | `"action-sheet-wp-slide-out"` |
+| `alertEnter`          | `"alert-pop-in"`           | `"alert-md-pop-in"`           | `"alert-wp-pop-in"`           |
+| `alertLeave`          | `"alert-pop-out"`          | `"alert-md-pop-out"`          | `"alert-wp-pop-out"`          |
+| `backButtonText`      | `"Back"`                   | `""`                          | `""`                          |
+| `backButtonIcon`      | `"ios-arrow-back"`         | `"md-arrow-back"`             | `"ios-arrow-back"`            |
+| `iconMode`            | `"ios"`                    | `"md"`                        | `"ios"`                       |
+| `loadingEnter`        | `"loading-pop-in"`         | `"loading-md-pop-in"`         | `"loading-wp-pop-in"`         |
+| `loadingLeave`        | `"loading-pop-out"`        | `"loading-md-pop-out"`        | `"loading-wp-pop-out"`        |
+| `menuType`            | `"reveal"`                 | `"overlay"`                   | `"overlay"`                   |
+| `modalEnter`          | `"modal-slide-in"`         | `"modal-md-slide-in"`         | `"modal-md-slide-in"`         |
+| `modalLeave`          | `"modal-slide-out"`        | `"modal-md-slide-out"`        | `"modal-md-slide-out"`        |
+| `pageTransition`      | `"ios-transition"`         | `"md-transition"`             | `"wp-transition"`             |
+| `pageTransitionDelay` | `16`                       | `96`                          | `96`                          |
+| `pickerEnter`         | `"picker-slide-in"`        | `"picker-slide-in"`           | `"picker-slide-in"`           |
+| `pickerLeave`         | `"picker-slide-out"`       | `"picker-slide-out"`          | `"picker-slide-out"`          |
+| `spinner`             | `"ios"`                    | `"crescent"`                  | `"circles"`                   |
+| `tabbarHighlight`     | `false`                    | `true`                        | `false`                       |
+| `tabbarLayout`        | `"icon-top"`               | `"icon-top"`                  | `"icon-top"`                  |
+| `tabbarPlacement`     | `"bottom"`                 | `"top"`                       | `"top"`                       |
+| `tabSubPages`         | `false`                    | `true`                        | `true`                        |
+| `toastEnter`          | `"toast-slide-in"`         | `"toast-md-slide-in"`         | `"toast-wp-slide-in"`         |
+| `toastLeave`          | `"toast-slide-out"`        | `"toast-md-slide-out"`        | `"toast-wp-slide-out"`        |
+
 
 ## Overriding the Mode Styles
 

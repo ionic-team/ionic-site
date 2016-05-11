@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/flashlight.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master//home/ubuntu/ionic-native/src/plugins/flashlight.ts#L0'>
   Improve this doc
 </a>
 
@@ -72,7 +72,7 @@ docType: "class"
 
 </h3>
 
-Checks if the flash light is available
+Checks if the flashlight is available
 
 
 
@@ -82,7 +82,7 @@ Checks if the flash light is available
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean stating if the flash light is available.
+<code>Promise&lt;boolean&gt;</code> Returns a promise that resolves with a boolean stating if the flashlight is available.
 </div>
 
 
@@ -112,7 +112,7 @@ Switches the flashlight on
 
 </h3>
 
-Switches the flash light off
+Switches the flashlight off
 
 
 
@@ -154,7 +154,7 @@ Toggles the flashlight
 
 
 
-Checks if the flash light is turned on.
+Checks if the flashlight is turned on.
 Returns a boolean
 
 

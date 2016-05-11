@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/keyboard.ts#L1'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master//home/ubuntu/ionic-native/src/plugins/keyboard.ts#L1'>
   Improve this doc
 </a>
 
@@ -147,7 +147,7 @@ Force keyboard to be shown.
 <code>Windows</code>&nbsp;
 
 
-Close the keyboard if open
+Close the keyboard if open.
 
 
 

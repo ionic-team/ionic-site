@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/diagnostic.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master//home/ubuntu/ionic-native/src/plugins/diagnostic.ts#L0'>
   Improve this doc
 </a>
 
@@ -43,8 +43,8 @@ docType: "class"
 
 <pre><code>$ ionic plugin add cordova.plugins.diagnostic</code></pre>
 <p>Repo:
-  <a href="">
-    
+  <a href="https://github.com/floatinghotpot/cordova-plugin-admob">
+    https://github.com/floatinghotpot/cordova-plugin-admob
   </a>
 </p>
 
@@ -80,7 +80,7 @@ Checks if app is able to access device location.
 </h3>
 
 Checks if Wifi is connected/enabled. On iOS this returns true if the device is connected to a network by WiFi. On Android and Windows 10 Mobile this returns true if the WiFi setting is set to enabled.
-On Android this requires permission <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+On Android this requires permission. `<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />`
 
 
 

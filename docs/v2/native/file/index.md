@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master/src/plugins/file.ts#L2'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master//home/ubuntu/ionic-native/src/plugins/file.ts#L2'>
   Improve this doc
 </a>
 
@@ -234,7 +234,7 @@ If an existing directory exists and the replace value is false, the promise will
 <div id="removeDir"></div>
 <h3><code>removeDir(path,&nbsp;dirName)</code>
 
-</h3>Remove a directory at a given path
+</h3>Remove a directory at a given path.
 
 
 
@@ -302,7 +302,7 @@ If an existing directory exists and the replace value is false, the promise will
 <div id="moveDir"></div>
 <h3><code>moveDir(path,&nbsp;dirName,&nbsp;newPath,&nbsp;newDirName)</code>
 
-</h3>Move a directory to a given path
+</h3>Move a directory to a given path.
 
 
 
@@ -506,7 +506,7 @@ If an existing directory exists and the replace value is false, the promise will
 <div id="listDir"></div>
 <h3><code>listDir(path,&nbsp;dirName)</code>
 
-</h3>List files and directory from a given path
+</h3>List files and directory from a given path.
 
 
 

@@ -5816,10 +5816,14 @@ input.text-input:-webkit-autofill {
 
 .text-input-clear-icon {
   position: absolute;
+  display: none;
   margin: 0;
   padding: 0;
   background-repeat: no-repeat;
   background-position: center; }
+
+.input-has-value .text-input-clear-icon {
+  display: block; }
 
 .text-input.cloned-input {
   position: relative;
@@ -5884,7 +5888,7 @@ ion-input[clearInput] {
 .text-input-clear-icon {
   background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='#5b5b5b'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
   right: 8px;
-  bottom: 2px;
+  bottom: 4px;
   width: 30px;
   background-size: 22px; }
 

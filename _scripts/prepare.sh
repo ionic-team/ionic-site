@@ -22,7 +22,9 @@ function clone_site {
   else
     echo "using existing"
     cd $PROD_DIR
+    git fetch origin production
     git reset --hard
+    git clean -df
     git pull origin production
   fi
 }

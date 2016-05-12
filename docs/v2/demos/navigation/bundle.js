@@ -65372,6 +65372,12 @@
 	    TextInput.prototype.inputFocused = function (event) {
 	        this.focus.emit(event);
 	    };
+	    /**
+	     * @private
+	     */
+	    TextInput.prototype.clearTextInput = function () {
+	        this._value = '';
+	    };
 	    TextInput = __decorate([
 	        core_1.Component({
 	            selector: 'ion-input',

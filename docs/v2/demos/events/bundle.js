@@ -65389,7 +65389,7 @@
 	     * @private
 	     */
 	    TextInput.prototype.clearTextInput = function () {
-	        console.debug("Should clear input");
+	        console.debug('Should clear input');
 	        this._value = '';
 	        this.onChange(this._value);
 	        this.writeValue(this._value);

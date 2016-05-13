@@ -71,6 +71,47 @@ docType: "class"
 
 <!-- @property tags -->
 <h2>Static Methods</h2>
+<div id="hasReadWritePermissions"></div>
+<h3><code>hasReadWritePermissions()</code>
+
+</h3>
+
+This function checks if we have permission to read/write from/to the calendar.
+The promise will resolve with `true` when:
+- You're running on iOS, or
+- You're targetting API level lower than 23, or
+- You're using Android < 6, or
+- You've already granted permission
+
+If this returns false, you should call `requestReadWritePermissions` function
+
+
+
+
+
+
+
+
+
+
+<div id="requestReadWritePermissions"></div>
+<h3><code>requestReadWritePermissions()</code>
+
+</h3>
+
+
+
+Requests read/write permissions
+
+
+
+
+
+
+
+
+
+
 <div id="createCalendar"></div>
 <h3><code>createCalendar(nameOrOptions)</code>
 

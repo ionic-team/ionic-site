@@ -7093,7 +7093,7 @@ tabbar {
   box-shadow: none;
   opacity: .7; }
   .tab-button[aria-selected=true] {
-    border-bottom: 2px solid #327eff;
+    border-bottom-color: #327eff;
     color: #327eff;
     opacity: 1; }
   .tab-button.activated {
@@ -7123,6 +7123,12 @@ tabbar {
 .tab-button.icon-only,
 .tab-button.has-title-only {
   padding: 6px 10px; }
+
+[tabbarPlacement=bottom] .tab-button {
+  border-top: 2px solid transparent;
+  border-bottom-width: 0; }
+  [tabbarPlacement=bottom] .tab-button[aria-selected=true] {
+    border-top-color: #327eff; }
 
 ion-tabs[primary] tabbar {
   background-color: #327eff; }

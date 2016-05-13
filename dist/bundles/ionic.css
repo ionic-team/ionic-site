@@ -13395,7 +13395,7 @@ ion-icon {
     box-shadow: none;
     opacity: .7; }
     .wp .tab-button[aria-selected=true] {
-      border-bottom: 2px solid #327eff;
+      border-bottom-color: #327eff;
       color: #327eff;
       opacity: 1; }
     .wp .tab-button.activated {
@@ -13420,6 +13420,11 @@ ion-icon {
   .wp .tab-button.icon-only,
   .wp .tab-button.has-title-only {
     padding: 6px 10px; }
+  .wp [tabbarPlacement=bottom] .tab-button {
+    border-top: 2px solid transparent;
+    border-bottom-width: 0; }
+    .wp [tabbarPlacement=bottom] .tab-button[aria-selected=true] {
+      border-top-color: #327eff; }
   .wp ion-tabs[primary] tabbar {
     background-color: #327eff; }
     .wp ion-tabs[primary] tabbar .tab-button {

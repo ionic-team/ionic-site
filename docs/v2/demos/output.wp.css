@@ -7253,7 +7253,7 @@ tabbar {
   box-shadow: none;
   opacity: .7; }
   .tab-button[aria-selected=true] {
-    border-bottom: 2px solid #387ef5;
+    border-bottom-color: #387ef5;
     color: #387ef5;
     opacity: 1; }
   .tab-button.activated {
@@ -7283,6 +7283,12 @@ tabbar {
 .tab-button.icon-only,
 .tab-button.has-title-only {
   padding: 6px 10px; }
+
+[tabbarPlacement=bottom] .tab-button {
+  border-top: 2px solid transparent;
+  border-bottom-width: 0; }
+  [tabbarPlacement=bottom] .tab-button[aria-selected=true] {
+    border-top-color: #387ef5; }
 
 ion-tabs[primary] tabbar {
   background-color: #387ef5; }

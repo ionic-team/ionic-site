@@ -35,10 +35,11 @@ watch.unsubscribe();
 Spent way too long diagnosing an issue only to realize a plugin wasn't firing or installed? Ionic Native lets you know what the issue is and how you can resolve it.
 
 <h3 id="Installation">Installation</h3>
-Run following commmand to install ionic-native in your project. 
-```shell
+To add Ionic Native to your app, run following command: 
+```
 npm install ionic-native --save
 ```
+Note that Ionic Native is included by default with every Ionic 2 app.
 
 <h3 id="Usage">Usage</h3>
 

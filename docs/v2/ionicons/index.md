@@ -30,7 +30,7 @@ header_sub_title: Ionic Resources
             <delayed-pre>
               <code class="language-html lang-html hljs xml" data-lang="html">
   <span class="hljs-comment">&lt;!--Basic: auto-select the icon based on the platform --&gt;</span>
-  <span class="hljs-keyword">&lt;ion-icon</span> <span class="hljs-built_in">name=</span><span class="hljs-string">"{{selected.key}}"</span><span class="hljs-keyword">&gt;&lt;/ion-icon&gt;</span>
+  <span class="hljs-keyword">&lt;ion-icon</span> <span class="hljs-built_in">name=</span><span class="hljs-string" ng-if="selected.icons.length < 2">"{{selected.icons[0].name}}"</span><span class="hljs-string" ng-if="selected.icons.length > 1">"{{selected.key}}"</span><span class="hljs-keyword">&gt;&lt;/ion-icon&gt;</span>
 
   <span class="hljs-comment">&lt;!-- Advanced: explicity set the icon for each platform --&gt;</span>
   <span class="hljs-keyword">&lt;ion-icon</span> <span class="hljs-built_in">ios=</span><span class="hljs-string">"{{getIcon(selected, 'ios' )}}"</span> <span class="hljs-built_in">md=</span><span class="hljs-string">"{{getIcon(selected, 'md' )}}"</span><span class="hljs-keyword">&gt;&lt;/ion-icon&gt;</span>

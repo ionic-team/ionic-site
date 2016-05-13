@@ -146,7 +146,7 @@ import {ViewChild} from 'angular2/core';
 export class MyClass {
    @ViewChild(List) list: List;
    constructor(){}
-   closeItmes(){
+   closeItems(){
      this.list.closeSlidingItems();
    }
 }

@@ -60718,7 +60718,7 @@
 	     * export class MyClass {
 	     *    @ViewChild(List) list: List;
 	     *    constructor(){}
-	     *    closeItmes(){
+	     *    closeItems(){
 	     *      this.list.closeSlidingItems();
 	     *    }
 	     * }

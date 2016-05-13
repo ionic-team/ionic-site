@@ -89,6 +89,7 @@ docType: "class"
 
 
 Connect to a Bluetooth device
+Returns an Observable. Subscribe to connect, unsubscribe to disconnect.
 
 
 <table class="table param-table" style="margin:0;">
@@ -138,6 +139,7 @@ Connect to a Bluetooth device
 
 
 Connect insecurely to a Bluetooth device
+Returns an Observable. Subscribe to connect, unsubscribe to disconnect.
 
 
 <table class="table param-table" style="margin:0;">
@@ -169,31 +171,6 @@ Connect insecurely to a Bluetooth device
   
   </tbody>
 </table>
-
-
-
-
-
-
-
-<div id="disconnect"></div>
-<h3><code>disconnect()</code>
-
-</h3>
-
-
-<b>Platforms:</b>
-<code>Android</code>&nbsp;
-
-<code>iOS</code>&nbsp;
-
-<code>Windows Phone</code>&nbsp;
-
-
-Disconnect
-
-
-
 
 
 

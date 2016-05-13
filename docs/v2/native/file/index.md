@@ -862,6 +862,74 @@ If an existing file exists and the replace value is false, the promise will fail
 
 
 
+<div id="readAsText"></div>
+<h3><code>readAsText(path,&nbsp;fileName)</code>
+
+</h3>Read a file as string.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      path
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Base FileSystem. Please refer to the iOS and Android filesystems above</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      fileName
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Name of file to move</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+ Returns a Promise that resolves or rejects with an error.
+
+
+</div>
+
+
+
 <div id="moveFile"></div>
 <h3><code>moveFile(path,&nbsp;fileName,&nbsp;newPath,&nbsp;newFileName)</code>
 

@@ -32,7 +32,7 @@ IONIC_DIRECTIVES
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/config/directives.ts#L141">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/config/directives.ts#L143">
 Improve this doc
 </a>
 
@@ -42,7 +42,7 @@ Improve this doc
 
 
 <p>The core Ionic directives as well as Angular&#39;s <code>CORE_DIRECTIVES</code> and <code>FORM_DIRECTIVES</code> are
-avaialbe automatically when you bootstrap your app with the <code>@App</code> decorator. This means
+available automatically when you bootstrap your app with the <code>@App</code> decorator. This means
 if you are using custom components you no longer need to import <code>IONIC_DIRECTIVES</code> as they
 are part of the <code>@App</code>s default directives.</p>
 <p>If you would like to <strong>not</strong> have them included by default, you would need to bootstrap
@@ -115,6 +115,7 @@ bootstrap(App,ionicProviders())
 <li>RadioButton</li>
 <li>Select</li>
 <li>Option</li>
+<li>DateTime</li>
 <li>Toggle</li>
 <li>TextArea</li>
 <li>TextInput</li>

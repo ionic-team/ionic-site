@@ -6528,10 +6528,21 @@ ion-picker-cmp {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  width: 100%;
-  text-align: center;
+  width: 100%; }
+
+.picker-opt .button-inner {
+  display: block;
+  overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap; }
+  white-space: nowrap;
+  -webkit-transition: opacity 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out; }
+
+.picker-opt.picker-opt-disabled {
+  pointer-events: none; }
+
+.picker-opt-disabled .button-inner {
+  opacity: 0; }
 
 .picker-opts-left .button-inner {
   -webkit-box-pack: start;
@@ -6596,7 +6607,7 @@ ion-picker-cmp {
   perspective: 1800px; }
 
 .picker-col {
-  padding: 0 12px;
+  padding: 0 4px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d; }
 
@@ -6616,8 +6627,7 @@ ion-picker-cmp {
 
 .picker-opt {
   margin: 0;
-  padding: 0 10px;
-  width: calc(100% - 24px);
+  padding: 0;
   font-size: 18px;
   line-height: 42px;
   background: transparent;
@@ -6634,7 +6644,7 @@ ion-picker-cmp {
 .picker-prefix,
 .picker-suffix,
 .picker-opt-selected {
-  font-size: 24px;
+  font-size: 22px;
   color: #387ef5; }
 
 .picker-above-highlight {

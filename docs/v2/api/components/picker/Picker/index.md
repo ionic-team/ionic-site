@@ -166,6 +166,46 @@ Improve this doc
 
 
 
+<div id="getColumns"></div>
+
+<h3>
+<a class="anchor" name="getColumns" href="#getColumns"></a>
+<code>getColumns()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="refresh"></div>
+
+<h3>
+<a class="anchor" name="refresh" href="#refresh"></a>
+<code>refresh()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="setCssClass"></div>
 
 <h3>
@@ -213,7 +253,25 @@ Improve this doc
 
 
 
-<!-- related link --><!-- end content block -->
+
+<!-- output events on the class -->
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>change</td>
+      <td></td>
+    </tr>
+    
+  </tbody>
+</table><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

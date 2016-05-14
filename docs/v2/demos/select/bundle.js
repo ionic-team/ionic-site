@@ -2525,26 +2525,26 @@
 	__export(__webpack_require__(7));
 	__export(__webpack_require__(145));
 	__export(__webpack_require__(304));
-	__export(__webpack_require__(368));
-	__export(__webpack_require__(369));
-	__export(__webpack_require__(370));
+	__export(__webpack_require__(371));
+	__export(__webpack_require__(372));
+	__export(__webpack_require__(373));
 	__export(__webpack_require__(146));
-	__export(__webpack_require__(376));
+	__export(__webpack_require__(378));
 	__export(__webpack_require__(143));
 	__export(__webpack_require__(148));
 	__export(__webpack_require__(296));
 	__export(__webpack_require__(150));
+	__export(__webpack_require__(325));
 	__export(__webpack_require__(324));
-	__export(__webpack_require__(323));
 	__export(__webpack_require__(303));
-	__export(__webpack_require__(380));
+	__export(__webpack_require__(382));
 	// these modules don't export anything
-	__webpack_require__(381);
-	__webpack_require__(382);
 	__webpack_require__(383);
 	__webpack_require__(384);
 	__webpack_require__(385);
 	__webpack_require__(386);
+	__webpack_require__(387);
+	__webpack_require__(388);
 
 /***/ },
 /* 7 */
@@ -45900,48 +45900,49 @@
 	"use strict";
 	var common_1 = __webpack_require__(155);
 	var menu_1 = __webpack_require__(305);
-	var menu_toggle_1 = __webpack_require__(314);
-	var menu_close_1 = __webpack_require__(325);
-	var badge_1 = __webpack_require__(326);
-	var button_1 = __webpack_require__(319);
-	var content_1 = __webpack_require__(327);
-	var img_1 = __webpack_require__(328);
-	var scroll_1 = __webpack_require__(329);
-	var infinite_scroll_1 = __webpack_require__(330);
-	var infinite_scroll_content_1 = __webpack_require__(331);
-	var refresher_1 = __webpack_require__(332);
-	var refresher_content_1 = __webpack_require__(333);
-	var slides_1 = __webpack_require__(334);
-	var tabs_1 = __webpack_require__(336);
-	var tab_1 = __webpack_require__(338);
-	var list_1 = __webpack_require__(340);
-	var item_1 = __webpack_require__(342);
-	var item_sliding_1 = __webpack_require__(345);
-	var virtual_scroll_1 = __webpack_require__(346);
-	var virtual_item_1 = __webpack_require__(347);
-	var toolbar_1 = __webpack_require__(318);
-	var icon_1 = __webpack_require__(343);
-	var spinner_1 = __webpack_require__(349);
-	var checkbox_1 = __webpack_require__(350);
-	var select_1 = __webpack_require__(351);
-	var option_1 = __webpack_require__(354);
-	var toggle_1 = __webpack_require__(355);
-	var input_1 = __webpack_require__(356);
-	var label_1 = __webpack_require__(344);
-	var segment_1 = __webpack_require__(359);
-	var radio_button_1 = __webpack_require__(360);
-	var radio_group_1 = __webpack_require__(361);
-	var searchbar_1 = __webpack_require__(362);
-	var nav_1 = __webpack_require__(363);
-	var nav_push_1 = __webpack_require__(365);
-	var nav_router_1 = __webpack_require__(366);
-	var navbar_1 = __webpack_require__(317);
-	var show_hide_when_1 = __webpack_require__(367);
+	var menu_toggle_1 = __webpack_require__(315);
+	var menu_close_1 = __webpack_require__(326);
+	var badge_1 = __webpack_require__(327);
+	var button_1 = __webpack_require__(320);
+	var content_1 = __webpack_require__(328);
+	var img_1 = __webpack_require__(329);
+	var scroll_1 = __webpack_require__(330);
+	var infinite_scroll_1 = __webpack_require__(331);
+	var infinite_scroll_content_1 = __webpack_require__(332);
+	var refresher_1 = __webpack_require__(333);
+	var refresher_content_1 = __webpack_require__(334);
+	var slides_1 = __webpack_require__(335);
+	var tabs_1 = __webpack_require__(337);
+	var tab_1 = __webpack_require__(339);
+	var list_1 = __webpack_require__(341);
+	var item_1 = __webpack_require__(343);
+	var item_sliding_1 = __webpack_require__(346);
+	var virtual_scroll_1 = __webpack_require__(347);
+	var virtual_item_1 = __webpack_require__(348);
+	var toolbar_1 = __webpack_require__(319);
+	var icon_1 = __webpack_require__(344);
+	var spinner_1 = __webpack_require__(350);
+	var checkbox_1 = __webpack_require__(351);
+	var select_1 = __webpack_require__(352);
+	var option_1 = __webpack_require__(355);
+	var datetime_1 = __webpack_require__(356);
+	var toggle_1 = __webpack_require__(358);
+	var input_1 = __webpack_require__(359);
+	var label_1 = __webpack_require__(345);
+	var segment_1 = __webpack_require__(362);
+	var radio_button_1 = __webpack_require__(363);
+	var radio_group_1 = __webpack_require__(364);
+	var searchbar_1 = __webpack_require__(365);
+	var nav_1 = __webpack_require__(366);
+	var nav_push_1 = __webpack_require__(368);
+	var nav_router_1 = __webpack_require__(369);
+	var navbar_1 = __webpack_require__(318);
+	var show_hide_when_1 = __webpack_require__(370);
 	/**
 	 * @name IONIC_DIRECTIVES
 	 * @description
 	 * The core Ionic directives as well as Angular's `CORE_DIRECTIVES` and `FORM_DIRECTIVES` are
-	 * avaialbe automatically when you bootstrap your app with the `@App` decorator. This means
+	 * available automatically when you bootstrap your app with the `@App` decorator. This means
 	 * if you are using custom components you no longer need to import `IONIC_DIRECTIVES` as they
 	 * are part of the `@App`s default directives.
 	 *
@@ -46022,6 +46023,7 @@
 	 * - RadioButton
 	 * - Select
 	 * - Option
+	 * - DateTime
 	 * - Toggle
 	 * - TextArea
 	 * - TextInput
@@ -46086,6 +46088,7 @@
 	    radio_button_1.RadioButton,
 	    select_1.Select,
 	    option_1.Option,
+	    datetime_1.DateTime,
 	    toggle_1.Toggle,
 	    input_1.TextArea,
 	    input_1.TextInput,
@@ -47058,7 +47061,7 @@
 
 	"use strict";
 	var util_1 = __webpack_require__(312);
-	var hammer_1 = __webpack_require__(313);
+	var hammer_1 = __webpack_require__(314);
 	/**
 	 * A gesture recognizer class.
 	 *
@@ -47132,9 +47135,429 @@
 	var domUtil = __webpack_require__(144);
 	exports.dom = domUtil;
 	__export(__webpack_require__(147));
+	__export(__webpack_require__(313));
 
 /***/ },
 /* 313 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var util_1 = __webpack_require__(147);
+	function renderDateTime(template, value, locale) {
+	    if (util_1.isBlank(value)) {
+	        return '';
+	    }
+	    var tokens = [];
+	    var hasText = false;
+	    FORMAT_KEYS.forEach(function (format, index) {
+	        if (template.indexOf(format.f) > -1) {
+	            var token = '{' + index + '}';
+	            var text = renderTextFormat(format.f, value[format.k], value, locale);
+	            if (!hasText && text && util_1.isPresent(value[format.k])) {
+	                hasText = true;
+	            }
+	            tokens.push(token, text);
+	            template = template.replace(format.f, token);
+	        }
+	    });
+	    if (!hasText) {
+	        return '';
+	    }
+	    for (var i = 0; i < tokens.length; i += 2) {
+	        template = template.replace(tokens[i], tokens[i + 1]);
+	    }
+	    return template;
+	}
+	exports.renderDateTime = renderDateTime;
+	function renderTextFormat(format, value, date, locale) {
+	    if (format === FORMAT_DDDD || format === FORMAT_DDD) {
+	        try {
+	            value = (new Date(date.year, date.month - 1, date.day)).getDay();
+	            if (format === FORMAT_DDDD) {
+	                return (util_1.isPresent(locale.dayShort) ? locale.dayShort : DAY_NAMES)[value];
+	            }
+	            return (util_1.isPresent(locale.dayShortNames) ? locale.dayShortNames : DAY_SHORT_NAMES)[value];
+	        }
+	        catch (e) { }
+	        return '';
+	    }
+	    if (format === FORMAT_A) {
+	        return date ? date.hour < 12 ? 'AM' : 'PM' : util_1.isPresent(value) ? value.toUpperCase() : '';
+	    }
+	    if (format === FORMAT_a) {
+	        return date ? date.hour < 12 ? 'am' : 'pm' : util_1.isPresent(value) ? value : '';
+	    }
+	    if (util_1.isBlank(value)) {
+	        return '';
+	    }
+	    if (format === FORMAT_YY || format === FORMAT_MM ||
+	        format === FORMAT_DD || format === FORMAT_HH ||
+	        format === FORMAT_mm) {
+	        return twoDigit(value);
+	    }
+	    if (format === FORMAT_YYYY) {
+	        return fourDigit(value);
+	    }
+	    if (format === FORMAT_MMMM) {
+	        return (util_1.isPresent(locale.monthNames) ? locale.monthNames : MONTH_NAMES)[value - 1];
+	    }
+	    if (format === FORMAT_MMM) {
+	        return (util_1.isPresent(locale.monthShortNames) ? locale.monthShortNames : MONTH_SHORT_NAMES)[value - 1];
+	    }
+	    if (format === FORMAT_hh || format === FORMAT_h) {
+	        if (value === 0) {
+	            return '12';
+	        }
+	        if (value > 12) {
+	            value -= 12;
+	        }
+	        if (format === FORMAT_hh && value < 10) {
+	            return ('0' + value);
+	        }
+	    }
+	    return value.toString();
+	}
+	exports.renderTextFormat = renderTextFormat;
+	function dateValueRange(format, min, max) {
+	    var opts = [];
+	    var i;
+	    if (format === FORMAT_YYYY || format === FORMAT_YY) {
+	        // year
+	        i = max.year;
+	        while (i >= min.year) {
+	            opts.push(i--);
+	        }
+	    }
+	    else if (format === FORMAT_MMMM || format === FORMAT_MMM ||
+	        format === FORMAT_MM || format === FORMAT_M ||
+	        format === FORMAT_hh || format === FORMAT_h) {
+	        // month or 12-hour
+	        for (i = 1; i < 13; i++) {
+	            opts.push(i);
+	        }
+	    }
+	    else if (format === FORMAT_DDDD || format === FORMAT_DDD ||
+	        format === FORMAT_DD || format === FORMAT_D) {
+	        // day
+	        for (i = 1; i < 32; i++) {
+	            opts.push(i);
+	        }
+	    }
+	    else if (format === FORMAT_HH || format === FORMAT_H) {
+	        // 24-hour
+	        for (i = 0; i < 24; i++) {
+	            opts.push(i);
+	        }
+	    }
+	    else if (format === FORMAT_mm || format === FORMAT_m) {
+	        // minutes
+	        for (i = 0; i < 60; i++) {
+	            opts.push(i);
+	        }
+	    }
+	    else if (format === FORMAT_A || format === FORMAT_a) {
+	        // AM/PM
+	        opts.push('am', 'pm');
+	    }
+	    return opts;
+	}
+	exports.dateValueRange = dateValueRange;
+	function dateSortValue(year, month, day) {
+	    return parseInt("1" + fourDigit(year) + twoDigit(month) + twoDigit(day), 10);
+	}
+	exports.dateSortValue = dateSortValue;
+	function dateDataSortValue(data) {
+	    if (data) {
+	        return dateSortValue(data.year, data.month, data.day);
+	    }
+	    return -1;
+	}
+	exports.dateDataSortValue = dateDataSortValue;
+	function daysInMonth(month, year) {
+	    return (month === 4 || month === 6 || month === 9 || month === 11) ? 30 : (month === 2) ? isLeapYear(year) ? 29 : 28 : 31;
+	}
+	exports.daysInMonth = daysInMonth;
+	function isLeapYear(year) {
+	    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+	}
+	exports.isLeapYear = isLeapYear;
+	var ISO_8601_REGEXP = /^(\d{4}|[+\-]\d{6})(?:-(\d{2})(?:-(\d{2}))?)?(?:T(\d{2}):(\d{2})(?::(\d{2})(?:\.(\d{3}))?)?(?:(Z)|([+\-])(\d{2})(?::(\d{2}))?)?)?$/;
+	var TIME_REGEXP = /^((\d{2}):(\d{2})(?::(\d{2})(?:\.(\d{3}))?)?(?:(Z)|([+\-])(\d{2})(?::(\d{2}))?)?)?$/;
+	function parseDate(val) {
+	    // manually parse IS0 cuz Date.parse cannot be trusted
+	    // ISO 8601 format: 1994-12-15T13:47:20Z
+	    var parse;
+	    if (util_1.isPresent(val) && val !== '') {
+	        // try parsing for just time first, HH:MM
+	        parse = TIME_REGEXP.exec(val);
+	        if (util_1.isPresent(parse)) {
+	            // adjust the array so it fits nicely with the datetime parse
+	            parse.unshift(undefined, undefined);
+	            parse[2] = parse[3] = undefined;
+	        }
+	        else {
+	            // try parsing for full ISO datetime
+	            parse = ISO_8601_REGEXP.exec(val);
+	        }
+	    }
+	    if (util_1.isBlank(parse)) {
+	        // wasn't able to parse the ISO datetime
+	        return null;
+	    }
+	    // ensure all the parse values exist with at least 0
+	    for (var i = 1; i < 8; i++) {
+	        parse[i] = (parse[i] !== undefined ? parseInt(parse[i], 10) : null);
+	    }
+	    var tzOffset = 0;
+	    if (util_1.isPresent(parse[9]) && util_1.isPresent(parse[10])) {
+	        // hours
+	        tzOffset = parseInt(parse[10], 10) * 60;
+	        if (util_1.isPresent(parse[11])) {
+	            // minutes
+	            tzOffset += parseInt(parse[11], 10);
+	        }
+	        if (parse[9] === '-') {
+	            // + or -
+	            tzOffset *= -1;
+	        }
+	    }
+	    return {
+	        year: parse[1],
+	        month: parse[2],
+	        day: parse[3],
+	        hour: parse[4],
+	        minute: parse[5],
+	        second: parse[6],
+	        millisecond: parse[7],
+	        tzOffset: tzOffset,
+	    };
+	}
+	exports.parseDate = parseDate;
+	function updateDate(existingData, newData) {
+	    if (util_1.isPresent(newData) && newData !== '') {
+	        if (util_1.isString(newData)) {
+	            // new date is a string, and hopefully in the ISO format
+	            // convert it to our DateTimeData if a valid ISO
+	            newData = parseDate(newData);
+	            if (newData) {
+	                // successfully parsed the ISO string to our DateTimeData
+	                util_1.assign(existingData, newData);
+	                return;
+	            }
+	        }
+	        else if ((util_1.isPresent(newData.year) || util_1.isPresent(newData.hour))) {
+	            // newData is from of a datetime picker's selected values
+	            // update the existing DateTimeData data with the new values
+	            // do some magic for 12-hour values
+	            if (util_1.isPresent(newData.ampm) && util_1.isPresent(newData.hour)) {
+	                if (newData.ampm.value === 'pm') {
+	                    newData.hour.value = (newData.hour.value === 12 ? 12 : newData.hour.value + 12);
+	                }
+	                else {
+	                    newData.hour.value = (newData.hour.value === 12 ? 0 : newData.hour.value);
+	                }
+	            }
+	            // merge new values from the picker's selection
+	            // to the existing DateTimeData values
+	            for (var k in newData) {
+	                existingData[k] = newData[k].value;
+	            }
+	            return;
+	        }
+	        // eww, invalid data
+	        console.warn("Error parsing date: \"" + newData + "\". Please provide a valid ISO 8601 datetime format: https://www.w3.org/TR/NOTE-datetime");
+	    }
+	}
+	exports.updateDate = updateDate;
+	function parseTemplate(template) {
+	    var formats = [];
+	    var foundFormats = [];
+	    FORMAT_KEYS.forEach(function (format) {
+	        var index = template.indexOf(format.f);
+	        if (index > -1) {
+	            template = template.replace(format.f, replacer(format.f));
+	            foundFormats.push({
+	                index: index,
+	                format: format.f,
+	            });
+	        }
+	    });
+	    // sort the found formats back to their original order
+	    foundFormats.sort(function (a, b) { return (a.index > b.index) ? 1 : (a.index < b.index) ? -1 : 0; });
+	    return foundFormats.map(function (val) { return val.format; });
+	}
+	exports.parseTemplate = parseTemplate;
+	function replacer(originalStr) {
+	    var r = '';
+	    for (var i = 0; i < originalStr.length; i++) {
+	        r += '^';
+	    }
+	    return r;
+	}
+	function getValueFromFormat(date, format) {
+	    if (format === FORMAT_A || format === FORMAT_a) {
+	        return (date.hour < 12 ? 'am' : 'pm');
+	    }
+	    if (format === FORMAT_hh || format === FORMAT_h) {
+	        return (date.hour > 12 ? date.hour - 12 : date.hour);
+	    }
+	    return date[convertFormatToKey(format)];
+	}
+	exports.getValueFromFormat = getValueFromFormat;
+	function convertFormatToKey(format) {
+	    for (var k in FORMAT_KEYS) {
+	        if (FORMAT_KEYS[k].f === format) {
+	            return FORMAT_KEYS[k].k;
+	        }
+	    }
+	    return null;
+	}
+	exports.convertFormatToKey = convertFormatToKey;
+	function convertDataToISO(data) {
+	    // https://www.w3.org/TR/NOTE-datetime
+	    var rtn = '';
+	    if (util_1.isPresent(data)) {
+	        if (util_1.isPresent(data.year)) {
+	            // YYYY
+	            rtn = fourDigit(data.year);
+	            if (util_1.isPresent(data.month)) {
+	                // YYYY-MM
+	                rtn += '-' + twoDigit(data.month);
+	                if (util_1.isPresent(data.day)) {
+	                    // YYYY-MM-DD
+	                    rtn += '-' + twoDigit(data.day);
+	                    if (util_1.isPresent(data.hour)) {
+	                        // YYYY-MM-DDTHH:mm:SS
+	                        rtn += "T" + twoDigit(data.hour) + ":" + twoDigit(data.minute) + ":" + twoDigit(data.second);
+	                        if (data.millisecond > 0) {
+	                            // YYYY-MM-DDTHH:mm:SS.SSS
+	                            rtn += '.' + threeDigit(data.millisecond);
+	                        }
+	                        if (data.tzOffset === 0) {
+	                            // YYYY-MM-DDTHH:mm:SSZ
+	                            rtn += 'Z';
+	                        }
+	                        else {
+	                            // YYYY-MM-DDTHH:mm:SS+/-HH:mm
+	                            rtn += (data.tzOffset > 0 ? '+' : '-') + twoDigit(Math.floor(data.tzOffset / 60)) + ':' + twoDigit(data.tzOffset % 60);
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	        else if (util_1.isPresent(data.hour)) {
+	            // HH:mm
+	            rtn = twoDigit(data.hour) + ':' + twoDigit(data.minute);
+	            if (util_1.isPresent(data.second)) {
+	                // HH:mm:SS
+	                rtn += ':' + twoDigit(data.second);
+	                if (util_1.isPresent(data.millisecond)) {
+	                    // HH:mm:SS.SSS
+	                    rtn += '.' + threeDigit(data.millisecond);
+	                }
+	            }
+	        }
+	    }
+	    return rtn;
+	}
+	exports.convertDataToISO = convertDataToISO;
+	function twoDigit(val) {
+	    return ('0' + (util_1.isPresent(val) ? val : '0')).slice(-2);
+	}
+	function threeDigit(val) {
+	    return ('00' + (util_1.isPresent(val) ? val : '0')).slice(-3);
+	}
+	function fourDigit(val) {
+	    return ('000' + (util_1.isPresent(val) ? val : '0')).slice(-4);
+	}
+	var FORMAT_YYYY = 'YYYY';
+	var FORMAT_YY = 'YY';
+	var FORMAT_MMMM = 'MMMM';
+	var FORMAT_MMM = 'MMM';
+	var FORMAT_MM = 'MM';
+	var FORMAT_M = 'M';
+	var FORMAT_DDDD = 'DDDD';
+	var FORMAT_DDD = 'DDD';
+	var FORMAT_DD = 'DD';
+	var FORMAT_D = 'D';
+	var FORMAT_HH = 'HH';
+	var FORMAT_H = 'H';
+	var FORMAT_hh = 'hh';
+	var FORMAT_h = 'h';
+	var FORMAT_mm = 'mm';
+	var FORMAT_m = 'm';
+	var FORMAT_A = 'A';
+	var FORMAT_a = 'a';
+	var FORMAT_KEYS = [
+	    { f: FORMAT_YYYY, k: 'year' },
+	    { f: FORMAT_MMMM, k: 'month' },
+	    { f: FORMAT_DDDD, k: 'day' },
+	    { f: FORMAT_MMM, k: 'month' },
+	    { f: FORMAT_DDD, k: 'day' },
+	    { f: FORMAT_YY, k: 'year' },
+	    { f: FORMAT_MM, k: 'month' },
+	    { f: FORMAT_DD, k: 'day' },
+	    { f: FORMAT_HH, k: 'hour' },
+	    { f: FORMAT_hh, k: 'hour' },
+	    { f: FORMAT_mm, k: 'minute' },
+	    { f: FORMAT_M, k: 'month' },
+	    { f: FORMAT_D, k: 'day' },
+	    { f: FORMAT_H, k: 'hour' },
+	    { f: FORMAT_h, k: 'hour' },
+	    { f: FORMAT_m, k: 'minute' },
+	    { f: FORMAT_A, k: 'ampm' },
+	    { f: FORMAT_a, k: 'ampm' },
+	];
+	var FORMAT_REGEX = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|DD?D?D?|ddd?d?|YYYY|YY|a|A|hh?|HH?|mm?|ss?|.)/g;
+	var DAY_NAMES = [
+	    'Sunday',
+	    'Monday',
+	    'Tuesday',
+	    'Wednesday',
+	    'Thursday',
+	    'Friday',
+	    'Saturday',
+	];
+	var DAY_SHORT_NAMES = [
+	    'Sun',
+	    'Mon',
+	    'Tue',
+	    'Wed',
+	    'Thu',
+	    'Fri',
+	    'Sat',
+	];
+	var MONTH_NAMES = [
+	    'January',
+	    'February',
+	    'March',
+	    'April',
+	    'May',
+	    'June',
+	    'July',
+	    'August',
+	    'September',
+	    'October',
+	    'November',
+	    'December',
+	];
+	var MONTH_SHORT_NAMES = [
+	    'Jan',
+	    'Feb',
+	    'Mar',
+	    'Apr',
+	    'May',
+	    'Jun',
+	    'Jul',
+	    'Aug',
+	    'Sep',
+	    'Oct',
+	    'Nov',
+	    'Dec',
+	];
+
+/***/ },
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49291,7 +49714,7 @@
 	win.Hammer = Hammer;
 
 /***/ },
-/* 314 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49308,8 +49731,8 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var view_controller_1 = __webpack_require__(315);
-	var navbar_1 = __webpack_require__(317);
+	var view_controller_1 = __webpack_require__(316);
+	var navbar_1 = __webpack_require__(318);
 	var menu_controller_1 = __webpack_require__(297);
 	/**
 	 * @name MenuToggle
@@ -49403,7 +49826,7 @@
 	exports.MenuToggle = MenuToggle;
 
 /***/ },
-/* 315 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49417,7 +49840,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var nav_params_1 = __webpack_require__(316);
+	var nav_params_1 = __webpack_require__(317);
 	var util_1 = __webpack_require__(147);
 	/**
 	 * @name ViewController
@@ -49896,7 +50319,7 @@
 	}
 
 /***/ },
-/* 316 */
+/* 317 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -49956,7 +50379,7 @@
 	exports.NavParams = NavParams;
 
 /***/ },
-/* 317 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49979,12 +50402,12 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var ion_1 = __webpack_require__(306);
-	var toolbar_1 = __webpack_require__(318);
+	var toolbar_1 = __webpack_require__(319);
 	var config_1 = __webpack_require__(145);
 	var app_1 = __webpack_require__(151);
 	var util_1 = __webpack_require__(147);
-	var view_controller_1 = __webpack_require__(315);
-	var nav_controller_1 = __webpack_require__(320);
+	var view_controller_1 = __webpack_require__(316);
+	var nav_controller_1 = __webpack_require__(321);
 	var BackButton = (function (_super) {
 	    __extends(BackButton, _super);
 	    function BackButton(_nav, elementRef, navbar) {
@@ -50216,7 +50639,7 @@
 	exports.NavbarTemplate = NavbarTemplate;
 
 /***/ },
-/* 318 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50238,10 +50661,10 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var button_1 = __webpack_require__(319);
+	var button_1 = __webpack_require__(320);
 	var config_1 = __webpack_require__(145);
 	var ion_1 = __webpack_require__(306);
-	var navbar_1 = __webpack_require__(317);
+	var navbar_1 = __webpack_require__(318);
 	/**
 	 * @private
 	 */
@@ -50458,7 +50881,7 @@
 	exports.ToolbarItem = ToolbarItem;
 
 /***/ },
-/* 319 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50878,7 +51301,7 @@
 	var ICON = 2;
 
 /***/ },
-/* 320 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50888,13 +51311,13 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var core_1 = __webpack_require__(8);
-	var instrumentation_1 = __webpack_require__(321);
+	var instrumentation_1 = __webpack_require__(322);
 	var ion_1 = __webpack_require__(306);
-	var nav_params_1 = __webpack_require__(316);
+	var nav_params_1 = __webpack_require__(317);
 	var util_1 = __webpack_require__(147);
-	var swipe_back_1 = __webpack_require__(322);
-	var transition_1 = __webpack_require__(323);
-	var view_controller_1 = __webpack_require__(315);
+	var swipe_back_1 = __webpack_require__(323);
+	var transition_1 = __webpack_require__(324);
+	var view_controller_1 = __webpack_require__(316);
 	/**
 	 * @name NavController
 	 * @description
@@ -52459,7 +52882,7 @@
 	var ctrlIds = -1;
 
 /***/ },
-/* 321 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';"use strict";
@@ -52471,7 +52894,7 @@
 
 
 /***/ },
-/* 322 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52525,7 +52948,7 @@
 	exports.SwipeBackGesture = SwipeBackGesture;
 
 /***/ },
-/* 323 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52534,7 +52957,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(325);
 	/**
 	 * @private
 	 **/
@@ -52562,7 +52985,7 @@
 	var TransitionRegistry = {};
 
 /***/ },
-/* 324 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53225,7 +53648,7 @@
 	var AnimationRegistry = {};
 
 /***/ },
-/* 325 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53297,7 +53720,7 @@
 	exports.MenuClose = MenuClose;
 
 /***/ },
-/* 326 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53361,7 +53784,7 @@
 	exports.Badge = Badge;
 
 /***/ },
-/* 327 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53388,7 +53811,7 @@
 	var config_1 = __webpack_require__(145);
 	var keyboard_1 = __webpack_require__(296);
 	var dom_1 = __webpack_require__(144);
-	var view_controller_1 = __webpack_require__(315);
+	var view_controller_1 = __webpack_require__(316);
 	var scroll_view_1 = __webpack_require__(299);
 	/**
 	 * @name Content
@@ -53744,7 +54167,7 @@
 	exports.Content = Content;
 
 /***/ },
-/* 328 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53882,7 +54305,7 @@
 	exports.Img = Img;
 
 /***/ },
-/* 329 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53985,7 +54408,7 @@
 	exports.Scroll = Scroll;
 
 /***/ },
-/* 330 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54002,7 +54425,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var content_1 = __webpack_require__(327);
+	var content_1 = __webpack_require__(328);
 	/**
 	 * @name InfiniteScroll
 	 * @description
@@ -54253,7 +54676,7 @@
 	var STATE_LOADING = 'loading';
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54268,7 +54691,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var config_1 = __webpack_require__(145);
-	var infinite_scroll_1 = __webpack_require__(330);
+	var infinite_scroll_1 = __webpack_require__(331);
 	/**
 	 * @private
 	 */
@@ -54315,7 +54738,7 @@
 	exports.InfiniteScrollContent = InfiniteScrollContent;
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54332,7 +54755,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var content_1 = __webpack_require__(327);
+	var content_1 = __webpack_require__(328);
 	var util_1 = __webpack_require__(147);
 	var dom_1 = __webpack_require__(144);
 	/**
@@ -54836,7 +55259,7 @@
 	var STATE_COMPLETING = 'completing';
 
 /***/ },
-/* 333 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54851,7 +55274,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var config_1 = __webpack_require__(145);
-	var refresher_1 = __webpack_require__(332);
+	var refresher_1 = __webpack_require__(333);
 	/**
 	 * @private
 	 */
@@ -54915,7 +55338,7 @@
 	exports.RefresherContent = RefresherContent;
 
 /***/ },
-/* 334 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54939,12 +55362,12 @@
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(155);
 	var ion_1 = __webpack_require__(306);
-	var animation_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(325);
 	var gesture_1 = __webpack_require__(311);
 	var util_1 = __webpack_require__(312);
 	var dom_1 = __webpack_require__(144);
 	var util_2 = __webpack_require__(147);
-	var swiper_widget_1 = __webpack_require__(335);
+	var swiper_widget_1 = __webpack_require__(336);
 	/**
 	 * @name Slides
 	 * @description
@@ -55703,7 +56126,7 @@
 	var slidesId = -1;
 
 /***/ },
-/* 335 */
+/* 336 */
 /***/ function(module, exports) {
 
 	/**
@@ -59663,7 +60086,7 @@
 
 
 /***/ },
-/* 336 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59687,12 +60110,12 @@
 	var core_1 = __webpack_require__(8);
 	var app_1 = __webpack_require__(151);
 	var config_1 = __webpack_require__(145);
-	var tab_button_1 = __webpack_require__(337);
-	var tab_highlight_1 = __webpack_require__(339);
+	var tab_button_1 = __webpack_require__(338);
+	var tab_highlight_1 = __webpack_require__(340);
 	var ion_1 = __webpack_require__(306);
 	var platform_1 = __webpack_require__(146);
-	var nav_controller_1 = __webpack_require__(320);
-	var view_controller_1 = __webpack_require__(315);
+	var nav_controller_1 = __webpack_require__(321);
+	var view_controller_1 = __webpack_require__(316);
 	var util_1 = __webpack_require__(147);
 	/**
 	 * @name Tabs
@@ -60125,7 +60548,7 @@
 	}());
 
 /***/ },
-/* 337 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60144,7 +60567,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var tab_1 = __webpack_require__(338);
+	var tab_1 = __webpack_require__(339);
 	var ion_1 = __webpack_require__(306);
 	var config_1 = __webpack_require__(145);
 	/**
@@ -60207,7 +60630,7 @@
 	exports.TabButton = TabButton;
 
 /***/ },
-/* 338 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60233,8 +60656,8 @@
 	var config_1 = __webpack_require__(145);
 	var util_1 = __webpack_require__(147);
 	var keyboard_1 = __webpack_require__(296);
-	var nav_controller_1 = __webpack_require__(320);
-	var tabs_1 = __webpack_require__(336);
+	var nav_controller_1 = __webpack_require__(321);
+	var tabs_1 = __webpack_require__(337);
 	/**
 	 * @name Tab
 	 * @description
@@ -60557,7 +60980,7 @@
 	exports.Tab = Tab;
 
 /***/ },
-/* 339 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60605,7 +61028,7 @@
 	exports.TabHighlight = TabHighlight;
 
 /***/ },
-/* 340 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60628,7 +61051,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var ion_1 = __webpack_require__(306);
-	var item_sliding_gesture_1 = __webpack_require__(341);
+	var item_sliding_gesture_1 = __webpack_require__(342);
 	/**
 	 * The List is a widely used interface element in almost any mobile app,
 	 * and can include content ranging from basic text all the way to
@@ -60756,7 +61179,7 @@
 	exports.ListHeader = ListHeader;
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60765,7 +61188,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var hammer_1 = __webpack_require__(313);
+	var hammer_1 = __webpack_require__(314);
 	var drag_gesture_1 = __webpack_require__(310);
 	var dom_1 = __webpack_require__(144);
 	var ItemSlidingGesture = (function (_super) {
@@ -60978,7 +61401,7 @@
 	var DRAG_THRESHOLD = 20;
 
 /***/ },
-/* 342 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60992,10 +61415,10 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var button_1 = __webpack_require__(319);
+	var button_1 = __webpack_require__(320);
 	var form_1 = __webpack_require__(150);
-	var icon_1 = __webpack_require__(343);
-	var label_1 = __webpack_require__(344);
+	var icon_1 = __webpack_require__(344);
+	var label_1 = __webpack_require__(345);
 	/**
 	 * @name Item
 	 * @description
@@ -61159,7 +61582,7 @@
 	                '<ion-label *ngIf="_viewLabel">' +
 	                '<ng-content></ng-content>' +
 	                '</ion-label>' +
-	                '<ng-content select="ion-select,ion-input,ion-textarea"></ng-content>' +
+	                '<ng-content select="ion-select,ion-input,ion-textarea,ion-datetime"></ng-content>' +
 	                '</div>' +
 	                '<ng-content select="[item-right],ion-radio,ion-toggle"></ng-content>' +
 	                '</div>' +
@@ -61178,7 +61601,7 @@
 	exports.Item = Item;
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61367,7 +61790,7 @@
 	exports.Icon = Icon;
 
 /***/ },
-/* 344 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61492,7 +61915,7 @@
 	exports.Label = Label;
 
 /***/ },
-/* 345 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61509,7 +61932,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var list_1 = __webpack_require__(340);
+	var list_1 = __webpack_require__(341);
 	/**
 	 * @name ItemSliding
 	 *
@@ -61586,7 +62009,7 @@
 	var slideIds = 0;
 
 /***/ },
-/* 346 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61604,14 +62027,14 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var config_1 = __webpack_require__(145);
-	var content_1 = __webpack_require__(327);
+	var content_1 = __webpack_require__(328);
 	var platform_1 = __webpack_require__(146);
-	var view_controller_1 = __webpack_require__(315);
-	var virtual_item_1 = __webpack_require__(347);
-	var virtual_util_1 = __webpack_require__(348);
+	var view_controller_1 = __webpack_require__(316);
+	var virtual_item_1 = __webpack_require__(348);
+	var virtual_util_1 = __webpack_require__(349);
 	var util_1 = __webpack_require__(147);
 	var dom_1 = __webpack_require__(144);
-	var img_1 = __webpack_require__(328);
+	var img_1 = __webpack_require__(329);
 	/**
 	 * @name VirtualScroll
 	 * @description
@@ -62216,7 +62639,7 @@
 	var QUEUE_WRITE_TO_NODES = 1;
 
 /***/ },
-/* 347 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62278,7 +62701,7 @@
 	exports.VirtualItem = VirtualItem;
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62780,7 +63203,7 @@
 	var REQUIRED_DOM_READS = 2;
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63081,7 +63504,7 @@
 	};
 
 /***/ },
-/* 350 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63100,7 +63523,7 @@
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(155);
 	var form_1 = __webpack_require__(150);
-	var item_1 = __webpack_require__(342);
+	var item_1 = __webpack_require__(343);
 	var util_1 = __webpack_require__(147);
 	var CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 	/**
@@ -63295,7 +63718,7 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63313,13 +63736,13 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(155);
-	var alert_1 = __webpack_require__(352);
-	var action_sheet_1 = __webpack_require__(353);
+	var alert_1 = __webpack_require__(353);
+	var action_sheet_1 = __webpack_require__(354);
 	var form_1 = __webpack_require__(150);
-	var item_1 = __webpack_require__(342);
+	var item_1 = __webpack_require__(343);
 	var util_1 = __webpack_require__(147);
-	var nav_controller_1 = __webpack_require__(320);
-	var option_1 = __webpack_require__(354);
+	var nav_controller_1 = __webpack_require__(321);
+	var option_1 = __webpack_require__(355);
 	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 	/**
 	 * @name Select
@@ -63537,7 +63960,7 @@
 	            this.interface = 'alert';
 	            // user cannot provide inputs from alertOptions
 	            // alert inputs must be created by ionic from ion-options
-	            alertOptions.inputs = this._options.toArray().map(function (input) {
+	            alertOptions.inputs = this._options.map(function (input) {
 	                return {
 	                    type: (_this._multi ? 'checkbox' : 'radio'),
 	                    label: input.text,
@@ -63601,7 +64024,7 @@
 	            if (!this._values.length) {
 	                // there are no values set at this point
 	                // so check to see who should be checked
-	                this._values = val.toArray().filter(function (o) { return o.checked; }).map(function (o) { return o.value; });
+	                this._values = val.filter(function (o) { return o.checked; }).map(function (o) { return o.value; });
 	            }
 	            this._updOpts();
 	        },
@@ -63615,7 +64038,7 @@
 	        var _this = this;
 	        this._texts = [];
 	        if (this._options) {
-	            this._options.toArray().forEach(function (option) {
+	            this._options.forEach(function (option) {
 	                // check this option if the option's value is in the values array
 	                option.checked = _this._values.some(function (selectValue) {
 	                    return util_1.isCheckedProperty(selectValue, option.value);
@@ -63776,7 +64199,7 @@
 	exports.Select = Select;
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63795,12 +64218,12 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var animation_1 = __webpack_require__(324);
-	var transition_1 = __webpack_require__(323);
+	var animation_1 = __webpack_require__(325);
+	var transition_1 = __webpack_require__(324);
 	var config_1 = __webpack_require__(145);
 	var util_1 = __webpack_require__(147);
-	var nav_params_1 = __webpack_require__(316);
-	var view_controller_1 = __webpack_require__(315);
+	var nav_params_1 = __webpack_require__(317);
+	var view_controller_1 = __webpack_require__(316);
 	/**
 	 * @name Alert
 	 * @description
@@ -64443,7 +64866,7 @@
 	var alertIds = -1;
 
 /***/ },
-/* 353 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64462,12 +64885,12 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var animation_1 = __webpack_require__(324);
-	var transition_1 = __webpack_require__(323);
+	var animation_1 = __webpack_require__(325);
+	var transition_1 = __webpack_require__(324);
 	var config_1 = __webpack_require__(145);
 	var util_1 = __webpack_require__(147);
-	var nav_params_1 = __webpack_require__(316);
-	var view_controller_1 = __webpack_require__(315);
+	var nav_params_1 = __webpack_require__(317);
+	var view_controller_1 = __webpack_require__(316);
 	/**
 	 * @name ActionSheet
 	 * @description
@@ -64896,7 +65319,7 @@
 	var actionSheetIds = -1;
 
 /***/ },
-/* 354 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64990,7 +65413,1420 @@
 	exports.Option = Option;
 
 /***/ },
-/* 355 */
+/* 356 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(8);
+	var common_1 = __webpack_require__(155);
+	var config_1 = __webpack_require__(145);
+	var picker_1 = __webpack_require__(357);
+	var form_1 = __webpack_require__(150);
+	var item_1 = __webpack_require__(343);
+	var util_1 = __webpack_require__(147);
+	var datetime_util_1 = __webpack_require__(313);
+	var nav_controller_1 = __webpack_require__(321);
+	var DATETIME_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return DateTime; }), multi: true });
+	/**
+	 * @name DateTime
+	 * @description
+	 * The `ion-datetime` component is similar to an HTML `<input type="datetime-local">`
+	 * input, however, Ionic's datetime component makes it easier for developers to
+	 * display an exact datetime input format and manage values within JavaScript.
+	 * Additionally, the datetime component makes it easier for users to scroll through
+	 * and individually select parts of date and time values from an easy to user interface.
+	 *
+	 * ```html
+	 * <ion-item>
+	 *   <ion-label>Date</ion-label>
+	 *   <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate">
+	 *   </ion-datetime>
+	 * </ion-item>
+	 * ```
+	 *
+	 *
+	 * ### Display and Picker Formats
+	 *
+	 * How datetime values can be displayed can come in many variations formats,
+	 * therefore it is best to let the app decide exactly how to display it. To do
+	 * so, `ion-datetime` uses a common format seen in many other libraries and
+	 * programming languages:
+	 *
+	 * | Format   | Description         | Examples       |
+	 * |----------|---------------------|----------------|
+	 * | `YYYY`   | Year, 4 digits      | `2018`         |
+	 * | `YY`     | Year, 2 digits      | `18`           |
+	 * | `M`      | Month, 1 digit      | `1` .. `12`    |
+	 * | `MM`     | Month, 2 digit      | `01` .. `12`   |
+	 * | `MMM`    | Month, short name   | `Jan` *        |
+	 * | `MMMM`   | Month, full name    | `January` *    |
+	 * | `D`      | Day, 1 digit        | `1` .. `31`    |
+	 * | `DD`     | Day, 2 digit        | `01` .. `31`   |
+	 * | `DDD`    | Day, short name     | `Fri` *        |
+	 * | `DDDD`   | Day, full name      | `Friday` *     |
+	 * | `H`      | 24-hour, 1 digit    | `0` .. `23`    |
+	 * | `HH`     | 24-hour, 2 digit    | `00` .. `23`   |
+	 * | `h`      | 12-hour, 1 digit    | `1` .. `12`    |
+	 * | `hh`     | 12-hour, 2 digit    | `01` .. `12`   |
+	 * | `a`      | am/pm, lower case   | `am` `pm`      |
+	 * | `A`      | AM/PM, upper case   | `AM` `PM`      |
+	 * | `m`      | minute, 1 digit     | `1` .. `59`    |
+	 * | `mm`     | minute, 2 digit     | `01` .. `59`   |
+	 * | `s`      | seconds, 1 digit    | `1` .. `59`    |
+	 * | `ss`     | seconds, 2 digit    | `01` .. `59`   |
+	 * | `Z`      | UTC Timezone Offset |                |
+	 *
+	 * * See the "Month Names and Day of the Week Names" section below on how to
+	 * use names other than the default English month and day names.
+	 *
+	 * The `displayFormat` input allows developers to specify how a date's value
+	 * should be displayed within the `ion-datetime`. The `pickerFormat` decides
+	 * which datetime picker columns should be shown, the order of the columns, and
+	 * which format to display the value in. If a `pickerFormat` is not provided
+	 * then it'll use the `displayFormat` instead. In most cases only providing the
+	 * `displayFormat` is needed.
+	 *
+	 * In the example below, the datetime's display would use the month's short
+	 * name, the 1 digit day in the month, and a 4 digit year.
+	 *
+	 * ```html
+	 * <ion-item>
+	 *   <ion-label>Date</ion-label>
+	 *   <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate">
+	 *   </ion-datetime>
+	 * </ion-item>
+	 * ```
+	 *
+	 * In this example, the datetime's display would only show hours and minutes,
+	 * and the hours would be in the 24-hour format. Note that the divider between
+	 * the hours and minutes, in this case the `:` character, can be have any
+	 * character which the app chooses to use as the divider.
+	 *
+	 * ```html
+	 * <ion-item>
+	 *   <ion-label>Date</ion-label>
+	 *   <ion-datetime displayFormat="HH:mm" [(ngModel)]="myDate">
+	 *   </ion-datetime>
+	 * </ion-item>
+	 * ```
+	 *
+	 *
+	 * ### Datetime Data
+	 *
+	 * Historically, handling datetime data within JavaScript, or even within HTML
+	 * inputs, has always been a challenge. Specifically, JavaScript's `Date` object is
+	 * notoriously difficult to correctly parse apart datetime strings or to format
+	 * datetime values. Even worse is how different browsers and JavaScript versions
+	 * parse various datetime strings differently, especially per locale. Additional,
+	 * developers face even more challenges when dealing with timezones using
+	 * JavaScript's core `Date` object.
+	 *
+	 * But no worries, all is not lost! Ionic's datetime input has been designed so
+	 * developers can avoid the common pitfalls, allowing developers to easily format
+	 * datetime data within the input, and give the user a simple datetime picker for a
+	 * great user experience. Oddly enough, one of the best ways to work with datetime
+	 * values in JavaScript is to not use the `Date` object at all.
+	 *
+	 * ##### ISO 8601 Datetime Format: YYYY-MM-DDTHH:mmZ
+	 *
+	 * For all the reasons above, and how datetime data is commonly saved within databases,
+	 * Ionic uses the [ISO 8601 datetime format](https://www.w3.org/TR/NOTE-datetime)
+	 * for both its input value, and output value. The value is simply a string, rather
+	 * than using JavaScript's `Date` object, and it strictly follows the standardized
+	 * ISO 8601 format. Additionally, when using the ISO datetime string format, it makes
+	 * it easier on developers when passing data within JSON objects, and sending databases
+	 * a standardized datetime format which it can be easily parse apart and formatted.
+	 * Because of the strict adherence to the ISO 8601 format, and not involving the hundreds
+	 * of other format possibilities and locales, this approach actually makes it easier
+	 * for Ionic apps and backend-services to manage datetime data.
+	 *
+	 * An ISO format can be used as a simple year, or just the hour and minute, or get more
+	 * detailed down to the millisecond and timezone. Any of the ISO formats below can be used,
+	 * and after a user selects a new date, Ionic will continue to use the same ISO format
+	 * which datetime value was originally given as.
+	 *
+	 * | Description          | Format                 | Datetime Value Example       |
+	 * |----------------------|------------------------|------------------------------|
+	 * | Year                 | YYYY                   | 1994                         |
+	 * | Year and Month       | YYYY-MM                | 1994-12                      |
+	 * | Complete Date        | YYYY-MM-DD             | 1994-12-15                   |
+	 * | Date and Time        | YYYY-MM-DDTHH:mm       | 1994-12-15T13:47             |
+	 * | UTC Timezone         | YYYY-MM-DDTHH:mm:ssTZD | 1994-12-15T13:47:20.789Z     |
+	 * | Timezone Offset      | YYYY-MM-DDTHH:mm:ssTZD | 1994-12-15T13:47:20.789+5:00 |
+	 * | Hour and Minute      | HH:mm                  | 13:47                        |
+	 * | Hour, Minute, Second | HH:mm:ss               | 13:47:20                     |
+	 *
+	 * Note that the year is always four-digits, milliseconds (if it's added) is always
+	 * three-digits, and all others are always two-digits. So the number representing
+	 * January always has a leading zero, such as `01`. Additionally, the hour is always
+	 * in the 24-hour format, so `00` is `12am` on a 12-hour clock, `13` means `1pm`,
+	 * and `23` means `11pm`.
+	 *
+	 * It's also important to note that neither the `displayFormat` or `pickerFormat` can
+	 * set the datetime value's output, which is the value that sent the the component's
+	 * `ngModel`. The format's are merely for displaying the value as text and the picker's
+	 * interface, but the datetime's value is always persisted as a valid ISO 8601 datetime
+	 * string.
+	 *
+	 *
+	 * ### Min and Max Datetimes
+	 *
+	 * Dates are infinite in either direction, so for a user selection there should be at
+	 * least some form of restricting the dates can be selected. Be default, the maximum
+	 * date is to the end of the current year, and the minimum date is from the beginning
+	 * of the year that was 100 years ago.
+	 *
+	 * To customize the minimum and maximum datetime values, the `min` and `max` component
+	 * inputs can be provided which may make more sense for the app's use-case, rather
+	 * than the default of the last 100 years. Following the same IS0 8601 format listed
+	 * in the table above, each component can restrict which dates can be selected by the
+	 * user. Below is an example of restricting the date selection between the beginning
+	 * of 2016, and October 31st of 2020:
+	 *
+	 * ```html
+	 * <ion-item>
+	 *   <ion-label>Date</ion-label>
+	 *   <ion-datetime displayFormat="MMMM YYYY" min="2016" max="2020-10-31" [(ngModel)]="myDate">
+	 *   </ion-datetime>
+	 * </ion-item>
+	 * ```
+	 *
+	 *
+	 * ### Month Names and Day of the Week Names
+	 *
+	 * At this time, there is no one-size-fits-all standard to automatically choose the correct
+	 * language/spelling for a month name, or day of the week name, depending on the language
+	 * or locale. Good news is that there is an
+	 * [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat)
+	 * standard which *most* browsers have adopted. However, at this time the standard has not
+	 * been fully implemented by all popular browsers so Ionic is unavailable to take advantage
+	 * of it *yet*. Additionally, Angular also provides an internationalization service, but it
+	 * is still under heavy development so Ionic does not depend on it at this time.
+	 *
+	 * All things considered, the by far easiest solution is to just provide an array of names
+	 * if the app needs to use names other than the default English version of month and day
+	 * names. The month names and day names can be either configurated at the app level, or
+	 * individual `ion-datetime` level.
+	 *
+	 * ##### App Config Level
+	 *
+	 * ```ts
+	 * @App({
+	 *   config: {
+	 *     monthNames: ['janeiro, 'fevereiro', 'mar\u00e7o', ... ],
+	 *     monthShortNames: ['jan', 'fev', 'mar', ... ],
+	 *     dayNames: ['domingo', 'segunda-feira', 'ter\u00e7a-feira', ... ],
+	 *     dayShortNames: ['dom', 'seg', 'ter', ... ],
+	 *   }
+	 * })
+	 * ```
+	 *
+	 * ##### Component Input Level
+	 *
+	 * ```html
+	 * <ion-item>
+	 *   <ion-label>Período</ion-label>
+	 *   <ion-datetime displayFormat="DDDD MMM D, YYYY" [(ngModel)]="myDate"
+	 *     [monthNames]="['janeiro, 'fevereiro', 'mar\u00e7o', ... ]"
+	 *     [monthShortNames]="['jan', 'fev', 'mar', ... ]"
+	 *     [dayNames]="['domingo', 'segunda-feira', 'ter\u00e7a-feira', ... ]"
+	 *     [dayShortNames]="['dom', 'seg', 'ter', ... ]"
+	 *     ></ion-datetime>
+	 * </ion-item>
+	 * ```
+	 *
+	 *
+	 * ### Advanced Datetime Validation and Manipulation
+	 *
+	 * The datetime picker provides the simplicity of selecting an exact format, and persists
+	 * the datetime values as a string using the standardized
+	 * [ISO 8601 datetime format](https://www.w3.org/TR/NOTE-datetime).
+	 * However, it's important to note that `ion-datetime` does not attempt to solve all
+	 * situtations when validating and manipulating datetime values. If datetime values need
+	 * to be parsed from a certain format, or manipulated (such as adding 5 days to a date,
+	 * subtracting 30 minutes), or even formatting data to a specific locale, then we highly
+	 * recommend using [moment.js](http://momentjs.com/) to "Parse, validate, manipulate, and
+	 * display dates in JavaScript". [Moment.js](http://momentjs.com/) has quickly become
+	 * our goto standard when dealing with datetimes within JavaScript, but Ionic does not
+	 * prepackage this dependency since most apps will not require it, and its locale
+	 * configuration should be decided by the end-developer.
+	 *
+	 *
+	 */
+	var DateTime = (function () {
+	    function DateTime(_form, _config, _item, _nav) {
+	        this._form = _form;
+	        this._config = _config;
+	        this._item = _item;
+	        this._nav = _nav;
+	        this._disabled = false;
+	        this._text = '';
+	        this._isOpen = false;
+	        this._value = {};
+	        this._locale = {};
+	        /**
+	         * @input {string} The display format of the date and time as text that shows
+	         * within the item. When the `pickerFormat` input is not used, then the
+	         * `displayFormat` is used for both display the formatted text, and determining
+	         * the datetime picker's columns. See the `pickerFormat` input description for
+	         * more info. Defaults to `MMM D, YYYY`.
+	         */
+	        this.displayFormat = 'MMM D, YYYY';
+	        /**
+	         * @input {string} The text to display on the picker's cancel button. Default: `Cancel`.
+	         */
+	        this.cancelText = 'Cancel';
+	        /**
+	         * @input {string} The text to display on the picker's "Done" button. Default: `Done`.
+	         */
+	        this.doneText = 'Done';
+	        /**
+	         * @input {any} Any addition options that the picker interface can accept.
+	         * See the [Picker API docs](../../picker/Picker) for the picker options.
+	         */
+	        this.pickerOptions = {};
+	        /**
+	         * @output {any} Any expression to evaluate when the datetime selection has changed.
+	         */
+	        this.change = new core_1.EventEmitter();
+	        /**
+	         * @output {any} Any expression to evaluate when the datetime selection was cancelled.
+	         */
+	        this.cancel = new core_1.EventEmitter();
+	        this._form.register(this);
+	        if (_item) {
+	            this.id = 'dt-' + _item.registerInput('datetime');
+	            this._labelId = 'lbl-' + _item.id;
+	            this._item.setCssClass('item-datetime', true);
+	        }
+	        if (!_nav) {
+	            console.error('parent <ion-nav> required for <ion-datetime>');
+	        }
+	    }
+	    DateTime.prototype._click = function (ev) {
+	        if (ev.detail === 0) {
+	            // do not continue if the click event came from a form submit
+	            return;
+	        }
+	        ev.preventDefault();
+	        ev.stopPropagation();
+	        this.open();
+	    };
+	    DateTime.prototype._keyup = function (ev) {
+	        if (!this._isOpen) {
+	            this.open();
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.open = function () {
+	        var _this = this;
+	        if (this._disabled) {
+	            return;
+	        }
+	        console.debug('datetime, open picker');
+	        // the user may have assigned some options specifically for the alert
+	        var pickerOptions = util_1.merge({}, this.pickerOptions);
+	        var picker = picker_1.Picker.create(pickerOptions);
+	        pickerOptions.buttons = [
+	            {
+	                text: this.cancelText,
+	                role: 'cancel',
+	                handler: function () {
+	                    _this.cancel.emit(null);
+	                }
+	            },
+	            {
+	                text: this.doneText,
+	                handler: function (data) {
+	                    console.log('datetime, done', data);
+	                    _this.onChange(data);
+	                    _this.change.emit(data);
+	                }
+	            }
+	        ];
+	        this.generate(picker);
+	        this.validate(picker);
+	        picker.change.subscribe(function () {
+	            _this.validate(picker);
+	        });
+	        this._nav.present(picker, pickerOptions);
+	        this._isOpen = true;
+	        picker.onDismiss(function () {
+	            _this._isOpen = false;
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.generate = function (picker) {
+	        var _this = this;
+	        // if a picker format wasn't provided, then fallback
+	        // to use the display format
+	        var template = this.pickerFormat || this.displayFormat;
+	        if (util_1.isPresent(template)) {
+	            // make sure we've got up to date sizing information
+	            this.calcMinMax();
+	            // does not support selecting by day name
+	            // automaticallly remove any day name formats
+	            template = template.replace('DDDD', '{~}').replace('DDD', '{~}');
+	            if (template.indexOf('D') === -1) {
+	                // there is not a day in the template
+	                // replace the day name with a numeric one if it exists
+	                template = template.replace('{~}', 'D');
+	            }
+	            // make sure no day name replacer is left in the string
+	            template = template.replace(/{~}/g, '');
+	            // parse apart the given template into an array of "formats"
+	            datetime_util_1.parseTemplate(template).forEach(function (format) {
+	                // loop through each format in the template
+	                // create a new picker column to build up with data
+	                var key = datetime_util_1.convertFormatToKey(format);
+	                var values;
+	                // first see if they have exact values to use for this input
+	                if (util_1.isPresent(_this[key + 'Values'])) {
+	                    // user provide exact values for this date part
+	                    values = convertToArrayOfNumbers(_this[key + 'Values'], key);
+	                }
+	                else {
+	                    // use the default date part values
+	                    values = datetime_util_1.dateValueRange(format, _this._min, _this._max);
+	                }
+	                var column = {
+	                    name: key,
+	                    options: values.map(function (val) {
+	                        return {
+	                            value: val,
+	                            text: datetime_util_1.renderTextFormat(format, val, null, _this._locale),
+	                        };
+	                    })
+	                };
+	                if (column.options.length) {
+	                    // cool, we've loaded up the columns with options
+	                    // preselect the option for this column
+	                    var selected = column.options.find(function (opt) { return opt.value === datetime_util_1.getValueFromFormat(_this._value, format); });
+	                    if (selected) {
+	                        // set the select index for this column's options
+	                        column.selectedIndex = column.options.indexOf(selected);
+	                    }
+	                    // add our newly created column to the picker
+	                    picker.addColumn(column);
+	                }
+	            });
+	            this.divyColumns(picker);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.validate = function (picker) {
+	        var i;
+	        var today = new Date();
+	        var columns = picker.getColumns();
+	        // find the columns used
+	        var yearCol = columns.find(function (col) { return col.name === 'year'; });
+	        var monthCol = columns.find(function (col) { return col.name === 'month'; });
+	        var dayCol = columns.find(function (col) { return col.name === 'day'; });
+	        var yearOpt;
+	        var monthOpt;
+	        var dayOpt;
+	        // default to assuming today's year
+	        var selectedYear = today.getFullYear();
+	        if (yearCol) {
+	            yearOpt = yearCol.options[yearCol.selectedIndex];
+	            if (yearOpt) {
+	                // they have a selected year value
+	                selectedYear = yearOpt.value;
+	            }
+	        }
+	        // default to assuming this month has 31 days
+	        var numDaysInMonth = 31;
+	        var selectedMonth;
+	        if (monthCol) {
+	            monthOpt = monthCol.options[monthCol.selectedIndex];
+	            if (monthOpt) {
+	                // they have a selected month value
+	                selectedMonth = monthOpt.value;
+	                // calculate how many days are in this month
+	                numDaysInMonth = datetime_util_1.daysInMonth(selectedMonth, selectedYear);
+	            }
+	        }
+	        // create sort values for the min/max datetimes
+	        var minCompareVal = datetime_util_1.dateDataSortValue(this._min);
+	        var maxCompareVal = datetime_util_1.dateDataSortValue(this._max);
+	        if (monthCol) {
+	            // enable/disable which months are valid
+	            // to show within the min/max date range
+	            for (i = 0; i < monthCol.options.length; i++) {
+	                monthOpt = monthCol.options[i];
+	                // loop through each month and see if it
+	                // is within the min/max date range
+	                monthOpt.disabled = (datetime_util_1.dateSortValue(selectedYear, monthOpt.value, 31) < minCompareVal ||
+	                    datetime_util_1.dateSortValue(selectedYear, monthOpt.value, 1) > maxCompareVal);
+	            }
+	        }
+	        if (dayCol) {
+	            if (util_1.isPresent(selectedMonth)) {
+	                // enable/disable which days are valid
+	                // to show within the min/max date range
+	                for (i = 0; i < 31; i++) {
+	                    dayOpt = dayCol.options[i];
+	                    // loop through each day and see if it
+	                    // is within the min/max date range
+	                    var compareVal = datetime_util_1.dateSortValue(selectedYear, selectedMonth, dayOpt.value);
+	                    dayOpt.disabled = (compareVal < minCompareVal ||
+	                        compareVal > maxCompareVal ||
+	                        numDaysInMonth <= i);
+	                }
+	            }
+	            else {
+	                // enable/disable which numbers of days to show in this month
+	                for (i = 0; i < 31; i++) {
+	                    dayCol.options[i].disabled = (numDaysInMonth <= i);
+	                }
+	            }
+	        }
+	        picker.refresh();
+	    };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.divyColumns = function (picker) {
+	        var pickerColumns = picker.getColumns();
+	        var columns = [];
+	        pickerColumns.forEach(function (col, i) {
+	            columns.push(0);
+	            col.options.forEach(function (opt) {
+	                if (opt.text.length > columns[i]) {
+	                    columns[i] = opt.text.length;
+	                }
+	            });
+	        });
+	        if (columns.length === 2) {
+	            var width = Math.max(columns[0], columns[1]);
+	            pickerColumns[0].columnWidth = pickerColumns[1].columnWidth = width * 16 + "px";
+	        }
+	        else if (columns.length === 3) {
+	            var width = Math.max(columns[0], columns[2]);
+	            pickerColumns[1].columnWidth = columns[1] * 16 + "px";
+	            pickerColumns[0].columnWidth = pickerColumns[2].columnWidth = width * 16 + "px";
+	        }
+	        else if (columns.length > 3) {
+	            columns.forEach(function (col, i) {
+	                pickerColumns[i].columnWidth = col * 12 + "px";
+	            });
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.setValue = function (newData) {
+	        datetime_util_1.updateDate(this._value, newData);
+	    };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.getValue = function () {
+	        return this._value;
+	    };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.updateText = function () {
+	        // create the text of the formatted data
+	        this._text = datetime_util_1.renderDateTime(this.displayFormat, this._value, this._locale);
+	    };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.calcMinMax = function () {
+	        var todaysYear = new Date().getFullYear();
+	        if (util_1.isBlank(this.min)) {
+	            if (util_1.isPresent(this.yearValues)) {
+	                this.min = Math.min.apply(Math, convertToArrayOfNumbers(this.yearValues, 'year'));
+	            }
+	            else {
+	                this.min = (todaysYear - 100).toString();
+	            }
+	        }
+	        if (util_1.isBlank(this.max)) {
+	            if (util_1.isPresent(this.yearValues)) {
+	                this.max = Math.max.apply(Math, convertToArrayOfNumbers(this.yearValues, 'year'));
+	            }
+	            else {
+	                this.max = todaysYear.toString();
+	            }
+	        }
+	        var min = this._min = datetime_util_1.parseDate(this.min);
+	        var max = this._max = datetime_util_1.parseDate(this.max);
+	        min.month = min.month || 1;
+	        min.day = min.day || 1;
+	        min.hour = min.hour || 0;
+	        min.minute = min.minute || 0;
+	        min.second = min.second || 0;
+	        max.month = max.month || 12;
+	        max.day = max.day || 31;
+	        max.hour = max.hour || 23;
+	        max.minute = max.minute || 59;
+	        max.second = max.second || 59;
+	    };
+	    Object.defineProperty(DateTime.prototype, "disabled", {
+	        /**
+	         * @input {boolean} Whether or not the datetime component is disabled. Default `false`.
+	         */
+	        get: function () {
+	            return this._disabled;
+	        },
+	        set: function (val) {
+	            this._disabled = util_1.isTrueProperty(val);
+	            this._item && this._item.setCssClass('item-datetime-disabled', this._disabled);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.writeValue = function (val) {
+	        console.debug('datetime, writeValue', val);
+	        this.setValue(val);
+	        this.updateText();
+	    };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.ngAfterContentInit = function () {
+	        var _this = this;
+	        // first see if locale names were provided in the inputs
+	        // then check to see if they're in the config
+	        // if neither were provided then it will use default English names
+	        ['monthNames', 'monthShortNames', 'dayNames', 'dayShortNames'].forEach(function (type) {
+	            _this._locale[type] = convertToArrayOfStrings(util_1.isPresent(_this[type]) ? _this[type] : _this._config.get(type), type);
+	        });
+	        // update how the datetime value is displayed as formatted text
+	        this.updateText();
+	    };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.registerOnChange = function (fn) {
+	        var _this = this;
+	        this._fn = fn;
+	        this.onChange = function (val) {
+	            console.debug('datetime, onChange', val);
+	            _this.setValue(val);
+	            _this.updateText();
+	            // convert DateTimeData value to iso datetime format
+	            fn(datetime_util_1.convertDataToISO(_this._value));
+	            _this.onTouched();
+	        };
+	    };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.onChange = function (val) {
+	        // onChange used when there is not an ngControl
+	        console.debug('datetime, onChange w/out ngControl', val);
+	        this.setValue(val);
+	        this.updateText();
+	        this.onTouched();
+	    };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.onTouched = function () { };
+	    /**
+	     * @private
+	     */
+	    DateTime.prototype.ngOnDestroy = function () {
+	        this._form.deregister(this);
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], DateTime.prototype, "min", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], DateTime.prototype, "max", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], DateTime.prototype, "displayFormat", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], DateTime.prototype, "pickerFormat", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], DateTime.prototype, "cancelText", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], DateTime.prototype, "doneText", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], DateTime.prototype, "yearValues", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], DateTime.prototype, "monthValues", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], DateTime.prototype, "dayValues", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], DateTime.prototype, "hourValues", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], DateTime.prototype, "minuteValues", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], DateTime.prototype, "monthNames", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], DateTime.prototype, "monthShortNames", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], DateTime.prototype, "dayNames", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], DateTime.prototype, "dayShortNames", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], DateTime.prototype, "pickerOptions", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], DateTime.prototype, "change", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], DateTime.prototype, "cancel", void 0);
+	    __decorate([
+	        core_1.HostListener('click', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], DateTime.prototype, "_click", null);
+	    __decorate([
+	        core_1.HostListener('keyup.space', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], DateTime.prototype, "_keyup", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], DateTime.prototype, "disabled", null);
+	    DateTime = __decorate([
+	        core_1.Component({
+	            selector: 'ion-datetime',
+	            template: '<div class="datetime-text">{{_text}}</div>' +
+	                '<button aria-haspopup="true" ' +
+	                'type="button" ' +
+	                '[id]="id" ' +
+	                'category="item-cover" ' +
+	                '[attr.aria-labelledby]="_labelId" ' +
+	                '[attr.aria-disabled]="_disabled" ' +
+	                'class="item-cover">' +
+	                '</button>',
+	            host: {
+	                '[class.datetime-disabled]': '_disabled'
+	            },
+	            providers: [DATETIME_VALUE_ACCESSOR],
+	            encapsulation: core_1.ViewEncapsulation.None,
+	        }),
+	        __param(2, core_1.Optional()),
+	        __param(3, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_c = typeof form_1.Form !== 'undefined' && form_1.Form) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _e) || Object, (typeof (_f = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _f) || Object])
+	    ], DateTime);
+	    return DateTime;
+	    var _a, _b, _c, _d, _e, _f;
+	}());
+	exports.DateTime = DateTime;
+	/**
+	 * @private
+	 * Use to convert a string of comma separated numbers or
+	 * an array of numbers, and clean up any user input
+	 */
+	function convertToArrayOfNumbers(input, type) {
+	    var values = [];
+	    if (util_1.isString(input)) {
+	        // convert the string to an array of strings
+	        // auto remove any whitespace and [] characters
+	        input = input.replace(/\[|\]|\s/g, '').split(',');
+	    }
+	    if (util_1.isArray(input)) {
+	        // ensure each value is an actual number in the returned array
+	        input.forEach(function (num) {
+	            num = parseInt(num, 10);
+	            if (!isNaN(num)) {
+	                values.push(num);
+	            }
+	        });
+	    }
+	    if (!values.length) {
+	        console.warn("Invalid \"" + type + "Values\". Must be an array of numbers, or a comma separated string of numbers.");
+	    }
+	    return values;
+	}
+	/**
+	 * @private
+	 * Use to convert a string of comma separated strings or
+	 * an array of strings, and clean up any user input
+	 */
+	function convertToArrayOfStrings(input, type) {
+	    if (util_1.isPresent(input)) {
+	        var values = [];
+	        if (util_1.isString(input)) {
+	            // convert the string to an array of strings
+	            // auto remove any [] characters
+	            input = input.replace(/\[|\]/g, '').split(',');
+	        }
+	        if (util_1.isArray(input)) {
+	            // trim up each string value
+	            input.forEach(function (val) {
+	                val = val.trim();
+	                if (val) {
+	                    values.push(val);
+	                }
+	            });
+	        }
+	        if (!values.length) {
+	            console.warn("Invalid \"" + type + "Names\". Must be an array of strings, or a comma separated string.");
+	        }
+	        return values;
+	    }
+	}
+
+/***/ },
+/* 357 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var animation_1 = __webpack_require__(325);
+	var transition_1 = __webpack_require__(324);
+	var config_1 = __webpack_require__(145);
+	var util_1 = __webpack_require__(147);
+	var nav_params_1 = __webpack_require__(317);
+	var view_controller_1 = __webpack_require__(316);
+	var dom_1 = __webpack_require__(144);
+	/**
+	 * @name Picker
+	 * @description
+	 *
+	 */
+	var Picker = (function (_super) {
+	    __extends(Picker, _super);
+	    function Picker(opts) {
+	        if (opts === void 0) { opts = {}; }
+	        opts.columns = opts.columns || [];
+	        opts.buttons = opts.buttons || [];
+	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+	        _super.call(this, PickerDisplayCmp, opts);
+	        this.viewType = 'picker';
+	        this.isOverlay = true;
+	        this.change = new core_1.EventEmitter();
+	        // by default, pickers should not fire lifecycle events of other views
+	        // for example, when an picker enters, the current active view should
+	        // not fire its lifecycle events because it's not conceptually leaving
+	        this.fireOtherLifecycles = false;
+	        this.usePortal = true;
+	    }
+	    /**
+	    * @private
+	    */
+	    Picker.prototype.getTransitionName = function (direction) {
+	        var key = (direction === 'back' ? 'pickerLeave' : 'pickerEnter');
+	        return this._nav && this._nav.config.get(key);
+	    };
+	    /**
+	     * @param {any} button Picker toolbar button
+	     */
+	    Picker.prototype.addButton = function (button) {
+	        this.data.buttons.push(button);
+	    };
+	    /**
+	     * @param {any} button Picker toolbar button
+	     */
+	    Picker.prototype.addColumn = function (column) {
+	        this.data.columns.push(column);
+	    };
+	    Picker.prototype.getColumns = function () {
+	        return this.data.columns;
+	    };
+	    Picker.prototype.refresh = function () {
+	        this.instance.refresh && this.instance.refresh();
+	    };
+	    /**
+	     * @param {string} cssClass CSS class name to add to the picker's outer wrapper.
+	     */
+	    Picker.prototype.setCssClass = function (cssClass) {
+	        this.data.cssClass = cssClass;
+	    };
+	    Picker.create = function (opts) {
+	        if (opts === void 0) { opts = {}; }
+	        return new Picker(opts);
+	    };
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], Picker.prototype, "change", void 0);
+	    return Picker;
+	    var _a;
+	}(view_controller_1.ViewController));
+	exports.Picker = Picker;
+	/**
+	 * @private
+	 */
+	var PickerColumnCmp = (function () {
+	    function PickerColumnCmp(config) {
+	        this.y = 0;
+	        this.pos = [];
+	        this.msPrv = 0;
+	        this.startY = null;
+	        this.change = new core_1.EventEmitter();
+	        this.rotateFactor = config.getNumber('pickerRotateFactor', 0);
+	    }
+	    PickerColumnCmp.prototype.ngAfterViewInit = function () {
+	        // get the scrollable element within the column
+	        var colEle = this.colEle.nativeElement;
+	        this.colHeight = colEle.clientHeight;
+	        // get the height of one option
+	        this.optHeight = (colEle.firstElementChild ? colEle.firstElementChild.clientHeight : 0);
+	        // set the scroll position for the selected option
+	        this.setSelected(this.col.selectedIndex, 0);
+	    };
+	    PickerColumnCmp.prototype.pointerStart = function (ev) {
+	        console.debug('picker, pointerStart', ev.type, this.startY);
+	        if (this.isPrevented(ev)) {
+	            // do not both with mouse events if a touch event already fired
+	            return;
+	        }
+	        // cancel any previous raf's that haven't fired yet
+	        dom_1.cancelRaf(this.rafId);
+	        // remember where the pointer started from`
+	        this.startY = dom_1.pointerCoord(ev).y;
+	        // reset everything
+	        this.velocity = 0;
+	        this.pos.length = 0;
+	        this.pos.push(this.startY, Date.now());
+	        var minY = this.col.options.length - 1;
+	        var maxY = 0;
+	        for (var i = 0; i < this.col.options.length; i++) {
+	            if (this.col.options[i].disabled) {
+	                continue;
+	            }
+	            if (i < minY) {
+	                minY = i;
+	            }
+	            if (i > maxY) {
+	                maxY = i;
+	            }
+	        }
+	        this.minY = (minY * this.optHeight * -1);
+	        this.maxY = (maxY * this.optHeight * -1);
+	    };
+	    PickerColumnCmp.prototype.pointerMove = function (ev) {
+	        ev.preventDefault();
+	        ev.stopPropagation();
+	        if (this.startY !== null) {
+	            if (this.isPrevented(ev)) {
+	                return;
+	            }
+	            var currentY = dom_1.pointerCoord(ev).y;
+	            this.pos.push(currentY, Date.now());
+	            // update the scroll position relative to pointer start position
+	            var y = this.y + (currentY - this.startY);
+	            if (y > this.minY) {
+	                // scrolling up higher than scroll area
+	                y = Math.pow(y, 0.8);
+	                this.bounceFrom = y;
+	            }
+	            else if (y < this.maxY) {
+	                // scrolling down below scroll area
+	                y += Math.pow(this.maxY - y, 0.9);
+	                this.bounceFrom = y;
+	            }
+	            else {
+	                this.bounceFrom = 0;
+	            }
+	            this.update(y, 0, false, false);
+	        }
+	    };
+	    PickerColumnCmp.prototype.pointerEnd = function (ev) {
+	        if (this.isPrevented(ev)) {
+	            return;
+	        }
+	        this.velocity = 0;
+	        if (this.bounceFrom > 0) {
+	            // bounce back up
+	            this.update(this.minY, 100, true, true);
+	        }
+	        else if (this.bounceFrom < 0) {
+	            // bounce back down
+	            this.update(this.maxY, 100, true, true);
+	        }
+	        else if (this.startY !== null) {
+	            var endY = dom_1.pointerCoord(ev).y;
+	            console.debug('picker, pointerEnd', ev.type, endY);
+	            this.pos.push(endY, Date.now());
+	            var endPos = (this.pos.length - 1);
+	            var startPos = endPos;
+	            var timeRange = (Date.now() - 100);
+	            // move pointer to position measured 100ms ago
+	            for (var i = endPos; i > 0 && this.pos[i] > timeRange; i -= 2) {
+	                startPos = i;
+	            }
+	            if (startPos !== endPos) {
+	                // compute relative movement between these two points
+	                var timeOffset = (this.pos[endPos] - this.pos[startPos]);
+	                var movedTop = (this.pos[startPos - 1] - this.pos[endPos - 1]);
+	                // based on XXms compute the movement to apply for each render step
+	                this.velocity = ((movedTop / timeOffset) * FRAME_MS);
+	            }
+	            if (Math.abs(endY - this.startY) > 3) {
+	                ev.preventDefault();
+	                ev.stopPropagation();
+	                var y = this.y + (endY - this.startY);
+	                this.update(y, 0, true, true);
+	            }
+	        }
+	        this.startY = null;
+	        this.decelerate();
+	    };
+	    PickerColumnCmp.prototype.decelerate = function () {
+	        var y = 0;
+	        dom_1.cancelRaf(this.rafId);
+	        if (isNaN(this.y) || !this.optHeight) {
+	            // fallback in case numbers get outta wack
+	            this.update(y, 0, true, true);
+	        }
+	        else if (Math.abs(this.velocity) > 0) {
+	            // still decelerating
+	            this.velocity *= DECELERATION_FRICTION;
+	            // do not let it go slower than a velocity of 1
+	            this.velocity = (this.velocity > 0 ? Math.max(this.velocity, 1) : Math.min(this.velocity, -1));
+	            y = Math.round(this.y - this.velocity);
+	            if (y > this.minY) {
+	                // whoops, it's trying to scroll up farther than the options we have!
+	                y = this.minY;
+	                this.velocity = 0;
+	            }
+	            else if (y < this.maxY) {
+	                // gahh, it's trying to scroll down farther than we can!
+	                y = this.maxY;
+	                this.velocity = 0;
+	            }
+	            console.log("decelerate y: " + y + ", velocity: " + this.velocity + ", optHeight: " + this.optHeight);
+	            var notLockedIn = (y % this.optHeight !== 0 || Math.abs(this.velocity) > 1);
+	            this.update(y, 0, true, !notLockedIn);
+	            if (notLockedIn) {
+	                // isn't locked in yet, keep decelerating until it is
+	                this.rafId = dom_1.raf(this.decelerate.bind(this));
+	            }
+	        }
+	        else if (this.y % this.optHeight !== 0) {
+	            // needs to still get locked into a position so options line up
+	            var currentPos = Math.abs(this.y % this.optHeight);
+	            // create a velocity in the direction it needs to scroll
+	            this.velocity = (currentPos > (this.optHeight / 2) ? 1 : -1);
+	            this.decelerate();
+	        }
+	    };
+	    PickerColumnCmp.prototype.optClick = function (ev, index) {
+	        if (!this.velocity) {
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	            this.setSelected(index, 150);
+	        }
+	    };
+	    PickerColumnCmp.prototype.setSelected = function (selectedIndex, duration) {
+	        // if there is a selected index, then figure out it's y position
+	        // if there isn't a selected index, then just use the top y position
+	        var y = (selectedIndex > -1) ? ((selectedIndex * this.optHeight) * -1) : 0;
+	        dom_1.cancelRaf(this.rafId);
+	        this.velocity = 0;
+	        // so what y position we're at
+	        this.update(y, duration, true, true);
+	    };
+	    PickerColumnCmp.prototype.update = function (y, duration, saveY, emitChange) {
+	        // ensure we've got a good round number :)
+	        y = Math.round(y);
+	        this.col.selectedIndex = Math.max(Math.abs(Math.round(y / this.optHeight)), 0);
+	        for (var i = 0; i < this.col.options.length; i++) {
+	            var opt = this.col.options[i];
+	            var optTop = (i * this.optHeight);
+	            var optOffset = (optTop + y);
+	            var rotateX = (optOffset * this.rotateFactor);
+	            var translateX = 0;
+	            var translateY = 0;
+	            var translateZ = 0;
+	            if (this.rotateFactor !== 0) {
+	                translateX = 0;
+	                translateZ = 90;
+	                if (rotateX > 90 || rotateX < -90) {
+	                    translateX = -9999;
+	                    rotateX = 0;
+	                }
+	            }
+	            else {
+	                translateY = optOffset;
+	            }
+	            opt._trans = "rotateX(" + rotateX + "deg) translate3d(" + translateX + "px," + translateY + "px," + translateZ + "px)";
+	            opt._dur = (duration > 0 ? duration + 'ms' : '');
+	        }
+	        if (saveY) {
+	            this.y = y;
+	        }
+	        if (emitChange) {
+	            if (this.lastIndex === undefined) {
+	                // have not set a last index yet
+	                this.lastIndex = this.col.selectedIndex;
+	            }
+	            else if (this.lastIndex !== this.col.selectedIndex) {
+	                // new selected index has changed from the last index
+	                // update the lastIndex and emit that it has changed
+	                this.lastIndex = this.col.selectedIndex;
+	                this.change.emit(this.col.options[this.col.selectedIndex]);
+	            }
+	        }
+	    };
+	    PickerColumnCmp.prototype.refresh = function () {
+	        var min = this.col.options.length - 1;
+	        var max = 0;
+	        for (var i = 0; i < this.col.options.length; i++) {
+	            var opt = this.col.options[i];
+	            if (!opt.disabled) {
+	                if (i < min) {
+	                    min = i;
+	                }
+	                if (i > max) {
+	                    max = i;
+	                }
+	            }
+	        }
+	        var selectedIndex = util_1.clamp(min, this.col.selectedIndex, max);
+	        if (selectedIndex !== this.col.selectedIndex) {
+	            var y = (selectedIndex * this.optHeight) * -1;
+	            this.update(y, 150, true, true);
+	        }
+	    };
+	    PickerColumnCmp.prototype.isPrevented = function (ev) {
+	        if (ev.type.indexOf('touch') > -1) {
+	            // this is a touch event, so prevent mouse events for a while
+	            this.msPrv = Date.now() + 2000;
+	        }
+	        else if (this.msPrv > Date.now() && ev.type.indexOf('mouse') > -1) {
+	            // this is a mouse event, and a touch event already happend recently
+	            // prevent the calling method from continuing
+	            ev.preventDefault();
+	            ev.stopPropagation();
+	            return true;
+	        }
+	    };
+	    __decorate([
+	        core_1.ViewChild('colEle'), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object)
+	    ], PickerColumnCmp.prototype, "colEle", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], PickerColumnCmp.prototype, "col", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], PickerColumnCmp.prototype, "change", void 0);
+	    PickerColumnCmp = __decorate([
+	        core_1.Component({
+	            selector: '.picker-col',
+	            template: '<div *ngIf="col.prefix" class="picker-prefix" [style.width]="col.prefixWidth">{{col.prefix}}</div>' +
+	                '<div class="picker-opts" #colEle [style.width]="col.optionsWidth">' +
+	                '<button *ngFor="#o of col.options; #i=index" [style.transform]="o._trans" [style.transitionDuration]="o._dur" [class.picker-opt-selected]="col.selectedIndex === i" [class.picker-opt-disabled]="o.disabled" (click)="optClick($event, i)" type="button" category="picker-opt">' +
+	                '{{o.text}}' +
+	                '</button>' +
+	                '</div>' +
+	                '<div *ngIf="col.suffix" class="picker-suffix" [style.width]="col.suffixWidth">{{col.suffix}}</div>',
+	            host: {
+	                '[style.min-width]': 'col.columnWidth',
+	                '[class.picker-opts-left]': 'col.align=="left"',
+	                '[class.picker-opts-right]': 'col.align=="right"',
+	                '(touchstart)': 'pointerStart($event)',
+	                '(touchmove)': 'pointerMove($event)',
+	                '(touchend)': 'pointerEnd($event)',
+	                '(mousedown)': 'pointerStart($event)',
+	                '(mousemove)': 'pointerMove($event)',
+	                '(body:mouseup)': 'pointerEnd($event)',
+	            }
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object])
+	    ], PickerColumnCmp);
+	    return PickerColumnCmp;
+	    var _a, _b, _c;
+	}());
+	/**
+	 * @private
+	 */
+	var PickerDisplayCmp = (function () {
+	    function PickerDisplayCmp(_viewCtrl, _elementRef, _config, params, renderer) {
+	        this._viewCtrl = _viewCtrl;
+	        this._elementRef = _elementRef;
+	        this._config = _config;
+	        this.d = params.data;
+	        if (this.d.cssClass) {
+	            this.d.cssClass.split(' ').forEach(function (cssClass) {
+	                renderer.setElementClass(_elementRef.nativeElement, cssClass, true);
+	            });
+	        }
+	        this.id = (++pickerIds);
+	        this.created = Date.now();
+	        this.lastClick = 0;
+	    }
+	    PickerDisplayCmp.prototype.onPageLoaded = function () {
+	        // normalize the data
+	        var data = this.d;
+	        data.buttons = data.buttons.map(function (button) {
+	            if (util_1.isString(button)) {
+	                return { text: button };
+	            }
+	            if (button.role) {
+	                button.cssRole = "picker-toolbar-" + button.role;
+	            }
+	            return button;
+	        });
+	        // clean up dat data
+	        data.columns = data.columns.map(function (column) {
+	            if (!util_1.isPresent(column.columnWidth)) {
+	                column.columnWidth = (100 / data.columns.length) + '%';
+	            }
+	            if (!util_1.isPresent(column.options)) {
+	                column.options = [];
+	            }
+	            column.options = column.options.map(function (inputOpt) {
+	                var opt = {
+	                    text: '',
+	                    value: '',
+	                    disabled: inputOpt.disabled,
+	                };
+	                if (util_1.isPresent(inputOpt)) {
+	                    if (util_1.isString(inputOpt) || util_1.isNumber(inputOpt)) {
+	                        opt.text = inputOpt.toString();
+	                        opt.value = inputOpt;
+	                    }
+	                    else {
+	                        opt.text = util_1.isPresent(inputOpt.text) ? inputOpt.text : inputOpt.value;
+	                        opt.value = util_1.isPresent(inputOpt.value) ? inputOpt.value : inputOpt.text;
+	                    }
+	                }
+	                return opt;
+	            });
+	            return column;
+	        });
+	    };
+	    PickerDisplayCmp.prototype.refresh = function () {
+	        this._cols.forEach(function (column) {
+	            column.refresh();
+	        });
+	    };
+	    PickerDisplayCmp.prototype._colChange = function (selectedOption) {
+	        // one of the columns has changed its selected index
+	        var picker = this._viewCtrl;
+	        picker.change.emit(this.getSelected());
+	    };
+	    PickerDisplayCmp.prototype._keyUp = function (ev) {
+	        if (this.isEnabled() && this._viewCtrl.isLast()) {
+	            if (ev.keyCode === 13) {
+	                if (this.lastClick + 1000 < Date.now()) {
+	                    // do not fire this click if there recently was already a click
+	                    // this can happen when the button has focus and used the enter
+	                    // key to click the button. However, both the click handler and
+	                    // this keyup event will fire, so only allow one of them to go.
+	                    console.debug('picker, enter button');
+	                    var button = this.d.buttons[this.d.buttons.length - 1];
+	                    this.btnClick(button);
+	                }
+	            }
+	            else if (ev.keyCode === 27) {
+	                console.debug('picker, escape button');
+	                this.bdClick();
+	            }
+	        }
+	    };
+	    PickerDisplayCmp.prototype.onPageDidEnter = function () {
+	        var activeElement = document.activeElement;
+	        if (activeElement) {
+	            activeElement.blur();
+	        }
+	        var focusableEle = this._elementRef.nativeElement.querySelector('button');
+	        if (focusableEle) {
+	            focusableEle.focus();
+	        }
+	    };
+	    PickerDisplayCmp.prototype.btnClick = function (button, dismissDelay) {
+	        var _this = this;
+	        if (!this.isEnabled()) {
+	            return;
+	        }
+	        // keep the time of the most recent button click
+	        this.lastClick = Date.now();
+	        var shouldDismiss = true;
+	        if (button.handler) {
+	            // a handler has been provided, execute it
+	            // pass the handler the values from the inputs
+	            if (button.handler(this.getSelected()) === false) {
+	                // if the return value of the handler is false then do not dismiss
+	                shouldDismiss = false;
+	            }
+	        }
+	        if (shouldDismiss) {
+	            setTimeout(function () {
+	                _this.dismiss(button.role);
+	            }, dismissDelay || this._config.get('pageTransitionDelay'));
+	        }
+	    };
+	    PickerDisplayCmp.prototype.bdClick = function () {
+	        if (this.isEnabled() && this.d.enableBackdropDismiss) {
+	            this.dismiss('backdrop');
+	        }
+	    };
+	    PickerDisplayCmp.prototype.dismiss = function (role) {
+	        return this._viewCtrl.dismiss(this.getSelected(), role);
+	    };
+	    PickerDisplayCmp.prototype.getSelected = function () {
+	        var selected = {};
+	        this.d.columns.forEach(function (col, index) {
+	            var selectedColumn = col.options[col.selectedIndex];
+	            selected[col.name] = {
+	                text: selectedColumn ? selectedColumn.text : null,
+	                value: selectedColumn ? selectedColumn.value : null,
+	                columnIndex: index,
+	            };
+	        });
+	        return selected;
+	    };
+	    PickerDisplayCmp.prototype.isEnabled = function () {
+	        var tm = this._config.getNumber('overlayCreatedDiff', 750);
+	        return (this.created + tm < Date.now());
+	    };
+	    __decorate([
+	        core_1.ViewChildren(PickerColumnCmp), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _a) || Object)
+	    ], PickerDisplayCmp.prototype, "_cols", void 0);
+	    __decorate([
+	        core_1.HostListener('body:keyup', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], PickerDisplayCmp.prototype, "_keyUp", null);
+	    PickerDisplayCmp = __decorate([
+	        core_1.Component({
+	            selector: 'ion-picker-cmp',
+	            template: '<div (click)="bdClick()" tappable disable-activated class="backdrop" role="presentation"></div>' +
+	                '<div class="picker-wrapper">' +
+	                '<div class="picker-toolbar">' +
+	                '<div *ngFor="#b of d.buttons" class="picker-toolbar-button" [ngClass]="b.cssRole">' +
+	                '<button (click)="btnClick(b)" [ngClass]="b.cssClass" class="picker-button" clear>' +
+	                '{{b.text}}' +
+	                '</button>' +
+	                '</div>' +
+	                '</div>' +
+	                '<div class="picker-columns">' +
+	                '<div class="picker-above-highlight"></div>' +
+	                '<div *ngFor="#c of d.columns" [col]="c" class="picker-col" (change)="_colChange($event)"></div>' +
+	                '<div class="picker-below-highlight"></div>' +
+	                '</div>' +
+	                '</div>',
+	            host: {
+	                'role': 'dialog'
+	            },
+	            directives: [PickerColumnCmp],
+	            encapsulation: core_1.ViewEncapsulation.None,
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object])
+	    ], PickerDisplayCmp);
+	    return PickerDisplayCmp;
+	    var _a, _b, _c, _d, _e, _f;
+	}());
+	/**
+	 * Animations for pickers
+	 */
+	var PickerSlideIn = (function (_super) {
+	    __extends(PickerSlideIn, _super);
+	    function PickerSlideIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.picker-wrapper'));
+	        backdrop.fromTo('opacity', 0.01, 0.26);
+	        wrapper.fromTo('translateY', '100%', '0%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
+	    }
+	    return PickerSlideIn;
+	}(transition_1.Transition));
+	transition_1.Transition.register('picker-slide-in', PickerSlideIn);
+	var PickerSlideOut = (function (_super) {
+	    __extends(PickerSlideOut, _super);
+	    function PickerSlideOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.picker-wrapper'));
+	        backdrop.fromTo('opacity', 0.26, 0);
+	        wrapper.fromTo('translateY', '0%', '100%');
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
+	    }
+	    return PickerSlideOut;
+	}(transition_1.Transition));
+	transition_1.Transition.register('picker-slide-out', PickerSlideOut);
+	var pickerIds = -1;
+	var DECELERATION_FRICTION = 0.97;
+	var FRAME_MS = (1000 / 60);
+
+/***/ },
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65010,7 +66846,7 @@
 	var common_1 = __webpack_require__(155);
 	var form_1 = __webpack_require__(150);
 	var util_1 = __webpack_require__(147);
-	var item_1 = __webpack_require__(342);
+	var item_1 = __webpack_require__(343);
 	var dom_1 = __webpack_require__(144);
 	var TOGGLE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
 	/**
@@ -65264,7 +67100,7 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 356 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65288,13 +67124,13 @@
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(155);
 	var config_1 = __webpack_require__(145);
-	var content_1 = __webpack_require__(327);
+	var content_1 = __webpack_require__(328);
 	var form_1 = __webpack_require__(150);
-	var input_base_1 = __webpack_require__(357);
+	var input_base_1 = __webpack_require__(360);
 	var app_1 = __webpack_require__(151);
-	var item_1 = __webpack_require__(342);
-	var native_input_1 = __webpack_require__(358);
-	var nav_controller_1 = __webpack_require__(320);
+	var item_1 = __webpack_require__(343);
+	var native_input_1 = __webpack_require__(361);
+	var nav_controller_1 = __webpack_require__(321);
 	var platform_1 = __webpack_require__(146);
 	/**
 	 * @name Input
@@ -65480,7 +67316,7 @@
 	exports.TextArea = TextArea;
 
 /***/ },
-/* 357 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65496,7 +67332,7 @@
 	var core_1 = __webpack_require__(8);
 	var util_1 = __webpack_require__(147);
 	var dom_1 = __webpack_require__(144);
-	var native_input_1 = __webpack_require__(358);
+	var native_input_1 = __webpack_require__(361);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
 	        this._form = _form;
@@ -66023,7 +67859,7 @@
 	}
 
 /***/ },
-/* 358 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66254,7 +68090,7 @@
 	exports.NextInput = NextInput;
 
 /***/ },
-/* 359 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66557,7 +68393,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 360 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66576,8 +68412,8 @@
 	var core_1 = __webpack_require__(8);
 	var form_1 = __webpack_require__(150);
 	var util_1 = __webpack_require__(147);
-	var item_1 = __webpack_require__(342);
-	var radio_group_1 = __webpack_require__(361);
+	var item_1 = __webpack_require__(343);
+	var radio_group_1 = __webpack_require__(364);
 	/**
 	 * @description
 	 * A radio button is a button that can be either checked or unchecked. A user can tap
@@ -66759,7 +68595,7 @@
 	exports.RadioButton = RadioButton;
 
 /***/ },
-/* 361 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66774,7 +68610,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var common_1 = __webpack_require__(155);
-	var list_1 = __webpack_require__(340);
+	var list_1 = __webpack_require__(341);
 	var util_1 = __webpack_require__(147);
 	var RADIO_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return RadioGroup; }), multi: true });
 	/**
@@ -66987,7 +68823,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 362 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67345,7 +69181,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 363 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67371,9 +69207,9 @@
 	var config_1 = __webpack_require__(145);
 	var keyboard_1 = __webpack_require__(296);
 	var util_1 = __webpack_require__(147);
-	var nav_controller_1 = __webpack_require__(320);
-	var nav_portal_1 = __webpack_require__(364);
-	var view_controller_1 = __webpack_require__(315);
+	var nav_controller_1 = __webpack_require__(321);
+	var nav_portal_1 = __webpack_require__(367);
+	var view_controller_1 = __webpack_require__(316);
 	/**
 	 * @name Nav
 	 * @description
@@ -67583,7 +69419,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 364 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67608,8 +69444,8 @@
 	var app_1 = __webpack_require__(151);
 	var config_1 = __webpack_require__(145);
 	var keyboard_1 = __webpack_require__(296);
-	var nav_controller_1 = __webpack_require__(320);
-	var view_controller_1 = __webpack_require__(315);
+	var nav_controller_1 = __webpack_require__(321);
+	var view_controller_1 = __webpack_require__(316);
 	/**
 	 * @private
 	 */
@@ -67634,7 +69470,7 @@
 	exports.NavPortal = NavPortal;
 
 /***/ },
-/* 365 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67651,7 +69487,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(8);
-	var nav_controller_1 = __webpack_require__(320);
+	var nav_controller_1 = __webpack_require__(321);
 	var nav_registry_1 = __webpack_require__(298);
 	/**
 	 * @name NavPush
@@ -67797,7 +69633,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 366 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67820,7 +69656,7 @@
 	};
 	var core_1 = __webpack_require__(8);
 	var router_1 = __webpack_require__(96);
-	var nav_1 = __webpack_require__(363);
+	var nav_1 = __webpack_require__(366);
 	/**
 	 * @private
 	 */
@@ -67922,7 +69758,7 @@
 	}(router_1.Instruction));
 
 /***/ },
-/* 367 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68111,7 +69947,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 368 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68186,7 +70022,7 @@
 	exports.App = App;
 
 /***/ },
-/* 369 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68241,7 +70077,7 @@
 	exports.Page = Page;
 
 /***/ },
-/* 370 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68249,58 +70085,59 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(151));
+	__export(__webpack_require__(354));
 	__export(__webpack_require__(353));
-	__export(__webpack_require__(352));
-	__export(__webpack_require__(326));
-	__export(__webpack_require__(319));
-	__export(__webpack_require__(350));
 	__export(__webpack_require__(327));
-	__export(__webpack_require__(343));
+	__export(__webpack_require__(320));
+	__export(__webpack_require__(351));
 	__export(__webpack_require__(328));
-	__export(__webpack_require__(330));
-	__export(__webpack_require__(331));
 	__export(__webpack_require__(356));
-	__export(__webpack_require__(342));
-	__export(__webpack_require__(345));
 	__export(__webpack_require__(344));
-	__export(__webpack_require__(340));
-	__export(__webpack_require__(371));
+	__export(__webpack_require__(329));
+	__export(__webpack_require__(331));
+	__export(__webpack_require__(332));
+	__export(__webpack_require__(359));
+	__export(__webpack_require__(343));
+	__export(__webpack_require__(346));
+	__export(__webpack_require__(345));
+	__export(__webpack_require__(341));
+	__export(__webpack_require__(374));
 	__export(__webpack_require__(297));
 	__export(__webpack_require__(305));
-	__export(__webpack_require__(372));
-	__export(__webpack_require__(314));
-	__export(__webpack_require__(325));
-	__export(__webpack_require__(373));
-	__export(__webpack_require__(363));
-	__export(__webpack_require__(320));
-	__export(__webpack_require__(315));
-	__export(__webpack_require__(316));
-	__export(__webpack_require__(365));
-	__export(__webpack_require__(366));
-	__export(__webpack_require__(317));
-	__export(__webpack_require__(354));
-	__export(__webpack_require__(374));
-	__export(__webpack_require__(360));
-	__export(__webpack_require__(361));
-	__export(__webpack_require__(332));
-	__export(__webpack_require__(333));
-	__export(__webpack_require__(329));
-	__export(__webpack_require__(362));
-	__export(__webpack_require__(359));
-	__export(__webpack_require__(351));
-	__export(__webpack_require__(367));
-	__export(__webpack_require__(334));
-	__export(__webpack_require__(349));
-	__export(__webpack_require__(336));
-	__export(__webpack_require__(338));
-	__export(__webpack_require__(300));
 	__export(__webpack_require__(375));
-	__export(__webpack_require__(355));
+	__export(__webpack_require__(315));
+	__export(__webpack_require__(326));
+	__export(__webpack_require__(376));
+	__export(__webpack_require__(366));
+	__export(__webpack_require__(321));
+	__export(__webpack_require__(316));
+	__export(__webpack_require__(317));
+	__export(__webpack_require__(368));
+	__export(__webpack_require__(369));
 	__export(__webpack_require__(318));
-	__export(__webpack_require__(346));
+	__export(__webpack_require__(355));
+	__export(__webpack_require__(357));
+	__export(__webpack_require__(363));
+	__export(__webpack_require__(364));
+	__export(__webpack_require__(333));
+	__export(__webpack_require__(334));
+	__export(__webpack_require__(330));
+	__export(__webpack_require__(365));
+	__export(__webpack_require__(362));
+	__export(__webpack_require__(352));
+	__export(__webpack_require__(370));
+	__export(__webpack_require__(335));
+	__export(__webpack_require__(350));
+	__export(__webpack_require__(337));
+	__export(__webpack_require__(339));
+	__export(__webpack_require__(300));
+	__export(__webpack_require__(377));
+	__export(__webpack_require__(358));
+	__export(__webpack_require__(319));
+	__export(__webpack_require__(347));
 
 /***/ },
-/* 371 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68319,12 +70156,12 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var animation_1 = __webpack_require__(324);
-	var transition_1 = __webpack_require__(323);
+	var animation_1 = __webpack_require__(325);
+	var transition_1 = __webpack_require__(324);
 	var config_1 = __webpack_require__(145);
 	var util_1 = __webpack_require__(147);
-	var nav_params_1 = __webpack_require__(316);
-	var view_controller_1 = __webpack_require__(315);
+	var nav_params_1 = __webpack_require__(317);
+	var view_controller_1 = __webpack_require__(316);
 	/**
 	 * @name Loading
 	 * @description
@@ -68639,7 +70476,7 @@
 	var loadingIds = -1;
 
 /***/ },
-/* 372 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68649,7 +70486,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var menu_controller_1 = __webpack_require__(297);
-	var animation_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(325);
 	/**
 	 * @private
 	 * Menu Type
@@ -68787,7 +70624,7 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 373 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68796,9 +70633,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var view_controller_1 = __webpack_require__(315);
-	var animation_1 = __webpack_require__(324);
-	var transition_1 = __webpack_require__(323);
+	var view_controller_1 = __webpack_require__(316);
+	var animation_1 = __webpack_require__(325);
+	var transition_1 = __webpack_require__(324);
 	/**
 	 * @name Modal
 	 * @description
@@ -68997,7 +70834,7 @@
 	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 374 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69016,540 +70853,13 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
-	var animation_1 = __webpack_require__(324);
-	var transition_1 = __webpack_require__(323);
+	var animation_1 = __webpack_require__(325);
+	var transition_1 = __webpack_require__(324);
 	var config_1 = __webpack_require__(145);
 	var util_1 = __webpack_require__(147);
-	var nav_params_1 = __webpack_require__(316);
-	var view_controller_1 = __webpack_require__(315);
-	var dom_1 = __webpack_require__(144);
-	/**
-	 * @name Picker
-	 * @description
-	 *
-	 */
-	var Picker = (function (_super) {
-	    __extends(Picker, _super);
-	    function Picker(opts) {
-	        if (opts === void 0) { opts = {}; }
-	        opts.columns = opts.columns || [];
-	        opts.buttons = opts.buttons || [];
-	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
-	        _super.call(this, PickerDisplayCmp, opts);
-	        this.viewType = 'picker';
-	        this.isOverlay = true;
-	        // by default, pickers should not fire lifecycle events of other views
-	        // for example, when an picker enters, the current active view should
-	        // not fire its lifecycle events because it's not conceptually leaving
-	        this.fireOtherLifecycles = false;
-	        this.usePortal = true;
-	    }
-	    /**
-	    * @private
-	    */
-	    Picker.prototype.getTransitionName = function (direction) {
-	        var key = (direction === 'back' ? 'pickerLeave' : 'pickerEnter');
-	        return this._nav && this._nav.config.get(key);
-	    };
-	    /**
-	     * @param {any} button Picker toolbar button
-	     */
-	    Picker.prototype.addButton = function (button) {
-	        this.data.buttons.push(button);
-	    };
-	    /**
-	     * @param {any} button Picker toolbar button
-	     */
-	    Picker.prototype.addColumn = function (column) {
-	        this.data.columns.push(column);
-	    };
-	    /**
-	     * @param {string} cssClass CSS class name to add to the picker's outer wrapper.
-	     */
-	    Picker.prototype.setCssClass = function (cssClass) {
-	        this.data.cssClass = cssClass;
-	    };
-	    Picker.create = function (opts) {
-	        if (opts === void 0) { opts = {}; }
-	        return new Picker(opts);
-	    };
-	    return Picker;
-	}(view_controller_1.ViewController));
-	exports.Picker = Picker;
-	/**
-	 * @private
-	 */
-	var PickerColumnCmp = (function () {
-	    function PickerColumnCmp(config) {
-	        this.y = 0;
-	        this.pos = [];
-	        this.msPrv = 0;
-	        this.startY = null;
-	        this.rotateFactor = config.getNumber('pickerRotateFactor', 0);
-	    }
-	    PickerColumnCmp.prototype.ngAfterViewInit = function () {
-	        // get the scrollable element within the column
-	        var colEle = this.colEle.nativeElement;
-	        this.colHeight = colEle.clientHeight;
-	        // get the height of one option
-	        this.optHeight = (colEle.firstElementChild ? colEle.firstElementChild.clientHeight : 0);
-	        // set the scroll position for the selected option
-	        var selectedIndex = this.col.options.indexOf(this.col.selected);
-	        this.setSelected(selectedIndex, 0);
-	    };
-	    PickerColumnCmp.prototype.pointerStart = function (ev) {
-	        console.debug('picker, pointerStart', ev.type, this.startY);
-	        if (this.isPrevented(ev)) {
-	            // do not both with mouse events if a touch event already fired
-	            return;
-	        }
-	        // cancel any previous raf's that haven't fired yet
-	        dom_1.cancelRaf(this.rafId);
-	        // remember where the pointer started from`
-	        this.startY = dom_1.pointerCoord(ev).y;
-	        // reset everything
-	        this.velocity = 0;
-	        this.pos.length = 0;
-	        this.pos.push(this.startY, Date.now());
-	        this.maxY = (this.optHeight * (this.col.options.length - 1)) * -1;
-	    };
-	    PickerColumnCmp.prototype.pointerMove = function (ev) {
-	        ev.preventDefault();
-	        ev.stopPropagation();
-	        if (this.startY !== null) {
-	            if (this.isPrevented(ev)) {
-	                return;
-	            }
-	            var currentY = dom_1.pointerCoord(ev).y;
-	            this.pos.push(currentY, Date.now());
-	            // update the scroll position relative to pointer start position
-	            var y = this.y + (currentY - this.startY);
-	            if (y > 0) {
-	                // scrolling up higher than scroll area
-	                y = Math.pow(y, 0.8);
-	                this.bounceFrom = y;
-	            }
-	            else if (y < this.maxY) {
-	                // scrolling down below scroll area
-	                y = y + Math.pow(this.maxY - y, 0.9);
-	                this.bounceFrom = y;
-	            }
-	            else {
-	                this.bounceFrom = 0;
-	            }
-	            this.update(y, 0, false);
-	        }
-	    };
-	    PickerColumnCmp.prototype.pointerEnd = function (ev) {
-	        if (this.isPrevented(ev)) {
-	            return;
-	        }
-	        this.velocity = 0;
-	        if (this.bounceFrom > 0) {
-	            // bounce back up
-	            this.update(0, 100, true);
-	        }
-	        else if (this.bounceFrom < 0) {
-	            // bounce back down
-	            this.update(this.maxY, 100, true);
-	        }
-	        else if (this.startY !== null) {
-	            var endY = dom_1.pointerCoord(ev).y;
-	            console.debug('picker, pointerEnd', ev.type, endY);
-	            this.pos.push(endY, Date.now());
-	            var endPos = (this.pos.length - 1);
-	            var startPos = endPos;
-	            var timeRange = (Date.now() - 100);
-	            // move pointer to position measured 100ms ago
-	            for (var i = endPos; i > 0 && this.pos[i] > timeRange; i -= 2) {
-	                startPos = i;
-	            }
-	            if (startPos !== endPos) {
-	                // compute relative movement between these two points
-	                var timeOffset = (this.pos[endPos] - this.pos[startPos]);
-	                var movedTop = (this.pos[startPos - 1] - this.pos[endPos - 1]);
-	                // based on XXms compute the movement to apply for each render step
-	                this.velocity = ((movedTop / timeOffset) * FRAME_MS);
-	            }
-	            if (Math.abs(endY - this.startY) > 3) {
-	                ev.preventDefault();
-	                ev.stopPropagation();
-	                var y = this.y + (endY - this.startY);
-	                this.update(y, 0, true);
-	            }
-	        }
-	        this.startY = null;
-	        this.decelerate();
-	    };
-	    PickerColumnCmp.prototype.mouseOut = function (ev) {
-	        if (ev.target.classList.contains('picker-col')) {
-	            this.pointerEnd(ev);
-	        }
-	    };
-	    PickerColumnCmp.prototype.decelerate = function () {
-	        var y = 0;
-	        dom_1.cancelRaf(this.rafId);
-	        if (isNaN(this.y) || !this.optHeight) {
-	            // fallback in case numbers get outta wack
-	            this.update(y, 0, true);
-	        }
-	        else if (Math.abs(this.velocity) > 0) {
-	            // still decelerating
-	            this.velocity *= DECELERATION_FRICTION;
-	            // do not let it go slower than a velocity of 1
-	            this.velocity = (this.velocity > 0 ? Math.max(this.velocity, 1) : Math.min(this.velocity, -1));
-	            y = Math.round(this.y - this.velocity);
-	            if (y > 0) {
-	                // whoops, it's trying to scroll up farther than the options we have!
-	                y = 0;
-	                this.velocity = 0;
-	            }
-	            else if (y < this.maxY) {
-	                // gahh, it's trying to scroll down farther than we can!
-	                y = this.maxY;
-	                this.velocity = 0;
-	            }
-	            console.log("decelerate y: " + y + ", velocity: " + this.velocity + ", optHeight: " + this.optHeight);
-	            this.update(y, 0, true);
-	            if (y % this.optHeight !== 0 || Math.abs(this.velocity) > 1) {
-	                // isn't locked in yet, keep decelerating until it is
-	                this.rafId = dom_1.nativeRaf(this.decelerate.bind(this));
-	            }
-	        }
-	        else if (this.y % this.optHeight !== 0) {
-	            // needs to still get locked into a position so options line up
-	            var currentPos = Math.abs(this.y % this.optHeight);
-	            // create a velocity in the direction it needs to scroll
-	            this.velocity = (currentPos > (this.optHeight / 2) ? 1 : -1);
-	            this.decelerate();
-	        }
-	    };
-	    PickerColumnCmp.prototype.optClick = function (ev, index) {
-	        if (!this.velocity) {
-	            ev.preventDefault();
-	            ev.stopPropagation();
-	            this.setSelected(index, 150);
-	        }
-	    };
-	    PickerColumnCmp.prototype.setSelected = function (selectedIndex, duration) {
-	        // if there is a selected index, then figure out it's y position
-	        // if there isn't a selected index, then just use the top y position
-	        var y = (selectedIndex > -1) ? ((selectedIndex * this.optHeight) * -1) : 0;
-	        dom_1.cancelRaf(this.rafId);
-	        this.velocity = 0;
-	        // so what y position we're at
-	        this.update(y, duration, true);
-	    };
-	    PickerColumnCmp.prototype.update = function (y, duration, saveY) {
-	        // ensure we've got a good round number :)
-	        y = Math.round(y);
-	        var selectedIndex = Math.abs(Math.round(y / this.optHeight));
-	        this.col.selected = this.col.options[selectedIndex];
-	        var colEle = this.colEle.nativeElement;
-	        var optElements = colEle.querySelectorAll('.picker-opt');
-	        for (var i = 0; i < optElements.length; i++) {
-	            var optEle = optElements[i];
-	            var optTop = (i * this.optHeight);
-	            var optOffset = (optTop + y);
-	            var rotateX = (optOffset * this.rotateFactor);
-	            var translateX = 0;
-	            var translateY = 0;
-	            var translateZ = 0;
-	            if (this.rotateFactor !== 0) {
-	                translateX = 10;
-	                translateZ = 90;
-	                if (rotateX > 90 || rotateX < -90) {
-	                    translateX = -9999;
-	                    rotateX = 0;
-	                }
-	            }
-	            else {
-	                translateY = optOffset;
-	            }
-	            optEle.style[dom_1.CSS.transform] = "rotateX(" + rotateX + "deg) translate3d(" + translateX + "px," + translateY + "px," + translateZ + "px)";
-	            optEle.style[dom_1.CSS.transitionDuration] = (duration > 0 ? duration + 'ms' : '');
-	            optEle.classList[i === selectedIndex ? 'add' : 'remove']('picker-opt-selected');
-	        }
-	        if (saveY) {
-	            this.y = y;
-	        }
-	    };
-	    PickerColumnCmp.prototype.isPrevented = function (ev) {
-	        if (ev.type.indexOf('touch') > -1) {
-	            // this is a touch event, so prevent mouse events for a while
-	            this.msPrv = Date.now() + 2000;
-	        }
-	        else if (this.msPrv > Date.now() && ev.type.indexOf('mouse') > -1) {
-	            // this is a mouse event, and a touch event already happend recently
-	            // prevent the calling method from continuing
-	            ev.preventDefault();
-	            ev.stopPropagation();
-	            return true;
-	        }
-	    };
-	    __decorate([
-	        core_1.ViewChild('colEle'), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object)
-	    ], PickerColumnCmp.prototype, "colEle", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], PickerColumnCmp.prototype, "col", void 0);
-	    PickerColumnCmp = __decorate([
-	        core_1.Component({
-	            selector: '.picker-col',
-	            template: '<div *ngIf="col.prefix" class="picker-prefix" [style.width]="col.prefixWidth">{{col.prefix}}</div>' +
-	                '<div class="picker-opts" #colEle [style.width]="col.optionsWidth">' +
-	                '<button *ngFor="#o of col.options; #i=index" (click)="optClick($event, i)" type="button" category="picker-opt">' +
-	                '{{o.text}}' +
-	                '</button>' +
-	                '</div>' +
-	                '<div *ngIf="col.suffix" class="picker-suffix" [style.width]="col.suffixWidth">{{col.suffix}}</div>',
-	            host: {
-	                '[style.min-width]': 'col.columnWidth',
-	                '[class.picker-opts-left]': 'col.align=="left"',
-	                '[class.picker-opts-right]': 'col.align=="right"',
-	                '(touchstart)': 'pointerStart($event)',
-	                '(touchmove)': 'pointerMove($event)',
-	                '(touchend)': 'pointerEnd($event)',
-	                '(mousedown)': 'pointerStart($event)',
-	                '(mousemove)': 'pointerMove($event)',
-	                '(body:mouseup)': 'pointerEnd($event)',
-	                '(body:mouseout)': 'mouseOut($event)',
-	            }
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
-	    ], PickerColumnCmp);
-	    return PickerColumnCmp;
-	    var _a, _b;
-	}());
-	/**
-	 * @private
-	 */
-	var PickerDisplayCmp = (function () {
-	    function PickerDisplayCmp(_viewCtrl, _elementRef, _config, params, renderer) {
-	        this._viewCtrl = _viewCtrl;
-	        this._elementRef = _elementRef;
-	        this._config = _config;
-	        this.d = params.data;
-	        if (this.d.cssClass) {
-	            this.d.cssClass.split(' ').forEach(function (cssClass) {
-	                renderer.setElementClass(_elementRef.nativeElement, cssClass, true);
-	            });
-	        }
-	        this.id = (++pickerIds);
-	        this.created = Date.now();
-	        this.lastClick = 0;
-	    }
-	    PickerDisplayCmp.prototype.onPageLoaded = function () {
-	        // normalize the data
-	        var data = this.d;
-	        data.buttons = data.buttons.map(function (button) {
-	            if (util_1.isString(button)) {
-	                return { text: button };
-	            }
-	            if (button.role) {
-	                button.cssRole = "picker-toolbar-" + button.role;
-	            }
-	            return button;
-	        });
-	        // clean up dat data
-	        data.columns = data.columns.map(function (column) {
-	            if (!util_1.isPresent(column.columnWidth)) {
-	                column.columnWidth = (100 / data.columns.length) + '%';
-	            }
-	            if (!util_1.isPresent(column.options)) {
-	                column.options = [];
-	            }
-	            column.options = column.options.map(function (inputOpt) {
-	                var opt = {
-	                    text: '',
-	                    value: ''
-	                };
-	                if (util_1.isPresent(inputOpt)) {
-	                    if (util_1.isString(inputOpt) || util_1.isNumber(inputOpt)) {
-	                        opt.text = inputOpt;
-	                        opt.value = inputOpt;
-	                    }
-	                    else {
-	                        opt.text = util_1.isPresent(inputOpt.text) ? inputOpt.text : inputOpt.value;
-	                        opt.value = util_1.isPresent(inputOpt.value) ? inputOpt.value : inputOpt.text;
-	                    }
-	                }
-	                return opt;
-	            });
-	            return column;
-	        });
-	    };
-	    PickerDisplayCmp.prototype._keyUp = function (ev) {
-	        if (this.isEnabled() && this._viewCtrl.isLast()) {
-	            if (ev.keyCode === 13) {
-	                if (this.lastClick + 1000 < Date.now()) {
-	                    // do not fire this click if there recently was already a click
-	                    // this can happen when the button has focus and used the enter
-	                    // key to click the button. However, both the click handler and
-	                    // this keyup event will fire, so only allow one of them to go.
-	                    console.debug('picker, enter button');
-	                    var button = this.d.buttons[this.d.buttons.length - 1];
-	                    this.btnClick(button);
-	                }
-	            }
-	            else if (ev.keyCode === 27) {
-	                console.debug('picker, escape button');
-	                this.bdClick();
-	            }
-	        }
-	    };
-	    PickerDisplayCmp.prototype.onPageDidEnter = function () {
-	        var activeElement = document.activeElement;
-	        if (activeElement) {
-	            activeElement.blur();
-	        }
-	        var focusableEle = this._elementRef.nativeElement.querySelector('button');
-	        if (focusableEle) {
-	            focusableEle.focus();
-	        }
-	    };
-	    PickerDisplayCmp.prototype.btnClick = function (button, dismissDelay) {
-	        var _this = this;
-	        if (!this.isEnabled()) {
-	            return;
-	        }
-	        // keep the time of the most recent button click
-	        this.lastClick = Date.now();
-	        var shouldDismiss = true;
-	        if (button.handler) {
-	            // a handler has been provided, execute it
-	            // pass the handler the values from the inputs
-	            if (button.handler(this.getValues()) === false) {
-	                // if the return value of the handler is false then do not dismiss
-	                shouldDismiss = false;
-	            }
-	        }
-	        if (shouldDismiss) {
-	            setTimeout(function () {
-	                _this.dismiss(button.role);
-	            }, dismissDelay || this._config.get('pageTransitionDelay'));
-	        }
-	    };
-	    PickerDisplayCmp.prototype.bdClick = function () {
-	        if (this.isEnabled() && this.d.enableBackdropDismiss) {
-	            this.dismiss('backdrop');
-	        }
-	    };
-	    PickerDisplayCmp.prototype.dismiss = function (role) {
-	        return this._viewCtrl.dismiss(this.getValues(), role);
-	    };
-	    PickerDisplayCmp.prototype.getValues = function () {
-	        // this is an alert with text inputs
-	        // return an object of all the values with the input name as the key
-	        var values = {};
-	        this.d.columns.forEach(function (col) {
-	            values[col.name] = col.selected ? col.selected.value : null;
-	        });
-	        return values;
-	    };
-	    PickerDisplayCmp.prototype.isEnabled = function () {
-	        var tm = this._config.getNumber('overlayCreatedDiff', 750);
-	        return (this.created + tm < Date.now());
-	    };
-	    __decorate([
-	        core_1.HostListener('body:keyup', ['$event']), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
-	        __metadata('design:returntype', void 0)
-	    ], PickerDisplayCmp.prototype, "_keyUp", null);
-	    PickerDisplayCmp = __decorate([
-	        core_1.Component({
-	            selector: 'ion-picker-cmp',
-	            template: '<div (click)="bdClick()" tappable disable-activated class="backdrop" role="presentation"></div>' +
-	                '<div class="picker-wrapper">' +
-	                '<div class="picker-toolbar">' +
-	                '<div *ngFor="#b of d.buttons" class="picker-toolbar-button" [ngClass]="b.cssRole">' +
-	                '<button (click)="btnClick(b)" [ngClass]="b.cssClass" class="picker-button" clear>' +
-	                '{{b.text}}' +
-	                '</button>' +
-	                '</div>' +
-	                '</div>' +
-	                '<div class="picker-columns">' +
-	                '<div class="picker-above-highlight"></div>' +
-	                '<div *ngFor="#c of d.columns" [col]="c" class="picker-col"></div>' +
-	                '<div class="picker-below-highlight"></div>' +
-	                '</div>' +
-	                '</div>',
-	            host: {
-	                'role': 'dialog'
-	            },
-	            directives: [PickerColumnCmp],
-	            encapsulation: core_1.ViewEncapsulation.None,
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
-	    ], PickerDisplayCmp);
-	    return PickerDisplayCmp;
-	    var _a, _b, _c, _d, _e;
-	}());
-	/**
-	 * Animations for pickers
-	 */
-	var PickerSlideIn = (function (_super) {
-	    __extends(PickerSlideIn, _super);
-	    function PickerSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.picker-wrapper'));
-	        backdrop.fromTo('opacity', 0.01, 0.26);
-	        wrapper.fromTo('translateY', '100%', '0%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(backdrop).add(wrapper);
-	    }
-	    return PickerSlideIn;
-	}(transition_1.Transition));
-	transition_1.Transition.register('picker-slide-in', PickerSlideIn);
-	var PickerSlideOut = (function (_super) {
-	    __extends(PickerSlideOut, _super);
-	    function PickerSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        var ele = leavingView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
-	        var wrapper = new animation_1.Animation(ele.querySelector('.picker-wrapper'));
-	        backdrop.fromTo('opacity', 0.26, 0);
-	        wrapper.fromTo('translateY', '0%', '100%');
-	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(backdrop).add(wrapper);
-	    }
-	    return PickerSlideOut;
-	}(transition_1.Transition));
-	transition_1.Transition.register('picker-slide-out', PickerSlideOut);
-	var pickerIds = -1;
-	var DECELERATION_FRICTION = 0.97;
-	var FRAME_MS = (1000 / 60);
-
-/***/ },
-/* 375 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(8);
-	var animation_1 = __webpack_require__(324);
-	var transition_1 = __webpack_require__(323);
-	var config_1 = __webpack_require__(145);
-	var util_1 = __webpack_require__(147);
-	var nav_params_1 = __webpack_require__(316);
-	var nav_controller_1 = __webpack_require__(320);
-	var view_controller_1 = __webpack_require__(315);
+	var nav_params_1 = __webpack_require__(317);
+	var nav_controller_1 = __webpack_require__(321);
+	var view_controller_1 = __webpack_require__(316);
 	/**
 	 * @name Toast
 	 * @description
@@ -69805,19 +71115,19 @@
 	var toastIds = -1;
 
 /***/ },
-/* 376 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(377));
-	__export(__webpack_require__(378));
 	__export(__webpack_require__(379));
+	__export(__webpack_require__(380));
+	__export(__webpack_require__(381));
 
 /***/ },
-/* 377 */
+/* 379 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -69901,7 +71211,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 378 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69910,7 +71220,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(377);
+	var storage_1 = __webpack_require__(379);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -70014,7 +71324,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 379 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70023,7 +71333,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(377);
+	var storage_1 = __webpack_require__(379);
 	var util_1 = __webpack_require__(147);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -70162,7 +71472,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 380 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70212,7 +71522,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 381 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70295,7 +71605,7 @@
 	});
 
 /***/ },
-/* 382 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70483,7 +71793,7 @@
 	}
 
 /***/ },
-/* 383 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70492,7 +71802,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(324);
+	var animation_1 = __webpack_require__(325);
 	var SlideIn = (function (_super) {
 	    __extends(SlideIn, _super);
 	    function SlideIn(element) {
@@ -70543,7 +71853,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 384 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70552,8 +71862,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(324);
-	var transition_1 = __webpack_require__(323);
+	var animation_1 = __webpack_require__(325);
+	var transition_1 = __webpack_require__(324);
 	var DURATION = 500;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	var OPACITY = 'opacity';
@@ -70717,7 +72027,7 @@
 	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 385 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70726,8 +72036,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(324);
-	var transition_1 = __webpack_require__(323);
+	var animation_1 = __webpack_require__(325);
+	var transition_1 = __webpack_require__(324);
 	var TRANSLATEY = 'translateY';
 	var OFF_BOTTOM = '40px';
 	var CENTER = '0px';
@@ -70781,7 +72091,7 @@
 	transition_1.Transition.register('md-transition', MDTransition);
 
 /***/ },
-/* 386 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70790,8 +72100,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(324);
-	var transition_1 = __webpack_require__(323);
+	var animation_1 = __webpack_require__(325);
+	var transition_1 = __webpack_require__(324);
 	var SHOW_BACK_BTN_CSS = 'show-back-button';
 	var SCALE_SMALL = .95;
 	var WPTransition = (function (_super) {

@@ -9,7 +9,9 @@ title: "DateTime"
 header_sub_title: "Ionic API Documentation"
 doc: "DateTime"
 docType: "class"
-
+show_preview_device: true
+preview_device_url: "/docs/v2/demos/datetime/"
+angular_controller: APIDemoCtrl 
 ---
 
 
@@ -41,10 +43,11 @@ Improve this doc
 
 
 
-<p>The <code>ion-datetime</code> component is similar to an HTML <code>&lt;input type=&quot;datetime-local&quot;&gt;</code>
-input, however, Ionic&#39;s datetime component makes it easier for developers to
-display an exact datetime input format and manage values within JavaScript.
-Additionally, the datetime component makes it easier for users to scroll through
+<p>The Date/Time Picker displays a dialog from the bottom of a page.</p>
+<p>It is similar to the native <code>&lt;input type=&quot;datetime-local&quot;&gt;</code> element.
+However, Ionic&#39;s Date/Time component makes it easy for developers to display
+the date in their preferred format and manage the date from their JavaScript.
+Additionally, the Date/Time component makes it easier for users to scroll through
 and individually select parts of date and time values from an easy to user interface.</p>
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Date&lt;/ion-label&gt;
@@ -53,16 +56,15 @@ and individually select parts of date and time values from an easy to user inter
 &lt;/ion-item&gt;
 </code></pre>
 <h3 id="display-and-picker-formats">Display and Picker Formats</h3>
-<p>How datetime values can be displayed can come in many variations formats,
-therefore it is best to let the app decide exactly how to display it. To do
-so, <code>ion-datetime</code> uses a common format seen in many other libraries and
-programming languages:</p>
+<p>Datetime values can be displayed in many different formats, so it is best to
+let the app decide exactly how to display it. To do so, <code>ion-datetime</code> uses
+a common format seen in many other libraries and programming languages:</p>
 <table>
 <thead>
 <tr>
 <th>Format</th>
 <th>Description</th>
-<th>Examples</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
@@ -78,104 +80,103 @@ programming languages:</p>
 </tr>
 <tr>
 <td><code>M</code></td>
-<td>Month, 1 digit</td>
-<td><code>1</code> .. <code>12</code></td>
+<td>Month</td>
+<td><code>1</code> ... <code>12</code></td>
 </tr>
 <tr>
 <td><code>MM</code></td>
-<td>Month, 2 digit</td>
-<td><code>01</code> .. <code>12</code></td>
+<td>Month, leading zero</td>
+<td><code>01</code> ... <code>12</code></td>
 </tr>
 <tr>
 <td><code>MMM</code></td>
 <td>Month, short name</td>
-<td><code>Jan</code> *</td>
+<td><code>Jan</code></td>
 </tr>
 <tr>
 <td><code>MMMM</code></td>
 <td>Month, full name</td>
-<td><code>January</code> *</td>
+<td><code>January</code></td>
 </tr>
 <tr>
 <td><code>D</code></td>
-<td>Day, 1 digit</td>
-<td><code>1</code> .. <code>31</code></td>
+<td>Day</td>
+<td><code>1</code> ... <code>31</code></td>
 </tr>
 <tr>
 <td><code>DD</code></td>
-<td>Day, 2 digit</td>
-<td><code>01</code> .. <code>31</code></td>
+<td>Day, leading zero</td>
+<td><code>01</code> ... <code>31</code></td>
 </tr>
 <tr>
 <td><code>DDD</code></td>
 <td>Day, short name</td>
-<td><code>Fri</code> *</td>
+<td><code>Fri</code></td>
 </tr>
 <tr>
 <td><code>DDDD</code></td>
 <td>Day, full name</td>
-<td><code>Friday</code> *</td>
+<td><code>Friday</code></td>
 </tr>
 <tr>
 <td><code>H</code></td>
-<td>24-hour, 1 digit</td>
-<td><code>0</code> .. <code>23</code></td>
+<td>Hour, 24-hour</td>
+<td><code>0</code> ... <code>23</code></td>
 </tr>
 <tr>
 <td><code>HH</code></td>
-<td>24-hour, 2 digit</td>
-<td><code>00</code> .. <code>23</code></td>
+<td>Hour, 24-hour, leading zero</td>
+<td><code>00</code> ... <code>23</code></td>
 </tr>
 <tr>
 <td><code>h</code></td>
-<td>12-hour, 1 digit</td>
-<td><code>1</code> .. <code>12</code></td>
+<td>Hour, 12-hour</td>
+<td><code>1</code> ... <code>12</code></td>
 </tr>
 <tr>
 <td><code>hh</code></td>
-<td>12-hour, 2 digit</td>
-<td><code>01</code> .. <code>12</code></td>
+<td>Hour, 12-hour, leading zero</td>
+<td><code>01</code> ... <code>12</code></td>
 </tr>
 <tr>
 <td><code>a</code></td>
-<td>am/pm, lower case</td>
+<td>12-hour time period, lowercase</td>
 <td><code>am</code> <code>pm</code></td>
 </tr>
 <tr>
 <td><code>A</code></td>
-<td>AM/PM, upper case</td>
+<td>12-hour time period, uppercase</td>
 <td><code>AM</code> <code>PM</code></td>
 </tr>
 <tr>
 <td><code>m</code></td>
-<td>minute, 1 digit</td>
-<td><code>1</code> .. <code>59</code></td>
+<td>Minute</td>
+<td><code>1</code> ... <code>59</code></td>
 </tr>
 <tr>
 <td><code>mm</code></td>
-<td>minute, 2 digit</td>
-<td><code>01</code> .. <code>59</code></td>
+<td>Minute, leading zero</td>
+<td><code>01</code> ... <code>59</code></td>
 </tr>
 <tr>
 <td><code>s</code></td>
-<td>seconds, 1 digit</td>
-<td><code>1</code> .. <code>59</code></td>
+<td>Second</td>
+<td><code>1</code> ... <code>59</code></td>
 </tr>
 <tr>
 <td><code>ss</code></td>
-<td>seconds, 2 digit</td>
-<td><code>01</code> .. <code>59</code></td>
+<td>Second, leading zero</td>
+<td><code>01</code> ... <code>59</code></td>
 </tr>
 <tr>
 <td><code>Z</code></td>
 <td>UTC Timezone Offset</td>
+<td><code>Z or +HH:mm or -HH:mm</code></td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>See the &quot;Month Names and Day of the Week Names&quot; section below on how to
-use names other than the default English month and day names.</li>
-</ul>
+<p><strong>Important</strong>: See the <a href="#month-names-and-day-of-the-week-names">Month Names and Day of the Week Names</a>
+section below on how to use different names for the month and day.</p>
 <p>The <code>displayFormat</code> input allows developers to specify how a date&#39;s value
 should be displayed within the <code>ion-datetime</code>. The <code>pickerFormat</code> decides
 which datetime picker columns should be shown, the order of the columns, and

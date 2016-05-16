@@ -167,7 +167,7 @@ to <code>&lt;ion-slides&gt;</code> called <code>mySlider</code>:</p>
 <pre><code class="lang-html">&lt;ion-slides #mySlider [options]=&quot;mySlideOptions&quot;&gt;
 </code></pre>
 <p>Next, we can use <code>ViewChild</code> to assign the Slides instance to <code>slider</code>:</p>
-<pre><code class="lang-ts">import {ViewChild} from &#39;angular2/core&#39;;
+<pre><code class="lang-ts">import {ViewChild} from &#39;@angular/core&#39;;
 
 class MyPage {
   @ViewChild(&#39;mySlider&#39;) slider: Slides;

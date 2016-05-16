@@ -60,7 +60,7 @@ on the infinite scroll instance.</p>
 <pre><code class="lang-html">&lt;ion-content&gt;
 
  &lt;ion-list&gt;
-   &lt;ion-item *ngFor=&quot;#i of items&quot;&gt;{{i}}&lt;/ion-item&gt;
+   &lt;ion-item *ngFor=&quot;let i of items&quot;&gt;{{i}}&lt;/ion-item&gt;
  &lt;/ion-list&gt;
 
  &lt;ion-infinite-scroll (infinite)=&quot;doInfinite($event)&quot;&gt;

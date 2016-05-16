@@ -32,7 +32,7 @@ NavRouter
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/nav/nav-router.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/nav/nav-router.ts#L6">
 Improve this doc
 </a>
 
@@ -52,89 +52,7 @@ Improve this doc
 
 
 
-<!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="stateChange"></div>
-
-<h3>
-<a class="anchor" name="stateChange" href="#stateChange"></a>
-<code>stateChange()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="activate"></div>
-
-<h3>
-<a class="anchor" name="activate" href="#activate"></a>
-<code>activate()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="reuse"></div>
-
-<h3>
-<a class="anchor" name="reuse" href="#reuse"></a>
-<code>reuse()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="getPathRecognizerByComponent"></div>
-
-<h3>
-<a class="anchor" name="getPathRecognizerByComponent" href="#getPathRecognizerByComponent"></a>
-<code>getPathRecognizerByComponent()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-<!-- related link --><!-- end content block -->
+<!-- instance methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

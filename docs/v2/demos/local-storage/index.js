@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var ionic_angular_2 = require('ionic-angular');
-var core_1 = require('angular2/core');
+var core_1 = require('@angular/core');
 var CleanLocalDataPipe = (function () {
     function CleanLocalDataPipe() {
     }

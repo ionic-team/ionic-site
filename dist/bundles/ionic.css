@@ -10562,24 +10562,24 @@ ion-icon {
       color: #fff;
       background-color: #343434; }
   .md .bar-button-primary {
-    color: #222;
+    color: #327eff;
     background-color: transparent; }
     .md .bar-button-primary:hover:not(.disable-hover) {
-      color: #222; }
+      color: #327eff; }
   .md .bar-button-outline-primary {
-    border-color: #343434;
-    color: #343434;
+    border-color: #2e74eb;
+    color: #2e74eb;
     background-color: transparent; }
     .md .bar-button-outline-primary.activated {
       background-color: transparent; }
     .md .bar-button-outline-primary ion-button-effect {
-      background-color: #343434; }
+      background-color: #2e74eb; }
   .md .bar-button-solid-primary {
     color: #fff;
-    background-color: #222; }
+    background-color: #327eff; }
     .md .bar-button-solid-primary.activated {
       color: #fff;
-      background-color: #343434; }
+      background-color: #2e74eb; }
   .md .toolbar[secondary] .toolbar-background {
     background: #32db64; }
   .md .toolbar[secondary] .bar-button-default,
@@ -10687,24 +10687,24 @@ ion-icon {
       color: #fff;
       background-color: #343434; }
   .md .bar-button-secondary {
-    color: #222;
+    color: #32db64;
     background-color: transparent; }
     .md .bar-button-secondary:hover:not(.disable-hover) {
-      color: #222; }
+      color: #32db64; }
   .md .bar-button-outline-secondary {
-    border-color: #343434;
-    color: #343434;
+    border-color: #2ec95c;
+    color: #2ec95c;
     background-color: transparent; }
     .md .bar-button-outline-secondary.activated {
       background-color: transparent; }
     .md .bar-button-outline-secondary ion-button-effect {
-      background-color: #343434; }
+      background-color: #2ec95c; }
   .md .bar-button-solid-secondary {
     color: #fff;
-    background-color: #222; }
+    background-color: #32db64; }
     .md .bar-button-solid-secondary.activated {
       color: #fff;
-      background-color: #343434; }
+      background-color: #2ec95c; }
   .md .toolbar[danger] .toolbar-background {
     background: #f53d3d; }
   .md .toolbar[danger] .bar-button-default,
@@ -10812,24 +10812,24 @@ ion-icon {
       color: #fff;
       background-color: #343434; }
   .md .bar-button-danger {
-    color: #222;
+    color: #f53d3d;
     background-color: transparent; }
     .md .bar-button-danger:hover:not(.disable-hover) {
-      color: #222; }
+      color: #f53d3d; }
   .md .bar-button-outline-danger {
-    border-color: #343434;
-    color: #343434;
+    border-color: #e13838;
+    color: #e13838;
     background-color: transparent; }
     .md .bar-button-outline-danger.activated {
       background-color: transparent; }
     .md .bar-button-outline-danger ion-button-effect {
-      background-color: #343434; }
+      background-color: #e13838; }
   .md .bar-button-solid-danger {
     color: #fff;
-    background-color: #222; }
+    background-color: #f53d3d; }
     .md .bar-button-solid-danger.activated {
       color: #fff;
-      background-color: #343434; }
+      background-color: #e13838; }
   .md .toolbar[light] .toolbar-background {
     background: #f4f4f4; }
   .md .toolbar[light] .bar-button-default,
@@ -10937,24 +10937,24 @@ ion-icon {
       color: #fff;
       background-color: #343434; }
   .md .bar-button-light {
-    color: #222;
+    color: #f4f4f4;
     background-color: transparent; }
     .md .bar-button-light:hover:not(.disable-hover) {
-      color: #222; }
+      color: #f4f4f4; }
   .md .bar-button-outline-light {
-    border-color: #343434;
-    color: #343434;
+    border-color: #e0e0e0;
+    color: #e0e0e0;
     background-color: transparent; }
     .md .bar-button-outline-light.activated {
       background-color: transparent; }
     .md .bar-button-outline-light ion-button-effect {
-      background-color: #343434; }
+      background-color: #e0e0e0; }
   .md .bar-button-solid-light {
-    color: #fff;
-    background-color: #222; }
+    color: #000;
+    background-color: #f4f4f4; }
     .md .bar-button-solid-light.activated {
-      color: #fff;
-      background-color: #343434; }
+      color: #000;
+      background-color: #e0e0e0; }
   .md .toolbar[dark] .toolbar-background {
     background: #222; }
   .md .toolbar[dark] .bar-button-default,
@@ -14016,23 +14016,23 @@ ion-icon {
       color: #fff;
       background-color: #343434; }
   .wp .bar-button-primary {
-    color: #222;
+    color: #327eff;
     background-color: transparent; }
     .wp .bar-button-primary:hover:not(.disable-hover) {
-      color: #222; }
+      color: #327eff; }
   .wp .bar-button-outline-primary {
-    border-color: #343434;
-    color: #343434;
+    border-color: #2e74eb;
+    color: #2e74eb;
     background-color: transparent; }
     .wp .bar-button-outline-primary.activated {
       color: #fff;
-      background-color: #343434; }
+      background-color: #2e74eb; }
   .wp .bar-button-solid-primary {
     color: #fff;
-    background-color: #222; }
+    background-color: #327eff; }
     .wp .bar-button-solid-primary.activated {
       color: #fff;
-      background-color: #343434; }
+      background-color: #2e74eb; }
   .wp .toolbar[secondary] .toolbar-background {
     background: #32db64; }
   .wp .toolbar[secondary] .bar-button-default,
@@ -14135,23 +14135,23 @@ ion-icon {
       color: #fff;
       background-color: #343434; }
   .wp .bar-button-secondary {
-    color: #222;
+    color: #32db64;
     background-color: transparent; }
     .wp .bar-button-secondary:hover:not(.disable-hover) {
-      color: #222; }
+      color: #32db64; }
   .wp .bar-button-outline-secondary {
-    border-color: #343434;
-    color: #343434;
+    border-color: #2ec95c;
+    color: #2ec95c;
     background-color: transparent; }
     .wp .bar-button-outline-secondary.activated {
       color: #fff;
-      background-color: #343434; }
+      background-color: #2ec95c; }
   .wp .bar-button-solid-secondary {
     color: #fff;
-    background-color: #222; }
+    background-color: #32db64; }
     .wp .bar-button-solid-secondary.activated {
       color: #fff;
-      background-color: #343434; }
+      background-color: #2ec95c; }
   .wp .toolbar[danger] .toolbar-background {
     background: #f53d3d; }
   .wp .toolbar[danger] .bar-button-default,
@@ -14254,23 +14254,23 @@ ion-icon {
       color: #fff;
       background-color: #343434; }
   .wp .bar-button-danger {
-    color: #222;
+    color: #f53d3d;
     background-color: transparent; }
     .wp .bar-button-danger:hover:not(.disable-hover) {
-      color: #222; }
+      color: #f53d3d; }
   .wp .bar-button-outline-danger {
-    border-color: #343434;
-    color: #343434;
+    border-color: #e13838;
+    color: #e13838;
     background-color: transparent; }
     .wp .bar-button-outline-danger.activated {
       color: #fff;
-      background-color: #343434; }
+      background-color: #e13838; }
   .wp .bar-button-solid-danger {
     color: #fff;
-    background-color: #222; }
+    background-color: #f53d3d; }
     .wp .bar-button-solid-danger.activated {
       color: #fff;
-      background-color: #343434; }
+      background-color: #e13838; }
   .wp .toolbar[light] .toolbar-background {
     background: #f4f4f4; }
   .wp .toolbar[light] .bar-button-default,
@@ -14373,23 +14373,23 @@ ion-icon {
       color: #fff;
       background-color: #343434; }
   .wp .bar-button-light {
-    color: #222;
+    color: #f4f4f4;
     background-color: transparent; }
     .wp .bar-button-light:hover:not(.disable-hover) {
-      color: #222; }
+      color: #f4f4f4; }
   .wp .bar-button-outline-light {
-    border-color: #343434;
-    color: #343434;
+    border-color: #e0e0e0;
+    color: #e0e0e0;
     background-color: transparent; }
     .wp .bar-button-outline-light.activated {
-      color: #fff;
-      background-color: #343434; }
+      color: #000;
+      background-color: #e0e0e0; }
   .wp .bar-button-solid-light {
-    color: #fff;
-    background-color: #222; }
+    color: #000;
+    background-color: #f4f4f4; }
     .wp .bar-button-solid-light.activated {
-      color: #fff;
-      background-color: #343434; }
+      color: #000;
+      background-color: #e0e0e0; }
   .wp .toolbar[dark] .toolbar-background {
     background: #222; }
   .wp .toolbar[dark] .bar-button-default,

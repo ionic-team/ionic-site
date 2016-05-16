@@ -59,7 +59,7 @@ export class MyApp{
 <p>We would use Angulars default way of bootstrap an app, import <code>IONIC_DIRECTIVES</code> and <code>ionicProviders</code>, then
 declare <code>ionicProviders</code> as a dependencey.</p>
 <pre><code class="lang-typescript">import {IONIC_DIRECTIVES, ionicProviders} from &#39;ionic-angular&#39;;
-import {bootstrap} from &#39;angular2/platform/browser&#39;;
+import {bootstrap} from &#39;@angular/platform/browser&#39;;
 
 @Component({
     //default selector, and theme.

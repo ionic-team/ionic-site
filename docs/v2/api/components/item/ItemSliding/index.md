@@ -53,7 +53,7 @@ Improve this doc
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-list&gt;
-  &lt;ion-item-sliding *ngFor=&quot;#item of items&quot;&gt;
+  &lt;ion-item-sliding *ngFor=&quot;let item of items&quot;&gt;
     &lt;button ion-item (click)=&quot;itemTapped(item)&quot;&gt;
       {{item.title}}
     &lt;/button&gt;

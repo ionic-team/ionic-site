@@ -59,7 +59,7 @@ some useful methods to control the scrollable area.</p>
 </code></pre>
 <p>To get a reference to the content component from a Page&#39;s logic,
 you can use Angular&#39;s <code>@ViewChild</code> annotation:</p>
-<pre><code class="lang-ts">import {ViewChild} from &#39;angular2/core&#39;;
+<pre><code class="lang-ts">import {ViewChild} from &#39;@angular/core&#39;;
 import {Content} from &#39;ionic-angular&#39;;
 
 @Page({...}
@@ -95,7 +95,7 @@ export class MyPage{
 Scroll to the specified position.
 
 ```ts
-import {ViewChild} from 'angular2/core';
+import {ViewChild} from '@angular/core';
 import {Content} from 'ionic-angular';
 
 @Page({
@@ -206,7 +206,7 @@ export class MyPage{
 Scroll to the top of the content component.
 
 ```ts
-import {ViewChild} from 'angular2/core';
+import {ViewChild} from '@angular/core';
 import {Content} from 'ionic-angular';
 
 @Page({

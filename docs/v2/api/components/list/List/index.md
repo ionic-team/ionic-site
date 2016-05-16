@@ -79,7 +79,7 @@ Enable sliding items if your page has them
 
 ```ts
 import {Page, List} from 'ionic-angular';
-import {ViewChild} from 'angular2/core';
+import {ViewChild} from '@angular/core';
 @Page...
 export class MyClass {
    @ViewChild(List) list: List;
@@ -141,7 +141,7 @@ Enable sliding items if your page has
 
 ```ts
 import {Page, List} from 'ionic-angular';
-import {ViewChild} from 'angular2/core';
+import {ViewChild} from '@angular/core';
 @Page...
 export class MyClass {
    @ViewChild(List) list: List;

@@ -2473,25 +2473,49 @@
 	var ionic_angular_1 = __webpack_require__(6);
 	var MainPage = (function () {
 	    function MainPage() {
-	        this.wwwInvented = '1989';
-	        this.time = '13:47';
-	        this.netscapeRelease = '1994-12-15T13:47:20.789';
-	        this.operaRelease = '1995-04-15';
-	        this.firefoxRelease = '2002-09-23T15:03:46.789';
-	        this.webkitOpenSourced = '2005-06-17T11:06Z';
+	        this.wwwReleased = '1991';
+	        this.netscapeReleased = '1994-12-15T13:47:20.789';
+	        this.firefoxReleased = '2002-09-23T15:03:46.789';
+	        this.operaReleased = '1995-04-15';
+	        this.webkitReleased = '1998-11-04T11:06Z';
 	        this.chromeReleased = '2008-09-02';
-	        this.leapYearsSummerMonths = '';
-	        this.leapYearsArray = [2020, 2016, 2008, 2004, 2000, 1996];
-	        this.customShortDay = [
-	            'Dom',
-	            'Lun',
-	            'Mar',
-	            'Mié',
-	            'Jue',
-	            'Vie',
-	            'Sáb'
+	        this.alertTime = '10:15';
+	        this.operaShortDay = [
+	            's\u00f8n',
+	            'man',
+	            'tir',
+	            'ons',
+	            'tor',
+	            'fre',
+	            'l\u00f8r'
 	        ];
+	        this.tokyoTime = this.calculateTime("+9");
+	        this.parisTime = this.calculateTime("+1");
+	        this.dallasTime = this.calculateTime("-6");
+	        var today = new Date();
+	        // If it is Daylight Savings Time
+	        if (this.dst(today)) {
+	            this.parisTime = this.calculateTime("+2");
+	            this.dallasTime = this.calculateTime("-5");
+	        }
 	    }
+	    MainPage.prototype.calculateTime = function (offset) {
+	        // create Date object for current location
+	        var d = new Date();
+	        // create new Date object for different city
+	        // using supplied offset
+	        var nd = new Date(d.getTime() + (3600000 * offset));
+	        return nd.toISOString();
+	    };
+	    // Determine if the client uses DST
+	    MainPage.prototype.stdTimezoneOffset = function (today) {
+	        var jan = new Date(today.getFullYear(), 0, 1);
+	        var jul = new Date(today.getFullYear(), 6, 1);
+	        return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+	    };
+	    MainPage.prototype.dst = function (today) {
+	        return today.getTimezoneOffset() < this.stdTimezoneOffset(today);
+	    };
 	    MainPage = __decorate([
 	        ionic_angular_1.Page({
 	            templateUrl: 'main.html'

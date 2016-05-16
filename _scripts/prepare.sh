@@ -31,6 +31,7 @@ function clone_site {
 
 function buildforjekyll {
   echo "Building site with jekyll"
+  #jekyll build --incremental
   jekyll build --incremental
 }
 

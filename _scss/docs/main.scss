@@ -215,7 +215,7 @@ body {
         }
       }
 
-      &:before {
+      &::before {
         font-family: 'Ionicons';
         -webkit-font-smoothing: antialiased;
         content: '\f4a5';
@@ -324,7 +324,7 @@ body {
       text-align: center;
       transition: .2s border-color, .2s color, .2s background, .2s box-shadow;
 
-      &:before {
+      &::before {
         font-family: 'Ionicons';
         -webkit-font-smoothing: antialiased;
         content: '\f3cf';
@@ -342,7 +342,7 @@ body {
         background: #fdfdfd;
       }
 
-      &:focus:after {
+      &:focus::after {
         border-right-color: transparent;
       }
     }
@@ -357,11 +357,11 @@ body {
       padding: 22px 20px 20px;
       margin-bottom: 0;
 
-      &:hover:before {
+      &:hover::before {
         color: #a4abb5;
       }
 
-      &:before {
+      &::before {
         font-family: 'Ionicons';
         content: '\f4a5';
         font-size: 20px;
@@ -414,12 +414,12 @@ body {
     &:hover {
       transition: .2s border-color;
 
-      &:before {
+      &::before {
         color: $blue;
       }
     }
 
-    &.api-select:before {
+    &.api-select::before {
       font-family: 'Ionicons';
       -webkit-font-smoothing: antialiased;
       content: '\f3d0';
@@ -449,7 +449,7 @@ body {
       position: relative;
       cursor: pointer;
 
-      &:after {
+      &::after {
         display: block;
         position: absolute;
         right: 0;
@@ -505,10 +505,10 @@ body {
       background: none;
     }
 
-    ul .active > a:after,
-    .capitalize.active > a:after,
-    a:focus:after,
-    .active.top-level > a:after {
+    ul .active > a::after,
+    .capitalize.active > a::after,
+    a:focus::after,
+    .active.top-level > a::after {
       transform: scaleY(1);
       outline: none;
     }
@@ -554,15 +554,16 @@ a.footer-link {
     right: auto;
     left: 40px;
     text-align: left;
+
     @media (max-width: 500px) {
       display: none;
     }
 
-    &:before {
+    &::before {
       content: 'Previous';
     }
 
-    &:after {
+    &::after {
       right: auto;
       left: -25px;
       content: '\f117';
@@ -573,7 +574,7 @@ a.footer-link {
     color: $blue;
   }
 
-  &:before {
+  &::before {
     display: block;
     content: 'Next';
     font-size: 13px;
@@ -581,7 +582,7 @@ a.footer-link {
     font-weight: 400;
   }
 
-  &:after {
+  &::after {
     content: '\f119';
     font-family: Ionicons;
     display: block;
@@ -617,7 +618,7 @@ a.footer-link {
       }
 
       a.anchor {
-        &:before {
+        &::before {
           content: '\f22a';
           font-family: 'Ionicons';
           margin-left: -15px;
@@ -627,8 +628,8 @@ a.footer-link {
           transition: .3s color;
         }
 
-        &:hover:before,
-        &:active:before {
+        &:hover::before,
+        &:active::before {
           color: rgba($blue, .6);
         }
       }
@@ -637,7 +638,7 @@ a.footer-link {
     h1 {
       margin-bottom: 0;
 
-      a.anchor:before {
+      a.anchor::before {
         margin-left: -23px;
       }
     }
@@ -659,6 +660,18 @@ a.footer-link {
       &.no-para {
         margin-bottom: 1em;
       }
+    }
+
+    h4 {
+      font-size: 16px;
+    }
+
+    h5 {
+      font-size: 14px;
+    }
+
+    h6 {
+      font-size: 12px;
     }
 
     p {
@@ -890,7 +903,7 @@ ul.docs-example {
 
 .return-value {
   b {
-    &:before {
+    &::before {
       font-family: 'Ionicons';
       -webkit-font-smoothing: antialiased;
       content: '\f203';

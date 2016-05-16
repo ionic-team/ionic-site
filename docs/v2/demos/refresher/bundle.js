@@ -35106,7 +35106,7 @@
 	        try {
 	            value = (new Date(date.year, date.month - 1, date.day)).getDay();
 	            if (format === FORMAT_DDDD) {
-	                return (util_1.isPresent(locale.dayShort) ? locale.dayShort : DAY_NAMES)[value];
+	                return (util_1.isPresent(locale.dayNames) ? locale.dayNames : DAY_NAMES)[value];
 	            }
 	            return (util_1.isPresent(locale.dayShortNames) ? locale.dayShortNames : DAY_SHORT_NAMES)[value];
 	        }
@@ -53565,7 +53565,7 @@
 	 * ```ts
 	 * @App({
 	 *   config: {
-	 *     monthNames: ['janeiro, 'fevereiro', 'mar\u00e7o', ... ],
+	 *     monthNames: ['janeiro', 'fevereiro', 'mar\u00e7o', ... ],
 	 *     monthShortNames: ['jan', 'fev', 'mar', ... ],
 	 *     dayNames: ['domingo', 'segunda-feira', 'ter\u00e7a-feira', ... ],
 	 *     dayShortNames: ['dom', 'seg', 'ter', ... ],
@@ -53580,10 +53580,10 @@
 	 *   <ion-label>Período</ion-label>
 	 *   <ion-datetime displayFormat="DDDD MMM D, YYYY"
 	 *     [(ngModel)]="myDate"
-	 *     monthNames="['janeiro, 'fevereiro', 'mar\u00e7o', ... ]"
-	 *     monthShortNames="['jan', 'fev', 'mar', ... ]"
-	 *     dayNames="['domingo', 'segunda-feira', 'ter\u00e7a-feira', ... ]"
-	 *     dayShortNames="['dom', 'seg', 'ter', ... ]"
+	 *     monthNames="[janeiro, fevereiro, mar\u00e7o, ... ]"
+	 *     monthShortNames="[jan, fev, mar, ... ]"
+	 *     dayNames="[domingo, segunda-feira, ter\u00e7a-feira, ... ]"
+	 *     dayShortNames="[dom, seg, ter, ... ]"
 	 *     ></ion-datetime>
 	 * </ion-item>
 	 * ```
@@ -53645,7 +53645,7 @@
 	         */
 	        this.doneText = 'Done';
 	        /**
-	         * @input {any} Any addition options that the picker interface can accept.
+	         * @input {any} Any additional options that the picker interface can accept.
 	         * See the [Picker API docs](../../picker/Picker) for the picker options.
 	         */
 	        this.pickerOptions = {};

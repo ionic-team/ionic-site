@@ -323,7 +323,7 @@ individual <code>ion-datetime</code> level.</p>
 <h3 id="app-config-level">App Config Level</h3>
 <pre><code class="lang-ts">@App({
   config: {
-    monthNames: [&#39;janeiro, &#39;fevereiro&#39;, &#39;mar\u00e7o&#39;, ... ],
+    monthNames: [&#39;janeiro&#39;, &#39;fevereiro&#39;, &#39;mar\u00e7o&#39;, ... ],
     monthShortNames: [&#39;jan&#39;, &#39;fev&#39;, &#39;mar&#39;, ... ],
     dayNames: [&#39;domingo&#39;, &#39;segunda-feira&#39;, &#39;ter\u00e7a-feira&#39;, ... ],
     dayShortNames: [&#39;dom&#39;, &#39;seg&#39;, &#39;ter&#39;, ... ],
@@ -335,10 +335,10 @@ individual <code>ion-datetime</code> level.</p>
   &lt;ion-label&gt;Período&lt;/ion-label&gt;
   &lt;ion-datetime displayFormat=&quot;DDDD MMM D, YYYY&quot;
     [(ngModel)]=&quot;myDate&quot;
-    monthNames=&quot;[&#39;janeiro, &#39;fevereiro&#39;, &#39;mar\u00e7o&#39;, ... ]&quot;
-    monthShortNames=&quot;[&#39;jan&#39;, &#39;fev&#39;, &#39;mar&#39;, ... ]&quot;
-    dayNames=&quot;[&#39;domingo&#39;, &#39;segunda-feira&#39;, &#39;ter\u00e7a-feira&#39;, ... ]&quot;
-    dayShortNames=&quot;[&#39;dom&#39;, &#39;seg&#39;, &#39;ter&#39;, ... ]&quot;
+    monthNames=&quot;[janeiro, fevereiro, mar\u00e7o, ... ]&quot;
+    monthShortNames=&quot;[jan, fev, mar, ... ]&quot;
+    dayNames=&quot;[domingo, segunda-feira, ter\u00e7a-feira, ... ]&quot;
+    dayShortNames=&quot;[dom, seg, ter, ... ]&quot;
     &gt;&lt;/ion-datetime&gt;
 &lt;/ion-item&gt;
 </code></pre>
@@ -542,7 +542,7 @@ locale names for each day in the week. Defaults to English.</p>
     <tr>
       <td>pickerOptions</td>
       <td><code>any</code></td>
-      <td><p> Any addition options that the picker interface can accept.
+      <td><p> Any additional options that the picker interface can accept.
 See the <a href="../../picker/Picker">Picker API docs</a> for the picker options.</p>
 </td>
     </tr>

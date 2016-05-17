@@ -54423,7 +54423,12 @@
 	        y = Math.round(y);
 	        this.col.selectedIndex = Math.max(Math.abs(Math.round(y / this.optHeight)), 0);
 	        var colElements = this.colEle.nativeElement.querySelectorAll('.picker-opt');
-	        for (var i = 0; i < this.col.options.length; i++) {
+	        if (colElements.length != this.col.options.length) {
+	            // TODO: it would be great to find the root of the problem
+	            // and implement a good fix, but at least, this prevents an expection
+	            console.error("colElements.length!=this.col.options.length");
+	        }
+	        for (var i = 0; i < colElements.length; i++) {
 	            var ele = colElements[i];
 	            var opt = this.col.options[i];
 	            var optTop = (i * this.optHeight);

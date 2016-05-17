@@ -13,8 +13,8 @@ dependencies:
     - ./_scripts/prepare.sh
   cache_directories:
     - "./_site" # cache prod
-    - ".jekyll-metadata"
     - "~/.rvm"
+    #- ".jekyll-metadata"
 test:
   override:
     - ./_scripts/test.sh

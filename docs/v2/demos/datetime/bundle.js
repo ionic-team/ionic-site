@@ -2475,9 +2475,9 @@
 	    function MainPage() {
 	        this.wwwReleased = '1991';
 	        this.netscapeReleased = '1994-12-15T13:47:20.789';
-	        this.firefoxReleased = '2002-09-23T15:03:46.789';
 	        this.operaReleased = '1995-04-15';
 	        this.webkitReleased = '1998-11-04T11:06Z';
+	        this.firefoxReleased = '2002-09-23T15:03:46.789';
 	        this.chromeReleased = '2008-09-02';
 	        this.alertTime = '10:15';
 	        this.operaShortDay = [
@@ -2489,14 +2489,13 @@
 	            'fre',
 	            'l\u00f8r'
 	        ];
-	        this.tokyoTime = this.calculateTime("+9");
-	        this.parisTime = this.calculateTime("+1");
-	        this.dallasTime = this.calculateTime("-6");
-	        var today = new Date();
+	        this.tokyoTime = this.calculateTime('+9');
+	        this.parisTime = this.calculateTime('+1');
+	        this.madisonTime = this.calculateTime('-6');
 	        // If it is Daylight Savings Time
-	        if (this.dst(today)) {
-	            this.parisTime = this.calculateTime("+2");
-	            this.dallasTime = this.calculateTime("-5");
+	        if (this.dst(new Date())) {
+	            this.parisTime = this.calculateTime('+2');
+	            this.madisonTime = this.calculateTime('-5');
 	        }
 	    }
 	    MainPage.prototype.calculateTime = function (offset) {

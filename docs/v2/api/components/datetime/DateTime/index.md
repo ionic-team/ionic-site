@@ -333,13 +333,11 @@ individual <code>ion-datetime</code> level.</p>
 <h3 id="component-input-level">Component Input Level</h3>
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Período&lt;/ion-label&gt;
-  &lt;ion-datetime displayFormat=&quot;DDDD MMM D, YYYY&quot;
-    [(ngModel)]=&quot;myDate&quot;
-    monthNames=&quot;[janeiro, fevereiro, mar\u00e7o, ... ]&quot;
-    monthShortNames=&quot;[jan, fev, mar, ... ]&quot;
-    dayNames=&quot;[domingo, segunda-feira, ter\u00e7a-feira, ... ]&quot;
-    dayShortNames=&quot;[dom, seg, ter, ... ]&quot;
-    &gt;&lt;/ion-datetime&gt;
+  &lt;ion-datetime displayFormat=&quot;DDDD MMM D, YYYY&quot; [(ngModel)]=&quot;myDate&quot;
+    monthNames=&quot;janeiro, fevereiro, mar\u00e7o, ...&quot;
+    monthShortNames=&quot;jan, fev, mar, ...&quot;
+    dayNames=&quot;domingo, segunda-feira, ter\u00e7a-feira, ...&quot;
+    dayShortNames=&quot;dom, seg, ter, ...&quot;&gt;&lt;/ion-datetime&gt;
 &lt;/ion-item&gt;
 </code></pre>
 <h3 id="advanced-datetime-validation-and-manipulation">Advanced Datetime Validation and Manipulation</h3>

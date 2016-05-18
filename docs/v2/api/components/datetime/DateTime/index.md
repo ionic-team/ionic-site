@@ -43,18 +43,23 @@ Improve this doc
 
 
 
-<p>The DateTime component can be added to a template using the <code>&lt;ion-datetime&gt;</code> element.
-Tapping on the <code>&lt;ion-datetime&gt;</code> element will display a dialog that slides up from the
-bottom of the page. The dialog displays scrollable columns that can be used to select
-date and time values.</p>
-<p>It is similar to the native <code>&lt;input type=&quot;datetime-local&quot;&gt;</code> element, however, Ionic&#39;s
-DateTime component makes it easy for developers to display the date in their preferred
-format and manage the date from their JavaScript.</p>
+<p>The DateTime component is used to present an interface which makes it easy for
+users to select dates and times. Tapping on <code>&lt;ion-datetime&gt;</code> will display a picker
+interface that slides up from the bottom of the page. The picker then displays
+scrollable columns that can be used to individually select years, months, days,
+hours and minute values. The DateTime component is similar to the native
+<code>&lt;input type=&quot;datetime-local&quot;&gt;</code> element, however, Ionic&#39;s DateTime component makes
+it easy to display the date and time in a preferred format, and manage the datetime
+values.</p>
+<pre><code class="lang-html">&lt;ion-item&gt;
+  &lt;ion-label&gt;Date&lt;/ion-label&gt;
+  &lt;ion-datetime displayFormat=&quot;MM/DD/YYYY&quot; [(ngModel)]=&quot;myDate&quot;&gt;&lt;/ion-datetime&gt;
+&lt;/ion-item&gt;
+</code></pre>
 <h2 id="display-and-picker-formats">Display and Picker Formats</h2>
-<p>The DateTime component displays the date/time in two places: in the <code>&lt;ion-datetime&gt;</code>
-element, and in the dialog that presents from the bottom of the screen. These both
-can be customized to display in many different formats. The following chart lists
-all of the formats that can be passed to the different inputs.</p>
+<p>The DateTime component displays the values in two places: in the <code>&lt;ion-datetime&gt;</code>
+component, and in the interface that is presented from the bottom of the screen.
+The following chart lists all of the formats that can be used.</p>
 <table>
 <thead>
 <tr>
@@ -174,60 +179,49 @@ all of the formats that can be passed to the different inputs.</p>
 <p><strong>Important</strong>: See the <a href="#month-names-and-day-of-the-week-names">Month Names and Day of the Week Names</a>
 section below on how to use different names for the month and day.</p>
 <h3 id="display-format">Display Format</h3>
-<p>The <code>displayFormat</code> input specifies how a date&#39;s value should be displayed
-within the <code>ion-datetime</code> element.</p>
+<p>The <code>displayFormat</code> input property specifies how a datetime&#39;s value should be
+printed, as formatted text, within the <code>ion-datetime</code> component.</p>
 <p>In the following example, the display in the <code>&lt;ion-datetime&gt;</code> will use the
 month&#39;s short name, the numerical day with a leading zero, a comma and the
-4 digit year. In addition to the date, it will display the time with the hours
-in the 24-hour format and the minutes. Both the hour and minutes will be displayed
-with a leading zero, and they are separated by a <code>:</code> character. Any character
-can be used as a separator. An example display using this format is: <code>Jun 17, 2005 11:06</code>.</p>
+four-digit year. In addition to the date, it will display the time with the hours
+in the 24-hour format and the minutes. Any character can be used as a separator.
+An example display using this format is: <code>Jun 17, 2005 11:06</code>.</p>
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Date&lt;/ion-label&gt;
-  &lt;ion-datetime displayFormat=&quot;MMM DD, YYYY HH:mm&quot; [(ngModel)]=&quot;myDate&quot;&gt;
-  &lt;/ion-datetime&gt;
+  &lt;ion-datetime displayFormat=&quot;MMM DD, YYYY HH:mm&quot; [(ngModel)]=&quot;myDate&quot;&gt;&lt;/ion-datetime&gt;
 &lt;/ion-item&gt;
 </code></pre>
 <h3 id="picker-format">Picker Format</h3>
-<p>The <code>pickerFormat</code> input determines which columns should be shown in the dialog,
-the order of the columns, and which format to use to display the value. If the
-<code>pickerFormat</code> input is not provided then it will use the <code>displayFormat</code>.</p>
+<p>The <code>pickerFormat</code> input property determines which columns should be shown in the
+interface, the order of the columns, and which format to use within each column.
+If the <code>pickerFormat</code> input is not provided then it will default to the <code>displayFormat</code>.</p>
 <p>In the following example, the display in the <code>&lt;ion-datetime&gt;</code> will use the
-numerical month with a leading zero, followed by a forward slash <code>/</code> and the
-4 digit year. An example display using this format is: <code>06/2020</code>. The dialog
-will display two columns: the month&#39;s long name, and the 4 digit year.</p>
+<code>MM/YYYY</code> format, such as <code>06/2020</code>. However, the picker interface
+will display two columns with the month&#39;s long name, and the four-digit year.</p>
 <pre><code class="lang-html">&lt;ion-item&gt;
   &lt;ion-label&gt;Date&lt;/ion-label&gt;
   &lt;ion-datetime displayFormat=&quot;MM/YYYY&quot; pickerFormat=&quot;MMMM YYYY&quot; [(ngModel)]=&quot;myDate&quot;&gt;&lt;/ion-datetime&gt;
 &lt;/ion-item&gt;
 </code></pre>
 <h3 id="datetime-data">Datetime Data</h3>
-<p>Historically, handling datetime data within JavaScript, or even within HTML
+<p>Historically, handling datetime values within JavaScript, or even within HTML
 inputs, has always been a challenge. Specifically, JavaScript&#39;s <code>Date</code> object is
 notoriously difficult to correctly parse apart datetime strings or to format
 datetime values. Even worse is how different browsers and JavaScript versions
-parse various datetime strings differently, especially per locale. Additional,
-developers face even more challenges when dealing with timezones using
-JavaScript&#39;s core <code>Date</code> object.</p>
+parse various datetime strings differently, especially per locale.</p>
 <p>But no worries, all is not lost! Ionic&#39;s datetime input has been designed so
 developers can avoid the common pitfalls, allowing developers to easily format
-datetime data within the input, and give the user a simple datetime picker for a
-great user experience. Oddly enough, one of the best ways to work with datetime
-values in JavaScript is to not use the <code>Date</code> object at all.</p>
+datetime values within the input, and give the user a simple datetime picker for a
+great user experience.</p>
 <h5 id="iso-8601-datetime-format-yyyy-mm-ddthh-mmz">ISO 8601 Datetime Format: YYYY-MM-DDTHH:mmZ</h5>
-<p>For all the reasons above, and how datetime data is commonly saved within databases,
-Ionic uses the <a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format</a>
-for both its input value, and output value. The value is simply a string, rather
-than using JavaScript&#39;s <code>Date</code> object, and it strictly follows the standardized
-ISO 8601 format. Additionally, when using the ISO datetime string format, it makes
-it easier on developers when passing data within JSON objects, and sending databases
-a standardized datetime format which it can be easily parse apart and formatted.
-Because of the strict adherence to the ISO 8601 format, and not involving the hundreds
-of other format possibilities and locales, this approach actually makes it easier
-for Ionic apps and backend-services to manage datetime data.</p>
+<p>Ionic uses the <a href="https://www.w3.org/TR/NOTE-datetime">ISO 8601 datetime format</a>
+for its value. The value is simply a string, rather than using JavaScript&#39;s <code>Date</code>
+object. Additionally, when using the ISO datetime format, it makes it easier
+to serialize and pass within JSON objects, and sending databases a standardized
+format which it can be easily parsed if need be.</p>
 <p>An ISO format can be used as a simple year, or just the hour and minute, or get more
 detailed down to the millisecond and timezone. Any of the ISO formats below can be used,
-and after a user selects a new date, Ionic will continue to use the same ISO format
+and after a user selects a new value, Ionic will continue to use the same ISO format
 which datetime value was originally given as.</p>
 <table>
 <thead>

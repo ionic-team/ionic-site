@@ -32654,7 +32654,7 @@
 	        });
 	    }
 	    /**
-	     * Chech to see if the keyboard is open or not.
+	     * Check to see if the keyboard is open or not.
 	     *
 	     * ```ts
 	     * export class MyClass{

@@ -32,7 +32,7 @@ ToolbarItem
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/toolbar/toolbar.ts#L171">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/toolbar/toolbar.ts#L177">
 Improve this doc
 </a>
 

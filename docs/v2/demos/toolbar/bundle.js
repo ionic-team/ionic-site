@@ -37722,6 +37722,7 @@
 	var ViewController = (function () {
 	    function ViewController(componentType, data) {
 	        this.componentType = componentType;
+	        this._tbRefs = [];
 	        this._destroys = [];
 	        this._hdAttr = null;
 	        this._leavingOpts = null;
@@ -37963,6 +37964,19 @@
 	    /**
 	     * @private
 	     */
+	    ViewController.prototype.setToolbarRef = function (elementRef) {
+	        this._tbRefs.push(elementRef);
+	    };
+	    /**
+	     * @private
+	     * @returns {elementRef} Returns the Page's Content ElementRef
+	     */
+	    ViewController.prototype.toolbarRefs = function () {
+	        return this._tbRefs;
+	    };
+	    /**
+	     * @private
+	     */
 	    ViewController.prototype.setContent = function (directive) {
 	        this._cntDir = directive;
 	    };
@@ -38160,6 +38174,7 @@
 	            this._destroys[i]();
 	        }
 	        this._destroys.length = 0;
+	        this._tbRefs.length = 0;
 	    };
 	    __decorate([
 	        core_1.Output(), 
@@ -38527,6 +38542,7 @@
 	var config_1 = __webpack_require__(252);
 	var ion_1 = __webpack_require__(269);
 	var navbar_1 = __webpack_require__(281);
+	var view_controller_1 = __webpack_require__(279);
 	/**
 	 * @private
 	 */
@@ -38614,9 +38630,10 @@
 	 */
 	var Toolbar = (function (_super) {
 	    __extends(Toolbar, _super);
-	    function Toolbar(elementRef, config) {
+	    function Toolbar(viewCtrl, elementRef, config) {
 	        _super.call(this, elementRef);
 	        this._sbPadding = config.getBoolean('statusbarPadding', false);
+	        viewCtrl && viewCtrl.setToolbarRef(elementRef);
 	    }
 	    Toolbar = __decorate([
 	        core_1.Component({
@@ -38633,11 +38650,12 @@
 	                '[class.statusbar-padding]': '_sbPadding'
 	            },
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object])
+	        }),
+	        __param(0, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object])
 	    ], Toolbar);
 	    return Toolbar;
-	    var _a, _b;
+	    var _a, _b, _c;
 	}(ToolbarBase));
 	exports.Toolbar = Toolbar;
 	/**
@@ -54378,10 +54396,10 @@
 	        y = Math.round(y);
 	        this.col.selectedIndex = Math.max(Math.abs(Math.round(y / this.optHeight)), 0);
 	        var colElements = this.colEle.nativeElement.querySelectorAll('.picker-opt');
-	        if (colElements.length != this.col.options.length) {
-	            // TODO: it would be great to find the root of the problem
-	            // and implement a good fix, but at least, this prevents an expection
-	            console.error("colElements.length!=this.col.options.length");
+	        if (colElements.length !== this.col.options.length) {
+	            // TODO: temporary until [style.transform] is fixed within ng2
+	            console.warn('colElements.length!=this.col.options.length');
+	            return;
 	        }
 	        for (var i = 0; i < colElements.length; i++) {
 	            var ele = colElements[i];
@@ -76461,6 +76479,7 @@
 	        this.add(enteringPage);
 	        // entering content
 	        var enteringContent = new animation_1.Animation(enteringView.contentRef());
+	        enteringContent.element(enteringView.toolbarRefs());
 	        this.add(enteringContent);
 	        if (backDirection) {
 	            // entering content, back direction
@@ -76536,6 +76555,7 @@
 	        if (leavingView) {
 	            // leaving content
 	            var leavingContent = new animation_1.Animation(leavingView.contentRef());
+	            leavingContent.element(leavingView.toolbarRefs());
 	            this.add(leavingContent);
 	            if (backDirection) {
 	                // leaving content, back direction

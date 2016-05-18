@@ -868,24 +868,40 @@ ion-menu[type=overlay][side=right] {
 ion-menu[type=push][side=right] {
   left: 0; }
 
-ion-page.modal {
-  z-index: 1000;
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0); }
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%; }
+  @media not all and (min-width: 768px) and (min-height: 600px) {
+    .modal .backdrop {
+      display: none; } }
+
+.modal-wrapper {
+  z-index: 10;
+  height: 100%; }
   @media only screen and (min-width: 768px) and (min-height: 600px) {
-    ion-page.modal {
+    .modal-wrapper {
       position: absolute;
-      top: calc(50% - 250px);
-      left: calc(50% - 300px);
+      top: calc(50% - (500px/2));
+      left: calc(50% - (600px/2));
       width: 600px;
       height: 500px; } }
   @media only screen and (min-width: 768px) and (min-height: 768px) {
-    ion-page.modal {
+    .modal-wrapper {
       position: absolute;
-      top: calc(50% - 300px);
-      left: calc(50% - 300px);
+      top: calc(50% - (600px/2));
+      left: calc(50% - (600px/2));
       width: 600px;
       height: 600px; } }
+
+.show-page ion-page {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
 
 ion-refresher {
   position: absolute;
@@ -6434,7 +6450,7 @@ ion-loading {
 ion-menu {
   background: #f2f2f2; }
 
-ion-page.modal {
+.modal ion-page {
   background-color: #fff; }
 
 ion-picker-cmp {

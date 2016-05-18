@@ -75256,6 +75256,17 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
+	var nav_params_1 = __webpack_require__(280);
 	var view_controller_1 = __webpack_require__(279);
 	var animation_1 = __webpack_require__(287);
 	var transition_1 = __webpack_require__(286);
@@ -75362,7 +75373,8 @@
 	    __extends(Modal, _super);
 	    function Modal(componentType, data) {
 	        if (data === void 0) { data = {}; }
-	        _super.call(this, componentType, data);
+	        data.componentToPresent = componentType;
+	        _super.call(this, ModalComponent, data);
 	        this.viewType = 'modal';
 	        this.isOverlay = true;
 	    }
@@ -75384,6 +75396,34 @@
 	    return Modal;
 	}(view_controller_1.ViewController));
 	exports.Modal = Modal;
+	var ModalComponent = (function () {
+	    function ModalComponent(_loader, _navParams, _viewCtrl) {
+	        this._loader = _loader;
+	        this._navParams = _navParams;
+	        this._viewCtrl = _viewCtrl;
+	    }
+	    ModalComponent.prototype.ngAfterViewInit = function () {
+	        var _this = this;
+	        var component = this._navParams.data.componentToPresent;
+	        this._loader.loadNextToLocation(component, this.wrapper).then(function (componentInstance) {
+	            _this._viewCtrl.setInstance(componentInstance.instance);
+	            // TODO - validate what life cycle events aren't call and possibly call them here if needed
+	        });
+	    };
+	    __decorate([
+	        core_1.ViewChild('wrapper', { read: core_1.ViewContainerRef }), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object)
+	    ], ModalComponent.prototype, "wrapper", void 0);
+	    ModalComponent = __decorate([
+	        core_1.Component({
+	            selector: 'ion-modal',
+	            template: "\n    <div class=\"backdrop\"></div>\n    <div class=\"modal-wrapper\">\n      <div #wrapper></div>\n    </div>\n  "
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.DynamicComponentLoader !== 'undefined' && core_1.DynamicComponentLoader) === 'function' && _b) || Object, (typeof (_c = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _c) || Object, (typeof (_d = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _d) || Object])
+	    ], ModalComponent);
+	    return ModalComponent;
+	    var _a, _b, _c, _d;
+	}());
 	/**
 	 * Animations for modals
 	 */
@@ -75391,12 +75431,18 @@
 	    __extends(ModalSlideIn, _super);
 	    function ModalSlideIn(enteringView, leavingView, opts) {
 	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        backdrop.fromTo('opacity', 0.01, 0.4);
+	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
+	        wrapper.fromTo('translateY', '100%', '0%');
 	        this
 	            .element(enteringView.pageRef())
 	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
 	            .duration(400)
-	            .fromTo('translateY', '100%', '0%')
-	            .before.addClass('show-page');
+	            .before.addClass('show-page')
+	            .add(backdrop)
+	            .add(wrapper);
 	        if (enteringView.hasNavbar()) {
 	            // entering page has a navbar
 	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());
@@ -75411,11 +75457,17 @@
 	    __extends(ModalSlideOut, _super);
 	    function ModalSlideOut(enteringView, leavingView, opts) {
 	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        backdrop.fromTo('opacity', 0.4, 0.0);
+	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
+	        wrapper.fromTo('translateY', '0%', '100%');
 	        this
 	            .element(leavingView.pageRef())
 	            .easing('ease-out')
 	            .duration(250)
-	            .fromTo('translateY', '0%', '100%');
+	            .add(backdrop)
+	            .add(wrapper);
 	    }
 	    return ModalSlideOut;
 	}(transition_1.Transition));
@@ -75424,13 +75476,19 @@
 	    __extends(ModalMDSlideIn, _super);
 	    function ModalMDSlideIn(enteringView, leavingView, opts) {
 	        _super.call(this, opts);
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        backdrop.fromTo('opacity', 0.01, 0.4);
+	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
+	        wrapper.fromTo('translateY', '40px', '0px');
 	        this
 	            .element(enteringView.pageRef())
 	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
 	            .duration(280)
-	            .fromTo('translateY', '40px', '0px')
 	            .fadeIn()
-	            .before.addClass('show-page');
+	            .before.addClass('show-page')
+	            .add(backdrop)
+	            .add(wrapper);
 	        if (enteringView.hasNavbar()) {
 	            // entering page has a navbar
 	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());
@@ -75445,12 +75503,18 @@
 	    __extends(ModalMDSlideOut, _super);
 	    function ModalMDSlideOut(enteringView, leavingView, opts) {
 	        _super.call(this, opts);
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        backdrop.fromTo('opacity', 0.4, 0.0);
+	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
+	        wrapper.fromTo('translateY', '0px', '40px');
 	        this
 	            .element(leavingView.pageRef())
 	            .duration(200)
 	            .easing('cubic-bezier(0.47,0,0.745,0.715)')
-	            .fromTo('translateY', '0px', '40px')
-	            .fadeOut();
+	            .fadeOut()
+	            .add(wrapper)
+	            .add(backdrop);
 	    }
 	    return ModalMDSlideOut;
 	}(transition_1.Transition));

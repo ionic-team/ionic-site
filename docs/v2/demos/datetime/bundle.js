@@ -30686,7 +30686,9 @@
 	    }
 	})();
 	// use native raf rather than the zone wrapped one
-	exports.nativeRaf = (window[window['Zone']['__symbol__']('requestAnimationFrame')] || window[window['Zone']['__symbol__']('webkitRequestAnimationFrame')])['bind'](window);
+	var originalRaf = (window[window['Zone']['__symbol__']('requestAnimationFrame')] || window[window['Zone']['__symbol__']('webkitRequestAnimationFrame')]);
+	// if the originalRaf from the Zone symbol is not available, we need to provide the polyfilled version
+	exports.nativeRaf = originalRaf !== undefined ? originalRaf['bind'](window) : window.requestAnimationFrame.bind(window);
 	// zone wrapped raf
 	exports.raf = window.requestAnimationFrame.bind(window);
 	exports.cancelRaf = window.cancelAnimationFrame.bind(window);

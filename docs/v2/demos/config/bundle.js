@@ -49229,7 +49229,7 @@
 	        };
 	    }
 	    ItemSlidingGesture.prototype.onDragStart = function (ev) {
-	        var itemContainerEle = getItemConatiner(ev.target);
+	        var itemContainerEle = getItemContainer(ev.target);
 	        if (!itemContainerEle) {
 	            console.debug('onDragStart, no itemContainerEle');
 	            return false;
@@ -49257,7 +49257,7 @@
 	            this.preventDrag = true;
 	            return;
 	        }
-	        var itemContainerEle = getItemConatiner(ev.target);
+	        var itemContainerEle = getItemContainer(ev.target);
 	        if (!itemContainerEle || !isActive(itemContainerEle)) {
 	            console.debug('onDrag, no itemContainerEle');
 	            return;
@@ -49292,7 +49292,7 @@
 	        var _this = this;
 	        this.preventDrag = false;
 	        this.dragEnded = true;
-	        var itemContainerEle = getItemConatiner(ev.target);
+	        var itemContainerEle = getItemContainer(ev.target);
 	        if (!itemContainerEle || !isActive(itemContainerEle)) {
 	            console.debug('onDragEnd, no itemContainerEle');
 	            return;
@@ -49388,7 +49388,7 @@
 	    console.debug('sliding item preventDefault', ev.type);
 	    ev.preventDefault();
 	}
-	function getItemConatiner(ele) {
+	function getItemContainer(ele) {
 	    return dom_1.closest(ele, 'ion-item-sliding', true);
 	}
 	function isFromOptionButtons(ele) {

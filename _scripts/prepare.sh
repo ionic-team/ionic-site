@@ -32,7 +32,7 @@ function clone_site {
 function buildforjekyll {
   echo "Building site with jekyll"
   #jekyll build --incremental
-  jekyll build --incremental
+  jekyll build
 }
 
 if [ -d "_scripts" ]; then

@@ -5894,14 +5894,16 @@ ion-icon {
     width: 100px;
     min-width: 100px;
     max-width: 200px; }
-  .ios ion-label[stacked],
-  .ios ion-label[floating] {
+  .ios .item-label-stacked ion-label,
+  .ios .item-label-floating ion-label {
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch;
-    margin-bottom: 0;
     width: auto;
     max-width: 100%; }
+  .ios ion-label[stacked],
+  .ios ion-label[floating] {
+    margin-bottom: 0; }
   .ios .item-label-stacked .input-wrapper,
   .ios .item-label-floating .input-wrapper {
     -webkit-box-flex: 1;
@@ -9096,14 +9098,16 @@ ion-icon {
     width: 100px;
     min-width: 100px;
     max-width: 200px; }
-  .md ion-label[stacked],
-  .md ion-label[floating] {
+  .md .item-label-stacked ion-label,
+  .md .item-label-floating ion-label {
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch;
-    margin-bottom: 0;
     width: auto;
     max-width: 100%; }
+  .md ion-label[stacked],
+  .md ion-label[floating] {
+    margin-bottom: 0; }
   .md .item-label-stacked .input-wrapper,
   .md .item-label-floating .input-wrapper {
     -webkit-box-flex: 1;
@@ -12594,14 +12598,16 @@ ion-icon {
     width: 100px;
     min-width: 100px;
     max-width: 200px; }
-  .wp ion-label[stacked],
-  .wp ion-label[floating] {
+  .wp .item-label-stacked ion-label,
+  .wp .item-label-floating ion-label {
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch;
-    margin-bottom: 0;
     width: auto;
     max-width: 100%; }
+  .wp ion-label[stacked],
+  .wp ion-label[floating] {
+    margin-bottom: 0; }
   .wp .item-label-stacked .input-wrapper,
   .wp .item-label-floating .input-wrapper {
     -webkit-box-flex: 1;

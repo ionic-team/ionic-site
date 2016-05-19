@@ -7077,7 +7077,8 @@ ion-icon {
     z-index: 1000;
     display: block;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    pointer-events: none; }
   .ios .toast-container {
     display: -webkit-box;
     display: -webkit-flex;
@@ -7086,10 +7087,11 @@ ion-icon {
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
-    align-items: center; }
-    .ios .toast-container button {
-      padding: 19px 16px 17px;
-      font-size: 1.5rem; }
+    align-items: center;
+    pointer-events: auto; }
+  .ios .toast-button {
+    padding: 19px 16px 17px;
+    font-size: 1.5rem; }
   .ios .toast-message {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -10160,7 +10162,8 @@ ion-icon {
     z-index: 1000;
     display: block;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    pointer-events: none; }
   .md .toast-container {
     display: -webkit-box;
     display: -webkit-flex;
@@ -10169,10 +10172,11 @@ ion-icon {
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
-    align-items: center; }
-    .md .toast-container button {
-      padding: 19px 16px 17px;
-      font-size: 1.5rem; }
+    align-items: center;
+    pointer-events: auto; }
+  .md .toast-button {
+    padding: 19px 16px 17px;
+    font-size: 1.5rem; }
   .md .toast-message {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -13636,7 +13640,8 @@ ion-icon {
     z-index: 1000;
     display: block;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    pointer-events: none; }
   .wp .toast-container {
     display: -webkit-box;
     display: -webkit-flex;
@@ -13645,10 +13650,11 @@ ion-icon {
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
-    align-items: center; }
-    .wp .toast-container button {
-      padding: 19px 16px 17px;
-      font-size: 1.5rem; }
+    align-items: center;
+    pointer-events: auto; }
+  .wp .toast-button {
+    padding: 19px 16px 17px;
+    font-size: 1.5rem; }
   .wp .toast-message {
     -webkit-box-flex: 1;
     -webkit-flex: 1;

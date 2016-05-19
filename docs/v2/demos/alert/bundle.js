@@ -55064,7 +55064,6 @@
 	     * @private
 	     */
 	    Toggle.prototype._setChecked = function (isChecked) {
-	        console.debug('_setChecked');
 	        if (isChecked !== this._checked) {
 	            this._checked = isChecked;
 	            if (this._init) {
@@ -75838,11 +75837,6 @@
 	                }, this.d.duration);
 	        }
 	    };
-	    ToastCmp.prototype.bdClick = function () {
-	        if (this.isEnabled() && this.d.enableBackdropDismiss) {
-	            this.dismiss('backdrop');
-	        }
-	    };
 	    ToastCmp.prototype.cbClick = function () {
 	        if (this.isEnabled()) {
 	            this.dismiss('close');
@@ -75860,7 +75854,7 @@
 	    ToastCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-toast',
-	            template: "\n    <div (click)=\"bdClick()\" tappable disable-activated class=\"backdrop\" role=\"presentation\"></div>\n    <div class=\"toast-wrapper\">\n      <div class=\"toast-container\">\n        <div class=\"toast-message\" id=\"{{hdrId}}\" *ngIf=\"d.message\">{{d.message}}</div>\n        <button clear class=\"toast-button\" *ngIf=\"d.showCloseButton\" (click)=\"cbClick()\">\n          {{ d.closeButtonText || 'Close' }}\n         </button>\n      </div>\n    </div>\n  ",
+	            template: "\n    <div class=\"toast-wrapper\">\n      <div class=\"toast-container\">\n        <div class=\"toast-message\" id=\"{{hdrId}}\" *ngIf=\"d.message\">{{d.message}}</div>\n        <button clear class=\"toast-button\" *ngIf=\"d.showCloseButton\" (click)=\"cbClick()\">\n          {{ d.closeButtonText || 'Close' }}\n         </button>\n      </div>\n    </div>\n  ",
 	            host: {
 	                'role': 'dialog',
 	                '[attr.aria-labelledby]': 'hdrId',

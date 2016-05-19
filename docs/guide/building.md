@@ -186,7 +186,7 @@ angular.module('todo', ['ionic'])
   $scope.closeNewTask = function() {
     $scope.taskModal.hide();
   };
-});
+})
 ```
 
 Now run the example and try adding a task. It should slide up the modal and then show the new task after submitting it.
@@ -372,7 +372,7 @@ angular.module('todo', ['ionic'])
     }
   }, 1000);
 
-});
+})
 {% endraw %}
 ```
 

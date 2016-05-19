@@ -4,7 +4,9 @@
   Improve this Doc
 </a>
 
-Ionic's grid system is based on [flexbox](http://www.w3.org/TR/css3-flexbox/), a CSS feature supported by all devices that Ionic supports. The grid is composed of two units &mdash; _rows_ and _columns_. Columns will expand to fill their row, and will resize to fit additional columns.
+Ionic's grid system is based on [flexbox](http://www.w3.org/TR/css3-flexbox/), a CSS feature supported by all devices that Ionic supports. The grid is composed of three units &mdash; _grid_, _rows_ and _columns_. Columns will expand to fill their row, and will resize to fit additional columns.
+
+Rows have no padding or margin applied to them. If that is needed, `ion-grid` can be added to provide additional padding.
 
 In order to set width use `width` attribute on ion-col tag.
 
@@ -14,9 +16,11 @@ In order to set width use `width` attribute on ion-col tag.
 
 
 ``` html
-<ion-row>
-  <ion-col width-10>This column will take 10% of space</ion-col>
-</ion-row>
+<ion-grid>
+  <ion-row>
+    <ion-col width-10>This column will take 10% of space</ion-col>
+  </ion-row>
+</ion-grid>
 ```
 
 

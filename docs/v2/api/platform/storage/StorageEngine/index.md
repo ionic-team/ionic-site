@@ -32,7 +32,7 @@ StorageEngine
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/platform/storage/storage.ts#L61">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/platform/storage/storage.ts#L61">
 Improve this doc
 </a>
 

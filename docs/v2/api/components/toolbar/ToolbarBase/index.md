@@ -32,7 +32,7 @@ ToolbarBase
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/toolbar/toolbar.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/toolbar/toolbar.ts#L7">
 Improve this doc
 </a>
 

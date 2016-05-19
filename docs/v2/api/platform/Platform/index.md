@@ -34,7 +34,7 @@ Platform
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/platform/platform.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/platform/platform.ts#L4">
 Improve this doc
 </a>
 

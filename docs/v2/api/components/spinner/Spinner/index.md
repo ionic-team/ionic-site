@@ -32,7 +32,7 @@ Spinner
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/spinner/spinner.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/spinner/spinner.ts#L3">
 Improve this doc
 </a>
 

@@ -32,7 +32,7 @@ RefresherContent
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/refresher/refresher-content.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/refresher/refresher-content.ts#L3">
 Improve this doc
 </a>
 

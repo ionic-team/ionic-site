@@ -32,7 +32,7 @@ MenuBackdrop
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/menu/menu.ts#L595">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/menu/menu.ts#L595">
 Improve this doc
 </a>
 

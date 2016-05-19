@@ -34,7 +34,7 @@ TextArea
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/components/input/input.ts#L114">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/input/input.ts#L114">
 Improve this doc
 </a>
 

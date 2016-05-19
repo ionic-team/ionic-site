@@ -32,7 +32,7 @@ postBootstrap
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/config/bootstrap.ts#L64">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/bootstrap.ts#L64">
 Improve this doc
 </a>
 

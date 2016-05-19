@@ -32,7 +32,7 @@ Page
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//ionic/decorators/page.ts#L27">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/decorators/page.ts#L27">
 Improve this doc
 </a>
 

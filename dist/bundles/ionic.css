@@ -7568,20 +7568,17 @@ ion-icon {
   .ios ion-navbar-section.statusbar-padding {
     height: calc(44px + 20px);
     min-height: calc(44px + 20px); }
-  .ios ion-navbar-section.statusbar-padding > .toolbar ion-segment,
-  .ios ion-navbar-section.statusbar-padding > .toolbar ion-title,
   .ios ion-navbar-section.statusbar-padding > .toolbar {
     padding-top: 20px;
     height: calc(44px + 20px);
     min-height: calc(44px + 20px); }
-  .ios .tab-subpage > .toolbar.statusbar-padding:first-child ion-segment,
-  .ios .tab-subpage > .toolbar.statusbar-padding:first-child ion-title,
+  .ios ion-navbar-section.statusbar-padding > .toolbar ion-segment,
+  .ios ion-navbar-section.statusbar-padding > .toolbar ion-title {
+    padding-top: 20px;
+    height: calc(44px + 20px);
+    min-height: calc(44px + 20px); }
   .ios .tab-subpage > .toolbar.statusbar-padding:first-child,
-  .ios ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-segment,
-  .ios ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-title,
   .ios ion-nav > ion-page > .toolbar.statusbar-padding:first-child,
-  .ios ion-menu > .toolbar.statusbar-padding:first-child ion-segment,
-  .ios ion-menu > .toolbar.statusbar-padding:first-child ion-title,
   .ios ion-menu > .toolbar.statusbar-padding:first-child {
     padding-top: 20px;
     height: calc(44px + 20px);
@@ -7597,6 +7594,30 @@ ion-icon {
   .ios ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,
   .ios ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
     padding-top: calc(16px + 20px); }
+  .ios .tab-subpage > .toolbar.statusbar-padding:first-child ion-segment,
+  .ios .tab-subpage > .toolbar.statusbar-padding:first-child ion-title,
+  .ios ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-segment,
+  .ios ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-title,
+  .ios ion-menu > .toolbar.statusbar-padding:first-child ion-segment,
+  .ios ion-menu > .toolbar.statusbar-padding:first-child ion-title {
+    padding-top: 20px;
+    height: calc(44px + 20px);
+    min-height: calc(44px + 20px); }
+  @media only screen and (max-width: 767px) {
+    .ios .modal-wrapper > ion-page > .toolbar.statusbar-padding:first-child {
+      padding-top: 20px;
+      height: calc(44px + 20px);
+      min-height: calc(44px + 20px); }
+    .ios .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child scroll-content {
+      padding-top: 20px; }
+    .ios .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
+    .ios .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
+      padding-top: calc(16px + 20px); }
+    .ios .modal-wrapper > ion-page > .toolbar.statusbar-padding:first-child ion-segment,
+    .ios .modal-wrapper > ion-page > .toolbar.statusbar-padding:first-child ion-title {
+      padding-top: 20px;
+      height: calc(44px + 20px);
+      min-height: calc(44px + 20px); } }
 
 .md {
   font-family: "Roboto", "Helvetica Neue", sans-serif;
@@ -11124,6 +11145,16 @@ ion-icon {
   .md ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,
   .md ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
     padding-top: calc(16px + 20px); }
+  @media only screen and (max-width: 767px) {
+    .md .modal-wrapper > ion-page > .toolbar.statusbar-padding:first-child {
+      padding-top: 20px;
+      height: calc(5.6rem + 20px);
+      min-height: calc(5.6rem + 20px); }
+    .md .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child scroll-content {
+      padding-top: 20px; }
+    .md .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
+    .md .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
+      padding-top: calc(16px + 20px); } }
 
 @font-face {
   font-family: "Roboto";
@@ -14553,6 +14584,16 @@ ion-icon {
   .wp ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,
   .wp ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
     padding-top: calc(16px + 20px); }
+  @media only screen and (max-width: 767px) {
+    .wp .modal-wrapper > ion-page > .toolbar.statusbar-padding:first-child {
+      padding-top: 20px;
+      height: calc(4.6rem + 20px);
+      min-height: calc(4.6rem + 20px); }
+    .wp .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child scroll-content {
+      padding-top: 20px; }
+    .wp .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
+    .wp .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
+      padding-top: calc(16px + 20px); } }
 
 @font-face {
   font-family: "Noto Sans";

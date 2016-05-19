@@ -8058,21 +8058,19 @@ ion-navbar-section.statusbar-padding {
   height: calc(44px + 20px);
   min-height: calc(44px + 20px); }
 
-ion-navbar-section.statusbar-padding > .toolbar ion-segment,
-ion-navbar-section.statusbar-padding > .toolbar ion-title,
 ion-navbar-section.statusbar-padding > .toolbar {
   padding-top: 20px;
   height: calc(44px + 20px);
   min-height: calc(44px + 20px); }
 
-.tab-subpage > .toolbar.statusbar-padding:first-child ion-segment,
-.tab-subpage > .toolbar.statusbar-padding:first-child ion-title,
+ion-navbar-section.statusbar-padding > .toolbar ion-segment,
+ion-navbar-section.statusbar-padding > .toolbar ion-title {
+  padding-top: 20px;
+  height: calc(44px + 20px);
+  min-height: calc(44px + 20px); }
+
 .tab-subpage > .toolbar.statusbar-padding:first-child,
-ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-segment,
-ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-title,
 ion-nav > ion-page > .toolbar.statusbar-padding:first-child,
-ion-menu > .toolbar.statusbar-padding:first-child ion-segment,
-ion-menu > .toolbar.statusbar-padding:first-child ion-title,
 ion-menu > .toolbar.statusbar-padding:first-child {
   padding-top: 20px;
   height: calc(44px + 20px);
@@ -8090,6 +8088,32 @@ ion-nav > ion-page > ion-content.statusbar-padding:first-child[padding-top] scro
 ion-menu > ion-content.statusbar-padding:first-child[padding] scroll-content,
 ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
   padding-top: calc(16px + 20px); }
+
+.tab-subpage > .toolbar.statusbar-padding:first-child ion-segment,
+.tab-subpage > .toolbar.statusbar-padding:first-child ion-title,
+ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-segment,
+ion-nav > ion-page > .toolbar.statusbar-padding:first-child ion-title,
+ion-menu > .toolbar.statusbar-padding:first-child ion-segment,
+ion-menu > .toolbar.statusbar-padding:first-child ion-title {
+  padding-top: 20px;
+  height: calc(44px + 20px);
+  min-height: calc(44px + 20px); }
+
+@media only screen and (max-width: 767px) {
+  .modal-wrapper > ion-page > .toolbar.statusbar-padding:first-child {
+    padding-top: 20px;
+    height: calc(44px + 20px);
+    min-height: calc(44px + 20px); }
+  .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child scroll-content {
+    padding-top: 20px; }
+  .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
+    padding-top: calc(16px + 20px); }
+  .modal-wrapper > ion-page > .toolbar.statusbar-padding:first-child ion-segment,
+  .modal-wrapper > ion-page > .toolbar.statusbar-padding:first-child ion-title {
+    padding-top: 20px;
+    height: calc(44px + 20px);
+    min-height: calc(44px + 20px); } }
 
 body {
   font-family: -apple-system, "Helvetica Neue", "Roboto", sans-serif;

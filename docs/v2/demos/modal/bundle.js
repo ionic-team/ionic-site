@@ -53547,8 +53547,8 @@
 	 *
 	 * ## Min and Max Datetimes
 	 *
-	 * Dates are infinite in either direction, so for a user selection there should be at
-	 * least some form of restricting the dates can be selected. Be default, the maximum
+	 * Dates are infinite in either direction, so for a user's selection there should be at
+	 * least some form of restricting the dates that can be selected. Be default, the maximum
 	 * date is to the end of the current year, and the minimum date is from the beginning
 	 * of the year that was 100 years ago.
 	 *
@@ -53619,7 +53619,7 @@
 	 * However, it's important to note that `ion-datetime` does not attempt to solve all
 	 * situtations when validating and manipulating datetime values. If datetime values need
 	 * to be parsed from a certain format, or manipulated (such as adding 5 days to a date,
-	 * subtracting 30 minutes), or even formatting data to a specific locale, then we highly
+	 * subtracting 30 minutes, etc.), or even formatting data to a specific locale, then we highly
 	 * recommend using [moment.js](http://momentjs.com/) to "Parse, validate, manipulate, and
 	 * display dates in JavaScript". [Moment.js](http://momentjs.com/) has quickly become
 	 * our goto standard when dealing with datetimes within JavaScript, but Ionic does not

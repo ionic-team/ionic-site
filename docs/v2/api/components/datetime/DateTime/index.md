@@ -285,8 +285,8 @@ set the datetime value&#39;s output, which is the value that sent the the compon
 interface, but the datetime&#39;s value is always persisted as a valid ISO 8601 datetime
 string.</p>
 <h2 id="min-and-max-datetimes">Min and Max Datetimes</h2>
-<p>Dates are infinite in either direction, so for a user selection there should be at
-least some form of restricting the dates can be selected. Be default, the maximum
+<p>Dates are infinite in either direction, so for a user&#39;s selection there should be at
+least some form of restricting the dates that can be selected. Be default, the maximum
 date is to the end of the current year, and the minimum date is from the beginning
 of the year that was 100 years ago.</p>
 <p>To customize the minimum and maximum datetime values, the <code>min</code> and <code>max</code> component
@@ -341,7 +341,7 @@ the datetime values as a string using the standardized
 However, it&#39;s important to note that <code>ion-datetime</code> does not attempt to solve all
 situtations when validating and manipulating datetime values. If datetime values need
 to be parsed from a certain format, or manipulated (such as adding 5 days to a date,
-subtracting 30 minutes), or even formatting data to a specific locale, then we highly
+subtracting 30 minutes, etc.), or even formatting data to a specific locale, then we highly
 recommend using <a href="http://momentjs.com/">moment.js</a> to &quot;Parse, validate, manipulate, and
 display dates in JavaScript&quot;. <a href="http://momentjs.com/">Moment.js</a> has quickly become
 our goto standard when dealing with datetimes within JavaScript, but Ionic does not
@@ -492,7 +492,7 @@ array of numbers, or string of comma separated numbers.</p>
       <td>minuteValues</td>
       <td><code>array | string</code></td>
       <td><p> Values used to create the list of selectable minutes. By default
-the mintues range from <code>1</code> to <code>59</code>. However, to control exactly which minutes to display,
+the mintues range from <code>0</code> to <code>59</code>. However, to control exactly which minutes to display,
 the <code>minuteValues</code> input can take either an array of numbers, or string of comma separated
 numbers. For example, if the minute selections should only be every 15 minutes, then
 this input value would be <code>minuteValues=&quot;0,15,30,45&quot;</code>.</p>

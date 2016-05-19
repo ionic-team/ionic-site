@@ -51549,7 +51549,9 @@
 	    Checkbox.prototype._setChecked = function (isChecked) {
 	        if (isChecked !== this._checked) {
 	            this._checked = isChecked;
-	            this.change.emit(this);
+	            if (this._init) {
+	                this.change.emit(this);
+	            }
 	            this._item && this._item.setCssClass('item-checkbox-checked', isChecked);
 	        }
 	    };
@@ -51603,6 +51605,12 @@
 	     * @private
 	     */
 	    Checkbox.prototype.onTouched = function () { };
+	    /**
+	     * @private
+	     */
+	    Checkbox.prototype.ngAfterContentInit = function () {
+	        this._init = true;
+	    };
 	    /**
 	     * @private
 	     */
@@ -54926,9 +54934,12 @@
 	     * @private
 	     */
 	    Toggle.prototype._setChecked = function (isChecked) {
+	        console.debug('_setChecked');
 	        if (isChecked !== this._checked) {
 	            this._checked = isChecked;
-	            this.change.emit(this);
+	            if (this._init) {
+	                this.change.emit(this);
+	            }
 	            this._item && this._item.setCssClass('item-toggle-checked', isChecked);
 	        }
 	    };
@@ -54979,6 +54990,12 @@
 	     * @private
 	     */
 	    Toggle.prototype.onTouched = function () { };
+	    /**
+	     * @private
+	     */
+	    Toggle.prototype.ngAfterContentInit = function () {
+	        this._init = true;
+	    };
 	    /**
 	     * @private
 	     */

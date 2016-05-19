@@ -76,7 +76,7 @@ angular.module('todo', ['ionic'])
     { title: 'Get high enough to grab the flag' },
     { title: 'Find the Princess' }
   ];
-});
+})
 ```
 
 Run the example again, and we should see our list of very important tasks!

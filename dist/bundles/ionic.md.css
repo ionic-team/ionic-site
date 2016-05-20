@@ -6078,6 +6078,13 @@ ion-thumbnail {
 ion-note {
   color: #c5c5c5; }
 
+ion-item-group .item:first-child .item-inner {
+  border-top-width: 0; }
+
+ion-item-group .item:last-child .item-inner,
+ion-item-group ion-item-sliding:last-child .item-inner {
+  border: 0; }
+
 ion-item-divider {
   padding: 13px 16px 13px 16px;
   color: #222;

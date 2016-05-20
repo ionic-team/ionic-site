@@ -7989,10 +7989,6 @@ ion-title {
   pointer-events: none; }
 
 ion-buttons {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   -webkit-box-ordinal-group: 4;
   -webkit-order: 3;
   -ms-flex-order: 3;

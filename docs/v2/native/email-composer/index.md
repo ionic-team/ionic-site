@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master//home/ubuntu/ionic-native/src/plugins/emailcomposer.ts#L16'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master//home/ubuntu/ionic-native/src/plugins/emailcomposer.ts#L2'>
   Improve this doc
 </a>
 
@@ -96,7 +96,7 @@ let email = {
 };
 
 // Send a text message using default options
-EmailComposer.send(email);
+EmailComposer.open(email);
 </code></pre>
 
 
@@ -105,7 +105,7 @@ EmailComposer.send(email);
 <!-- @property tags -->
 <h2>Static Methods</h2>
 <div id="isAvailable"></div>
-<h3><code>isAvailable(app,&nbsp;scope)</code>
+<h3><code>isAvailable(app)</code>
 
 </h3>Verifies if sending emails is supported on the device.
 
@@ -132,24 +132,7 @@ EmailComposer.send(email);
 <code>string</code>
     </td>
     <td>
-      <p>An optional app id or uri scheme. Defaults to mailto.</p>
-
-      
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      scope
-      
-      
-    </td>
-    <td>
-      
-<code>any</code>
-    </td>
-    <td>
-      <p>An optional scope for the promise</p>
+      <p>An optional app id or uri scheme.</p>
 
       
     </td>
@@ -165,7 +148,7 @@ EmailComposer.send(email);
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;boolean&gt;</code> Resolves promise with boolean whether EmailComposer is available
+<code>Promise&lt;boolean&gt;</code> Resolves if available, rejects if not available
 </div>
 
 

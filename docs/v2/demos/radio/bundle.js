@@ -75601,7 +75601,6 @@
 	    __extends(Toast, _super);
 	    function Toast(opts) {
 	        if (opts === void 0) { opts = {}; }
-	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        opts.dismissOnPageChange = util_1.isPresent(opts.dismissOnPageChange) ? !!opts.dismissOnPageChange : false;
 	        _super.call(this, ToastCmp, opts);
 	        this.viewType = 'toast';
@@ -75636,7 +75635,6 @@
 	     *  | cssClass              | `string`  | -               | Any additional class for custom styles.                                                                       |
 	     *  | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
 	     *  | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |
-	     *  | enableBackdropDismiss | `boolean` | true            | Whether the toast should be dismissed by tapping the backdrop.                                                |
 	     *  | dismissOnPageChange   | `boolean` | false           | Whether to dismiss the toast when navigating to a new page.                                                   |
 	     *
 	     * @param {object} opts Toast options. See the above table for available options.

@@ -4773,6 +4773,8 @@ ion-icon {
     padding: 13px;
     text-overflow: ellipsis;
     white-space: nowrap; }
+  .ios .alert-radio[aria-checked=true] .alert-radio-label {
+    color: #327eff; }
   .ios .alert-radio-icon {
     position: relative;
     -webkit-box-ordinal-group: 2;
@@ -4780,8 +4782,6 @@ ion-icon {
     -ms-flex-order: 1;
     order: 1;
     min-width: 30px; }
-  .ios .alert-radio[aria-checked=true] {
-    color: #327eff; }
   .ios .alert-radio[aria-checked=true] .alert-radio-inner {
     position: absolute;
     top: -7px;
@@ -4804,6 +4804,8 @@ ion-icon {
     padding: 13px;
     text-overflow: ellipsis;
     white-space: nowrap; }
+  .ios .alert-checkbox[aria-checked=true] .alert-checkbox-label {
+    color: initial; }
   .ios .alert-checkbox-icon {
     position: relative;
     margin: 10px 6px 10px 16px;
@@ -7945,10 +7947,10 @@ ion-icon {
     transform: scale3d(0, 0, 0);
     -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
     transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1); }
-  .md .alert-radio[aria-checked=true] {
+  .md .alert-radio[aria-checked=true] .alert-radio-label {
     color: #327eff; }
-    .md .alert-radio[aria-checked=true] .alert-radio-icon {
-      border-color: #327eff; }
+  .md .alert-radio[aria-checked=true] .alert-radio-icon {
+    border-color: #327eff; }
   .md .alert-radio[aria-checked=true] .alert-radio-inner {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); }
@@ -7961,6 +7963,8 @@ ion-icon {
     padding: 13px 26px;
     text-overflow: ellipsis;
     white-space: nowrap; }
+  .md .alert-checkbox[aria-checked=true] .alert-checkbox-label {
+    color: initial; }
   .md .alert-checkbox-icon {
     position: relative;
     top: 0;
@@ -11517,10 +11521,10 @@ ion-icon {
     height: 8px;
     border-radius: 50%;
     background: #327eff; }
-  .wp .alert-radio[aria-checked=true] {
+  .wp .alert-radio[aria-checked=true] .alert-radio-label {
     color: #000; }
-    .wp .alert-radio[aria-checked=true] .alert-radio-icon {
-      border-color: rgba(0, 0, 0, 0.5); }
+  .wp .alert-radio[aria-checked=true] .alert-radio-icon {
+    border-color: rgba(0, 0, 0, 0.5); }
   .wp .alert-radio[aria-checked=true] .alert-radio-inner {
     display: block; }
   .wp .alert-checkbox-label {
@@ -11532,6 +11536,8 @@ ion-icon {
     padding: 13px 26px;
     text-overflow: ellipsis;
     white-space: nowrap; }
+  .wp .alert-checkbox[aria-checked=true] .alert-checkbox-label {
+    color: initial; }
   .wp .alert-checkbox-icon {
     position: relative;
     top: 0;

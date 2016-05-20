@@ -4810,6 +4810,9 @@ ion-alert {
   text-overflow: ellipsis;
   white-space: nowrap; }
 
+.alert-radio[aria-checked=true] .alert-radio-label {
+  color: #327eff; }
+
 .alert-radio-icon {
   position: relative;
   -webkit-box-ordinal-group: 2;
@@ -4817,9 +4820,6 @@ ion-alert {
   -ms-flex-order: 1;
   order: 1;
   min-width: 30px; }
-
-.alert-radio[aria-checked=true] {
-  color: #327eff; }
 
 .alert-radio[aria-checked=true] .alert-radio-inner {
   position: absolute;
@@ -4844,6 +4844,9 @@ ion-alert {
   padding: 13px;
   text-overflow: ellipsis;
   white-space: nowrap; }
+
+.alert-checkbox[aria-checked=true] .alert-checkbox-label {
+  color: initial; }
 
 .alert-checkbox-icon {
   position: relative;

@@ -4817,10 +4817,11 @@ ion-alert .backdrop {
   border-radius: 50%;
   background: #327eff; }
 
-.alert-radio[aria-checked=true] {
+.alert-radio[aria-checked=true] .alert-radio-label {
   color: #000; }
-  .alert-radio[aria-checked=true] .alert-radio-icon {
-    border-color: rgba(0, 0, 0, 0.5); }
+
+.alert-radio[aria-checked=true] .alert-radio-icon {
+  border-color: rgba(0, 0, 0, 0.5); }
 
 .alert-radio[aria-checked=true] .alert-radio-inner {
   display: block; }
@@ -4834,6 +4835,9 @@ ion-alert .backdrop {
   padding: 13px 26px;
   text-overflow: ellipsis;
   white-space: nowrap; }
+
+.alert-checkbox[aria-checked=true] .alert-checkbox-label {
+  color: initial; }
 
 .alert-checkbox-icon {
   position: relative;

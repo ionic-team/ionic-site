@@ -4850,10 +4850,11 @@ ion-alert {
   -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1); }
 
-.alert-radio[aria-checked=true] {
+.alert-radio[aria-checked=true] .alert-radio-label {
   color: #387ef5; }
-  .alert-radio[aria-checked=true] .alert-radio-icon {
-    border-color: #387ef5; }
+
+.alert-radio[aria-checked=true] .alert-radio-icon {
+  border-color: #387ef5; }
 
 .alert-radio[aria-checked=true] .alert-radio-inner {
   -webkit-transform: scale3d(1, 1, 1);
@@ -4868,6 +4869,9 @@ ion-alert {
   padding: 13px 26px;
   text-overflow: ellipsis;
   white-space: nowrap; }
+
+.alert-checkbox[aria-checked=true] .alert-checkbox-label {
+  color: initial; }
 
 .alert-checkbox-icon {
   position: relative;

@@ -251,6 +251,18 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
 </td>
     </tr>
     
+    <tr>
+      <td>opened</td>
+      <td><p> When the menu has been opened.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>closed</td>
+      <td><p> When the menu has been closed.</p>
+</td>
+    </tr>
+    
   </tbody>
 </table><!-- related link -->
 

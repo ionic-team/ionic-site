@@ -34186,6 +34186,14 @@
 	         * @output {event} When the menu is being dragged open.
 	         */
 	        this.opening = new core_1.EventEmitter();
+	        /**
+	         * @output {event} When the menu has been opened.
+	         */
+	        this.opened = new core_1.EventEmitter();
+	        /**
+	         * @output {event} When the menu has been closed.
+	         */
+	        this.closed = new core_1.EventEmitter();
 	    }
 	    Object.defineProperty(Menu.prototype, "enabled", {
 	        /**
@@ -34378,6 +34386,7 @@
 	        // keep opening/closing the menu disabled for a touch more yet
 	        // only add listeners/css if it's enabled and isOpen
 	        // and only remove listeners/css if it's not open
+	        // emit opened/closed events
 	        if ((this._isEnabled && isOpen) || !isOpen) {
 	            this._prevent();
 	            this.isOpen = isOpen;
@@ -34385,10 +34394,12 @@
 	            this._cntEle.removeEventListener('click', this.onContentClick);
 	            if (isOpen) {
 	                this._cntEle.addEventListener('click', this.onContentClick);
+	                this.opened.emit(true);
 	            }
 	            else {
 	                this.getNativeElement().classList.remove('show-menu');
 	                this.getBackdropElement().classList.remove('show-backdrop');
+	                this.closed.emit(true);
 	            }
 	        }
 	    };
@@ -34525,6 +34536,14 @@
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
 	    ], Menu.prototype, "opening", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], Menu.prototype, "opened", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
+	    ], Menu.prototype, "closed", void 0);
 	    Menu = __decorate([
 	        core_1.Component({
 	            selector: 'ion-menu',
@@ -34537,10 +34556,10 @@
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof menu_controller_1.MenuController !== 'undefined' && menu_controller_1.MenuController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _h) || Object])
+	        __metadata('design:paramtypes', [(typeof (_d = typeof menu_controller_1.MenuController !== 'undefined' && menu_controller_1.MenuController) === 'function' && _d) || Object, (typeof (_e = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _h) || Object, (typeof (_j = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object])
 	    ], Menu);
 	    return Menu;
-	    var _a, _b, _c, _d, _e, _f, _g, _h;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 	}(ion_1.Ion));
 	exports.Menu = Menu;
 	/**

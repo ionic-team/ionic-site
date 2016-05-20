@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master//home/ubuntu/ionic-native/src/plugins/screenshot.ts#L0'>
+<a class="improve-v2-docs" href='http://github.com/driftyco/ionic-native/edit/master//home/ubuntu/ionic-native/src/plugins/screenshot.ts#L1'>
   Improve this doc
 </a>
 
@@ -61,11 +61,7 @@ docType: "class"
 <div id="save"></div>
 <h3><code>save(format.,&nbsp;quality.,&nbsp;filename.)</code>
 
-</h3>
-
-
-
-Takes screenshot and saves the image
+</h3>Takes screenshot and saves the image
 
 
 
@@ -108,7 +104,7 @@ On ios, only &#39;jpg&#39; format is supported</p>
 <code>number</code>
     </td>
     <td>
-      <p>Determines the quality of the screenshot. 
+      <p>Determines the quality of the screenshot.
        Default quality is set to 100.</p>
 
       
@@ -144,11 +140,7 @@ On ios, only &#39;jpg&#39; format is supported</p>
 <div id="URI"></div>
 <h3><code>URI(quality.)</code>
 
-</h3>
-
-
-
-Takes screenshot and returns the image as an URI
+</h3>Takes screenshot and returns the image as an URI
 
 
 
@@ -173,7 +165,7 @@ Takes screenshot and returns the image as an URI
 <code>number</code>
     </td>
     <td>
-      <p>Determines the quality of the screenshot. 
+      <p>Determines the quality of the screenshot.
        Default quality is set to 100.</p>
 
       

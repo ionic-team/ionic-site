@@ -4942,6 +4942,8 @@ ion-icon {
   .ios a.button,
   .ios a[button] {
     text-decoration: none; }
+  .ios a[disabled],
+  .ios button[disabled],
   .ios .button[disabled] {
     cursor: default;
     opacity: .4;
@@ -8095,6 +8097,8 @@ ion-icon {
   .md a.button,
   .md a[button] {
     text-decoration: none; }
+  .md a[disabled],
+  .md button[disabled],
   .md .button[disabled] {
     cursor: default;
     opacity: .4;
@@ -11667,6 +11671,8 @@ ion-icon {
   .wp a.button,
   .wp a[button] {
     text-decoration: none; }
+  .wp a[disabled],
+  .wp button[disabled],
   .wp .button[disabled] {
     cursor: default;
     opacity: .4;

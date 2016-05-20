@@ -81,6 +81,7 @@ body {
       &.shown {
         transform: translateX(0);
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        transition: transform .3s ease;
       }
     }
   }
@@ -233,6 +234,16 @@ body {
 
       .form-group input:focus {
         width: 200px;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      margin-top: -1px;
+      margin-left: 0;
+
+      .form-group input,
+      .form-group input:focus {
+        width: 100%;
       }
     }
   }

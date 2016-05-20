@@ -1814,7 +1814,7 @@ $(document).ready(function() {
   };
 
   function searchReady(data) {
-    if (!$searchInput.length || $(window).width() < 768) {
+    if (!$searchInput.length) {
       return;
     }
     var idx = lunr.Index.load(data.index);
@@ -1852,6 +1852,16 @@ $(document).ready(function() {
       for (queryResultId in queryResults) {
         queryResult = queryResults[queryResultId];
         queryData = data.ref[ queryResult.ref ];
+
+        // if this is the resources search, skip non-resources results
+        if (activeSearchInputPos === 'resources') {
+          if (queryData.p.indexOf('/resources/') != 0) {
+            continue;
+          } else {
+            queryData.t = queryData.t.replace('Ionic 2 Resources | ', '');
+          }
+        }
+
         if (queryData.p.indexOf('/api/') === 0) {
           results.api[ queryResult.ref ] = queryData;
         } else if (queryData.p.indexOf('/native/') === 0) {

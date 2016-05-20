@@ -7677,7 +7677,9 @@ body {
         -webkit-transform: translateX(0);
             -ms-transform: translateX(0);
                 transform: translateX(0);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); } }
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        transition: -webkit-transform .3s ease;
+        transition: transform .3s ease; } }
 
 .navbar-default {
   background: linear-gradient(to right, #3071da, #4888f1);
@@ -7778,7 +7780,7 @@ body {
           color: #b1cdfb; }
         .navbar-default .navbar-form .form-group input:-ms-input-placeholder {
           color: #b1cdfb; }
-      .navbar-default .navbar-form .form-group:before {
+      .navbar-default .navbar-form .form-group::before {
         font-family: 'Ionicons';
         -webkit-font-smoothing: antialiased;
         content: '\f4a5';
@@ -7793,6 +7795,13 @@ body {
         margin-left: 25px; }
         .navbar-default .navbar-form .form-group input:focus {
           width: 200px; } }
+    @media (max-width: 767px) {
+      .navbar-default .navbar-form {
+        margin-top: -1px;
+        margin-left: 0; }
+        .navbar-default .navbar-form .form-group input,
+        .navbar-default .navbar-form .form-group input:focus {
+          width: 100%; } }
   .navbar-default .navbar-toggle,
   .navbar-default .sidebar-toggle {
     border: 0;
@@ -7873,7 +7882,7 @@ body {
     margin-bottom: 10px;
     text-align: center;
     transition: .2s border-color, .2s color, .2s background, .2s box-shadow; }
-    .side-nav .back-to-main a:before {
+    .side-nav .back-to-main a::before {
       font-family: 'Ionicons';
       -webkit-font-smoothing: antialiased;
       content: '\f3cf';
@@ -7887,7 +7896,7 @@ body {
       color: #4f8ff7;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
       background: #fdfdfd; }
-    .side-nav .back-to-main a:focus:after {
+    .side-nav .back-to-main a:focus::after {
       border-right-color: transparent; }
   .side-nav .form-group {
     position: relative;
@@ -7896,9 +7905,9 @@ body {
     .side-nav .form-group.search {
       padding: 22px 20px 20px;
       margin-bottom: 0; }
-      .side-nav .form-group.search:hover:before {
+      .side-nav .form-group.search:hover::before {
         color: #a4abb5; }
-      .side-nav .form-group.search:before {
+      .side-nav .form-group.search::before {
         font-family: 'Ionicons';
         content: '\f4a5';
         font-size: 20px;
@@ -7938,9 +7947,9 @@ body {
         background: #fdfdfd; }
     .side-nav .form-group:hover {
       transition: .2s border-color; }
-      .side-nav .form-group:hover:before {
+      .side-nav .form-group:hover::before {
         color: #4f8ff7; }
-    .side-nav .form-group.api-select:before {
+    .side-nav .form-group.api-select::before {
       font-family: 'Ionicons';
       -webkit-font-smoothing: antialiased;
       content: '\f3d0';
@@ -7965,7 +7974,7 @@ body {
       padding: 10px 0;
       position: relative;
       cursor: pointer; }
-      .side-nav ul a:after {
+      .side-nav ul a::after {
         display: block;
         position: absolute;
         right: 0;
@@ -8012,10 +8021,10 @@ body {
       color: #4f8ff7;
       text-decoration: none;
       background: none; }
-    .side-nav ul ul .active > a:after,
-    .side-nav ul .capitalize.active > a:after,
-    .side-nav ul a:focus:after,
-    .side-nav ul .active.top-level > a:after {
+    .side-nav ul ul .active > a::after,
+    .side-nav ul .capitalize.active > a::after,
+    .side-nav ul a:focus::after,
+    .side-nav ul .active.top-level > a::after {
       -webkit-transform: scaleY(1);
           -ms-transform: scaleY(1);
               transform: scaleY(1);
@@ -8056,21 +8065,21 @@ a.footer-link {
     @media (max-width: 500px) {
       a.footer-link.prev {
         display: none; } }
-    a.footer-link.prev:before {
+    a.footer-link.prev::before {
       content: 'Previous'; }
-    a.footer-link.prev:after {
+    a.footer-link.prev::after {
       right: auto;
       left: -25px;
       content: '\f117'; }
   a.footer-link:hover {
     color: #4f8ff7; }
-  a.footer-link:before {
+  a.footer-link::before {
     display: block;
     content: 'Next';
     font-size: 13px;
     color: #9da5b3;
     font-weight: 400; }
-  a.footer-link:after {
+  a.footer-link::after {
     content: '\f119';
     font-family: Ionicons;
     display: block;
@@ -8101,11 +8110,11 @@ a.footer-link {
       .docs-container main h4:first-child,
       .docs-container main h5:first-child {
         margin-top: 0; }
-      .docs-container main h1 a.anchor:before,
-      .docs-container main h2 a.anchor:before,
-      .docs-container main h3 a.anchor:before,
-      .docs-container main h4 a.anchor:before,
-      .docs-container main h5 a.anchor:before {
+      .docs-container main h1 a.anchor::before,
+      .docs-container main h2 a.anchor::before,
+      .docs-container main h3 a.anchor::before,
+      .docs-container main h4 a.anchor::before,
+      .docs-container main h5 a.anchor::before {
         content: '\f22a';
         font-family: 'Ionicons';
         margin-left: -15px;
@@ -8113,19 +8122,19 @@ a.footer-link {
         font-size: 14px;
         color: #e6e9ee;
         transition: .3s color; }
-      .docs-container main h1 a.anchor:hover:before, .docs-container main h1 a.anchor:active:before,
-      .docs-container main h2 a.anchor:hover:before,
-      .docs-container main h2 a.anchor:active:before,
-      .docs-container main h3 a.anchor:hover:before,
-      .docs-container main h3 a.anchor:active:before,
-      .docs-container main h4 a.anchor:hover:before,
-      .docs-container main h4 a.anchor:active:before,
-      .docs-container main h5 a.anchor:hover:before,
-      .docs-container main h5 a.anchor:active:before {
+      .docs-container main h1 a.anchor:hover::before, .docs-container main h1 a.anchor:active::before,
+      .docs-container main h2 a.anchor:hover::before,
+      .docs-container main h2 a.anchor:active::before,
+      .docs-container main h3 a.anchor:hover::before,
+      .docs-container main h3 a.anchor:active::before,
+      .docs-container main h4 a.anchor:hover::before,
+      .docs-container main h4 a.anchor:active::before,
+      .docs-container main h5 a.anchor:hover::before,
+      .docs-container main h5 a.anchor:active::before {
         color: rgba(79, 143, 247, 0.6); }
     .docs-container main h1 {
       margin-bottom: 0; }
-      .docs-container main h1 a.anchor:before {
+      .docs-container main h1 a.anchor::before {
         margin-left: -23px; }
     .docs-container main h2 {
       padding: 2em 0 0;
@@ -8138,6 +8147,12 @@ a.footer-link {
       font-size: 18px; }
       .docs-container main h3.no-para {
         margin-bottom: 1em; }
+    .docs-container main h4 {
+      font-size: 16px; }
+    .docs-container main h5 {
+      font-size: 14px; }
+    .docs-container main h6 {
+      font-size: 12px; }
     .docs-container main p {
       color: #4C555A;
       line-height: 1.9em;
@@ -8294,7 +8309,7 @@ ul.docs-example {
     padding: 0;
     margin: 17px 0; }
 
-.return-value b:before {
+.return-value b::before {
   font-family: 'Ionicons';
   -webkit-font-smoothing: antialiased;
   content: '\f203';
@@ -8474,7 +8489,7 @@ ul.docs-example {
     font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase; }
-    #search-results h3:after {
+    #search-results h3::after {
       position: absolute;
       bottom: -5px;
       left: 0;
@@ -8498,6 +8513,40 @@ ul.docs-example {
         #search-results ul li a:hover, #search-results ul li a:active {
           text-decoration: none;
           color: #4f8ff7; }
+  #search-results.resources {
+    position: absolute;
+    top: 580px;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); }
+    @media (max-width: 767px) {
+      #search-results.resources {
+        max-width: 300px;
+        left: 0; } }
+    #search-results.resources #results-api,
+    #search-results.resources #results-native,
+    #search-results.resources #results-other h3 {
+      display: none; }
+    #search-results.resources #results-other li a {
+      color: #4f8ff7;
+      font-size: 14px;
+      font-weight: 400;
+      transition: .3s color; }
+      #search-results.resources #results-other li a:hover {
+        color: #1e70f5; }
+    @media (max-width: 767px) {
+      #search-results.resources {
+        top: 553px; } }
+  @media (max-width: 767px) {
+    #search-results {
+      left: 0;
+      z-index: 10000;
+      top: 110px; }
+      #search-results.sidebar {
+        top: 127px; }
+      #search-results.active {
+        display: block; } }
 
 #docs-page-ionicons main .download-link, #docs-page-ionicons main .search {
   margin-right: auto;
@@ -8738,10 +8787,126 @@ ul.docs-example {
   .docs-container main .four-oh-four a {
     font-size: 16px;
     font-weight: 500; }
-    .docs-container main .four-oh-four a:after {
+    .docs-container main .four-oh-four a::after {
       font-family: Ionicons;
       content: '\f287';
       display: inline-block;
       margin-left: 10px;
       position: relative;
       top: 2px; }
+
+#docs-page-resources-index main h1.banner {
+  height: 178px;
+  padding-top: 92px;
+  background: no-repeat center top url("/img/docs/resources/resources-header-img.jpg");
+  background-size: cover;
+  color: white;
+  text-align: center;
+  position: relative;
+  margin-top: -50px;
+  margin-left: -40px;
+  margin-right: -40px;
+  padding-bottom: 150px;
+  padding-left: 50px;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 14px;
+  font-weight: 500; }
+  #docs-page-resources-index main h1.banner::before {
+    background: no-repeat center top url("/img/docs/resources/resources-header-icon.png");
+    background-size: 60px;
+    height: 60px;
+    width: 60px;
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -5px;
+    margin-right: 20px; }
+
+#docs-page-resources-index main h2 {
+  text-align: center;
+  font-size: 32px; }
+
+#docs-page-resources-index main form {
+  max-width: 722px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 40px; }
+  #docs-page-resources-index main form input {
+    border-radius: 50px;
+    padding: 18px 5px 17px 59px;
+    font-size: 16px;
+    height: 56px; }
+    #docs-page-resources-index main form input::-webkit-input-placeholder {
+      color: #9da5b3;
+      font-weight: 300; }
+    #docs-page-resources-index main form input::-moz-placeholder {
+      color: #9da5b3;
+      font-weight: 300; }
+    #docs-page-resources-index main form input:-ms-input-placeholder {
+      color: #9da5b3;
+      font-weight: 300; }
+    #docs-page-resources-index main form input::placeholder {
+      color: #9da5b3;
+      font-weight: 300; }
+  #docs-page-resources-index main form::before {
+    content: '\f20a';
+    font-family: 'Ionicons';
+    position: absolute;
+    left: 25px;
+    font-size: 26px;
+    top: 10px;
+    color: #9da5b3;
+    font-weight: 300; }
+
+#docs-page-resources-index main .sections {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  padding-top: 50px; }
+  #docs-page-resources-index main .sections section {
+    -webkit-flex: 1 0 300px;
+        -ms-flex: 1 0 300px;
+            flex: 1 0 300px;
+    padding-left: 68px;
+    padding-bottom: 50px;
+    position: relative; }
+    @media (max-width: 767px) {
+      #docs-page-resources-index main .sections section {
+        -webkit-flex: 1 1 100%;
+            -ms-flex: 1 1 100%;
+                flex: 1 1 100%; } }
+    #docs-page-resources-index main .sections section::before {
+      background: no-repeat center top url("/img/docs/resources/resources-icons.png");
+      background-size: 32px;
+      height: 32px;
+      width: 32px;
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0; }
+    #docs-page-resources-index main .sections section.articles::before {
+      background-position: center -32px; }
+    #docs-page-resources-index main .sections section.tools::before {
+      background-position: center -64px; }
+    #docs-page-resources-index main .sections section.how-to::before {
+      background-position: center -96px; }
+  #docs-page-resources-index main .sections h3 {
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 40px;
+    margin-top: 8px; }
+  #docs-page-resources-index main .sections ul {
+    padding: 0; }
+  #docs-page-resources-index main .sections li {
+    padding-bottom: 25px;
+    list-style: none; }
+    #docs-page-resources-index main .sections li a {
+      font-size: 14px; }
+    #docs-page-resources-index main .sections li p {
+      font-size: 13px;
+      margin-top: 0; }

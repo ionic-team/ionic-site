@@ -32958,6 +32958,11 @@
 	        }
 	        return Promise.resolve(false);
 	    };
+	    MenuController.prototype.tempDisable = function (temporarilyDisable) {
+	        this._menus.forEach(function (menu) {
+	            menu.tempDisable(temporarilyDisable);
+	        });
+	    };
 	    /**
 	     * Toggle the menu. If it's closed, it will open, and if opened, it
 	     * will close.
@@ -34386,10 +34391,10 @@
 	     */
 	    Menu.prototype.swipeStart = function () {
 	        // user started swiping the menu open/close
-	        if (this._isPrevented() || !this._isEnabled || !this._isSwipeEnabled)
-	            return;
-	        this._before();
-	        this._getType().setProgressStart(this.isOpen);
+	        if (this._isEnabled && this._isSwipeEnabled && !this._isPrevented()) {
+	            this._before();
+	            this._getType().setProgressStart(this.isOpen);
+	        }
 	    };
 	    /**
 	     * @private
@@ -34416,9 +34421,6 @@
 	            });
 	        }
 	    };
-	    /**
-	     * @private
-	     */
 	    Menu.prototype._before = function () {
 	        // this places the menu into the correct location before it animates in
 	        // this css class doesn't actually kick off any animations
@@ -34429,9 +34431,6 @@
 	            this._keyboard.close();
 	        }
 	    };
-	    /**
-	     * @private
-	     */
 	    Menu.prototype._after = function (isOpen) {
 	        // keep opening/closing the menu disabled for a touch more yet
 	        // only add listeners/css if it's enabled and isOpen
@@ -34453,14 +34452,22 @@
 	    /**
 	     * @private
 	     */
+	    Menu.prototype.tempDisable = function (temporarilyDisable) {
+	        if (temporarilyDisable) {
+	            this._prevEnabled = this._isEnabled;
+	            this._getType().setProgessStep(0);
+	            this.enable(false);
+	        }
+	        else {
+	            this.enable(this._prevEnabled);
+	            this._after(false);
+	        }
+	    };
 	    Menu.prototype._prevent = function () {
 	        // used to prevent unwanted opening/closing after swiping open/close
 	        // or swiping open the menu while pressing down on the MenuToggle
 	        this._preventTime = Date.now() + 20;
 	    };
-	    /**
-	     * @private
-	     */
 	    Menu.prototype._isPrevented = function () {
 	        return this._preventTime > Date.now();
 	    };
@@ -39251,6 +39258,7 @@
 	var ion_1 = __webpack_require__(269);
 	var nav_params_1 = __webpack_require__(280);
 	var util_1 = __webpack_require__(254);
+	var menu_controller_1 = __webpack_require__(260);
 	var swipe_back_1 = __webpack_require__(285);
 	var transition_1 = __webpack_require__(286);
 	var view_controller_1 = __webpack_require__(279);
@@ -40602,7 +40610,8 @@
 	                    edge: 'left',
 	                    threshold: this._sbThreshold
 	                };
-	                this._sbGesture = new swipe_back_1.SwipeBackGesture(this.getNativeElement(), opts, this);
+	                var menuCtrl = this._app.getAppInjector().get(menu_controller_1.MenuController);
+	                this._sbGesture = new swipe_back_1.SwipeBackGesture(this.getNativeElement(), opts, this, menuCtrl);
 	            }
 	            if (this.canSwipeBack()) {
 	                // it is be possible to swipe back
@@ -40824,12 +40833,13 @@
 	var util_1 = __webpack_require__(254);
 	var SwipeBackGesture = (function (_super) {
 	    __extends(SwipeBackGesture, _super);
-	    function SwipeBackGesture(element, options, _nav) {
+	    function SwipeBackGesture(element, options, _nav, _menuCtrl) {
 	        _super.call(this, element, util_1.assign({
 	            direction: 'x',
 	            maxEdgeStart: 75
 	        }, options));
 	        this._nav = _nav;
+	        this._menuCtrl = _menuCtrl;
 	    }
 	    SwipeBackGesture.prototype.canStart = function (ev) {
 	        // the gesture swipe angle must be mainly horizontal and the
@@ -40845,9 +40855,10 @@
 	        // nerp, not today
 	        return false;
 	    };
-	    SwipeBackGesture.prototype.onSlideBeforeStart = function () {
-	        console.debug('swipeBack, onSlideBeforeStart');
+	    SwipeBackGesture.prototype.onSlideBeforeStart = function (slideData, ev) {
+	        console.debug('swipeBack, onSlideBeforeStart', ev.srcEvent.type);
 	        this._nav.swipeBackStart();
+	        this._menuCtrl.tempDisable(true);
 	    };
 	    SwipeBackGesture.prototype.onSlide = function (slide) {
 	        var stepValue = (slide.distance / slide.max);
@@ -40859,6 +40870,7 @@
 	        var currentStepValue = (slide.distance / slide.max);
 	        console.debug('swipeBack, onSlideEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
 	        this._nav.swipeBackEnd(shouldComplete, currentStepValue);
+	        this._menuCtrl.tempDisable(false);
 	    };
 	    return SwipeBackGesture;
 	}(slide_edge_gesture_1.SlideEdgeGesture));

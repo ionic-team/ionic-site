@@ -221,6 +221,26 @@ is given then it'll close that exact menu.
 
 
 
+<div id="tempDisable"></div>
+
+<h3>
+<a class="anchor" name="tempDisable" href="#tempDisable"></a>
+<code>tempDisable()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="toggle"></div>
 
 <h3>

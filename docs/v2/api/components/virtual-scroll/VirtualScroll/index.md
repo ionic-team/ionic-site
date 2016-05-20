@@ -56,7 +56,7 @@ The <code>virtualScroll</code> and <code>*virtualItem</code> properties can be a
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
 
   &lt;ion-item *virtualItem=&quot;#item&quot;&gt;
-    {{ item }}
+    {% raw %}{{ item }}{% endraw %}
   &lt;/ion-item&gt;
 
 &lt;/ion-list&gt;
@@ -72,11 +72,11 @@ return <code>null</code> if a template shouldn&#39;t be created.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot; [headerFn]=&quot;myHeaderFn&quot;&gt;
 
   &lt;ion-item-divider *virtualHeader=&quot;#header&quot;&gt;
-    Header: {{ header }}
+    Header: {% raw %}{{ header }}{% endraw %}
   &lt;/ion-item-divider&gt;
 
   &lt;ion-item *virtualItem=&quot;#item&quot;&gt;
-    Item: {{ item }}
+    Item: {% raw %}{{ item }}{% endraw %}
   &lt;/ion-item&gt;
 
 &lt;/ion-list&gt;
@@ -126,7 +126,7 @@ scrolling, the natural effects of the <code>&lt;img&gt;</code> are not desirable
     &lt;ion-avatar item-left&gt;
       &lt;ion-img [src]=&quot;item.avatarUrl&quot;&gt;&lt;/ion-img&gt;
     &lt;/ion-avatar&gt;
-    {{ item.firstName }} {{ item.lastName }}
+   {% raw %} {{ item.firstName }} {{ item.lastName }}{% endraw %}
   &lt;/ion-item&gt;
 
 &lt;/ion-list&gt;

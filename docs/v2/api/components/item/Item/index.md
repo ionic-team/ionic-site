@@ -65,7 +65,7 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 
   // default item
   &lt;ion-item&gt;
-    {{item.title}}
+    {% raw %}{{item.title}}{% endraw %}
   &lt;/ion-item&gt;
 
 &lt;/ion-list&gt;

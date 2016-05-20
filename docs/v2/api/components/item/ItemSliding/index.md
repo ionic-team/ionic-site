@@ -55,7 +55,7 @@ Improve this doc
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item-sliding *ngFor=&quot;let item of items&quot;&gt;
     &lt;button ion-item (click)=&quot;itemTapped(item)&quot;&gt;
-      {{item.title}}
+      {% raw %}{{item.title}}{% endraw %}
     &lt;/button&gt;
     &lt;ion-item-options&gt;
       &lt;button (click)=&quot;favorite(item)&quot;&gt;Favorite&lt;/button&gt;
@@ -69,7 +69,7 @@ We grab a reference to the item reference by pass the <code>#slidingItem</code> 
 <pre><code class="lang-html">&lt;ion-list&gt;
   &lt;ion-item-sliding *ngFor=&quot;#item of items&quot; #slidingItem&gt;
     &lt;button ion-item (click)=&quot;itemTapped(item)&quot;&gt;
-      {{item}}
+      {% raw %}{{item}}{% endraw %}
   &lt;/button&gt;
     &lt;ion-item-options&gt;
       &lt;button (click)=&quot;share(item, slidingItem)&quot;&gt;Share&lt;/button&gt;

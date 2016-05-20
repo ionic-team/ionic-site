@@ -42366,7 +42366,7 @@
 	 * <ion-content>
 	 *
 	 *  <ion-list>
-	 *    <ion-item *ngFor="let i of items">{{i}}</ion-item>
+	 *    <ion-item *ngFor="let i of items">{% raw %}{{i}}{% endraw %}</ion-item>
 	 *  </ion-list>
 	 *
 	 *  <ion-infinite-scroll (infinite)="doInfinite($event)">
@@ -49365,7 +49365,7 @@
 	 *
 	 *   // default item
 	 *   <ion-item>
-	 *     {{item.title}}
+	 *     {% raw %}{{item.title}}{% endraw %}
 	 *   </ion-item>
 	 *
 	 * </ion-list>
@@ -49868,7 +49868,7 @@
 	 * <ion-list>
 	 *   <ion-item-sliding *ngFor="let item of items">
 	 *     <button ion-item (click)="itemTapped(item)">
-	 *       {{item.title}}
+	 *       {% raw %}{{item.title}}{% endraw %}
 	 *     </button>
 	 *     <ion-item-options>
 	 *       <button (click)="favorite(item)">Favorite</button>
@@ -49884,7 +49884,7 @@
 	 * <ion-list>
 	 *   <ion-item-sliding *ngFor="#item of items" #slidingItem>
 	 *     <button ion-item (click)="itemTapped(item)">
-	 *       {{item}}
+	 *       {% raw %}{{item}}{% endraw %}
 	 *   </button>
 	 *     <ion-item-options>
 	 *       <button (click)="share(item, slidingItem)">Share</button>
@@ -49982,7 +49982,7 @@
 	 * <ion-list [virtualScroll]="items">
 	 *
 	 *   <ion-item *virtualItem="#item">
-	 *     {{ item }}
+	 *     {% raw %}{{ item }}{% endraw %}
 	 *   </ion-item>
 	 *
 	 * </ion-list>
@@ -50003,11 +50003,11 @@
 	 * <ion-list [virtualScroll]="items" [headerFn]="myHeaderFn">
 	 *
 	 *   <ion-item-divider *virtualHeader="#header">
-	 *     Header: {{ header }}
+	 *     Header: {% raw %}{{ header }}{% endraw %}
 	 *   </ion-item-divider>
 	 *
 	 *   <ion-item *virtualItem="#item">
-	 *     Item: {{ item }}
+	 *     Item: {% raw %}{{ item }}{% endraw %}
 	 *   </ion-item>
 	 *
 	 * </ion-list>
@@ -50070,7 +50070,7 @@
 	 *     <ion-avatar item-left>
 	 *       <ion-img [src]="item.avatarUrl"></ion-img>
 	 *     </ion-avatar>
-	 *     {{ item.firstName }} {{ item.lastName }}
+	 *    {% raw %} {{ item.firstName }} {{ item.lastName }}{% endraw %}
 	 *   </ion-item>
 	 *
 	 * </ion-list>

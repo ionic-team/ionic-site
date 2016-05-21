@@ -55339,22 +55339,31 @@
 	                }
 	            }
 	        };
-	        this.setItemControlCss();
+	        this.setItemInputControlCss();
 	    };
 	    InputBase.prototype.ngAfterContentChecked = function () {
-	        this.setItemControlCss();
+	        this.setItemInputControlCss();
 	    };
-	    InputBase.prototype.setItemControlCss = function () {
+	    InputBase.prototype.setItemInputControlCss = function () {
 	        var item = this._item;
+	        var nativeInput = this._native;
 	        var inputControl = this.inputControl;
+	        // Set the control classes on the item
 	        if (item && inputControl) {
-	            item.setCssClass('ng-untouched', inputControl.untouched);
-	            item.setCssClass('ng-touched', inputControl.touched);
-	            item.setCssClass('ng-pristine', inputControl.pristine);
-	            item.setCssClass('ng-dirty', inputControl.dirty);
-	            item.setCssClass('ng-valid', inputControl.valid);
-	            item.setCssClass('ng-invalid', !inputControl.valid);
+	            this.setControlCss(item, inputControl);
 	        }
+	        // Set the control classes on the native input
+	        if (nativeInput && inputControl) {
+	            this.setControlCss(nativeInput, inputControl);
+	        }
+	    };
+	    InputBase.prototype.setControlCss = function (element, control) {
+	        element.setCssClass('ng-untouched', control.untouched);
+	        element.setCssClass('ng-touched', control.touched);
+	        element.setCssClass('ng-pristine', control.pristine);
+	        element.setCssClass('ng-dirty', control.dirty);
+	        element.setCssClass('ng-valid', control.valid);
+	        element.setCssClass('ng-invalid', !control.valid);
 	    };
 	    InputBase.prototype.ngOnDestroy = function () {
 	        this._form.deregister(this);
@@ -55948,6 +55957,9 @@
 	    };
 	    NativeInput.prototype.getValue = function () {
 	        return this.element().value;
+	    };
+	    NativeInput.prototype.setCssClass = function (cssClass, shouldAdd) {
+	        this._renderer.setElementClass(this._elementRef.nativeElement, cssClass, shouldAdd);
 	    };
 	    NativeInput.prototype.element = function () {
 	        return this._elementRef.nativeElement;

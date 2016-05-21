@@ -8760,7 +8760,7 @@ ion-icon {
   .md .inset-input {
     margin: 6.5px 16px 6.5px 16px;
     padding: 6.5px 8px 6.5px 8px; }
-  .md ion-input::after {
+  .md .item-input::after {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -8769,12 +8769,16 @@ ion-icon {
     border-bottom-style: solid;
     border-bottom-color: transparent;
     content: ""; }
-  .md .input-has-focus::after {
+  .md .item-input.input-has-focus::after {
     border-bottom-color: #327eff; }
-  .md ion-input.ng-valid.input-has-value::after {
+  .md .item-input.ng-valid.input-has-value::after {
     border-bottom-color: #32db64; }
-  .md ion-input.ng-invalid.ng-touched::after {
+  .md .item-input.ng-valid.input-has-value.input-has-focus::after {
+    border-bottom-color: #327eff; }
+  .md .item-input.ng-invalid.ng-touched::after {
     border-bottom-color: #f53d3d; }
+  .md .item-input.ng-invalid.ng-touched.input-has-focus::after {
+    border-bottom-color: #327eff; }
   .md .item-label-stacked .text-input,
   .md .item-label-floating .text-input {
     margin-top: 8px;

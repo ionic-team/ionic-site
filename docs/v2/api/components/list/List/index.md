@@ -75,18 +75,21 @@ removing items.</p>
 
 </h3>
 
-Enable sliding items if your page has them
+Enable the sliding items.
 
 ```ts
 import {Page, List} from 'ionic-angular';
 import {ViewChild} from '@angular/core';
-@Page...
+
+@Page({})
 export class MyClass {
-   @ViewChild(List) list: List;
-   constructor(){}
-   stopSliding(){
-     this.list.enableSlidingItems(false);
-   }
+  @ViewChild(List) list: List;
+
+  constructor() { }
+
+  stopSliding() {
+    this.list.enableSlidingItems(false);
+  }
 }
 ```
 
@@ -137,18 +140,21 @@ export class MyClass {
 
 </h3>
 
-Enable sliding items if your page has
+Close the open sliding item.
 
 ```ts
 import {Page, List} from 'ionic-angular';
 import {ViewChild} from '@angular/core';
-@Page...
+
+@Page({})
 export class MyClass {
-   @ViewChild(List) list: List;
-   constructor(){}
-   closeItems(){
-     this.list.closeSlidingItems();
-   }
+  @ViewChild(List) list: List;
+
+  constructor() { }
+
+  closeItems() {
+    this.list.closeSlidingItems();
+  }
 }
 ```
 

@@ -48162,7 +48162,7 @@
 	 *```ts
 	 * export class TabsPage {
 	 *
-	 * @ViewChild('myTabs) tabRef: Tabs
+	 * @ViewChild('myTabs') tabRef: Tabs;
 	 *
 	 * onPageDidEnter() {
 	 *   this.tabRef.select(2);
@@ -49027,18 +49027,21 @@
 	        this.ele = this.slidingGesture = null;
 	    };
 	    /**
-	     * Enable sliding items if your page has them
+	     * Enable the sliding items.
 	     *
 	     * ```ts
 	     * import {Page, List} from 'ionic-angular';
 	     * import {ViewChild} from '@angular/core';
-	     * @Page...
+	     *
+	     * @Page({})
 	     * export class MyClass {
-	     *    @ViewChild(List) list: List;
-	     *    constructor(){}
-	     *    stopSliding(){
-	     *      this.list.enableSlidingItems(false);
-	     *    }
+	     *   @ViewChild(List) list: List;
+	     *
+	     *   constructor() { }
+	     *
+	     *   stopSliding() {
+	     *     this.list.enableSlidingItems(false);
+	     *   }
 	     * }
 	     * ```
 	     * @param {boolean} shouldEnable whether the item-sliding should be enabled or not
@@ -49061,18 +49064,21 @@
 	        }
 	    };
 	    /**
-	     * Enable sliding items if your page has
+	     * Close the open sliding item.
 	     *
 	     * ```ts
 	     * import {Page, List} from 'ionic-angular';
 	     * import {ViewChild} from '@angular/core';
-	     * @Page...
+	     *
+	     * @Page({})
 	     * export class MyClass {
-	     *    @ViewChild(List) list: List;
-	     *    constructor(){}
-	     *    closeItems(){
-	     *      this.list.closeSlidingItems();
-	     *    }
+	     *   @ViewChild(List) list: List;
+	     *
+	     *   constructor() { }
+	     *
+	     *   closeItems() {
+	     *     this.list.closeSlidingItems();
+	     *   }
 	     * }
 	     * ```
 	     */
@@ -49880,46 +49886,44 @@
 	 * @name ItemSliding
 	 *
 	 * @description
-	 * Creates a list-item that can easily be swiped, deleted, reordered, edited, and more.
+	 * A sliding item is a list item that can be swiped to reveal buttons. It requires
+	 * an [Item](../Item) component as a child and a [List](../../list/List) component as
+	 * a parent. All buttons to reveal can be placed in the `<ion-item-options>` element.
+	 *
+	 * ### Button Layout
+	 * If an icon is placed with text in the option button, by default it will
+	 * display the icon on top of the text. This can be changed to display the icon
+	 * to the left of the text by setting `icon-left` as an attribute on the
+	 * `<ion-item-options>` element.
+	 *
+	 * ```html
+	 * <ion-item-options icon-left>
+	 *   <button (click)="archive(item)">
+	 *     <ion-icon name="archive"></ion-icon>
+	 *     Archive
+	 *   </button>
+	 * </ion-item-options>
+	 * ```
+	 *
 	 *
 	 * @usage
 	 * ```html
 	 * <ion-list>
-	 *   <ion-item-sliding *ngFor="let item of items">
-	 *     <button ion-item (click)="itemTapped(item)">
-	 *       {% raw %}{{item.title}}{% endraw %}
-	 *     </button>
+	 *   <ion-item-sliding>
+	 *     <ion-item>
+	 *       Item
+	 *     </ion-item>
 	 *     <ion-item-options>
 	 *       <button (click)="favorite(item)">Favorite</button>
-	 *       <button (click)="share(item)">Share</button>
+	 *       <button danger (click)="share(item)">Share</button>
 	 *     </ion-item-options>
 	 *   </ion-item-sliding>
 	 * </ion-list>
-	 * ```
-	 * ItemSliding can be closed by API by adding #slidingItem in ion-item-sliding.
-	 * We grab a reference to the item reference by pass the `#slidingItem` to the share method.
-	 *
-	 * ```html
-	 * <ion-list>
-	 *   <ion-item-sliding *ngFor="#item of items" #slidingItem>
-	 *     <button ion-item (click)="itemTapped(item)">
-	 *       {% raw %}{{item}}{% endraw %}
-	 *   </button>
-	 *     <ion-item-options>
-	 *       <button (click)="share(item, slidingItem)">Share</button>
-	 *     </ion-item-options>
-	 *   </ion-item-sliding>
-	 * </ion-list>
-	 * ```
-	 *
-	 * ```typescript
-	 * share(item, slidingItem) {
-	 *    slidingItem.close();
-	 * }
 	 * ```
 	 *
 	 * @demo /docs/v2/demos/item-sliding/
 	 * @see {@link /docs/v2/components#lists List Component Docs}
+	 * @see {@link ../Item Item API Docs}
 	 * @see {@link ../../list/List List API Docs}
 	 */
 	var ItemSliding = (function () {
@@ -49929,7 +49933,37 @@
 	        elementRef.nativeElement.$ionSlide = ++slideIds;
 	    }
 	    /**
-	     * @private
+	     * Close the sliding item. Items can also be closed from the [List](../../list/List).
+	     *
+	     * The sliding item can be closed by garbbing a reference to `ItemSliding`. In the
+	     * below example, the template reference variable `slidingItem` is placed on the element
+	     * and passed to the `share` method.
+	     *
+	     * ```html
+	     * <ion-list>
+	     *   <ion-item-sliding #slidingItem>
+	     *     <ion-item>
+	     *       Item
+	     *     </ion-item>
+	     *     <ion-item-options>
+	     *       <button (click)="share(slidingItem)">Share</button>
+	     *     </ion-item-options>
+	     *   </ion-item-sliding>
+	     * </ion-list>
+	     * ```
+	     *
+	     * ```ts
+	     * import {Page, ItemSliding} from 'ionic-angular';
+	     *
+	     * @Page({})
+	     * export class MyClass {
+	     *   constructor() { }
+	     *
+	     *   share(slidingItem: ItemSliding) {
+	     *     slidingItem.close();
+	     *   }
+	     * }
+	     * ```
 	     */
 	    ItemSliding.prototype.close = function () {
 	        this._list.closeSlidingItems();

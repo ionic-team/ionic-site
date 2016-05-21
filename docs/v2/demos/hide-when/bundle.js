@@ -55297,6 +55297,7 @@
 	        this._autoCorrect = config.get('autocorrect', 'off');
 	        if (ngControl) {
 	            ngControl.valueAccessor = this;
+	            this.inputControl = ngControl;
 	        }
 	        _form.register(this);
 	    }
@@ -55335,14 +55336,14 @@
 	    };
 	    InputBase.prototype.setItemControlCss = function () {
 	        var item = this._item;
-	        var nativeControl = this._native && this._native.ngControl;
-	        if (item && nativeControl) {
-	            item.setCssClass('ng-untouched', nativeControl.untouched);
-	            item.setCssClass('ng-touched', nativeControl.touched);
-	            item.setCssClass('ng-pristine', nativeControl.pristine);
-	            item.setCssClass('ng-dirty', nativeControl.dirty);
-	            item.setCssClass('ng-valid', nativeControl.valid);
-	            item.setCssClass('ng-invalid', !nativeControl.valid);
+	        var inputControl = this.inputControl;
+	        if (item && inputControl) {
+	            item.setCssClass('ng-untouched', inputControl.untouched);
+	            item.setCssClass('ng-touched', inputControl.touched);
+	            item.setCssClass('ng-pristine', inputControl.pristine);
+	            item.setCssClass('ng-dirty', inputControl.dirty);
+	            item.setCssClass('ng-valid', inputControl.valid);
+	            item.setCssClass('ng-invalid', !inputControl.valid);
 	        }
 	    };
 	    InputBase.prototype.ngOnDestroy = function () {
@@ -55434,7 +55435,7 @@
 	                this._autoComplete = ionInputEle.getAttribute('autocomplete');
 	            }
 	            nativeInputEle.setAttribute('autocomplete', this._autoComplete);
-	            // by default set autocomplete="off" unless specified by the input
+	            // by default set autocorrect="off" unless specified by the input
 	            if (ionInputEle.hasAttribute('autocorrect')) {
 	                this._autoCorrect = ionInputEle.getAttribute('autocorrect');
 	            }

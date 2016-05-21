@@ -75479,8 +75479,8 @@
 	    __extends(Modal, _super);
 	    function Modal(componentType, data) {
 	        if (data === void 0) { data = {}; }
-	        data.componentToPresent = componentType;
-	        _super.call(this, ModalComponent, data);
+	        data.componentType = componentType;
+	        _super.call(this, ModalCmp, data);
 	        this.viewType = 'modal';
 	        this.isOverlay = true;
 	    }
@@ -75502,32 +75502,35 @@
 	    return Modal;
 	}(view_controller_1.ViewController));
 	exports.Modal = Modal;
-	var ModalComponent = (function () {
-	    function ModalComponent(_loader, _navParams, _viewCtrl) {
+	var ModalCmp = (function () {
+	    function ModalCmp(_loader, _navParams, _viewCtrl) {
 	        this._loader = _loader;
 	        this._navParams = _navParams;
 	        this._viewCtrl = _viewCtrl;
 	    }
-	    ModalComponent.prototype.ngAfterViewInit = function () {
+	    ModalCmp.prototype.onPageWillEnter = function () {
 	        var _this = this;
-	        var component = this._navParams.data.componentToPresent;
-	        this._loader.loadNextToLocation(component, this.wrapper).then(function (componentInstance) {
-	            _this._viewCtrl.setInstance(componentInstance.instance);
-	            // TODO - validate what life cycle events aren't call and possibly call them here if needed
+	        this._loader.loadNextToLocation(this._navParams.data.componentType, this.viewport).then(function (componentRef) {
+	            _this._viewCtrl.setInstance(componentRef.instance);
+	            // manually fire onPageWillEnter() since ModalCmp's  onPageWillEnter already happened
+	            _this._viewCtrl.willEnter();
 	        });
 	    };
 	    __decorate([
-	        core_1.ViewChild('wrapper', { read: core_1.ViewContainerRef }), 
+	        core_1.ViewChild('viewport', { read: core_1.ViewContainerRef }), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object)
-	    ], ModalComponent.prototype, "wrapper", void 0);
-	    ModalComponent = __decorate([
+	    ], ModalCmp.prototype, "viewport", void 0);
+	    ModalCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-modal',
-	            template: "\n    <div class=\"backdrop\"></div>\n    <div class=\"modal-wrapper\">\n      <div #wrapper></div>\n    </div>\n  "
+	            template: '<div class="backdrop"></div>' +
+	                '<div class="modal-wrapper">' +
+	                '<div #viewport></div>' +
+	                '</div>'
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.DynamicComponentLoader !== 'undefined' && core_1.DynamicComponentLoader) === 'function' && _b) || Object, (typeof (_c = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _c) || Object, (typeof (_d = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _d) || Object])
-	    ], ModalComponent);
-	    return ModalComponent;
+	    ], ModalCmp);
+	    return ModalCmp;
 	    var _a, _b, _c, _d;
 	}());
 	/**

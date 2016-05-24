@@ -482,7 +482,7 @@ days which are not valid for the selected month.</p>
       <td>hourValues</td>
       <td><code>array | string</code></td>
       <td><p> Values used to create the list of selectable hours. By default
-the hour values range from <code>1</code> to <code>23</code> for 24-hour, or <code>1</code> to <code>12</code> for 12-hour. However,
+the hour values range from <code>0</code> to <code>23</code> for 24-hour, or <code>1</code> to <code>12</code> for 12-hour. However,
 to control exactly which hours to display, the <code>hourValues</code> input can take either an
 array of numbers, or string of comma separated numbers.</p>
 </td>

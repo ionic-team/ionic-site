@@ -32,7 +32,7 @@ class MyModal {
   constructor(viewCtrl: ViewController) {
     this.viewCtrl = viewCtrl;
   }
-  
+
   close() {
     this.viewCtrl.dismiss();
   }
@@ -43,14 +43,14 @@ class MyModal {
 Finally, let's add the code that will open our Modal:
 
 ```typescript
-import {Modal, NavController} from 'ionic/ionic'
+import {Modal, NavController} from 'ionic-angular'
 class MyPage {
   constructor(nav: NavController){
     this.nav = nav;
   }
   showModal() {
     let modal = Modal.create(MyModal);
-    this.nav.present(modal)
+    this.nav.present(modal);
   }
 }
 ```

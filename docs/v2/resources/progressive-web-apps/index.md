@@ -10,13 +10,13 @@ header_sub_title: Ionic Resources
 
 ### The web...but better
 
-If you want users to discover your web app, you traditionally have two paths.
+Progressive Web Apps are web apps that use modern web capabilities to deliver an app-like user experience to users.
+These apps meet certain requirements (see below), are deployed to servers, accessible through URLs, and indexed by search engines.
 
-1. Bundle the app with Cordova, and distribute through the app store.
-2. Deploy to a server and point users to your URL.
+This can work in conjunction with Cordova to provide a multiple deploy targets for all your users.
+You can deploy your app as a PWA as well as Native app and take advantage of both channels.
 
-Both options have their strengths. Cordova allows you to deploy your app and have it installed to the user's home screen. But the traditional server/url approach is easier for user to find and load. What would be great is if there was a way to combine both approaches and have the best of both worlds. Installable apps through the browser. Well, thankfully, with progressive web apps, we can.
-
+Ionic allows you to ship your app to not only the app store, but also deploy to the mobile web as a PWA.
 
 ### What's required
 
@@ -50,11 +50,11 @@ There's a lot here, but it boils down to a few points for Ionic apps.
 
 Apps should be able to work offline. Weather that be displaying a proper "offline" message or caching app data for display purpose.
 
-#### App Manifest
+#### [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest)
 
 An app manifest file should describe the resources your app will need. This includes your app's displayed name, icons, as well as splash screen. If you link to the manifest file in your index.html, browsers will detect that and load the resources for you.
 
-#### Service Worker
+#### [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
 
 Service worker could be mentioned in Offline Support, but it really deserves its own section. Service worker provides a programmatic way to cache app resources. Be it JavaScript files or JSON data from a HTTP request. The programmatic API allows devs to decide how to handle caching and provides a much more flexible experience than other options.
 

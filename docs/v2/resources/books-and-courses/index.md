@@ -9,7 +9,7 @@ header_sub_title: Ionic 2 Developer Preview
 
 # Books and Courses
 
-<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/resources/books-and-courses/index.md'>
+<a class="improve-docs" href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/resources/books-and-courses/index.md'>
   Improve this doc
 </a>
 
@@ -22,8 +22,10 @@ header_sub_title: Ionic 2 Developer Preview
   <ul>
     <li><a href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/">Building Mobile Apps with Ionic 2 by Joshua Morony</a></li>
   </ul>
+</section>
 
-  <h3>Ionic 2 Books Coming Soon</h3>
+<section id="books-soon">
+  <h3><a href="#books-soon">Ionic 2 Books Coming Soon</a></h3>
 
   <ul>
     <li><a href="https://www.packtpub.com/web-development/learning-ionic-2-second-edition">Learning Ionic 2 Second Edition by Arvind Ravulavaru (June 2016)</a></li>
@@ -48,5 +50,5 @@ header_sub_title: Ionic 2 Developer Preview
 </section>
 
 <p>
-This is by no means an exhaustive list.  Please <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/resources/books-and-courses/index.md'>Submit a PR</a> to let us know about any interesting Ionic 2 books and courses.
+This is by no means an exhaustive list.  Please <a href='https://github.com/driftyco/ionic-site/edit/master/docs/v2/resources/books-and-courses/index.md'>Submit a PR</a> to let us know about any interesting Ionic 2 books and courses.
 </p>

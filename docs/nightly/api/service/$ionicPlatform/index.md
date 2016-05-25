@@ -267,7 +267,7 @@ this backButtonAction.
 
 Add Cordova event listeners, such as `pause`, `resume`, `volumedownbutton`, `batterylow`,
 `offline`, etc. More information about available event types can be found in
-[Cordova's event documentation](https://cordova.apache.org/docs/en/edge/cordova_events_events.md.html#Events).
+[Cordova's event documentation](https://cordova.apache.org/docs/en/latest/cordova/events/events.html).
 
 
 
@@ -292,7 +292,7 @@ Add Cordova event listeners, such as `pause`, `resume`, `volumedownbutton`, `bat
   <code>string</code>
       </td>
       <td>
-        <p>Cordova <a href="https://cordova.apache.org/docs/en/edge/cordova_events_events.md.html#Events">event type</a>.</p>
+        <p>Cordova <a href="https://cordova.apache.org/docs/en/latest/cordova/events/events.html">event type</a>.</p>
 
         
       </td>

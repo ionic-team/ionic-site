@@ -425,7 +425,7 @@ Exit the app.
 
 </h2>
 
-Shows or hides the device status bar (in Cordova). Requires `cordova plugin add org.apache.cordova.statusbar`
+Shows or hides the device status bar (in Cordova). Requires `ionic plugin add cordova-plugin-statusbar`
 
 
 
@@ -498,7 +498,7 @@ Sets whether the app is fullscreen or not (in Cordova).
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to set the app to fullscreen. Defaults to true. Requires <code>cordova plugin add org.apache.cordova.statusbar</code></p>
+        <p>Whether or not to set the app to fullscreen. Defaults to true. Requires <code>ionic plugin add cordova-plugin-statusbar</code></p>
 
         
       </td>

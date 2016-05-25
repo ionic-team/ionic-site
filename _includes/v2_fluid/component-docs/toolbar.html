@@ -133,7 +133,7 @@ Another common design paradigm is to include a searchbar inside your toolbar.
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="#item of items">
+    <ion-item *ngFor="let item of items">
       {% raw %}{{ item }}{% endraw %}
     </ion-item>
   </ion-list>

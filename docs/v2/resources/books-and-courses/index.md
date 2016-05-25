@@ -27,6 +27,10 @@ header_sub_title: Ionic 2 Developer Preview
 <section id="books-soon">
   <h3><a href="#books-soon">Ionic 2 Books Coming Soon</a></h3>
 
+  <p>
+    Ionic 2 is new, so many books are still in the works. Stay tuned for these upcoming releases:
+  </p>
+
   <ul>
     <li><a href="https://www.packtpub.com/web-development/learning-ionic-2-second-edition">Learning Ionic 2 Second Edition by Arvind Ravulavaru (June 2016)</a></li>
     <li><a href="http://www.amazon.com/Mobile-App-Development-Ionic-Cross-Platform/dp/1491937785/ref=sr_1_2?ie=UTF8&qid=1464183332&sr=8-2&keywords=ionic+2">Mobile App Development with Ionic: Cross-Platform Apps with Ionic 2, Angular 2, and Cordova, Chris Griffith (O'Reilly, October 2016)</a></li>

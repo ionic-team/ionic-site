@@ -21,7 +21,11 @@ header_sub_title: Ionic 2 Developer Preview
 
   <ul>
     <li><a href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/">Building Mobile Apps with Ionic 2 by Joshua Morony</a></li>
-    <h4>Coming Soon</h4>
+  </ul>
+
+  <h3>Ionic 2 Books Coming Soon</h3>
+
+  <ul>
     <li><a href="https://www.packtpub.com/web-development/learning-ionic-2-second-edition">Learning Ionic 2 Second Edition by Arvind Ravulavaru (June 2016)</a></li>
     <li><a href="http://www.amazon.com/Mobile-App-Development-Ionic-Cross-Platform/dp/1491937785/ref=sr_1_2?ie=UTF8&qid=1464183332&sr=8-2&keywords=ionic+2">Mobile App Development with Ionic: Cross-Platform Apps with Ionic 2, Angular 2, and Cordova, Chris Griffith (O'Reilly, October 2016)</a></li>
     <li><a href="https://www.amazon.com/Ionic-Cookbook-Second-Hoc-Phan-ebook/dp/B01C4D9VWS?ie=UTF8&keywords=ionic%202&qid=1464183332&ref_=sr_1_3&sr=8-3">Ionic 2 Cookbook - Second Edition, Hoc Phan (August 2016)</a></li>
@@ -39,8 +43,10 @@ header_sub_title: Ionic 2 Developer Preview
     <li><a href="https://www.udemy.com/ionic-2-tutorial/">Ionic 2 Master Course (Udemy)</a></li>
     <li><a href="https://www.udemy.com/ionic-2-quickstart/">Ionic 2 Quickstart (Udemy)</a></li>
     <li><a href="https://www.udemy.com/introducing-ionic-2/">Introducing Ionic 2 (Udemy)</a></li>
-    <li>Many more Ionic 1 and 2 coures on <a href="https://www.udemy.com/courses/search/?q=ionic+2&src=ukw&lang=en">Udemy</a>
+    <li>Many more Ionic 1 and 2 coures on <a href="https://www.udemy.com/courses/search/?q=ionic+2&src=ukw&lang=en">Udemy</a></li>
   </ul>
 </section>
 
+<p>
 This is by no means an exhaustive list.  Please <a href='https://github.com/driftyco/ionic-site/edit/ionic2/docs/v2/resources/books-and-courses/index.md'>Submit a PR</a> to let us know about any interesting Ionic 2 books and courses.
+</p>

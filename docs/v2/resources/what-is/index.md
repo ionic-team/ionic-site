@@ -37,7 +37,7 @@ header_sub_title: Ionic Resources
 
   <section id="browserify">
     <h3><a href="#browserify">Browserify</a></h3>
-    <p><a href="http://browserify.org/">Browserify</a> is a code bundler, similar to <a href="#webpack">webpack</a>, that analzyes all the code in an project, and budle it into single file.</p>
+    <p><a href="http://browserify.org/">Browserify</a> is a code bundler, similar to <a href="#webpack">webpack</a>, that analyzes all the code in an project, and bundle it into single file.</p>
   </section>
 
   <section id="bundling">
@@ -69,12 +69,12 @@ header_sub_title: Ionic Resources
 
   <section id="es5">
     <h3><a href="#es5">ES5</a></h3>
-    <p>ES5 refers to EcmaScript 5th Edition. A simple way to put it is that ES5 is the version of JavaScript which developers are most familar with today.</p>
+    <p>ES5 refers to EcmaScript 5th Edition. A simple way to put it is that ES5 is the version of JavaScript which developers are most familiar with today.</p>
   </section>
 
   <section id="es2015-es6">
     <h3><a href="#es2015-es6">ES2015/ES6</a></h3>
-    <p>ES2015/ES6 are two commonly used names for the most recent version of JavaScript. A wide range of new features have been introducted in this version, including classes, modules, iterators, and promises. The final draft of ES6 has been approved, which means eventually ES6 code will be interpreted directly by a browser. To use ES6 features today, tools such as <a href="#babel">Babel</a> and <a href="#typescript">TypeScript</a> have to <a href="#transpiler">transpile</a> ES6 code down to ES5.</p>
+    <p>ES2015/ES6 are two commonly used names for the most recent version of JavaScript. A wide range of new features have been introduced in this version, including classes, modules, iterators, and promises. The final draft of ES6 has been approved, which means eventually ES6 code will be interpreted directly by a browser. To use ES6 features today, tools such as <a href="#babel">Babel</a> and <a href="#typescript">TypeScript</a> have to <a href="#transpiler">transpile</a> ES6 code down to ES5.</p>
   </section>
 
   <section id="es2016-es7">
@@ -120,7 +120,7 @@ header_sub_title: Ionic Resources
 
   <section id="livereload">
     <h3><a href="#livereload">Live Reload</a></h3>
-    <p>Live Reload is a tool that automatically reloads your browser when it deteches changes. It watches a specific path and anytime a file or directory is updated, it will trigger a full browser reload. In cases where css is chagned, livereload will inject the changed css instead of reloading the entire page</p>
+    <p>Live Reload is a tool that automatically reloads your browser when it detects changes. It watches a specific path and anytime a file or directory is updated, it will trigger a full browser reload. In cases where css is changed, livereload will inject the changed css instead of reloading the entire page</p>
   </section>
 
   <section id="node">
@@ -142,7 +142,7 @@ header_sub_title: Ionic Resources
 
 <section id="polyfill">
     <h3><a href="#polyfill">Polyfill</a></h3>
-    <p>A polyfill is a bit of code that add functionality to the browser and normailizes browser differences. This is similar to a shim, but where as a shim has it's own API, a polyfill let's you use the expect API of the brower.</p>
+    <p>A polyfill is a bit of code that add functionality to the browser and normalizes browser differences. This is similar to a shim, but where as a shim has it's own API, a polyfill let's you use the expect API of the brower.</p>
     <p><a href="https://remysharp.com/2010/10/08/what-is-a-polyfill">What is a polyfill?</p>
   </section>
 

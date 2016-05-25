@@ -22,7 +22,9 @@ To install the Ionic SDK and create Ionic 2 projects, you'll need to install the
 $ npm install -g ionic@beta
 ```
 
-> Make sure you have NodeJS installed. Download the installer [here](https://nodejs.org/en/). It's best to get the 5x version of node for stability.
+Make sure you have NodeJS installed. Download the installer [here](https://nodejs.org/dist/latest-v5.x/) or use your favorite package manager. It's best to get the 5x version of node along with the 3x version of npm. This offers the best in stability and speed for building.
+
+
 > Unfamiliar with NPM? Learn more about it and what packages we use [here](/docs/v2/resources/using-npm/)
 
 Worried about your V1 Ionic projects? Don't worry! The beta release has all the functionality to work with both V1 projects and V2 projects.

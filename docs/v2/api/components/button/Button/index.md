@@ -94,6 +94,8 @@ and be enhanced by a wide range of attributes.</p>
 
 
 
+
+
 <th>Description</th>
 </tr>
 </thead>
@@ -264,6 +266,18 @@ fab-bottom
 
 <td>
 Position a fab button towards the bottom.
+</td>
+</tr>
+
+<tr>
+<td>
+fab-fixed
+</td>
+
+
+
+<td>
+Makes a fab button have a fixed position.
 </td>
 </tr>
 

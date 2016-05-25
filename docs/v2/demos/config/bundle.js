@@ -38973,6 +38973,7 @@
 	  * @property [fab-center] - Position a fab button towards the center.
 	  * @property [fab-top] - Position a fab button towards the top.
 	  * @property [fab-bottom] - Position a fab button towards the bottom.
+	  * @property [fab-fixed] - Makes a fab button have a fixed position.
 	  * @property [color] - Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).
 	  *
 	  * @demo /docs/v2/demos/button/

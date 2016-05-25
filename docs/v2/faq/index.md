@@ -5,12 +5,59 @@ category: faq
 title: Ionic Frequently Asked Questions
 ---
 
-<h1 id="troubleshooting">Troubleshooting Your Ionic App</h1>
+# Trouble Shooting
 
 Can't find a solution on this page? Check out the [Ionic Forums](http://forum.ionicframework.com) or join the [Ionic Worldwide Slack Channel](http://ionicworldwide.herokuapp.com/), where the friendly Ions of the community will help you!
 
+## Adding third party libs
 
-<h2 id="blank_app">I have no errors in my app. Why does it show a blank screen?</h2>
+You can add most third party libraries to your V2 project from NPM. For example let's add MomentJs.
+
+```bash
+$ npm install moment --save
+
+```
+
+From here, we can import it into what ever class we want to use it in.
+
+```ts
+import {Page} from 'ionic-angular';
+import * as moment from 'moment';
+
+export class MyClass {
+  constructor(){
+    moment("20111031", "YYYYMMDD").fromNow();
+  }
+
+}
+```
+
+For TypeScript, you might get a warning, `cannot find module 'moment'`. This just means that TypeScript doesn't know MomentJs since it's Javascript. But we can add external type definitions from [typings](https://github.com/typings/typings).
+
+```bash
+$ npm install -g typings
+$ typings search moment
+Viewing 5 of 5
+
+NAME            SOURCE HOMEPAGE                             DESCRIPTION VERSIONS UPDATED
+moment          dt     https://github.com/timrwood/moment               1        2016-03-16T15:55:26.000Z
+moment          npm    https://www.npmjs.com/package/moment             1        2016-02-11T00:39:58.000Z
+moment-node     dt     https://github.com/timrwood/moment               1        2016-05-11T04:33:38.000Z
+moment-range    dt     https://github.com/gf3/moment-range              1        2016-03-17T12:06:54.000Z
+moment-timezone dt     http://momentjs.com/timezone/                    1        2016-03-29T22:03:48.000Z
+```
+We have multiple sources for typings, but we can choose the one from npm
+
+```bash
+$ typings install npm~moment --save
+```
+
+Now our editor and TypeScript will be able to provide code-completion and understand moment.
+
+
+## Blank App
+
+>I have no errors in my app. Why does it show a blank screen?
 
 There are different reasons this can happen. If you are unable to find a solution on the forums, make sure:
 
@@ -22,7 +69,9 @@ There are different reasons this can happen. If you are unable to find a solutio
   ```
 
 
-<h2 id="directive_not_working">Why is my custom component/directive not working?</h2>
+## Directive Not Working
+
+> Why is my custom component/directive not working?
 
 There are a few things you can check. Make sure:
 
@@ -53,14 +102,16 @@ class MyDir {
   // Alternatively, if you were attaching the directive to an element it would be:
   // template: `<my-dir>Hello World</my-dir>`
   // and if you were attaching by class the template would be:
-  // template: `<div class="my-dir">Hello World</div>`  
+  // template: `<div class="my-dir">Hello World</div>`
 
   directives: [MyDir] // <-- Don't forget me!
 })
 class MyPage {}
 ```
 
-<h2 id="angular_component">Why is an Ionic component not working in my custom Angular component?</h2>
+## Angular Components
+
+> Why is an Ionic component not working in my custom Angular component?
 
 To include an Ionic component in your custom Angular component you need to import `IONIC_DIRECTIVES` and inject those into your component by placing them in the `directives` array. You will then be able to include Ionic components in your Angular component.
 
@@ -86,7 +137,9 @@ class MyComponent {
 ```
 
 
-<h2 id="tappable_attribute">Why is there a delay on my click event?</h2>
+## Click Delays
+
+> Why is there a delay on my click event?
 
 In general, we recommend only adding `(click)` events to elements that are normally clickable. This includes `<button>` and `<a>` elements. This improves accessibility as a screen reader will be able to tell that the element is clickable.
 
@@ -96,10 +149,9 @@ However, you may need to add a `(click)` event to an element that is not normall
  <div tappable (click)="doClick()">I am clickable!</div>
 ```
 
+## Common mistakes
 
-<h2 id="common_mistakes">Common mistakes</h2>
-
-<h3 id="forgetting_parentheses">Forgetting the parentheses on a decorator</h3>
+### Forgetting Parentheses on a Decorator
 
 Decorators should have parentheses `()` after an annotation. Some examples include: `@Injectable()`, `@Optional()`, `@Input()`, etc.
 
@@ -115,7 +167,7 @@ class MyDirective {
 ```
 
 
-<h3 id="multiple_instances"> Multiple instances of a provider</h3>
+### Multiple instances of a provider
 
 If you inject a provider in every component because you want it available to all of them you will end up with multiple instances of the provider. You should inject the provider once in the parent component if you want it to be available to the child components. `@App` is the parent component in the below example:
 
@@ -156,10 +208,9 @@ class MyApp {
 
 Plunker: [http://plnkr.co/edit/QzgR5H0r8FijHeVtv2dd](http://plnkr.co/edit/QzgR5H0r8FijHeVtv2dd)
 
+## Common Pitfalls
 
-<h2 id="common_pitfalls">Common Pitfalls</h2>
-
-<h3>Cannot resolve all parameters for 'YourClass'(?). Make sure that all the parameters are decorated with Inject or have valid type annotations and that 'YourClass' is decorated with Injectable.</h3>
+### Cannot resolve all parameters for 'YourClass'(?). Make sure that all the parameters are decorated with Inject or have valid type annotations and that 'YourClass' is decorated with Injectable.
 
 This exception means that Angular is confused about one or more of the parameters for `YourClass`'s constructor. In order to do [dependency injection](https://angular.io/docs/ts/latest/guide/dependency-injection.html) Angular needs to know the type of the parameter to inject. You let Angular know this by specifying the class of the parameter. Make sure:
 
@@ -198,16 +249,16 @@ class MyButton {
 }
 
 @Directive({
-  selector: 'icon'  
+  selector: 'icon'
 })
 class MyIcon {
   constructor(containerButton: MyButton) {} // MyButton has been defined
 }
 ```
 
-<hr class="faq-section" />
 
-<h3 id="no_provider">No provider for ParamType! (MyClass -> ParamType)</h3>
+
+### No provider for ParamType! (MyClass -> ParamType)
 
 This means Angular knows the type of parameter it is supposed to inject, but it doesn't know how to inject it.
 
@@ -263,21 +314,20 @@ class MyApp {}
 Here's a diagram illustrating what injectors are available:
 
 ```
-                 +-------+                                         
-                 |  App  |                                         
-                 +---+---+                                         
-                     |                                                        
-       +-------------+------------+                                       
-       |                          |                                       
-+------+------+          +--------+--------+                      
-| Div (MyDir) |          | MyComp (MyDir)  |  <- MyComp can be injected                    
-+-------------+          +--------+--------+                      
-       ^                          |                                       
+                 +-------+
+                 |  App  |
+                 +---+---+
+                     |
+       +-------------+------------+
+       |                          |
++------+------+          +--------+--------+
+| Div (MyDir) |          | MyComp (MyDir)  |  <- MyComp can be injected
++-------------+          +--------+--------+
+       ^                          |
 No MyComp to inject        +------+------+
                            | P (MyDir)   | <- MyComp can be injected from parent
                            +-------------+
 ```
-
 
 To expand on the previous example, you can use the Angular 2 `@Optional` annotation if you don't always expect a component/directive reference:
 
@@ -295,9 +345,7 @@ class MyDir {
 }
 ```
 
-<hr class="faq-section" />
-
-<h3 id="cant_bind">Can't bind to 'propertyName' since it isn't a known property of the 'elementName' element and there are no matching directives with a corresponding property</h3>
+### Can't bind to 'propertyName' since it isn't a known property of the 'elementName' element and there are no matching directives with a corresponding property
 
 This happens when you try and bind a property on an element that doesn't have that property. If the element is a component or has one or more directives on it, neither the component nor the directives have that property either.
 
@@ -306,9 +354,7 @@ This happens when you try and bind a property on an element that doesn't have th
 <div [foo]="bar"></div>
 ```
 
-<hr class="faq-section" />
-
-<h3 id="no_provider_control">No provider for ControlContainer! (NgControlName -> ControlContainer)</h3>
+### No provider for ControlContainer! (NgControlName -> ControlContainer)
 
 This error is a more specific version of the `No provider` error above.  It happens when you use a form control like [NgControlName](https://angular.io/docs/js/latest/api/core/NgControlName-class.html) without specifying a parent [NgForm](https://angular.io/docs/js/latest/api/core/NgForm-class.html) or [NgFormModel](https://angular.io/docs/js/latest/api/core/NgFormModel-class.html).  In most cases, this can be resolved by making sure your form control is within an actual form element.  NgForm uses `form` as a selector so this will instantiate a new NgForm:
 

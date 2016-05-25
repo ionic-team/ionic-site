@@ -280,7 +280,7 @@ January always has a leading zero, such as <code>01</code>. Additionally, the ho
 in the 24-hour format, so <code>00</code> is <code>12am</code> on a 12-hour clock, <code>13</code> means <code>1pm</code>,
 and <code>23</code> means <code>11pm</code>.</p>
 <p>It&#39;s also important to note that neither the <code>displayFormat</code> or <code>pickerFormat</code> can
-set the datetime value&#39;s output, which is the value that sent the the component&#39;s
+set the datetime value&#39;s output, which is the value that is set by the component&#39;s
 <code>ngModel</code>. The format&#39;s are merely for displaying the value as text and the picker&#39;s
 interface, but the datetime&#39;s value is always persisted as a valid ISO 8601 datetime
 string.</p>

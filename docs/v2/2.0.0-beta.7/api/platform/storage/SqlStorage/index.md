@@ -397,7 +397,7 @@ Remove the value in the database for the given key.
   
 
 </h3>
-
+Clear all keys/values of your database.
 
 
 

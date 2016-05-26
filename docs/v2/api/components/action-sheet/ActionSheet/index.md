@@ -52,7 +52,7 @@ hitting the escape key on desktop.</p>
 <p>An action sheet is created from an array of <code>buttons</code>, with each button
 including properties for its <code>text</code>, and optionally a <code>handler</code> and <code>role</code>.
 If a handler returns <code>false</code> then the action sheet will not be dismissed. An
-action sheet can also optionally have a <code>title</code> and a <code>subTitle</code>.</p>
+action sheet can also optionally have a <code>title</code>, <code>subTitle</code> and an <code>icon</code>.</p>
 <p>A button&#39;s <code>role</code> property can either be <code>destructive</code> or <code>cancel</code>. Buttons
 without a role property will have the default look for the platform. Buttons
 with the <code>cancel</code> role will always load as the bottom button, no matter where

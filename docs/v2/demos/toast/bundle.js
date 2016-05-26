@@ -76240,6 +76240,10 @@
 	    SqlStorage.prototype.remove = function (key) {
 	        return this.query('delete from kv where key = ?', [key]);
 	    };
+	    /**
+	    * Clear all keys/values of your database.
+	    * @return {Promise} that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}
+	    */
 	    SqlStorage.prototype.clear = function () {
 	        return this.query('delete from kv');
 	    };

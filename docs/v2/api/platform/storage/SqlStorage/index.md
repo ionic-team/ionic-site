@@ -398,13 +398,20 @@ Remove the value in the database for the given key.
 
 </h3>
 
+Clear all keys/values of your database.
 
 
 
 
 
 
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Promise</code> <p>that resolves or rejects with an object of the form { tx: Transaction, res: Result (or err)}</p>
 
+
+</div>
 
 
 <!-- related link --><!-- end content block -->

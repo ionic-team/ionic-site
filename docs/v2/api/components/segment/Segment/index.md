@@ -105,7 +105,10 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
     </tr>
     
   </tbody>
-</table><!-- related link -->
+</table>
+
+
+<!-- related link -->
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 

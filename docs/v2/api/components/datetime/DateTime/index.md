@@ -572,7 +572,10 @@ See the <a href="../../picker/Picker">Picker API docs</a> for the picker options
     </tr>
     
   </tbody>
-</table><!-- related link --><!-- end content block -->
+</table>
+
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

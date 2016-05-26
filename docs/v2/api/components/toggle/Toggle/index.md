@@ -189,7 +189,10 @@ whether the toggle is disabled or not
     </tr>
     
   </tbody>
-</table><!-- related link -->
+</table>
+
+
+<!-- related link -->
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 

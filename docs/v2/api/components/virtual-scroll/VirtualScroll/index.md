@@ -305,7 +305,10 @@ must return <code>null</code> if a footer cell shouldn&#39;t be created.</p>
     </tr>
     
   </tbody>
-</table><!-- related link --><!-- end content block -->
+</table>
+
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

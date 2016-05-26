@@ -168,7 +168,10 @@ of <code>background-color</code>.</p>
     </tr>
     
   </tbody>
-</table><!-- related link --><!-- end content block -->
+</table>
+
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -372,7 +372,10 @@ updated to <code>refreshing</code>. From within your refresh handler, you must c
     </tr>
     
   </tbody>
-</table><!-- related link --><!-- end content block -->
+</table>
+
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -264,7 +264,10 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
     </tr>
     
   </tbody>
-</table><!-- related link -->
+</table>
+
+
+<!-- related link -->
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 

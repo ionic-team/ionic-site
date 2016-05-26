@@ -49,7 +49,10 @@ Improve this doc
 
 
 
-<!-- instance methods on the class --><!-- related link --><!-- end content block -->
+<!-- instance methods on the class -->
+
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -58,7 +58,10 @@ in this component and it should be used in conjunction with <a href="../Slides">
 
 
 
-<!-- instance methods on the class --><!-- related link -->
+<!-- instance methods on the class -->
+
+
+<!-- related link -->
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 

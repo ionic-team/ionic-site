@@ -78,7 +78,10 @@ add the <code>detail-push</code> attribute (eg: <code>&lt;ion-item detail-push&g
 
 
 
-<!-- instance methods on the class --><!-- related link -->
+<!-- instance methods on the class -->
+
+
+<!-- related link -->
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 

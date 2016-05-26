@@ -195,7 +195,10 @@ Create a loading indicator with the following options
 
 
 
-<!-- instance methods on the class --><!-- related link -->
+<!-- instance methods on the class -->
+
+
+<!-- related link -->
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 

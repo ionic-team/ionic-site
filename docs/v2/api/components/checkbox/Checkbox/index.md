@@ -129,7 +129,10 @@ for more info on forms and inputs.</p>
     </tr>
     
   </tbody>
-</table><!-- related link -->
+</table>
+
+
+<!-- related link -->
 
 <h2><a class="anchor" name="related" href="#related"></a>Related</h2>
 

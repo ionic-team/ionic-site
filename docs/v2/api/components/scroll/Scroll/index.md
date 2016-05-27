@@ -43,7 +43,7 @@ Improve this doc
 
 
 
-<p>Scroll is a non-flexboxed scroll area that can scroll horizontally or vertically. <code>ion-Scroll</code> Can be used in places were you may not need a full page scroller, but a highly customized one, such as image scubber or comment scroller.</p>
+<p>Scroll is a non-flexboxed scroll area that can scroll horizontally or vertically. <code>ion-Scroll</code> Can be used in places where you may not need a full page scroller, but a highly customized one, such as image scubber or comment scroller.</p>
 
 
 <h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>

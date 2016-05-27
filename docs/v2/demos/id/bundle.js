@@ -39707,7 +39707,8 @@
 	        enteringView.setLeavingOpts({
 	            keyboardClose: false,
 	            direction: 'back',
-	            animation: enteringView.getTransitionName('back')
+	            animation: enteringView.getTransitionName('back'),
+	            ev: opts.ev
 	        });
 	        // start the transition
 	        return rootNav._insertViews(-1, [enteringView], opts);

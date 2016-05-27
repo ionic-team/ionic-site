@@ -75887,7 +75887,7 @@
 	        this._loader.loadNextToLocation(this._navParams.data.componentType, this.viewport).then(function (componentRef) {
 	            _this._viewCtrl.setInstance(componentRef.instance);
 	            // manually fire onPageWillEnter() since PopoverCmp's onPageWillEnter already happened
-	            _this._viewCtrl.willEnter();
+	            _this._viewCtrl.fireWillEnter();
 	        });
 	    };
 	    PopoverCmp.prototype.onPageDidEnter = function () {
@@ -76004,7 +76004,7 @@
 	        arrowEle.style.left = arrowCSS.left + 'px';
 	        popoverEle.style.top = popoverCSS.top + 'px';
 	        popoverEle.style.left = popoverCSS.left + 'px';
-	        popoverEle.style[dom_1.CSS.transformOrigin] = originY + " " + originX;
+	        popoverEle.style[dom_1.CSS.transformOrigin] = originY + ' ' + originX;
 	        // Since the transition starts before styling is done we
 	        // want to wait for the styles to apply before showing the wrapper
 	        popoverWrapperEle.style.opacity = '1';

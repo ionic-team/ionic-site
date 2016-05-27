@@ -43,8 +43,8 @@ docType: "class"
 
 <pre><code>$ ionic plugin add cordova-plugin-admobpro</code></pre>
 <p>Repo:
-  <a href="https://github.com/floatinghotspot/cordova-admob-pro">
-    https://github.com/floatinghotspot/cordova-admob-pro
+  <a href="https://github.com/floatinghotpot/cordova-admob-pro">
+    https://github.com/floatinghotpot/cordova-admob-pro
   </a>
 </p>
 

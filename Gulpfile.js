@@ -145,7 +145,6 @@ gulp.task('server', ['server:ionicons','server:stylesv1', 'server:stylesv2', 'im
 });
 
 gulp.task('server:ionicons', ['ionicons'], function() {
-  console.log("ionicons built")
   browserSync.reload();
 });
 gulp.task('server:stylesv1', ['styles:v1'], function() {

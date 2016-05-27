@@ -6442,13 +6442,8 @@ ion-menu {
 ion-menu[type=overlay] {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); }
 
-.modal ion-page {
+.modal-wrapper {
   background-color: #fff; }
-
-@media only screen and (min-width: 768px) and (min-height: 600px) {
-  .modal-wrapper {
-    overflow: hidden;
-    border-radius: 5px; } }
 
 ion-picker-cmp {
   position: absolute;

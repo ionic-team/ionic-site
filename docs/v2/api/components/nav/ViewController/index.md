@@ -67,6 +67,146 @@ export class MyPage{
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="didLoad"></div>
+
+<h3>
+<a class="anchor" name="didLoad" href="#didLoad"></a>
+<code>didLoad</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="willEnter"></div>
+
+<h3>
+<a class="anchor" name="willEnter" href="#willEnter"></a>
+<code>willEnter</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="didEnter"></div>
+
+<h3>
+<a class="anchor" name="didEnter" href="#didEnter"></a>
+<code>didEnter</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="willLeave"></div>
+
+<h3>
+<a class="anchor" name="willLeave" href="#willLeave"></a>
+<code>willLeave</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="didLeave"></div>
+
+<h3>
+<a class="anchor" name="didLeave" href="#didLeave"></a>
+<code>didLeave</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="willUnload"></div>
+
+<h3>
+<a class="anchor" name="willUnload" href="#willUnload"></a>
+<code>willUnload</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="didUnload"></div>
+
+<h3>
+<a class="anchor" name="didUnload" href="#didUnload"></a>
+<code>didUnload</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="componentType"></div>
 
 <h3>
@@ -431,6 +571,58 @@ Set if the back button for the current view is visible or not. Be sure to wrap t
       </td>
       <td>
         <p>if this Page&#39;s back button should show or not.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div id="loaded"></div>
+
+<h3>
+<a class="anchor" name="loaded" href="#loaded"></a>
+<code>loaded(done)</code>
+  
+
+</h3>
+
+The loaded method is used to load any dynamic content/components
+into the dom before proceeding with the transition.  If a component needs
+dynamic component loading, extending ViewController and overriding
+this method is a good option
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        done
+        
+        
+      </td>
+      <td>
+        
+  <code>function</code>
+      </td>
+      <td>
+        <p>is a callback that must be called when async loading/actions are completed</p>
 
         
       </td>

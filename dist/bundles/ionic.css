@@ -6178,12 +6178,8 @@ ion-icon {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); }
   .ios ion-menu[type=overlay] {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); }
-  .ios .modal ion-page {
+  .ios .modal-wrapper {
     background-color: #fff; }
-  @media only screen and (min-width: 768px) and (min-height: 600px) {
-    .ios .modal-wrapper {
-      overflow: hidden;
-      border-radius: 5px; } }
   .ios ion-picker-cmp {
     position: absolute;
     top: 0;
@@ -9410,7 +9406,7 @@ ion-icon {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); }
   .md ion-menu[type=overlay] {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); }
-  .md .modal ion-page {
+  .md .modal-wrapper {
     background-color: #fff; }
   .md ion-picker-cmp {
     position: absolute;
@@ -12919,7 +12915,7 @@ ion-icon {
     fill: #fff; }
   .wp ion-menu {
     background: #f2f2f2; }
-  .wp .modal ion-page {
+  .wp .modal-wrapper {
     background-color: #fff; }
   .wp ion-picker-cmp {
     position: absolute;

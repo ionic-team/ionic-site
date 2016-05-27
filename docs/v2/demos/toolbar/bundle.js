@@ -37792,6 +37792,13 @@
 	        this._emitter = new core_1.EventEmitter();
 	        // passed in data could be NavParams, but all we care about is its data object
 	        this.data = (data instanceof nav_params_1.NavParams ? data.data : (util_1.isPresent(data) ? data : {}));
+	        this.didLoad = new core_1.EventEmitter();
+	        this.willEnter = new core_1.EventEmitter();
+	        this.didEnter = new core_1.EventEmitter();
+	        this.willLeave = new core_1.EventEmitter();
+	        this.didLeave = new core_1.EventEmitter();
+	        this.willUnload = new core_1.EventEmitter();
+	        this.didUnload = new core_1.EventEmitter();
 	    }
 	    ViewController.prototype.subscribe = function (generatorOrNext) {
 	        return this._emitter.subscribe(generatorOrNext);
@@ -38132,6 +38139,16 @@
 	        return this._loaded;
 	    };
 	    /**
+	     * The loaded method is used to load any dynamic content/components
+	     * into the dom before proceeding with the transition.  If a component needs
+	     * dynamic component loading, extending ViewController and overriding
+	     * this method is a good option
+	     * @param {function} done is a callback that must be called when async loading/actions are completed
+	     */
+	    ViewController.prototype.loaded = function (done) {
+	        done();
+	    };
+	    /**
 	     * @private
 	     * The view has loaded. This event only happens once per view being
 	     * created. If a view leaves but is cached, then this will not
@@ -38139,21 +38156,23 @@
 	     * to put your setup code for the view; however, it is not the
 	     * recommended method to use when a view becomes active.
 	     */
-	    ViewController.prototype.loaded = function () {
+	    ViewController.prototype.fireLoaded = function () {
 	        this._loaded = true;
+	        this.didLoad.emit(null);
 	        ctrlFn(this, 'onPageLoaded');
 	    };
 	    /**
 	     * @private
 	     * The view is about to enter and become the active view.
 	     */
-	    ViewController.prototype.willEnter = function () {
+	    ViewController.prototype.fireWillEnter = function () {
 	        if (this._cd) {
 	            // ensure this has been re-attached to the change detector
 	            this._cd.reattach();
 	            // detect changes before we run any user code
 	            this._cd.detectChanges();
 	        }
+	        this.willEnter.emit(null);
 	        ctrlFn(this, 'onPageWillEnter');
 	    };
 	    /**
@@ -38161,16 +38180,18 @@
 	     * The view has fully entered and is now the active view. This
 	     * will fire, whether it was the first load or loaded from the cache.
 	     */
-	    ViewController.prototype.didEnter = function () {
+	    ViewController.prototype.fireDidEnter = function () {
 	        var navbar = this.getNavbar();
 	        navbar && navbar.didEnter();
+	        this.didEnter.emit(null);
 	        ctrlFn(this, 'onPageDidEnter');
 	    };
 	    /**
 	     * @private
 	     * The view has is about to leave and no longer be the active view.
 	     */
-	    ViewController.prototype.willLeave = function () {
+	    ViewController.prototype.fireWillLeave = function () {
+	        this.willLeave.emit(null);
 	        ctrlFn(this, 'onPageWillLeave');
 	    };
 	    /**
@@ -38178,7 +38199,8 @@
 	     * The view has finished leaving and is no longer the active view. This
 	     * will fire, whether it is cached or unloaded.
 	     */
-	    ViewController.prototype.didLeave = function () {
+	    ViewController.prototype.fireDidLeave = function () {
+	        this.didLeave.emit(null);
 	        ctrlFn(this, 'onPageDidLeave');
 	        // when this is not the active page
 	        // we no longer need to detect changes
@@ -38188,7 +38210,8 @@
 	     * @private
 	     * The view is about to be destroyed and have its elements removed.
 	     */
-	    ViewController.prototype.willUnload = function () {
+	    ViewController.prototype.fireWillUnload = function () {
+	        this.willUnload.emit(null);
 	        ctrlFn(this, 'onPageWillUnload');
 	    };
 	    /**
@@ -38201,6 +38224,7 @@
 	     * @private
 	     */
 	    ViewController.prototype.destroy = function () {
+	        this.didUnload.emit(null);
 	        ctrlFn(this, 'onPageDidUnload');
 	        for (var i = 0; i < this._destroys.length; i++) {
 	            this._destroys[i]();
@@ -39939,9 +39963,9 @@
 	                        if (!parentNav['_tabs']) {
 	                            // Tabs can be a parent, but it is not a collection of views
 	                            // only we're looking for an actual NavController w/ stack of views
-	                            leavingView.willLeave();
+	                            leavingView.fireWillLeave();
 	                            return parentNav.pop(opts).then(function (rtnVal) {
-	                                leavingView.didLeave();
+	                                leavingView.fireDidLeave();
 	                                return rtnVal;
 	                            });
 	                        }
@@ -40028,7 +40052,7 @@
 	            // set that it is the init leaving view
 	            // the first view to be removed, it should init leave
 	            view.state = STATE_INIT_LEAVE;
-	            view.willUnload();
+	            view.fireWillUnload();
 	            // from the index of the leaving view, go backwards and
 	            // find the first view that is inactive so it can be the entering
 	            for (var i = this.indexOf(view) - 1; i >= 0; i--) {
@@ -40058,8 +40082,8 @@
 	        // remove views that have been set to be removed, but not
 	        // apart of any transitions that will eventually happen
 	        this._views.filter(function (v) { return v.state === STATE_REMOVE; }).forEach(function (view) {
-	            view.willLeave();
-	            view.didLeave();
+	            view.fireWillLeave();
+	            view.fireDidLeave();
 	            _this._views.splice(_this.indexOf(view), 1);
 	            view.destroy();
 	        });
@@ -40087,7 +40111,7 @@
 	        if (!enteringView) {
 	            // if no entering view then create a bogus one
 	            enteringView = new view_controller_1.ViewController();
-	            enteringView.loaded();
+	            enteringView.fireLoaded();
 	        }
 	        /* Async steps to complete a transition
 	          1. _render: compile the view and render it in the DOM. Load page if it hasn't loaded already. When done call postRender
@@ -40135,19 +40159,8 @@
 	            // DOM WRITE
 	            this.setTransitioning(true, 500);
 	            this.loadPage(enteringView, null, opts, function () {
-	                if (enteringView.onReady) {
-	                    // this entering view needs to wait for it to be ready
-	                    // this is used by Tabs to wait for the first page of
-	                    // the first selected tab to be loaded
-	                    enteringView.onReady(function () {
-	                        enteringView.loaded();
-	                        _this._postRender(transId, enteringView, leavingView, isAlreadyTransitioning, opts, done);
-	                    });
-	                }
-	                else {
-	                    enteringView.loaded();
-	                    _this._postRender(transId, enteringView, leavingView, isAlreadyTransitioning, opts, done);
-	                }
+	                enteringView.fireLoaded();
+	                _this._postRender(transId, enteringView, leavingView, isAlreadyTransitioning, opts, done);
 	            });
 	        }
 	    };
@@ -40198,12 +40211,12 @@
 	            if (leavingView.fireOtherLifecycles) {
 	                // only fire entering lifecycle if the leaving
 	                // view hasn't explicitly set not to
-	                enteringView.willEnter();
+	                enteringView.fireWillEnter();
 	            }
 	            if (enteringView.fireOtherLifecycles) {
 	                // only fire leaving lifecycle if the entering
 	                // view hasn't explicitly set not to
-	                leavingView.willLeave();
+	                leavingView.fireWillLeave();
 	            }
 	        }
 	        else {
@@ -40290,12 +40303,12 @@
 	                if (leavingView.fireOtherLifecycles) {
 	                    // only fire entering lifecycle if the leaving
 	                    // view hasn't explicitly set not to
-	                    enteringView.didEnter();
+	                    enteringView.fireDidEnter();
 	                }
 	                if (enteringView.fireOtherLifecycles) {
 	                    // only fire leaving lifecycle if the entering
 	                    // view hasn't explicitly set not to
-	                    leavingView.didLeave();
+	                    leavingView.fireDidLeave();
 	                }
 	            }
 	            if (enteringView.state === STATE_INACTIVE) {
@@ -40483,45 +40496,48 @@
 	        ]));
 	        // load the page component inside the nav
 	        this._loader.loadNextToLocation(view.componentType, this._viewport, providers).then(function (component) {
-	            // the ElementRef of the actual ion-page created
-	            var pageElementRef = component.location;
 	            // a new ComponentRef has been created
 	            // set the ComponentRef's instance to its ViewController
 	            view.setInstance(component.instance);
-	            // remember the ChangeDetectorRef for this ViewController
-	            view.setChangeDetector(component.changeDetectorRef);
-	            // remember the ElementRef to the ion-page elementRef that was just created
-	            view.setPageRef(pageElementRef);
-	            // auto-add page css className created from component JS class name
-	            var cssClassName = util_1.pascalCaseToDashCase(view.componentType['name']);
-	            _this._renderer.setElementClass(pageElementRef.nativeElement, cssClassName, true);
-	            view.onDestroy(function () {
-	                // ensure the element is cleaned up for when the view pool reuses this element
-	                _this._renderer.setElementAttribute(pageElementRef.nativeElement, 'class', null);
-	                _this._renderer.setElementAttribute(pageElementRef.nativeElement, 'style', null);
-	                component.destroy();
-	            });
-	            if (!navbarContainerRef) {
-	                // there was not a navbar container ref already provided
-	                // so use the location of the actual navbar template
-	                navbarContainerRef = view.getNavbarViewRef();
-	            }
-	            // find a navbar template if one is in the page
-	            var navbarTemplateRef = view.getNavbarTemplateRef();
-	            // check if we have both a navbar ViewContainerRef and a template
-	            if (navbarContainerRef && navbarTemplateRef) {
-	                // let's now create the navbar view
-	                var navbarViewRef_1 = navbarContainerRef.createEmbeddedView(navbarTemplateRef);
+	            // the component has been loaded, so call the view controller's loaded method to load any dependencies into the dom
+	            view.loaded(function () {
+	                // the ElementRef of the actual ion-page created
+	                var pageElementRef = component.location;
+	                // remember the ChangeDetectorRef for this ViewController
+	                view.setChangeDetector(component.changeDetectorRef);
+	                // remember the ElementRef to the ion-page elementRef that was just created
+	                view.setPageRef(pageElementRef);
+	                // auto-add page css className created from component JS class name
+	                var cssClassName = util_1.pascalCaseToDashCase(view.componentType['name']);
+	                _this._renderer.setElementClass(pageElementRef.nativeElement, cssClassName, true);
 	                view.onDestroy(function () {
-	                    // manually destroy the navbar when the page is destroyed
-	                    navbarViewRef_1.destroy();
+	                    // ensure the element is cleaned up for when the view pool reuses this element
+	                    _this._renderer.setElementAttribute(pageElementRef.nativeElement, 'class', null);
+	                    _this._renderer.setElementAttribute(pageElementRef.nativeElement, 'style', null);
+	                    component.destroy();
 	                });
-	            }
-	            // options may have had a postLoad method
-	            // used mainly by tabs
-	            opts.postLoad && opts.postLoad(view);
-	            // our job is done here
-	            done(view);
+	                if (!navbarContainerRef) {
+	                    // there was not a navbar container ref already provided
+	                    // so use the location of the actual navbar template
+	                    navbarContainerRef = view.getNavbarViewRef();
+	                }
+	                // find a navbar template if one is in the page
+	                var navbarTemplateRef = view.getNavbarTemplateRef();
+	                // check if we have both a navbar ViewContainerRef and a template
+	                if (navbarContainerRef && navbarTemplateRef) {
+	                    // let's now create the navbar view
+	                    var navbarViewRef_1 = navbarContainerRef.createEmbeddedView(navbarTemplateRef);
+	                    view.onDestroy(function () {
+	                        // manually destroy the navbar when the page is destroyed
+	                        navbarViewRef_1.destroy();
+	                    });
+	                }
+	                // options may have had a postLoad method
+	                // used mainly by tabs
+	                opts.postLoad && opts.postLoad(view);
+	                // our job is done here
+	                done(view);
+	            });
 	        });
 	    };
 	    /**
@@ -48171,7 +48187,7 @@
 	        if (viewCtrl) {
 	            viewCtrl.setContent(this);
 	            viewCtrl.setContentRef(_elementRef);
-	            viewCtrl.onReady = function (done) {
+	            viewCtrl.loaded = function (done) {
 	                _this._onReady = done;
 	            };
 	        }
@@ -48261,10 +48277,10 @@
 	        var deselectedPage;
 	        if (deselectedTab) {
 	            deselectedPage = deselectedTab.getActive();
-	            deselectedPage && deselectedPage.willLeave();
+	            deselectedPage && deselectedPage.fireWillLeave();
 	        }
 	        var selectedPage = selectedTab.getActive();
-	        selectedPage && selectedPage.willEnter();
+	        selectedPage && selectedPage.fireWillEnter();
 	        selectedTab.load(opts, function () {
 	            selectedTab.select.emit(selectedTab);
 	            _this.change.emit(selectedTab);
@@ -48280,8 +48296,8 @@
 	                    _this._highlight.select(selectedTab);
 	                }
 	            }
-	            selectedPage && selectedPage.didEnter();
-	            deselectedPage && deselectedPage.didLeave();
+	            selectedPage && selectedPage.fireDidEnter();
+	            deselectedPage && deselectedPage.fireDidLeave();
 	            if (_this._onReady) {
 	                _this._onReady();
 	                _this._onReady = null;
@@ -75323,6 +75339,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
+	var dom_1 = __webpack_require__(251);
+	var util_1 = __webpack_require__(254);
 	var nav_params_1 = __webpack_require__(280);
 	var view_controller_1 = __webpack_require__(279);
 	var animation_1 = __webpack_require__(287);
@@ -75432,6 +75450,7 @@
 	        if (data === void 0) { data = {}; }
 	        data.componentType = componentType;
 	        _super.call(this, ModalCmp, data);
+	        this.modalViewType = componentType.name;
 	        this.viewType = 'modal';
 	        this.isOverlay = true;
 	    }
@@ -75450,22 +75469,38 @@
 	        if (data === void 0) { data = {}; }
 	        return new Modal(componentType, data);
 	    };
+	    // Override the load method and load our child component
+	    Modal.prototype.loaded = function (done) {
+	        var _this = this;
+	        // grab the instance, and proxy the ngAfterViewInit method
+	        var originalNgAfterViewInit = this.instance.ngAfterViewInit;
+	        this.instance.ngAfterViewInit = function () {
+	            if (originalNgAfterViewInit) {
+	                originalNgAfterViewInit();
+	            }
+	            _this.instance.loadComponent().then(function (componentRef) {
+	                _this.setInstance(componentRef.instance);
+	                done();
+	            });
+	        };
+	    };
 	    return Modal;
 	}(view_controller_1.ViewController));
 	exports.Modal = Modal;
 	var ModalCmp = (function () {
-	    function ModalCmp(_loader, _navParams, _viewCtrl) {
+	    function ModalCmp(_eleRef, _loader, _navParams, _viewCtrl) {
+	        this._eleRef = _eleRef;
 	        this._loader = _loader;
 	        this._navParams = _navParams;
 	        this._viewCtrl = _viewCtrl;
 	    }
-	    ModalCmp.prototype.onPageWillEnter = function () {
-	        var _this = this;
-	        this._loader.loadNextToLocation(this._navParams.data.componentType, this.viewport).then(function (componentRef) {
-	            _this._viewCtrl.setInstance(componentRef.instance);
-	            // manually fire onPageWillEnter() since ModalCmp's  onPageWillEnter already happened
-	            _this._viewCtrl.willEnter();
+	    ModalCmp.prototype.loadComponent = function () {
+	        return this._loader.loadNextToLocation(this._navParams.data.componentType, this.viewport).then(function (componentRef) {
+	            return componentRef;
 	        });
+	    };
+	    ModalCmp.prototype.ngAfterViewInit = function () {
+	        // intentionally kept empty
 	    };
 	    __decorate([
 	        core_1.ViewChild('viewport', { read: core_1.ViewContainerRef }), 
@@ -75479,11 +75514,12 @@
 	                '<div #viewport></div>' +
 	                '</div>'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.DynamicComponentLoader !== 'undefined' && core_1.DynamicComponentLoader) === 'function' && _b) || Object, (typeof (_c = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _c) || Object, (typeof (_d = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.DynamicComponentLoader !== 'undefined' && core_1.DynamicComponentLoader) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _e) || Object])
 	    ], ModalCmp);
 	    return ModalCmp;
-	    var _a, _b, _c, _d;
+	    var _a, _b, _c, _d, _e;
 	}());
+	exports.ModalCmp = ModalCmp;
 	/**
 	 * Animations for modals
 	 */
@@ -75495,6 +75531,11 @@
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        backdrop.fromTo('opacity', 0.01, 0.4);
 	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
+	        var page = ele.querySelector('ion-page');
+	        page.classList.add('show-page');
+	        // auto-add page css className created from component JS class name
+	        var cssClassName = util_1.pascalCaseToDashCase(enteringView.modalViewType);
+	        page.classList.add(cssClassName);
 	        wrapper.fromTo('translateY', '100%', '0%');
 	        this
 	            .element(enteringView.pageRef())
@@ -75520,8 +75561,13 @@
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
 	        backdrop.fromTo('opacity', 0.4, 0.0);
-	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
-	        wrapper.fromTo('translateY', '0%', '100%');
+	        var wrapperEle = ele.querySelector('.modal-wrapper');
+	        var wrapperEleRect = wrapperEle.getBoundingClientRect();
+	        var wrapper = new animation_1.Animation(wrapperEle);
+	        // height of the screen - top of the container tells us how much to scoot it down
+	        // so it's off-screen
+	        var screenDimensions = dom_1.windowDimensions();
+	        wrapper.fromTo('translateY', '0px', (screenDimensions.height - wrapperEleRect.top) + "px");
 	        this
 	            .element(leavingView.pageRef())
 	            .easing('ease-out')
@@ -75541,6 +75587,11 @@
 	        backdrop.fromTo('opacity', 0.01, 0.4);
 	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
 	        wrapper.fromTo('translateY', '40px', '0px');
+	        var page = ele.querySelector('ion-page');
+	        page.classList.add('show-page');
+	        // auto-add page css className created from component JS class name
+	        var cssClassName = util_1.pascalCaseToDashCase(enteringView.modalViewType);
+	        page.classList.add(cssClassName);
 	        this
 	            .element(enteringView.pageRef())
 	            .easing('cubic-bezier(0.36,0.66,0.04,1)')

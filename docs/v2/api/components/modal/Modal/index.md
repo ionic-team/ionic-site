@@ -34,7 +34,7 @@ Modal
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/modal/modal.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/modal/modal.ts#L7">
 Improve this doc
 </a>
 
@@ -203,6 +203,48 @@ class Profile {
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="modalViewType"></div>
+
+<h3>
+<a class="anchor" name="modalViewType" href="#modalViewType"></a>
+<code>modalViewType</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="loaded"></div>
+
+<h3>
+<a class="anchor" name="loaded" href="#loaded"></a>
+<code>loaded()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- related link -->

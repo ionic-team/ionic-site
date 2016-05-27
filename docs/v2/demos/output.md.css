@@ -6609,7 +6609,7 @@ ion-menu {
 ion-menu[type=overlay] {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); }
 
-.modal ion-page {
+.modal-wrapper {
   background-color: #fff; }
 
 ion-picker-cmp {

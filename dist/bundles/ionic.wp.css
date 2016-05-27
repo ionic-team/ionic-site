@@ -6374,7 +6374,7 @@ ion-loading {
 ion-menu {
   background: #f2f2f2; }
 
-.modal ion-page {
+.modal-wrapper {
   background-color: #fff; }
 
 ion-picker-cmp {

@@ -191,6 +191,16 @@ chart displays each property with a description of what it controls.</p>
 <td>The name of the transition to use while a picker is dismissed.</td>
 </tr>
 <tr>
+<td><code>popoverEnter</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while a popover is presented.</td>
+</tr>
+<tr>
+<td><code>popoverLeave</code></td>
+<td><code>string</code></td>
+<td>The name of the transition to use while a popover is dismissed.</td>
+</tr>
+<tr>
 <td><code>spinner</code></td>
 <td><code>string</code></td>
 <td>The default spinner to use when a name is not defined.</td>

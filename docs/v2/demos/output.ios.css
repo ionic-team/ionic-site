@@ -903,6 +903,55 @@ ion-menu[type=push][side=right] {
   display: -ms-flexbox;
   display: flex; }
 
+ion-popover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.popover-wrapper {
+  z-index: 10;
+  opacity: 0; }
+
+.popover-content {
+  position: absolute;
+  z-index: 10;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 200px; }
+  .popover-content ion-page {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: auto; }
+
+.hide-backdrop {
+  display: none; }
+
 ion-refresher {
   position: absolute;
   top: 0;
@@ -6751,6 +6800,41 @@ ion-picker-cmp {
   background: linear-gradient(to top, white 30%, rgba(255, 255, 255, 0.7) 100%);
   -webkit-transform: translate3d(0, 0, 90px);
   transform: translate3d(0, 0, 90px); }
+
+.popover-content {
+  width: 200px;
+  max-height: 90%;
+  border-radius: 10px;
+  color: #000;
+  background: #fff; }
+
+.popover-content .item {
+  background-color: #fff; }
+
+.popover-arrow {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  width: 20px;
+  height: 10px; }
+  .popover-arrow::after {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 10;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    background-color: #fff;
+    content: "";
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+
+.popover-bottom .popover-arrow {
+  top: auto;
+  bottom: -10px; }
+  .popover-bottom .popover-arrow::after {
+    top: -6px; }
 
 ion-radio {
   position: relative;

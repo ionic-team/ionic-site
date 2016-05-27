@@ -2521,7 +2521,7 @@
 	__export(__webpack_require__(414));
 	__export(__webpack_require__(415));
 	__export(__webpack_require__(253));
-	__export(__webpack_require__(420));
+	__export(__webpack_require__(421));
 	__export(__webpack_require__(250));
 	__export(__webpack_require__(255));
 	__export(__webpack_require__(259));
@@ -2529,14 +2529,14 @@
 	__export(__webpack_require__(287));
 	__export(__webpack_require__(286));
 	__export(__webpack_require__(266));
-	__export(__webpack_require__(424));
+	__export(__webpack_require__(425));
 	// these modules don't export anything
-	__webpack_require__(425);
 	__webpack_require__(426);
 	__webpack_require__(427);
 	__webpack_require__(428);
 	__webpack_require__(429);
 	__webpack_require__(430);
+	__webpack_require__(431);
 
 /***/ },
 /* 7 */
@@ -30705,6 +30705,8 @@
 	    exports.CSS.transitionDelay = (isWebkit ? '-webkit-' : '') + 'transition-delay';
 	    // To be sure transitionend works everywhere, include *both* the webkit and non-webkit events
 	    exports.CSS.transitionEnd = (isWebkit ? 'webkitTransitionEnd ' : '') + 'transitionend';
+	    // transform origin
+	    exports.CSS.transformOrigin = (isWebkit ? '-webkit-' : '') + 'transform-origin';
 	})();
 	function transitionEnd(el, callback) {
 	    if (el) {
@@ -31006,6 +31008,8 @@
 	 * | `pageTransitionDelay`    | `number`            | The delay in milliseconds before the transition starts while changing pages.                                                                     |
 	 * | `pickerEnter`            | `string`            | The name of the transition to use while a picker is presented.                                                                                   |
 	 * | `pickerLeave`            | `string`            | The name of the transition to use while a picker is dismissed.                                                                                   |
+	 * | `popoverEnter`           | `string`            | The name of the transition to use while a popover is presented.                                                                                   |
+	 * | `popoverLeave`           | `string`            | The name of the transition to use while a popover is dismissed.                                                                                   |
 	 * | `spinner`                | `string`            | The default spinner to use when a name is not defined.                                                                                           |
 	 * | `tabbarHighlight`        | `boolean`           | Whether to show a highlight line under the tab when it is selected.                                                                              |
 	 * | `tabbarLayout`           | `string`            | The layout to use for all tabs. Available options: `"icon-top"`, `"icon-left"`, `"icon-right"`, `"icon-bottom"`, `"icon-hide"`, `"title-hide"`.  |
@@ -40253,7 +40257,8 @@
 	                duration: opts.duration,
 	                easing: opts.easing,
 	                renderDelay: opts.transitionDelay || _this._trnsDelay,
-	                isRTL: _this.config.platform.isRTL()
+	                isRTL: _this.config.platform.isRTL(),
+	                ev: opts.ev,
 	            };
 	            var transAnimation = transition_1.Transition.createTransition(enteringView, leavingView, transitionOpts);
 	            _this._trans && _this._trans.destroy();
@@ -41015,7 +41020,7 @@
 	                trans: (typeof TRANSFORMS[prop] !== 'undefined'),
 	                wc: ''
 	            };
-	            // add the will-change property fo transforms or opacity
+	            // add the will-change property for transforms or opacity
 	            if (fxProp.trans) {
 	                fxProp.wc = dom_1.CSS.transform;
 	            }
@@ -52462,7 +52467,7 @@
 	     *  | cssClass              | `string`  | Any additional class for the alert (optional)                             |
 	     *  | inputs                | `array`   | An array of inputs for the alert. See input options. (optional)           |
 	     *  | buttons               | `array`   | An array of buttons for the alert. See buttons options. (optional)        |
-	     *  | enableBackdropDismiss | `boolean` | Wheather the alert should be dismissed by tapping the backdrop (optional) |
+	     *  | enableBackdropDismiss | `boolean` | Whether the alert should be dismissed by tapping the backdrop (optional)  |
 	     *
 	     *
 	     *  Input options
@@ -74811,6 +74816,7 @@
 	__export(__webpack_require__(281));
 	__export(__webpack_require__(317));
 	__export(__webpack_require__(319));
+	__export(__webpack_require__(419));
 	__export(__webpack_require__(325));
 	__export(__webpack_require__(326));
 	__export(__webpack_require__(295));
@@ -74825,7 +74831,7 @@
 	__export(__webpack_require__(299));
 	__export(__webpack_require__(301));
 	__export(__webpack_require__(263));
-	__export(__webpack_require__(419));
+	__export(__webpack_require__(420));
 	__export(__webpack_require__(320));
 	__export(__webpack_require__(282));
 	__export(__webpack_require__(309));
@@ -75614,6 +75620,416 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(8);
+	var core_2 = __webpack_require__(8);
+	var animation_1 = __webpack_require__(287);
+	var transition_1 = __webpack_require__(286);
+	var config_1 = __webpack_require__(252);
+	var nav_params_1 = __webpack_require__(280);
+	var util_1 = __webpack_require__(254);
+	var dom_1 = __webpack_require__(251);
+	var view_controller_1 = __webpack_require__(279);
+	var POPOVER_BODY_PADDING = 2;
+	/**
+	 * @name Popover
+	 * @description
+	 * A Popover is a dialog that appears on top of the current page.
+	 * It can be used for anything, but generally it is used for overflow
+	 * actions that don't fit in the navigation bar.
+	 *
+	 * ### Creating
+	 * A popover can be created by calling the `create` method. The view
+	 * to display in the popover should be passed as the first argument.
+	 * Any data to pass to the popover view can optionally be passed in
+	 * the second argument. Options for the popover can optionally be
+	 * passed in the third argument. See the [create](#create) method
+	 * below for all available options.
+	 *
+	 * ### Presenting
+	 * To present a popover, call the `present` method on the [NavController](../../nav/NavController).
+	 * The first argument passed to the `present` should be the popover. In order
+	 * to position the popover relative to the element clicked, the event needs to be
+	 * passed as the second argument. If the event is not passed, the popover will be
+	 * positioned in the center of the current view. See the [usage](#usage) section for
+	 * an example of passing this event.
+	 *
+	 * ### Dismissing
+	 * To dismiss the popover after creation, call the `dismiss()` method on the
+	 * `Popover` instance. The popover can also be dismissed from within the popover's
+	 * view by calling the `dismiss()` method on the [ViewController](../../nav/ViewController).
+	 * The `onDismiss` function can be called to perform an action after the popover
+	 * is dismissed. The popover will dismiss when the backdrop is clicked, but this
+	 * can be disabled by setting `enableBackdropDismiss` to `false` in the popover
+	 * options.
+	 *
+	 * > Note that after the component is dismissed, it will not be usable anymore and
+	 * another one must be created. This can be avoided by wrapping the creation and
+	 * presentation of the component in a reusable function as shown in the [usage](#usage)
+	 * section below.
+	 *
+	 * @usage
+	 *
+	 * To open a popover on the click of a button, pass `$event` to the method
+	 * which creates and presents the popover:
+	 *
+	 * ```html
+	 * <button (click)="presentPopover($event)">
+	 *   <ion-icon name="more"></ion-icon>
+	 * </button>
+	 * ```
+	 *
+	 * ```js
+	 * @Page({})
+	 * class MyPage {
+	 *   constructor(private nav: NavController) {}
+	 *
+	 *   presentPopover(myEvent) {
+	 *     let popover = Popover.create(PopoverPage);
+	 *     this.nav.present(popover, {
+	 *       ev: myEvent
+	 *     });
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * The `PopoverPage` will display inside of the popover, and
+	 * can be anything. Below is an example of a page with items
+	 * that close the popover on click.
+	 *
+	 * ```js
+	 * @Page({
+	 *   template: `
+	 *     <ion-list>
+	 *       <ion-list-header>Ionic</ion-list-header>
+	 *       <button ion-item (click)="close()">Learn Ionic</button>
+	 *       <button ion-item (click)="close()">Documentation</button>
+	 *       <button ion-item (click)="close()">Showcase</button>
+	 *       <button ion-item (click)="close()">GitHub Repo</button>
+	 *     </ion-list>
+	 *   `
+	 * })
+	 * class PopoverPage {
+	 *   constructor(private viewCtrl: ViewController) {}
+	 *
+	 *   close() {
+	 *     this.viewCtrl.dismiss();
+	 *   }
+	 * }
+	 * ```
+	 *
+	 *
+	 * @demo /docs/v2/demos/popover/
+	 */
+	var Popover = (function (_super) {
+	    __extends(Popover, _super);
+	    function Popover(componentType, data, opts) {
+	        if (data === void 0) { data = {}; }
+	        if (opts === void 0) { opts = {}; }
+	        opts.showBackdrop = util_1.isPresent(opts.showBackdrop) ? !!opts.showBackdrop : true;
+	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+	        data.componentType = componentType;
+	        data.opts = opts;
+	        _super.call(this, PopoverCmp, data);
+	        this.viewType = 'popover';
+	        this.isOverlay = true;
+	        // by default, popovers should not fire lifecycle events of other views
+	        // for example, when a popover enters, the current active view should
+	        // not fire its lifecycle events because it's not conceptually leaving
+	        this.fireOtherLifecycles = false;
+	    }
+	    /**
+	    * @private
+	    */
+	    Popover.prototype.getTransitionName = function (direction) {
+	        var key = (direction === 'back' ? 'popoverLeave' : 'popoverEnter');
+	        return this._nav && this._nav.config.get(key);
+	    };
+	    /**
+	     * Create a popover with the following options
+	     *
+	     * | Option                | Type       | Description                                                                                                      |
+	     * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
+	     * | cssClass              |`string`    | An additional class for custom styles.                                                                           |
+	     * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
+	     * | enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
+	     *
+	     *
+	     * @param {object} componentType The Popover
+	     * @param {object} data Any data to pass to the Popover view
+	     * @param {object} opts Popover options
+	     */
+	    Popover.create = function (componentType, data, opts) {
+	        if (data === void 0) { data = {}; }
+	        if (opts === void 0) { opts = {}; }
+	        return new Popover(componentType, data, opts);
+	    };
+	    return Popover;
+	}(view_controller_1.ViewController));
+	exports.Popover = Popover;
+	/**
+	* @private
+	*/
+	var PopoverCmp = (function () {
+	    function PopoverCmp(_loader, _elementRef, _renderer, _config, _navParams, _viewCtrl) {
+	        this._loader = _loader;
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	        this._config = _config;
+	        this._navParams = _navParams;
+	        this._viewCtrl = _viewCtrl;
+	        this.d = _navParams.data.opts;
+	        this.created = Date.now();
+	        if (this.d.cssClass) {
+	            _renderer.setElementClass(_elementRef.nativeElement, this.d.cssClass, true);
+	        }
+	        this.id = (++popoverIds);
+	    }
+	    PopoverCmp.prototype.onPageWillEnter = function () {
+	        var _this = this;
+	        this._loader.loadNextToLocation(this._navParams.data.componentType, this.viewport).then(function (componentRef) {
+	            _this._viewCtrl.setInstance(componentRef.instance);
+	            // manually fire onPageWillEnter() since PopoverCmp's onPageWillEnter already happened
+	            _this._viewCtrl.willEnter();
+	        });
+	    };
+	    PopoverCmp.prototype.onPageDidEnter = function () {
+	        var activeElement = document.activeElement;
+	        if (document.activeElement) {
+	            activeElement.blur();
+	        }
+	    };
+	    PopoverCmp.prototype.dismiss = function (role) {
+	        return this._viewCtrl.dismiss(null, role);
+	    };
+	    PopoverCmp.prototype.bdTouch = function (ev) {
+	        ev.preventDefault();
+	        ev.stopPropagation();
+	    };
+	    PopoverCmp.prototype.bdClick = function () {
+	        if (this.isEnabled() && this.d.enableBackdropDismiss) {
+	            this.dismiss('backdrop');
+	        }
+	    };
+	    PopoverCmp.prototype.isEnabled = function () {
+	        var tm = this._config.getNumber('overlayCreatedDiff', 750);
+	        return (this.created + tm < Date.now());
+	    };
+	    __decorate([
+	        core_1.ViewChild('viewport', { read: core_1.ViewContainerRef }), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object)
+	    ], PopoverCmp.prototype, "viewport", void 0);
+	    PopoverCmp = __decorate([
+	        core_1.Component({
+	            selector: 'ion-popover',
+	            template: '<div class="backdrop" (touchmove)="bdTouch($event)" (click)="bdClick($event)" [class.hide-backdrop]="!d.showBackdrop" disable-activated tappable role="presentation"></div>' +
+	                '<div class="popover-wrapper">' +
+	                '<div class="popover-arrow"></div>' +
+	                '<div class="popover-content">' +
+	                '<div class="popover-viewport">' +
+	                '<div #viewport></div>' +
+	                '</div>' +
+	                '</div>' +
+	                '</div>'
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.DynamicComponentLoader !== 'undefined' && core_1.DynamicComponentLoader) === 'function' && _b) || Object, (typeof (_c = typeof core_2.ElementRef !== 'undefined' && core_2.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_2.Renderer !== 'undefined' && core_2.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _f) || Object, (typeof (_g = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _g) || Object])
+	    ], PopoverCmp);
+	    return PopoverCmp;
+	    var _a, _b, _c, _d, _e, _f, _g;
+	}());
+	/**
+	 * Animations for popover
+	 */
+	var PopoverTransition = (function (_super) {
+	    __extends(PopoverTransition, _super);
+	    function PopoverTransition(opts) {
+	        _super.call(this, opts);
+	    }
+	    PopoverTransition.prototype.positionView = function (nativeEle, ev) {
+	        var originY = 'top';
+	        var originX = 'left';
+	        var popoverWrapperEle = nativeEle.querySelector('.popover-wrapper');
+	        // Popover content width and height
+	        var popoverEle = nativeEle.querySelector('.popover-content');
+	        var popoverDim = popoverEle.getBoundingClientRect();
+	        var popoverWidth = popoverDim.width;
+	        var popoverHeight = popoverDim.height;
+	        // Window body width and height
+	        var bodyWidth = window.innerWidth;
+	        var bodyHeight = window.innerHeight;
+	        var targetTop = (bodyHeight / 2) - (popoverHeight / 2);
+	        var targetLeft = bodyWidth / 2;
+	        var targetWidth = 0;
+	        var targetHeight = 0;
+	        // If ev was passed, use that for target element
+	        if (ev && ev.target) {
+	            var targetDim = ev.target.getBoundingClientRect();
+	            targetTop = targetDim.top;
+	            targetLeft = targetDim.left;
+	            targetWidth = targetDim.width;
+	            targetHeight = targetDim.height;
+	        }
+	        // The arrow that shows above the popover on iOS
+	        var arrowEle = nativeEle.querySelector('.popover-arrow');
+	        var arrowDim = arrowEle.getBoundingClientRect();
+	        var arrowWidth = arrowDim.width;
+	        var arrowHeight = arrowDim.height;
+	        var arrowCSS = {
+	            top: targetTop + targetHeight,
+	            left: targetLeft + (targetWidth / 2) - (arrowWidth / 2)
+	        };
+	        var popoverCSS = {
+	            top: targetTop + targetHeight + (arrowHeight - 1),
+	            left: targetLeft + (targetWidth / 2) - (popoverWidth / 2)
+	        };
+	        // If the popover left is less than the padding it is off screen
+	        // to the left so adjust it, else if the width of the popover
+	        // exceeds the body width it is off screen to the right so adjust
+	        if (popoverCSS.left < POPOVER_BODY_PADDING) {
+	            popoverCSS.left = POPOVER_BODY_PADDING;
+	        }
+	        else if (popoverWidth + POPOVER_BODY_PADDING + popoverCSS.left > bodyWidth) {
+	            popoverCSS.left = bodyWidth - popoverWidth - POPOVER_BODY_PADDING;
+	            originX = 'right';
+	        }
+	        // If the popover when popped down stretches past bottom of screen,
+	        // make it pop up if there's room above
+	        if (targetTop + targetHeight + popoverHeight > bodyHeight && targetTop - popoverHeight > 0) {
+	            arrowCSS.top = targetTop - (arrowHeight + 1);
+	            popoverCSS.top = targetTop - popoverHeight - (arrowHeight - 1);
+	            nativeEle.className = nativeEle.className + ' popover-bottom';
+	            originY = 'bottom';
+	        }
+	        else if (targetTop + targetHeight + popoverHeight > bodyHeight) {
+	            popoverEle.style.bottom = POPOVER_BODY_PADDING + '%';
+	        }
+	        arrowEle.style.top = arrowCSS.top + 'px';
+	        arrowEle.style.left = arrowCSS.left + 'px';
+	        popoverEle.style.top = popoverCSS.top + 'px';
+	        popoverEle.style.left = popoverCSS.left + 'px';
+	        popoverEle.style[dom_1.CSS.transformOrigin] = originY + " " + originX;
+	        // Since the transition starts before styling is done we
+	        // want to wait for the styles to apply before showing the wrapper
+	        popoverWrapperEle.style.opacity = '1';
+	    };
+	    return PopoverTransition;
+	}(transition_1.Transition));
+	var PopoverPopIn = (function (_super) {
+	    __extends(PopoverPopIn, _super);
+	    function PopoverPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        this.enteringView = enteringView;
+	        this.leavingView = leavingView;
+	        this.opts = opts;
+	        var ele = enteringView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.popover-wrapper'));
+	        wrapper.fromTo('opacity', '0.01', '1');
+	        backdrop.fromTo('opacity', '0.01', '0.08');
+	        this
+	            .easing('ease')
+	            .duration(100)
+	            .add(backdrop)
+	            .add(wrapper);
+	    }
+	    PopoverPopIn.prototype.play = function () {
+	        var _this = this;
+	        dom_1.nativeRaf(function () {
+	            _this.positionView(_this.enteringView.pageRef().nativeElement, _this.opts.ev);
+	            _super.prototype.play.call(_this);
+	        });
+	    };
+	    return PopoverPopIn;
+	}(PopoverTransition));
+	transition_1.Transition.register('popover-pop-in', PopoverPopIn);
+	var PopoverPopOut = (function (_super) {
+	    __extends(PopoverPopOut, _super);
+	    function PopoverPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        this.enteringView = enteringView;
+	        this.leavingView = leavingView;
+	        this.opts = opts;
+	        var ele = leavingView.pageRef().nativeElement;
+	        var backdrop = new animation_1.Animation(ele.querySelector('.backdrop'));
+	        var wrapper = new animation_1.Animation(ele.querySelector('.popover-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0');
+	        backdrop.fromTo('opacity', '0.08', '0');
+	        this
+	            .easing('ease')
+	            .duration(500)
+	            .add(backdrop)
+	            .add(wrapper);
+	    }
+	    return PopoverPopOut;
+	}(PopoverTransition));
+	transition_1.Transition.register('popover-pop-out', PopoverPopOut);
+	var PopoverMdPopIn = (function (_super) {
+	    __extends(PopoverMdPopIn, _super);
+	    function PopoverMdPopIn(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        this.enteringView = enteringView;
+	        this.leavingView = leavingView;
+	        this.opts = opts;
+	        var ele = enteringView.pageRef().nativeElement;
+	        var content = new animation_1.Animation(ele.querySelector('.popover-content'));
+	        var viewport = new animation_1.Animation(ele.querySelector('.popover-viewport'));
+	        content.fromTo('scale', '0.001', '1');
+	        viewport.fromTo('opacity', '0', '1');
+	        this
+	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
+	            .duration(300)
+	            .add(content)
+	            .add(viewport);
+	    }
+	    PopoverMdPopIn.prototype.play = function () {
+	        var _this = this;
+	        dom_1.nativeRaf(function () {
+	            _this.positionView(_this.enteringView.pageRef().nativeElement, _this.opts.ev);
+	            _super.prototype.play.call(_this);
+	        });
+	    };
+	    return PopoverMdPopIn;
+	}(PopoverTransition));
+	transition_1.Transition.register('popover-md-pop-in', PopoverMdPopIn);
+	var PopoverMdPopOut = (function (_super) {
+	    __extends(PopoverMdPopOut, _super);
+	    function PopoverMdPopOut(enteringView, leavingView, opts) {
+	        _super.call(this, opts);
+	        this.enteringView = enteringView;
+	        this.leavingView = leavingView;
+	        this.opts = opts;
+	        var ele = leavingView.pageRef().nativeElement;
+	        var wrapper = new animation_1.Animation(ele.querySelector('.popover-wrapper'));
+	        wrapper.fromTo('opacity', '1', '0');
+	        this
+	            .easing('ease')
+	            .duration(500)
+	            .fadeIn()
+	            .add(wrapper);
+	    }
+	    return PopoverMdPopOut;
+	}(PopoverTransition));
+	transition_1.Transition.register('popover-md-pop-out', PopoverMdPopOut);
+	var popoverIds = -1;
+
+/***/ },
+/* 420 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(8);
 	var animation_1 = __webpack_require__(287);
 	var transition_1 = __webpack_require__(286);
 	var config_1 = __webpack_require__(252);
@@ -75869,19 +76285,19 @@
 	var toastIds = -1;
 
 /***/ },
-/* 420 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(421));
 	__export(__webpack_require__(422));
 	__export(__webpack_require__(423));
+	__export(__webpack_require__(424));
 
 /***/ },
-/* 421 */
+/* 422 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -75965,7 +76381,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 422 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75974,7 +76390,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(421);
+	var storage_1 = __webpack_require__(422);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -76078,7 +76494,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 423 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76087,7 +76503,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(421);
+	var storage_1 = __webpack_require__(422);
 	var util_1 = __webpack_require__(254);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -76230,7 +76646,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 424 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76280,7 +76696,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 425 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76305,6 +76721,8 @@
 	    pickerEnter: 'picker-slide-in',
 	    pickerLeave: 'picker-slide-out',
 	    pickerRotateFactor: -0.46,
+	    popoverEnter: 'popover-pop-in',
+	    popoverLeave: 'popover-pop-out',
 	    spinner: 'ios',
 	    tabbarPlacement: 'bottom',
 	    toastEnter: 'toast-slide-in',
@@ -76329,6 +76747,8 @@
 	    pageTransitionDelay: 96,
 	    pickerEnter: 'picker-slide-in',
 	    pickerLeave: 'picker-slide-out',
+	    popoverEnter: 'popover-md-pop-in',
+	    popoverLeave: 'popover-md-pop-out',
 	    spinner: 'crescent',
 	    tabbarHighlight: true,
 	    tabbarPlacement: 'top',
@@ -76355,6 +76775,8 @@
 	    pageTransitionDelay: 96,
 	    pickerEnter: 'picker-slide-in',
 	    pickerLeave: 'picker-slide-out',
+	    popoverEnter: 'popover-md-pop-in',
+	    popoverLeave: 'popover-md-pop-out',
 	    spinner: 'circles',
 	    tabbarPlacement: 'top',
 	    tabSubPages: true,
@@ -76363,7 +76785,7 @@
 	});
 
 /***/ },
-/* 426 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76551,7 +76973,7 @@
 	}
 
 /***/ },
-/* 427 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76611,7 +77033,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 428 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76787,7 +77209,7 @@
 	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 429 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76851,7 +77273,7 @@
 	transition_1.Transition.register('md-transition', MDTransition);
 
 /***/ },
-/* 430 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

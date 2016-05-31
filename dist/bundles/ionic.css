@@ -7011,6 +7011,7 @@ ion-icon {
     border: 0;
     border-radius: 0;
     text-align: center;
+    text-decoration: none;
     background: none;
     cursor: pointer; }
   .ios .tab-disabled {
@@ -10234,6 +10235,7 @@ ion-icon {
     border: 0;
     border-radius: 0;
     text-align: center;
+    text-decoration: none;
     background: none;
     cursor: pointer; }
   .md .tab-disabled {
@@ -13855,6 +13857,7 @@ ion-icon {
     border: 0;
     border-radius: 0;
     text-align: center;
+    text-decoration: none;
     background: none;
     cursor: pointer; }
   .wp .tab-disabled {

@@ -15649,7 +15649,6 @@
 	}
 	exports.ionicBootstrap = ionicBootstrap;
 	function ionicPostBootstrap(ngComponentRef) {
-	    // ngComponentRef.injector.get(TapClick);
 	    var app = ngComponentRef.injector.get(app_1.App);
 	    app.setAppInjector(ngComponentRef.injector);
 	    // prepare platform ready
@@ -64338,13 +64337,13 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(330);
 	var config_1 = __webpack_require__(331);
+	var ion_1 = __webpack_require__(341);
+	var util_1 = __webpack_require__(333);
+	var nav_controller_1 = __webpack_require__(358);
+	var platform_1 = __webpack_require__(332);
 	var tab_button_1 = __webpack_require__(375);
 	var tab_highlight_1 = __webpack_require__(377);
-	var ion_1 = __webpack_require__(341);
-	var platform_1 = __webpack_require__(332);
-	var nav_controller_1 = __webpack_require__(358);
 	var view_controller_1 = __webpack_require__(353);
-	var util_1 = __webpack_require__(333);
 	/**
 	 * @name Tabs
 	 * @description
@@ -64731,7 +64730,7 @@
 	                '</ion-navbar-section>' +
 	                '<ion-tabbar-section>' +
 	                '<tabbar role="tablist">' +
-	                '<a *ngFor="let t of _tabs" [tab]="t" class="tab-button" [class.tab-disabled]="!t.enabled" [class.tab-hidden]="!t.show" role="tab">' +
+	                '<a *ngFor="let t of _tabs" [tab]="t" class="tab-button" [class.tab-disabled]="!t.enabled" [class.tab-hidden]="!t.show" role="tab" href="#">' +
 	                '<ion-icon *ngIf="t.tabIcon" [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></ion-icon>' +
 	                '<span *ngIf="t.tabTitle" class="tab-button-text">{{t.tabTitle}}</span>' +
 	                '<ion-badge *ngIf="t.tabBadge" class="tab-badge" [ngClass]="\'badge-\' + t.tabBadgeStyle">{{t.tabBadge}}</ion-badge>' +
@@ -64818,8 +64817,9 @@
 	        this.hasIconOnly = (this.hasIcon && !this.hasTitle);
 	        this.hasBadge = !!this.tab.tabBadge;
 	    };
-	    TabButton.prototype.onClick = function () {
+	    TabButton.prototype.onClick = function (ev) {
 	        this.ionSelect.emit(this.tab);
+	        ev.preventDefault();
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -64830,9 +64830,9 @@
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
 	    ], TabButton.prototype, "ionSelect", void 0);
 	    __decorate([
-	        core_1.HostListener('click'), 
+	        core_1.HostListener('click', ['$event']), 
 	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', []), 
+	        __metadata('design:paramtypes', [Object]), 
 	        __metadata('design:returntype', void 0)
 	    ], TabButton.prototype, "onClick", null);
 	    TabButton = __decorate([
@@ -65090,6 +65090,7 @@
 	     * @private
 	     */
 	    Tab.prototype.loadPage = function (viewCtrl, navbarContainerRef, opts, done) {
+	        var _this = this;
 	        // by default a page's navbar goes into the shared tab's navbar section
 	        navbarContainerRef = this.parent.navbarContainerRef;
 	        var isTabSubPage = (this.parent.subPages && viewCtrl.index > 0);
@@ -65099,8 +65100,12 @@
 	            navbarContainerRef = null;
 	        }
 	        _super.prototype.loadPage.call(this, viewCtrl, navbarContainerRef, opts, function () {
-	            if (viewCtrl.instance) {
-	                viewCtrl.instance._tabSubPage = isTabSubPage;
+	            if (isTabSubPage) {
+	                // add the .tab-subpage css class to tabs pages that should act like subpages
+	                var pageEleRef = viewCtrl.pageRef();
+	                if (pageEleRef) {
+	                    _this._renderer.setElementClass(pageEleRef.nativeElement, 'tab-subpage', true);
+	                }
 	            }
 	            done();
 	        });

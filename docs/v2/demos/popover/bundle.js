@@ -2532,7 +2532,7 @@
 	    };
 	    PopoverRadioPage = __decorate([
 	        ionic_angular_1.Page({
-	            template: "\n    <ion-list radio-group [(ngModel)]=\"fontFamily\" (change)=\"changeFontFamily()\">\n      <ion-row>\n        <ion-col>\n          <button (click)=\"changeFontSize('smaller')\" ion-item detail-none class=\"text-button text-smaller\">A</button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeFontSize('larger')\" ion-item detail-none class=\"text-button text-larger\">A</button>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"row-dots\">\n        <ion-col>\n          <button (click)=\"changeBackground('white')\" category=\"dot\" class=\"dot-white\" [class.selected]=\"background == 'white'\"></button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeBackground('tan')\" category=\"dot\" class=\"dot-tan\" [class.selected]=\"background == 'tan'\"></button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeBackground('grey')\" category=\"dot\" class=\"dot-grey\" [class.selected]=\"background == 'grey'\"></button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeBackground('black')\" category=\"dot\" class=\"dot-black\" [class.selected]=\"background == 'black'\"></button>\n        </ion-col>\n      </ion-row>\n      <ion-item class=\"text-athelas\">\n        <ion-label>Athelas</ion-label>\n        <ion-radio value=\"Athelas\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-charter\">\n        <ion-label>Charter</ion-label>\n        <ion-radio value=\"Charter\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-iowan\">\n        <ion-label>Iowan</ion-label>\n        <ion-radio value=\"Iowan\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-palatino\">\n        <ion-label>Palatino</ion-label>\n        <ion-radio value=\"Palatino\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-san-francisco\">\n        <ion-label>San Francisco</ion-label>\n        <ion-radio value=\"San Francisco\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-seravek\">\n        <ion-label>Seravek</ion-label>\n        <ion-radio value=\"Seravek\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-times-new-roman\">\n        <ion-label>Times New Roman</ion-label>\n        <ion-radio value=\"Times New Roman\"></ion-radio>\n      </ion-item>\n    </ion-list>\n  ",
+	            template: "\n    <ion-list radio-group [(ngModel)]=\"fontFamily\" (ionChange)=\"changeFontFamily()\">\n      <ion-row>\n        <ion-col>\n          <button (click)=\"changeFontSize('smaller')\" ion-item detail-none class=\"text-button text-smaller\">A</button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeFontSize('larger')\" ion-item detail-none class=\"text-button text-larger\">A</button>\n        </ion-col>\n      </ion-row>\n      <ion-row class=\"row-dots\">\n        <ion-col>\n          <button (click)=\"changeBackground('white')\" category=\"dot\" class=\"dot-white\" [class.selected]=\"background == 'white'\"></button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeBackground('tan')\" category=\"dot\" class=\"dot-tan\" [class.selected]=\"background == 'tan'\"></button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeBackground('grey')\" category=\"dot\" class=\"dot-grey\" [class.selected]=\"background == 'grey'\"></button>\n        </ion-col>\n        <ion-col>\n          <button (click)=\"changeBackground('black')\" category=\"dot\" class=\"dot-black\" [class.selected]=\"background == 'black'\"></button>\n        </ion-col>\n      </ion-row>\n      <ion-item class=\"text-athelas\">\n        <ion-label>Athelas</ion-label>\n        <ion-radio value=\"Athelas\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-charter\">\n        <ion-label>Charter</ion-label>\n        <ion-radio value=\"Charter\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-iowan\">\n        <ion-label>Iowan</ion-label>\n        <ion-radio value=\"Iowan\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-palatino\">\n        <ion-label>Palatino</ion-label>\n        <ion-radio value=\"Palatino\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-san-francisco\">\n        <ion-label>San Francisco</ion-label>\n        <ion-radio value=\"San Francisco\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-seravek\">\n        <ion-label>Seravek</ion-label>\n        <ion-radio value=\"Seravek\"></ion-radio>\n      </ion-item>\n      <ion-item class=\"text-times-new-roman\">\n        <ion-label>Times New Roman</ion-label>\n        <ion-radio value=\"Times New Roman\"></ion-radio>\n      </ion-item>\n    </ion-list>\n  ",
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavParams !== 'undefined' && ionic_angular_1.NavParams) === 'function' && _a) || Object])
 	    ], PopoverRadioPage);
@@ -75728,7 +75728,8 @@
 	var util_1 = __webpack_require__(254);
 	var dom_1 = __webpack_require__(251);
 	var view_controller_1 = __webpack_require__(279);
-	var POPOVER_BODY_PADDING = 2;
+	var POPOVER_IOS_BODY_PADDING = 2;
+	var POPOVER_MD_BODY_PADDING = 12;
 	/**
 	 * @name Popover
 	 * @description
@@ -75943,7 +75944,7 @@
 	    function PopoverTransition(opts) {
 	        _super.call(this, opts);
 	    }
-	    PopoverTransition.prototype.positionView = function (nativeEle, ev) {
+	    PopoverTransition.prototype.mdPositionView = function (nativeEle, ev) {
 	        var originY = 'top';
 	        var originX = 'left';
 	        var popoverWrapperEle = nativeEle.querySelector('.popover-wrapper');
@@ -75955,18 +75956,61 @@
 	        // Window body width and height
 	        var bodyWidth = window.innerWidth;
 	        var bodyHeight = window.innerHeight;
-	        var targetTop = (bodyHeight / 2) - (popoverHeight / 2);
-	        var targetLeft = bodyWidth / 2;
-	        var targetWidth = 0;
-	        var targetHeight = 0;
 	        // If ev was passed, use that for target element
-	        if (ev && ev.target) {
-	            var targetDim = ev.target.getBoundingClientRect();
-	            targetTop = targetDim.top;
-	            targetLeft = targetDim.left;
-	            targetWidth = targetDim.width;
-	            targetHeight = targetDim.height;
+	        var targetDim = ev && ev.target && ev.target.getBoundingClientRect();
+	        var targetTop = targetDim && targetDim.top || (bodyHeight / 2) - (popoverHeight / 2);
+	        var targetLeft = targetDim && targetDim.left || bodyWidth / 2 - (popoverWidth / 2);
+	        var targetWidth = targetDim && targetDim.width || 0;
+	        var targetHeight = targetDim && targetDim.height || 0;
+	        var popoverCSS = {
+	            top: targetTop,
+	            left: targetLeft
+	        };
+	        // If the popover left is less than the padding it is off screen
+	        // to the left so adjust it, else if the width of the popover
+	        // exceeds the body width it is off screen to the right so adjust
+	        if (popoverCSS.left < POPOVER_MD_BODY_PADDING) {
+	            popoverCSS.left = POPOVER_MD_BODY_PADDING;
 	        }
+	        else if (popoverWidth + POPOVER_MD_BODY_PADDING + popoverCSS.left > bodyWidth) {
+	            popoverCSS.left = bodyWidth - popoverWidth - POPOVER_MD_BODY_PADDING;
+	            originX = 'right';
+	        }
+	        // If the popover when popped down stretches past bottom of screen,
+	        // make it pop up if there's room above
+	        if (targetTop + targetHeight + popoverHeight > bodyHeight && targetTop - popoverHeight > 0) {
+	            popoverCSS.top = targetTop - popoverHeight;
+	            nativeEle.className = nativeEle.className + ' popover-bottom';
+	            originY = 'bottom';
+	        }
+	        else if (targetTop + targetHeight + popoverHeight > bodyHeight) {
+	            popoverEle.style.bottom = POPOVER_MD_BODY_PADDING + 'px';
+	        }
+	        popoverEle.style.top = popoverCSS.top + 'px';
+	        popoverEle.style.left = popoverCSS.left + 'px';
+	        popoverEle.style[dom_1.CSS.transformOrigin] = originY + ' ' + originX;
+	        // Since the transition starts before styling is done we
+	        // want to wait for the styles to apply before showing the wrapper
+	        popoverWrapperEle.style.opacity = '1';
+	    };
+	    PopoverTransition.prototype.iosPositionView = function (nativeEle, ev) {
+	        var originY = 'top';
+	        var originX = 'left';
+	        var popoverWrapperEle = nativeEle.querySelector('.popover-wrapper');
+	        // Popover content width and height
+	        var popoverEle = nativeEle.querySelector('.popover-content');
+	        var popoverDim = popoverEle.getBoundingClientRect();
+	        var popoverWidth = popoverDim.width;
+	        var popoverHeight = popoverDim.height;
+	        // Window body width and height
+	        var bodyWidth = window.innerWidth;
+	        var bodyHeight = window.innerHeight;
+	        // If ev was passed, use that for target element
+	        var targetDim = ev && ev.target && ev.target.getBoundingClientRect();
+	        var targetTop = targetDim && targetDim.top || (bodyHeight / 2) - (popoverHeight / 2);
+	        var targetLeft = targetDim && targetDim.left || bodyWidth / 2;
+	        var targetWidth = targetDim && targetDim.width || 0;
+	        var targetHeight = targetDim && targetDim.height || 0;
 	        // The arrow that shows above the popover on iOS
 	        var arrowEle = nativeEle.querySelector('.popover-arrow');
 	        var arrowDim = arrowEle.getBoundingClientRect();
@@ -75983,11 +76027,11 @@
 	        // If the popover left is less than the padding it is off screen
 	        // to the left so adjust it, else if the width of the popover
 	        // exceeds the body width it is off screen to the right so adjust
-	        if (popoverCSS.left < POPOVER_BODY_PADDING) {
-	            popoverCSS.left = POPOVER_BODY_PADDING;
+	        if (popoverCSS.left < POPOVER_IOS_BODY_PADDING) {
+	            popoverCSS.left = POPOVER_IOS_BODY_PADDING;
 	        }
-	        else if (popoverWidth + POPOVER_BODY_PADDING + popoverCSS.left > bodyWidth) {
-	            popoverCSS.left = bodyWidth - popoverWidth - POPOVER_BODY_PADDING;
+	        else if (popoverWidth + POPOVER_IOS_BODY_PADDING + popoverCSS.left > bodyWidth) {
+	            popoverCSS.left = bodyWidth - popoverWidth - POPOVER_IOS_BODY_PADDING;
 	            originX = 'right';
 	        }
 	        // If the popover when popped down stretches past bottom of screen,
@@ -75999,7 +76043,7 @@
 	            originY = 'bottom';
 	        }
 	        else if (targetTop + targetHeight + popoverHeight > bodyHeight) {
-	            popoverEle.style.bottom = POPOVER_BODY_PADDING + '%';
+	            popoverEle.style.bottom = POPOVER_IOS_BODY_PADDING + '%';
 	        }
 	        arrowEle.style.top = arrowCSS.top + 'px';
 	        arrowEle.style.left = arrowCSS.left + 'px';
@@ -76033,7 +76077,7 @@
 	    PopoverPopIn.prototype.play = function () {
 	        var _this = this;
 	        dom_1.nativeRaf(function () {
-	            _this.positionView(_this.enteringView.pageRef().nativeElement, _this.opts.ev);
+	            _this.iosPositionView(_this.enteringView.pageRef().nativeElement, _this.opts.ev);
 	            _super.prototype.play.call(_this);
 	        });
 	    };
@@ -76082,7 +76126,7 @@
 	    PopoverMdPopIn.prototype.play = function () {
 	        var _this = this;
 	        dom_1.nativeRaf(function () {
-	            _this.positionView(_this.enteringView.pageRef().nativeElement, _this.opts.ev);
+	            _this.mdPositionView(_this.enteringView.pageRef().nativeElement, _this.opts.ev);
 	            _super.prototype.play.call(_this);
 	        });
 	    };

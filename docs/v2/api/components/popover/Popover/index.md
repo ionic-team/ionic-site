@@ -34,7 +34,7 @@ Popover
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/popover/popover.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/popover/popover.ts#L13">
 Improve this doc
 </a>
 

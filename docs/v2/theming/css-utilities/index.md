@@ -45,3 +45,15 @@ Ionic provides a set of SCSS/CSS utility attributes that can help when developin
 | `padding-vertical`   | adds padding to the top and botttom |
 | `padding-horizontal` | adds padding to the left and right  |
 | `no-padding`         | removes any padding                 |
+
+
+### `ion-buttons` property
+
+| Attribute | Description                                                                                                |
+|-----------|------------------------------------------------------------------------------------------------------------|
+| `start`   | Aligns the element at the start based on platform. iOS goes left, Android is the first item on the right   |
+| `end`     | Aligns the element at the end based on the platform. iOS goes right, Android is the last item on the right |
+| `left`    | Aligns the element on the left side. Overrides the platform specific order                                 |
+| `right`   | Aligns the element on the right side. Overrides the platform specific order                                |
+
+

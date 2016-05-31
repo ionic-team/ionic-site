@@ -6464,6 +6464,106 @@ ion-icon {
     color: #222; }
     .ios ion-radio[dark] .radio-checked .radio-inner {
       border-color: #222; }
+  .ios .item-range .item-inner {
+    overflow: visible; }
+  .ios .item-range .input-wrapper {
+    overflow: visible;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .ios .item-range ion-range {
+    width: 100%; }
+  .ios ion-range {
+    position: relative;
+    display: block;
+    padding: 8px 16px; }
+  .ios .range-has-pin {
+    padding-top: 20px; }
+  .ios .range-slider {
+    position: relative;
+    height: 42px;
+    cursor: pointer; }
+  .ios .range-bar {
+    position: absolute;
+    top: 21px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #bdbdbd;
+    pointer-events: none; }
+  .ios .range-pressed .range-bar-active {
+    will-change: left, right; }
+  .ios .range-pressed .range-knob-handle {
+    will-change: left; }
+  .ios .range-bar-active {
+    bottom: 0;
+    width: auto;
+    background: #327eff; }
+  .ios .range-knob-handle {
+    position: absolute;
+    top: 21px;
+    left: 0%;
+    margin-top: -21px;
+    margin-left: -21px;
+    width: 42px;
+    height: 42px;
+    text-align: center; }
+  .ios .range-knob {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 3px 1px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.13), 0 0 0 1px rgba(0, 0, 0, 0.02);
+    pointer-events: none; }
+  .ios .range-tick {
+    position: absolute;
+    top: 17.5px;
+    margin-left: -0.5px;
+    width: 1px;
+    height: 8px;
+    border-radius: 0;
+    background: #bdbdbd;
+    pointer-events: none; }
+  .ios .range-tick-active {
+    background: #327eff; }
+  .ios .range-pin {
+    position: relative;
+    top: -20px;
+    display: inline-block;
+    padding: 8px;
+    min-width: 28px;
+    border-radius: 50px;
+    font-size: 12px;
+    text-align: center;
+    color: #000;
+    background: transparent;
+    -webkit-transform: translate3d(0, 28px, 0) scale(0.01);
+    transform: translate3d(0, 28px, 0) scale(0.01);
+    -webkit-transition: -webkit-transform 120ms ease;
+    transition: transform 120ms ease; }
+  .ios .range-knob-pressed .range-pin {
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1); }
+  .ios ion-range[primary] .range-bar-active,
+  .ios ion-range[primary] .range-tick-active {
+    background: #327eff; }
+  .ios ion-range[secondary] .range-bar-active,
+  .ios ion-range[secondary] .range-tick-active {
+    background: #32db64; }
+  .ios ion-range[danger] .range-bar-active,
+  .ios ion-range[danger] .range-tick-active {
+    background: #f53d3d; }
+  .ios ion-range[light] .range-bar-active,
+  .ios ion-range[light] .range-tick-active {
+    background: #f4f4f4; }
+  .ios ion-range[dark] .range-bar-active,
+  .ios ion-range[dark] .range-tick-active {
+    background: #222; }
   .ios ion-searchbar {
     position: relative;
     display: -webkit-box;
@@ -9688,6 +9788,115 @@ ion-icon {
     border-color: #222; }
   .md ion-radio[dark] .radio-inner {
     background-color: #222; }
+  .md .item-range .item-inner {
+    overflow: visible; }
+  .md .item-range .input-wrapper {
+    overflow: visible;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .md .item-range ion-range {
+    width: 100%; }
+  .md ion-range {
+    position: relative;
+    display: block;
+    padding: 8px 8px; }
+  .md .range-has-pin {
+    padding-top: 28px; }
+  .md .range-slider {
+    position: relative;
+    height: 42px;
+    cursor: pointer; }
+  .md .range-bar {
+    position: absolute;
+    top: 21px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #bdbdbd;
+    pointer-events: none; }
+  .md .range-pressed .range-bar-active {
+    will-change: left, right; }
+  .md .range-pressed .range-knob-handle {
+    will-change: left; }
+  .md .range-bar-active {
+    bottom: 0;
+    width: auto;
+    background: #327eff; }
+  .md .range-knob-handle {
+    position: absolute;
+    top: 21px;
+    left: 0%;
+    margin-top: -21px;
+    margin-left: -21px;
+    width: 42px;
+    height: 42px;
+    text-align: center; }
+  .md .range-knob {
+    position: absolute;
+    z-index: 2;
+    top: 16px;
+    left: 15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #327eff;
+    pointer-events: none; }
+  .md .range-tick {
+    position: absolute;
+    z-index: 1;
+    top: 21px;
+    margin-left: -1px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: #000;
+    pointer-events: none; }
+  .md .range-tick-active {
+    background: #000; }
+  .md .range-pin {
+    position: relative;
+    top: -20px;
+    display: inline-block;
+    padding: 8px;
+    min-width: 28px;
+    border-radius: 50%;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    background: #327eff;
+    -webkit-transform: translate3d(0, 28px, 0) scale(0.01);
+    transform: translate3d(0, 28px, 0) scale(0.01);
+    -webkit-transition: -webkit-transform 120ms ease;
+    transition: transform 120ms ease; }
+  .md .range-knob-pressed .range-pin {
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1); }
+  .md .range-knob-pressed .range-knob {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5); }
+  .md ion-range[primary] .range-bar-active,
+  .md ion-range[primary] .range-knob,
+  .md ion-range[primary] .range-pin {
+    background: #327eff; }
+  .md ion-range[secondary] .range-bar-active,
+  .md ion-range[secondary] .range-knob,
+  .md ion-range[secondary] .range-pin {
+    background: #32db64; }
+  .md ion-range[danger] .range-bar-active,
+  .md ion-range[danger] .range-knob,
+  .md ion-range[danger] .range-pin {
+    background: #f53d3d; }
+  .md ion-range[light] .range-bar-active,
+  .md ion-range[light] .range-knob,
+  .md ion-range[light] .range-pin {
+    background: #f4f4f4; }
+  .md ion-range[dark] .range-bar-active,
+  .md ion-range[dark] .range-knob,
+  .md ion-range[dark] .range-pin {
+    background: #222; }
   .md ion-searchbar {
     position: relative;
     display: -webkit-box;
@@ -13198,6 +13407,115 @@ ion-icon {
     border-color: #f4f4f4; }
   .wp ion-radio[dark] .radio-checked {
     border-color: #222; }
+  .wp .item-range .item-inner {
+    overflow: visible; }
+  .wp .item-range .input-wrapper {
+    overflow: visible;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .wp .item-range ion-range {
+    width: 100%; }
+  .wp ion-range {
+    position: relative;
+    display: block;
+    padding: 8px 8px; }
+  .wp .range-has-pin {
+    padding-top: 28px; }
+  .wp .range-slider {
+    position: relative;
+    height: 42px;
+    cursor: pointer; }
+  .wp .range-bar {
+    position: absolute;
+    top: 21px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #bdbdbd;
+    pointer-events: none; }
+  .wp .range-pressed .range-bar-active {
+    will-change: left, right; }
+  .wp .range-pressed .range-knob-handle {
+    will-change: left; }
+  .wp .range-bar-active {
+    bottom: 0;
+    width: auto;
+    background: #327eff; }
+  .wp .range-knob-handle {
+    position: absolute;
+    top: 21px;
+    left: 0%;
+    margin-top: -21px;
+    margin-left: -21px;
+    width: 42px;
+    height: 42px;
+    text-align: center; }
+  .wp .range-knob {
+    position: absolute;
+    top: 10px;
+    left: 17px;
+    width: 8px;
+    height: 24px;
+    border-radius: 4px;
+    background: #327eff;
+    pointer-events: none; }
+  .wp .range-tick {
+    position: absolute;
+    top: 19px;
+    margin-left: -1px;
+    width: 2px;
+    height: 6px;
+    border-radius: 4px;
+    background: #bdbdbd;
+    pointer-events: none; }
+  .wp .range-tick-active {
+    background: #327eff; }
+  .wp .range-pin {
+    position: relative;
+    top: -24px;
+    display: inline-block;
+    padding: 8px;
+    min-width: 28px;
+    border-radius: 50px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    background: #327eff;
+    -webkit-transform: translate3d(0, 28px, 0) scale(0.01);
+    transform: translate3d(0, 28px, 0) scale(0.01);
+    -webkit-transition: -webkit-transform 120ms ease;
+    transition: transform 120ms ease; }
+  .wp .range-knob-pressed .range-pin {
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1); }
+  .wp ion-range[primary] .range-bar-active,
+  .wp ion-range[primary] .range-tick-active,
+  .wp ion-range[primary] .range-knob,
+  .wp ion-range[primary] .range-pin {
+    background: #327eff; }
+  .wp ion-range[secondary] .range-bar-active,
+  .wp ion-range[secondary] .range-tick-active,
+  .wp ion-range[secondary] .range-knob,
+  .wp ion-range[secondary] .range-pin {
+    background: #32db64; }
+  .wp ion-range[danger] .range-bar-active,
+  .wp ion-range[danger] .range-tick-active,
+  .wp ion-range[danger] .range-knob,
+  .wp ion-range[danger] .range-pin {
+    background: #f53d3d; }
+  .wp ion-range[light] .range-bar-active,
+  .wp ion-range[light] .range-tick-active,
+  .wp ion-range[light] .range-knob,
+  .wp ion-range[light] .range-pin {
+    background: #f4f4f4; }
+  .wp ion-range[dark] .range-bar-active,
+  .wp ion-range[dark] .range-tick-active,
+  .wp ion-range[dark] .range-knob,
+  .wp ion-range[dark] .range-pin {
+    background: #222; }
   .wp ion-searchbar {
     position: relative;
     display: -webkit-box;

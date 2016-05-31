@@ -32,7 +32,7 @@ IONIC_DIRECTIVES
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/directives.ts#L111">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/directives.ts#L112">
 Improve this doc
 </a>
 

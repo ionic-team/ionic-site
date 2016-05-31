@@ -128,7 +128,7 @@ getting the <code>Swiper</code> instance and using its methods directly.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<p>You can add slides to a <code>@Page</code> using the following template:</p>
+<p>You can add slides to a <code>@Component</code> using the following template:</p>
 <pre><code class="lang-html">&lt;ion-slides&gt;
   &lt;ion-slide&gt;
     &lt;h1&gt;Slide 1&lt;/h1&gt;
@@ -142,9 +142,10 @@ getting the <code>Swiper</code> instance and using its methods directly.</p>
 &lt;/ion-slides&gt;
 </code></pre>
 <p>To add <a href="#configuring">options</a>, we will define them in <code>mySlideOptions</code> in our class <code>MyPage</code>:</p>
-<pre><code class="lang-ts">import {Page, Slides} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
+import {Slides} from &#39;ionic-angular&#39;;
 
-@Page({
+@Component({
   templateUrl: &#39;my-page.html&#39;
 })
 class MyPage {

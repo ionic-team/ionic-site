@@ -8,20 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
-var ionic_angular_2 = require('ionic-angular');
-var ApiDemoApp = (function () {
-    function ApiDemoApp() {
-        this.rootPage = InitialPage;
-    }
-    ApiDemoApp = __decorate([
-        ionic_angular_1.App({
-            templateUrl: 'app.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ApiDemoApp);
-    return ApiDemoApp;
-}());
 var InitialPage = (function () {
     function InitialPage(nav) {
         this.nav = nav;
@@ -31,10 +19,10 @@ var InitialPage = (function () {
         this.nav.push(Page2, { 'myParam': this.myParam });
     };
     InitialPage = __decorate([
-        ionic_angular_1.Page({
+        core_1.Component({
             templateUrl: 'main.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
     ], InitialPage);
     return InitialPage;
     var _a;
@@ -46,12 +34,25 @@ var Page2 = (function () {
         this.myParam = params.get('myParam');
     }
     Page2 = __decorate([
-        ionic_angular_1.Page({
+        core_1.Component({
             templateUrl: "page-2.html"
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_2.NavParams !== 'undefined' && ionic_angular_2.NavParams) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.NavParams !== 'undefined' && ionic_angular_1.NavParams) === 'function' && _b) || Object])
     ], Page2);
     return Page2;
     var _a, _b;
 }());
 exports.Page2 = Page2;
+var ApiDemoApp = (function () {
+    function ApiDemoApp() {
+        this.root = InitialPage;
+    }
+    ApiDemoApp = __decorate([
+        core_1.Component({
+            templateUrl: 'app.html'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], ApiDemoApp);
+    return ApiDemoApp;
+}());
+ionic_angular_1.ionicBootstrap(ApiDemoApp);

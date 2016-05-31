@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 // Use the toolbar demo but pass in the demo name to change the title
 // this will also hide some of the toolbars that don't use `ion-title`
@@ -18,10 +19,11 @@ var ApiDemoApp = (function () {
         this.apps = "free";
     }
     ApiDemoApp = __decorate([
-        ionic_angular_1.App({
+        core_1.Component({
             templateUrl: '../toolbar/main.html'
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);
     return ApiDemoApp;
 }());
+ionic_angular_1.ionicBootstrap(ApiDemoApp);

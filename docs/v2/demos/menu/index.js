@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var Page1 = (function () {
     function Page1(menu) {
@@ -25,7 +26,7 @@ var Page1 = (function () {
         this.menu.enable(true, 'menu2');
     };
     Page1 = __decorate([
-        ionic_angular_1.Page({ templateUrl: 'page1.html' }), 
+        core_1.Component({ templateUrl: 'page1.html' }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.MenuController !== 'undefined' && ionic_angular_1.MenuController) === 'function' && _a) || Object])
     ], Page1);
     return Page1;
@@ -33,13 +34,14 @@ var Page1 = (function () {
 }());
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
-        this.rootView = Page1;
+        this.root = Page1;
     }
     ApiDemoApp = __decorate([
-        ionic_angular_1.App({
+        core_1.Component({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);
     return ApiDemoApp;
 }());
+ionic_angular_1.ionicBootstrap(ApiDemoApp);

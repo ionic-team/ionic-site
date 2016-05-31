@@ -34,7 +34,7 @@ Modal
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/modal/modal.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/modal/modal.ts#L8">
 Improve this doc
 </a>
 
@@ -68,7 +68,7 @@ standard page.</p>
 
 <pre><code class="lang-ts">import {Page, Modal, NavController, NavParams} from &#39;ionic-angular&#39;;
 
-@Page(...)
+@Component(...)
 class HomePage {
 
  constructor(nav: NavController) {
@@ -82,7 +82,7 @@ class HomePage {
 
 }
 
-@Page(...)
+@Component(...)
 class Profile {
 
  constructor(params: NavParams) {
@@ -95,9 +95,10 @@ class Profile {
 data. For example, a profile page could slide up in a modal, and on submit,
 the submit button could pass the updated profile data, then dismiss the
 modal.</p>
-<pre><code class="lang-ts">import {Page, Modal, NavController, ViewController} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
+import {Modal, NavController, ViewController} from &#39;ionic-angular&#39;;
 
-@Page(...)
+@Component(...)
 class HomePage {
 
  constructor(nav: NavController) {
@@ -119,7 +120,7 @@ class HomePage {
 
 }
 
-@Page(...)
+@Component(...)
 class Profile {
 
  constructor(viewCtrl: ViewController) {

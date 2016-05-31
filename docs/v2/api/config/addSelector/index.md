@@ -4,10 +4,10 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "page"
-title: "Page"
+id: "addselector"
+title: "addSelector"
 header_sub_title: "Ionic API Documentation"
-doc: "Page"
+doc: "addSelector"
 docType: "function"
 
 ---
@@ -21,9 +21,9 @@ docType: "function"
 
 
 <h1 class="api-title">
-<a class="anchor" name="page" href="#page"></a>
+<a class="anchor" name="add-selector" href="#add-selector"></a>
 
-Page
+addSelector
 
 
 
@@ -32,7 +32,7 @@ Page
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/decorators/page.ts#L27">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/bootstrap.ts#L200">
 Improve this doc
 </a>
 

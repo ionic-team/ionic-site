@@ -13,20 +13,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var ionic_angular_2 = require('ionic-angular');
-var ApiDemoApp = (function () {
-    function ApiDemoApp() {
-        this.rootPage = ModalFirstPage;
-    }
-    ApiDemoApp = __decorate([
-        ionic_angular_1.App({
-            templateUrl: 'app.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ApiDemoApp);
-    return ApiDemoApp;
-}());
 var ModalFirstPage = (function () {
     function ModalFirstPage(nav) {
         this.nav = nav;
@@ -47,7 +36,7 @@ var ModalFirstPage = (function () {
         this.nav.present(myModal);
     };
     ModalFirstPage = __decorate([
-        ionic_angular_1.Page({
+        core_1.Component({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object])
@@ -57,7 +46,7 @@ var ModalFirstPage = (function () {
 }());
 exports.ModalFirstPage = ModalFirstPage;
 var ModalContentPage = (function () {
-    function ModalContentPage(nav, params, viewCtrl) {
+    function ModalContentPage(nav, viewCtrl, params) {
         this.nav = nav;
         this.viewCtrl = viewCtrl;
         this.myParam = params.get('myParam');
@@ -66,15 +55,28 @@ var ModalContentPage = (function () {
         this.viewCtrl.dismiss();
     };
     ModalContentPage = __decorate([
-        ionic_angular_1.Page({
+        core_1.Component({
             templateUrl: "modal-content.html"
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_2.NavParams !== 'undefined' && ionic_angular_2.NavParams) === 'function' && _b) || Object, (typeof (_c = typeof ionic_angular_1.ViewController !== 'undefined' && ionic_angular_1.ViewController) === 'function' && _c) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.ViewController !== 'undefined' && ionic_angular_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof ionic_angular_2.NavParams !== 'undefined' && ionic_angular_2.NavParams) === 'function' && _c) || Object])
     ], ModalContentPage);
     return ModalContentPage;
     var _a, _b, _c;
 }());
 exports.ModalContentPage = ModalContentPage;
+var ApiDemoApp = (function () {
+    function ApiDemoApp() {
+        this.root = ModalFirstPage;
+    }
+    ApiDemoApp = __decorate([
+        core_1.Component({
+            templateUrl: 'app.html'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], ApiDemoApp);
+    return ApiDemoApp;
+}());
+ionic_angular_1.ionicBootstrap(ApiDemoApp);
 var FadeIn = (function (_super) {
     __extends(FadeIn, _super);
     function FadeIn(enteringView, leavingView) {

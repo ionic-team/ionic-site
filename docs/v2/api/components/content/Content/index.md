@@ -59,10 +59,10 @@ some useful methods to control the scrollable area.</p>
 </code></pre>
 <p>To get a reference to the content component from a Page&#39;s logic,
 you can use Angular&#39;s <code>@ViewChild</code> annotation:</p>
-<pre><code class="lang-ts">import {ViewChild} from &#39;@angular/core&#39;;
+<pre><code class="lang-ts">import {Component, ViewChild} from &#39;@angular/core&#39;;
 import {Content} from &#39;ionic-angular&#39;;
 
-@Page({...}
+@Component({...})
 export class MyPage{
   @ViewChild(Content) content: Content;
 
@@ -95,10 +95,10 @@ export class MyPage{
 Scroll to the specified position.
 
 ```ts
-import {ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Content} from 'ionic-angular';
 
-@Page({
+@Component({
   template: `<ion-content>
                <button (click)="scrollTo()">Down 500px</button>
              </ion-content>`
@@ -206,10 +206,10 @@ export class MyPage{
 Scroll to the top of the content component.
 
 ```ts
-import {ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Content} from 'ionic-angular';
 
-@Page({
+@Component({
   template: `<ion-content>
                <button (click)="scrollToTop()">Scroll to top</button>
              </ion-content>`

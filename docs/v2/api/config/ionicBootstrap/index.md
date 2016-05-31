@@ -4,10 +4,10 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "postbootstrap"
-title: "postBootstrap"
+id: "ionicbootstrap"
+title: "ionicBootstrap"
 header_sub_title: "Ionic API Documentation"
-doc: "postBootstrap"
+doc: "ionicBootstrap"
 docType: "function"
 
 ---
@@ -21,9 +21,9 @@ docType: "function"
 
 
 <h1 class="api-title">
-<a class="anchor" name="post-bootstrap" href="#post-bootstrap"></a>
+<a class="anchor" name="ionic-bootstrap" href="#ionic-bootstrap"></a>
 
-postBootstrap
+ionicBootstrap
 
 
 
@@ -32,7 +32,7 @@ postBootstrap
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/bootstrap.ts#L64">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/bootstrap.ts#L22">
 Improve this doc
 </a>
 

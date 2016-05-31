@@ -4,10 +4,10 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "ionicapp"
-title: "IonicApp"
+id: "app"
+title: "App"
 header_sub_title: "Ionic API Documentation"
-doc: "IonicApp"
+doc: "App"
 docType: "class"
 
 ---
@@ -21,9 +21,9 @@ docType: "class"
 
 
 <h1 class="api-title">
-<a class="anchor" name="ionic-app" href="#ionic-app"></a>
+<a class="anchor" name="app" href="#app"></a>
 
-IonicApp
+App
 
 
 
@@ -41,8 +41,7 @@ Improve this doc
 
 
 
-<p>App utility service.  Allows you to look up components that have been
-registered using the <a href="../Id/">Id directive</a>.</p>
+<p>Ionic App utility service.</p>
 
 <!-- @usage tag -->
 
@@ -100,34 +99,6 @@ Sets the document title.
 
 
 
-
-
-
-
-<div id="isProd"></div>
-
-<h3>
-<a class="anchor" name="isProd" href="#isProd"></a>
-<code>isProd()</code>
-  
-
-</h3>
-
-Returns if the app has been set to be in be in production mode or not.
-Production mode can only be set within the config of `@App`. Defaults
-to `false`.
-
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>boolean</code> 
-
-</div>
 
 
 

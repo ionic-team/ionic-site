@@ -8,6 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var core_1 = require('@angular/core');
+var ionic_angular_1 = require('ionic-angular');
 if (!window.localStorage) {
     Object.defineProperty(window, "localStorage", new (function () {
         var aKeys = [], oStorage = {};
@@ -82,26 +84,12 @@ var CONFIG_DEMO = null;
 if (window.localStorage.getItem('configDemo')) {
     CONFIG_DEMO = JSON.parse(window.localStorage.getItem('configDemo'));
 }
-var ionic_angular_1 = require('ionic-angular');
-var ApiDemoApp = (function () {
-    function ApiDemoApp() {
-        this.rootPage = TabPage;
-    }
-    ApiDemoApp = __decorate([
-        ionic_angular_1.App({
-            template: '<ion-nav id="nav" [root]="rootPage" #content></ion-nav>',
-            config: CONFIG_DEMO || {}
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ApiDemoApp);
-    return ApiDemoApp;
-}());
 var TabPage = (function () {
     function TabPage() {
         this.tabOne = InitialPage;
     }
     TabPage = __decorate([
-        ionic_angular_1.Page({
+        core_1.Component({
             templateUrl: 'tabs.html'
         }), 
         __metadata('design:paramtypes', [])
@@ -140,7 +128,7 @@ var InitialPage = (function () {
         this.nav.push(AnotherPage);
     };
     InitialPage = __decorate([
-        ionic_angular_1.Page({
+        core_1.Component({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _b) || Object])
@@ -157,7 +145,7 @@ var AnotherPage = (function () {
         this.nav.pop();
     };
     AnotherPage = __decorate([
-        ionic_angular_1.Page({
+        core_1.Component({
             templateUrl: 'page.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
@@ -166,3 +154,16 @@ var AnotherPage = (function () {
     var _a;
 }());
 exports.AnotherPage = AnotherPage;
+var ApiDemoApp = (function () {
+    function ApiDemoApp() {
+        this.root = TabPage;
+    }
+    ApiDemoApp = __decorate([
+        core_1.Component({
+            template: '<ion-nav [root]="root" #content></ion-nav>'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], ApiDemoApp);
+    return ApiDemoApp;
+}());
+ionic_angular_1.ionicBootstrap(ApiDemoApp, null, CONFIG_DEMO);

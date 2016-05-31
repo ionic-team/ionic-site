@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var ApiDemoApp = (function () {
     function ApiDemoApp(platform) {
@@ -16,7 +17,7 @@ var ApiDemoApp = (function () {
         this.isWindows = platform.is('windows');
     }
     ApiDemoApp = __decorate([
-        ionic_angular_1.App({
+        core_1.Component({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _a) || Object])
@@ -24,3 +25,4 @@ var ApiDemoApp = (function () {
     return ApiDemoApp;
     var _a;
 }());
+ionic_angular_1.ionicBootstrap(ApiDemoApp);

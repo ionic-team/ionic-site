@@ -57,7 +57,7 @@ customize your app to fit any device.</p>
 
 <pre><code class="lang-ts">import {Platform} from &#39;ionic-angular&#39;;
 
-@Page({...})
+@Component({...})
 export MyPage {
   constructor(platform: Platform) {
     this.platform = platform;
@@ -96,7 +96,7 @@ from a web browser on the iPad then `mobileweb` would be `true`.
 ```
 import {Platform} from 'ionic-angular';
 
-@Page({...})
+@Component({...})
 export MyPage {
   constructor(platform: Platform) {
     this.platform = platform;
@@ -184,7 +184,7 @@ it would return `mobile`, `ios`, and `iphone`.
 ```
 import {Platform} from 'ionic-angular';
 
-@Page({...})
+@Component({...})
 export MyPage {
   constructor(platform: Platform) {
     this.platform = platform;
@@ -225,7 +225,7 @@ Returns an object containing version information about all of the platforms.
 ```
 import {Platform} from 'ionic-angular';
 
-@Page({...})
+@Component({...})
 export MyPage {
   constructor(platform: Platform) {
     this.platform = platform;
@@ -277,9 +277,10 @@ platform the app is running from. For example, only Cordova can execute
 the status bar plugin, so the web should not run status bar plugin logic.
 
 ```
-import {App, Platform} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {Platform} from 'ionic-angular';
 
-@App({...})
+@Component({...})
 export MyApp {
   constructor(platform: Platform) {
     platform.ready().then((readySource) => {

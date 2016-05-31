@@ -85,7 +85,7 @@ which creates and presents the popover:</p>
   &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
 &lt;/button&gt;
 </code></pre>
-<pre><code class="lang-js">@Page({})
+<pre><code class="lang-ts">@Component({})
 class MyPage {
   constructor(private nav: NavController) {}
 
@@ -100,7 +100,7 @@ class MyPage {
 <p>The <code>PopoverPage</code> will display inside of the popover, and
 can be anything. Below is an example of a page with items
 that close the popover on click.</p>
-<pre><code class="lang-js">@Page({
+<pre><code class="lang-ts">@Component({
   template: `
     &lt;ion-list&gt;
       &lt;ion-list-header&gt;Ionic&lt;/ion-list-header&gt;

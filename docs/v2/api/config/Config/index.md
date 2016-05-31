@@ -45,52 +45,44 @@ Improve this doc
 
 <p>The Config lets you configure your entire app or specific platforms.
 You can set the tab placement, icon mode, animations, and more here.</p>
-<pre><code class="lang-ts">@App({
-  template: `&lt;ion-nav [root]=&quot;root&quot;&gt;&lt;/ion-nav&gt;`
-  config: {
-    backButtonText: &#39;Go Back&#39;,
-    iconMode: &#39;ios&#39;,
-    modalEnter: &#39;modal-slide-in&#39;,
-    modalLeave: &#39;modal-slide-out&#39;,
-    tabbarPlacement: &#39;bottom&#39;,
-    pageTransition: &#39;ios&#39;,
-  }
-})
+<pre><code class="lang-ts">import {ionicBootstrap} from &#39;ionic-angular&#39;;
+
+ionicBootstrap(AppRoot, customProviders, {
+  backButtonText: &#39;Go Back&#39;,
+  iconMode: &#39;ios&#39;,
+  modalEnter: &#39;modal-slide-in&#39;,
+  modalLeave: &#39;modal-slide-out&#39;,
+  tabbarPlacement: &#39;bottom&#39;,
+  pageTransition: &#39;ios&#39;,
+});
 </code></pre>
-<p>To change the mode to always use Material Design (md).</p>
-<pre><code class="lang-ts">@App({
-  template: `&lt;ion-nav [root]=&quot;root&quot;&gt;&lt;/ion-nav&gt;`
-  config: {
-    mode: &#39;md&#39;
+<p>Config can be overwritten at multiple levels allowing for more granular configuration.
+Below is an example where an app can override any setting we want based on a platform.</p>
+<pre><code class="lang-ts">import {ionicBootstrap} from &#39;ionic-angular&#39;;
+
+ionicBootstrap(AppRoot, customProviders, {
+  tabbarPlacement: &#39;bottom&#39;,
+  platforms: {
+  ios: {
+    tabbarPlacement: &#39;top&#39;,
   }
-})
+});
 </code></pre>
-<p>Config can be overwritten at multiple levels allowing for more configuration. Taking the example from earlier, we can override any setting we want based on a platform.</p>
-<pre><code class="lang-ts">@App({
-  template: `&lt;ion-nav [root]=&quot;root&quot;&gt;&lt;/ion-nav&gt;`
-  config: {
-    tabbarPlacement: &#39;bottom&#39;,
-    platforms: {
-     ios: {
-       tabbarPlacement: &#39;top&#39;,
-     }
-    }
-  }
-})
-</code></pre>
-<p>We could also configure these values at a component level. Take <code>tabbarPlacement</code>, we can configure this as a property on our <code>ion-tabs</code>.</p>
+<p>We could also configure these values at a component level. Take <code>tabbarPlacement</code>,
+we can configure this as a property on our <code>ion-tabs</code>.</p>
 <pre><code class="lang-html">&lt;ion-tabs tabbarPlacement=&quot;top&quot;&gt;
   &lt;ion-tab tabTitle=&quot;Dash&quot; tabIcon=&quot;pulse&quot; [root]=&quot;tabRoot&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
-<p>The last way we could configure is through URL query strings. This is useful for testing while in the browser.
-Simply add <code>?ionic&lt;PROPERTYNAME&gt;=&lt;value&gt;</code> to the url.</p>
+<p>The last way we could configure is through URL query strings. This is useful for testing
+while in the browser. Simply add <code>?ionic&lt;PROPERTYNAME&gt;=&lt;value&gt;</code> to the url.</p>
 <pre><code class="lang-bash">http://localhost:8100/?ionicTabbarPlacement=bottom
 </code></pre>
-<p>Custom values can be added to config, and looked up at a later point in time.</p>
-<pre><code class="lang-javascript">config.set(&#39;ios&#39;, &#39;favoriteColor&#39;, &#39;green&#39;);
+<p>Any value can be added to config, and looked up at a later in any component.</p>
+<pre><code class="lang-js">config.set(&#39;ios&#39;, &#39;favoriteColor&#39;, &#39;green&#39;);
+
 // from any page in your app:
-config.get(&#39;favoriteColor&#39;); // &#39;green&#39;
+config.get(&#39;favoriteColor&#39;); // &#39;green&#39; when iOS
 </code></pre>
 <p>A config value can come from anywhere and be anything, but there are default
 values for each mode. The <a href="../../../theming/platform-specific-styles/">theming</a>
@@ -199,6 +191,11 @@ chart displays each property with a description of what it controls.</p>
 <td><code>popoverLeave</code></td>
 <td><code>string</code></td>
 <td>The name of the transition to use while a popover is dismissed.</td>
+</tr>
+<tr>
+<td><code>prodMode</code></td>
+<td><code>boolean</code></td>
+<td>Disable development mode, which turns off assertions and other checks within the framework. One important assertion this disables verifies that a change detection pass does not result in additional changes to any bindings (also known as unidirectional data flow).</td>
 </tr>
 <tr>
 <td><code>spinner</code></td>

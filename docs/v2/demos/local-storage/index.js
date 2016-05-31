@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var ionic_angular_2 = require('ionic-angular');
-var core_1 = require('@angular/core');
+var core_2 = require('@angular/core');
 var CleanLocalDataPipe = (function () {
     function CleanLocalDataPipe() {
     }
@@ -26,27 +27,17 @@ var CleanLocalDataPipe = (function () {
         return JSON.stringify(this.output, null, 2);
     };
     CleanLocalDataPipe = __decorate([
-        core_1.Pipe({ name: 'cleanLocalData' }),
-        core_1.Injectable(), 
+        core_2.Pipe({ name: 'cleanLocalData' }),
+        core_2.Injectable(), 
         __metadata('design:paramtypes', [])
     ], CleanLocalDataPipe);
     return CleanLocalDataPipe;
 }());
-var ApiDemoApp = (function () {
-    function ApiDemoApp() {
-        this.root = MainPage;
-    }
-    ApiDemoApp = __decorate([
-        ionic_angular_1.App({
-            template: '<ion-nav [root]="root"></ion-nav>',
-            pipes: [CleanLocalDataPipe]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ApiDemoApp);
-    return ApiDemoApp;
-}());
 var MainPage = (function () {
     function MainPage() {
+        this.keys = ['username', 'name', 'email', 'address'];
+        this.values = ['admin', 'Administrator', 'admin@administrator.com', '123 Admin St'];
+        this.addedKeys = [];
         this.local = new ionic_angular_2.Storage(ionic_angular_2.LocalStorage);
         this.localStorageDemo = '{}';
         window.localStorage.clear();
@@ -54,9 +45,6 @@ var MainPage = (function () {
             key: 'username',
             value: 'admin'
         };
-        this.keys = ['username', 'name', 'email', 'address'];
-        this.values = ['admin', 'Administrator', 'admin@administrator.com', '123 Admin St'];
-        this.addedKeys = [];
     }
     MainPage.prototype.set = function () {
         if (this.myItem.key) {
@@ -83,7 +71,7 @@ var MainPage = (function () {
         }
     };
     MainPage = __decorate([
-        ionic_angular_1.Page({
+        core_1.Component({
             templateUrl: 'main.html',
             pipes: [CleanLocalDataPipe]
         }), 
@@ -91,3 +79,17 @@ var MainPage = (function () {
     ], MainPage);
     return MainPage;
 }());
+var ApiDemoApp = (function () {
+    function ApiDemoApp() {
+        this.root = MainPage;
+    }
+    ApiDemoApp = __decorate([
+        core_1.Component({
+            template: '<ion-nav [root]="root"></ion-nav>',
+            pipes: [CleanLocalDataPipe]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], ApiDemoApp);
+    return ApiDemoApp;
+}());
+ionic_angular_1.ionicBootstrap(ApiDemoApp);

@@ -32,7 +32,7 @@ IONIC_DIRECTIVES
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/directives.ts#L143">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/directives.ts#L111">
 Improve this doc
 </a>
 
@@ -42,33 +42,9 @@ Improve this doc
 
 
 <p>The core Ionic directives as well as Angular&#39;s <code>CORE_DIRECTIVES</code> and <code>FORM_DIRECTIVES</code> are
-available automatically when you bootstrap your app with the <code>@App</code> decorator. This means
-if you are using custom components you no longer need to import <code>IONIC_DIRECTIVES</code> as they
-are part of the <code>@App</code>s default directives.</p>
-<p>If you would like to <strong>not</strong> have them included by default, you would need to bootstrap
-the app differently.</p>
-<p>Instead of starting your app like so:</p>
-<pre><code class="lang-typescript">@App({
- template: &quot;&lt;ion-nav&gt;&lt;/ion-nav&gt;&quot;
-})
-
-export class MyApp{
-
-}
-</code></pre>
-<p>We would use Angulars default way of bootstrap an app, import <code>IONIC_DIRECTIVES</code> and <code>ionicProviders</code>, then
-declare <code>ionicProviders</code> as a dependencey.</p>
-<pre><code class="lang-typescript">import {IONIC_DIRECTIVES, ionicProviders} from &#39;ionic-angular&#39;;
-import {bootstrap} from &#39;@angular/platform/browser&#39;;
-
-@Component({
-    //default selector, and theme.
-    directives: [IONIC_DIRECTIVES]
-})
-class App {}
-
-bootstrap(App,ionicProviders())
-</code></pre>
+available automatically when you bootstrap your app with the <code>ionicBootstrap</code>. This means
+if you are using custom components you do not need to import <code>IONIC_DIRECTIVES</code> as they
+are part of the app&#39;s default directives.</p>
 <h4 id="angular">Angular</h4>
 <ul>
 <li>CORE_DIRECTIVES</li>

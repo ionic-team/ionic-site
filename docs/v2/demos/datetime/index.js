@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var MainPage = (function () {
     function MainPage() {
@@ -54,7 +55,7 @@ var MainPage = (function () {
         return today.getTimezoneOffset() < this.stdTimezoneOffset(today);
     };
     MainPage = __decorate([
-        ionic_angular_1.Page({
+        core_1.Component({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [])
@@ -66,10 +67,11 @@ var ApiDemoApp = (function () {
         this.root = MainPage;
     }
     ApiDemoApp = __decorate([
-        ionic_angular_1.App({
+        core_1.Component({
             template: '<ion-nav [root]="root"></ion-nav>'
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);
     return ApiDemoApp;
 }());
+ionic_angular_1.ionicBootstrap(ApiDemoApp);

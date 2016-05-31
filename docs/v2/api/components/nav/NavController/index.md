@@ -32,7 +32,7 @@ NavController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/nav/nav-controller.ts#L12">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/nav/nav-controller.ts#L13">
 Improve this doc
 </a>
 
@@ -75,11 +75,9 @@ navigation controller for most situations (for more advanced situations, see
 }
 </code></pre>
 <h2 id="page-creation">Page creation</h2>
-<p><em>For more information on the <code>@Page</code> decorator see the <a href="../../../decorators/Page/">@Page API
-reference</a>.</em></p>
 <p>Pages are created when they are added to the navigation stack.  For methods
 like <a href="#push">push()</a>, the NavController takes any component class that is
-decorated with <code>@Page</code> as its first argument.  The NavController then
+decorated with <code>@Component</code> as its first argument.  The NavController then
 compiles that component, adds it to the app and animates it into view.</p>
 <p>By default, pages are cached and left in the DOM if they are navigated away
 from but still in the navigation stack (the exiting page on a <code>push()</code> for
@@ -87,8 +85,10 @@ example).  They are destroyed when removed from the navigation stack (on
 <a href="#pop">pop()</a> or <a href="#setRoot">setRoot()</a>).</p>
 <h2 id="lifecycle-events">Lifecycle events</h2>
 <p>Lifecycle events are fired during various stages of navigation.  They can be
-defined in any <code>@Page</code> decorated component class.</p>
-<pre><code class="lang-ts">@Page({
+defined in any component type which is pushed/popped from a <code>NavController</code>.</p>
+<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
+
+@Component({
   template: &#39;Hello World&#39;
 })
 class HelloWorld {
@@ -219,6 +219,146 @@ To do this, we can pass an object with the modified properites.</p>
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="pageDidLoad"></div>
+
+<h3>
+<a class="anchor" name="pageDidLoad" href="#pageDidLoad"></a>
+<code>pageDidLoad</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pageWillEnter"></div>
+
+<h3>
+<a class="anchor" name="pageWillEnter" href="#pageWillEnter"></a>
+<code>pageWillEnter</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pageDidEnter"></div>
+
+<h3>
+<a class="anchor" name="pageDidEnter" href="#pageDidEnter"></a>
+<code>pageDidEnter</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pageWillLeave"></div>
+
+<h3>
+<a class="anchor" name="pageWillLeave" href="#pageWillLeave"></a>
+<code>pageWillLeave</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pageDidLeave"></div>
+
+<h3>
+<a class="anchor" name="pageDidLeave" href="#pageDidLeave"></a>
+<code>pageDidLeave</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pageWillUnload"></div>
+
+<h3>
+<a class="anchor" name="pageWillUnload" href="#pageWillUnload"></a>
+<code>pageWillUnload</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pageDidUnload"></div>
+
+<h3>
+<a class="anchor" name="pageDidUnload" href="#pageDidUnload"></a>
+<code>pageDidUnload</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="setRoot"></div>
 

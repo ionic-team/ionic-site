@@ -68,7 +68,7 @@ display or hide the refresher.</p>
 
 &lt;/ion-content&gt;
 </code></pre>
-<pre><code class="lang-ts">@Page({...})
+<pre><code class="lang-ts">@Component({...})
 export class NewsFeedPage {
 
   doRefresh(refresher) {

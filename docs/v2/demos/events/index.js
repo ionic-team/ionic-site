@@ -22,7 +22,7 @@ var Login = (function () {
         this.events.publish('user:login');
     };
     Login = __decorate([
-        ionic_angular_1.Page({ templateUrl: 'login.html' }), 
+        core_1.Component({ templateUrl: 'login.html' }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.Events !== 'undefined' && ionic_angular_1.Events) === 'function' && _a) || Object])
     ], Login);
     return Login;
@@ -36,7 +36,7 @@ var Logout = (function () {
         this.events.publish('user:logout');
     };
     Logout = __decorate([
-        ionic_angular_1.Page({ templateUrl: 'logout.html' }), 
+        core_1.Component({ templateUrl: 'logout.html' }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.Events !== 'undefined' && ionic_angular_1.Events) === 'function' && _a) || Object])
     ], Logout);
     return Logout;
@@ -73,7 +73,7 @@ var ApiDemoApp = (function () {
         __metadata('design:type', (typeof (_a = typeof ionic_angular_1.Nav !== 'undefined' && ionic_angular_1.Nav) === 'function' && _a) || Object)
     ], ApiDemoApp.prototype, "nav", void 0);
     ApiDemoApp = __decorate([
-        ionic_angular_1.App({
+        core_1.Component({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_b = typeof ionic_angular_1.Events !== 'undefined' && ionic_angular_1.Events) === 'function' && _b) || Object])
@@ -81,3 +81,4 @@ var ApiDemoApp = (function () {
     return ApiDemoApp;
     var _a, _b;
 }());
+ionic_angular_1.ionicBootstrap(ApiDemoApp);

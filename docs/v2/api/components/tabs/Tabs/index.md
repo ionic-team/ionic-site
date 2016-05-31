@@ -76,7 +76,7 @@ instance after creation. See <a href="#usage">usage</a> below for more informati
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<p>You can add a basic tabs template to a <code>@Page</code> using the following
+<p>You can add a basic tabs template to a <code>@Component</code> using the following
 template:</p>
 <pre><code class="lang-html">&lt;ion-tabs&gt;
   &lt;ion-tab [root]=&quot;tab1Root&quot;&gt;&lt;/ion-tab&gt;
@@ -85,7 +85,7 @@ template:</p>
 &lt;/ion-tabs&gt;
 </code></pre>
 <p>Where <code>tab1Root</code>, <code>tab2Root</code>, and <code>tab3Root</code> are each a page:</p>
-<pre><code class="lang-ts">@Page({
+<pre><code class="lang-ts">@Component({
   templateUrl: &#39;build/pages/tabs/tabs.html&#39;
 })
 export class TabsPage {

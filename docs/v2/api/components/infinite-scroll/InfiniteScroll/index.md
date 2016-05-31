@@ -69,11 +69,11 @@ on the infinite scroll instance.</p>
 
 &lt;/ion-content&gt;
 </code></pre>
-<pre><code class="lang-ts">@Page({...})
+<pre><code class="lang-ts">@Component({...})
 export class NewsFeedPage {
+  items = [];
 
   constructor() {
-    this.items = [];
     for (var i = 0; i &lt; 30; i++) {
       this.items.push( this.items.length );
     }

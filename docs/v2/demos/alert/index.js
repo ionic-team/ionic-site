@@ -8,22 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
-var ApiDemoApp = (function () {
-    function ApiDemoApp() {
-        this.rootPage = InitialPage;
-    }
-    ApiDemoApp = __decorate([
-        ionic_angular_1.App({
-            templateUrl: 'app.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ApiDemoApp);
-    return ApiDemoApp;
-}());
 var InitialPage = (function () {
     function InitialPage(nav) {
         this.nav = nav;
+        this.testRadioOpen = false;
+        this.testCheckboxOpen = false;
     }
     InitialPage.prototype.doAlert = function () {
         var alert = ionic_angular_1.Alert.create({
@@ -194,7 +185,7 @@ var InitialPage = (function () {
         this.nav.present(alert);
     };
     InitialPage = __decorate([
-        ionic_angular_1.Page({
+        core_1.Component({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
@@ -203,3 +194,16 @@ var InitialPage = (function () {
     var _a;
 }());
 exports.InitialPage = InitialPage;
+var ApiDemoApp = (function () {
+    function ApiDemoApp() {
+        this.root = InitialPage;
+    }
+    ApiDemoApp = __decorate([
+        core_1.Component({
+            templateUrl: 'app.html'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], ApiDemoApp);
+    return ApiDemoApp;
+}());
+ionic_angular_1.ionicBootstrap(ApiDemoApp);

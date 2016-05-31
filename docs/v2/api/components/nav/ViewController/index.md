@@ -47,12 +47,14 @@ Improve this doc
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import {Page, ViewController} from &#39;ionic-angular&#39;;
-@Page....
+<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
+import {ViewController} from &#39;ionic-angular&#39;;
+
+@Component({...})
 export class MyPage{
- constructor(viewCtrl: ViewController){
-   this.viewCtrl = viewCtrl;
- }
+
+  constructor(public viewCtrl: ViewController) {}
+
 }
 </code></pre>
 

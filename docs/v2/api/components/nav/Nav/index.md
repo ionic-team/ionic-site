@@ -62,15 +62,18 @@ the &#39;root&#39; property:</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import {GettingStartedPage} from &#39;getting-started&#39;;
-@App({
-  template: `&lt;ion-nav [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;`
+<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
+import {ionicBootstrap} from &#39;ionic-angular&#39;;
+import {GettingStartedPage} from &#39;./getting-started&#39;;
+
+@Component({
+  template: `&lt;ion-nav [root]=&quot;root&quot;&gt;&lt;/ion-nav&gt;`
 })
 class MyApp {
-  constructor(){
-    this.rootPage = GettingStartedPage;
-  }
+  root = GettingStartedPage;
 }
+
+ionicBootstrap(MyApp);
 </code></pre>
 <h3 id="back-navigation">Back Navigation</h3>
 <p>If a <a href="../NavController/#creating_pages">page</a> you navigate to has a <a href="../NavBar/">NavBar</a>,

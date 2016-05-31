@@ -61,7 +61,7 @@ Improve this doc
 <p>Where <code>pushPage</code> and <code>params</code> are specified in your component, and <code>pushPage</code>
 contains a reference to a <a href="../../../config/Page/">@Page component</a>:</p>
 <pre><code class="lang-ts">import {LoginPage} from &#39;login&#39;;
-@Page({
+@Component({
   template: `&lt;button [navPush]=&quot;pushPage&quot; [navParams]=&quot;params&quot;&gt;&lt;/button&gt;`
 })
 class MyPage {
@@ -121,7 +121,7 @@ NavPush:</p>
     
     <tr>
       <td>navPush</td>
-      <td><code>page</code></td>
+      <td><code>Page</code></td>
       <td><p> the page you want to push</p>
 </td>
     </tr>

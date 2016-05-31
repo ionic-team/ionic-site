@@ -15687,6 +15687,8 @@
 	    var platform = ngComponentRef.injector.get(platform_1.Platform);
 	    platform.setZone(ngComponentRef.injector.get(core_1.NgZone));
 	    platform.prepareReady();
+	    // TODO: Use PLATFORM_INITIALIZER
+	    ngComponentRef.injector.get(tap_click_1.TapClick);
 	    // TODO: Use Renderer
 	    ngComponentRef.location.nativeElement.classList.add('app-init');
 	    return ngComponentRef;
@@ -74253,16 +74255,15 @@
 	var TapClick = (function () {
 	    function TapClick(config, app, zone) {
 	        this.app = app;
-	        this.zone = zone;
 	        this.lastTouch = 0;
 	        this.disableClick = 0;
 	        this.lastActivated = 0;
 	        var self = this;
 	        if (config.get('activator') === 'ripple') {
-	            self.activator = new ripple_1.RippleActivator(app, config, zone);
+	            self.activator = new ripple_1.RippleActivator(app, config);
 	        }
 	        else if (config.get('activator') === 'highlight') {
-	            self.activator = new activator_1.Activator(app, config, zone);
+	            self.activator = new activator_1.Activator(app, config);
 	        }
 	        self.usePolyfill = (config.get('tapPolyfill') === true);
 	        zone.runOutsideAngular(function () {
@@ -74434,9 +74435,8 @@
 	"use strict";
 	var dom_1 = __webpack_require__(334);
 	var Activator = (function () {
-	    function Activator(app, config, _zone) {
+	    function Activator(app, config) {
 	        this.app = app;
-	        this._zone = _zone;
 	        this._queue = [];
 	        this._active = [];
 	        this._css = config.get('activatedClass') || 'activated';
@@ -74449,28 +74449,23 @@
 	        }
 	        // queue to have this element activated
 	        self._queue.push(activatableEle);
-	        this._zone.runOutsideAngular(function () {
-	            dom_1.rafFrames(2, function () {
-	                var activatableEle;
-	                for (var i = 0; i < self._queue.length; i++) {
-	                    activatableEle = self._queue[i];
-	                    if (activatableEle && activatableEle.parentNode) {
-	                        self._active.push(activatableEle);
-	                        activatableEle.classList.add(self._css);
-	                    }
+	        dom_1.rafFrames(2, function () {
+	            var activatableEle;
+	            for (var i = 0; i < self._queue.length; i++) {
+	                activatableEle = self._queue[i];
+	                if (activatableEle && activatableEle.parentNode) {
+	                    self._active.push(activatableEle);
+	                    activatableEle.classList.add(self._css);
 	                }
-	                self._queue = [];
-	            });
+	            }
+	            self._queue = [];
 	        });
 	    };
 	    Activator.prototype.upAction = function (ev, activatableEle, pointerX, pointerY) {
+	        var _this = this;
 	        // the user was pressing down, then just let up
-	        var self = this;
-	        function activateUp() {
-	            self.clearState();
-	        }
-	        this._zone.runOutsideAngular(function () {
-	            dom_1.rafFrames(CLEAR_STATE_DEFERS, activateUp);
+	        dom_1.rafFrames(CLEAR_STATE_DEFERS, function () {
+	            _this.clearState();
 	        });
 	    };
 	    Activator.prototype.clearState = function () {
@@ -74480,7 +74475,7 @@
 	            // the app is actively disabled, so don't bother deactivating anything.
 	            // this makes it easier on the GPU so it doesn't have to redraw any
 	            // buttons during a transition. This will retry in XX milliseconds.
-	            setTimeout(function () {
+	            dom_1.nativeTimeout(function () {
 	                _this.clearState();
 	            }, 600);
 	        }
@@ -74530,14 +74525,13 @@
 	};
 	var activator_1 = __webpack_require__(410);
 	var dom_1 = __webpack_require__(334);
-	var win = window;
 	/**
 	 * @private
 	 */
 	var RippleActivator = (function (_super) {
 	    __extends(RippleActivator, _super);
-	    function RippleActivator(app, config, zone) {
-	        _super.call(this, app, config, zone);
+	    function RippleActivator(app, config) {
+	        _super.call(this, app, config);
 	    }
 	    RippleActivator.prototype.downAction = function (ev, activatableEle, pointerX, pointerY) {
 	        var self = this;
@@ -74546,37 +74540,35 @@
 	        }
 	        // queue to have this element activated
 	        self._queue.push(activatableEle);
-	        this._zone.runOutsideAngular(function () {
-	            dom_1.nativeRaf(function () {
-	                var i;
-	                for (i = 0; i < self._queue.length; i++) {
-	                    var queuedEle = self._queue[i];
-	                    if (queuedEle && queuedEle.parentNode) {
-	                        self._active.push(queuedEle);
-	                        // DOM WRITE
-	                        queuedEle.classList.add(self._css);
-	                        var j = queuedEle.childElementCount;
-	                        while (j--) {
-	                            var rippleEle = queuedEle.children[j];
-	                            if (rippleEle.tagName === 'ION-BUTTON-EFFECT') {
-	                                // DOM WRITE
-	                                rippleEle.style.left = '-9999px';
-	                                rippleEle.style.opacity = '';
-	                                rippleEle.style[dom_1.CSS.transform] = 'scale(0.001) translateZ(0px)';
-	                                rippleEle.style[dom_1.CSS.transition] = '';
-	                                // DOM READ
-	                                var clientRect = activatableEle.getBoundingClientRect();
-	                                rippleEle.$top = clientRect.top;
-	                                rippleEle.$left = clientRect.left;
-	                                rippleEle.$width = clientRect.width;
-	                                rippleEle.$height = clientRect.height;
-	                                break;
-	                            }
+	        dom_1.nativeRaf(function () {
+	            var i;
+	            for (i = 0; i < self._queue.length; i++) {
+	                var queuedEle = self._queue[i];
+	                if (queuedEle && queuedEle.parentNode) {
+	                    self._active.push(queuedEle);
+	                    // DOM WRITE
+	                    queuedEle.classList.add(self._css);
+	                    var j = queuedEle.childElementCount;
+	                    while (j--) {
+	                        var rippleEle = queuedEle.children[j];
+	                        if (rippleEle.tagName === 'ION-BUTTON-EFFECT') {
+	                            // DOM WRITE
+	                            rippleEle.style.left = '-9999px';
+	                            rippleEle.style.opacity = '';
+	                            rippleEle.style[dom_1.CSS.transform] = 'scale(0.001) translateZ(0px)';
+	                            rippleEle.style[dom_1.CSS.transition] = '';
+	                            // DOM READ
+	                            var clientRect = activatableEle.getBoundingClientRect();
+	                            rippleEle.$top = clientRect.top;
+	                            rippleEle.$left = clientRect.left;
+	                            rippleEle.$width = clientRect.width;
+	                            rippleEle.$height = clientRect.height;
+	                            break;
 	                        }
 	                    }
 	                }
-	                self._queue = [];
-	            });
+	            }
+	            self._queue = [];
 	        });
 	    };
 	    RippleActivator.prototype.upAction = function (ev, activatableEle, pointerX, pointerY) {

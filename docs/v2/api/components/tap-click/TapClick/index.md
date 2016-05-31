@@ -213,26 +213,6 @@ Improve this doc
 
 
 
-<div id="zone"></div>
-
-<h3>
-<a class="anchor" name="zone" href="#zone"></a>
-<code>zone</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="touchStart"></div>
 
 <h3>

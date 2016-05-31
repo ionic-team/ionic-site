@@ -32,7 +32,7 @@ ClickBlock
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/util/click-block.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/util/click-block.ts#L7">
 Improve this doc
 </a>
 

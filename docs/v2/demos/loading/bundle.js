@@ -49166,7 +49166,8 @@
 	var dom_1 = __webpack_require__(334);
 	var CSS_CLICK_BLOCK = 'click-block-active';
 	var DEFAULT_EXPIRE = 330;
-	var cbEle, fallbackTimerId;
+	var cbEle;
+	var fallbackTimerId;
 	var isShowing = false;
 	/**
 	 * @private
@@ -50850,11 +50851,12 @@
 	        this.isListening = true;
 	    };
 	    Gesture.prototype.unlisten = function () {
-	        var type, i;
+	        var eventType;
+	        var i;
 	        if (this._hammer && this.isListening) {
-	            for (type in this._callbacks) {
-	                for (i = 0; i < this._callbacks[type].length; i++) {
-	                    this._hammer.off(type, this._callbacks[type]);
+	            for (eventType in this._callbacks) {
+	                for (i = 0; i < this._callbacks[eventType].length; i++) {
+	                    this._hammer.off(eventType, this._callbacks[eventType]);
 	                }
 	            }
 	            this._hammer.destroy();
@@ -58871,7 +58873,7 @@
 	        enumerable: true,
 	        configurable: true
 	    });
-	    InfiniteScroll.prototype._onScroll = function (ev) {
+	    InfiniteScroll.prototype._onScroll = function () {
 	        var _this = this;
 	        if (this.state === STATE_LOADING || this.state === STATE_DISABLED) {
 	            return 1;
@@ -68914,11 +68916,6 @@
 	        var _this = this;
 	        // normalize the data
 	        var data = this.d;
-	        if (data['body']) {
-	            // deprecated warning
-	            console.warn('Alert `body` property has been renamed to `message`');
-	            data.message = data['body'];
-	        }
 	        data.buttons = data.buttons.map(function (button) {
 	            if (typeof button === 'string') {
 	                return { text: button };
@@ -70096,7 +70093,7 @@
 	        ev.stopPropagation();
 	        this.open();
 	    };
-	    DateTime.prototype._keyup = function (ev) {
+	    DateTime.prototype._keyup = function () {
 	        if (!this._isOpen) {
 	            this.open();
 	        }
@@ -70509,9 +70506,9 @@
 	        __metadata('design:returntype', void 0)
 	    ], DateTime.prototype, "_click", null);
 	    __decorate([
-	        core_1.HostListener('keyup.space', ['$event']), 
+	        core_1.HostListener('keyup.space'), 
 	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:paramtypes', []), 
 	        __metadata('design:returntype', void 0)
 	    ], DateTime.prototype, "_keyup", null);
 	    __decorate([
@@ -71569,14 +71566,14 @@
 	    /**
 	     * @private
 	     */
-	    TextInput.prototype.inputBlurred = function (event) {
-	        this.blur.emit(event);
+	    TextInput.prototype.inputBlurred = function (ev) {
+	        this.blur.emit(ev);
 	    };
 	    /**
 	     * @private
 	     */
-	    TextInput.prototype.inputFocused = function (event) {
-	        this.focus.emit(event);
+	    TextInput.prototype.inputFocused = function (ev) {
+	        this.focus.emit(ev);
 	    };
 	    /**
 	     * @private
@@ -71664,14 +71661,14 @@
 	    /**
 	     * @private
 	     */
-	    TextArea.prototype.inputBlurred = function (event) {
-	        this.blur.emit(event);
+	    TextArea.prototype.inputBlurred = function (ev) {
+	        this.blur.emit(ev);
 	    };
 	    /**
 	     * @private
 	     */
-	    TextArea.prototype.inputFocused = function (event) {
-	        this.focus.emit(event);
+	    TextArea.prototype.inputFocused = function (ev) {
+	        this.focus.emit(ev);
 	    };
 	    TextArea = __decorate([
 	        core_1.Component({

@@ -196,13 +196,13 @@ See the <a href="../../alert/Alert">Alert API docs</a> for the create options.</
   <tbody>
     
     <tr>
-      <td>change</td>
+      <td>ionChange</td>
       <td><p> Any expression you want to evaluate when the selection has changed.</p>
 </td>
     </tr>
     
     <tr>
-      <td>cancel</td>
+      <td>ionCancel</td>
       <td><p> Any expression you want to evaluate when the selection was cancelled.</p>
 </td>
     </tr>

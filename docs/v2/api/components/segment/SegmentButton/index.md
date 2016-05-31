@@ -53,10 +53,10 @@ Improve this doc
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; primary&gt;
-  &lt;ion-segment-button value=&quot;friends&quot; (select)=&quot;selectedFriends()&quot;&gt;
+  &lt;ion-segment-button value=&quot;friends&quot; (ionSelect)=&quot;selectedFriends()&quot;&gt;
     Friends
   &lt;/ion-segment-button&gt;
-  &lt;ion-segment-button value=&quot;enemies&quot; (select)=&quot;selectedEnemies()&quot;&gt;
+  &lt;ion-segment-button value=&quot;enemies&quot; (ionSelect)=&quot;selectedEnemies()&quot;&gt;
     Enemies
   &lt;/ion-segment-button&gt;
 &lt;/ion-segment&gt;
@@ -118,7 +118,7 @@ Improve this doc
   <tbody>
     
     <tr>
-      <td>select</td>
+      <td>ionSelect</td>
       <td><p> expression to evaluate when a segment button has been clicked</p>
 </td>
     </tr>

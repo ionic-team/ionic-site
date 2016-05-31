@@ -54,28 +54,6 @@ Improve this doc
 
 <!-- instance methods on the class -->
 
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="stopInput"></div>
-
-<h3>
-<a class="anchor" name="stopInput" href="#stopInput"></a>
-<code>stopInput()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- related link --><!-- end content block -->
 

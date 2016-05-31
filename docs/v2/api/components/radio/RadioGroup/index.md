@@ -111,7 +111,7 @@ for more information on forms and inputs.</p>
   <tbody>
     
     <tr>
-      <td>change</td>
+      <td>ionChange</td>
       <td><p> expression to be evaluated when selection has been changed</p>
 </td>
     </tr>

@@ -332,7 +332,7 @@ onPageDidEnter() {
   <tbody>
     
     <tr>
-      <td>change</td>
+      <td>ionChange</td>
       <td><p> Expression to evaluate when the tab changes.</p>
 </td>
     </tr>

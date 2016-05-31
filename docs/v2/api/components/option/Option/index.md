@@ -96,8 +96,8 @@ Improve this doc
   <tbody>
     
     <tr>
-      <td>select</td>
-      <td><p> Event to evaluate when option has changed</p>
+      <td>ionSelect</td>
+      <td><p> Event to evaluate when option is selected</p>
 </td>
     </tr>
     

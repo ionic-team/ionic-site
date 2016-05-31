@@ -123,7 +123,7 @@ for more info on forms and inputs.</p>
   <tbody>
     
     <tr>
-      <td>change</td>
+      <td>ionChange</td>
       <td><p> expression to evaluate when the checkbox value changes</p>
 </td>
     </tr>

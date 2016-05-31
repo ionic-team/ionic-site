@@ -188,8 +188,8 @@ navigate to a specific slide on a button click. Below we call the
 }
 </code></pre>
 <p>We can also add events to listen to on the <code>&lt;ion-slides&gt;</code> element.
-Let&#39;s add the <code>didChange</code> event and call a method when the slide changes:</p>
-<pre><code class="lang-html">&lt;ion-slides #mySlider (didChange)=&quot;onSlideChanged()&quot; [options]=&quot;mySlideOptions&quot;&gt;
+Let&#39;s add the <code>ionDidChange</code> event and call a method when the slide changes:</p>
+<pre><code class="lang-html">&lt;ion-slides #mySlider (ionDidChange)=&quot;onSlideChanged()&quot; [options]=&quot;mySlideOptions&quot;&gt;
 </code></pre>
 <p>In our class, we add the <code>onSlideChanged()</code> method which gets the active
 index and prints it:</p>
@@ -284,7 +284,7 @@ Transition to the specified slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>willChange</code>/<code>didChange</code> events. Optional. Default true.</p>
+        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Optional. Default true.</p>
 
         
       </td>
@@ -351,7 +351,7 @@ Transition to the next slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>willChange</code>/<code>didChange</code> events. Optional. Default true.</p>
+        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Optional. Default true.</p>
 
         
       </td>
@@ -418,7 +418,7 @@ Transition to the previous slide.
   <code>boolean</code>
       </td>
       <td>
-        <p>Whether or not to emit the <code>willChange</code>/<code>didChange</code> events. Optional. Default true.</p>
+        <p>Whether or not to emit the <code>ionWillChange</code>/<code>ionDidChange</code> events. Optional. Default true.</p>
 
         
       </td>
@@ -637,19 +637,19 @@ the `Swiper` instance directly.
   <tbody>
     
     <tr>
-      <td>willChange</td>
+      <td>ionWillChange</td>
       <td><p> Expression to evaluate when a slide change starts.</p>
 </td>
     </tr>
     
     <tr>
-      <td>didChange</td>
+      <td>ionDidChange</td>
       <td><p> Expression to evaluate when a slide change ends.</p>
 </td>
     </tr>
     
     <tr>
-      <td>move</td>
+      <td>ionDrag</td>
       <td><p> Expression to evaluate when a slide moves.</p>
 </td>
     </tr>

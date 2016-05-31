@@ -131,7 +131,7 @@ more information on forms and input.</p>
   <tbody>
     
     <tr>
-      <td>select</td>
+      <td>ionSelect</td>
       <td><p> expression to be evaluated when selected</p>
 </td>
     </tr>

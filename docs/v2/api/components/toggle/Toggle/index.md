@@ -183,7 +183,7 @@ whether the toggle is disabled or not
   <tbody>
     
     <tr>
-      <td>change</td>
+      <td>ionChange</td>
       <td><p> expression to evaluate when the toggle value changes</p>
 </td>
     </tr>

@@ -54,7 +54,7 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; (change)=&quot;onSegmentChanged($event)&quot; danger&gt;
+<pre><code class="lang-html">&lt;ion-segment [(ngModel)]=&quot;relationship&quot; (ionChange)=&quot;onSegmentChanged($event)&quot; danger&gt;
   &lt;ion-segment-button value=&quot;friends&quot;&gt;
     Friends
   &lt;/ion-segment-button&gt;
@@ -99,7 +99,7 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
   <tbody>
     
     <tr>
-      <td>change</td>
+      <td>ionChange</td>
       <td><p>  expression to evaluate when a segment button has been changed</p>
 </td>
     </tr>

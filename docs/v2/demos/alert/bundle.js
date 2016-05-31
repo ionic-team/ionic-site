@@ -34371,15 +34371,15 @@
 	        /**
 	         * @output {event} When the menu is being dragged open.
 	         */
-	        this.opening = new core_1.EventEmitter();
+	        this.ionDrag = new core_1.EventEmitter();
 	        /**
 	         * @output {event} When the menu has been opened.
 	         */
-	        this.opened = new core_1.EventEmitter();
+	        this.ionOpen = new core_1.EventEmitter();
 	        /**
 	         * @output {event} When the menu has been closed.
 	         */
-	        this.closed = new core_1.EventEmitter();
+	        this.ionClose = new core_1.EventEmitter();
 	    }
 	    Object.defineProperty(Menu.prototype, "enabled", {
 	        /**
@@ -34541,7 +34541,7 @@
 	        if (this._isEnabled && this._isSwipeEnabled) {
 	            this._prevent();
 	            this._getType().setProgessStep(stepValue);
-	            this.opening.next(stepValue);
+	            this.ionDrag.emit(stepValue);
 	        }
 	    };
 	    /**
@@ -34580,12 +34580,12 @@
 	            this._cntEle.removeEventListener('click', this.onContentClick);
 	            if (isOpen) {
 	                this._cntEle.addEventListener('click', this.onContentClick);
-	                this.opened.emit(true);
+	                this.ionOpen.emit(true);
 	            }
 	            else {
 	                this.getNativeElement().classList.remove('show-menu');
 	                this.getBackdropElement().classList.remove('show-backdrop');
-	                this.closed.emit(true);
+	                this.ionClose.emit(true);
 	            }
 	        }
 	    };
@@ -34721,15 +34721,15 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Menu.prototype, "opening", void 0);
+	    ], Menu.prototype, "ionDrag", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], Menu.prototype, "opened", void 0);
+	    ], Menu.prototype, "ionOpen", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
-	    ], Menu.prototype, "closed", void 0);
+	    ], Menu.prototype, "ionClose", void 0);
 	    Menu = __decorate([
 	        core_1.Component({
 	            selector: 'ion-menu',
@@ -42541,7 +42541,7 @@
 	 *    <ion-item *ngFor="let i of items">{% raw %}{{i}}{% endraw %}</ion-item>
 	 *  </ion-list>
 	 *
-	 *  <ion-infinite-scroll (infinite)="doInfinite($event)">
+	 *  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
 	 *    <ion-infinite-scroll-content></ion-infinite-scroll-content>
 	 *  </ion-infinite-scroll>
 	 *
@@ -42586,7 +42586,7 @@
 	 *  ```html
 	 *  <ion-content>
 	 *
-	 *    <ion-infinite-scroll (infinite)="doInfinite($event)">
+	 *    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
 	 *      <ion-infinite-scroll-content
 	 *        loadingSpinner="bubbles"
 	 *        loadingText="Loading more data...">
@@ -42628,7 +42628,7 @@
 	         * you must call the infinite scroll's `complete()` method when
 	         * your async operation has completed.
 	         */
-	        this.infinite = new core_1.EventEmitter();
+	        this.ionInfinite = new core_1.EventEmitter();
 	        _content.addCssClass('has-infinite-scroll');
 	    }
 	    Object.defineProperty(InfiniteScroll.prototype, "threshold", {
@@ -42687,7 +42687,7 @@
 	        if (distanceFromInfinite < 0) {
 	            this._zone.run(function () {
 	                _this.state = STATE_LOADING;
-	                _this.infinite.emit(_this);
+	                _this.ionInfinite.emit(_this);
 	            });
 	            return 5;
 	        }
@@ -42755,7 +42755,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], InfiniteScroll.prototype, "infinite", void 0);
+	    ], InfiniteScroll.prototype, "ionInfinite", void 0);
 	    InfiniteScroll = __decorate([
 	        core_1.Directive({
 	            selector: 'ion-infinite-scroll'
@@ -42873,7 +42873,7 @@
 	 * ```html
 	 * <ion-content>
 	 *
-	 *   <ion-refresher (refresh)="doRefresh($event)">
+	 *   <ion-refresher (ionRefresh)="doRefresh($event)">
 	 *     <ion-refresher-content></ion-refresher-content>
 	 *   </ion-refresher>
 	 *
@@ -42907,7 +42907,7 @@
 	 *  ```html
 	 *  <ion-content>
 	 *
-	 *    <ion-refresher (refresh)="doRefresh($event)">
+	 *    <ion-refresher (ionRefresh)="doRefresh($event)">
 	 *      <ion-refresher-content
 	 *        pullingIcon="arrow-dropdown"
 	 *        pullingText="Pull to refresh"
@@ -43001,15 +43001,15 @@
 	         * updated to `refreshing`. From within your refresh handler, you must call the
 	         * `complete()` method when your async operation has completed.
 	         */
-	        this.refresh = new core_1.EventEmitter();
+	        this.ionRefresh = new core_1.EventEmitter();
 	        /**
 	         * @output {event} While the user is pulling down the content and exposing the refresher.
 	         */
-	        this.pulling = new core_1.EventEmitter();
+	        this.ionPull = new core_1.EventEmitter();
 	        /**
 	         * @output {event} When the user begins to start pulling down.
 	         */
-	        this.start = new core_1.EventEmitter();
+	        this.ionStart = new core_1.EventEmitter();
 	        _content.addCssClass('has-refresher');
 	        // deprecated warning
 	        var ele = elementRef.nativeElement;
@@ -43140,10 +43140,10 @@
 	        // emit "start" if it hasn't started yet
 	        if (!this._didStart) {
 	            this._didStart = true;
-	            this.start.emit(this);
+	            this.ionStart.emit(this);
 	        }
 	        // emit "pulling" on every move
-	        this.pulling.emit(this);
+	        this.ionPull.emit(this);
 	        // do nothing if the delta is less than the pull threshold
 	        if (this.deltaY < this.pullMin) {
 	            // ensure it stays in the pulling state, cuz its not ready yet
@@ -43196,7 +43196,7 @@
 	        this._setCss(this.pullMin, (this.snapbackDuration + 'ms'), true, '');
 	        // emit "refresh" because it was pulled down far enough
 	        // and they let go to begin refreshing
-	        this.refresh.emit(this);
+	        this.ionRefresh.emit(this);
 	    };
 	    /**
 	     * Call `complete()` when your async operation has completed.
@@ -43324,15 +43324,15 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Refresher.prototype, "refresh", void 0);
+	    ], Refresher.prototype, "ionRefresh", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], Refresher.prototype, "pulling", void 0);
+	    ], Refresher.prototype, "ionPull", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
-	    ], Refresher.prototype, "start", void 0);
+	    ], Refresher.prototype, "ionStart", void 0);
 	    Refresher = __decorate([
 	        core_1.Directive({
 	            selector: 'ion-refresher',
@@ -43384,10 +43384,10 @@
 	     */
 	    RefresherContent.prototype.ngOnInit = function () {
 	        if (!this.pullingIcon) {
-	            this.pullingIcon = this._config.get('refresherPullingIcon', 'arrow-down');
+	            this.pullingIcon = this._config.get('ionPullIcon', 'arrow-down');
 	        }
 	        if (!this.refreshingSpinner) {
-	            this.refreshingSpinner = this._config.get('refresherRefreshingSpinner', this._config.get('spinner', 'ios'));
+	            this.refreshingSpinner = this._config.get('ionRefreshingSpinner', this._config.get('spinner', 'ios'));
 	        }
 	    };
 	    __decorate([
@@ -43597,10 +43597,10 @@
 	 * ```
 	 *
 	 * We can also add events to listen to on the `<ion-slides>` element.
-	 * Let's add the `didChange` event and call a method when the slide changes:
+	 * Let's add the `ionDidChange` event and call a method when the slide changes:
 	 *
 	 * ```html
-	 * <ion-slides #mySlider (didChange)="onSlideChanged()" [options]="mySlideOptions">
+	 * <ion-slides #mySlider (ionDidChange)="onSlideChanged()" [options]="mySlideOptions">
 	 * ```
 	 *
 	 * In our class, we add the `onSlideChanged()` method which gets the active
@@ -43640,25 +43640,17 @@
 	        var _this = this;
 	        _super.call(this, elementRef);
 	        /**
-	         * @private Deprecated
-	         */
-	        this.slideChangeStart = new core_1.EventEmitter();
-	        /**
-	         * @private Deprecated
-	         */
-	        this.change = new core_1.EventEmitter();
-	        /**
 	         * @output {any} Expression to evaluate when a slide change starts.
 	         */
-	        this.willChange = new core_1.EventEmitter();
+	        this.ionWillChange = new core_1.EventEmitter();
 	        /**
 	         * @output {any} Expression to evaluate when a slide change ends.
 	         */
-	        this.didChange = new core_1.EventEmitter();
+	        this.ionDidChange = new core_1.EventEmitter();
 	        /**
 	         * @output {any} Expression to evaluate when a slide moves.
 	         */
-	        this.move = new core_1.EventEmitter();
+	        this.ionDrag = new core_1.EventEmitter();
 	        this.rapidUpdate = util_2.debounce(function () {
 	            _this.update();
 	        }, 10);
@@ -43686,9 +43678,6 @@
 	            // Zoom should be passed as an option
 	            console.warn('The "zoom" attribute has been deprecated. Please pass it in options.');
 	        }
-	        // Deprecated 04-18 beta.5
-	        console.warn('The "slideChangeStart" event has been deprecated. Please use "willChange" instead. Ignore this if you aren\'t using it.');
-	        console.warn('The "change" event has been deprecated. Please use "didChange" instead. Ignore this if you aren\'t using it.');
 	        if (util_2.isPresent(this.options.pager)) {
 	            this.showPager = util_2.isTrueProperty(this.options.pager);
 	        }
@@ -43717,15 +43706,11 @@
 	            return _this.options.onTransitionEnd && _this.options.onTransitionEnd(swiper, e);
 	        };
 	        options.onSlideChangeStart = function (swiper) {
-	            // TODO deprecated 2016-04-18
-	            _this.slideChangeStart.emit(swiper);
-	            _this.willChange.emit(swiper);
+	            _this.ionWillChange.emit(swiper);
 	            return _this.options.onSlideChangeStart && _this.options.onSlideChangeStart(swiper);
 	        };
 	        options.onSlideChangeEnd = function (swiper) {
-	            // TODO deprecated 2016-04-18
-	            _this.change.emit(swiper);
-	            _this.didChange.emit(swiper);
+	            _this.ionDidChange.emit(swiper);
 	            return _this.options.onSlideChangeEnd && _this.options.onSlideChangeEnd(swiper);
 	        };
 	        options.onLazyImageLoad = function (swiper, slide, img) {
@@ -43735,7 +43720,7 @@
 	            return _this.options.onLazyImageReady && _this.options.onLazyImageReady(swiper, slide, img);
 	        };
 	        options.onSliderMove = function (swiper, e) {
-	            _this.move.emit(swiper);
+	            _this.ionDrag.emit(swiper);
 	            return _this.options.onSliderMove && _this.options.onSliderMove(swiper, e);
 	        };
 	        setTimeout(function () {
@@ -44031,7 +44016,7 @@
 	     *
 	     * @param {number} index  The index number of the slide.
 	     * @param {number} speed  Transition duration (in ms). Optional.
-	     * @param {boolean} runCallbacks  Whether or not to emit the `willChange`/`didChange` events. Optional. Default true.
+	     * @param {boolean} runCallbacks  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Optional. Default true.
 	     */
 	    Slides.prototype.slideTo = function (index, speed, runCallbacks) {
 	        this.slider.slideTo(index, speed, runCallbacks);
@@ -44040,7 +44025,7 @@
 	     * Transition to the next slide.
 	     *
 	     * @param {number} speed  Transition duration (in ms). Optional.
-	     * @param {boolean} runCallbacks  Whether or not to emit the `willChange`/`didChange` events. Optional. Default true.
+	     * @param {boolean} runCallbacks  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Optional. Default true.
 	     */
 	    Slides.prototype.slideNext = function (speed, runCallbacks) {
 	        this.slider.slideNext(runCallbacks, speed);
@@ -44049,7 +44034,7 @@
 	     * Transition to the previous slide.
 	     *
 	     * @param {number} speed  Transition duration (in ms). Optional.
-	     * @param {boolean} runCallbacks  Whether or not to emit the `willChange`/`didChange` events. Optional. Default true.
+	     * @param {boolean} runCallbacks  Whether or not to emit the `ionWillChange`/`ionDidChange` events. Optional. Default true.
 	     */
 	    Slides.prototype.slidePrev = function (speed, runCallbacks) {
 	        this.slider.slidePrev(runCallbacks, speed);
@@ -44129,23 +44114,15 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Slides.prototype, "slideChangeStart", void 0);
+	    ], Slides.prototype, "ionWillChange", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], Slides.prototype, "change", void 0);
+	    ], Slides.prototype, "ionDidChange", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
-	    ], Slides.prototype, "willChange", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_d = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _d) || Object)
-	    ], Slides.prototype, "didChange", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_e = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _e) || Object)
-	    ], Slides.prototype, "move", void 0);
+	    ], Slides.prototype, "ionDrag", void 0);
 	    Slides = __decorate([
 	        core_1.Component({
 	            selector: 'ion-slides',
@@ -44159,10 +44136,10 @@
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _g) || Object])
+	        __metadata('design:paramtypes', [(typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
 	    ], Slides);
 	    return Slides;
-	    var _a, _b, _c, _d, _e, _f, _g;
+	    var _a, _b, _c, _d, _e;
 	}(ion_1.Ion));
 	exports.Slides = Slides;
 	/**
@@ -48348,7 +48325,7 @@
 	        /**
 	         * @input {any} Expression to evaluate when the tab changes.
 	         */
-	        this.change = new core_1.EventEmitter();
+	        this.ionChange = new core_1.EventEmitter();
 	        this.parent = parent;
 	        this.id = ++tabIds;
 	        this.subPages = _config.getBoolean('tabSubPages');
@@ -48386,7 +48363,7 @@
 	            });
 	        }
 	        this._btns.toArray().forEach(function (tabButton) {
-	            tabButton.select.subscribe(function (tab) {
+	            tabButton.ionSelect.subscribe(function (tab) {
 	                _this.select(tab);
 	            });
 	        });
@@ -48463,8 +48440,8 @@
 	        var selectedPage = selectedTab.getActive();
 	        selectedPage && selectedPage.fireWillEnter();
 	        selectedTab.load(opts, function () {
-	            selectedTab.select.emit(selectedTab);
-	            _this.change.emit(selectedTab);
+	            selectedTab.ionSelect.emit(selectedTab);
+	            _this.ionChange.emit(selectedTab);
 	            if (selectedTab.root) {
 	                // only show the selectedTab if it has a root
 	                // it's possible the tab is only for opening modal's or signing out
@@ -48530,8 +48507,8 @@
 	        }
 	        var instance = active.instance;
 	        // If they have a custom tab selected handler, call it
-	        if (instance.tabSelected) {
-	            return instance.tabSelected();
+	        if (instance.ionSelected) {
+	            return instance.ionSelected();
 	        }
 	        // If we're a few pages deep, pop to root
 	        if (tab.length() > 1) {
@@ -48582,7 +48559,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Tabs.prototype, "change", void 0);
+	    ], Tabs.prototype, "ionChange", void 0);
 	    __decorate([
 	        core_1.ViewChild(tab_highlight_1.TabHighlight), 
 	        __metadata('design:type', (typeof (_b = typeof tab_highlight_1.TabHighlight !== 'undefined' && tab_highlight_1.TabHighlight) === 'function' && _b) || Object)
@@ -48673,7 +48650,7 @@
 	    __extends(TabButton, _super);
 	    function TabButton(config, elementRef) {
 	        _super.call(this, elementRef);
-	        this.select = new core_1.EventEmitter();
+	        this.ionSelect = new core_1.EventEmitter();
 	        this.disHover = (config.get('hoverCSS') === false);
 	        this._layout = config.get('tabbarLayout');
 	    }
@@ -48687,7 +48664,7 @@
 	        this.hasBadge = !!this.tab.tabBadge;
 	    };
 	    TabButton.prototype.onClick = function () {
-	        this.select.emit(this.tab);
+	        this.ionSelect.emit(this.tab);
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -48696,7 +48673,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], TabButton.prototype, "select", void 0);
+	    ], TabButton.prototype, "ionSelect", void 0);
 	    __decorate([
 	        core_1.HostListener('click'), 
 	        __metadata('design:type', Function), 
@@ -48829,13 +48806,13 @@
 	 * ```
 	 *
 	 * Sometimes you may want to call a method instead of navigating to a new
-	 * page. You can use the `(select)` event to call a method on your class when
+	 * page. You can use the `(ionSelect)` event to call a method on your class when
 	 * the tab is selected. Below is an example of presenting a modal from one of
 	 * the tabs.
 	 *
 	 * ```html
 	 * <ion-tabs preloadTabs="false">
-	 *   <ion-tab (select)="chat()"></ion-tab>
+	 *   <ion-tab (ionSelect)="chat()"></ion-tab>
 	 * </ion-tabs>
 	 * ```
 	 *
@@ -48870,7 +48847,7 @@
 	        /**
 	         * @output {Tab} Method to call when the current tab is selected
 	         */
-	        this.select = new core_1.EventEmitter();
+	        this.ionSelect = new core_1.EventEmitter();
 	        parentTabs.add(this);
 	        this._panelId = 'tabpanel-' + this.id;
 	        this._btnId = 'tab-' + this.id;
@@ -49049,7 +49026,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], Tab.prototype, "select", void 0);
+	    ], Tab.prototype, "ionSelect", void 0);
 	    __decorate([
 	        core_1.ViewChild('viewport', { read: core_1.ViewContainerRef }), 
 	        __metadata('design:type', (typeof (_c = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _c) || Object), 
@@ -51730,7 +51707,7 @@
 	        /**
 	         * @output {Checkbox} expression to evaluate when the checkbox value changes
 	         */
-	        this.change = new core_1.EventEmitter();
+	        this.ionChange = new core_1.EventEmitter();
 	        _form.register(this);
 	        if (_item) {
 	            this.id = 'chk-' + _item.registerInput('checkbox');
@@ -51768,7 +51745,7 @@
 	        if (isChecked !== this._checked) {
 	            this._checked = isChecked;
 	            if (this._init) {
-	                this.change.emit(this);
+	                this.ionChange.emit(this);
 	            }
 	            this._item && this._item.setCssClass('item-checkbox-checked', isChecked);
 	        }
@@ -51838,7 +51815,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Checkbox.prototype, "change", void 0);
+	    ], Checkbox.prototype, "ionChange", void 0);
 	    __decorate([
 	        core_1.HostListener('click', ['$event']), 
 	        __metadata('design:type', Function), 
@@ -52046,11 +52023,11 @@
 	        /**
 	         * @output {any} Any expression you want to evaluate when the selection has changed.
 	         */
-	        this.change = new core_1.EventEmitter();
+	        this.ionChange = new core_1.EventEmitter();
 	        /**
 	         * @output {any} Any expression you want to evaluate when the selection was cancelled.
 	         */
-	        this.cancel = new core_1.EventEmitter();
+	        this.ionCancel = new core_1.EventEmitter();
 	        this._form.register(this);
 	        if (_item) {
 	            this.id = 'sel-' + _item.registerInput('select');
@@ -52089,7 +52066,7 @@
 	                text: this.cancelText,
 	                role: 'cancel',
 	                handler: function () {
-	                    _this.cancel.emit(null);
+	                    _this.ionCancel.emit(null);
 	                }
 	            }];
 	        // if the alertOptions didn't provide an title then use the label's text
@@ -52113,7 +52090,7 @@
 	                    text: input.text,
 	                    handler: function () {
 	                        _this.onChange(input.value);
-	                        _this.change.emit(input.value);
+	                        _this.ionChange.emit(input.value);
 	                    }
 	                };
 	            }));
@@ -52147,7 +52124,7 @@
 	                text: this.okText,
 	                handler: function (selectedValues) {
 	                    _this.onChange(selectedValues);
-	                    _this.change.emit(selectedValues);
+	                    _this.ionChange.emit(selectedValues);
 	                }
 	            });
 	        }
@@ -52304,11 +52281,11 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Select.prototype, "change", void 0);
+	    ], Select.prototype, "ionChange", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], Select.prototype, "cancel", void 0);
+	    ], Select.prototype, "ionCancel", void 0);
 	    __decorate([
 	        core_1.HostListener('click', ['$event']), 
 	        __metadata('design:type', Function), 
@@ -53511,9 +53488,9 @@
 	        this._elementRef = _elementRef;
 	        this._checked = false;
 	        /**
-	         * @input {any} Event to evaluate when option has changed
+	         * @input {any} Event to evaluate when option is selected
 	         */
-	        this.select = new core_1.EventEmitter();
+	        this.ionSelect = new core_1.EventEmitter();
 	    }
 	    Object.defineProperty(Option.prototype, "checked", {
 	        /**
@@ -53557,7 +53534,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Option.prototype, "select", void 0);
+	    ], Option.prototype, "ionSelect", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
@@ -53871,11 +53848,11 @@
 	        /**
 	         * @output {any} Any expression to evaluate when the datetime selection has changed.
 	         */
-	        this.change = new core_1.EventEmitter();
+	        this.ionChange = new core_1.EventEmitter();
 	        /**
 	         * @output {any} Any expression to evaluate when the datetime selection was cancelled.
 	         */
-	        this.cancel = new core_1.EventEmitter();
+	        this.ionCancel = new core_1.EventEmitter();
 	        this._form.register(this);
 	        if (_item) {
 	            this.id = 'dt-' + _item.registerInput('datetime');
@@ -53917,7 +53894,7 @@
 	                text: this.cancelText,
 	                role: 'cancel',
 	                handler: function () {
-	                    _this.cancel.emit(null);
+	                    _this.ionCancel.emit(null);
 	                }
 	            },
 	            {
@@ -53925,13 +53902,13 @@
 	                handler: function (data) {
 	                    console.log('datetime, done', data);
 	                    _this.onChange(data);
-	                    _this.change.emit(data);
+	                    _this.ionChange.emit(data);
 	                }
 	            }
 	        ];
 	        this.generate(picker);
 	        this.validate(picker);
-	        picker.change.subscribe(function () {
+	        picker.ionChange.subscribe(function () {
 	            _this.validate(picker);
 	        });
 	        this._nav.present(picker, pickerOptions);
@@ -54296,11 +54273,11 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], DateTime.prototype, "change", void 0);
+	    ], DateTime.prototype, "ionChange", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], DateTime.prototype, "cancel", void 0);
+	    ], DateTime.prototype, "ionCancel", void 0);
 	    __decorate([
 	        core_1.HostListener('click', ['$event']), 
 	        __metadata('design:type', Function), 
@@ -54441,7 +54418,7 @@
 	        _super.call(this, PickerDisplayCmp, opts);
 	        this.viewType = 'picker';
 	        this.isOverlay = true;
-	        this.change = new core_1.EventEmitter();
+	        this.ionChange = new core_1.EventEmitter();
 	        // by default, pickers should not fire lifecycle events of other views
 	        // for example, when an picker enters, the current active view should
 	        // not fire its lifecycle events because it's not conceptually leaving
@@ -54486,7 +54463,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Picker.prototype, "change", void 0);
+	    ], Picker.prototype, "ionChange", void 0);
 	    return Picker;
 	    var _a;
 	}(view_controller_1.ViewController));
@@ -54501,7 +54478,7 @@
 	        this.pos = [];
 	        this.msPrv = 0;
 	        this.startY = null;
-	        this.change = new core_1.EventEmitter();
+	        this.ionChange = new core_1.EventEmitter();
 	        this.rotateFactor = config.getNumber('pickerRotateFactor', 0);
 	    }
 	    PickerColumnCmp.prototype.ngAfterViewInit = function () {
@@ -54704,7 +54681,7 @@
 	                // new selected index has changed from the last index
 	                // update the lastIndex and emit that it has changed
 	                this.lastIndex = this.col.selectedIndex;
-	                this.change.emit(this.col.options[this.col.selectedIndex]);
+	                this.ionChange.emit(this.col.options[this.col.selectedIndex]);
 	            }
 	        }
 	    };
@@ -54752,7 +54729,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], PickerColumnCmp.prototype, "change", void 0);
+	    ], PickerColumnCmp.prototype, "ionChange", void 0);
 	    PickerColumnCmp = __decorate([
 	        core_1.Component({
 	            selector: '.picker-col',
@@ -54847,7 +54824,7 @@
 	    PickerDisplayCmp.prototype._colChange = function (selectedOption) {
 	        // one of the columns has changed its selected index
 	        var picker = this._viewCtrl;
-	        picker.change.emit(this.getSelected());
+	        picker.ionChange.emit(this.getSelected());
 	    };
 	    PickerDisplayCmp.prototype._keyUp = function (ev) {
 	        if (this.isEnabled() && this._viewCtrl.isLast()) {
@@ -54948,7 +54925,7 @@
 	                '</div>' +
 	                '<div class="picker-columns">' +
 	                '<div class="picker-above-highlight"></div>' +
-	                '<div *ngFor="let c of d.columns" [col]="c" class="picker-col"> (change)="_colChange($event)"</div>' +
+	                '<div *ngFor="let c of d.columns" [col]="c" class="picker-col"> (ionChange)="_colChange($event)"</div>' +
 	                '<div class="picker-below-highlight"></div>' +
 	                '</div>' +
 	                '</div>',
@@ -55074,7 +55051,7 @@
 	        /**
 	         * @output {Toggle} expression to evaluate when the toggle value changes
 	         */
-	        this.change = new core_1.EventEmitter();
+	        this.ionChange = new core_1.EventEmitter();
 	        this._form.register(this);
 	        if (_item) {
 	            this.id = 'tgl-' + _item.registerInput('toggle');
@@ -55155,7 +55132,7 @@
 	        if (isChecked !== this._checked) {
 	            this._checked = isChecked;
 	            if (this._init) {
-	                this.change.emit(this);
+	                this.ionChange.emit(this);
 	            }
 	            this._item && this._item.setCssClass('item-toggle-checked', isChecked);
 	        }
@@ -55235,7 +55212,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Toggle.prototype, "change", void 0);
+	    ], Toggle.prototype, "ionChange", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Boolean)
@@ -56310,10 +56287,10 @@
 	 * @usage
 	 * ```html
 	 * <ion-segment [(ngModel)]="relationship" primary>
-	 *   <ion-segment-button value="friends" (select)="selectedFriends()">
+	 *   <ion-segment-button value="friends" (ionSelect)="selectedFriends()">
 	 *     Friends
 	 *   </ion-segment-button>
-	 *   <ion-segment-button value="enemies" (select)="selectedEnemies()">
+	 *   <ion-segment-button value="enemies" (ionSelect)="selectedEnemies()">
 	 *     Enemies
 	 *   </ion-segment-button>
 	 * </ion-segment>
@@ -56350,7 +56327,7 @@
 	        /**
 	         * @output {SegmentButton} expression to evaluate when a segment button has been clicked
 	         */
-	        this.select = new core_1.EventEmitter();
+	        this.ionSelect = new core_1.EventEmitter();
 	    }
 	    Object.defineProperty(SegmentButton.prototype, "disabled", {
 	        /**
@@ -56378,7 +56355,7 @@
 	     */
 	    SegmentButton.prototype.onClick = function (ev) {
 	        console.debug('SegmentButton, select', this.value);
-	        this.select.emit(this);
+	        this.ionSelect.emit(this);
 	    };
 	    /**
 	     * @private
@@ -56406,7 +56383,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], SegmentButton.prototype, "select", void 0);
+	    ], SegmentButton.prototype, "ionSelect", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Boolean)
@@ -56445,7 +56422,7 @@
 	 *
 	 * @usage
 	 * ```html
-	 * <ion-segment [(ngModel)]="relationship" (change)="onSegmentChanged($event)" danger>
+	 * <ion-segment [(ngModel)]="relationship" (ionChange)="onSegmentChanged($event)" danger>
 	 *   <ion-segment-button value="friends">
 	 *     Friends
 	 *   </ion-segment-button>
@@ -56484,7 +56461,7 @@
 	        /**
 	         * @output {Any}  expression to evaluate when a segment button has been changed
 	         */
-	        this.change = new core_1.EventEmitter();
+	        this.ionChange = new core_1.EventEmitter();
 	        /**
 	         * @private
 	         */
@@ -56539,10 +56516,10 @@
 	        var buttons = this._buttons.toArray();
 	        for (var _i = 0, buttons_3 = buttons; _i < buttons_3.length; _i++) {
 	            var button = buttons_3[_i];
-	            button.select.subscribe(function (selectedButton) {
+	            button.ionSelect.subscribe(function (selectedButton) {
 	                _this.writeValue(selectedButton.value);
 	                _this.onChange(selectedButton.value);
-	                _this.change.emit(selectedButton);
+	                _this.ionChange.emit(selectedButton);
 	            });
 	            if (util_1.isPresent(this.value)) {
 	                button.isActive = (button.value === this.value);
@@ -56565,7 +56542,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Segment.prototype, "change", void 0);
+	    ], Segment.prototype, "ionChange", void 0);
 	    __decorate([
 	        core_1.ContentChildren(SegmentButton), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _b) || Object)
@@ -56654,7 +56631,7 @@
 	        /**
 	         * @output {any} expression to be evaluated when selected
 	         */
-	        this.select = new core_1.EventEmitter();
+	        this.ionSelect = new core_1.EventEmitter();
 	        _form.register(this);
 	        if (_group) {
 	            // register with the radiogroup
@@ -56720,7 +56697,7 @@
 	        ev.preventDefault();
 	        ev.stopPropagation();
 	        this.checked = true;
-	        this.select.emit(this.value);
+	        this.ionSelect.emit(this.value);
 	    };
 	    /**
 	     * @private
@@ -56740,7 +56717,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], RadioButton.prototype, "select", void 0);
+	    ], RadioButton.prototype, "ionSelect", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
@@ -56868,7 +56845,7 @@
 	        /**
 	         * @output {any} expression to be evaluated when selection has been changed
 	         */
-	        this.change = new core_1.EventEmitter();
+	        this.ionChange = new core_1.EventEmitter();
 	        this.id = ++radioGroupIds;
 	    }
 	    /**
@@ -56880,7 +56857,7 @@
 	        if (this._init) {
 	            this._update();
 	            this.onTouched();
-	            this.change.emit(val);
+	            this.ionChange.emit(val);
 	        }
 	        this._init = true;
 	    };
@@ -56906,7 +56883,7 @@
 	            _this.value = val;
 	            _this._update();
 	            _this.onTouched();
-	            _this.change.emit(val);
+	            _this.ionChange.emit(val);
 	        };
 	    };
 	    /**
@@ -56942,7 +56919,7 @@
 	        var _this = this;
 	        this._btns.push(button);
 	        // listen for radiobutton select events
-	        button.select.subscribe(function (val) {
+	        button.ionSelect.subscribe(function (val) {
 	            // this radiobutton has been selected
 	            _this.onChange(val);
 	        });
@@ -56984,7 +56961,7 @@
 	        this.value = val;
 	        this._update();
 	        this.onTouched();
-	        this.change.emit(val);
+	        this.ionChange.emit(val);
 	    };
 	    /**
 	     * @private
@@ -56993,7 +56970,7 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], RadioGroup.prototype, "change", void 0);
+	    ], RadioGroup.prototype, "ionChange", void 0);
 	    __decorate([
 	        core_1.ContentChild(list_1.ListHeader), 
 	        __metadata('design:type', Object), 
@@ -57050,16 +57027,6 @@
 	    function SearchbarInput(_elementRef) {
 	        this._elementRef = _elementRef;
 	    }
-	    SearchbarInput.prototype.stopInput = function (ev) {
-	        ev.preventDefault();
-	        ev.stopPropagation();
-	    };
-	    __decorate([
-	        core_1.HostListener('input', ['$event']), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
-	        __metadata('design:returntype', void 0)
-	    ], SearchbarInput.prototype, "stopInput", null);
 	    SearchbarInput = __decorate([
 	        core_1.Directive({
 	            selector: '.searchbar-input',
@@ -57081,8 +57048,8 @@
 	 * <ion-searchbar
 	 *   [(ngModel)]="myInput"
 	 *   [hideCancelButton]="shouldHideCancel"
-	 *   (input)="onInput($event)"
-	 *   (cancel)="onCancel($event)">
+	 *   (ionInput)="onInput($event)"
+	 *   (ionCancel)="onCancel($event)">
 	 * </ion-searchbar>
 	 * ```
 	 *
@@ -57102,23 +57069,23 @@
 	        /**
 	         * @output {event} When the Searchbar input has changed including cleared
 	         */
-	        this.input = new core_1.EventEmitter();
+	        this.ionInput = new core_1.EventEmitter();
 	        /**
 	         * @output {event} When the Searchbar input has blurred
 	         */
-	        this.blur = new core_1.EventEmitter();
+	        this.ionBlur = new core_1.EventEmitter();
 	        /**
 	         * @output {event} When the Searchbar input has focused
 	         */
-	        this.focus = new core_1.EventEmitter();
+	        this.ionFocus = new core_1.EventEmitter();
 	        /**
 	         * @output {event} When the cancel button is clicked
 	         */
-	        this.cancel = new core_1.EventEmitter();
+	        this.ionCancel = new core_1.EventEmitter();
 	        /**
 	         * @output {event} When the clear input button is clicked
 	         */
-	        this.clear = new core_1.EventEmitter();
+	        this.ionClear = new core_1.EventEmitter();
 	        /**
 	         * @private
 	         */
@@ -57221,7 +57188,7 @@
 	        this._tmr = setTimeout(function () {
 	            _this.value = value;
 	            _this.onChange(value);
-	            _this.input.emit(_this);
+	            _this.ionInput.emit(_this);
 	        }, Math.round(this.debounce));
 	    };
 	    /**
@@ -57229,7 +57196,7 @@
 	     * Sets the Searchbar to focused and aligned left on input focus.
 	     */
 	    Searchbar.prototype.inputFocused = function () {
-	        this.focus.emit(this);
+	        this.ionFocus.emit(this);
 	        this.isFocused = true;
 	        this.shouldLeftAlign = true;
 	        this.setElementLeft();
@@ -57247,7 +57214,7 @@
 	            this.blurInput = true;
 	            return;
 	        }
-	        this.blur.emit(this);
+	        this.ionBlur.emit(this);
 	        this.isFocused = false;
 	        this.shouldLeftAlign = this.value && this.value.trim() !== '';
 	        this.setElementLeft();
@@ -57257,10 +57224,10 @@
 	     * Clears the input field and triggers the control change.
 	     */
 	    Searchbar.prototype.clearInput = function () {
-	        this.clear.emit(this);
+	        this.ionClear.emit(this);
 	        this.value = '';
 	        this.onChange(this.value);
-	        this.input.emit(this);
+	        this.ionInput.emit(this);
 	        this.blurInput = false;
 	    };
 	    /**
@@ -57270,7 +57237,7 @@
 	     * then calls the custom cancel function if the user passed one in.
 	     */
 	    Searchbar.prototype.cancelSearchbar = function () {
-	        this.cancel.emit(this);
+	        this.ionCancel.emit(this);
 	        this.clearInput();
 	        this.blurInput = true;
 	    };
@@ -57322,23 +57289,23 @@
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Searchbar.prototype, "input", void 0);
+	    ], Searchbar.prototype, "ionInput", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], Searchbar.prototype, "blur", void 0);
+	    ], Searchbar.prototype, "ionBlur", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_c = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _c) || Object)
-	    ], Searchbar.prototype, "focus", void 0);
+	    ], Searchbar.prototype, "ionFocus", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_d = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _d) || Object)
-	    ], Searchbar.prototype, "cancel", void 0);
+	    ], Searchbar.prototype, "ionCancel", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_e = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _e) || Object)
-	    ], Searchbar.prototype, "clear", void 0);
+	    ], Searchbar.prototype, "ionClear", void 0);
 	    __decorate([
 	        core_1.HostBinding('class.searchbar-focused'), 
 	        __metadata('design:type', Object)

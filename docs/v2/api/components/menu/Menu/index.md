@@ -246,19 +246,19 @@ see the <code>menuType</code> in the <a href="../../config/Config">config</a>. A
   <tbody>
     
     <tr>
-      <td>opening</td>
+      <td>ionDrag</td>
       <td><p> When the menu is being dragged open.</p>
 </td>
     </tr>
     
     <tr>
-      <td>opened</td>
+      <td>ionOpen</td>
       <td><p> When the menu has been opened.</p>
 </td>
     </tr>
     
     <tr>
-      <td>closed</td>
+      <td>ionClose</td>
       <td><p> When the menu has been closed.</p>
 </td>
     </tr>

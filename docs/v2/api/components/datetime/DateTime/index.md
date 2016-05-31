@@ -560,13 +560,13 @@ See the <a href="../../picker/Picker">Picker API docs</a> for the picker options
   <tbody>
     
     <tr>
-      <td>change</td>
+      <td>ionChange</td>
       <td><p> Any expression to evaluate when the datetime selection has changed.</p>
 </td>
     </tr>
     
     <tr>
-      <td>cancel</td>
+      <td>ionCancel</td>
       <td><p> Any expression to evaluate when the datetime selection was cancelled.</p>
 </td>
     </tr>

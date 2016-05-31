@@ -266,7 +266,7 @@ Improve this doc
   <tbody>
     
     <tr>
-      <td>change</td>
+      <td>ionChange</td>
       <td></td>
     </tr>
     

@@ -63,7 +63,7 @@ on the infinite scroll instance.</p>
    &lt;ion-item *ngFor=&quot;let i of items&quot;&gt;{% raw %}{{i}}{% endraw %}&lt;/ion-item&gt;
  &lt;/ion-list&gt;
 
- &lt;ion-infinite-scroll (infinite)=&quot;doInfinite($event)&quot;&gt;
+ &lt;ion-infinite-scroll (ionInfinite)=&quot;doInfinite($event)&quot;&gt;
    &lt;ion-infinite-scroll-content&gt;&lt;/ion-infinite-scroll-content&gt;
  &lt;/ion-infinite-scroll&gt;
 
@@ -101,7 +101,7 @@ default spinner or add text by adding properties to the
 <code>ion-infinite-scroll-content</code> component.</p>
 <pre><code class="lang-html">&lt;ion-content&gt;
 
-  &lt;ion-infinite-scroll (infinite)=&quot;doInfinite($event)&quot;&gt;
+  &lt;ion-infinite-scroll (ionInfinite)=&quot;doInfinite($event)&quot;&gt;
     &lt;ion-infinite-scroll-content
       loadingSpinner=&quot;bubbles&quot;
       loadingText=&quot;Loading more data...&quot;&gt;
@@ -271,7 +271,7 @@ Default is <code>15%</code>.</p>
   <tbody>
     
     <tr>
-      <td>infinite</td>
+      <td>ionInfinite</td>
       <td><p> The expression to call when the scroll reaches
 the threshold distance. From within your infinite handler,
 you must call the infinite scroll&#39;s <code>complete()</code> method when

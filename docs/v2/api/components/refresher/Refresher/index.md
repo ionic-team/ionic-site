@@ -62,7 +62,7 @@ display or hide the refresher.</p>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
 
-  &lt;ion-refresher (refresh)=&quot;doRefresh($event)&quot;&gt;
+  &lt;ion-refresher (ionRefresh)=&quot;doRefresh($event)&quot;&gt;
     &lt;ion-refresher-content&gt;&lt;/ion-refresher-content&gt;
   &lt;/ion-refresher&gt;
 
@@ -89,7 +89,7 @@ default icon and spinner, along with adding text for each state by
 adding properties to the child <code>ion-refresher-content</code> component.</p>
 <pre><code class="lang-html">&lt;ion-content&gt;
 
-  &lt;ion-refresher (refresh)=&quot;doRefresh($event)&quot;&gt;
+  &lt;ion-refresher (ionRefresh)=&quot;doRefresh($event)&quot;&gt;
     &lt;ion-refresher-content
       pullingIcon=&quot;arrow-dropdown&quot;
       pullingText=&quot;Pull to refresh&quot;
@@ -351,7 +351,7 @@ maximum will be the result of <code>pullMin + 60</code>.</p>
   <tbody>
     
     <tr>
-      <td>refresh</td>
+      <td>ionRefresh</td>
       <td><p> When the user lets go and has pulled down far enough, which would be
 farther than the <code>pullMin</code>, then your refresh hander if fired and the state is
 updated to <code>refreshing</code>. From within your refresh handler, you must call the
@@ -360,13 +360,13 @@ updated to <code>refreshing</code>. From within your refresh handler, you must c
     </tr>
     
     <tr>
-      <td>pulling</td>
+      <td>ionPull</td>
       <td><p> While the user is pulling down the content and exposing the refresher.</p>
 </td>
     </tr>
     
     <tr>
-      <td>start</td>
+      <td>ionStart</td>
       <td><p> When the user begins to start pulling down.</p>
 </td>
     </tr>

@@ -34,7 +34,7 @@ Searchbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/searchbar/searchbar.ts#L28">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/searchbar/searchbar.ts#L18">
 Improve this doc
 </a>
 
@@ -55,8 +55,8 @@ Improve this doc
 <pre><code class="lang-html">&lt;ion-searchbar
   [(ngModel)]=&quot;myInput&quot;
   [hideCancelButton]=&quot;shouldHideCancel&quot;
-  (input)=&quot;onInput($event)&quot;
-  (cancel)=&quot;onCancel($event)&quot;&gt;
+  (ionInput)=&quot;onInput($event)&quot;
+  (ionCancel)=&quot;onCancel($event)&quot;&gt;
 &lt;/ion-searchbar&gt;
 </code></pre>
 
@@ -129,31 +129,31 @@ Improve this doc
   <tbody>
     
     <tr>
-      <td>input</td>
+      <td>ionInput</td>
       <td><p> When the Searchbar input has changed including cleared</p>
 </td>
     </tr>
     
     <tr>
-      <td>blur</td>
+      <td>ionBlur</td>
       <td><p> When the Searchbar input has blurred</p>
 </td>
     </tr>
     
     <tr>
-      <td>focus</td>
+      <td>ionFocus</td>
       <td><p> When the Searchbar input has focused</p>
 </td>
     </tr>
     
     <tr>
-      <td>cancel</td>
+      <td>ionCancel</td>
       <td><p> When the cancel button is clicked</p>
 </td>
     </tr>
     
     <tr>
-      <td>clear</td>
+      <td>ionClear</td>
       <td><p> When the clear input button is clicked</p>
 </td>
     </tr>

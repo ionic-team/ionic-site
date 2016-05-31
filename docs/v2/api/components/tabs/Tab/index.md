@@ -104,11 +104,11 @@ export class Tabs {
 }
 </code></pre>
 <p>Sometimes you may want to call a method instead of navigating to a new
-page. You can use the <code>(select)</code> event to call a method on your class when
+page. You can use the <code>(ionSelect)</code> event to call a method on your class when
 the tab is selected. Below is an example of presenting a modal from one of
 the tabs.</p>
 <pre><code class="lang-html">&lt;ion-tabs preloadTabs=&quot;false&quot;&gt;
-  &lt;ion-tab (select)=&quot;chat()&quot;&gt;&lt;/ion-tab&gt;
+  &lt;ion-tab (ionSelect)=&quot;chat()&quot;&gt;&lt;/ion-tab&gt;
 &lt;/ion-tabs&gt;
 </code></pre>
 <pre><code class="lang-ts">export class Tabs {
@@ -217,7 +217,7 @@ tabbar or not. Defaults to <code>true</code>.</p>
   <tbody>
     
     <tr>
-      <td>select</td>
+      <td>ionSelect</td>
       <td><p> Method to call when the current tab is selected</p>
 </td>
     </tr>

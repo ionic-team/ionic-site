@@ -9836,9 +9836,9 @@ ion-icon {
     text-align: center; }
   .md .range-knob {
     position: absolute;
-    z-index: 2;
     top: 16px;
     left: 15px;
+    z-index: 2;
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -9846,8 +9846,8 @@ ion-icon {
     pointer-events: none; }
   .md .range-tick {
     position: absolute;
-    z-index: 1;
     top: 21px;
+    z-index: 1;
     margin-left: -1px;
     width: 2px;
     height: 2px;

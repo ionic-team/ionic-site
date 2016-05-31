@@ -15676,7 +15676,7 @@
 	}
 	exports.ionicBootstrap = ionicBootstrap;
 	function ionicPostBootstrap(ngComponentRef) {
-	    //ngComponentRef.injector.get(TapClick);
+	    // ngComponentRef.injector.get(TapClick);
 	    var app = ngComponentRef.injector.get(app_1.App);
 	    app.setAppInjector(ngComponentRef.injector);
 	    // prepare platform ready

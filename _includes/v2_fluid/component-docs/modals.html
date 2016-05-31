@@ -29,9 +29,8 @@ Next, let's create our modal and define add its template:
   </ion-content>`
 })
 class MyModal {
-  constructor(viewCtrl: ViewController) {
-    this.viewCtrl = viewCtrl;
-  }
+  constructor(
+    private viewCtrl: ViewController) {}
 
   close() {
     this.viewCtrl.dismiss();
@@ -45,9 +44,8 @@ Finally, let's add the code that will open our Modal:
 ```typescript
 import {Modal, NavController} from 'ionic-angular'
 class MyPage {
-  constructor(nav: NavController){
-    this.nav = nav;
-  }
+  constructor(private nav: NavController){}
+
   showModal() {
     let modal = Modal.create(MyModal);
     this.nav.present(modal);

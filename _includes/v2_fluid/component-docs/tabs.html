@@ -74,9 +74,10 @@ Notice that each `<ion-tab>` binds to a `[root]` property, just like [`<ion-nav>
 ...
 })
 class Tab1 {
-  constructor(nav: NavController) {
+  constructor(
+    private nav: NavController) {
     // Id is 1, nav refers to Tab1
-    console.log(nav.id)
+    console.log(this.nav.id)
   }
 }
 
@@ -84,9 +85,9 @@ class Tab1 {
 ...
 })
 class Tab2 {
-  constructor(nav: NavController) {
+  constructor(private nav: NavController) {
     // Id is 2, nav refers to Tab2
-    console.log(nav.id)
+    console.log(this.nav.id)
   }
 }
 ```
@@ -108,8 +109,7 @@ To add an icon inside of a tab, use the `tab-icon` attribute. This attribute can
   </ion-content>`,
 })
 class TabContentPage {
-  constructor() {
-  }
+  constructor() {}
 }
 
 @Page({
@@ -147,8 +147,7 @@ To add text and an icon inside of a tab, use the `tab-icon` and `tab-title` attr
   </ion-content>`
 })
 class TabsTextContentPage {
-  constructor() {
-  }
+  constructor() {}
 }
 
 @Page({
@@ -187,8 +186,7 @@ To add a badge to a tab, use the `tabBadge` and `tabBadgeStyle` attributes. The 
   </ion-content>`,
 })
 class TabBadgePage {
-  constructor() {
-  }
+  constructor() {}
 }
 
 @Page({

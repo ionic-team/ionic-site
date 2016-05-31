@@ -61,13 +61,13 @@ import {SignupPage} from 'signup';
 })
 class MyApp {
 
-  constructor(app: IonicApp, menu: MenuController) {
-    this.app = app;
-    this.menu = menu;
-    this.rootPage = LoginPage;
-    this.loginPage = LoginPage;
-    this.signupPage = SignupPage;
-  }
+  private rootPage = LoginPage;
+  private loginPage = LoginPage;
+  private signupPage = SignupPage;
+
+  constructor(
+    private app: IonicApp,
+    private menu: MenuController) {}
 
   openPage(page) {
     // Reset the nav controller to have just this page

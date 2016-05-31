@@ -43973,10 +43973,14 @@
 	 */
 	var Slide = (function () {
 	    function Slide(elementRef, slides) {
+	        this.slides = slides;
 	        this.ele = elementRef.nativeElement;
 	        this.ele.classList.add('swiper-slide');
 	        slides.rapidUpdate();
 	    }
+	    Slide.prototype.ngOnDestroy = function () {
+	        this.slides.rapidUpdate();
+	    };
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)

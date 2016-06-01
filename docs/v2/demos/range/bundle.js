@@ -2470,7 +2470,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var ionic_angular_1 = __webpack_require__(6);
+	var core_1 = __webpack_require__(6);
+	var ionic_angular_1 = __webpack_require__(102);
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
 	        this.brightness = 20;
@@ -2482,489 +2483,17 @@
 	        console.log("Changed", ev);
 	    };
 	    ApiDemoApp = __decorate([
-	        ionic_angular_1.App({
+	        core_1.Component({
 	            templateUrl: 'main.html'
 	        }), 
 	        __metadata('design:paramtypes', [])
 	    ], ApiDemoApp);
 	    return ApiDemoApp;
 	}());
+	ionic_angular_1.ionicBootstrap(ApiDemoApp);
 
 /***/ },
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(7));
-	__export(__webpack_require__(331));
-	__export(__webpack_require__(339));
-	__export(__webpack_require__(414));
-	__export(__webpack_require__(415));
-	__export(__webpack_require__(332));
-	__export(__webpack_require__(421));
-	__export(__webpack_require__(335));
-	__export(__webpack_require__(336));
-	__export(__webpack_require__(342));
-	__export(__webpack_require__(338));
-	__export(__webpack_require__(361));
-	__export(__webpack_require__(360));
-	__export(__webpack_require__(413));
-	__export(__webpack_require__(425));
-	// these modules don't export anything
-	__webpack_require__(426);
-	__webpack_require__(427);
-	__webpack_require__(428);
-	__webpack_require__(429);
-	__webpack_require__(430);
-	__webpack_require__(431);
-
-/***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var platform_browser_dynamic_1 = __webpack_require__(8);
-	var core_1 = __webpack_require__(14);
-	var router_1 = __webpack_require__(287);
-	var common_1 = __webpack_require__(188);
-	var http_1 = __webpack_require__(309);
-	var app_1 = __webpack_require__(330);
-	var click_block_1 = __webpack_require__(335);
-	var config_1 = __webpack_require__(331);
-	var events_1 = __webpack_require__(336);
-	var feature_detect_1 = __webpack_require__(337);
-	var form_1 = __webpack_require__(338);
-	var directives_1 = __webpack_require__(339);
-	var keyboard_1 = __webpack_require__(342);
-	var menu_controller_1 = __webpack_require__(351);
-	var dom_1 = __webpack_require__(334);
-	var nav_registry_1 = __webpack_require__(407);
-	var platform_1 = __webpack_require__(332);
-	var scroll_view_1 = __webpack_require__(365);
-	var tap_click_1 = __webpack_require__(410);
-	var translate_1 = __webpack_require__(413);
-	var _reflect = Reflect;
-	function ionicBootstrap(appRootComponent, customProviders, config) {
-	    // get all Ionic Providers
-	    var providers = ionicProviders(customProviders, config);
-	    // automatically set "ion-app" selector to users root component
-	    addSelector(appRootComponent, 'ion-app');
-	    // call angular bootstrap
-	    return platform_browser_dynamic_1.bootstrap(appRootComponent, providers).then(function (ngComponentRef) {
-	        // ionic app has finished bootstrapping
-	        return ionicPostBootstrap(ngComponentRef);
-	    });
-	}
-	exports.ionicBootstrap = ionicBootstrap;
-	function ionicPostBootstrap(ngComponentRef) {
-	    var app = ngComponentRef.injector.get(app_1.App);
-	    app.setAppInjector(ngComponentRef.injector);
-	    // prepare platform ready
-	    var platform = ngComponentRef.injector.get(platform_1.Platform);
-	    platform.setZone(ngComponentRef.injector.get(core_1.NgZone));
-	    platform.prepareReady();
-	    // TODO: Use PLATFORM_INITIALIZER
-	    ngComponentRef.injector.get(tap_click_1.TapClick);
-	    // TODO: Use Renderer
-	    ngComponentRef.location.nativeElement.classList.add('app-init');
-	    return ngComponentRef;
-	}
-	exports.ionicPostBootstrap = ionicPostBootstrap;
-	function ionicProviders(customProviders, config) {
-	    // add custom providers to Ionic's dev
-	    var directives = directives_1.IONIC_DIRECTIVES;
-	    if (customProviders) {
-	        directives.push(customProviders);
-	    }
-	    // create an instance of Config
-	    if (!(config instanceof config_1.Config)) {
-	        config = new config_1.Config(config);
-	    }
-	    // enable production mode if config set to true
-	    if (config.getBoolean('prodMode')) {
-	        core_1.enableProdMode();
-	    }
-	    // create an instance of Platform
-	    var platform = new platform_1.Platform();
-	    // initialize platform
-	    platform.setUrl(window.location.href);
-	    platform.setUserAgent(window.navigator.userAgent);
-	    platform.setNavigatorPlatform(window.navigator.platform);
-	    platform.load(config);
-	    config.setPlatform(platform);
-	    var clickBlock = new click_block_1.ClickBlock();
-	    var events = new events_1.Events();
-	    var featureDetect = new feature_detect_1.FeatureDetect();
-	    setupDom(window, document, config, platform, clickBlock, featureDetect);
-	    bindEvents(window, document, platform, events);
-	    return [
-	        app_1.App,
-	        core_1.provide(click_block_1.ClickBlock, { useValue: clickBlock }),
-	        core_1.provide(config_1.Config, { useValue: config }),
-	        core_1.provide(events_1.Events, { useValue: events }),
-	        core_1.provide(feature_detect_1.FeatureDetect, { useValue: featureDetect }),
-	        form_1.Form,
-	        keyboard_1.Keyboard,
-	        menu_controller_1.MenuController,
-	        nav_registry_1.NavRegistry,
-	        core_1.provide(platform_1.Platform, { useValue: platform }),
-	        translate_1.Translate,
-	        tap_click_1.TapClick,
-	        core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: [directives], multi: true }),
-	        router_1.ROUTER_PROVIDERS,
-	        core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy }),
-	        http_1.HTTP_PROVIDERS,
-	    ];
-	}
-	exports.ionicProviders = ionicProviders;
-	function setupDom(window, document, config, platform, clickBlock, featureDetect) {
-	    var bodyEle = document.body;
-	    var mode = config.get('mode');
-	    // if dynamic mode links have been added the fire up the correct one
-	    var modeLinkAttr = mode + '-href';
-	    var linkEle = document.head.querySelector('link[' + modeLinkAttr + ']');
-	    if (linkEle) {
-	        var href = linkEle.getAttribute(modeLinkAttr);
-	        linkEle.removeAttribute(modeLinkAttr);
-	        linkEle.href = href;
-	    }
-	    var headStyle = document.createElement('style');
-	    headStyle.innerHTML = 'ion-app{display:none}';
-	    document.head.appendChild(headStyle);
-	    // set the mode class name
-	    // ios/md/wp
-	    bodyEle.classList.add(mode);
-	    // language and direction
-	    platform.setDir(document.documentElement.dir, false);
-	    platform.setLang(document.documentElement.lang, false);
-	    var versions = platform.versions();
-	    platform.platforms().forEach(function (platformName) {
-	        // platform-ios
-	        var platformClass = 'platform-' + platformName;
-	        bodyEle.classList.add(platformClass);
-	        var platformVersion = versions[platformName];
-	        if (platformVersion) {
-	            // platform-ios9
-	            platformClass += platformVersion.major;
-	            bodyEle.classList.add(platformClass);
-	            // platform-ios9_3
-	            bodyEle.classList.add(platformClass + '_' + platformVersion.minor);
-	        }
-	    });
-	    // touch devices should not use :hover CSS pseudo
-	    // enable :hover CSS when the "hoverCSS" setting is not false
-	    if (config.get('hoverCSS') !== false) {
-	        bodyEle.classList.add('enable-hover');
-	    }
-	    // run feature detection tests
-	    featureDetect.run(window, document);
-	}
-	/**
-	 * Bind some global events and publish on the 'app' channel
-	 */
-	function bindEvents(window, document, platform, events) {
-	    window.addEventListener('online', function (ev) {
-	        events.publish('app:online', ev);
-	    }, false);
-	    window.addEventListener('offline', function (ev) {
-	        events.publish('app:offline', ev);
-	    }, false);
-	    window.addEventListener('orientationchange', function (ev) {
-	        events.publish('app:rotated', ev);
-	    });
-	    // When that status taps, we respond
-	    window.addEventListener('statusTap', function (ev) {
-	        // TODO: Make this more better
-	        var el = document.elementFromPoint(platform.width() / 2, platform.height() / 2);
-	        if (!el) {
-	            return;
-	        }
-	        var content = dom_1.closest(el, 'scroll-content');
-	        if (content) {
-	            var scroll = new scroll_view_1.ScrollView(content);
-	            scroll.scrollTo(0, 0, 300);
-	        }
-	    });
-	    // start listening for resizes XXms after the app starts
-	    dom_1.nativeTimeout(function () {
-	        window.addEventListener('resize', function () {
-	            platform.windowResize();
-	        });
-	    }, 2000);
-	}
-	/**
-	 * @private
-	 */
-	function addSelector(type, selector) {
-	    if (type) {
-	        var annotations = _reflect.getMetadata('annotations', type);
-	        if (annotations && !annotations[0].selector) {
-	            annotations[0].selector = selector;
-	            _reflect.defineMetadata('annotations', annotations, type);
-	        }
-	    }
-	}
-	exports.addSelector = addSelector;
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(9));
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var compiler_1 = __webpack_require__(10);
-	var xhr_cache_1 = __webpack_require__(175);
-	var lang_1 = __webpack_require__(179);
-	var xhr_impl_1 = __webpack_require__(182);
-	var platform_browser_1 = __webpack_require__(183);
-	var core_1 = __webpack_require__(14);
-	var core_private_1 = __webpack_require__(286);
-	exports.CACHED_TEMPLATE_PROVIDER = 
-	/*@ts2dart_const*/ [{ provide: compiler_1.XHR, useClass: xhr_cache_1.CachedXHR }];
-	/**
-	 * An array of providers that should be passed into `application()` when bootstrapping a component.
-	 */
-	exports.BROWSER_APP_DYNAMIC_PROVIDERS = 
-	/*@ts2dart_const*/ [
-	    platform_browser_1.BROWSER_APP_COMMON_PROVIDERS,
-	    compiler_1.COMPILER_PROVIDERS,
-	    { provide: compiler_1.XHR, useClass: xhr_impl_1.XHRImpl },
-	];
-	/**
-	 * Bootstrapping for Angular applications.
-	 *
-	 * You instantiate an Angular application by explicitly specifying a component to use
-	 * as the root component for your application via the `bootstrap()` method.
-	 *
-	 * ## Simple Example
-	 *
-	 * Assuming this `index.html`:
-	 *
-	 * ```html
-	 * <html>
-	 *   <!-- load Angular script tags here. -->
-	 *   <body>
-	 *     <my-app>loading...</my-app>
-	 *   </body>
-	 * </html>
-	 * ```
-	 *
-	 * An application is bootstrapped inside an existing browser DOM, typically `index.html`.
-	 * Unlike Angular 1, Angular 2 does not compile/process providers in `index.html`. This is
-	 * mainly for security reasons, as well as architectural changes in Angular 2. This means
-	 * that `index.html` can safely be processed using server-side technologies such as
-	 * providers. Bindings can thus use double-curly `{{ syntax }}` without collision from
-	 * Angular 2 component double-curly `{{ syntax }}`.
-	 *
-	 * We can use this script code:
-	 *
-	 * {@example core/ts/bootstrap/bootstrap.ts region='bootstrap'}
-	 *
-	 * When the app developer invokes `bootstrap()` with the root component `MyApp` as its
-	 * argument, Angular performs the following tasks:
-	 *
-	 *  1. It uses the component's `selector` property to locate the DOM element which needs
-	 *     to be upgraded into the angular component.
-	 *  2. It creates a new child injector (from the platform injector). Optionally, you can
-	 *     also override the injector configuration for an app by invoking `bootstrap` with the
-	 *     `componentInjectableBindings` argument.
-	 *  3. It creates a new `Zone` and connects it to the angular application's change detection
-	 *     domain instance.
-	 *  4. It creates an emulated or shadow DOM on the selected component's host element and loads the
-	 *     template into it.
-	 *  5. It instantiates the specified component.
-	 *  6. Finally, Angular performs change detection to apply the initial data providers for the
-	 *     application.
-	 *
-	 *
-	 * ## Bootstrapping Multiple Applications
-	 *
-	 * When working within a browser window, there are many singleton resources: cookies, title,
-	 * location, and others. Angular services that represent these resources must likewise be
-	 * shared across all Angular applications that occupy the same browser window. For this
-	 * reason, Angular creates exactly one global platform object which stores all shared
-	 * services, and each angular application injector has the platform injector as its parent.
-	 *
-	 * Each application has its own private injector as well. When there are multiple
-	 * applications on a page, Angular treats each application injector's services as private
-	 * to that application.
-	 *
-	 * ## API
-	 *
-	 * - `appComponentType`: The root component which should act as the application. This is
-	 *   a reference to a `Type` which is annotated with `@Component(...)`.
-	 * - `customProviders`: An additional set of providers that can be added to the
-	 *   app injector to override default injection behavior.
-	 *
-	 * Returns a `Promise` of {@link ComponentRef}.
-	 */
-	function bootstrap(appComponentType, customProviders) {
-	    core_1.reflector.reflectionCapabilities = new core_private_1.ReflectionCapabilities();
-	    var appInjector = core_1.ReflectiveInjector.resolveAndCreate([exports.BROWSER_APP_DYNAMIC_PROVIDERS, lang_1.isPresent(customProviders) ? customProviders : []], platform_browser_1.browserPlatform().injector);
-	    return core_1.coreLoadAndBootstrap(appInjector, appComponentType);
-	}
-	exports.bootstrap = bootstrap;
-	//# sourceMappingURL=platform_browser_dynamic.js.map
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	__export(__webpack_require__(11));
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	/**
-	* @module
-	* @description
-	* Starting point to import all compiler APIs.
-	*/
-	var element_schema_registry_1 = __webpack_require__(12);
-	exports.ElementSchemaRegistry = element_schema_registry_1.ElementSchemaRegistry;
-	var compiler_1 = __webpack_require__(13);
-	exports.COMPILER_PROVIDERS = compiler_1.COMPILER_PROVIDERS;
-	exports.TEMPLATE_TRANSFORMS = compiler_1.TEMPLATE_TRANSFORMS;
-	exports.CompilerConfig = compiler_1.CompilerConfig;
-	exports.RenderTypes = compiler_1.RenderTypes;
-	exports.UrlResolver = compiler_1.UrlResolver;
-	exports.DEFAULT_PACKAGE_URL_PROVIDER = compiler_1.DEFAULT_PACKAGE_URL_PROVIDER;
-	exports.createOfflineCompileUrlResolver = compiler_1.createOfflineCompileUrlResolver;
-	exports.XHR = compiler_1.XHR;
-	exports.ViewResolver = compiler_1.ViewResolver;
-	exports.DirectiveResolver = compiler_1.DirectiveResolver;
-	exports.PipeResolver = compiler_1.PipeResolver;
-	exports.SourceModule = compiler_1.SourceModule;
-	exports.NormalizedComponentWithViewDirectives = compiler_1.NormalizedComponentWithViewDirectives;
-	exports.OfflineCompiler = compiler_1.OfflineCompiler;
-	exports.CompileMetadataWithIdentifier = compiler_1.CompileMetadataWithIdentifier;
-	exports.CompileMetadataWithType = compiler_1.CompileMetadataWithType;
-	exports.CompileIdentifierMetadata = compiler_1.CompileIdentifierMetadata;
-	exports.CompileDiDependencyMetadata = compiler_1.CompileDiDependencyMetadata;
-	exports.CompileProviderMetadata = compiler_1.CompileProviderMetadata;
-	exports.CompileFactoryMetadata = compiler_1.CompileFactoryMetadata;
-	exports.CompileTokenMetadata = compiler_1.CompileTokenMetadata;
-	exports.CompileTypeMetadata = compiler_1.CompileTypeMetadata;
-	exports.CompileQueryMetadata = compiler_1.CompileQueryMetadata;
-	exports.CompileTemplateMetadata = compiler_1.CompileTemplateMetadata;
-	exports.CompileDirectiveMetadata = compiler_1.CompileDirectiveMetadata;
-	exports.CompilePipeMetadata = compiler_1.CompilePipeMetadata;
-	__export(__webpack_require__(111));
-	__export(__webpack_require__(173));
-	//# sourceMappingURL=compiler.js.map
-
-/***/ },
-/* 12 */
-/***/ function(module, exports) {
-
-	"use strict";
-	var ElementSchemaRegistry = (function () {
-	    function ElementSchemaRegistry() {
-	    }
-	    return ElementSchemaRegistry;
-	}());
-	exports.ElementSchemaRegistry = ElementSchemaRegistry;
-	//# sourceMappingURL=element_schema_registry.js.map
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	var core_1 = __webpack_require__(14);
-	var lang_1 = __webpack_require__(110);
-	__export(__webpack_require__(111));
-	var template_parser_1 = __webpack_require__(112);
-	exports.TEMPLATE_TRANSFORMS = template_parser_1.TEMPLATE_TRANSFORMS;
-	var config_1 = __webpack_require__(134);
-	exports.CompilerConfig = config_1.CompilerConfig;
-	exports.RenderTypes = config_1.RenderTypes;
-	__export(__webpack_require__(131));
-	__export(__webpack_require__(135));
-	var runtime_compiler_1 = __webpack_require__(137);
-	exports.RuntimeCompiler = runtime_compiler_1.RuntimeCompiler;
-	__export(__webpack_require__(132));
-	__export(__webpack_require__(158));
-	var view_resolver_1 = __webpack_require__(162);
-	exports.ViewResolver = view_resolver_1.ViewResolver;
-	var directive_resolver_1 = __webpack_require__(160);
-	exports.DirectiveResolver = directive_resolver_1.DirectiveResolver;
-	var pipe_resolver_1 = __webpack_require__(161);
-	exports.PipeResolver = pipe_resolver_1.PipeResolver;
-	var template_parser_2 = __webpack_require__(112);
-	var html_parser_1 = __webpack_require__(121);
-	var directive_normalizer_1 = __webpack_require__(157);
-	var metadata_resolver_1 = __webpack_require__(159);
-	var style_compiler_1 = __webpack_require__(140);
-	var view_compiler_1 = __webpack_require__(142);
-	var config_2 = __webpack_require__(134);
-	var runtime_compiler_2 = __webpack_require__(137);
-	var element_schema_registry_1 = __webpack_require__(12);
-	var dom_element_schema_registry_1 = __webpack_require__(172);
-	var url_resolver_2 = __webpack_require__(132);
-	var parser_1 = __webpack_require__(119);
-	var lexer_1 = __webpack_require__(120);
-	var view_resolver_2 = __webpack_require__(162);
-	var directive_resolver_2 = __webpack_require__(160);
-	var pipe_resolver_2 = __webpack_require__(161);
-	function _createCompilerConfig() {
-	    return new config_2.CompilerConfig(lang_1.assertionsEnabled(), false, true);
-	}
-	/**
-	 * A set of providers that provide `RuntimeCompiler` and its dependencies to use for
-	 * template compilation.
-	 */
-	exports.COMPILER_PROVIDERS = 
-	/*@ts2dart_const*/ [
-	    lexer_1.Lexer,
-	    parser_1.Parser,
-	    html_parser_1.HtmlParser,
-	    template_parser_2.TemplateParser,
-	    directive_normalizer_1.DirectiveNormalizer,
-	    metadata_resolver_1.CompileMetadataResolver,
-	    url_resolver_2.DEFAULT_PACKAGE_URL_PROVIDER,
-	    style_compiler_1.StyleCompiler,
-	    view_compiler_1.ViewCompiler,
-	    /*@ts2dart_Provider*/ { provide: config_2.CompilerConfig, useFactory: _createCompilerConfig, deps: [] },
-	    runtime_compiler_2.RuntimeCompiler,
-	    /*@ts2dart_Provider*/ { provide: core_1.ComponentResolver, useExisting: runtime_compiler_2.RuntimeCompiler },
-	    dom_element_schema_registry_1.DomElementSchemaRegistry,
-	    /*@ts2dart_Provider*/ { provide: element_schema_registry_1.ElementSchemaRegistry, useExisting: dom_element_schema_registry_1.DomElementSchemaRegistry },
-	    url_resolver_2.UrlResolver,
-	    view_resolver_2.ViewResolver,
-	    directive_resolver_2.DirectiveResolver,
-	    pipe_resolver_2.PipeResolver
-	];
-	//# sourceMappingURL=compiler.js.map
-
-/***/ },
-/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -2976,10 +2505,10 @@
 	* @description
 	* Starting point to import all public core APIs.
 	*/
-	__export(__webpack_require__(15));
-	__export(__webpack_require__(24));
-	__export(__webpack_require__(25));
-	var application_ref_1 = __webpack_require__(43);
+	__export(__webpack_require__(7));
+	__export(__webpack_require__(16));
+	__export(__webpack_require__(17));
+	var application_ref_1 = __webpack_require__(35);
 	exports.createPlatform = application_ref_1.createPlatform;
 	exports.assertPlatform = application_ref_1.assertPlatform;
 	exports.disposePlatform = application_ref_1.disposePlatform;
@@ -2989,44 +2518,44 @@
 	exports.createNgZone = application_ref_1.createNgZone;
 	exports.PlatformRef = application_ref_1.PlatformRef;
 	exports.ApplicationRef = application_ref_1.ApplicationRef;
-	var application_tokens_1 = __webpack_require__(69);
+	var application_tokens_1 = __webpack_require__(61);
 	exports.APP_ID = application_tokens_1.APP_ID;
 	exports.APP_INITIALIZER = application_tokens_1.APP_INITIALIZER;
 	exports.PACKAGE_ROOT_URL = application_tokens_1.PACKAGE_ROOT_URL;
 	exports.PLATFORM_INITIALIZER = application_tokens_1.PLATFORM_INITIALIZER;
-	__export(__webpack_require__(91));
-	__export(__webpack_require__(92));
-	__export(__webpack_require__(93));
-	var debug_node_1 = __webpack_require__(98);
+	__export(__webpack_require__(83));
+	__export(__webpack_require__(84));
+	__export(__webpack_require__(85));
+	var debug_node_1 = __webpack_require__(90);
 	exports.DebugElement = debug_node_1.DebugElement;
 	exports.DebugNode = debug_node_1.DebugNode;
 	exports.asNativeElements = debug_node_1.asNativeElements;
 	exports.getDebugNode = debug_node_1.getDebugNode;
-	__export(__webpack_require__(70));
-	__export(__webpack_require__(99));
-	__export(__webpack_require__(100));
-	__export(__webpack_require__(101));
-	__export(__webpack_require__(102));
-	__export(__webpack_require__(34));
-	var profile_1 = __webpack_require__(79);
+	__export(__webpack_require__(62));
+	__export(__webpack_require__(91));
+	__export(__webpack_require__(92));
+	__export(__webpack_require__(93));
+	__export(__webpack_require__(94));
+	__export(__webpack_require__(26));
+	var profile_1 = __webpack_require__(71);
 	exports.wtfCreateScope = profile_1.wtfCreateScope;
 	exports.wtfLeave = profile_1.wtfLeave;
 	exports.wtfStartTimeRange = profile_1.wtfStartTimeRange;
 	exports.wtfEndTimeRange = profile_1.wtfEndTimeRange;
-	var lang_1 = __webpack_require__(17);
+	var lang_1 = __webpack_require__(9);
 	exports.Type = lang_1.Type;
 	exports.enableProdMode = lang_1.enableProdMode;
-	var async_1 = __webpack_require__(45);
+	var async_1 = __webpack_require__(37);
 	exports.EventEmitter = async_1.EventEmitter;
-	var exceptions_1 = __webpack_require__(28);
+	var exceptions_1 = __webpack_require__(20);
 	exports.ExceptionHandler = exceptions_1.ExceptionHandler;
 	exports.WrappedException = exceptions_1.WrappedException;
 	exports.BaseException = exceptions_1.BaseException;
-	__export(__webpack_require__(103));
+	__export(__webpack_require__(95));
 	//# sourceMappingURL=index.js.map
 
 /***/ },
-/* 15 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -3034,7 +2563,7 @@
 	* This indirection is needed to free up Component, etc symbols in the public API
 	* to be used by the decorator versions of these annotations.
 	*/
-	var di_1 = __webpack_require__(16);
+	var di_1 = __webpack_require__(8);
 	exports.QueryMetadata = di_1.QueryMetadata;
 	exports.ContentChildrenMetadata = di_1.ContentChildrenMetadata;
 	exports.ContentChildMetadata = di_1.ContentChildMetadata;
@@ -3042,7 +2571,7 @@
 	exports.ViewQueryMetadata = di_1.ViewQueryMetadata;
 	exports.ViewChildMetadata = di_1.ViewChildMetadata;
 	exports.AttributeMetadata = di_1.AttributeMetadata;
-	var directives_1 = __webpack_require__(20);
+	var directives_1 = __webpack_require__(12);
 	exports.ComponentMetadata = directives_1.ComponentMetadata;
 	exports.DirectiveMetadata = directives_1.DirectiveMetadata;
 	exports.PipeMetadata = directives_1.PipeMetadata;
@@ -3050,13 +2579,13 @@
 	exports.OutputMetadata = directives_1.OutputMetadata;
 	exports.HostBindingMetadata = directives_1.HostBindingMetadata;
 	exports.HostListenerMetadata = directives_1.HostListenerMetadata;
-	var view_1 = __webpack_require__(22);
+	var view_1 = __webpack_require__(14);
 	exports.ViewMetadata = view_1.ViewMetadata;
 	exports.ViewEncapsulation = view_1.ViewEncapsulation;
-	var di_2 = __webpack_require__(16);
-	var directives_2 = __webpack_require__(20);
-	var view_2 = __webpack_require__(22);
-	var decorators_1 = __webpack_require__(23);
+	var di_2 = __webpack_require__(8);
+	var directives_2 = __webpack_require__(12);
+	var view_2 = __webpack_require__(14);
+	var decorators_1 = __webpack_require__(15);
 	// TODO(alexeagle): remove the duplication of this doc. It is copied from ComponentMetadata.
 	/**
 	 * Declare reusable UI building blocks for an application.
@@ -4025,7 +3554,7 @@
 	//# sourceMappingURL=metadata.js.map
 
 /***/ },
-/* 16 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -4034,9 +3563,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var lang_1 = __webpack_require__(17);
-	var metadata_1 = __webpack_require__(18);
-	var forward_ref_1 = __webpack_require__(19);
+	var lang_1 = __webpack_require__(9);
+	var metadata_1 = __webpack_require__(10);
+	var forward_ref_1 = __webpack_require__(11);
 	/**
 	 * Specifies that a constant attribute value should be injected.
 	 *
@@ -4518,7 +4047,7 @@
 	//# sourceMappingURL=di.js.map
 
 /***/ },
-/* 17 */
+/* 9 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {"use strict";
@@ -5003,11 +4532,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 18 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
+	var lang_1 = __webpack_require__(9);
 	/**
 	 * A parameter metadata that specifies a dependency.
 	 *
@@ -5273,11 +4802,11 @@
 	//# sourceMappingURL=metadata.js.map
 
 /***/ },
-/* 19 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
+	var lang_1 = __webpack_require__(9);
 	/**
 	 * Allows to refer to references which are not yet defined.
 	 *
@@ -5323,7 +4852,7 @@
 	//# sourceMappingURL=forward_ref.js.map
 
 /***/ },
-/* 20 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -5332,9 +4861,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var lang_1 = __webpack_require__(17);
-	var metadata_1 = __webpack_require__(18);
-	var constants_1 = __webpack_require__(21);
+	var lang_1 = __webpack_require__(9);
+	var metadata_1 = __webpack_require__(10);
+	var constants_1 = __webpack_require__(13);
 	/**
 	 * Directives allow you to attach behavior to elements in the DOM.
 	 *
@@ -6222,11 +5751,11 @@
 	//# sourceMappingURL=directives.js.map
 
 /***/ },
-/* 21 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
+	var lang_1 = __webpack_require__(9);
 	/**
 	 * Describes the current state of the change detector.
 	 */
@@ -6311,7 +5840,7 @@
 	//# sourceMappingURL=constants.js.map
 
 /***/ },
-/* 22 */
+/* 14 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -6391,11 +5920,11 @@
 	//# sourceMappingURL=view.js.map
 
 /***/ },
-/* 23 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
+	var lang_1 = __webpack_require__(9);
 	var _nextClassId = 0;
 	function extractAnnotation(annotation) {
 	    if (lang_1.isFunction(annotation) && annotation.hasOwnProperty('annotation')) {
@@ -6654,17 +6183,17 @@
 	//# sourceMappingURL=decorators.js.map
 
 /***/ },
-/* 24 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	// Public API for util
-	var decorators_1 = __webpack_require__(23);
+	var decorators_1 = __webpack_require__(15);
 	exports.Class = decorators_1.Class;
 	//# sourceMappingURL=util.js.map
 
 /***/ },
-/* 25 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -6676,7 +6205,7 @@
 	* @description
 	* The `di` module provides dependency injection container services.
 	*/
-	var metadata_1 = __webpack_require__(18);
+	var metadata_1 = __webpack_require__(10);
 	exports.InjectMetadata = metadata_1.InjectMetadata;
 	exports.OptionalMetadata = metadata_1.OptionalMetadata;
 	exports.InjectableMetadata = metadata_1.InjectableMetadata;
@@ -6685,26 +6214,26 @@
 	exports.SkipSelfMetadata = metadata_1.SkipSelfMetadata;
 	exports.DependencyMetadata = metadata_1.DependencyMetadata;
 	// we have to reexport * because Dart and TS export two different sets of types
-	__export(__webpack_require__(26));
-	var forward_ref_1 = __webpack_require__(19);
+	__export(__webpack_require__(18));
+	var forward_ref_1 = __webpack_require__(11);
 	exports.forwardRef = forward_ref_1.forwardRef;
 	exports.resolveForwardRef = forward_ref_1.resolveForwardRef;
-	var injector_1 = __webpack_require__(27);
+	var injector_1 = __webpack_require__(19);
 	exports.Injector = injector_1.Injector;
-	var reflective_injector_1 = __webpack_require__(32);
+	var reflective_injector_1 = __webpack_require__(24);
 	exports.ReflectiveInjector = reflective_injector_1.ReflectiveInjector;
-	var provider_1 = __webpack_require__(40);
+	var provider_1 = __webpack_require__(32);
 	exports.Binding = provider_1.Binding;
 	exports.ProviderBuilder = provider_1.ProviderBuilder;
 	exports.bind = provider_1.bind;
 	exports.Provider = provider_1.Provider;
 	exports.provide = provider_1.provide;
-	var reflective_provider_1 = __webpack_require__(33);
+	var reflective_provider_1 = __webpack_require__(25);
 	exports.ResolvedReflectiveFactory = reflective_provider_1.ResolvedReflectiveFactory;
 	exports.ReflectiveDependency = reflective_provider_1.ReflectiveDependency;
-	var reflective_key_1 = __webpack_require__(38);
+	var reflective_key_1 = __webpack_require__(30);
 	exports.ReflectiveKey = reflective_key_1.ReflectiveKey;
-	var reflective_exceptions_1 = __webpack_require__(39);
+	var reflective_exceptions_1 = __webpack_require__(31);
 	exports.NoProviderError = reflective_exceptions_1.NoProviderError;
 	exports.AbstractProviderError = reflective_exceptions_1.AbstractProviderError;
 	exports.CyclicDependencyError = reflective_exceptions_1.CyclicDependencyError;
@@ -6712,17 +6241,17 @@
 	exports.InvalidProviderError = reflective_exceptions_1.InvalidProviderError;
 	exports.NoAnnotationError = reflective_exceptions_1.NoAnnotationError;
 	exports.OutOfBoundsError = reflective_exceptions_1.OutOfBoundsError;
-	var opaque_token_1 = __webpack_require__(42);
+	var opaque_token_1 = __webpack_require__(34);
 	exports.OpaqueToken = opaque_token_1.OpaqueToken;
 	//# sourceMappingURL=di.js.map
 
 /***/ },
-/* 26 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var metadata_1 = __webpack_require__(18);
-	var decorators_1 = __webpack_require__(23);
+	var metadata_1 = __webpack_require__(10);
+	var decorators_1 = __webpack_require__(15);
 	/**
 	 * Factory for creating {@link InjectMetadata}.
 	 */
@@ -6750,11 +6279,11 @@
 	//# sourceMappingURL=decorators.js.map
 
 /***/ },
-/* 27 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var exceptions_1 = __webpack_require__(28);
+	var exceptions_1 = __webpack_require__(20);
 	var _THROW_IF_NOT_FOUND = new Object();
 	exports.THROW_IF_NOT_FOUND = _THROW_IF_NOT_FOUND;
 	var Injector = (function () {
@@ -6792,7 +6321,7 @@
 	//# sourceMappingURL=injector.js.map
 
 /***/ },
-/* 28 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -6801,9 +6330,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var base_wrapped_exception_1 = __webpack_require__(29);
-	var exception_handler_1 = __webpack_require__(30);
-	var exception_handler_2 = __webpack_require__(30);
+	var base_wrapped_exception_1 = __webpack_require__(21);
+	var exception_handler_1 = __webpack_require__(22);
+	var exception_handler_2 = __webpack_require__(22);
 	exports.ExceptionHandler = exception_handler_2.ExceptionHandler;
 	var BaseException = (function (_super) {
 	    __extends(BaseException, _super);
@@ -6875,7 +6404,7 @@
 	//# sourceMappingURL=exceptions.js.map
 
 /***/ },
-/* 29 */
+/* 21 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -6930,13 +6459,13 @@
 	//# sourceMappingURL=base_wrapped_exception.js.map
 
 /***/ },
-/* 30 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
-	var base_wrapped_exception_1 = __webpack_require__(29);
-	var collection_1 = __webpack_require__(31);
+	var lang_1 = __webpack_require__(9);
+	var base_wrapped_exception_1 = __webpack_require__(21);
+	var collection_1 = __webpack_require__(23);
 	var _ArrayLogger = (function () {
 	    function _ArrayLogger() {
 	        this.res = [];
@@ -7067,11 +6596,11 @@
 	//# sourceMappingURL=exception_handler.js.map
 
 /***/ },
-/* 31 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
+	var lang_1 = __webpack_require__(9);
 	exports.Map = lang_1.global.Map;
 	exports.Set = lang_1.global.Set;
 	// Safari and Internet Explorer do not support the iterable parameter to the
@@ -7440,17 +6969,17 @@
 	//# sourceMappingURL=collection.js.map
 
 /***/ },
-/* 32 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var collection_1 = __webpack_require__(31);
-	var reflective_provider_1 = __webpack_require__(33);
-	var reflective_exceptions_1 = __webpack_require__(39);
-	var exceptions_1 = __webpack_require__(28);
-	var reflective_key_1 = __webpack_require__(38);
-	var metadata_1 = __webpack_require__(18);
-	var injector_1 = __webpack_require__(27);
+	var collection_1 = __webpack_require__(23);
+	var reflective_provider_1 = __webpack_require__(25);
+	var reflective_exceptions_1 = __webpack_require__(31);
+	var exceptions_1 = __webpack_require__(20);
+	var reflective_key_1 = __webpack_require__(30);
+	var metadata_1 = __webpack_require__(10);
+	var injector_1 = __webpack_require__(19);
 	var __unused; // avoid unused import when Type union types are erased
 	// Threshold for the dynamic version
 	var _MAX_CONSTRUCTION_COUNTER = 10;
@@ -8271,19 +7800,19 @@
 	//# sourceMappingURL=reflective_injector.js.map
 
 /***/ },
-/* 33 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
-	var collection_1 = __webpack_require__(31);
-	var reflection_1 = __webpack_require__(34);
-	var reflective_key_1 = __webpack_require__(38);
-	var metadata_1 = __webpack_require__(18);
-	var reflective_exceptions_1 = __webpack_require__(39);
-	var forward_ref_1 = __webpack_require__(19);
-	var provider_1 = __webpack_require__(40);
-	var provider_util_1 = __webpack_require__(41);
+	var lang_1 = __webpack_require__(9);
+	var collection_1 = __webpack_require__(23);
+	var reflection_1 = __webpack_require__(26);
+	var reflective_key_1 = __webpack_require__(30);
+	var metadata_1 = __webpack_require__(10);
+	var reflective_exceptions_1 = __webpack_require__(31);
+	var forward_ref_1 = __webpack_require__(11);
+	var provider_1 = __webpack_require__(32);
+	var provider_util_1 = __webpack_require__(33);
 	/**
 	 * `Dependency` is used by the framework to extend DI.
 	 * This is internal to Angular and should not be used directly.
@@ -8514,15 +8043,15 @@
 	//# sourceMappingURL=reflective_provider.js.map
 
 /***/ },
-/* 34 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var reflector_1 = __webpack_require__(35);
-	var reflector_2 = __webpack_require__(35);
+	var reflector_1 = __webpack_require__(27);
+	var reflector_2 = __webpack_require__(27);
 	exports.Reflector = reflector_2.Reflector;
 	exports.ReflectionInfo = reflector_2.ReflectionInfo;
-	var reflection_capabilities_1 = __webpack_require__(37);
+	var reflection_capabilities_1 = __webpack_require__(29);
 	/**
 	 * The {@link Reflector} used internally in Angular to access metadata
 	 * about symbols.
@@ -8531,7 +8060,7 @@
 	//# sourceMappingURL=reflection.js.map
 
 /***/ },
-/* 35 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -8540,10 +8069,10 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var lang_1 = __webpack_require__(17);
-	var exceptions_1 = __webpack_require__(28);
-	var collection_1 = __webpack_require__(31);
-	var reflector_reader_1 = __webpack_require__(36);
+	var lang_1 = __webpack_require__(9);
+	var exceptions_1 = __webpack_require__(20);
+	var collection_1 = __webpack_require__(23);
+	var reflector_reader_1 = __webpack_require__(28);
 	/**
 	 * Reflective information about a symbol, including annotations, interfaces, and other metadata.
 	 */
@@ -8693,7 +8222,7 @@
 	//# sourceMappingURL=reflector.js.map
 
 /***/ },
-/* 36 */
+/* 28 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -8710,12 +8239,12 @@
 	//# sourceMappingURL=reflector_reader.js.map
 
 /***/ },
-/* 37 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
-	var exceptions_1 = __webpack_require__(28);
+	var lang_1 = __webpack_require__(9);
+	var exceptions_1 = __webpack_require__(20);
 	var ReflectionCapabilities = (function () {
 	    function ReflectionCapabilities(reflect) {
 	        this._reflect = lang_1.isPresent(reflect) ? reflect : lang_1.global.Reflect;
@@ -8932,13 +8461,13 @@
 	//# sourceMappingURL=reflection_capabilities.js.map
 
 /***/ },
-/* 38 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
-	var exceptions_1 = __webpack_require__(28);
-	var forward_ref_1 = __webpack_require__(19);
+	var lang_1 = __webpack_require__(9);
+	var exceptions_1 = __webpack_require__(20);
+	var forward_ref_1 = __webpack_require__(11);
 	/**
 	 * A unique object used for retrieving items from the {@link ReflectiveInjector}.
 	 *
@@ -9019,7 +8548,7 @@
 	//# sourceMappingURL=reflective_key.js.map
 
 /***/ },
-/* 39 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -9028,9 +8557,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var collection_1 = __webpack_require__(31);
-	var lang_1 = __webpack_require__(17);
-	var exceptions_1 = __webpack_require__(28);
+	var collection_1 = __webpack_require__(23);
+	var lang_1 = __webpack_require__(9);
+	var exceptions_1 = __webpack_require__(20);
 	function findFirstClosedCycle(keys) {
 	    var res = [];
 	    for (var i = 0; i < keys.length; ++i) {
@@ -9305,7 +8834,7 @@
 	//# sourceMappingURL=reflective_exceptions.js.map
 
 /***/ },
-/* 40 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -9314,8 +8843,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var lang_1 = __webpack_require__(17);
-	var exceptions_1 = __webpack_require__(28);
+	var lang_1 = __webpack_require__(9);
+	var exceptions_1 = __webpack_require__(20);
 	/**
 	 * Describes how the {@link Injector} should instantiate a given token.
 	 *
@@ -9591,11 +9120,11 @@
 	//# sourceMappingURL=provider.js.map
 
 /***/ },
-/* 41 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var provider_1 = __webpack_require__(40);
+	var provider_1 = __webpack_require__(32);
 	function isProviderLiteral(obj) {
 	    return obj && typeof obj == 'object' && obj.provide;
 	}
@@ -9607,7 +9136,7 @@
 	//# sourceMappingURL=provider_util.js.map
 
 /***/ },
-/* 42 */
+/* 34 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -9644,7 +9173,7 @@
 	//# sourceMappingURL=opaque_token.js.map
 
 /***/ },
-/* 43 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -9653,17 +9182,17 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var ng_zone_1 = __webpack_require__(44);
-	var lang_1 = __webpack_require__(17);
-	var di_1 = __webpack_require__(25);
-	var application_tokens_1 = __webpack_require__(69);
-	var async_1 = __webpack_require__(45);
-	var collection_1 = __webpack_require__(31);
-	var testability_1 = __webpack_require__(70);
-	var component_resolver_1 = __webpack_require__(71);
-	var exceptions_1 = __webpack_require__(28);
-	var console_1 = __webpack_require__(90);
-	var profile_1 = __webpack_require__(79);
+	var ng_zone_1 = __webpack_require__(36);
+	var lang_1 = __webpack_require__(9);
+	var di_1 = __webpack_require__(17);
+	var application_tokens_1 = __webpack_require__(61);
+	var async_1 = __webpack_require__(37);
+	var collection_1 = __webpack_require__(23);
+	var testability_1 = __webpack_require__(62);
+	var component_resolver_1 = __webpack_require__(63);
+	var exceptions_1 = __webpack_require__(20);
+	var console_1 = __webpack_require__(82);
+	var profile_1 = __webpack_require__(71);
 	/**
 	 * Create an Angular zone.
 	 */
@@ -10061,14 +9590,14 @@
 	//# sourceMappingURL=application_ref.js.map
 
 /***/ },
-/* 44 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var async_1 = __webpack_require__(45);
-	var ng_zone_impl_1 = __webpack_require__(68);
-	var exceptions_1 = __webpack_require__(28);
-	var ng_zone_impl_2 = __webpack_require__(68);
+	var async_1 = __webpack_require__(37);
+	var ng_zone_impl_1 = __webpack_require__(60);
+	var exceptions_1 = __webpack_require__(20);
+	var ng_zone_impl_2 = __webpack_require__(60);
 	exports.NgZoneError = ng_zone_impl_2.NgZoneError;
 	/**
 	 * An injectable service for executing work inside or outside of the Angular zone.
@@ -10311,7 +9840,7 @@
 	//# sourceMappingURL=ng_zone.js.map
 
 /***/ },
-/* 45 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -10320,16 +9849,16 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var lang_1 = __webpack_require__(17);
-	var promise_1 = __webpack_require__(46);
+	var lang_1 = __webpack_require__(9);
+	var promise_1 = __webpack_require__(38);
 	exports.PromiseWrapper = promise_1.PromiseWrapper;
 	exports.PromiseCompleter = promise_1.PromiseCompleter;
-	var Subject_1 = __webpack_require__(47);
-	var PromiseObservable_1 = __webpack_require__(66);
-	var toPromise_1 = __webpack_require__(67);
-	var Observable_1 = __webpack_require__(48);
+	var Subject_1 = __webpack_require__(39);
+	var PromiseObservable_1 = __webpack_require__(58);
+	var toPromise_1 = __webpack_require__(59);
+	var Observable_1 = __webpack_require__(40);
 	exports.Observable = Observable_1.Observable;
-	var Subject_2 = __webpack_require__(47);
+	var Subject_2 = __webpack_require__(39);
 	exports.Subject = Subject_2.Subject;
 	var TimerWrapper = (function () {
 	    function TimerWrapper() {
@@ -10466,7 +9995,7 @@
 	//# sourceMappingURL=async.js.map
 
 /***/ },
-/* 46 */
+/* 38 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -10520,7 +10049,7 @@
 	//# sourceMappingURL=promise.js.map
 
 /***/ },
-/* 47 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -10529,13 +10058,13 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Observable_1 = __webpack_require__(48);
-	var Subscriber_1 = __webpack_require__(53);
-	var Subscription_1 = __webpack_require__(55);
-	var SubjectSubscription_1 = __webpack_require__(63);
-	var rxSubscriber_1 = __webpack_require__(61);
-	var throwError_1 = __webpack_require__(64);
-	var ObjectUnsubscribedError_1 = __webpack_require__(65);
+	var Observable_1 = __webpack_require__(40);
+	var Subscriber_1 = __webpack_require__(45);
+	var Subscription_1 = __webpack_require__(47);
+	var SubjectSubscription_1 = __webpack_require__(55);
+	var rxSubscriber_1 = __webpack_require__(53);
+	var throwError_1 = __webpack_require__(56);
+	var ObjectUnsubscribedError_1 = __webpack_require__(57);
 	/**
 	 * @class Subject<T>
 	 */
@@ -10731,13 +10260,13 @@
 	//# sourceMappingURL=Subject.js.map
 
 /***/ },
-/* 48 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var root_1 = __webpack_require__(49);
-	var observable_1 = __webpack_require__(51);
-	var toSubscriber_1 = __webpack_require__(52);
+	var root_1 = __webpack_require__(41);
+	var observable_1 = __webpack_require__(43);
+	var toSubscriber_1 = __webpack_require__(44);
 	/**
 	 * A representation of any set of values over any amount of time. This the most basic building block
 	 * of RxJS.
@@ -10871,7 +10400,7 @@
 	//# sourceMappingURL=Observable.js.map
 
 /***/ },
-/* 49 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module, global) {"use strict";
@@ -10892,10 +10421,10 @@
 	    exports.root = freeGlobal;
 	}
 	//# sourceMappingURL=root.js.map
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(50)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(42)(module), (function() { return this; }())))
 
 /***/ },
-/* 50 */
+/* 42 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -10911,11 +10440,11 @@
 
 
 /***/ },
-/* 51 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var root_1 = __webpack_require__(49);
+	var root_1 = __webpack_require__(41);
 	var Symbol = root_1.root.Symbol;
 	if (typeof Symbol === 'function') {
 	    if (Symbol.observable) {
@@ -10937,12 +10466,12 @@
 	//# sourceMappingURL=observable.js.map
 
 /***/ },
-/* 52 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Subscriber_1 = __webpack_require__(53);
-	var rxSubscriber_1 = __webpack_require__(61);
+	var Subscriber_1 = __webpack_require__(45);
+	var rxSubscriber_1 = __webpack_require__(53);
 	function toSubscriber(nextOrObserver, error, complete) {
 	    if (nextOrObserver && typeof nextOrObserver === 'object') {
 	        if (nextOrObserver instanceof Subscriber_1.Subscriber) {
@@ -10958,7 +10487,7 @@
 	//# sourceMappingURL=toSubscriber.js.map
 
 /***/ },
-/* 53 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -10967,10 +10496,10 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var isFunction_1 = __webpack_require__(54);
-	var Subscription_1 = __webpack_require__(55);
-	var rxSubscriber_1 = __webpack_require__(61);
-	var Observer_1 = __webpack_require__(62);
+	var isFunction_1 = __webpack_require__(46);
+	var Subscription_1 = __webpack_require__(47);
+	var rxSubscriber_1 = __webpack_require__(53);
+	var Observer_1 = __webpack_require__(54);
 	/**
 	 * Implements the {@link Observer} interface and extends the
 	 * {@link Subscription} class. While the {@link Observer} is the public API for
@@ -11214,7 +10743,7 @@
 	//# sourceMappingURL=Subscriber.js.map
 
 /***/ },
-/* 54 */
+/* 46 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -11225,16 +10754,16 @@
 	//# sourceMappingURL=isFunction.js.map
 
 /***/ },
-/* 55 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var isArray_1 = __webpack_require__(56);
-	var isObject_1 = __webpack_require__(57);
-	var isFunction_1 = __webpack_require__(54);
-	var tryCatch_1 = __webpack_require__(58);
-	var errorObject_1 = __webpack_require__(59);
-	var UnsubscriptionError_1 = __webpack_require__(60);
+	var isArray_1 = __webpack_require__(48);
+	var isObject_1 = __webpack_require__(49);
+	var isFunction_1 = __webpack_require__(46);
+	var tryCatch_1 = __webpack_require__(50);
+	var errorObject_1 = __webpack_require__(51);
+	var UnsubscriptionError_1 = __webpack_require__(52);
 	/**
 	 * Represents a disposable resource, such as the execution of an Observable. A
 	 * Subscription has one important method, `unsubscribe`, that takes no argument
@@ -11380,7 +10909,7 @@
 	//# sourceMappingURL=Subscription.js.map
 
 /***/ },
-/* 56 */
+/* 48 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -11388,7 +10917,7 @@
 	//# sourceMappingURL=isArray.js.map
 
 /***/ },
-/* 57 */
+/* 49 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -11399,11 +10928,11 @@
 	//# sourceMappingURL=isObject.js.map
 
 /***/ },
-/* 58 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var errorObject_1 = __webpack_require__(59);
+	var errorObject_1 = __webpack_require__(51);
 	var tryCatchTarget;
 	function tryCatcher() {
 	    try {
@@ -11423,7 +10952,7 @@
 	//# sourceMappingURL=tryCatch.js.map
 
 /***/ },
-/* 59 */
+/* 51 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -11432,7 +10961,7 @@
 	//# sourceMappingURL=errorObject.js.map
 
 /***/ },
-/* 60 */
+/* 52 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -11459,18 +10988,18 @@
 	//# sourceMappingURL=UnsubscriptionError.js.map
 
 /***/ },
-/* 61 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var root_1 = __webpack_require__(49);
+	var root_1 = __webpack_require__(41);
 	var Symbol = root_1.root.Symbol;
 	exports.$$rxSubscriber = (typeof Symbol === 'function' && typeof Symbol.for === 'function') ?
 	    Symbol.for('rxSubscriber') : '@@rxSubscriber';
 	//# sourceMappingURL=rxSubscriber.js.map
 
 /***/ },
-/* 62 */
+/* 54 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -11483,7 +11012,7 @@
 	//# sourceMappingURL=Observer.js.map
 
 /***/ },
-/* 63 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -11492,7 +11021,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Subscription_1 = __webpack_require__(55);
+	var Subscription_1 = __webpack_require__(47);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @ignore
@@ -11528,7 +11057,7 @@
 	//# sourceMappingURL=SubjectSubscription.js.map
 
 /***/ },
-/* 64 */
+/* 56 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -11537,7 +11066,7 @@
 	//# sourceMappingURL=throwError.js.map
 
 /***/ },
-/* 65 */
+/* 57 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -11567,7 +11096,7 @@
 	//# sourceMappingURL=ObjectUnsubscribedError.js.map
 
 /***/ },
-/* 66 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -11576,8 +11105,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var root_1 = __webpack_require__(49);
-	var Observable_1 = __webpack_require__(48);
+	var root_1 = __webpack_require__(41);
+	var Observable_1 = __webpack_require__(40);
 	/**
 	 * We need this JSDoc comment for affecting ESDoc.
 	 * @extends {Ignored}
@@ -11677,11 +11206,11 @@
 	//# sourceMappingURL=PromiseObservable.js.map
 
 /***/ },
-/* 67 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var root_1 = __webpack_require__(49);
+	var root_1 = __webpack_require__(41);
 	/**
 	 * @param PromiseCtor
 	 * @return {Promise<T>}
@@ -11710,7 +11239,7 @@
 	//# sourceMappingURL=toPromise.js.map
 
 /***/ },
-/* 68 */
+/* 60 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -11800,12 +11329,12 @@
 	//# sourceMappingURL=ng_zone_impl.js.map
 
 /***/ },
-/* 69 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var di_1 = __webpack_require__(25);
-	var lang_1 = __webpack_require__(17);
+	var di_1 = __webpack_require__(17);
+	var lang_1 = __webpack_require__(9);
 	/**
 	 * A DI Token representing a unique string id assigned to the application by Angular and used
 	 * primarily for prefixing application attributes and CSS styles when
@@ -11849,16 +11378,16 @@
 	//# sourceMappingURL=application_tokens.js.map
 
 /***/ },
-/* 70 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var collection_1 = __webpack_require__(31);
-	var lang_1 = __webpack_require__(17);
-	var exceptions_1 = __webpack_require__(28);
-	var ng_zone_1 = __webpack_require__(44);
-	var async_1 = __webpack_require__(45);
-	var decorators_1 = __webpack_require__(26);
+	var collection_1 = __webpack_require__(23);
+	var lang_1 = __webpack_require__(9);
+	var exceptions_1 = __webpack_require__(20);
+	var ng_zone_1 = __webpack_require__(36);
+	var async_1 = __webpack_require__(37);
+	var decorators_1 = __webpack_require__(18);
 	var Testability = (function () {
 	    function Testability(_ngZone) {
 	        this._ngZone = _ngZone;
@@ -11993,7 +11522,7 @@
 	//# sourceMappingURL=testability.js.map
 
 /***/ },
-/* 71 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -12002,12 +11531,12 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var lang_1 = __webpack_require__(17);
-	var exceptions_1 = __webpack_require__(28);
-	var async_1 = __webpack_require__(45);
-	var reflection_1 = __webpack_require__(34);
-	var component_factory_1 = __webpack_require__(72);
-	var decorators_1 = __webpack_require__(26);
+	var lang_1 = __webpack_require__(9);
+	var exceptions_1 = __webpack_require__(20);
+	var async_1 = __webpack_require__(37);
+	var reflection_1 = __webpack_require__(26);
+	var component_factory_1 = __webpack_require__(64);
+	var decorators_1 = __webpack_require__(18);
 	/**
 	 * Low-level service for loading {@link ComponentFactory}s, which
 	 * can later be used to create and render a Component instance.
@@ -12044,7 +11573,7 @@
 	//# sourceMappingURL=component_resolver.js.map
 
 /***/ },
-/* 72 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -12053,9 +11582,9 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var lang_1 = __webpack_require__(17);
-	var exceptions_1 = __webpack_require__(28);
-	var view_utils_1 = __webpack_require__(73);
+	var lang_1 = __webpack_require__(9);
+	var exceptions_1 = __webpack_require__(20);
+	var view_utils_1 = __webpack_require__(65);
 	/**
 	 * Represents an instance of a Component created via a {@link ComponentFactory}.
 	 *
@@ -12198,21 +11727,21 @@
 	//# sourceMappingURL=component_factory.js.map
 
 /***/ },
-/* 73 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var security_1 = __webpack_require__(74);
-	var lang_1 = __webpack_require__(17);
-	var collection_1 = __webpack_require__(31);
-	var exceptions_1 = __webpack_require__(28);
-	var element_1 = __webpack_require__(75);
-	var exceptions_2 = __webpack_require__(81);
-	var change_detection_1 = __webpack_require__(82);
-	var api_1 = __webpack_require__(89);
-	var application_tokens_1 = __webpack_require__(69);
-	var decorators_1 = __webpack_require__(26);
-	var change_detection_util_1 = __webpack_require__(88);
+	var security_1 = __webpack_require__(66);
+	var lang_1 = __webpack_require__(9);
+	var collection_1 = __webpack_require__(23);
+	var exceptions_1 = __webpack_require__(20);
+	var element_1 = __webpack_require__(67);
+	var exceptions_2 = __webpack_require__(73);
+	var change_detection_1 = __webpack_require__(74);
+	var api_1 = __webpack_require__(81);
+	var application_tokens_1 = __webpack_require__(61);
+	var decorators_1 = __webpack_require__(18);
+	var change_detection_util_1 = __webpack_require__(80);
 	var ViewUtils = (function () {
 	    function ViewUtils(_renderer, _appId, sanitizer) {
 	        this._renderer = _renderer;
@@ -12557,7 +12086,7 @@
 	//# sourceMappingURL=view_utils.js.map
 
 /***/ },
-/* 74 */
+/* 66 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -12590,16 +12119,16 @@
 	//# sourceMappingURL=security.js.map
 
 /***/ },
-/* 75 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
-	var collection_1 = __webpack_require__(31);
-	var exceptions_1 = __webpack_require__(28);
-	var view_type_1 = __webpack_require__(76);
-	var element_ref_1 = __webpack_require__(77);
-	var view_container_ref_1 = __webpack_require__(78);
+	var lang_1 = __webpack_require__(9);
+	var collection_1 = __webpack_require__(23);
+	var exceptions_1 = __webpack_require__(20);
+	var view_type_1 = __webpack_require__(68);
+	var element_ref_1 = __webpack_require__(69);
+	var view_container_ref_1 = __webpack_require__(70);
 	/**
 	 * An AppElement is created for elements that have a ViewContainerRef,
 	 * a nested component or a <template> element to keep data around
@@ -12688,7 +12217,7 @@
 	//# sourceMappingURL=element.js.map
 
 /***/ },
-/* 76 */
+/* 68 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -12707,7 +12236,7 @@
 	//# sourceMappingURL=view_type.js.map
 
 /***/ },
-/* 77 */
+/* 69 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -12730,14 +12259,14 @@
 	//# sourceMappingURL=element_ref.js.map
 
 /***/ },
-/* 78 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var collection_1 = __webpack_require__(31);
-	var exceptions_1 = __webpack_require__(28);
-	var lang_1 = __webpack_require__(17);
-	var profile_1 = __webpack_require__(79);
+	var collection_1 = __webpack_require__(23);
+	var exceptions_1 = __webpack_require__(20);
+	var lang_1 = __webpack_require__(9);
+	var profile_1 = __webpack_require__(71);
 	/**
 	 * Represents a container where one or more Views can be attached.
 	 *
@@ -12888,11 +12417,11 @@
 	//# sourceMappingURL=view_container_ref.js.map
 
 /***/ },
-/* 79 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var impl = __webpack_require__(80);
+	var impl = __webpack_require__(72);
 	// Change exports to const once https://github.com/angular/ts2dart/issues/150
 	/**
 	 * True if WTF is enabled.
@@ -12964,11 +12493,11 @@
 	//# sourceMappingURL=profile.js.map
 
 /***/ },
-/* 80 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
+	var lang_1 = __webpack_require__(9);
 	var trace;
 	var events;
 	function detectWTF() {
@@ -13004,7 +12533,7 @@
 	//# sourceMappingURL=wtf_impl.js.map
 
 /***/ },
-/* 81 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -13013,7 +12542,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var exceptions_1 = __webpack_require__(28);
+	var exceptions_1 = __webpack_require__(20);
 	/**
 	 * An error thrown if application changes model breaking the top-down data flow.
 	 *
@@ -13088,35 +12617,35 @@
 	//# sourceMappingURL=exceptions.js.map
 
 /***/ },
-/* 82 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var iterable_differs_1 = __webpack_require__(83);
-	var default_iterable_differ_1 = __webpack_require__(84);
-	var keyvalue_differs_1 = __webpack_require__(85);
-	var default_keyvalue_differ_1 = __webpack_require__(86);
-	var default_keyvalue_differ_2 = __webpack_require__(86);
+	var iterable_differs_1 = __webpack_require__(75);
+	var default_iterable_differ_1 = __webpack_require__(76);
+	var keyvalue_differs_1 = __webpack_require__(77);
+	var default_keyvalue_differ_1 = __webpack_require__(78);
+	var default_keyvalue_differ_2 = __webpack_require__(78);
 	exports.DefaultKeyValueDifferFactory = default_keyvalue_differ_2.DefaultKeyValueDifferFactory;
 	exports.KeyValueChangeRecord = default_keyvalue_differ_2.KeyValueChangeRecord;
-	var default_iterable_differ_2 = __webpack_require__(84);
+	var default_iterable_differ_2 = __webpack_require__(76);
 	exports.DefaultIterableDifferFactory = default_iterable_differ_2.DefaultIterableDifferFactory;
 	exports.CollectionChangeRecord = default_iterable_differ_2.CollectionChangeRecord;
-	var constants_1 = __webpack_require__(21);
+	var constants_1 = __webpack_require__(13);
 	exports.ChangeDetectionStrategy = constants_1.ChangeDetectionStrategy;
 	exports.CHANGE_DETECTION_STRATEGY_VALUES = constants_1.CHANGE_DETECTION_STRATEGY_VALUES;
 	exports.ChangeDetectorState = constants_1.ChangeDetectorState;
 	exports.CHANGE_DETECTOR_STATE_VALUES = constants_1.CHANGE_DETECTOR_STATE_VALUES;
 	exports.isDefaultChangeDetectionStrategy = constants_1.isDefaultChangeDetectionStrategy;
-	var change_detector_ref_1 = __webpack_require__(87);
+	var change_detector_ref_1 = __webpack_require__(79);
 	exports.ChangeDetectorRef = change_detector_ref_1.ChangeDetectorRef;
-	var iterable_differs_2 = __webpack_require__(83);
+	var iterable_differs_2 = __webpack_require__(75);
 	exports.IterableDiffers = iterable_differs_2.IterableDiffers;
-	var keyvalue_differs_2 = __webpack_require__(85);
+	var keyvalue_differs_2 = __webpack_require__(77);
 	exports.KeyValueDiffers = keyvalue_differs_2.KeyValueDiffers;
-	var default_iterable_differ_3 = __webpack_require__(84);
+	var default_iterable_differ_3 = __webpack_require__(76);
 	exports.DefaultIterableDiffer = default_iterable_differ_3.DefaultIterableDiffer;
-	var change_detection_util_1 = __webpack_require__(88);
+	var change_detection_util_1 = __webpack_require__(80);
 	exports.WrappedValue = change_detection_util_1.WrappedValue;
 	exports.ValueUnwrapper = change_detection_util_1.ValueUnwrapper;
 	exports.SimpleChange = change_detection_util_1.SimpleChange;
@@ -13138,14 +12667,14 @@
 	//# sourceMappingURL=change_detection.js.map
 
 /***/ },
-/* 83 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
-	var exceptions_1 = __webpack_require__(28);
-	var collection_1 = __webpack_require__(31);
-	var di_1 = __webpack_require__(25);
+	var lang_1 = __webpack_require__(9);
+	var exceptions_1 = __webpack_require__(20);
+	var collection_1 = __webpack_require__(23);
+	var di_1 = __webpack_require__(17);
 	/**
 	 * A repository of different iterable diffing strategies used by NgFor, NgClass, and others.
 	 * @ts2dart_const
@@ -13214,13 +12743,13 @@
 	//# sourceMappingURL=iterable_differs.js.map
 
 /***/ },
-/* 84 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var exceptions_1 = __webpack_require__(28);
-	var collection_1 = __webpack_require__(31);
-	var lang_1 = __webpack_require__(17);
+	var exceptions_1 = __webpack_require__(20);
+	var collection_1 = __webpack_require__(23);
+	var lang_1 = __webpack_require__(9);
 	/* @ts2dart_const */
 	var DefaultIterableDifferFactory = (function () {
 	    function DefaultIterableDifferFactory() {
@@ -13872,14 +13401,14 @@
 	//# sourceMappingURL=default_iterable_differ.js.map
 
 /***/ },
-/* 85 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
-	var exceptions_1 = __webpack_require__(28);
-	var collection_1 = __webpack_require__(31);
-	var di_1 = __webpack_require__(25);
+	var lang_1 = __webpack_require__(9);
+	var exceptions_1 = __webpack_require__(20);
+	var collection_1 = __webpack_require__(23);
+	var di_1 = __webpack_require__(17);
 	/**
 	 * A repository of different Map diffing strategies used by NgClass, NgStyle, and others.
 	 * @ts2dart_const
@@ -13948,13 +13477,13 @@
 	//# sourceMappingURL=keyvalue_differs.js.map
 
 /***/ },
-/* 86 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var collection_1 = __webpack_require__(31);
-	var lang_1 = __webpack_require__(17);
-	var exceptions_1 = __webpack_require__(28);
+	var collection_1 = __webpack_require__(23);
+	var lang_1 = __webpack_require__(9);
+	var exceptions_1 = __webpack_require__(20);
 	/* @ts2dart_const */
 	var DefaultKeyValueDifferFactory = (function () {
 	    function DefaultKeyValueDifferFactory() {
@@ -14308,7 +13837,7 @@
 	//# sourceMappingURL=default_keyvalue_differ.js.map
 
 /***/ },
-/* 87 */
+/* 79 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -14321,13 +13850,13 @@
 	//# sourceMappingURL=change_detector_ref.js.map
 
 /***/ },
-/* 88 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
-	var collection_1 = __webpack_require__(31);
-	var lang_2 = __webpack_require__(17);
+	var lang_1 = __webpack_require__(9);
+	var collection_1 = __webpack_require__(23);
+	var lang_2 = __webpack_require__(9);
 	exports.looseIdentical = lang_2.looseIdentical;
 	exports.uninitialized = new Object();
 	function devModeEqual(a, b) {
@@ -14405,11 +13934,11 @@
 	//# sourceMappingURL=change_detection_util.js.map
 
 /***/ },
-/* 89 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var exceptions_1 = __webpack_require__(28);
+	var exceptions_1 = __webpack_require__(20);
 	var RenderComponentType = (function () {
 	    function RenderComponentType(id, templateUrl, slotCount, encapsulation, styles) {
 	        this.id = id;
@@ -14484,12 +14013,12 @@
 	//# sourceMappingURL=api.js.map
 
 /***/ },
-/* 90 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
-	var decorators_1 = __webpack_require__(26);
+	var lang_1 = __webpack_require__(9);
+	var decorators_1 = __webpack_require__(18);
 	// Note: Need to rename warn as in Dart
 	// class members and imports can't use the same name.
 	var _warnImpl = lang_1.warn;
@@ -14508,64 +14037,64 @@
 	//# sourceMappingURL=console.js.map
 
 /***/ },
-/* 91 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	// Public API for Zone
-	var ng_zone_1 = __webpack_require__(44);
+	var ng_zone_1 = __webpack_require__(36);
 	exports.NgZone = ng_zone_1.NgZone;
 	exports.NgZoneError = ng_zone_1.NgZoneError;
 	//# sourceMappingURL=zone.js.map
 
 /***/ },
-/* 92 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	// Public API for render
-	var api_1 = __webpack_require__(89);
+	var api_1 = __webpack_require__(81);
 	exports.RootRenderer = api_1.RootRenderer;
 	exports.Renderer = api_1.Renderer;
 	exports.RenderComponentType = api_1.RenderComponentType;
 	//# sourceMappingURL=render.js.map
 
 /***/ },
-/* 93 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	// Public API for compiler
-	var component_resolver_1 = __webpack_require__(71);
+	var component_resolver_1 = __webpack_require__(63);
 	exports.ComponentResolver = component_resolver_1.ComponentResolver;
-	var query_list_1 = __webpack_require__(94);
+	var query_list_1 = __webpack_require__(86);
 	exports.QueryList = query_list_1.QueryList;
-	var dynamic_component_loader_1 = __webpack_require__(95);
+	var dynamic_component_loader_1 = __webpack_require__(87);
 	exports.DynamicComponentLoader = dynamic_component_loader_1.DynamicComponentLoader;
-	var element_ref_1 = __webpack_require__(77);
+	var element_ref_1 = __webpack_require__(69);
 	exports.ElementRef = element_ref_1.ElementRef;
-	var template_ref_1 = __webpack_require__(96);
+	var template_ref_1 = __webpack_require__(88);
 	exports.TemplateRef = template_ref_1.TemplateRef;
-	var view_ref_1 = __webpack_require__(97);
+	var view_ref_1 = __webpack_require__(89);
 	exports.EmbeddedViewRef = view_ref_1.EmbeddedViewRef;
 	exports.ViewRef = view_ref_1.ViewRef;
-	var view_container_ref_1 = __webpack_require__(78);
+	var view_container_ref_1 = __webpack_require__(70);
 	exports.ViewContainerRef = view_container_ref_1.ViewContainerRef;
-	var component_factory_1 = __webpack_require__(72);
+	var component_factory_1 = __webpack_require__(64);
 	exports.ComponentRef = component_factory_1.ComponentRef;
 	exports.ComponentFactory = component_factory_1.ComponentFactory;
-	var exceptions_1 = __webpack_require__(81);
+	var exceptions_1 = __webpack_require__(73);
 	exports.ExpressionChangedAfterItHasBeenCheckedException = exceptions_1.ExpressionChangedAfterItHasBeenCheckedException;
 	//# sourceMappingURL=linker.js.map
 
 /***/ },
-/* 94 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var collection_1 = __webpack_require__(31);
-	var lang_1 = __webpack_require__(17);
-	var async_1 = __webpack_require__(45);
+	var collection_1 = __webpack_require__(23);
+	var lang_1 = __webpack_require__(9);
+	var async_1 = __webpack_require__(37);
 	/**
 	 * An unmodifiable list of items that Angular keeps up to date when the state
 	 * of the application changes.
@@ -14661,7 +14190,7 @@
 	//# sourceMappingURL=query_list.js.map
 
 /***/ },
-/* 95 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -14670,10 +14199,10 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var component_resolver_1 = __webpack_require__(71);
-	var lang_1 = __webpack_require__(17);
-	var reflective_injector_1 = __webpack_require__(32);
-	var decorators_1 = __webpack_require__(26);
+	var component_resolver_1 = __webpack_require__(63);
+	var lang_1 = __webpack_require__(9);
+	var reflective_injector_1 = __webpack_require__(24);
+	var decorators_1 = __webpack_require__(18);
 	/**
 	 * Use ComponentResolver and ViewContainerRef directly.
 	 *
@@ -14723,7 +14252,7 @@
 	//# sourceMappingURL=dynamic_component_loader.js.map
 
 /***/ },
-/* 96 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -14732,7 +14261,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var lang_1 = __webpack_require__(17);
+	var lang_1 = __webpack_require__(9);
 	var EMPTY_CONTEXT = new Object();
 	/**
 	 * Represents an Embedded Template that can be used to instantiate Embedded Views.
@@ -14795,7 +14324,7 @@
 	//# sourceMappingURL=template_ref.js.map
 
 /***/ },
-/* 97 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -14804,8 +14333,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var exceptions_1 = __webpack_require__(28);
-	var constants_1 = __webpack_require__(21);
+	var exceptions_1 = __webpack_require__(20);
+	var constants_1 = __webpack_require__(13);
 	var ViewRef = (function () {
 	    function ViewRef() {
 	    }
@@ -14930,7 +14459,7 @@
 	//# sourceMappingURL=view_ref.js.map
 
 /***/ },
-/* 98 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -14939,8 +14468,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var lang_1 = __webpack_require__(17);
-	var collection_1 = __webpack_require__(31);
+	var lang_1 = __webpack_require__(9);
+	var collection_1 = __webpack_require__(23);
 	var EventListener = (function () {
 	    function EventListener(name, callback) {
 	        this.name = name;
@@ -15129,7 +14658,7 @@
 	//# sourceMappingURL=debug_node.js.map
 
 /***/ },
-/* 99 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -15138,7 +14667,7 @@
 	* @description
 	* Change detection enables data binding in Angular.
 	*/
-	var change_detection_1 = __webpack_require__(82);
+	var change_detection_1 = __webpack_require__(74);
 	exports.ChangeDetectionStrategy = change_detection_1.ChangeDetectionStrategy;
 	exports.ChangeDetectorRef = change_detection_1.ChangeDetectorRef;
 	exports.WrappedValue = change_detection_1.WrappedValue;
@@ -15151,11 +14680,11 @@
 	//# sourceMappingURL=change_detection.js.map
 
 /***/ },
-/* 100 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var di_1 = __webpack_require__(25);
+	var di_1 = __webpack_require__(17);
 	/**
 	 * A token that can be provided when bootstraping an application to make an array of directives
 	 * available in every component of the application.
@@ -15209,15 +14738,15 @@
 	//# sourceMappingURL=platform_directives_and_pipes.js.map
 
 /***/ },
-/* 101 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var console_1 = __webpack_require__(90);
-	var reflection_1 = __webpack_require__(34);
-	var reflector_reader_1 = __webpack_require__(36);
-	var testability_1 = __webpack_require__(70);
-	var application_ref_1 = __webpack_require__(43);
+	var console_1 = __webpack_require__(82);
+	var reflection_1 = __webpack_require__(26);
+	var reflector_reader_1 = __webpack_require__(28);
+	var testability_1 = __webpack_require__(62);
+	var application_ref_1 = __webpack_require__(35);
 	function _reflector() {
 	    return reflection_1.reflector;
 	}
@@ -15235,16 +14764,16 @@
 	//# sourceMappingURL=platform_common_providers.js.map
 
 /***/ },
-/* 102 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var application_tokens_1 = __webpack_require__(69);
-	var application_ref_1 = __webpack_require__(43);
-	var change_detection_1 = __webpack_require__(82);
-	var view_utils_1 = __webpack_require__(73);
-	var component_resolver_1 = __webpack_require__(71);
-	var dynamic_component_loader_1 = __webpack_require__(95);
+	var application_tokens_1 = __webpack_require__(61);
+	var application_ref_1 = __webpack_require__(35);
+	var change_detection_1 = __webpack_require__(74);
+	var view_utils_1 = __webpack_require__(65);
+	var component_resolver_1 = __webpack_require__(63);
+	var dynamic_component_loader_1 = __webpack_require__(87);
 	var __unused; // avoid unused import when Type union types are erased
 	/**
 	 * A default set of providers which should be included in any Angular
@@ -15263,31 +14792,31 @@
 	//# sourceMappingURL=application_common_providers.js.map
 
 /***/ },
-/* 103 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var constants = __webpack_require__(21);
-	var security = __webpack_require__(74);
-	var reflective_provider = __webpack_require__(33);
-	var lifecycle_hooks = __webpack_require__(104);
-	var reflector_reader = __webpack_require__(36);
-	var component_resolver = __webpack_require__(71);
-	var element = __webpack_require__(75);
-	var view = __webpack_require__(105);
-	var view_type = __webpack_require__(76);
-	var view_utils = __webpack_require__(73);
-	var metadata_view = __webpack_require__(22);
-	var debug_context = __webpack_require__(106);
-	var change_detection_util = __webpack_require__(88);
-	var api = __webpack_require__(89);
-	var template_ref = __webpack_require__(96);
-	var wtf_init = __webpack_require__(108);
-	var reflection_capabilities = __webpack_require__(37);
-	var decorators = __webpack_require__(23);
-	var debug = __webpack_require__(109);
-	var provider_util = __webpack_require__(41);
-	var console = __webpack_require__(90);
+	var constants = __webpack_require__(13);
+	var security = __webpack_require__(66);
+	var reflective_provider = __webpack_require__(25);
+	var lifecycle_hooks = __webpack_require__(96);
+	var reflector_reader = __webpack_require__(28);
+	var component_resolver = __webpack_require__(63);
+	var element = __webpack_require__(67);
+	var view = __webpack_require__(97);
+	var view_type = __webpack_require__(68);
+	var view_utils = __webpack_require__(65);
+	var metadata_view = __webpack_require__(14);
+	var debug_context = __webpack_require__(98);
+	var change_detection_util = __webpack_require__(80);
+	var api = __webpack_require__(81);
+	var template_ref = __webpack_require__(88);
+	var wtf_init = __webpack_require__(100);
+	var reflection_capabilities = __webpack_require__(29);
+	var decorators = __webpack_require__(15);
+	var debug = __webpack_require__(101);
+	var provider_util = __webpack_require__(33);
+	var console = __webpack_require__(82);
 	exports.__core_private__ = {
 	    isDefaultChangeDetectionStrategy: constants.isDefaultChangeDetectionStrategy,
 	    ChangeDetectorState: constants.ChangeDetectorState,
@@ -15340,7 +14869,7 @@
 	//# sourceMappingURL=private_export.js.map
 
 /***/ },
-/* 104 */
+/* 96 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -15371,7 +14900,7 @@
 	//# sourceMappingURL=lifecycle_hooks.js.map
 
 /***/ },
-/* 105 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -15380,18 +14909,18 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var collection_1 = __webpack_require__(31);
-	var element_1 = __webpack_require__(75);
-	var lang_1 = __webpack_require__(17);
-	var async_1 = __webpack_require__(45);
-	var view_ref_1 = __webpack_require__(97);
-	var view_type_1 = __webpack_require__(76);
-	var view_utils_1 = __webpack_require__(73);
-	var change_detection_1 = __webpack_require__(82);
-	var profile_1 = __webpack_require__(79);
-	var exceptions_1 = __webpack_require__(81);
-	var debug_context_1 = __webpack_require__(106);
-	var element_injector_1 = __webpack_require__(107);
+	var collection_1 = __webpack_require__(23);
+	var element_1 = __webpack_require__(67);
+	var lang_1 = __webpack_require__(9);
+	var async_1 = __webpack_require__(37);
+	var view_ref_1 = __webpack_require__(89);
+	var view_type_1 = __webpack_require__(68);
+	var view_utils_1 = __webpack_require__(65);
+	var change_detection_1 = __webpack_require__(74);
+	var profile_1 = __webpack_require__(71);
+	var exceptions_1 = __webpack_require__(73);
+	var debug_context_1 = __webpack_require__(98);
+	var element_injector_1 = __webpack_require__(99);
 	var _scope_check = profile_1.wtfCreateScope("AppView#check(ascii id)");
 	/**
 	 * Cost of making objects: http://jsperf.com/instantiate-size-of-object
@@ -15723,13 +15252,13 @@
 	//# sourceMappingURL=view.js.map
 
 /***/ },
-/* 106 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
-	var collection_1 = __webpack_require__(31);
-	var view_type_1 = __webpack_require__(76);
+	var lang_1 = __webpack_require__(9);
+	var collection_1 = __webpack_require__(23);
+	var view_type_1 = __webpack_require__(68);
 	/* @ts2dart_const */
 	var StaticNodeDebugInfo = (function () {
 	    function StaticNodeDebugInfo(providerTokens, componentToken, refTokens) {
@@ -15845,7 +15374,7 @@
 	//# sourceMappingURL=debug_context.js.map
 
 /***/ },
-/* 107 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -15854,7 +15383,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var injector_1 = __webpack_require__(27);
+	var injector_1 = __webpack_require__(19);
 	var _UNDEFINED = new Object();
 	var ElementInjector = (function (_super) {
 	    __extends(ElementInjector, _super);
@@ -15880,7 +15409,7 @@
 	//# sourceMappingURL=element_injector.js.map
 
 /***/ },
-/* 108 */
+/* 100 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -15892,12 +15421,12 @@
 	//# sourceMappingURL=wtf_init.js.map
 
 /***/ },
-/* 109 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var lang_1 = __webpack_require__(17);
-	var debug_node_1 = __webpack_require__(98);
+	var lang_1 = __webpack_require__(9);
+	var debug_node_1 = __webpack_require__(90);
 	var DebugDomRootRenderer = (function () {
 	    function DebugDomRootRenderer(_delegate) {
 	        this._delegate = _delegate;
@@ -16012,6 +15541,479 @@
 	}());
 	exports.DebugDomRenderer = DebugDomRenderer;
 	//# sourceMappingURL=debug_renderer.js.map
+
+/***/ },
+/* 102 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(103));
+	__export(__webpack_require__(331));
+	__export(__webpack_require__(339));
+	__export(__webpack_require__(414));
+	__export(__webpack_require__(415));
+	__export(__webpack_require__(332));
+	__export(__webpack_require__(421));
+	__export(__webpack_require__(335));
+	__export(__webpack_require__(336));
+	__export(__webpack_require__(342));
+	__export(__webpack_require__(338));
+	__export(__webpack_require__(361));
+	__export(__webpack_require__(360));
+	__export(__webpack_require__(413));
+	__export(__webpack_require__(425));
+	// these modules don't export anything
+	__webpack_require__(426);
+	__webpack_require__(427);
+	__webpack_require__(428);
+	__webpack_require__(429);
+	__webpack_require__(430);
+	__webpack_require__(431);
+
+/***/ },
+/* 103 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var platform_browser_dynamic_1 = __webpack_require__(104);
+	var core_1 = __webpack_require__(6);
+	var router_1 = __webpack_require__(287);
+	var common_1 = __webpack_require__(188);
+	var http_1 = __webpack_require__(309);
+	var app_1 = __webpack_require__(330);
+	var click_block_1 = __webpack_require__(335);
+	var config_1 = __webpack_require__(331);
+	var events_1 = __webpack_require__(336);
+	var feature_detect_1 = __webpack_require__(337);
+	var form_1 = __webpack_require__(338);
+	var directives_1 = __webpack_require__(339);
+	var keyboard_1 = __webpack_require__(342);
+	var menu_controller_1 = __webpack_require__(351);
+	var dom_1 = __webpack_require__(334);
+	var nav_registry_1 = __webpack_require__(407);
+	var platform_1 = __webpack_require__(332);
+	var scroll_view_1 = __webpack_require__(365);
+	var tap_click_1 = __webpack_require__(410);
+	var translate_1 = __webpack_require__(413);
+	var _reflect = Reflect;
+	function ionicBootstrap(appRootComponent, customProviders, config) {
+	    // get all Ionic Providers
+	    var providers = ionicProviders(customProviders, config);
+	    // automatically set "ion-app" selector to users root component
+	    addSelector(appRootComponent, 'ion-app');
+	    // call angular bootstrap
+	    return platform_browser_dynamic_1.bootstrap(appRootComponent, providers).then(function (ngComponentRef) {
+	        // ionic app has finished bootstrapping
+	        return ionicPostBootstrap(ngComponentRef);
+	    });
+	}
+	exports.ionicBootstrap = ionicBootstrap;
+	function ionicPostBootstrap(ngComponentRef) {
+	    var app = ngComponentRef.injector.get(app_1.App);
+	    app.setAppInjector(ngComponentRef.injector);
+	    // prepare platform ready
+	    var platform = ngComponentRef.injector.get(platform_1.Platform);
+	    platform.setZone(ngComponentRef.injector.get(core_1.NgZone));
+	    platform.prepareReady();
+	    // TODO: Use PLATFORM_INITIALIZER
+	    ngComponentRef.injector.get(tap_click_1.TapClick);
+	    // TODO: Use Renderer
+	    ngComponentRef.location.nativeElement.classList.add('app-init');
+	    return ngComponentRef;
+	}
+	exports.ionicPostBootstrap = ionicPostBootstrap;
+	function ionicProviders(customProviders, config) {
+	    // add custom providers to Ionic's dev
+	    var directives = directives_1.IONIC_DIRECTIVES;
+	    if (customProviders) {
+	        directives.push(customProviders);
+	    }
+	    // create an instance of Config
+	    if (!(config instanceof config_1.Config)) {
+	        config = new config_1.Config(config);
+	    }
+	    // enable production mode if config set to true
+	    if (config.getBoolean('prodMode')) {
+	        core_1.enableProdMode();
+	    }
+	    // create an instance of Platform
+	    var platform = new platform_1.Platform();
+	    // initialize platform
+	    platform.setUrl(window.location.href);
+	    platform.setUserAgent(window.navigator.userAgent);
+	    platform.setNavigatorPlatform(window.navigator.platform);
+	    platform.load(config);
+	    config.setPlatform(platform);
+	    var clickBlock = new click_block_1.ClickBlock();
+	    var events = new events_1.Events();
+	    var featureDetect = new feature_detect_1.FeatureDetect();
+	    setupDom(window, document, config, platform, clickBlock, featureDetect);
+	    bindEvents(window, document, platform, events);
+	    return [
+	        app_1.App,
+	        core_1.provide(click_block_1.ClickBlock, { useValue: clickBlock }),
+	        core_1.provide(config_1.Config, { useValue: config }),
+	        core_1.provide(events_1.Events, { useValue: events }),
+	        core_1.provide(feature_detect_1.FeatureDetect, { useValue: featureDetect }),
+	        form_1.Form,
+	        keyboard_1.Keyboard,
+	        menu_controller_1.MenuController,
+	        nav_registry_1.NavRegistry,
+	        core_1.provide(platform_1.Platform, { useValue: platform }),
+	        translate_1.Translate,
+	        tap_click_1.TapClick,
+	        core_1.provide(core_1.PLATFORM_DIRECTIVES, { useValue: [directives], multi: true }),
+	        router_1.ROUTER_PROVIDERS,
+	        core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy }),
+	        http_1.HTTP_PROVIDERS,
+	    ];
+	}
+	exports.ionicProviders = ionicProviders;
+	function setupDom(window, document, config, platform, clickBlock, featureDetect) {
+	    var bodyEle = document.body;
+	    var mode = config.get('mode');
+	    // if dynamic mode links have been added the fire up the correct one
+	    var modeLinkAttr = mode + '-href';
+	    var linkEle = document.head.querySelector('link[' + modeLinkAttr + ']');
+	    if (linkEle) {
+	        var href = linkEle.getAttribute(modeLinkAttr);
+	        linkEle.removeAttribute(modeLinkAttr);
+	        linkEle.href = href;
+	    }
+	    var headStyle = document.createElement('style');
+	    headStyle.innerHTML = 'ion-app{display:none}';
+	    document.head.appendChild(headStyle);
+	    // set the mode class name
+	    // ios/md/wp
+	    bodyEle.classList.add(mode);
+	    // language and direction
+	    platform.setDir(document.documentElement.dir, false);
+	    platform.setLang(document.documentElement.lang, false);
+	    var versions = platform.versions();
+	    platform.platforms().forEach(function (platformName) {
+	        // platform-ios
+	        var platformClass = 'platform-' + platformName;
+	        bodyEle.classList.add(platformClass);
+	        var platformVersion = versions[platformName];
+	        if (platformVersion) {
+	            // platform-ios9
+	            platformClass += platformVersion.major;
+	            bodyEle.classList.add(platformClass);
+	            // platform-ios9_3
+	            bodyEle.classList.add(platformClass + '_' + platformVersion.minor);
+	        }
+	    });
+	    // touch devices should not use :hover CSS pseudo
+	    // enable :hover CSS when the "hoverCSS" setting is not false
+	    if (config.get('hoverCSS') !== false) {
+	        bodyEle.classList.add('enable-hover');
+	    }
+	    // run feature detection tests
+	    featureDetect.run(window, document);
+	}
+	/**
+	 * Bind some global events and publish on the 'app' channel
+	 */
+	function bindEvents(window, document, platform, events) {
+	    window.addEventListener('online', function (ev) {
+	        events.publish('app:online', ev);
+	    }, false);
+	    window.addEventListener('offline', function (ev) {
+	        events.publish('app:offline', ev);
+	    }, false);
+	    window.addEventListener('orientationchange', function (ev) {
+	        events.publish('app:rotated', ev);
+	    });
+	    // When that status taps, we respond
+	    window.addEventListener('statusTap', function (ev) {
+	        // TODO: Make this more better
+	        var el = document.elementFromPoint(platform.width() / 2, platform.height() / 2);
+	        if (!el) {
+	            return;
+	        }
+	        var content = dom_1.closest(el, 'scroll-content');
+	        if (content) {
+	            var scroll = new scroll_view_1.ScrollView(content);
+	            scroll.scrollTo(0, 0, 300);
+	        }
+	    });
+	    // start listening for resizes XXms after the app starts
+	    dom_1.nativeTimeout(function () {
+	        window.addEventListener('resize', function () {
+	            platform.windowResize();
+	        });
+	    }, 2000);
+	}
+	/**
+	 * @private
+	 */
+	function addSelector(type, selector) {
+	    if (type) {
+	        var annotations = _reflect.getMetadata('annotations', type);
+	        if (annotations && !annotations[0].selector) {
+	            annotations[0].selector = selector;
+	            _reflect.defineMetadata('annotations', annotations, type);
+	        }
+	    }
+	}
+	exports.addSelector = addSelector;
+
+/***/ },
+/* 104 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(105));
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 105 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var compiler_1 = __webpack_require__(106);
+	var xhr_cache_1 = __webpack_require__(175);
+	var lang_1 = __webpack_require__(179);
+	var xhr_impl_1 = __webpack_require__(182);
+	var platform_browser_1 = __webpack_require__(183);
+	var core_1 = __webpack_require__(6);
+	var core_private_1 = __webpack_require__(286);
+	exports.CACHED_TEMPLATE_PROVIDER = 
+	/*@ts2dart_const*/ [{ provide: compiler_1.XHR, useClass: xhr_cache_1.CachedXHR }];
+	/**
+	 * An array of providers that should be passed into `application()` when bootstrapping a component.
+	 */
+	exports.BROWSER_APP_DYNAMIC_PROVIDERS = 
+	/*@ts2dart_const*/ [
+	    platform_browser_1.BROWSER_APP_COMMON_PROVIDERS,
+	    compiler_1.COMPILER_PROVIDERS,
+	    { provide: compiler_1.XHR, useClass: xhr_impl_1.XHRImpl },
+	];
+	/**
+	 * Bootstrapping for Angular applications.
+	 *
+	 * You instantiate an Angular application by explicitly specifying a component to use
+	 * as the root component for your application via the `bootstrap()` method.
+	 *
+	 * ## Simple Example
+	 *
+	 * Assuming this `index.html`:
+	 *
+	 * ```html
+	 * <html>
+	 *   <!-- load Angular script tags here. -->
+	 *   <body>
+	 *     <my-app>loading...</my-app>
+	 *   </body>
+	 * </html>
+	 * ```
+	 *
+	 * An application is bootstrapped inside an existing browser DOM, typically `index.html`.
+	 * Unlike Angular 1, Angular 2 does not compile/process providers in `index.html`. This is
+	 * mainly for security reasons, as well as architectural changes in Angular 2. This means
+	 * that `index.html` can safely be processed using server-side technologies such as
+	 * providers. Bindings can thus use double-curly `{{ syntax }}` without collision from
+	 * Angular 2 component double-curly `{{ syntax }}`.
+	 *
+	 * We can use this script code:
+	 *
+	 * {@example core/ts/bootstrap/bootstrap.ts region='bootstrap'}
+	 *
+	 * When the app developer invokes `bootstrap()` with the root component `MyApp` as its
+	 * argument, Angular performs the following tasks:
+	 *
+	 *  1. It uses the component's `selector` property to locate the DOM element which needs
+	 *     to be upgraded into the angular component.
+	 *  2. It creates a new child injector (from the platform injector). Optionally, you can
+	 *     also override the injector configuration for an app by invoking `bootstrap` with the
+	 *     `componentInjectableBindings` argument.
+	 *  3. It creates a new `Zone` and connects it to the angular application's change detection
+	 *     domain instance.
+	 *  4. It creates an emulated or shadow DOM on the selected component's host element and loads the
+	 *     template into it.
+	 *  5. It instantiates the specified component.
+	 *  6. Finally, Angular performs change detection to apply the initial data providers for the
+	 *     application.
+	 *
+	 *
+	 * ## Bootstrapping Multiple Applications
+	 *
+	 * When working within a browser window, there are many singleton resources: cookies, title,
+	 * location, and others. Angular services that represent these resources must likewise be
+	 * shared across all Angular applications that occupy the same browser window. For this
+	 * reason, Angular creates exactly one global platform object which stores all shared
+	 * services, and each angular application injector has the platform injector as its parent.
+	 *
+	 * Each application has its own private injector as well. When there are multiple
+	 * applications on a page, Angular treats each application injector's services as private
+	 * to that application.
+	 *
+	 * ## API
+	 *
+	 * - `appComponentType`: The root component which should act as the application. This is
+	 *   a reference to a `Type` which is annotated with `@Component(...)`.
+	 * - `customProviders`: An additional set of providers that can be added to the
+	 *   app injector to override default injection behavior.
+	 *
+	 * Returns a `Promise` of {@link ComponentRef}.
+	 */
+	function bootstrap(appComponentType, customProviders) {
+	    core_1.reflector.reflectionCapabilities = new core_private_1.ReflectionCapabilities();
+	    var appInjector = core_1.ReflectiveInjector.resolveAndCreate([exports.BROWSER_APP_DYNAMIC_PROVIDERS, lang_1.isPresent(customProviders) ? customProviders : []], platform_browser_1.browserPlatform().injector);
+	    return core_1.coreLoadAndBootstrap(appInjector, appComponentType);
+	}
+	exports.bootstrap = bootstrap;
+	//# sourceMappingURL=platform_browser_dynamic.js.map
+
+/***/ },
+/* 106 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	__export(__webpack_require__(107));
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 107 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	/**
+	* @module
+	* @description
+	* Starting point to import all compiler APIs.
+	*/
+	var element_schema_registry_1 = __webpack_require__(108);
+	exports.ElementSchemaRegistry = element_schema_registry_1.ElementSchemaRegistry;
+	var compiler_1 = __webpack_require__(109);
+	exports.COMPILER_PROVIDERS = compiler_1.COMPILER_PROVIDERS;
+	exports.TEMPLATE_TRANSFORMS = compiler_1.TEMPLATE_TRANSFORMS;
+	exports.CompilerConfig = compiler_1.CompilerConfig;
+	exports.RenderTypes = compiler_1.RenderTypes;
+	exports.UrlResolver = compiler_1.UrlResolver;
+	exports.DEFAULT_PACKAGE_URL_PROVIDER = compiler_1.DEFAULT_PACKAGE_URL_PROVIDER;
+	exports.createOfflineCompileUrlResolver = compiler_1.createOfflineCompileUrlResolver;
+	exports.XHR = compiler_1.XHR;
+	exports.ViewResolver = compiler_1.ViewResolver;
+	exports.DirectiveResolver = compiler_1.DirectiveResolver;
+	exports.PipeResolver = compiler_1.PipeResolver;
+	exports.SourceModule = compiler_1.SourceModule;
+	exports.NormalizedComponentWithViewDirectives = compiler_1.NormalizedComponentWithViewDirectives;
+	exports.OfflineCompiler = compiler_1.OfflineCompiler;
+	exports.CompileMetadataWithIdentifier = compiler_1.CompileMetadataWithIdentifier;
+	exports.CompileMetadataWithType = compiler_1.CompileMetadataWithType;
+	exports.CompileIdentifierMetadata = compiler_1.CompileIdentifierMetadata;
+	exports.CompileDiDependencyMetadata = compiler_1.CompileDiDependencyMetadata;
+	exports.CompileProviderMetadata = compiler_1.CompileProviderMetadata;
+	exports.CompileFactoryMetadata = compiler_1.CompileFactoryMetadata;
+	exports.CompileTokenMetadata = compiler_1.CompileTokenMetadata;
+	exports.CompileTypeMetadata = compiler_1.CompileTypeMetadata;
+	exports.CompileQueryMetadata = compiler_1.CompileQueryMetadata;
+	exports.CompileTemplateMetadata = compiler_1.CompileTemplateMetadata;
+	exports.CompileDirectiveMetadata = compiler_1.CompileDirectiveMetadata;
+	exports.CompilePipeMetadata = compiler_1.CompilePipeMetadata;
+	__export(__webpack_require__(111));
+	__export(__webpack_require__(173));
+	//# sourceMappingURL=compiler.js.map
+
+/***/ },
+/* 108 */
+/***/ function(module, exports) {
+
+	"use strict";
+	var ElementSchemaRegistry = (function () {
+	    function ElementSchemaRegistry() {
+	    }
+	    return ElementSchemaRegistry;
+	}());
+	exports.ElementSchemaRegistry = ElementSchemaRegistry;
+	//# sourceMappingURL=element_schema_registry.js.map
+
+/***/ },
+/* 109 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	var core_1 = __webpack_require__(6);
+	var lang_1 = __webpack_require__(110);
+	__export(__webpack_require__(111));
+	var template_parser_1 = __webpack_require__(112);
+	exports.TEMPLATE_TRANSFORMS = template_parser_1.TEMPLATE_TRANSFORMS;
+	var config_1 = __webpack_require__(134);
+	exports.CompilerConfig = config_1.CompilerConfig;
+	exports.RenderTypes = config_1.RenderTypes;
+	__export(__webpack_require__(131));
+	__export(__webpack_require__(135));
+	var runtime_compiler_1 = __webpack_require__(137);
+	exports.RuntimeCompiler = runtime_compiler_1.RuntimeCompiler;
+	__export(__webpack_require__(132));
+	__export(__webpack_require__(158));
+	var view_resolver_1 = __webpack_require__(162);
+	exports.ViewResolver = view_resolver_1.ViewResolver;
+	var directive_resolver_1 = __webpack_require__(160);
+	exports.DirectiveResolver = directive_resolver_1.DirectiveResolver;
+	var pipe_resolver_1 = __webpack_require__(161);
+	exports.PipeResolver = pipe_resolver_1.PipeResolver;
+	var template_parser_2 = __webpack_require__(112);
+	var html_parser_1 = __webpack_require__(121);
+	var directive_normalizer_1 = __webpack_require__(157);
+	var metadata_resolver_1 = __webpack_require__(159);
+	var style_compiler_1 = __webpack_require__(140);
+	var view_compiler_1 = __webpack_require__(142);
+	var config_2 = __webpack_require__(134);
+	var runtime_compiler_2 = __webpack_require__(137);
+	var element_schema_registry_1 = __webpack_require__(108);
+	var dom_element_schema_registry_1 = __webpack_require__(172);
+	var url_resolver_2 = __webpack_require__(132);
+	var parser_1 = __webpack_require__(119);
+	var lexer_1 = __webpack_require__(120);
+	var view_resolver_2 = __webpack_require__(162);
+	var directive_resolver_2 = __webpack_require__(160);
+	var pipe_resolver_2 = __webpack_require__(161);
+	function _createCompilerConfig() {
+	    return new config_2.CompilerConfig(lang_1.assertionsEnabled(), false, true);
+	}
+	/**
+	 * A set of providers that provide `RuntimeCompiler` and its dependencies to use for
+	 * template compilation.
+	 */
+	exports.COMPILER_PROVIDERS = 
+	/*@ts2dart_const*/ [
+	    lexer_1.Lexer,
+	    parser_1.Parser,
+	    html_parser_1.HtmlParser,
+	    template_parser_2.TemplateParser,
+	    directive_normalizer_1.DirectiveNormalizer,
+	    metadata_resolver_1.CompileMetadataResolver,
+	    url_resolver_2.DEFAULT_PACKAGE_URL_PROVIDER,
+	    style_compiler_1.StyleCompiler,
+	    view_compiler_1.ViewCompiler,
+	    /*@ts2dart_Provider*/ { provide: config_2.CompilerConfig, useFactory: _createCompilerConfig, deps: [] },
+	    runtime_compiler_2.RuntimeCompiler,
+	    /*@ts2dart_Provider*/ { provide: core_1.ComponentResolver, useExisting: runtime_compiler_2.RuntimeCompiler },
+	    dom_element_schema_registry_1.DomElementSchemaRegistry,
+	    /*@ts2dart_Provider*/ { provide: element_schema_registry_1.ElementSchemaRegistry, useExisting: dom_element_schema_registry_1.DomElementSchemaRegistry },
+	    url_resolver_2.UrlResolver,
+	    view_resolver_2.ViewResolver,
+	    directive_resolver_2.DirectiveResolver,
+	    pipe_resolver_2.PipeResolver
+	];
+	//# sourceMappingURL=compiler.js.map
 
 /***/ },
 /* 110 */
@@ -16790,7 +16792,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var core_private_1 = __webpack_require__(113);
 	var collection_1 = __webpack_require__(114);
 	var lang_1 = __webpack_require__(110);
@@ -16802,7 +16804,7 @@
 	var parse_util_1 = __webpack_require__(124);
 	var template_ast_1 = __webpack_require__(111);
 	var selector_1 = __webpack_require__(126);
-	var element_schema_registry_1 = __webpack_require__(12);
+	var element_schema_registry_1 = __webpack_require__(108);
 	var template_preparser_1 = __webpack_require__(127);
 	var style_url_resolver_1 = __webpack_require__(128);
 	var html_ast_1 = __webpack_require__(122);
@@ -17570,7 +17572,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	exports.isDefaultChangeDetectionStrategy = core_1.__core_private__.isDefaultChangeDetectionStrategy;
 	exports.ChangeDetectorState = core_1.__core_private__.ChangeDetectorState;
 	exports.CHANGE_DETECTION_STRATEGY_VALUES = core_1.__core_private__.CHANGE_DETECTION_STRATEGY_VALUES;
@@ -18766,7 +18768,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(110);
 	var exceptions_1 = __webpack_require__(115);
 	var collection_1 = __webpack_require__(114);
@@ -19447,7 +19449,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var collection_1 = __webpack_require__(114);
 	var lang_1 = __webpack_require__(110);
 	var exceptions_1 = __webpack_require__(115);
@@ -19900,7 +19902,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(110);
 	var collection_1 = __webpack_require__(114);
 	var html_ast_1 = __webpack_require__(122);
@@ -22083,7 +22085,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var core_private_1 = __webpack_require__(113);
 	var core_private_2 = __webpack_require__(113);
 	var compile_metadata_1 = __webpack_require__(131);
@@ -22236,7 +22238,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var core_private_1 = __webpack_require__(113);
 	var lang_1 = __webpack_require__(110);
 	var exceptions_1 = __webpack_require__(115);
@@ -22883,7 +22885,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(110);
 	var _ASSET_SCHEME = 'asset:';
 	/**
@@ -23667,7 +23669,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var compile_metadata_1 = __webpack_require__(131);
 	var exceptions_1 = __webpack_require__(115);
 	var collection_1 = __webpack_require__(114);
@@ -24797,7 +24799,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(110);
 	var exceptions_1 = __webpack_require__(115);
 	var collection_1 = __webpack_require__(114);
@@ -24983,12 +24985,12 @@
 	var promise_1 = __webpack_require__(139);
 	exports.PromiseWrapper = promise_1.PromiseWrapper;
 	exports.PromiseCompleter = promise_1.PromiseCompleter;
-	var Subject_1 = __webpack_require__(47);
-	var PromiseObservable_1 = __webpack_require__(66);
-	var toPromise_1 = __webpack_require__(67);
-	var Observable_1 = __webpack_require__(48);
+	var Subject_1 = __webpack_require__(39);
+	var PromiseObservable_1 = __webpack_require__(58);
+	var toPromise_1 = __webpack_require__(59);
+	var Observable_1 = __webpack_require__(40);
 	exports.Observable = Observable_1.Observable;
-	var Subject_2 = __webpack_require__(47);
+	var Subject_2 = __webpack_require__(39);
 	exports.Subject = Subject_2.Subject;
 	var TimerWrapper = (function () {
 	    function TimerWrapper() {
@@ -25183,7 +25185,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var compile_metadata_1 = __webpack_require__(131);
 	var o = __webpack_require__(136);
 	var shadow_css_1 = __webpack_require__(141);
@@ -25770,7 +25772,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var compile_element_1 = __webpack_require__(143);
 	var compile_view_1 = __webpack_require__(148);
 	var view_builder_1 = __webpack_require__(150);
@@ -25821,7 +25823,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(110);
 	var collection_1 = __webpack_require__(114);
 	var o = __webpack_require__(136);
@@ -26201,7 +26203,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var core_private_1 = __webpack_require__(113);
 	var lang_1 = __webpack_require__(110);
 	var compile_metadata_1 = __webpack_require__(131);
@@ -26857,7 +26859,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var core_private_1 = __webpack_require__(113);
 	var lang_1 = __webpack_require__(110);
 	var collection_1 = __webpack_require__(114);
@@ -28060,7 +28062,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(110);
 	var exceptions_1 = __webpack_require__(115);
 	var async_1 = __webpack_require__(138);
@@ -28239,7 +28241,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var core_private_1 = __webpack_require__(113);
 	var lang_1 = __webpack_require__(110);
 	var collection_1 = __webpack_require__(114);
@@ -28655,7 +28657,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var core_private_1 = __webpack_require__(113);
 	var lang_1 = __webpack_require__(110);
 	var exceptions_1 = __webpack_require__(115);
@@ -28796,7 +28798,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var core_private_1 = __webpack_require__(113);
 	var lang_1 = __webpack_require__(110);
 	var exceptions_1 = __webpack_require__(115);
@@ -28842,7 +28844,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var core_private_1 = __webpack_require__(113);
 	var lang_1 = __webpack_require__(110);
 	var exceptions_1 = __webpack_require__(115);
@@ -29642,7 +29644,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(110);
 	var async_1 = __webpack_require__(138);
 	var exceptions_1 = __webpack_require__(115);
@@ -30900,11 +30902,11 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var core_private_1 = __webpack_require__(113);
 	var lang_1 = __webpack_require__(110);
 	var collection_1 = __webpack_require__(114);
-	var element_schema_registry_1 = __webpack_require__(12);
+	var element_schema_registry_1 = __webpack_require__(108);
 	var EVENT = 'event';
 	var BOOLEAN = 'boolean';
 	var NUMBER = 'number';
@@ -31255,7 +31257,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var compiler_1 = __webpack_require__(10);
+	var compiler_1 = __webpack_require__(106);
 	var exceptions_1 = __webpack_require__(176);
 	var lang_1 = __webpack_require__(179);
 	var promise_1 = __webpack_require__(181);
@@ -32485,7 +32487,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var compiler_1 = __webpack_require__(10);
+	var compiler_1 = __webpack_require__(106);
 	var promise_1 = __webpack_require__(181);
 	var lang_1 = __webpack_require__(179);
 	var XHRImpl = (function (_super) {
@@ -32545,7 +32547,7 @@
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(185);
 	var browser_common_1 = __webpack_require__(186);
 	var dom_events_1 = __webpack_require__(275);
@@ -33075,7 +33077,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var core_private_1 = __webpack_require__(187);
 	var common_1 = __webpack_require__(188);
 	var dom_sanitization_service_1 = __webpack_require__(251);
@@ -33171,7 +33173,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	exports.RenderDebugInfo = core_1.__core_private__.RenderDebugInfo;
 	exports.wtfInit = core_1.__core_private__.wtfInit;
 	exports.ReflectionCapabilities = core_1.__core_private__.ReflectionCapabilities;
@@ -33238,7 +33240,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var async_1 = __webpack_require__(192);
 	var invalid_pipe_argument_exception_1 = __webpack_require__(194);
@@ -33848,12 +33850,12 @@
 	var promise_1 = __webpack_require__(193);
 	exports.PromiseWrapper = promise_1.PromiseWrapper;
 	exports.PromiseCompleter = promise_1.PromiseCompleter;
-	var Subject_1 = __webpack_require__(47);
-	var PromiseObservable_1 = __webpack_require__(66);
-	var toPromise_1 = __webpack_require__(67);
-	var Observable_1 = __webpack_require__(48);
+	var Subject_1 = __webpack_require__(39);
+	var PromiseObservable_1 = __webpack_require__(58);
+	var toPromise_1 = __webpack_require__(59);
+	var Observable_1 = __webpack_require__(40);
 	exports.Observable = Observable_1.Observable;
-	var Subject_2 = __webpack_require__(47);
+	var Subject_2 = __webpack_require__(39);
 	exports.Subject = Subject_2.Subject;
 	var TimerWrapper = (function () {
 	    function TimerWrapper() {
@@ -34718,7 +34720,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var intl_1 = __webpack_require__(200);
 	var collection_1 = __webpack_require__(198);
@@ -34879,7 +34881,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var JsonPipe = (function () {
 	    function JsonPipe() {
@@ -34899,7 +34901,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var collection_1 = __webpack_require__(198);
 	var invalid_pipe_argument_exception_1 = __webpack_require__(194);
@@ -34933,7 +34935,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var invalid_pipe_argument_exception_1 = __webpack_require__(194);
 	var LowerCasePipe = (function () {
@@ -34966,7 +34968,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var exceptions_1 = __webpack_require__(195);
 	var intl_1 = __webpack_require__(200);
@@ -35072,7 +35074,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var invalid_pipe_argument_exception_1 = __webpack_require__(194);
 	var UpperCasePipe = (function () {
@@ -35100,7 +35102,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var invalid_pipe_argument_exception_1 = __webpack_require__(194);
 	var ReplacePipe = (function () {
@@ -35153,7 +35155,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var invalid_pipe_argument_exception_1 = __webpack_require__(194);
 	var interpolationExp = lang_1.RegExpWrapper.create('#');
@@ -35184,7 +35186,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var collection_1 = __webpack_require__(198);
 	var invalid_pipe_argument_exception_1 = __webpack_require__(194);
@@ -35290,7 +35292,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var collection_1 = __webpack_require__(198);
 	var NgClass = (function () {
@@ -35420,7 +35422,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var exceptions_1 = __webpack_require__(195);
 	var NgForRow = (function () {
@@ -35585,7 +35587,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var NgIf = (function () {
 	    function NgIf(_viewContainer, _templateRef) {
@@ -35624,7 +35626,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var NgTemplateOutlet = (function () {
 	    function NgTemplateOutlet(_viewContainerRef) {
@@ -35661,7 +35663,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var NgStyle = (function () {
 	    function NgStyle(_differs, _ngEl, _renderer) {
@@ -35714,7 +35716,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var collection_1 = __webpack_require__(198);
 	var _WHEN_DEFAULT = new Object();
@@ -35868,7 +35870,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var collection_1 = __webpack_require__(198);
 	var ng_switch_1 = __webpack_require__(216);
@@ -36751,7 +36753,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var async_1 = __webpack_require__(192);
 	var control_container_1 = __webpack_require__(223);
 	var ng_control_1 = __webpack_require__(225);
@@ -36880,7 +36882,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	/**
 	 * Used to provide a {@link ControlValueAccessor} for form controls.
 	 *
@@ -37002,7 +37004,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var promise_1 = __webpack_require__(193);
 	var async_1 = __webpack_require__(192);
@@ -37143,7 +37145,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var control_value_accessor_1 = __webpack_require__(226);
 	exports.DEFAULT_VALUE_ACCESSOR = 
@@ -37189,7 +37191,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var control_value_accessor_1 = __webpack_require__(226);
 	exports.NUMBER_VALUE_ACCESSOR = {
@@ -37236,7 +37238,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var control_value_accessor_1 = __webpack_require__(226);
 	exports.CHECKBOX_VALUE_ACCESSOR = {
 	    provide: control_value_accessor_1.NG_VALUE_ACCESSOR,
@@ -37276,7 +37278,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var collection_1 = __webpack_require__(198);
 	var control_value_accessor_1 = __webpack_require__(226);
@@ -37406,7 +37408,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var collection_1 = __webpack_require__(198);
 	var control_value_accessor_1 = __webpack_require__(226);
@@ -37542,7 +37544,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var collection_1 = __webpack_require__(198);
 	var async_1 = __webpack_require__(192);
 	var ng_control_1 = __webpack_require__(225);
@@ -37629,7 +37631,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var async_1 = __webpack_require__(192);
 	var control_value_accessor_1 = __webpack_require__(226);
 	var ng_control_1 = __webpack_require__(225);
@@ -37718,7 +37720,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var control_container_1 = __webpack_require__(223);
 	var shared_1 = __webpack_require__(227);
 	var validators_1 = __webpack_require__(228);
@@ -37799,7 +37801,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var collection_1 = __webpack_require__(198);
 	var exceptions_1 = __webpack_require__(195);
@@ -37915,7 +37917,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var async_1 = __webpack_require__(192);
 	var collection_1 = __webpack_require__(198);
 	var lang_1 = __webpack_require__(191);
@@ -38037,7 +38039,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var ng_control_1 = __webpack_require__(225);
 	var lang_1 = __webpack_require__(191);
 	var NgControlStatus = (function () {
@@ -38200,7 +38202,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var validators_1 = __webpack_require__(228);
 	var REQUIRED = validators_1.Validators.required;
@@ -38320,7 +38322,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var collection_1 = __webpack_require__(198);
 	var lang_1 = __webpack_require__(191);
 	var modelModule = __webpack_require__(221);
@@ -38519,7 +38521,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	/**
 	 * `LocationStrategy` is responsible for representing and reading route state
 	 * from the browser's URL. Angular provides two strategies:
@@ -38584,7 +38586,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var location_strategy_1 = __webpack_require__(247);
 	var location_1 = __webpack_require__(249);
@@ -38652,7 +38654,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var async_1 = __webpack_require__(192);
 	var location_strategy_1 = __webpack_require__(247);
 	var Location = (function () {
@@ -38798,7 +38800,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(191);
 	var exceptions_1 = __webpack_require__(195);
 	var platform_location_1 = __webpack_require__(246);
@@ -38865,7 +38867,7 @@
 	var style_sanitizer_1 = __webpack_require__(253);
 	var core_private_1 = __webpack_require__(187);
 	exports.SecurityContext = core_private_1.SecurityContext;
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	/**
 	 * DomSanitizationService helps preventing Cross Site Scripting Security bugs (XSS) by sanitizing
 	 * values to be safe to use in the different DOM contexts.
@@ -40000,7 +40002,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var collection_1 = __webpack_require__(255);
 	var lang_1 = __webpack_require__(185);
 	var dom_adapter_1 = __webpack_require__(257);
@@ -40080,7 +40082,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	/**
 	 * A DI Token representing the main rendering context. In a browser this is the DOM Document.
 	 *
@@ -40095,7 +40097,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var exceptions_1 = __webpack_require__(261);
 	var collection_1 = __webpack_require__(255);
 	exports.EVENT_MANAGER_PLUGINS = 
@@ -40438,7 +40440,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var animation_builder_1 = __webpack_require__(265);
 	var lang_1 = __webpack_require__(185);
 	var exceptions_1 = __webpack_require__(261);
@@ -40754,7 +40756,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var css_animation_builder_1 = __webpack_require__(266);
 	var browser_details_1 = __webpack_require__(271);
 	var AnimationBuilder = (function () {
@@ -41113,7 +41115,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var math_1 = __webpack_require__(269);
 	var dom_adapter_1 = __webpack_require__(257);
 	var BrowserDetails = (function () {
@@ -41189,7 +41191,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var collection_1 = __webpack_require__(255);
 	var dom_adapter_1 = __webpack_require__(257);
 	var dom_tokens_1 = __webpack_require__(259);
@@ -41265,7 +41267,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(185);
 	var collection_1 = __webpack_require__(255);
 	var dom_adapter_1 = __webpack_require__(257);
@@ -41370,7 +41372,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var core_private_1 = __webpack_require__(187);
 	var lang_1 = __webpack_require__(185);
 	var dom_adapter_1 = __webpack_require__(257);
@@ -41427,7 +41429,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var dom_adapter_1 = __webpack_require__(257);
 	var event_manager_1 = __webpack_require__(260);
 	var DomEventsPlugin = (function (_super) {
@@ -41467,7 +41469,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(185);
 	var exceptions_1 = __webpack_require__(261);
 	var hammer_common_1 = __webpack_require__(277);
@@ -41663,7 +41665,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(185);
 	var browser_1 = __webpack_require__(281);
 	var dom_adapter_1 = __webpack_require__(257);
@@ -41849,7 +41851,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(185);
 	var browser_common_1 = __webpack_require__(186);
 	var ng_probe_1 = __webpack_require__(274);
@@ -41901,7 +41903,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var dom_adapter_1 = __webpack_require__(257);
 	var BrowserPlatformLocation = (function (_super) {
@@ -41967,7 +41969,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	exports.ReflectionCapabilities = core_1.__core_private__.ReflectionCapabilities;
 	//# sourceMappingURL=core_private.js.map
 
@@ -42029,12 +42031,12 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(289);
 	var collection_1 = __webpack_require__(290);
 	var async_1 = __webpack_require__(291);
 	var collection_2 = __webpack_require__(290);
-	var core_2 = __webpack_require__(14);
+	var core_2 = __webpack_require__(6);
 	var recognize_1 = __webpack_require__(293);
 	var link_1 = __webpack_require__(297);
 	var segments_1 = __webpack_require__(294);
@@ -43177,12 +43179,12 @@
 	var promise_1 = __webpack_require__(292);
 	exports.PromiseWrapper = promise_1.PromiseWrapper;
 	exports.PromiseCompleter = promise_1.PromiseCompleter;
-	var Subject_1 = __webpack_require__(47);
-	var PromiseObservable_1 = __webpack_require__(66);
-	var toPromise_1 = __webpack_require__(67);
-	var Observable_1 = __webpack_require__(48);
+	var Subject_1 = __webpack_require__(39);
+	var PromiseObservable_1 = __webpack_require__(58);
+	var toPromise_1 = __webpack_require__(59);
+	var Observable_1 = __webpack_require__(40);
 	exports.Observable = Observable_1.Observable;
-	var Subject_2 = __webpack_require__(47);
+	var Subject_2 = __webpack_require__(39);
 	exports.Subject = Subject_2.Subject;
 	var TimerWrapper = (function () {
 	    function TimerWrapper() {
@@ -43382,9 +43384,9 @@
 	var lang_1 = __webpack_require__(289);
 	var collection_1 = __webpack_require__(290);
 	var promise_1 = __webpack_require__(292);
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var constants_1 = __webpack_require__(296);
-	var core_2 = __webpack_require__(14);
+	var core_2 = __webpack_require__(6);
 	// TODO: vsavkin: recognize should take the old tree and merge it
 	function recognize(componentResolver, type, url) {
 	    var matched = new _MatchResult(type, [url.root], {}, segments_1.rootNode(url).children, []);
@@ -44307,7 +44309,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	exports.makeDecorator = core_1.__core_private__.makeDecorator;
 	//# sourceMappingURL=core_private.js.map
 
@@ -44322,7 +44324,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var segments_1 = __webpack_require__(294);
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(289);
 	/**
 	 * Defines a way to serialize/deserialize a url tree.
@@ -44541,12 +44543,12 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var router_1 = __webpack_require__(288);
 	var router_url_serializer_1 = __webpack_require__(304);
-	var core_2 = __webpack_require__(14);
-	var core_3 = __webpack_require__(14);
+	var core_2 = __webpack_require__(6);
+	var core_3 = __webpack_require__(6);
 	/**
 	 * The Platform agnostic ROUTER PROVIDERS
 	 */
@@ -44576,7 +44578,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var router_1 = __webpack_require__(288);
 	var constants_1 = __webpack_require__(296);
 	var lang_1 = __webpack_require__(289);
@@ -44632,7 +44634,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var router_1 = __webpack_require__(288);
 	var segments_1 = __webpack_require__(294);
 	var lang_1 = __webpack_require__(289);
@@ -44722,7 +44724,7 @@
 	* The http module provides services to perform http requests. To get started, see the {@link Http}
 	* class.
 	*/
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var http_1 = __webpack_require__(311);
 	var xhr_backend_1 = __webpack_require__(324);
 	var jsonp_backend_1 = __webpack_require__(328);
@@ -45040,7 +45042,7 @@
 	};
 	var lang_1 = __webpack_require__(312);
 	var exceptions_1 = __webpack_require__(313);
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var interfaces_1 = __webpack_require__(317);
 	var static_request_1 = __webpack_require__(318);
 	var base_request_options_1 = __webpack_require__(322);
@@ -46654,7 +46656,7 @@
 	var lang_1 = __webpack_require__(312);
 	var headers_1 = __webpack_require__(319);
 	var enums_1 = __webpack_require__(321);
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var url_search_params_1 = __webpack_require__(323);
 	var http_utils_1 = __webpack_require__(320);
 	/**
@@ -46888,10 +46890,10 @@
 	var static_response_1 = __webpack_require__(325);
 	var headers_1 = __webpack_require__(319);
 	var base_response_options_1 = __webpack_require__(326);
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var browser_xhr_1 = __webpack_require__(327);
 	var lang_1 = __webpack_require__(312);
-	var Observable_1 = __webpack_require__(48);
+	var Observable_1 = __webpack_require__(40);
 	var http_utils_1 = __webpack_require__(320);
 	/**
 	* Creates connections using `XMLHttpRequest`. Given a fully-qualified
@@ -47061,7 +47063,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(312);
 	var headers_1 = __webpack_require__(319);
 	var enums_1 = __webpack_require__(321);
@@ -47159,7 +47161,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var BrowserXhr = (function () {
 	    function BrowserXhr() {
 	    }
@@ -47187,11 +47189,11 @@
 	var enums_1 = __webpack_require__(321);
 	var static_response_1 = __webpack_require__(325);
 	var base_response_options_1 = __webpack_require__(326);
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var browser_jsonp_1 = __webpack_require__(329);
 	var exceptions_1 = __webpack_require__(313);
 	var lang_1 = __webpack_require__(312);
-	var Observable_1 = __webpack_require__(48);
+	var Observable_1 = __webpack_require__(40);
 	var JSONP_ERR_NO_CALLBACK = 'JSONP injected script did not invoke callback.';
 	var JSONP_ERR_WRONG_METHOD = 'JSONP requests must use GET request method.';
 	/**
@@ -47323,7 +47325,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var lang_1 = __webpack_require__(312);
 	var _nextRequestId = 0;
 	exports.JSONP_HOME = '__ng_jsonp__';
@@ -47383,7 +47385,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var platform_browser_1 = __webpack_require__(183);
 	var config_1 = __webpack_require__(331);
 	var click_block_1 = __webpack_require__(335);
@@ -47875,7 +47877,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var util_1 = __webpack_require__(333);
 	var dom_1 = __webpack_require__(334);
 	/**
@@ -49287,7 +49289,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	/**
 	 * @private
 	 */
@@ -49565,7 +49567,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var ion_1 = __webpack_require__(341);
 	var config_1 = __webpack_require__(331);
 	var platform_1 = __webpack_require__(332);
@@ -50222,7 +50224,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(331);
 	var form_1 = __webpack_require__(338);
 	var dom_1 = __webpack_require__(334);
@@ -53665,7 +53667,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var view_controller_1 = __webpack_require__(353);
 	var navbar_1 = __webpack_require__(355);
 	var menu_controller_1 = __webpack_require__(351);
@@ -53774,7 +53776,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var nav_params_1 = __webpack_require__(354);
 	var util_1 = __webpack_require__(333);
 	/**
@@ -54376,7 +54378,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var ion_1 = __webpack_require__(341);
 	var toolbar_1 = __webpack_require__(356);
 	var config_1 = __webpack_require__(331);
@@ -54636,7 +54638,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var button_1 = __webpack_require__(357);
 	var config_1 = __webpack_require__(331);
 	var ion_1 = __webpack_require__(341);
@@ -54876,7 +54878,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(331);
 	var util_1 = __webpack_require__(333);
 	/**
@@ -55290,8 +55292,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var core_1 = __webpack_require__(14);
-	var bootstrap_1 = __webpack_require__(7);
+	var core_1 = __webpack_require__(6);
+	var bootstrap_1 = __webpack_require__(103);
 	var ion_1 = __webpack_require__(341);
 	var util_1 = __webpack_require__(333);
 	var nav_params_1 = __webpack_require__(354);
@@ -57643,7 +57645,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var menu_controller_1 = __webpack_require__(351);
 	/**
 	 * @name MenuClose
@@ -57715,7 +57717,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(331);
 	/**
 	  * @name Badge
@@ -57787,7 +57789,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var ion_1 = __webpack_require__(341);
 	var app_1 = __webpack_require__(330);
 	var config_1 = __webpack_require__(331);
@@ -58388,7 +58390,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var dom_1 = __webpack_require__(334);
 	var util_1 = __webpack_require__(333);
 	var platform_1 = __webpack_require__(332);
@@ -58531,7 +58533,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var ion_1 = __webpack_require__(341);
 	/**
 	 * @name Scroll
@@ -58632,7 +58634,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var content_1 = __webpack_require__(364);
 	/**
 	 * @name InfiniteScroll
@@ -58897,7 +58899,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(331);
 	var infinite_scroll_1 = __webpack_require__(368);
 	/**
@@ -58962,7 +58964,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var content_1 = __webpack_require__(364);
 	var util_1 = __webpack_require__(333);
 	var dom_1 = __webpack_require__(334);
@@ -59480,7 +59482,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(331);
 	var refresher_1 = __webpack_require__(370);
 	/**
@@ -59567,7 +59569,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var ion_1 = __webpack_require__(341);
 	var animation_1 = __webpack_require__(361);
@@ -64297,7 +64299,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(330);
 	var config_1 = __webpack_require__(331);
 	var ion_1 = __webpack_require__(341);
@@ -64756,7 +64758,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var tab_1 = __webpack_require__(376);
 	var ion_1 = __webpack_require__(341);
 	var config_1 = __webpack_require__(331);
@@ -64842,7 +64844,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(330);
 	var config_1 = __webpack_require__(331);
 	var util_1 = __webpack_require__(333);
@@ -65189,7 +65191,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var dom_1 = __webpack_require__(334);
 	/**
 	 * @private
@@ -65245,7 +65247,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var ion_1 = __webpack_require__(341);
 	var item_sliding_gesture_1 = __webpack_require__(379);
 	/**
@@ -65616,7 +65618,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var button_1 = __webpack_require__(357);
 	var form_1 = __webpack_require__(338);
 	var icon_1 = __webpack_require__(381);
@@ -65816,7 +65818,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(331);
 	/**
 	 * @name Icon
@@ -66008,7 +66010,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	/**
 	 * @name Label
 	 * @description
@@ -66133,7 +66135,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var list_1 = __webpack_require__(378);
 	/**
 	 * @name ItemSliding
@@ -66256,7 +66258,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(331);
 	var content_1 = __webpack_require__(364);
 	var platform_1 = __webpack_require__(332);
@@ -66883,7 +66885,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	/**
 	 * @private
 	 */
@@ -67474,7 +67476,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var config_1 = __webpack_require__(331);
 	/**
@@ -67778,7 +67780,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var form_1 = __webpack_require__(338);
 	var item_1 = __webpack_require__(380);
@@ -68000,7 +68002,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var alert_1 = __webpack_require__(390);
 	var action_sheet_1 = __webpack_require__(391);
@@ -68483,7 +68485,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var animation_1 = __webpack_require__(361);
 	var transition_1 = __webpack_require__(360);
 	var config_1 = __webpack_require__(331);
@@ -69145,7 +69147,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var animation_1 = __webpack_require__(361);
 	var transition_1 = __webpack_require__(360);
 	var config_1 = __webpack_require__(331);
@@ -69593,7 +69595,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var util_1 = __webpack_require__(333);
 	/**
 	 * @name Option
@@ -69690,7 +69692,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var config_1 = __webpack_require__(331);
 	var picker_1 = __webpack_require__(394);
@@ -70513,7 +70515,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var platform_browser_1 = __webpack_require__(183);
 	var animation_1 = __webpack_require__(361);
 	var transition_1 = __webpack_require__(360);
@@ -71110,7 +71112,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var form_1 = __webpack_require__(338);
 	var util_1 = __webpack_require__(333);
@@ -71397,7 +71399,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var config_1 = __webpack_require__(331);
 	var content_1 = __webpack_require__(364);
@@ -71605,7 +71607,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var util_1 = __webpack_require__(333);
 	var dom_1 = __webpack_require__(334);
 	var native_input_1 = __webpack_require__(398);
@@ -72158,7 +72160,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var config_1 = __webpack_require__(331);
 	var dom_1 = __webpack_require__(334);
@@ -72395,7 +72397,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var util_1 = __webpack_require__(333);
 	/**
@@ -72698,7 +72700,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var form_1 = __webpack_require__(338);
 	var util_1 = __webpack_require__(333);
 	var item_1 = __webpack_require__(380);
@@ -72897,7 +72899,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var list_1 = __webpack_require__(378);
 	var util_1 = __webpack_require__(333);
@@ -73128,7 +73130,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var form_1 = __webpack_require__(338);
 	var util_1 = __webpack_require__(333);
@@ -73234,6 +73236,13 @@
 	 * the slider knob. It can accept dual knobs, but by default one knob
 	 * controls the value of the range.
 	 *
+	 * ### Range Labels
+	 * Labels can be placed on either side of the range by adding the
+	 * `range-left` or `range-right` property to the element. The element
+	 * doesn't have to be an `ion-label`, it can be added to any element
+	 * to place it to the left or right of the range. See [usage](#usage)
+	 * below for examples.
+	 *
 	 *
 	 * ### Minimum and Maximum Values
 	 * Minimum and maximum values can be passed to the range through the `min`
@@ -73263,15 +73272,18 @@
 	 *   </ion-item>
 	 *
 	 *   <ion-item>
-	 *     <ion-note item-left>-200</ion-note>
-	 *     <ion-range min="-200" max="200" pin="true" [(ngModel)]="saturation" secondary></ion-range>
-	 *     <ion-note item-right>200</ion-note>
+	 *     <ion-range min="-200" max="200" [(ngModel)]="saturation" secondary>
+	 *       <ion-label range-left>-200</ion-label>
+	 *       <ion-label range-right>200</ion-label>
+	 *     </ion-range>
 	 *   </ion-item>
 	 *
-	 *   <ion-item>
-	 *     <ion-label>step=2, {{singleValue3}}</ion-label>
-	 *     <ion-range min="20" max="80" step="2" [(ngModel)]="singleValue3"></ion-range>
-	 *   </ion-item>
+	 *  <ion-item>
+	 *    <ion-range min="20" max="80" step="2" [(ngModel)]="brightness">
+	 *      <ion-icon small range-left name="sunny"></ion-icon>
+	 *      <ion-icon range-right name="sunny"></ion-icon>
+	 *    </ion-range>
+	 *  </ion-item>
 	 *
 	 *   <ion-item>
 	 *     <ion-label>step=100, snaps, {{singleValue4}}</ion-label>
@@ -73770,13 +73782,15 @@
 	    Range = __decorate([
 	        core_1.Component({
 	            selector: 'ion-range',
-	            template: '<div class="range-slider" #slider>' +
+	            template: '<ng-content select="[range-left]"></ng-content>' +
+	                '<div class="range-slider" #slider>' +
 	                '<div class="range-tick" *ngFor="let t of _ticks" [style.left]="t.left" [class.range-tick-active]="t.active"></div>' +
 	                '<div class="range-bar"></div>' +
 	                '<div class="range-bar range-bar-active" [style.left]="_barL" [style.right]="_barR" #bar></div>' +
 	                '<div class="range-knob-handle"></div>' +
 	                '<div class="range-knob-handle" [upper]="true" *ngIf="_dual"></div>' +
-	                '</div>',
+	                '</div>' +
+	                '<ng-content select="[range-right]"></ng-content>',
 	            host: {
 	                '[class.range-disabled]': '_disabled',
 	                '[class.range-pressed]': '_pressed',
@@ -73816,7 +73830,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var ion_1 = __webpack_require__(341);
 	var config_1 = __webpack_require__(331);
@@ -74164,7 +74178,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(330);
 	var config_1 = __webpack_require__(331);
 	var keyboard_1 = __webpack_require__(342);
@@ -74405,7 +74419,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(330);
 	var config_1 = __webpack_require__(331);
 	var keyboard_1 = __webpack_require__(342);
@@ -74451,7 +74465,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var nav_controller_1 = __webpack_require__(358);
 	var nav_registry_1 = __webpack_require__(407);
 	/**
@@ -74640,7 +74654,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	/**
 	 * @private
 	 */
@@ -74679,7 +74693,7 @@
 	var __param = (this && this.__param) || function (paramIndex, decorator) {
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var platform_1 = __webpack_require__(332);
 	/**
 	 * @private
@@ -74860,7 +74874,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(330);
 	var config_1 = __webpack_require__(331);
 	var dom_1 = __webpack_require__(334);
@@ -75312,7 +75326,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var _reflect = Reflect;
 	/**
 	 * @private
@@ -75414,7 +75428,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var animation_1 = __webpack_require__(361);
 	var transition_1 = __webpack_require__(360);
 	var config_1 = __webpack_require__(331);
@@ -75901,8 +75915,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
-	var bootstrap_1 = __webpack_require__(7);
+	var core_1 = __webpack_require__(6);
+	var bootstrap_1 = __webpack_require__(103);
 	var animation_1 = __webpack_require__(361);
 	var nav_params_1 = __webpack_require__(354);
 	var util_1 = __webpack_require__(333);
@@ -76215,8 +76229,8 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
-	var core_2 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
+	var core_2 = __webpack_require__(6);
 	var animation_1 = __webpack_require__(361);
 	var transition_1 = __webpack_require__(360);
 	var config_1 = __webpack_require__(331);
@@ -76669,7 +76683,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var animation_1 = __webpack_require__(361);
 	var transition_1 = __webpack_require__(360);
 	var config_1 = __webpack_require__(331);
@@ -77300,7 +77314,7 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var core_1 = __webpack_require__(14);
+	var core_1 = __webpack_require__(6);
 	var translate_1 = __webpack_require__(413);
 	/**
 	 * @private

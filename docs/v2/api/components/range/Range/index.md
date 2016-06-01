@@ -46,6 +46,12 @@ Improve this doc
 <p>The Range slider lets users select from a range of values by moving
 the slider knob. It can accept dual knobs, but by default one knob
 controls the value of the range.</p>
+<h3 id="range-labels">Range Labels</h3>
+<p>Labels can be placed on either side of the range by adding the
+<code>range-left</code> or <code>range-right</code> property to the element. The element
+doesn&#39;t have to be an <code>ion-label</code>, it can be added to any element
+to place it to the left or right of the range. See <a href="#usage">usage</a>
+below for examples.</p>
 <h3 id="minimum-and-maximum-values">Minimum and Maximum Values</h3>
 <p>Minimum and maximum values can be passed to the range through the <code>min</code>
 and <code>max</code> properties, respectively. By default, the range sets the <code>min</code>
@@ -74,15 +80,18 @@ be an object containing two properties: <code>lower</code> and <code>upper</code
   &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
-    &lt;ion-note item-left&gt;-200&lt;/ion-note&gt;
-    &lt;ion-range min=&quot;-200&quot; max=&quot;200&quot; pin=&quot;true&quot; [(ngModel)]=&quot;saturation&quot; secondary&gt;&lt;/ion-range&gt;
-    &lt;ion-note item-right&gt;200&lt;/ion-note&gt;
+    &lt;ion-range min=&quot;-200&quot; max=&quot;200&quot; [(ngModel)]=&quot;saturation&quot; secondary&gt;
+      &lt;ion-label range-left&gt;-200&lt;/ion-label&gt;
+      &lt;ion-label range-right&gt;200&lt;/ion-label&gt;
+    &lt;/ion-range&gt;
   &lt;/ion-item&gt;
 
-  &lt;ion-item&gt;
-    &lt;ion-label&gt;step=2, {{singleValue3}}&lt;/ion-label&gt;
-    &lt;ion-range min=&quot;20&quot; max=&quot;80&quot; step=&quot;2&quot; [(ngModel)]=&quot;singleValue3&quot;&gt;&lt;/ion-range&gt;
-  &lt;/ion-item&gt;
+ &lt;ion-item&gt;
+   &lt;ion-range min=&quot;20&quot; max=&quot;80&quot; step=&quot;2&quot; [(ngModel)]=&quot;brightness&quot;&gt;
+     &lt;ion-icon small range-left name=&quot;sunny&quot;&gt;&lt;/ion-icon&gt;
+     &lt;ion-icon range-right name=&quot;sunny&quot;&gt;&lt;/ion-icon&gt;
+   &lt;/ion-range&gt;
+ &lt;/ion-item&gt;
 
   &lt;ion-item&gt;
     &lt;ion-label&gt;step=100, snaps, {{singleValue4}}&lt;/ion-label&gt;

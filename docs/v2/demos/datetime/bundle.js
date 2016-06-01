@@ -73422,10 +73422,10 @@
 	        }
 	        this._renderer.setElementStyle(this._bar.nativeElement, 'left', barL);
 	        this._renderer.setElementStyle(this._bar.nativeElement, 'right', barR);
-	        this.createTicks();
 	        // add touchstart/mousedown listeners
 	        this._renderer.listen(this._slider.nativeElement, 'touchstart', this.pointerDown.bind(this));
 	        this._mouseRemove = this._renderer.listen(this._slider.nativeElement, 'mousedown', this.pointerDown.bind(this));
+	        this.createTicks();
 	    };
 	    /**
 	     * @private
@@ -73585,19 +73585,20 @@
 	     * @private
 	     */
 	    Range.prototype.createTicks = function () {
+	        var _this = this;
 	        if (this._snaps) {
-	            this._ticks = [];
-	            for (var value = this._min; value <= this._max; value += this._step) {
-	                var ratio = this.valueToRatio(value);
-	                this._ticks.push({
-	                    ratio: ratio,
-	                    left: ratio * 100 + "%",
-	                });
-	            }
-	            this.updateTicks();
-	        }
-	        else {
-	            this._ticks = null;
+	            dom_1.raf(function () {
+	                // TODO: Fix to not use RAF
+	                _this._ticks = [];
+	                for (var value = _this._min; value <= _this._max; value += _this._step) {
+	                    var ratio = _this.valueToRatio(value);
+	                    _this._ticks.push({
+	                        ratio: ratio,
+	                        left: ratio * 100 + "%",
+	                    });
+	                }
+	                _this.updateTicks();
+	            });
 	        }
 	    };
 	    /**

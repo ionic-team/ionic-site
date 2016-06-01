@@ -9826,6 +9826,13 @@ ion-icon {
     background-color: #222; }
   .md ion-range {
     padding: 8px 8px; }
+  .md [range-left],
+  .md [range-right] {
+    margin: 0 12px; }
+  .md [range-left] {
+    margin-left: 0; }
+  .md [range-right] {
+    margin-right: 0; }
   .md .range-has-pin {
     padding-top: 28px; }
   .md .range-slider {
@@ -13431,6 +13438,13 @@ ion-icon {
     border-color: #222; }
   .wp ion-range {
     padding: 8px 8px; }
+  .wp [range-left],
+  .wp [range-right] {
+    margin: 0 12px; }
+  .wp [range-left] {
+    margin-left: 0; }
+  .wp [range-right] {
+    margin-right: 0; }
   .wp .range-has-pin {
     padding-top: 28px; }
   .wp .range-slider {

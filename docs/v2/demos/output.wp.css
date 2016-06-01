@@ -6890,6 +6890,16 @@ ion-radio[bright] .radio-checked {
 ion-range {
   padding: 8px 8px; }
 
+[range-left],
+[range-right] {
+  margin: 0 12px; }
+
+[range-left] {
+  margin-left: 0; }
+
+[range-right] {
+  margin-right: 0; }
+
 .range-has-pin {
   padding-top: 28px; }
 

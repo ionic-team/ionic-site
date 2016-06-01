@@ -74942,7 +74942,7 @@
 	            this.startCoord = dom_1.pointerCoord(ev);
 	            var now = Date.now();
 	            if (this.lastActivated + 150 < now) {
-	                this.activator && this.activator.downAction(ev, activatableEle, this.startCoord.x, this.startCoord.y);
+	                this.activator && this.activator.downAction(ev, activatableEle, this.startCoord);
 	                this.lastActivated = now;
 	            }
 	            this.moveListeners(true);
@@ -74952,9 +74952,11 @@
 	        }
 	    };
 	    TapClick.prototype.pointerEnd = function (ev) {
-	        var activatableEle = getActivatableTarget(ev.target);
-	        if (activatableEle && this.startCoord) {
-	            this.activator && this.activator.upAction(ev, activatableEle, this.startCoord.x, this.startCoord.y);
+	        if (this.startCoord && this.activator) {
+	            var activatableEle = getActivatableTarget(ev.target);
+	            if (activatableEle) {
+	                this.activator.upAction(ev, activatableEle, this.startCoord);
+	            }
 	        }
 	        this.moveListeners(false);
 	    };
@@ -75046,7 +75048,7 @@
 	        this._active = [];
 	        this._css = config.get('activatedClass') || 'activated';
 	    }
-	    Activator.prototype.downAction = function (ev, activatableEle, pointerX, pointerY) {
+	    Activator.prototype.downAction = function (ev, activatableEle, startCoord) {
 	        // the user just pressed down
 	        var self = this;
 	        if (self.disableActivated(ev)) {
@@ -75066,7 +75068,7 @@
 	            self._queue = [];
 	        });
 	    };
-	    Activator.prototype.upAction = function (ev, activatableEle, pointerX, pointerY) {
+	    Activator.prototype.upAction = function (ev, activatableEle, startCoord) {
 	        var _this = this;
 	        // the user was pressing down, then just let up
 	        dom_1.rafFrames(CLEAR_STATE_DEFERS, function () {
@@ -75138,7 +75140,7 @@
 	    function RippleActivator(app, config) {
 	        _super.call(this, app, config);
 	    }
-	    RippleActivator.prototype.downAction = function (ev, activatableEle, pointerX, pointerY) {
+	    RippleActivator.prototype.downAction = function (ev, activatableEle, startCoord) {
 	        var self = this;
 	        if (self.disableActivated(ev)) {
 	            return;
@@ -75175,40 +75177,42 @@
 	            self._queue = [];
 	        });
 	    };
-	    RippleActivator.prototype.upAction = function (ev, activatableEle, pointerX, pointerY) {
+	    RippleActivator.prototype.upAction = function (ev, activatableEle, startCoord) {
 	        var self = this;
-	        var i = activatableEle.childElementCount;
-	        while (i--) {
-	            var rippleEle = activatableEle.children[i];
-	            if (rippleEle.tagName === 'ION-BUTTON-EFFECT') {
-	                var clientPointerX = (pointerX - rippleEle.$left);
-	                var clientPointerY = (pointerY - rippleEle.$top);
-	                var x = Math.max(Math.abs(rippleEle.$width - clientPointerX), clientPointerX) * 2;
-	                var y = Math.max(Math.abs(rippleEle.$height - clientPointerY), clientPointerY) * 2;
-	                var diameter = Math.min(Math.max(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)), 64), 240);
-	                if (activatableEle.hasAttribute('ion-item')) {
-	                    diameter = Math.min(diameter, 140);
+	        if (!dom_1.hasPointerMoved(6, startCoord, dom_1.pointerCoord(ev))) {
+	            var i = activatableEle.childElementCount;
+	            while (i--) {
+	                var rippleEle = activatableEle.children[i];
+	                if (rippleEle.tagName === 'ION-BUTTON-EFFECT') {
+	                    var clientPointerX = (startCoord.x - rippleEle.$left);
+	                    var clientPointerY = (startCoord.y - rippleEle.$top);
+	                    var x = Math.max(Math.abs(rippleEle.$width - clientPointerX), clientPointerX) * 2;
+	                    var y = Math.max(Math.abs(rippleEle.$height - clientPointerY), clientPointerY) * 2;
+	                    var diameter = Math.min(Math.max(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)), 64), 240);
+	                    if (activatableEle.hasAttribute('ion-item')) {
+	                        diameter = Math.min(diameter, 140);
+	                    }
+	                    var radius = Math.sqrt(rippleEle.$width + rippleEle.$height);
+	                    var scaleTransitionDuration = Math.max(1600 * Math.sqrt(radius / TOUCH_DOWN_ACCEL) + 0.5, 260);
+	                    var opacityTransitionDuration = scaleTransitionDuration * 0.7;
+	                    var opacityTransitionDelay = scaleTransitionDuration - opacityTransitionDuration;
+	                    // DOM WRITE
+	                    rippleEle.style.width = rippleEle.style.height = diameter + 'px';
+	                    rippleEle.style.marginTop = rippleEle.style.marginLeft = -(diameter / 2) + 'px';
+	                    rippleEle.style.left = clientPointerX + 'px';
+	                    rippleEle.style.top = clientPointerY + 'px';
+	                    rippleEle.style.opacity = '0';
+	                    rippleEle.style[dom_1.CSS.transform] = 'scale(1) translateZ(0px)';
+	                    rippleEle.style[dom_1.CSS.transition] = 'transform ' +
+	                        scaleTransitionDuration +
+	                        'ms,opacity ' +
+	                        opacityTransitionDuration +
+	                        'ms ' +
+	                        opacityTransitionDelay + 'ms';
 	                }
-	                var radius = Math.sqrt(rippleEle.$width + rippleEle.$height);
-	                var scaleTransitionDuration = Math.max(1600 * Math.sqrt(radius / TOUCH_DOWN_ACCEL) + 0.5, 260);
-	                var opacityTransitionDuration = scaleTransitionDuration * 0.7;
-	                var opacityTransitionDelay = scaleTransitionDuration - opacityTransitionDuration;
-	                // DOM WRITE
-	                rippleEle.style.width = rippleEle.style.height = diameter + 'px';
-	                rippleEle.style.marginTop = rippleEle.style.marginLeft = -(diameter / 2) + 'px';
-	                rippleEle.style.left = clientPointerX + 'px';
-	                rippleEle.style.top = clientPointerY + 'px';
-	                rippleEle.style.opacity = '0';
-	                rippleEle.style[dom_1.CSS.transform] = 'scale(1) translateZ(0px)';
-	                rippleEle.style[dom_1.CSS.transition] = 'transform ' +
-	                    scaleTransitionDuration +
-	                    'ms,opacity ' +
-	                    opacityTransitionDuration +
-	                    'ms ' +
-	                    opacityTransitionDelay + 'ms';
 	            }
 	        }
-	        _super.prototype.upAction.call(this, ev, activatableEle, pointerX, pointerY);
+	        _super.prototype.upAction.call(this, ev, activatableEle, startCoord);
 	    };
 	    RippleActivator.prototype.deactivate = function () {
 	        // remove the active class from all active elements

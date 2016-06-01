@@ -15636,6 +15636,7 @@
 	var feature_detect_1 = __webpack_require__(337);
 	var form_1 = __webpack_require__(338);
 	var directives_1 = __webpack_require__(339);
+	var util_1 = __webpack_require__(333);
 	var keyboard_1 = __webpack_require__(342);
 	var menu_controller_1 = __webpack_require__(351);
 	var dom_1 = __webpack_require__(334);
@@ -15672,11 +15673,9 @@
 	}
 	exports.ionicPostBootstrap = ionicPostBootstrap;
 	function ionicProviders(customProviders, config) {
-	    // add custom providers to Ionic's dev
 	    var directives = directives_1.IONIC_DIRECTIVES;
-	    if (customProviders) {
-	        directives.push(customProviders);
-	    }
+	    // add custom providers to Ionic's app
+	    customProviders = util_1.isPresent(customProviders) ? customProviders : [];
 	    // create an instance of Config
 	    if (!(config instanceof config_1.Config)) {
 	        config = new config_1.Config(config);
@@ -15716,6 +15715,7 @@
 	        router_1.ROUTER_PROVIDERS,
 	        core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy }),
 	        http_1.HTTP_PROVIDERS,
+	        customProviders
 	    ];
 	}
 	exports.ionicProviders = ionicProviders;

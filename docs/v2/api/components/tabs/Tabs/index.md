@@ -128,7 +128,7 @@ by using ViewChild.</p>
 
 @ViewChild(&#39;myTabs&#39;) tabRef: Tabs;
 
-onPageDidEnter() {
+ionViewDidEnter() {
   this.tabRef.select(2);
  }
 

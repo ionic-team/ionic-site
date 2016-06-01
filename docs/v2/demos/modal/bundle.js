@@ -53858,7 +53858,6 @@
 	        this._emitter = new core_1.EventEmitter();
 	        // passed in data could be NavParams, but all we care about is its data object
 	        this.data = (data instanceof nav_params_1.NavParams ? data.data : (util_1.isPresent(data) ? data : {}));
-	        this.didLoad = new core_1.EventEmitter();
 	        this.willEnter = new core_1.EventEmitter();
 	        this.didEnter = new core_1.EventEmitter();
 	        this.willLeave = new core_1.EventEmitter();
@@ -54105,14 +54104,14 @@
 	        return this._nbDir;
 	    };
 	    /**
-	     * You can find out of the current view has a Navbar or not. Be sure to wrap this in an `onPageWillEnter` method in order to make sure the view has rendered fully.
+	     * You can find out of the current view has a Navbar or not. Be sure to wrap this in an `ionViewWillEnter` method in order to make sure the view has rendered fully.
 	     *
 	     * ```typescript
 	     * export class Page1 {
 	     *  constructor(view: ViewController) {
 	     *    this.view = view
 	     *  }
-	     *  onPageWillEnter(){
+	     *  ionViewWillEnter(){
 	     *    console.log('Do we have a Navbar?', this.view.hasNavbar());
 	     *  }
 	     *}
@@ -54173,7 +54172,7 @@
 	     *  constructor(viewCtrl: ViewController){
 	     *    this.viewCtrl = viewCtrl
 	     *  }
-	     *  onPageWillEnter() {
+	     *  ionViewWillEnter() {
 	     *    this.viewCtrl.setBackButtonText('Previous');
 	     *  }
 	     * }
@@ -54189,7 +54188,7 @@
 	        }
 	    };
 	    /**
-	     * Set if the back button for the current view is visible or not. Be sure to wrap this in `onPageWillEnter` to make sure the has been compleltly rendered.
+	     * Set if the back button for the current view is visible or not. Be sure to wrap this in `ionViewWillEnter` to make sure the has been compleltly rendered.
 	     * @param {boolean} Set if this Page's back button should show or not.
 	     */
 	    ViewController.prototype.showBackButton = function (shouldShow) {
@@ -54224,8 +54223,7 @@
 	     */
 	    ViewController.prototype.fireLoaded = function () {
 	        this._loaded = true;
-	        this.didLoad.emit(null);
-	        ctrlFn(this, 'onPageLoaded');
+	        ctrlFn(this, 'Loaded');
 	    };
 	    /**
 	     * @private
@@ -54239,7 +54237,7 @@
 	            this._cd.detectChanges();
 	        }
 	        this.willEnter.emit(null);
-	        ctrlFn(this, 'onPageWillEnter');
+	        ctrlFn(this, 'WillEnter');
 	    };
 	    /**
 	     * @private
@@ -54250,7 +54248,7 @@
 	        var navbar = this.getNavbar();
 	        navbar && navbar.didEnter();
 	        this.didEnter.emit(null);
-	        ctrlFn(this, 'onPageDidEnter');
+	        ctrlFn(this, 'DidEnter');
 	    };
 	    /**
 	     * @private
@@ -54258,7 +54256,7 @@
 	     */
 	    ViewController.prototype.fireWillLeave = function () {
 	        this.willLeave.emit(null);
-	        ctrlFn(this, 'onPageWillLeave');
+	        ctrlFn(this, 'WillLeave');
 	    };
 	    /**
 	     * @private
@@ -54267,7 +54265,7 @@
 	     */
 	    ViewController.prototype.fireDidLeave = function () {
 	        this.didLeave.emit(null);
-	        ctrlFn(this, 'onPageDidLeave');
+	        ctrlFn(this, 'DidLeave');
 	        // when this is not the active page
 	        // we no longer need to detect changes
 	        this._cd && this._cd.detach();
@@ -54278,7 +54276,7 @@
 	     */
 	    ViewController.prototype.fireWillUnload = function () {
 	        this.willUnload.emit(null);
-	        ctrlFn(this, 'onPageWillUnload');
+	        ctrlFn(this, 'WillUnload');
 	    };
 	    /**
 	     * @private
@@ -54291,7 +54289,7 @@
 	     */
 	    ViewController.prototype.destroy = function () {
 	        this.didUnload.emit(null);
-	        ctrlFn(this, 'onPageDidUnload');
+	        ctrlFn(this, 'DidUnload');
 	        for (var i = 0; i < this._destroys.length; i++) {
 	            this._destroys[i]();
 	        }
@@ -54307,12 +54305,25 @@
 	}());
 	exports.ViewController = ViewController;
 	function ctrlFn(viewCtrl, fnName) {
-	    if (viewCtrl.instance && viewCtrl.instance[fnName]) {
-	        try {
-	            viewCtrl.instance[fnName]();
+	    if (viewCtrl.instance) {
+	        // deprecated warning: added 2016-06-01, beta.8
+	        if (viewCtrl.instance['onPage' + fnName]) {
+	            try {
+	                console.warn('onPage' + fnName + '() has been deprecated. Please rename to ionView' + fnName + '()');
+	                viewCtrl.instance['onPage' + fnName]();
+	            }
+	            catch (e) {
+	                console.error(viewCtrl.name + ' onPage' + fnName + ': ' + e.message);
+	            }
 	        }
-	        catch (e) {
-	            console.error(viewCtrl.name + ' ' + fnName + ': ' + e.message);
+	        // fire off ionView lifecycle instance method
+	        if (viewCtrl.instance['ionView' + fnName]) {
+	            try {
+	                viewCtrl.instance['ionView' + fnName]();
+	            }
+	            catch (e) {
+	                console.error(viewCtrl.name + ' ionView' + fnName + ': ' + e.message);
+	            }
 	        }
 	    }
 	}
@@ -55391,10 +55402,10 @@
 	 *   template: 'Hello World'
 	 * })
 	 * class HelloWorld {
-	 *   onPageLoaded() {
+	 *   ionViewLoaded() {
 	 *     console.log("I'm alive!");
 	 *   }
-	 *   onPageWillLeave() {
+	 *   ionViewWillLeave() {
 	 *     console.log("Looks like I'm about to leave :(");
 	 *   }
 	 * }
@@ -55402,13 +55413,13 @@
 	 *
 	 *  | Page Event         | Description                                                                                                                                                                                                                                                                       |
 	 *  |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-	 *  | `onPageLoaded`     | Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The `onPageLoaded` event is good place to put your setup code for the page. |
-	 *  | `onPageWillEnter`  | Runs when the page is about to enter and become the active page.                                                                                                                                                                                                                  |
-	 *  | `onPageDidEnter`   | Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.                                                                                                                                            |
-	 *  | `onPageWillLeave`  | Runs when the page is about to leave and no longer be the active page.                                                                                                                                                                                                            |
-	 *  | `onPageDidLeave`   | Runs when the page has finished leaving and is no longer the active page.                                                                                                                                                                                                         |
-	 *  | `onPageWillUnload` | Runs when the page is about to be destroyed and have its elements removed.                                                                                                                                                                                                        |
-	 *  | `onPageDidUnload`  | Runs after the page has been destroyed and its elements have been removed.
+	 *  | `ionViewLoaded`     | Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The `ionViewLoaded` event is good place to put your setup code for the page. |
+	 *  | `ionViewWillEnter`  | Runs when the page is about to enter and become the active page.                                                                                                                                                                                                                  |
+	 *  | `ionViewDidEnter`   | Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.                                                                                                                                            |
+	 *  | `ionViewWillLeave`  | Runs when the page is about to leave and no longer be the active page.                                                                                                                                                                                                            |
+	 *  | `ionViewDidLeave`   | Runs when the page has finished leaving and is no longer the active page.                                                                                                                                                                                                         |
+	 *  | `ionViewWillUnload` | Runs when the page is about to be destroyed and have its elements removed.                                                                                                                                                                                                        |
+	 *  | `ionViewDidUnload`  | Runs after the page has been destroyed and its elements have been removed.
 	 *
 	 *
 	 * ## Nav Transition Promises
@@ -55453,13 +55464,13 @@
 	 * Some methods on `NavController` allow for customizing the current transition.
 	 * To do this, we can pass an object with the modified properites.
 	 *
-	 * | Property  | Value     | Description                                          |
-	 * |-----------|-----------|------------------------------------------------------|
-	 * | animate   | `boolean` | Whether or not the transition should animate         |
-	 * | animation | `string`  | What kind of animation should be used                |
-	 * | direction | `string`  | The direction the page should animate                |
-	 * | duration  | `number`  | The length in milliseconds the animation should take |
-	 * | easing    | `string`  | The easing for the animation                         |
+	 * | Property  | Value     | Description                                                                                                |
+	 * |-----------|-----------|------------------------------------------------------------------------------------------------------------|
+	 * | animate   | `boolean` | Whether or not the transition should animate.                                                              |
+	 * | animation | `string`  | What kind of animation should be used.                                                                     |
+	 * | direction | `string`  | The conceptual direction the user is navigating. For example, is the user navigating `forward`, or `back`? |
+	 * | duration  | `number`  | The length in milliseconds the animation should take.                                                      |
+	 * | easing    | `string`  | The easing for the animation.                                                                              |
 	 *
 	 *
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
@@ -55497,13 +55508,13 @@
 	        this.providers = core_1.ReflectiveInjector.resolve([
 	            core_1.provide(NavController, { useValue: this })
 	        ]);
-	        this.pageDidLoad = new core_1.EventEmitter();
-	        this.pageWillEnter = new core_1.EventEmitter();
-	        this.pageDidEnter = new core_1.EventEmitter();
-	        this.pageWillLeave = new core_1.EventEmitter();
-	        this.pageDidLeave = new core_1.EventEmitter();
-	        this.pageWillUnload = new core_1.EventEmitter();
-	        this.pageDidUnload = new core_1.EventEmitter();
+	        this.viewDidLoad = new core_1.EventEmitter();
+	        this.viewWillEnter = new core_1.EventEmitter();
+	        this.viewDidEnter = new core_1.EventEmitter();
+	        this.viewWillLeave = new core_1.EventEmitter();
+	        this.viewDidLeave = new core_1.EventEmitter();
+	        this.viewWillUnload = new core_1.EventEmitter();
+	        this.viewDidUnload = new core_1.EventEmitter();
 	    }
 	    /**
 	     * @private
@@ -55533,7 +55544,7 @@
 	     *
 	     *
 	     *```ts
-	     * import {Page, NavController} from 'ionic-angular'
+	     * import {NavController} from 'ionic-angular'
 	     * import {Detail} from '../detail/detail'
 	     * import {Info} from '../info/info'
 	     *
@@ -55557,7 +55568,7 @@
 	     *
 	     *
 	     * ```ts
-	     * import {Page, NavController} from 'ionic-angular'
+	     * import {NavController} from 'ionic-angular'
 	     * import {Detail} from '../detail/detail'
 	     *
 	     *  export class Home {
@@ -55577,7 +55588,7 @@
 	     *
 	     *
 	     * ```ts
-	     * import {Page, NavController} from 'ionic-angular';
+	     * import {NavController} from 'ionic-angular';
 	     * import {Info} from '../info/info';
 	     * import {List} from '../list/list';
 	     * import {Detail} from '../detail/detail';
@@ -55701,12 +55712,13 @@
 	        return this.insertPages(-1, [{ page: page, params: params }], opts);
 	    };
 	    /**
-	     * Present is how app display overlays on top of the content, from within the
+	     * Present is how an app display overlays on top of the content, from within the
 	     * root level `NavController`. The `present` method is used by overlays, such
 	     * as `ActionSheet`, `Alert`, and `Modal`. The main difference between `push`
 	     * and `present` is that `present` takes a `ViewController` instance, whereas
-	     * `push` takes a `Page` component class. Additionally, `present` will place
-	     * the overlay in the root NavController's stack.
+	     * `push` takes a component class which hasn't been instantiated yet.
+	     * Additionally, `present` will place the overlay in the root NavController's
+	     * stack.
 	     *
 	     * ```ts
 	     * class MyClass{
@@ -56028,10 +56040,10 @@
 	                            // Tabs can be a parent, but it is not a collection of views
 	                            // only we're looking for an actual NavController w/ stack of views
 	                            leavingView.fireWillLeave();
-	                            this.pageWillLeave.emit(leavingView);
+	                            this.viewWillLeave.emit(leavingView);
 	                            return parentNav.pop(opts).then(function (rtnVal) {
 	                                leavingView.fireDidLeave();
-	                                _this.pageDidLeave.emit(leavingView);
+	                                _this.viewDidLeave.emit(leavingView);
 	                                return rtnVal;
 	                            });
 	                        }
@@ -56119,7 +56131,7 @@
 	            // the first view to be removed, it should init leave
 	            view.state = STATE_INIT_LEAVE;
 	            view.fireWillUnload();
-	            this.pageWillUnload.emit(view);
+	            this.viewWillUnload.emit(view);
 	            // from the index of the leaving view, go backwards and
 	            // find the first view that is inactive so it can be the entering
 	            for (var i = this.indexOf(view) - 1; i >= 0; i--) {
@@ -56150,9 +56162,9 @@
 	        // apart of any transitions that will eventually happen
 	        this._views.filter(function (v) { return v.state === STATE_REMOVE; }).forEach(function (view) {
 	            view.fireWillLeave();
-	            _this.pageWillLeave.emit(view);
+	            _this.viewWillLeave.emit(view);
 	            view.fireDidLeave();
-	            _this.pageDidLeave.emit(view);
+	            _this.viewDidLeave.emit(view);
 	            _this._views.splice(_this.indexOf(view), 1);
 	            view.destroy();
 	        });
@@ -56181,7 +56193,7 @@
 	            // if no entering view then create a bogus one
 	            enteringView = new view_controller_1.ViewController();
 	            enteringView.fireLoaded();
-	            this.pageDidLoad.emit(enteringView);
+	            this.viewDidLoad.emit(enteringView);
 	        }
 	        /* Async steps to complete a transition
 	          1. _render: compile the view and render it in the DOM. Load page if it hasn't loaded already. When done call postRender
@@ -56230,7 +56242,7 @@
 	            this.setTransitioning(true, 500);
 	            this.loadPage(enteringView, null, opts, function () {
 	                enteringView.fireLoaded();
-	                _this.pageDidLoad.emit(enteringView);
+	                _this.viewDidLoad.emit(enteringView);
 	                _this._postRender(transId, enteringView, leavingView, isAlreadyTransitioning, opts, done);
 	            });
 	        }
@@ -56283,13 +56295,13 @@
 	                // only fire entering lifecycle if the leaving
 	                // view hasn't explicitly set not to
 	                enteringView.fireWillEnter();
-	                this.pageWillEnter.emit(enteringView);
+	                this.viewWillEnter.emit(enteringView);
 	            }
 	            if (enteringView.fireOtherLifecycles) {
 	                // only fire leaving lifecycle if the entering
 	                // view hasn't explicitly set not to
 	                leavingView.fireWillLeave();
-	                this.pageWillLeave.emit(leavingView);
+	                this.viewWillLeave.emit(leavingView);
 	            }
 	        }
 	        else {
@@ -56377,13 +56389,13 @@
 	                    // only fire entering lifecycle if the leaving
 	                    // view hasn't explicitly set not to
 	                    enteringView.fireDidEnter();
-	                    _this.pageDidEnter.emit(enteringView);
+	                    _this.viewDidEnter.emit(enteringView);
 	                }
 	                if (enteringView.fireOtherLifecycles) {
 	                    // only fire leaving lifecycle if the entering
 	                    // view hasn't explicitly set not to
 	                    leavingView.fireDidLeave();
-	                    _this.pageDidLeave.emit(leavingView);
+	                    _this.viewDidLeave.emit(leavingView);
 	                }
 	            }
 	            if (enteringView.state === STATE_INACTIVE) {
@@ -64424,7 +64436,7 @@
 	 *
 	 * @ViewChild('myTabs') tabRef: Tabs;
 	 *
-	 * onPageDidEnter() {
+	 * ionViewDidEnter() {
 	 *   this.tabRef.select(2);
 	 *  }
 	 *
@@ -68823,7 +68835,7 @@
 	            this.d.message = '';
 	        }
 	    }
-	    AlertCmp.prototype.onPageLoaded = function () {
+	    AlertCmp.prototype.ionViewLoaded = function () {
 	        var _this = this;
 	        // normalize the data
 	        var data = this.d;
@@ -68880,7 +68892,7 @@
 	            }
 	        }
 	    };
-	    AlertCmp.prototype.onPageDidEnter = function () {
+	    AlertCmp.prototype.ionViewDidEnter = function () {
 	        var activeElement = document.activeElement;
 	        if (document.activeElement) {
 	            activeElement.blur();
@@ -69381,7 +69393,7 @@
 	            this.descId = 'acst-subhdr-' + this.id;
 	        }
 	    }
-	    ActionSheetCmp.prototype.onPageLoaded = function () {
+	    ActionSheetCmp.prototype.ionViewLoaded = function () {
 	        var _this = this;
 	        // normalize the data
 	        var buttons = [];
@@ -69412,7 +69424,7 @@
 	        });
 	        this.d.buttons = buttons;
 	    };
-	    ActionSheetCmp.prototype.onPageDidEnter = function () {
+	    ActionSheetCmp.prototype.ionViewDidEnter = function () {
 	        var activeElement = document.activeElement;
 	        if (document.activeElement) {
 	            activeElement.blur();
@@ -70906,7 +70918,7 @@
 	        this.created = Date.now();
 	        this.lastClick = 0;
 	    }
-	    PickerDisplayCmp.prototype.onPageLoaded = function () {
+	    PickerDisplayCmp.prototype.ionViewLoaded = function () {
 	        // normalize the data
 	        var data = this.d;
 	        data.buttons = data.buttons.map(function (button) {
@@ -70976,7 +70988,7 @@
 	            }
 	        }
 	    };
-	    PickerDisplayCmp.prototype.onPageDidEnter = function () {
+	    PickerDisplayCmp.prototype.ionViewDidEnter = function () {
 	        var activeElement = document.activeElement;
 	        if (activeElement) {
 	            activeElement.blur();
@@ -75613,7 +75625,7 @@
 	        // If the user passed hide to the spinner we don't want to show it
 	        this.showSpinner = util_1.isDefined(this.d.spinner) && this.d.spinner !== 'hide';
 	    };
-	    LoadingCmp.prototype.onPageDidEnter = function () {
+	    LoadingCmp.prototype.ionViewDidEnter = function () {
 	        var _this = this;
 	        var activeElement = document.activeElement;
 	        if (document.activeElement) {
@@ -76408,15 +76420,15 @@
 	        }
 	        this.id = (++popoverIds);
 	    }
-	    PopoverCmp.prototype.onPageWillEnter = function () {
+	    PopoverCmp.prototype.ionViewWillEnter = function () {
 	        var _this = this;
 	        this._loader.loadNextToLocation(this._navParams.data.componentType, this.viewport).then(function (componentRef) {
 	            _this._viewCtrl.setInstance(componentRef.instance);
-	            // manually fire onPageWillEnter() since PopoverCmp's onPageWillEnter already happened
+	            // manually fire ionViewWillEnter() since PopoverCmp's ionViewWillEnter already happened
 	            _this._viewCtrl.fireWillEnter();
 	        });
 	    };
-	    PopoverCmp.prototype.onPageDidEnter = function () {
+	    PopoverCmp.prototype.ionViewDidEnter = function () {
 	        var activeElement = document.activeElement;
 	        if (document.activeElement) {
 	            activeElement.blur();
@@ -76823,7 +76835,7 @@
 	            this.hdrId = 'toast-hdr-' + this.id;
 	        }
 	    }
-	    ToastCmp.prototype.onPageDidEnter = function () {
+	    ToastCmp.prototype.ionViewDidEnter = function () {
 	        var _this = this;
 	        var activeElement = document.activeElement;
 	        if (activeElement) {

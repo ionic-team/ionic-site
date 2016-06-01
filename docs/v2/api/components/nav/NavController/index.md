@@ -92,10 +92,10 @@ defined in any component type which is pushed/popped from a <code>NavController<
   template: &#39;Hello World&#39;
 })
 class HelloWorld {
-  onPageLoaded() {
+  ionViewLoaded() {
     console.log(&quot;I&#39;m alive!&quot;);
   }
-  onPageWillLeave() {
+  ionViewWillLeave() {
     console.log(&quot;Looks like I&#39;m about to leave :(&quot;);
   }
 }
@@ -109,31 +109,31 @@ class HelloWorld {
 </thead>
 <tbody>
 <tr>
-<td><code>onPageLoaded</code></td>
-<td>Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The <code>onPageLoaded</code> event is good place to put your setup code for the page.</td>
+<td><code>ionViewLoaded</code></td>
+<td>Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The <code>ionViewLoaded</code> event is good place to put your setup code for the page.</td>
 </tr>
 <tr>
-<td><code>onPageWillEnter</code></td>
+<td><code>ionViewWillEnter</code></td>
 <td>Runs when the page is about to enter and become the active page.</td>
 </tr>
 <tr>
-<td><code>onPageDidEnter</code></td>
+<td><code>ionViewDidEnter</code></td>
 <td>Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.</td>
 </tr>
 <tr>
-<td><code>onPageWillLeave</code></td>
+<td><code>ionViewWillLeave</code></td>
 <td>Runs when the page is about to leave and no longer be the active page.</td>
 </tr>
 <tr>
-<td><code>onPageDidLeave</code></td>
+<td><code>ionViewDidLeave</code></td>
 <td>Runs when the page has finished leaving and is no longer the active page.</td>
 </tr>
 <tr>
-<td><code>onPageWillUnload</code></td>
+<td><code>ionViewWillUnload</code></td>
 <td>Runs when the page is about to be destroyed and have its elements removed.</td>
 </tr>
 <tr>
-<td><code>onPageDidUnload</code></td>
+<td><code>ionViewDidUnload</code></td>
 <td>Runs after the page has been destroyed and its elements have been removed.</td>
 </tr>
 </tbody>
@@ -184,27 +184,27 @@ To do this, we can pass an object with the modified properites.</p>
 <tr>
 <td>animate</td>
 <td><code>boolean</code></td>
-<td>Whether or not the transition should animate</td>
+<td>Whether or not the transition should animate.</td>
 </tr>
 <tr>
 <td>animation</td>
 <td><code>string</code></td>
-<td>What kind of animation should be used</td>
+<td>What kind of animation should be used.</td>
 </tr>
 <tr>
 <td>direction</td>
 <td><code>string</code></td>
-<td>The direction the page should animate</td>
+<td>The conceptual direction the user is navigating. For example, is the user navigating <code>forward</code>, or <code>back</code>?</td>
 </tr>
 <tr>
 <td>duration</td>
 <td><code>number</code></td>
-<td>The length in milliseconds the animation should take</td>
+<td>The length in milliseconds the animation should take.</td>
 </tr>
 <tr>
 <td>easing</td>
 <td><code>string</code></td>
-<td>The easing for the animation</td>
+<td>The easing for the animation.</td>
 </tr>
 </tbody>
 </table>
@@ -220,11 +220,11 @@ To do this, we can pass an object with the modified properites.</p>
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="pageDidLoad"></div>
+<div id="viewDidLoad"></div>
 
 <h3>
-<a class="anchor" name="pageDidLoad" href="#pageDidLoad"></a>
-<code>pageDidLoad</code>
+<a class="anchor" name="viewDidLoad" href="#viewDidLoad"></a>
+<code>viewDidLoad</code>
   
 
 </h3>
@@ -240,11 +240,11 @@ To do this, we can pass an object with the modified properites.</p>
 
 
 
-<div id="pageWillEnter"></div>
+<div id="viewWillEnter"></div>
 
 <h3>
-<a class="anchor" name="pageWillEnter" href="#pageWillEnter"></a>
-<code>pageWillEnter</code>
+<a class="anchor" name="viewWillEnter" href="#viewWillEnter"></a>
+<code>viewWillEnter</code>
   
 
 </h3>
@@ -260,11 +260,11 @@ To do this, we can pass an object with the modified properites.</p>
 
 
 
-<div id="pageDidEnter"></div>
+<div id="viewDidEnter"></div>
 
 <h3>
-<a class="anchor" name="pageDidEnter" href="#pageDidEnter"></a>
-<code>pageDidEnter</code>
+<a class="anchor" name="viewDidEnter" href="#viewDidEnter"></a>
+<code>viewDidEnter</code>
   
 
 </h3>
@@ -280,11 +280,11 @@ To do this, we can pass an object with the modified properites.</p>
 
 
 
-<div id="pageWillLeave"></div>
+<div id="viewWillLeave"></div>
 
 <h3>
-<a class="anchor" name="pageWillLeave" href="#pageWillLeave"></a>
-<code>pageWillLeave</code>
+<a class="anchor" name="viewWillLeave" href="#viewWillLeave"></a>
+<code>viewWillLeave</code>
   
 
 </h3>
@@ -300,11 +300,11 @@ To do this, we can pass an object with the modified properites.</p>
 
 
 
-<div id="pageDidLeave"></div>
+<div id="viewDidLeave"></div>
 
 <h3>
-<a class="anchor" name="pageDidLeave" href="#pageDidLeave"></a>
-<code>pageDidLeave</code>
+<a class="anchor" name="viewDidLeave" href="#viewDidLeave"></a>
+<code>viewDidLeave</code>
   
 
 </h3>
@@ -320,11 +320,11 @@ To do this, we can pass an object with the modified properites.</p>
 
 
 
-<div id="pageWillUnload"></div>
+<div id="viewWillUnload"></div>
 
 <h3>
-<a class="anchor" name="pageWillUnload" href="#pageWillUnload"></a>
-<code>pageWillUnload</code>
+<a class="anchor" name="viewWillUnload" href="#viewWillUnload"></a>
+<code>viewWillUnload</code>
   
 
 </h3>
@@ -340,11 +340,11 @@ To do this, we can pass an object with the modified properites.</p>
 
 
 
-<div id="pageDidUnload"></div>
+<div id="viewDidUnload"></div>
 
 <h3>
-<a class="anchor" name="pageDidUnload" href="#pageDidUnload"></a>
-<code>pageDidUnload</code>
+<a class="anchor" name="viewDidUnload" href="#viewDidUnload"></a>
+<code>viewDidUnload</code>
   
 
 </h3>
@@ -465,7 +465,7 @@ last view.
 
 
 ```ts
-import {Page, NavController} from 'ionic-angular'
+import {NavController} from 'ionic-angular'
 import {Detail} from '../detail/detail'
 import {Info} from '../info/info'
 
@@ -489,7 +489,7 @@ options to the navigation controller.
 
 
 ```ts
-import {Page, NavController} from 'ionic-angular'
+import {NavController} from 'ionic-angular'
 import {Detail} from '../detail/detail'
 
  export class Home {
@@ -509,7 +509,7 @@ the array.
 
 
 ```ts
-import {Page, NavController} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import {Info} from '../info/info';
 import {List} from '../list/list';
 import {Detail} from '../detail/detail';
@@ -755,12 +755,13 @@ class MyClass{
 
 </h3>
 
-Present is how app display overlays on top of the content, from within the
+Present is how an app display overlays on top of the content, from within the
 root level `NavController`. The `present` method is used by overlays, such
 as `ActionSheet`, `Alert`, and `Modal`. The main difference between `push`
 and `present` is that `present` takes a `ViewController` instance, whereas
-`push` takes a `Page` component class. Additionally, `present` will place
-the overlay in the root NavController's stack.
+`push` takes a component class which hasn't been instantiated yet.
+Additionally, `present` will place the overlay in the root NavController's
+stack.
 
 ```ts
 class MyClass{

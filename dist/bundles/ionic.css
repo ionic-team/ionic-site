@@ -9864,14 +9864,16 @@ ion-icon {
     text-align: center; }
   .md .range-knob {
     position: absolute;
-    top: 16px;
-    left: 15px;
+    top: 13px;
+    left: 12px;
     z-index: 2;
-    width: 12px;
-    height: 12px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background: #327eff;
-    pointer-events: none; }
+    pointer-events: none;
+    -webkit-transform: scale(0.67);
+    transform: scale(0.67); }
   .md .range-tick {
     position: absolute;
     top: 21px;
@@ -9903,8 +9905,8 @@ ion-icon {
     -webkit-transform: translate3d(0, 0, 0) scale(1);
     transform: translate3d(0, 0, 0) scale(1); }
   .md .range-knob-pressed .range-knob {
-    -webkit-transform: scale(1.5);
-    transform: scale(1.5); }
+    -webkit-transform: scale(1);
+    transform: scale(1); }
   .md ion-range[primary] .range-bar-active,
   .md ion-range[primary] .range-knob,
   .md ion-range[primary] .range-pin {

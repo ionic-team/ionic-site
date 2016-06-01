@@ -7055,9 +7055,9 @@ ion-range {
   height: 18px;
   border-radius: 50%;
   background: #387ef5;
-  pointer-events: none;
   -webkit-transform: scale(0.67);
-  transform: scale(0.67); }
+  transform: scale(0.67);
+  pointer-events: none; }
 
 .range-tick {
   position: absolute;

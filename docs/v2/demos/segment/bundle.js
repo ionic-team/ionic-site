@@ -15653,6 +15653,7 @@
 	    var clickBlock = new click_block_1.ClickBlock();
 	    var events = new events_1.Events();
 	    var featureDetect = new feature_detect_1.FeatureDetect();
+	    var navRegistry = new nav_registry_1.NavRegistry();
 	    setupDom(window, document, config, platform, clickBlock, featureDetect);
 	    bindEvents(window, document, platform, events);
 	    return [
@@ -15664,7 +15665,7 @@
 	        form_1.Form,
 	        keyboard_1.Keyboard,
 	        menu_controller_1.MenuController,
-	        nav_registry_1.NavRegistry,
+	        core_1.provide(nav_registry_1.NavRegistry, { useValue: navRegistry }),
 	        core_1.provide(platform_1.Platform, { useValue: platform }),
 	        translate_1.Translate,
 	        tap_click_1.TapClick,

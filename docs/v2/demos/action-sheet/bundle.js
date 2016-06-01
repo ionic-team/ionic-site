@@ -64449,8 +64449,8 @@
 	        this.ionChange = new core_1.EventEmitter();
 	        this.parent = parent;
 	        this.id = ++tabIds;
-	        this.subPages = _config.getBoolean('tabSubPages');
-	        this._useHighlight = _config.getBoolean('tabbarHighlight');
+	        this.subPages = _config.getBoolean('tabSubPages', false);
+	        this._useHighlight = _config.getBoolean('tabbarHighlight', false);
 	        this._sbPadding = _config.getBoolean('statusbarPadding', false);
 	        if (parent) {
 	            // this Tabs has a parent Nav
@@ -77385,7 +77385,9 @@
 	    popoverEnter: 'popover-pop-in',
 	    popoverLeave: 'popover-pop-out',
 	    spinner: 'ios',
+	    tabbarHighlight: false,
 	    tabbarPlacement: 'bottom',
+	    tabSubPages: false,
 	    toastEnter: 'toast-slide-in',
 	    toastLeave: 'toast-slide-out',
 	});
@@ -77408,6 +77410,7 @@
 	    pageTransitionDelay: 96,
 	    pickerEnter: 'picker-slide-in',
 	    pickerLeave: 'picker-slide-out',
+	    pickerRotateFactor: 0,
 	    popoverEnter: 'popover-md-pop-in',
 	    popoverLeave: 'popover-md-pop-out',
 	    spinner: 'crescent',
@@ -77436,6 +77439,7 @@
 	    pageTransitionDelay: 96,
 	    pickerEnter: 'picker-slide-in',
 	    pickerLeave: 'picker-slide-out',
+	    pickerRotateFactor: 0,
 	    popoverEnter: 'popover-md-pop-in',
 	    popoverLeave: 'popover-md-pop-out',
 	    spinner: 'circles',

@@ -51024,6 +51024,12 @@
 	        // eww, invalid data
 	        console.warn("Error parsing date: \"" + newData + "\". Please provide a valid ISO 8601 datetime format: https://www.w3.org/TR/NOTE-datetime");
 	    }
+	    else {
+	        // blank data, clear everything out
+	        for (var k in existingData) {
+	            delete existingData[k];
+	        }
+	    }
 	}
 	exports.updateDate = updateDate;
 	function parseTemplate(template) {

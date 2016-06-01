@@ -51028,7 +51028,7 @@
 	                            // YYYY-MM-DDTHH:mm:SS.SSS
 	                            rtn += '.' + threeDigit(data.millisecond);
 	                        }
-	                        if (data.tzOffset === 0) {
+	                        if (util_1.isBlank(data.tzOffset) || data.tzOffset === 0) {
 	                            // YYYY-MM-DDTHH:mm:SSZ
 	                            rtn += 'Z';
 	                        }

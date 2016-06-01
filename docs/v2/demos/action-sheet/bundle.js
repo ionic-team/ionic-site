@@ -48763,28 +48763,6 @@
 	    return ++uid;
 	}
 	exports.nextUid = nextUid;
-	exports.array = {
-	    find: function (arr, cb) {
-	        for (var i = 0, ii = arr.length; i < ii; i++) {
-	            if (cb(arr[i], i))
-	                return arr[i];
-	        }
-	    },
-	    remove: function (arr, itemOrIndex) {
-	        var index = -1;
-	        if (exports.isNumber(itemOrIndex)) {
-	            index = itemOrIndex;
-	        }
-	        else {
-	            index = arr.indexOf(itemOrIndex);
-	        }
-	        if (index < 0) {
-	            return false;
-	        }
-	        arr.splice(index, 1);
-	        return true;
-	    }
-	};
 	/**
 	 * Grab all query strings keys and values.
 	 * @param url
@@ -48808,40 +48786,6 @@
 	    return queryParams;
 	}
 	exports.getQuerystring = getQuerystring;
-	/**
-	 * Throttle the given fun, only allowing it to be
-	 * called at most every `wait` ms.
-	 */
-	function throttle(fn, wait, options) {
-	    var context, args, result;
-	    var timeout = null;
-	    var previous = 0;
-	    options || (options = {});
-	    var later = function () {
-	        previous = options.leading === false ? 0 : Date.now();
-	        timeout = null;
-	        result = fn.apply(context, args);
-	    };
-	    return function () {
-	        var now = Date.now();
-	        if (!previous && options.leading === false)
-	            previous = now;
-	        var remaining = wait - (now - previous);
-	        context = this;
-	        args = arguments;
-	        if (remaining <= 0) {
-	            clearTimeout(timeout);
-	            timeout = null;
-	            previous = now;
-	            result = fn.apply(context, args);
-	        }
-	        else if (!timeout && options.trailing !== false) {
-	            timeout = setTimeout(later, remaining);
-	        }
-	        return result;
-	    };
-	}
-	exports.throttle = throttle;
 
 /***/ },
 /* 334 */
@@ -48855,7 +48799,7 @@
 	    var rafLastTime = 0;
 	    var win = window;
 	    if (!win.requestAnimationFrame) {
-	        win.requestAnimationFrame = function (callback, element) {
+	        win.requestAnimationFrame = function (callback) {
 	            var currTime = Date.now();
 	            var timeToCall = Math.max(0, 16 - (currTime - rafLastTime));
 	            var id = window.setTimeout(function () {
@@ -48893,7 +48837,8 @@
 	exports.CSS = {};
 	(function () {
 	    // transform
-	    var i, keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
+	    var i;
+	    var keys = ['webkitTransform', 'transform', '-webkit-transform', 'webkit-transform',
 	        '-moz-transform', 'moz-transform', 'MozTransform', 'mozTransform', 'msTransform'];
 	    for (i = 0; i < keys.length; i++) {
 	        if (document.documentElement.style[keys[i]] !== undefined) {
@@ -49303,12 +49248,6 @@
 	}());
 	exports.FeatureDetect = FeatureDetect;
 	var featureDetects = {};
-	// FeatureDetect.add('sticky', function(window, document) {
-	//   // css position sticky
-	//   let ele = document.createElement('div');
-	//   ele.style.cssText = 'position:-webkit-sticky;position:sticky';
-	//   return ele.style.position.indexOf('sticky') > -1;
-	// });
 	FeatureDetect.add('hairlines', function (window, document, body) {
 	    /**
 	    * Hairline Shim
@@ -49942,7 +49881,7 @@
 	     */
 	    Menu.prototype._getType = function () {
 	        if (!this._type) {
-	            this._type = menu_controller_1.MenuController.create(this.type, this);
+	            this._type = menu_controller_1.MenuController.create(this.type, this, this._platform);
 	            if (this._config.get('animate') === false) {
 	                this._type.ani.duration(0);
 	            }
@@ -50230,7 +50169,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var dom = __webpack_require__(334);
+	var dom_1 = __webpack_require__(334);
 	var ids = 0;
 	/**
 	 * Base class for all Ionic components. Exposes some common functionality
@@ -50249,16 +50188,16 @@
 	        return this.elementRef.nativeElement;
 	    };
 	    Ion.prototype.getDimensions = function () {
-	        return dom.getDimensions(this.elementRef.nativeElement, this._id);
+	        return dom_1.getDimensions(this.elementRef.nativeElement, this._id);
 	    };
 	    Ion.prototype.width = function () {
-	        return dom.getDimensions(this.elementRef.nativeElement, this._id).width;
+	        return dom_1.getDimensions(this.elementRef.nativeElement, this._id).width;
 	    };
 	    Ion.prototype.height = function () {
-	        return dom.getDimensions(this.elementRef.nativeElement, this._id).height;
+	        return dom_1.getDimensions(this.elementRef.nativeElement, this._id).height;
 	    };
 	    Ion.prototype.ngOnDestroy = function () {
-	        dom.clearDimensions(this._id);
+	        dom_1.clearDimensions(this._id);
 	    };
 	    return Ion;
 	}());
@@ -53696,7 +53635,7 @@
 	    /**
 	     * @private
 	     */
-	    MenuController.create = function (type, menuCmp) {
+	    MenuController.create = function (type, menuCmp, platform) {
 	        return new menuTypes[type](menuCmp);
 	    };
 	    return MenuController;
@@ -53791,7 +53730,7 @@
 	    });
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object)
+	        __metadata('design:type', String)
 	    ], MenuToggle.prototype, "menuToggle", void 0);
 	    __decorate([
 	        core_1.HostListener('click'), 
@@ -55644,18 +55583,6 @@
 	        if (util_1.isBlank(opts)) {
 	            opts = {};
 	        }
-	        // deprecated warning
-	        pages.forEach(function (pg) {
-	            if (pg['componentType']) {
-	                pg.page = pg['componentType'];
-	                console.warn('setPages() now uses "page" instead of "componentType" in the array of pages. ' +
-	                    'What was: setPages([{componentType: About}, {componentType: Contact}]) is now: setPages([{page: About}, {page: Contact}])');
-	            }
-	            else if (!pg['page']) {
-	                console.error('setPages() now requires an object containing "page" and optionally "params" in the array of pages. ' +
-	                    'What was: setPages([About, Contact]) is now: setPages([{page: About}, {page: Contact}])');
-	            }
-	        });
 	        // remove existing views
 	        var leavingView = this._remove(0, this._views.length);
 	        // create view controllers out of the pages and insert the new views
@@ -57738,7 +57665,7 @@
 	    };
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', Object)
+	        __metadata('design:type', String)
 	    ], MenuClose.prototype, "menuClose", void 0);
 	    __decorate([
 	        core_1.HostListener('click'), 
@@ -59933,7 +59860,7 @@
 	    Slides.prototype.onLazyImageReady = function (swiper, slide, img) {
 	    };
 	    /*
-	    nextButton(swiper, e) {
+	    nextButton(swiper: any, e: any) {
 	    }
 	    prevButton() {
 	    }
@@ -59954,7 +59881,7 @@
 	        this.scale = 1;
 	        this.zoomLastPosX = 0;
 	        this.zoomLastPosY = 0;
-	        var last_scale, startX, startY, posX = 0, posY = 0, zoomRect;
+	        var lastScale, startX, startY, posX = 0, posY = 0, zoomRect;
 	        this.viewportWidth = this.getNativeElement().offsetWidth;
 	        this.viewportHeight = this.getNativeElement().offsetHeight;
 	        this.zoomElement.addEventListener('touchstart', function (e) {
@@ -59967,11 +59894,11 @@
 	            _this.onTouchEnd(e);
 	        });
 	        this.zoomGesture.on('pinchstart', function (e) {
-	            last_scale = _this.scale;
+	            lastScale = _this.scale;
 	            console.debug('Last scale', e.scale);
 	        });
 	        this.zoomGesture.on('pinch', function (e) {
-	            _this.scale = Math.max(1, Math.min(last_scale * e.scale, 10));
+	            _this.scale = Math.max(1, Math.min(lastScale * e.scale, 10));
 	            console.debug('Scaling', _this.scale);
 	            _this.zoomElement.style[dom_1.CSS.transform] = 'scale(' + _this.scale + ')';
 	            zoomRect = _this.zoomElement.getBoundingClientRect();
@@ -68227,7 +68154,7 @@
 	        ev.stopPropagation();
 	        this._open();
 	    };
-	    Select.prototype._keyup = function (ev) {
+	    Select.prototype._keyup = function () {
 	        if (!this._isOpen) {
 	            this._open();
 	        }
@@ -68473,9 +68400,9 @@
 	        __metadata('design:returntype', void 0)
 	    ], Select.prototype, "_click", null);
 	    __decorate([
-	        core_1.HostListener('keyup.space', ['$event']), 
+	        core_1.HostListener('keyup.space'), 
 	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:paramtypes', []), 
 	        __metadata('design:returntype', void 0)
 	    ], Select.prototype, "_keyup", null);
 	    __decorate([
@@ -72527,7 +72454,7 @@
 	     * @private
 	     * On click of a SegmentButton
 	     */
-	    SegmentButton.prototype.onClick = function (ev) {
+	    SegmentButton.prototype.onClick = function () {
 	        console.debug('SegmentButton, select', this.value);
 	        this.ionSelect.emit(this);
 	    };
@@ -72563,9 +72490,9 @@
 	        __metadata('design:type', Boolean)
 	    ], SegmentButton.prototype, "disabled", null);
 	    __decorate([
-	        core_1.HostListener('click', ['$event']), 
+	        core_1.HostListener('click'), 
 	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:paramtypes', []), 
 	        __metadata('design:returntype', void 0)
 	    ], SegmentButton.prototype, "onClick", null);
 	    SegmentButton = __decorate([
@@ -73886,15 +73813,15 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
-	var ion_1 = __webpack_require__(341);
 	var config_1 = __webpack_require__(331);
+	var ion_1 = __webpack_require__(341);
 	var util_1 = __webpack_require__(333);
 	/**
 	* @private
 	*/
 	var SearchbarInput = (function () {
-	    function SearchbarInput(_elementRef) {
-	        this._elementRef = _elementRef;
+	    function SearchbarInput(elementRef) {
+	        this.elementRef = elementRef;
 	    }
 	    SearchbarInput = __decorate([
 	        core_1.Directive({
@@ -74079,7 +74006,7 @@
 	        // blurInput determines if it should blur
 	        // if we are clearing the input we still want to stay focused in the input
 	        if (this.blurInput === false) {
-	            this.searchbarInput._elementRef.nativeElement.focus();
+	            this.searchbarInput.elementRef.nativeElement.focus();
 	            this.blurInput = true;
 	            return;
 	        }
@@ -74133,7 +74060,7 @@
 	    };
 	    __decorate([
 	        core_1.ViewChild(SearchbarInput), 
-	        __metadata('design:type', Object)
+	        __metadata('design:type', SearchbarInput)
 	    ], Searchbar.prototype, "searchbarInput", void 0);
 	    __decorate([
 	        core_1.Input(), 
@@ -74177,11 +74104,11 @@
 	    ], Searchbar.prototype, "ionClear", void 0);
 	    __decorate([
 	        core_1.HostBinding('class.searchbar-focused'), 
-	        __metadata('design:type', Object)
+	        __metadata('design:type', Boolean)
 	    ], Searchbar.prototype, "isFocused", void 0);
 	    __decorate([
 	        core_1.HostBinding('class.searchbar-left-aligned'), 
-	        __metadata('design:type', Object)
+	        __metadata('design:type', Boolean)
 	    ], Searchbar.prototype, "shouldLeftAlign", void 0);
 	    Searchbar = __decorate([
 	        core_1.Component({
@@ -75226,8 +75153,7 @@
 	        // queue to have this element activated
 	        self._queue.push(activatableEle);
 	        dom_1.nativeRaf(function () {
-	            var i;
-	            for (i = 0; i < self._queue.length; i++) {
+	            for (var i = 0; i < self._queue.length; i++) {
 	                var queuedEle = self._queue[i];
 	                if (queuedEle && queuedEle.parentNode) {
 	                    self._active.push(queuedEle);
@@ -75812,8 +75738,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var menu_controller_1 = __webpack_require__(351);
 	var animation_1 = __webpack_require__(361);
+	var menu_controller_1 = __webpack_require__(351);
 	/**
 	 * @private
 	 * Menu Type
@@ -75889,7 +75815,7 @@
 	 */
 	var MenuPushType = (function (_super) {
 	    __extends(MenuPushType, _super);
-	    function MenuPushType(menu) {
+	    function MenuPushType(menu, platform) {
 	        _super.call(this);
 	        this.ani
 	            .easing('ease')
@@ -75897,8 +75823,8 @@
 	        var contentOpenedX, menuClosedX, menuOpenedX;
 	        if (menu.side === 'right') {
 	            contentOpenedX = -menu.width() + 'px';
-	            menuOpenedX = (menu._platform.width() - menu.width()) + 'px';
-	            menuClosedX = menu._platform.width() + 'px';
+	            menuOpenedX = (platform.width() - menu.width()) + 'px';
+	            menuClosedX = platform.width() + 'px';
 	        }
 	        else {
 	            contentOpenedX = menu.width() + 'px';
@@ -75923,7 +75849,7 @@
 	 */
 	var MenuOverlayType = (function (_super) {
 	    __extends(MenuOverlayType, _super);
-	    function MenuOverlayType(menu) {
+	    function MenuOverlayType(menu, platform) {
 	        _super.call(this);
 	        this.ani
 	            .easing('ease')
@@ -75931,8 +75857,8 @@
 	        var closedX, openedX;
 	        if (menu.side === 'right') {
 	            // right side
-	            closedX = menu._platform.width() + 'px';
-	            openedX = (menu._platform.width() - menu.width() - 8) + 'px';
+	            closedX = platform.width() + 'px';
+	            openedX = (platform.width() - menu.width() - 8) + 'px';
 	        }
 	        else {
 	            // left side

@@ -60,29 +60,40 @@ interactivity.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-item&gt;
-  &lt;ion-label&gt;Username&lt;/ion-label&gt;
-  &lt;ion-input&gt;&lt;/ion-input&gt;
-&lt;/ion-item&gt;
+<pre><code class="lang-html">&lt;ion-list&gt;
+  &lt;ion-item&gt;
+    &lt;ion-label primary&gt;Inline Label&lt;/ion-label&gt;
+    &lt;ion-input placeholder=&quot;Text Input&quot;&gt;&lt;/ion-input&gt;
+  &lt;/ion-item&gt;
 
-&lt;ion-item&gt;
-  &lt;ion-label fixed&gt;Website&lt;/ion-label&gt;
-  &lt;ion-input type=&quot;url&quot;&gt;&lt;/ion-input&gt;
-&lt;/ion-item&gt;
+  &lt;ion-item&gt;
+    &lt;ion-label primary fixed&gt;Fixed Label&lt;/ion-label&gt;
+    &lt;ion-input type=&quot;tel&quot; placeholder=&quot;Tel Input&quot;&gt;&lt;/ion-input&gt;
+  &lt;/ion-item&gt;
 
-&lt;ion-item&gt;
-  &lt;ion-label floating&gt;Email&lt;/ion-label&gt;
-  &lt;ion-input type=&quot;email&quot;&gt;&lt;/ion-input&gt;
-&lt;/ion-item&gt;
+  &lt;ion-item&gt;
+    &lt;ion-input type=&quot;number&quot; placeholder=&quot;Number Input with no label&quot;&gt;&lt;/ion-input&gt;
+  &lt;/ion-item&gt;
 
-&lt;ion-item&gt;
-  &lt;ion-label stacked&gt;Phone&lt;/ion-label&gt;
-  &lt;ion-input type=&quot;tel&quot;&gt;&lt;/ion-input&gt;
-&lt;/ion-item&gt;
+  &lt;ion-item&gt;
+    &lt;ion-label primary stacked&gt;Stacked Label&lt;/ion-label&gt;
+    &lt;ion-input type=&quot;email&quot; placeholder=&quot;Email Input&quot;&gt;&lt;/ion-input&gt;
+  &lt;/ion-item&gt;
 
-&lt;ion-item&gt;
-  &lt;ion-input placeholder=&quot;Username&quot; clearInput&gt;&lt;/ion-input&gt;
-&lt;/ion-item&gt;
+  &lt;ion-item&gt;
+    &lt;ion-label primary stacked&gt;Stacked Label&lt;/ion-label&gt;
+    &lt;ion-input type=&quot;password&quot; placeholder=&quot;Password Input&quot;&gt;&lt;/ion-input&gt;
+  &lt;/ion-item&gt;
+
+  &lt;ion-item&gt;
+    &lt;ion-label primary floating&gt;Floating Label&lt;/ion-label&gt;
+    &lt;ion-input&gt;&lt;/ion-input&gt;
+  &lt;/ion-item&gt;
+
+  &lt;ion-item&gt;
+    &lt;ion-input placeholder=&quot;Clear Input&quot; clearInput&gt;&lt;/ion-input&gt;
+  &lt;/ion-item&gt;
+&lt;/ion-list&gt;
 </code></pre>
 
 
@@ -129,7 +140,7 @@ clearInput
 
 
 <td>
-A clear icon will appear in the input which clears it
+A clear icon will appear in the input when there is a value. Clicking it clears the input.
 
 </td>
 </tr>

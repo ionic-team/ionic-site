@@ -22,7 +22,7 @@ Now that you have [Ionic and its dependencies installed](../installation), you c
 
 ### Starting a New Ionic 2 App
 
-Let's create a new app! Use the `start` command to initialize a new Ionic app. Specify that you want it to be an Ionic 2 app by passing in the `--v2` option. We also specify that the `tutorial` template should be used.
+Let's create a new app! Use the `start` command to initialize a new Ionic app. Specify that you want it to be an Ionic 2 app by passing in the `--v2` option. We also specify that the `tutorial` template should be used. Ionic 2 applications are created as TypeScript by default.
 
 ```bash
 $ ionic start MyIonic2Project tutorial --v2
@@ -30,7 +30,7 @@ $ ionic start MyIonic2Project tutorial --v2
 
 This will pull Ionic 2 down, install [npm modules](../../resources/what-is/#npm) for the application, and get [Cordova](../../resources/what-is/#cordova) set up and ready to go.
 
-**Want to use TypeScript instead? Pass the `--ts` flag and get a project set up for TypeScript instead.**
+**Want to use JavaScript instead? Pass the `--no-ts` flag and get a project set up for JavaScript instead.**
 
 > You may have noticed that we passed in **tutorial** to the `ionic start` command. This tells Ionic to initialize your application using the [tutorial template](https://github.com/driftyco/ionic2-starter-tutorial). If you don't specify a template by running `ionic start MyIonic2Project --v2`, the [tabs template](https://github.com/driftyco/ionic2-starter-tabs) will be used.
 

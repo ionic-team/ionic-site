@@ -77533,7 +77533,7 @@
 	    modalEnter: 'modal-md-slide-in',
 	    modalLeave: 'modal-md-slide-out',
 	    pageTransition: 'md-transition',
-	    pageTransitionDelay: 96,
+	    pageTransitionDelay: 16,
 	    pickerEnter: 'picker-slide-in',
 	    pickerLeave: 'picker-slide-out',
 	    pickerRotateFactor: 0,

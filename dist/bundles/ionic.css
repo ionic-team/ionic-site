@@ -6507,6 +6507,43 @@ ion-icon {
     color: #222; }
     .ios ion-radio[dark] .radio-checked .radio-inner {
       border-color: #222; }
+  .ios .item-range .item-inner {
+    overflow: visible; }
+  .ios .item-range .input-wrapper {
+    overflow: visible;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .ios .item-range ion-range {
+    width: 100%; }
+  .ios ion-range {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .ios ion-range ion-label {
+      -webkit-box-flex: initial;
+      -webkit-flex: initial;
+      -ms-flex: initial;
+      flex: initial; }
+    .ios ion-range ion-icon {
+      min-height: 2.4rem;
+      font-size: 2.4rem;
+      line-height: 1; }
+  .ios .range-slider {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    cursor: pointer; }
   .ios ion-range {
     padding: 8px 16px; }
   .ios [range-left],
@@ -9822,6 +9859,43 @@ ion-icon {
     border-color: #222; }
   .md ion-radio[dark] .radio-inner {
     background-color: #222; }
+  .md .item-range .item-inner {
+    overflow: visible; }
+  .md .item-range .input-wrapper {
+    overflow: visible;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .md .item-range ion-range {
+    width: 100%; }
+  .md ion-range {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .md ion-range ion-label {
+      -webkit-box-flex: initial;
+      -webkit-flex: initial;
+      -ms-flex: initial;
+      flex: initial; }
+    .md ion-range ion-icon {
+      min-height: 2.4rem;
+      font-size: 2.4rem;
+      line-height: 1; }
+  .md .range-slider {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    cursor: pointer; }
   .md ion-range {
     padding: 8px 8px; }
   .md [range-left],
@@ -9871,6 +9945,12 @@ ion-icon {
     background: #327eff;
     -webkit-transform: scale(0.67);
     transform: scale(0.67);
+    -webkit-transition-duration: 120ms;
+    transition-duration: 120ms;
+    -webkit-transition-property: -webkit-transform, background-color, border;
+    transition-property: transform, background-color, border;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
     pointer-events: none; }
   .md .range-tick {
     position: absolute;
@@ -9898,8 +9978,8 @@ ion-icon {
     background: #327eff;
     -webkit-transform: translate3d(0, 28px, 0) scale(0.01);
     transform: translate3d(0, 28px, 0) scale(0.01);
-    -webkit-transition: -webkit-transform 120ms ease;
-    transition: transform 120ms ease; }
+    -webkit-transition: -webkit-transform 120ms ease, background-color 120ms ease;
+    transition: transform 120ms ease, background-color 120ms ease; }
     .md .range-pin::before {
       position: absolute;
       top: 3px;
@@ -9912,33 +9992,77 @@ ion-icon {
       background: #327eff;
       content: "";
       -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg); }
+      transform: rotate(-45deg);
+      -webkit-transition: background-color 120ms ease;
+      transition: background-color 120ms ease; }
   .md .range-knob-pressed .range-pin {
     -webkit-transform: translate3d(0, 0, 0) scale(1);
     transform: translate3d(0, 0, 0) scale(1); }
   .md ion-range:not(.range-has-pin) .range-knob-pressed .range-knob {
     -webkit-transform: scale(1);
     transform: scale(1); }
+  .md .range-knob-min .range-knob {
+    border: 2px solid #bdbdbd;
+    background: #fff; }
+  .md .range-knob-min .range-pin,
+  .md .range-knob-min .range-pin::before {
+    color: #fff;
+    background: #bdbdbd; }
+  .md ion-range[primary] .range-knob-min .range-knob {
+    border: 2px solid #bdbdbd;
+    background: #fff; }
+  .md ion-range[primary] .range-knob-min .range-pin,
+  .md ion-range[primary] .range-knob-min .range-pin::before {
+    color: #fff;
+    background: #bdbdbd; }
   .md ion-range[primary] .range-bar-active,
   .md ion-range[primary] .range-knob,
   .md ion-range[primary] .range-pin,
   .md ion-range[primary] .range-pin::before {
     background: #327eff; }
+  .md ion-range[secondary] .range-knob-min .range-knob {
+    border: 2px solid #bdbdbd;
+    background: #fff; }
+  .md ion-range[secondary] .range-knob-min .range-pin,
+  .md ion-range[secondary] .range-knob-min .range-pin::before {
+    color: #fff;
+    background: #bdbdbd; }
   .md ion-range[secondary] .range-bar-active,
   .md ion-range[secondary] .range-knob,
   .md ion-range[secondary] .range-pin,
   .md ion-range[secondary] .range-pin::before {
     background: #32db64; }
+  .md ion-range[danger] .range-knob-min .range-knob {
+    border: 2px solid #bdbdbd;
+    background: #fff; }
+  .md ion-range[danger] .range-knob-min .range-pin,
+  .md ion-range[danger] .range-knob-min .range-pin::before {
+    color: #fff;
+    background: #bdbdbd; }
   .md ion-range[danger] .range-bar-active,
   .md ion-range[danger] .range-knob,
   .md ion-range[danger] .range-pin,
   .md ion-range[danger] .range-pin::before {
     background: #f53d3d; }
+  .md ion-range[light] .range-knob-min .range-knob {
+    border: 2px solid #bdbdbd;
+    background: #fff; }
+  .md ion-range[light] .range-knob-min .range-pin,
+  .md ion-range[light] .range-knob-min .range-pin::before {
+    color: #fff;
+    background: #bdbdbd; }
   .md ion-range[light] .range-bar-active,
   .md ion-range[light] .range-knob,
   .md ion-range[light] .range-pin,
   .md ion-range[light] .range-pin::before {
     background: #f4f4f4; }
+  .md ion-range[dark] .range-knob-min .range-knob {
+    border: 2px solid #bdbdbd;
+    background: #fff; }
+  .md ion-range[dark] .range-knob-min .range-pin,
+  .md ion-range[dark] .range-knob-min .range-pin::before {
+    color: #fff;
+    background: #bdbdbd; }
   .md ion-range[dark] .range-bar-active,
   .md ion-range[dark] .range-knob,
   .md ion-range[dark] .range-pin,
@@ -13453,6 +13577,43 @@ ion-icon {
     border-color: #f4f4f4; }
   .wp ion-radio[dark] .radio-checked {
     border-color: #222; }
+  .wp .item-range .item-inner {
+    overflow: visible; }
+  .wp .item-range .input-wrapper {
+    overflow: visible;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .wp .item-range ion-range {
+    width: 100%; }
+  .wp ion-range {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .wp ion-range ion-label {
+      -webkit-box-flex: initial;
+      -webkit-flex: initial;
+      -ms-flex: initial;
+      flex: initial; }
+    .wp ion-range ion-icon {
+      min-height: 2.4rem;
+      font-size: 2.4rem;
+      line-height: 1; }
+  .wp .range-slider {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    cursor: pointer; }
   .wp ion-range {
     padding: 8px 8px; }
   .wp [range-left],

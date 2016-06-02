@@ -6840,6 +6840,48 @@ ion-radio[dark] .radio-checked {
 ion-radio[dark] .radio-inner {
   background-color: #222; }
 
+.item-range .item-inner {
+  overflow: visible; }
+
+.item-range .input-wrapper {
+  overflow: visible;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.item-range ion-range {
+  width: 100%; }
+
+ion-range {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  ion-range ion-label {
+    -webkit-box-flex: initial;
+    -webkit-flex: initial;
+    -ms-flex: initial;
+    flex: initial; }
+  ion-range ion-icon {
+    min-height: 2.4rem;
+    font-size: 2.4rem;
+    line-height: 1; }
+
+.range-slider {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  cursor: pointer; }
+
 ion-range {
   padding: 8px 8px; }
 
@@ -6900,6 +6942,12 @@ ion-range {
   background: #327eff;
   -webkit-transform: scale(0.67);
   transform: scale(0.67);
+  -webkit-transition-duration: 120ms;
+  transition-duration: 120ms;
+  -webkit-transition-property: -webkit-transform, background-color, border;
+  transition-property: transform, background-color, border;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
   pointer-events: none; }
 
 .range-tick {
@@ -6930,8 +6978,8 @@ ion-range {
   background: #327eff;
   -webkit-transform: translate3d(0, 28px, 0) scale(0.01);
   transform: translate3d(0, 28px, 0) scale(0.01);
-  -webkit-transition: -webkit-transform 120ms ease;
-  transition: transform 120ms ease; }
+  -webkit-transition: -webkit-transform 120ms ease, background-color 120ms ease;
+  transition: transform 120ms ease, background-color 120ms ease; }
   .range-pin::before {
     position: absolute;
     top: 3px;
@@ -6944,7 +6992,9 @@ ion-range {
     background: #327eff;
     content: "";
     -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg); }
+    transform: rotate(-45deg);
+    -webkit-transition: background-color 120ms ease;
+    transition: background-color 120ms ease; }
 
 .range-knob-pressed .range-pin {
   -webkit-transform: translate3d(0, 0, 0) scale(1);
@@ -6954,11 +7004,38 @@ ion-range:not(.range-has-pin) .range-knob-pressed .range-knob {
   -webkit-transform: scale(1);
   transform: scale(1); }
 
+.range-knob-min .range-knob {
+  border: 2px solid #bdbdbd;
+  background: #fff; }
+
+.range-knob-min .range-pin,
+.range-knob-min .range-pin::before {
+  color: #fff;
+  background: #bdbdbd; }
+
+ion-range[primary] .range-knob-min .range-knob {
+  border: 2px solid #bdbdbd;
+  background: #fff; }
+
+ion-range[primary] .range-knob-min .range-pin,
+ion-range[primary] .range-knob-min .range-pin::before {
+  color: #fff;
+  background: #bdbdbd; }
+
 ion-range[primary] .range-bar-active,
 ion-range[primary] .range-knob,
 ion-range[primary] .range-pin,
 ion-range[primary] .range-pin::before {
   background: #327eff; }
+
+ion-range[secondary] .range-knob-min .range-knob {
+  border: 2px solid #bdbdbd;
+  background: #fff; }
+
+ion-range[secondary] .range-knob-min .range-pin,
+ion-range[secondary] .range-knob-min .range-pin::before {
+  color: #fff;
+  background: #bdbdbd; }
 
 ion-range[secondary] .range-bar-active,
 ion-range[secondary] .range-knob,
@@ -6966,17 +7043,44 @@ ion-range[secondary] .range-pin,
 ion-range[secondary] .range-pin::before {
   background: #32db64; }
 
+ion-range[danger] .range-knob-min .range-knob {
+  border: 2px solid #bdbdbd;
+  background: #fff; }
+
+ion-range[danger] .range-knob-min .range-pin,
+ion-range[danger] .range-knob-min .range-pin::before {
+  color: #fff;
+  background: #bdbdbd; }
+
 ion-range[danger] .range-bar-active,
 ion-range[danger] .range-knob,
 ion-range[danger] .range-pin,
 ion-range[danger] .range-pin::before {
   background: #f53d3d; }
 
+ion-range[light] .range-knob-min .range-knob {
+  border: 2px solid #bdbdbd;
+  background: #fff; }
+
+ion-range[light] .range-knob-min .range-pin,
+ion-range[light] .range-knob-min .range-pin::before {
+  color: #fff;
+  background: #bdbdbd; }
+
 ion-range[light] .range-bar-active,
 ion-range[light] .range-knob,
 ion-range[light] .range-pin,
 ion-range[light] .range-pin::before {
   background: #f4f4f4; }
+
+ion-range[dark] .range-knob-min .range-knob {
+  border: 2px solid #bdbdbd;
+  background: #fff; }
+
+ion-range[dark] .range-knob-min .range-pin,
+ion-range[dark] .range-knob-min .range-pin::before {
+  color: #fff;
+  background: #bdbdbd; }
 
 ion-range[dark] .range-bar-active,
 ion-range[dark] .range-knob,

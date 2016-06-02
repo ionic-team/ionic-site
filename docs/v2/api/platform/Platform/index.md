@@ -501,29 +501,6 @@ attribute value set, such as `<html lang="en">`.
 
 
 
-<div id="exitApp"></div>
-
-<h3>
-<a class="anchor" name="exitApp" href="#exitApp"></a>
-<code>exitApp()</code>
-  
-
-</h3>
-
-The `exitApp` method is useful when running from a native platform,
-such as Cordova. This adds the ability to place the Cordova app
-in the background.
-
-
-
-
-
-
-
-
-
-
-
 <div id="backButton"></div>
 
 <h3>

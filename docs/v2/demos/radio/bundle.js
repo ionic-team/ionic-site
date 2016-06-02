@@ -53567,7 +53567,7 @@
 	     * @private
 	     */
 	    MenuController.create = function (type, menuCmp, platform) {
-	        return new menuTypes[type](menuCmp);
+	        return new menuTypes[type](menuCmp, platform);
 	    };
 	    return MenuController;
 	}());
@@ -75831,7 +75831,7 @@
 	 */
 	var MenuRevealType = (function (_super) {
 	    __extends(MenuRevealType, _super);
-	    function MenuRevealType(menu) {
+	    function MenuRevealType(menu, platform) {
 	        _super.call(this);
 	        var openedX = (menu.width() * (menu.side === 'right' ? -1 : 1)) + 'px';
 	        this.ani

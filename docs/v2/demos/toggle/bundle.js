@@ -76087,7 +76087,7 @@
 	        var DURATION = 400;
 	        var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	        this.element(enteringView.pageRef()).easing(EASING).duration(DURATION).add(backdrop).add(wrapper);
-	        this.element(new ElementRef(page)).easing(EASING).duration(DURATION).before.addClass('show-page');
+	        this.element(new core_1.ElementRef(page)).easing(EASING).duration(DURATION).before.addClass('show-page');
 	        if (enteringView.hasNavbar()) {
 	            // entering page has a navbar
 	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());
@@ -76138,7 +76138,7 @@
 	        var DURATION = 280;
 	        var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	        this.element(enteringView.pageRef()).easing(EASING).duration(DURATION).fadeIn().add(backdrop).add(wrapper);
-	        this.element(new ElementRef(page)).easing(EASING).duration(DURATION).before.addClass('show-page');
+	        this.element(new core_1.ElementRef(page)).easing(EASING).duration(DURATION).before.addClass('show-page');
 	        if (enteringView.hasNavbar()) {
 	            // entering page has a navbar
 	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());

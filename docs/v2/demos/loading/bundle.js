@@ -15655,6 +15655,10 @@
 	__export(__webpack_require__(339));
 	__export(__webpack_require__(414));
 	__export(__webpack_require__(415));
+	__export(__webpack_require__(346));
+	__export(__webpack_require__(347));
+	__export(__webpack_require__(344));
+	__export(__webpack_require__(345));
 	__export(__webpack_require__(332));
 	__export(__webpack_require__(421));
 	__export(__webpack_require__(335));
@@ -53902,9 +53906,11 @@
 	    ViewController.prototype.onDismiss = function (callback) {
 	        this._onDismiss = callback;
 	    };
-	    ViewController.prototype.dismiss = function (data, role) {
+	    ViewController.prototype.dismiss = function (data, role, navOptions) {
 	        var _this = this;
-	        return this._nav.remove(this._nav.indexOf(this), 1, this._leavingOpts).then(function () {
+	        if (navOptions === void 0) { navOptions = {}; }
+	        var options = util_1.merge({}, this._leavingOpts, navOptions);
+	        return this._nav.remove(this._nav.indexOf(this), 1, options).then(function () {
 	            _this._onDismiss && _this._onDismiss(data, role);
 	            return data;
 	        });
@@ -76165,18 +76171,14 @@
 	        backdrop.fromTo('opacity', 0.01, 0.4);
 	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
 	        var page = ele.querySelector('ion-page');
-	        page.classList.add('show-page');
 	        // auto-add page css className created from component JS class name
 	        var cssClassName = util_1.pascalCaseToDashCase(enteringView.modalViewType);
 	        page.classList.add(cssClassName);
 	        wrapper.fromTo('translateY', '100%', '0%');
-	        this
-	            .element(enteringView.pageRef())
-	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
-	            .duration(400)
-	            .before.addClass('show-page')
-	            .add(backdrop)
-	            .add(wrapper);
+	        var DURATION = 400;
+	        var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
+	        this.element(enteringView.pageRef()).easing(EASING).duration(DURATION).add(backdrop).add(wrapper);
+	        this.element(new ElementRef(page)).easing(EASING).duration(DURATION).before.addClass('show-page');
 	        if (enteringView.hasNavbar()) {
 	            // entering page has a navbar
 	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());
@@ -76221,18 +76223,13 @@
 	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
 	        wrapper.fromTo('translateY', '40px', '0px');
 	        var page = ele.querySelector('ion-page');
-	        page.classList.add('show-page');
 	        // auto-add page css className created from component JS class name
 	        var cssClassName = util_1.pascalCaseToDashCase(enteringView.modalViewType);
 	        page.classList.add(cssClassName);
-	        this
-	            .element(enteringView.pageRef())
-	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
-	            .duration(280)
-	            .fadeIn()
-	            .before.addClass('show-page')
-	            .add(backdrop)
-	            .add(wrapper);
+	        var DURATION = 280;
+	        var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
+	        this.element(enteringView.pageRef()).easing(EASING).duration(DURATION).fadeIn().add(backdrop).add(wrapper);
+	        this.element(new ElementRef(page)).easing(EASING).duration(DURATION).before.addClass('show-page');
 	        if (enteringView.hasNavbar()) {
 	            // entering page has a navbar
 	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());

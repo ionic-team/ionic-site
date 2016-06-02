@@ -7075,10 +7075,11 @@ ion-range {
 
 .range-pin {
   position: relative;
-  top: -20px;
+  top: -24px;
   display: inline-block;
-  padding: 8px;
+  padding: 8px 0;
   min-width: 28px;
+  height: 28px;
   border-radius: 50%;
   font-size: 12px;
   text-align: center;
@@ -7088,6 +7089,19 @@ ion-range {
   transform: translate3d(0, 28px, 0) scale(0.01);
   -webkit-transition: -webkit-transform 120ms ease;
   transition: transform 120ms ease; }
+  .range-pin::before {
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    z-index: -1;
+    margin-left: -13px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50% 50% 50% 0;
+    background: #387ef5;
+    content: "";
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
 
 .range-knob-pressed .range-pin {
   -webkit-transform: translate3d(0, 0, 0) scale(1);
@@ -7099,37 +7113,44 @@ ion-range {
 
 ion-range[primary] .range-bar-active,
 ion-range[primary] .range-knob,
-ion-range[primary] .range-pin {
+ion-range[primary] .range-pin,
+ion-range[primary] .range-pin::before {
   background: #387ef5; }
 
 ion-range[secondary] .range-bar-active,
 ion-range[secondary] .range-knob,
-ion-range[secondary] .range-pin {
+ion-range[secondary] .range-pin,
+ion-range[secondary] .range-pin::before {
   background: #32db64; }
 
 ion-range[danger] .range-bar-active,
 ion-range[danger] .range-knob,
-ion-range[danger] .range-pin {
+ion-range[danger] .range-pin,
+ion-range[danger] .range-pin::before {
   background: #f53d3d; }
 
 ion-range[light] .range-bar-active,
 ion-range[light] .range-knob,
-ion-range[light] .range-pin {
+ion-range[light] .range-pin,
+ion-range[light] .range-pin::before {
   background: #f4f4f4; }
 
 ion-range[dark] .range-bar-active,
 ion-range[dark] .range-knob,
-ion-range[dark] .range-pin {
+ion-range[dark] .range-pin,
+ion-range[dark] .range-pin::before {
   background: #222; }
 
 ion-range[vibrant] .range-bar-active,
 ion-range[vibrant] .range-knob,
-ion-range[vibrant] .range-pin {
+ion-range[vibrant] .range-pin,
+ion-range[vibrant] .range-pin::before {
   background: rebeccapurple; }
 
 ion-range[bright] .range-bar-active,
 ion-range[bright] .range-knob,
-ion-range[bright] .range-pin {
+ion-range[bright] .range-pin,
+ion-range[bright] .range-pin::before {
   background: #FFC125; }
 
 ion-searchbar {

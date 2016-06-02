@@ -43,13 +43,44 @@ Improve this doc
 
 
 
-<p>The toolbar is generic bar that sits above or below content.
-Unlike an <code>Navbar</code>, <code>Toolbar</code> can be used for a subheader as well.
-Since it&#39;s based on flexbox, you can place the toolbar where you
-need it and flexbox will handle everything else. Toolbars will automatically
-assume they should be placed before an <code>ion-content</code>, so to specify that you want it
-below, you can add the property <code>position=&quot;bottom&quot;</code>. This will change the flex order
+<p>A Toolbar is a generic bar that is positioned above or below content.
+Unlike a <a href="../../nav/Navbar">Navbar</a>, a toolbar can be used as a subheader.
+Toolbars are positioned automatically at the <code>top</code>, but they can be
+positioned at the bottom by setting <code>position=&quot;bottom&quot;</code> on the component.</p>
+<h3 id="buttons-in-a-toolbar">Buttons in a Toolbar</h3>
+<p>Buttons placed in a toolbar should be placed inside of the <code>&lt;ion-buttons&gt;</code>
+element. An exception to this is a <a href="../../menu/MenuToggle">menuToggle</a> button.
+It should not be placed inside of the <code>&lt;ion-buttons&gt;</code> element. Both the
+<code>&lt;ion-buttons&gt;</code> element and the <code>menuToggle</code> can be positioned inside of the
+toolbar using different properties. The below chart has a description of each
 property.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>start</code></td>
+<td>Positions element to the left of the content in <code>ios</code> mode, and directly to the right in <code>md</code> and <code>wp</code> mode.</td>
+</tr>
+<tr>
+<td><code>end</code></td>
+<td>Positions element to the right of the content in <code>ios</code> mode, and to the far right in <code>md</code> and <code>wp</code> mode.</td>
+</tr>
+<tr>
+<td><code>left</code></td>
+<td>Positions element to the left of all other elements.</td>
+</tr>
+<tr>
+<td><code>right</code></td>
+<td>Positions element to the right of all other elements.</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="#usage">usage</a> below for some examples.</p>
 
 
 <h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
@@ -59,6 +90,14 @@ property.</p>
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-toolbar&gt;
+  &lt;ion-buttons start&gt;
+    &lt;button&gt;
+      &lt;ion-icon name=&quot;contact&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/button&gt;
+    &lt;button&gt;
+      &lt;ion-icon name=&quot;search&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/button&gt;
+  &lt;/ion-buttons&gt;
   &lt;ion-title&gt;My Toolbar Title&lt;/ion-title&gt;
 &lt;/ion-toolbar&gt;
 
@@ -66,14 +105,27 @@ property.</p>
   &lt;ion-title&gt;I&#39;m a subheader&lt;/ion-title&gt;
 &lt;/ion-toolbar&gt;
 
- &lt;ion-content&gt;&lt;/ion-content&gt;
+&lt;ion-content&gt;&lt;/ion-content&gt;
 
 &lt;ion-toolbar position=&quot;bottom&quot;&gt;
   &lt;ion-title&gt;I&#39;m a subfooter&lt;/ion-title&gt;
+  &lt;ion-buttons right&gt;
+    &lt;button&gt;
+      &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/button&gt;
+  &lt;/ion-buttons&gt;
 &lt;/ion-toolbar&gt;
 
 &lt;ion-toolbar position=&quot;bottom&quot;&gt;
   &lt;ion-title&gt;I&#39;m a footer&lt;/ion-title&gt;
+  &lt;ion-buttons end&gt;
+    &lt;button&gt;
+      &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/button&gt;
+    &lt;button&gt;
+      &lt;ion-icon name=&quot;options&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/button&gt;
+  &lt;/ion-buttons&gt;
 &lt;/ion-toolbar&gt;
 </code></pre>
 

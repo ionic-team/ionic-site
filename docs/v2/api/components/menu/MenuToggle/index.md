@@ -58,10 +58,50 @@ docs for more information.</p>
 <p>A simple <code>menuToggle</code> button can be added using the following markup:</p>
 <pre><code class="lang-html">&lt;button menuToggle&gt;Toggle Menu&lt;/button&gt;
 </code></pre>
-<p>To toggle a certain menu by its id or side, give the <code>menuToggle</code>
+<p>To toggle a specific menu by its id or side, give the <code>menuToggle</code>
 directive a value.</p>
 <pre><code class="lang-html">&lt;button menuToggle=&quot;right&quot;&gt;Toggle Right Menu&lt;/button&gt;
 </code></pre>
+<p>If placing the <code>menuToggle</code> in a navbar or toolbar, it should be
+placed as a child of the <code>&lt;ion-navbar&gt;</code> or <code>&lt;ion-toolbar&gt;</code>, and not in
+the <code>&lt;ion-buttons&gt;</code> element:</p>
+<pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
+  &lt;ion-buttons start&gt;
+    &lt;button&gt;
+      &lt;ion-icon name=&quot;contact&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/button&gt;
+  &lt;/ion-buttons&gt;
+  &lt;button menuToggle&gt;
+    &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
+  &lt;/button&gt;
+  &lt;ion-title&gt;
+    Title
+  &lt;/ion-title&gt;
+  &lt;ion-buttons end&gt;
+    &lt;button (click)=&quot;doClick()&quot;&gt;
+      &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/button&gt;
+  &lt;/ion-buttons&gt;
+&lt;/ion-navbar&gt;
+</code></pre>
+<p>Similar to <code>&lt;ion-buttons&gt;</code>, the <code>menuToggle</code> can be positioned using
+<code>start</code>, <code>end</code>, <code>left</code>, or <code>right</code>:</p>
+<pre><code class="lang-html">&lt;ion-toolbar&gt;
+  &lt;button menuToggle right&gt;
+    &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
+  &lt;/button&gt;
+  &lt;ion-title&gt;
+    Title
+  &lt;/ion-title&gt;
+  &lt;ion-buttons end&gt;
+    &lt;button (click)=&quot;doClick()&quot;&gt;
+      &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/button&gt;
+  &lt;/ion-buttons&gt;
+&lt;/ion-toolbar&gt;
+</code></pre>
+<p>See the <a href="../../toolbar/Toolbar">Toolbar API docs</a> for more information
+on the different positions.</p>
 
 
 

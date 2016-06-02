@@ -53699,12 +53699,59 @@
 	 * <button menuToggle>Toggle Menu</button>
 	 * ```
 	 *
-	 * To toggle a certain menu by its id or side, give the `menuToggle`
+	 * To toggle a specific menu by its id or side, give the `menuToggle`
 	 * directive a value.
 	 *
 	 * ```html
 	 * <button menuToggle="right">Toggle Right Menu</button>
 	 * ```
+	 *
+	 * If placing the `menuToggle` in a navbar or toolbar, it should be
+	 * placed as a child of the `<ion-navbar>` or `<ion-toolbar>`, and not in
+	 * the `<ion-buttons>` element:
+	 *
+	 * ```html
+	 * <ion-navbar *navbar>
+	 *   <ion-buttons start>
+	 *     <button>
+	 *       <ion-icon name="contact"></ion-icon>
+	 *     </button>
+	 *   </ion-buttons>
+	 *   <button menuToggle>
+	 *     <ion-icon name="menu"></ion-icon>
+	 *   </button>
+	 *   <ion-title>
+	 *     Title
+	 *   </ion-title>
+	 *   <ion-buttons end>
+	 *     <button (click)="doClick()">
+	 *       <ion-icon name="more"></ion-icon>
+	 *     </button>
+	 *   </ion-buttons>
+	 * </ion-navbar>
+	 * ```
+	 *
+	 * Similar to `<ion-buttons>`, the `menuToggle` can be positioned using
+	 * `start`, `end`, `left`, or `right`:
+	 *
+	 * ```html
+	 * <ion-toolbar>
+	 *   <button menuToggle right>
+	 *     <ion-icon name="menu"></ion-icon>
+	 *   </button>
+	 *   <ion-title>
+	 *     Title
+	 *   </ion-title>
+	 *   <ion-buttons end>
+	 *     <button (click)="doClick()">
+	 *       <ion-icon name="more"></ion-icon>
+	 *     </button>
+	 *   </ion-buttons>
+	 * </ion-toolbar>
+	 * ```
+	 *
+	 * See the [Toolbar API docs](../../toolbar/Toolbar) for more information
+	 * on the different positions.
 	 *
 	 * @demo /docs/v2/demos/menu/
 	 * @see {@link /docs/v2/components#menus Menu Component Docs}
@@ -54718,17 +54765,41 @@
 	/**
 	 * @name Toolbar
 	 * @description
-	 * The toolbar is generic bar that sits above or below content.
-	 * Unlike an `Navbar`, `Toolbar` can be used for a subheader as well.
-	 * Since it's based on flexbox, you can place the toolbar where you
-	 * need it and flexbox will handle everything else. Toolbars will automatically
-	 * assume they should be placed before an `ion-content`, so to specify that you want it
-	 * below, you can add the property `position="bottom"`. This will change the flex order
+	 * A Toolbar is a generic bar that is positioned above or below content.
+	 * Unlike a [Navbar](../../nav/Navbar), a toolbar can be used as a subheader.
+	 * Toolbars are positioned automatically at the `top`, but they can be
+	 * positioned at the bottom by setting `position="bottom"` on the component.
+	 *
+	 *
+	 * ### Buttons in a Toolbar
+	 * Buttons placed in a toolbar should be placed inside of the `<ion-buttons>`
+	 * element. An exception to this is a [menuToggle](../../menu/MenuToggle) button.
+	 * It should not be placed inside of the `<ion-buttons>` element. Both the
+	 * `<ion-buttons>` element and the `menuToggle` can be positioned inside of the
+	 * toolbar using different properties. The below chart has a description of each
 	 * property.
+	 *
+	 * | Property    | Description                                                                                                           |
+	 * |-------------|-----------------------------------------------------------------------------------------------------------------------|
+	 * | `start`     | Positions element to the left of the content in `ios` mode, and directly to the right in `md` and `wp` mode.    |
+	 * | `end`       | Positions element to the right of the content in `ios` mode, and to the far right in `md` and `wp` mode.        |
+	 * | `left`      | Positions element to the left of all other elements.                                                            |
+	 * | `right`     | Positions element to the right of all other elements.                                                           |
+	 *
+	 * See [usage](#usage) below for some examples.
+	 *
 	 *
 	 * @usage
 	 * ```html
 	 * <ion-toolbar>
+	 *   <ion-buttons start>
+	 *     <button>
+	 *       <ion-icon name="contact"></ion-icon>
+	 *     </button>
+	 *     <button>
+	 *       <ion-icon name="search"></ion-icon>
+	 *     </button>
+	 *   </ion-buttons>
 	 *   <ion-title>My Toolbar Title</ion-title>
 	 * </ion-toolbar>
 	 *
@@ -54736,16 +54807,28 @@
 	 *   <ion-title>I'm a subheader</ion-title>
 	 * </ion-toolbar>
 	 *
-	 *  <ion-content></ion-content>
+	 * <ion-content></ion-content>
 	 *
 	 * <ion-toolbar position="bottom">
 	 *   <ion-title>I'm a subfooter</ion-title>
+	 *   <ion-buttons right>
+	 *     <button>
+	 *       <ion-icon name="menu"></ion-icon>
+	 *     </button>
+	 *   </ion-buttons>
 	 * </ion-toolbar>
 	 *
 	 * <ion-toolbar position="bottom">
 	 *   <ion-title>I'm a footer</ion-title>
+	 *   <ion-buttons end>
+	 *     <button>
+	 *       <ion-icon name="more"></ion-icon>
+	 *     </button>
+	 *     <button>
+	 *       <ion-icon name="options"></ion-icon>
+	 *     </button>
+	 *   </ion-buttons>
 	 * </ion-toolbar>
-	 *
 	 *  ```
 	 *
 	 * @property {any} [position] - set position of the toolbar, `top` or `bottom`.
@@ -54787,20 +54870,27 @@
 	 * @name Title
 	 * @description
 	 * `ion-title` is a component that sets the title of the `Toolbar` or `Navbar`
+	 *
 	 * @usage
+	 *
+	 * ```html
+	 * <ion-navbar *navbar>
+	 *    <ion-title>Tab 1</ion-title>
+	 * </ion-navbar>
+	 * ```
+	 *
+	 * Or to create a navbar with a toolbar as a subheader:
+	 *
 	 * ```html
 	 * <ion-navbar *navbar>
 	 *    <ion-title>Tab 1</ion-title>
 	 * </ion-navbar>
 	 *
-	 *<!-- or if you wanted to create a subheader title-->
-	 * <ion-navbar *navbar>
-	 *    <ion-title>Tab 1</ion-title>
-	 * </ion-navbar>
 	 * <ion-toolbar>
-	 *   <ion-title>SubHeader</ion-title>
+	 *   <ion-title>Subheader</ion-title>
 	 * </ion-toolbar>
-	 *  ```
+	 * ```
+	 *
 	 * @demo /docs/v2/demos/title/
 	 */
 	var ToolbarTitle = (function (_super) {
@@ -54842,20 +54932,6 @@
 	        toolbar && toolbar.addItemRef(elementRef);
 	        navbar && navbar.addItemRef(elementRef);
 	        this.inToolbar = !!(toolbar || navbar);
-	        // Deprecation warning
-	        if (elementRef.nativeElement.tagName === 'ION-NAV-ITEMS') {
-	            if (elementRef.nativeElement.hasAttribute('primary')) {
-	                console.warn('<ion-nav-items primary> has been renamed to <ion-buttons start>, please update your HTML');
-	                elementRef.nativeElement.setAttribute('start', '');
-	            }
-	            else if (elementRef.nativeElement.hasAttribute('secondary')) {
-	                console.warn('<ion-nav-items secondary> has been renamed to <ion-buttons end>, please update your HTML');
-	                elementRef.nativeElement.setAttribute('end', '');
-	            }
-	            else {
-	                console.warn('<ion-nav-items> has been renamed to <ion-buttons>, please update your HTML');
-	            }
-	        }
 	    }
 	    Object.defineProperty(ToolbarItem.prototype, "_buttons", {
 	        set: function (buttons) {

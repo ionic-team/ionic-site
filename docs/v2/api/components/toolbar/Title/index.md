@@ -34,7 +34,7 @@ Title
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/toolbar/toolbar.ts#L130">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/toolbar/toolbar.ts#L166">
 Improve this doc
 </a>
 
@@ -55,13 +55,14 @@ Improve this doc
 <pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
    &lt;ion-title&gt;Tab 1&lt;/ion-title&gt;
 &lt;/ion-navbar&gt;
-
-&lt;!-- or if you wanted to create a subheader title--&gt;
-&lt;ion-navbar *navbar&gt;
+</code></pre>
+<p>Or to create a navbar with a toolbar as a subheader:</p>
+<pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
    &lt;ion-title&gt;Tab 1&lt;/ion-title&gt;
 &lt;/ion-navbar&gt;
+
 &lt;ion-toolbar&gt;
-  &lt;ion-title&gt;SubHeader&lt;/ion-title&gt;
+  &lt;ion-title&gt;Subheader&lt;/ion-title&gt;
 &lt;/ion-toolbar&gt;
 </code></pre>
 

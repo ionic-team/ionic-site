@@ -232,22 +232,28 @@ It's often necessary to create social cards within an application. Using a combi
   <img src="img/advance-card-bttf.png">
 
   <ion-card-content>
-  <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+    <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
   </ion-card-content>
 
-  <ion-item>
-    <button primary clear item-left>
-      <ion-icon name="thumbs-up"></ion-icon>
-      <div>12 Likes</div>
-    </button>
-    <button primary clear item-left>
-      <ion-icon name="text"></ion-icon>
-      <div>4 Comments</div>
-    </button>
-    <ion-note item-right>
-      11h ago
-    </ion-note>
-  </ion-item>
+  <ion-row>
+    <ion-col>
+      <button primary clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button primary clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note>
+        11h ago
+      </ion-note>
+    </ion-col>
+  </ion-row>
 
 </ion-card>
 ```

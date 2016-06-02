@@ -34,7 +34,7 @@ Menu
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/menu/menu.ts#L9">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/menu/menu.ts#L10">
 Improve this doc
 </a>
 

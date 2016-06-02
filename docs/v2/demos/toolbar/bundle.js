@@ -55894,6 +55894,9 @@
 	     */
 	    NavController.prototype.popTo = function (view, opts) {
 	        var startIndex = this.indexOf(view);
+	        if (startIndex < 0) {
+	            return Promise.reject('View not found to pop to');
+	        }
 	        var activeView = this.getByState(STATE_TRANS_ENTER) ||
 	            this.getByState(STATE_INIT_ENTER) ||
 	            this.getActive();

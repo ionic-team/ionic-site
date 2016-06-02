@@ -9888,7 +9888,7 @@ ion-icon {
     background: #000; }
   .md .range-pin {
     position: relative;
-    top: -24px;
+    top: -20px;
     display: inline-block;
     padding: 8px 0;
     min-width: 28px;
@@ -9918,7 +9918,7 @@ ion-icon {
   .md .range-knob-pressed .range-pin {
     -webkit-transform: translate3d(0, 0, 0) scale(1);
     transform: translate3d(0, 0, 0) scale(1); }
-  .md .range-knob-pressed .range-knob {
+  .md ion-range:not(.range-has-pin) .range-knob-pressed .range-knob {
     -webkit-transform: scale(1);
     transform: scale(1); }
   .md ion-range[primary] .range-bar-active,

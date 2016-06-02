@@ -73177,6 +73177,8 @@
 	                '<div class="range-knob"></div>',
 	            host: {
 	                '[class.range-knob-pressed]': 'pressed',
+	                '[class.range-knob-min]': '_val===range.min',
+	                '[class.range-knob-max]': '_val===range.max',
 	                '[style.left]': '_x',
 	                '[style.top]': '_y',
 	                '[style.transform]': '_trns',

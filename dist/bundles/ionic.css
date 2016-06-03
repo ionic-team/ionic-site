@@ -6420,6 +6420,8 @@ ion-icon {
     border-radius: 10px;
     color: #000;
     background: #fff; }
+    .ios .popover-content ion-content {
+      background: #fff; }
   .ios .popover-content .item {
     background-color: #fff; }
   .ios .popover-arrow {
@@ -9778,6 +9780,8 @@ ion-icon {
     box-shadow: 0 3px 12px 2px rgba(0, 0, 0, 0.3);
     -webkit-transform-origin: top left;
     transform-origin: top left; }
+    .md .popover-content ion-content {
+      background: #fafafa; }
   .md .popover-content .item {
     background-color: #fafafa; }
   .md .popover-viewport {
@@ -13502,6 +13506,8 @@ ion-icon {
     background: #f2f2f2;
     -webkit-transform-origin: top left;
     transform-origin: top left; }
+    .wp .popover-content ion-content {
+      background: #f2f2f2; }
   .wp .popover-content .item {
     background-color: #f2f2f2; }
   .wp .popover-viewport {

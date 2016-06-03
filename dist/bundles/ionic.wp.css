@@ -6659,6 +6659,8 @@ ion-picker-cmp {
   background: #f2f2f2;
   -webkit-transform-origin: top left;
   transform-origin: top left; }
+  .popover-content ion-content {
+    background: #f2f2f2; }
 
 .popover-content .item {
   background-color: #f2f2f2; }

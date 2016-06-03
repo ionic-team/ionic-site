@@ -6883,6 +6883,8 @@ ion-picker-cmp {
   box-shadow: 0 3px 12px 2px rgba(0, 0, 0, 0.3);
   -webkit-transform-origin: top left;
   transform-origin: top left; }
+  .popover-content ion-content {
+    background: #fafafa; }
 
 .popover-content .item {
   background-color: #fafafa; }

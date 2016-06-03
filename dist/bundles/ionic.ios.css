@@ -6710,6 +6710,8 @@ ion-picker-cmp {
   border-radius: 10px;
   color: #000;
   background: #fff; }
+  .popover-content ion-content {
+    background: #fff; }
 
 .popover-content .item {
   background-color: #fff; }

@@ -944,13 +944,8 @@ ion-popover {
   -ms-flex-direction: column;
   flex-direction: column;
   min-height: 200px; }
-  .popover-content ion-page {
-    position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    height: auto; }
+  .popover-content scroll-content {
+    position: relative; }
 
 .item-range .item-inner {
   overflow: visible; }

@@ -58,12 +58,12 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<pre><code>import {GoogleMaps, GoogleMapsEvent} from &#39;ionic-native&#39;;
+<pre><code>import {GoogleMap, GoogleMapsEvent} from &#39;ionic-native&#39;;
 
 ...
 
 // somewhere in your component
-let map = new GoogleMaps(&#39;elementID&#39;);
+let map = new GoogleMap(&#39;elementID&#39;);
 
 map.on(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&quot;Map is ready!&quot;));
 </code></pre>

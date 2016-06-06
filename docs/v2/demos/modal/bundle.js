@@ -48000,7 +48000,7 @@
 	        * with a hardware back button in the same sense an Android or Windows device
 	        * does. It's important to note that this event does not emit when the Ionic
 	        * app's back button within the navbar is clicked, but this event is only
-	        * referencing the platform's hardward back button.
+	        * referencing the platform's hardware back button.
 	        */
 	        this.backButton = new core_1.EventEmitter();
 	        /**

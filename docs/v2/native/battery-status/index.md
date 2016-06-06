@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add cordova-plugin-batterystatus</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-battery-status</code></pre>
 <p>Repo:
   <a href="https://github.com/apache/cordova-plugin-battery-status">
     https://github.com/apache/cordova-plugin-battery-status

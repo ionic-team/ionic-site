@@ -20,23 +20,23 @@ title: Ionic Resources
     <ul>
       <li>
         <a target="_blank" href="http://blog.ionic.io/screencast-ionic-async/" class="title">Ionic &amp; Async</a>
-        <p>Learn how to coordinate multiple events in a timely manner</p>
+        <p>Learn how to coordinate multiple events in a timely manner.</p>
       </li>
       <li>
         <a target="_blank" href="http://www.joshmorony.com/build-a-todo-app-from-scratch-with-ionic-2-video-tutorial/" class="title">Building a TODO app in Ionic 2</a>
-        <p>See how an entire app is built out in </p>
+        <p>Learn how to build out an entire Ionic 2 app.</p>
       </li>
       <li>
         <a target="_blank" href="https://www.youtube.com/watch?v=bAlydPwFONY" class="title">Angular Connect: Ionic 2</a>
-        <p>Check out some of the ideas and goals behind Ionic 2</p>
+        <p>Dive into some of the ideas and goals behind Ionic 2.</p>
       </li>
       <li>
-        <a target="_blank" href="https://youtu.be/WAPQF_GA7Qg" class="title">NgConf: Angualr 2, John Papa</a>
-        <p>Learn some of the basics behind building an Angular 2 app from John Papa</p>
+        <a target="_blank" href="https://youtu.be/WAPQF_GA7Qg" class="title">NgConf: Angular 2, John Papa</a>
+        <p>Learn some of the basics behind building an Angular 2 app.</p>
       </li>
       <li>
         <a target="_blank" href="http://www.joshmorony.com/ionic-2-how-to-use-google-maps-geolocation-video-tutorial/"  class="title">Google Maps in Ionic 2</a>
-        <p>Add Google maps to your Ionic 2 App</p>
+        <p>Add Google maps to your Ionic 2 App.</p>
       </li>
     </ul>
   </section>
@@ -47,11 +47,11 @@ title: Ionic Resources
     <ul>
       <li>
         <a target="_blank" href="http://www.joshmorony.com/beginners-guide-to-getting-started-with-ionic-2/" class="title">Getting started with Ionic 2</a>
-        <p>Learn how to add performant animations to our Ionic App.</p>
+        <p>Learn how to add performant animations to your Ionic 2 App.</p>
       </li>
       <li>
         <a target="_blank" href="http://www.joshmorony.com/ionic-2-first-look-series-new-angular-2-concepts-syntax/" class="title">Ionic2 and Angualr 2 Concepts</a>
-        <p>Familiarize yourself with some of the new concepts in Ionic 2 and Angular 2</p>
+        <p>Familiarize yourself with some of the new concepts in Ionic 2 and Angular 2.</p>
       </li>
       <li>
         <a target="_blank" href="http://mcgivery.com/understanding-ionic-2-imports/" class="title">Understand Import</a>
@@ -74,23 +74,23 @@ title: Ionic Resources
     <ul>
       <li>
         <a target="_blank" href="/docs/v2/resources/editors_and_ides/" class="title">Editors and IDEs</a>
-        <p>Check out the best options in editors for you</p>
+        <p>Check out the best options in editors for your project.</p>
       </li>
       <li>
         <a target="_blank" href="http://browserify.org/" class="title">Bundling with Browserify</a>
-        <p>Learn how we can convert Angular controllers to ES6 classes</p>
+        <p>Learn how to convert Angular controllers to ES6 classes.</p>
       </li>
       <li>
         <a target="_blank" href="https://webpack.github.io/" class="title">Working with Webpack</a>
-        <p>Ever wonder how Webpack really works? </p>
+        <p>Ever wonder how Webpack really works? Learn about it!</p>
       </li>
       <li>
         <a target="_blank" href="https://www.visualstudio.com/en-us/features/cordova-vs.aspx" class="title">Visual Studio Tools for Apache Cordova</a>
-        <p>Visual Studio has release a tool set that makes setting up your environment a breeze.</p>
+        <p>Visual Studio has release a tool set that makes setting up your environment a breeze. Learn how it works.</p>
       </li>
       <li>
         <a target="_blank" href="http://www.typescriptlang.org/" class="title">Typescript</a>
-        <p>Check out the features that make working with Typescript amazing</p>
+        <p>Check out the features that make working with Typescript amazing.</p>
       </li>
     </ul>
   </section>
@@ -101,23 +101,23 @@ title: Ionic Resources
     <ul>
       <li>
         <a target="_blank" href="http://www.joshmorony.com/adding-background-geolocation-to-an-ionic-2-application/" class="title">Background Geolocation</a>
-        <p>Learn how to add geolocation that can run in the background</p>
+        <p>Learn how to add geolocation that can run in the background of your app.</p>
       </li>
       <li>
         <a target="_blank" href="http://www.gajotres.net/ionic-2-handling-a-simple-user-authorization/" class="title">Simple Authentication</a>
-        <p>Sometimes all you need is a simple Auth form. Learn how!</p>
+        <p>Sometimes all you need is a simple Auth form. Learn how to create one!</p>
       </li>
       <li>
         <a target="_blank" href="http://www.joshmorony.com/creating-an-advanced-google-maps-component-in-ionic-2/" class="title">Advanced Google Maps</a>
-        <p>Go beyond adding a simple map, to handling offline conditions and complex maps</p>
+        <p>Go beyond adding a simple map, to handling offline conditions and complex maps.</p>
       </li>
       <li>
         <a target="_blank" href="http://gonehybrid.com/how-to-use-pouchdb-sqlite-for-local-storage-in-ionic-2/" class="title">Ionic, PouchDB, &amp; SQLite For Storage</a>
-        <p>Simplify storage using PouchDB and Sqlite</p>
+        <p>Simplify storage using PouchDB and Sqlite.</p>
       </li>
       <li>
         <a target="_blank" href="http://www.nikola-breznjak.com/blog/javascript/ionic2/posting-data-from-ionic-2-app/" class="title">Posting data to a PHP server</a>
-        <p>Learn how to use the SQLites plugin for Cordova with your Ionic apps.</p>
+        <p>Learn how to use the SQLite plugin for Cordova in your Ionic 2 app.</p>
       </li>
     </ul>
   </section>

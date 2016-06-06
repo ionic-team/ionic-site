@@ -61,8 +61,9 @@ function createUser(user) {
 }
 
 // second page (listen for the user created event)
-events.subscribe(&#39;user:created&#39;, (user) =&gt; {
-  console.log(&#39;Welcome&#39;, user);
+events.subscribe(&#39;user:created&#39;, (userEventData) =&gt; {
+  // userEventData is an array of parameters, so grab our first and only arg
+  console.log(&#39;Welcome&#39;, userEventData[0]);
 });
 </code></pre>
 

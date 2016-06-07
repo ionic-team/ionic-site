@@ -172,7 +172,7 @@ out first, <em>then</em> start the next transition.</p>
     text: &#39;Ok&#39;,
     handler: () =&gt; {
       // user has clicked the alert button
-      // begin the alert&#39;s dimiss transition
+      // begin the alert&#39;s dismiss transition
       let navTransition = alert.dismiss();
 
       // start some async method

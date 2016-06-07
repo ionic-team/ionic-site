@@ -49,16 +49,18 @@ Inside of the `app` directory we find our pre-compiled code. This is where most 
 Near the top of the file, we should see this:
 
 ```ts
-@App({
+@Component({
   templateUrl: 'build/app.html'
 })
 class MyApp {
   constructor() {
   }
 }
+
+ionicBootstrap(MyApp)
 ```
 
-Every app has a *root component* that essentially controls the rest of the application. This is very similar to `ng-app` from Ionic and Angular 1. To specify a root component with Ionic, we use the `@App` decorator.
+Every app has a *root component* that essentially controls the rest of the application. This is very similar to `ng-app` from Ionic and Angular 1. This is also where we bootstrap our app using `ionicBootstrap`.
 
 In this component, we set the template to be the file at `build/app.html`, which is a compiled version of `app/app.html`, let's take a look!
 

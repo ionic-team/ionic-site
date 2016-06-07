@@ -59,12 +59,12 @@ Next, let's check out the `HelloIonicPage` that we are importing. Inside the `ap
 > You may have noticed that each page has its own folder that is named after the page. Inside each folder, we also see a `.html` and a `.scss` file with the same name. For example, inside of `hello-ionic/` we will find `hello-ionic.js`, `hello-ionic.html`, and `hello-ionic.scss`. Although using this pattern is not required, it can be helpful to keep things organized.
 
 
-Below, we see the `HelloIonicPage` class which has the `@Page` [decorator](../../../resources/what-is/#decorators). This creates a Page - an Angular component with all Ionic directives already provided, to be loaded using Ionic's navigation system.  Notice that because Pages are meant to be loaded dynamically, they don't have a selector:
+Below, we see the `HelloIonicPage` class. This creates a Page - an Angular component with all Ionic directives already provided, to be loaded using Ionic's navigation system.  Notice that because Pages are meant to be loaded dynamically, they don't have a selector:
 
 ```ts
-import {Page} from 'ionic-angular';
+import {Component} from '@angular/core';
 
-@Page({
+@Component({
   templateUrl: 'build/pages/hello-ionic/hello-ionic.html'
 })
 export class HelloIonicPage {}
@@ -111,11 +111,12 @@ To create an additional page, we don't need to do much beyond making sure we cor
 Let's check out the contents of `app/pages/list/list.js`. Inside, you will see a new page is defined:
 
 ```ts
-import {Page, NavController, NavParams} from 'ionic-angular';
+import {Component} from "@angular/core";
+import {NavController, NavParams} from 'ionic-angular';
 import {ItemDetailsPage} from '../item-details/item-details';
 
 
-@Page({
+@Component({
   templateUrl: 'build/pages/list/list.html'
 })
 export class ListPage {

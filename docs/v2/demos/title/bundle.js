@@ -55170,6 +55170,13 @@
 	    /**
 	     * @private
 	     */
+	    Button.prototype.ngAfterContentChecked = function () {
+	        this._readIcon(this._elementRef.nativeElement);
+	        this._assignCss(true);
+	    };
+	    /**
+	     * @private
+	     */
 	    Button.prototype.addClass = function (className) {
 	        this._renderer.setElementClass(this._elementRef.nativeElement, className, true);
 	    };
@@ -55209,6 +55216,8 @@
 	                }
 	            }
 	        }
+	        // Remove any classes that are set already
+	        this._setClass(this._icon, false);
 	        if (nodes.length > 1) {
 	            if (nodes[0] === ICON && nodes[1] === TEXT) {
 	                this._icon = 'icon-left';

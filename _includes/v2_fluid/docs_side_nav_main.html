@@ -253,7 +253,7 @@
 
   {% comment %} ### Resources ### {% endcomment %}
   <li class="{% if page.category == 'resources' %}active{% endif %}">
-    <a ng-click="showResources = !showResources">Resources</a>
+    <a href="/docs/v2/resources" >Resources</a>
     <ul ng-show="showResources"
         {% if page.category == 'resources' %}
           ng-init="showResources = true"

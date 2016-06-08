@@ -32,7 +32,7 @@ ListHeader
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/list/list.ts#L111">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/list/list.ts#L110">
 Improve this doc
 </a>
 

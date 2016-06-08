@@ -49570,6 +49570,7 @@
 	    list_1.ListHeader,
 	    item_1.Item,
 	    item_sliding_1.ItemSliding,
+	    item_sliding_1.ItemOptions,
 	    virtual_scroll_1.VirtualScroll,
 	    virtual_item_1.VirtualItem,
 	    virtual_item_1.VirtualHeader,
@@ -65557,19 +65558,18 @@
 	     */
 	    List.prototype.enableSlidingItems = function (shouldEnable) {
 	        var _this = this;
-	        if (this._enableSliding !== shouldEnable) {
-	            this._enableSliding = shouldEnable;
-	            if (shouldEnable) {
-	                console.debug('enableSlidingItems');
-	                this._zone.runOutsideAngular(function () {
-	                    setTimeout(function () {
-	                        _this.slidingGesture = new item_sliding_gesture_1.ItemSlidingGesture(_this, _this.ele);
-	                    });
-	                });
-	            }
-	            else {
-	                this.slidingGesture && this.slidingGesture.unlisten();
-	            }
+	        if (this._enableSliding === shouldEnable) {
+	            return;
+	        }
+	        this._enableSliding = shouldEnable;
+	        if (shouldEnable) {
+	            console.debug('enableSlidingItems');
+	            this._zone.runOutsideAngular(function () {
+	                setTimeout(function () { return _this.slidingGesture = new item_sliding_gesture_1.ItemSlidingGesture(_this, _this.ele); });
+	            });
+	        }
+	        else {
+	            this.slidingGesture && this.slidingGesture.unlisten();
 	        }
 	    };
 	    /**
@@ -65608,10 +65608,10 @@
 	 * @private
 	 */
 	var ListHeader = (function () {
-	    function ListHeader(_renderer, _elementRef, id) {
+	    function ListHeader(_renderer, _elementRef, _id) {
 	        this._renderer = _renderer;
 	        this._elementRef = _elementRef;
-	        this._id = id;
+	        this._id = _id;
 	    }
 	    Object.defineProperty(ListHeader.prototype, "id", {
 	        get: function () {
@@ -65646,185 +65646,93 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var hammer_1 = __webpack_require__(350);
 	var drag_gesture_1 = __webpack_require__(346);
 	var dom_1 = __webpack_require__(332);
+	var DRAG_THRESHOLD = 20;
+	var MAX_ATTACK_ANGLE = 20;
 	var ItemSlidingGesture = (function (_super) {
 	    __extends(ItemSlidingGesture, _super);
 	    function ItemSlidingGesture(list, listEle) {
-	        var _this = this;
 	        _super.call(this, listEle, {
 	            direction: 'x',
 	            threshold: DRAG_THRESHOLD
 	        });
 	        this.list = list;
 	        this.listEle = listEle;
-	        this.canDrag = true;
-	        this.data = {};
-	        this.openItems = 0;
-	        this.preventDrag = false;
-	        this.dragEnded = true;
+	        this.selectedContainer = null;
+	        this.openContainer = null;
 	        this.listen();
-	        this.onTap = function (ev) {
-	            if (!isFromOptionButtons(ev.target)) {
-	                var didClose = _this.closeOpened();
-	                if (didClose) {
-	                    console.debug('tap close sliding item');
-	                    preventDefault(ev);
-	                }
-	            }
-	        };
-	        this.onMouseOut = function (ev) {
-	            if (ev.target.tagName === 'ION-ITEM-SLIDING') {
-	                console.debug('tap close sliding item');
-	                _this.onDragEnd(ev);
-	            }
-	        };
 	    }
+	    ItemSlidingGesture.prototype.onTapCallback = function (ev) {
+	        if (isFromOptionButtons(ev.target)) {
+	            return;
+	        }
+	        var didClose = this.closeOpened();
+	        if (didClose) {
+	            console.debug('tap close sliding item, preventDefault');
+	            ev.preventDefault();
+	        }
+	    };
 	    ItemSlidingGesture.prototype.onDragStart = function (ev) {
-	        var itemContainerEle = getItemContainer(ev.target);
-	        if (!itemContainerEle) {
+	        var angle = Math.abs(ev.angle);
+	        if (angle > MAX_ATTACK_ANGLE && Math.abs(angle - 180) > MAX_ATTACK_ANGLE) {
+	            this.closeOpened();
+	            return false;
+	        }
+	        if (this.selectedContainer) {
+	            console.debug('onDragStart, another container is already selected');
+	            return false;
+	        }
+	        var container = getContainer(ev);
+	        if (!container) {
 	            console.debug('onDragStart, no itemContainerEle');
 	            return false;
 	        }
-	        this.closeOpened(itemContainerEle);
-	        var openAmout = this.getOpenAmount(itemContainerEle);
-	        var itemData = this.get(itemContainerEle);
-	        this.preventDrag = (openAmout > 0);
-	        if (this.preventDrag) {
+	        // Close open container if it is not the selected one.
+	        if (container !== this.openContainer) {
 	            this.closeOpened();
-	            console.debug('onDragStart, preventDefault');
-	            preventDefault(ev);
-	            return;
 	        }
-	        itemContainerEle.classList.add('active-slide');
-	        this.set(itemContainerEle, 'offsetX', openAmout);
-	        this.set(itemContainerEle, 'startX', ev.center[this.direction]);
-	        this.dragEnded = false;
+	        // Close all item sliding containers but the selected one
+	        this.selectedContainer = container;
+	        this.openContainer = container;
+	        container.startSliding(ev.center.x);
 	        return true;
 	    };
 	    ItemSlidingGesture.prototype.onDrag = function (ev) {
-	        var _this = this;
-	        if (this.dragEnded || this.preventDrag || Math.abs(ev.deltaY) > 30) {
-	            console.debug('onDrag preventDrag, dragEnded:', this.dragEnded, 'preventDrag:', this.preventDrag, 'ev.deltaY:', Math.abs(ev.deltaY));
-	            this.preventDrag = true;
-	            return;
+	        if (this.selectedContainer) {
+	            this.selectedContainer.moveSliding(ev.center.x);
+	            ev.preventDefault();
 	        }
-	        var itemContainerEle = getItemContainer(ev.target);
-	        if (!itemContainerEle || !isActive(itemContainerEle)) {
-	            console.debug('onDrag, no itemContainerEle');
-	            return;
-	        }
-	        var itemData = this.get(itemContainerEle);
-	        if (!itemData.optsWidth) {
-	            itemData.optsWidth = getOptionsWidth(itemContainerEle);
-	            if (!itemData.optsWidth) {
-	                console.debug('onDrag, no optsWidth');
-	                return;
-	            }
-	        }
-	        var x = ev.center[this.direction];
-	        var delta = x - itemData.startX;
-	        var newX = Math.max(0, itemData.offsetX - delta);
-	        if (newX > itemData.optsWidth) {
-	            // Calculate the new X position, capped at the top of the buttons
-	            newX = -Math.min(-itemData.optsWidth, -itemData.optsWidth + (((delta + itemData.optsWidth) * 0.4)));
-	        }
-	        if (newX > 5 && ev.srcEvent.type.indexOf('mouse') > -1 && !itemData.hasMouseOut) {
-	            itemContainerEle.addEventListener('mouseout', this.onMouseOut);
-	            itemData.hasMouseOut = true;
-	        }
-	        dom_1.nativeRaf(function () {
-	            if (!_this.dragEnded && !_this.preventDrag) {
-	                isItemActive(itemContainerEle, true);
-	                _this.open(itemContainerEle, newX, false);
-	            }
-	        });
+	        return;
 	    };
 	    ItemSlidingGesture.prototype.onDragEnd = function (ev) {
 	        var _this = this;
-	        this.preventDrag = false;
-	        this.dragEnded = true;
-	        var itemContainerEle = getItemContainer(ev.target);
-	        if (!itemContainerEle || !isActive(itemContainerEle)) {
-	            console.debug('onDragEnd, no itemContainerEle');
-	            return;
-	        }
-	        // If we are currently dragging, we want to snap back into place
-	        // The final resting point X will be the width of the exposed buttons
-	        var itemData = this.get(itemContainerEle);
-	        var restingPoint = itemData.optsWidth;
-	        // Check if the drag didn't clear the buttons mid-point
-	        // and we aren't moving fast enough to swipe open
-	        if (this.getOpenAmount(itemContainerEle) < (restingPoint / 2)) {
-	            // If we are going left but too slow, or going right, go back to resting
-	            if (ev.direction & hammer_1.DIRECTION_RIGHT || Math.abs(ev.velocityX) < 0.3) {
-	                restingPoint = 0;
+	        if (this.selectedContainer) {
+	            var openAmount = this.selectedContainer.endSliding(ev.velocityX);
+	            this.selectedContainer = null;
+	            // TODO: I am not sure listening for a tap event is the best idea
+	            // we should try mousedown/touchstart
+	            if (openAmount === 0) {
+	                this.openContainer = null;
+	                this.off('tap', this.onTap);
+	                this.onTap = null;
 	            }
-	        }
-	        itemContainerEle.removeEventListener('mouseout', this.onMouseOut);
-	        itemData.hasMouseOut = false;
-	        dom_1.nativeRaf(function () {
-	            _this.open(itemContainerEle, restingPoint, true);
-	        });
-	    };
-	    ItemSlidingGesture.prototype.closeOpened = function (doNotCloseEle) {
-	        var didClose = false;
-	        if (this.openItems) {
-	            var openItemElements = this.listEle.querySelectorAll('.active-slide');
-	            for (var i = 0; i < openItemElements.length; i++) {
-	                if (openItemElements[i] !== doNotCloseEle) {
-	                    this.open(openItemElements[i], 0, true);
-	                    didClose = true;
-	                }
-	            }
-	        }
-	        return didClose;
-	    };
-	    ItemSlidingGesture.prototype.open = function (itemContainerEle, openAmount, isFinal) {
-	        var _this = this;
-	        var slidingEle = itemContainerEle.querySelector('ion-item,[ion-item]');
-	        if (!slidingEle) {
-	            console.debug('open, no slidingEle, openAmount:', openAmount);
-	            return;
-	        }
-	        this.set(itemContainerEle, 'openAmount', openAmount);
-	        clearTimeout(this.get(itemContainerEle).timerId);
-	        if (openAmount) {
-	            this.openItems++;
-	        }
-	        else {
-	            var timerId = setTimeout(function () {
-	                if (slidingEle.style[dom_1.CSS.transform] === '') {
-	                    isItemActive(itemContainerEle, false);
-	                    _this.openItems--;
-	                }
-	            }, 400);
-	            this.set(itemContainerEle, 'timerId', timerId);
-	        }
-	        slidingEle.style[dom_1.CSS.transition] = (isFinal ? '' : 'none');
-	        slidingEle.style[dom_1.CSS.transform] = (openAmount ? 'translate3d(' + -openAmount + 'px,0,0)' : '');
-	        if (isFinal) {
-	            if (openAmount) {
-	                isItemActive(itemContainerEle, true);
+	            else if (!this.onTap) {
+	                this.onTap = function (event) { return _this.onTapCallback(event); };
 	                this.on('tap', this.onTap);
 	            }
-	            else {
-	                this.off('tap', this.onTap);
-	            }
 	        }
 	    };
-	    ItemSlidingGesture.prototype.getOpenAmount = function (itemContainerEle) {
-	        return this.get(itemContainerEle).openAmount || 0;
-	    };
-	    ItemSlidingGesture.prototype.get = function (itemContainerEle) {
-	        return this.data[itemContainerEle && itemContainerEle.$ionSlide] || {};
-	    };
-	    ItemSlidingGesture.prototype.set = function (itemContainerEle, key, value) {
-	        if (!this.data[itemContainerEle.$ionSlide]) {
-	            this.data[itemContainerEle.$ionSlide] = {};
+	    ItemSlidingGesture.prototype.closeOpened = function () {
+	        if (this.openContainer) {
+	            this.openContainer.close();
+	            this.openContainer = null;
+	            this.selectedContainer = null;
+	            this.off('tap', this.onTap);
+	            this.onTap = null;
+	            return true;
 	        }
-	        this.data[itemContainerEle.$ionSlide][key] = value;
+	        return false;
 	    };
 	    ItemSlidingGesture.prototype.unlisten = function () {
 	        _super.prototype.unlisten.call(this);
@@ -65833,30 +65741,16 @@
 	    return ItemSlidingGesture;
 	}(drag_gesture_1.DragGesture));
 	exports.ItemSlidingGesture = ItemSlidingGesture;
-	function isItemActive(ele, isActive) {
-	    ele.classList[isActive ? 'add' : 'remove']('active-slide');
-	    ele.classList[isActive ? 'add' : 'remove']('active-options');
-	}
-	function preventDefault(ev) {
-	    console.debug('sliding item preventDefault', ev.type);
-	    ev.preventDefault();
-	}
-	function getItemContainer(ele) {
-	    return dom_1.closest(ele, 'ion-item-sliding', true);
+	function getContainer(ev) {
+	    var ele = dom_1.closest(ev.target, 'ion-item-sliding', true);
+	    if (ele) {
+	        return ele['$ionComponent'];
+	    }
+	    return null;
 	}
 	function isFromOptionButtons(ele) {
 	    return !!dom_1.closest(ele, 'ion-item-options', true);
 	}
-	function getOptionsWidth(itemContainerEle) {
-	    var optsEle = itemContainerEle.querySelector('ion-item-options');
-	    if (optsEle) {
-	        return optsEle.offsetWidth;
-	    }
-	}
-	function isActive(itemContainerEle) {
-	    return itemContainerEle.classList.contains('active-slide');
-	}
-	var DRAG_THRESHOLD = 20;
 
 /***/ },
 /* 381 */
@@ -65946,6 +65840,12 @@
 	     */
 	    Item.prototype.setCssClass = function (cssClass, shouldAdd) {
 	        this._renderer.setElementClass(this._elementRef.nativeElement, cssClass, shouldAdd);
+	    };
+	    /**
+	     * @private
+	     */
+	    Item.prototype.setCssStyle = function (property, value) {
+	        this._renderer.setElementStyle(this._elementRef.nativeElement, property, value);
 	    };
 	    /**
 	     * @private
@@ -66377,6 +66277,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66391,6 +66296,71 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var list_1 = __webpack_require__(379);
+	var ion_1 = __webpack_require__(341);
+	var item_1 = __webpack_require__(381);
+	var util_1 = __webpack_require__(335);
+	var dom_1 = __webpack_require__(332);
+	var SWIPE_FACTOR = 1.1;
+	var ELASTIC_FACTOR = 0.55;
+	(function (SideFlags) {
+	    SideFlags[SideFlags["None"] = 0] = "None";
+	    SideFlags[SideFlags["Left"] = 1] = "Left";
+	    SideFlags[SideFlags["Right"] = 2] = "Right";
+	    SideFlags[SideFlags["Both"] = 3] = "Both";
+	})(exports.SideFlags || (exports.SideFlags = {}));
+	var SideFlags = exports.SideFlags;
+	/**
+	 * @private
+	 */
+	var ItemOptions = (function (_super) {
+	    __extends(ItemOptions, _super);
+	    function ItemOptions(elementRef, _renderer) {
+	        _super.call(this, elementRef);
+	        this._renderer = _renderer;
+	        this.ionSwipe = new core_1.EventEmitter();
+	    }
+	    /**
+	     * @private
+	     */
+	    ItemOptions.prototype.setCssStyle = function (property, value) {
+	        this._renderer.setElementStyle(this.elementRef.nativeElement, property, value);
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemOptions.prototype.getSides = function () {
+	        if (util_1.isPresent(this.side) && this.side === 'left') {
+	            return SideFlags.Left;
+	        }
+	        else {
+	            return SideFlags.Right;
+	        }
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], ItemOptions.prototype, "side", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], ItemOptions.prototype, "ionSwipe", void 0);
+	    ItemOptions = __decorate([
+	        core_1.Directive({
+	            selector: 'ion-item-options',
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+	    ], ItemOptions);
+	    return ItemOptions;
+	    var _a, _b, _c;
+	}(ion_1.Ion));
+	exports.ItemOptions = ItemOptions;
+	var SlidingState;
+	(function (SlidingState) {
+	    SlidingState[SlidingState["Disabled"] = 0] = "Disabled";
+	    SlidingState[SlidingState["Enabled"] = 1] = "Enabled";
+	    SlidingState[SlidingState["Right"] = 2] = "Right";
+	    SlidingState[SlidingState["Left"] = 3] = "Left";
+	})(SlidingState || (SlidingState = {}));
 	/**
 	 * @name ItemSliding
 	 *
@@ -66399,14 +66369,22 @@
 	 * an [Item](../Item) component as a child and a [List](../../list/List) component as
 	 * a parent. All buttons to reveal can be placed in the `<ion-item-options>` element.
 	 *
-	 * ### Button Layout
-	 * If an icon is placed with text in the option button, by default it will
-	 * display the icon on top of the text. This can be changed to display the icon
-	 * to the left of the text by setting `icon-left` as an attribute on the
-	 * `<ion-item-options>` element.
+	 * ### Swipe Direction
+	 * By default, the buttons are revealed when the sliding item is swiped from right to left,
+	 * so the buttons are placed in the right side. But it's also possible to reveal them
+	 * in the right side (sliding from left to right) by setting the `side` attribute
+	 * on the `ion-item-options` element. Up to 2 `ion-item-options` can used at the same time
+	 * in order to reveal two different sets of buttons depending the swipping direction.
 	 *
 	 * ```html
-	 * <ion-item-options icon-left>
+	 * <ion-item-options side="right">
+	 *   <button (click)="archive(item)">
+	 *     <ion-icon name="archive"></ion-icon>
+	 *     Archive
+	 *   </button>
+	 * </ion-item-options>
+
+	 * <ion-item-options>
 	 *   <button (click)="archive(item)">
 	 *     <ion-icon name="archive"></ion-icon>
 	 *     Archive
@@ -66414,17 +66392,55 @@
 	 * </ion-item-options>
 	 * ```
 	 *
+	 * ### Listening for events (ionDrag) and (ionSwipe)
+	 * It's possible to know the current relative position of the sliding item by subscribing
+	 * to the (ionDrag)` event.
+	 *
+	 * ```html
+	 * <ion-item-options side="right">
+	 *   <button (click)="archive(item)">
+	 *     <ion-icon name="archive"></ion-icon>
+	 *     Archive
+	 *   </button>
+	 * </ion-item-options>
+
+	 * <ion-item-options>
+	 *   <button (click)="archive(item)">
+	 *     <ion-icon name="archive"></ion-icon>
+	 *     Archive
+	 *   </button>
+	 * </ion-item-options>
+	 * ```
+	 *
+	 * ### Button Layout
+	 * If an icon is placed with text in the option button, by default it will
+	 * display the icon on top of the text. This can be changed to display the icon
+	 * to the left of the text by setting `icon-left` as an attribute on the
+	 * `<ion-item-options>` element.
+	 *
+	 * ```html
+	 * <ion-item-sliding (ionDrag)="ondrag($event)">
+	 *   <ion-item>Item</ion-item>
+	 *   <ion-item-options>
+	 *     <button>Favorite</button>
+	 *   </ion-item-options>
+	 * </ion-item-sliding>
+	 * ```
 	 *
 	 * @usage
 	 * ```html
 	 * <ion-list>
-	 *   <ion-item-sliding>
+	 *   <ion-item-sliding #item>
 	 *     <ion-item>
 	 *       Item
 	 *     </ion-item>
 	 *     <ion-item-options>
 	 *       <button (click)="favorite(item)">Favorite</button>
 	 *       <button danger (click)="share(item)">Share</button>
+	 *     </ion-item-options>
+
+	 *     <ion-item-options side="right">
+	 *       <button (click)="unread(item)">Unread</button>
 	 *     </ion-item-options>
 	 *   </ion-item-sliding>
 	 * </ion-list>
@@ -66436,11 +66452,199 @@
 	 * @see {@link ../../list/List List API Docs}
 	 */
 	var ItemSliding = (function () {
-	    function ItemSliding(_list, elementRef) {
+	    function ItemSliding(_list, _renderer, _elementRef) {
 	        this._list = _list;
+	        this._renderer = _renderer;
+	        this._elementRef = _elementRef;
+	        this._openAmount = 0;
+	        this._startX = 0;
+	        this._optsWidthRightSide = 0;
+	        this._optsWidthLeftSide = 0;
+	        this._timer = null;
+	        this._optsDirty = true;
+	        this._state = SlidingState.Disabled;
+	        this.slidingPercent = 0;
+	        /**
+	         * @output {event} Expression to evaluate when the sliding position changes.
+	         * It reports the relative position.
+	         *
+	         * ```ts
+	         * ondrag(percent) {
+	         *   if (percent > 0) {
+	         *     // positive
+	         *     console.log('right side');
+	         *   } else {
+	         *     // negative
+	         *     console.log('left side');
+	         *   }
+	         *   if (Math.abs(percent) > 1) {
+	         *     console.log('overscroll');
+	         *   }
+	         * }
+	         * ```
+	         *
+	         */
+	        this.ionDrag = new core_1.EventEmitter();
 	        _list.enableSlidingItems(true);
-	        elementRef.nativeElement.$ionSlide = ++slideIds;
+	        _elementRef.nativeElement.$ionComponent = this;
 	    }
+	    Object.defineProperty(ItemSliding.prototype, "_itemOptions", {
+	        /**
+	         * @private
+	         */
+	        set: function (itemOptions) {
+	            var sides = 0;
+	            for (var _i = 0, _a = itemOptions.toArray(); _i < _a.length; _i++) {
+	                var item = _a[_i];
+	                var side = item.getSides();
+	                if (side === SideFlags.Left) {
+	                    this._leftOptions = item;
+	                }
+	                else {
+	                    this._rightOptions = item;
+	                }
+	                sides |= item.getSides();
+	            }
+	            this._optsDirty = true;
+	            this._sides = sides;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     */
+	    ItemSliding.prototype.startSliding = function (startX) {
+	        if (this._openAmount === 0) {
+	            this._optsDirty = true;
+	            this._setState(SlidingState.Enabled);
+	        }
+	        this._startX = startX + this._openAmount;
+	        this.item.setCssStyle(dom_1.CSS.transition, 'none');
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemSliding.prototype.moveSliding = function (x) {
+	        this.calculateOptsWidth();
+	        var openAmount = this._startX - x;
+	        switch (this._sides) {
+	            case SideFlags.Right:
+	                openAmount = Math.max(0, openAmount);
+	                break;
+	            case SideFlags.Left:
+	                openAmount = Math.min(0, openAmount);
+	                break;
+	            case SideFlags.Both: break;
+	            default: return;
+	        }
+	        if (openAmount > this._optsWidthRightSide) {
+	            var optsWidth = this._optsWidthRightSide;
+	            openAmount = optsWidth + (openAmount - optsWidth) * ELASTIC_FACTOR;
+	        }
+	        else if (openAmount < -this._optsWidthLeftSide) {
+	            var optsWidth = -this._optsWidthLeftSide;
+	            openAmount = optsWidth + (openAmount - optsWidth) * ELASTIC_FACTOR;
+	        }
+	        this._setOpenAmount(openAmount, false);
+	        return openAmount;
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemSliding.prototype.endSliding = function (velocity) {
+	        var restingPoint = (this._openAmount > 0)
+	            ? this._optsWidthRightSide
+	            : -this._optsWidthLeftSide;
+	        // Check if the drag didn't clear the buttons mid-point
+	        // and we aren't moving fast enough to swipe open
+	        var isOnResetZone = Math.abs(this._openAmount) < Math.abs(restingPoint / 2);
+	        var isMovingSlow = Math.abs(velocity) < 0.3;
+	        var isDirection = (this._openAmount > 0) === (velocity > 0);
+	        if (isOnResetZone && (isMovingSlow || isDirection)) {
+	            restingPoint = 0;
+	        }
+	        this.fireSwipeEvent();
+	        this._setOpenAmount(restingPoint, true);
+	        return restingPoint;
+	    };
+	    ItemSliding.prototype.fireSwipeEvent = function () {
+	        if (this.slidingPercent > SWIPE_FACTOR) {
+	            this._rightOptions.ionSwipe.emit(this);
+	        }
+	        else if (this.slidingPercent < -SWIPE_FACTOR) {
+	            this._leftOptions.ionSwipe.emit(this);
+	        }
+	    };
+	    ItemSliding.prototype.calculateOptsWidth = function () {
+	        if (this._optsDirty) {
+	            if (this._rightOptions) {
+	                this._optsWidthRightSide = this._rightOptions.width();
+	            }
+	            if (this._leftOptions) {
+	                this._optsWidthLeftSide = this._leftOptions.width();
+	            }
+	            this._optsDirty = false;
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemSliding.prototype._setOpenAmount = function (openAmount, isFinal) {
+	        var _this = this;
+	        if (this._timer) {
+	            clearTimeout(this._timer);
+	            this._timer = null;
+	        }
+	        this._openAmount = openAmount;
+	        var didEnd = openAmount === 0;
+	        if (didEnd) {
+	            // TODO: refactor. there must exist a better way
+	            // if sliding ended, we wait 400ms until animation finishes
+	            this._timer = setTimeout(function () {
+	                _this._setState(SlidingState.Disabled);
+	                _this._timer = null;
+	            }, 400);
+	            this.slidingPercent = 0;
+	        }
+	        else if (openAmount > 0) {
+	            this._setState(SlidingState.Right);
+	            this.slidingPercent = openAmount / this._optsWidthRightSide;
+	        }
+	        else if (openAmount < 0) {
+	            this._setState(SlidingState.Left);
+	            this.slidingPercent = openAmount / this._optsWidthLeftSide;
+	        }
+	        if (!isFinal) {
+	            this.setClass('active-swipe-right', this.slidingPercent > SWIPE_FACTOR);
+	            this.setClass('active-swipe-left', this.slidingPercent < -SWIPE_FACTOR);
+	        }
+	        else {
+	            this.item.setCssStyle(dom_1.CSS.transition, '');
+	        }
+	        this.ionDrag.emit(this.slidingPercent);
+	        this.item.setCssStyle(dom_1.CSS.transform, (didEnd ? '' : 'translate3d(' + -openAmount + 'px,0,0)'));
+	    };
+	    ItemSliding.prototype._setState = function (state) {
+	        if (state !== this._state) {
+	            this._state = state;
+	            this.setClass('active-slide', state !== SlidingState.Disabled);
+	            this.setClass('active-options-right', state === SlidingState.Right);
+	            this.setClass('active-options-left', state === SlidingState.Left);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemSliding.prototype.setClass = function (className, add) {
+	        this._renderer.setElementClass(this._elementRef.nativeElement, className, add);
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemSliding.prototype.getOpenAmount = function () {
+	        return this._openAmount;
+	    };
 	    /**
 	     * Close the sliding item. Items can also be closed from the [List](../../list/List).
 	     *
@@ -66476,24 +66680,36 @@
 	     * ```
 	     */
 	    ItemSliding.prototype.close = function () {
-	        this._list.closeSlidingItems();
+	        this._setOpenAmount(0, true);
 	    };
+	    __decorate([
+	        core_1.ContentChild(item_1.Item), 
+	        __metadata('design:type', (typeof (_a = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _a) || Object)
+	    ], ItemSliding.prototype, "item", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], ItemSliding.prototype, "ionDrag", void 0);
+	    __decorate([
+	        core_1.ContentChildren(ItemOptions), 
+	        __metadata('design:type', (typeof (_c = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _c) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_d = typeof core_1.QueryList !== 'undefined' && core_1.QueryList) === 'function' && _d) || Object])
+	    ], ItemSliding.prototype, "_itemOptions", null);
 	    ItemSliding = __decorate([
 	        core_1.Component({
 	            selector: 'ion-item-sliding',
 	            template: '<ng-content select="ion-item,[ion-item]"></ng-content>' +
 	                '<ng-content select="ion-item-options"></ng-content>',
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
-	            encapsulation: core_1.ViewEncapsulation.None,
+	            encapsulation: core_1.ViewEncapsulation.None
 	        }),
 	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof list_1.List !== 'undefined' && list_1.List) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [(typeof (_e = typeof list_1.List !== 'undefined' && list_1.List) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object])
 	    ], ItemSliding);
 	    return ItemSliding;
-	    var _a, _b;
+	    var _a, _b, _c, _d, _e, _f, _g;
 	}());
 	exports.ItemSliding = ItemSliding;
-	var slideIds = 0;
 
 /***/ },
 /* 385 */

@@ -8021,38 +8021,24 @@ ion-toast {
 
 .toast-wrapper {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-  display: block;
-  margin: auto;
-  max-width: 700px;
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0); }
-
-ion-toast {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  display: block;
-  width: 100%;
-  height: 100%; }
-
-.toast-wrapper {
-  position: absolute;
   right: 10px;
-  bottom: 10px;
   left: 10px;
   z-index: 10;
   display: block;
   margin: auto;
   max-width: 700px;
   border-radius: 0.65rem;
-  background: rgba(0, 0, 0, 0.9);
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0); }
+  background: rgba(0, 0, 0, 0.9); }
+  .toast-wrapper.toast-top {
+    top: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0); }
+  .toast-wrapper.toast-bottom {
+    bottom: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+  .toast-wrapper.toast-middle {
+    opacity: .01; }
 
 .toast-message {
   padding: 1.5rem;

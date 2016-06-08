@@ -14,9 +14,11 @@ var ApiPage = (function () {
     function ApiPage(nav) {
         this.nav = nav;
     }
-    ApiPage.prototype.showToast = function () {
+    ApiPage.prototype.showToast = function (position) {
         var toast = ionic_angular_1.Toast.create({
             message: 'User was created successfully',
+            position: position,
+            duration: 3000
         });
         toast.onDismiss(this.dismissHandler);
         this.nav.present(toast);
@@ -24,6 +26,7 @@ var ApiPage = (function () {
     ApiPage.prototype.showLongToast = function () {
         var toast = ionic_angular_1.Toast.create({
             message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptatibus quibusdam eum nihil optio, ullam accusamus magni, nobis suscipit reprehenderit, sequi quam amet impedit. Accusamus dolorem voluptates laborum dolor obcaecati.',
+            duration: 3000
         });
         toast.onDismiss(this.dismissHandler);
         this.nav.present(toast);

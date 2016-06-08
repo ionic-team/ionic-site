@@ -7352,36 +7352,24 @@ ion-icon {
     flex: 1; }
   .ios .toast-wrapper {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    display: block;
-    margin: auto;
-    max-width: 700px;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0); }
-  .ios ion-toast {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    width: 100%;
-    height: 100%; }
-  .ios .toast-wrapper {
-    position: absolute;
     right: 10px;
-    bottom: 10px;
     left: 10px;
     z-index: 10;
     display: block;
     margin: auto;
     max-width: 700px;
     border-radius: 0.65rem;
-    background: rgba(0, 0, 0, 0.9);
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0); }
+    background: rgba(0, 0, 0, 0.9); }
+    .ios .toast-wrapper.toast-top {
+      top: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0); }
+    .ios .toast-wrapper.toast-bottom {
+      bottom: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0); }
+    .ios .toast-wrapper.toast-middle {
+      opacity: .01; }
   .ios .toast-message {
     padding: 1.5rem;
     font-size: 1.4rem;
@@ -10681,35 +10669,23 @@ ion-icon {
   .md .toast-wrapper {
     position: absolute;
     right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    display: block;
-    margin: auto;
-    max-width: 700px;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0); }
-  .md ion-toast {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    width: 100%;
-    height: 100%; }
-  .md .toast-wrapper {
-    position: absolute;
-    right: 0;
-    bottom: 0;
     left: 0;
     z-index: 10;
     display: block;
     margin: auto;
     width: 100%;
     max-width: 700px;
-    background: #333;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0); }
+    background: #333; }
+    .md .toast-wrapper.toast-top {
+      top: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0); }
+    .md .toast-wrapper.toast-bottom {
+      bottom: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0); }
+    .md .toast-wrapper.toast-middle {
+      opacity: .01; }
   .md .toast-message {
     padding: 19px 16px 17px;
     font-size: 1.5rem;
@@ -14319,26 +14295,21 @@ ion-icon {
   .wp .toast-wrapper {
     position: absolute;
     right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    display: block;
-    margin: auto;
-    max-width: 700px;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0); }
-  .wp .toast-wrapper {
-    position: absolute;
-    bottom: 0;
     left: 0;
     z-index: 10;
     display: block;
     margin: auto;
     max-width: 700px;
     border-radius: 0;
-    background: black;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0); }
+    background: black; }
+    .wp .toast-wrapper.toast-top {
+      top: 0;
+      opacity: .01; }
+    .wp .toast-wrapper.toast-bottom {
+      bottom: 0;
+      opacity: .01; }
+    .wp .toast-wrapper.toast-middle {
+      opacity: .01; }
   .wp .toast-message {
     padding: 1.5rem;
     font-size: 1.4rem;

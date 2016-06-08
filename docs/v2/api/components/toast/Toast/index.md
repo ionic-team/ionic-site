@@ -43,26 +43,28 @@ Improve this doc
 
 
 
-<p>A Toast is a subtle notification that appears at the bottom of the
-screen. It can be used to provide feedback about an operation or to
+<p>A Toast is a subtle notification commonly used in modern applications.
+It can be used to provide feedback about an operation or to
 display a system message. The toast appears on top of the app&#39;s content,
 and can be dismissed by the app to resume user interaction with
-the app. It includes a backdrop, which can optionally be clicked to
-dismiss the toast.</p>
+the app.</p>
 <h3 id="creating">Creating</h3>
 <p>All of the toast options should be passed in the first argument of
 the create method: <code>Toast.create(opts)</code>. The message to display should be
 passed in the <code>message</code> property. The <code>showCloseButton</code> option can be set to
 true in order to display a close button on the toast. See the <a href="#create">create</a>
 method below for all available options.</p>
+<h3 id="positioning">Positioning</h3>
+<p>Toasts can be positioned at the top, bottom or middle of the
+view port. The position can be passed to the <code>Toast.create(opts)</code> method.
+The position option is a string, and the values accepted are <code>top</code>, <code>bottom</code> and <code>middle</code>.
+If the position is not specified, the toast will be displayed at the bottom of the view port.</p>
 <h3 id="dismissing">Dismissing</h3>
 <p>The toast can be dismissed automatically after a specific amount of time
 by passing the number of milliseconds to display it in the <code>duration</code> of
-the toast options. It can also be dismissed by clicking on the backdrop,
-unless <code>enableBackdropDismiss</code> is set to <code>false</code> upon creation. If <code>showCloseButton</code>
-is set to true, then the close button will dismiss the toast. To dismiss
-the toast after creation, call the <code>dismiss()</code> method on the Toast instance.
-The <code>onDismiss</code> function can be called to perform an action after the toast
+the toast options. If <code>showCloseButton</code> is set to true, then the close button
+will dismiss the toast. To dismiss the toast after creation, call the <code>dismiss()</code>
+method on the Toast instance. The <code>onDismiss</code> function can be called to perform an action after the toast
 is dismissed.</p>
 
 <!-- @usage tag -->
@@ -76,7 +78,8 @@ is dismissed.</p>
 presentToast() {
   let toast = Toast.create({
     message: &#39;User was added successfully&#39;,
-    duration: 3000
+    duration: 3000,
+    position: &#39;top&#39;
   });
 
   toast.onDismiss(() =&gt; {
@@ -103,6 +106,7 @@ Toast options
  |-----------------------|-----------|-----------------|---------------------------------------------------------------------------------------------------------------|
  | message               | `string`  | -               | The message for the toast. Long strings will wrap and the toast container will expand.                        |
  | duration              | `number`  | -               | How many milliseconds to wait before hiding the toast. By default, it will show until `dismiss()` is called.  |
+ | position              | `string`    | "bottom"      | The position of the toast on the screen.  "top", "middle", and "bottom" are the accepted values.              |
  | cssClass              | `string`  | -               | Any additional class for custom styles.                                                                       |
  | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
  | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |

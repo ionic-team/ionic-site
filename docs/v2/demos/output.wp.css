@@ -7018,6 +7018,9 @@ ion-range {
   -webkit-transform: translate3d(0, 0, 0) scale(1);
   transform: translate3d(0, 0, 0) scale(1); }
 
+.range-disabled {
+  opacity: .5; }
+
 ion-range[primary] .range-bar-active,
 ion-range[primary] .range-tick-active,
 ion-range[primary] .range-knob,

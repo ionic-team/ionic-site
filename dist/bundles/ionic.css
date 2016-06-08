@@ -5923,9 +5923,9 @@ ion-icon {
       max-height: 5.6rem; }
   .ios ion-note {
     color: #aeacb4; }
+  .ios .item[detail-push] .item-inner,
   .ios button.item:not([detail-none]) .item-inner,
-  .ios a.item:not([detail-none]) .item-inner,
-  .ios .item[detail-push] .item-inner {
+  .ios a.item:not([detail-none]) .item-inner {
     background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='#c8c7cc'/></svg>");
     padding-right: 32px;
     background-repeat: no-repeat;
@@ -6558,7 +6558,7 @@ ion-icon {
     top: 21px;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 1px;
     border-radius: 1px;
     background: #bdbdbd;
     pointer-events: none; }
@@ -6581,7 +6581,7 @@ ion-icon {
     text-align: center; }
   .ios .range-knob {
     position: absolute;
-    top: 7.5px;
+    top: 7px;
     left: 7px;
     width: 28px;
     height: 28px;
@@ -6591,9 +6591,9 @@ ion-icon {
     pointer-events: none; }
   .ios .range-tick {
     position: absolute;
-    top: 18px;
-    margin-left: -1px;
-    width: 2px;
+    top: 17.5px;
+    margin-left: -0.5px;
+    width: 1px;
     height: 8px;
     border-radius: 0;
     background: #bdbdbd;
@@ -13680,6 +13680,8 @@ ion-icon {
   .wp .range-knob-pressed .range-pin {
     -webkit-transform: translate3d(0, 0, 0) scale(1);
     transform: translate3d(0, 0, 0) scale(1); }
+  .wp .range-disabled {
+    opacity: .5; }
   .wp ion-range[primary] .range-bar-active,
   .wp ion-range[primary] .range-tick-active,
   .wp ion-range[primary] .range-knob,

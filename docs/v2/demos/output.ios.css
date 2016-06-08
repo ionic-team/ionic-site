@@ -6238,9 +6238,9 @@ ion-thumbnail {
 ion-note {
   color: #aeacb4; }
 
+.item[detail-push] .item-inner,
 button.item:not([detail-none]) .item-inner,
-a.item:not([detail-none]) .item-inner,
-.item[detail-push] .item-inner {
+a.item:not([detail-none]) .item-inner {
   background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='#c8c7cc'/></svg>");
   padding-right: 32px;
   background-repeat: no-repeat;
@@ -7012,7 +7012,7 @@ ion-range {
   top: 21px;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 1px;
   border-radius: 1px;
   background: #bdbdbd;
   pointer-events: none; }
@@ -7040,7 +7040,7 @@ ion-range {
 
 .range-knob {
   position: absolute;
-  top: 7.5px;
+  top: 7px;
   left: 7px;
   width: 28px;
   height: 28px;
@@ -7051,9 +7051,9 @@ ion-range {
 
 .range-tick {
   position: absolute;
-  top: 18px;
-  margin-left: -1px;
-  width: 2px;
+  top: 17.5px;
+  margin-left: -0.5px;
+  width: 1px;
   height: 8px;
   border-radius: 0;
   background: #bdbdbd;

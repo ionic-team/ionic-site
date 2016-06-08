@@ -15673,6 +15673,25 @@
 	var tap_click_1 = __webpack_require__(411);
 	var translate_1 = __webpack_require__(414);
 	var _reflect = Reflect;
+	/**
+	 * @name ionicBoostrap
+	 * @description
+	 * `ionicBootstrap` allows you to bootstrap your entire application. Similar to Angualr's `bootstrap`, `ionicBootstrap`
+	 * takes a root component in order to start the app. You can pass along any providers that you may want to inject into your
+	 * app as an array for the second argument. You can also pass a config object as the third argument to configure your app's settings.
+	 *
+	 * @usage
+	 * import {ionicBootstrap} from 'ionic-angular';
+	 * import {Component} from '@angular/core';
+	 *
+	 * @Component({
+	 *   templateUrl: 'build/app.html',
+	 * })
+	 *
+	 * export class MyClass{}
+	 *
+	 * ionicBootstrap(MyClass, null, {tabbarPlacement: 'bottom'})
+	 */
 	function ionicBootstrap(appRootComponent, customProviders, config) {
 	    // get all Ionic Providers
 	    var providers = ionicProviders(customProviders, config);
@@ -15685,6 +15704,9 @@
 	    });
 	}
 	exports.ionicBootstrap = ionicBootstrap;
+	/**
+	 * @private
+	 */
 	function ionicPostBootstrap(ngComponentRef) {
 	    var app = ngComponentRef.injector.get(app_1.App);
 	    app.setAppInjector(ngComponentRef.injector);
@@ -15699,6 +15721,9 @@
 	    return ngComponentRef;
 	}
 	exports.ionicPostBootstrap = ionicPostBootstrap;
+	/**
+	 * @private
+	 */
 	function ionicProviders(customProviders, config) {
 	    var directives = directives_1.IONIC_DIRECTIVES;
 	    // add custom providers to Ionic's app

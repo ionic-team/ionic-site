@@ -2809,7 +2809,8 @@ var BasicPage = (function () {
     BasicPage.prototype.showToast = function (position) {
         var toast = ionic_angular_1.Toast.create({
             message: 'Mmmm, buttered toast',
-            duration: 3000,
+            duration: 2000,
+            position: position
         });
         this.nav.present(toast);
     };
@@ -2824,7 +2825,7 @@ var BasicPage = (function () {
     BasicPage.prototype.showLongToast = function () {
         var toast = ionic_angular_1.Toast.create({
             message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptatibus quibusdam eum nihil optio, ullam accusamus magni, nobis suscipit reprehenderit, sequi quam amet impedit. Accusamus dolorem voluptates laborum dolor obcaecati.',
-            duration: 3000,
+            duration: 2000,
         });
         this.nav.present(toast);
     };

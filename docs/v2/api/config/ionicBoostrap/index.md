@@ -49,8 +49,15 @@ app as an array for the second argument. You can also pass a config object as th
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<p>import {ionicBootstrap} from &#39;ionic-angular&#39;;
-import {Component} from &#39;@angular/core&#39;;</p>
+<pre><code class="lang-ts">import {ionicBootstrap} from &#39;ionic-angular&#39;;
+import {Component} from &#39;@angular/core&#39;;
+
+@Component({
+  templateUrl: &#39;build/app.html&#39;,
+})
+</code></pre>
+<p>export class MyClass{}</p>
+<p>ionicBootstrap(MyClass, null, {tabbarPlacement: &#39;bottom&#39;})</p>
 
 
 

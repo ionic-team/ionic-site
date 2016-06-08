@@ -6557,7 +6557,8 @@ ion-icon {
     top: 21px;
     left: 0;
     width: 100%;
-    height: 1px;
+    height: 2px;
+    border-radius: 1px;
     background: #bdbdbd;
     pointer-events: none; }
   .ios .range-pressed .range-bar-active {
@@ -6579,7 +6580,7 @@ ion-icon {
     text-align: center; }
   .ios .range-knob {
     position: absolute;
-    top: 7px;
+    top: 7.5px;
     left: 7px;
     width: 28px;
     height: 28px;
@@ -6589,9 +6590,9 @@ ion-icon {
     pointer-events: none; }
   .ios .range-tick {
     position: absolute;
-    top: 17.5px;
-    margin-left: -0.5px;
-    width: 1px;
+    top: 18px;
+    margin-left: -1px;
+    width: 2px;
     height: 8px;
     border-radius: 0;
     background: #bdbdbd;
@@ -6616,6 +6617,8 @@ ion-icon {
   .ios .range-knob-pressed .range-pin {
     -webkit-transform: translate3d(0, 0, 0) scale(1);
     transform: translate3d(0, 0, 0) scale(1); }
+  .ios .range-disabled {
+    opacity: 0.5; }
   .ios ion-range[primary] .range-bar-active,
   .ios ion-range[primary] .range-tick-active {
     background: #327eff; }
@@ -10003,6 +10006,13 @@ ion-icon {
   .md .range-knob-min .range-pin::before {
     color: #fff;
     background: #bdbdbd; }
+  .md .range-disabled .range-bar-active {
+    background-color: #bdbdbd; }
+  .md .range-disabled .range-knob {
+    -webkit-transform: scale(0.55);
+    transform: scale(0.55);
+    background-color: #bdbdbd;
+    outline: 5px solid white; }
   .md ion-range[primary] .range-knob-min .range-knob {
     border: 2px solid #bdbdbd;
     background: #fff; }

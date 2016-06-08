@@ -7164,6 +7164,15 @@ ion-range:not(.range-has-pin) .range-knob-pressed .range-knob {
   color: #fff;
   background: #bdbdbd; }
 
+.range-disabled .range-bar-active {
+  background-color: #bdbdbd; }
+
+.range-disabled .range-knob {
+  -webkit-transform: scale(0.55);
+  transform: scale(0.55);
+  background-color: #bdbdbd;
+  outline: 5px solid white; }
+
 ion-range[primary] .range-knob-min .range-knob {
   border: 2px solid #bdbdbd;
   background: #fff; }

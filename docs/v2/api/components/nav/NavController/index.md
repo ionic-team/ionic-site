@@ -390,7 +390,7 @@ Set the root for the current navigation stack.
       </td>
       <td>
         
-  <code>Type</code>
+  <code>Page</code>
       </td>
       <td>
         <p>The name of the component you want to push on the navigation stack.</p>
@@ -552,7 +552,7 @@ import {Detail} from '../detail/detail';
       </td>
       <td>
         
-  <code>array&lt;Type&gt;</code>
+  <code>array&lt;Page&gt;</code>
       </td>
       <td>
         <p>An arry of page components and their params to load in the stack.</p>
@@ -685,7 +685,7 @@ class MyClass{
       </td>
       <td>
         
-  <code>Type</code>
+  <code>Page</code>
       </td>
       <td>
         <p>The page component class you want to push on to the navigation stack</p>
@@ -902,7 +902,7 @@ This will insert the `Info` page into the second slot of our navigation stack.
       </td>
       <td>
         
-  <code>Type</code>
+  <code>Page</code>
       </td>
       <td>
         <p>The component you want to insert into the nav stack.</p>
@@ -1031,7 +1031,7 @@ in and become the active page.
       </td>
       <td>
         
-  <code>array&lt;{page: Type, params=: any}&gt;</code>
+  <code>array&lt;{page: Page, params=: any}&gt;</code>
       </td>
       <td>
         <p>An array of objects, each with a <code>page</code> and optionally <code>params</code> property.</p>

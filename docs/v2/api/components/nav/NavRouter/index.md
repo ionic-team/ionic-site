@@ -32,7 +32,7 @@ NavRouter
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/nav/nav-router.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/nav/nav-router.ts#L0">
 Improve this doc
 </a>
 

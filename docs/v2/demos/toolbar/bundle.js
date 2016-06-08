@@ -55681,13 +55681,13 @@
 	 */
 	var NavController = (function (_super) {
 	    __extends(NavController, _super);
-	    function NavController(parent, _app, config, _keyboard, elementRef, _zone, _renderer, _loader) {
+	    function NavController(parent, _app, config, _keyboard, elementRef, _zone, _renderer, _compiler) {
 	        _super.call(this, elementRef);
 	        this._app = _app;
 	        this._keyboard = _keyboard;
 	        this._zone = _zone;
 	        this._renderer = _renderer;
-	        this._loader = _loader;
+	        this._compiler = _compiler;
 	        this._transIds = 0;
 	        this._init = false;
 	        this._children = [];
@@ -55708,10 +55708,6 @@
 	        this._sbEnabled = config.getBoolean('swipeBackEnabled');
 	        this._sbThreshold = config.getNumber('swipeBackThreshold', 40);
 	        this.id = (++ctrlIds).toString();
-	        // build a new injector for child ViewControllers to use
-	        this.providers = core_1.ReflectiveInjector.resolve([
-	            core_1.provide(NavController, { useValue: this })
-	        ]);
 	        this.viewDidLoad = new core_1.EventEmitter();
 	        this.viewWillEnter = new core_1.EventEmitter();
 	        this.viewDidEnter = new core_1.EventEmitter();
@@ -55740,7 +55736,7 @@
 	    };
 	    /**
 	     * Set the root for the current navigation stack.
-	     * @param {Type} page  The name of the component you want to push on the navigation stack.
+	     * @param {Page} page  The name of the component you want to push on the navigation stack.
 	     * @param {object} [params={}] Any nav-params you want to pass along to the next view.
 	     * @param {object} [opts={}] Any options you want to use pass to transtion.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
@@ -55821,7 +55817,7 @@
 	     *  }
 	     *```
 	     *
-	     * @param {array<Type>} pages  An arry of page components and their params to load in the stack.
+	     * @param {array<Page>} pages  An arry of page components and their params to load in the stack.
 	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
@@ -55913,7 +55909,7 @@
 	     *    }
 	     * }
 	     * ```
-	     * @param {Type} page  The page component class you want to push on to the navigation stack
+	     * @param {Page} page  The page component class you want to push on to the navigation stack
 	     * @param {object} [params={}] Any nav-params you want to pass along to the next view
 	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
@@ -55995,7 +55991,7 @@
 	     * This will insert the `Info` page into the second slot of our navigation stack.
 	     *
 	     * @param {number} insertIndex  The index where to insert the page.
-	     * @param {Type} page  The component you want to insert into the nav stack.
+	     * @param {Page} page  The component you want to insert into the nav stack.
 	     * @param {object} [params={}] Any nav-params you want to pass along to the next page.
 	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
@@ -56027,7 +56023,7 @@
 	     * in and become the active page.
 	     *
 	     * @param {number} insertIndex  The index where you want to insert the page.
-	     * @param {array<{page: Type, params=: any}>} insertPages  An array of objects, each with a `page` and optionally `params` property.
+	     * @param {array<{page: Page, params=: any}>} insertPages  An array of objects, each with a `page` and optionally `params` property.
 	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
@@ -56790,34 +56786,38 @@
 	        if (!this._viewport || !view.componentType) {
 	            return;
 	        }
-	        // add more providers to just this page
-	        var providers = this.providers.concat(core_1.ReflectiveInjector.resolve([
-	            core_1.provide(view_controller_1.ViewController, { useValue: view }),
-	            core_1.provide(nav_params_1.NavParams, { useValue: view.getNavParams() })
-	        ]));
 	        // automatically set "ion-page" selector
+	        // TODO: see about having this set using ComponentFactory
 	        bootstrap_1.addSelector(view.componentType, 'ion-page');
-	        // load the page component inside the nav
-	        this._loader.loadNextToLocation(view.componentType, this._viewport, providers).then(function (component) {
+	        this._compiler.resolveComponent(view.componentType).then(function (componentFactory) {
+	            // add more providers to just this page
+	            var componentProviders = core_1.ReflectiveInjector.resolve([
+	                core_1.provide(NavController, { useValue: _this }),
+	                core_1.provide(view_controller_1.ViewController, { useValue: view }),
+	                core_1.provide(nav_params_1.NavParams, { useValue: view.getNavParams() })
+	            ]);
+	            var childInjector = core_1.ReflectiveInjector.fromResolvedProviders(componentProviders, _this._viewport.parentInjector);
+	            var componentRef = componentFactory.create(childInjector, null, null);
+	            _this._viewport.insert(componentRef.hostView, _this._viewport.length);
 	            // a new ComponentRef has been created
 	            // set the ComponentRef's instance to its ViewController
-	            view.setInstance(component.instance);
+	            view.setInstance(componentRef.instance);
 	            // the component has been loaded, so call the view controller's loaded method to load any dependencies into the dom
 	            view.loaded(function () {
 	                // the ElementRef of the actual ion-page created
-	                var pageElementRef = component.location;
+	                var pageElementRef = componentRef.location;
 	                // remember the ChangeDetectorRef for this ViewController
-	                view.setChangeDetector(component.changeDetectorRef);
+	                view.setChangeDetector(componentRef.changeDetectorRef);
 	                // remember the ElementRef to the ion-page elementRef that was just created
 	                view.setPageRef(pageElementRef);
 	                // auto-add page css className created from component JS class name
-	                var cssClassName = util_1.pascalCaseToDashCase(view.componentType['name']);
+	                var cssClassName = util_1.pascalCaseToDashCase(view.componentType.name);
 	                _this._renderer.setElementClass(pageElementRef.nativeElement, cssClassName, true);
 	                view.onDestroy(function () {
 	                    // ensure the element is cleaned up for when the view pool reuses this element
 	                    _this._renderer.setElementAttribute(pageElementRef.nativeElement, 'class', null);
 	                    _this._renderer.setElementAttribute(pageElementRef.nativeElement, 'style', null);
-	                    component.destroy();
+	                    componentRef.destroy();
 	                });
 	                if (!navbarContainerRef) {
 	                    // there was not a navbar container ref already provided
@@ -65216,9 +65216,9 @@
 	 */
 	var Tab = (function (_super) {
 	    __extends(Tab, _super);
-	    function Tab(parentTabs, app, config, keyboard, elementRef, zone, renderer, loader, _cd) {
+	    function Tab(parentTabs, app, config, keyboard, elementRef, zone, renderer, compiler, _cd) {
 	        // A Tab is a NavController for its child pages
-	        _super.call(this, parentTabs, app, config, keyboard, elementRef, zone, renderer, loader);
+	        _super.call(this, parentTabs, app, config, keyboard, elementRef, zone, renderer, compiler);
 	        this._cd = _cd;
 	        this._isEnabled = true;
 	        this._isShown = true;
@@ -65428,7 +65428,7 @@
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(0, core_1.Inject(core_1.forwardRef(function () { return tabs_1.Tabs; }))), 
-	        __metadata('design:paramtypes', [(typeof (_e = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _e) || Object, (typeof (_f = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _f) || Object, (typeof (_g = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _g) || Object, (typeof (_h = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _h) || Object, (typeof (_j = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object, (typeof (_m = typeof core_1.DynamicComponentLoader !== 'undefined' && core_1.DynamicComponentLoader) === 'function' && _m) || Object, (typeof (_o = typeof core_1.ChangeDetectorRef !== 'undefined' && core_1.ChangeDetectorRef) === 'function' && _o) || Object])
+	        __metadata('design:paramtypes', [(typeof (_e = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _e) || Object, (typeof (_f = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _f) || Object, (typeof (_g = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _g) || Object, (typeof (_h = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _h) || Object, (typeof (_j = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object, (typeof (_m = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _m) || Object, (typeof (_o = typeof core_1.ChangeDetectorRef !== 'undefined' && core_1.ChangeDetectorRef) === 'function' && _o) || Object])
 	    ], Tab);
 	    return Tab;
 	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
@@ -74780,8 +74780,8 @@
 	 */
 	var Nav = (function (_super) {
 	    __extends(Nav, _super);
-	    function Nav(viewCtrl, parent, app, config, keyboard, elementRef, zone, renderer, loader) {
-	        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, loader);
+	    function Nav(viewCtrl, parent, app, config, keyboard, elementRef, zone, renderer, compiler) {
+	        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, compiler);
 	        this._hasInit = false;
 	        if (viewCtrl) {
 	            // an ion-nav can also act as an ion-page within a parent ion-nav
@@ -74863,7 +74863,7 @@
 	    ], Nav.prototype, "_vp", null);
 	    __decorate([
 	        core_1.Input(), 
-	        __metadata('design:type', (typeof (_c = typeof core_1.Type !== 'undefined' && core_1.Type) === 'function' && _c) || Object)
+	        __metadata('design:type', Object)
 	    ], Nav.prototype, "root", null);
 	    __decorate([
 	        core_1.Input(), 
@@ -74871,8 +74871,8 @@
 	    ], Nav.prototype, "swipeBackEnabled", null);
 	    __decorate([
 	        core_1.ViewChild(nav_portal_1.NavPortal), 
-	        __metadata('design:type', (typeof (_d = typeof nav_portal_1.NavPortal !== 'undefined' && nav_portal_1.NavPortal) === 'function' && _d) || Object), 
-	        __metadata('design:paramtypes', [(typeof (_e = typeof nav_portal_1.NavPortal !== 'undefined' && nav_portal_1.NavPortal) === 'function' && _e) || Object])
+	        __metadata('design:type', (typeof (_c = typeof nav_portal_1.NavPortal !== 'undefined' && nav_portal_1.NavPortal) === 'function' && _c) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_d = typeof nav_portal_1.NavPortal !== 'undefined' && nav_portal_1.NavPortal) === 'function' && _d) || Object])
 	    ], Nav.prototype, "_np", null);
 	    Nav = __decorate([
 	        core_1.Component({
@@ -74883,10 +74883,10 @@
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_f = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _f) || Object, (typeof (_g = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _g) || Object, (typeof (_h = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _h) || Object, (typeof (_j = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _j) || Object, (typeof (_k = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _k) || Object, (typeof (_l = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _l) || Object, (typeof (_m = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _m) || Object, (typeof (_o = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _o) || Object, (typeof (_p = typeof core_1.DynamicComponentLoader !== 'undefined' && core_1.DynamicComponentLoader) === 'function' && _p) || Object])
+	        __metadata('design:paramtypes', [(typeof (_e = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _e) || Object, (typeof (_f = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _f) || Object, (typeof (_g = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _g) || Object, (typeof (_h = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _h) || Object, (typeof (_j = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _j) || Object, (typeof (_k = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _k) || Object, (typeof (_l = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _l) || Object, (typeof (_m = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _m) || Object, (typeof (_o = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _o) || Object])
 	    ], Nav);
 	    return Nav;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
 	}(nav_controller_1.NavController));
 	exports.Nav = Nav;
 
@@ -74923,8 +74923,8 @@
 	 */
 	var NavPortal = (function (_super) {
 	    __extends(NavPortal, _super);
-	    function NavPortal(viewCtrl, parent, app, config, keyboard, elementRef, zone, renderer, loader, viewPort) {
-	        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, loader);
+	    function NavPortal(viewCtrl, parent, app, config, keyboard, elementRef, zone, renderer, compiler, viewPort) {
+	        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, compiler);
 	        this.isPortal = true;
 	        this.setViewport(viewPort);
 	    }
@@ -74934,7 +74934,7 @@
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _b) || Object, (typeof (_c = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _h) || Object, (typeof (_j = typeof core_1.DynamicComponentLoader !== 'undefined' && core_1.DynamicComponentLoader) === 'function' && _j) || Object, (typeof (_k = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _k) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _b) || Object, (typeof (_c = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _g) || Object, (typeof (_h = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _h) || Object, (typeof (_j = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _j) || Object, (typeof (_k = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _k) || Object])
 	    ], NavPortal);
 	    return NavPortal;
 	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
@@ -76554,25 +76554,25 @@
 	            if (originalNgAfterViewInit) {
 	                originalNgAfterViewInit();
 	            }
-	            _this.instance.loadComponent().then(function (componentRef) {
-	                _this.setInstance(componentRef.instance);
-	                done();
-	            });
+	            _this.instance.loadComponent(done);
 	        };
 	    };
 	    return Modal;
 	}(view_controller_1.ViewController));
 	exports.Modal = Modal;
 	var ModalCmp = (function () {
-	    function ModalCmp(_loader, _navParams) {
-	        this._loader = _loader;
+	    function ModalCmp(_compiler, _navParams, _viewCtrl) {
+	        this._compiler = _compiler;
 	        this._navParams = _navParams;
+	        this._viewCtrl = _viewCtrl;
 	    }
-	    ModalCmp.prototype.loadComponent = function () {
-	        var componentType = this._navParams.data.componentType;
-	        bootstrap_1.addSelector(componentType, 'ion-page');
-	        return this._loader.loadNextToLocation(componentType, this.viewport).then(function (componentRef) {
-	            return componentRef;
+	    ModalCmp.prototype.loadComponent = function (done) {
+	        var _this = this;
+	        bootstrap_1.addSelector(this._navParams.data.componentType, 'ion-modal-inner');
+	        this._compiler.resolveComponent(this._navParams.data.componentType).then(function (componentFactory) {
+	            var componentRef = _this.viewport.createComponent(componentFactory, _this.viewport.length, _this.viewport.parentInjector);
+	            _this._viewCtrl.setInstance(componentRef.instance);
+	            done();
 	        });
 	    };
 	    ModalCmp.prototype.ngAfterViewInit = function () {
@@ -76590,10 +76590,10 @@
 	                '<div #viewport></div>' +
 	                '</div>'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.DynamicComponentLoader !== 'undefined' && core_1.DynamicComponentLoader) === 'function' && _b) || Object, (typeof (_c = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _b) || Object, (typeof (_c = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _c) || Object, (typeof (_d = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _d) || Object])
 	    ], ModalCmp);
 	    return ModalCmp;
-	    var _a, _b, _c;
+	    var _a, _b, _c, _d;
 	}());
 	exports.ModalCmp = ModalCmp;
 	/**
@@ -76730,6 +76730,7 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var core_2 = __webpack_require__(6);
+	var bootstrap_1 = __webpack_require__(103);
 	var animation_1 = __webpack_require__(362);
 	var transition_1 = __webpack_require__(361);
 	var config_1 = __webpack_require__(333);
@@ -76879,8 +76880,8 @@
 	* @private
 	*/
 	var PopoverCmp = (function () {
-	    function PopoverCmp(_loader, _elementRef, _renderer, _config, _navParams, _viewCtrl) {
-	        this._loader = _loader;
+	    function PopoverCmp(_compiler, _elementRef, _renderer, _config, _navParams, _viewCtrl) {
+	        this._compiler = _compiler;
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
 	        this._config = _config;
@@ -76895,7 +76896,9 @@
 	    }
 	    PopoverCmp.prototype.ionViewWillEnter = function () {
 	        var _this = this;
-	        this._loader.loadNextToLocation(this._navParams.data.componentType, this.viewport).then(function (componentRef) {
+	        bootstrap_1.addSelector(this._navParams.data.componentType, 'ion-popover-inner');
+	        this._compiler.resolveComponent(this._navParams.data.componentType).then(function (componentFactory) {
+	            var componentRef = _this.viewport.createComponent(componentFactory, _this.viewport.length, _this.viewport.parentInjector);
 	            _this._viewCtrl.setInstance(componentRef.instance);
 	            // manually fire ionViewWillEnter() since PopoverCmp's ionViewWillEnter already happened
 	            _this._viewCtrl.fireWillEnter();
@@ -76940,7 +76943,7 @@
 	                '</div>' +
 	                '</div>'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.DynamicComponentLoader !== 'undefined' && core_1.DynamicComponentLoader) === 'function' && _b) || Object, (typeof (_c = typeof core_2.ElementRef !== 'undefined' && core_2.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_2.Renderer !== 'undefined' && core_2.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _f) || Object, (typeof (_g = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _g) || Object])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _b) || Object, (typeof (_c = typeof core_2.ElementRef !== 'undefined' && core_2.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_2.Renderer !== 'undefined' && core_2.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _f) || Object, (typeof (_g = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _g) || Object])
 	    ], PopoverCmp);
 	    return PopoverCmp;
 	    var _a, _b, _c, _d, _e, _f, _g;

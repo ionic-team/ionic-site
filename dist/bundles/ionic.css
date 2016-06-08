@@ -6618,7 +6618,7 @@ ion-icon {
     -webkit-transform: translate3d(0, 0, 0) scale(1);
     transform: translate3d(0, 0, 0) scale(1); }
   .ios .range-disabled {
-    opacity: 0.5; }
+    opacity: .5; }
   .ios ion-range[primary] .range-bar-active,
   .ios ion-range[primary] .range-tick-active {
     background: #327eff; }
@@ -10009,10 +10009,10 @@ ion-icon {
   .md .range-disabled .range-bar-active {
     background-color: #bdbdbd; }
   .md .range-disabled .range-knob {
-    -webkit-transform: scale(0.55);
-    transform: scale(0.55);
+    outline: 5px solid #fff;
     background-color: #bdbdbd;
-    outline: 5px solid white; }
+    -webkit-transform: scale(0.55);
+    transform: scale(0.55); }
   .md ion-range[primary] .range-knob-min .range-knob {
     border: 2px solid #bdbdbd;
     background: #fff; }

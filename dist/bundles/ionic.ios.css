@@ -6945,7 +6945,7 @@ ion-range {
   transform: translate3d(0, 0, 0) scale(1); }
 
 .range-disabled {
-  opacity: 0.5; }
+  opacity: .5; }
 
 ion-range[primary] .range-bar-active,
 ion-range[primary] .range-tick-active {

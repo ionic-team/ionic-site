@@ -7012,10 +7012,10 @@ ion-range:not(.range-has-pin) .range-knob-pressed .range-knob {
   background-color: #bdbdbd; }
 
 .range-disabled .range-knob {
-  -webkit-transform: scale(0.55);
-  transform: scale(0.55);
+  outline: 5px solid #fff;
   background-color: #bdbdbd;
-  outline: 5px solid white; }
+  -webkit-transform: scale(0.55);
+  transform: scale(0.55); }
 
 ion-range[primary] .range-knob-min .range-knob {
   border: 2px solid #bdbdbd;

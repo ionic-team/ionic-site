@@ -76490,18 +76490,24 @@
 	    function ModalSlideIn(enteringView, leavingView, opts) {
 	        _super.call(this, opts);
 	        var ele = enteringView.pageRef().nativeElement;
-	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
-	        backdrop.fromTo('opacity', 0.01, 0.4);
+	        var backdropEle = ele.querySelector('ion-backdrop');
+	        var backdrop = new animation_1.Animation(backdropEle);
 	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
 	        var page = ele.querySelector('ion-page');
+	        var pageAnimation = new animation_1.Animation(page);
 	        // auto-add page css className created from component JS class name
 	        var cssClassName = util_1.pascalCaseToDashCase(enteringView.modalViewType);
-	        page.classList.add(cssClassName);
+	        pageAnimation.before.addClass(cssClassName);
+	        pageAnimation.before.addClass('show-page');
+	        backdrop.fromTo('opacity', 0.01, 0.4);
 	        wrapper.fromTo('translateY', '100%', '0%');
-	        var DURATION = 400;
-	        var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
-	        this.element(enteringView.pageRef()).easing(EASING).duration(DURATION).add(backdrop).add(wrapper);
-	        this.element(new core_1.ElementRef(page)).easing(EASING).duration(DURATION).before.addClass('show-page');
+	        this
+	            .element(enteringView.pageRef())
+	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
+	            .duration(400)
+	            .add(backdrop)
+	            .add(wrapper)
+	            .add(pageAnimation);
 	        if (enteringView.hasNavbar()) {
 	            // entering page has a navbar
 	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());
@@ -76518,7 +76524,6 @@
 	        _super.call(this, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
-	        backdrop.fromTo('opacity', 0.4, 0.0);
 	        var wrapperEle = ele.querySelector('.modal-wrapper');
 	        var wrapperEleRect = wrapperEle.getBoundingClientRect();
 	        var wrapper = new animation_1.Animation(wrapperEle);
@@ -76526,6 +76531,7 @@
 	        // so it's off-screen
 	        var screenDimensions = dom_1.windowDimensions();
 	        wrapper.fromTo('translateY', '0px', (screenDimensions.height - wrapperEleRect.top) + "px");
+	        backdrop.fromTo('opacity', 0.4, 0.0);
 	        this
 	            .element(leavingView.pageRef())
 	            .easing('ease-out')
@@ -76542,17 +76548,22 @@
 	        _super.call(this, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
-	        backdrop.fromTo('opacity', 0.01, 0.4);
 	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
-	        wrapper.fromTo('translateY', '40px', '0px');
 	        var page = ele.querySelector('ion-page');
+	        var pageAnimation = new animation_1.Animation(page);
 	        // auto-add page css className created from component JS class name
 	        var cssClassName = util_1.pascalCaseToDashCase(enteringView.modalViewType);
-	        page.classList.add(cssClassName);
+	        pageAnimation.before.addClass(cssClassName);
+	        pageAnimation.before.addClass('show-page');
+	        backdrop.fromTo('opacity', 0.01, 0.4);
+	        wrapper.fromTo('translateY', '40px', '0px');
+	        wrapper.fromTo('opacity', '0.01', '1.0');
 	        var DURATION = 280;
 	        var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
-	        this.element(enteringView.pageRef()).easing(EASING).duration(DURATION).fadeIn().add(backdrop).add(wrapper);
-	        this.element(new core_1.ElementRef(page)).easing(EASING).duration(DURATION).before.addClass('show-page');
+	        this.element(enteringView.pageRef()).easing(EASING).duration(DURATION)
+	            .add(backdrop)
+	            .add(wrapper)
+	            .add(pageAnimation);
 	        if (enteringView.hasNavbar()) {
 	            // entering page has a navbar
 	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());
@@ -76569,14 +76580,14 @@
 	        _super.call(this, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
-	        backdrop.fromTo('opacity', 0.4, 0.0);
 	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
+	        backdrop.fromTo('opacity', 0.4, 0.0);
 	        wrapper.fromTo('translateY', '0px', '40px');
+	        wrapper.fromTo('opacity', '1.0', '0.00');
 	        this
 	            .element(leavingView.pageRef())
 	            .duration(200)
 	            .easing('cubic-bezier(0.47,0,0.745,0.715)')
-	            .fadeOut()
 	            .add(wrapper)
 	            .add(backdrop);
 	    }

@@ -76,6 +76,26 @@ export MyPage {
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="zone"></div>
+
+<h3>
+<a class="anchor" name="zone" href="#zone"></a>
+<code>zone</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="is"></div>
 
 <h3>
@@ -501,34 +521,6 @@ attribute value set, such as `<html lang="en">`.
 
 
 
-<div id="backButton"></div>
-
-<h3>
-<a class="anchor" name="backButton" href="#backButton"></a>
-<code>backButton</code>
-  
-
-</h3>
-
-The back button event is emitted when the user presses the native
-platform's back button, also referred to as the "hardware" back button.
-This event is only emitted within Cordova apps running on Android and
-Windows platforms. This event is not fired on iOS since iOS doesn't come
-with a hardware back button in the same sense an Android or Windows device
-does. It's important to note that this event does not emit when the Ionic
-app's back button within the navbar is clicked, but this event is only
-referencing the platform's hardware back button.
-
-
-
-
-
-
-
-
-
-
-
 <div id="pause"></div>
 
 <h3>
@@ -565,6 +557,181 @@ the background, however, it would not fire on a standard web browser.
 The resume event emits when the native platform pulls the application
 out from the background. This event would emit when a Cordova app comes
 out from the background, however, it would not fire on a standard web browser.
+
+
+
+
+
+
+
+
+
+
+
+<div id="registerBackButtonAction"></div>
+
+<h3>
+<a class="anchor" name="registerBackButtonAction" href="#registerBackButtonAction"></a>
+<code>registerBackButtonAction(callback,&nbsp;priority)</code>
+  
+
+</h3>
+
+The back button event is triggered when the user presses the native
+platform's back button, also referred to as the "hardware" back button.
+This event is only used within Cordova apps running on Android and
+Windows platforms. This event is not fired on iOS since iOS doesn't come
+with a hardware back button in the same sense an Android or Windows device
+does.
+
+Registering a hardware back button action and setting a priority allows
+apps to control which action should be called when the hardware back
+button is pressed. This method decides which of the registered back button
+actions has the highest priority and should be called.
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        callback
+        
+        
+      </td>
+      <td>
+        
+  <code>Function</code>
+      </td>
+      <td>
+        <p>Called when the back button is pressed,
+if this registered action has the highest priority.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        priority
+        
+        
+      </td>
+      <td>
+        
+  <code>number</code>
+      </td>
+      <td>
+        <p>Set the priority for this action. Only the highest priority will execute. Defaults to <code>0</code>.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Function</code> <p>A function that, when called, will unregister
+the its back button action.</p>
+
+
+</div>
+
+
+
+
+<div id="width"></div>
+
+<h3>
+<a class="anchor" name="width" href="#width"></a>
+<code>width()</code>
+  
+
+</h3>
+
+Gets the width of the platform's viewport using `window.innerWidth`.
+Using this method is preferred since the dimension is a cached value,
+which reduces the chance of multiple and expensive DOM reads.
+
+
+
+
+
+
+
+
+
+
+
+<div id="height"></div>
+
+<h3>
+<a class="anchor" name="height" href="#height"></a>
+<code>height()</code>
+  
+
+</h3>
+
+Gets the height of the platform's viewport using `window.innerHeight`.
+Using this method is preferred since the dimension is a cached value,
+which reduces the chance of multiple and expensive DOM reads.
+
+
+
+
+
+
+
+
+
+
+
+<div id="isPortrait"></div>
+
+<h3>
+<a class="anchor" name="isPortrait" href="#isPortrait"></a>
+<code>isPortrait()</code>
+  
+
+</h3>
+
+Returns `true` if the app is in portait mode.
+
+
+
+
+
+
+
+
+
+
+
+<div id="isLandscape"></div>
+
+<h3>
+<a class="anchor" name="isLandscape" href="#isLandscape"></a>
+<code>isLandscape()</code>
+  
+
+</h3>
+
+Returns `true` if the app is in landscape mode.
 
 
 

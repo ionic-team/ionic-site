@@ -150,7 +150,7 @@ ionViewDidEnter() {
 
 <h3>
 <a class="anchor" name="select" href="#select"></a>
-<code>select(index)</code>
+<code>select(tabOrIndex)</code>
   
 
 </h3>
@@ -170,16 +170,16 @@ ionViewDidEnter() {
     
     <tr>
       <td>
-        index
+        tabOrIndex
         
         
       </td>
       <td>
         
-  <code>number</code>
+  <code>number</code>|<code>Tab</code>
       </td>
       <td>
-        <p>Index of the tab you want to select</p>
+        <p>Index, or the Tab instance, of the tab to select.</p>
 
         
       </td>
@@ -191,6 +191,62 @@ ionViewDidEnter() {
 
 
 
+
+
+
+
+<div id="previousTab"></div>
+
+<h3>
+<a class="anchor" name="previousTab" href="#previousTab"></a>
+<code>previousTab(trimHistory)</code>
+  
+
+</h3>
+
+Get the previously selected Tab which is currently not disabled or hidden.
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        trimHistory
+        
+        
+      </td>
+      <td>
+        
+  <code>boolean</code>
+      </td>
+      <td>
+        <p>If the selection history should be trimmed up to the previous tab selection or not.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+<div class="return-value">
+<i class="icon ion-arrow-return-left"></i>
+<b>Returns:</b> 
+  <code>Tab</code> 
+
+</div>
 
 
 

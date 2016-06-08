@@ -4,13 +4,15 @@
   Improve this Doc
 </a>
 
-A Range is a control that allows you to selecet a range of values.
+A Range is a control that lets users select from a range of values by moving a slider knob along the slider bar or track.
 
 
 <h3 class="section-nav">Basic Usage</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/ranges">
   Demo Source
 </a>
+
+In the below example, data bindings are set up using `ngModel`.
 
 ```html
 <ion-item>
@@ -21,9 +23,7 @@ A Range is a control that allows you to selecet a range of values.
 </ion-item>
 ```
 
-Note that in this example, you can setup data bindings using ngModel
-
-You can also add tooltip which displays the current value by adding the property `pin`
+A tooltip displaying the current value while moving the knob can be added with the property `pin`:
 
 ```html
 <ion-item>
@@ -34,7 +34,7 @@ You can also add tooltip which displays the current value by adding the property
 </ion-item>
 ```
 
-If you wanted to increment the value based on a certain value, you can add the `step` property.
+To increment the value based on a certain number, add the `step` property:
 
 ```html
 <ion-item>
@@ -45,7 +45,7 @@ If you wanted to increment the value based on a certain value, you can add the `
 </ion-item>
 ```
 
-If you want to knobs, you can add the `dualKnobs` property
+To add two knobs to a range, add the `dualKnobs` property:
 
 ```
 <ion-range dualKnobs="true" pin="true" [(ngModel)]="structure" dark>

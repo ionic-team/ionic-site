@@ -66539,9 +66539,9 @@
 	     */
 	    ItemSliding.prototype.startSliding = function (startX) {
 	        if (this._openAmount === 0) {
-	            this._optsDirty = true;
 	            this._setState(SlidingState.Enabled);
 	        }
+	        this._optsDirty = true;
 	        this._startX = startX + this._openAmount;
 	        this.item.setCssStyle(dom_1.CSS.transition, 'none');
 	    };
@@ -66601,9 +66601,11 @@
 	    };
 	    ItemSliding.prototype.calculateOptsWidth = function () {
 	        if (this._optsDirty) {
+	            this._optsWidthRightSide = 0;
 	            if (this._rightOptions) {
 	                this._optsWidthRightSide = this._rightOptions.width();
 	            }
+	            this._optsWidthLeftSide = 0;
 	            if (this._leftOptions) {
 	                this._optsWidthLeftSide = this._leftOptions.width();
 	            }

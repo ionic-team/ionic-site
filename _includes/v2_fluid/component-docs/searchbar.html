@@ -23,7 +23,7 @@ A Searchbar binds to a model, and emits an input event when the model is changed
 Note that in this example, the Searchbar binds to the `searchQuery` variable. The `getItems()` function is called when the input changes, which updates the cities that are displayed. Although this example filters the list based on the search input, Searchbar can be used in many different scenarios:
 
 ```typescript
-@Page({
+@Component({
   templateUrl: 'search/template.html',
 })
 class SearchPage {

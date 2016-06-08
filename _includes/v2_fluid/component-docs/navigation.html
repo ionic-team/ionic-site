@@ -22,7 +22,7 @@ The simplest way to navigate throughout your app is to create and initialize a n
 ```typescript
   import {StartPage} from 'start'
 
-  @App({
+  @Component({
     template: '<ion-nav [root]="rootPage"></ion-nav>'
   })
   class MyApp {
@@ -30,12 +30,14 @@ The simplest way to navigate throughout your app is to create and initialize a n
     rootPage = StartPage;
     constructor(){}
   }
+
+  ionicBootstrap(MyApp)
 ```
 
 You can access the navigation controller you create by injecting it into any of your Pages:
 
 ```typescript
-@Page({
+@Component({
   template: `
     <ion-navbar *navbar>
       <ion-title>Login</ion-title>
@@ -51,7 +53,7 @@ export class StartPage {
 To navigate from one page to another simply push or pop a new page onto the stack:
 
 ```typescript
-@Page({
+@Component({
   template: `
     <ion-navbar *navbar>
       <ion-title>Login</ion-title>
@@ -73,7 +75,7 @@ export class StartPage {
   }
 }
 
-@Page({
+@Component({
   template: `
     <ion-navbar *navbar>
       <ion-title>Other Page</ion-title>
@@ -89,7 +91,7 @@ If your page has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back 
 Alternatively, if you want to go back, but don't have a NavBar, you can pop the current page off the stack:
 
 ```typescript
-@Page({
+@Component({
   template: `
     <ion-content>
       <button (click)="goBack()">
@@ -110,7 +112,7 @@ For more information on basic navigation, check out the [Nav API reference](../a
 
 
 <h3 id="navigating_from_root">Navigating from the Root Component</h3>
-What if you want to control navigation from your root app component (the one decorated with `@App`, not `@Page`)? You can't inject `NavController` because any components that are navigation controllers are _children_ of the root component so they aren't available to be injected.
+What if you want to control navigation from your root app component (the one decorated with `@App`, not `@Component`)? You can't inject `NavController` because any components that are navigation controllers are _children_ of the root component so they aren't available to be injected.
 
 By adding an [`id`](../api/components/app/Id/) to `ion-nav`, you can use the [`IonicApp`](../api/components/app/IonicApp/) service to get a reference to the `Nav` component, which is a navigation controller (it extends `NavController`):
 

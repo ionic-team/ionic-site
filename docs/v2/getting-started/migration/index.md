@@ -38,7 +38,7 @@ V1
 You can rewrite this in V2 like this:
 
 ```
-@Page({
+@Component({
   templateUrl:'main/main.html'
 })
 export class MainCmp {

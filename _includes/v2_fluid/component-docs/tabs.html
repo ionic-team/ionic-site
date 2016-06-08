@@ -30,7 +30,7 @@ Tabs are useful if you have a few "root" or "top-level" pages.  They are obvious
 To initialize Tabs, use [`<ion-tabs>`](../api/components/tabs/Tabs/), with a child [`<ion-tab>`](../api/components/tabs/Tab/) for each tab:
 
 ```typescript
-@App({
+@Component({
   template: `
     <ion-tabs>
       <ion-tab tabIcon="heart" [root]="tab1"></ion-tab>
@@ -43,12 +43,13 @@ class MyApp {
     this.tab2 = Tab2;
   }
 }
+ionicBootstrap(MyApp)
 ```
 
-Individual tabs are just [`@Pages`](../api/config/Page/):
+Individual tabs are just `@Components`
 
 ```typescript
-@Page({
+@Component({
   template: `
     <ion-navbar *navbar>
       <ion-title>Heart</ion-title>
@@ -57,7 +58,7 @@ Individual tabs are just [`@Pages`](../api/config/Page/):
 })
 class Tab1 {}
 
-@Page({
+@Component({
   template: `
     <ion-navbar *navbar>
       <ion-title>Star</ion-title>
@@ -67,10 +68,10 @@ class Tab1 {}
 class Tab2 {}
 ```
 
-Notice that each `<ion-tab>` binds to a `[root]` property, just like [`<ion-nav>`](../api/components/nav/Nav/) in the [Navigation](#navigation) section above.  That is because each `<ion-tab>` is really just a navigation controller.  This means that each tab has its own history stack, and [`NavController instances injected`](../api/components/nav/NavController/#injecting_nav_controller) into children `@Pages` of each tab will be unique to each tab:
+Notice that each `<ion-tab>` binds to a `[root]` property, just like [`<ion-nav>`](../api/components/nav/Nav/) in the [Navigation](#navigation) section above.  That is because each `<ion-tab>` is really just a navigation controller.  This means that each tab has its own history stack, and [`NavController instances injected`](../api/components/nav/NavController/#injecting_nav_controller) into children `@Components` of each tab will be unique to each tab:
 
 ```typescript
-@Page({
+@Component({
 ...
 })
 class Tab1 {
@@ -81,7 +82,7 @@ class Tab1 {
   }
 }
 
-@Page({
+@Component({
 ...
 })
 class Tab2 {
@@ -100,7 +101,7 @@ class Tab2 {
 To add an icon inside of a tab, use the `tab-icon` attribute. This attribute can be passed the name of any [icon](#icon):
 
 ```typescript
-@Page({
+@Component({
   template: `
   <ion-navbar *navbar>
     <ion-title>Tabs</ion-title>
@@ -112,7 +113,7 @@ class TabContentPage {
   constructor() {}
 }
 
-@Page({
+@Component({
   template: `
   <ion-tabs>
     <ion-tab tabIcon="contact" [root]="tab1"></ion-tab>
@@ -138,7 +139,7 @@ export class TabsIconPage {
 To add text and an icon inside of a tab, use the `tab-icon` and `tab-title` attributes:
 
 ```typescript
-@Page({
+@Component({
   template: `
   <ion-navbar *navbar>
     <ion-title>Tabs</ion-title>
@@ -150,7 +151,7 @@ class TabsTextContentPage {
   constructor() {}
 }
 
-@Page({
+@Component({
   template: `
   <ion-tabs>
     <ion-tab tabIcon="water" tabTitle="Water" [root]="tab1"></ion-tab>
@@ -177,7 +178,7 @@ To add a badge to a tab, use the `tabBadge` and `tabBadgeStyle` attributes. The 
 
 
 ```typescript
-@Page({
+@Component({
   template: `
   <ion-navbar *navbar>
     <ion-title>Tabs</ion-title>
@@ -189,7 +190,7 @@ class TabBadgePage {
   constructor() {}
 }
 
-@Page({
+@Component({
   template:
     '<ion-tabs>' +
       '<ion-tab tabIcon="call" [root]="tabOne" tabBadge="3" tabBadgeStyle="danger"></ion-tab>' +

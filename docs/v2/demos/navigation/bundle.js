@@ -77062,7 +77062,7 @@
 	        opts.dismissOnPageChange = util_1.isPresent(opts.dismissOnPageChange) ? !!opts.dismissOnPageChange : false;
 	        _super.call(this, ToastCmp, opts);
 	        // set the position to the bottom if not provided
-	        if (!opts.position || !this.isVaidPosition(opts.position)) {
+	        if (!opts.position || !this.isValidPosition(opts.position)) {
 	            opts.position = TOAST_POSITION_BOTTOM;
 	        }
 	        this.viewType = 'toast';
@@ -77083,7 +77083,7 @@
 	    /**
 	    * @private
 	    */
-	    Toast.prototype.isVaidPosition = function (position) {
+	    Toast.prototype.isValidPosition = function (position) {
 	        return position === TOAST_POSITION_TOP || position === TOAST_POSITION_MIDDLE || position === TOAST_POSITION_BOTTOM;
 	    };
 	    /**
@@ -77100,7 +77100,7 @@
 	     *  |-----------------------|-----------|-----------------|---------------------------------------------------------------------------------------------------------------|
 	     *  | message               | `string`  | -               | The message for the toast. Long strings will wrap and the toast container will expand.                        |
 	     *  | duration              | `number`  | -               | How many milliseconds to wait before hiding the toast. By default, it will show until `dismiss()` is called.  |
-	     *  | position              | `string`    | "bottom"      | The position of the toast on the screen.  "top", "middle", and "bottom" are the accepted values.              |
+	     *  | position              | `string`  | "bottom"        | The position of the toast on the screen. Accepted values: "top", "middle", "bottom".                          |
 	     *  | cssClass              | `string`  | -               | Any additional class for custom styles.                                                                       |
 	     *  | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
 	     *  | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |

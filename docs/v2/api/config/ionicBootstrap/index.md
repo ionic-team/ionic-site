@@ -4,10 +4,10 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "ionicboostrap"
-title: "ionicBoostrap"
+id: "ionicbootstrap"
+title: "ionicBootstrap"
 header_sub_title: "Ionic API Documentation"
-doc: "ionicBoostrap"
+doc: "ionicBootstrap"
 docType: "function"
 
 ---
@@ -21,9 +21,9 @@ docType: "function"
 
 
 <h1 class="api-title">
-<a class="anchor" name="ionic-boostrap" href="#ionic-boostrap"></a>
+<a class="anchor" name="ionic-bootstrap" href="#ionic-bootstrap"></a>
 
-ionicBoostrap
+ionicBootstrap
 
 
 

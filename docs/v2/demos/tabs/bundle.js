@@ -64827,7 +64827,7 @@
 	        if (trimHistory === void 0) { trimHistory = true; }
 	        // walk backwards through the tab selection history
 	        // and find the first previous tab that is enabled and shown
-	        console.log('run previousTab', this.selectHistory);
+	        console.debug('run previousTab', this.selectHistory);
 	        for (var i = this.selectHistory.length - 2; i >= 0; i--) {
 	            var tab = this._tabs.find(function (t) { return t.id === _this.selectHistory[i]; });
 	            if (tab && tab.enabled && tab.show) {

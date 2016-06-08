@@ -7773,7 +7773,7 @@ ion-tabs[tabbarPlacement=top] tabbar {
   border-bottom: 1px solid #b2b2b2; }
 
 .tab-button {
-  padding: 0 10px;
+  padding: 0 2px;
   max-width: 240px;
   min-height: 49px;
   color: #8c8c8c; }

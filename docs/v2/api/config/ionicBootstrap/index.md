@@ -41,7 +41,7 @@ Improve this doc
 
 
 
-<p><code>ionicBootstrap</code> allows you to bootstrap your entire application. Similar to Angualr&#39;s <code>bootstrap</code>, <code>ionicBootstrap</code>
+<p><code>ionicBootstrap</code> allows you to bootstrap your entire application. Similar to Angular&#39;s <code>bootstrap</code>, <code>ionicBootstrap</code>
 takes a root component in order to start the app. You can pass along any providers that you may want to inject into your
 app as an array for the second argument. You can also pass a config object as the third argument to configure your app&#39;s settings.</p>
 

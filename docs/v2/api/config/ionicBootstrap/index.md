@@ -55,9 +55,10 @@ import {Component} from &#39;@angular/core&#39;;
 @Component({
   templateUrl: &#39;build/app.html&#39;,
 })
+export class MyClass{}
+
+ionicBootstrap(MyClass, null, {tabbarPlacement: &#39;bottom&#39;})
 </code></pre>
-<p>export class MyClass{}</p>
-<p>ionicBootstrap(MyClass, null, {tabbarPlacement: &#39;bottom&#39;})</p>
 
 
 

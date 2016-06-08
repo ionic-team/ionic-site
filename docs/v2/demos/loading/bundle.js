@@ -15720,11 +15720,10 @@
 	 * @Component({
 	 *   templateUrl: 'build/app.html',
 	 * })
-	 * ```
-	 *
 	 * export class MyClass{}
 	 *
 	 * ionicBootstrap(MyClass, null, {tabbarPlacement: 'bottom'})
+	 * ```
 	 */
 	function ionicBootstrap(appRootComponent, customProviders, config) {
 	    // get all Ionic Providers

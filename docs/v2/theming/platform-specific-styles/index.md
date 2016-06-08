@@ -57,6 +57,8 @@ Each mode has a default configuration. The [configuration properties](../../api/
 | `pageTransitionDelay` | `16`                       | `96`                          | `96`                          |
 | `pickerEnter`         | `"picker-slide-in"`        | `"picker-slide-in"`           | `"picker-slide-in"`           |
 | `pickerLeave`         | `"picker-slide-out"`       | `"picker-slide-out"`          | `"picker-slide-out"`          |
+| `popoverEnter`        | `"popover-pop-in"`         | `"popover-md-pop-in"`         | `"popover-md-pop-in"`         |
+| `popoverLeave`        | `"popover-pop-out"`        | `"popover-md-pop-out"`        | `"popover-md-pop-out"`        |
 | `spinner`             | `"ios"`                    | `"crescent"`                  | `"circles"`                   |
 | `tabbarHighlight`     | `false`                    | `true`                        | `false`                       |
 | `tabbarLayout`        | `"icon-top"`               | `"icon-top"`                  | `"icon-top"`                  |

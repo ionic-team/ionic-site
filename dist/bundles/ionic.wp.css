@@ -8741,14 +8741,14 @@ ion-menu > ion-content.statusbar-padding:first-child[padding-top] scroll-content
   padding-top: calc(16px + 20px); }
 
 @media only screen and (max-width: 767px) {
-  .modal-wrapper > ion-page > .toolbar.statusbar-padding:first-child {
+  .modal-wrapper > ion-modal-inner > .toolbar.statusbar-padding:first-child {
     padding-top: 20px;
     height: calc(4.6rem + 20px);
     min-height: calc(4.6rem + 20px); }
-  .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child scroll-content {
+  .modal-wrapper > ion-modal-inner > ion-content.statusbar-padding:first-child scroll-content {
     padding-top: 20px; }
-  .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child[padding] scroll-content,
-  .modal-wrapper > ion-page > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
+  .modal-wrapper > ion-modal-inner > ion-content.statusbar-padding:first-child[padding] scroll-content,
+  .modal-wrapper > ion-modal-inner > ion-content.statusbar-padding:first-child[padding-top] scroll-content {
     padding-top: calc(16px + 20px); } }
 
 @font-face {

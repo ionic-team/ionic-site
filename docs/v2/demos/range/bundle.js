@@ -74767,9 +74767,11 @@
 	     */
 	    Searchbar.prototype.clearInput = function () {
 	        this.ionClear.emit(this);
-	        this.value = '';
-	        this.onChange(this.value);
-	        this.ionInput.emit(this);
+	        if (util_1.isPresent(this.value) && this.value !== '') {
+	            this.value = '';
+	            this.onChange(this.value);
+	            this.ionInput.emit(this);
+	        }
 	        this.blurInput = false;
 	    };
 	    /**

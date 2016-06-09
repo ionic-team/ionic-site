@@ -77611,8 +77611,17 @@
 	            this.hdrId = 'toast-hdr-' + this.id;
 	        }
 	    }
-	    ToastCmp.prototype.ionViewDidEnter = function () {
+	    ToastCmp.prototype.ngAfterViewInit = function () {
 	        var _this = this;
+	        // if there's a `duration` set, automatically dismiss.
+	        if (this.d.duration) {
+	            this.dismissTimeout =
+	                setTimeout(function () {
+	                    _this.dismiss('backdrop');
+	                }, this.d.duration);
+	        }
+	    };
+	    ToastCmp.prototype.ionViewDidEnter = function () {
 	        var activeElement = document.activeElement;
 	        if (activeElement) {
 	            activeElement.blur();
@@ -77620,13 +77629,6 @@
 	        var focusableEle = this._elementRef.nativeElement.querySelector('button');
 	        if (focusableEle) {
 	            focusableEle.focus();
-	        }
-	        // if there's a `duration` set, automatically dismiss.
-	        if (this.d.duration) {
-	            this.dismissTimeout =
-	                setTimeout(function () {
-	                    _this.dismiss('backdrop');
-	                }, this.d.duration);
 	        }
 	    };
 	    ToastCmp.prototype.cbClick = function () {

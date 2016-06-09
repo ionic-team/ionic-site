@@ -58537,15 +58537,19 @@
 	        this._js = true;
 	        this._cb = onScrollCallback;
 	        this._pos = [];
-	        this._el.addEventListener('touchstart', this._start.bind(this));
-	        this._el.addEventListener('touchmove', this._move.bind(this));
-	        this._el.addEventListener('touchend', this._end.bind(this));
-	        this._el.parentElement.classList.add('js-scroll');
+	        if (this._el) {
+	            this._el.addEventListener('touchstart', this._start.bind(this));
+	            this._el.addEventListener('touchmove', this._move.bind(this));
+	            this._el.addEventListener('touchend', this._end.bind(this));
+	            this._el.parentElement.classList.add('js-scroll');
+	        }
 	        return function () {
-	            _this._el.removeEventListener('touchstart', _this._start.bind(_this));
-	            _this._el.removeEventListener('touchmove', _this._move.bind(_this));
-	            _this._el.removeEventListener('touchend', _this._end.bind(_this));
-	            _this._el.parentElement.classList.remove('js-scroll');
+	            if (_this._el) {
+	                _this._el.removeEventListener('touchstart', _this._start.bind(_this));
+	                _this._el.removeEventListener('touchmove', _this._move.bind(_this));
+	                _this._el.removeEventListener('touchend', _this._end.bind(_this));
+	                _this._el.parentElement.classList.remove('js-scroll');
+	            }
 	        };
 	    };
 	    /**

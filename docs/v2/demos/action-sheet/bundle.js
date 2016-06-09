@@ -50076,12 +50076,20 @@
 	    /**
 	     * @private
 	     */
-	    Menu.prototype.swipeEnd = function (shouldComplete, currentStepValue) {
+	    Menu.prototype.swipeEnd = function (shouldCompleteLeft, shouldCompleteRight, stepValue) {
 	        var _this = this;
 	        // user has finished dragging the menu
 	        if (this._isEnabled && this._isSwipeEnabled) {
 	            this._prevent();
-	            this._getType().setProgressEnd(shouldComplete, currentStepValue, function (isOpen) {
+	            var opening = !this.isOpen;
+	            var shouldComplete = false;
+	            if (opening) {
+	                shouldComplete = (this.side === 'right') ? shouldCompleteLeft : shouldCompleteRight;
+	            }
+	            else {
+	                shouldComplete = (this.side === 'right') ? shouldCompleteRight : shouldCompleteLeft;
+	            }
+	            this._getType().setProgressEnd(shouldComplete, stepValue, function (isOpen) {
 	                console.debug('menu, swipeEnd', _this.side);
 	                _this._after(isOpen);
 	            });
@@ -50585,15 +50593,20 @@
 	        var z = (this.menu.side === 'right' ? slide.min : slide.max);
 	        var stepValue = (slide.distance / z);
 	        console.debug('menu gesture, onSlide', this.menu.side, 'distance', slide.distance, 'min', slide.min, 'max', slide.max, 'z', z, 'stepValue', stepValue);
+	        ev.srcEvent.preventDefault();
+	        ev.preventDefault();
 	        this.menu.swipeProgress(stepValue);
 	    };
 	    MenuContentGesture.prototype.onSlideEnd = function (slide, ev) {
 	        var z = (this.menu.side === 'right' ? slide.min : slide.max);
-	        var shouldComplete = (Math.abs(ev.velocityX) > 0.2) ||
-	            (Math.abs(slide.delta) > Math.abs(z) * 0.5);
 	        var currentStepValue = (slide.distance / z);
-	        console.debug('menu gesture, onSlide', this.menu.side, 'distance', slide.distance, 'delta', slide.delta, 'velocityX', ev.velocityX, 'min', slide.min, 'max', slide.max, 'shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
-	        this.menu.swipeEnd(shouldComplete, currentStepValue);
+	        z = Math.abs(z * 0.5);
+	        var shouldCompleteRight = (ev.velocityX >= 0)
+	            && (ev.velocityX > 0.2 || slide.delta > z);
+	        var shouldCompleteLeft = (ev.velocityX <= 0)
+	            && (ev.velocityX < -0.2 || slide.delta < -z);
+	        console.debug('menu gesture, onSlide', this.menu.side, 'distance', slide.distance, 'delta', slide.delta, 'velocityX', ev.velocityX, 'min', slide.min, 'max', slide.max, 'shouldCompleteLeft', shouldCompleteLeft, 'shouldCompleteRight', shouldCompleteRight, 'currentStepValue', currentStepValue);
+	        this.menu.swipeEnd(shouldCompleteLeft, shouldCompleteRight, currentStepValue);
 	    };
 	    MenuContentGesture.prototype.getElementStartPos = function (slide, ev) {
 	        if (this.menu.side === 'right') {

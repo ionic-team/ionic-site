@@ -66807,6 +66807,7 @@
 	        this.ionDrag = new core_1.EventEmitter();
 	        _list.enableSlidingItems(true);
 	        _elementRef.nativeElement.$ionComponent = this;
+	        _renderer.setElementClass(_elementRef.nativeElement, 'item-wrapper', true);
 	    }
 	    Object.defineProperty(ItemSliding.prototype, "_itemOptions", {
 	        /**

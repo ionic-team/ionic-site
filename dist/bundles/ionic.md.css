@@ -5443,7 +5443,7 @@ ion-card {
     ion-card ion-list .item-inner {
       border-bottom: 1px solid #dedede; }
   ion-card > .item:last-child,
-  ion-card > ion-item-sliding:last-child .item {
+  ion-card > .item-wrapper:last-child .item {
     border-bottom: 0; }
   ion-card .item-inner {
     border: 0; }
@@ -6269,7 +6269,7 @@ ion-item-group .item:first-child .item-inner {
   border-top-width: 0; }
 
 ion-item-group .item:last-child .item-inner,
-ion-item-group ion-item-sliding:last-child .item-inner {
+ion-item-group .item-wrapper:last-child .item-inner {
   border: 0; }
 
 ion-item-divider {
@@ -6454,15 +6454,15 @@ ion-list {
   ion-list .item-inner {
     border-bottom: 1px solid #dedede; }
   ion-list > .item:first-child,
-  ion-list > ion-item-sliding:first-child .item {
+  ion-list > .item-wrapper:first-child .item {
     border-top: 1px solid #dedede; }
   ion-list > .item:last-child,
-  ion-list > ion-item-sliding:last-child .item {
+  ion-list > .item-wrapper:last-child .item {
     border-bottom: 1px solid #dedede; }
   ion-list > .item:last-child ion-label,
   ion-list > .item:last-child .item-inner,
-  ion-list > ion-item-sliding:last-child ion-label,
-  ion-list > ion-item-sliding:last-child .item-inner {
+  ion-list > .item-wrapper:last-child ion-label,
+  ion-list > .item-wrapper:last-child .item-inner {
     border-bottom: 0; }
   ion-list > ion-input:last-child::after {
     left: 0; }

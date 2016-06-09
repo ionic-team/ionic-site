@@ -49531,6 +49531,7 @@
 	var navbar_1 = __webpack_require__(356);
 	var show_hide_when_1 = __webpack_require__(410);
 	/**
+	 * @private
 	 * @name IONIC_DIRECTIVES
 	 * @description
 	 * The core Ionic directives as well as Angular's `CORE_DIRECTIVES` and `FORM_DIRECTIVES` are
@@ -50780,6 +50781,9 @@
 	};
 	var gesture_1 = __webpack_require__(347);
 	var util_1 = __webpack_require__(348);
+	/**
+	 * @private
+	 */
 	var DragGesture = (function (_super) {
 	    __extends(DragGesture, _super);
 	    function DragGesture(element, opts) {
@@ -50824,6 +50828,7 @@
 	var util_1 = __webpack_require__(348);
 	var hammer_1 = __webpack_require__(350);
 	/**
+	 * @private
 	 * A gesture recognizer class.
 	 *
 	 * TODO(mlynch): Re-enable the DOM event simulation that was causing issues (or verify hammer does this already, it might);

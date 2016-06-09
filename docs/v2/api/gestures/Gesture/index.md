@@ -41,8 +41,6 @@ Improve this doc
 
 
 
-<p>A gesture recognizer class.</p>
-<p>TODO(mlynch): Re-enable the DOM event simulation that was causing issues (or verify hammer does this already, it might);</p>
 
 <!-- @usage tag -->
 

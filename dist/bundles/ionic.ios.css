@@ -5676,8 +5676,7 @@ ion-datetime {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
-  max-width: 45%; }
+  overflow: hidden; }
 
 .datetime-text {
   overflow: hidden;
@@ -5686,7 +5685,9 @@ ion-datetime {
   -ms-flex: 1;
   flex: 1;
   min-width: 16px;
+  min-height: 1.2em;
   font-size: inherit;
+  line-height: 1.2;
   text-overflow: ellipsis;
   white-space: nowrap; }
 
@@ -5694,6 +5695,11 @@ ion-datetime {
 .item-datetime-disabled ion-label {
   opacity: .4;
   pointer-events: none; }
+
+.item-label-stacked ion-datetime,
+.item-label-floating ion-datetime {
+  padding-left: 0;
+  width: 100%; }
 
 ion-datetime {
   padding: 12px 8px 13px 16px; }
@@ -6295,7 +6301,8 @@ ion-label {
   margin: 12px 8px 13px 0; }
 
 .item-input ion-label,
-.item-select ion-label {
+.item-select ion-label,
+.item-datetime ion-label {
   color: #7f7f7f; }
 
 ion-label + ion-input .text-input,

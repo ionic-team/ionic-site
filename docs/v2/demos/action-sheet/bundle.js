@@ -70967,6 +70967,14 @@
 	    /**
 	     * @private
 	     */
+	    DateTime.prototype.checkHasValue = function (inputValue) {
+	        if (this._item) {
+	            this._item.setCssClass('input-has-value', !!(inputValue && inputValue !== ''));
+	        }
+	    };
+	    /**
+	     * @private
+	     */
 	    DateTime.prototype.updateText = function () {
 	        // create the text of the formatted data
 	        this._text = datetime_util_1.renderDateTime(this.displayFormat, this._value, this._locale);
@@ -71026,6 +71034,7 @@
 	        console.debug('datetime, writeValue', val);
 	        this.setValue(val);
 	        this.updateText();
+	        this.checkHasValue(val);
 	    };
 	    /**
 	     * @private
@@ -71051,6 +71060,7 @@
 	            console.debug('datetime, onChange', val);
 	            _this.setValue(val);
 	            _this.updateText();
+	            _this.checkHasValue(val);
 	            // convert DateTimeData value to iso datetime format
 	            fn(datetime_util_1.convertDataToISO(_this._value));
 	            _this.onTouched();

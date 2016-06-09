@@ -5791,6 +5791,50 @@ ion-content {
   margin-right: 16px;
   margin-left: 16px; }
 
+ion-datetime {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden; }
+
+.datetime-text {
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-width: 16px;
+  min-height: 1.2em;
+  font-size: inherit;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.datetime-disabled,
+.item-datetime-disabled ion-label {
+  opacity: .4;
+  pointer-events: none; }
+
+.item-label-stacked ion-datetime,
+.item-label-floating ion-datetime {
+  padding-left: 0;
+  width: 100%; }
+
+ion-datetime {
+  padding: 13px 8px 13px 16px;
+  min-width: 45%; }
+
+.datetime-text {
+  padding: 0 8px;
+  min-height: 3.4rem;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  line-height: 3rem; }
+
+.item-datetime ion-label[floating] {
+  -webkit-transform: translate3d(8px, 41px, 0);
+  transform: translate3d(8px, 41px, 0); }
+
 ion-input,
 ion-textarea {
   position: relative;
@@ -6391,7 +6435,8 @@ ion-label {
   margin: 13px 8px 13px 0; }
 
 .item-input ion-label,
-.item-select ion-label {
+.item-select ion-label,
+.item-datetime ion-label {
   color: #999; }
 
 ion-label[stacked] {

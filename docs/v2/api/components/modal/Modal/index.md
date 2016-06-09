@@ -34,7 +34,7 @@ Modal
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/modal/modal.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/modal/modal.ts#L11">
 Improve this doc
 </a>
 
@@ -141,9 +141,16 @@ class Profile {
 <!-- @property tags -->
 <h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
 <div id="create"></div>
-<h3><a class="anchor" name="create" href="#create"></a><code>create(componentType,&nbsp;data)</code>
+<h3><a class="anchor" name="create" href="#create"></a><code>create(componentType,&nbsp;data,&nbsp;opts)</code>
   
 </h3>
+
+Create a modal with the following options
+
+| Option                | Type       | Description                                                                                                      |
+|-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
+| showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
+| enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
 
 
 
@@ -166,10 +173,10 @@ class Profile {
       </td>
       <td>
         
-  <code>any</code>
+  <code>object</code>
       </td>
       <td>
-        <p>Modal</p>
+        <p>The Modal view</p>
 
         
       </td>
@@ -178,6 +185,23 @@ class Profile {
     <tr>
       <td>
         data
+        
+        
+      </td>
+      <td>
+        
+  <code>object</code>
+      </td>
+      <td>
+        <p>Any data to pass to the Modal view</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        opts
         
         
       </td>

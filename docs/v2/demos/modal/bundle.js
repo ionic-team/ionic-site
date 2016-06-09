@@ -76718,6 +76718,7 @@
 	var animation_1 = __webpack_require__(363);
 	var nav_params_1 = __webpack_require__(356);
 	var util_1 = __webpack_require__(335);
+	var key_1 = __webpack_require__(343);
 	var transition_1 = __webpack_require__(362);
 	var view_controller_1 = __webpack_require__(355);
 	var dom_1 = __webpack_require__(332);
@@ -76823,9 +76824,13 @@
 	 */
 	var Modal = (function (_super) {
 	    __extends(Modal, _super);
-	    function Modal(componentType, data) {
+	    function Modal(componentType, data, opts) {
 	        if (data === void 0) { data = {}; }
+	        if (opts === void 0) { opts = {}; }
 	        data.componentType = componentType;
+	        opts.showBackdrop = util_1.isPresent(opts.showBackdrop) ? !!opts.showBackdrop : true;
+	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
+	        data.opts = opts;
 	        _super.call(this, ModalCmp, data);
 	        this.modalViewType = componentType.name;
 	        this.viewType = 'modal';
@@ -76840,12 +76845,22 @@
 	        return this._nav && this._nav.config.get(key);
 	    };
 	    /**
-	     * @param {any} componentType Modal
-	     * @param {object} data Modal options
+	     * Create a modal with the following options
+	     *
+	     * | Option                | Type       | Description                                                                                                      |
+	     * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
+	     * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
+	     * | enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
+	     *
+	     *
+	     * @param {object} componentType The Modal view
+	     * @param {object} data Any data to pass to the Modal view
+	     * @param {object} opts Modal options
 	     */
-	    Modal.create = function (componentType, data) {
+	    Modal.create = function (componentType, data, opts) {
 	        if (data === void 0) { data = {}; }
-	        return new Modal(componentType, data);
+	        if (opts === void 0) { opts = {}; }
+	        return new Modal(componentType, data, opts);
 	    };
 	    // Override the load method and load our child component
 	    Modal.prototype.loaded = function (done) {
@@ -76867,6 +76882,7 @@
 	        this._compiler = _compiler;
 	        this._navParams = _navParams;
 	        this._viewCtrl = _viewCtrl;
+	        this.d = _navParams.data.opts;
 	    }
 	    ModalCmp.prototype.loadComponent = function (done) {
 	        var _this = this;
@@ -76874,20 +76890,40 @@
 	        this._compiler.resolveComponent(this._navParams.data.componentType).then(function (componentFactory) {
 	            var componentRef = _this.viewport.createComponent(componentFactory, _this.viewport.length, _this.viewport.parentInjector);
 	            _this._viewCtrl.setInstance(componentRef.instance);
+	            _this.enabled = true;
 	            done();
 	        });
 	    };
 	    ModalCmp.prototype.ngAfterViewInit = function () {
 	        // intentionally kept empty
 	    };
+	    ModalCmp.prototype.dismiss = function (role) {
+	        return this._viewCtrl.dismiss(null, role);
+	    };
+	    ModalCmp.prototype.bdClick = function () {
+	        if (this.enabled && this.d.enableBackdropDismiss) {
+	            this.dismiss('backdrop');
+	        }
+	    };
+	    ModalCmp.prototype._keyUp = function (ev) {
+	        if (this.enabled && this._viewCtrl.isLast() && ev.keyCode === key_1.Key.ESCAPE) {
+	            this.bdClick();
+	        }
+	    };
 	    __decorate([
 	        core_1.ViewChild('viewport', { read: core_1.ViewContainerRef }), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object)
 	    ], ModalCmp.prototype, "viewport", void 0);
+	    __decorate([
+	        core_1.HostListener('body:keyup', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], ModalCmp.prototype, "_keyUp", null);
 	    ModalCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-modal',
-	            template: '<ion-backdrop disableScroll="false"></ion-backdrop>' +
+	            template: '<ion-backdrop disableScroll="false" (click)="bdClick($event)"></ion-backdrop>' +
 	                '<div class="modal-wrapper">' +
 	                '<div #viewport></div>' +
 	                '</div>'

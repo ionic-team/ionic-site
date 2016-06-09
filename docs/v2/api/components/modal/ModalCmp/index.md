@@ -32,7 +32,7 @@ ModalCmp
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/modal/modal.ts#L153">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/modal/modal.ts#L171">
 Improve this doc
 </a>
 
@@ -76,6 +76,46 @@ Improve this doc
 
 
 
+<div id="d"></div>
+
+<h3>
+<a class="anchor" name="d" href="#d"></a>
+<code>d</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="enabled"></div>
+
+<h3>
+<a class="anchor" name="enabled" href="#enabled"></a>
+<code>enabled</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="loadComponent"></div>
 
 <h3>
@@ -101,6 +141,46 @@ Improve this doc
 <h3>
 <a class="anchor" name="ngAfterViewInit" href="#ngAfterViewInit"></a>
 <code>ngAfterViewInit()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="dismiss"></div>
+
+<h3>
+<a class="anchor" name="dismiss" href="#dismiss"></a>
+<code>dismiss()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="bdClick"></div>
+
+<h3>
+<a class="anchor" name="bdClick" href="#bdClick"></a>
+<code>bdClick()</code>
   
 
 </h3>

@@ -67192,7 +67192,7 @@
 	        this._data.bottomCell = (this._cells.length - 1);
 	        virtual_util_1.populateNodeData(0, this._data.bottomCell, this._data.viewWidth, true, this._cells, this._records, this._nodes, this._itmTmp.viewContainer, this._itmTmp.templateRef, this._hdrTmp && this._hdrTmp.templateRef, this._ftrTmp && this._ftrTmp.templateRef, true);
 	        // ******** DOM WRITE ****************
-	        this._cd.detectChanges();
+	        this.detectChanges();
 	        // wait a frame before trying to read and calculate the dimensions
 	        dom_1.nativeRaf(this.postRenderVirtual.bind(this));
 	    };
@@ -67214,20 +67214,26 @@
 	    /**
 	     * @private
 	     */
+	    VirtualScroll.prototype.detectChanges = function () {
+	        var node;
+	        for (var i = 0; i < this._nodes.length; i++) {
+	            node = this._nodes[i];
+	            if (node.hasChanges) {
+	                node.view['detectChanges']();
+	                node.hasChanges = false;
+	            }
+	        }
+	    };
+	    /**
+	     * @private
+	     */
 	    VirtualScroll.prototype.scrollUpdate = function () {
 	        dom_1.clearNativeTimeout(this._tmId);
 	        this._tmId = dom_1.nativeTimeout(this.onScrollEnd.bind(this), SCROLL_END_TIMEOUT_MS);
 	        var data = this._data;
 	        if (this._queue === QUEUE_CHANGE_DETECTION) {
 	            // ******** DOM WRITE ****************
-	            var node = void 0;
-	            for (var i = 0; i < this._nodes.length; i++) {
-	                node = this._nodes[i];
-	                if (node.hasChanges) {
-	                    node.view['detectChanges']();
-	                    node.hasChanges = false;
-	                }
-	            }
+	            this.detectChanges();
 	            if (this._eventAssist) {
 	                // queue updating node positions in the next frame
 	                this._queue = QUEUE_WRITE_TO_NODES;
@@ -67287,7 +67293,7 @@
 	        virtual_util_1.updateDimensions(this._nodes, this._cells, this._data, false);
 	        virtual_util_1.adjustRendered(this._cells, this._data);
 	        // ******** DOM WRITE ****************
-	        this._cd.detectChanges();
+	        this.detectChanges();
 	        // ******** DOM WRITE ****************
 	        this.setVirtualHeight(virtual_util_1.estimateHeight(this._records.length, this._cells[this._cells.length - 1], this._vHeight, 0.05));
 	    };

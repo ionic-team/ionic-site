@@ -77021,12 +77021,12 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var core_2 = __webpack_require__(6);
 	var bootstrap_1 = __webpack_require__(103);
 	var animation_1 = __webpack_require__(363);
 	var transition_1 = __webpack_require__(362);
 	var config_1 = __webpack_require__(333);
 	var nav_params_1 = __webpack_require__(356);
+	var key_1 = __webpack_require__(343);
 	var util_1 = __webpack_require__(335);
 	var dom_1 = __webpack_require__(332);
 	var view_controller_1 = __webpack_require__(355);
@@ -77195,7 +77195,7 @@
 	            _this._viewCtrl.fireWillEnter();
 	        });
 	    };
-	    PopoverCmp.prototype.ionViewDidEnter = function () {
+	    PopoverCmp.prototype.ngAfterViewInit = function () {
 	        var activeElement = document.activeElement;
 	        if (document.activeElement) {
 	            activeElement.blur();
@@ -77214,10 +77214,21 @@
 	            this.dismiss('backdrop');
 	        }
 	    };
+	    PopoverCmp.prototype._keyUp = function (ev) {
+	        if (this.enabled && this._viewCtrl.isLast() && ev.keyCode === key_1.Key.ESCAPE) {
+	            this.bdClick();
+	        }
+	    };
 	    __decorate([
 	        core_1.ViewChild('viewport', { read: core_1.ViewContainerRef }), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object)
 	    ], PopoverCmp.prototype, "viewport", void 0);
+	    __decorate([
+	        core_1.HostListener('body:keyup', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], PopoverCmp.prototype, "_keyUp", null);
 	    PopoverCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-popover',
@@ -77231,7 +77242,7 @@
 	                '</div>' +
 	                '</div>'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _b) || Object, (typeof (_c = typeof core_2.ElementRef !== 'undefined' && core_2.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_2.Renderer !== 'undefined' && core_2.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _f) || Object, (typeof (_g = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _g) || Object])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _d) || Object, (typeof (_e = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _e) || Object, (typeof (_f = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _f) || Object, (typeof (_g = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _g) || Object])
 	    ], PopoverCmp);
 	    return PopoverCmp;
 	    var _a, _b, _c, _d, _e, _f, _g;

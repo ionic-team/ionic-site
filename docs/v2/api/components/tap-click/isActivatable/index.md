@@ -8,7 +8,7 @@ id: "isactivatable"
 title: "isActivatable"
 header_sub_title: "Ionic API Documentation"
 doc: "isActivatable"
-docType: "function"
+docType: "let"
 
 ---
 
@@ -32,7 +32,7 @@ isActivatable
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/tap-click/tap-click.ts#L193">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/tap-click/tap-click.ts#L198">
 Improve this doc
 </a>
 

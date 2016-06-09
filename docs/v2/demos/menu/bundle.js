@@ -67220,7 +67220,7 @@
 	                var madeChanges = virtual_util_1.populateNodeData(data.topCell, data.bottomCell, data.viewWidth, data.scrollDiff > 0, this._cells, this._records, this._nodes, this._itmTmp.viewContainer, this._itmTmp.templateRef, this._hdrTmp && this._hdrTmp.templateRef, this._ftrTmp && this._ftrTmp.templateRef, false);
 	                if (madeChanges) {
 	                    // do not update images while scrolling
-	                    this._imgs.toArray().forEach(function (img) {
+	                    this._imgs.forEach(function (img) {
 	                        img.enable(false);
 	                    });
 	                    // queue making updates in the next frame
@@ -75552,7 +75552,7 @@
 	    for (var x = 0; x < 4; x++) {
 	        if (!targetEle)
 	            break;
-	        if (isActivatable(targetEle))
+	        if (exports.isActivatable(targetEle))
 	            return targetEle;
 	        targetEle = targetEle.parentElement;
 	    }
@@ -75561,7 +75561,7 @@
 	/**
 	 * @private
 	 */
-	function isActivatable(ele) {
+	exports.isActivatable = function (ele) {
 	    if (ACTIVATABLE_ELEMENTS.test(ele.tagName)) {
 	        return true;
 	    }
@@ -75572,8 +75572,7 @@
 	        }
 	    }
 	    return false;
-	}
-	exports.isActivatable = isActivatable;
+	};
 	function addListener(type, listener, useCapture) {
 	    document.addEventListener(type, listener, useCapture);
 	}

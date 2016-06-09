@@ -77392,6 +77392,10 @@
 	        var arrowDim = arrowEle.getBoundingClientRect();
 	        var arrowWidth = arrowDim.width;
 	        var arrowHeight = arrowDim.height;
+	        // If no ev was passed, hide the arrow
+	        if (!targetDim) {
+	            arrowEle.style.display = 'none';
+	        }
 	        var arrowCSS = {
 	            top: targetTop + targetHeight,
 	            left: targetLeft + (targetWidth / 2) - (arrowWidth / 2)

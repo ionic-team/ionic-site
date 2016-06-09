@@ -73993,7 +73993,7 @@
 	        }
 	        else {
 	            removes.push(renderer.listenGlobal('body', 'mousemove', this.pointerMove.bind(this)));
-	            removes.push(renderer.listenGlobal('body', 'mouseup', this.pointerUp.bind(this)));
+	            removes.push(renderer.listenGlobal('window', 'mouseup', this.pointerUp.bind(this)));
 	        }
 	    };
 	    /**

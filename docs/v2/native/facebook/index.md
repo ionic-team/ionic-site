@@ -101,6 +101,65 @@ docType: "class"
 
 <!-- @property tags -->
 <h2>Static Methods</h2>
+<div id="browserInit"></div>
+<h3><code>browserInit(appId,&nbsp;version)</code>
+
+</h3>
+
+Browser wrapper
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      appId
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      version
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
 <div id="login"></div>
 <h3><code>login(permissions)</code>
 

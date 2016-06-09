@@ -89,7 +89,7 @@ import {BackgroundMode} from &#39;ionic-native&#39;;</p>
 
 
 Enable the background mode.
-Once called, prevents the app from being puased while in background.
+Once called, prevents the app from being paused while in background.
 
 
 

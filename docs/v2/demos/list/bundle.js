@@ -15737,7 +15737,7 @@
 	    if (config.get('hoverCSS') !== false) {
 	        bodyEle.classList.add('enable-hover');
 	    }
-	    if (config.get('clickBlock')) {
+	    if (config.get('clickBlock') !== false) {
 	        clickBlock.enable();
 	    }
 	    // run feature detection tests
@@ -78472,7 +78472,6 @@
 	    ],
 	    settings: {
 	        autoFocusAssist: 'delay',
-	        clickBlock: true,
 	        hoverCSS: false,
 	        inputBlurring: isIOSDevice,
 	        inputCloning: isIOSDevice,
@@ -78521,7 +78520,6 @@
 	    settings: {
 	        mode: 'wp',
 	        autoFocusAssist: 'immediate',
-	        clickBlock: true,
 	        hoverCSS: false
 	    },
 	    isMatch: function (p) {

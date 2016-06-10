@@ -56,11 +56,11 @@ Improve this doc
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="enable"></div>
+<div id="ngOnInit"></div>
 
 <h3>
-<a class="anchor" name="enable" href="#enable"></a>
-<code>enable()</code>
+<a class="anchor" name="ngOnInit" href="#ngOnInit"></a>
+<code>ngOnInit()</code>
   
 
 </h3>
@@ -76,11 +76,11 @@ Improve this doc
 
 
 
-<div id="isVisible"></div>
+<div id="enable"></div>
 
 <h3>
-<a class="anchor" name="isVisible" href="#isVisible"></a>
-<code>isVisible()</code>
+<a class="anchor" name="enable" href="#enable"></a>
+<code>enable()</code>
   
 
 </h3>
@@ -121,6 +121,18 @@ Improve this doc
     
     <tr>
       <td>height</td>
+      <td><code></code></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>alt</td>
+      <td><code></code></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>title</td>
       <td><code></code></td>
       <td></td>
     </tr>

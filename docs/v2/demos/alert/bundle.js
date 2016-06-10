@@ -49643,7 +49643,7 @@
 	var item_1 = __webpack_require__(382);
 	var item_sliding_1 = __webpack_require__(385);
 	var virtual_scroll_1 = __webpack_require__(386);
-	var virtual_item_1 = __webpack_require__(387);
+	var virtual_item_1 = __webpack_require__(388);
 	var toolbar_1 = __webpack_require__(358);
 	var icon_1 = __webpack_require__(383);
 	var spinner_1 = __webpack_require__(389);
@@ -58862,14 +58862,20 @@
 	            tmpImg.src = util_1.isPresent(val) ? val : '';
 	            this._src = util_1.isPresent(val) ? val : '';
 	            this._normalizeSrc = tmpImg.src;
-	            this._update();
+	            if (this._init) {
+	                this._update();
+	            }
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
+	    Img.prototype.ngOnInit = function () {
+	        this._init = true;
+	        this._update();
+	    };
 	    Img.prototype._update = function () {
 	        var _this = this;
-	        if (this._enabled && this._src !== '' && this.isVisible()) {
+	        if (this._enabled && this._src !== '') {
 	            // actively update the image
 	            for (var i = this._imgs.length - 1; i >= 0; i--) {
 	                if (this._imgs[i].src === this._normalizeSrc) {
@@ -58889,8 +58895,14 @@
 	            if (!this._imgs.length) {
 	                this._zone.runOutsideAngular(function () {
 	                    var img = new Image();
-	                    img.style.width = _this._w;
-	                    img.style.height = _this._h;
+	                    img.style.width = _this._width;
+	                    img.style.height = _this._height;
+	                    if (util_1.isPresent(_this.alt)) {
+	                        img.alt = _this.alt;
+	                    }
+	                    if (util_1.isPresent(_this.title)) {
+	                        img.title = _this.title;
+	                    }
 	                    img.addEventListener('load', function () {
 	                        if (img.src === _this._normalizeSrc) {
 	                            _this._elementRef.nativeElement.appendChild(img);
@@ -58919,20 +58931,30 @@
 	        this._enabled = shouldEnable;
 	        this._update();
 	    };
-	    Img.prototype.isVisible = function () {
-	        var bounds = this._elementRef.nativeElement.getBoundingClientRect();
-	        return bounds.bottom > 0 && bounds.top < this._platform.height();
-	    };
 	    Object.defineProperty(Img.prototype, "width", {
 	        set: function (val) {
-	            this._w = (typeof val === 'number') ? val + 'px' : val;
+	            this._w = getUnitValue(val);
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
 	    Object.defineProperty(Img.prototype, "height", {
 	        set: function (val) {
-	            this._h = (typeof val === 'number') ? val + 'px' : val;
+	            this._h = getUnitValue(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Img.prototype, "_width", {
+	        get: function () {
+	            return util_1.isPresent(this._w) ? this._w : '';
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Img.prototype, "_height", {
+	        get: function () {
+	            return util_1.isPresent(this._h) ? this._h : '';
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -58952,6 +58974,22 @@
 	        __metadata('design:type', Object), 
 	        __metadata('design:paramtypes', [Object])
 	    ], Img.prototype, "height", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Img.prototype, "alt", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Img.prototype, "title", void 0);
+	    __decorate([
+	        core_1.HostBinding('style.width'), 
+	        __metadata('design:type', String)
+	    ], Img.prototype, "_width", null);
+	    __decorate([
+	        core_1.HostBinding('style.height'), 
+	        __metadata('design:type', String)
+	    ], Img.prototype, "_height", null);
 	    Img = __decorate([
 	        core_1.Component({
 	            selector: 'ion-img',
@@ -58965,6 +59003,22 @@
 	    var _a, _b, _c;
 	}());
 	exports.Img = Img;
+	function getUnitValue(val) {
+	    if (util_1.isPresent(val)) {
+	        if (typeof val === 'string') {
+	            if (val.indexOf('%') > -1 || val.indexOf('px') > -1) {
+	                return val;
+	            }
+	            if (val.length) {
+	                return val + 'px';
+	            }
+	        }
+	        else if (typeof val === 'number') {
+	            return val + 'px';
+	        }
+	    }
+	    return '';
+	}
 
 /***/ },
 /* 369 */
@@ -67137,15 +67191,15 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
+	var virtual_util_1 = __webpack_require__(387);
 	var config_1 = __webpack_require__(333);
 	var content_1 = __webpack_require__(366);
-	var platform_1 = __webpack_require__(334);
-	var view_controller_1 = __webpack_require__(355);
-	var virtual_item_1 = __webpack_require__(387);
-	var virtual_util_1 = __webpack_require__(388);
+	var img_1 = __webpack_require__(368);
 	var util_1 = __webpack_require__(335);
 	var dom_1 = __webpack_require__(332);
-	var img_1 = __webpack_require__(368);
+	var platform_1 = __webpack_require__(334);
+	var view_controller_1 = __webpack_require__(355);
+	var virtual_item_1 = __webpack_require__(388);
 	/**
 	 * @name VirtualScroll
 	 * @description
@@ -67507,8 +67561,6 @@
 	            virtual_util_1.processRecords(self._data.renderHeight, self._records, self._cells, self._hdrFn, self._ftrFn, self._data);
 	            // ******** DOM WRITE ****************
 	            self.renderVirtual();
-	            // ******** DOM WRITE ****************
-	            self._renderer.setElementClass(self._elementRef.nativeElement, 'virtual-scroll', true);
 	            // list for scroll events
 	            self.addScrollListener();
 	        });
@@ -67523,7 +67575,7 @@
 	        this._data.bottomCell = (this._cells.length - 1);
 	        virtual_util_1.populateNodeData(0, this._data.bottomCell, this._data.viewWidth, true, this._cells, this._records, this._nodes, this._itmTmp.viewContainer, this._itmTmp.templateRef, this._hdrTmp && this._hdrTmp.templateRef, this._ftrTmp && this._ftrTmp.templateRef, true);
 	        // ******** DOM WRITE ****************
-	        this.detectChanges();
+	        this._cd.detectChanges();
 	        // wait a frame before trying to read and calculate the dimensions
 	        dom_1.nativeRaf(this.postRenderVirtual.bind(this));
 	    };
@@ -67532,28 +67584,15 @@
 	     * DOM READ THEN DOM WRITE
 	     */
 	    VirtualScroll.prototype.postRenderVirtual = function () {
-	        // ******** DOM READ ****************
-	        virtual_util_1.calcDimensions(this._data, this._elementRef.nativeElement.parentElement, this.approxItemWidth, this.approxItemHeight, this.approxHeaderWidth, this.approxHeaderHeight, this.approxFooterWidth, this.approxFooterHeight, this.bufferRatio);
 	        // ******** DOM READ THEN DOM WRITE ****************
 	        virtual_util_1.initReadNodes(this._nodes, this._cells, this._data);
 	        // ******** DOM READS ABOVE / DOM WRITES BELOW ****************
 	        // ******** DOM WRITE ****************
+	        this._renderer.setElementClass(this._elementRef.nativeElement, 'virtual-scroll', true);
+	        // ******** DOM WRITE ****************
 	        virtual_util_1.writeToNodes(this._nodes, this._cells, this._records.length);
 	        // ******** DOM WRITE ****************
 	        this.setVirtualHeight(virtual_util_1.estimateHeight(this._records.length, this._cells[this._cells.length - 1], this._vHeight, 0.25));
-	    };
-	    /**
-	     * @private
-	     */
-	    VirtualScroll.prototype.detectChanges = function () {
-	        var node;
-	        for (var i = 0; i < this._nodes.length; i++) {
-	            node = this._nodes[i];
-	            if (node.hasChanges) {
-	                node.view['detectChanges']();
-	                node.hasChanges = false;
-	            }
-	        }
 	    };
 	    /**
 	     * @private
@@ -67564,28 +67603,16 @@
 	        var data = this._data;
 	        if (this._queue === QUEUE_CHANGE_DETECTION) {
 	            // ******** DOM WRITE ****************
-	            this.detectChanges();
-	            if (this._eventAssist) {
-	                // queue updating node positions in the next frame
-	                this._queue = QUEUE_WRITE_TO_NODES;
-	            }
-	            else {
-	                // update node positions right now
-	                // ******** DOM WRITE ****************
-	                virtual_util_1.writeToNodes(this._nodes, this._cells, this._records.length);
-	                this._queue = null;
-	            }
-	            // ******** DOM WRITE ****************
-	            this.setVirtualHeight(virtual_util_1.estimateHeight(this._records.length, this._cells[this._cells.length - 1], this._vHeight, 0.25));
-	        }
-	        else if (this._queue === QUEUE_WRITE_TO_NODES) {
+	            this._cd.detectChanges();
 	            // ******** DOM WRITE ****************
 	            virtual_util_1.writeToNodes(this._nodes, this._cells, this._records.length);
+	            // ******** DOM WRITE ****************
+	            this.setVirtualHeight(virtual_util_1.estimateHeight(this._records.length, this._cells[this._cells.length - 1], this._vHeight, 0.25));
 	            this._queue = null;
 	        }
 	        else {
 	            data.scrollDiff = (data.scrollTop - this._lastCheck);
-	            if (Math.abs(data.scrollDiff) > 10) {
+	            if (Math.abs(data.scrollDiff) > SCROLL_DIFFERENCE_MINIMUM) {
 	                // don't bother updating if the scrollTop hasn't changed much
 	                this._lastCheck = data.scrollTop;
 	                if (data.scrollDiff > 0) {
@@ -67617,14 +67644,14 @@
 	     */
 	    VirtualScroll.prototype.onScrollEnd = function () {
 	        // scrolling is done, allow images to be updated now
-	        this._imgs.toArray().forEach(function (img) {
+	        this._imgs.forEach(function (img) {
 	            img.enable(true);
 	        });
 	        // ******** DOM READ ****************
 	        virtual_util_1.updateDimensions(this._nodes, this._cells, this._data, false);
 	        virtual_util_1.adjustRendered(this._cells, this._data);
 	        // ******** DOM WRITE ****************
-	        this.detectChanges();
+	        this._cd.detectChanges();
 	        // ******** DOM WRITE ****************
 	        this.setVirtualHeight(virtual_util_1.estimateHeight(this._records.length, this._cells[this._cells.length - 1], this._vHeight, 0.05));
 	    };
@@ -67752,73 +67779,11 @@
 	}());
 	exports.VirtualScroll = VirtualScroll;
 	var SCROLL_END_TIMEOUT_MS = 140;
+	var SCROLL_DIFFERENCE_MINIMUM = 20;
 	var QUEUE_CHANGE_DETECTION = 0;
-	var QUEUE_WRITE_TO_NODES = 1;
 
 /***/ },
 /* 387 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(6);
-	/**
-	 * @private
-	 */
-	var VirtualHeader = (function () {
-	    function VirtualHeader(templateRef) {
-	        this.templateRef = templateRef;
-	    }
-	    VirtualHeader = __decorate([
-	        core_1.Directive({ selector: '[virtualHeader]' }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.TemplateRef !== 'undefined' && core_1.TemplateRef) === 'function' && _a) || Object])
-	    ], VirtualHeader);
-	    return VirtualHeader;
-	    var _a;
-	}());
-	exports.VirtualHeader = VirtualHeader;
-	/**
-	 * @private
-	 */
-	var VirtualFooter = (function () {
-	    function VirtualFooter(templateRef) {
-	        this.templateRef = templateRef;
-	    }
-	    VirtualFooter = __decorate([
-	        core_1.Directive({ selector: '[virtualFooter]' }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.TemplateRef !== 'undefined' && core_1.TemplateRef) === 'function' && _a) || Object])
-	    ], VirtualFooter);
-	    return VirtualFooter;
-	    var _a;
-	}());
-	exports.VirtualFooter = VirtualFooter;
-	/**
-	 * @private
-	 */
-	var VirtualItem = (function () {
-	    function VirtualItem(templateRef, viewContainer) {
-	        this.templateRef = templateRef;
-	        this.viewContainer = viewContainer;
-	    }
-	    VirtualItem = __decorate([
-	        core_1.Directive({ selector: '[virtualItem]' }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.TemplateRef !== 'undefined' && core_1.TemplateRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _b) || Object])
-	    ], VirtualItem);
-	    return VirtualItem;
-	    var _a, _b;
-	}());
-	exports.VirtualItem = VirtualItem;
-
-/***/ },
-/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67931,6 +67896,7 @@
 	    var lastRecordIndex = (records.length - 1);
 	    var viewInsertIndex = null;
 	    var totalNodes = nodes.length;
+	    var templateRef;
 	    startCellIndex = Math.max(startCellIndex, 0);
 	    endCellIndex = Math.min(endCellIndex, cells.length - 1);
 	    for (var cellIndex = startCellIndex; cellIndex <= endCellIndex; cellIndex++) {
@@ -67997,11 +67963,15 @@
 	                    }
 	                }
 	            }
+	            // select which templateRef should be used for this cell
+	            templateRef = cell.tmpl === TEMPLATE_HEADER ? hdrTmp : cell.tmpl === TEMPLATE_FOOTER ? ftrTmp : itmTmp;
+	            if (!templateRef) {
+	                console.error("virtual" + (cell.tmpl === TEMPLATE_HEADER ? 'Header' : cell.tmpl === TEMPLATE_FOOTER ? 'Footer' : 'Item') + " template required");
+	                continue;
+	            }
 	            availableNode = {
 	                tmpl: cell.tmpl,
-	                view: viewContainer.createEmbeddedView(cell.tmpl === TEMPLATE_HEADER ? hdrTmp :
-	                    cell.tmpl === TEMPLATE_FOOTER ? ftrTmp :
-	                        itmTmp, new VirtualContext(null, null, null), viewInsertIndex)
+	                view: viewContainer.createEmbeddedView(templateRef, new VirtualContext(null, null, null), viewInsertIndex)
 	            };
 	            totalNodes = nodes.push(availableNode);
 	        }
@@ -68017,14 +67987,15 @@
 	    }
 	    if (initialLoad) {
 	        // add nodes that go at the very end, and only represent the last record
-	        addLastNodes(nodes, viewContainer, TEMPLATE_HEADER, hdrTmp);
-	        addLastNodes(nodes, viewContainer, TEMPLATE_ITEM, itmTmp);
-	        addLastNodes(nodes, viewContainer, TEMPLATE_FOOTER, ftrTmp);
+	        var lastNodeTempData = (records[lastRecordIndex] || {});
+	        addLastNodes(nodes, viewContainer, TEMPLATE_HEADER, hdrTmp, lastNodeTempData);
+	        addLastNodes(nodes, viewContainer, TEMPLATE_ITEM, itmTmp, lastNodeTempData);
+	        addLastNodes(nodes, viewContainer, TEMPLATE_FOOTER, ftrTmp, lastNodeTempData);
 	    }
 	    return madeChanges;
 	}
 	exports.populateNodeData = populateNodeData;
-	function addLastNodes(nodes, viewContainer, templateType, templateRef) {
+	function addLastNodes(nodes, viewContainer, templateType, templateRef, temporaryData) {
 	    if (templateRef) {
 	        var node = {
 	            tmpl: templateType,
@@ -68032,7 +68003,7 @@
 	            isLastRecord: true,
 	            hidden: true,
 	        };
-	        node.view.context.$implicit = {};
+	        node.view.context.$implicit = temporaryData;
 	        nodes.push(node);
 	    }
 	}
@@ -68152,31 +68123,29 @@
 	    var transform;
 	    for (var i = 0, ilen = nodes.length; i < ilen; i++) {
 	        node = nodes[i];
-	        if (node.hidden) {
-	            continue;
-	        }
-	        cell = cells[node.cell];
-	        transform = "translate3d(" + cell.left + "px," + cell.top + "px,0px)";
-	        if (node.lastTransform === transform) {
-	            continue;
-	        }
-	        element = getElement(node);
-	        if (element) {
-	            // ******** DOM WRITE ****************
-	            element.style[dom_1.CSS.transform] = node.lastTransform = transform;
-	            // ******** DOM WRITE ****************
-	            element.classList.add('virtual-position');
-	            if (node.isLastRecord) {
-	                // its the last record, now with data and safe to show
-	                // ******** DOM WRITE ****************
-	                element.classList.remove('virtual-hidden');
+	        if (!node.hidden) {
+	            cell = cells[node.cell];
+	            transform = "translate3d(" + cell.left + "px," + cell.top + "px,0px)";
+	            if (node.lastTransform !== transform) {
+	                element = getElement(node);
+	                if (element) {
+	                    // ******** DOM WRITE ****************
+	                    element.style[dom_1.CSS.transform] = node.lastTransform = transform;
+	                    // ******** DOM WRITE ****************
+	                    element.classList.add('virtual-position');
+	                    if (node.isLastRecord) {
+	                        // its the last record, now with data and safe to show
+	                        // ******** DOM WRITE ****************
+	                        element.classList.remove('virtual-hidden');
+	                    }
+	                    // https://www.w3.org/TR/wai-aria/states_and_properties#aria-posinset
+	                    // ******** DOM WRITE ****************
+	                    element.setAttribute('aria-posinset', (node.cell + 1).toString());
+	                    // https://www.w3.org/TR/wai-aria/states_and_properties#aria-setsize
+	                    // ******** DOM WRITE ****************
+	                    element.setAttribute('aria-setsize', totalCells);
+	                }
 	            }
-	            // https://www.w3.org/TR/wai-aria/states_and_properties#aria-posinset
-	            // ******** DOM WRITE ****************
-	            element.setAttribute('aria-posinset', (node.cell + 1).toString());
-	            // https://www.w3.org/TR/wai-aria/states_and_properties#aria-setsize
-	            // ******** DOM WRITE ****************
-	            element.setAttribute('aria-setsize', totalCells);
 	        }
 	    }
 	}
@@ -68345,6 +68314,68 @@
 	var TEMPLATE_FOOTER = 2;
 	var VIEWABLE_RENDERED_PADDING = 3;
 	var REQUIRED_DOM_READS = 2;
+
+/***/ },
+/* 388 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(6);
+	/**
+	 * @private
+	 */
+	var VirtualHeader = (function () {
+	    function VirtualHeader(templateRef) {
+	        this.templateRef = templateRef;
+	    }
+	    VirtualHeader = __decorate([
+	        core_1.Directive({ selector: '[virtualHeader]' }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.TemplateRef !== 'undefined' && core_1.TemplateRef) === 'function' && _a) || Object])
+	    ], VirtualHeader);
+	    return VirtualHeader;
+	    var _a;
+	}());
+	exports.VirtualHeader = VirtualHeader;
+	/**
+	 * @private
+	 */
+	var VirtualFooter = (function () {
+	    function VirtualFooter(templateRef) {
+	        this.templateRef = templateRef;
+	    }
+	    VirtualFooter = __decorate([
+	        core_1.Directive({ selector: '[virtualFooter]' }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.TemplateRef !== 'undefined' && core_1.TemplateRef) === 'function' && _a) || Object])
+	    ], VirtualFooter);
+	    return VirtualFooter;
+	    var _a;
+	}());
+	exports.VirtualFooter = VirtualFooter;
+	/**
+	 * @private
+	 */
+	var VirtualItem = (function () {
+	    function VirtualItem(templateRef, viewContainer) {
+	        this.templateRef = templateRef;
+	        this.viewContainer = viewContainer;
+	    }
+	    VirtualItem = __decorate([
+	        core_1.Directive({ selector: '[virtualItem]' }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.TemplateRef !== 'undefined' && core_1.TemplateRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _b) || Object])
+	    ], VirtualItem);
+	    return VirtualItem;
+	    var _a, _b;
+	}());
+	exports.VirtualItem = VirtualItem;
 
 /***/ },
 /* 389 */

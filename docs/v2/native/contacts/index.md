@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/-native/src/plugins/contacts.ts#L187">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/-native/src/plugins/contacts.ts#L211">
   Improve this doc
 </a>
 
@@ -51,8 +51,6 @@ docType: "class"
 <!-- description -->
 
 <p>Access and manage Contacts on the device.</p>
-<p>Requires plugin: <code>cordova-plugin-contacts</code>
-For full info, please see the <a href="https://github.com/apache/cordova-plugin-contacts">Cordova Contacts plugin docs</a></p>
 
 
 
@@ -60,13 +58,16 @@ For full info, please see the <a href="https://github.com/apache/cordova-plugin-
 
 <h2>Usage</h2>
 
-<pre><code class="lang-js">import {Contacts} from &#39;ionic-native&#39;;
+<pre><code class="lang-js">import {Contact} from &#39;ionic-native&#39;;
 
 
 
-Contacts.create({
-  displayName: &quot;Mr. Ionitron&quot;
-}).then((contact) =&gt; {}, (err) =&gt; {})
+let contact = new Contact();
+contact.displayName = &quot;Mr. Ionitron&quot;;
+contact.save().then(
+  () =&gt; console.log(&quot;Contact saved!&quot;, contact),
+  (error: any) =&gt; console.error(&quot;Error saving contact.&quot;, error)
+);
 </code></pre>
 
 
@@ -75,55 +76,15 @@ Contacts.create({
 <!-- @property tags -->
 <h2>Static Members</h2>
 <div id="create"></div>
-<h3><code>create(options)</code>
+<h3><code>create()</code>
   
 </h3>
 
 
 
-Create a new Contact object.
 
 
 
-<table class="table param-table" style="margin:0;">
-  <thead>
-  <tr>
-    <th>Param</th>
-    <th>Type</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td>
-      options
-      
-      
-    </td>
-    <td>
-      
-<code>Object</code>
-    </td>
-    <td>
-      <p>Object whose properties the created Contact should have.</p>
-
-      
-    </td>
-  </tr>
-  
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Contact</code> Returns the created contact
-</div>
 
 
 

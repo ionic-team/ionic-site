@@ -73,10 +73,10 @@ LaunchNavigator.navigate(&quot;Toronto, ON&quot;, &quot;London, ON&quot;)
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="navigate"></div>
 <h3><code>navigate(destination,&nbsp;start,&nbsp;options)</code>
-
+  
 </h3>
 
 

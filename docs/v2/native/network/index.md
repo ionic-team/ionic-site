@@ -116,10 +116,10 @@ connectSubscription.unsubscribe();
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="connection"></div>
 <h3><code>connection()</code>
-
+  
 </h3>
 
 Return the network connection type
@@ -135,7 +135,7 @@ Return the network connection type
 
 <div id="onDisconnect"></div>
 <h3><code>onDisconnect()</code>
-
+  
 </h3>
 
 
@@ -157,7 +157,7 @@ Get notified when the device goes offline
 
 <div id="onConnect"></div>
 <h3><code>onConnect()</code>
-
+  
 </h3>
 
 

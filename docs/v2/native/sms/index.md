@@ -83,10 +83,10 @@ SMS.send(&#39;416123456&#39;,&#39;Hello world!&#39;);
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="send"></div>
 <h3><code>send(phoneNumber,&nbsp;message,&nbsp;options)</code>
-
+  
 </h3>
 
 Sends sms to a number

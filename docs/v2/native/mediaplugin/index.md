@@ -113,10 +113,10 @@ newFile.stopRecord();
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="MEDIA_NONE"></div>
 <h3><code>MEDIA_NONE()</code>
-
+  
 </h3>
 
 
@@ -129,7 +129,7 @@ newFile.stopRecord();
 
 <div id="MEDIA_STARTING"></div>
 <h3><code>MEDIA_STARTING()</code>
-
+  
 </h3>
 
 
@@ -142,7 +142,7 @@ newFile.stopRecord();
 
 <div id="MEDIA_RUNNING"></div>
 <h3><code>MEDIA_RUNNING()</code>
-
+  
 </h3>
 
 
@@ -155,7 +155,7 @@ newFile.stopRecord();
 
 <div id="MEDIA_PAUSED"></div>
 <h3><code>MEDIA_PAUSED()</code>
-
+  
 </h3>
 
 
@@ -168,7 +168,7 @@ newFile.stopRecord();
 
 <div id="MEDIA_STOPPED"></div>
 <h3><code>MEDIA_STOPPED()</code>
-
+  
 </h3>
 
 
@@ -182,13 +182,13 @@ newFile.stopRecord();
 
 <!-- methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2>Instance Members</h2>
 
 <div id="status"></div>
 
 <h3>
-  <code>status()</code>
-
+  <code>status</code>
+  
 
 </h3>
 
@@ -206,8 +206,8 @@ newFile.stopRecord();
 <div id="init"></div>
 
 <h3>
-  <code>init()</code>
-
+  <code>init</code>
+  
 
 </h3>
 
@@ -226,7 +226,7 @@ newFile.stopRecord();
 
 <h3>
   <code>getCurrentAmplitude()</code>
-
+  
 
 </h3>
 
@@ -246,7 +246,7 @@ Returns the current amplitude of the current recording.
 
 <h3>
   <code>getCurrentPosition()</code>
-
+  
 
 </h3>
 
@@ -266,7 +266,7 @@ Returns the current position within an audio file. Also updates the Media object
 
 <h3>
   <code>getDuration()</code>
-
+  
 
 </h3>
 
@@ -286,7 +286,7 @@ Returns the duration of an audio file in seconds. If the duration is unknown, it
 
 <h3>
   <code>play()</code>
-
+  
 
 </h3>
 
@@ -306,7 +306,7 @@ Starts or resumes playing an audio file.
 
 <h3>
   <code>pause()</code>
-
+  
 
 </h3>
 
@@ -326,7 +326,7 @@ Pauses playing an audio file.
 
 <h3>
   <code>release()</code>
-
+  
 
 </h3>
 
@@ -346,7 +346,7 @@ Releases the underlying operating system's audio resources. This is particularly
 
 <h3>
   <code>seekTo(milliseconds)</code>
-
+  
 
 </h3>
 
@@ -393,7 +393,7 @@ Sets the current position within an audio file.
 
 <h3>
   <code>setVolume(volume)</code>
-
+  
 
 </h3>
 
@@ -441,7 +441,7 @@ Set the volume for an audio file.
 
 <h3>
   <code>startRecord()</code>
-
+  
 
 </h3>
 
@@ -461,7 +461,7 @@ Starts recording an audio file.
 
 <h3>
   <code>stopRecord()</code>
-
+  
 
 </h3>
 
@@ -481,7 +481,7 @@ Stops recording
 
 <h3>
   <code>stop()</code>
-
+  
 
 </h3>
 

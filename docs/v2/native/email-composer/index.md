@@ -103,10 +103,10 @@ EmailComposer.open(email);
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="isAvailable"></div>
 <h3><code>isAvailable(app)</code>
-
+  
 </h3>Verifies if sending emails is supported on the device.
 
 
@@ -155,7 +155,7 @@ EmailComposer.open(email);
 
 <div id="addAlias"></div>
 <h3><code>addAlias(alias,&nbsp;packageName)</code>
-
+  
 </h3>
 
 Adds a new mail app alias.
@@ -217,7 +217,7 @@ Adds a new mail app alias.
 
 <div id="open"></div>
 <h3><code>open(email,&nbsp;scope)</code>
-
+  
 </h3>
 
 

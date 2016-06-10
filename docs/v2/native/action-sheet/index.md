@@ -89,10 +89,10 @@ ActionSheet.show({
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="show"></div>
 <h3><code>show(Options)</code>
-
+  
 </h3>
 
 Show the ActionSheet. The ActionSheet's options is an object with the following propterties.
@@ -155,7 +155,7 @@ Show the ActionSheet. The ActionSheet's options is an object with the following 
 
 <div id="hide"></div>
 <h3><code>hide()</code>
-
+  
 </h3>
 
 Hide the ActionSheet.

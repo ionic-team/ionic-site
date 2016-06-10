@@ -80,10 +80,10 @@ import {BackgroundMode} from &#39;ionic-native&#39;;</p>
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="enable"></div>
 <h3><code>enable()</code>
-
+  
 </h3>
 
 
@@ -102,7 +102,7 @@ Once called, prevents the app from being paused while in background.
 
 <div id="disable"></div>
 <h3><code>disable()</code>
-
+  
 </h3>
 
 Disable the background mode.
@@ -119,7 +119,7 @@ Once the background mode has been disabled, the app will be paused when in backg
 
 <div id="isEnabled"></div>
 <h3><code>isEnabled()</code>
-
+  
 </h3>
 
 Checks if background mode is enabled or not.
@@ -135,7 +135,7 @@ Checks if background mode is enabled or not.
 
 <div id="isActive"></div>
 <h3><code>isActive()</code>
-
+  
 </h3>
 
 Can be used to get the information if the background mode is active.
@@ -151,7 +151,7 @@ Can be used to get the information if the background mode is active.
 
 <div id="setDefaults"></div>
 <h3><code>setDefaults()</code>
-
+  
 </h3>
 
 
@@ -173,7 +173,7 @@ Available only for Android platform.
 
 <div id="update"></div>
 <h3><code>update()</code>
-
+  
 </h3>
 
 
@@ -195,7 +195,7 @@ Available only for Android platform.
 
 <div id="on"></div>
 <h3><code>on(eventName)</code>
-
+  
 </h3>
 
 

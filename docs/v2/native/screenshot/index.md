@@ -57,10 +57,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="save"></div>
 <h3><code>save(format.,&nbsp;quality.,&nbsp;filename.)</code>
-
+  
 </h3>Takes screenshot and saves the image
 
 
@@ -139,7 +139,7 @@ On ios, only &#39;jpg&#39; format is supported</p>
 
 <div id="URI"></div>
 <h3><code>URI(quality.)</code>
-
+  
 </h3>Takes screenshot and returns the image as an URI
 
 

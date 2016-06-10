@@ -100,10 +100,10 @@ BackgroundGeolocation.stop();
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="configure"></div>
 <h3><code>configure()</code>
-
+  
 </h3>
 
 
@@ -128,7 +128,7 @@ Options a json object of type Config
 
 <div id="start"></div>
 <h3><code>start()</code>
-
+  
 </h3>
 
 Turn ON the background-geolocation system.
@@ -145,7 +145,7 @@ The user will be tracked whenever they suspend the app.
 
 <div id="stop"></div>
 <h3><code>stop()</code>
-
+  
 </h3>
 
 Turn OFF background-tracking
@@ -161,7 +161,7 @@ Turn OFF background-tracking
 
 <div id="finish"></div>
 <h3><code>finish()</code>
-
+  
 </h3>
 
 Inform the native plugin that you're finished, the background-task may be completed
@@ -178,7 +178,7 @@ NOTE: IOS, WP only
 
 <div id="changePace"></div>
 <h3><code>changePace()</code>
-
+  
 </h3>
 
 Force the plugin to enter "moving" or "stationary" state
@@ -195,7 +195,7 @@ NOTE: IOS, WP only
 
 <div id="setConfig"></div>
 <h3><code>setConfig()</code>
-
+  
 </h3>
 
 
@@ -213,7 +213,7 @@ Setup configuration
 
 <div id="getStationaryLocation"></div>
 <h3><code>getStationaryLocation()</code>
-
+  
 </h3>
 
 Returns current stationaryLocation if available. null if not
@@ -230,7 +230,7 @@ NOTE: IOS, WP only
 
 <div id="onStationary"></div>
 <h3><code>onStationary()</code>
-
+  
 </h3>
 
 Add a stationary-region listener. Whenever the devices enters "stationary-mode",
@@ -248,7 +248,7 @@ NOTE: IOS, WP only
 
 <div id="isLocationEnabled"></div>
 <h3><code>isLocationEnabled()</code>
-
+  
 </h3>
 
 Check if location is enabled on the device
@@ -269,7 +269,7 @@ NOTE: ANDROID only
 
 <div id="showLocationSettings"></div>
 <h3><code>showLocationSettings()</code>
-
+  
 </h3>
 
 Display device location settings
@@ -285,7 +285,7 @@ Display device location settings
 
 <div id="watchLocationMode"></div>
 <h3><code>watchLocationMode()</code>
-
+  
 </h3>
 
 Method can be used to detect user changes in location services settings.
@@ -304,7 +304,7 @@ NOTE: ANDROID only
 
 <div id="stopWatchingLocationMode"></div>
 <h3><code>stopWatchingLocationMode()</code>
-
+  
 </h3>
 
 Stop watching for location mode changes.
@@ -321,7 +321,7 @@ NOTE: ANDROID only
 
 <div id="getLocations"></div>
 <h3><code>getLocations()</code>
-
+  
 </h3>
 
 Method will return all stored locations.
@@ -343,7 +343,7 @@ NOTE: ANDROID only
 
 <div id="deleteLocation"></div>
 <h3><code>deleteLocation()</code>
-
+  
 </h3>
 
 Delete stored location by given locationId.
@@ -360,7 +360,7 @@ NOTE: ANDROID only
 
 <div id="deleteAllLocations"></div>
 <h3><code>deleteAllLocations()</code>
-
+  
 </h3>
 
 Delete all stored locations.

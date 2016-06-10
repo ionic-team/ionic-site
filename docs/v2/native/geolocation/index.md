@@ -79,10 +79,10 @@ watch.subscribe((data) =&gt; {
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="getCurrentPosition"></div>
 <h3><code>getCurrentPosition(options)</code>
-
+  
 </h3>
 
 
@@ -137,7 +137,7 @@ Get the device's current position.
 
 <div id="watchPosition"></div>
 <h3><code>watchPosition(options)</code>
-
+  
 </h3>
 
 

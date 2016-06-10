@@ -72,10 +72,10 @@ StatusBar.
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="overlaysWebView"></div>
 <h3><code>overlaysWebView(doesOverlay)</code>
-
+  
 </h3>
 
 
@@ -123,7 +123,7 @@ is true.
 
 <div id="styleDefault"></div>
 <h3><code>styleDefault()</code>
-
+  
 </h3>
 
 
@@ -141,7 +141,7 @@ Use the default statusbar (dark text, for light backgrounds).
 
 <div id="styleLightContent"></div>
 <h3><code>styleLightContent()</code>
-
+  
 </h3>
 
 
@@ -159,7 +159,7 @@ Use the lightContent statusbar (light text, for dark backgrounds).
 
 <div id="styleBlackTranslucent"></div>
 <h3><code>styleBlackTranslucent()</code>
-
+  
 </h3>
 
 
@@ -177,7 +177,7 @@ Use the blackTranslucent statusbar (light text, for dark backgrounds).
 
 <div id="styleBlackOpaque"></div>
 <h3><code>styleBlackOpaque()</code>
-
+  
 </h3>
 
 
@@ -195,7 +195,7 @@ Use the blackOpaque statusbar (light text, for dark backgrounds).
 
 <div id="backgroundColorByName"></div>
 <h3><code>backgroundColorByName(colorName)</code>
-
+  
 </h3>
 
 
@@ -245,7 +245,7 @@ iOS note: you must call StatusBar.overlaysWebView(false) to enable color changin
 
 <div id="backgroundColorByHexString"></div>
 <h3><code>backgroundColorByHexString(hexString)</code>
-
+  
 </h3>
 
 
@@ -294,7 +294,7 @@ iOS note: you must call StatusBar.overlaysWebView(false) to enable color changin
 
 <div id="hide"></div>
 <h3><code>hide()</code>
-
+  
 </h3>
 
 
@@ -312,7 +312,7 @@ Hide the StatusBar
 
 <div id="show"></div>
 <h3><code>show()</code>
-
+  
 </h3>
 
 
@@ -330,7 +330,7 @@ Show the StatusBar
 
 <div id="isVisible"></div>
 <h3><code>isVisible()</code>
-
+  
 </h3>
 
 Whether the StatusBar is currently visible or not.

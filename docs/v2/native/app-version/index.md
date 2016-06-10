@@ -83,10 +83,10 @@ AppVersion.getVersionNumber();
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="getAppName"></div>
 <h3><code>getAppName()</code>
-
+  
 </h3>
 
 Returns the name of the app
@@ -106,7 +106,7 @@ Returns the name of the app
 
 <div id="getPackageName"></div>
 <h3><code>getPackageName()</code>
-
+  
 </h3>
 
 Returns the package name of the app
@@ -126,7 +126,7 @@ Returns the package name of the app
 
 <div id="getVersionCode"></div>
 <h3><code>getVersionCode()</code>
-
+  
 </h3>
 
 Returns the build identifier of the app
@@ -146,7 +146,7 @@ Returns the build identifier of the app
 
 <div id="getVersionNumber"></div>
 <h3><code>getVersionNumber()</code>
-
+  
 </h3>
 
 Returns the version of the app

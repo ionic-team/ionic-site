@@ -102,10 +102,10 @@ subscription.unsubscribe();
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="onChange"></div>
 <h3><code>onChange()</code>
-
+  
 </h3>
 
 
@@ -127,7 +127,7 @@ Watch the change in battery level
 
 <div id="onLow"></div>
 <h3><code>onLow()</code>
-
+  
 </h3>
 
 
@@ -149,7 +149,7 @@ Watch when the battery level goes low
 
 <div id="onCritical"></div>
 <h3><code>onCritical()</code>
-
+  
 </h3>
 
 

@@ -70,10 +70,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="hasReadWritePermissions"></div>
 <h3><code>hasReadWritePermissions()</code>
-
+  
 </h3>
 
 This function checks if we have permission to read/write from/to the calendar.
@@ -96,7 +96,7 @@ If this returns false, you should call `requestReadWritePermissions` function
 
 <div id="requestReadWritePermissions"></div>
 <h3><code>requestReadWritePermissions()</code>
-
+  
 </h3>
 
 
@@ -114,7 +114,7 @@ Requests read/write permissions
 
 <div id="createCalendar"></div>
 <h3><code>createCalendar(nameOrOptions)</code>
-
+  
 </h3>
 
 Create a calendar. (iOS only)
@@ -170,7 +170,7 @@ options:
 
 <div id="deleteCalendar"></div>
 <h3><code>deleteCalendar(name)</code>
-
+  
 </h3>
 
 Delete a calendar. (iOS only)
@@ -223,7 +223,7 @@ Delete a calendar. (iOS only)
 
 <div id="getCalendarOptions"></div>
 <h3><code>getCalendarOptions()</code>
-
+  
 </h3>
 
 
@@ -256,7 +256,7 @@ Returns the default calendar options.
 
 <div id="createEvent"></div>
 <h3><code>createEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
-
+  
 </h3>
 
 Silently create an event.
@@ -377,7 +377,7 @@ Silently create an event.
 
 <div id="createEventWithOptions"></div>
 <h3><code>createEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code>
-
+  
 </h3>
 
 Silently create an event with additional options.
@@ -515,7 +515,7 @@ Silently create an event with additional options.
 
 <div id="createEventInteractively"></div>
 <h3><code>createEventInteractively(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
-
+  
 </h3>
 
 Interactively create an event.
@@ -636,7 +636,7 @@ Interactively create an event.
 
 <div id="createEventInteractivelyWithOptions"></div>
 <h3><code>createEventInteractivelyWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code>
-
+  
 </h3>
 
 Interactively create an event with additional options.
@@ -774,7 +774,7 @@ Interactively create an event with additional options.
 
 <div id="findEvent"></div>
 <h3><code>findEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
-
+  
 </h3>
 
 Find an event.
@@ -895,7 +895,7 @@ Find an event.
 
 <div id="findEventWithOptions"></div>
 <h3><code>findEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;options)</code>
-
+  
 </h3>
 
 Find an event with additional options.
@@ -1033,7 +1033,7 @@ Find an event with additional options.
 
 <div id="listEventsInRange"></div>
 <h3><code>listEventsInRange(startDate,&nbsp;endDate)</code>
-
+  
 </h3>
 
 Find a list of events within the specified date range. (Android only)
@@ -1103,7 +1103,7 @@ Find a list of events within the specified date range. (Android only)
 
 <div id="listCalendars"></div>
 <h3><code>listCalendars()</code>
-
+  
 </h3>
 
 Get a list of all calendars.
@@ -1125,7 +1125,7 @@ Get a list of all calendars.
 
 <div id="findAllEventsInNamedCalendar"></div>
 <h3><code>findAllEventsInNamedCalendar()</code>
-
+  
 </h3>
 
 Get a list of all future events in the specified calendar. (iOS only)
@@ -1147,7 +1147,7 @@ Get a list of all future events in the specified calendar. (iOS only)
 
 <div id="modifyEvent"></div>
 <h3><code>modifyEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate)</code>
-
+  
 </h3>
 
 Modify an event. (iOS only)
@@ -1353,7 +1353,7 @@ Modify an event. (iOS only)
 
 <div id="modifyEventWithOptions"></div>
 <h3><code>modifyEventWithOptions(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;newTitle,&nbsp;newLocation,&nbsp;newNotes,&nbsp;newStartDate,&nbsp;newEndDate,&nbsp;options)</code>
-
+  
 </h3>
 
 Modify an event with additional options. (iOS only)
@@ -1576,7 +1576,7 @@ Modify an event with additional options. (iOS only)
 
 <div id="deleteEvent"></div>
 <h3><code>deleteEvent(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate)</code>
-
+  
 </h3>
 
 Delete an event.
@@ -1697,7 +1697,7 @@ Delete an event.
 
 <div id="deleteEventFromNamedCalendar"></div>
 <h3><code>deleteEventFromNamedCalendar(title,&nbsp;location,&nbsp;notes,&nbsp;startDate,&nbsp;endDate,&nbsp;calendarName)</code>
-
+  
 </h3>
 
 Delete an event from the specified Calendar. (iOS only)
@@ -1834,7 +1834,7 @@ Delete an event from the specified Calendar. (iOS only)
 
 <div id="openCalendar"></div>
 <h3><code>openCalendar()</code>
-
+  
 </h3>
 
 Open the calendar at the specified date.
@@ -1855,13 +1855,13 @@ Open the calendar at the specified date.
 
 <!-- methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2>Instance Members</h2>
 
 <div id="id"></div>
 
 <h3>
-  <code>id()</code>
-
+  <code>id</code>
+  
 
 </h3>
 
@@ -1879,8 +1879,8 @@ Open the calendar at the specified date.
 <div id="name"></div>
 
 <h3>
-  <code>name()</code>
-
+  <code>name</code>
+  
 
 </h3>
 

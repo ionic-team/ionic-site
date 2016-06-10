@@ -67,10 +67,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="init"></div>
 <h3><code>init(options)</code>
-
+  
 </h3>
 
 
@@ -137,7 +137,7 @@ var push = Push.init({
 
 <div id="hasPermission"></div>
 <h3><code>hasPermission()</code>
-
+  
 </h3>
 
 Check whether the push notification permission has been granted.

@@ -77,10 +77,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="verifyFingerprint"></div>
 <h3><code>verifyFingerprint(message)</code>
-
+  
 </h3>
 
 Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Password' button, brings up standard system passcode screen.
@@ -131,7 +131,7 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
 
 <div id="verifyFingerprintWithCustomPasswordFallback"></div>
 <h3><code>verifyFingerprintWithCustomPasswordFallback(message)</code>
-
+  
 </h3>
 
 Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Password' button, rejects with code '-3' (see above).
@@ -182,7 +182,7 @@ Show TouchID dialog and wait for a fingerprint scan. If user taps 'Enter Passwor
 
 <div id="verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel"></div>
 <h3><code>verifyFingerprintWithCustomPasswordFallbackAndEnterPasswordLabel(message,&nbsp;enterPasswordLabel)</code>
-
+  
 </h3>
 
 Show TouchID dialog with custom 'Enter Password' message and wait for a fingerprint scan. If user taps 'Enter Password' button, rejects with code '-3' (see above).
@@ -251,13 +251,13 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
 
 <!-- methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2>Instance Members</h2>
 
 <div id="isAvailable"></div>
 
 <h3>
   <code>isAvailable()</code>
-
+  
 
 </h3>
 

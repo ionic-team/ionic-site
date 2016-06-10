@@ -106,10 +106,10 @@ Clipboard.paste().then(
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="copy"></div>
 <h3><code>copy(text)</code>
-
+  
 </h3>
 
 Copies the given text
@@ -158,7 +158,7 @@ Copies the given text
 
 <div id="paste"></div>
 <h3><code>paste()</code>
-
+  
 </h3>
 
 Pastes the text stored in clipboard

@@ -94,10 +94,10 @@ BarcodeScanner.scan().then((barcodeData) =&gt; {
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="scan"></div>
 <h3><code>scan()</code>
-
+  
 </h3>
 
 Open the barcode scanner.

@@ -76,10 +76,10 @@ ImagePicker.getPictures(options).then((results) =&gt; {
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="getPictures"></div>
 <h3><code>getPictures(options)</code>
-
+  
 </h3>
 
 

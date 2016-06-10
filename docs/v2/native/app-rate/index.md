@@ -84,10 +84,10 @@ AppRate.promptForRating();
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="preferences"></div>
 <h3><code>preferences()</code>
-
+  
 </h3>
 
 Rating dialog preferences
@@ -117,7 +117,7 @@ Rating dialog preferences
 
 <div id="promptForRating"></div>
 <h3><code>promptForRating(immediately)</code>
-
+  
 </h3>
 
 Prompts the user for rating

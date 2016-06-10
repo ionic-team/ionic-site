@@ -73,10 +73,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="connect"></div>
 <h3><code>connect(macAddress_or_uuid)</code>
-
+  
 </h3>
 
 
@@ -130,7 +130,7 @@ Returns an Observable. Subscribe to connect, unsubscribe to disconnect.
 
 <div id="connectInsecure"></div>
 <h3><code>connectInsecure(macAddress)</code>
-
+  
 </h3>
 
 
@@ -180,7 +180,7 @@ Returns an Observable. Subscribe to connect, unsubscribe to disconnect.
 
 <div id="write"></div>
 <h3><code>write(data)</code>
-
+  
 </h3>
 
 
@@ -233,7 +233,7 @@ Writes data to the serial port
 
 <div id="available"></div>
 <h3><code>available()</code>
-
+  
 </h3>
 
 
@@ -258,7 +258,7 @@ Gets the number of bytes of data available
 
 <div id="read"></div>
 <h3><code>read()</code>
-
+  
 </h3>
 
 
@@ -283,7 +283,7 @@ Reads data from the buffer
 
 <div id="readUntil"></div>
 <h3><code>readUntil(delimiter)</code>
-
+  
 </h3>
 
 
@@ -335,7 +335,7 @@ Reads data from the buffer until it reaches a delimiter
 
 <div id="subscribe"></div>
 <h3><code>subscribe(delimiter)</code>
-
+  
 </h3>
 
 
@@ -387,7 +387,7 @@ Subscribe to be notified when data is received
 
 <div id="subscribeRawData"></div>
 <h3><code>subscribeRawData()</code>
-
+  
 </h3>
 
 
@@ -412,7 +412,7 @@ Subscribe to be notified when data is received
 
 <div id="clear"></div>
 <h3><code>clear()</code>
-
+  
 </h3>
 
 
@@ -437,7 +437,7 @@ Clears data in buffer
 
 <div id="list"></div>
 <h3><code>list()</code>
-
+  
 </h3>
 
 
@@ -462,7 +462,7 @@ Lists bonded devices
 
 <div id="isEnabled"></div>
 <h3><code>isEnabled()</code>
-
+  
 </h3>
 
 
@@ -487,7 +487,7 @@ Reports if bluetooth is enabled
 
 <div id="isConnected"></div>
 <h3><code>isConnected()</code>
-
+  
 </h3>
 
 
@@ -512,7 +512,7 @@ Reports the connection status
 
 <div id="readRSSI"></div>
 <h3><code>readRSSI()</code>
-
+  
 </h3>
 
 
@@ -537,7 +537,7 @@ Reads the RSSI from the connected peripheral
 
 <div id="showBluetoothSettings"></div>
 <h3><code>showBluetoothSettings()</code>
-
+  
 </h3>
 
 
@@ -562,7 +562,7 @@ Show the Bluetooth settings on the device
 
 <div id="enable"></div>
 <h3><code>enable()</code>
-
+  
 </h3>
 
 
@@ -587,7 +587,7 @@ Enable Bluetooth on the device
 
 <div id="discoverUnpaired"></div>
 <h3><code>discoverUnpaired()</code>
-
+  
 </h3>
 
 
@@ -610,7 +610,7 @@ Discover unpaired devices
 
 <div id="setDeviceDiscoveredListener"></div>
 <h3><code>setDeviceDiscoveredListener()</code>
-
+  
 </h3>
 
 
@@ -635,7 +635,7 @@ Subscribe to be notified on Bluetooth device discovery. Discovery process must b
 
 <div id="setName"></div>
 <h3><code>setName(newName)</code>
-
+  
 </h3>
 
 
@@ -684,7 +684,7 @@ Sets the human readable device name that is broadcasted to other devices
 
 <div id="setDiscoverable"></div>
 <h3><code>setDiscoverable(discoverableDuration)</code>
-
+  
 </h3>
 
 

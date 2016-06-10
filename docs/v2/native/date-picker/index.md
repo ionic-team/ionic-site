@@ -77,10 +77,10 @@ DatePicker.show({
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="show"></div>
 <h3><code>show(options)</code>
-
+  
 </h3>
 
 Shows the date and/or time picker dialog(s)

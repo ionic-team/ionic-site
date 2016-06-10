@@ -77,10 +77,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="login"></div>
 <h3><code>login(options)</code>
-
+  
 </h3>
 
 The login function walks the user through the Google Auth process.
@@ -123,7 +123,7 @@ The login function walks the user through the Google Auth process.
 
 <div id="trySilentLogin"></div>
 <h3><code>trySilentLogin(options)</code>
-
+  
 </h3>
 
 You can call trySilentLogin to check if they're already signed in to the app and sign them in silently if they are.
@@ -166,7 +166,7 @@ You can call trySilentLogin to check if they're already signed in to the app and
 
 <div id="logout"></div>
 <h3><code>logout()</code>
-
+  
 </h3>
 
 This will clear the OAuth2 token.
@@ -182,7 +182,7 @@ This will clear the OAuth2 token.
 
 <div id="disconnect"></div>
 <h3><code>disconnect()</code>
-
+  
 </h3>
 
 This will clear the OAuth2 token, forget which account was used to login, and disconnect that account from the app. This will require the user to allow the app access again next time they sign in. Be aware that this effect is not always instantaneous. It can take time to completely disconnect.

@@ -57,10 +57,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="createBanner"></div>
 <h3><code>createBanner(adIdOrOptions)</code>
-
+  
 </h3>
 
 
@@ -103,7 +103,7 @@ docType: "class"
 
 <div id="removeBanner"></div>
 <h3><code>removeBanner()</code>
-
+  
 </h3>
 
 
@@ -121,7 +121,7 @@ docType: "class"
 
 <div id="showBanner"></div>
 <h3><code>showBanner(position)</code>
-
+  
 </h3>
 
 
@@ -166,7 +166,7 @@ docType: "class"
 
 <div id="showBannerAtXY"></div>
 <h3><code>showBannerAtXY(x,&nbsp;y)</code>
-
+  
 </h3>
 
 
@@ -227,7 +227,7 @@ docType: "class"
 
 <div id="hideBanner"></div>
 <h3><code>hideBanner()</code>
-
+  
 </h3>
 
 
@@ -245,7 +245,7 @@ docType: "class"
 
 <div id="prepareInterstitial"></div>
 <h3><code>prepareInterstitial(adIdOrOptions)</code>
-
+  
 </h3>
 
 
@@ -288,7 +288,7 @@ docType: "class"
 
 <div id="showInterstitial"></div>
 <h3><code>showInterstitial()</code>
-
+  
 </h3>
 
 
@@ -306,7 +306,7 @@ Show interstitial
 
 <div id="isInterstitialReady"></div>
 <h3><code>isInterstitialReady()</code>
-
+  
 </h3>
 
 
@@ -322,7 +322,7 @@ Show interstitial
 
 <div id="prepareRewardVideoAd"></div>
 <h3><code>prepareRewardVideoAd(adIdOrOptions)</code>
-
+  
 </h3>
 
 Prepare a reward video ad
@@ -365,7 +365,7 @@ Prepare a reward video ad
 
 <div id="showRewardVideoAd"></div>
 <h3><code>showRewardVideoAd()</code>
-
+  
 </h3>
 
 
@@ -383,7 +383,7 @@ Show a reward video ad
 
 <div id="setOptions"></div>
 <h3><code>setOptions(options)</code>
-
+  
 </h3>
 
 Sets the values for configuration and targeting
@@ -427,7 +427,7 @@ Sets the values for configuration and targeting
 
 <div id="getAdSettings"></div>
 <h3><code>getAdSettings()</code>
-
+  
 </h3>
 
 Get user ad settings
@@ -447,7 +447,7 @@ Get user ad settings
 
 <div id="onBannerFailedToReceive"></div>
 <h3><code>onBannerFailedToReceive()</code>
-
+  
 </h3>
 
 
@@ -464,7 +464,7 @@ Get user ad settings
 
 <div id="onBannerReceive"></div>
 <h3><code>onBannerReceive()</code>
-
+  
 </h3>
 
 
@@ -481,7 +481,7 @@ Get user ad settings
 
 <div id="onBannerPresent"></div>
 <h3><code>onBannerPresent()</code>
-
+  
 </h3>
 
 
@@ -498,7 +498,7 @@ Get user ad settings
 
 <div id="onBannerLeaveApp"></div>
 <h3><code>onBannerLeaveApp()</code>
-
+  
 </h3>
 
 
@@ -515,7 +515,7 @@ Get user ad settings
 
 <div id="onBannerDismiss"></div>
 <h3><code>onBannerDismiss()</code>
-
+  
 </h3>
 
 
@@ -532,7 +532,7 @@ Get user ad settings
 
 <div id="onInterstitialFailedToReceive"></div>
 <h3><code>onInterstitialFailedToReceive()</code>
-
+  
 </h3>
 
 
@@ -549,7 +549,7 @@ Get user ad settings
 
 <div id="onInterstitialReceive"></div>
 <h3><code>onInterstitialReceive()</code>
-
+  
 </h3>
 
 
@@ -566,7 +566,7 @@ Get user ad settings
 
 <div id="onInterstitialPresent"></div>
 <h3><code>onInterstitialPresent()</code>
-
+  
 </h3>
 
 
@@ -583,7 +583,7 @@ Get user ad settings
 
 <div id="onInterstitialLeaveApp"></div>
 <h3><code>onInterstitialLeaveApp()</code>
-
+  
 </h3>
 
 
@@ -600,7 +600,7 @@ Get user ad settings
 
 <div id="onInterstitialDismiss"></div>
 <h3><code>onInterstitialDismiss()</code>
-
+  
 </h3>
 
 

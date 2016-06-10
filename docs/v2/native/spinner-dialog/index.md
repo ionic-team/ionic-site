@@ -83,10 +83,10 @@ SpinnerDialog.hide();
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="show"></div>
 <h3><code>show(title,&nbsp;message,&nbsp;cancelCallback,&nbsp;iOSOptions)</code>
-
+  
 </h3>
 
 
@@ -183,7 +183,7 @@ Shows the spinner dialog
 
 <div id="hide"></div>
 <h3><code>hide()</code>
-
+  
 </h3>
 
 

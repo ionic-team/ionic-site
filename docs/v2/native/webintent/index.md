@@ -57,10 +57,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="ACTION_VIEW"></div>
 <h3><code>ACTION_VIEW()</code>
-
+  
 </h3>
 
 
@@ -75,7 +75,7 @@ docType: "class"
 
 <div id="EXTRA_TEXT"></div>
 <h3><code>EXTRA_TEXT()</code>
-
+  
 </h3>
 
 
@@ -90,7 +90,7 @@ docType: "class"
 
 <div id="startActivity"></div>
 <h3><code>startActivity()</code>
-
+  
 </h3>
 
 
@@ -105,7 +105,7 @@ docType: "class"
 
 <div id="hasExtra"></div>
 <h3><code>hasExtra()</code>
-
+  
 </h3>
 
 
@@ -120,7 +120,7 @@ docType: "class"
 
 <div id="getExtra"></div>
 <h3><code>getExtra()</code>
-
+  
 </h3>
 
 
@@ -135,7 +135,7 @@ docType: "class"
 
 <div id="getUri"></div>
 <h3><code>getUri()</code>
-
+  
 </h3>
 
 
@@ -150,7 +150,7 @@ docType: "class"
 
 <div id="onNewIntent"></div>
 <h3><code>onNewIntent()</code>
-
+  
 </h3>
 
 
@@ -165,7 +165,7 @@ docType: "class"
 
 <div id="sendBroadcast"></div>
 <h3><code>sendBroadcast()</code>
-
+  
 </h3>
 
 

@@ -66,10 +66,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="available"></div>
 <h3><code>available()</code>
-
+  
 </h3>
 
 Checks if the flashlight is available
@@ -89,7 +89,7 @@ Checks if the flashlight is available
 
 <div id="switchOn"></div>
 <h3><code>switchOn()</code>
-
+  
 </h3>
 
 Switches the flashlight on
@@ -109,7 +109,7 @@ Switches the flashlight on
 
 <div id="switchOff"></div>
 <h3><code>switchOff()</code>
-
+  
 </h3>
 
 Switches the flashlight off
@@ -129,7 +129,7 @@ Switches the flashlight off
 
 <div id="toggle"></div>
 <h3><code>toggle()</code>
-
+  
 </h3>
 
 Toggles the flashlight
@@ -149,7 +149,7 @@ Toggles the flashlight
 
 <div id="isSwitchedOn"></div>
 <h3><code>isSwitchedOn()</code>
-
+  
 </h3>
 
 

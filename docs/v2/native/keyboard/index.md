@@ -64,10 +64,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="hideKeyboardAccessoryBar"></div>
 <h3><code>hideKeyboardAccessoryBar(hide)</code>
-
+  
 </h3>Hide the keyboard accessory bar with the next, previous and done buttons.
 
 
@@ -108,7 +108,7 @@ docType: "class"
 
 <div id="show"></div>
 <h3><code>show()</code>
-
+  
 </h3>
 
 
@@ -133,7 +133,7 @@ Force keyboard to be shown.
 
 <div id="close"></div>
 <h3><code>close()</code>
-
+  
 </h3>
 
 
@@ -160,7 +160,7 @@ Close the keyboard if open.
 
 <div id="disableScroll"></div>
 <h3><code>disableScroll(disable)</code>
-
+  
 </h3>
 
 
@@ -210,7 +210,7 @@ Prevents the native UIScrollView from moving when an input is focused.
 
 <div id="onKeyboardShow"></div>
 <h3><code>onKeyboardShow()</code>
-
+  
 </h3>
 
 
@@ -237,7 +237,7 @@ Creates an observable that notifies you when the keyboard is shown. Unsubscribe 
 
 <div id="onKeyboardHide"></div>
 <h3><code>onKeyboardHide()</code>
-
+  
 </h3>
 
 

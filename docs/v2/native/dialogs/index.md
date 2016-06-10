@@ -66,10 +66,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="alert"></div>
 <h3><code>alert(message,&nbsp;title,&nbsp;buttonName)</code>
-
+  
 </h3>
 
 
@@ -155,7 +155,7 @@ Shows a custom alert or dialog box.
 
 <div id="confirm"></div>
 <h3><code>confirm(message,&nbsp;title,&nbsp;buttonLabels)</code>
-
+  
 </h3>
 
 
@@ -241,7 +241,7 @@ Displays a customizable confirmation dialog box.
 
 <div id="prompt"></div>
 <h3><code>prompt(message,&nbsp;title,&nbsp;buttonLabels,&nbsp;defaultText)</code>
-
+  
 </h3>
 
 
@@ -344,7 +344,7 @@ Displays a native dialog box that is more customizable than the browser's prompt
 
 <div id="beep"></div>
 <h3><code>beep(times)</code>
-
+  
 </h3>
 
 

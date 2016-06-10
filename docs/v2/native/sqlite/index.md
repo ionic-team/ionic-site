@@ -57,10 +57,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="echoTest"></div>
 <h3><code>echoTest()</code>
-
+  
 </h3>
 
 
@@ -75,7 +75,7 @@ docType: "class"
 
 <div id="deleteDatabase"></div>
 <h3><code>deleteDatabase()</code>
-
+  
 </h3>
 
 
@@ -91,13 +91,13 @@ docType: "class"
 
 <!-- methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2>Instance Members</h2>
 
 <div id="databaseFeatures"></div>
 
 <h3>
-  <code>databaseFeatures()</code>
-
+  <code>databaseFeatures</code>
+  
 
 </h3>
 
@@ -116,7 +116,7 @@ docType: "class"
 
 <h3>
   <code>addTransaction()</code>
-
+  
 
 </h3>
 
@@ -135,7 +135,7 @@ docType: "class"
 
 <h3>
   <code>transaction()</code>
-
+  
 
 </h3>
 
@@ -154,7 +154,7 @@ docType: "class"
 
 <h3>
   <code>readTransaction()</code>
-
+  
 
 </h3>
 
@@ -173,7 +173,7 @@ docType: "class"
 
 <h3>
   <code>startNextTransaction()</code>
-
+  
 
 </h3>
 
@@ -192,7 +192,7 @@ docType: "class"
 
 <h3>
   <code>close()</code>
-
+  
 
 </h3>
 
@@ -211,7 +211,7 @@ docType: "class"
 
 <h3>
   <code>start()</code>
-
+  
 
 </h3>
 
@@ -230,7 +230,7 @@ docType: "class"
 
 <h3>
   <code>executeSql()</code>
-
+  
 
 </h3>
 
@@ -249,7 +249,7 @@ docType: "class"
 
 <h3>
   <code>addSatement()</code>
-
+  
 
 </h3>
 
@@ -268,7 +268,7 @@ docType: "class"
 
 <h3>
   <code>sqlBatch()</code>
-
+  
 
 </h3>
 
@@ -287,7 +287,7 @@ docType: "class"
 
 <h3>
   <code>abortallPendingTransactions()</code>
-
+  
 
 </h3>
 
@@ -306,7 +306,7 @@ docType: "class"
 
 <h3>
   <code>handleStatementSuccess()</code>
-
+  
 
 </h3>
 
@@ -325,7 +325,7 @@ docType: "class"
 
 <h3>
   <code>handleStatementFailure()</code>
-
+  
 
 </h3>
 
@@ -344,7 +344,7 @@ docType: "class"
 
 <h3>
   <code>run()</code>
-
+  
 
 </h3>
 
@@ -363,7 +363,7 @@ docType: "class"
 
 <h3>
   <code>abort()</code>
-
+  
 
 </h3>
 
@@ -382,7 +382,7 @@ docType: "class"
 
 <h3>
   <code>finish()</code>
-
+  
 
 </h3>
 
@@ -401,7 +401,7 @@ docType: "class"
 
 <h3>
   <code>abortFromQ()</code>
-
+  
 
 </h3>
 

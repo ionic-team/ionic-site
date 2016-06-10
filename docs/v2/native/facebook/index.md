@@ -100,10 +100,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="browserInit"></div>
 <h3><code>browserInit(appId,&nbsp;version)</code>
-
+  
 </h3>
 
 Browser wrapper
@@ -162,7 +162,7 @@ Browser wrapper
 
 <div id="login"></div>
 <h3><code>login(permissions)</code>
-
+  
 </h3>
 
 Login to Facebook to authenticate this app.
@@ -229,7 +229,7 @@ Login to Facebook to authenticate this app.
 
 <div id="logout"></div>
 <h3><code>logout()</code>
-
+  
 </h3>
 
 Logout of Facebook.
@@ -253,7 +253,7 @@ For more info see the [Facebook docs](https://developers.facebook.com/docs/refer
 
 <div id="getLoginStatus"></div>
 <h3><code>getLoginStatus()</code>
-
+  
 </h3>
 
 Determine if a user is logged in to Facebook and has authenticated your app.  There are three possible states for a user:
@@ -297,7 +297,7 @@ For more information see the [Facebook docs](https://developers.facebook.com/doc
 
 <div id="getAccessToken"></div>
 <h3><code>getAccessToken()</code>
-
+  
 </h3>
 
 Get a Facebook access token for using Facebook services.
@@ -320,7 +320,7 @@ Get a Facebook access token for using Facebook services.
 
 <div id="showDialog"></div>
 <h3><code>showDialog()</code>
-
+  
 </h3>
 
 Show one of various Facebook dialogs. Example of options for a Share dialog:
@@ -354,7 +354,7 @@ For more options see the [Cordova plugin docs](https://github.com/jeduan/cordova
 
 <div id="api"></div>
 <h3><code>api(requestPath,&nbsp;permissions)</code>
-
+  
 </h3>
 
 Make a call to Facebook Graph API. Can take additional permissions beyond those granted on login.
@@ -430,7 +430,7 @@ For more information see:
 
 <div id="logEvent"></div>
 <h3><code>logEvent(name,&nbsp;params,&nbsp;valueToSum)</code>
-
+  
 </h3>
 
 Log an event.  For more information see the Events section above.
@@ -515,7 +515,7 @@ Log an event.  For more information see the Events section above.
 
 <div id="logPurchase"></div>
 <h3><code>logPurchase(value,&nbsp;currency)</code>
-
+  
 </h3>
 
 Log a purchase. For more information see the Events section above.
@@ -585,7 +585,7 @@ Log a purchase. For more information see the Events section above.
 
 <div id="appInvite"></div>
 <h3><code>appInvite(options)</code>
-
+  
 </h3>
 
 Open App Invite dialog. Does not require login.

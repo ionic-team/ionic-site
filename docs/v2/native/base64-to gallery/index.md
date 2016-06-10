@@ -88,13 +88,13 @@ Base64ToGallery.base64ToGallery(base64Data, &#39;img_&#39;).then(
 
 <!-- methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2>Instance Members</h2>
 
 <div id="base64ToGallery"></div>
 
 <h3>
   <code>base64ToGallery(data,&nbsp;prefix)</code>
-
+  
 
 </h3>
 

@@ -81,10 +81,10 @@ subscription.unsubscribe();
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="getCurrentAcceleration"></div>
 <h3><code>getCurrentAcceleration()</code>
-
+  
 </h3>
 
 Get the current acceleration along the x, y, and z axes.
@@ -105,7 +105,7 @@ Get the current acceleration along the x, y, and z axes.
 
 <div id="watchAcceleration"></div>
 <h3><code>watchAcceleration(options)</code>
-
+  
 </h3>
 
 

@@ -73,10 +73,10 @@ Contacts.create({
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="create"></div>
 <h3><code>create(options)</code>
-
+  
 </h3>
 
 
@@ -129,7 +129,7 @@ Create a new Contact object.
 
 <div id="find"></div>
 <h3><code>find(fields,&nbsp;options)</code>
-
+  
 </h3>
 
 
@@ -209,7 +209,7 @@ Example: Contacts.find(['*'], { filter: 'Max' }) // will search for a displayNam
 
 <div id="pickContact"></div>
 <h3><code>pickContact()</code>
-
+  
 </h3>
 
 Select a single Contact.

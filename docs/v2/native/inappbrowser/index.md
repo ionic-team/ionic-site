@@ -57,10 +57,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="open"></div>
 <h3><code>open(url,&nbsp;target,&nbsp;options)</code>
-
+  
 </h3>
 
 

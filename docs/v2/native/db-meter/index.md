@@ -97,10 +97,10 @@ DBMeter.delete().then(
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="start"></div>
 <h3><code>start()</code>
-
+  
 </h3>
 
 
@@ -122,7 +122,7 @@ Starts listening
 
 <div id="stop"></div>
 <h3><code>stop()</code>
-
+  
 </h3>
 
 Stops listening
@@ -136,7 +136,7 @@ Stops listening
 
 <div id="isListening"></div>
 <h3><code>isListening()</code>
-
+  
 </h3>
 
 Check if the DB Meter is listening
@@ -156,7 +156,7 @@ Check if the DB Meter is listening
 
 <div id="delete"></div>
 <h3><code>delete()</code>
-
+  
 </h3>
 
 Delete the DB Meter instance

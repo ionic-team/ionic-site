@@ -81,10 +81,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="share"></div>
 <h3><code>share(message,&nbsp;subject,&nbsp;file,&nbsp;url)</code>
-
+  
 </h3>
 
 
@@ -181,7 +181,7 @@ Shares using the share sheet
 
 <div id="canShareVia"></div>
 <h3><code>canShareVia(appName)</code>
-
+  
 </h3>
 
 
@@ -232,7 +232,7 @@ Checks if you can share via a specific app.
 
 <div id="shareViaTwitter"></div>
 <h3><code>shareViaTwitter(message,&nbsp;image,&nbsp;url)</code>
-
+  
 </h3>
 
 
@@ -314,7 +314,7 @@ Shares directly to Twitter
 
 <div id="shareViaFacebook"></div>
 <h3><code>shareViaFacebook(message,&nbsp;image,&nbsp;url)</code>
-
+  
 </h3>
 
 
@@ -396,7 +396,7 @@ Shares directly to Facebook
 
 <div id="shareViaFacebookWithPasteMessageHint"></div>
 <h3><code>shareViaFacebookWithPasteMessageHint(message,&nbsp;image,&nbsp;url,&nbsp;pasteMessageHint)</code>
-
+  
 </h3>
 
 
@@ -494,7 +494,7 @@ Shares directly to Facebook with a paste message hint
 
 <div id="shareViaInstagram"></div>
 <h3><code>shareViaInstagram(message,&nbsp;image)</code>
-
+  
 </h3>
 
 
@@ -560,7 +560,7 @@ Shares directly to Instagram
 
 <div id="shareViaWhatsApp"></div>
 <h3><code>shareViaWhatsApp(message,&nbsp;image,&nbsp;url)</code>
-
+  
 </h3>
 
 
@@ -642,7 +642,7 @@ Shares directly to WhatsApp
 
 <div id="shareViaWhatsAppToReceiver"></div>
 <h3><code>shareViaWhatsAppToReceiver(receiver,&nbsp;message,&nbsp;image,&nbsp;url)</code>
-
+  
 </h3>
 
 
@@ -744,7 +744,7 @@ Shares directly to a WhatsApp Contact
 
 <div id="shareViaSMS"></div>
 <h3><code>shareViaSMS(messge,&nbsp;phoneNumber)</code>
-
+  
 </h3>
 
 
@@ -812,7 +812,7 @@ Share via SMS
 
 <div id="shareViaEmail"></div>
 <h3><code>shareViaEmail(message,&nbsp;subject,&nbsp;to,&nbsp;cc,&nbsp;bcc,&nbsp;files)</code>
-
+  
 </h3>
 
 

@@ -72,10 +72,10 @@ map.on(GoogleMapsEvent.MAP_READY).subscribe(() =&gt; console.log(&quot;Map is re
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="isAvailable"></div>
 <h3><code>isAvailable()</code>
-
+  
 </h3>
 
 Checks if a map object has been created.
@@ -96,13 +96,13 @@ Checks if a map object has been created.
 
 <!-- methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2>Instance Members</h2>
 
 <div id="on"></div>
 
 <h3>
   <code>on()</code>
-
+  
 
 </h3>
 
@@ -121,7 +121,7 @@ Checks if a map object has been created.
 
 <h3>
   <code>one()</code>
-
+  
 
 </h3>
 
@@ -140,7 +140,7 @@ Checks if a map object has been created.
 
 <h3>
   <code>setDebuggable()</code>
-
+  
 
 </h3>
 
@@ -159,7 +159,7 @@ Checks if a map object has been created.
 
 <h3>
   <code>setClickable()</code>
-
+  
 
 </h3>
 
@@ -178,7 +178,7 @@ Checks if a map object has been created.
 
 <h3>
   <code>getCameraPosition()</code>
-
+  
 
 </h3>
 
@@ -198,7 +198,7 @@ Get the position of the camera
 
 <h3>
   <code>getMyLocation()</code>
-
+  
 
 </h3>
 
@@ -218,7 +218,7 @@ Get the location of the user
 
 <h3>
   <code>getVisibleRegion()</code>
-
+  
 
 </h3>
 
@@ -238,7 +238,7 @@ Get the visible region
 
 <h3>
   <code>showDialog()</code>
-
+  
 
 </h3>
 
@@ -257,7 +257,7 @@ Get the visible region
 
 <h3>
   <code>closeDialog()</code>
-
+  
 
 </h3>
 
@@ -276,7 +276,7 @@ Get the visible region
 
 <h3>
   <code>getLicenseInfo()</code>
-
+  
 
 </h3>
 
@@ -295,7 +295,7 @@ Get the visible region
 
 <h3>
   <code>setCenter()</code>
-
+  
 
 </h3>
 
@@ -314,7 +314,7 @@ Get the visible region
 
 <h3>
   <code>setZoom()</code>
-
+  
 
 </h3>
 
@@ -333,7 +333,7 @@ Get the visible region
 
 <h3>
   <code>setMapTypeId()</code>
-
+  
 
 </h3>
 
@@ -352,7 +352,7 @@ Get the visible region
 
 <h3>
   <code>setTilt()</code>
-
+  
 
 </h3>
 
@@ -371,7 +371,7 @@ Get the visible region
 
 <h3>
   <code>animateCamera()</code>
-
+  
 
 </h3>
 
@@ -390,7 +390,7 @@ Get the visible region
 
 <h3>
   <code>moveCamera()</code>
-
+  
 
 </h3>
 
@@ -409,7 +409,7 @@ Get the visible region
 
 <h3>
   <code>setMyLocationEnabled()</code>
-
+  
 
 </h3>
 
@@ -428,7 +428,7 @@ Get the visible region
 
 <h3>
   <code>setIndoorEnabled()</code>
-
+  
 
 </h3>
 
@@ -447,7 +447,7 @@ Get the visible region
 
 <h3>
   <code>setTrafficEnabled()</code>
-
+  
 
 </h3>
 
@@ -466,7 +466,7 @@ Get the visible region
 
 <h3>
   <code>setCompassEnabled()</code>
-
+  
 
 </h3>
 
@@ -485,7 +485,7 @@ Get the visible region
 
 <h3>
   <code>setAllGesturesEnabled()</code>
-
+  
 
 </h3>
 
@@ -504,7 +504,7 @@ Get the visible region
 
 <h3>
   <code>addMarker()</code>
-
+  
 
 </h3>
 
@@ -523,7 +523,7 @@ Get the visible region
 
 <h3>
   <code>addCircle()</code>
-
+  
 
 </h3>
 
@@ -542,7 +542,7 @@ Get the visible region
 
 <h3>
   <code>addPolygon()</code>
-
+  
 
 </h3>
 
@@ -561,7 +561,7 @@ Get the visible region
 
 <h3>
   <code>addPolyline()</code>
-
+  
 
 </h3>
 
@@ -580,7 +580,7 @@ Get the visible region
 
 <h3>
   <code>addTileOverlay()</code>
-
+  
 
 </h3>
 
@@ -599,7 +599,7 @@ Get the visible region
 
 <h3>
   <code>addGroundOverlay()</code>
-
+  
 
 </h3>
 
@@ -618,7 +618,7 @@ Get the visible region
 
 <h3>
   <code>addKmlOverlay()</code>
-
+  
 
 </h3>
 
@@ -637,7 +637,7 @@ Get the visible region
 
 <h3>
   <code>setDiv()</code>
-
+  
 
 </h3>
 
@@ -656,7 +656,7 @@ Get the visible region
 
 <h3>
   <code>setVisible()</code>
-
+  
 
 </h3>
 
@@ -675,7 +675,7 @@ Get the visible region
 
 <h3>
   <code>setOptions()</code>
-
+  
 
 </h3>
 
@@ -694,7 +694,7 @@ Get the visible region
 
 <h3>
   <code>setBackgroundColor()</code>
-
+  
 
 </h3>
 
@@ -713,7 +713,7 @@ Get the visible region
 
 <h3>
   <code>setPadding()</code>
-
+  
 
 </h3>
 
@@ -732,7 +732,7 @@ Get the visible region
 
 <h3>
   <code>clear()</code>
-
+  
 
 </h3>
 
@@ -751,7 +751,7 @@ Get the visible region
 
 <h3>
   <code>refreshLayout()</code>
-
+  
 
 </h3>
 
@@ -770,7 +770,7 @@ Get the visible region
 
 <h3>
   <code>fromLatLngToPoint()</code>
-
+  
 
 </h3>
 
@@ -789,7 +789,7 @@ Get the visible region
 
 <h3>
   <code>fromPointToLatLng()</code>
-
+  
 
 </h3>
 
@@ -808,7 +808,7 @@ Get the visible region
 
 <h3>
   <code>toDataURL()</code>
-
+  
 
 </h3>
 
@@ -827,7 +827,7 @@ Get the visible region
 
 <h3>
   <code>remove()</code>
-
+  
 
 </h3>
 
@@ -846,7 +846,7 @@ Get the visible region
 
 <h3>
   <code>panBy()</code>
-
+  
 
 </h3>
 

@@ -103,10 +103,10 @@ SafariViewController.isAvailable()
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="isAvailable"></div>
 <h3><code>isAvailable()</code>
-
+  
 </h3>
 
 Checks if SafariViewController is available
@@ -122,7 +122,7 @@ Checks if SafariViewController is available
 
 <div id="show"></div>
 <h3><code>show(options)</code>
-
+  
 </h3>
 
 
@@ -167,7 +167,7 @@ Shows Safari View Controller
 
 <div id="hide"></div>
 <h3><code>hide()</code>
-
+  
 </h3>
 
 
@@ -185,7 +185,7 @@ Hides Safari View Controller
 
 <div id="connectToService"></div>
 <h3><code>connectToService()</code>
-
+  
 </h3>
 
 Tries to connect to the  Chrome's custom tabs service. you must call this method before calling any of the other methods listed below.
@@ -201,7 +201,7 @@ Tries to connect to the  Chrome's custom tabs service. you must call this method
 
 <div id="warmUp"></div>
 <h3><code>warmUp()</code>
-
+  
 </h3>
 
 Call this method whenever there's a chance the user will open an external url.
@@ -217,7 +217,7 @@ Call this method whenever there's a chance the user will open an external url.
 
 <div id="mayLaunchUrl"></div>
 <h3><code>mayLaunchUrl(url)</code>
-
+  
 </h3>
 
 For even better performance optimization, call this methods if there's more than a 50% chance the user will open a certain URL.

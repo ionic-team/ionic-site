@@ -81,10 +81,10 @@ subscription.unsubscribe();
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="getCurrentHeading"></div>
 <h3><code>getCurrentHeading()</code>
-
+  
 </h3>
 
 Get the current compass heading.
@@ -104,7 +104,7 @@ Get the current compass heading.
 
 <div id="watchHeading"></div>
 <h3><code>watchHeading(options)</code>
-
+  
 </h3>
 
 

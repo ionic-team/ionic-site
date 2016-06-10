@@ -114,10 +114,10 @@ ThreeDeeTouch.configureQuickActions(actions);
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="isAvailable"></div>
 <h3><code>isAvailable()</code>
-
+  
 </h3>
 
 You need an iPhone 6S or some future tech to use the features of this plugin, so you can check at runtime if the user's device is supported.
@@ -137,7 +137,7 @@ You need an iPhone 6S or some future tech to use the features of this plugin, so
 
 <div id="watchForceTouches"></div>
 <h3><code>watchForceTouches()</code>
-
+  
 </h3>
 
 
@@ -159,7 +159,7 @@ You can get a notification when the user force touches the webview. The plugin d
 
 <div id="configureQuickActions"></div>
 <h3><code>configureQuickActions()</code>
-
+  
 </h3>
 
 
@@ -176,7 +176,7 @@ You can get a notification when the user force touches the webview. The plugin d
 
 <div id="onHomeIconPressed"></div>
 <h3><code>onHomeIconPressed()</code>
-
+  
 </h3>
 
 
@@ -198,7 +198,7 @@ When a home icon is pressed, your app launches and this JS callback is invoked.
 
 <div id="enableLinkPreview"></div>
 <h3><code>enableLinkPreview()</code>
-
+  
 </h3>
 
 
@@ -216,7 +216,7 @@ UIWebView and WKWebView (the webviews powering Cordova apps) don't allow the fan
 
 <div id="disableLinkPreview"></div>
 <h3><code>disableLinkPreview()</code>
-
+  
 </h3>
 
 

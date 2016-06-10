@@ -90,10 +90,10 @@ Badge.clear();
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="clear"></div>
 <h3><code>clear()</code>
-
+  
 </h3>
 
 Clear the badge of the app icon.
@@ -109,7 +109,7 @@ Clear the badge of the app icon.
 
 <div id="set"></div>
 <h3><code>set(badgeNumber)</code>
-
+  
 </h3>
 
 Set the badge of the app icon.
@@ -159,7 +159,7 @@ Set the badge of the app icon.
 
 <div id="get"></div>
 <h3><code>get()</code>
-
+  
 </h3>
 
 Get the badge of the app icon.
@@ -179,7 +179,7 @@ Get the badge of the app icon.
 
 <div id="increase"></div>
 <h3><code>increase(increaseBy)</code>
-
+  
 </h3>
 
 Increase the badge number.
@@ -229,7 +229,7 @@ Increase the badge number.
 
 <div id="decrease"></div>
 <h3><code>decrease(decreaseBy)</code>
-
+  
 </h3>
 
 Decrease the badge number.
@@ -279,7 +279,7 @@ Decrease the badge number.
 
 <div id="hasPermission"></div>
 <h3><code>hasPermission()</code>
-
+  
 </h3>
 
 Determine if the app has permission to show badges.
@@ -295,7 +295,7 @@ Determine if the app has permission to show badges.
 
 <div id="registerPermission"></div>
 <h3><code>registerPermission()</code>
-
+  
 </h3>
 
 Register permission to set badge notifications

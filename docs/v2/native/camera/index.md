@@ -98,10 +98,10 @@ Camera.getPicture(options).then((imageData) =&gt; {
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="getPicture"></div>
 <h3><code>getPicture(options)</code>
-
+  
 </h3>
 
 
@@ -154,7 +154,7 @@ Take a picture or video, or load one from the library.
 
 <div id="cleanup"></div>
 <h3><code>cleanup()</code>
-
+  
 </h3>
 
 
@@ -182,7 +182,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
 
 <div id="DestinationType"></div>
 <h3><code>DestinationType()</code>
-
+  
 </h3>
 
 
@@ -194,7 +194,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
 
 <div id="EncodingType"></div>
 <h3><code>EncodingType()</code>
-
+  
 </h3>
 
 
@@ -206,7 +206,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
 
 <div id="MediaType"></div>
 <h3><code>MediaType()</code>
-
+  
 </h3>
 
 
@@ -218,7 +218,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
 
 <div id="PictureSourceType"></div>
 <h3><code>PictureSourceType()</code>
-
+  
 </h3>
 
 
@@ -230,7 +230,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
 
 <div id="PopoverArrowDirection"></div>
 <h3><code>PopoverArrowDirection()</code>
-
+  
 </h3>Matches iOS UIPopoverArrowDirection constants to specify arrow location on popover.
 
 
@@ -242,7 +242,7 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
 
 <div id="Direction"></div>
 <h3><code>Direction()</code>
-
+  
 </h3>
 
 

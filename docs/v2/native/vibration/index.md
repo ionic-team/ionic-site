@@ -80,10 +80,10 @@ Vibration.vibrate(0);
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="vibrate"></div>
 <h3><code>vibrate(time)</code>
-
+  
 </h3>
 
 

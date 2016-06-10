@@ -199,10 +199,10 @@ function bytesToString(buffer) {
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="scan"></div>
 <h3><code>scan(services,&nbsp;seconds)</code>
-
+  
 </h3>
 
 
@@ -274,7 +274,7 @@ Scan and discover BLE peripherals for the specified amount of time.
 
 <div id="startScan"></div>
 <h3><code>startScan(services)</code>
-
+  
 </h3>
 
 
@@ -329,7 +329,7 @@ Scan and discover BLE peripherals until `stopScan` is called.
 
 <div id="stopScan"></div>
 <h3><code>stopScan()</code>
-
+  
 </h3>
 
 Stop a scan started by `startScan`.
@@ -352,7 +352,7 @@ Stop a scan started by `startScan`.
 
 <div id="connect"></div>
 <h3><code>connect(deviceId)</code>
-
+  
 </h3>
 
 
@@ -406,7 +406,7 @@ Connect to a peripheral.
 
 <div id="disconnect"></div>
 <h3><code>disconnect(deviceId)</code>
-
+  
 </h3>
 
 Disconnect from a peripheral.
@@ -458,7 +458,7 @@ Disconnect from a peripheral.
 
 <div id="read"></div>
 <h3><code>read(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code>
-
+  
 </h3>
 
 Read the value of a characteristic.
@@ -545,7 +545,7 @@ Read the value of a characteristic.
 
 <div id="write"></div>
 <h3><code>write(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code>
-
+  
 </h3>
 
 Write the value of a characteristic.
@@ -648,7 +648,7 @@ Write the value of a characteristic.
 
 <div id="writeWithoutResponse"></div>
 <h3><code>writeWithoutResponse(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID,&nbsp;value)</code>
-
+  
 </h3>
 
 Write the value of a characteristic without waiting for confirmation from the peripheral.
@@ -752,7 +752,7 @@ Write the value of a characteristic without waiting for confirmation from the pe
 
 <div id="startNotification"></div>
 <h3><code>startNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code>
-
+  
 </h3>
 
 
@@ -841,7 +841,7 @@ Register to be notified when the value of a characteristic changes.
 
 <div id="stopNotification"></div>
 <h3><code>stopNotification(deviceId,&nbsp;serviceUUID,&nbsp;characteristicUUID)</code>
-
+  
 </h3>
 
 Stop being notified when the value of a characteristic changes.
@@ -928,7 +928,7 @@ Stop being notified when the value of a characteristic changes.
 
 <div id="isConnected"></div>
 <h3><code>isConnected(deviceId)</code>
-
+  
 </h3>
 
 Report the connection status.
@@ -981,7 +981,7 @@ Report the connection status.
 
 <div id="isEnabled"></div>
 <h3><code>isEnabled()</code>
-
+  
 </h3>
 
 Report if bluetooth is enabled.
@@ -1004,7 +1004,7 @@ Report if bluetooth is enabled.
 
 <div id="showBluetoothSettings"></div>
 <h3><code>showBluetoothSettings()</code>
-
+  
 </h3>
 
 Open System Bluetooth settings (Android only).
@@ -1027,7 +1027,7 @@ Open System Bluetooth settings (Android only).
 
 <div id="enable"></div>
 <h3><code>enable()</code>
-
+  
 </h3>
 
 Enable Bluetooth on the device (Android only).

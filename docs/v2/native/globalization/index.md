@@ -64,10 +64,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="getPreferredLanguage"></div>
 <h3><code>getPreferredLanguage()</code>
-
+  
 </h3>
 
 Returns the BCP-47 compliant language identifier tag to the successCallback with a properties object as a parameter. That object should have a value property with a String value.
@@ -87,7 +87,7 @@ Returns the BCP-47 compliant language identifier tag to the successCallback with
 
 <div id="getLocaleName"></div>
 <h3><code>getLocaleName()</code>
-
+  
 </h3>
 
 Returns the BCP 47 compliant locale identifier string to the successCallback with a properties object as a parameter.
@@ -107,7 +107,7 @@ Returns the BCP 47 compliant locale identifier string to the successCallback wit
 
 <div id="dateToString"></div>
 <h3><code>dateToString(date,&nbsp;options)</code>
-
+  
 </h3>
 
 
@@ -174,7 +174,7 @@ Converts date to string
 
 <div id="stringToDate"></div>
 <h3><code>stringToDate(dateString,&nbsp;options)</code>
-
+  
 </h3>
 
 
@@ -235,7 +235,7 @@ Converts date to string
 
 <div id="getDatePattern"></div>
 <h3><code>getDatePattern(options)</code>
-
+  
 </h3>
 
 
@@ -280,7 +280,7 @@ Converts date to string
 
 <div id="getDateNames"></div>
 <h3><code>getDateNames(options)</code>
-
+  
 </h3>
 
 
@@ -325,7 +325,7 @@ Converts date to string
 
 <div id="isDayLightSavingsTime"></div>
 <h3><code>isDayLightSavingsTime(date)</code>
-
+  
 </h3>
 
 Check if day light saving is active
@@ -368,7 +368,7 @@ Check if day light saving is active
 
 <div id="getFirstDayOfWeek"></div>
 <h3><code>getFirstDayOfWeek()</code>
-
+  
 </h3>
 
 Get first day of week
@@ -384,7 +384,7 @@ Get first day of week
 
 <div id="numberToString"></div>
 <h3><code>numberToString(options)</code>
-
+  
 </h3>
 
 
@@ -429,7 +429,7 @@ Get first day of week
 
 <div id="stringToNumber"></div>
 <h3><code>stringToNumber(stringToConvert,&nbsp;options)</code>
-
+  
 </h3>
 
 
@@ -490,7 +490,7 @@ Get first day of week
 
 <div id="getNumberPattern"></div>
 <h3><code>getNumberPattern(options)</code>
-
+  
 </h3>
 
 
@@ -535,7 +535,7 @@ Get first day of week
 
 <div id="getCurrencyPattern"></div>
 <h3><code>getCurrencyPattern(currencyCode)</code>
-
+  
 </h3>
 
 

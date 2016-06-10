@@ -74,10 +74,10 @@ Toast.show(&quot;I&#39;m a toast&quot;, 5000, &quot;center&quot;).subscribe(
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="show"></div>
 <h3><code>show(message,&nbsp;duration,&nbsp;position)</code>
-
+  
 </h3>
 
 
@@ -164,7 +164,7 @@ Show a native toast for the given duration at the specified position.
 
 <div id="hide"></div>
 <h3><code>hide()</code>
-
+  
 </h3>
 
 Manually hide any currently visible toast.
@@ -184,7 +184,7 @@ Manually hide any currently visible toast.
 
 <div id="showWithOptions"></div>
 <h3><code>showWithOptions(options)</code>
-
+  
 </h3>
 
 
@@ -241,7 +241,7 @@ Show a native toast with the given options.
 
 <div id="showShortTop"></div>
 <h3><code>showShortTop()</code>
-
+  
 </h3>
 
 
@@ -263,7 +263,7 @@ Shorthand for `show(message, 'short', 'top')`.
 
 <div id="showShortCenter"></div>
 <h3><code>showShortCenter()</code>
-
+  
 </h3>
 
 
@@ -285,7 +285,7 @@ Shorthand for `show(message, 'short', 'center')`.
 
 <div id="showShortBottom"></div>
 <h3><code>showShortBottom()</code>
-
+  
 </h3>
 
 
@@ -307,7 +307,7 @@ Shorthand for `show(message, 'short', 'bottom')`.
 
 <div id="showLongTop"></div>
 <h3><code>showLongTop()</code>
-
+  
 </h3>
 
 
@@ -329,7 +329,7 @@ Shorthand for `show(message, 'long', 'top')`.
 
 <div id="showLongCenter"></div>
 <h3><code>showLongCenter()</code>
-
+  
 </h3>
 
 
@@ -351,7 +351,7 @@ Shorthand for `show(message, 'long', 'center')`.
 
 <div id="showLongBottom"></div>
 <h3><code>showLongBottom()</code>
-
+  
 </h3>
 
 

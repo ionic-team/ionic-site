@@ -92,10 +92,10 @@ AppAvailability.check(app)
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="check"></div>
 <h3><code>check(app)</code>
-
+  
 </h3>
 
 Checks if an app is available on device

@@ -91,10 +91,10 @@ CardIO.canScan()
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="canScan"></div>
 <h3><code>canScan()</code>
-
+  
 </h3>
 
 Check whether card scanning is currently available. (May vary by
@@ -111,7 +111,7 @@ device, OS version, network connectivity, etc.)
 
 <div id="scan"></div>
 <h3><code>scan(options)</code>
-
+  
 </h3>
 
 Scan a credit card with card.io.
@@ -154,7 +154,7 @@ Scan a credit card with card.io.
 
 <div id="version"></div>
 <h3><code>version()</code>
-
+  
 </h3>
 
 Retrieve the version of the card.io library. Useful when contacting support.

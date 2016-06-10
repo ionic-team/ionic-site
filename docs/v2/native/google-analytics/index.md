@@ -75,10 +75,10 @@ Prerequisites:</p>
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="startTrackerWithId"></div>
 <h3><code>startTrackerWithId(id)</code>
-
+  
 </h3>
 
 In your 'deviceready' handler, set up your Analytics tracker.
@@ -123,7 +123,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/
 
 <div id="trackView"></div>
 <h3><code>trackView(title)</code>
-
+  
 </h3>
 
 Track a screen
@@ -169,7 +169,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/screens
 
 <div id="trackEvent"></div>
 <h3><code>trackEvent(category,&nbsp;action,&nbsp;label,&nbsp;value)</code>
-
+  
 </h3>
 
 Track an event
@@ -261,7 +261,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/events
 
 <div id="trackException"></div>
 <h3><code>trackException(description,&nbsp;fatal)</code>
-
+  
 </h3>
 
 Track an exception
@@ -320,7 +320,7 @@ Track an exception
 
 <div id="trackTiming"></div>
 <h3><code>trackTiming(category,&nbsp;intervalInMilliseconds,&nbsp;variable,&nbsp;label)</code>
-
+  
 </h3>
 
 Track User Timing (App Speed)
@@ -411,7 +411,7 @@ Track User Timing (App Speed)
 
 <div id="addTransaction"></div>
 <h3><code>addTransaction(id,&nbsp;affiliation,&nbsp;revenue,&nbsp;tax,&nbsp;shipping,&nbsp;currencyCode)</code>
-
+  
 </h3>
 
 Add a Transaction (Ecommerce)
@@ -535,7 +535,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
 
 <div id="addTransactionItem"></div>
 <h3><code>addTransactionItem(id,&nbsp;name,&nbsp;sku,&nbsp;category,&nbsp;price,&nbsp;quantity,&nbsp;currencyCode)</code>
-
+  
 </h3>
 
 Add a Transaction Item (Ecommerce)
@@ -675,7 +675,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommer
 
 <div id="addCustomDimension"></div>
 <h3><code>addCustomDimension(key,&nbsp;value)</code>
-
+  
 </h3>
 
 Add a Custom Dimension
@@ -735,7 +735,7 @@ https://developers.google.com/analytics/devguides/platform/customdimsmets
 
 <div id="setUserId"></div>
 <h3><code>setUserId(id)</code>
-
+  
 </h3>
 
 Set a UserId
@@ -779,7 +779,7 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/user-id
 
 <div id="debugMode"></div>
 <h3><code>debugMode()</code>
-
+  
 </h3>
 
 Enable verbose logging
@@ -795,7 +795,7 @@ Enable verbose logging
 
 <div id="enableUncaughtExceptionReporting"></div>
 <h3><code>enableUncaughtExceptionReporting(shouldEnable)</code>
-
+  
 </h3>
 
 Enable/disable automatic reporting of uncaught exceptions

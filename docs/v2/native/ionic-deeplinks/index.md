@@ -77,10 +77,10 @@ and Universal App Links.</p>
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="route"></div>
 <h3><code>route(Define)</code>
-
+  
 </h3>
 
 
@@ -137,7 +137,7 @@ is rejected if a deeplink comes through that does not match a given path.
 
 <div id="routeWithNavController"></div>
 <h3><code>routeWithNavController(Define)</code>
-
+  
 </h3>
 
 

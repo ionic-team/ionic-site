@@ -67,10 +67,10 @@ fileTransfer.abort();</p>
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="FILE_NOT_FOUND_ERR"></div>
 <h3><code>FILE_NOT_FOUND_ERR()</code>
-
+  
 </h3>
 
 
@@ -83,7 +83,7 @@ fileTransfer.abort();</p>
 
 <div id="INVALID_URL_ERR"></div>
 <h3><code>INVALID_URL_ERR()</code>
-
+  
 </h3>
 
 
@@ -96,7 +96,7 @@ fileTransfer.abort();</p>
 
 <div id="CONNECTION_ERR"></div>
 <h3><code>CONNECTION_ERR()</code>
-
+  
 </h3>
 
 
@@ -109,7 +109,7 @@ fileTransfer.abort();</p>
 
 <div id="ABORT_ERR"></div>
 <h3><code>ABORT_ERR()</code>
-
+  
 </h3>
 
 
@@ -122,7 +122,7 @@ fileTransfer.abort();</p>
 
 <div id="NOT_MODIFIED_ERR"></div>
 <h3><code>NOT_MODIFIED_ERR()</code>
-
+  
 </h3>
 
 
@@ -136,13 +136,13 @@ fileTransfer.abort();</p>
 
 <!-- methods on the class -->
 
-<h2>Instance Methods</h2>
+<h2>Instance Members</h2>
 
 <div id="upload"></div>
 
 <h3>
   <code>upload(fileUrl,&nbsp;url,&nbsp;options,&nbsp;trustAllHosts:)</code>
-
+  
 
 </h3>
 
@@ -250,7 +250,7 @@ Sends a file to a server.
 
 <h3>
   <code>download(source,&nbsp;target,&nbsp;trustAllHosts,&nbsp;Optional)</code>
-
+  
 
 </h3>
 
@@ -358,7 +358,7 @@ Downloads a file from server.
 
 <h3>
   <code>onProgress(Listener)</code>
-
+  
 
 </h3>
 
@@ -406,7 +406,7 @@ Registers a listener that gets called whenever a new chunk of data is transferre
 
 <h3>
   <code>abort()</code>
-
+  
 
 </h3>
 

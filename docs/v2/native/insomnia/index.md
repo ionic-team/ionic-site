@@ -90,10 +90,10 @@ Insomnia.allowSleepAgain()
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="keepAwake"></div>
 <h3><code>keepAwake()</code>
-
+  
 </h3>
 
 Keeps awake the application
@@ -113,7 +113,7 @@ Keeps awake the application
 
 <div id="allowSleepAgain"></div>
 <h3><code>allowSleepAgain()</code>
-
+  
 </h3>
 
 Allows the application to sleep again

@@ -66,10 +66,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="get"></div>
 <h3><code>get()</code>
-
+  
 </h3>
 
 Gets all accounts registered on the Android Device
@@ -85,7 +85,7 @@ Gets all accounts registered on the Android Device
 
 <div id="getByType"></div>
 <h3><code>getByType()</code>
-
+  
 </h3>
 
 Get all accounts registered on Android device for requested type
@@ -101,7 +101,7 @@ Get all accounts registered on Android device for requested type
 
 <div id="getEmails"></div>
 <h3><code>getEmails()</code>
-
+  
 </h3>
 
 Get all emails registered on Android device (accounts with 'com.google' type)
@@ -117,7 +117,7 @@ Get all emails registered on Android device (accounts with 'com.google' type)
 
 <div id="getEmail"></div>
 <h3><code>getEmail()</code>
-
+  
 </h3>
 
 Get the first email registered on Android device

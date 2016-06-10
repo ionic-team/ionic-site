@@ -79,10 +79,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="isAvailable"></div>
 <h3><code>isAvailable()</code>
-
+  
 </h3>
 
 
@@ -97,7 +97,7 @@ docType: "class"
 
 <div id="toggleWifi"></div>
 <h3><code>toggleWifi()</code>
-
+  
 </h3>
 
 
@@ -112,7 +112,7 @@ docType: "class"
 
 <div id="createHotspot"></div>
 <h3><code>createHotspot(SSID,&nbsp;mode,&nbsp;password)</code>
-
+  
 </h3>
 
 Configures and starts hotspot with SSID and Password
@@ -197,7 +197,7 @@ Configures and starts hotspot with SSID and Password
 
 <div id="startHotspot"></div>
 <h3><code>startHotspot()</code>
-
+  
 </h3>
 
 Turns on Access Point
@@ -218,7 +218,7 @@ Turns on Access Point
 
 <div id="configureHotspot"></div>
 <h3><code>configureHotspot(SSID,&nbsp;mode,&nbsp;password)</code>
-
+  
 </h3>
 
 Configures hotspot with SSID and Password
@@ -303,7 +303,7 @@ Configures hotspot with SSID and Password
 
 <div id="stopHotspot"></div>
 <h3><code>stopHotspot()</code>
-
+  
 </h3>
 
 Turns off Access Point
@@ -324,7 +324,7 @@ Turns off Access Point
 
 <div id="isHotspotEnabled"></div>
 <h3><code>isHotspotEnabled()</code>
-
+  
 </h3>
 
 Checks if hotspot is enabled
@@ -345,7 +345,7 @@ Checks if hotspot is enabled
 
 <div id="getAllHotspotDevices"></div>
 <h3><code>getAllHotspotDevices()</code>
-
+  
 </h3>
 
 
@@ -360,7 +360,7 @@ Checks if hotspot is enabled
 
 <div id="connectToWifi"></div>
 <h3><code>connectToWifi(ssid,&nbsp;password)</code>
-
+  
 </h3>
 
 Connect to a WiFi network
@@ -428,7 +428,7 @@ Connect to a WiFi network
 
 <div id="connectToWifiAuthEncrypt"></div>
 <h3><code>connectToWifiAuthEncrypt(ssid,&nbsp;password,&nbsp;authentication,&nbsp;encryption)</code>
-
+  
 </h3>
 
 Connect to a WiFi network
@@ -530,7 +530,7 @@ Connect to a WiFi network
 
 <div id="addWifiNetwork"></div>
 <h3><code>addWifiNetwork(ssid,&nbsp;mode,&nbsp;password)</code>
-
+  
 </h3>
 
 Add a WiFi network
@@ -615,7 +615,7 @@ Add a WiFi network
 
 <div id="removeWifiNetwork"></div>
 <h3><code>removeWifiNetwork(ssid)</code>
-
+  
 </h3>
 
 Remove a WiFi network
@@ -666,7 +666,7 @@ Remove a WiFi network
 
 <div id="isConnectedToInternet"></div>
 <h3><code>isConnectedToInternet()</code>
-
+  
 </h3>
 
 
@@ -681,7 +681,7 @@ Remove a WiFi network
 
 <div id="isConnectedToInternetViaWifi"></div>
 <h3><code>isConnectedToInternetViaWifi()</code>
-
+  
 </h3>
 
 
@@ -696,7 +696,7 @@ Remove a WiFi network
 
 <div id="isWifiOn"></div>
 <h3><code>isWifiOn()</code>
-
+  
 </h3>
 
 
@@ -711,7 +711,7 @@ Remove a WiFi network
 
 <div id="isWifiSupported"></div>
 <h3><code>isWifiSupported()</code>
-
+  
 </h3>
 
 
@@ -726,7 +726,7 @@ Remove a WiFi network
 
 <div id="isWifiDirectSupported"></div>
 <h3><code>isWifiDirectSupported()</code>
-
+  
 </h3>
 
 
@@ -741,7 +741,7 @@ Remove a WiFi network
 
 <div id="scanWifi"></div>
 <h3><code>scanWifi()</code>
-
+  
 </h3>
 
 
@@ -756,7 +756,7 @@ Remove a WiFi network
 
 <div id="scanWifiByLevel"></div>
 <h3><code>scanWifiByLevel()</code>
-
+  
 </h3>
 
 
@@ -771,7 +771,7 @@ Remove a WiFi network
 
 <div id="startWifiPeriodicallyScan"></div>
 <h3><code>startWifiPeriodicallyScan()</code>
-
+  
 </h3>
 
 
@@ -786,7 +786,7 @@ Remove a WiFi network
 
 <div id="stopWifiPeriodicallyScan"></div>
 <h3><code>stopWifiPeriodicallyScan()</code>
-
+  
 </h3>
 
 
@@ -801,7 +801,7 @@ Remove a WiFi network
 
 <div id="getNetConfig"></div>
 <h3><code>getNetConfig()</code>
-
+  
 </h3>
 
 
@@ -816,7 +816,7 @@ Remove a WiFi network
 
 <div id="getConnectionInfo"></div>
 <h3><code>getConnectionInfo()</code>
-
+  
 </h3>
 
 
@@ -831,7 +831,7 @@ Remove a WiFi network
 
 <div id="pingHost"></div>
 <h3><code>pingHost()</code>
-
+  
 </h3>
 
 
@@ -846,7 +846,7 @@ Remove a WiFi network
 
 <div id="getMacAddressOfHost"></div>
 <h3><code>getMacAddressOfHost(ip)</code>
-
+  
 </h3>
 
 Gets MAC Address associated with IP Address from ARP File
@@ -897,7 +897,7 @@ Gets MAC Address associated with IP Address from ARP File
 
 <div id="isDnsLive"></div>
 <h3><code>isDnsLive(ip)</code>
-
+  
 </h3>
 
 Checks if IP is live using DNS
@@ -948,7 +948,7 @@ Checks if IP is live using DNS
 
 <div id="isPortLive"></div>
 <h3><code>isPortLive(ip)</code>
-
+  
 </h3>
 
 Checks if IP is live using socket And PORT
@@ -999,7 +999,7 @@ Checks if IP is live using socket And PORT
 
 <div id="isRooted"></div>
 <h3><code>isRooted()</code>
-
+  
 </h3>
 
 Checks if device is rooted

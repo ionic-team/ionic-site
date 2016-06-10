@@ -42,10 +42,10 @@ docType: "class"
 
 
 <!-- @property tags -->
-<h2>Static Methods</h2>
+<h2>Static Members</h2>
 <div id="UNKNOWN"></div>
 <h3><code>UNKNOWN()</code>
-
+  
 </h3>
 
 
@@ -58,7 +58,7 @@ docType: "class"
 
 <div id="ETHERNET"></div>
 <h3><code>ETHERNET()</code>
-
+  
 </h3>
 
 
@@ -71,7 +71,7 @@ docType: "class"
 
 <div id="WIFI"></div>
 <h3><code>WIFI()</code>
-
+  
 </h3>
 
 
@@ -84,7 +84,7 @@ docType: "class"
 
 <div id="CELL_2G"></div>
 <h3><code>CELL_2G()</code>
-
+  
 </h3>
 
 
@@ -97,7 +97,7 @@ docType: "class"
 
 <div id="CELL_3G"></div>
 <h3><code>CELL_3G()</code>
-
+  
 </h3>
 
 
@@ -110,7 +110,7 @@ docType: "class"
 
 <div id="CELL_4G"></div>
 <h3><code>CELL_4G()</code>
-
+  
 </h3>
 
 
@@ -123,7 +123,7 @@ docType: "class"
 
 <div id="CELL"></div>
 <h3><code>CELL()</code>
-
+  
 </h3>
 
 
@@ -136,7 +136,7 @@ docType: "class"
 
 <div id="NONE"></div>
 <h3><code>NONE()</code>
-
+  
 </h3>
 
 

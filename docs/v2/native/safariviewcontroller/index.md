@@ -76,7 +76,7 @@ SafariViewController.isAvailable()
       if(available){
 
         SafariViewController.show({
-          utl: &#39;http://ionic.io&#39;,
+          url: &#39;http://ionic.io&#39;,
           hidden: false,
           animated: false,
           transition: &#39;curl&#39;,

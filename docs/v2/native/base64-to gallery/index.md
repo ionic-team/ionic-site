@@ -84,18 +84,10 @@ Base64ToGallery.base64ToGallery(base64Data, &#39;img_&#39;).then(
 
 
 <!-- @property tags -->
-
-
-<!-- methods on the class -->
-
-<h2>Instance Members</h2>
-
+<h2>Static Members</h2>
 <div id="base64ToGallery"></div>
-
-<h3>
-  <code>base64ToGallery(data,&nbsp;prefix)</code>
+<h3><code>base64ToGallery(data,&nbsp;prefix)</code>
   
-
 </h3>
 
 Converts a base64 string to an image file in the device gallery
@@ -151,7 +143,9 @@ Converts a base64 string to an image file in the device gallery
 
 
 
-<!-- related link --><!-- end content block -->
+
+
+<!-- methods on the class --><!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -71,8 +71,8 @@ docType: "class"
 
 <!-- @property tags -->
 <h2>Static Members</h2>
-<div id="hasReadWritePermissions"></div>
-<h3><code>hasReadWritePermissions()</code>
+<div id="hasReadWritePermission"></div>
+<h3><code>hasReadWritePermission()</code>
   
 </h3>
 
@@ -90,16 +90,98 @@ If this returns false, you should call `requestReadWritePermissions` function
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
 
 
 
-
-<div id="requestReadWritePermissions"></div>
-<h3><code>requestReadWritePermissions()</code>
+<div id="hasReadPermission"></div>
+<h3><code>hasReadPermission()</code>
   
 </h3>
 
+Check if we have read permission
 
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
+
+
+
+<div id="hasWritePermission"></div>
+<h3><code>hasWritePermission()</code>
+  
+</h3>
+
+Check if we have write permission
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;boolean&gt;</code> 
+</div>
+
+
+
+<div id="requestWritePermission"></div>
+<h3><code>requestWritePermission()</code>
+  
+</h3>
+
+Request write permission
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="requestReadPermission"></div>
+<h3><code>requestReadPermission()</code>
+  
+</h3>
+
+Request read permission
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
+
+
+
+<div id="requestReadWritePermission"></div>
+<h3><code>requestReadWritePermission()</code>
+  
+</h3>
 
 Requests read/write permissions
 
@@ -108,7 +190,11 @@ Requests read/write permissions
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;any&gt;</code> 
+</div>
 
 
 

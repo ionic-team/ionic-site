@@ -138,11 +138,7 @@ Get the device's current position.
 <div id="watchPosition"></div>
 <h3><code>watchPosition(options)</code>
   
-</h3>
-
-
-
-Watch the current device's position.  Clear the watch by unsubscribing from
+</h3>Watch the current device's position.  Clear the watch by unsubscribing from
 Observable changes.
 
 ```ts

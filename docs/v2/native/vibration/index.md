@@ -53,6 +53,23 @@ docType: "class"
 <p>Vibrates the device</p>
 
 
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Android</li>
+  
+  <li>iOS</li>
+  
+  <li>Windows 8.1 Phone</li>
+  
+  <li>Windows 8.1</li>
+  
+  <li>Windows 10</li>
+  </ul>
+
+<!-- @platforms tag end -->
+
 
 <!-- @usage tag -->
 
@@ -109,7 +126,7 @@ Vibrates the device for given amount of time.
     </td>
     <td>
       
-<code>Number</code>|<code>Array.&lt;Number&gt;</code>
+<code>number</code>|<code>Array.&lt;number&gt;</code>
     </td>
     <td>
       <p>Milliseconds to vibrate the device. If passed an array of numbers, it will define a vibration pattern. Pass 0 to stop any vibration immediately.</p>

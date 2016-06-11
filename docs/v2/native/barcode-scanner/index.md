@@ -95,6 +95,19 @@ BarcodeScanner.scan().then((barcodeData) =&gt; {
 
 <!-- @property tags -->
 <h2>Static Members</h2>
+<div id="Encode"></div>
+<h3><code>Encode()</code>
+  
+</h3>
+
+
+
+
+
+
+
+
+
 <div id="scan"></div>
 <h3><code>scan()</code>
   
@@ -114,6 +127,66 @@ Open the barcode scanner.
 
 
 </div>
+
+
+
+<div id="encode"></div>
+<h3><code>encode(type,&nbsp;data)</code>
+  
+</h3>
+
+Encodes data into a barcode.
+NOTE: not well supported on Android
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      type
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      data
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
 
 
 

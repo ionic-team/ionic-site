@@ -65,12 +65,35 @@ docType: "class"
 </ul>
 
 
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>iOS</li>
+  </ul>
+
+<!-- @platforms tag end -->
+
 
 <!-- @usage tag -->
 
 <h2>Usage</h2>
 
 <pre><code class="lang-js">import {TouchID} from &#39;ionic-native&#39;;
+
+...
+
+TouchID.isAvailable()
+  .then(
+    res =&gt; console.log(&quot;TouchID is available!&quot;),
+    err =&gt; console.error(&quot;TouchID isn&#39;t available&quot;, err)
+  );
+
+TouchID.verifyFingerprint(&#39;Scan your fingerprint please&#39;)
+  .then(
+    res =&gt; console.log(&quot;Ok&quot;, res),
+    err =&gt; console.error(&quot;Error&quot;, err)
+  );
 </code></pre>
 
 

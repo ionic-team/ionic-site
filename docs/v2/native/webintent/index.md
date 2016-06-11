@@ -52,8 +52,23 @@ docType: "class"
 
 
 
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Android</li>
+  </ul>
+
+<!-- @platforms tag end -->
+
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<p>For usage information please refer to the plugin&#39;s Github repo.</p>
+
+
 
 
 <!-- @property tags -->

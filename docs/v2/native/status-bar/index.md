@@ -54,6 +54,23 @@ docType: "class"
 <p>Requires Cordova plugin: <code>cordova-plugin-statusbar</code>. For more info, please see the <a href="https://github.com/apache/cordova-plugin-statusbar">StatusBar plugin docs</a>.</p>
 
 
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>iOS</li>
+  
+  <li>Android</li>
+  
+  <li>Windows Phone 8</li>
+  
+  <li>Windows 8</li>
+  
+  <li>Windows 10</li>
+  </ul>
+
+<!-- @platforms tag end -->
+
 
 <!-- @usage tag -->
 
@@ -61,11 +78,11 @@ docType: "class"
 
 <pre><code class="lang-ts">import {StatusBar} from &#39;ionic-native&#39;;
 
+...
 
+StatuBar.overlaysWebView(true); // let status var overlay webview
 
-StatuBar.overlaysWebView(true);
-
-StatusBar.
+StatusBar.backgroundColorByHexString(&#39;#ffffff&#39;); // set status bar to white
 </code></pre>
 
 

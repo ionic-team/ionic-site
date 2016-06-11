@@ -43,17 +43,37 @@ docType: "class"
 
 <pre><code>$ ionic plugin add cordova-plugin-admobpro</code></pre>
 <p>Repo:
-  <a href="https://github.com/floatinghotspot/cordova-admob-pro">
-    https://github.com/floatinghotspot/cordova-admob-pro
+  <a href="https://github.com/floatinghotpot/cordova-admob-pro">
+    https://github.com/floatinghotpot/cordova-admob-pro
   </a>
 </p>
 
 <!-- description -->
 
+<p>Plugin for Google Ads, including AdMob / DFP (doubleclick for publisher) and mediations to other Ad networks.</p>
 
+
+<!-- @platforms tag -->
+<h2>Supported platforms</h2>
+
+<ul>
+  <li>Android</li>
+  
+  <li>iOS</li>
+  
+  <li>Windows Phone 8</li>
+  </ul>
+
+<!-- @platforms tag end -->
 
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<p>Please refer the the plugin&#39;s original repository for detailed usage.</p>
+
+
 
 
 <!-- @property tags -->

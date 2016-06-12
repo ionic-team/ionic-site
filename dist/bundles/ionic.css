@@ -5873,7 +5873,7 @@ ion-icon {
     visibility: visible; }
   .ios ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=left]) {
     visibility: visible; }
-  .ios button[swipeable] {
+  .ios .button-expandable {
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -5886,7 +5886,7 @@ ion-icon {
   .ios ion-item-sliding.active-swipe-right ion-item-options,
   .ios ion-item-sliding.active-swipe-left ion-item-options {
     width: 100%; }
-  .ios ion-item-sliding.active-swipe-right button[swipeable] {
+  .ios ion-item-sliding.active-swipe-right .button-expandable {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
     -ms-flex-order: 1;
@@ -5896,7 +5896,7 @@ ion-icon {
     transition-duration: .6s;
     -webkit-transition-property: padding-left;
     transition-property: padding-left; }
-  .ios ion-item-sliding.active-swipe-left button[swipeable] {
+  .ios ion-item-sliding.active-swipe-left .button-expandable {
     -webkit-box-ordinal-group: 0;
     -webkit-order: -1;
     -ms-flex-order: -1;
@@ -9397,7 +9397,7 @@ ion-icon {
     visibility: visible; }
   .md ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=left]) {
     visibility: visible; }
-  .md button[swipeable] {
+  .md .button-expandable {
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -9410,7 +9410,7 @@ ion-icon {
   .md ion-item-sliding.active-swipe-right ion-item-options,
   .md ion-item-sliding.active-swipe-left ion-item-options {
     width: 100%; }
-  .md ion-item-sliding.active-swipe-right button[swipeable] {
+  .md ion-item-sliding.active-swipe-right .button-expandable {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
     -ms-flex-order: 1;
@@ -9420,7 +9420,7 @@ ion-icon {
     transition-duration: .6s;
     -webkit-transition-property: padding-left;
     transition-property: padding-left; }
-  .md ion-item-sliding.active-swipe-left button[swipeable] {
+  .md ion-item-sliding.active-swipe-left .button-expandable {
     -webkit-box-ordinal-group: 0;
     -webkit-order: -1;
     -ms-flex-order: -1;
@@ -13214,7 +13214,7 @@ ion-icon {
     visibility: visible; }
   .wp ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=left]) {
     visibility: visible; }
-  .wp button[swipeable] {
+  .wp .button-expandable {
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -13227,7 +13227,7 @@ ion-icon {
   .wp ion-item-sliding.active-swipe-right ion-item-options,
   .wp ion-item-sliding.active-swipe-left ion-item-options {
     width: 100%; }
-  .wp ion-item-sliding.active-swipe-right button[swipeable] {
+  .wp ion-item-sliding.active-swipe-right .button-expandable {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
     -ms-flex-order: 1;
@@ -13237,7 +13237,7 @@ ion-icon {
     transition-duration: .6s;
     -webkit-transition-property: padding-left;
     transition-property: padding-left; }
-  .wp ion-item-sliding.active-swipe-left button[swipeable] {
+  .wp ion-item-sliding.active-swipe-left .button-expandable {
     -webkit-box-ordinal-group: 0;
     -webkit-order: -1;
     -ms-flex-order: -1;

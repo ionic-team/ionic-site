@@ -6212,7 +6212,7 @@ ion-item-sliding.active-slide.active-options-left ion-item-options[side=left] {
 ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=left]) {
   visibility: visible; }
 
-button[swipeable] {
+.button-expandable {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -6227,7 +6227,7 @@ ion-item-sliding.active-swipe-right ion-item-options,
 ion-item-sliding.active-swipe-left ion-item-options {
   width: 100%; }
 
-ion-item-sliding.active-swipe-right button[swipeable] {
+ion-item-sliding.active-swipe-right .button-expandable {
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
   -ms-flex-order: 1;
@@ -6238,7 +6238,7 @@ ion-item-sliding.active-swipe-right button[swipeable] {
   -webkit-transition-property: padding-left;
   transition-property: padding-left; }
 
-ion-item-sliding.active-swipe-left button[swipeable] {
+ion-item-sliding.active-swipe-left .button-expandable {
   -webkit-box-ordinal-group: 0;
   -webkit-order: -1;
   -ms-flex-order: -1;

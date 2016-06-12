@@ -2472,12 +2472,91 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(102);
+	var InitialPage = (function () {
+	    function InitialPage(nav) {
+	        this.nav = nav;
+	        this.chats = [
+	            {
+	                img: './avatar-cher.png',
+	                name: 'Cher',
+	                message: 'Ugh. As if.',
+	                time: '9:38 pm'
+	            }, {
+	                img: './avatar-dionne.png',
+	                name: 'Dionne',
+	                message: 'Mr. Hall was way harsh.',
+	                time: '8:59 pm'
+	            }, {
+	                img: './avatar-murray.png',
+	                name: 'Murray',
+	                message: 'Excuse me, "Ms. Dione."',
+	                time: 'Wed'
+	            }];
+	        this.logins = [
+	            {
+	                icon: 'logo-twitter',
+	                name: 'Twitter',
+	                username: 'admin',
+	            }, {
+	                icon: 'logo-github',
+	                name: 'GitHub',
+	                username: 'admin37',
+	            }, {
+	                icon: 'logo-instagram',
+	                name: 'Instagram',
+	                username: 'imanadmin',
+	            }, {
+	                icon: 'logo-codepen',
+	                name: 'Codepen',
+	                username: 'administrator',
+	            }];
+	    }
+	    InitialPage.prototype.more = function (item) {
+	        console.log('More');
+	        item.close();
+	    };
+	    InitialPage.prototype.delete = function (item) {
+	        console.log('Delete');
+	        item.close();
+	    };
+	    InitialPage.prototype.mute = function (item) {
+	        console.log('Mute');
+	        item.close();
+	    };
+	    InitialPage.prototype.archive = function (item) {
+	        console.log('Archive');
+	        item.close();
+	    };
+	    InitialPage.prototype.download = function (item) {
+	        var _this = this;
+	        item.setClass('downloading', true);
+	        setTimeout(function () {
+	            var toast = ionic_angular_1.Toast.create({
+	                message: 'Item was downloaded!'
+	            });
+	            _this.nav.present(toast);
+	            item.setClass('downloading', false);
+	            item.close();
+	            // Wait 2s to close toast
+	            setTimeout(function () { return toast.dismiss(); }, 2000);
+	        }, 1500);
+	    };
+	    InitialPage = __decorate([
+	        core_1.Component({
+	            templateUrl: 'main.html'
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
+	    ], InitialPage);
+	    return InitialPage;
+	    var _a;
+	}());
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
+	        this.root = InitialPage;
 	    }
 	    ApiDemoApp = __decorate([
 	        core_1.Component({
-	            templateUrl: 'main.html'
+	            template: '<ion-nav [root]="root"></ion-nav>'
 	        }), 
 	        __metadata('design:paramtypes', [])
 	    ], ApiDemoApp);
@@ -64101,10 +64180,10 @@
 	            : -this._optsWidthLeftSide;
 	        // Check if the drag didn't clear the buttons mid-point
 	        // and we aren't moving fast enough to swipe open
-	        var isOnResetZone = Math.abs(this._openAmount) < Math.abs(restingPoint / 2);
-	        var isMovingSlow = Math.abs(velocity) < 0.3;
-	        var isDirection = (this._openAmount > 0) === (velocity > 0);
-	        if (isOnResetZone && (isMovingSlow || isDirection)) {
+	        var isCloseDirection = (this._openAmount > 0) === !(velocity < 0);
+	        var isMovingFast = Math.abs(velocity) > 0.3;
+	        var isOnCloseZone = Math.abs(this._openAmount) < Math.abs(restingPoint / 2);
+	        if (shouldClose(isCloseDirection, isMovingFast, isOnCloseZone)) {
 	            restingPoint = 0;
 	        }
 	        this.fireSwipeEvent();
@@ -64255,6 +64334,24 @@
 	    var _a, _b, _c, _d, _e, _f, _g;
 	}());
 	exports.ItemSliding = ItemSliding;
+	function shouldClose(isCloseDirection, isMovingFast, isOnCloseZone) {
+	    // The logic required to know when the sliding item should close (openAmount=0)
+	    // depends on three booleans (isCloseDirection, isMovingFast, isOnCloseZone)
+	    // and it ended up being too complicated to be written manually without errors
+	    // so the truth table is attached below: (0=false, 1=true)
+	    // isCloseDirection | isMovingFast | isOnCloseZone || shouldClose
+	    //         0        |       0      |       0       ||    0
+	    //         0        |       0      |       1       ||    1
+	    //         0        |       1      |       0       ||    0
+	    //         0        |       1      |       1       ||    0
+	    //         1        |       0      |       0       ||    0
+	    //         1        |       0      |       1       ||    1
+	    //         1        |       1      |       0       ||    1
+	    //         1        |       1      |       1       ||    1
+	    // The resulting expression was generated by resolving the K-map (Karnaugh map):
+	    var shouldClose = (!isMovingFast && isOnCloseZone) || (isCloseDirection && isMovingFast);
+	    return shouldClose;
+	}
 
 /***/ },
 /* 364 */

@@ -53157,6 +53157,7 @@
 	 * | duration  | `number`  | The length in milliseconds the animation should take.                                                      |
 	 * | easing    | `string`  | The easing for the animation.                                                                              |
 	 *
+	 * The property 'animation' understands the following values: `md-transition`, `ios-transition` and `wp-transition`.
 	 *
 	 * @see {@link /docs/v2/components#navigation Navigation Component Docs}
 	 */

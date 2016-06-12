@@ -208,6 +208,7 @@ To do this, we can pass an object with the modified properites.</p>
 </tr>
 </tbody>
 </table>
+<p>The property &#39;animation&#39; understands the following values: <code>md-transition</code>, <code>ios-transition</code> and <code>wp-transition</code>.</p>
 
 <!-- @usage tag -->
 

@@ -50,6 +50,8 @@ docType: "class"
 
 <!-- description -->
 
+<p>The Brightness plugin let you control the display brightness of your device.</p>
+<p>Requires Cordova plugin: <code>cordova-plugin-brightness</code>. For more info, please see the <a href="https://github.com/mgcrea/cordova-plugin-brightness">Brightness plugin docs</a>.</p>
 
 
 <!-- @platforms tag -->
@@ -65,6 +67,16 @@ docType: "class"
 
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-ts">import {Brightness} from &#39;ionic-native&#39;;
+
+let brightnessValue: number = 0.8;
+Brightness.setBrightness(brightnessValue);
+</code></pre>
+
+
 
 
 <!-- @property tags -->

@@ -53895,7 +53895,12 @@
 	                // force it to not animate the elements, just apply the "to" styles
 	                transAnimation.duration(0);
 	            }
-	            var duration = transAnimation.getDuration();
+	            var keyboardDurationPadding = 0;
+	            if (_this._keyboard.isOpen()) {
+	                // add XXms to the duration the app is disabled when the keyboard is open
+	                keyboardDurationPadding = 600;
+	            }
+	            var duration = transAnimation.getDuration() + keyboardDurationPadding;
 	            var enableApp = (duration < 64);
 	            // block any clicks during the transition and provide a
 	            // fallback to remove the clickblock if something goes wrong

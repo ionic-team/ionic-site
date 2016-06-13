@@ -179,6 +179,57 @@ Shares using the share sheet
 
 
 
+<div id="shareWithOptions"></div>
+<h3><code>shareWithOptions(options)</code>
+  
+</h3>
+
+
+<b>Platforms:</b>
+<code>iOS</code>&nbsp;
+
+<code>Android</code>&nbsp;
+
+
+Shares using the share sheet with additional options and returns a result object or an error message (requires plugin version 5.1.0+)
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>object</code>
+    </td>
+    <td>
+      <p>The options object with the message, subject, files, url and chooserTitle properties.</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
 <div id="canShareVia"></div>
 <h3><code>canShareVia(appName)</code>
   

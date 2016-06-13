@@ -10,10 +10,10 @@ header_sub_title: ""
 ---
 
 <h1 id="Overview">Ionic Native</h1>
-Ionic Native is a curated set of ES6/TypeScript wrappers for Cordova/PhoneGap plugins that make adding any native functionality you need to your [Ionic](http://ionicframework.com/), Cordova, or Web View mobile app easy.
+Ionic Native is a curated set of ES5/ES6/TypeScript wrappers for Cordova/PhoneGap plugins that make adding any native functionality you need to your [Ionic](http://ionicframework.com/), Cordova, or Web View mobile app easy.
 
 <h3 id="Promises_and_Observables">Promises and Observables</h3>
-Ionic Native wraps plugin callbacks in a Promise or [Observable](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), providing a common interface for all plugins and ensuring that native events trigger change detection in Angular 2.
+Ionic Native wraps plugin callbacks in a Promise or an [Observable](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), providing a common interface for all plugins and ensuring that native events trigger change detection in Angular 2.
 
 ```ts
 import {Geolocation} from 'ionic-native';
@@ -22,8 +22,7 @@ Geolocation.getCurrentPosition().then(pos => {
   console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
 });
 
-let watch = Geolocation.watchPosition();
-watch.subscribe(pos => {
+let watch = Geolocation.watchPosition().subscribe(pos => {
   console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
 });
 
@@ -44,43 +43,58 @@ Note that Ionic Native is included by default with every Ionic 2 app.
 <h3 id="Usage">Usage</h3>
 
 <h4 id="Importing_Ionic_Native">Import Ionic Native</h4>
-If you are using Angular 2.0, you do not need to include any JavaScript files in your index.html. Simply importing the plugin you need from the `ionic-native` npm package will result in the required code to be imported in your compiled code. However, if you are using Angular 1.x or plain JavaScript then you will need to import `ionic.native.js` file into your index.html before your application's main code.
+If you are using **ES6/TypeScript**, you do not need to add any script tags in your index.html. Just import a plugin from the `ionic-native` npm package and start using it.
+
+If you are using **Angular 1.x** or plain **ES5 JavaScript**, you need to add `ionic.native.js` to your index.html before your application's main code.
 
 <h4 id="Install_Plugins_Needed">Install The Needed Plugins</h4>
-Ionic Native will *not* install plugins for you automatically. You still need to install the plugins you need using the Cordova CLI or Ionic CLI. Ionic Native will notify you if you are missing a plugin, and will also provide you with the plugin name to install.
+Ionic Native will **not** install plugins for you automatically. You still need to install the plugins you need using Cordova CLI or Ionic CLI. Ionic Native will notify you if you are missing a plugin, and will provide you with the plugin package name to install.
 
-Required plugin names are available on the documentation for each plugin.
+It is recommended to follow the installation instruction on each plugin's documentation.
 
-<h4 id="Using_Ionic_Native_Wrappers">Example</h4>
+<h4 id="Using_Ionic_Native_Wrappers">Examples</h4>
 
-There are a few ways to use Ionic Native depending on whether the project is Ionic 2/Angular 2, vanilla ES6/TypeScript, Angular 1.x, or vanilla ES5, as shown in the examples below:
+Ionic Native supports plain JavaScript usage, ES6/TypeScript Usage, and Angular 1. Here are examples demonstrating different implementations:
 
 ```js
-// Example with plain JS
-window.IonicNative.Camera.getPicture().then(
+// plain ES5 JavaScript
+IonicNative.Camera.getPicture().then(
   function(res) {
-    console.log("We have taken a picture!");
+    console.log("We have taken a picture!", res);
     // Run code to save the picture or use it elsewhere
+  },
+  function(err){
+    console.error("Error taking a picture", err);
   }
 );
 
-// Example with AngularJS
-angular.module('MyApp', ['ngCordova'])
-.controller('MyController', function(){
-    ngCordova.Camera.getPicture().then(
+// Angular 1
+// first we import 'ionic.native' module into our app
+angular.module('MyApp', ['ionic.native'])
+// then we import the service for the plugin we wish to use
+// the name of the service is the same name for ES6/TypeScript with a $cordova prefix
+// for example, the Camera plugin becomes $cordovaCamera in Angular 1
+.controller('MyController', function($cordovaCamera){
+    // now we can call any of the functionality as documented in Native docs
+    $cordovaCamera.getPicture().then(
       function(res) {
-        console.log("We have taken a picture!");
+        console.log("We have taken a picture!", res);
         // Run code to save the picture or use it elsewhere
+      },
+      function(err){
+        console.error("Error taking a picture", err);
       }
     );
 });
 
 
-// Example with TypeScript and Angular 2.0
+// ES6 / TypeScript / Ionic 2 / Angular 2
+// Import the plugin you need to use from 'ionic-native' package
 import {Camera} from 'ionic-native';
+
+// Use it!
 Camera.getPicture().then(
-  res => {
-    console.log("We have taken a picture!");
-  }
+  res => console.log("We have taken a picture!"),
+  err => console.error("Error taking picture", err)
 );
 ```

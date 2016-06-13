@@ -1,12 +1,12 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.1.0"
-versionHref: "/docs/v2/native"
+versionHref: "/docs/v2"
 path: ""
 category: native
-id: "ionic-native"
+id: native
 title: "Ionic Native"
-header_sub_title: ""
+header_sub_title: "Harness the power of devices' native APIs"
+searchable: false
 ---
 
 <h1 id="Overview">Ionic Native</h1>

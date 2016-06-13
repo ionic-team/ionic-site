@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="radio-button" href="#radio-button"></a>
 
 RadioButton
+<h3><code>ion-radio</code></h3>
 
 
 
@@ -54,8 +55,9 @@ they will all have the ability to be checked at the same time.</p>
 more information on forms and input.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-radio</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

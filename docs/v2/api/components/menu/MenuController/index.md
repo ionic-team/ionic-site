@@ -31,7 +31,6 @@ MenuController
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/menu/menu-controller.ts#L2">
@@ -47,6 +46,10 @@ Improve this doc
 Its methods can be used to display the menu, enable the menu, toggle the menu, and more.
 The controller will grab a reference to the menu by the <code>side</code>, <code>id</code>, or, if neither
 of these are passed to it, it will grab the first menu it finds.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

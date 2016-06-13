@@ -24,6 +24,7 @@ docType: "class"
 <a class="anchor" name="virtual-scroll" href="#virtual-scroll"></a>
 
 VirtualScroll
+<h3><code>[virtualScroll]</code></h3>
 
 
 
@@ -148,8 +149,9 @@ dataset, so please make sure they&#39;re performant.</li>
 </ul>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>[virtualScroll]</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

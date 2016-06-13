@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="tabs" href="#tabs"></a>
 
 Tabs
+<h3><code>ion-tabs</code></h3>
 
 
 
@@ -70,8 +71,9 @@ on the <code>&lt;ion-tabs&gt;</code> element, or you can call <code>select()</co
 instance after creation. See <a href="#usage">usage</a> below for more information.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-tabs</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

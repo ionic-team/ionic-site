@@ -31,7 +31,6 @@ Toast
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/toast/toast.ts#L10">
@@ -66,6 +65,10 @@ the toast options. If <code>showCloseButton</code> is set to true, then the clos
 will dismiss the toast. To dismiss the toast after creation, call the <code>dismiss()</code>
 method on the Toast instance. The <code>onDismiss</code> function can be called to perform an action after the toast
 is dismissed.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

@@ -24,6 +24,7 @@ docType: "class"
 <a class="anchor" name="navbar-template" href="#navbar-template"></a>
 
 NavbarTemplate
+<h3><code>template[navbar]</code></h3>
 
 
 
@@ -43,8 +44,9 @@ Improve this doc
 
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>template[navbar]</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

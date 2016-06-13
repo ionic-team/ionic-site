@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="menu-close" href="#menu-close"></a>
 
 MenuClose
+<h3><code>[menuClose]</code></h3>
 
 
 
@@ -46,8 +47,9 @@ Improve this doc
 <p>The <code>menuClose</code> directive can be placed on any button to close an open menu.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>[menuClose]</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

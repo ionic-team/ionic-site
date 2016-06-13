@@ -24,6 +24,7 @@ docType: "class"
 <a class="anchor" name="badge" href="#badge"></a>
 
 Badge
+<h3><code>ion-badge</code></h3>
 
 
 
@@ -44,8 +45,9 @@ Improve this doc
 <p>Badges are simple components in Ionic containing numbers or text. You can display a badge to indicate that there is new information associated with the item it is on.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>ion-badge</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

@@ -24,6 +24,7 @@ docType: "class"
 <a class="anchor" name="content" href="#content"></a>
 
 Content
+<h3><code>ion-content</code></h3>
 
 
 
@@ -47,8 +48,9 @@ some useful methods to control the scrollable area.</p>
 <a href="../../refresher/Refresher">Refresher</a> component.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-content</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

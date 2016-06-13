@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="list" href="#list"></a>
 
 List
+<h3><code>ion-list</code></h3>
 
 
 
@@ -53,8 +54,9 @@ interaction modes such as swipe to edit, drag to reorder, and
 removing items.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>ion-list</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

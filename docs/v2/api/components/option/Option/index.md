@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="option" href="#option"></a>
 
 Option
+<h3><code>ion-option</code></h3>
 
 
 
@@ -46,8 +47,9 @@ Improve this doc
 <p><code>ion-option</code> is a child component of <code>ion-select</code>. Similar to the native option element, <code>ion-option</code> can take a value and a checked property.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>ion-option</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

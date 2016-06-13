@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="item" href="#item"></a>
 
 Item
+<h3><code>ion-item,[ion-item]</code></h3>
 
 
 
@@ -133,8 +134,9 @@ following components are all placed in the same position as the <code>item-conte
 attributes and isn&#39;t one of the above elements will be placed inside of a <a href="../../label/Label">Label</a>.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-item,[ion-item]</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

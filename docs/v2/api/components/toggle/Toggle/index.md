@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="toggle" href="#toggle"></a>
 
 Toggle
+<h3><code>ion-toggle</code></h3>
 
 
 
@@ -51,8 +52,9 @@ attribute.</p>
 for more info on forms and inputs.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-toggle</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

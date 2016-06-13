@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="segment-button" href="#segment-button"></a>
 
 SegmentButton
+<h3><code>ion-segment-button</code></h3>
 
 
 
@@ -46,8 +47,9 @@ Improve this doc
 <p>The child buttons of the <code>ion-segment</code> component. Each <code>ion-segment-button</code> must have a value.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-segment-button</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

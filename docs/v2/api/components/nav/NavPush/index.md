@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="nav-push" href="#nav-push"></a>
 
 NavPush
+<h3><code>[navPush]</code></h3>
 
 
 
@@ -47,8 +48,9 @@ Improve this doc
 <a href='../NavController/#push'>NavController.push</a>. Similar to ui-router&#39;s <code>ui-sref</code>.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>[navPush]</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

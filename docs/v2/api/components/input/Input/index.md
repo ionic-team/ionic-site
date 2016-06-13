@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="input" href="#input"></a>
 
 Input
+<h3><code>ion-input</code></h3>
 
 
 
@@ -54,8 +55,9 @@ interactivity.</p>
 <code>checkbox</code>, <code>radio</code>, <code>toggle</code>, <code>range</code>, <code>select</code>, etc.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-input</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

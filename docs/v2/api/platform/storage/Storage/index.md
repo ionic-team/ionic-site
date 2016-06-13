@@ -29,7 +29,6 @@ Storage
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/platform/storage/storage.ts#L0">
@@ -47,6 +46,10 @@ data in a way that uses a variety of storage engines underneath.</p>
 data in a file in the app&#39;s sandbox. LocalStorage should ONLY be used
 for temporary data as it may be &#39;cleaned up&#39; by the operation system
 during low disk space situations.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

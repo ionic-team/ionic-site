@@ -31,7 +31,6 @@ Events
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/util/events.ts#L0">
@@ -45,6 +44,10 @@ Improve this doc
 
 <p>Events is a publish-subscribe style event system for sending and responding to application-level
 events across your app.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

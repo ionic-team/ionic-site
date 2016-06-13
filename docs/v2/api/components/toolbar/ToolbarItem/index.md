@@ -24,6 +24,7 @@ docType: "class"
 <a class="anchor" name="toolbar-item" href="#toolbar-item"></a>
 
 ToolbarItem
+<h3><code>ion-buttons,[menuToggle],ion-nav-items</code></h3>
 
 
 
@@ -43,8 +44,9 @@ Improve this doc
 
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>ion-buttons,[menuToggle],ion-nav-items</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

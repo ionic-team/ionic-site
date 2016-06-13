@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="radio-group" href="#radio-group"></a>
 
 RadioGroup
+<h3><code>[radio-group]</code></h3>
 
 
 
@@ -51,8 +52,9 @@ radio button within the same group.</p>
 for more information on forms and inputs.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>[radio-group]</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

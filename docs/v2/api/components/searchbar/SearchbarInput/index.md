@@ -24,6 +24,7 @@ docType: "class"
 <a class="anchor" name="searchbar-input" href="#searchbar-input"></a>
 
 SearchbarInput
+<h3><code>.searchbar-input</code></h3>
 
 
 
@@ -43,8 +44,9 @@ Improve this doc
 
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>.searchbar-input</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="toolbar" href="#toolbar"></a>
 
 Toolbar
+<h3><code>ion-toolbar</code></h3>
 
 
 
@@ -83,8 +84,9 @@ property.</p>
 <p>See <a href="#usage">usage</a> below for some examples.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-toolbar</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

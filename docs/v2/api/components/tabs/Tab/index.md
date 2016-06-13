@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="tab" href="#tab"></a>
 
 Tab
+<h3><code>ion-tab</code></h3>
 
 
 
@@ -50,8 +51,9 @@ navigation controllers take a look at the <a href="../../nav/NavController/">Nav
 <p>See the <a href="../Tabs/">Tabs API Docs</a> for more details on configuring Tabs.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-tab</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

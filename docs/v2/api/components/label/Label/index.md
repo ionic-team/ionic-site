@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="label" href="#label"></a>
 
 Label
+<h3><code>ion-label</code></h3>
 
 
 
@@ -47,8 +48,9 @@ Improve this doc
 to describe an <code>ion-input</code>, <code>ion-toggle</code>, <code>ion-checkbox</code>, and more.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>ion-label</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

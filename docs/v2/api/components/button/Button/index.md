@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="button" href="#button"></a>
 
 Button
+<h3><code>button:not([ion-item]),[button]</code></h3>
 
 
 
@@ -47,8 +48,9 @@ Improve this doc
 and be enhanced by a wide range of attributes.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>button:not([ion-item]),[button]</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

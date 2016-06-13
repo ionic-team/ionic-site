@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="menu-toggle" href="#menu-toggle"></a>
 
 MenuToggle
+<h3><code>[menuToggle]</code></h3>
 
 
 
@@ -49,8 +50,9 @@ when the page it&#39;s in is currently a root page. See the <a href="../Menu#nav
 docs for more information.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>[menuToggle]</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

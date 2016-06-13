@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="slide" href="#slide"></a>
 
 Slide
+<h3><code>ion-slide</code></h3>
 
 
 
@@ -49,8 +50,9 @@ in this component and it should be used in conjunction with <a href="../Slides">
 <p>See the <a href="../Slides">Slides API Docs</a> for more usage information.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-slide</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

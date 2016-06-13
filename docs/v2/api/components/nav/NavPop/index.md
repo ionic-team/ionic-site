@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="nav-pop" href="#nav-pop"></a>
 
 NavPop
+<h3><code>[nav-pop]</code></h3>
 
 
 
@@ -46,8 +47,9 @@ Improve this doc
 <p>Directive for declaratively pop the current page off from the navigation stack.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>[nav-pop]</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

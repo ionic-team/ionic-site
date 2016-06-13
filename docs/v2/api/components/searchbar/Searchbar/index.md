@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="searchbar" href="#searchbar"></a>
 
 Searchbar
+<h3><code>ion-searchbar</code></h3>
 
 
 
@@ -46,8 +47,9 @@ Improve this doc
 <p>Manages the display of a Searchbar which can be used to search or filter items.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-searchbar</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

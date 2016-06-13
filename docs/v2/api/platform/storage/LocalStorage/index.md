@@ -31,7 +31,6 @@ LocalStorage
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/platform/storage/local-storage.ts#L0">
@@ -49,6 +48,10 @@ storing key/value pairs.</p>
 Given disk space constraints on a mobile device, local storage might be &quot;cleaned up&quot;
 by the operating system (iOS).</p>
 <p>For guaranteed, long-term storage, use the SqlStorage engine which stores data in a file.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

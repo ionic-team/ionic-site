@@ -31,7 +31,6 @@ Platform
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/platform/platform.ts#L4">
@@ -50,6 +49,10 @@ on a mobile device or browser, and the exact platform (iOS, Android, etc).
 You can also get the orientation of the device, if it uses right-to-left
 language direction, and much much more. With this information you can completely
 customize your app to fit any device.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

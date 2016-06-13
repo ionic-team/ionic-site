@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="title" href="#title"></a>
 
 Title
+<h3><code>ion-title</code></h3>
 
 
 
@@ -46,8 +47,9 @@ Improve this doc
 <p><code>ion-title</code> is a component that sets the title of the <code>Toolbar</code> or <code>Navbar</code></p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-title</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

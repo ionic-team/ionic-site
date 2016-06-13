@@ -29,7 +29,6 @@ Keyboard
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/util/keyboard.ts#L5">
@@ -42,6 +41,10 @@ Improve this doc
 
 
 <p>The <code>Keyboard</code> class allows you to work with the keyboard events provided by the Ionic keyboard plugin.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

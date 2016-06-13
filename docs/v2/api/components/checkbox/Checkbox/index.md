@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="checkbox" href="#checkbox"></a>
 
 Checkbox
+<h3><code>ion-checkbox</code></h3>
 
 
 
@@ -49,8 +50,9 @@ placed in an <code>ion-item</code> or used as a stand-alone checkbox.</p>
 for more info on forms and inputs.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-checkbox</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

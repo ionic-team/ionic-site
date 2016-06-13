@@ -29,12 +29,15 @@ Picker
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/picker/picker.ts#L10">
 Improve this doc
 </a>
+
+
+
+
 
 
 

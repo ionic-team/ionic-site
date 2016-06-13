@@ -24,6 +24,7 @@ docType: "class"
 <a class="anchor" name="refresher-content" href="#refresher-content"></a>
 
 RefresherContent
+<h3><code>ion-refresher-content</code></h3>
 
 
 
@@ -43,8 +44,9 @@ Improve this doc
 
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-refresher-content</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

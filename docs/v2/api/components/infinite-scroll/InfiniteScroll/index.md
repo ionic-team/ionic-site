@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="infinite-scroll" href="#infinite-scroll"></a>
 
 InfiniteScroll
+<h3><code>ion-infinite-scroll</code></h3>
 
 
 
@@ -51,8 +52,9 @@ has finished its tasks, it should call the <code>complete()</code> method
 on the infinite scroll instance.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>ion-infinite-scroll</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

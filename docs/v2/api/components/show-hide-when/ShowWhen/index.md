@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="show-when" href="#show-when"></a>
 
 ShowWhen
+<h3><code>[showWhen]</code></h3>
 
 
 
@@ -53,8 +54,9 @@ will not show if <code>hidden</code> evaluates to <code>true</code>.</p>
 platforms you can use.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>[showWhen]</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

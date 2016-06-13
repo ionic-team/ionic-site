@@ -29,7 +29,6 @@ SqlStorage
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/platform/storage/sql.ts#L5">
@@ -47,6 +46,10 @@ persistent SQL store on the filesystem.</p>
 app storage, unlike Local Storage which is treated differently by the OS.</p>
 <p>For convenience, the engine supports key/value storage for simple get/set and blob
 storage. The full SQL engine is exposed underneath through the <code>query</code> method.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

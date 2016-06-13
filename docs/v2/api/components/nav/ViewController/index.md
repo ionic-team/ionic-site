@@ -29,7 +29,6 @@ ViewController
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/nav/view-controller.ts#L5">
@@ -42,6 +41,10 @@ Improve this doc
 
 
 <p>Access various features and information about the current view.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

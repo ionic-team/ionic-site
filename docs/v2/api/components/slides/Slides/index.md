@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="slides" href="#slides"></a>
 
 Slides
+<h3><code>ion-slides</code></h3>
 
 
 
@@ -122,8 +123,9 @@ Slides component. See the <a href="#getSlider"><code>getSlider()</code></a> meth
 getting the <code>Swiper</code> instance and using its methods directly.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-slides</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

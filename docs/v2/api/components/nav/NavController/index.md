@@ -29,7 +29,6 @@ NavController
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/nav/nav-controller.ts#L13">
@@ -209,6 +208,10 @@ To do this, we can pass an object with the modified properites.</p>
 </tbody>
 </table>
 <p>The property &#39;animation&#39; understands the following values: <code>md-transition</code>, <code>ios-transition</code> and <code>wp-transition</code>.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

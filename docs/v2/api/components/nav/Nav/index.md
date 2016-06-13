@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="nav" href="#nav"></a>
 
 Nav
+<h3><code>ion-nav</code></h3>
 
 
 
@@ -56,8 +57,9 @@ component) to be loaded initially by any Nav you create, using
 the &#39;root&#39; property:</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-nav</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

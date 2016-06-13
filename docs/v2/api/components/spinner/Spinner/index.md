@@ -24,6 +24,7 @@ docType: "class"
 <a class="anchor" name="spinner" href="#spinner"></a>
 
 Spinner
+<h3><code>ion-spinner</code></h3>
 
 
 
@@ -99,8 +100,9 @@ the appropriate spinner for the platform on which it’s running.</p>
  </tr>
 </table>
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-spinner</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

@@ -31,7 +31,6 @@ Config
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/config.ts#L9">
@@ -234,6 +233,10 @@ chart displays each property with a description of what it controls.</p>
 </tr>
 </tbody>
 </table>
+
+
+
+
 
 <!-- @usage tag -->
 

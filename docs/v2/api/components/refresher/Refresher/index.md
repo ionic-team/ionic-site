@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="refresher" href="#refresher"></a>
 
 Refresher
+<h3><code>ion-refresher</code></h3>
 
 
 
@@ -54,8 +55,9 @@ properly this way. Please use the <code>enabled</code> property instead to
 display or hide the refresher.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>ion-refresher</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

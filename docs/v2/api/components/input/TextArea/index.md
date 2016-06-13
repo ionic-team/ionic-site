@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="text-area" href="#text-area"></a>
 
 TextArea
+<h3><code>ion-textarea</code></h3>
 
 
 
@@ -55,8 +56,9 @@ textarea&#39;s inner content.</p>
 <code>&lt;ion-input&gt;</code> instead.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-textarea</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

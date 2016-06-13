@@ -31,7 +31,6 @@ Modal
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/modal/modal.ts#L11">
@@ -61,6 +60,10 @@ argument. The data can then be accessed from the opened page by injecting
 <code>NavParams</code>. Note that the page, which opened as a modal, has no special
 &quot;modal&quot; logic within it, but uses <code>NavParams</code> no differently than a
 standard page.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

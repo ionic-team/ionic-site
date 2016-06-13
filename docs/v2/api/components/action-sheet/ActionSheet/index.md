@@ -31,7 +31,6 @@ ActionSheet
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/action-sheet/action-sheet.ts#L9">
@@ -64,6 +63,10 @@ it will fire the handler from the button with the cancel role.</p>
 <p>You can pass all of the action sheet&#39;s options in the first argument of
 the create method: <code>ActionSheet.create(opts)</code>. Otherwise the action sheet&#39;s
 instance has methods to add options, like <code>setTitle()</code> or <code>addButton()</code>.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="select" href="#select"></a>
 
 Select
+<h3><code>ion-select</code></h3>
 
 
 
@@ -117,8 +118,9 @@ for more properties.</p>
 </code></pre>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-select</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

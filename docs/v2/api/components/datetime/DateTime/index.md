@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="date-time" href="#date-time"></a>
 
 DateTime
+<h3><code>ion-datetime</code></h3>
 
 
 
@@ -349,8 +350,9 @@ prepackage this dependency since most apps will not require it, and its locale
 configuration should be decided by the end-developer.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-datetime</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

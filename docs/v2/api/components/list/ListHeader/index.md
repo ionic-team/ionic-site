@@ -24,6 +24,7 @@ docType: "class"
 <a class="anchor" name="list-header" href="#list-header"></a>
 
 ListHeader
+<h3><code>ion-list-header</code></h3>
 
 
 
@@ -43,8 +44,9 @@ Improve this doc
 
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>ion-list-header</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

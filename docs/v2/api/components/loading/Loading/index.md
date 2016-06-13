@@ -31,7 +31,6 @@ Loading
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/loading/loading.ts#L7">
@@ -77,6 +76,10 @@ in the <code>usage</code> section below.</p>
 <p>The element is styled to appear on top of other content by setting its
 <code>z-index</code> property. You must ensure no element has a stacking context with
 a higher <code>z-index</code> than this element.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="range" href="#range"></a>
 
 Range
+<h3><code>ion-range</code></h3>
 
 
 
@@ -68,8 +69,9 @@ enable two knobs on the range. If the range has two knobs, the value will
 be an object containing two properties: <code>lower</code> and <code>upper</code>.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-range</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

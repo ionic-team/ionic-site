@@ -31,7 +31,6 @@ Alert
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/alert/alert.ts#L8">
@@ -72,6 +71,10 @@ inputs. Do note however, different types of &quot;text&quot;&quot; inputs can be
 such as <code>url</code>, <code>email</code>, <code>text</code>, etc. If you require a complex form UI
 which doesn&#39;t fit within the guidelines of an alert then we recommend
 building the form within a modal instead.</p>
+
+
+
+
 
 <!-- @usage tag -->
 

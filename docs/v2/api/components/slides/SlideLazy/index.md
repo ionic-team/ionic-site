@@ -24,6 +24,7 @@ docType: "class"
 <a class="anchor" name="slide-lazy" href="#slide-lazy"></a>
 
 SlideLazy
+<h3><code>slide-lazy</code></h3>
 
 
 
@@ -43,8 +44,9 @@ Improve this doc
 
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>slide-lazy</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="navbar" href="#navbar"></a>
 
 Navbar
+<h3><code>ion-navbar</code></h3>
 
 
 
@@ -47,8 +48,9 @@ Improve this doc
 loaded. You can pass the navbar an <code>ion-title</code>, any number of buttons, a segment, or a searchbar.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-navbar</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

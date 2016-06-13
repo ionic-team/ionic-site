@@ -24,6 +24,7 @@ docType: "class"
 <a class="anchor" name="item-options" href="#item-options"></a>
 
 ItemOptions
+<h3><code>ion-item-options</code></h3>
 
 
 
@@ -43,8 +44,9 @@ Improve this doc
 
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>ion-item-options</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="segment" href="#segment"></a>
 
 Segment
+<h3><code>ion-segment</code></h3>
 
 
 
@@ -48,8 +49,9 @@ Segments provide functionality similar to tabs, selecting one will unselect all 
 You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> API. For an overview on how <code>FormBuilder</code> works, checkout <a href="http://learnangular2.com/forms/">Angular 2 Forms</a>, or <a href="https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html">Angular FormBuilder</a></p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>ion-segment</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

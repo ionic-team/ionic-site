@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="menu" href="#menu"></a>
 
 Menu
+<h3><code>ion-menu</code></h3>
 
 
 
@@ -78,8 +79,9 @@ on all pages in the navigation stack. To make a menu persistent set <code>persis
 to the <code>Menu</code> with <code>persistent</code> set to true, any other <code>MenuToggle</code> buttons will not be affected.</p>
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-menu</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

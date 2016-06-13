@@ -31,7 +31,6 @@ Popover
 
 
 
-
 </h1>
 
 <a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/popover/popover.ts#L14">
@@ -74,6 +73,10 @@ another one must be created. This can be avoided by wrapping the creation and
 presentation of the component in a reusable function as shown in the <a href="#usage">usage</a>
 section below.</p>
 </blockquote>
+
+
+
+
 
 <!-- @usage tag -->
 

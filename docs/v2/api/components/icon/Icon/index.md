@@ -26,6 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="icon" href="#icon"></a>
 
 Icon
+<h3><code>ion-icon</code></h3>
 
 
 
@@ -54,8 +55,9 @@ automatically apply <code>md-alarm</code>. This allows the developer to write th
 markup once while Ionic applies the appropriate icon based on the mode.</p>
 
 
-<h2><a class="anchor" name="Directive" href="#Directive"></a>Directive</h2>
-<h3>selector: <code>ion-icon</code></h3>
+
+
+
 <!-- @usage tag -->
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>

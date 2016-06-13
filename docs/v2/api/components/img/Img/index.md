@@ -24,6 +24,7 @@ docType: "class"
 <a class="anchor" name="img" href="#img"></a>
 
 Img
+<h3><code>ion-img</code></h3>
 
 
 
@@ -43,8 +44,9 @@ Improve this doc
 
 
 
-<h2><a class="anchor" name="Component" href="#Component"></a>Component</h2>
-<h3>selector: <code>ion-img</code></h3>
+
+
+
 <!-- @usage tag -->
 
 

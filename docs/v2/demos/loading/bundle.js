@@ -15839,7 +15839,9 @@
 	    if (config.get('hoverCSS') !== false) {
 	        bodyEle.classList.add('enable-hover');
 	    }
-	    if (config.get('clickBlock') !== false) {
+	    var original = config.get('clickBlock');
+	    var bool = config.getBoolean('clickBlock');
+	    if (bool !== false) {
 	        clickBlock.enable();
 	    }
 	    // run feature detection tests
@@ -75840,11 +75842,15 @@
 	    settings: {
 	        mode: 'md',
 	        keyboardHeight: 290,
+	        clickBlock: true
 	    }
 	});
 	platform_1.Platform.setDefault('core');
 	platform_1.Platform.register({
-	    name: 'mobile'
+	    name: 'mobile',
+	    settings: {
+	        clickBlock: true
+	    }
 	});
 	platform_1.Platform.register({
 	    name: 'phablet',

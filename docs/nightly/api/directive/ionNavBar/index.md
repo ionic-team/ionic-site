@@ -138,7 +138,6 @@ Available: &#39;left&#39;, &#39;right&#39;, &#39;center&#39;. Defaults to &#39;c
       <td>
         <p>By default, the navbar will scroll the content
 to the top when tapped.  Set no-tap-scroll to true to disable this behavior.</p>
-<p></table><br/></p>
 
         
       </td>

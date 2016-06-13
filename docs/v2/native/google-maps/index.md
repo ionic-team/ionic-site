@@ -88,7 +88,7 @@ Checks if a map object has been created.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;GoogleMap&gt;</code> returns a promise that resolves with the Map object (if it exists).
+<code>Promise&lt;boolean&gt;</code> returns a promise that resolves with a boolean that indicates if the plugin is available.
 </div>
 
 

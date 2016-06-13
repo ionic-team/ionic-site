@@ -27,6 +27,8 @@
         </form>
         {% if page.category == 'api' %}
           {% include v2_fluid/docs_side_nav_api.html %}
+        {% elseif page.category == 'native' %}
+          {% include v2_fluid/docs_side_nav_native.html %}
         {% else %}
           {% include v2_fluid/docs_side_nav_main.html %}
         {% endif %}

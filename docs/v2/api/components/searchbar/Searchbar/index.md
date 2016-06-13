@@ -34,7 +34,7 @@ Searchbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/searchbar/searchbar.ts#L18">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/searchbar/searchbar.ts#L15">
 Improve this doc
 </a>
 
@@ -68,6 +68,68 @@ Improve this doc
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="inputEle"></div>
+
+<h3>
+<a class="anchor" name="inputEle" href="#inputEle"></a>
+<code>inputEle</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="iconEle"></div>
+
+<h3>
+<a class="anchor" name="iconEle" href="#iconEle"></a>
+<code>iconEle</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="mode"></div>
+
+<h3>
+<a class="anchor" name="mode" href="#mode"></a>
+<code>mode</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -83,14 +145,14 @@ Improve this doc
     <tr>
       <td>cancelButtonText</td>
       <td><code>string</code></td>
-      <td><p> Sets the cancel button text to the value passed in</p>
+      <td><p> Set the the cancel button text. Default: <code>&quot;Cancel&quot;</code>.</p>
 </td>
     </tr>
     
     <tr>
       <td>hideCancelButton</td>
       <td><code>boolean</code></td>
-      <td><p> Hides the cancel button</p>
+      <td><p> Whether to hide the cancel button or not. Default: <code>&quot;false&quot;</code>.</p>
 </td>
     </tr>
     
@@ -104,14 +166,42 @@ Improve this doc
     <tr>
       <td>placeholder</td>
       <td><code>string</code></td>
-      <td><p> Sets input placeholder to the value passed in</p>
+      <td><p> Set the input&#39;s placeholder. Default <code>&quot;Search&quot;</code>.</p>
 </td>
     </tr>
     
     <tr>
-      <td>ngModel</td>
-      <td><code>any</code></td>
-      <td><p> Expression to evaluate when the Searchbar input has changed including cleared</p>
+      <td>autocomplete</td>
+      <td><code>string</code></td>
+      <td><p> Set the input&#39;s autocomplete property. Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>. Default <code>&quot;off&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>autocorrect</td>
+      <td><code>string</code></td>
+      <td><p> Set the input&#39;s autocorrect property. Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>. Default <code>&quot;off&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>spellcheck</td>
+      <td><code>string|boolean</code></td>
+      <td><p> Set the input&#39;s spellcheck property. Values: <code>true</code>, <code>false</code>. Default <code>false</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>type</td>
+      <td><code>string</code></td>
+      <td><p> Set the type of the input. Values: <code>&quot;text&quot;</code>, <code>&quot;password&quot;</code>, <code>&quot;email&quot;</code>, <code>&quot;number&quot;</code>, <code>&quot;search&quot;</code>, <code>&quot;tel&quot;</code>, <code>&quot;url&quot;</code>. Default <code>&quot;search&quot;</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>value</td>
+      <td><code>string</code></td>
+      <td><p> Set the input value.</p>
 </td>
     </tr>
     
@@ -130,31 +220,31 @@ Improve this doc
     
     <tr>
       <td>ionInput</td>
-      <td><p> When the Searchbar input has changed including cleared</p>
+      <td><p> When the Searchbar input has changed including cleared.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionBlur</td>
-      <td><p> When the Searchbar input has blurred</p>
+      <td><p> When the Searchbar input has blurred.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionFocus</td>
-      <td><p> When the Searchbar input has focused</p>
+      <td><p> When the Searchbar input has focused.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionCancel</td>
-      <td><p> When the cancel button is clicked</p>
+      <td><p> When the cancel button is clicked.</p>
 </td>
     </tr>
     
     <tr>
       <td>ionClear</td>
-      <td><p> When the clear input button is clicked</p>
+      <td><p> When the clear input button is clicked.</p>
 </td>
     </tr>
     

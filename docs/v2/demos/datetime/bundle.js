@@ -71908,11 +71908,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -71928,7 +71923,6 @@
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var config_1 = __webpack_require__(311);
-	var ion_1 = __webpack_require__(319);
 	var util_1 = __webpack_require__(313);
 	/**
 	* @private
@@ -71966,44 +71960,52 @@
 	 * @demo /docs/v2/demos/searchbar/
 	 * @see {@link /docs/v2/components#searchbar Searchbar Component Docs}
 	 */
-	var Searchbar = (function (_super) {
-	    __extends(Searchbar, _super);
+	var Searchbar = (function () {
 	    function Searchbar(_elementRef, _config, ngControl) {
-	        _super.call(this, _elementRef);
 	        this._elementRef = _elementRef;
 	        this._config = _config;
+	        this._value = '';
+	        this._shouldBlur = true;
+	        /**
+	         * @input {string} Set the the cancel button text. Default: `"Cancel"`.
+	         */
+	        this.cancelButtonText = 'Cancel';
+	        /**
+	         * @input {boolean} Whether to hide the cancel button or not. Default: `"false"`.
+	         */
+	        this.hideCancelButton = false;
 	        /**
 	         * @input {number} How long, in milliseconds, to wait to trigger the `input` event after each keystroke. Default `250`.
 	         */
 	        this.debounce = 250;
 	        /**
-	         * @output {event} When the Searchbar input has changed including cleared
+	         * @input {string} Set the input's placeholder. Default `"Search"`.
+	         */
+	        this.placeholder = 'Search';
+	        /**
+	         * @input {string} Set the type of the input. Values: `"text"`, `"password"`, `"email"`, `"number"`, `"search"`, `"tel"`, `"url"`. Default `"search"`.
+	         */
+	        this.type = 'search';
+	        /**
+	         * @output {event} When the Searchbar input has changed including cleared.
 	         */
 	        this.ionInput = new core_1.EventEmitter();
 	        /**
-	         * @output {event} When the Searchbar input has blurred
+	         * @output {event} When the Searchbar input has blurred.
 	         */
 	        this.ionBlur = new core_1.EventEmitter();
 	        /**
-	         * @output {event} When the Searchbar input has focused
+	         * @output {event} When the Searchbar input has focused.
 	         */
 	        this.ionFocus = new core_1.EventEmitter();
 	        /**
-	         * @output {event} When the cancel button is clicked
+	         * @output {event} When the cancel button is clicked.
 	         */
 	        this.ionCancel = new core_1.EventEmitter();
 	        /**
-	         * @output {event} When the clear input button is clicked
+	         * @output {event} When the clear input button is clicked.
 	         */
 	        this.ionClear = new core_1.EventEmitter();
-	        /**
-	         * @private
-	         */
-	        this.value = '';
-	        /**
-	         * @private
-	         */
-	        this.blurInput = true;
 	        /**
 	         * @private
 	         */
@@ -72017,6 +72019,40 @@
 	            ngControl.valueAccessor = this;
 	        }
 	    }
+	    Object.defineProperty(Searchbar.prototype, "_searchbarInput", {
+	        /**
+	         * @private
+	         */
+	        set: function (searchbarInput) {
+	            this.inputEle = searchbarInput.elementRef.nativeElement;
+	            // By defalt set autocomplete="off" unless specified by the input
+	            var autoComplete = (this.autocomplete === '' || this.autocomplete === 'on') ? 'on' : this._config.get('autocomplete', 'off');
+	            this.inputEle.setAttribute('autocomplete', autoComplete);
+	            // by default set autocorrect="off" unless specified by the input
+	            var autoCorrect = (this.autocorrect === '' || this.autocorrect === 'on') ? 'on' : this._config.get('autocorrect', 'off');
+	            this.inputEle.setAttribute('autocorrect', autoCorrect);
+	            // by default set spellcheck="false" unless specified by the input
+	            var spellCheck = (this.spellcheck === '' || this.spellcheck === 'true' || this.spellcheck === true) ? true : this._config.getBoolean('spellcheck', false);
+	            this.inputEle.setAttribute('spellcheck', spellCheck);
+	            // by default set type="search" unless specified by the input
+	            this.inputEle.setAttribute('type', this.type);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Searchbar.prototype, "value", {
+	        /**
+	         * @input {string} Set the input value.
+	         */
+	        get: function () {
+	            return this._value;
+	        },
+	        set: function (val) {
+	            this._value = val;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
 	     * On Initialization check for attributes
@@ -72027,29 +72063,15 @@
 	        if (typeof hideCancelButton === 'string') {
 	            this.hideCancelButton = (hideCancelButton === '' || hideCancelButton === 'true');
 	        }
-	        this.cancelButtonText = this.cancelButtonText || 'Cancel';
-	        this.placeholder = this.placeholder || 'Search';
-	        if (this.ngModel)
-	            this.value = this.ngModel;
-	        this.onChange(this.value);
-	        this.shouldLeftAlign = this.value && this.value.trim() !== '';
-	        // Using querySelector instead of searchbarInput because at this point it doesn't exist
-	        this.inputElement = this._elementRef.nativeElement.querySelector('.searchbar-input');
-	        this.searchIconElement = this._elementRef.nativeElement.querySelector('.searchbar-search-icon');
-	        this.setElementLeft();
+	        this.shouldLeftAlign = this._value && this._value.toString().trim() !== '';
 	    };
 	    /**
 	     * @private
 	     * After View Initialization check the value
 	     */
 	    Searchbar.prototype.ngAfterViewInit = function () {
-	        // If the user passes an undefined variable to ngModel this will warn
-	        // and set the value to an empty string
-	        if (!util_1.isPresent(this.value)) {
-	            console.warn('Searchbar was passed an undefined value in ngModel. Please make sure the variable is defined.');
-	            this.value = '';
-	            this.onChange(this.value);
-	        }
+	        this.iconEle = this._searchbarIcon.nativeElement;
+	        this.setElementLeft();
 	    };
 	    /**
 	     * @private
@@ -72060,8 +72082,8 @@
 	        if (this.mode !== 'ios')
 	            return;
 	        if (this.shouldLeftAlign) {
-	            this.inputElement.removeAttribute('style');
-	            this.searchIconElement.removeAttribute('style');
+	            this.inputEle.removeAttribute('style');
+	            this.iconEle.removeAttribute('style');
 	        }
 	        else {
 	            this.addElementLeft();
@@ -72082,10 +72104,10 @@
 	        tempSpan.remove();
 	        // Set the input padding left
 	        var inputLeft = 'calc(50% - ' + (textWidth / 2) + 'px)';
-	        this.inputElement.style.paddingLeft = inputLeft;
+	        this.inputEle.style.paddingLeft = inputLeft;
 	        // Set the icon margin left
 	        var iconLeft = 'calc(50% - ' + ((textWidth / 2) + 30) + 'px)';
-	        this.searchIconElement.style.marginLeft = iconLeft;
+	        this.iconEle.style.marginLeft = iconLeft;
 	    };
 	    /**
 	     * @private
@@ -72096,17 +72118,17 @@
 	        var value = ev.target.value;
 	        clearTimeout(this._tmr);
 	        this._tmr = setTimeout(function () {
-	            _this.value = value;
-	            _this.onChange(value);
-	            _this.ionInput.emit(_this);
+	            _this._value = value;
+	            _this.onChange(_this._value);
+	            _this.ionInput.emit(ev);
 	        }, Math.round(this.debounce));
 	    };
 	    /**
 	     * @private
 	     * Sets the Searchbar to focused and aligned left on input focus.
 	     */
-	    Searchbar.prototype.inputFocused = function () {
-	        this.ionFocus.emit(this);
+	    Searchbar.prototype.inputFocused = function (ev) {
+	        this.ionFocus.emit(ev);
 	        this.isFocused = true;
 	        this.shouldLeftAlign = true;
 	        this.setElementLeft();
@@ -72116,31 +72138,31 @@
 	     * Sets the Searchbar to not focused and checks if it should align left
 	     * based on whether there is a value in the searchbar or not.
 	     */
-	    Searchbar.prototype.inputBlurred = function () {
-	        // blurInput determines if it should blur
+	    Searchbar.prototype.inputBlurred = function (ev) {
+	        // _shouldBlur determines if it should blur
 	        // if we are clearing the input we still want to stay focused in the input
-	        if (this.blurInput === false) {
-	            this.searchbarInput.elementRef.nativeElement.focus();
-	            this.blurInput = true;
+	        if (this._shouldBlur === false) {
+	            this.inputEle.focus();
+	            this._shouldBlur = true;
 	            return;
 	        }
-	        this.ionBlur.emit(this);
+	        this.ionBlur.emit(ev);
 	        this.isFocused = false;
-	        this.shouldLeftAlign = this.value && this.value.trim() !== '';
+	        this.shouldLeftAlign = this._value && this._value.toString().trim() !== '';
 	        this.setElementLeft();
 	    };
 	    /**
 	     * @private
 	     * Clears the input field and triggers the control change.
 	     */
-	    Searchbar.prototype.clearInput = function () {
-	        this.ionClear.emit(this);
-	        if (util_1.isPresent(this.value) && this.value !== '') {
-	            this.value = '';
-	            this.onChange(this.value);
-	            this.ionInput.emit(this);
+	    Searchbar.prototype.clearInput = function (ev) {
+	        this.ionClear.emit(ev);
+	        if (util_1.isPresent(this._value) && this._value !== '') {
+	            this._value = '';
+	            this.onChange(this._value);
+	            this.ionInput.emit(ev);
 	        }
-	        this.blurInput = false;
+	        this._shouldBlur = false;
 	    };
 	    /**
 	     * @private
@@ -72148,17 +72170,17 @@
 	     * the clearInput function doesn't want the input to blur
 	     * then calls the custom cancel function if the user passed one in.
 	     */
-	    Searchbar.prototype.cancelSearchbar = function () {
-	        this.ionCancel.emit(this);
-	        this.clearInput();
-	        this.blurInput = true;
+	    Searchbar.prototype.cancelSearchbar = function (ev) {
+	        this.ionCancel.emit(ev);
+	        this.clearInput(ev);
+	        this._shouldBlur = true;
 	    };
 	    /**
 	     * @private
 	     * Write a new value to the element.
 	     */
-	    Searchbar.prototype.writeValue = function (value) {
-	        this.value = value;
+	    Searchbar.prototype.writeValue = function (val) {
+	        this._value = val;
 	    };
 	    /**
 	     * @private
@@ -72174,10 +72196,6 @@
 	    Searchbar.prototype.registerOnTouched = function (fn) {
 	        this.onTouched = fn;
 	    };
-	    __decorate([
-	        core_1.ViewChild(SearchbarInput), 
-	        __metadata('design:type', SearchbarInput)
-	    ], Searchbar.prototype, "searchbarInput", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
@@ -72196,8 +72214,20 @@
 	    ], Searchbar.prototype, "placeholder", void 0);
 	    __decorate([
 	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Searchbar.prototype, "autocomplete", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Searchbar.prototype, "autocorrect", void 0);
+	    __decorate([
+	        core_1.Input(), 
 	        __metadata('design:type', Object)
-	    ], Searchbar.prototype, "ngModel", void 0);
+	    ], Searchbar.prototype, "spellcheck", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Searchbar.prototype, "type", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
@@ -72219,38 +72249,51 @@
 	        __metadata('design:type', (typeof (_e = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _e) || Object)
 	    ], Searchbar.prototype, "ionClear", void 0);
 	    __decorate([
-	        core_1.HostBinding('class.searchbar-focused'), 
+	        core_1.HostBinding('class.searchbar-has-focus'), 
 	        __metadata('design:type', Boolean)
 	    ], Searchbar.prototype, "isFocused", void 0);
 	    __decorate([
 	        core_1.HostBinding('class.searchbar-left-aligned'), 
 	        __metadata('design:type', Boolean)
 	    ], Searchbar.prototype, "shouldLeftAlign", void 0);
+	    __decorate([
+	        core_1.ViewChild(SearchbarInput), 
+	        __metadata('design:type', SearchbarInput), 
+	        __metadata('design:paramtypes', [SearchbarInput])
+	    ], Searchbar.prototype, "_searchbarInput", null);
+	    __decorate([
+	        core_1.ViewChild('searchbarIcon'), 
+	        __metadata('design:type', (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object)
+	    ], Searchbar.prototype, "_searchbarIcon", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], Searchbar.prototype, "value", null);
 	    Searchbar = __decorate([
 	        core_1.Component({
 	            selector: 'ion-searchbar',
 	            host: {
-	                '[class.searchbar-has-value]': 'value',
+	                '[class.searchbar-has-value]': '_value',
 	                '[class.searchbar-hide-cancel]': 'hideCancelButton'
 	            },
 	            template: '<div class="searchbar-input-container">' +
-	                '<button (click)="cancelSearchbar()" (mousedown)="cancelSearchbar()" [hidden]="hideCancelButton" clear dark class="searchbar-md-cancel">' +
+	                '<button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" [hidden]="hideCancelButton" clear dark class="searchbar-md-cancel">' +
 	                '<ion-icon name="arrow-back"></ion-icon>' +
 	                '</button>' +
-	                '<div class="searchbar-search-icon"></div>' +
-	                '<input [value]="value" (input)="inputChanged($event)" (blur)="inputBlurred()" (focus)="inputFocused()" class="searchbar-input" type="search" [attr.placeholder]="placeholder" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">' +
-	                '<button clear class="searchbar-clear-icon" (click)="clearInput()" (mousedown)="clearInput()"></button>' +
+	                '<div #searchbarIcon class="searchbar-search-icon"></div>' +
+	                '<input [(ngModel)]="_value" [attr.placeholder]="placeholder" (input)="inputChanged($event)" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" class="searchbar-input">' +
+	                '<button clear class="searchbar-clear-icon" (click)="clearInput($event)" (mousedown)="clearInput($event)"></button>' +
 	                '</div>' +
-	                '<button clear (click)="cancelSearchbar()" (mousedown)="cancelSearchbar()" [hidden]="hideCancelButton" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
+	                '<button clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" [hidden]="hideCancelButton" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
 	            directives: [SearchbarInput],
-	            encapsulation: core_1.ViewEncapsulation.None,
+	            encapsulation: core_1.ViewEncapsulation.None
 	        }),
 	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object, (typeof (_g = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _g) || Object, (typeof (_h = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _h) || Object])
+	        __metadata('design:paramtypes', [(typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _h) || Object, (typeof (_j = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _j) || Object])
 	    ], Searchbar);
 	    return Searchbar;
-	    var _a, _b, _c, _d, _e, _f, _g, _h;
-	}(ion_1.Ion));
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+	}());
 	exports.Searchbar = Searchbar;
 
 /***/ },

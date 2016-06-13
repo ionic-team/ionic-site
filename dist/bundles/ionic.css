@@ -6736,7 +6736,7 @@ ion-icon {
     margin: 0;
     padding: 0;
     min-height: 0; }
-  .ios .searchbar-has-value.searchbar-focused .searchbar-clear-icon {
+  .ios .searchbar-has-value.searchbar-has-focus .searchbar-clear-icon {
     display: block; }
   .ios ion-searchbar {
     padding: 0 8px;
@@ -6803,7 +6803,7 @@ ion-icon {
     margin-left: 0; }
   .ios .searchbar-left-aligned .searchbar-input {
     padding-left: 30px; }
-  .ios .searchbar-focused .searchbar-ios-cancel {
+  .ios .searchbar-has-focus .searchbar-ios-cancel {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
     -ms-flex: 0 0 auto;
@@ -6819,7 +6819,7 @@ ion-icon {
       background: rgba(0, 0, 0, 0.08); }
     .ios .toolbar ion-searchbar .searchbar-ios-cancel {
       padding: 0; }
-  .ios .toolbar .searchbar-focused .searchbar-ios-cancel {
+  .ios .toolbar .searchbar-has-focus .searchbar-ios-cancel {
     padding-left: 8px; }
   .ios .searchbar-md-cancel {
     display: none; }
@@ -10315,7 +10315,7 @@ ion-icon {
     margin: 0;
     padding: 0;
     min-height: 0; }
-  .md .searchbar-has-value.searchbar-focused .searchbar-clear-icon {
+  .md .searchbar-has-value.searchbar-has-focus .searchbar-clear-icon {
     display: block; }
   .md ion-searchbar {
     padding: 8px;
@@ -10372,9 +10372,9 @@ ion-icon {
     background-size: 22px; }
     .md .searchbar-clear-icon.activated {
       background-color: transparent; }
-  .md .searchbar-focused:not(.searchbar-hide-cancel) .searchbar-search-icon {
+  .md .searchbar-has-focus:not(.searchbar-hide-cancel) .searchbar-search-icon {
     display: none; }
-  .md .searchbar-focused:not(.searchbar-hide-cancel) .searchbar-md-cancel {
+  .md .searchbar-has-focus:not(.searchbar-hide-cancel) .searchbar-md-cancel {
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
     display: -ms-inline-flexbox;
@@ -14041,7 +14041,7 @@ ion-icon {
     margin: 0;
     padding: 0;
     min-height: 0; }
-  .wp .searchbar-has-value.searchbar-focused .searchbar-clear-icon {
+  .wp .searchbar-has-value.searchbar-has-focus .searchbar-clear-icon {
     display: block; }
   .wp ion-searchbar {
     padding: 8px;
@@ -14089,7 +14089,7 @@ ion-icon {
     background-size: 22px; }
     .wp .searchbar-clear-icon.activated {
       background-color: transparent; }
-  .wp .searchbar-focused .searchbar-input-container {
+  .wp .searchbar-has-focus .searchbar-input-container {
     border-color: #327eff; }
   .wp .searchbar-has-value .searchbar-search-icon {
     display: none; }
@@ -14099,15 +14099,15 @@ ion-icon {
     display: none; }
   .wp .toolbar ion-searchbar {
     padding: 2px; }
-  .wp ion-searchbar[primary].searchbar-focused .searchbar-input-container {
+  .wp ion-searchbar[primary].searchbar-has-focus .searchbar-input-container {
     border-color: #327eff; }
-  .wp ion-searchbar[secondary].searchbar-focused .searchbar-input-container {
+  .wp ion-searchbar[secondary].searchbar-has-focus .searchbar-input-container {
     border-color: #32db64; }
-  .wp ion-searchbar[danger].searchbar-focused .searchbar-input-container {
+  .wp ion-searchbar[danger].searchbar-has-focus .searchbar-input-container {
     border-color: #f53d3d; }
-  .wp ion-searchbar[light].searchbar-focused .searchbar-input-container {
+  .wp ion-searchbar[light].searchbar-has-focus .searchbar-input-container {
     border-color: #f4f4f4; }
-  .wp ion-searchbar[dark].searchbar-focused .searchbar-input-container {
+  .wp ion-searchbar[dark].searchbar-has-focus .searchbar-input-container {
     border-color: #222; }
   .wp ion-segment {
     display: -webkit-box;

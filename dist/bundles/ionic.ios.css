@@ -7083,7 +7083,7 @@ ion-searchbar {
   padding: 0;
   min-height: 0; }
 
-.searchbar-has-value.searchbar-focused .searchbar-clear-icon {
+.searchbar-has-value.searchbar-has-focus .searchbar-clear-icon {
   display: block; }
 
 ion-searchbar {
@@ -7158,7 +7158,7 @@ ion-searchbar {
 .searchbar-left-aligned .searchbar-input {
   padding-left: 30px; }
 
-.searchbar-focused .searchbar-ios-cancel {
+.searchbar-has-focus .searchbar-ios-cancel {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -7176,7 +7176,7 @@ ion-searchbar {
   .toolbar ion-searchbar .searchbar-ios-cancel {
     padding: 0; }
 
-.toolbar .searchbar-focused .searchbar-ios-cancel {
+.toolbar .searchbar-has-focus .searchbar-ios-cancel {
   padding-left: 8px; }
 
 .searchbar-md-cancel {

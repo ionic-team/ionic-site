@@ -7215,7 +7215,7 @@ ion-searchbar {
   padding: 0;
   min-height: 0; }
 
-.searchbar-has-value.searchbar-focused .searchbar-clear-icon {
+.searchbar-has-value.searchbar-has-focus .searchbar-clear-icon {
   display: block; }
 
 ion-searchbar {
@@ -7269,7 +7269,7 @@ ion-searchbar {
   .searchbar-clear-icon.activated {
     background-color: transparent; }
 
-.searchbar-focused .searchbar-input-container {
+.searchbar-has-focus .searchbar-input-container {
   border-color: #387ef5; }
 
 .searchbar-has-value .searchbar-search-icon {
@@ -7284,25 +7284,25 @@ ion-searchbar {
 .toolbar ion-searchbar {
   padding: 2px; }
 
-ion-searchbar[primary].searchbar-focused .searchbar-input-container {
+ion-searchbar[primary].searchbar-has-focus .searchbar-input-container {
   border-color: #387ef5; }
 
-ion-searchbar[secondary].searchbar-focused .searchbar-input-container {
+ion-searchbar[secondary].searchbar-has-focus .searchbar-input-container {
   border-color: #32db64; }
 
-ion-searchbar[danger].searchbar-focused .searchbar-input-container {
+ion-searchbar[danger].searchbar-has-focus .searchbar-input-container {
   border-color: #f53d3d; }
 
-ion-searchbar[light].searchbar-focused .searchbar-input-container {
+ion-searchbar[light].searchbar-has-focus .searchbar-input-container {
   border-color: #f4f4f4; }
 
-ion-searchbar[dark].searchbar-focused .searchbar-input-container {
+ion-searchbar[dark].searchbar-has-focus .searchbar-input-container {
   border-color: #222; }
 
-ion-searchbar[vibrant].searchbar-focused .searchbar-input-container {
+ion-searchbar[vibrant].searchbar-has-focus .searchbar-input-container {
   border-color: rebeccapurple; }
 
-ion-searchbar[bright].searchbar-focused .searchbar-input-container {
+ion-searchbar[bright].searchbar-has-focus .searchbar-input-container {
   border-color: #FFC125; }
 
 ion-segment {

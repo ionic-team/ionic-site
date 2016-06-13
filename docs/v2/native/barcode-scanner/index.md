@@ -113,6 +113,8 @@ BarcodeScanner.scan().then((barcodeData) =&gt; {
   
 </h3>
 
+
+
 Open the barcode scanner.
 
 

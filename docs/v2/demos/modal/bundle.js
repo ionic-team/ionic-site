@@ -72196,7 +72196,7 @@
 	     * Align the input placeholder left on focus or if a value exists
 	     */
 	    Searchbar.prototype.shouldAlignLeft = function () {
-	        return ((this._value && this._value.toString().trim() != '') || this._sbHasFocus == true);
+	        return ((this._value && this._value.toString().trim() !== '') || this._sbHasFocus === true);
 	    };
 	    /**
 	     * @private

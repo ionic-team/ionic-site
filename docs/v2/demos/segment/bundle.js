@@ -74672,8 +74672,8 @@
 	        var bodyHeight = window.innerHeight;
 	        // If ev was passed, use that for target element
 	        var targetDim = ev && ev.target && ev.target.getBoundingClientRect();
-	        var targetTop = targetDim && targetDim.top || (bodyHeight / 2) - (popoverHeight / 2);
-	        var targetLeft = targetDim && targetDim.left || bodyWidth / 2 - (popoverWidth / 2);
+	        var targetTop = (targetDim && 'top' in targetDim) ? targetDim.top : (bodyHeight / 2) - (popoverHeight / 2);
+	        var targetLeft = (targetDim && 'left' in targetDim) ? targetDim.left : (bodyWidth / 2) - (popoverWidth / 2);
 	        var targetWidth = targetDim && targetDim.width || 0;
 	        var targetHeight = targetDim && targetDim.height || 0;
 	        var popoverCSS = {
@@ -74721,8 +74721,8 @@
 	        var bodyHeight = window.innerHeight;
 	        // If ev was passed, use that for target element
 	        var targetDim = ev && ev.target && ev.target.getBoundingClientRect();
-	        var targetTop = targetDim && targetDim.top || (bodyHeight / 2) - (popoverHeight / 2);
-	        var targetLeft = targetDim && targetDim.left || bodyWidth / 2;
+	        var targetTop = (targetDim && 'top' in targetDim) ? targetDim.top : (bodyHeight / 2) - (popoverHeight / 2);
+	        var targetLeft = (targetDim && 'left' in targetDim) ? targetDim.left : (bodyWidth / 2);
 	        var targetWidth = targetDim && targetDim.width || 0;
 	        var targetHeight = targetDim && targetDim.height || 0;
 	        // The arrow that shows above the popover on iOS

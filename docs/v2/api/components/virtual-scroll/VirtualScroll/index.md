@@ -56,7 +56,7 @@ template with the <code>*virtualItem</code> property is required in the <code>vi
 The <code>virtualScroll</code> and <code>*virtualItem</code> properties can be added to any element.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
 
-  &lt;ion-item *virtualItem=&quot;#item&quot;&gt;
+  &lt;ion-item *virtualItem=&quot;let item&quot;&gt;
     {% raw %}{{ item }}{% endraw %}
   &lt;/ion-item&gt;
 
@@ -72,11 +72,11 @@ and what data to provide to the template. The custom function should
 return <code>null</code> if a template shouldn&#39;t be created.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot; [headerFn]=&quot;myHeaderFn&quot;&gt;
 
-  &lt;ion-item-divider *virtualHeader=&quot;#header&quot;&gt;
+  &lt;ion-item-divider *virtualHeader=&quot;let header&quot;&gt;
     Header: {% raw %}{{ header }}{% endraw %}
   &lt;/ion-item-divider&gt;
 
-  &lt;ion-item *virtualItem=&quot;#item&quot;&gt;
+  &lt;ion-item *virtualItem=&quot;let item&quot;&gt;
     Item: {% raw %}{{ item }}{% endraw %}
   &lt;/ion-item&gt;
 
@@ -123,7 +123,7 @@ decoding, and image rendering can cause issues while scrolling. For virtual
 scrolling, the natural effects of the <code>&lt;img&gt;</code> are not desirable features.</p>
 <pre><code class="lang-html">&lt;ion-list [virtualScroll]=&quot;items&quot;&gt;
 
-  &lt;ion-item *virtualItem=&quot;#item&quot;&gt;
+  &lt;ion-item *virtualItem=&quot;let item&quot;&gt;
     &lt;ion-avatar item-left&gt;
       &lt;ion-img [src]=&quot;item.avatarUrl&quot;&gt;&lt;/ion-img&gt;
     &lt;/ion-avatar&gt;

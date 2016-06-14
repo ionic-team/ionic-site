@@ -64424,7 +64424,7 @@
 	 * ```html
 	 * <ion-list [virtualScroll]="items">
 	 *
-	 *   <ion-item *virtualItem="#item">
+	 *   <ion-item *virtualItem="let item">
 	 *     {% raw %}{{ item }}{% endraw %}
 	 *   </ion-item>
 	 *
@@ -64445,11 +64445,11 @@
 	 * ```html
 	 * <ion-list [virtualScroll]="items" [headerFn]="myHeaderFn">
 	 *
-	 *   <ion-item-divider *virtualHeader="#header">
+	 *   <ion-item-divider *virtualHeader="let header">
 	 *     Header: {% raw %}{{ header }}{% endraw %}
 	 *   </ion-item-divider>
 	 *
-	 *   <ion-item *virtualItem="#item">
+	 *   <ion-item *virtualItem="let item">
 	 *     Item: {% raw %}{{ item }}{% endraw %}
 	 *   </ion-item>
 	 *
@@ -64509,7 +64509,7 @@
 	 * ```html
 	 * <ion-list [virtualScroll]="items">
 	 *
-	 *   <ion-item *virtualItem="#item">
+	 *   <ion-item *virtualItem="let item">
 	 *     <ion-avatar item-left>
 	 *       <ion-img [src]="item.avatarUrl"></ion-img>
 	 *     </ion-avatar>

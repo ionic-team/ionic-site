@@ -53047,7 +53047,6 @@
 	        this._init = false;
 	        this._children = [];
 	        this._ids = -1;
-	        this._trnsTime = 0;
 	        this._views = [];
 	        /**
 	         * @private
@@ -53057,6 +53056,10 @@
 	         * @private
 	         */
 	        this.isPortal = false;
+	        /**
+	         * @private
+	         */
+	        this._trnsTime = 0;
 	        this.parent = parent;
 	        this.config = config;
 	        this._trnsDelay = config.get('pageTransitionDelay');
@@ -53902,24 +53905,33 @@
 	                isRTL: _this.config.platform.isRTL(),
 	                ev: opts.ev,
 	            };
-	            var transAnimation = transition_1.Transition.createTransition(enteringView, leavingView, transitionOpts);
+	            var transAnimation = _this.createTransitionWrapper(enteringView, leavingView, transitionOpts);
 	            _this._trans && _this._trans.destroy();
 	            _this._trans = transAnimation;
 	            if (opts.animate === false) {
 	                // force it to not animate the elements, just apply the "to" styles
 	                transAnimation.duration(0);
 	            }
-	            var keyboardDurationPadding = 0;
-	            if (_this._keyboard.isOpen()) {
-	                // add XXms to the duration the app is disabled when the keyboard is open
-	                keyboardDurationPadding = 600;
+	            // check if a parent is transitioning and get the time that it ends
+	            var parentTransitionEndTime = _this._getLongestTrans(Date.now());
+	            if (parentTransitionEndTime > 0) {
+	                // the parent is already transitioning and has disabled the app
+	                // so just update the local transitioning information
+	                var duration = parentTransitionEndTime - Date.now();
+	                _this.setTransitioning(true, duration);
 	            }
-	            var duration = transAnimation.getDuration() + keyboardDurationPadding;
-	            var enableApp = (duration < 64);
-	            // block any clicks during the transition and provide a
-	            // fallback to remove the clickblock if something goes wrong
-	            _this._app.setEnabled(enableApp, duration);
-	            _this.setTransitioning(!enableApp, duration);
+	            else {
+	                // this is the only active transition (for now), so disable the app
+	                var keyboardDurationPadding = 0;
+	                if (_this._keyboard.isOpen()) {
+	                    // add XXms to the duration the app is disabled when the keyboard is open
+	                    keyboardDurationPadding = 600;
+	                }
+	                var duration = transAnimation.getDuration() + keyboardDurationPadding;
+	                var enableApp = (duration < 64);
+	                _this._app.setEnabled(enableApp, duration);
+	                _this.setTransitioning(!enableApp, duration);
+	            }
 	            if (enteringView.viewType) {
 	                transAnimation.before.addClass(enteringView.viewType);
 	            }
@@ -54045,8 +54057,13 @@
 	                leavingView.state = STATE_ACTIVE;
 	                enteringView.state = STATE_INACTIVE;
 	            }
-	            // allow clicks and enable the app again
-	            this._app && this._app.setEnabled(true);
+	            // check if there is a parent actively transitioning
+	            var transitionEndTime = this._getLongestTrans(Date.now());
+	            // if transitionEndTime is greater than 0, there is a parent transition occurring
+	            // so delegate enabling the app to the parent.  If it <= 0, go ahead and enable the app
+	            if (transitionEndTime <= 0) {
+	                this._app && this._app.setEnabled(true);
+	            }
 	            this.setTransitioning(false);
 	            if (direction !== null && hasCompleted && !this.isPortal) {
 	                // notify router of the state change if a direction was provided
@@ -54079,6 +54096,15 @@
 	                leavingView.state = STATE_INACTIVE;
 	            }
 	        }
+	    };
+	    /**
+	     *@private
+	     * This method is just a wrapper to the Transition function of same name
+	     * to make it easy/possible to mock the method call by overriding the function.
+	     * In testing we don't want to actually do the animation, we want to return a stub instead
+	     */
+	    NavController.prototype.createTransitionWrapper = function (enteringView, leavingView, transitionOpts) {
+	        return transition_1.Transition.createTransition(enteringView, leavingView, transitionOpts);
 	    };
 	    NavController.prototype._cleanup = function () {
 	        var _this = this;
@@ -54315,6 +54341,25 @@
 	    NavController.prototype.setTransitioning = function (isTransitioning, fallback) {
 	        if (fallback === void 0) { fallback = 700; }
 	        this._trnsTime = (isTransitioning ? Date.now() + fallback : 0);
+	    };
+	    /**
+	     * @private
+	     * This method traverses the tree of parents upwards
+	     * and looks at the time the transition ends (if it's transitioning)
+	     * and returns the value that is the furthest into the future
+	     * thus giving us the longest transition duration
+	     */
+	    NavController.prototype._getLongestTrans = function (now) {
+	        var parentNav = this.parent;
+	        var transitionEndTime = -1;
+	        while (parentNav) {
+	            if (parentNav._trnsTime > transitionEndTime) {
+	                transitionEndTime = parentNav._trnsTime;
+	            }
+	            parentNav = parentNav.parent;
+	        }
+	        // only check if the transitionTime is greater than the current time once
+	        return transitionEndTime > 0 && transitionEndTime > now ? transitionEndTime : 0;
 	    };
 	    /**
 	     * @private

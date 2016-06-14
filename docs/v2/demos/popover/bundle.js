@@ -75073,6 +75073,7 @@
 	                    _this.dismiss('backdrop');
 	                }, this.d.duration);
 	        }
+	        this.enabled = true;
 	    };
 	    ToastCmp.prototype.ionViewDidEnter = function () {
 	        var activeElement = document.activeElement;
@@ -75083,7 +75084,6 @@
 	        if (focusableEle) {
 	            focusableEle.focus();
 	        }
-	        this.enabled = true;
 	    };
 	    ToastCmp.prototype.cbClick = function () {
 	        if (this.enabled) {

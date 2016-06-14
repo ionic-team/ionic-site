@@ -46845,7 +46845,6 @@
 	 * - Icon
 	 * - Spinner
 	 * - Searchbar
-	 * - SearchbarInput
 	 * - Segment
 	 * - SegmentButton
 	 * - Checkbox
@@ -46912,7 +46911,6 @@
 	    spinner_1.Spinner,
 	    // Forms
 	    searchbar_1.Searchbar,
-	    searchbar_1.SearchbarInput,
 	    segment_1.Segment,
 	    segment_1.SegmentButton,
 	    checkbox_1.Checkbox,
@@ -71925,23 +71923,6 @@
 	var config_1 = __webpack_require__(311);
 	var util_1 = __webpack_require__(313);
 	/**
-	* @private
-	*/
-	var SearchbarInput = (function () {
-	    function SearchbarInput(elementRef) {
-	        this.elementRef = elementRef;
-	    }
-	    SearchbarInput = __decorate([
-	        core_1.Directive({
-	            selector: '.searchbar-input',
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
-	    ], SearchbarInput);
-	    return SearchbarInput;
-	    var _a;
-	}());
-	exports.SearchbarInput = SearchbarInput;
-	/**
 	 * @name Searchbar
 	 * @module ionic
 	 * @description
@@ -71951,7 +71932,7 @@
 	 * ```html
 	 * <ion-searchbar
 	 *   [(ngModel)]="myInput"
-	 *   [hideCancelButton]="shouldHideCancel"
+	 *   [showCancelButton]="shouldShowCancel"
 	 *   (ionInput)="onInput($event)"
 	 *   (ionCancel)="onCancel($event)">
 	 * </ion-searchbar>
@@ -71966,6 +71947,7 @@
 	        this._config = _config;
 	        this._value = '';
 	        this._shouldBlur = true;
+	        this._isActive = false;
 	        /**
 	         * @input {string} Set the the cancel button text. Default: `"Cancel"`.
 	         */
@@ -71973,7 +71955,7 @@
 	        /**
 	         * @input {boolean} Whether to hide the cancel button or not. Default: `"false"`.
 	         */
-	        this.hideCancelButton = false;
+	        this.showCancelButton = false;
 	        /**
 	         * @input {number} How long, in milliseconds, to wait to trigger the `input` event after each keystroke. Default `250`.
 	         */
@@ -72019,23 +72001,24 @@
 	            ngControl.valueAccessor = this;
 	        }
 	    }
-	    Object.defineProperty(Searchbar.prototype, "_searchbarInput", {
+	    Object.defineProperty(Searchbar.prototype, "searchbarInput", {
 	        /**
 	         * @private
 	         */
 	        set: function (searchbarInput) {
-	            this.inputEle = searchbarInput.elementRef.nativeElement;
+	            this._searchbarInput = searchbarInput;
+	            var inputEle = searchbarInput.nativeElement;
 	            // By defalt set autocomplete="off" unless specified by the input
 	            var autoComplete = (this.autocomplete === '' || this.autocomplete === 'on') ? 'on' : this._config.get('autocomplete', 'off');
-	            this.inputEle.setAttribute('autocomplete', autoComplete);
+	            inputEle.setAttribute('autocomplete', autoComplete);
 	            // by default set autocorrect="off" unless specified by the input
 	            var autoCorrect = (this.autocorrect === '' || this.autocorrect === 'on') ? 'on' : this._config.get('autocorrect', 'off');
-	            this.inputEle.setAttribute('autocorrect', autoCorrect);
+	            inputEle.setAttribute('autocorrect', autoCorrect);
 	            // by default set spellcheck="false" unless specified by the input
 	            var spellCheck = (this.spellcheck === '' || this.spellcheck === 'true' || this.spellcheck === true) ? true : this._config.getBoolean('spellcheck', false);
-	            this.inputEle.setAttribute('spellcheck', spellCheck);
+	            inputEle.setAttribute('spellcheck', spellCheck);
 	            // by default set type="search" unless specified by the input
-	            this.inputEle.setAttribute('type', this.type);
+	            inputEle.setAttribute('type', this.type);
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -72058,35 +72041,40 @@
 	     * On Initialization check for attributes
 	     */
 	    Searchbar.prototype.ngOnInit = function () {
-	        this.mode = this._config.get('mode');
-	        var hideCancelButton = this.hideCancelButton;
-	        if (typeof hideCancelButton === 'string') {
-	            this.hideCancelButton = (hideCancelButton === '' || hideCancelButton === 'true');
+	        var showCancelButton = this.showCancelButton;
+	        if (typeof showCancelButton === 'string') {
+	            this.showCancelButton = (showCancelButton === '' || showCancelButton === 'true');
 	        }
-	        this.shouldLeftAlign = this._value && this._value.toString().trim() !== '';
 	    };
 	    /**
 	     * @private
-	     * After View Initialization check the value
+	     * After View Initialization position the elements
 	     */
 	    Searchbar.prototype.ngAfterViewInit = function () {
-	        this.iconEle = this._searchbarIcon.nativeElement;
-	        this.setElementLeft();
+	        this.positionElements();
 	    };
 	    /**
 	     * @private
-	     * Determines whether or not to add style to the element
-	     * to center it properly (ios only)
+	     * After Content is checked position the elements
 	     */
-	    Searchbar.prototype.setElementLeft = function () {
-	        if (this.mode !== 'ios')
+	    Searchbar.prototype.ngAfterContentChecked = function () {
+	        this.positionElements();
+	    };
+	    /**
+	     * @private
+	     * Positions the input search icon, placeholder, and the cancel button
+	     * based on the input value and if it is focused. (ios only)
+	     */
+	    Searchbar.prototype.positionElements = function () {
+	        if (this._config.get('mode') !== 'ios')
 	            return;
-	        if (this.shouldLeftAlign) {
-	            this.inputEle.removeAttribute('style');
-	            this.iconEle.removeAttribute('style');
+	        // Position the input placeholder & search icon
+	        if (this._searchbarInput && this._searchbarIcon) {
+	            this.positionInputPlaceholder(this._searchbarInput.nativeElement, this._searchbarIcon.nativeElement);
 	        }
-	        else {
-	            this.addElementLeft();
+	        // Position the cancel button
+	        if (this._cancelButton && this._cancelButton.nativeElement) {
+	            this.positionCancelButton(this._cancelButton.nativeElement);
 	        }
 	    };
 	    /**
@@ -72094,20 +72082,47 @@
 	     * Calculates the amount of padding/margin left for the elements
 	     * in order to center them based on the placeholder width
 	     */
-	    Searchbar.prototype.addElementLeft = function () {
-	        // Create a dummy span to get the placeholder width
-	        var tempSpan = document.createElement('span');
-	        tempSpan.innerHTML = this.placeholder;
-	        document.body.appendChild(tempSpan);
-	        // Get the width of the span then remove it
-	        var textWidth = tempSpan.offsetWidth;
-	        tempSpan.remove();
-	        // Set the input padding left
-	        var inputLeft = 'calc(50% - ' + (textWidth / 2) + 'px)';
-	        this.inputEle.style.paddingLeft = inputLeft;
-	        // Set the icon margin left
-	        var iconLeft = 'calc(50% - ' + ((textWidth / 2) + 30) + 'px)';
-	        this.iconEle.style.marginLeft = iconLeft;
+	    Searchbar.prototype.positionInputPlaceholder = function (inputEle, iconEle) {
+	        if (this.shouldAlignLeft()) {
+	            inputEle.removeAttribute('style');
+	            iconEle.removeAttribute('style');
+	        }
+	        else {
+	            // Create a dummy span to get the placeholder width
+	            var tempSpan = document.createElement('span');
+	            tempSpan.innerHTML = this.placeholder;
+	            document.body.appendChild(tempSpan);
+	            // Get the width of the span then remove it
+	            var textWidth = tempSpan.offsetWidth;
+	            tempSpan.remove();
+	            // Set the input padding left
+	            var inputLeft = 'calc(50% - ' + (textWidth / 2) + 'px)';
+	            inputEle.style.paddingLeft = inputLeft;
+	            // Set the icon margin left
+	            var iconLeft = 'calc(50% - ' + ((textWidth / 2) + 30) + 'px)';
+	            iconEle.style.marginLeft = iconLeft;
+	        }
+	    };
+	    /**
+	     * @private
+	     * Show the iOS Cancel button on focus, hide it offscreen otherwise
+	     */
+	    Searchbar.prototype.positionCancelButton = function (cancelButtonEle) {
+	        if (cancelButtonEle.offsetWidth > 0) {
+	            if (this._sbHasFocus) {
+	                cancelButtonEle.style.marginRight = '0';
+	            }
+	            else {
+	                cancelButtonEle.style.marginRight = -cancelButtonEle.offsetWidth + 'px';
+	            }
+	        }
+	    };
+	    /**
+	     * @private
+	     * Align the input placeholder left on focus or if a value exists
+	     */
+	    Searchbar.prototype.shouldAlignLeft = function () {
+	        return ((this._value && this._value.toString().trim() != '') || this._sbHasFocus == true);
 	    };
 	    /**
 	     * @private
@@ -72125,13 +72140,13 @@
 	    };
 	    /**
 	     * @private
-	     * Sets the Searchbar to focused and aligned left on input focus.
+	     * Sets the Searchbar to focused and active on input focus.
 	     */
 	    Searchbar.prototype.inputFocused = function (ev) {
 	        this.ionFocus.emit(ev);
-	        this.isFocused = true;
-	        this.shouldLeftAlign = true;
-	        this.setElementLeft();
+	        this._sbHasFocus = true;
+	        this._isActive = true;
+	        this.positionElements();
 	    };
 	    /**
 	     * @private
@@ -72142,14 +72157,13 @@
 	        // _shouldBlur determines if it should blur
 	        // if we are clearing the input we still want to stay focused in the input
 	        if (this._shouldBlur === false) {
-	            this.inputEle.focus();
+	            this._searchbarInput.nativeElement.focus();
 	            this._shouldBlur = true;
 	            return;
 	        }
 	        this.ionBlur.emit(ev);
-	        this.isFocused = false;
-	        this.shouldLeftAlign = this._value && this._value.toString().trim() !== '';
-	        this.setElementLeft();
+	        this._sbHasFocus = false;
+	        this.positionElements();
 	    };
 	    /**
 	     * @private
@@ -72174,6 +72188,7 @@
 	        this.ionCancel.emit(ev);
 	        this.clearInput(ev);
 	        this._shouldBlur = true;
+	        this._isActive = false;
 	    };
 	    /**
 	     * @private
@@ -72203,7 +72218,7 @@
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
-	    ], Searchbar.prototype, "hideCancelButton", void 0);
+	    ], Searchbar.prototype, "showCancelButton", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Number)
@@ -72251,20 +72266,20 @@
 	    __decorate([
 	        core_1.HostBinding('class.searchbar-has-focus'), 
 	        __metadata('design:type', Boolean)
-	    ], Searchbar.prototype, "isFocused", void 0);
+	    ], Searchbar.prototype, "_sbHasFocus", void 0);
 	    __decorate([
-	        core_1.HostBinding('class.searchbar-left-aligned'), 
-	        __metadata('design:type', Boolean)
-	    ], Searchbar.prototype, "shouldLeftAlign", void 0);
-	    __decorate([
-	        core_1.ViewChild(SearchbarInput), 
-	        __metadata('design:type', SearchbarInput), 
-	        __metadata('design:paramtypes', [SearchbarInput])
-	    ], Searchbar.prototype, "_searchbarInput", null);
+	        core_1.ViewChild('searchbarInput'), 
+	        __metadata('design:type', (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object])
+	    ], Searchbar.prototype, "searchbarInput", null);
 	    __decorate([
 	        core_1.ViewChild('searchbarIcon'), 
-	        __metadata('design:type', (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object)
+	        __metadata('design:type', (typeof (_h = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _h) || Object)
 	    ], Searchbar.prototype, "_searchbarIcon", void 0);
+	    __decorate([
+	        core_1.ViewChild('cancelButton', { read: core_1.ElementRef }), 
+	        __metadata('design:type', (typeof (_j = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _j) || Object)
+	    ], Searchbar.prototype, "_cancelButton", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
@@ -72274,25 +72289,26 @@
 	            selector: 'ion-searchbar',
 	            host: {
 	                '[class.searchbar-has-value]': '_value',
-	                '[class.searchbar-hide-cancel]': 'hideCancelButton'
+	                '[class.searchbar-active]': '_isActive',
+	                '[class.searchbar-show-cancel]': 'showCancelButton',
+	                '[class.searchbar-left-aligned]': 'shouldAlignLeft()'
 	            },
 	            template: '<div class="searchbar-input-container">' +
-	                '<button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" [hidden]="hideCancelButton" clear dark class="searchbar-md-cancel">' +
+	                '<button (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" clear dark class="searchbar-md-cancel">' +
 	                '<ion-icon name="arrow-back"></ion-icon>' +
 	                '</button>' +
 	                '<div #searchbarIcon class="searchbar-search-icon"></div>' +
-	                '<input [(ngModel)]="_value" [attr.placeholder]="placeholder" (input)="inputChanged($event)" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" class="searchbar-input">' +
+	                '<input #searchbarInput [(ngModel)]="_value" [attr.placeholder]="placeholder" (input)="inputChanged($event)" (blur)="inputBlurred($event)" (focus)="inputFocused($event)" class="searchbar-input">' +
 	                '<button clear class="searchbar-clear-icon" (click)="clearInput($event)" (mousedown)="clearInput($event)"></button>' +
 	                '</div>' +
-	                '<button clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" [hidden]="hideCancelButton" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
-	            directives: [SearchbarInput],
+	                '<button #cancelButton [tabindex]="_isActive ? 1 : -1" clear (click)="cancelSearchbar($event)" (mousedown)="cancelSearchbar($event)" class="searchbar-ios-cancel">{{cancelButtonText}}</button>',
 	            encapsulation: core_1.ViewEncapsulation.None
 	        }),
 	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _h) || Object, (typeof (_j = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _j) || Object])
+	        __metadata('design:paramtypes', [(typeof (_k = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _k) || Object, (typeof (_l = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _l) || Object, (typeof (_m = typeof common_1.NgControl !== 'undefined' && common_1.NgControl) === 'function' && _m) || Object])
 	    ], Searchbar);
 	    return Searchbar;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 	}());
 	exports.Searchbar = Searchbar;
 

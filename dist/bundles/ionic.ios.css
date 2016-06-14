@@ -7103,8 +7103,8 @@ ion-searchbar {
   height: 14px;
   background-repeat: no-repeat;
   background-size: 13px;
-  -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
-  transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1); }
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease; }
 
 .searchbar-input {
   padding-left: calc(50% - 28px);
@@ -7113,11 +7113,10 @@ ion-searchbar {
   border-radius: 5px;
   font-size: 1.4rem;
   font-weight: 400;
-  line-height: 3rem;
   color: #000;
   background-color: #fff;
-  -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
-  transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1); }
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease; }
   .searchbar-input::-moz-placeholder {
     color: rgba(0, 0, 0, 0.5); }
   .searchbar-input:-ms-input-placeholder {
@@ -7138,19 +7137,25 @@ ion-searchbar {
   background-size: 18px; }
 
 .searchbar-ios-cancel {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 0%;
-  -ms-flex: 0 0 0%;
-  flex: 0 0 0%;
-  margin-right: 0;
+  display: none;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: -100%;
   margin-left: 0;
   padding: 0;
+  padding-left: 8px;
   height: 30px;
-  visibility: hidden;
-  -webkit-transform: translateX(calc(100% + 8px));
-  transform: translateX(calc(100% + 8px));
-  -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
-  transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1); }
+  cursor: pointer;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  pointer-events: none; }
+
+.searchbar-show-cancel .searchbar-ios-cancel {
+  display: block; }
 
 .searchbar-left-aligned .searchbar-search-icon {
   margin-left: 0; }
@@ -7159,14 +7164,8 @@ ion-searchbar {
   padding-left: 30px; }
 
 .searchbar-has-focus .searchbar-ios-cancel {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  padding-left: 8px;
-  visibility: visible;
-  -webkit-transform: translateX(0);
-  transform: translateX(0); }
+  opacity: 1;
+  pointer-events: auto; }
 
 .toolbar ion-searchbar {
   border-bottom-width: 0;

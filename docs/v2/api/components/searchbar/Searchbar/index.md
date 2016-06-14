@@ -35,7 +35,7 @@ Searchbar
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/searchbar/searchbar.ts#L15">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/searchbar/searchbar.ts#L4">
 Improve this doc
 </a>
 
@@ -56,7 +56,7 @@ Improve this doc
 
 <pre><code class="lang-html">&lt;ion-searchbar
   [(ngModel)]=&quot;myInput&quot;
-  [hideCancelButton]=&quot;shouldHideCancel&quot;
+  [showCancelButton]=&quot;shouldShowCancel&quot;
   (ionInput)=&quot;onInput($event)&quot;
   (ionCancel)=&quot;onCancel($event)&quot;&gt;
 &lt;/ion-searchbar&gt;
@@ -70,68 +70,6 @@ Improve this doc
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="inputEle"></div>
-
-<h3>
-<a class="anchor" name="inputEle" href="#inputEle"></a>
-<code>inputEle</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="iconEle"></div>
-
-<h3>
-<a class="anchor" name="iconEle" href="#iconEle"></a>
-<code>iconEle</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="mode"></div>
-
-<h3>
-<a class="anchor" name="mode" href="#mode"></a>
-<code>mode</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -152,7 +90,7 @@ Improve this doc
     </tr>
     
     <tr>
-      <td>hideCancelButton</td>
+      <td>showCancelButton</td>
       <td><code>boolean</code></td>
       <td><p> Whether to hide the cancel button or not. Default: <code>&quot;false&quot;</code>.</p>
 </td>

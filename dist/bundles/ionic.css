@@ -6754,8 +6754,8 @@ ion-icon {
     height: 14px;
     background-repeat: no-repeat;
     background-size: 13px;
-    -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
-    transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1); }
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease; }
   .ios .searchbar-input {
     padding-left: calc(50% - 28px);
     padding: 0 28px;
@@ -6763,11 +6763,10 @@ ion-icon {
     border-radius: 5px;
     font-size: 1.4rem;
     font-weight: 400;
-    line-height: 3rem;
     color: #000;
     background-color: #fff;
-    -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
-    transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1); }
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease; }
     .ios .searchbar-input::-moz-placeholder {
       color: rgba(0, 0, 0, 0.5); }
     .ios .searchbar-input:-ms-input-placeholder {
@@ -6786,32 +6785,31 @@ ion-icon {
     background-position: center;
     background-size: 18px; }
   .ios .searchbar-ios-cancel {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 0%;
-    -ms-flex: 0 0 0%;
-    flex: 0 0 0%;
-    margin-right: 0;
+    display: none;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin-right: -100%;
     margin-left: 0;
     padding: 0;
+    padding-left: 8px;
     height: 30px;
-    visibility: hidden;
-    -webkit-transform: translateX(calc(100% + 8px));
-    transform: translateX(calc(100% + 8px));
-    -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
-    transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1); }
+    cursor: pointer;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+    pointer-events: none; }
+  .ios .searchbar-show-cancel .searchbar-ios-cancel {
+    display: block; }
   .ios .searchbar-left-aligned .searchbar-search-icon {
     margin-left: 0; }
   .ios .searchbar-left-aligned .searchbar-input {
     padding-left: 30px; }
   .ios .searchbar-has-focus .searchbar-ios-cancel {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 auto;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    padding-left: 8px;
-    visibility: visible;
-    -webkit-transform: translateX(0);
-    transform: translateX(0); }
+    opacity: 1;
+    pointer-events: auto; }
   .ios .toolbar ion-searchbar {
     border-bottom-width: 0;
     background: transparent; }
@@ -10372,9 +10370,9 @@ ion-icon {
     background-size: 22px; }
     .md .searchbar-clear-icon.activated {
       background-color: transparent; }
-  .md .searchbar-has-focus:not(.searchbar-hide-cancel) .searchbar-search-icon {
+  .md .searchbar-has-focus.searchbar-show-cancel .searchbar-search-icon {
     display: none; }
-  .md .searchbar-has-focus:not(.searchbar-hide-cancel) .searchbar-md-cancel {
+  .md .searchbar-has-focus.searchbar-show-cancel .searchbar-md-cancel {
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
     display: -ms-inline-flexbox;

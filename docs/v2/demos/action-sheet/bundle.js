@@ -53906,7 +53906,7 @@
 	                isRTL: _this.config.platform.isRTL(),
 	                ev: opts.ev,
 	            };
-	            var transAnimation = _this.createTransitionWrapper(enteringView, leavingView, transitionOpts);
+	            var transAnimation = _this._createTrans(enteringView, leavingView, transitionOpts);
 	            _this._trans && _this._trans.destroy();
 	            _this._trans = transAnimation;
 	            if (opts.animate === false) {
@@ -54104,7 +54104,7 @@
 	     * to make it easy/possible to mock the method call by overriding the function.
 	     * In testing we don't want to actually do the animation, we want to return a stub instead
 	     */
-	    NavController.prototype.createTransitionWrapper = function (enteringView, leavingView, transitionOpts) {
+	    NavController.prototype._createTrans = function (enteringView, leavingView, transitionOpts) {
 	        return transition_1.Transition.createTransition(enteringView, leavingView, transitionOpts);
 	    };
 	    NavController.prototype._cleanup = function () {

@@ -43,8 +43,8 @@ docType: "class"
 
 <pre><code>$ ionic plugin add cordova-plugin-globalization</code></pre>
 <p>Repo:
-  <a href="https: //github.com/apache/cordova-plugin-globalization">
-    https: //github.com/apache/cordova-plugin-globalization
+  <a href="https://github.com/apache/cordova-plugin-globalization">
+    https://github.com/apache/cordova-plugin-globalization
   </a>
 </p>
 

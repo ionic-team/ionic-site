@@ -914,11 +914,21 @@ ion-modal {
       width: 600px;
       height: 600px; } }
 
-.show-page ion-page {
+ion-modal-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  height: 100%; }
 
 ion-popover {
   position: absolute;

@@ -72057,13 +72057,6 @@
 	    };
 	    /**
 	     * @private
-	     * After Content is checked position the elements
-	     */
-	    Searchbar.prototype.ngAfterContentChecked = function () {
-	        this.positionElements();
-	    };
-	    /**
-	     * @private
 	     * Positions the input search icon, placeholder, and the cancel button
 	     * based on the input value and if it is focused. (ios only)
 	     */
@@ -72198,6 +72191,7 @@
 	     */
 	    Searchbar.prototype.writeValue = function (val) {
 	        this._value = val;
+	        this.positionElements();
 	    };
 	    /**
 	     * @private

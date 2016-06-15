@@ -5816,7 +5816,8 @@ ion-icon {
   .ios ion-item-sliding {
     position: relative;
     display: block;
-    overflow: hidden; }
+    overflow: hidden;
+    width: 100%; }
     .ios ion-item-sliding .item {
       position: static; }
   .ios ion-item-options {
@@ -9340,7 +9341,8 @@ ion-icon {
   .md ion-item-sliding {
     position: relative;
     display: block;
-    overflow: hidden; }
+    overflow: hidden;
+    width: 100%; }
     .md ion-item-sliding .item {
       position: static; }
   .md ion-item-options {
@@ -13159,7 +13161,8 @@ ion-icon {
   .wp ion-item-sliding {
     position: relative;
     display: block;
-    overflow: hidden; }
+    overflow: hidden;
+    width: 100%; }
     .wp ion-item-sliding .item {
       position: static; }
   .wp ion-item-options {

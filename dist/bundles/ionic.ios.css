@@ -7518,6 +7518,9 @@ ion-select {
 ion-select {
   padding: 12px 8px 13px 16px; }
 
+.select-placeholder {
+  color: #999; }
+
 .select-icon {
   position: relative;
   width: 12px;

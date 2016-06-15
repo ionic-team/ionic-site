@@ -156,6 +156,13 @@ for more properties.</p>
     </tr>
     
     <tr>
+      <td>placeholder</td>
+      <td><code>string</code></td>
+      <td><p> The text to display when the select is empty.</p>
+</td>
+    </tr>
+    
+    <tr>
       <td>alertOptions</td>
       <td><code>any</code></td>
       <td><p> Any addition options that the alert interface can take.

@@ -7105,6 +7105,8 @@ ion-icon {
     pointer-events: none; }
   .ios ion-select {
     padding: 12px 8px 13px 16px; }
+  .ios .select-placeholder {
+    color: #999; }
   .ios .select-icon {
     position: relative;
     width: 12px;
@@ -10500,6 +10502,8 @@ ion-icon {
     pointer-events: none; }
   .md ion-select {
     padding: 13px 8px 13px 16px; }
+  .md .select-placeholder {
+    color: #999; }
   .md .item-select ion-label {
     margin-left: 0; }
   .md .select-icon {
@@ -14223,6 +14227,8 @@ ion-icon {
     max-width: 100%;
     border: 2px solid rgba(0, 0, 0, 0.5);
     line-height: 3rem; }
+  .wp .select-placeholder {
+    color: rgba(0, 0, 0, 0.5); }
   .wp .item-select ion-label {
     margin-left: 0; }
   .wp .select-icon {

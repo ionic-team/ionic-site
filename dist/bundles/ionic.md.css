@@ -7451,6 +7451,9 @@ ion-select {
 ion-select {
   padding: 13px 8px 13px 16px; }
 
+.select-placeholder {
+  color: #999; }
+
 .item-select ion-label {
   margin-left: 0; }
 

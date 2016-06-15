@@ -66537,6 +66537,10 @@
 	    ], Select.prototype, "okText", void 0);
 	    __decorate([
 	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Select.prototype, "placeholder", void 0);
+	    __decorate([
+	        core_1.Input(), 
 	        __metadata('design:type', Object)
 	    ], Select.prototype, "alertOptions", void 0);
 	    __decorate([
@@ -66583,7 +66587,8 @@
 	    Select = __decorate([
 	        core_1.Component({
 	            selector: 'ion-select',
-	            template: '<div class="select-text">{{_text}}</div>' +
+	            template: '<div *ngIf="!_text" class="select-placeholder select-text">{{placeholder}}</div>' +
+	                '<div *ngIf="_text" class="select-text">{{_text}}</div>' +
 	                '<div class="select-icon">' +
 	                '<div class="select-icon-inner"></div>' +
 	                '</div>' +

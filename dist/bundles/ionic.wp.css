@@ -7279,6 +7279,9 @@ ion-select {
   border: 2px solid rgba(0, 0, 0, 0.5);
   line-height: 3rem; }
 
+.select-placeholder {
+  color: rgba(0, 0, 0, 0.5); }
+
 .item-select ion-label {
   margin-left: 0; }
 

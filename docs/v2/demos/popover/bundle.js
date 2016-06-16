@@ -74086,9 +74086,10 @@
 	            .duration(250);
 	        var contentOpenedX, menuClosedX, menuOpenedX;
 	        if (menu.side === 'right') {
+	            // right side
 	            contentOpenedX = -menu.width() + 'px';
-	            menuOpenedX = (platform.width() - menu.width()) + 'px';
-	            menuClosedX = platform.width() + 'px';
+	            menuClosedX = menu.width() + 'px';
+	            menuOpenedX = '0px';
 	        }
 	        else {
 	            contentOpenedX = menu.width() + 'px';
@@ -74121,13 +74122,13 @@
 	        var closedX, openedX;
 	        if (menu.side === 'right') {
 	            // right side
-	            closedX = menu.width() + 'px';
+	            closedX = 8 + menu.width() + 'px';
 	            openedX = '0px';
 	        }
 	        else {
 	            // left side
-	            closedX = -menu.width() + 'px';
-	            openedX = '8px';
+	            closedX = -(8 + menu.width()) + 'px';
+	            openedX = '0px';
 	        }
 	        var menuAni = new animation_1.Animation(menu.getMenuElement());
 	        menuAni.fromTo('translateX', closedX, openedX);

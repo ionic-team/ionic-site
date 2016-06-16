@@ -866,7 +866,6 @@ ion-menu[type=reveal].show-menu {
   transform: translate3d(0, 0, 0); }
 
 ion-menu[type=overlay] {
-  left: -8px;
   z-index: 80; }
   ion-menu[type=overlay] ion-backdrop {
     left: -3000px;
@@ -878,13 +877,6 @@ ion-menu[type=overlay] {
     ion-menu[type=overlay] ion-backdrop.show-backdrop {
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0); }
-
-ion-menu[type=overlay][side=right] {
-  left: auto;
-  right: -8px; }
-
-ion-menu[type=push][side=right] {
-  left: 0; }
 
 ion-modal {
   position: absolute;

@@ -42,6 +42,8 @@ Improve this doc
 
 
 
+<p>The option buttons for an <code>ion-item-sliding</code>. These buttons can be placed either on the left or right side.
+You can combind the <code>(ionSiwpe)</code> event plus the <code>expandable</code> directive to create a full swipe action for the item.</p>
 
 
 
@@ -49,34 +51,28 @@ Improve this doc
 
 <!-- @usage tag -->
 
+<h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
+
+<pre><code class="lang-html">&lt;ion-item-sliding&gt;
+  &lt;ion-item&gt;
+    Item 1
+  &lt;/ion-item&gt;
+  &lt;ion-item-options side=&quot;right&quot; (ionSwipe)=&quot;saveItem(item)&quot;&gt;
+    &lt;button expandable (click)=&quot;saveItem(item)&quot;&gt;
+      &lt;ion-icon name=&quot;star&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/button&gt;
+  &lt;/ion-item-options&gt;
+&lt;/ion-item-sliding&gt;
+</code></pre>
+
+
+
 
 <!-- @property tags -->
 
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="width"></div>
-
-<h3>
-<a class="anchor" name="width" href="#width"></a>
-<code>width()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -91,8 +87,10 @@ Improve this doc
     
     <tr>
       <td>side</td>
-      <td><code></code></td>
-      <td></td>
+      <td><code>string</code></td>
+      <td><p> the side the option button should be on. Defaults to right
+If you have multiple <code>ion-item-options</code>, a side must be provided for each.</p>
+</td>
     </tr>
     
   </tbody>
@@ -110,7 +108,8 @@ Improve this doc
     
     <tr>
       <td>ionSwipe</td>
-      <td></td>
+      <td><p> Expression to evaluate when the item has been fully swiped.</p>
+</td>
     </tr>
     
   </tbody>

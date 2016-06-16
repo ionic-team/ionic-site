@@ -35,7 +35,7 @@ ItemSliding
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/item/item-sliding.ts#L59">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/item/item-sliding.ts#L89">
 Improve this doc
 </a>
 
@@ -47,55 +47,6 @@ Improve this doc
 <p>A sliding item is a list item that can be swiped to reveal buttons. It requires
 an <a href="../Item">Item</a> component as a child and a <a href="../../list/List">List</a> component as
 a parent. All buttons to reveal can be placed in the <code>&lt;ion-item-options&gt;</code> element.</p>
-<h3 id="swipe-direction">Swipe Direction</h3>
-<p>By default, the buttons are revealed when the sliding item is swiped from right to left,
-so the buttons are placed in the right side. But it&#39;s also possible to reveal them
-in the right side (sliding from left to right) by setting the <code>side</code> attribute
-on the <code>ion-item-options</code> element. Up to 2 <code>ion-item-options</code> can used at the same time
-in order to reveal two different sets of buttons depending the swipping direction.</p>
-<pre><code class="lang-html">&lt;ion-item-options side=&quot;right&quot;&gt;
-  &lt;button (click)=&quot;archive(item)&quot;&gt;
-    &lt;ion-icon name=&quot;archive&quot;&gt;&lt;/ion-icon&gt;
-    Archive
-  &lt;/button&gt;
-&lt;/ion-item-options&gt;
-
-&lt;ion-item-options&gt;
-  &lt;button (click)=&quot;archive(item)&quot;&gt;
-    &lt;ion-icon name=&quot;archive&quot;&gt;&lt;/ion-icon&gt;
-    Archive
-  &lt;/button&gt;
-&lt;/ion-item-options&gt;
-</code></pre>
-<h3 id="listening-for-events-iondrag-and-ionswipe-">Listening for events (ionDrag) and (ionSwipe)</h3>
-<p>It&#39;s possible to know the current relative position of the sliding item by subscribing
-to the (ionDrag)` event.</p>
-<pre><code class="lang-html">&lt;ion-item-options side=&quot;right&quot;&gt;
-  &lt;button (click)=&quot;archive(item)&quot;&gt;
-    &lt;ion-icon name=&quot;archive&quot;&gt;&lt;/ion-icon&gt;
-    Archive
-  &lt;/button&gt;
-&lt;/ion-item-options&gt;
-
-&lt;ion-item-options&gt;
-  &lt;button (click)=&quot;archive(item)&quot;&gt;
-    &lt;ion-icon name=&quot;archive&quot;&gt;&lt;/ion-icon&gt;
-    Archive
-  &lt;/button&gt;
-&lt;/ion-item-options&gt;
-</code></pre>
-<h3 id="button-layout">Button Layout</h3>
-<p>If an icon is placed with text in the option button, by default it will
-display the icon on top of the text. This can be changed to display the icon
-to the left of the text by setting <code>icon-left</code> as an attribute on the
-<code>&lt;ion-item-options&gt;</code> element.</p>
-<pre><code class="lang-html">&lt;ion-item-sliding (ionDrag)=&quot;ondrag($event)&quot;&gt;
-  &lt;ion-item&gt;Item&lt;/ion-item&gt;
-  &lt;ion-item-options&gt;
-    &lt;button&gt;Favorite&lt;/button&gt;
-  &lt;/ion-item-options&gt;
-&lt;/ion-item-sliding&gt;
-</code></pre>
 
 
 
@@ -121,6 +72,48 @@ to the left of the text by setting <code>icon-left</code> as an attribute on the
   &lt;/ion-item-sliding&gt;
 &lt;/ion-list&gt;
 </code></pre>
+<h3 id="swipe-direction">Swipe Direction</h3>
+<p>By default, the buttons are revealed when the sliding item is swiped from right to left,
+so the buttons are placed in the right side. But it&#39;s also possible to reveal them
+in the right side (sliding from left to right) by setting the <code>side</code> attribute
+on the <code>ion-item-options</code> element. Up to 2 <code>ion-item-options</code> can used at the same time
+in order to reveal two different sets of buttons depending the swipping direction.</p>
+<pre><code class="lang-html">&lt;ion-item-options side=&quot;right&quot;&gt;
+  &lt;button (click)=&quot;archive(item)&quot;&gt;
+    &lt;ion-icon name=&quot;archive&quot;&gt;&lt;/ion-icon&gt;
+    Archive
+  &lt;/button&gt;
+&lt;/ion-item-options&gt;
+
+&lt;ion-item-options side=&quot;left&quot;&gt;
+  &lt;button (click)=&quot;archive(item)&quot;&gt;
+    &lt;ion-icon name=&quot;archive&quot;&gt;&lt;/ion-icon&gt;
+    Archive
+  &lt;/button&gt;
+&lt;/ion-item-options&gt;
+</code></pre>
+<h3 id="listening-for-events-iondrag-and-ionswipe-">Listening for events (ionDrag) and (ionSwipe)</h3>
+<p>It&#39;s possible to know the current relative position of the sliding item by subscribing
+to the (ionDrag)` event.</p>
+<pre><code class="lang-html">&lt;ion-item-sliding (ionDrag)=&quot;logDrag($event)&quot;&gt;
+  &lt;ion-item&gt;Item&lt;/ion-item&gt;
+  &lt;ion-item-options&gt;
+    &lt;button&gt;Favorite&lt;/button&gt;
+  &lt;/ion-item-options&gt;
+&lt;/ion-item-sliding&gt;
+</code></pre>
+<h3 id="button-layout">Button Layout</h3>
+<p>If an icon is placed with text in the option button, by default it will
+display the icon on top of the text. This can be changed to display the icon
+to the left of the text by setting <code>icon-left</code> as an attribute on the
+<code>&lt;ion-item-options&gt;</code> element.</p>
+<pre><code class="lang-html">&lt;ion-item-options icon-left&gt;
+  &lt;button (click)=&quot;archive(item)&quot;&gt;
+    &lt;ion-icon name=&quot;archive&quot;&gt;&lt;/ion-icon&gt;
+    Archive
+  &lt;/button&gt;
+&lt;/ion-item-options&gt;
+</code></pre>
 
 
 
@@ -133,86 +126,6 @@ to the left of the text by setting <code>icon-left</code> as an attribute on the
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
-<div id="slidingPercent"></div>
-
-<h3>
-<a class="anchor" name="slidingPercent" href="#slidingPercent"></a>
-<code>slidingPercent</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="item"></div>
-
-<h3>
-<a class="anchor" name="item" href="#item"></a>
-<code>item</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="fireSwipeEvent"></div>
-
-<h3>
-<a class="anchor" name="fireSwipeEvent" href="#fireSwipeEvent"></a>
-<code>fireSwipeEvent()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="calculateOptsWidth"></div>
-
-<h3>
-<a class="anchor" name="calculateOptsWidth" href="#calculateOptsWidth"></a>
-<code>calculateOptsWidth()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="close"></div>
 
 <h3>
@@ -224,7 +137,7 @@ to the left of the text by setting <code>icon-left</code> as an attribute on the
 
 Close the sliding item. Items can also be closed from the [List](../../list/List).
 
-The sliding item can be closed by garbbing a reference to `ItemSliding`. In the
+The sliding item can be closed by grabbing a reference to `ItemSliding`. In the
 below example, the template reference variable `slidingItem` is placed on the element
 and passed to the `share` method.
 

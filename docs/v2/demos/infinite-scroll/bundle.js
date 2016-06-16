@@ -63969,12 +63969,33 @@
 	})(exports.SideFlags || (exports.SideFlags = {}));
 	var SideFlags = exports.SideFlags;
 	/**
-	 * @private
+	 * @name ItemOptions
+	 * @description
+	 * The option buttons for an `ion-item-sliding`. These buttons can be placed either on the left or right side.
+	 * You can combind the `(ionSiwpe)` event plus the `expandable` directive to create a full swipe action for the item.
+	 *
+	 * @usage
+	 *
+	 * ```html
+	 * <ion-item-sliding>
+	 *   <ion-item>
+	 *     Item 1
+	 *   </ion-item>
+	 *   <ion-item-options side="right" (ionSwipe)="saveItem(item)">
+	 *     <button expandable (click)="saveItem(item)">
+	 *       <ion-icon name="star"></ion-icon>
+	 *     </button>
+	 *   </ion-item-options>
+	 * </ion-item-sliding>
+	 *```
 	 */
 	var ItemOptions = (function () {
 	    function ItemOptions(_elementRef, _renderer) {
 	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
+	        /**
+	         * @output {event} Expression to evaluate when the item has been fully swiped.
+	         */
 	        this.ionSwipe = new core_1.EventEmitter();
 	    }
 	    /**
@@ -63994,6 +64015,9 @@
 	            return SideFlags.Right;
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    ItemOptions.prototype.width = function () {
 	        return this._elementRef.nativeElement.offsetWidth;
 	    };
@@ -64024,69 +64048,10 @@
 	})(SlidingState || (SlidingState = {}));
 	/**
 	 * @name ItemSliding
-	 *
 	 * @description
 	 * A sliding item is a list item that can be swiped to reveal buttons. It requires
 	 * an [Item](../Item) component as a child and a [List](../../list/List) component as
 	 * a parent. All buttons to reveal can be placed in the `<ion-item-options>` element.
-	 *
-	 * ### Swipe Direction
-	 * By default, the buttons are revealed when the sliding item is swiped from right to left,
-	 * so the buttons are placed in the right side. But it's also possible to reveal them
-	 * in the right side (sliding from left to right) by setting the `side` attribute
-	 * on the `ion-item-options` element. Up to 2 `ion-item-options` can used at the same time
-	 * in order to reveal two different sets of buttons depending the swipping direction.
-	 *
-	 * ```html
-	 * <ion-item-options side="right">
-	 *   <button (click)="archive(item)">
-	 *     <ion-icon name="archive"></ion-icon>
-	 *     Archive
-	 *   </button>
-	 * </ion-item-options>
-
-	 * <ion-item-options>
-	 *   <button (click)="archive(item)">
-	 *     <ion-icon name="archive"></ion-icon>
-	 *     Archive
-	 *   </button>
-	 * </ion-item-options>
-	 * ```
-	 *
-	 * ### Listening for events (ionDrag) and (ionSwipe)
-	 * It's possible to know the current relative position of the sliding item by subscribing
-	 * to the (ionDrag)` event.
-	 *
-	 * ```html
-	 * <ion-item-options side="right">
-	 *   <button (click)="archive(item)">
-	 *     <ion-icon name="archive"></ion-icon>
-	 *     Archive
-	 *   </button>
-	 * </ion-item-options>
-
-	 * <ion-item-options>
-	 *   <button (click)="archive(item)">
-	 *     <ion-icon name="archive"></ion-icon>
-	 *     Archive
-	 *   </button>
-	 * </ion-item-options>
-	 * ```
-	 *
-	 * ### Button Layout
-	 * If an icon is placed with text in the option button, by default it will
-	 * display the icon on top of the text. This can be changed to display the icon
-	 * to the left of the text by setting `icon-left` as an attribute on the
-	 * `<ion-item-options>` element.
-	 *
-	 * ```html
-	 * <ion-item-sliding (ionDrag)="ondrag($event)">
-	 *   <ion-item>Item</ion-item>
-	 *   <ion-item-options>
-	 *     <button>Favorite</button>
-	 *   </ion-item-options>
-	 * </ion-item-sliding>
-	 * ```
 	 *
 	 * @usage
 	 * ```html
@@ -64107,6 +64072,59 @@
 	 * </ion-list>
 	 * ```
 	 *
+	 * ### Swipe Direction
+	 * By default, the buttons are revealed when the sliding item is swiped from right to left,
+	 * so the buttons are placed in the right side. But it's also possible to reveal them
+	 * in the right side (sliding from left to right) by setting the `side` attribute
+	 * on the `ion-item-options` element. Up to 2 `ion-item-options` can used at the same time
+	 * in order to reveal two different sets of buttons depending the swipping direction.
+	 *
+	 * ```html
+	 * <ion-item-options side="right">
+	 *   <button (click)="archive(item)">
+	 *     <ion-icon name="archive"></ion-icon>
+	 *     Archive
+	 *   </button>
+	 * </ion-item-options>
+
+	 * <ion-item-options side="left">
+	 *   <button (click)="archive(item)">
+	 *     <ion-icon name="archive"></ion-icon>
+	 *     Archive
+	 *   </button>
+	 * </ion-item-options>
+	 * ```
+	 *
+	 * ### Listening for events (ionDrag) and (ionSwipe)
+	 * It's possible to know the current relative position of the sliding item by subscribing
+	 * to the (ionDrag)` event.
+	 *
+	 * ```html
+	 * <ion-item-sliding (ionDrag)="logDrag($event)">
+	 *   <ion-item>Item</ion-item>
+	 *   <ion-item-options>
+	 *     <button>Favorite</button>
+	 *   </ion-item-options>
+	 * </ion-item-sliding>
+	 * ```
+	 *
+	 * ### Button Layout
+	 * If an icon is placed with text in the option button, by default it will
+	 * display the icon on top of the text. This can be changed to display the icon
+	 * to the left of the text by setting `icon-left` as an attribute on the
+	 * `<ion-item-options>` element.
+	 *
+	 * ```html
+	 * <ion-item-options icon-left>
+	 *    <button (click)="archive(item)">
+	 *      <ion-icon name="archive"></ion-icon>
+	 *      Archive
+	 *    </button>
+	 *  </ion-item-options>
+	 *
+	 * ```
+	 *
+	 *
 	 * @demo /docs/v2/demos/item-sliding/
 	 * @see {@link /docs/v2/components#lists List Component Docs}
 	 * @see {@link ../Item Item API Docs}
@@ -64124,6 +64142,9 @@
 	        this._timer = null;
 	        this._optsDirty = true;
 	        this._state = SlidingState.Disabled;
+	        /**
+	        * @private
+	        * */
 	        this.slidingPercent = 0;
 	        /**
 	         * @output {event} Expression to evaluate when the sliding position changes.
@@ -64237,6 +64258,9 @@
 	        this._setOpenAmount(restingPoint, true);
 	        return restingPoint;
 	    };
+	    /**
+	    * @private
+	    * */
 	    ItemSliding.prototype.fireSwipeEvent = function () {
 	        if (this.slidingPercent > SWIPE_FACTOR) {
 	            this._rightOptions.ionSwipe.emit(this);
@@ -64245,6 +64269,9 @@
 	            this._leftOptions.ionSwipe.emit(this);
 	        }
 	    };
+	    /**
+	    * @private
+	    * */
 	    ItemSliding.prototype.calculateOptsWidth = function () {
 	        var _this = this;
 	        dom_1.nativeRaf(function () {
@@ -64326,7 +64353,7 @@
 	    /**
 	     * Close the sliding item. Items can also be closed from the [List](../../list/List).
 	     *
-	     * The sliding item can be closed by garbbing a reference to `ItemSliding`. In the
+	     * The sliding item can be closed by grabbing a reference to `ItemSliding`. In the
 	     * below example, the template reference variable `slidingItem` is placed on the element
 	     * and passed to the `share` method.
 	     *

@@ -76,7 +76,7 @@ docType: "class"
 
 
 
-Toast.show(&quot;I&#39;m a toast&quot;, 5000, &quot;center&quot;).subscribe(
+Toast.show(&quot;I&#39;m a toast&quot;, &quot;5000&quot;, &quot;center&quot;).subscribe(
   toast =&gt; {
     console.log(toast);
   }

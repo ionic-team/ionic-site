@@ -35,7 +35,7 @@ Range
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/range/range.ts#L100">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/range/range.ts#L101">
 Improve this doc
 </a>
 
@@ -203,6 +203,13 @@ If there is only one knob, then this will return `null`.
     
     <tr>
       <td>pin</td>
+      <td><code>number</code></td>
+      <td><p> If true, a pin with integer value is shown when the knob is pressed. Defaults to <code>false</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>debounce</td>
       <td><code>number</code></td>
       <td><p> If true, a pin with integer value is shown when the knob is pressed. Defaults to <code>false</code>.</p>
 </td>

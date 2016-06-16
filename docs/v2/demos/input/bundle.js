@@ -15546,29 +15546,29 @@
 	__export(__webpack_require__(103));
 	__export(__webpack_require__(311));
 	__export(__webpack_require__(317));
-	__export(__webpack_require__(394));
 	__export(__webpack_require__(395));
+	__export(__webpack_require__(396));
 	__export(__webpack_require__(325));
 	__export(__webpack_require__(326));
 	__export(__webpack_require__(323));
 	__export(__webpack_require__(324));
 	__export(__webpack_require__(312));
-	__export(__webpack_require__(401));
+	__export(__webpack_require__(402));
 	__export(__webpack_require__(309));
 	__export(__webpack_require__(314));
 	__export(__webpack_require__(320));
 	__export(__webpack_require__(316));
 	__export(__webpack_require__(341));
 	__export(__webpack_require__(340));
-	__export(__webpack_require__(393));
-	__export(__webpack_require__(405));
+	__export(__webpack_require__(394));
+	__export(__webpack_require__(406));
 	// these modules don't export anything
-	__webpack_require__(406);
 	__webpack_require__(407);
 	__webpack_require__(408);
 	__webpack_require__(409);
 	__webpack_require__(410);
 	__webpack_require__(411);
+	__webpack_require__(412);
 
 /***/ },
 /* 103 */
@@ -15589,11 +15589,11 @@
 	var keyboard_1 = __webpack_require__(320);
 	var menu_controller_1 = __webpack_require__(330);
 	var dom_1 = __webpack_require__(310);
-	var nav_registry_1 = __webpack_require__(387);
+	var nav_registry_1 = __webpack_require__(388);
 	var platform_1 = __webpack_require__(312);
 	var scroll_view_1 = __webpack_require__(345);
-	var tap_click_1 = __webpack_require__(390);
-	var translate_1 = __webpack_require__(393);
+	var tap_click_1 = __webpack_require__(391);
+	var translate_1 = __webpack_require__(394);
 	var _reflect = Reflect;
 	/**
 	 * @name ionicBootstrap
@@ -46740,12 +46740,12 @@
 	var radio_button_1 = __webpack_require__(380);
 	var radio_group_1 = __webpack_require__(381);
 	var range_1 = __webpack_require__(382);
-	var searchbar_1 = __webpack_require__(383);
-	var nav_1 = __webpack_require__(384);
-	var nav_push_1 = __webpack_require__(386);
-	var nav_router_1 = __webpack_require__(388);
+	var searchbar_1 = __webpack_require__(384);
+	var nav_1 = __webpack_require__(385);
+	var nav_push_1 = __webpack_require__(387);
+	var nav_router_1 = __webpack_require__(389);
 	var navbar_1 = __webpack_require__(335);
-	var show_hide_when_1 = __webpack_require__(389);
+	var show_hide_when_1 = __webpack_require__(390);
 	/**
 	 * @private
 	 * @name IONIC_DIRECTIVES
@@ -71227,6 +71227,7 @@
 	var util_1 = __webpack_require__(313);
 	var item_1 = __webpack_require__(360);
 	var dom_1 = __webpack_require__(310);
+	var debouncer_1 = __webpack_require__(383);
 	var RANGE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Range; }), multi: true });
 	/**
 	 * @private
@@ -71406,6 +71407,7 @@
 	        this._step = 1;
 	        this._snaps = false;
 	        this._removes = [];
+	        this._debouncer = new debouncer_1.Debouncer(0);
 	        /**
 	         * @output {Range} Expression to evaluate when the range value changes.
 	         */
@@ -71487,6 +71489,19 @@
 	        },
 	        set: function (val) {
 	            this._pin = util_1.isTrueProperty(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Range.prototype, "debounce", {
+	        /**
+	         * @input {number} If true, a pin with integer value is shown when the knob is pressed. Defaults to `false`.
+	         */
+	        get: function () {
+	            return this._debouncer.wait;
+	        },
+	        set: function (val) {
+	            this._debouncer.wait = val;
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -71647,6 +71662,7 @@
 	     * @private
 	     */
 	    Range.prototype.updateKnob = function (current, rect) {
+	        var _this = this;
 	        // figure out where the pointer is currently at
 	        // update the knob being interacted with
 	        if (this._active) {
@@ -71664,8 +71680,10 @@
 	                else {
 	                    this.value = newVal;
 	                }
-	                this.onChange(this.value);
-	                this.ionChange.emit(this);
+	                this._debouncer.debounce(function () {
+	                    _this.onChange(_this.value);
+	                    _this.ionChange.emit(_this);
+	                });
 	            }
 	            this.updateBar();
 	        }
@@ -71869,6 +71887,10 @@
 	    ], Range.prototype, "pin", null);
 	    __decorate([
 	        core_1.Input(), 
+	        __metadata('design:type', Number)
+	    ], Range.prototype, "debounce", null);
+	    __decorate([
+	        core_1.Input(), 
 	        __metadata('design:type', Boolean)
 	    ], Range.prototype, "dualKnobs", null);
 	    __decorate([
@@ -71910,6 +71932,36 @@
 
 /***/ },
 /* 383 */
+/***/ function(module, exports) {
+
+	"use strict";
+	var Debouncer = (function () {
+	    function Debouncer(wait) {
+	        this.wait = wait;
+	        this.timer = null;
+	    }
+	    Debouncer.prototype.debounce = function (callback) {
+	        this.callback = callback;
+	        this.schedule();
+	    };
+	    Debouncer.prototype.schedule = function () {
+	        if (this.timer) {
+	            clearTimeout(this.timer);
+	            this.timer = null;
+	        }
+	        if (this.wait <= 0) {
+	            this.callback();
+	        }
+	        else {
+	            this.timer = setTimeout(this.callback, this.wait);
+	        }
+	    };
+	    return Debouncer;
+	}());
+	exports.Debouncer = Debouncer;
+
+/***/ },
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71929,6 +71981,7 @@
 	var common_1 = __webpack_require__(188);
 	var config_1 = __webpack_require__(311);
 	var util_1 = __webpack_require__(313);
+	var debouncer_1 = __webpack_require__(383);
 	/**
 	 * @name Searchbar
 	 * @module ionic
@@ -71955,6 +72008,7 @@
 	        this._value = '';
 	        this._shouldBlur = true;
 	        this._isActive = false;
+	        this._debouncer = new debouncer_1.Debouncer(250);
 	        /**
 	         * @input {string} Set the the cancel button text. Default: `"Cancel"`.
 	         */
@@ -71963,10 +72017,6 @@
 	         * @input {boolean} Whether to hide the cancel button or not. Default: `"false"`.
 	         */
 	        this.showCancelButton = false;
-	        /**
-	         * @input {number} How long, in milliseconds, to wait to trigger the `input` event after each keystroke. Default `250`.
-	         */
-	        this.debounce = 250;
 	        /**
 	         * @input {string} Set the input's placeholder. Default `"Search"`.
 	         */
@@ -72008,6 +72058,19 @@
 	            ngControl.valueAccessor = this;
 	        }
 	    }
+	    Object.defineProperty(Searchbar.prototype, "debounce", {
+	        /**
+	         * @input {number} How long, in milliseconds, to wait to trigger the `input` event after each keystroke. Default `250`.
+	         */
+	        get: function () {
+	            return this._debouncer.wait;
+	        },
+	        set: function (val) {
+	            this._debouncer.wait = val;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Searchbar.prototype, "searchbarInput", {
 	        /**
 	         * @private
@@ -72131,12 +72194,11 @@
 	    Searchbar.prototype.inputChanged = function (ev) {
 	        var _this = this;
 	        var value = ev.target.value;
-	        clearTimeout(this._tmr);
-	        this._tmr = setTimeout(function () {
+	        this._debouncer.debounce(function () {
 	            _this._value = value;
 	            _this.onChange(_this._value);
 	            _this.ionInput.emit(ev);
-	        }, Math.round(this.debounce));
+	        });
 	    };
 	    /**
 	     * @private
@@ -72223,7 +72285,7 @@
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Number)
-	    ], Searchbar.prototype, "debounce", void 0);
+	    ], Searchbar.prototype, "debounce", null);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
@@ -72314,7 +72376,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 384 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72341,7 +72403,7 @@
 	var keyboard_1 = __webpack_require__(320);
 	var util_1 = __webpack_require__(313);
 	var nav_controller_1 = __webpack_require__(338);
-	var nav_portal_1 = __webpack_require__(385);
+	var nav_portal_1 = __webpack_require__(386);
 	var view_controller_1 = __webpack_require__(333);
 	/**
 	 * @name Nav
@@ -72555,7 +72617,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 385 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72606,7 +72668,7 @@
 	exports.NavPortal = NavPortal;
 
 /***/ },
-/* 386 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72624,7 +72686,7 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var nav_controller_1 = __webpack_require__(338);
-	var nav_registry_1 = __webpack_require__(387);
+	var nav_registry_1 = __webpack_require__(388);
 	/**
 	 * @name NavPush
 	 * @description
@@ -72769,7 +72831,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 387 */
+/* 388 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -72798,7 +72860,7 @@
 	exports.NavRegistry = NavRegistry;
 
 /***/ },
-/* 388 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72829,7 +72891,7 @@
 	exports.NavRouter = NavRouter;
 
 /***/ },
-/* 389 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73018,7 +73080,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 390 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73035,8 +73097,8 @@
 	var app_1 = __webpack_require__(308);
 	var config_1 = __webpack_require__(311);
 	var dom_1 = __webpack_require__(310);
-	var activator_1 = __webpack_require__(391);
-	var ripple_1 = __webpack_require__(392);
+	var activator_1 = __webpack_require__(392);
+	var ripple_1 = __webpack_require__(393);
 	/**
 	 * @private
 	 */
@@ -73218,7 +73280,7 @@
 	var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
 
 /***/ },
-/* 391 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73303,7 +73365,7 @@
 	var CLEAR_STATE_DEFERS = 5;
 
 /***/ },
-/* 392 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73312,7 +73374,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var activator_1 = __webpack_require__(391);
+	var activator_1 = __webpack_require__(392);
 	var dom_1 = __webpack_require__(310);
 	/**
 	 * @private
@@ -73413,7 +73475,7 @@
 	var TOUCH_DOWN_ACCEL = 300;
 
 /***/ },
-/* 393 */
+/* 394 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -73481,7 +73543,7 @@
 	exports.Translate = Translate;
 
 /***/ },
-/* 394 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73507,7 +73569,7 @@
 	exports.Page = Page;
 
 /***/ },
-/* 395 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73531,45 +73593,45 @@
 	__export(__webpack_require__(363));
 	__export(__webpack_require__(362));
 	__export(__webpack_require__(358));
-	__export(__webpack_require__(396));
+	__export(__webpack_require__(397));
 	__export(__webpack_require__(330));
 	__export(__webpack_require__(318));
-	__export(__webpack_require__(397));
+	__export(__webpack_require__(398));
 	__export(__webpack_require__(332));
 	__export(__webpack_require__(342));
-	__export(__webpack_require__(398));
-	__export(__webpack_require__(384));
+	__export(__webpack_require__(399));
+	__export(__webpack_require__(385));
 	__export(__webpack_require__(338));
 	__export(__webpack_require__(333));
 	__export(__webpack_require__(334));
-	__export(__webpack_require__(386));
-	__export(__webpack_require__(388));
+	__export(__webpack_require__(387));
+	__export(__webpack_require__(389));
 	__export(__webpack_require__(335));
 	__export(__webpack_require__(372));
 	__export(__webpack_require__(374));
-	__export(__webpack_require__(399));
+	__export(__webpack_require__(400));
 	__export(__webpack_require__(380));
 	__export(__webpack_require__(381));
 	__export(__webpack_require__(382));
 	__export(__webpack_require__(350));
 	__export(__webpack_require__(351));
 	__export(__webpack_require__(347));
-	__export(__webpack_require__(383));
+	__export(__webpack_require__(384));
 	__export(__webpack_require__(379));
 	__export(__webpack_require__(369));
-	__export(__webpack_require__(389));
+	__export(__webpack_require__(390));
 	__export(__webpack_require__(352));
 	__export(__webpack_require__(367));
 	__export(__webpack_require__(354));
 	__export(__webpack_require__(356));
-	__export(__webpack_require__(390));
-	__export(__webpack_require__(400));
+	__export(__webpack_require__(391));
+	__export(__webpack_require__(401));
 	__export(__webpack_require__(375));
 	__export(__webpack_require__(336));
 	__export(__webpack_require__(364));
 
 /***/ },
-/* 396 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73903,7 +73965,7 @@
 	var loadingIds = -1;
 
 /***/ },
-/* 397 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74052,7 +74114,7 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 398 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74405,7 +74467,7 @@
 	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 399 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74873,7 +74935,7 @@
 	var popoverIds = -1;
 
 /***/ },
-/* 400 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75286,19 +75348,19 @@
 	var toastIds = -1;
 
 /***/ },
-/* 401 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(402));
 	__export(__webpack_require__(403));
 	__export(__webpack_require__(404));
+	__export(__webpack_require__(405));
 
 /***/ },
-/* 402 */
+/* 403 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -75382,7 +75444,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 403 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75391,7 +75453,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(402);
+	var storage_1 = __webpack_require__(403);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -75496,7 +75558,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 404 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75505,7 +75567,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(402);
+	var storage_1 = __webpack_require__(403);
 	var util_1 = __webpack_require__(313);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -75648,7 +75710,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 405 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75662,7 +75724,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var translate_1 = __webpack_require__(393);
+	var translate_1 = __webpack_require__(394);
 	/**
 	 * @private
 	 * The Translate pipe makes it easy to translate strings.
@@ -75698,7 +75760,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 406 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75791,7 +75853,7 @@
 	});
 
 /***/ },
-/* 407 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75983,7 +76045,7 @@
 	}
 
 /***/ },
-/* 408 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76043,7 +76105,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 409 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76219,7 +76281,7 @@
 	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 410 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76283,7 +76345,7 @@
 	transition_1.Transition.register('md-transition', MDTransition);
 
 /***/ },
-/* 411 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

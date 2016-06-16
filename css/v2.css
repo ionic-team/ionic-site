@@ -8331,8 +8331,8 @@ ul.docs-example {
   .hide-sm {
     display: none !important; } }
 
-.native-docs {
-  padding-top: 25px !important; }
+.native-docs a {
+  margin-top: 0 !important; }
 
 .docs-home img.docs-home-logo {
   width: 100%;

@@ -63177,7 +63177,6 @@
 	        if (container !== this.openContainer) {
 	            this.closeOpened();
 	        }
-	        // Close all item sliding containers but the selected one
 	        this.selectedContainer = container;
 	        this.openContainer = container;
 	        container.startSliding(ev.center.x);
@@ -63193,6 +63192,7 @@
 	    ItemSlidingGesture.prototype.onDragEnd = function (ev) {
 	        var _this = this;
 	        if (this.selectedContainer) {
+	            ev.preventDefault();
 	            var openAmount = this.selectedContainer.endSliding(ev.velocityX);
 	            this.selectedContainer = null;
 	            // TODO: I am not sure listening for a tap event is the best idea
@@ -63946,11 +63946,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63965,7 +63960,6 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var list_1 = __webpack_require__(358);
-	var ion_1 = __webpack_require__(319);
 	var item_1 = __webpack_require__(360);
 	var util_1 = __webpack_require__(313);
 	var dom_1 = __webpack_require__(310);
@@ -63981,10 +63975,9 @@
 	/**
 	 * @private
 	 */
-	var ItemOptions = (function (_super) {
-	    __extends(ItemOptions, _super);
-	    function ItemOptions(elementRef, _renderer) {
-	        _super.call(this, elementRef);
+	var ItemOptions = (function () {
+	    function ItemOptions(_elementRef, _renderer) {
+	        this._elementRef = _elementRef;
 	        this._renderer = _renderer;
 	        this.ionSwipe = new core_1.EventEmitter();
 	    }
@@ -63992,7 +63985,7 @@
 	     * @private
 	     */
 	    ItemOptions.prototype.setCssStyle = function (property, value) {
-	        this._renderer.setElementStyle(this.elementRef.nativeElement, property, value);
+	        this._renderer.setElementStyle(this._elementRef.nativeElement, property, value);
 	    };
 	    /**
 	     * @private
@@ -64004,6 +63997,9 @@
 	        else {
 	            return SideFlags.Right;
 	        }
+	    };
+	    ItemOptions.prototype.width = function () {
+	        return this._elementRef.nativeElement.offsetWidth;
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -64021,7 +64017,7 @@
 	    ], ItemOptions);
 	    return ItemOptions;
 	    var _a, _b, _c;
-	}(ion_1.Ion));
+	}());
 	exports.ItemOptions = ItemOptions;
 	var SlidingState;
 	(function (SlidingState) {
@@ -64185,10 +64181,14 @@
 	     * @private
 	     */
 	    ItemSliding.prototype.startSliding = function (startX) {
+	        if (this._timer) {
+	            clearTimeout(this._timer);
+	            this._timer = null;
+	        }
 	        if (this._openAmount === 0) {
+	            this._optsDirty = true;
 	            this._setState(SlidingState.Enabled);
 	        }
-	        this._optsDirty = true;
 	        this._startX = startX + this._openAmount;
 	        this.item.setCssStyle(dom_1.CSS.transition, 'none');
 	    };
@@ -64196,7 +64196,10 @@
 	     * @private
 	     */
 	    ItemSliding.prototype.moveSliding = function (x) {
-	        this.calculateOptsWidth();
+	        if (this._optsDirty) {
+	            this.calculateOptsWidth();
+	            return;
+	        }
 	        var openAmount = this._startX - x;
 	        switch (this._sides) {
 	            case SideFlags.Right:
@@ -64247,17 +64250,20 @@
 	        }
 	    };
 	    ItemSliding.prototype.calculateOptsWidth = function () {
-	        if (this._optsDirty) {
-	            this._optsWidthRightSide = 0;
-	            if (this._rightOptions) {
-	                this._optsWidthRightSide = this._rightOptions.width();
+	        var _this = this;
+	        dom_1.nativeRaf(function () {
+	            if (_this._optsDirty) {
+	                _this._optsWidthRightSide = 0;
+	                if (_this._rightOptions) {
+	                    _this._optsWidthRightSide = _this._rightOptions.width();
+	                }
+	                _this._optsWidthLeftSide = 0;
+	                if (_this._leftOptions) {
+	                    _this._optsWidthLeftSide = _this._leftOptions.width();
+	                }
+	                _this._optsDirty = false;
 	            }
-	            this._optsWidthLeftSide = 0;
-	            if (this._leftOptions) {
-	                this._optsWidthLeftSide = this._leftOptions.width();
-	            }
-	            this._optsDirty = false;
-	        }
+	        });
 	    };
 	    /**
 	     * @private
@@ -64273,7 +64279,7 @@
 	        if (didEnd) {
 	            // TODO: refactor. there must exist a better way
 	            // if sliding ended, we wait 400ms until animation finishes
-	            this._timer = setTimeout(function () {
+	            this._timer = dom_1.nativeTimeout(function () {
 	                _this._setState(SlidingState.Disabled);
 	                _this._timer = null;
 	            }, 400);
@@ -64303,6 +64309,10 @@
 	            this.setClass('active-slide', state !== SlidingState.Disabled);
 	            this.setClass('active-options-right', state === SlidingState.Right);
 	            this.setClass('active-options-left', state === SlidingState.Left);
+	            if (state === SlidingState.Disabled || state === SlidingState.Enabled) {
+	                this.setClass('active-swipe-right', false);
+	                this.setClass('active-swipe-left', false);
+	            }
 	        }
 	    };
 	    /**

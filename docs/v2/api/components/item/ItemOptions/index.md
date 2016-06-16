@@ -33,7 +33,7 @@ ItemOptions
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/item/item-sliding.ts#L16">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/item/item-sliding.ts#L15">
 Improve this doc
 </a>
 
@@ -55,6 +55,28 @@ Improve this doc
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="width"></div>
+
+<h3>
+<a class="anchor" name="width" href="#width"></a>
+<code>width()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

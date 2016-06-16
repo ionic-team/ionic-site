@@ -74055,8 +74055,8 @@
 	        var closedX, openedX;
 	        if (menu.side === 'right') {
 	            // right side
-	            closedX = platform.width() + 'px';
-	            openedX = (platform.width() - menu.width() - 8) + 'px';
+	            closedX = menu.width() + 'px';
+	            openedX = '0px';
 	        }
 	        else {
 	            // left side

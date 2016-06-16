@@ -880,7 +880,8 @@ ion-menu[type=overlay] {
       transform: translate3d(0, 0, 0); }
 
 ion-menu[type=overlay][side=right] {
-  left: 8px; }
+  left: auto;
+  right: -8px; }
 
 ion-menu[type=push][side=right] {
   left: 0; }

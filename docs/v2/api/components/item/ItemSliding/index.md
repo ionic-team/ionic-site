@@ -61,7 +61,7 @@ a parent. All buttons to reveal can be placed in the <code>&lt;ion-item-options&
     &lt;ion-item&gt;
       Item
     &lt;/ion-item&gt;
-    &lt;ion-item-options&gt;
+    &lt;ion-item-options side=&quot;left&quot;&gt;
       &lt;button (click)=&quot;favorite(item)&quot;&gt;Favorite&lt;/button&gt;
       &lt;button danger (click)=&quot;share(item)&quot;&gt;Share&lt;/button&gt;
     &lt;/ion-item-options&gt;

@@ -63985,7 +63985,7 @@
 	 *     <ion-item>
 	 *       Item
 	 *     </ion-item>
-	 *     <ion-item-options>
+	 *     <ion-item-options side="left">
 	 *       <button (click)="favorite(item)">Favorite</button>
 	 *       <button danger (click)="share(item)">Share</button>
 	 *     </ion-item-options>

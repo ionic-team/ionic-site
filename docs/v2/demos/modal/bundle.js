@@ -63770,7 +63770,7 @@
 	        else {
 	            css += this._name;
 	        }
-	        if (this.mode === 'ios' && !this.isActive) {
+	        if (this.mode === 'ios' && !this.isActive && css.indexOf('logo') < 0) {
 	            css += '-outline';
 	        }
 	        if (this._css !== css) {

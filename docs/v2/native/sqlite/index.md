@@ -50,10 +50,32 @@ docType: "class"
 
 <!-- description -->
 
+<p>Access SQLite databases on the device.</p>
 
 
 
 <!-- @usage tag -->
+
+<h2>Usage</h2>
+
+<pre><code class="lang-ts">import { SQLite } from &#39;ionic-native&#39;;
+
+let db = new SQLite();
+db.openDatabse({
+  name: &#39;data.db&#39;,
+  location: &#39;default&#39; // the location field is required
+}).then(() =&gt; {
+  db.executeSql(&#39;create table danceMoves(name VARCHAR(32))&#39;, {}).then(() =&gt; {
+
+  }, (err) =&gt; {
+    console.error(&#39;Unable to execute sql&#39;, err);
+  })
+}, (err) =&gt; {
+  console.error(&#39;Unable to open database&#39;, err);
+});
+</code></pre>
+
+
 
 
 <!-- @property tags -->
@@ -104,6 +126,57 @@ docType: "class"
 
 
 
+
+
+
+
+
+
+
+
+<div id="openDatabase"></div>
+
+<h3>
+  <code>openDatabase(config)</code>
+  
+
+</h3>
+
+Open or create a SQLite database file.
+
+See the plugin docs for an explanation of all options: https://github.com/litehelpers/Cordova-sqlite-storage#opening-a-database
+
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      config
+      
+      
+    </td>
+    <td>
+      
+
+    </td>
+    <td>
+      <p>the config for opening the database.</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -234,7 +307,8 @@ docType: "class"
 
 </h3>
 
-
+Execute SQL on the opened database. Note, you must call `openDatabase` first, and
+ensure it resolved and successfully opened the database.
 
 
 

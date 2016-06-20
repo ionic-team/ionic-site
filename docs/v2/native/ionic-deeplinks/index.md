@@ -43,8 +43,8 @@ docType: "class"
 
 <pre><code>$ ionic plugin add ionic-plugin-deeplinks</code></pre>
 <p>Repo:
-  <a href="https://github.com/driftyo/ionic-plugin-deeplinks">
-    https://github.com/driftyo/ionic-plugin-deeplinks
+  <a href="https://github.com/driftyco/ionic-plugin-deeplinks">
+    https://github.com/driftyco/ionic-plugin-deeplinks
   </a>
 </p>
 

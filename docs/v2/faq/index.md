@@ -61,8 +61,8 @@ Now our editor and TypeScript will be able to provide code-completion and unders
 
 There are different reasons this can happen. If you are unable to find a solution on the forums, make sure:
 
-- `@App` has a `template` or `templateUrl`.
-- `@App` template has an `<ion-nav>` with a `root` property:
+- Root `@Component` has a `template` or `templateUrl`.
+- Root `@Component` template has an `<ion-nav>` with a `root` property:
 
   ```html
   <ion-nav [root]="rootPage"></ion-nav>
@@ -75,7 +75,7 @@ There are different reasons this can happen. If you are unable to find a solutio
 
 There are a few things you can check. Make sure:
 
-- You include it in the `directives` array of the `@Page` or `@Component` you want to use it in.
+- You include it in the `directives` array of the `@Component` you want to use it in.
 - Your selector doesn't have any misspellings.
 - You're using the selector correctly as an attribute, element or class.
 - Your selector has the [proper syntax](http://learnangular2.com/components/):
@@ -95,7 +95,7 @@ class MyDir {
   }
 }
 
-@Page({
+@Component({
   // We add my-dir as an attribute to match the directive's selector
   template: `<div my-dir>Hello World</div>`,
 
@@ -108,34 +108,6 @@ class MyDir {
 })
 class MyPage {}
 ```
-
-## Angular Components
-
-> Why is an Ionic component not working in my custom Angular component?
-
-To include an Ionic component in your custom Angular component you need to import `IONIC_DIRECTIVES` and inject those into your component by placing them in the `directives` array. You will then be able to include Ionic components in your Angular component.
-
-```ts
-@Component({
-  selector: 'custom-component',
-  template: `
-    <h1>My awesome custom component</h1>
-    <ion-list>
-      <ion-item>
-        I am an awesome ionic component.
-      </ion-item>
-    </ion-list>
-  `,
-
-  // This is required to use Ionic components in a
-  // @Component or @Directive
-  directives: [IONIC_DIRECTIVES]
-})
-class MyComponent {
-
-}
-```
-
 
 ## Click Delays
 
@@ -220,7 +192,7 @@ This exception means that Angular is confused about one or more of the parameter
 ```ts
 import {MyService} from 'my-service'; //Don't forget to import me!
 
-@Page({
+@Component({
   template: `Hello World`
 })
 export class MyClass {
@@ -359,7 +331,7 @@ This happens when you try and bind a property on an element that doesn't have th
 This error is a more specific version of the `No provider` error above.  It happens when you use a form control like [NgControlName](https://angular.io/docs/js/latest/api/core/NgControlName-class.html) without specifying a parent [NgForm](https://angular.io/docs/js/latest/api/core/NgForm-class.html) or [NgFormModel](https://angular.io/docs/js/latest/api/core/NgFormModel-class.html).  In most cases, this can be resolved by making sure your form control is within an actual form element.  NgForm uses `form` as a selector so this will instantiate a new NgForm:
 
 ```ts
-@Page({
+@Component({
   template:
     '<form>' +
       '<input ngControl="login">' +

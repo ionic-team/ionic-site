@@ -15546,29 +15546,29 @@
 	__export(__webpack_require__(103));
 	__export(__webpack_require__(311));
 	__export(__webpack_require__(317));
-	__export(__webpack_require__(395));
-	__export(__webpack_require__(396));
+	__export(__webpack_require__(398));
+	__export(__webpack_require__(399));
 	__export(__webpack_require__(325));
 	__export(__webpack_require__(326));
 	__export(__webpack_require__(323));
 	__export(__webpack_require__(324));
 	__export(__webpack_require__(312));
-	__export(__webpack_require__(402));
+	__export(__webpack_require__(405));
 	__export(__webpack_require__(309));
 	__export(__webpack_require__(314));
 	__export(__webpack_require__(320));
 	__export(__webpack_require__(316));
 	__export(__webpack_require__(341));
 	__export(__webpack_require__(340));
-	__export(__webpack_require__(394));
-	__export(__webpack_require__(406));
+	__export(__webpack_require__(397));
+	__export(__webpack_require__(409));
 	// these modules don't export anything
-	__webpack_require__(407);
-	__webpack_require__(408);
-	__webpack_require__(409);
 	__webpack_require__(410);
 	__webpack_require__(411);
 	__webpack_require__(412);
+	__webpack_require__(413);
+	__webpack_require__(414);
+	__webpack_require__(415);
 
 /***/ },
 /* 103 */
@@ -15589,11 +15589,11 @@
 	var keyboard_1 = __webpack_require__(320);
 	var menu_controller_1 = __webpack_require__(330);
 	var dom_1 = __webpack_require__(310);
-	var nav_registry_1 = __webpack_require__(388);
+	var nav_registry_1 = __webpack_require__(391);
 	var platform_1 = __webpack_require__(312);
 	var scroll_view_1 = __webpack_require__(345);
-	var tap_click_1 = __webpack_require__(391);
-	var translate_1 = __webpack_require__(394);
+	var tap_click_1 = __webpack_require__(394);
+	var translate_1 = __webpack_require__(397);
 	var _reflect = Reflect;
 	/**
 	 * @name ionicBootstrap
@@ -46722,30 +46722,30 @@
 	var tabs_1 = __webpack_require__(354);
 	var tab_1 = __webpack_require__(356);
 	var list_1 = __webpack_require__(358);
-	var item_1 = __webpack_require__(360);
-	var item_sliding_1 = __webpack_require__(363);
-	var virtual_scroll_1 = __webpack_require__(364);
-	var virtual_item_1 = __webpack_require__(366);
+	var item_1 = __webpack_require__(362);
+	var item_sliding_1 = __webpack_require__(366);
+	var virtual_scroll_1 = __webpack_require__(367);
+	var virtual_item_1 = __webpack_require__(369);
 	var toolbar_1 = __webpack_require__(336);
-	var icon_1 = __webpack_require__(361);
-	var spinner_1 = __webpack_require__(367);
-	var checkbox_1 = __webpack_require__(368);
-	var select_1 = __webpack_require__(369);
-	var option_1 = __webpack_require__(372);
-	var datetime_1 = __webpack_require__(373);
-	var toggle_1 = __webpack_require__(375);
-	var input_1 = __webpack_require__(376);
-	var label_1 = __webpack_require__(362);
-	var segment_1 = __webpack_require__(379);
-	var radio_button_1 = __webpack_require__(380);
-	var radio_group_1 = __webpack_require__(381);
-	var range_1 = __webpack_require__(382);
-	var searchbar_1 = __webpack_require__(384);
-	var nav_1 = __webpack_require__(385);
-	var nav_push_1 = __webpack_require__(387);
-	var nav_router_1 = __webpack_require__(389);
+	var icon_1 = __webpack_require__(363);
+	var spinner_1 = __webpack_require__(370);
+	var checkbox_1 = __webpack_require__(371);
+	var select_1 = __webpack_require__(372);
+	var option_1 = __webpack_require__(375);
+	var datetime_1 = __webpack_require__(376);
+	var toggle_1 = __webpack_require__(378);
+	var input_1 = __webpack_require__(379);
+	var label_1 = __webpack_require__(364);
+	var segment_1 = __webpack_require__(382);
+	var radio_button_1 = __webpack_require__(383);
+	var radio_group_1 = __webpack_require__(384);
+	var range_1 = __webpack_require__(385);
+	var searchbar_1 = __webpack_require__(387);
+	var nav_1 = __webpack_require__(388);
+	var nav_push_1 = __webpack_require__(390);
+	var nav_router_1 = __webpack_require__(392);
 	var navbar_1 = __webpack_require__(335);
-	var show_hide_when_1 = __webpack_require__(390);
+	var show_hide_when_1 = __webpack_require__(393);
 	/**
 	 * @private
 	 * @name IONIC_DIRECTIVES
@@ -62909,8 +62909,12 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
+	var content_1 = __webpack_require__(344);
 	var ion_1 = __webpack_require__(319);
 	var item_sliding_gesture_1 = __webpack_require__(359);
+	var item_reorder_gesture_1 = __webpack_require__(360);
+	var util_1 = __webpack_require__(313);
+	var dom_1 = __webpack_require__(310);
 	/**
 	 * The List is a widely used interface element in almost any mobile app,
 	 * and can include content ranging from basic text all the way to
@@ -62929,18 +62933,21 @@
 	 */
 	var List = (function (_super) {
 	    __extends(List, _super);
-	    function List(elementRef, _zone) {
+	    function List(elementRef, _zone, _content) {
 	        _super.call(this, elementRef);
 	        this._zone = _zone;
+	        this._content = _content;
+	        this._enableReorder = false;
 	        this._enableSliding = false;
-	        this.ele = elementRef.nativeElement;
+	        this._lastToIndex = -1;
+	        this.ionItemReorder = new core_1.EventEmitter();
 	    }
 	    /**
 	     * @private
 	     */
 	    List.prototype.ngOnDestroy = function () {
-	        this.slidingGesture && this.slidingGesture.destroy();
-	        this.ele = this.slidingGesture = null;
+	        this._slidingGesture && this._slidingGesture.destroy();
+	        this._reorderGesture && this._reorderGesture.destroy();
 	    };
 	    /**
 	     * Enable the sliding items.
@@ -62970,12 +62977,10 @@
 	        this._enableSliding = shouldEnable;
 	        if (shouldEnable) {
 	            console.debug('enableSlidingItems');
-	            this._zone.runOutsideAngular(function () {
-	                setTimeout(function () { return _this.slidingGesture = new item_sliding_gesture_1.ItemSlidingGesture(_this, _this.ele); });
-	            });
+	            dom_1.nativeTimeout(function () { return _this._slidingGesture = new item_sliding_gesture_1.ItemSlidingGesture(_this); });
 	        }
 	        else {
-	            this.slidingGesture && this.slidingGesture.unlisten();
+	            this._slidingGesture && this._slidingGesture.unlisten();
 	        }
 	    };
 	    /**
@@ -62998,16 +63003,113 @@
 	     * ```
 	     */
 	    List.prototype.closeSlidingItems = function () {
-	        this.slidingGesture && this.slidingGesture.closeOpened();
+	        this._slidingGesture && this._slidingGesture.closeOpened();
 	    };
+	    /**
+	     * @private
+	     */
+	    List.prototype.reorderEmit = function (fromIndex, toIndex) {
+	        var _this = this;
+	        this.reorderReset();
+	        if (fromIndex !== toIndex) {
+	            this._zone.run(function () {
+	                _this.ionItemReorder.emit({
+	                    from: fromIndex,
+	                    to: toIndex,
+	                });
+	            });
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    List.prototype.scrollContent = function (scroll) {
+	        var scrollTop = this._content.getScrollTop() + scroll;
+	        if (scroll !== 0) {
+	            this._content.scrollTo(0, scrollTop, 0);
+	        }
+	        return scrollTop;
+	    };
+	    /**
+	     * @private
+	     */
+	    List.prototype.reorderReset = function () {
+	        var children = this.elementRef.nativeElement.children;
+	        var len = children.length;
+	        for (var i = 0; i < len; i++) {
+	            children[i].style.transform = '';
+	        }
+	        this._lastToIndex = -1;
+	    };
+	    /**
+	     * @private
+	     */
+	    List.prototype.reorderMove = function (fromIndex, toIndex, itemHeight) {
+	        if (this._lastToIndex === -1) {
+	            this._lastToIndex = fromIndex;
+	        }
+	        var lastToIndex = this._lastToIndex;
+	        this._lastToIndex = toIndex;
+	        var children = this.elementRef.nativeElement.children;
+	        if (toIndex >= lastToIndex) {
+	            for (var i = lastToIndex; i <= toIndex; i++) {
+	                if (i !== fromIndex) {
+	                    children[i].style.transform = (i > fromIndex)
+	                        ? "translateY(" + -itemHeight + "px)" : '';
+	                }
+	            }
+	        }
+	        if (toIndex <= lastToIndex) {
+	            for (var i = toIndex; i <= lastToIndex; i++) {
+	                if (i !== fromIndex) {
+	                    children[i].style.transform = (i < fromIndex)
+	                        ? "translateY(" + itemHeight + "px)" : '';
+	                }
+	            }
+	        }
+	    };
+	    Object.defineProperty(List.prototype, "reorder", {
+	        get: function () {
+	            return this._enableReorder;
+	        },
+	        set: function (val) {
+	            var _this = this;
+	            var enabled = util_1.isTrueProperty(val);
+	            if (this._enableReorder === enabled) {
+	                return;
+	            }
+	            this._enableReorder = enabled;
+	            if (enabled) {
+	                console.debug('enableReorderItems');
+	                dom_1.nativeTimeout(function () { return _this._reorderGesture = new item_reorder_gesture_1.ItemReorderGesture(_this); });
+	            }
+	            else {
+	                this._reorderGesture && this._reorderGesture.destroy();
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], List.prototype, "ionItemReorder", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], List.prototype, "reorder", null);
 	    List = __decorate([
 	        core_1.Directive({
-	            selector: 'ion-list'
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _b) || Object])
+	            selector: 'ion-list',
+	            host: {
+	                '[class.reorder-enabled]': '_enableReorder',
+	            }
+	        }),
+	        __param(2, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object, (typeof (_d = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _d) || Object])
 	    ], List);
 	    return List;
-	    var _a, _b;
+	    var _a, _b, _c, _d;
 	}(ion_1.Ion));
 	exports.List = List;
 	/**
@@ -63058,13 +63160,12 @@
 	var MAX_ATTACK_ANGLE = 20;
 	var ItemSlidingGesture = (function (_super) {
 	    __extends(ItemSlidingGesture, _super);
-	    function ItemSlidingGesture(list, listEle) {
-	        _super.call(this, listEle, {
+	    function ItemSlidingGesture(list) {
+	        _super.call(this, list.getNativeElement(), {
 	            direction: 'x',
 	            threshold: DRAG_THRESHOLD
 	        });
 	        this.list = list;
-	        this.listEle = listEle;
 	        this.selectedContainer = null;
 	        this.openContainer = null;
 	        this.listen();
@@ -63163,6 +63264,270 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var ui_event_manager_1 = __webpack_require__(361);
+	var dom_1 = __webpack_require__(310);
+	var AUTO_SCROLL_MARGIN = 60;
+	var SCROLL_JUMP = 10;
+	var ITEM_REORDER_ACTIVE = 'reorder-active';
+	/**
+	 * @private
+	 */
+	var ItemReorderGesture = (function () {
+	    function ItemReorderGesture(list) {
+	        var _this = this;
+	        this.list = list;
+	        this.selectedItem = null;
+	        this.events = new ui_event_manager_1.UIEventManager(false);
+	        var element = this.list.getNativeElement();
+	        this.events.pointerEvents(element, function (ev) { return _this.onDragStart(ev); }, function (ev) { return _this.onDragMove(ev); }, function (ev) { return _this.onDragEnd(ev); });
+	    }
+	    ItemReorderGesture.prototype.onDragStart = function (ev) {
+	        var itemEle = ev.target;
+	        if (itemEle.nodeName !== 'ION-REORDER') {
+	            return false;
+	        }
+	        var item = itemEle['$ionComponent'];
+	        if (!item) {
+	            console.error('item does not contain ion component');
+	            return false;
+	        }
+	        ev.preventDefault();
+	        // Preparing state    
+	        this.offset = dom_1.pointerCoord(ev);
+	        this.offset.y += this.list.scrollContent(0);
+	        this.selectedItem = item;
+	        this.itemHeight = item.height();
+	        this.lastToIndex = item.index;
+	        this.windowHeight = window.innerHeight - AUTO_SCROLL_MARGIN;
+	        item.setCssClass(ITEM_REORDER_ACTIVE, true);
+	        return true;
+	    };
+	    ItemReorderGesture.prototype.onDragMove = function (ev) {
+	        var _this = this;
+	        if (!this.selectedItem) {
+	            return;
+	        }
+	        ev.preventDefault();
+	        // Get coordinate
+	        var coord = dom_1.pointerCoord(ev);
+	        // Scroll if we reach the scroll margins
+	        var scrollPosition = this.scroll(coord);
+	        // Update selected item position    
+	        var ydiff = Math.round(coord.y - this.offset.y + scrollPosition);
+	        this.selectedItem.setCssStyle(dom_1.CSS.transform, "translateY(" + ydiff + "px)");
+	        // Only perform hit test if we moved at least 30px from previous position    
+	        if (Math.abs(coord.y - this.lastYcoord) < 30) {
+	            return;
+	        }
+	        // Hit test
+	        var overItem = this.itemForCoord(coord);
+	        if (!overItem) {
+	            this.emptyZone = true;
+	            return;
+	        }
+	        // Move surrounding items if needed 
+	        var toIndex = overItem.index;
+	        if (toIndex !== this.lastToIndex || this.emptyZone) {
+	            var fromIndex_1 = this.selectedItem.index;
+	            this.lastToIndex = overItem.index;
+	            this.lastYcoord = coord.y;
+	            this.emptyZone = false;
+	            dom_1.nativeRaf(function () {
+	                _this.list.reorderMove(fromIndex_1, toIndex, _this.itemHeight);
+	            });
+	        }
+	    };
+	    ItemReorderGesture.prototype.onDragEnd = function (ev) {
+	        var _this = this;
+	        if (!this.selectedItem) {
+	            return;
+	        }
+	        dom_1.nativeRaf(function () {
+	            var toIndex = _this.lastToIndex;
+	            var fromIndex = _this.selectedItem.index;
+	            _this.selectedItem.setCssClass(ITEM_REORDER_ACTIVE, false);
+	            _this.selectedItem = null;
+	            _this.list.reorderEmit(fromIndex, toIndex);
+	        });
+	    };
+	    ItemReorderGesture.prototype.itemForCoord = function (coord) {
+	        var element = document.elementFromPoint(this.offset.x - 100, coord.y);
+	        if (!element) {
+	            return null;
+	        }
+	        element = dom_1.closest(element, 'ion-item', true);
+	        if (!element) {
+	            return null;
+	        }
+	        var item = element['$ionComponent'];
+	        if (!item) {
+	            console.error('item does not have $ionComponent');
+	            return null;
+	        }
+	        return item;
+	    };
+	    ItemReorderGesture.prototype.scroll = function (coord) {
+	        var scrollDiff = 0;
+	        if (coord.y < AUTO_SCROLL_MARGIN) {
+	            scrollDiff = -SCROLL_JUMP;
+	        }
+	        else if (coord.y > this.windowHeight) {
+	            scrollDiff = SCROLL_JUMP;
+	        }
+	        return this.list.scrollContent(scrollDiff);
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemReorderGesture.prototype.destroy = function () {
+	        this.events.unlistenAll();
+	        this.events = null;
+	        this.list = null;
+	    };
+	    return ItemReorderGesture;
+	}());
+	exports.ItemReorderGesture = ItemReorderGesture;
+
+/***/ },
+/* 361 */
+/***/ function(module, exports) {
+
+	"use strict";
+	var MOUSE_WAIT = 2 * 1000;
+	var PointerEvents = (function () {
+	    function PointerEvents(ele, pointerDown, pointerMove, pointerUp, zone, option) {
+	        var _this = this;
+	        this.ele = ele;
+	        this.pointerDown = pointerDown;
+	        this.pointerMove = pointerMove;
+	        this.pointerUp = pointerUp;
+	        this.zone = zone;
+	        this.option = option;
+	        this.rmTouchStart = null;
+	        this.rmTouchMove = null;
+	        this.rmTouchEnd = null;
+	        this.rmMouseStart = null;
+	        this.rmMouseMove = null;
+	        this.rmMouseUp = null;
+	        this.lastTouchEvent = 0;
+	        this.rmTouchStart = listenEvent(ele, 'touchstart', zone, option, function (ev) { return _this.handleTouchStart(ev); });
+	        this.rmMouseStart = listenEvent(ele, 'mousedown', zone, option, function (ev) { return _this.handleMouseDown(ev); });
+	    }
+	    PointerEvents.prototype.handleTouchStart = function (ev) {
+	        var _this = this;
+	        this.lastTouchEvent = Date.now() + MOUSE_WAIT;
+	        if (!this.pointerDown(ev)) {
+	            return;
+	        }
+	        if (!this.rmTouchMove) {
+	            this.rmTouchMove = listenEvent(this.ele, 'touchmove', this.zone, this.option, this.pointerMove);
+	        }
+	        if (!this.rmTouchEnd) {
+	            this.rmTouchEnd = listenEvent(this.ele, 'touchend', this.zone, this.option, function (ev) { return _this.handleTouchEnd(ev); });
+	        }
+	    };
+	    PointerEvents.prototype.handleMouseDown = function (ev) {
+	        var _this = this;
+	        if (this.lastTouchEvent > Date.now()) {
+	            console.debug('mousedown event dropped because of previous touch');
+	            return;
+	        }
+	        if (!this.pointerDown(ev)) {
+	            return;
+	        }
+	        if (!this.rmMouseMove) {
+	            this.rmMouseMove = listenEvent(window, 'mousemove', this.zone, this.option, this.pointerMove);
+	        }
+	        if (!this.rmMouseUp) {
+	            this.rmMouseUp = listenEvent(window, 'mouseup', this.zone, this.option, function (ev) { return _this.handleMouseUp(ev); });
+	        }
+	    };
+	    PointerEvents.prototype.handleTouchEnd = function (ev) {
+	        this.rmTouchMove && this.rmTouchMove();
+	        this.rmTouchMove = null;
+	        this.rmTouchEnd && this.rmTouchEnd();
+	        this.rmTouchEnd = null;
+	        this.pointerUp(ev);
+	    };
+	    PointerEvents.prototype.handleMouseUp = function (ev) {
+	        this.rmMouseMove && this.rmMouseMove();
+	        this.rmMouseMove = null;
+	        this.rmMouseUp && this.rmMouseUp();
+	        this.rmMouseUp = null;
+	        this.pointerUp(ev);
+	    };
+	    PointerEvents.prototype.destroy = function () {
+	        this.rmTouchStart && this.rmTouchStart();
+	        this.rmTouchMove && this.rmTouchMove();
+	        this.rmTouchEnd && this.rmTouchEnd();
+	        this.rmMouseStart && this.rmMouseStart();
+	        this.rmMouseMove && this.rmMouseMove();
+	        this.rmMouseUp && this.rmMouseUp();
+	        this.rmTouchStart = null;
+	        this.rmTouchMove = null;
+	        this.rmTouchEnd = null;
+	        this.rmMouseStart = null;
+	        this.rmMouseMove = null;
+	        this.rmMouseUp = null;
+	        this.pointerDown = null;
+	        this.pointerMove = null;
+	        this.pointerUp = null;
+	        this.ele = null;
+	    };
+	    return PointerEvents;
+	}());
+	var UIEventManager = (function () {
+	    function UIEventManager(zoneWrapped) {
+	        if (zoneWrapped === void 0) { zoneWrapped = true; }
+	        this.zoneWrapped = zoneWrapped;
+	        this.events = [];
+	    }
+	    UIEventManager.prototype.listenRef = function (ref, eventName, callback, option) {
+	        return this.listen(ref.nativeElement, eventName, callback, option);
+	    };
+	    UIEventManager.prototype.pointerEventsRef = function (ref, pointerStart, pointerMove, pointerEnd, option) {
+	        return this.pointerEvents(ref.nativeElement, pointerStart, pointerMove, pointerEnd, option);
+	    };
+	    UIEventManager.prototype.pointerEvents = function (element, pointerDown, pointerMove, pointerUp, option) {
+	        if (option === void 0) { option = false; }
+	        var submanager = new PointerEvents(element, pointerDown, pointerMove, pointerUp, this.zoneWrapped, option);
+	        var removeFunc = function () { return submanager.destroy(); };
+	        this.events.push(removeFunc);
+	        return removeFunc;
+	    };
+	    UIEventManager.prototype.listen = function (element, eventName, callback, option) {
+	        if (option === void 0) { option = false; }
+	        var removeFunc = listenEvent(element, eventName, this.zoneWrapped, option, callback);
+	        this.events.push(removeFunc);
+	        return removeFunc;
+	    };
+	    UIEventManager.prototype.unlistenAll = function () {
+	        for (var _i = 0, _a = this.events; _i < _a.length; _i++) {
+	            var event = _a[_i];
+	            event();
+	        }
+	        this.events.length = 0;
+	    };
+	    return UIEventManager;
+	}());
+	exports.UIEventManager = UIEventManager;
+	function listenEvent(ele, eventName, zoneWrapped, option, callback) {
+	    var rawEvent = ('__zone_symbol__addEventListener' in ele && !zoneWrapped);
+	    if (rawEvent) {
+	        ele.__zone_symbol__addEventListener(eventName, callback, option);
+	        return function () { return ele.__zone_symbol__removeEventListener(eventName, callback); };
+	    }
+	    else {
+	        ele.addEventListener(eventName, callback, option);
+	        return function () { return ele.removeEventListener(eventName, callback); };
+	    }
+	}
+
+/***/ },
+/* 362 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63175,8 +63540,9 @@
 	var core_1 = __webpack_require__(6);
 	var button_1 = __webpack_require__(337);
 	var form_1 = __webpack_require__(316);
-	var icon_1 = __webpack_require__(361);
-	var label_1 = __webpack_require__(362);
+	var icon_1 = __webpack_require__(363);
+	var label_1 = __webpack_require__(364);
+	var item_reorder_1 = __webpack_require__(365);
 	/**
 	 * @name Item
 	 * @description
@@ -63405,6 +63771,7 @@
 	         */
 	        this.labelId = null;
 	        this.id = form.nextId().toString();
+	        _elementRef.nativeElement['$ionComponent'] = this;
 	    }
 	    /**
 	     * @private
@@ -63500,6 +63867,16 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /**
+	     * @private
+	     */
+	    Item.prototype.height = function () {
+	        return this._elementRef.nativeElement.offsetHeight;
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Number)
+	    ], Item.prototype, "index", void 0);
 	    __decorate([
 	        core_1.ContentChild(label_1.Label), 
 	        __metadata('design:type', (typeof (_a = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _a) || Object), 
@@ -63533,11 +63910,13 @@
 	                '<ng-content select="ion-select,ion-input,ion-textarea,ion-datetime,ion-range,[item-content]"></ng-content>' +
 	                '</div>' +
 	                '<ng-content select="[item-right],ion-radio,ion-toggle"></ng-content>' +
+	                '<ion-reorder></ion-reorder>' +
 	                '</div>' +
 	                '<ion-button-effect></ion-button-effect>',
 	            host: {
 	                'class': 'item'
 	            },
+	            directives: [core_1.forwardRef(function () { return item_reorder_1.ItemReorder; })],
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
@@ -63549,7 +63928,7 @@
 	exports.Item = Item;
 
 /***/ },
-/* 361 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63738,7 +64117,7 @@
 	exports.Icon = Icon;
 
 /***/ },
-/* 362 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63863,7 +64242,46 @@
 	exports.Label = Label;
 
 /***/ },
-/* 363 */
+/* 365 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(6);
+	var item_1 = __webpack_require__(362);
+	/**
+	 * @private
+	 */
+	var ItemReorder = (function () {
+	    function ItemReorder(item, elementRef) {
+	        elementRef.nativeElement['$ionComponent'] = item;
+	    }
+	    ItemReorder = __decorate([
+	        core_1.Component({
+	            selector: 'ion-reorder',
+	            template: "<ion-icon name=\"menu\"></ion-icon>"
+	        }),
+	        __param(0, core_1.Inject(core_1.forwardRef(function () { return item_1.Item; }))), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
+	    ], ItemReorder);
+	    return ItemReorder;
+	    var _a, _b;
+	}());
+	exports.ItemReorder = ItemReorder;
+
+/***/ },
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63881,7 +64299,7 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var list_1 = __webpack_require__(358);
-	var item_1 = __webpack_require__(360);
+	var item_1 = __webpack_require__(362);
 	var util_1 = __webpack_require__(313);
 	var dom_1 = __webpack_require__(310);
 	var SWIPE_FACTOR = 1.1;
@@ -64360,7 +64778,7 @@
 	}
 
 /***/ },
-/* 364 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64377,7 +64795,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var virtual_util_1 = __webpack_require__(365);
+	var virtual_util_1 = __webpack_require__(368);
 	var config_1 = __webpack_require__(311);
 	var content_1 = __webpack_require__(344);
 	var img_1 = __webpack_require__(346);
@@ -64385,7 +64803,7 @@
 	var dom_1 = __webpack_require__(310);
 	var platform_1 = __webpack_require__(312);
 	var view_controller_1 = __webpack_require__(333);
-	var virtual_item_1 = __webpack_require__(366);
+	var virtual_item_1 = __webpack_require__(369);
 	/**
 	 * @name VirtualScroll
 	 * @description
@@ -64969,7 +65387,7 @@
 	var QUEUE_CHANGE_DETECTION = 0;
 
 /***/ },
-/* 365 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65502,7 +65920,7 @@
 	var REQUIRED_DOM_READS = 2;
 
 /***/ },
-/* 366 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65564,7 +65982,7 @@
 	exports.VirtualItem = VirtualItem;
 
 /***/ },
-/* 367 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65865,7 +66283,7 @@
 	};
 
 /***/ },
-/* 368 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65884,7 +66302,7 @@
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var form_1 = __webpack_require__(316);
-	var item_1 = __webpack_require__(360);
+	var item_1 = __webpack_require__(362);
 	var util_1 = __webpack_require__(313);
 	var CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 	/**
@@ -66087,7 +66505,7 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 369 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66105,13 +66523,13 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
-	var alert_1 = __webpack_require__(370);
-	var action_sheet_1 = __webpack_require__(371);
+	var alert_1 = __webpack_require__(373);
+	var action_sheet_1 = __webpack_require__(374);
 	var form_1 = __webpack_require__(316);
-	var item_1 = __webpack_require__(360);
+	var item_1 = __webpack_require__(362);
 	var util_1 = __webpack_require__(313);
 	var nav_controller_1 = __webpack_require__(338);
-	var option_1 = __webpack_require__(372);
+	var option_1 = __webpack_require__(375);
 	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 	/**
 	 * @name Select
@@ -66573,7 +66991,7 @@
 	exports.Select = Select;
 
 /***/ },
-/* 370 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67232,7 +67650,7 @@
 	var alertIds = -1;
 
 /***/ },
-/* 371 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67682,7 +68100,7 @@
 	var actionSheetIds = -1;
 
 /***/ },
-/* 372 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67776,7 +68194,7 @@
 	exports.Option = Option;
 
 /***/ },
-/* 373 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67795,9 +68213,9 @@
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var config_1 = __webpack_require__(311);
-	var picker_1 = __webpack_require__(374);
+	var picker_1 = __webpack_require__(377);
 	var form_1 = __webpack_require__(316);
-	var item_1 = __webpack_require__(360);
+	var item_1 = __webpack_require__(362);
 	var util_1 = __webpack_require__(313);
 	var datetime_util_1 = __webpack_require__(328);
 	var nav_controller_1 = __webpack_require__(338);
@@ -68607,7 +69025,7 @@
 	}
 
 /***/ },
-/* 374 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69203,7 +69621,7 @@
 	var FRAME_MS = (1000 / 60);
 
 /***/ },
-/* 375 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69223,7 +69641,7 @@
 	var common_1 = __webpack_require__(188);
 	var form_1 = __webpack_require__(316);
 	var util_1 = __webpack_require__(313);
-	var item_1 = __webpack_require__(360);
+	var item_1 = __webpack_require__(362);
 	var dom_1 = __webpack_require__(310);
 	var TOGGLE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
 	/**
@@ -69485,7 +69903,7 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 376 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69511,10 +69929,10 @@
 	var config_1 = __webpack_require__(311);
 	var content_1 = __webpack_require__(344);
 	var form_1 = __webpack_require__(316);
-	var input_base_1 = __webpack_require__(377);
+	var input_base_1 = __webpack_require__(380);
 	var app_1 = __webpack_require__(308);
-	var item_1 = __webpack_require__(360);
-	var native_input_1 = __webpack_require__(378);
+	var item_1 = __webpack_require__(362);
+	var native_input_1 = __webpack_require__(381);
 	var nav_controller_1 = __webpack_require__(338);
 	var platform_1 = __webpack_require__(312);
 	/**
@@ -69712,7 +70130,7 @@
 	exports.TextArea = TextArea;
 
 /***/ },
-/* 377 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69728,7 +70146,7 @@
 	var core_1 = __webpack_require__(6);
 	var util_1 = __webpack_require__(313);
 	var dom_1 = __webpack_require__(310);
-	var native_input_1 = __webpack_require__(378);
+	var native_input_1 = __webpack_require__(381);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
 	        this._form = _form;
@@ -70265,7 +70683,7 @@
 	}
 
 /***/ },
-/* 378 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70499,7 +70917,7 @@
 	exports.NextInput = NextInput;
 
 /***/ },
-/* 379 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70802,7 +71220,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 380 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70821,8 +71239,8 @@
 	var core_1 = __webpack_require__(6);
 	var form_1 = __webpack_require__(316);
 	var util_1 = __webpack_require__(313);
-	var item_1 = __webpack_require__(360);
-	var radio_group_1 = __webpack_require__(381);
+	var item_1 = __webpack_require__(362);
+	var radio_group_1 = __webpack_require__(384);
 	/**
 	 * @description
 	 * A radio button is a button that can be either checked or unchecked. A user can tap
@@ -71004,7 +71422,7 @@
 	exports.RadioButton = RadioButton;
 
 /***/ },
-/* 381 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71232,7 +71650,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 382 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71252,9 +71670,9 @@
 	var common_1 = __webpack_require__(188);
 	var form_1 = __webpack_require__(316);
 	var util_1 = __webpack_require__(313);
-	var item_1 = __webpack_require__(360);
+	var item_1 = __webpack_require__(362);
 	var dom_1 = __webpack_require__(310);
-	var debouncer_1 = __webpack_require__(383);
+	var debouncer_1 = __webpack_require__(386);
 	var RANGE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Range; }), multi: true });
 	/**
 	 * @private
@@ -71958,7 +72376,7 @@
 	exports.Range = Range;
 
 /***/ },
-/* 383 */
+/* 386 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -71988,7 +72406,7 @@
 	exports.Debouncer = Debouncer;
 
 /***/ },
-/* 384 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72008,7 +72426,7 @@
 	var common_1 = __webpack_require__(188);
 	var config_1 = __webpack_require__(311);
 	var util_1 = __webpack_require__(313);
-	var debouncer_1 = __webpack_require__(383);
+	var debouncer_1 = __webpack_require__(386);
 	/**
 	 * @name Searchbar
 	 * @module ionic
@@ -72403,7 +72821,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 385 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72430,7 +72848,7 @@
 	var keyboard_1 = __webpack_require__(320);
 	var util_1 = __webpack_require__(313);
 	var nav_controller_1 = __webpack_require__(338);
-	var nav_portal_1 = __webpack_require__(386);
+	var nav_portal_1 = __webpack_require__(389);
 	var view_controller_1 = __webpack_require__(333);
 	/**
 	 * @name Nav
@@ -72644,7 +73062,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 386 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72695,7 +73113,7 @@
 	exports.NavPortal = NavPortal;
 
 /***/ },
-/* 387 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72713,7 +73131,7 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var nav_controller_1 = __webpack_require__(338);
-	var nav_registry_1 = __webpack_require__(388);
+	var nav_registry_1 = __webpack_require__(391);
 	/**
 	 * @name NavPush
 	 * @description
@@ -72858,7 +73276,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 388 */
+/* 391 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -72887,7 +73305,7 @@
 	exports.NavRegistry = NavRegistry;
 
 /***/ },
-/* 389 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72918,7 +73336,7 @@
 	exports.NavRouter = NavRouter;
 
 /***/ },
-/* 390 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73107,7 +73525,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 391 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73124,8 +73542,8 @@
 	var app_1 = __webpack_require__(308);
 	var config_1 = __webpack_require__(311);
 	var dom_1 = __webpack_require__(310);
-	var activator_1 = __webpack_require__(392);
-	var ripple_1 = __webpack_require__(393);
+	var activator_1 = __webpack_require__(395);
+	var ripple_1 = __webpack_require__(396);
 	/**
 	 * @private
 	 */
@@ -73307,7 +73725,7 @@
 	var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
 
 /***/ },
-/* 392 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73392,7 +73810,7 @@
 	var CLEAR_STATE_DEFERS = 5;
 
 /***/ },
-/* 393 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73401,7 +73819,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var activator_1 = __webpack_require__(392);
+	var activator_1 = __webpack_require__(395);
 	var dom_1 = __webpack_require__(310);
 	/**
 	 * @private
@@ -73502,7 +73920,7 @@
 	var TOUCH_DOWN_ACCEL = 300;
 
 /***/ },
-/* 394 */
+/* 397 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -73570,7 +73988,7 @@
 	exports.Translate = Translate;
 
 /***/ },
-/* 395 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73596,7 +74014,7 @@
 	exports.Page = Page;
 
 /***/ },
-/* 396 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73604,61 +74022,61 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(308));
-	__export(__webpack_require__(371));
-	__export(__webpack_require__(370));
+	__export(__webpack_require__(374));
+	__export(__webpack_require__(373));
 	__export(__webpack_require__(343));
 	__export(__webpack_require__(337));
-	__export(__webpack_require__(368));
+	__export(__webpack_require__(371));
 	__export(__webpack_require__(344));
-	__export(__webpack_require__(373));
-	__export(__webpack_require__(361));
+	__export(__webpack_require__(376));
+	__export(__webpack_require__(363));
 	__export(__webpack_require__(346));
 	__export(__webpack_require__(348));
 	__export(__webpack_require__(349));
-	__export(__webpack_require__(376));
-	__export(__webpack_require__(360));
-	__export(__webpack_require__(363));
+	__export(__webpack_require__(379));
 	__export(__webpack_require__(362));
+	__export(__webpack_require__(366));
+	__export(__webpack_require__(364));
 	__export(__webpack_require__(358));
-	__export(__webpack_require__(397));
+	__export(__webpack_require__(400));
 	__export(__webpack_require__(330));
 	__export(__webpack_require__(318));
-	__export(__webpack_require__(398));
+	__export(__webpack_require__(401));
 	__export(__webpack_require__(332));
 	__export(__webpack_require__(342));
-	__export(__webpack_require__(399));
-	__export(__webpack_require__(385));
+	__export(__webpack_require__(402));
+	__export(__webpack_require__(388));
 	__export(__webpack_require__(338));
 	__export(__webpack_require__(333));
 	__export(__webpack_require__(334));
-	__export(__webpack_require__(387));
-	__export(__webpack_require__(389));
+	__export(__webpack_require__(390));
+	__export(__webpack_require__(392));
 	__export(__webpack_require__(335));
-	__export(__webpack_require__(372));
-	__export(__webpack_require__(374));
-	__export(__webpack_require__(400));
-	__export(__webpack_require__(380));
-	__export(__webpack_require__(381));
-	__export(__webpack_require__(382));
+	__export(__webpack_require__(375));
+	__export(__webpack_require__(377));
+	__export(__webpack_require__(403));
+	__export(__webpack_require__(383));
+	__export(__webpack_require__(384));
+	__export(__webpack_require__(385));
 	__export(__webpack_require__(350));
 	__export(__webpack_require__(351));
 	__export(__webpack_require__(347));
-	__export(__webpack_require__(384));
-	__export(__webpack_require__(379));
-	__export(__webpack_require__(369));
-	__export(__webpack_require__(390));
+	__export(__webpack_require__(387));
+	__export(__webpack_require__(382));
+	__export(__webpack_require__(372));
+	__export(__webpack_require__(393));
 	__export(__webpack_require__(352));
-	__export(__webpack_require__(367));
+	__export(__webpack_require__(370));
 	__export(__webpack_require__(354));
 	__export(__webpack_require__(356));
-	__export(__webpack_require__(391));
-	__export(__webpack_require__(401));
-	__export(__webpack_require__(375));
+	__export(__webpack_require__(394));
+	__export(__webpack_require__(404));
+	__export(__webpack_require__(378));
 	__export(__webpack_require__(336));
-	__export(__webpack_require__(364));
+	__export(__webpack_require__(367));
 
 /***/ },
-/* 397 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73992,7 +74410,7 @@
 	var loadingIds = -1;
 
 /***/ },
-/* 398 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74141,7 +74559,7 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 399 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74494,7 +74912,7 @@
 	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 400 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74962,7 +75380,7 @@
 	var popoverIds = -1;
 
 /***/ },
-/* 401 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75375,19 +75793,19 @@
 	var toastIds = -1;
 
 /***/ },
-/* 402 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(403));
-	__export(__webpack_require__(404));
-	__export(__webpack_require__(405));
+	__export(__webpack_require__(406));
+	__export(__webpack_require__(407));
+	__export(__webpack_require__(408));
 
 /***/ },
-/* 403 */
+/* 406 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -75471,7 +75889,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 404 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75480,7 +75898,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(403);
+	var storage_1 = __webpack_require__(406);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -75585,7 +76003,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 405 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75594,7 +76012,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(403);
+	var storage_1 = __webpack_require__(406);
 	var util_1 = __webpack_require__(313);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -75737,7 +76155,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 406 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75751,7 +76169,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var translate_1 = __webpack_require__(394);
+	var translate_1 = __webpack_require__(397);
 	/**
 	 * @private
 	 * The Translate pipe makes it easy to translate strings.
@@ -75787,7 +76205,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 407 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75880,7 +76298,7 @@
 	});
 
 /***/ },
-/* 408 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76072,7 +76490,7 @@
 	}
 
 /***/ },
-/* 409 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76132,7 +76550,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 410 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76308,7 +76726,7 @@
 	transition_1.Transition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 411 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76372,7 +76790,7 @@
 	transition_1.Transition.register('md-transition', MDTransition);
 
 /***/ },
-/* 412 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

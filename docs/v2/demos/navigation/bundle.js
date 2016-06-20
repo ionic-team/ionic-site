@@ -69097,6 +69097,7 @@
 	var nav_params_1 = __webpack_require__(334);
 	var view_controller_1 = __webpack_require__(333);
 	var dom_1 = __webpack_require__(310);
+	var ui_event_manager_1 = __webpack_require__(361);
 	/**
 	 * @name Picker
 	 * @description
@@ -69166,17 +69167,19 @@
 	 * @private
 	 */
 	var PickerColumnCmp = (function () {
-	    function PickerColumnCmp(config, _sanitizer) {
+	    function PickerColumnCmp(config, elementRef, _sanitizer) {
+	        this.elementRef = elementRef;
 	        this._sanitizer = _sanitizer;
 	        this.y = 0;
 	        this.pos = [];
-	        this.msPrv = 0;
 	        this.startY = null;
 	        this.receivingEvents = false;
+	        this.events = new ui_event_manager_1.UIEventManager();
 	        this.ionChange = new core_1.EventEmitter();
 	        this.rotateFactor = config.getNumber('pickerRotateFactor', 0);
 	    }
 	    PickerColumnCmp.prototype.ngAfterViewInit = function () {
+	        var _this = this;
 	        // get the scrollable element within the column
 	        var colEle = this.colEle.nativeElement;
 	        this.colHeight = colEle.clientHeight;
@@ -69184,13 +69187,14 @@
 	        this.optHeight = (colEle.firstElementChild ? colEle.firstElementChild.clientHeight : 0);
 	        // set the scroll position for the selected option
 	        this.setSelected(this.col.selectedIndex, 0);
+	        // Listening for pointer events    
+	        this.events.pointerEventsRef(this.elementRef, function (ev) { return _this.pointerStart(ev); }, function (ev) { return _this.pointerMove(ev); }, function (ev) { return _this.pointerEnd(ev); });
+	    };
+	    PickerColumnCmp.prototype.ngOnDestroy = function () {
+	        this.events.unlistenAll();
 	    };
 	    PickerColumnCmp.prototype.pointerStart = function (ev) {
 	        console.debug('picker, pointerStart', ev.type, this.startY);
-	        if (this.isPrevented(ev)) {
-	            // do not both with mouse events if a touch event already fired
-	            return;
-	        }
 	        // cancel any previous raf's that haven't fired yet
 	        dom_1.cancelRaf(this.rafId);
 	        // remember where the pointer started from`
@@ -69210,14 +69214,12 @@
 	        }
 	        this.minY = (minY * this.optHeight * -1);
 	        this.maxY = (maxY * this.optHeight * -1);
+	        return true;
 	    };
 	    PickerColumnCmp.prototype.pointerMove = function (ev) {
 	        ev.preventDefault();
 	        ev.stopPropagation();
 	        if (this.startY === null) {
-	            return;
-	        }
-	        if (this.isPrevented(ev)) {
 	            return;
 	        }
 	        var currentY = dom_1.pointerCoord(ev).y;
@@ -69240,9 +69242,6 @@
 	        this.update(y, 0, false, false);
 	    };
 	    PickerColumnCmp.prototype.pointerEnd = function (ev) {
-	        if (this.isPrevented(ev)) {
-	            return;
-	        }
 	        if (!this.receivingEvents) {
 	            return;
 	        }
@@ -69396,21 +69395,6 @@
 	            this.update(y, 150, true, true);
 	        }
 	    };
-	    PickerColumnCmp.prototype.isPrevented = function (ev) {
-	        var now = Date.now();
-	        if (ev.type.indexOf('touch') > -1) {
-	            // this is a touch event, so prevent mouse events for a while
-	            this.msPrv = now + 2000;
-	        }
-	        else if (this.msPrv > now && ev.type.indexOf('mouse') > -1) {
-	            // this is a mouse event, and a touch event already happend recently
-	            // prevent the calling method from continuing
-	            ev.preventDefault();
-	            ev.stopPropagation();
-	            return true;
-	        }
-	        return false;
-	    };
 	    __decorate([
 	        core_1.ViewChild('colEle'), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object)
@@ -69437,18 +69421,12 @@
 	                '[style.min-width]': 'col.columnWidth',
 	                '[class.picker-opts-left]': 'col.align=="left"',
 	                '[class.picker-opts-right]': 'col.align=="right"',
-	                '(touchstart)': 'pointerStart($event)',
-	                '(touchmove)': 'pointerMove($event)',
-	                '(touchend)': 'pointerEnd($event)',
-	                '(mousedown)': 'pointerStart($event)',
-	                '(mousemove)': 'pointerMove($event)',
-	                '(body:mouseup)': 'pointerEnd($event)'
 	            }
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof platform_browser_1.DomSanitizationService !== 'undefined' && platform_browser_1.DomSanitizationService) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof platform_browser_1.DomSanitizationService !== 'undefined' && platform_browser_1.DomSanitizationService) === 'function' && _e) || Object])
 	    ], PickerColumnCmp);
 	    return PickerColumnCmp;
-	    var _a, _b, _c, _d;
+	    var _a, _b, _c, _d, _e;
 	}());
 	/**
 	 * @private
@@ -71715,6 +71693,7 @@
 	var form_1 = __webpack_require__(316);
 	var util_1 = __webpack_require__(313);
 	var item_1 = __webpack_require__(362);
+	var ui_event_manager_1 = __webpack_require__(361);
 	var dom_1 = __webpack_require__(310);
 	var debouncer_1 = __webpack_require__(386);
 	var RANGE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Range; }), multi: true });
@@ -71895,8 +71874,8 @@
 	        this._max = 100;
 	        this._step = 1;
 	        this._snaps = false;
-	        this._removes = [];
 	        this._debouncer = new debouncer_1.Debouncer(0);
+	        this._events = new ui_event_manager_1.UIEventManager();
 	        /**
 	         * @output {Range} Expression to evaluate when the range value changes.
 	         */
@@ -72026,8 +72005,7 @@
 	        this._renderer.setElementStyle(this._bar.nativeElement, 'left', barL);
 	        this._renderer.setElementStyle(this._bar.nativeElement, 'right', barR);
 	        // add touchstart/mousedown listeners
-	        this._renderer.listen(this._slider.nativeElement, 'touchstart', this.pointerDown.bind(this));
-	        this._mouseRemove = this._renderer.listen(this._slider.nativeElement, 'mousedown', this.pointerDown.bind(this));
+	        this._events.pointerEventsRef(this._slider, this.pointerDown.bind(this), this.pointerMove.bind(this), this.pointerUp.bind(this));
 	        this.createTicks();
 	    };
 	    /**
@@ -72038,16 +72016,12 @@
 	        // since there are a lot of events involved, this solution is
 	        // enough for the moment
 	        if (this._disabled) {
-	            return;
+	            return false;
 	        }
 	        console.debug("range, " + ev.type);
 	        // prevent default so scrolling does not happen
 	        ev.preventDefault();
 	        ev.stopPropagation();
-	        if (ev.type === 'touchstart') {
-	            // if this was a touchstart, then let's remove the mousedown
-	            this._mouseRemove && this._mouseRemove();
-	        }
 	        // get the start coordinates
 	        this._start = dom_1.pointerCoord(ev);
 	        // get the full dimensions of the slider element
@@ -72068,22 +72042,10 @@
 	        this.setActiveKnob(this._start, rect);
 	        // update the ratio for the active knob
 	        this.updateKnob(this._start, rect);
-	        // ensure past listeners have been removed
-	        this.clearListeners();
 	        // update the active knob's position
 	        this._active.position();
 	        this._pressed = this._active.pressed = true;
-	        // add a move listener depending on touch/mouse
-	        var renderer = this._renderer;
-	        var removes = this._removes;
-	        if (ev.type === 'touchstart') {
-	            removes.push(renderer.listen(this._slider.nativeElement, 'touchmove', this.pointerMove.bind(this)));
-	            removes.push(renderer.listen(this._slider.nativeElement, 'touchend', this.pointerUp.bind(this)));
-	        }
-	        else {
-	            removes.push(renderer.listenGlobal('body', 'mousemove', this.pointerMove.bind(this)));
-	            removes.push(renderer.listenGlobal('window', 'mouseup', this.pointerUp.bind(this)));
-	        }
+	        return true;
 	    };
 	    /**
 	     * @private
@@ -72102,10 +72064,6 @@
 	            this._active.position();
 	            this._pressed = this._active.pressed = true;
 	        }
-	        else {
-	            // ensure listeners have been removed
-	            this.clearListeners();
-	        }
 	    };
 	    /**
 	     * @private
@@ -72121,18 +72079,7 @@
 	        this._active.position();
 	        // clear the start coordinates and active knob
 	        this._start = this._active = null;
-	        // ensure listeners have been removed
-	        this.clearListeners();
-	    };
-	    /**
-	     * @private
-	     */
-	    Range.prototype.clearListeners = function () {
 	        this._pressed = this._knobs.first.pressed = this._knobs.last.pressed = false;
-	        for (var i = 0; i < this._removes.length; i++) {
-	            this._removes[i]();
-	        }
-	        this._removes.length = 0;
 	    };
 	    /**
 	     * @private
@@ -72340,7 +72287,7 @@
 	     */
 	    Range.prototype.ngOnDestroy = function () {
 	        this._form.deregister(this);
-	        this.clearListeners();
+	        this._events.unlistenAll();
 	    };
 	    __decorate([
 	        core_1.ViewChild('bar'), 

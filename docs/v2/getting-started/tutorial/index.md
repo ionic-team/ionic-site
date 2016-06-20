@@ -22,7 +22,7 @@ Now that you have [Ionic and its dependencies installed](../installation), you c
 
 ### Starting a New Ionic 2 App
 
-Let's create a new app! Use the `start` command to initialize a new Ionic app. Specify that you want it to be an Ionic 2 app by passing in the `--v2` option. We also specify that the `tutorial` template should be used. Ionic 2 applications are created as TypeScript by default.
+Let's create a new app! Use the `start` command to initialize a new Ionic app. Specify that you want it to be an Ionic 2 app by passing in the `--v2` option. We also specify that the `tutorial` template should be used. Ionic 2 applications are created as JavaScript by default, you can change to TypeScript by passing in the `--ts` option.
 
 ```bash
 $ ionic start MyIonic2Project tutorial --v2

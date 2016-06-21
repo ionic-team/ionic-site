@@ -57089,8 +57089,8 @@
 	         */
 	        this.ionSelect = new core_1.EventEmitter();
 	        parent.add(this);
-	        if (parentTabs.rootNav) {
-	            this._sbEnabled = parentTabs.rootNav.isSwipeBackEnabled();
+	        if (parent.rootNav) {
+	            this._sbEnabled = parent.rootNav.isSwipeBackEnabled();
 	        }
 	        this._panelId = 'tabpanel-' + this.id;
 	        this._btnId = 'tab-' + this.id;

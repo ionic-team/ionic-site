@@ -63744,7 +63744,7 @@
 	    };
 	    ItemSlidingGesture.prototype.unlisten = function () {
 	        _super.prototype.unlisten.call(this);
-	        this.listEle = null;
+	        this.list = null;
 	    };
 	    return ItemSlidingGesture;
 	}(drag_gesture_1.DragGesture));

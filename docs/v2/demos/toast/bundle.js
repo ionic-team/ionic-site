@@ -75205,7 +75205,9 @@
 	        this._compiler.resolveComponent(componentType).then(function (componentFactory) {
 	            var componentRef = _this.viewport.createComponent(componentFactory, _this.viewport.length, _this.viewport.parentInjector);
 	            _this._renderer.setElementClass(componentRef.location.nativeElement, 'show-page', true);
-	            _this._renderer.setElementClass(componentRef.location.nativeElement, componentType.name, true);
+	            // auto-add page css className created from component JS class name
+	            var cssClassName = util_1.pascalCaseToDashCase(componentType.name);
+	            _this._renderer.setElementClass(componentRef.location.nativeElement, cssClassName, true);
 	            _this._viewCtrl.setInstance(componentRef.instance);
 	            _this.enabled = true;
 	            done();

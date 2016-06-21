@@ -56098,15 +56098,17 @@
 	            if (this._tabbarPlacement === 'top') {
 	                newVal += this._tabbarHeight;
 	            }
-	            if (newVal !== this._lastTop) {
+	            if (newVal !== this.adjustedTop) {
 	                this._scrollEle.style.paddingTop = (newVal > 0 ? newVal + 'px' : '');
+	                this.adjustedTop = newVal;
 	            }
 	            newVal = this._footerHeight + this._paddingBottom;
 	            if (this._tabbarPlacement === 'bottom') {
 	                newVal += this._tabbarHeight;
 	            }
-	            if (newVal !== this._lastBottom) {
+	            if (newVal !== this.adjustedBottom) {
 	                this._scrollEle.style.paddingBottom = (newVal > 0 ? newVal + 'px' : '');
+	                this.adjustedBottom = newVal;
 	            }
 	        }
 	        else {
@@ -56115,15 +56117,17 @@
 	            if (this._tabbarPlacement === 'top') {
 	                newVal += this._tabbarHeight;
 	            }
-	            if (newVal !== this._lastTop) {
+	            if (newVal !== this.adjustedTop) {
 	                this._scrollEle.style.marginTop = (newVal > 0 ? newVal + 'px' : '');
+	                this.adjustedTop = newVal;
 	            }
 	            newVal = this._footerHeight;
 	            if (this._tabbarPlacement === 'bottom') {
 	                newVal += this._tabbarHeight;
 	            }
-	            if (newVal !== this._lastBottom) {
+	            if (newVal !== this.adjustedBottom) {
 	                this._scrollEle.style.marginBottom = (newVal > 0 ? newVal + 'px' : '');
+	                this.adjustedBottom = newVal;
 	            }
 	        }
 	        if (this._tabbarPlacement !== null && this._tabs) {
@@ -58028,8 +58032,8 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var content_1 = __webpack_require__(344);
-	var util_1 = __webpack_require__(313);
 	var dom_1 = __webpack_require__(310);
+	var util_1 = __webpack_require__(313);
 	var ui_event_manager_1 = __webpack_require__(355);
 	/**
 	 * @name Refresher
@@ -58112,13 +58116,14 @@
 	 *
 	 */
 	var Refresher = (function () {
-	    function Refresher(_content, _zone, elementRef) {
+	    function Refresher(_content, _zone) {
 	        this._content = _content;
 	        this._zone = _zone;
 	        this._appliedStyles = false;
 	        this._lastCheck = 0;
 	        this._isEnabled = true;
 	        this._events = new ui_event_manager_1.UIEventManager(false);
+	        this._top = '';
 	        /**
 	         * The current state which the refresher is in. The refresher's states include:
 	         *
@@ -58188,17 +58193,6 @@
 	         */
 	        this.ionStart = new core_1.EventEmitter();
 	        _content.addCssClass('has-refresher');
-	        // deprecated warning
-	        var ele = elementRef.nativeElement;
-	        var deprecatedAttrs = ['pullingIcon', 'pullingText', 'refreshingIcon', 'refreshingText', 'spinner'];
-	        deprecatedAttrs.forEach(function (attrName) {
-	            if (ele.hasAttribute(attrName)) {
-	                console.warn('<ion-refresher> property "' + attrName + '" should now be placed on the inner <ion-refresher-content> component instead of <ion-refresher>. Please review the Refresher docs for API updates.');
-	            }
-	        });
-	        if (!ele.children.length) {
-	            console.warn('<ion-refresher> should now have an inner <ion-refresher-content> component. Please review the Refresher docs for API updates.');
-	        }
 	    }
 	    Object.defineProperty(Refresher.prototype, "enabled", {
 	        /**
@@ -58230,6 +58224,12 @@
 	        }
 	        var coord = dom_1.pointerCoord(ev);
 	        console.debug('Pull-to-refresh, onStart', ev.type, 'y:', coord.y);
+	        if (this._content.adjustedTop > 0) {
+	            var newTop = this._content.adjustedTop + 'px';
+	            if (this._top !== newTop) {
+	                this._top = newTop;
+	            }
+	        }
 	        this.startY = this.currentY = coord.y;
 	        this.progress = 0;
 	        this.state = STATE_PULLING;
@@ -58476,14 +58476,15 @@
 	        core_1.Directive({
 	            selector: 'ion-refresher',
 	            host: {
-	                '[class.refresher-active]': 'state !== "inactive"'
+	                '[class.refresher-active]': 'state !== "inactive"',
+	                '[style.top]': '_top'
 	            }
 	        }),
 	        __param(0, core_1.Host()), 
-	        __metadata('design:paramtypes', [(typeof (_d = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object, (typeof (_f = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _f) || Object])
+	        __metadata('design:paramtypes', [(typeof (_d = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object])
 	    ], Refresher);
 	    return Refresher;
-	    var _a, _b, _c, _d, _e, _f;
+	    var _a, _b, _c, _d, _e;
 	}());
 	exports.Refresher = Refresher;
 	var STATE_INACTIVE = 'inactive';

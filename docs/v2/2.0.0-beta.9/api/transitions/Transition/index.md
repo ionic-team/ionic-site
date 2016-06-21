@@ -31,7 +31,7 @@ Transition
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/transitions/transition.ts#L1">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/transitions/transition.ts#L4">
 Improve this doc
 </a>
 
@@ -83,6 +83,28 @@ Improve this doc
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="enteringView"></div>
+
+<h3>
+<a class="anchor" name="enteringView" href="#enteringView"></a>
+<code>enteringView</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- related link --><!-- end content block -->

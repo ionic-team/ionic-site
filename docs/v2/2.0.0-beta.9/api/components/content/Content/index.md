@@ -33,7 +33,7 @@ Content
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/content/content.ts#L8">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/content/content.ts#L10">
 Improve this doc
 </a>
 
@@ -597,6 +597,32 @@ Returns the content and scroll elements' dimensions.
 
 
 
+<!-- input methods on the class -->
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>fullscreen</td>
+      <td><code>boolean</code></td>
+      <td><p> By default, content is positioned between the headers
+and footers. However, using <code>fullscreen=&quot;true&quot;</code>, the content will be
+able to scroll &quot;under&quot; the headers and footers. At first glance the
+fullscreen option may not look any different than the default, however,
+by adding a transparency effect to a header then the content can be
+seen under the header as the user scrolls.</p>
+</td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 <!-- related link --><!-- end content block -->

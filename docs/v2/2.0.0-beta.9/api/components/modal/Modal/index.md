@@ -33,7 +33,7 @@ Modal
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/modal/modal.ts#L11">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/modal/modal.ts#L10">
 Improve this doc
 </a>
 
@@ -233,26 +233,6 @@ Create a modal with the following options
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="modalViewType"></div>
-
-<h3>
-<a class="anchor" name="modalViewType" href="#modalViewType"></a>
-<code>modalViewType</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="loaded"></div>
 

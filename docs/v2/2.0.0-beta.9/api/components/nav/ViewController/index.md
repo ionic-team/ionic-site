@@ -31,7 +31,7 @@ ViewController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/nav/view-controller.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/nav/view-controller.ts#L7">
 Improve this doc
 </a>
 
@@ -212,66 +212,6 @@ export class MyPage{
 
 
 
-<div id="subscribe"></div>
-
-<h3>
-<a class="anchor" name="subscribe" href="#subscribe"></a>
-<code>subscribe()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="onDismiss"></div>
-
-<h3>
-<a class="anchor" name="onDismiss" href="#onDismiss"></a>
-<code>onDismiss()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="dismiss"></div>
-
-<h3>
-<a class="anchor" name="dismiss" href="#dismiss"></a>
-<code>dismiss()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="enableBack"></div>
 
 <h3>
@@ -340,10 +280,9 @@ Check to see if you can go back in the navigation stack.
 
 You can find out the index of the current view is in the current navigation stack.
 
-```typescript
+```ts
  export class Page1 {
-   constructor(view: ViewController){
-     this.view = view;
+   constructor(private view: ViewController){
      // Just log out the index
      console.log(this.view.index);
    }
@@ -359,7 +298,7 @@ You can find out the index of the current view is in the current navigation stac
 <div class="return-value">
 <i class="icon ion-arrow-return-left"></i>
 <b>Returns:</b> 
-  <code>number</code> <p>Returns the index of this page within its NavController.</p>
+  <code>number</code> <p>Returns the index of this page within its <code>NavController</code>.</p>
 
 
 </div>
@@ -430,15 +369,16 @@ You can find out the index of the current view is in the current navigation stac
 
 </h3>
 
-You can find out of the current view has a Navbar or not. Be sure to wrap this in an `ionViewWillEnter` method in order to make sure the view has rendered fully.
+You can find out of the current view has a Navbar or not. Be sure
+to wrap this in an `ionViewWillEnter` method in order to make sure
+the view has rendered fully.
 
-```typescript
+```ts
 export class Page1 {
- constructor(view: ViewController) {
-   this.view = view
- }
+ constructor(private viewCtrl: ViewController) {}
+
  ionViewWillEnter(){
-   console.log('Do we have a Navbar?', this.view.hasNavbar());
+   console.log('Do we have a Navbar?', this.viewCtrl.hasNavbar());
  }
 }
 ```
@@ -473,9 +413,8 @@ You can change the text of the back button on a view-by-view basis.
 
 ```ts
 export class MyClass{
- constructor(viewCtrl: ViewController){
-   this.viewCtrl = viewCtrl
- }
+ constructor(private viewCtrl: ViewController) {}
+
  ionViewWillEnter() {
    this.viewCtrl.setBackButtonText('Previous');
  }
@@ -581,9 +520,9 @@ Set if the back button for the current view is visible or not. Be sure to wrap t
 </h3>
 
 The loaded method is used to load any dynamic content/components
-into the dom before proceeding with the transition.  If a component needs
-dynamic component loading, extending ViewController and overriding
-this method is a good option
+into the dom before proceeding with the transition.  If a component
+needs dynamic component loading, extending ViewController and
+overriding this method is a good option
 
 
 <table class="table param-table" style="margin:0;">
@@ -607,7 +546,8 @@ this method is a good option
   <code>function</code>
       </td>
       <td>
-        <p>is a callback that must be called when async loading/actions are completed</p>
+        <p>is a callback that must be called when async
+loading/actions are completed</p>
 
         
       </td>

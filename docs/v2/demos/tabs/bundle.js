@@ -15548,29 +15548,30 @@
 	__export(__webpack_require__(103));
 	__export(__webpack_require__(311));
 	__export(__webpack_require__(317));
-	__export(__webpack_require__(398));
-	__export(__webpack_require__(399));
+	__export(__webpack_require__(400));
+	__export(__webpack_require__(401));
 	__export(__webpack_require__(325));
 	__export(__webpack_require__(326));
 	__export(__webpack_require__(323));
 	__export(__webpack_require__(324));
 	__export(__webpack_require__(312));
-	__export(__webpack_require__(405));
+	__export(__webpack_require__(408));
 	__export(__webpack_require__(309));
 	__export(__webpack_require__(314));
 	__export(__webpack_require__(320));
 	__export(__webpack_require__(316));
-	__export(__webpack_require__(341));
 	__export(__webpack_require__(340));
-	__export(__webpack_require__(397));
-	__export(__webpack_require__(409));
+	__export(__webpack_require__(405));
+	__export(__webpack_require__(339));
+	__export(__webpack_require__(399));
+	__export(__webpack_require__(412));
 	// these modules don't export anything
-	__webpack_require__(410);
-	__webpack_require__(411);
-	__webpack_require__(412);
 	__webpack_require__(413);
 	__webpack_require__(414);
 	__webpack_require__(415);
+	__webpack_require__(416);
+	__webpack_require__(417);
+	__webpack_require__(418);
 
 /***/ },
 /* 103 */
@@ -15591,11 +15592,11 @@
 	var keyboard_1 = __webpack_require__(320);
 	var menu_controller_1 = __webpack_require__(330);
 	var dom_1 = __webpack_require__(310);
-	var nav_registry_1 = __webpack_require__(391);
+	var nav_registry_1 = __webpack_require__(393);
 	var platform_1 = __webpack_require__(312);
 	var scroll_view_1 = __webpack_require__(345);
-	var tap_click_1 = __webpack_require__(394);
-	var translate_1 = __webpack_require__(397);
+	var tap_click_1 = __webpack_require__(396);
+	var translate_1 = __webpack_require__(399);
 	var _reflect = Reflect;
 	/**
 	 * @name ionicBootstrap
@@ -15623,10 +15624,12 @@
 	    var providers = ionicProviders(customProviders, config);
 	    // automatically set "ion-app" selector to users root component
 	    addSelector(appRootComponent, 'ion-app');
-	    // call angular bootstrap
-	    return platform_browser_dynamic_1.bootstrap(appRootComponent, providers).then(function (ngComponentRef) {
-	        // ionic app has finished bootstrapping
-	        return ionicPostBootstrap(ngComponentRef);
+	    cssReady(function () {
+	        // call angular bootstrap
+	        platform_browser_dynamic_1.bootstrap(appRootComponent, providers).then(function (ngComponentRef) {
+	            // ionic app has finished bootstrapping
+	            ionicPostBootstrap(ngComponentRef);
+	        });
 	    });
 	}
 	exports.ionicBootstrap = ionicBootstrap;
@@ -15642,11 +15645,22 @@
 	    platform.prepareReady();
 	    // TODO: Use PLATFORM_INITIALIZER
 	    ngComponentRef.injector.get(tap_click_1.TapClick);
-	    // TODO: Use Renderer
-	    ngComponentRef.location.nativeElement.classList.add('app-init');
 	    return ngComponentRef;
 	}
 	exports.ionicPostBootstrap = ionicPostBootstrap;
+	var cssLoadAttempt = 0;
+	function cssReady(done) {
+	    var appEle = document.body.querySelector('ion-app');
+	    if (!appEle || appEle.clientHeight > 0 || cssLoadAttempt > 300) {
+	        done();
+	    }
+	    else {
+	        dom_1.nativeRaf(function () {
+	            cssLoadAttempt++;
+	            cssReady(done);
+	        });
+	    }
+	}
 	/**
 	 * @private
 	 */
@@ -15706,9 +15720,6 @@
 	        linkEle.removeAttribute(modeLinkAttr);
 	        linkEle.href = href;
 	    }
-	    var headStyle = document.createElement('style');
-	    headStyle.innerHTML = 'ion-app{display:none}';
-	    document.head.appendChild(headStyle);
 	    // set the mode class name
 	    // ios/md/wp
 	    bodyEle.classList.add(mode);
@@ -15731,7 +15742,7 @@
 	    });
 	    // touch devices should not use :hover CSS pseudo
 	    // enable :hover CSS when the "hoverCSS" setting is not false
-	    if (config.get('hoverCSS') !== false) {
+	    if (config.getBoolean('hoverCSS', true) !== false) {
 	        bodyEle.classList.add('enable-hover');
 	    }
 	    if (config.getBoolean('clickBlock', true) !== false) {
@@ -46709,45 +46720,47 @@
 	var common_1 = __webpack_require__(188);
 	var menu_1 = __webpack_require__(318);
 	var menu_toggle_1 = __webpack_require__(332);
-	var menu_close_1 = __webpack_require__(342);
+	var menu_close_1 = __webpack_require__(341);
 	var backdrop_1 = __webpack_require__(331);
-	var badge_1 = __webpack_require__(343);
-	var button_1 = __webpack_require__(337);
+	var badge_1 = __webpack_require__(342);
+	var button_1 = __webpack_require__(343);
 	var content_1 = __webpack_require__(344);
-	var img_1 = __webpack_require__(346);
-	var scroll_1 = __webpack_require__(347);
-	var infinite_scroll_1 = __webpack_require__(348);
-	var infinite_scroll_content_1 = __webpack_require__(349);
-	var refresher_1 = __webpack_require__(350);
-	var refresher_content_1 = __webpack_require__(352);
-	var slides_1 = __webpack_require__(353);
-	var tabs_1 = __webpack_require__(355);
-	var tab_1 = __webpack_require__(357);
+	var img_1 = __webpack_require__(350);
+	var scroll_1 = __webpack_require__(351);
+	var infinite_scroll_1 = __webpack_require__(352);
+	var infinite_scroll_content_1 = __webpack_require__(353);
+	var refresher_1 = __webpack_require__(354);
+	var refresher_content_1 = __webpack_require__(356);
+	var slides_1 = __webpack_require__(357);
+	var tabs_1 = __webpack_require__(346);
+	var tab_1 = __webpack_require__(348);
 	var list_1 = __webpack_require__(359);
 	var item_1 = __webpack_require__(362);
 	var item_sliding_1 = __webpack_require__(366);
 	var virtual_scroll_1 = __webpack_require__(367);
 	var virtual_item_1 = __webpack_require__(369);
 	var toolbar_1 = __webpack_require__(336);
+	var toolbar_item_1 = __webpack_require__(370);
+	var toolbar_title_1 = __webpack_require__(371);
 	var icon_1 = __webpack_require__(363);
-	var spinner_1 = __webpack_require__(370);
-	var checkbox_1 = __webpack_require__(371);
-	var select_1 = __webpack_require__(372);
-	var option_1 = __webpack_require__(375);
-	var datetime_1 = __webpack_require__(376);
-	var toggle_1 = __webpack_require__(378);
-	var input_1 = __webpack_require__(379);
+	var spinner_1 = __webpack_require__(372);
+	var checkbox_1 = __webpack_require__(373);
+	var select_1 = __webpack_require__(374);
+	var option_1 = __webpack_require__(377);
+	var datetime_1 = __webpack_require__(378);
+	var toggle_1 = __webpack_require__(380);
+	var input_1 = __webpack_require__(381);
 	var label_1 = __webpack_require__(364);
-	var segment_1 = __webpack_require__(382);
-	var radio_button_1 = __webpack_require__(383);
-	var radio_group_1 = __webpack_require__(384);
-	var range_1 = __webpack_require__(385);
-	var searchbar_1 = __webpack_require__(387);
-	var nav_1 = __webpack_require__(388);
-	var nav_push_1 = __webpack_require__(390);
-	var nav_router_1 = __webpack_require__(392);
+	var segment_1 = __webpack_require__(384);
+	var radio_button_1 = __webpack_require__(385);
+	var radio_group_1 = __webpack_require__(386);
+	var range_1 = __webpack_require__(387);
+	var searchbar_1 = __webpack_require__(389);
+	var nav_1 = __webpack_require__(390);
+	var nav_push_1 = __webpack_require__(392);
+	var nav_router_1 = __webpack_require__(394);
 	var navbar_1 = __webpack_require__(335);
-	var show_hide_when_1 = __webpack_require__(393);
+	var show_hide_when_1 = __webpack_require__(395);
 	/**
 	 * @private
 	 * @name IONIC_DIRECTIVES
@@ -46788,6 +46801,8 @@
 	 * - SlideLazy
 	 * - Tabs
 	 * - Tab
+	 * - Header
+	 * - Footer
 	 * - Toolbar
 	 * - ToolbarTitle
 	 * - ToolbarItem
@@ -46852,9 +46867,11 @@
 	    tabs_1.Tabs,
 	    tab_1.Tab,
 	    // Toolbar
+	    toolbar_1.Header,
+	    toolbar_1.Footer,
 	    toolbar_1.Toolbar,
-	    toolbar_1.ToolbarTitle,
-	    toolbar_1.ToolbarItem,
+	    toolbar_title_1.ToolbarTitle,
+	    toolbar_item_1.ToolbarItem,
 	    // Media
 	    icon_1.Icon,
 	    spinner_1.Spinner,
@@ -51134,24 +51151,28 @@
 	 * the `<ion-buttons>` element:
 	 *
 	 * ```html
-	 * <ion-navbar *navbar>
-	 *   <ion-buttons start>
-	 *     <button>
-	 *       <ion-icon name="contact"></ion-icon>
+	 * <ion-header>
+	 *
+	 *   <ion-navbar>
+	 *     <ion-buttons start>
+	 *       <button>
+	 *         <ion-icon name="contact"></ion-icon>
+	 *       </button>
+	 *     </ion-buttons>
+	 *     <button menuToggle>
+	 *       <ion-icon name="menu"></ion-icon>
 	 *     </button>
-	 *   </ion-buttons>
-	 *   <button menuToggle>
-	 *     <ion-icon name="menu"></ion-icon>
-	 *   </button>
-	 *   <ion-title>
-	 *     Title
-	 *   </ion-title>
-	 *   <ion-buttons end>
-	 *     <button (click)="doClick()">
-	 *       <ion-icon name="more"></ion-icon>
-	 *     </button>
-	 *   </ion-buttons>
-	 * </ion-navbar>
+	 *     <ion-title>
+	 *       Title
+	 *     </ion-title>
+	 *     <ion-buttons end>
+	 *       <button (click)="doClick()">
+	 *         <ion-icon name="more"></ion-icon>
+	 *       </button>
+	 *     </ion-buttons>
+	 *   </ion-navbar>
+	 *
+	 * </ion-header>
 	 * ```
 	 *
 	 * Similar to `<ion-buttons>`, the `menuToggle` can be positioned using
@@ -51258,8 +51279,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var nav_params_1 = __webpack_require__(334);
 	var util_1 = __webpack_require__(313);
+	var nav_params_1 = __webpack_require__(334);
 	/**
 	 * @name ViewController
 	 * @description
@@ -51281,7 +51302,6 @@
 	    function ViewController(componentType, data) {
 	        this.componentType = componentType;
 	        this._tbRefs = [];
-	        this._destroys = [];
 	        this._hdAttr = null;
 	        this._leavingOpts = null;
 	        this._loaded = false;
@@ -51294,10 +51314,6 @@
 	         * @private
 	         */
 	        this.state = '';
-	        /**
-	         * @private
-	         */
-	        this.viewType = '';
 	        /**
 	         * @private
 	         * If this is currently the active view, then set to false
@@ -51325,6 +51341,9 @@
 	        this.willUnload = new core_1.EventEmitter();
 	        this.didUnload = new core_1.EventEmitter();
 	    }
+	    /**
+	     * @private
+	     */
 	    ViewController.prototype.subscribe = function (generatorOrNext) {
 	        return this._emitter.subscribe(generatorOrNext);
 	    };
@@ -51334,9 +51353,15 @@
 	    ViewController.prototype.emit = function (data) {
 	        this._emitter.emit(data);
 	    };
+	    /**
+	     * @private
+	     */
 	    ViewController.prototype.onDismiss = function (callback) {
 	        this._onDismiss = callback;
 	    };
+	    /**
+	     * @private
+	     */
 	    ViewController.prototype.dismiss = function (data, role, navOptions) {
 	        var _this = this;
 	        if (navOptions === void 0) { navOptions = {}; }
@@ -51351,6 +51376,12 @@
 	     */
 	    ViewController.prototype.setNav = function (navCtrl) {
 	        this._nav = navCtrl;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.getNav = function () {
+	        return this._nav;
 	    };
 	    /**
 	     * @private
@@ -51411,17 +51442,16 @@
 	        /**
 	         * You can find out the index of the current view is in the current navigation stack.
 	         *
-	         * ```typescript
+	         * ```ts
 	         *  export class Page1 {
-	         *    constructor(view: ViewController){
-	         *      this.view = view;
+	         *    constructor(private view: ViewController){
 	         *      // Just log out the index
 	         *      console.log(this.view.index);
 	         *    }
 	         *  }
 	         * ```
 	         *
-	         * @returns {number} Returns the index of this page within its NavController.
+	         * @returns {number} Returns the index of this page within its `NavController`.
 	         */
 	        get: function () {
 	            return (this._nav ? this._nav.indexOf(this) : -1);
@@ -51429,14 +51459,6 @@
 	        enumerable: true,
 	        configurable: true
 	    });
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.isRoot = function () {
-	        // deprecated warning
-	        console.warn('ViewController isRoot() has been renamed to isFirst()');
-	        return this.isFirst();
-	    };
 	    /**
 	     * @returns {boolean} Returns if this Page is the first in the stack of pages within its NavController.
 	     */
@@ -51462,10 +51484,6 @@
 	                !shouldShow && this._hdAttr !== '')) {
 	            this._hdAttr = (shouldShow ? null : '');
 	            renderer.setElementAttribute(this._pgRef.nativeElement, 'hidden', this._hdAttr);
-	            var navbarRef = this.navbarRef();
-	            if (navbarRef) {
-	                renderer.setElementAttribute(navbarRef.nativeElement, 'hidden', this._hdAttr);
-	            }
 	        }
 	    };
 	    /**
@@ -51476,30 +51494,6 @@
 	            this.zIndex = zIndex;
 	            renderer.setElementStyle(this._pgRef.nativeElement, 'z-index', zIndex.toString());
 	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.setNavbarTemplateRef = function (templateRef) {
-	        this._nbTmpRef = templateRef;
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.getNavbarTemplateRef = function () {
-	        return this._nbTmpRef;
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.getNavbarViewRef = function () {
-	        return this._nbVwRef;
-	    };
-	    /**
-	     * @private
-	     */
-	    ViewController.prototype.setNavbarViewRef = function (viewContainerRef) {
-	        this._nbVwRef = viewContainerRef;
 	    };
 	    /**
 	     * @private
@@ -51530,12 +51524,17 @@
 	    /**
 	     * @private
 	     */
+	    ViewController.prototype.setContent = function (directive) {
+	        this._cntDir = directive;
+	    };
+	    /**
+	     * @private
+	     */
 	    ViewController.prototype.setToolbarRef = function (elementRef) {
 	        this._tbRefs.push(elementRef);
 	    };
 	    /**
 	     * @private
-	     * @returns {elementRef} Returns the Page's Content ElementRef
 	     */
 	    ViewController.prototype.toolbarRefs = function () {
 	        return this._tbRefs;
@@ -51543,8 +51542,26 @@
 	    /**
 	     * @private
 	     */
-	    ViewController.prototype.setContent = function (directive) {
-	        this._cntDir = directive;
+	    ViewController.prototype.setHeader = function (directive) {
+	        this._hdrDir = directive;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.getHeader = function () {
+	        return this._hdrDir;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.setFooter = function (directive) {
+	        this._ftrDir = directive;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.getFooter = function () {
+	        return this._ftrDir;
 	    };
 	    /**
 	     * @private
@@ -51566,15 +51583,16 @@
 	        return this._nbDir;
 	    };
 	    /**
-	     * You can find out of the current view has a Navbar or not. Be sure to wrap this in an `ionViewWillEnter` method in order to make sure the view has rendered fully.
+	     * You can find out of the current view has a Navbar or not. Be sure
+	     * to wrap this in an `ionViewWillEnter` method in order to make sure
+	     * the view has rendered fully.
 	     *
-	     * ```typescript
+	     * ```ts
 	     * export class Page1 {
-	     *  constructor(view: ViewController) {
-	     *    this.view = view
-	     *  }
+	     *  constructor(private viewCtrl: ViewController) {}
+	     *
 	     *  ionViewWillEnter(){
-	     *    console.log('Do we have a Navbar?', this.view.hasNavbar());
+	     *    console.log('Do we have a Navbar?', this.viewCtrl.hasNavbar());
 	     *  }
 	     *}
 	     * ```
@@ -51631,9 +51649,8 @@
 	     *
 	     * ```ts
 	     * export class MyClass{
-	     *  constructor(viewCtrl: ViewController){
-	     *    this.viewCtrl = viewCtrl
-	     *  }
+	     *  constructor(private viewCtrl: ViewController) {}
+	     *
 	     *  ionViewWillEnter() {
 	     *    this.viewCtrl.setBackButtonText('Previous');
 	     *  }
@@ -51667,10 +51684,11 @@
 	    };
 	    /**
 	     * The loaded method is used to load any dynamic content/components
-	     * into the dom before proceeding with the transition.  If a component needs
-	     * dynamic component loading, extending ViewController and overriding
-	     * this method is a good option
-	     * @param {function} done is a callback that must be called when async loading/actions are completed
+	     * into the dom before proceeding with the transition.  If a component
+	     * needs dynamic component loading, extending ViewController and
+	     * overriding this method is a good option
+	     * @param {function} done is a callback that must be called when async
+	     * loading/actions are completed
 	     */
 	    ViewController.prototype.loaded = function (done) {
 	        done();
@@ -51744,7 +51762,7 @@
 	     * @private
 	     */
 	    ViewController.prototype.onDestroy = function (destroyFn) {
-	        this._destroys.push(destroyFn);
+	        this._destroyFn = destroyFn;
 	    };
 	    /**
 	     * @private
@@ -51752,11 +51770,8 @@
 	    ViewController.prototype.destroy = function () {
 	        this.didUnload.emit(null);
 	        ctrlFn(this, 'DidUnload');
-	        for (var i = 0; i < this._destroys.length; i++) {
-	            this._destroys[i]();
-	        }
-	        this._destroys.length = 0;
-	        this._tbRefs.length = 0;
+	        this._destroyFn && this._destroyFn();
+	        this._destroyFn = null;
 	    };
 	    __decorate([
 	        core_1.Output(), 
@@ -51879,7 +51894,7 @@
 	var app_1 = __webpack_require__(308);
 	var util_1 = __webpack_require__(313);
 	var view_controller_1 = __webpack_require__(333);
-	var nav_controller_1 = __webpack_require__(338);
+	var nav_controller_1 = __webpack_require__(337);
 	var BackButton = (function (_super) {
 	    __extends(BackButton, _super);
 	    function BackButton(_nav, elementRef, navbar) {
@@ -51938,26 +51953,32 @@
 	/**
 	 * @name Navbar
 	 * @description
-	 * Navbar is a global level toolbar that gets updated every time a page gets
-	 * loaded. You can pass the navbar an `ion-title`, any number of buttons, a segment, or a searchbar.
+	 * Navbar acts as the navigational toolbar, which also comes with a back
+	 * button. A navbar can contain a `ion-title`, any number of buttons,
+	 * a segment, or a searchbar. Navbars must be placed within an
+	 * `<ion-header>` in order for them to be placed above the content.
 	 *
 	 * @usage
 	 * ```html
-	 * <ion-navbar *navbar>
-	 *   <button menuToggle>
-	 *     <ion-icon name="menu"></ion-icon>
-	 *   </button>
+	 * <ion-header>
 	 *
-	 *   <ion-title>
-	 *     Page Title
-	 *   </ion-title>
-	 *
-	 *   <ion-buttons end>
-	 *     <button (click)="openModal()">
-	 *       <ion-icon name="options"></ion-icon>
+	 *   <ion-navbar>
+	 *     <button menuToggle>
+	 *       <ion-icon name="menu"></ion-icon>
 	 *     </button>
-	 *   </ion-buttons>
-	 * </ion-navbar>
+	 *
+	 *     <ion-title>
+	 *       Page Title
+	 *     </ion-title>
+	 *
+	 *     <ion-buttons end>
+	 *       <button (click)="openModal()">
+	 *         <ion-icon name="options"></ion-icon>
+	 *       </button>
+	 *     </ion-buttons>
+	 *   </ion-navbar>
+	 *
+	 * </ion-header>
 	 * ```
 	 *
 	 * @demo /docs/v2/demos/navbar/
@@ -51965,10 +51986,9 @@
 	 */
 	var Navbar = (function (_super) {
 	    __extends(Navbar, _super);
-	    function Navbar(_app, viewCtrl, elementRef, config, _renderer) {
+	    function Navbar(_app, viewCtrl, elementRef, config) {
 	        _super.call(this, elementRef);
 	        this._app = _app;
-	        this._renderer = _renderer;
 	        this._hidden = false;
 	        this._hideBb = false;
 	        viewCtrl && viewCtrl.setNavbar(this);
@@ -52079,34 +52099,32 @@
 	            directives: [BackButton, BackButtonText, ToolbarBackground]
 	        }),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _a) || Object, (typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object, (typeof (_e = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _e) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _a) || Object, (typeof (_b = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object, (typeof (_d = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _d) || Object])
 	    ], Navbar);
 	    return Navbar;
-	    var _a, _b, _c, _d, _e;
+	    var _a, _b, _c, _d;
 	}(toolbar_1.ToolbarBase));
 	exports.Navbar = Navbar;
 	/**
 	 * @private
-	 * Used to find and register headers in a view, and this directive's
-	 * content will be moved up to the common navbar location, and created
-	 * using the same context as the view's content area.
 	*/
 	var NavbarTemplate = (function () {
-	    function NavbarTemplate(viewContainerRef, templateRef, viewCtrl) {
-	        if (viewCtrl) {
-	            viewCtrl.setNavbarTemplateRef(templateRef);
-	            viewCtrl.setNavbarViewRef(viewContainerRef);
-	        }
+	    function NavbarTemplate() {
+	        // deprecated warning: added 2016-06-14, beta.10
+	        console.warn('ion-navbar no longer requires *navbar attribute. Please restructure header to:\n' +
+	            '<ion-header>\n' +
+	            '  <ion-navbar>\n' +
+	            '    ...\n' +
+	            '  </ion-navbar>\n' +
+	            '</ion-header>');
 	    }
 	    NavbarTemplate = __decorate([
 	        core_1.Directive({
 	            selector: 'template[navbar]'
-	        }),
-	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.TemplateRef !== 'undefined' && core_1.TemplateRef) === 'function' && _b) || Object, (typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object])
+	        }), 
+	        __metadata('design:paramtypes', [])
 	    ], NavbarTemplate);
 	    return NavbarTemplate;
-	    var _a, _b, _c;
 	}());
 	exports.NavbarTemplate = NavbarTemplate;
 
@@ -52133,11 +52151,45 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var button_1 = __webpack_require__(337);
 	var config_1 = __webpack_require__(311);
 	var ion_1 = __webpack_require__(319);
-	var navbar_1 = __webpack_require__(335);
 	var view_controller_1 = __webpack_require__(333);
+	/**
+	 * @private
+	 */
+	var Header = (function () {
+	    function Header(viewCtrl) {
+	        viewCtrl && viewCtrl.setHeader(this);
+	    }
+	    Header = __decorate([
+	        core_1.Directive({
+	            selector: 'ion-header'
+	        }),
+	        __param(0, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object])
+	    ], Header);
+	    return Header;
+	    var _a;
+	}());
+	exports.Header = Header;
+	/**
+	 * @private
+	 */
+	var Footer = (function () {
+	    function Footer(viewCtrl) {
+	        viewCtrl && viewCtrl.setFooter(this);
+	    }
+	    Footer = __decorate([
+	        core_1.Directive({
+	            selector: 'ion-footer'
+	        }),
+	        __param(0, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object])
+	    ], Footer);
+	    return Footer;
+	    var _a;
+	}());
+	exports.Footer = Footer;
 	/**
 	 * @private
 	 */
@@ -52190,8 +52242,9 @@
 	 * @description
 	 * A Toolbar is a generic bar that is positioned above or below content.
 	 * Unlike a [Navbar](../../nav/Navbar), a toolbar can be used as a subheader.
-	 * Toolbars are positioned automatically at the `top`, but they can be
-	 * positioned at the bottom by setting `position="bottom"` on the component.
+	 * When toolbars are placed within an `<ion-header>` or `<ion-footer>`,
+	 * the toolbars stay fixed in their respective location. When placed within
+	 * `<ion-content>`, toolbars will scroll with the content.
 	 *
 	 *
 	 * ### Buttons in a Toolbar
@@ -52209,62 +52262,92 @@
 	 * | `left`      | Positions element to the left of all other elements.                                                            |
 	 * | `right`     | Positions element to the right of all other elements.                                                           |
 	 *
-	 * See [usage](#usage) below for some examples.
+	 *
+	 * ### Multiple Toolbars
+	 * Toolbars can be stacked up vertically in `<ion-header>`, `<ion-content>`, and
+	 * `<ion-footer>` elements. However, toolbars also come with borders on both
+	 * the top and bottom of the toolbar. To give developers full control of the
+	 * design, Ionic also includes the `no-border-bottom` and `no-border-top` attributes.
+	 * For example, sometimes two vertically stacked toolbars may have different
+	 * background colors, in this case it might be best to leave a border between them.
+	 * However, if they have the same background color, the app may look best without
+	 * a border between them. The main point here is, it's entirely up to the app's design
+	 * to decide when and when not to show borders between toolbars, and to do so then
+	 * each toolbar can individually set `no-border-bottom` and `no-border-top` attributes.
 	 *
 	 *
 	 * @usage
 	 * ```html
-	 * <ion-toolbar>
-	 *   <ion-buttons start>
-	 *     <button>
-	 *       <ion-icon name="contact"></ion-icon>
-	 *     </button>
-	 *     <button>
-	 *       <ion-icon name="search"></ion-icon>
-	 *     </button>
-	 *   </ion-buttons>
-	 *   <ion-title>My Toolbar Title</ion-title>
-	 * </ion-toolbar>
+	 * <ion-header>
 	 *
-	 * <ion-toolbar>
-	 *   <ion-title>I'm a subheader</ion-title>
-	 * </ion-toolbar>
+	 *   <ion-toolbar no-border-bottom>
+	 *     <ion-buttons start>
+	 *       <button>
+	 *         <ion-icon name="contact"></ion-icon>
+	 *       </button>
+	 *       <button>
+	 *         <ion-icon name="search"></ion-icon>
+	 *       </button>
+	 *     </ion-buttons>
+	 *     <ion-title>My Toolbar Title</ion-title>
+	 *   </ion-toolbar>
 	 *
-	 * <ion-content></ion-content>
+	 *   <ion-toolbar no-border-top>
+	 *     <ion-title>I'm a subheader</ion-title>
+	 *   </ion-toolbar>
 	 *
-	 * <ion-toolbar position="bottom">
-	 *   <ion-title>I'm a subfooter</ion-title>
-	 *   <ion-buttons right>
-	 *     <button>
-	 *       <ion-icon name="menu"></ion-icon>
-	 *     </button>
-	 *   </ion-buttons>
-	 * </ion-toolbar>
+	 * <ion-header>
 	 *
-	 * <ion-toolbar position="bottom">
-	 *   <ion-title>I'm a footer</ion-title>
-	 *   <ion-buttons end>
-	 *     <button>
-	 *       <ion-icon name="more"></ion-icon>
-	 *     </button>
-	 *     <button>
-	 *       <ion-icon name="options"></ion-icon>
-	 *     </button>
-	 *   </ion-buttons>
-	 * </ion-toolbar>
+	 *
+	 * <ion-content>
+	 *
+	 *   <ion-toolbar>
+	 *     <ion-title>Scrolls with the content</ion-title>
+	 *   </ion-toolbar>
+	 *
+	 * </ion-content>
+	 *
+	 *
+	 * <ion-footer>
+	 *
+	 *   <ion-toolbar no-border-bottom>
+	 *     <ion-title>I'm a subfooter</ion-title>
+	 *     <ion-buttons right>
+	 *       <button>
+	 *         <ion-icon name="menu"></ion-icon>
+	 *       </button>
+	 *     </ion-buttons>
+	 *   </ion-toolbar>
+	 *
+	 *   <ion-toolbar no-border-top>
+	 *     <ion-title>I'm a footer</ion-title>
+	 *     <ion-buttons end>
+	 *       <button>
+	 *         <ion-icon name="more"></ion-icon>
+	 *       </button>
+	 *       <button>
+	 *         <ion-icon name="options"></ion-icon>
+	 *       </button>
+	 *     </ion-buttons>
+	 *   </ion-toolbar>
+	 *
+	 * </ion-footer>
 	 *  ```
 	 *
-	 * @property {any} [position] - set position of the toolbar, `top` or `bottom`.
-	 * Default `top`.
 	 * @demo /docs/v2/demos/toolbar/
 	 * @see {@link ../../navbar/Navbar/ Navbar API Docs}
 	 */
 	var Toolbar = (function (_super) {
 	    __extends(Toolbar, _super);
-	    function Toolbar(viewCtrl, elementRef, config) {
+	    function Toolbar(viewCtrl, header, footer, config, elementRef) {
 	        _super.call(this, elementRef);
-	        this._sbPadding = config.getBoolean('statusbarPadding', false);
-	        viewCtrl && viewCtrl.setToolbarRef(elementRef);
+	        if (viewCtrl && (header || footer)) {
+	            // only toolbars within headers and footer are view toolbars
+	            // toolbars within the content are not view toolbars, since they
+	            // are apart of the content, and could be anywhere within the content
+	            viewCtrl.setToolbarRef(elementRef);
+	        }
+	        this._sbPadding = config.getBoolean('statusbarPadding');
 	    }
 	    Toolbar = __decorate([
 	        core_1.Component({
@@ -52282,540 +52365,18 @@
 	            },
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	        }),
-	        __param(0, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object])
+	        __param(0, core_1.Optional()),
+	        __param(1, core_1.Optional()),
+	        __param(2, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _a) || Object, Header, Footer, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object])
 	    ], Toolbar);
 	    return Toolbar;
 	    var _a, _b, _c;
 	}(ToolbarBase));
 	exports.Toolbar = Toolbar;
-	/**
-	 * @name Title
-	 * @description
-	 * `ion-title` is a component that sets the title of the `Toolbar` or `Navbar`
-	 *
-	 * @usage
-	 *
-	 * ```html
-	 * <ion-navbar *navbar>
-	 *    <ion-title>Tab 1</ion-title>
-	 * </ion-navbar>
-	 * ```
-	 *
-	 * Or to create a navbar with a toolbar as a subheader:
-	 *
-	 * ```html
-	 * <ion-navbar *navbar>
-	 *    <ion-title>Tab 1</ion-title>
-	 * </ion-navbar>
-	 *
-	 * <ion-toolbar>
-	 *   <ion-title>Subheader</ion-title>
-	 * </ion-toolbar>
-	 * ```
-	 *
-	 * @demo /docs/v2/demos/title/
-	 */
-	var ToolbarTitle = (function (_super) {
-	    __extends(ToolbarTitle, _super);
-	    function ToolbarTitle(elementRef, toolbar, navbar) {
-	        _super.call(this, elementRef);
-	        toolbar && toolbar.setTitleCmp(this);
-	        navbar && navbar.setTitleCmp(this);
-	    }
-	    /**
-	     * @private
-	     */
-	    ToolbarTitle.prototype.getTitleText = function () {
-	        return this.getNativeElement().textContent;
-	    };
-	    ToolbarTitle = __decorate([
-	        core_1.Component({
-	            selector: 'ion-title',
-	            template: '<div class="toolbar-title">' +
-	                '<ng-content></ng-content>' +
-	                '</div>',
-	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
-	            encapsulation: core_1.ViewEncapsulation.None,
-	        }),
-	        __param(1, core_1.Optional()),
-	        __param(2, core_1.Optional()),
-	        __param(2, core_1.Inject(core_1.forwardRef(function () { return navbar_1.Navbar; }))), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Toolbar, (typeof (_b = typeof navbar_1.Navbar !== 'undefined' && navbar_1.Navbar) === 'function' && _b) || Object])
-	    ], ToolbarTitle);
-	    return ToolbarTitle;
-	    var _a, _b;
-	}(ion_1.Ion));
-	exports.ToolbarTitle = ToolbarTitle;
-	/**
-	 * @private
-	 */
-	var ToolbarItem = (function () {
-	    function ToolbarItem(elementRef, toolbar, navbar) {
-	        toolbar && toolbar.addItemRef(elementRef);
-	        navbar && navbar.addItemRef(elementRef);
-	        this.inToolbar = !!(toolbar || navbar);
-	    }
-	    Object.defineProperty(ToolbarItem.prototype, "_buttons", {
-	        set: function (buttons) {
-	            if (this.inToolbar) {
-	                button_1.Button.setRoles(buttons, 'bar-button');
-	            }
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    __decorate([
-	        core_1.ContentChildren(button_1.Button), 
-	        __metadata('design:type', Object), 
-	        __metadata('design:paramtypes', [Object])
-	    ], ToolbarItem.prototype, "_buttons", null);
-	    ToolbarItem = __decorate([
-	        core_1.Directive({
-	            selector: 'ion-buttons,[menuToggle],ion-nav-items'
-	        }),
-	        __param(1, core_1.Optional()),
-	        __param(2, core_1.Optional()),
-	        __param(2, core_1.Inject(core_1.forwardRef(function () { return navbar_1.Navbar; }))), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, Toolbar, (typeof (_b = typeof navbar_1.Navbar !== 'undefined' && navbar_1.Navbar) === 'function' && _b) || Object])
-	    ], ToolbarItem);
-	    return ToolbarItem;
-	    var _a, _b;
-	}());
-	exports.ToolbarItem = ToolbarItem;
 
 /***/ },
 /* 337 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
-	var core_1 = __webpack_require__(6);
-	var config_1 = __webpack_require__(311);
-	var util_1 = __webpack_require__(313);
-	/**
-	  * @name Button
-	  * @module ionic
-	  *
-	  * @description
-	  * Buttons are simple components in Ionic. They can consist of text and icons
-	  * and be enhanced by a wide range of attributes.
-	  *
-	  * @property [outline] - A transparent button with a border.
-	  * @property [clear] - A transparent button without a border.
-	  * @property [round] - A button with rounded corners.
-	  * @property [block] - A button that fills its parent container with a border-radius.
-	  * @property [full] - A button that fills its parent container without a border-radius or borders on the left/right.
-	  * @property [small] - A button with size small.
-	  * @property [large] - A button with size large.
-	  * @property [disabled] - A disabled button.
-	  * @property [fab] - A floating action button.
-	  * @property [fab-left] - Position a fab button to the left.
-	  * @property [fab-right] - Position a fab button to the right.
-	  * @property [fab-center] - Position a fab button towards the center.
-	  * @property [fab-top] - Position a fab button towards the top.
-	  * @property [fab-bottom] - Position a fab button towards the bottom.
-	  * @property [fab-fixed] - Makes a fab button have a fixed position.
-	  * @property [color] - Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).
-	  *
-	  * @demo /docs/v2/demos/button/
-	  * @see {@link /docs/v2/components#buttons Button Component Docs}
-	 */
-	var Button = (function () {
-	    function Button(config, _elementRef, _renderer, ionItem) {
-	        this._elementRef = _elementRef;
-	        this._renderer = _renderer;
-	        this._role = 'button'; // bar-button/item-button
-	        this._size = null; // large/small/default
-	        this._style = 'default'; // outline/clear/solid
-	        this._shape = null; // round/fab
-	        this._display = null; // block/full
-	        this._colors = []; // primary/secondary
-	        this._icon = null; // left/right/only
-	        this._disabled = false; // disabled
-	        this.isItem = (ionItem === '');
-	        var element = _elementRef.nativeElement;
-	        if (config.get('hoverCSS') === false) {
-	            _renderer.setElementClass(_elementRef.nativeElement, 'disable-hover', true);
-	        }
-	        if (element.hasAttribute('ion-item')) {
-	            // no need to put on these classes for an ion-item
-	            this._role = null;
-	            return;
-	        }
-	        if (element.hasAttribute('disabled')) {
-	            this._disabled = true;
-	        }
-	        this._readAttrs(element);
-	    }
-	    Object.defineProperty(Button.prototype, "large", {
-	        /**
-	         * @input {string} Large button.
-	         */
-	        set: function (val) {
-	            this._attr('_size', 'large', val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Button.prototype, "small", {
-	        /**
-	         * @input {string} Small button.
-	         */
-	        set: function (val) {
-	            this._attr('_size', 'small', val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Button.prototype, "default", {
-	        /**
-	         * @input {string} Default button.
-	         */
-	        set: function (val) {
-	            this._attr('_size', 'default', val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Button.prototype, "outline", {
-	        /**
-	         * @input {string} A transparent button with a border.
-	         */
-	        set: function (val) {
-	            this._attr('_style', 'outline', val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Button.prototype, "clear", {
-	        /**
-	         * @input {string} A transparent button without a border.
-	         */
-	        set: function (val) {
-	            this._attr('_style', 'clear', val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Button.prototype, "solid", {
-	        /**
-	         * @input {string} Force a solid button. Useful for buttons within an item.
-	         */
-	        set: function (val) {
-	            this._attr('_style', 'solid', val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Button.prototype, "round", {
-	        /**
-	         * @input {string} A button with rounded corners.
-	         */
-	        set: function (val) {
-	            this._attr('_shape', 'round', val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Button.prototype, "block", {
-	        /**
-	         * @input {string} A button that fills its parent container with a border-radius.
-	         */
-	        set: function (val) {
-	            this._attr('_display', 'block', val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Button.prototype, "full", {
-	        /**
-	         * @input {string} A button that fills its parent container without a border-radius or borders on the left/right.
-	         */
-	        set: function (val) {
-	            this._attr('_display', 'full', val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Button.prototype._attr = function (type, attrName, attrValue) {
-	        this._setClass(this[type], false);
-	        if (util_1.isTrueProperty(attrValue)) {
-	            this[type] = attrName;
-	            this._setClass(attrName, true);
-	        }
-	        else {
-	            // Special handling for '_style' which defaults to 'default'.
-	            this[type] = (type === '_style' ? 'default' : null);
-	        }
-	        if (type === '_style') {
-	            this._setColor(attrName, util_1.isTrueProperty(attrValue));
-	        }
-	    };
-	    Object.defineProperty(Button.prototype, "color", {
-	        /**
-	         * @input {string} Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).
-	         */
-	        set: function (val) {
-	            // Clear the colors for all styles including the default one.
-	            this._setColor(BUTTON_STYLE_ATTRS.concat(['default']), false);
-	            // Support array input which is also supported via multiple attributes (e.g. primary, secondary, etc).
-	            this._colors = (val instanceof Array ? val : [val]);
-	            // Set the colors for the currently effective style.
-	            this._setColor(this._style, true);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @private
-	     */
-	    Button.prototype.ngOnInit = function () {
-	        // If the button has a role applied to it
-	        if (this.category) {
-	            this.setRole(this.category);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype.ngAfterContentInit = function () {
-	        this._init = true;
-	        this._readIcon(this._elementRef.nativeElement);
-	        this._assignCss(true);
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype.ngAfterContentChecked = function () {
-	        this._readIcon(this._elementRef.nativeElement);
-	        this._assignCss(true);
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype.addClass = function (className) {
-	        this._renderer.setElementClass(this._elementRef.nativeElement, className, true);
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype.setRole = function (val) {
-	        this._role = val;
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype._readIcon = function (element) {
-	        // figure out if and where the icon lives in the button
-	        var childNodes = element.childNodes;
-	        if (childNodes.length > 0) {
-	            childNodes = childNodes[0].childNodes;
-	        }
-	        var childNode;
-	        var nodes = [];
-	        for (var i = 0, l = childNodes.length; i < l; i++) {
-	            childNode = childNodes[i];
-	            if (childNode.nodeType === 3) {
-	                // text node
-	                if (childNode.textContent.trim() !== '') {
-	                    nodes.push(TEXT);
-	                }
-	            }
-	            else if (childNode.nodeType === 1) {
-	                if (childNode.nodeName === 'ION-ICON') {
-	                    // icon element node
-	                    nodes.push(ICON);
-	                }
-	                else {
-	                    // element other than an <ion-icon>
-	                    nodes.push(TEXT);
-	                }
-	            }
-	        }
-	        // Remove any classes that are set already
-	        this._setClass(this._icon, false);
-	        if (nodes.length > 1) {
-	            if (nodes[0] === ICON && nodes[1] === TEXT) {
-	                this._icon = 'icon-left';
-	            }
-	            else if (nodes[0] === TEXT && nodes[1] === ICON) {
-	                this._icon = 'icon-right';
-	            }
-	        }
-	        else if (nodes.length === 1 && nodes[0] === ICON) {
-	            this._icon = 'icon-only';
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype._readAttrs = function (element) {
-	        var elementAttrs = element.attributes;
-	        var attrName;
-	        for (var i = 0, l = elementAttrs.length; i < l; i++) {
-	            if (elementAttrs[i].value !== '')
-	                continue;
-	            attrName = elementAttrs[i].name;
-	            if (BUTTON_STYLE_ATTRS.indexOf(attrName) > -1) {
-	                this._style = attrName;
-	            }
-	            else if (BUTTON_DISPLAY_ATTRS.indexOf(attrName) > -1) {
-	                this._display = attrName;
-	            }
-	            else if (BUTTON_SHAPE_ATTRS.indexOf(attrName) > -1) {
-	                this._shape = attrName;
-	            }
-	            else if (BUTTON_SIZE_ATTRS.indexOf(attrName) > -1) {
-	                this._size = attrName;
-	            }
-	            else if (!(IGNORE_ATTRS.test(attrName))) {
-	                this._colors.push(attrName);
-	            }
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype._assignCss = function (assignCssClass) {
-	        var role = this._role;
-	        if (role) {
-	            this._renderer.setElementClass(this._elementRef.nativeElement, role, assignCssClass); // button
-	            this._setClass(this._style, assignCssClass); // button-clear
-	            this._setClass(this._shape, assignCssClass); // button-round
-	            this._setClass(this._display, assignCssClass); // button-full
-	            this._setClass(this._size, assignCssClass); // button-small
-	            this._setClass(this._icon, assignCssClass); // button-icon-left
-	            this._setColor(this._style, assignCssClass); // button-secondary, button-clear-secondary
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype._setClass = function (type, assignCssClass) {
-	        if (type && this._init) {
-	            this._renderer.setElementClass(this._elementRef.nativeElement, this._role + '-' + type.toLowerCase(), assignCssClass);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.prototype._setColor = function (type, assignCssClass) {
-	        var _this = this;
-	        if (type && this._init) {
-	            // Support array to allow removal of many styles at once.
-	            var styles = (type instanceof Array ? type : [type]);
-	            styles.forEach(function (styleName) {
-	                // If the role is not a bar-button, don't apply the solid style
-	                styleName = (_this._role !== 'bar-button' && styleName === 'solid' ? 'default' : styleName);
-	                var colorStyle = (styleName !== null && styleName !== 'default' ? styleName.toLowerCase() + '-' : '');
-	                _this._colors.forEach(function (colorName) {
-	                    _this._setClass(colorStyle + colorName, assignCssClass); // button-secondary, button-clear-secondary
-	                });
-	            });
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.setRoles = function (contentButtonChildren, role) {
-	        var buttons = contentButtonChildren.toArray();
-	        buttons.forEach(function (button) {
-	            button.setRole(role);
-	        });
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Button.prototype, "category", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean), 
-	        __metadata('design:paramtypes', [Boolean])
-	    ], Button.prototype, "large", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean), 
-	        __metadata('design:paramtypes', [Boolean])
-	    ], Button.prototype, "small", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean), 
-	        __metadata('design:paramtypes', [Boolean])
-	    ], Button.prototype, "default", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean), 
-	        __metadata('design:paramtypes', [Boolean])
-	    ], Button.prototype, "outline", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean), 
-	        __metadata('design:paramtypes', [Boolean])
-	    ], Button.prototype, "clear", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean), 
-	        __metadata('design:paramtypes', [Boolean])
-	    ], Button.prototype, "solid", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean), 
-	        __metadata('design:paramtypes', [Boolean])
-	    ], Button.prototype, "round", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean), 
-	        __metadata('design:paramtypes', [Boolean])
-	    ], Button.prototype, "block", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean), 
-	        __metadata('design:paramtypes', [Boolean])
-	    ], Button.prototype, "full", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object), 
-	        __metadata('design:paramtypes', [Object])
-	    ], Button.prototype, "color", null);
-	    Button = __decorate([
-	        core_1.Component({
-	            selector: 'button:not([ion-item]),[button]',
-	            template: '<span class="button-inner">' +
-	                '<ng-content></ng-content>' +
-	                '</span>' +
-	                '<ion-button-effect></ion-button-effect>',
-	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
-	            encapsulation: core_1.ViewEncapsulation.None,
-	        }),
-	        __param(3, core_1.Attribute('ion-item')), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, String])
-	    ], Button);
-	    return Button;
-	    var _a, _b, _c;
-	}());
-	exports.Button = Button;
-	var BUTTON_SIZE_ATTRS = ['large', 'small', 'default'];
-	var BUTTON_STYLE_ATTRS = ['clear', 'outline', 'solid'];
-	var BUTTON_SHAPE_ATTRS = ['round', 'fab'];
-	var BUTTON_DISPLAY_ATTRS = ['block', 'full'];
-	var IGNORE_ATTRS = /_ng|button|left|right/;
-	var TEXT = 1;
-	var ICON = 2;
-
-/***/ },
-/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52830,8 +52391,8 @@
 	var util_1 = __webpack_require__(313);
 	var menu_controller_1 = __webpack_require__(330);
 	var nav_params_1 = __webpack_require__(334);
-	var swipe_back_1 = __webpack_require__(339);
-	var transition_1 = __webpack_require__(340);
+	var swipe_back_1 = __webpack_require__(338);
+	var transition_1 = __webpack_require__(339);
 	var view_controller_1 = __webpack_require__(333);
 	/**
 	 * @name NavController
@@ -53749,7 +53310,7 @@
 	            // continue once the view has finished compiling
 	            // DOM WRITE
 	            this.setTransitioning(true, 500);
-	            this.loadPage(enteringView, null, opts, function () {
+	            this.loadPage(enteringView, this._viewport, opts, function () {
 	                enteringView.fireLoaded();
 	                _this.viewDidLoad.emit(enteringView);
 	                _this._postRender(transId, enteringView, leavingView, isAlreadyTransitioning, opts, done);
@@ -53874,9 +53435,6 @@
 	                _this._app.setEnabled(enableApp, duration);
 	                _this.setTransitioning(!enableApp, duration);
 	            }
-	            if (enteringView.viewType) {
-	                transAnimation.before.addClass(enteringView.viewType);
-	            }
 	            // create a callback for when the animation is done
 	            transAnimation.onFinish(function (trans) {
 	                // transition animation has ended
@@ -53985,9 +53543,6 @@
 	                // class to the nav when it's finished its first transition
 	                if (!this._init) {
 	                    this._init = true;
-	                    if (!this.isPortal) {
-	                        this._renderer.setElementClass(this.getNativeElement(), 'has-views', true);
-	                    }
 	                }
 	            }
 	            else {
@@ -54109,13 +53664,13 @@
 	    /**
 	     * @private
 	     */
-	    NavController.prototype.loadPage = function (view, navbarContainerRef, opts, done) {
+	    NavController.prototype.loadPage = function (view, viewport, opts, done) {
 	        var _this = this;
-	        if (!this._viewport || !view.componentType) {
+	        if (!viewport || !view.componentType) {
 	            return;
 	        }
-	        // automatically set "ion-page" selector
-	        // TODO: see about having this set using ComponentFactory
+	        // TEMPORARY: automatically set selector w/ dah reflector
+	        // TODO: use componentFactory.create once fixed
 	        bootstrap_1.addSelector(view.componentType, 'ion-page');
 	        this._compiler.resolveComponent(view.componentType).then(function (componentFactory) {
 	            // add more providers to just this page
@@ -54126,7 +53681,7 @@
 	            ]);
 	            var childInjector = core_1.ReflectiveInjector.fromResolvedProviders(componentProviders, _this._viewport.parentInjector);
 	            var componentRef = componentFactory.create(childInjector, null, null);
-	            _this._viewport.insert(componentRef.hostView, _this._viewport.length);
+	            viewport.insert(componentRef.hostView, viewport.length);
 	            // a new ComponentRef has been created
 	            // set the ComponentRef's instance to its ViewController
 	            view.setInstance(componentRef.instance);
@@ -54147,25 +53702,6 @@
 	                    _this._renderer.setElementAttribute(pageElementRef.nativeElement, 'style', null);
 	                    componentRef.destroy();
 	                });
-	                if (!navbarContainerRef) {
-	                    // there was not a navbar container ref already provided
-	                    // so use the location of the actual navbar template
-	                    navbarContainerRef = view.getNavbarViewRef();
-	                }
-	                // find a navbar template if one is in the page
-	                var navbarTemplateRef = view.getNavbarTemplateRef();
-	                // check if we have both a navbar ViewContainerRef and a template
-	                if (navbarContainerRef && navbarTemplateRef) {
-	                    // let's now create the navbar view
-	                    var navbarViewRef_1 = navbarContainerRef.createEmbeddedView(navbarTemplateRef);
-	                    view.onDestroy(function () {
-	                        // manually destroy the navbar when the page is destroyed
-	                        navbarViewRef_1.destroy();
-	                    });
-	                }
-	                // options may have had a postLoad method
-	                // used mainly by tabs
-	                opts.postLoad && opts.postLoad(view);
 	                // our job is done here
 	                done(view);
 	            });
@@ -54462,7 +53998,7 @@
 	var ctrlIds = -1;
 
 /***/ },
-/* 339 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54519,7 +54055,7 @@
 	exports.SwipeBackGesture = SwipeBackGesture;
 
 /***/ },
-/* 340 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54528,16 +54064,29 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(341);
+	var animation_1 = __webpack_require__(340);
 	/**
 	 * @private
-	 **/
+	 *
+	 * - play
+	 * - Add before classes - DOM WRITE
+	 * - Remove before classes - DOM WRITE
+	 * - Add before inline styles - DOM WRITE
+	 * - set inline FROM styles - DOM WRITE
+	 * - RAF
+	 * - read toolbar dimensions - DOM READ
+	 * - write content top/bottom padding - DOM WRITE
+	 * - set css transition duration/easing - DOM WRITE
+	 * - RAF
+	 * - set inline TO styles - DOM WRITE
+	 */
 	var Transition = (function (_super) {
 	    __extends(Transition, _super);
-	    function Transition(opts) {
+	    function Transition(enteringView, leavingView, opts) {
 	        _super.call(this, null, {
 	            renderDelay: opts.renderDelay
 	        });
+	        this.enteringView = enteringView;
 	    }
 	    Transition.createTransition = function (enteringView, leavingView, opts) {
 	        var TransitionClass = TransitionRegistry[opts.animation];
@@ -54556,7 +54105,7 @@
 	var TransitionRegistry = {};
 
 /***/ },
-/* 341 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54564,25 +54113,24 @@
 	var util_1 = __webpack_require__(313);
 	/**
 	 * @private
-	 **/
+	 *
+	 * - play
+	 * - Add before classes - DOM WRITE
+	 * - Remove before classes - DOM WRITE
+	 * - Add before inline styles - DOM WRITE
+	 * - set inline FROM styles - DOM WRITE
+	 * - RAF
+	 * - run before functions that have dom reads - DOM READ
+	 * - run before functions that have dom writes - DOM WRITE
+	 * - set css transition duration/easing - DOM WRITE
+	 * - RAF
+	 * - set inline TO styles - DOM WRITE
+	 */
 	var Animation = (function () {
 	    function Animation(ele, opts) {
 	        if (opts === void 0) { opts = {}; }
-	        this._wChg = false;
-	        this._rv = false;
-	        this._lastUpd = 0;
-	        this.isPlaying = false;
-	        this.hasTween = false;
-	        this.hasCompleted = false;
-	        this._reset();
-	        this.element(ele);
-	        this._opts = util_1.assign({
-	            renderDelay: 24
-	        }, opts);
-	    }
-	    Animation.prototype._reset = function () {
-	        this._el = [];
 	        this._c = [];
+	        this._el = [];
 	        this._fx = {};
 	        this._bfSty = {};
 	        this._bfAdd = [];
@@ -54590,15 +54138,34 @@
 	        this._afSty = {};
 	        this._afAdd = [];
 	        this._afRmv = [];
-	        this._pFns = [];
+	        this._bfReadFns = [];
+	        this._bfWriteFns = [];
 	        this._fFns = [];
 	        this._fOnceFns = [];
+	        this._rv = false;
+	        this._lastUpd = 0;
+	        this.isPlaying = false;
+	        this.hasTween = false;
+	        this.hasCompleted = false;
+	        this.element(ele);
+	        this._opts = util_1.assign({
+	            renderDelay: 24
+	        }, opts);
+	    }
+	    /**
+	     * NO DOM
+	     */
+	    Animation.prototype._reset = function () {
+	        this._fx = {};
+	        this._bfSty = {};
+	        this._afSty = {};
+	        this._el.length = this._c.length = this._bfAdd.length = this._bfRmv.length = this._afAdd.length = this._afRmv.length = this._fFns.length = this._bfReadFns.length = this._bfWriteFns.length = this._fOnceFns.length = 0;
 	        this._easing = this._dur = null;
 	    };
 	    Animation.prototype.element = function (ele) {
 	        var i;
 	        if (ele) {
-	            if (Array.isArray(ele)) {
+	            if (ele.length) {
 	                for (i = 0; i < ele.length; i++) {
 	                    this._addEle(ele[i]);
 	                }
@@ -54615,43 +54182,68 @@
 	        }
 	        return this;
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype._addEle = function (ele) {
 	        if (ele.nativeElement) {
 	            ele = ele.nativeElement;
 	        }
 	        if (ele.nodeType === 1) {
 	            this._el.push(ele);
-	            // does this element suport will-change property?
-	            this._wChg = (typeof ele.style.willChange !== 'undefined');
 	        }
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype.parent = function (parentAnimation) {
 	        this._parent = parentAnimation;
 	        return this;
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype.add = function (childAnimation) {
 	        childAnimation.parent(this);
 	        this._c.push(childAnimation);
 	        return this;
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype.getDuration = function () {
 	        return this._dur !== null ? this._dur : (this._parent && this._parent.getDuration()) || 0;
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype.duration = function (milliseconds) {
 	        this._dur = milliseconds;
 	        return this;
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype.getEasing = function () {
 	        return this._easing !== null ? this._easing : (this._parent && this._parent.getEasing()) || null;
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype.easing = function (name) {
 	        this._easing = name;
 	        return this;
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype.from = function (prop, val) {
 	        this._addProp('from', prop, val);
 	        return this;
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype.to = function (prop, val, clearProperyAfterTransition) {
 	        var fx = this._addProp('to', prop, val);
 	        if (clearProperyAfterTransition) {
@@ -54661,9 +54253,15 @@
 	        }
 	        return this;
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype.fromTo = function (prop, fromVal, toVal, clearProperyAfterTransition) {
 	        return this.from(prop, fromVal).to(prop, toVal, clearProperyAfterTransition);
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype._addProp = function (state, prop, val) {
 	        var fxProp = this._fx[prop];
 	        if (!fxProp) {
@@ -54699,13 +54297,10 @@
 	        }
 	        return fxProp;
 	    };
-	    Animation.prototype.fadeIn = function () {
-	        return this.fromTo('opacity', 0.001, 1, true);
-	    };
-	    Animation.prototype.fadeOut = function () {
-	        return this.fromTo('opacity', 0.999, 0);
-	    };
 	    Object.defineProperty(Animation.prototype, "before", {
+	        /**
+	         * NO DOM
+	         */
 	        get: function () {
 	            var _this = this;
 	            return {
@@ -54726,6 +54321,14 @@
 	                        _this._bfSty[propertyNames[i]] = '';
 	                    }
 	                    return _this;
+	                },
+	                addDomReadFn: function (domReadFn) {
+	                    _this._bfReadFns.push(domReadFn);
+	                    return _this;
+	                },
+	                addDomWriteFn: function (domWriteFn) {
+	                    _this._bfWriteFns.push(domWriteFn);
+	                    return _this;
 	                }
 	            };
 	        },
@@ -54733,6 +54336,9 @@
 	        configurable: true
 	    });
 	    Object.defineProperty(Animation.prototype, "after", {
+	        /**
+	         * NO DOM
+	         */
 	        get: function () {
 	            var _this = this;
 	            return {
@@ -54759,22 +54365,23 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /**
+	     * DOM WRITE
+	     */
 	    Animation.prototype.play = function (opts) {
 	        if (opts === void 0) { opts = {}; }
 	        var self = this;
 	        var i;
-	        var duration = util_1.isDefined(opts.duration) ? opts.duration : self._dur;
-	        console.debug('Animation, play, duration', duration, 'easing', self._easing);
+	        if (util_1.isDefined(opts.duration)) {
+	            self._dur = opts.duration;
+	        }
+	        console.debug('Animation, play, duration', self._dur, 'easing', self._easing);
 	        // always default that an animation does not tween
 	        // a tween requires that an Animation class has an element
 	        // and that it has at least one FROM/TO effect
 	        // and that the FROM/TO effect can tween numeric values
 	        self.hasTween = false;
 	        self.hasCompleted = false;
-	        // fire off all the onPlays
-	        for (i = 0; i < self._pFns.length; i++) {
-	            self._pFns[i]();
-	        }
 	        self.isPlaying = true;
 	        // this is the top level animation and is in full control
 	        // of when the async play() should actually kick off
@@ -54782,27 +54389,41 @@
 	        // if there is a duration, then it'll stage all animations at the
 	        // FROM property and transition duration, wait a few frames, then
 	        // kick off the animation by setting the TO property for each animation
-	        // stage all of the before css classes and inline styles
-	        // will recursively stage all child elements
-	        self._before();
 	        // ensure all past transition end events have been cleared
 	        self._clearAsync();
-	        if (duration > 30) {
+	        if (self._dur > 30) {
 	            // this animation has a duration, so it should animate
 	            // place all the elements with their FROM properties
 	            // set the FROM properties
+	            // ******** DOM WRITE ****************
 	            self._progress(0);
 	            // add the will-change or translateZ properties when applicable
+	            // ******** DOM WRITE ****************
 	            self._willChg(true);
 	            // set the async TRANSITION END event
 	            // and run onFinishes when the transition ends
-	            self._asyncEnd(duration, true);
+	            // ******** DOM WRITE ****************
+	            self._asyncEnd(self._dur, true);
 	            // begin each animation when everything is rendered in their place
 	            // and the transition duration/easing is ready to go
 	            dom_1.rafFrames(self._opts.renderDelay / 16, function () {
 	                // there's been a moment and the elements are in place
+	                // fire off all the "before" function that have DOM READS in them
+	                // elements will be in the DOM, however visibily hidden
+	                // so we can read their dimensions if need be
+	                // ******** DOM READ ****************
+	                self._beforeReadFn();
+	                // ******** DOM READS ABOVE / DOM WRITES BELOW ****************
+	                // fire off all the "before" function that have DOM WRITES in them
+	                // ******** DOM WRITE ****************
+	                self._beforeWriteFn();
+	                // stage all of the before css classes and inline styles
+	                // will recursively stage all child elements
+	                // ******** DOM WRITE ****************
+	                self._before();
 	                // now set the TRANSITION duration/easing
-	                self._setTrans(duration, false);
+	                // ******** DOM WRITE ****************
+	                self._setTrans(self._dur, false);
 	                // wait a few moments again to wait for the transition
 	                // info to take hold in the DOM
 	                dom_1.rafFrames(2, function () {
@@ -54810,21 +54431,45 @@
 	                    // and the transition duration/easing is set
 	                    // now set the TO properties
 	                    // which will trigger the transition to begin
+	                    // ******** DOM WRITE ****************
 	                    self._progress(1);
 	                });
 	            });
 	        }
 	        else {
-	            // this animation does not have a duration, so it should not animate
-	            // just go straight to the TO properties and call it done
-	            self._progress(1);
-	            // since there was no animation, immediately run the after
-	            self._after();
-	            // since there was no animation, it's done
-	            // fire off all the onFinishes
-	            self._didFinish(true);
+	            // this animation does not have a duration
+	            // but we still need to apply the styles and wait
+	            // a frame so we can accurately read the dimensions
+	            dom_1.rafFrames(self._opts.renderDelay / 16, function () {
+	                // fire off all the "before" function that have DOM READS in them
+	                // elements will be in the DOM, however visibily hidden
+	                // so we can read their dimensions if need be
+	                // ******** DOM READ ****************
+	                self._beforeReadFn();
+	                // ******** DOM READS ABOVE / DOM WRITES BELOW ****************
+	                // fire off all the "before" function that have DOM WRITES in them
+	                // ******** DOM WRITE ****************
+	                self._beforeWriteFn();
+	                // ensure before css has ran
+	                // ******** DOM WRITE ****************
+	                self._before();
+	                // this animation does not have a duration, so it should not animate
+	                // just go straight to the TO properties and call it done
+	                // ******** DOM WRITE ****************
+	                self._progress(1);
+	                // since there was no animation, immediately run the after
+	                // ******** DOM WRITE ****************
+	                self._after();
+	                // since there was no animation, it's done
+	                // fire off all the onFinishes
+	                // and now you know
+	                self._didFinish(true);
+	            });
 	        }
 	    };
+	    /**
+	     * DOM WRITE
+	     */
 	    Animation.prototype.stop = function (opts) {
 	        if (opts === void 0) { opts = {}; }
 	        var self = this;
@@ -54833,25 +54478,32 @@
 	        // ensure all past transition end events have been cleared
 	        this._clearAsync();
 	        // set the TO properties
+	        // ******** DOM WRITE ****************
 	        self._progress(stepValue);
 	        if (duration > 30) {
 	            // this animation has a duration, so it should animate
 	            // place all the elements with their TO properties
 	            // now set the TRANSITION duration
+	            // ******** DOM WRITE ****************
 	            self._setTrans(duration, true);
 	            // set the async TRANSITION END event
 	            // and run onFinishes when the transition ends
+	            // ******** DOM WRITE ****************
 	            self._asyncEnd(duration, false);
 	        }
 	        else {
 	            // this animation does not have a duration, so it should not animate
 	            // just go straight to the TO properties and call it done
+	            // ******** DOM WRITE ****************
 	            self._after();
 	            // since there was no animation, it's done
 	            // fire off all the onFinishes
 	            self._didFinish(false);
 	        }
 	    };
+	    /**
+	     * DOM WRITE
+	     */
 	    Animation.prototype._asyncEnd = function (duration, shouldComplete) {
 	        var self = this;
 	        function onTransitionEnd(ev) {
@@ -54859,8 +54511,10 @@
 	            // ensure transition end events and timeouts have been cleared
 	            self._clearAsync();
 	            // set the after styles
+	            // ******** DOM WRITE ****************
 	            self._after();
 	            // remove will change properties
+	            // ******** DOM WRITE ****************
 	            self._willChg(false);
 	            // transition finished
 	            self._didFinish(shouldComplete);
@@ -54873,12 +54527,16 @@
 	            self._tmr = 0;
 	            self._clearAsync();
 	            // too late to have a smooth animation, just finish it
+	            // ******** DOM WRITE ****************
 	            self._setTrans(0, true);
 	            // ensure the ending progress step gets rendered
+	            // ******** DOM WRITE ****************
 	            self._progress(1);
 	            // set the after styles
+	            // ******** DOM WRITE ****************
 	            self._after();
 	            // remove will change properties
+	            // ******** DOM WRITE ****************
 	            self._willChg(false);
 	            // transition finished
 	            self._didFinish(shouldComplete);
@@ -54889,6 +54547,9 @@
 	        // transition end fallback: (animation duration + XXms)
 	        self._tmr = dom_1.nativeTimeout(onTransitionFallback, duration + 400);
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype._clearAsync = function () {
 	        this._unregTrans && this._unregTrans();
 	        if (this._tmr) {
@@ -54896,6 +54557,9 @@
 	            this._tmr = 0;
 	        }
 	    };
+	    /**
+	     * DOM WRITE
+	     */
 	    Animation.prototype._progress = function (stepValue) {
 	        // bread 'n butter
 	        var i;
@@ -54905,6 +54569,7 @@
 	        var transforms;
 	        var tweenEffect;
 	        for (i = 0; i < this._c.length; i++) {
+	            // ******** DOM WRITE ****************
 	            this._c[i]._progress(stepValue);
 	        }
 	        if (this._el.length) {
@@ -54941,6 +54606,7 @@
 	                        }
 	                        else {
 	                            for (i = 0; i < this._el.length; i++) {
+	                                // ******** DOM WRITE ****************
 	                                this._el[i].style[prop] = val;
 	                            }
 	                        }
@@ -54949,57 +54615,77 @@
 	            }
 	            // place all transforms on the same property
 	            if (transforms.length) {
-	                if (!this._wChg) {
+	                if (!SUPPORTS_WILL_CHANGE) {
 	                    // if the element doesn't support will-change
 	                    // then auto add translateZ for transform properties
 	                    transforms.push('translateZ(0px)');
 	                }
 	                for (i = 0; i < this._el.length; i++) {
+	                    // ******** DOM WRITE ****************
 	                    this._el[i].style[dom_1.CSS.transform] = transforms.join(' ');
 	                }
 	            }
 	        }
 	    };
+	    /**
+	     * DOM WRITE
+	     */
 	    Animation.prototype._setTrans = function (duration, forcedLinearEasing) {
 	        var i;
 	        var easing;
 	        // set the TRANSITION properties inline on the element
 	        for (i = 0; i < this._c.length; i++) {
+	            // ******** DOM WRITE ****************
 	            this._c[i]._setTrans(duration, forcedLinearEasing);
 	        }
 	        if (Object.keys(this._fx).length) {
 	            for (i = 0; i < this._el.length; i++) {
 	                // all parent/child animations should have the same duration
+	                // ******** DOM WRITE ****************
 	                this._el[i].style[dom_1.CSS.transitionDuration] = duration + 'ms';
 	                // each animation can have a different easing
 	                easing = (forcedLinearEasing ? 'linear' : this.getEasing());
 	                if (easing) {
+	                    // ******** DOM WRITE ****************
 	                    this._el[i].style[dom_1.CSS.transitionTimingFn] = easing;
 	                }
 	            }
 	        }
 	    };
+	    /**
+	     * DOM WRITE
+	     */
 	    Animation.prototype._willChg = function (addWillChange) {
 	        var i;
 	        var wc;
 	        var prop;
 	        for (i = 0; i < this._c.length; i++) {
+	            // ******** DOM WRITE ****************
 	            this._c[i]._willChg(addWillChange);
 	        }
-	        if (this._wChg) {
+	        if (SUPPORTS_WILL_CHANGE) {
 	            wc = [];
 	            if (addWillChange) {
 	                for (prop in this._fx) {
 	                    if (this._fx[prop].wc !== '') {
-	                        wc.push(this._fx[prop].wc);
+	                        if (this._fx[prop].wc === 'webkitTransform') {
+	                            wc.push('transform', '-webkit-transform');
+	                        }
+	                        else {
+	                            wc.push(this._fx[prop].wc);
+	                        }
 	                    }
 	                }
 	            }
 	            for (i = 0; i < this._el.length; i++) {
+	                // ******** DOM WRITE ****************
 	                this._el[i].style['willChange'] = wc.join(',');
 	            }
 	        }
 	    };
+	    /**
+	     * DOM WRITE
+	     */
 	    Animation.prototype._before = function () {
 	        // before the RENDER_DELAY
 	        // before the animations have started
@@ -55009,6 +54695,7 @@
 	        var ele;
 	        // stage all of the child animations
 	        for (i = 0; i < this._c.length; i++) {
+	            // ******** DOM WRITE ****************
 	            this._c[i]._before();
 	        }
 	        if (!this._rv) {
@@ -55016,19 +54703,53 @@
 	                ele = this._el[i];
 	                // css classes to add before the animation
 	                for (j = 0; j < this._bfAdd.length; j++) {
+	                    // ******** DOM WRITE ****************
 	                    ele.classList.add(this._bfAdd[j]);
 	                }
 	                // css classes to remove before the animation
 	                for (j = 0; j < this._bfRmv.length; j++) {
+	                    // ******** DOM WRITE ****************
 	                    ele.classList.remove(this._bfRmv[j]);
 	                }
 	                // inline styles to add before the animation
 	                for (prop in this._bfSty) {
+	                    // ******** DOM WRITE ****************
 	                    ele.style[prop] = this._bfSty[prop];
 	                }
 	            }
 	        }
 	    };
+	    /**
+	     * DOM READ
+	     */
+	    Animation.prototype._beforeReadFn = function () {
+	        var i;
+	        for (i = 0; i < this._c.length; i++) {
+	            // ******** DOM READ ****************
+	            this._c[i]._beforeReadFn();
+	        }
+	        for (i = 0; i < this._bfReadFns.length; i++) {
+	            // ******** DOM READ ****************
+	            this._bfReadFns[i]();
+	        }
+	    };
+	    /**
+	     * DOM WRITE
+	     */
+	    Animation.prototype._beforeWriteFn = function () {
+	        var i;
+	        for (i = 0; i < this._c.length; i++) {
+	            // ******** DOM WRITE ****************
+	            this._c[i]._beforeWriteFn();
+	        }
+	        for (i = 0; i < this._bfReadFns.length; i++) {
+	            // ******** DOM WRITE ****************
+	            this._bfWriteFns[i]();
+	        }
+	    };
+	    /**
+	     * DOM WRITE
+	     */
 	    Animation.prototype._after = function () {
 	        // after the animations have finished
 	        var i;
@@ -55036,25 +54757,31 @@
 	        var prop;
 	        var ele;
 	        for (i = 0; i < this._c.length; i++) {
+	            // ******** DOM WRITE ****************
 	            this._c[i]._after();
 	        }
 	        for (i = 0; i < this._el.length; i++) {
 	            ele = this._el[i];
 	            // remove the transition duration/easing
+	            // ******** DOM WRITE ****************
 	            ele.style[dom_1.CSS.transitionDuration] = '';
+	            // ******** DOM WRITE ****************
 	            ele.style[dom_1.CSS.transitionTimingFn] = '';
 	            if (this._rv) {
 	                // finished in reverse direction
 	                // css classes that were added before the animation should be removed
 	                for (j = 0; j < this._bfAdd.length; j++) {
+	                    // ******** DOM WRITE ****************
 	                    ele.classList.remove(this._bfAdd[j]);
 	                }
 	                // css classes that were removed before the animation should be added
 	                for (j = 0; j < this._bfRmv.length; j++) {
+	                    // ******** DOM WRITE ****************
 	                    ele.classList.add(this._bfRmv[j]);
 	                }
 	                // inline styles that were added before the animation should be removed
 	                for (prop in this._bfSty) {
+	                    // ******** DOM WRITE ****************
 	                    ele.style[prop] = '';
 	                }
 	            }
@@ -55062,27 +54789,39 @@
 	                // finished in forward direction
 	                // css classes to add after the animation
 	                for (j = 0; j < this._afAdd.length; j++) {
+	                    // ******** DOM WRITE ****************
 	                    ele.classList.add(this._afAdd[j]);
 	                }
 	                // css classes to remove after the animation
 	                for (j = 0; j < this._afRmv.length; j++) {
+	                    // ******** DOM WRITE ****************
 	                    ele.classList.remove(this._afRmv[j]);
 	                }
 	                // inline styles to add after the animation
 	                for (prop in this._afSty) {
+	                    // ******** DOM WRITE ****************
 	                    ele.style[prop] = this._afSty[prop];
 	                }
 	            }
 	        }
 	    };
+	    /**
+	     * DOM WRITE
+	     */
 	    Animation.prototype.progressStart = function () {
 	        for (var i = 0; i < this._c.length; i++) {
+	            // ******** DOM WRITE ****************
 	            this._c[i].progressStart();
 	        }
+	        // ******** DOM WRITE ****************
 	        this._before();
 	        // force no duration, linear easing
+	        // ******** DOM WRITE ****************
 	        this._setTrans(0, true);
 	    };
+	    /**
+	     * DOM WRITE
+	     */
 	    Animation.prototype.progressStep = function (stepValue) {
 	        var now = Date.now();
 	        // only update if the last update was more than 16ms ago
@@ -55090,6 +54829,7 @@
 	            this._lastUpd = now;
 	            stepValue = Math.min(1, Math.max(0, stepValue));
 	            for (var i = 0; i < this._c.length; i++) {
+	                // ******** DOM WRITE ****************
 	                this._c[i].progressStep(stepValue);
 	            }
 	            if (this._rv) {
@@ -55097,37 +54837,46 @@
 	                // flip the step value: 0 becomes 1, 1 becomes 0
 	                stepValue = ((stepValue * -1) + 1);
 	            }
+	            // ******** DOM WRITE ****************
 	            this._progress(stepValue);
 	        }
 	    };
+	    /**
+	     * DOM WRITE
+	     */
 	    Animation.prototype.progressEnd = function (shouldComplete, currentStepValue) {
 	        console.debug('Animation, progressEnd, shouldComplete', shouldComplete, 'currentStepValue', currentStepValue);
 	        for (var i = 0; i < this._c.length; i++) {
+	            // ******** DOM WRITE ****************
 	            this._c[i].progressEnd(shouldComplete, currentStepValue);
 	        }
 	        // set all the animations to their final position
+	        // ******** DOM WRITE ****************
 	        this._progress(shouldComplete ? 1 : 0);
 	        // if it's already at the final position, or close, then it's done
 	        // otherwise we need to add a transition end event listener
 	        if (currentStepValue < 0.05 || currentStepValue > 0.95) {
 	            // the progress was already left off at the point that is finished
 	            // for example, the left menu was dragged all the way open already
+	            // ******** DOM WRITE ****************
 	            this._after();
+	            // ******** DOM WRITE ****************
 	            this._willChg(false);
 	            this._didFinish(shouldComplete);
 	        }
 	        else {
 	            // the stepValue was left off at a point when it needs to finish transition still
 	            // for example, the left menu was opened 75% and needs to finish opening
+	            // ******** DOM WRITE ****************
 	            this._asyncEnd(64, shouldComplete);
 	            // force quick duration, linear easing
+	            // ******** DOM WRITE ****************
 	            this._setTrans(64, true);
 	        }
 	    };
-	    Animation.prototype.onPlay = function (callback) {
-	        this._pFns.push(callback);
-	        return this;
-	    };
+	    /**
+	     * POSSIBLE DOM READ/WRITE
+	     */
 	    Animation.prototype.onFinish = function (callback, onceTimeCallback, clearOnFinishCallacks) {
 	        if (onceTimeCallback === void 0) { onceTimeCallback = false; }
 	        if (clearOnFinishCallacks === void 0) { clearOnFinishCallacks = false; }
@@ -55143,6 +54892,9 @@
 	        }
 	        return this;
 	    };
+	    /**
+	     * POSSIBLE DOM READ/WRITE
+	     */
 	    Animation.prototype._didFinish = function (hasCompleted) {
 	        this.isPlaying = false;
 	        this.hasCompleted = hasCompleted;
@@ -55155,6 +54907,9 @@
 	        }
 	        this._fOnceFns = [];
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype.reverse = function (shouldReverse) {
 	        if (shouldReverse === void 0) { shouldReverse = true; }
 	        for (var i = 0; i < this._c.length; i++) {
@@ -55163,21 +54918,29 @@
 	        this._rv = shouldReverse;
 	        return this;
 	    };
+	    /**
+	     * DOM WRITE
+	     */
 	    Animation.prototype.destroy = function (removeElement) {
 	        var i;
 	        var ele;
 	        for (i = 0; i < this._c.length; i++) {
+	            // ******** DOM WRITE ****************
 	            this._c[i].destroy(removeElement);
 	        }
 	        if (removeElement) {
 	            for (i = 0; i < this._el.length; i++) {
 	                ele = this._el[i];
+	                // ******** DOM WRITE ****************
 	                ele.parentNode && ele.parentNode.removeChild(ele);
 	            }
 	        }
 	        this._clearAsync();
 	        this._reset();
 	    };
+	    /**
+	     * NO DOM
+	     */
 	    Animation.prototype._transEl = function () {
 	        // get the lowest level element that has an Animation
 	        var i;
@@ -55190,9 +54953,7 @@
 	        }
 	        return (this.hasTween && this._el.length ? this._el[0] : null);
 	    };
-	    /*
-	     STATIC CLASSES
-	     */
+	    // ***** STATIC CLASSES *********
 	    Animation.create = function (name, opts) {
 	        if (opts === void 0) { opts = {}; }
 	        var AnimationClass = AnimationRegistry[name];
@@ -55216,10 +54977,11 @@
 	    'skewX': 1, 'skewY': 1, 'perspective': 1
 	};
 	var CSS_VALUE_REGEX = /(^-?\d*\.?\d*)(.*)/;
+	var SUPPORTS_WILL_CHANGE = (typeof document.documentElement.style['willChange'] !== 'undefined');
 	var AnimationRegistry = {};
 
 /***/ },
-/* 342 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55291,7 +55053,7 @@
 	exports.MenuClose = MenuClose;
 
 /***/ },
-/* 343 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55355,6 +55117,436 @@
 	exports.Badge = Badge;
 
 /***/ },
+/* 343 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(6);
+	var config_1 = __webpack_require__(311);
+	var util_1 = __webpack_require__(313);
+	/**
+	  * @name Button
+	  * @module ionic
+	  *
+	  * @description
+	  * Buttons are simple components in Ionic. They can consist of text and icons
+	  * and be enhanced by a wide range of attributes.
+	  *
+	  * @property [outline] - A transparent button with a border.
+	  * @property [clear] - A transparent button without a border.
+	  * @property [round] - A button with rounded corners.
+	  * @property [block] - A button that fills its parent container with a border-radius.
+	  * @property [full] - A button that fills its parent container without a border-radius or borders on the left/right.
+	  * @property [small] - A button with size small.
+	  * @property [large] - A button with size large.
+	  * @property [disabled] - A disabled button.
+	  * @property [fab] - A floating action button.
+	  * @property [fab-left] - Position a fab button to the left.
+	  * @property [fab-right] - Position a fab button to the right.
+	  * @property [fab-center] - Position a fab button towards the center.
+	  * @property [fab-top] - Position a fab button towards the top.
+	  * @property [fab-bottom] - Position a fab button towards the bottom.
+	  * @property [fab-fixed] - Makes a fab button have a fixed position.
+	  * @property [color] - Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).
+	  *
+	  * @demo /docs/v2/demos/button/
+	  * @see {@link /docs/v2/components#buttons Button Component Docs}
+	 */
+	var Button = (function () {
+	    function Button(config, _elementRef, _renderer, ionItem) {
+	        this._elementRef = _elementRef;
+	        this._renderer = _renderer;
+	        this._role = 'button'; // bar-button/item-button
+	        this._size = null; // large/small/default
+	        this._style = 'default'; // outline/clear/solid
+	        this._shape = null; // round/fab
+	        this._display = null; // block/full
+	        this._colors = []; // primary/secondary
+	        this._icon = null; // left/right/only
+	        this._disabled = false; // disabled
+	        this.isItem = (ionItem === '');
+	        var element = _elementRef.nativeElement;
+	        if (config.get('hoverCSS') === false) {
+	            _renderer.setElementClass(_elementRef.nativeElement, 'disable-hover', true);
+	        }
+	        if (element.hasAttribute('ion-item')) {
+	            // no need to put on these classes for an ion-item
+	            this._role = null;
+	            return;
+	        }
+	        if (element.hasAttribute('disabled')) {
+	            this._disabled = true;
+	        }
+	        this._readAttrs(element);
+	    }
+	    Object.defineProperty(Button.prototype, "large", {
+	        /**
+	         * @input {string} Large button.
+	         */
+	        set: function (val) {
+	            this._attr('_size', 'large', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "small", {
+	        /**
+	         * @input {string} Small button.
+	         */
+	        set: function (val) {
+	            this._attr('_size', 'small', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "default", {
+	        /**
+	         * @input {string} Default button.
+	         */
+	        set: function (val) {
+	            this._attr('_size', 'default', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "outline", {
+	        /**
+	         * @input {string} A transparent button with a border.
+	         */
+	        set: function (val) {
+	            this._attr('_style', 'outline', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "clear", {
+	        /**
+	         * @input {string} A transparent button without a border.
+	         */
+	        set: function (val) {
+	            this._attr('_style', 'clear', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "solid", {
+	        /**
+	         * @input {string} Force a solid button. Useful for buttons within an item.
+	         */
+	        set: function (val) {
+	            this._attr('_style', 'solid', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "round", {
+	        /**
+	         * @input {string} A button with rounded corners.
+	         */
+	        set: function (val) {
+	            this._attr('_shape', 'round', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "block", {
+	        /**
+	         * @input {string} A button that fills its parent container with a border-radius.
+	         */
+	        set: function (val) {
+	            this._attr('_display', 'block', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Button.prototype, "full", {
+	        /**
+	         * @input {string} A button that fills its parent container without a border-radius or borders on the left/right.
+	         */
+	        set: function (val) {
+	            this._attr('_display', 'full', val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Button.prototype._attr = function (type, attrName, attrValue) {
+	        this._setClass(this[type], false);
+	        if (util_1.isTrueProperty(attrValue)) {
+	            this[type] = attrName;
+	            this._setClass(attrName, true);
+	        }
+	        else {
+	            // Special handling for '_style' which defaults to 'default'.
+	            this[type] = (type === '_style' ? 'default' : null);
+	        }
+	        if (type === '_style') {
+	            this._setColor(attrName, util_1.isTrueProperty(attrValue));
+	        }
+	    };
+	    Object.defineProperty(Button.prototype, "color", {
+	        /**
+	         * @input {string} Dynamically set which predefined color this button should use (e.g. primary, secondary, danger, etc).
+	         */
+	        set: function (val) {
+	            // Clear the colors for all styles including the default one.
+	            this._setColor(BUTTON_STYLE_ATTRS.concat(['default']), false);
+	            // Support array input which is also supported via multiple attributes (e.g. primary, secondary, etc).
+	            this._colors = (val instanceof Array ? val : [val]);
+	            // Set the colors for the currently effective style.
+	            this._setColor(this._style, true);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     */
+	    Button.prototype.ngOnInit = function () {
+	        // If the button has a role applied to it
+	        if (this.category) {
+	            this.setRole(this.category);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype.ngAfterContentInit = function () {
+	        this._init = true;
+	        this._readIcon(this._elementRef.nativeElement);
+	        this._assignCss(true);
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype.ngAfterContentChecked = function () {
+	        this._readIcon(this._elementRef.nativeElement);
+	        this._assignCss(true);
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype.addClass = function (className) {
+	        this._renderer.setElementClass(this._elementRef.nativeElement, className, true);
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype.setRole = function (val) {
+	        this._role = val;
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype._readIcon = function (element) {
+	        // figure out if and where the icon lives in the button
+	        var childNodes = element.childNodes;
+	        if (childNodes.length > 0) {
+	            childNodes = childNodes[0].childNodes;
+	        }
+	        var childNode;
+	        var nodes = [];
+	        for (var i = 0, l = childNodes.length; i < l; i++) {
+	            childNode = childNodes[i];
+	            if (childNode.nodeType === 3) {
+	                // text node
+	                if (childNode.textContent.trim() !== '') {
+	                    nodes.push(TEXT);
+	                }
+	            }
+	            else if (childNode.nodeType === 1) {
+	                if (childNode.nodeName === 'ION-ICON') {
+	                    // icon element node
+	                    nodes.push(ICON);
+	                }
+	                else {
+	                    // element other than an <ion-icon>
+	                    nodes.push(TEXT);
+	                }
+	            }
+	        }
+	        // Remove any classes that are set already
+	        this._setClass(this._icon, false);
+	        if (nodes.length > 1) {
+	            if (nodes[0] === ICON && nodes[1] === TEXT) {
+	                this._icon = 'icon-left';
+	            }
+	            else if (nodes[0] === TEXT && nodes[1] === ICON) {
+	                this._icon = 'icon-right';
+	            }
+	        }
+	        else if (nodes.length === 1 && nodes[0] === ICON) {
+	            this._icon = 'icon-only';
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype._readAttrs = function (element) {
+	        var elementAttrs = element.attributes;
+	        var attrName;
+	        for (var i = 0, l = elementAttrs.length; i < l; i++) {
+	            if (elementAttrs[i].value !== '')
+	                continue;
+	            attrName = elementAttrs[i].name;
+	            if (BUTTON_STYLE_ATTRS.indexOf(attrName) > -1) {
+	                this._style = attrName;
+	            }
+	            else if (BUTTON_DISPLAY_ATTRS.indexOf(attrName) > -1) {
+	                this._display = attrName;
+	            }
+	            else if (BUTTON_SHAPE_ATTRS.indexOf(attrName) > -1) {
+	                this._shape = attrName;
+	            }
+	            else if (BUTTON_SIZE_ATTRS.indexOf(attrName) > -1) {
+	                this._size = attrName;
+	            }
+	            else if (!(IGNORE_ATTRS.test(attrName))) {
+	                this._colors.push(attrName);
+	            }
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype._assignCss = function (assignCssClass) {
+	        var role = this._role;
+	        if (role) {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, role, assignCssClass); // button
+	            this._setClass(this._style, assignCssClass); // button-clear
+	            this._setClass(this._shape, assignCssClass); // button-round
+	            this._setClass(this._display, assignCssClass); // button-full
+	            this._setClass(this._size, assignCssClass); // button-small
+	            this._setClass(this._icon, assignCssClass); // button-icon-left
+	            this._setColor(this._style, assignCssClass); // button-secondary, button-clear-secondary
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype._setClass = function (type, assignCssClass) {
+	        if (type && this._init) {
+	            this._renderer.setElementClass(this._elementRef.nativeElement, this._role + '-' + type.toLowerCase(), assignCssClass);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.prototype._setColor = function (type, assignCssClass) {
+	        var _this = this;
+	        if (type && this._init) {
+	            // Support array to allow removal of many styles at once.
+	            var styles = (type instanceof Array ? type : [type]);
+	            styles.forEach(function (styleName) {
+	                // If the role is not a bar-button, don't apply the solid style
+	                styleName = (_this._role !== 'bar-button' && styleName === 'solid' ? 'default' : styleName);
+	                var colorStyle = (styleName !== null && styleName !== 'default' ? styleName.toLowerCase() + '-' : '');
+	                _this._colors.forEach(function (colorName) {
+	                    _this._setClass(colorStyle + colorName, assignCssClass); // button-secondary, button-clear-secondary
+	                });
+	            });
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Button.setRoles = function (contentButtonChildren, role) {
+	        var buttons = contentButtonChildren.toArray();
+	        buttons.forEach(function (button) {
+	            button.setRole(role);
+	        });
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Button.prototype, "category", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "large", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "small", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "default", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "outline", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "clear", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "solid", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "round", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "block", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean), 
+	        __metadata('design:paramtypes', [Boolean])
+	    ], Button.prototype, "full", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], Button.prototype, "color", null);
+	    Button = __decorate([
+	        core_1.Component({
+	            selector: 'button:not([ion-item]),[button]',
+	            template: '<span class="button-inner">' +
+	                '<ng-content></ng-content>' +
+	                '</span>' +
+	                '<ion-button-effect></ion-button-effect>',
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
+	        }),
+	        __param(3, core_1.Attribute('ion-item')), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, String])
+	    ], Button);
+	    return Button;
+	    var _a, _b, _c;
+	}());
+	exports.Button = Button;
+	var BUTTON_SIZE_ATTRS = ['large', 'small', 'default'];
+	var BUTTON_STYLE_ATTRS = ['clear', 'outline', 'solid'];
+	var BUTTON_SHAPE_ATTRS = ['round', 'fab'];
+	var BUTTON_DISPLAY_ATTRS = ['block', 'full'];
+	var IGNORE_ATTRS = /_ng|button|left|right/;
+	var TEXT = 1;
+	var ICON = 2;
+
+/***/ },
 /* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -55377,13 +55569,15 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var ion_1 = __webpack_require__(319);
 	var app_1 = __webpack_require__(308);
+	var ion_1 = __webpack_require__(319);
 	var config_1 = __webpack_require__(311);
 	var keyboard_1 = __webpack_require__(320);
 	var dom_1 = __webpack_require__(310);
-	var view_controller_1 = __webpack_require__(333);
 	var scroll_view_1 = __webpack_require__(345);
+	var tabs_1 = __webpack_require__(346);
+	var view_controller_1 = __webpack_require__(333);
+	var util_1 = __webpack_require__(313);
 	/**
 	 * @name Content
 	 * @description
@@ -55420,14 +55614,14 @@
 	 */
 	var Content = (function (_super) {
 	    __extends(Content, _super);
-	    function Content(_elementRef, _config, _app, _keyboard, _zone, viewCtrl) {
+	    function Content(_elementRef, _config, _app, _keyboard, _zone, viewCtrl, _tabs) {
 	        _super.call(this, _elementRef);
 	        this._elementRef = _elementRef;
 	        this._config = _config;
 	        this._app = _app;
 	        this._keyboard = _keyboard;
 	        this._zone = _zone;
-	        this._padding = 0;
+	        this._tabs = _tabs;
 	        this._inputPolling = false;
 	        this._sbPadding = _config.getBoolean('statusbarPadding', false);
 	        if (viewCtrl) {
@@ -55644,18 +55838,39 @@
 	    };
 	    /**
 	     * @private
+	     * DOM WRITE
 	     */
 	    Content.prototype.addCssClass = function (className) {
 	        this.getNativeElement().classList.add(className);
 	    };
+	    Object.defineProperty(Content.prototype, "fullscreen", {
+	        /**
+	         * @input {boolean} By default, content is positioned between the headers
+	         * and footers. However, using `fullscreen="true"`, the content will be
+	         * able to scroll "under" the headers and footers. At first glance the
+	         * fullscreen option may not look any different than the default, however,
+	         * by adding a transparency effect to a header then the content can be
+	         * seen under the header as the user scrolls.
+	         */
+	        get: function () {
+	            return !!this._fullscreen;
+	        },
+	        set: function (val) {
+	            this._fullscreen = util_1.isTrueProperty(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * @private
+	     * DOM WRITE
 	     */
 	    Content.prototype.removeCssClass = function (className) {
 	        this.getNativeElement().classList.remove(className);
 	    };
 	    /**
 	     * @private
+	     * DOM WRITE
 	     */
 	    Content.prototype.setScrollElementStyle = function (prop, val) {
 	        this._scrollEle.style[prop] = val;
@@ -55696,31 +55911,137 @@
 	    };
 	    /**
 	     * @private
+	     * DOM WRITE
 	     * Adds padding to the bottom of the scroll element when the keyboard is open
 	     * so content below the keyboard can be scrolled into view.
 	     */
 	    Content.prototype.addScrollPadding = function (newPadding) {
-	        if (newPadding > this._padding) {
+	        if (newPadding > this._scrollPadding) {
 	            console.debug('content addScrollPadding', newPadding);
-	            this._padding = newPadding;
+	            this._scrollPadding = newPadding;
 	            this._scrollEle.style.paddingBottom = newPadding + 'px';
 	        }
 	    };
 	    /**
 	     * @private
+	     * DOM WRITE
 	     */
 	    Content.prototype.clearScrollPaddingFocusOut = function () {
 	        var _this = this;
 	        if (!this._inputPolling) {
 	            this._inputPolling = true;
 	            this._keyboard.onClose(function () {
-	                _this._padding = 0;
-	                _this._scrollEle.style.paddingBottom = '';
+	                _this._scrollPadding = 0;
+	                _this._scrollEle.style.paddingBottom = (_this._paddingBottom > 0 ? _this._paddingBottom + 'px' : '');
 	                _this._inputPolling = false;
 	                _this.addScrollPadding(0);
 	            }, 200, Infinity);
 	        }
 	    };
+	    /**
+	     * @private
+	     * DOM READ
+	     */
+	    Content.prototype.readDimensions = function () {
+	        this._paddingTop = 0;
+	        this._paddingRight = 0;
+	        this._paddingBottom = 0;
+	        this._paddingLeft = 0;
+	        this._headerHeight = 0;
+	        this._tabbarPlacement = null;
+	        var ele = this._elementRef.nativeElement;
+	        var parentEle = ele.parentElement;
+	        var computedStyle;
+	        for (var i = 0; i < parentEle.children.length; i++) {
+	            ele = parentEle.children[i];
+	            if (ele.tagName === 'ION-CONTENT') {
+	                if (this._fullscreen) {
+	                    computedStyle = getComputedStyle(ele);
+	                    this._paddingTop = parsePxUnit(computedStyle.paddingTop);
+	                    this._paddingBottom = parsePxUnit(computedStyle.paddingBottom);
+	                    this._paddingRight = parsePxUnit(computedStyle.paddingRight);
+	                    this._paddingLeft = parsePxUnit(computedStyle.paddingLeft);
+	                }
+	            }
+	            else if (ele.tagName === 'ION-HEADER') {
+	                this._headerHeight = ele.clientHeight;
+	            }
+	            else if (ele.tagName === 'ION-FOOTER') {
+	                this._footerHeight = ele.clientHeight;
+	            }
+	        }
+	        ele = parentEle;
+	        var tabbarEle;
+	        while (ele && ele.tagName !== 'ION-MODAL' && !ele.classList.contains('tab-subpage')) {
+	            if (ele.tagName === 'ION-TABS') {
+	                tabbarEle = ele.firstElementChild;
+	                this._tabbarHeight = tabbarEle.clientHeight;
+	                if (this._tabbarPlacement === null) {
+	                    // this is the first tabbar found, remember it's position
+	                    this._tabbarPlacement = ele.getAttribute('tabbarplacement');
+	                }
+	            }
+	            ele = ele.parentElement;
+	        }
+	    };
+	    /**
+	     * @private
+	     * DOM WRITE
+	     */
+	    Content.prototype.writeDimensions = function () {
+	        var newVal;
+	        // only write when it has changed
+	        if (this._fullscreen) {
+	            // adjust the content with padding, allowing content to scroll under headers/footers
+	            // however, on iOS you cannot control the margins of the scrollbar (last tested iOS9.2)
+	            // only add inline padding styles if the computed padding value, which would
+	            // have come from the app's css, is different than the new padding value
+	            newVal = this._headerHeight + this._paddingTop;
+	            if (this._tabbarPlacement === 'top') {
+	                newVal += this._tabbarHeight;
+	            }
+	            if (newVal !== this._lastTop) {
+	                this._scrollEle.style.paddingTop = (newVal > 0 ? newVal + 'px' : '');
+	            }
+	            newVal = this._footerHeight + this._paddingBottom;
+	            if (this._tabbarPlacement === 'bottom') {
+	                newVal += this._tabbarHeight;
+	            }
+	            if (newVal !== this._lastBottom) {
+	                this._scrollEle.style.paddingBottom = (newVal > 0 ? newVal + 'px' : '');
+	            }
+	        }
+	        else {
+	            // adjust the content with margins
+	            newVal = this._headerHeight;
+	            if (this._tabbarPlacement === 'top') {
+	                newVal += this._tabbarHeight;
+	            }
+	            if (newVal !== this._lastTop) {
+	                this._scrollEle.style.marginTop = (newVal > 0 ? newVal + 'px' : '');
+	            }
+	            newVal = this._footerHeight;
+	            if (this._tabbarPlacement === 'bottom') {
+	                newVal += this._tabbarHeight;
+	            }
+	            if (newVal !== this._lastBottom) {
+	                this._scrollEle.style.marginBottom = (newVal > 0 ? newVal + 'px' : '');
+	            }
+	        }
+	        if (this._tabbarPlacement !== null && this._tabs) {
+	            // set the position of the tabbar
+	            if (this._tabbarPlacement === 'top') {
+	                this._tabs.setTabbarPosition(this._headerHeight, -1);
+	            }
+	            else {
+	                this._tabs.setTabbarPosition(-1, 0);
+	            }
+	        }
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Content.prototype, "fullscreen", null);
 	    Content = __decorate([
 	        core_1.Component({
 	            selector: 'ion-content',
@@ -55735,13 +56056,17 @@
 	                '[class.statusbar-padding]': '_sbPadding'
 	            }
 	        }),
-	        __param(5, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _c) || Object, (typeof (_d = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object, (typeof (_f = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _f) || Object])
+	        __param(5, core_1.Optional()),
+	        __param(6, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _c) || Object, (typeof (_d = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object, (typeof (_f = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _f) || Object, (typeof (_g = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _g) || Object])
 	    ], Content);
 	    return Content;
-	    var _a, _b, _c, _d, _e, _f;
+	    var _a, _b, _c, _d, _e, _f, _g;
 	}(ion_1.Ion));
 	exports.Content = Content;
+	function parsePxUnit(val) {
+	    return (val.indexOf('px') > 0) ? parseInt(val, 10) : 0;
+	}
 
 /***/ },
 /* 345 */
@@ -55978,6 +56303,992 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(6);
+	var app_1 = __webpack_require__(308);
+	var config_1 = __webpack_require__(311);
+	var content_1 = __webpack_require__(344);
+	var ion_1 = __webpack_require__(319);
+	var util_1 = __webpack_require__(313);
+	var dom_1 = __webpack_require__(310);
+	var nav_controller_1 = __webpack_require__(337);
+	var platform_1 = __webpack_require__(312);
+	var tab_button_1 = __webpack_require__(347);
+	var tab_highlight_1 = __webpack_require__(349);
+	var view_controller_1 = __webpack_require__(333);
+	/**
+	 * @name Tabs
+	 * @description
+	 * Tabs make it easy to navigate between different pages or functional
+	 * aspects of an app. The Tabs component, written as `<ion-tabs>`, is
+	 * a container of individual [Tab](../Tab/) components.
+	 *
+	 * ### Placement
+	 *
+	 * The position of the tabs relative to the content varies based on
+	 * the mode. By default, the tabs are placed at the bottom of the screen
+	 * for `ios` mode, and at the top for the `md` and `wp` modes. You can
+	 * configure the position using the `tabbarPlacement` property on the
+	 * `<ion-tabs>` element, or in your app's [config](../../config/Config/).
+	 * See the [Input Properties](#input-properties) below for the available
+	 * values of `tabbarPlacement`.
+	 *
+	 * ### Layout
+	 *
+	 * The layout for all of the tabs can be defined using the `tabbarLayout`
+	 * property. If the individual tab has a title and icon, the icons will
+	 * show on top of the title by default. All tabs can be changed by setting
+	 * the value of `tabbarLayout` on the `<ion-tabs>` element, or in your
+	 * app's [config](../../config/Config/). For example, this is useful if
+	 * you want to show tabs with a title only on Android, but show icons
+	 * and a title for iOS. See the [Input Properties](#input-properties)
+	 * below for the available values of `tabbarLayout`.
+	 *
+	 * ### Selecting a Tab
+	 *
+	 * There are different ways you can select a specific tab from the tabs
+	 * component. You can use the `selectedIndex` property to set the index
+	 * on the `<ion-tabs>` element, or you can call `select()` from the `Tabs`
+	 * instance after creation. See [usage](#usage) below for more information.
+	 *
+	 * @usage
+	 *
+	 * You can add a basic tabs template to a `@Component` using the following
+	 * template:
+	 *
+	 * ```html
+	 * <ion-tabs>
+	 *   <ion-tab [root]="tab1Root"></ion-tab>
+	 *   <ion-tab [root]="tab2Root"></ion-tab>
+	 *   <ion-tab [root]="tab3Root"></ion-tab>
+	 * </ion-tabs>
+	 * ```
+	 *
+	 * Where `tab1Root`, `tab2Root`, and `tab3Root` are each a page:
+	 *
+	 *```ts
+	 * @Component({
+	 *   templateUrl: 'build/pages/tabs/tabs.html'
+	 * })
+	 * export class TabsPage {
+	 *   // this tells the tabs component which Pages
+	 *   // should be each tab's root Page
+	 *   tab1Root = Page1;
+	 *   tab2Root = Page2;
+	 *   tab3Root = Page3;
+	 *
+	 *   constructor() {
+	 *
+	 *   }
+	 * }
+	 *```
+	 *
+	 * By default, the first tab will be selected upon navigation to the
+	 * Tabs page. We can change the selected tab by using `selectedIndex`
+	 * on the `<ion-tabs>` element:
+	 *
+	 * ```html
+	 * <ion-tabs selectedIndex="2">
+	 *   <ion-tab [root]="tab1Root"></ion-tab>
+	 *   <ion-tab [root]="tab2Root"></ion-tab>
+	 *   <ion-tab [root]="tab3Root"></ion-tab>
+	 * </ion-tabs>
+	 * ```
+	 *
+	 * Since the index starts at `0`, this will select the 3rd tab which has
+	 * root set to `tab3Root`. If you wanted to change it dynamically from
+	 * your class, you could use [property binding](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#property-binding).
+	 *
+	 * Alternatively, you can grab the `Tabs` instance and call the `select()`
+	 * method. This requires the `<ion-tabs>` element to have an `id`. For
+	 * example, set the value of `id` to `myTabs`:
+	 *
+	 * ```html
+	 * <ion-tabs #myTabs>
+	 *   <ion-tab [root]="tab1Root"></ion-tab>
+	 *   <ion-tab [root]="tab2Root"></ion-tab>
+	 *   <ion-tab [root]="tab3Root"></ion-tab>
+	 * </ion-tabs>
+	 * ```
+	 *
+	 * Then in your class you can grab the `Tabs` instance and call `select()`,
+	 * passing the index of the tab as the argument. Here we're grabbing the tabs
+	 * by using ViewChild.
+	 *
+	 *```ts
+	 * export class TabsPage {
+	 *
+	 * @ViewChild('myTabs') tabRef: Tabs;
+	 *
+	 * ionViewDidEnter() {
+	 *   this.tabRef.select(2);
+	 *  }
+	 *
+	 * }
+	 *```
+	 *
+	 * @demo /docs/v2/demos/tabs/
+	 *
+	 * @see {@link /docs/v2/components#tabs Tabs Component Docs}
+	 * @see {@link ../Tab Tab API Docs}
+	 * @see {@link ../../config/Config Config API Docs}
+	 *
+	 */
+	var Tabs = (function (_super) {
+	    __extends(Tabs, _super);
+	    function Tabs(parent, viewCtrl, _app, _config, _elementRef, _platform, _renderer) {
+	        var _this = this;
+	        _super.call(this, _elementRef);
+	        this._app = _app;
+	        this._config = _config;
+	        this._elementRef = _elementRef;
+	        this._platform = _platform;
+	        this._renderer = _renderer;
+	        this._ids = -1;
+	        this._tabs = [];
+	        this._onReady = null;
+	        /**
+	         * @private
+	         */
+	        this.selectHistory = [];
+	        /**
+	         * @input {any} Expression to evaluate when the tab changes.
+	         */
+	        this.ionChange = new core_1.EventEmitter();
+	        this.parent = parent;
+	        this.id = ++tabIds;
+	        this.subPages = _config.getBoolean('tabSubPages');
+	        this._useHighlight = _config.getBoolean('tabbarHighlight');
+	        this._sbPadding = _config.getBoolean('statusbarPadding');
+	        if (parent) {
+	            // this Tabs has a parent Nav
+	            parent.registerChildNav(this);
+	        }
+	        else if (this._app) {
+	            // this is the root navcontroller for the entire app
+	            this._app.setRootNav(this);
+	        }
+	        // Tabs may also be an actual ViewController which was navigated to
+	        // if Tabs is static and not navigated to within a NavController
+	        // then skip this and don't treat it as it's own ViewController
+	        if (viewCtrl) {
+	            viewCtrl.setContent(this);
+	            viewCtrl.setContentRef(_elementRef);
+	            viewCtrl.loaded = function (done) {
+	                _this._onReady = done;
+	            };
+	        }
+	    }
+	    /**
+	     * @private
+	     */
+	    Tabs.prototype.ngAfterViewInit = function () {
+	        var _this = this;
+	        this._setConfig('tabbarPlacement', 'bottom');
+	        this._setConfig('tabbarLayout', 'icon-top');
+	        if (this._useHighlight) {
+	            this._platform.onResize(function () {
+	                _this._highlight.select(_this.getSelected());
+	            });
+	        }
+	        var preloadTabs = (util_1.isBlank(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
+	        // get the selected index
+	        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
+	        // ensure the selectedIndex isn't a hidden or disabled tab
+	        // also find the first available index incase we need it later
+	        var availableIndex = -1;
+	        this._tabs.forEach(function (tab, index) {
+	            if (tab.enabled && tab.show && availableIndex < 0) {
+	                // we know this tab index is safe to show
+	                availableIndex = index;
+	            }
+	            if (index === selectedIndex && (!tab.enabled || !tab.show)) {
+	                // the selectedIndex is not safe to show
+	                selectedIndex = -1;
+	            }
+	        });
+	        if (selectedIndex < 0) {
+	            // the selected index wasn't safe to show
+	            // instead use an available index found to be safe to show
+	            selectedIndex = availableIndex;
+	        }
+	        this._tabs.forEach(function (tab, index) {
+	            if (index === selectedIndex) {
+	                _this.select(tab);
+	            }
+	            else if (preloadTabs) {
+	                tab.preload(1000 * index);
+	            }
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    Tabs.prototype._setConfig = function (attrKey, fallback) {
+	        var val = this[attrKey];
+	        if (util_1.isBlank(val)) {
+	            val = this._config.get(attrKey, fallback);
+	        }
+	        this._renderer.setElementAttribute(this._elementRef.nativeElement, attrKey, val);
+	    };
+	    /**
+	     * @private
+	     */
+	    Tabs.prototype.add = function (tab) {
+	        tab.id = this.id + '-' + (++this._ids);
+	        this._tabs.push(tab);
+	    };
+	    /**
+	     * @param {number|Tab} tabOrIndex Index, or the Tab instance, of the tab to select.
+	     */
+	    Tabs.prototype.select = function (tabOrIndex) {
+	        var _this = this;
+	        var selectedTab = (typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex);
+	        if (util_1.isBlank(selectedTab)) {
+	            return;
+	        }
+	        var deselectedTab = this.getSelected();
+	        if (selectedTab === deselectedTab) {
+	            // no change
+	            return this._touchActive(selectedTab);
+	        }
+	        console.debug('Tabs, select', selectedTab.id);
+	        var opts = {
+	            animate: false
+	        };
+	        var deselectedPage;
+	        if (deselectedTab) {
+	            deselectedPage = deselectedTab.getActive();
+	            deselectedPage && deselectedPage.fireWillLeave();
+	        }
+	        var selectedPage = selectedTab.getActive();
+	        selectedPage && selectedPage.fireWillEnter();
+	        selectedTab.load(opts, function (initialLoad) {
+	            selectedTab.ionSelect.emit(selectedTab);
+	            _this.ionChange.emit(selectedTab);
+	            if (selectedTab.root) {
+	                // only show the selectedTab if it has a root
+	                // it's possible the tab is only for opening modal's or signing out
+	                // and doesn't actually have content. In the case there's no content
+	                // for a tab then do nothing and leave the current view as is
+	                _this._tabs.forEach(function (tab) {
+	                    tab.setSelected(tab === selectedTab);
+	                });
+	                if (_this._useHighlight) {
+	                    _this._highlight.select(selectedTab);
+	                }
+	            }
+	            selectedPage && selectedPage.fireDidEnter();
+	            deselectedPage && deselectedPage.fireDidLeave();
+	            if (_this._onReady) {
+	                _this._onReady();
+	                _this._onReady = null;
+	            }
+	            // track the order of which tabs have been selected, by their index
+	            // do not track if the tab index is the same as the previous
+	            if (_this.selectHistory[_this.selectHistory.length - 1] !== selectedTab.id) {
+	                _this.selectHistory.push(selectedTab.id);
+	            }
+	            // if this is not the Tab's initial load then we need
+	            // to refresh the tabbar and content dimensions to be sure
+	            // they're lined up correctly
+	            if (!initialLoad && selectedPage) {
+	                var content = selectedPage.getContent();
+	                if (content && content instanceof content_1.Content) {
+	                    dom_1.nativeRaf(function () {
+	                        content.readDimensions();
+	                        content.writeDimensions();
+	                    });
+	                }
+	            }
+	        });
+	    };
+	    /**
+	     * Get the previously selected Tab which is currently not disabled or hidden.
+	     * @param {boolean} trimHistory If the selection history should be trimmed up to the previous tab selection or not.
+	     * @returns {Tab}
+	     */
+	    Tabs.prototype.previousTab = function (trimHistory) {
+	        var _this = this;
+	        if (trimHistory === void 0) { trimHistory = true; }
+	        // walk backwards through the tab selection history
+	        // and find the first previous tab that is enabled and shown
+	        console.debug('run previousTab', this.selectHistory);
+	        for (var i = this.selectHistory.length - 2; i >= 0; i--) {
+	            var tab = this._tabs.find(function (t) { return t.id === _this.selectHistory[i]; });
+	            if (tab && tab.enabled && tab.show) {
+	                if (trimHistory) {
+	                    this.selectHistory.splice(i + 1);
+	                }
+	                return tab;
+	            }
+	        }
+	        return null;
+	    };
+	    /**
+	     * @param {number} index Index of the tab you want to get
+	     * @returns {Tab} Returns the tab who's index matches the one passed
+	     */
+	    Tabs.prototype.getByIndex = function (index) {
+	        if (index < this._tabs.length && index > -1) {
+	            return this._tabs[index];
+	        }
+	        return null;
+	    };
+	    /**
+	     * @return {Tab} Returns the currently selected tab
+	     */
+	    Tabs.prototype.getSelected = function () {
+	        for (var i = 0; i < this._tabs.length; i++) {
+	            if (this._tabs[i].isSelected) {
+	                return this._tabs[i];
+	            }
+	        }
+	        return null;
+	    };
+	    /**
+	     * @private
+	     */
+	    Tabs.prototype.getActiveChildNav = function () {
+	        return this.getSelected();
+	    };
+	    /**
+	     * @private
+	     */
+	    Tabs.prototype.getIndex = function (tab) {
+	        return this._tabs.indexOf(tab);
+	    };
+	    /**
+	     * @private
+	     * "Touch" the active tab, going back to the root view of the tab
+	     * or optionally letting the tab handle the event
+	     */
+	    Tabs.prototype._touchActive = function (tab) {
+	        var active = tab.getActive();
+	        if (!active) {
+	            return Promise.resolve();
+	        }
+	        var instance = active.instance;
+	        // If they have a custom tab selected handler, call it
+	        if (instance.ionSelected) {
+	            return instance.ionSelected();
+	        }
+	        // If we're a few pages deep, pop to root
+	        if (tab.length() > 1) {
+	            // Pop to the root view
+	            return tab.popToRoot();
+	        }
+	        // Otherwise, if the page we're on is not our real root, reset it to our
+	        // default root type
+	        if (tab.root !== active.componentType) {
+	            return tab.setRoot(tab.root);
+	        }
+	        // And failing all of that, we do something safe and secure
+	        return Promise.resolve();
+	    };
+	    Object.defineProperty(Tabs.prototype, "rootNav", {
+	        /**
+	         * @private
+	         * Returns the root NavController. Returns `null` if Tabs is not
+	         * within a NavController.
+	         * @returns {NavController}
+	         */
+	        get: function () {
+	            var nav = this.parent;
+	            while (nav.parent) {
+	                nav = nav.parent;
+	            }
+	            return nav;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     * DOM WRITE
+	     */
+	    Tabs.prototype.setTabbarPosition = function (top, bottom) {
+	        if (this._top !== top || this._bottom !== bottom) {
+	            var tabbarEle = this._tabbar.nativeElement;
+	            tabbarEle.style.top = (top > -1 ? top + 'px' : '');
+	            tabbarEle.style.bottom = (bottom > -1 ? bottom + 'px' : '');
+	            tabbarEle.classList.add('show-tabbar');
+	            this._top = top;
+	            this._bottom = bottom;
+	        }
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], Tabs.prototype, "selectedIndex", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], Tabs.prototype, "preloadTabs", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Tabs.prototype, "tabbarLayout", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Tabs.prototype, "tabbarPlacement", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], Tabs.prototype, "ionChange", void 0);
+	    __decorate([
+	        core_1.ViewChild(tab_highlight_1.TabHighlight), 
+	        __metadata('design:type', (typeof (_b = typeof tab_highlight_1.TabHighlight !== 'undefined' && tab_highlight_1.TabHighlight) === 'function' && _b) || Object)
+	    ], Tabs.prototype, "_highlight", void 0);
+	    __decorate([
+	        core_1.ViewChild('tabbar'), 
+	        __metadata('design:type', (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object)
+	    ], Tabs.prototype, "_tabbar", void 0);
+	    __decorate([
+	        core_1.ViewChild('portal', { read: core_1.ViewContainerRef }), 
+	        __metadata('design:type', (typeof (_d = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _d) || Object)
+	    ], Tabs.prototype, "portal", void 0);
+	    Tabs = __decorate([
+	        core_1.Component({
+	            selector: 'ion-tabs',
+	            template: '<ion-tabbar role="tablist" #tabbar>' +
+	                '<a *ngFor="let t of _tabs" [tab]="t" class="tab-button" [class.tab-disabled]="!t.enabled" [class.tab-hidden]="!t.show" role="tab" href="#" (ionSelect)="select($event)">' +
+	                '<ion-icon *ngIf="t.tabIcon" [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></ion-icon>' +
+	                '<span *ngIf="t.tabTitle" class="tab-button-text">{{t.tabTitle}}</span>' +
+	                '<ion-badge *ngIf="t.tabBadge" class="tab-badge" [ngClass]="\'badge-\' + t.tabBadgeStyle">{{t.tabBadge}}</ion-badge>' +
+	                '<ion-button-effect></ion-button-effect>' +
+	                '</a>' +
+	                '<tab-highlight></tab-highlight>' +
+	                '</ion-tabbar>' +
+	                '<ng-content></ng-content>' +
+	                '<div #portal tab-portal></div>',
+	            directives: [
+	                tab_button_1.TabButton,
+	                tab_highlight_1.TabHighlight
+	            ],
+	            encapsulation: core_1.ViewEncapsulation.None,
+	        }),
+	        __param(0, core_1.Optional()),
+	        __param(1, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_e = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _e) || Object, (typeof (_f = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _f) || Object, (typeof (_g = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _g) || Object, (typeof (_h = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _h) || Object, (typeof (_j = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _j) || Object, (typeof (_k = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object])
+	    ], Tabs);
+	    return Tabs;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+	}(ion_1.Ion));
+	exports.Tabs = Tabs;
+	var tabIds = -1;
+
+/***/ },
+/* 347 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(6);
+	var tab_1 = __webpack_require__(348);
+	var ion_1 = __webpack_require__(319);
+	var config_1 = __webpack_require__(311);
+	/**
+	 * @private
+	 */
+	var TabButton = (function (_super) {
+	    __extends(TabButton, _super);
+	    function TabButton(config, elementRef) {
+	        _super.call(this, elementRef);
+	        this.ionSelect = new core_1.EventEmitter();
+	        this.disHover = (config.get('hoverCSS') === false);
+	        this._layout = config.get('tabbarLayout');
+	    }
+	    TabButton.prototype.ngOnInit = function () {
+	        this.tab.btn = this;
+	        this._layout = this.tab.parent.tabbarLayout || this._layout;
+	        this.hasTitle = !!this.tab.tabTitle;
+	        this.hasIcon = !!this.tab.tabIcon && this._layout !== 'icon-hide';
+	        this.hasTitleOnly = (this.hasTitle && !this.hasIcon);
+	        this.hasIconOnly = (this.hasIcon && !this.hasTitle);
+	        this.hasBadge = !!this.tab.tabBadge;
+	    };
+	    TabButton.prototype.onClick = function (ev) {
+	        this.ionSelect.emit(this.tab);
+	        ev.preventDefault();
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', (typeof (_a = typeof tab_1.Tab !== 'undefined' && tab_1.Tab) === 'function' && _a) || Object)
+	    ], TabButton.prototype, "tab", void 0);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], TabButton.prototype, "ionSelect", void 0);
+	    __decorate([
+	        core_1.HostListener('click', ['$event']), 
+	        __metadata('design:type', Function), 
+	        __metadata('design:paramtypes', [Object]), 
+	        __metadata('design:returntype', void 0)
+	    ], TabButton.prototype, "onClick", null);
+	    TabButton = __decorate([
+	        core_1.Directive({
+	            selector: '.tab-button',
+	            host: {
+	                '[attr.id]': 'tab._btnId',
+	                '[attr.aria-controls]': 'tab._panelId',
+	                '[attr.aria-selected]': 'tab.isSelected',
+	                '[class.has-title]': 'hasTitle',
+	                '[class.has-icon]': 'hasIcon',
+	                '[class.has-title-only]': 'hasTitleOnly',
+	                '[class.icon-only]': 'hasIconOnly',
+	                '[class.has-badge]': 'hasBadge',
+	                '[class.disable-hover]': 'disHover'
+	            }
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object])
+	    ], TabButton);
+	    return TabButton;
+	    var _a, _b, _c, _d;
+	}(ion_1.Ion));
+	exports.TabButton = TabButton;
+
+/***/ },
+/* 348 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(6);
+	var app_1 = __webpack_require__(308);
+	var config_1 = __webpack_require__(311);
+	var util_1 = __webpack_require__(313);
+	var keyboard_1 = __webpack_require__(320);
+	var nav_controller_1 = __webpack_require__(337);
+	var tabs_1 = __webpack_require__(346);
+	/**
+	 * @name Tab
+	 * @description
+	 * The Tab component, written `<ion-tab>`, is styled based on the mode and should
+	 * be used in conjunction with the [Tabs](../Tabs/) component.
+	 *
+	 * Each tab has a separate navigation controller. For more information on using
+	 * navigation controllers take a look at the [NavController API Docs](../../nav/NavController/).
+	 *
+	 * See the [Tabs API Docs](../Tabs/) for more details on configuring Tabs.
+	 *
+	 * @usage
+	 *
+	 * To add a basic tab, you can use the following markup where the `root` property
+	 * is the page you want to load for that tab, `tabTitle` is the optional text to
+	 * display on the tab, and `tabIcon` is the optional [icon](../../icon/Icon/).
+	 *
+	 * ```html
+	 * <ion-tabs>
+	 *  <ion-tab [root]="chatRoot" tabTitle="Chat" tabIcon="chat"><ion-tab>
+	 * </ion-tabs>
+	 * ```
+	 *
+	 * Then, in your class you can set `chatRoot` to an imported class:
+	 *
+	 * ```ts
+	 * import {ChatPage} from '../chat/chat';
+	 *
+	 * export class Tabs {
+	 *   // here we'll set the property of chatRoot to
+	 *   // the imported class of ChatPage
+	 *   chatRoot = ChatPage;
+	 *
+	 *   constructor() {
+	 *
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * You can also pass some parameters to the root page of the tab through
+	 * `rootParams`. Below we pass `chatParams` to the Chat tab:
+	 *
+	 * ```html
+	 * <ion-tabs>
+	 *  <ion-tab [root]="chatRoot" [rootParams]="chatParams" tabTitle="Chat" tabIcon="chat"><ion-tab>
+	 * </ion-tabs>
+	 * ```
+	 *
+	 * ```ts
+	 * export class Tabs {
+	 *   chatRoot = ChatPage;
+	 *
+	 *   // set some user information on chatParams
+	 *   chatParams = {
+	 *     user1: "admin",
+	 *     user2: "ionic"
+	 *   };
+	 *
+	 *   constructor() {
+	 *
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * And in `ChatPage` you can get the data from `NavParams`:
+	 *
+	 * ```ts
+	 * export class ChatPage {
+	 *   constructor(navParams: NavParams) {
+	 *     console.log("Passed params", navParams.data);
+	 *   }
+	 * }
+	 * ```
+	 *
+	 * Sometimes you may want to call a method instead of navigating to a new
+	 * page. You can use the `(ionSelect)` event to call a method on your class when
+	 * the tab is selected. Below is an example of presenting a modal from one of
+	 * the tabs.
+	 *
+	 * ```html
+	 * <ion-tabs preloadTabs="false">
+	 *   <ion-tab (ionSelect)="chat()"></ion-tab>
+	 * </ion-tabs>
+	 * ```
+	 *
+	 * ```ts
+	 * export class Tabs {
+	 *   constructor(nav: NavController) {
+	 *     this.nav = nav;
+	 *   }
+	 *
+	 *   chat() {
+	 *     let modal = Modal.create(ChatPage);
+	 *     this.nav.present(modal);
+	 *   }
+	 * }
+	 * ```
+	 *
+	 *
+	 * @demo /docs/v2/demos/tabs/
+	 * @see {@link /docs/v2/components#tabs Tabs Component Docs}
+	 * @see {@link ../../tabs/Tabs Tabs API Docs}
+	 * @see {@link ../../nav/Nav Nav API Docs}
+	 * @see {@link ../../nav/NavController NavController API Docs}
+	 */
+	var Tab = (function (_super) {
+	    __extends(Tab, _super);
+	    function Tab(parent, app, config, keyboard, elementRef, zone, renderer, compiler, _cd) {
+	        // A Tab is a NavController for its child pages
+	        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, compiler);
+	        this.parent = parent;
+	        this._cd = _cd;
+	        this._isEnabled = true;
+	        this._isShown = true;
+	        /**
+	         * @output {Tab} Method to call when the current tab is selected
+	         */
+	        this.ionSelect = new core_1.EventEmitter();
+	        parent.add(this);
+	        if (parentTabs.rootNav) {
+	            this._sbEnabled = parentTabs.rootNav.isSwipeBackEnabled();
+	        }
+	        this._panelId = 'tabpanel-' + this.id;
+	        this._btnId = 'tab-' + this.id;
+	    }
+	    Object.defineProperty(Tab.prototype, "enabled", {
+	        /**
+	         * @input {boolean} If the tab is enabled or not. If the tab
+	         * is not enabled then the tab button will still show, however,
+	         * the button will appear grayed out and will not be clickable.
+	         * Defaults to `true`.
+	         */
+	        get: function () {
+	            return this._isEnabled;
+	        },
+	        set: function (val) {
+	            this._isEnabled = util_1.isTrueProperty(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Tab.prototype, "show", {
+	        /**
+	         * @input {boolean} If the tab button is visible within the
+	         * tabbar or not. Defaults to `true`.
+	         */
+	        get: function () {
+	            return this._isShown;
+	        },
+	        set: function (val) {
+	            this._isShown = util_1.isTrueProperty(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Tab.prototype, "swipeBackEnabled", {
+	        /**
+	         * @input {boolean} Whether it's possible to swipe-to-go-back on this tab or not.
+	         */
+	        get: function () {
+	            return this._sbEnabled;
+	        },
+	        set: function (val) {
+	            this._sbEnabled = util_1.isTrueProperty(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Tab.prototype, "_vp", {
+	        /**
+	         * @private
+	         */
+	        set: function (val) {
+	            this.setViewport(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     */
+	    Tab.prototype.ngOnInit = function () {
+	        this.tabBadgeStyle = this.tabBadgeStyle ? this.tabBadgeStyle : 'default';
+	    };
+	    /**
+	     * @private
+	     */
+	    Tab.prototype.load = function (opts, done) {
+	        if (!this._loaded && this.root) {
+	            this.push(this.root, this.rootParams, opts).then(function () {
+	                done(true);
+	            });
+	            this._loaded = true;
+	        }
+	        else {
+	            done(false);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Tab.prototype.preload = function (wait) {
+	        var _this = this;
+	        this._loadTmr = setTimeout(function () {
+	            if (!_this._loaded) {
+	                console.debug('Tabs, preload', _this.id);
+	                _this.load({
+	                    animate: false,
+	                    preload: true
+	                }, function () { });
+	            }
+	        }, wait);
+	    };
+	    /**
+	     * @private
+	     */
+	    Tab.prototype.loadPage = function (viewCtrl, viewport, opts, done) {
+	        var _this = this;
+	        var isTabSubPage = (this.parent.subPages && viewCtrl.index > 0);
+	        if (isTabSubPage) {
+	            viewport = this.parent.portal;
+	        }
+	        _super.prototype.loadPage.call(this, viewCtrl, viewport, opts, function () {
+	            if (isTabSubPage) {
+	                // add the .tab-subpage css class to tabs pages that should act like subpages
+	                var pageEleRef = viewCtrl.pageRef();
+	                if (pageEleRef) {
+	                    _this._renderer.setElementClass(pageEleRef.nativeElement, 'tab-subpage', true);
+	                }
+	            }
+	            done();
+	        });
+	    };
+	    /**
+	     * @private
+	     */
+	    Tab.prototype.setSelected = function (isSelected) {
+	        this.isSelected = isSelected;
+	        if (isSelected) {
+	            // this is the selected tab, detect changes
+	            this._cd.reattach();
+	        }
+	        else {
+	            // this tab is not selected, do not detect changes
+	            this._cd.detach();
+	        }
+	    };
+	    Object.defineProperty(Tab.prototype, "index", {
+	        /**
+	         * @private
+	         */
+	        get: function () {
+	            return this.parent.getIndex(this);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     */
+	    Tab.prototype.ngOnDestroy = function () {
+	        clearTimeout(this._loadTmr);
+	        _super.prototype.ngOnDestroy.call(this);
+	    };
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.Type !== 'undefined' && core_1.Type) === 'function' && _a) || Object)
+	    ], Tab.prototype, "root", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], Tab.prototype, "rootParams", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Tab.prototype, "tabTitle", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Tab.prototype, "tabIcon", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Tab.prototype, "tabBadge", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Tab.prototype, "tabBadgeStyle", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Tab.prototype, "enabled", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Tab.prototype, "show", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Tab.prototype, "swipeBackEnabled", null);
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
+	    ], Tab.prototype, "ionSelect", void 0);
+	    __decorate([
+	        core_1.ViewChild('viewport', { read: core_1.ViewContainerRef }), 
+	        __metadata('design:type', (typeof (_c = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _c) || Object), 
+	        __metadata('design:paramtypes', [(typeof (_d = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _d) || Object])
+	    ], Tab.prototype, "_vp", null);
+	    Tab = __decorate([
+	        core_1.Component({
+	            selector: 'ion-tab',
+	            host: {
+	                '[class.show-tab]': 'isSelected',
+	                '[attr.id]': '_panelId',
+	                '[attr.aria-labelledby]': '_btnId',
+	                'role': 'tabpanel'
+	            },
+	            template: '<div #viewport></div><div class="nav-decor"></div>',
+	            encapsulation: core_1.ViewEncapsulation.None,
+	        }),
+	        __param(0, core_1.Inject(core_1.forwardRef(function () { return tabs_1.Tabs; }))), 
+	        __metadata('design:paramtypes', [(typeof (_e = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _e) || Object, (typeof (_f = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _f) || Object, (typeof (_g = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _g) || Object, (typeof (_h = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _h) || Object, (typeof (_j = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object, (typeof (_m = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _m) || Object, (typeof (_o = typeof core_1.ChangeDetectorRef !== 'undefined' && core_1.ChangeDetectorRef) === 'function' && _o) || Object])
+	    ], Tab);
+	    return Tab;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+	}(nav_controller_1.NavController));
+	exports.Tab = Tab;
+
+/***/ },
+/* 349 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(6);
+	var dom_1 = __webpack_require__(310);
+	/**
+	 * @private
+	 */
+	var TabHighlight = (function () {
+	    function TabHighlight(_elementRef) {
+	        this._elementRef = _elementRef;
+	    }
+	    TabHighlight.prototype.select = function (tab) {
+	        var _this = this;
+	        dom_1.rafFrames(3, function () {
+	            var d = tab.btn.getDimensions();
+	            var ele = _this._elementRef.nativeElement;
+	            ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
+	            if (!_this._init) {
+	                _this._init = true;
+	                dom_1.rafFrames(6, function () {
+	                    ele.classList.add('animate');
+	                });
+	            }
+	        });
+	    };
+	    TabHighlight = __decorate([
+	        core_1.Directive({
+	            selector: 'tab-highlight'
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
+	    ], TabHighlight);
+	    return TabHighlight;
+	    var _a;
+	}());
+	exports.TabHighlight = TabHighlight;
+
+/***/ },
+/* 350 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56166,7 +57477,7 @@
 	}
 
 /***/ },
-/* 347 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56269,7 +57580,7 @@
 	exports.Scroll = Scroll;
 
 /***/ },
-/* 348 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56539,7 +57850,7 @@
 	var STATE_LOADING = 'loading';
 
 /***/ },
-/* 349 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56554,7 +57865,7 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(311);
-	var infinite_scroll_1 = __webpack_require__(348);
+	var infinite_scroll_1 = __webpack_require__(352);
 	/**
 	 * @private
 	 */
@@ -56601,7 +57912,7 @@
 	exports.InfiniteScrollContent = InfiniteScrollContent;
 
 /***/ },
-/* 350 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56621,7 +57932,7 @@
 	var content_1 = __webpack_require__(344);
 	var util_1 = __webpack_require__(313);
 	var dom_1 = __webpack_require__(310);
-	var ui_event_manager_1 = __webpack_require__(351);
+	var ui_event_manager_1 = __webpack_require__(355);
 	/**
 	 * @name Refresher
 	 * @description
@@ -57085,7 +58396,7 @@
 	var STATE_COMPLETING = 'completing';
 
 /***/ },
-/* 351 */
+/* 355 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57236,7 +58547,7 @@
 	}
 
 /***/ },
-/* 352 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57251,7 +58562,7 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(311);
-	var refresher_1 = __webpack_require__(350);
+	var refresher_1 = __webpack_require__(354);
 	/**
 	 * @private
 	 */
@@ -57315,7 +58626,7 @@
 	exports.RefresherContent = RefresherContent;
 
 /***/ },
-/* 353 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57339,12 +58650,12 @@
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var ion_1 = __webpack_require__(319);
-	var animation_1 = __webpack_require__(341);
+	var animation_1 = __webpack_require__(340);
 	var gesture_1 = __webpack_require__(326);
 	var util_1 = __webpack_require__(327);
 	var dom_1 = __webpack_require__(310);
 	var util_2 = __webpack_require__(313);
-	var swiper_widget_1 = __webpack_require__(354);
+	var swiper_widget_1 = __webpack_require__(358);
 	/**
 	 * @name Slides
 	 * @description
@@ -58085,7 +59396,7 @@
 	var slidesId = -1;
 
 /***/ },
-/* 354 */
+/* 358 */
 /***/ function(module, exports) {
 
 	/**
@@ -62045,996 +63356,6 @@
 
 
 /***/ },
-/* 355 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
-	var core_1 = __webpack_require__(6);
-	var app_1 = __webpack_require__(308);
-	var config_1 = __webpack_require__(311);
-	var ion_1 = __webpack_require__(319);
-	var util_1 = __webpack_require__(313);
-	var nav_controller_1 = __webpack_require__(338);
-	var platform_1 = __webpack_require__(312);
-	var tab_button_1 = __webpack_require__(356);
-	var tab_highlight_1 = __webpack_require__(358);
-	var view_controller_1 = __webpack_require__(333);
-	/**
-	 * @name Tabs
-	 * @description
-	 * Tabs make it easy to navigate between different pages or functional
-	 * aspects of an app. The Tabs component, written as `<ion-tabs>`, is
-	 * a container of individual [Tab](../Tab/) components.
-	 *
-	 * ### Placement
-	 *
-	 * The position of the tabs relative to the content varies based on
-	 * the mode. By default, the tabs are placed at the bottom of the screen
-	 * for `ios` mode, and at the top for the `md` and `wp` modes. You can
-	 * configure the position using the `tabbarPlacement` property on the
-	 * `<ion-tabs>` element, or in your app's [config](../../config/Config/).
-	 * See the [Input Properties](#input-properties) below for the available
-	 * values of `tabbarPlacement`.
-	 *
-	 * ### Layout
-	 *
-	 * The layout for all of the tabs can be defined using the `tabbarLayout`
-	 * property. If the individual tab has a title and icon, the icons will
-	 * show on top of the title by default. All tabs can be changed by setting
-	 * the value of `tabbarLayout` on the `<ion-tabs>` element, or in your
-	 * app's [config](../../config/Config/). For example, this is useful if
-	 * you want to show tabs with a title only on Android, but show icons
-	 * and a title for iOS. See the [Input Properties](#input-properties)
-	 * below for the available values of `tabbarLayout`.
-	 *
-	 * ### Selecting a Tab
-	 *
-	 * There are different ways you can select a specific tab from the tabs
-	 * component. You can use the `selectedIndex` property to set the index
-	 * on the `<ion-tabs>` element, or you can call `select()` from the `Tabs`
-	 * instance after creation. See [usage](#usage) below for more information.
-	 *
-	 * @usage
-	 *
-	 * You can add a basic tabs template to a `@Component` using the following
-	 * template:
-	 *
-	 * ```html
-	 * <ion-tabs>
-	 *   <ion-tab [root]="tab1Root"></ion-tab>
-	 *   <ion-tab [root]="tab2Root"></ion-tab>
-	 *   <ion-tab [root]="tab3Root"></ion-tab>
-	 * </ion-tabs>
-	 * ```
-	 *
-	 * Where `tab1Root`, `tab2Root`, and `tab3Root` are each a page:
-	 *
-	 *```ts
-	 * @Component({
-	 *   templateUrl: 'build/pages/tabs/tabs.html'
-	 * })
-	 * export class TabsPage {
-	 *   // this tells the tabs component which Pages
-	 *   // should be each tab's root Page
-	 *   tab1Root = Page1;
-	 *   tab2Root = Page2;
-	 *   tab3Root = Page3;
-	 *
-	 *   constructor() {
-	 *
-	 *   }
-	 * }
-	 *```
-	 *
-	 * By default, the first tab will be selected upon navigation to the
-	 * Tabs page. We can change the selected tab by using `selectedIndex`
-	 * on the `<ion-tabs>` element:
-	 *
-	 * ```html
-	 * <ion-tabs selectedIndex="2">
-	 *   <ion-tab [root]="tab1Root"></ion-tab>
-	 *   <ion-tab [root]="tab2Root"></ion-tab>
-	 *   <ion-tab [root]="tab3Root"></ion-tab>
-	 * </ion-tabs>
-	 * ```
-	 *
-	 * Since the index starts at `0`, this will select the 3rd tab which has
-	 * root set to `tab3Root`. If you wanted to change it dynamically from
-	 * your class, you could use [property binding](https://angular.io/docs/ts/latest/guide/template-syntax.html#!#property-binding).
-	 *
-	 * Alternatively, you can grab the `Tabs` instance and call the `select()`
-	 * method. This requires the `<ion-tabs>` element to have an `id`. For
-	 * example, set the value of `id` to `myTabs`:
-	 *
-	 * ```html
-	 * <ion-tabs #myTabs>
-	 *   <ion-tab [root]="tab1Root"></ion-tab>
-	 *   <ion-tab [root]="tab2Root"></ion-tab>
-	 *   <ion-tab [root]="tab3Root"></ion-tab>
-	 * </ion-tabs>
-	 * ```
-	 *
-	 * Then in your class you can grab the `Tabs` instance and call `select()`,
-	 * passing the index of the tab as the argument. Here we're grabbing the tabs
-	 * by using ViewChild.
-	 *
-	 *```ts
-	 * export class TabsPage {
-	 *
-	 * @ViewChild('myTabs') tabRef: Tabs;
-	 *
-	 * ionViewDidEnter() {
-	 *   this.tabRef.select(2);
-	 *  }
-	 *
-	 * }
-	 *```
-	 *
-	 * @demo /docs/v2/demos/tabs/
-	 *
-	 * @see {@link /docs/v2/components#tabs Tabs Component Docs}
-	 * @see {@link ../Tab Tab API Docs}
-	 * @see {@link ../../config/Config Config API Docs}
-	 *
-	 */
-	var Tabs = (function (_super) {
-	    __extends(Tabs, _super);
-	    function Tabs(parent, viewCtrl, _app, _config, _elementRef, _platform, _renderer) {
-	        var _this = this;
-	        _super.call(this, _elementRef);
-	        this._app = _app;
-	        this._config = _config;
-	        this._elementRef = _elementRef;
-	        this._platform = _platform;
-	        this._renderer = _renderer;
-	        this._ids = -1;
-	        this._preloadTabs = null;
-	        this._tabs = [];
-	        this._onReady = null;
-	        /**
-	         * @private
-	         */
-	        this.selectHistory = [];
-	        /**
-	         * @input {any} Expression to evaluate when the tab changes.
-	         */
-	        this.ionChange = new core_1.EventEmitter();
-	        this.parent = parent;
-	        this.id = ++tabIds;
-	        this.subPages = _config.getBoolean('tabSubPages', false);
-	        this._useHighlight = _config.getBoolean('tabbarHighlight', false);
-	        this._sbPadding = _config.getBoolean('statusbarPadding', false);
-	        if (parent) {
-	            // this Tabs has a parent Nav
-	            parent.registerChildNav(this);
-	        }
-	        else if (this._app) {
-	            // this is the root navcontroller for the entire app
-	            this._app.setRootNav(this);
-	        }
-	        // Tabs may also be an actual ViewController which was navigated to
-	        // if Tabs is static and not navigated to within a NavController
-	        // then skip this and don't treat it as it's own ViewController
-	        if (viewCtrl) {
-	            viewCtrl.setContent(this);
-	            viewCtrl.setContentRef(_elementRef);
-	            viewCtrl.loaded = function (done) {
-	                _this._onReady = done;
-	            };
-	        }
-	    }
-	    /**
-	     * @private
-	     */
-	    Tabs.prototype.ngAfterViewInit = function () {
-	        var _this = this;
-	        this._setConfig('tabbarPlacement', 'bottom');
-	        this._setConfig('tabbarLayout', 'icon-top');
-	        if (this._useHighlight) {
-	            this._platform.onResize(function () {
-	                _this._highlight.select(_this.getSelected());
-	            });
-	        }
-	        var preloadTabs = (util_1.isBlank(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
-	        // get the selected index
-	        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
-	        // ensure the selectedIndex isn't a hidden or disabled tab
-	        // also find the first available index incase we need it later
-	        var availableIndex = -1;
-	        this._tabs.forEach(function (tab, index) {
-	            if (tab.enabled && tab.show && availableIndex < 0) {
-	                // we know this tab index is safe to show
-	                availableIndex = index;
-	            }
-	            if (index === selectedIndex && (!tab.enabled || !tab.show)) {
-	                // the selectedIndex is not safe to show
-	                selectedIndex = -1;
-	            }
-	        });
-	        if (selectedIndex < 0) {
-	            // the selected index wasn't safe to show
-	            // instead use an available index found to be safe to show
-	            selectedIndex = availableIndex;
-	        }
-	        this._tabs.forEach(function (tab, index) {
-	            if (index === selectedIndex) {
-	                _this.select(tab);
-	            }
-	            else if (preloadTabs) {
-	                tab.preload(1000 * index);
-	            }
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    Tabs.prototype._setConfig = function (attrKey, fallback) {
-	        var val = this[attrKey];
-	        if (util_1.isBlank(val)) {
-	            val = this._config.get(attrKey, fallback);
-	        }
-	        this._renderer.setElementAttribute(this._elementRef.nativeElement, attrKey, val);
-	    };
-	    /**
-	     * @private
-	     */
-	    Tabs.prototype.add = function (tab) {
-	        tab.id = this.id + '-' + (++this._ids);
-	        this._tabs.push(tab);
-	    };
-	    /**
-	     * @param {number|Tab} tabOrIndex Index, or the Tab instance, of the tab to select.
-	     */
-	    Tabs.prototype.select = function (tabOrIndex) {
-	        var _this = this;
-	        var selectedTab = (typeof tabOrIndex === 'number' ? this.getByIndex(tabOrIndex) : tabOrIndex);
-	        if (util_1.isBlank(selectedTab)) {
-	            return;
-	        }
-	        var deselectedTab = this.getSelected();
-	        if (selectedTab === deselectedTab) {
-	            // no change
-	            return this._touchActive(selectedTab);
-	        }
-	        console.debug('Tabs, select', selectedTab.id);
-	        var opts = {
-	            animate: false
-	        };
-	        var deselectedPage;
-	        if (deselectedTab) {
-	            deselectedPage = deselectedTab.getActive();
-	            deselectedPage && deselectedPage.fireWillLeave();
-	        }
-	        var selectedPage = selectedTab.getActive();
-	        selectedPage && selectedPage.fireWillEnter();
-	        selectedTab.load(opts, function () {
-	            selectedTab.ionSelect.emit(selectedTab);
-	            _this.ionChange.emit(selectedTab);
-	            if (selectedTab.root) {
-	                // only show the selectedTab if it has a root
-	                // it's possible the tab is only for opening modal's or signing out
-	                // and doesn't actually have content. In the case there's no content
-	                // for a tab then do nothing and leave the current view as is
-	                _this._tabs.forEach(function (tab) {
-	                    tab.setSelected(tab === selectedTab);
-	                });
-	                if (_this._useHighlight) {
-	                    _this._highlight.select(selectedTab);
-	                }
-	            }
-	            selectedPage && selectedPage.fireDidEnter();
-	            deselectedPage && deselectedPage.fireDidLeave();
-	            if (_this._onReady) {
-	                _this._onReady();
-	                _this._onReady = null;
-	            }
-	            // track the order of which tabs have been selected, by their index
-	            // do not track if the tab index is the same as the previous
-	            if (_this.selectHistory[_this.selectHistory.length - 1] !== selectedTab.id) {
-	                _this.selectHistory.push(selectedTab.id);
-	            }
-	        });
-	    };
-	    /**
-	     * Get the previously selected Tab which is currently not disabled or hidden.
-	     * @param {boolean} trimHistory If the selection history should be trimmed up to the previous tab selection or not.
-	     * @returns {Tab}
-	     */
-	    Tabs.prototype.previousTab = function (trimHistory) {
-	        var _this = this;
-	        if (trimHistory === void 0) { trimHistory = true; }
-	        // walk backwards through the tab selection history
-	        // and find the first previous tab that is enabled and shown
-	        console.debug('run previousTab', this.selectHistory);
-	        for (var i = this.selectHistory.length - 2; i >= 0; i--) {
-	            var tab = this._tabs.find(function (t) { return t.id === _this.selectHistory[i]; });
-	            if (tab && tab.enabled && tab.show) {
-	                if (trimHistory) {
-	                    this.selectHistory.splice(i + 1);
-	                }
-	                return tab;
-	            }
-	        }
-	        return null;
-	    };
-	    /**
-	     * @param {number} index Index of the tab you want to get
-	     * @returns {Tab} Returns the tab who's index matches the one passed
-	     */
-	    Tabs.prototype.getByIndex = function (index) {
-	        if (index < this._tabs.length && index > -1) {
-	            return this._tabs[index];
-	        }
-	        return null;
-	    };
-	    /**
-	     * @return {Tab} Returns the currently selected tab
-	     */
-	    Tabs.prototype.getSelected = function () {
-	        for (var i = 0; i < this._tabs.length; i++) {
-	            if (this._tabs[i].isSelected) {
-	                return this._tabs[i];
-	            }
-	        }
-	        return null;
-	    };
-	    /**
-	     * @private
-	     */
-	    Tabs.prototype.getActiveChildNav = function () {
-	        return this.getSelected();
-	    };
-	    /**
-	     * @private
-	     */
-	    Tabs.prototype.getIndex = function (tab) {
-	        return this._tabs.indexOf(tab);
-	    };
-	    /**
-	     * @private
-	     * "Touch" the active tab, going back to the root view of the tab
-	     * or optionally letting the tab handle the event
-	     */
-	    Tabs.prototype._touchActive = function (tab) {
-	        var active = tab.getActive();
-	        if (!active) {
-	            return Promise.resolve();
-	        }
-	        var instance = active.instance;
-	        // If they have a custom tab selected handler, call it
-	        if (instance.ionSelected) {
-	            return instance.ionSelected();
-	        }
-	        // If we're a few pages deep, pop to root
-	        if (tab.length() > 1) {
-	            // Pop to the root view
-	            return tab.popToRoot();
-	        }
-	        // Otherwise, if the page we're on is not our real root, reset it to our
-	        // default root type
-	        if (tab.root !== active.componentType) {
-	            return tab.setRoot(tab.root);
-	        }
-	        // And failing all of that, we do something safe and secure
-	        return Promise.resolve();
-	    };
-	    Object.defineProperty(Tabs.prototype, "rootNav", {
-	        /**
-	         * @private
-	         * Returns the root NavController. Returns `null` if Tabs is not
-	         * within a NavController.
-	         * @returns {NavController}
-	         */
-	        get: function () {
-	            var nav = this.parent;
-	            while (nav.parent) {
-	                nav = nav.parent;
-	            }
-	            return nav;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Tabs.prototype, "selectedIndex", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Tabs.prototype, "preloadTabs", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Tabs.prototype, "tabbarLayout", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Tabs.prototype, "tabbarPlacement", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Tabs.prototype, "ionChange", void 0);
-	    __decorate([
-	        core_1.ViewChild(tab_highlight_1.TabHighlight), 
-	        __metadata('design:type', (typeof (_b = typeof tab_highlight_1.TabHighlight !== 'undefined' && tab_highlight_1.TabHighlight) === 'function' && _b) || Object)
-	    ], Tabs.prototype, "_highlight", void 0);
-	    Tabs = __decorate([
-	        core_1.Component({
-	            selector: 'ion-tabs',
-	            template: '<ion-navbar-section [class.statusbar-padding]="_sbPadding">' +
-	                '<template navbar-anchor></template>' +
-	                '</ion-navbar-section>' +
-	                '<ion-tabbar-section>' +
-	                '<tabbar role="tablist">' +
-	                '<a *ngFor="let t of _tabs" [tab]="t" class="tab-button" [class.tab-disabled]="!t.enabled" [class.tab-hidden]="!t.show" role="tab" href="#" (ionSelect)="select($event)">' +
-	                '<ion-icon *ngIf="t.tabIcon" [name]="t.tabIcon" [isActive]="t.isSelected" class="tab-button-icon"></ion-icon>' +
-	                '<span *ngIf="t.tabTitle" class="tab-button-text">{{t.tabTitle}}</span>' +
-	                '<ion-badge *ngIf="t.tabBadge" class="tab-badge" [ngClass]="\'badge-\' + t.tabBadgeStyle">{{t.tabBadge}}</ion-badge>' +
-	                '<ion-button-effect></ion-button-effect>' +
-	                '</a>' +
-	                '<tab-highlight></tab-highlight>' +
-	                '</tabbar>' +
-	                '</ion-tabbar-section>' +
-	                '<ion-content-section>' +
-	                '<ng-content></ng-content>' +
-	                '</ion-content-section>',
-	            directives: [
-	                tab_button_1.TabButton,
-	                tab_highlight_1.TabHighlight,
-	                core_1.forwardRef(function () { return TabNavBarAnchor; })
-	            ],
-	            encapsulation: core_1.ViewEncapsulation.None,
-	        }),
-	        __param(0, core_1.Optional()),
-	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _c) || Object, (typeof (_d = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _d) || Object, (typeof (_e = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _g) || Object, (typeof (_h = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _h) || Object, (typeof (_j = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _j) || Object])
-	    ], Tabs);
-	    return Tabs;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
-	}(ion_1.Ion));
-	exports.Tabs = Tabs;
-	var tabIds = -1;
-	/**
-	 * @private
-	 */
-	var TabNavBarAnchor = (function () {
-	    function TabNavBarAnchor(tabs, viewContainerRef) {
-	        tabs.navbarContainerRef = viewContainerRef;
-	    }
-	    TabNavBarAnchor = __decorate([
-	        core_1.Directive({ selector: 'template[navbar-anchor]' }),
-	        __param(0, core_1.Host()), 
-	        __metadata('design:paramtypes', [Tabs, (typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object])
-	    ], TabNavBarAnchor);
-	    return TabNavBarAnchor;
-	    var _a;
-	}());
-
-/***/ },
-/* 356 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(6);
-	var tab_1 = __webpack_require__(357);
-	var ion_1 = __webpack_require__(319);
-	var config_1 = __webpack_require__(311);
-	/**
-	 * @private
-	 */
-	var TabButton = (function (_super) {
-	    __extends(TabButton, _super);
-	    function TabButton(config, elementRef) {
-	        _super.call(this, elementRef);
-	        this.ionSelect = new core_1.EventEmitter();
-	        this.disHover = (config.get('hoverCSS') === false);
-	        this._layout = config.get('tabbarLayout');
-	    }
-	    TabButton.prototype.ngOnInit = function () {
-	        this.tab.btn = this;
-	        this._layout = this.tab.parent.tabbarLayout || this._layout;
-	        this.hasTitle = !!this.tab.tabTitle;
-	        this.hasIcon = !!this.tab.tabIcon && this._layout !== 'icon-hide';
-	        this.hasTitleOnly = (this.hasTitle && !this.hasIcon);
-	        this.hasIconOnly = (this.hasIcon && !this.hasTitle);
-	        this.hasBadge = !!this.tab.tabBadge;
-	    };
-	    TabButton.prototype.onClick = function (ev) {
-	        this.ionSelect.emit(this.tab);
-	        ev.preventDefault();
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', (typeof (_a = typeof tab_1.Tab !== 'undefined' && tab_1.Tab) === 'function' && _a) || Object)
-	    ], TabButton.prototype, "tab", void 0);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], TabButton.prototype, "ionSelect", void 0);
-	    __decorate([
-	        core_1.HostListener('click', ['$event']), 
-	        __metadata('design:type', Function), 
-	        __metadata('design:paramtypes', [Object]), 
-	        __metadata('design:returntype', void 0)
-	    ], TabButton.prototype, "onClick", null);
-	    TabButton = __decorate([
-	        core_1.Directive({
-	            selector: '.tab-button',
-	            host: {
-	                '[attr.id]': 'tab._btnId',
-	                '[attr.aria-controls]': 'tab._panelId',
-	                '[attr.aria-selected]': 'tab.isSelected',
-	                '[class.has-title]': 'hasTitle',
-	                '[class.has-icon]': 'hasIcon',
-	                '[class.has-title-only]': 'hasTitleOnly',
-	                '[class.icon-only]': 'hasIconOnly',
-	                '[class.has-badge]': 'hasBadge',
-	                '[class.disable-hover]': 'disHover'
-	            }
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object])
-	    ], TabButton);
-	    return TabButton;
-	    var _a, _b, _c, _d;
-	}(ion_1.Ion));
-	exports.TabButton = TabButton;
-
-/***/ },
-/* 357 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
-	var core_1 = __webpack_require__(6);
-	var app_1 = __webpack_require__(308);
-	var config_1 = __webpack_require__(311);
-	var util_1 = __webpack_require__(313);
-	var keyboard_1 = __webpack_require__(320);
-	var nav_controller_1 = __webpack_require__(338);
-	var tabs_1 = __webpack_require__(355);
-	/**
-	 * @name Tab
-	 * @description
-	 * The Tab component, written `<ion-tab>`, is styled based on the mode and should
-	 * be used in conjunction with the [Tabs](../Tabs/) component.
-	 *
-	 * Each tab has a separate navigation controller. For more information on using
-	 * navigation controllers take a look at the [NavController API Docs](../../nav/NavController/).
-	 *
-	 * See the [Tabs API Docs](../Tabs/) for more details on configuring Tabs.
-	 *
-	 * @usage
-	 *
-	 * To add a basic tab, you can use the following markup where the `root` property
-	 * is the page you want to load for that tab, `tabTitle` is the optional text to
-	 * display on the tab, and `tabIcon` is the optional [icon](../../icon/Icon/).
-	 *
-	 * ```html
-	 * <ion-tabs>
-	 *  <ion-tab [root]="chatRoot" tabTitle="Chat" tabIcon="chat"><ion-tab>
-	 * </ion-tabs>
-	 * ```
-	 *
-	 * Then, in your class you can set `chatRoot` to an imported class:
-	 *
-	 * ```ts
-	 * import {ChatPage} from '../chat/chat';
-	 *
-	 * export class Tabs {
-	 *   // here we'll set the property of chatRoot to
-	 *   // the imported class of ChatPage
-	 *   chatRoot = ChatPage;
-	 *
-	 *   constructor() {
-	 *
-	 *   }
-	 * }
-	 * ```
-	 *
-	 * You can also pass some parameters to the root page of the tab through
-	 * `rootParams`. Below we pass `chatParams` to the Chat tab:
-	 *
-	 * ```html
-	 * <ion-tabs>
-	 *  <ion-tab [root]="chatRoot" [rootParams]="chatParams" tabTitle="Chat" tabIcon="chat"><ion-tab>
-	 * </ion-tabs>
-	 * ```
-	 *
-	 * ```ts
-	 * export class Tabs {
-	 *   chatRoot = ChatPage;
-	 *
-	 *   // set some user information on chatParams
-	 *   chatParams = {
-	 *     user1: "admin",
-	 *     user2: "ionic"
-	 *   };
-	 *
-	 *   constructor() {
-	 *
-	 *   }
-	 * }
-	 * ```
-	 *
-	 * And in `ChatPage` you can get the data from `NavParams`:
-	 *
-	 * ```ts
-	 * export class ChatPage {
-	 *   constructor(navParams: NavParams) {
-	 *     console.log("Passed params", navParams.data);
-	 *   }
-	 * }
-	 * ```
-	 *
-	 * Sometimes you may want to call a method instead of navigating to a new
-	 * page. You can use the `(ionSelect)` event to call a method on your class when
-	 * the tab is selected. Below is an example of presenting a modal from one of
-	 * the tabs.
-	 *
-	 * ```html
-	 * <ion-tabs preloadTabs="false">
-	 *   <ion-tab (ionSelect)="chat()"></ion-tab>
-	 * </ion-tabs>
-	 * ```
-	 *
-	 * ```ts
-	 * export class Tabs {
-	 *   constructor(nav: NavController) {
-	 *     this.nav = nav;
-	 *   }
-	 *
-	 *   chat() {
-	 *     let modal = Modal.create(ChatPage);
-	 *     this.nav.present(modal);
-	 *   }
-	 * }
-	 * ```
-	 *
-	 *
-	 * @demo /docs/v2/demos/tabs/
-	 * @see {@link /docs/v2/components#tabs Tabs Component Docs}
-	 * @see {@link ../../tabs/Tabs Tabs API Docs}
-	 * @see {@link ../../nav/Nav Nav API Docs}
-	 * @see {@link ../../nav/NavController NavController API Docs}
-	 */
-	var Tab = (function (_super) {
-	    __extends(Tab, _super);
-	    function Tab(parentTabs, app, config, keyboard, elementRef, zone, renderer, compiler, _cd) {
-	        // A Tab is a NavController for its child pages
-	        _super.call(this, parentTabs, app, config, keyboard, elementRef, zone, renderer, compiler);
-	        this._cd = _cd;
-	        this._isEnabled = true;
-	        this._isShown = true;
-	        /**
-	         * @output {Tab} Method to call when the current tab is selected
-	         */
-	        this.ionSelect = new core_1.EventEmitter();
-	        parentTabs.add(this);
-	        if (parentTabs.rootNav) {
-	            this._sbEnabled = parentTabs.rootNav.isSwipeBackEnabled();
-	        }
-	        this._panelId = 'tabpanel-' + this.id;
-	        this._btnId = 'tab-' + this.id;
-	    }
-	    Object.defineProperty(Tab.prototype, "enabled", {
-	        /**
-	         * @input {boolean} If the tab is enabled or not. If the tab
-	         * is not enabled then the tab button will still show, however,
-	         * the button will appear grayed out and will not be clickable.
-	         * Defaults to `true`.
-	         */
-	        get: function () {
-	            return this._isEnabled;
-	        },
-	        set: function (val) {
-	            this._isEnabled = util_1.isTrueProperty(val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Tab.prototype, "show", {
-	        /**
-	         * @input {boolean} If the tab button is visible within the
-	         * tabbar or not. Defaults to `true`.
-	         */
-	        get: function () {
-	            return this._isShown;
-	        },
-	        set: function (val) {
-	            this._isShown = util_1.isTrueProperty(val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Tab.prototype, "swipeBackEnabled", {
-	        /**
-	         * @input {boolean} Whether it's possible to swipe-to-go-back on this tab or not.
-	         */
-	        get: function () {
-	            return this._sbEnabled;
-	        },
-	        set: function (val) {
-	            this._sbEnabled = util_1.isTrueProperty(val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Tab.prototype, "_vp", {
-	        /**
-	         * @private
-	         */
-	        set: function (val) {
-	            this.setViewport(val);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @private
-	     */
-	    Tab.prototype.ngOnInit = function () {
-	        this.tabBadgeStyle = this.tabBadgeStyle ? this.tabBadgeStyle : 'default';
-	    };
-	    /**
-	     * @private
-	     */
-	    Tab.prototype.load = function (opts, done) {
-	        if (!this._loaded && this.root) {
-	            this.push(this.root, this.rootParams, opts).then(function () {
-	                done();
-	            });
-	            this._loaded = true;
-	        }
-	        else {
-	            done();
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Tab.prototype.preload = function (wait) {
-	        var _this = this;
-	        this._loadTmr = setTimeout(function () {
-	            if (!_this._loaded) {
-	                console.debug('Tabs, preload', _this.id);
-	                _this.load({
-	                    animate: false,
-	                    preload: true,
-	                    postLoad: function (viewCtrl) {
-	                        var navbar = viewCtrl.getNavbar();
-	                        navbar && navbar.setHidden(true);
-	                    }
-	                }, function () { });
-	            }
-	        }, wait);
-	    };
-	    /**
-	     * @private
-	     */
-	    Tab.prototype.loadPage = function (viewCtrl, navbarContainerRef, opts, done) {
-	        var _this = this;
-	        // by default a page's navbar goes into the shared tab's navbar section
-	        navbarContainerRef = this.parent.navbarContainerRef;
-	        var isTabSubPage = (this.parent.subPages && viewCtrl.index > 0);
-	        if (isTabSubPage) {
-	            // a subpage, that's not the first index
-	            // should not use the shared tabs navbar section, but use it's own
-	            navbarContainerRef = null;
-	        }
-	        _super.prototype.loadPage.call(this, viewCtrl, navbarContainerRef, opts, function () {
-	            if (isTabSubPage) {
-	                // add the .tab-subpage css class to tabs pages that should act like subpages
-	                var pageEleRef = viewCtrl.pageRef();
-	                if (pageEleRef) {
-	                    _this._renderer.setElementClass(pageEleRef.nativeElement, 'tab-subpage', true);
-	                }
-	            }
-	            done();
-	        });
-	    };
-	    /**
-	     * @private
-	     */
-	    Tab.prototype.setSelected = function (isSelected) {
-	        this.isSelected = isSelected;
-	        if (isSelected) {
-	            // this is the selected tab, detect changes
-	            this._cd.reattach();
-	        }
-	        else {
-	            // this tab is not selected, do not detect changes
-	            this._cd.detach();
-	        }
-	        this.hideNavbars(!isSelected);
-	    };
-	    /**
-	     * @private
-	     */
-	    Tab.prototype.hideNavbars = function (shouldHideNavbars) {
-	        this._views.forEach(function (viewCtrl) {
-	            var navbar = viewCtrl.getNavbar();
-	            navbar && navbar.setHidden(shouldHideNavbars);
-	        });
-	    };
-	    Object.defineProperty(Tab.prototype, "index", {
-	        /**
-	         * @private
-	         */
-	        get: function () {
-	            return this.parent.getIndex(this);
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	     * @private
-	     */
-	    Tab.prototype.ngOnDestroy = function () {
-	        clearTimeout(this._loadTmr);
-	        _super.prototype.ngOnDestroy.call(this);
-	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.Type !== 'undefined' && core_1.Type) === 'function' && _a) || Object)
-	    ], Tab.prototype, "root", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Object)
-	    ], Tab.prototype, "rootParams", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Tab.prototype, "tabTitle", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Tab.prototype, "tabIcon", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Tab.prototype, "tabBadge", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', String)
-	    ], Tab.prototype, "tabBadgeStyle", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean)
-	    ], Tab.prototype, "enabled", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean)
-	    ], Tab.prototype, "show", null);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean)
-	    ], Tab.prototype, "swipeBackEnabled", null);
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)
-	    ], Tab.prototype, "ionSelect", void 0);
-	    __decorate([
-	        core_1.ViewChild('viewport', { read: core_1.ViewContainerRef }), 
-	        __metadata('design:type', (typeof (_c = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _c) || Object), 
-	        __metadata('design:paramtypes', [(typeof (_d = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _d) || Object])
-	    ], Tab.prototype, "_vp", null);
-	    Tab = __decorate([
-	        core_1.Component({
-	            selector: 'ion-tab',
-	            host: {
-	                '[class.show-tab]': 'isSelected',
-	                '[attr.id]': '_panelId',
-	                '[attr.aria-labelledby]': '_btnId',
-	                'role': 'tabpanel'
-	            },
-	            template: '<div #viewport></div>',
-	            encapsulation: core_1.ViewEncapsulation.None,
-	        }),
-	        __param(0, core_1.Inject(core_1.forwardRef(function () { return tabs_1.Tabs; }))), 
-	        __metadata('design:paramtypes', [(typeof (_e = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _e) || Object, (typeof (_f = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _f) || Object, (typeof (_g = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _g) || Object, (typeof (_h = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _h) || Object, (typeof (_j = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _j) || Object, (typeof (_k = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object, (typeof (_m = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _m) || Object, (typeof (_o = typeof core_1.ChangeDetectorRef !== 'undefined' && core_1.ChangeDetectorRef) === 'function' && _o) || Object])
-	    ], Tab);
-	    return Tab;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
-	}(nav_controller_1.NavController));
-	exports.Tab = Tab;
-
-/***/ },
-/* 358 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(6);
-	var dom_1 = __webpack_require__(310);
-	/**
-	 * @private
-	 */
-	var TabHighlight = (function () {
-	    function TabHighlight(_elementRef) {
-	        this._elementRef = _elementRef;
-	    }
-	    TabHighlight.prototype.select = function (tab) {
-	        var _this = this;
-	        dom_1.rafFrames(3, function () {
-	            var d = tab.btn.getDimensions();
-	            var ele = _this._elementRef.nativeElement;
-	            ele.style.transform = 'translate3d(' + d.left + 'px,0,0) scaleX(' + d.width + ')';
-	            if (!_this._init) {
-	                _this._init = true;
-	                dom_1.rafFrames(6, function () {
-	                    ele.classList.add('animate');
-	                });
-	            }
-	        });
-	    };
-	    TabHighlight = __decorate([
-	        core_1.Directive({
-	            selector: 'tab-highlight'
-	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
-	    ], TabHighlight);
-	    return TabHighlight;
-	    var _a;
-	}());
-	exports.TabHighlight = TabHighlight;
-
-/***/ },
 /* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -63412,7 +63733,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var ui_event_manager_1 = __webpack_require__(351);
+	var ui_event_manager_1 = __webpack_require__(355);
 	var dom_1 = __webpack_require__(310);
 	var AUTO_SCROLL_MARGIN = 60;
 	var SCROLL_JUMP = 10;
@@ -63551,7 +63872,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var button_1 = __webpack_require__(337);
+	var button_1 = __webpack_require__(343);
 	var form_1 = __webpack_require__(316);
 	var icon_1 = __webpack_require__(363);
 	var label_1 = __webpack_require__(364);
@@ -64811,7 +65132,7 @@
 	var virtual_util_1 = __webpack_require__(368);
 	var config_1 = __webpack_require__(311);
 	var content_1 = __webpack_require__(344);
-	var img_1 = __webpack_require__(346);
+	var img_1 = __webpack_require__(350);
 	var util_1 = __webpack_require__(313);
 	var dom_1 = __webpack_require__(310);
 	var platform_1 = __webpack_require__(312);
@@ -66008,6 +66329,158 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(6);
+	var button_1 = __webpack_require__(343);
+	var navbar_1 = __webpack_require__(335);
+	var toolbar_1 = __webpack_require__(336);
+	/**
+	 * @private
+	 */
+	var ToolbarItem = (function () {
+	    function ToolbarItem(elementRef, toolbar, navbar) {
+	        toolbar && toolbar.addItemRef(elementRef);
+	        navbar && navbar.addItemRef(elementRef);
+	        this.inToolbar = !!(toolbar || navbar);
+	    }
+	    Object.defineProperty(ToolbarItem.prototype, "_buttons", {
+	        set: function (buttons) {
+	            if (this.inToolbar) {
+	                button_1.Button.setRoles(buttons, 'bar-button');
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    __decorate([
+	        core_1.ContentChildren(button_1.Button), 
+	        __metadata('design:type', Object), 
+	        __metadata('design:paramtypes', [Object])
+	    ], ToolbarItem.prototype, "_buttons", null);
+	    ToolbarItem = __decorate([
+	        core_1.Directive({
+	            selector: 'ion-buttons,[menuToggle]'
+	        }),
+	        __param(1, core_1.Optional()),
+	        __param(2, core_1.Optional()),
+	        __param(2, core_1.Inject(core_1.forwardRef(function () { return navbar_1.Navbar; }))), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof toolbar_1.Toolbar !== 'undefined' && toolbar_1.Toolbar) === 'function' && _b) || Object, (typeof (_c = typeof navbar_1.Navbar !== 'undefined' && navbar_1.Navbar) === 'function' && _c) || Object])
+	    ], ToolbarItem);
+	    return ToolbarItem;
+	    var _a, _b, _c;
+	}());
+	exports.ToolbarItem = ToolbarItem;
+
+/***/ },
+/* 371 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(6);
+	var ion_1 = __webpack_require__(319);
+	var navbar_1 = __webpack_require__(335);
+	var toolbar_1 = __webpack_require__(336);
+	/**
+	 * @name Title
+	 * @description
+	 * `ion-title` is a component that sets the title of the `Toolbar` or `Navbar`
+	 *
+	 * @usage
+	 *
+	 * ```html
+	 * <ion-header>
+	 *
+	 *   <ion-navbar>
+	 *     <ion-title>Settings</ion-title>
+	 *   </ion-navbar>
+	 *
+	 * </ion-header>
+	 * ```
+	 *
+	 * Or to create a navbar with a toolbar as a subheader:
+	 *
+	 * ```html
+	 * <ion-header>
+	 *
+	 *   <ion-navbar>
+	 *     <ion-title>Main Heder</ion-title>
+	 *   </ion-navbar>
+	 *
+	 *   <ion-toolbar>
+	 *     <ion-title>Subheader</ion-title>
+	 *   </ion-toolbar>
+	 *
+	 * </ion-header>
+	 * ```
+	 *
+	 * @demo /docs/v2/demos/title/
+	 */
+	var ToolbarTitle = (function (_super) {
+	    __extends(ToolbarTitle, _super);
+	    function ToolbarTitle(_elementRef, toolbar, navbar) {
+	        _super.call(this, _elementRef);
+	        this._elementRef = _elementRef;
+	        toolbar && toolbar.setTitleCmp(this);
+	        navbar && navbar.setTitleCmp(this);
+	    }
+	    /**
+	     * @private
+	     */
+	    ToolbarTitle.prototype.getTitleText = function () {
+	        return this._elementRef.nativeElement.textContent;
+	    };
+	    ToolbarTitle = __decorate([
+	        core_1.Component({
+	            selector: 'ion-title',
+	            template: '<div class="toolbar-title">' +
+	                '<ng-content></ng-content>' +
+	                '</div>',
+	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+	            encapsulation: core_1.ViewEncapsulation.None,
+	        }),
+	        __param(1, core_1.Optional()),
+	        __param(2, core_1.Optional()),
+	        __param(2, core_1.Inject(core_1.forwardRef(function () { return navbar_1.Navbar; }))), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof toolbar_1.Toolbar !== 'undefined' && toolbar_1.Toolbar) === 'function' && _b) || Object, (typeof (_c = typeof navbar_1.Navbar !== 'undefined' && navbar_1.Navbar) === 'function' && _c) || Object])
+	    ], ToolbarTitle);
+	    return ToolbarTitle;
+	    var _a, _b, _c;
+	}(ion_1.Ion));
+	exports.ToolbarTitle = ToolbarTitle;
+
+/***/ },
+/* 372 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var config_1 = __webpack_require__(311);
@@ -66296,7 +66769,7 @@
 	};
 
 /***/ },
-/* 371 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66518,7 +66991,7 @@
 	exports.Checkbox = Checkbox;
 
 /***/ },
-/* 372 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -66536,13 +67009,13 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
-	var alert_1 = __webpack_require__(373);
-	var action_sheet_1 = __webpack_require__(374);
+	var alert_1 = __webpack_require__(375);
+	var action_sheet_1 = __webpack_require__(376);
 	var form_1 = __webpack_require__(316);
 	var item_1 = __webpack_require__(362);
 	var util_1 = __webpack_require__(313);
-	var nav_controller_1 = __webpack_require__(338);
-	var option_1 = __webpack_require__(375);
+	var nav_controller_1 = __webpack_require__(337);
+	var option_1 = __webpack_require__(377);
 	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 	/**
 	 * @name Select
@@ -67004,7 +67477,7 @@
 	exports.Select = Select;
 
 /***/ },
-/* 373 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67023,8 +67496,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var animation_1 = __webpack_require__(341);
-	var transition_1 = __webpack_require__(340);
+	var animation_1 = __webpack_require__(340);
+	var transition_1 = __webpack_require__(339);
 	var config_1 = __webpack_require__(311);
 	var util_1 = __webpack_require__(313);
 	var key_1 = __webpack_require__(321);
@@ -67215,7 +67688,6 @@
 	        opts.buttons = opts.buttons || [];
 	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, AlertCmp, opts);
-	        this.viewType = 'alert';
 	        this.isOverlay = true;
 	        // by default, alerts should not fire lifecycle events of other views
 	        // for example, when an alert enters, the current active view should
@@ -67555,12 +68027,12 @@
 	var AlertPopIn = (function (_super) {
 	    __extends(AlertPopIn, _super);
 	    function AlertPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.3');
+	        wrapper.fromTo('opacity', 0.01, 1).fromTo('scale', 1.1, 1);
+	        backdrop.fromTo('opacity', 0.01, 0.3);
 	        this
 	            .easing('ease-in-out')
 	            .duration(200)
@@ -67573,12 +68045,12 @@
 	var AlertPopOut = (function (_super) {
 	    __extends(AlertPopOut, _super);
 	    function AlertPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
-	        backdrop.fromTo('opacity', '0.3', '0');
+	        wrapper.fromTo('opacity', 0.99, 0).fromTo('scale', 1, 0.9);
+	        backdrop.fromTo('opacity', 0.3, 0);
 	        this
 	            .easing('ease-in-out')
 	            .duration(200)
@@ -67591,12 +68063,12 @@
 	var AlertMdPopIn = (function (_super) {
 	    __extends(AlertMdPopIn, _super);
 	    function AlertMdPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.5');
+	        wrapper.fromTo('opacity', 0.01, 1).fromTo('scale', 1.1, 1);
+	        backdrop.fromTo('opacity', 0.01, 0.5);
 	        this
 	            .easing('ease-in-out')
 	            .duration(200)
@@ -67609,12 +68081,12 @@
 	var AlertMdPopOut = (function (_super) {
 	    __extends(AlertMdPopOut, _super);
 	    function AlertMdPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
-	        backdrop.fromTo('opacity', '0.5', '0');
+	        wrapper.fromTo('opacity', 0.99, 0).fromTo('scale', 1, 0.9);
+	        backdrop.fromTo('opacity', 0.5, 0);
 	        this
 	            .easing('ease-in-out')
 	            .duration(200)
@@ -67627,12 +68099,12 @@
 	var AlertWpPopIn = (function (_super) {
 	    __extends(AlertWpPopIn, _super);
 	    function AlertWpPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.3', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.5');
+	        wrapper.fromTo('opacity', 0.01, 1).fromTo('scale', 1.3, 1);
+	        backdrop.fromTo('opacity', 0.01, 0.5);
 	        this
 	            .easing('cubic-bezier(0,0 0.05,1)')
 	            .duration(200)
@@ -67645,12 +68117,12 @@
 	var AlertWpPopOut = (function (_super) {
 	    __extends(AlertWpPopOut, _super);
 	    function AlertWpPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.alert-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '1.3');
-	        backdrop.fromTo('opacity', '0.5', '0');
+	        wrapper.fromTo('opacity', 0.99, 0).fromTo('scale', 1, 1.3);
+	        backdrop.fromTo('opacity', 0.5, 0);
 	        this
 	            .easing('ease-out')
 	            .duration(150)
@@ -67663,7 +68135,7 @@
 	var alertIds = -1;
 
 /***/ },
-/* 374 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -67682,8 +68154,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var animation_1 = __webpack_require__(341);
-	var transition_1 = __webpack_require__(340);
+	var animation_1 = __webpack_require__(340);
+	var transition_1 = __webpack_require__(339);
 	var config_1 = __webpack_require__(311);
 	var util_1 = __webpack_require__(313);
 	var key_1 = __webpack_require__(321);
@@ -67820,7 +68292,6 @@
 	        opts.buttons = opts.buttons || [];
 	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, ActionSheetCmp, opts);
-	        this.viewType = 'action-sheet';
 	        this.isOverlay = true;
 	        // by default, actionsheets should not fire lifecycle events of other views
 	        // for example, when an actionsheets enters, the current active view should
@@ -68029,7 +68500,7 @@
 	var ActionSheetSlideIn = (function (_super) {
 	    __extends(ActionSheetSlideIn, _super);
 	    function ActionSheetSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
@@ -68043,7 +68514,7 @@
 	var ActionSheetSlideOut = (function (_super) {
 	    __extends(ActionSheetSlideOut, _super);
 	    function ActionSheetSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
@@ -68057,7 +68528,7 @@
 	var ActionSheetMdSlideIn = (function (_super) {
 	    __extends(ActionSheetMdSlideIn, _super);
 	    function ActionSheetMdSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
@@ -68071,7 +68542,7 @@
 	var ActionSheetMdSlideOut = (function (_super) {
 	    __extends(ActionSheetMdSlideOut, _super);
 	    function ActionSheetMdSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
@@ -68085,7 +68556,7 @@
 	var ActionSheetWpSlideIn = (function (_super) {
 	    __extends(ActionSheetWpSlideIn, _super);
 	    function ActionSheetWpSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
@@ -68099,7 +68570,7 @@
 	var ActionSheetWpSlideOut = (function (_super) {
 	    __extends(ActionSheetWpSlideOut, _super);
 	    function ActionSheetWpSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.action-sheet-wrapper'));
@@ -68113,7 +68584,7 @@
 	var actionSheetIds = -1;
 
 /***/ },
-/* 375 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68207,7 +68678,7 @@
 	exports.Option = Option;
 
 /***/ },
-/* 376 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68226,12 +68697,12 @@
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
 	var config_1 = __webpack_require__(311);
-	var picker_1 = __webpack_require__(377);
+	var picker_1 = __webpack_require__(379);
 	var form_1 = __webpack_require__(316);
 	var item_1 = __webpack_require__(362);
 	var util_1 = __webpack_require__(313);
 	var datetime_util_1 = __webpack_require__(328);
-	var nav_controller_1 = __webpack_require__(338);
+	var nav_controller_1 = __webpack_require__(337);
 	var DATETIME_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return DateTime; }), multi: true });
 	/**
 	 * @name DateTime
@@ -69038,7 +69509,7 @@
 	}
 
 /***/ },
-/* 377 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69058,15 +69529,15 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var platform_browser_1 = __webpack_require__(183);
-	var animation_1 = __webpack_require__(341);
-	var transition_1 = __webpack_require__(340);
+	var animation_1 = __webpack_require__(340);
+	var transition_1 = __webpack_require__(339);
 	var config_1 = __webpack_require__(311);
 	var util_1 = __webpack_require__(313);
 	var key_1 = __webpack_require__(321);
 	var nav_params_1 = __webpack_require__(334);
 	var view_controller_1 = __webpack_require__(333);
 	var dom_1 = __webpack_require__(310);
-	var ui_event_manager_1 = __webpack_require__(351);
+	var ui_event_manager_1 = __webpack_require__(355);
 	/**
 	 * @name Picker
 	 * @description
@@ -69080,7 +69551,6 @@
 	        opts.buttons = opts.buttons || [];
 	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        _super.call(this, PickerDisplayCmp, opts);
-	        this.viewType = 'picker';
 	        this.isOverlay = true;
 	        this.ionChange = new core_1.EventEmitter();
 	        // by default, pickers should not fire lifecycle events of other views
@@ -69582,7 +70052,7 @@
 	var PickerSlideIn = (function (_super) {
 	    __extends(PickerSlideIn, _super);
 	    function PickerSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.picker-wrapper'));
@@ -69596,7 +70066,7 @@
 	var PickerSlideOut = (function (_super) {
 	    __extends(PickerSlideOut, _super);
 	    function PickerSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.picker-wrapper'));
@@ -69612,7 +70082,7 @@
 	var FRAME_MS = (1000 / 60);
 
 /***/ },
-/* 378 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69634,7 +70104,7 @@
 	var util_1 = __webpack_require__(313);
 	var item_1 = __webpack_require__(362);
 	var dom_1 = __webpack_require__(310);
-	var ui_event_manager_1 = __webpack_require__(351);
+	var ui_event_manager_1 = __webpack_require__(355);
 	var TOGGLE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
 	/**
 	 * @name Toggle
@@ -69866,7 +70336,7 @@
 	exports.Toggle = Toggle;
 
 /***/ },
-/* 379 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69892,11 +70362,11 @@
 	var config_1 = __webpack_require__(311);
 	var content_1 = __webpack_require__(344);
 	var form_1 = __webpack_require__(316);
-	var input_base_1 = __webpack_require__(380);
+	var input_base_1 = __webpack_require__(382);
 	var app_1 = __webpack_require__(308);
 	var item_1 = __webpack_require__(362);
-	var native_input_1 = __webpack_require__(381);
-	var nav_controller_1 = __webpack_require__(338);
+	var native_input_1 = __webpack_require__(383);
+	var nav_controller_1 = __webpack_require__(337);
 	var platform_1 = __webpack_require__(312);
 	/**
 	 * @name Input
@@ -70093,7 +70563,7 @@
 	exports.TextArea = TextArea;
 
 /***/ },
-/* 380 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70109,7 +70579,7 @@
 	var core_1 = __webpack_require__(6);
 	var util_1 = __webpack_require__(313);
 	var dom_1 = __webpack_require__(310);
-	var native_input_1 = __webpack_require__(381);
+	var native_input_1 = __webpack_require__(383);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
 	        this._form = _form;
@@ -70646,7 +71116,7 @@
 	}
 
 /***/ },
-/* 381 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -70880,7 +71350,7 @@
 	exports.NextInput = NextInput;
 
 /***/ },
-/* 382 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71183,7 +71653,7 @@
 	exports.Segment = Segment;
 
 /***/ },
-/* 383 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71203,7 +71673,7 @@
 	var form_1 = __webpack_require__(316);
 	var util_1 = __webpack_require__(313);
 	var item_1 = __webpack_require__(362);
-	var radio_group_1 = __webpack_require__(384);
+	var radio_group_1 = __webpack_require__(386);
 	/**
 	 * @description
 	 * A radio button is a button that can be either checked or unchecked. A user can tap
@@ -71385,7 +71855,7 @@
 	exports.RadioButton = RadioButton;
 
 /***/ },
-/* 384 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71613,7 +72083,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 385 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71634,9 +72104,9 @@
 	var form_1 = __webpack_require__(316);
 	var util_1 = __webpack_require__(313);
 	var item_1 = __webpack_require__(362);
-	var ui_event_manager_1 = __webpack_require__(351);
+	var ui_event_manager_1 = __webpack_require__(355);
 	var dom_1 = __webpack_require__(310);
-	var debouncer_1 = __webpack_require__(386);
+	var debouncer_1 = __webpack_require__(388);
 	var RANGE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Range; }), multi: true });
 	/**
 	 * @private
@@ -72308,7 +72778,7 @@
 	exports.Range = Range;
 
 /***/ },
-/* 386 */
+/* 388 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -72338,7 +72808,7 @@
 	exports.Debouncer = Debouncer;
 
 /***/ },
-/* 387 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72358,7 +72828,7 @@
 	var common_1 = __webpack_require__(188);
 	var config_1 = __webpack_require__(311);
 	var util_1 = __webpack_require__(313);
-	var debouncer_1 = __webpack_require__(386);
+	var debouncer_1 = __webpack_require__(388);
 	/**
 	 * @name Searchbar
 	 * @module ionic
@@ -72753,7 +73223,7 @@
 	exports.Searchbar = Searchbar;
 
 /***/ },
-/* 388 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72779,8 +73249,8 @@
 	var config_1 = __webpack_require__(311);
 	var keyboard_1 = __webpack_require__(320);
 	var util_1 = __webpack_require__(313);
-	var nav_controller_1 = __webpack_require__(338);
-	var nav_portal_1 = __webpack_require__(389);
+	var nav_controller_1 = __webpack_require__(337);
+	var nav_portal_1 = __webpack_require__(391);
 	var view_controller_1 = __webpack_require__(333);
 	/**
 	 * @name Nav
@@ -72980,7 +73450,7 @@
 	    Nav = __decorate([
 	        core_1.Component({
 	            selector: 'ion-nav',
-	            template: '<div #viewport></div><div nav-portal></div>',
+	            template: '<div #viewport nav-viewport></div><div class="nav-decor"></div><div nav-portal></div>',
 	            directives: [nav_portal_1.NavPortal],
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
@@ -72994,7 +73464,7 @@
 	exports.Nav = Nav;
 
 /***/ },
-/* 389 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73019,7 +73489,7 @@
 	var app_1 = __webpack_require__(308);
 	var config_1 = __webpack_require__(311);
 	var keyboard_1 = __webpack_require__(320);
-	var nav_controller_1 = __webpack_require__(338);
+	var nav_controller_1 = __webpack_require__(337);
 	var view_controller_1 = __webpack_require__(333);
 	/**
 	 * @private
@@ -73045,7 +73515,7 @@
 	exports.NavPortal = NavPortal;
 
 /***/ },
-/* 390 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73062,8 +73532,8 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var nav_controller_1 = __webpack_require__(338);
-	var nav_registry_1 = __webpack_require__(391);
+	var nav_controller_1 = __webpack_require__(337);
+	var nav_registry_1 = __webpack_require__(393);
 	/**
 	 * @name NavPush
 	 * @description
@@ -73208,7 +73678,7 @@
 	exports.NavPop = NavPop;
 
 /***/ },
-/* 391 */
+/* 393 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -73237,7 +73707,7 @@
 	exports.NavRegistry = NavRegistry;
 
 /***/ },
-/* 392 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73268,7 +73738,7 @@
 	exports.NavRouter = NavRouter;
 
 /***/ },
-/* 393 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73457,7 +73927,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 394 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73474,8 +73944,8 @@
 	var app_1 = __webpack_require__(308);
 	var config_1 = __webpack_require__(311);
 	var dom_1 = __webpack_require__(310);
-	var activator_1 = __webpack_require__(395);
-	var ripple_1 = __webpack_require__(396);
+	var activator_1 = __webpack_require__(397);
+	var ripple_1 = __webpack_require__(398);
 	/**
 	 * @private
 	 */
@@ -73657,7 +74127,7 @@
 	var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
 
 /***/ },
-/* 395 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73742,7 +74212,7 @@
 	var CLEAR_STATE_DEFERS = 5;
 
 /***/ },
-/* 396 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73751,7 +74221,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var activator_1 = __webpack_require__(395);
+	var activator_1 = __webpack_require__(397);
 	var dom_1 = __webpack_require__(310);
 	/**
 	 * @private
@@ -73852,7 +74322,7 @@
 	var TOUCH_DOWN_ACCEL = 300;
 
 /***/ },
-/* 397 */
+/* 399 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -73920,7 +74390,7 @@
 	exports.Translate = Translate;
 
 /***/ },
-/* 398 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73946,7 +74416,7 @@
 	exports.Page = Page;
 
 /***/ },
-/* 399 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -73954,61 +74424,61 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	__export(__webpack_require__(308));
-	__export(__webpack_require__(374));
-	__export(__webpack_require__(373));
-	__export(__webpack_require__(343));
-	__export(__webpack_require__(337));
-	__export(__webpack_require__(371));
-	__export(__webpack_require__(344));
 	__export(__webpack_require__(376));
+	__export(__webpack_require__(375));
+	__export(__webpack_require__(342));
+	__export(__webpack_require__(343));
+	__export(__webpack_require__(373));
+	__export(__webpack_require__(344));
+	__export(__webpack_require__(378));
 	__export(__webpack_require__(363));
-	__export(__webpack_require__(346));
-	__export(__webpack_require__(348));
-	__export(__webpack_require__(349));
-	__export(__webpack_require__(379));
+	__export(__webpack_require__(350));
+	__export(__webpack_require__(352));
+	__export(__webpack_require__(353));
+	__export(__webpack_require__(381));
 	__export(__webpack_require__(362));
 	__export(__webpack_require__(366));
 	__export(__webpack_require__(364));
 	__export(__webpack_require__(359));
-	__export(__webpack_require__(400));
+	__export(__webpack_require__(402));
 	__export(__webpack_require__(330));
 	__export(__webpack_require__(318));
-	__export(__webpack_require__(401));
+	__export(__webpack_require__(403));
 	__export(__webpack_require__(332));
-	__export(__webpack_require__(342));
-	__export(__webpack_require__(402));
-	__export(__webpack_require__(388));
-	__export(__webpack_require__(338));
+	__export(__webpack_require__(341));
+	__export(__webpack_require__(404));
+	__export(__webpack_require__(390));
+	__export(__webpack_require__(337));
 	__export(__webpack_require__(333));
 	__export(__webpack_require__(334));
-	__export(__webpack_require__(390));
 	__export(__webpack_require__(392));
-	__export(__webpack_require__(335));
-	__export(__webpack_require__(375));
-	__export(__webpack_require__(377));
-	__export(__webpack_require__(403));
-	__export(__webpack_require__(383));
-	__export(__webpack_require__(384));
-	__export(__webpack_require__(385));
-	__export(__webpack_require__(350));
-	__export(__webpack_require__(352));
-	__export(__webpack_require__(347));
-	__export(__webpack_require__(387));
-	__export(__webpack_require__(382));
-	__export(__webpack_require__(372));
-	__export(__webpack_require__(393));
-	__export(__webpack_require__(353));
-	__export(__webpack_require__(370));
-	__export(__webpack_require__(355));
-	__export(__webpack_require__(357));
 	__export(__webpack_require__(394));
-	__export(__webpack_require__(404));
-	__export(__webpack_require__(378));
+	__export(__webpack_require__(335));
+	__export(__webpack_require__(377));
+	__export(__webpack_require__(379));
+	__export(__webpack_require__(406));
+	__export(__webpack_require__(385));
+	__export(__webpack_require__(386));
+	__export(__webpack_require__(387));
+	__export(__webpack_require__(354));
+	__export(__webpack_require__(356));
+	__export(__webpack_require__(351));
+	__export(__webpack_require__(389));
+	__export(__webpack_require__(384));
+	__export(__webpack_require__(374));
+	__export(__webpack_require__(395));
+	__export(__webpack_require__(357));
+	__export(__webpack_require__(372));
+	__export(__webpack_require__(346));
+	__export(__webpack_require__(348));
+	__export(__webpack_require__(396));
+	__export(__webpack_require__(407));
+	__export(__webpack_require__(380));
 	__export(__webpack_require__(336));
 	__export(__webpack_require__(367));
 
 /***/ },
-/* 400 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74027,8 +74497,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var animation_1 = __webpack_require__(341);
-	var transition_1 = __webpack_require__(340);
+	var animation_1 = __webpack_require__(340);
+	var transition_1 = __webpack_require__(339);
 	var config_1 = __webpack_require__(311);
 	var util_1 = __webpack_require__(313);
 	var nav_params_1 = __webpack_require__(334);
@@ -74136,7 +74606,6 @@
 	        opts.showBackdrop = util_1.isPresent(opts.showBackdrop) ? !!opts.showBackdrop : true;
 	        opts.dismissOnPageChange = util_1.isPresent(opts.dismissOnPageChange) ? !!opts.dismissOnPageChange : false;
 	        _super.call(this, LoadingCmp, opts);
-	        this.viewType = 'loading';
 	        this.isOverlay = true;
 	        this.usePortal = true;
 	        // by default, loading indicators should not fire lifecycle events of other views
@@ -74234,12 +74703,12 @@
 	var LoadingPopIn = (function (_super) {
 	    __extends(LoadingPopIn, _super);
 	    function LoadingPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.loading-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.3');
+	        wrapper.fromTo('opacity', 0.01, 1).fromTo('scale', 1.1, 1);
+	        backdrop.fromTo('opacity', 0.01, 0.3);
 	        this
 	            .easing('ease-in-out')
 	            .duration(200)
@@ -74252,12 +74721,12 @@
 	var LoadingPopOut = (function (_super) {
 	    __extends(LoadingPopOut, _super);
 	    function LoadingPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.loading-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
-	        backdrop.fromTo('opacity', '0.3', '0');
+	        wrapper.fromTo('opacity', 0.99, 0).fromTo('scale', 1, 0.9);
+	        backdrop.fromTo('opacity', 0.3, 0);
 	        this
 	            .easing('ease-in-out')
 	            .duration(200)
@@ -74270,12 +74739,12 @@
 	var LoadingMdPopIn = (function (_super) {
 	    __extends(LoadingMdPopIn, _super);
 	    function LoadingMdPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.loading-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.1', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.50');
+	        wrapper.fromTo('opacity', 0.01, 1).fromTo('scale', 1.1, 1);
+	        backdrop.fromTo('opacity', 0.01, 0.5);
 	        this
 	            .easing('ease-in-out')
 	            .duration(200)
@@ -74288,12 +74757,12 @@
 	var LoadingMdPopOut = (function (_super) {
 	    __extends(LoadingMdPopOut, _super);
 	    function LoadingMdPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.loading-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '0.9');
-	        backdrop.fromTo('opacity', '0.50', '0');
+	        wrapper.fromTo('opacity', 0.99, 0).fromTo('scale', 1, 0.9);
+	        backdrop.fromTo('opacity', 0.5, 0);
 	        this
 	            .easing('ease-in-out')
 	            .duration(200)
@@ -74306,12 +74775,12 @@
 	var LoadingWpPopIn = (function (_super) {
 	    __extends(LoadingWpPopIn, _super);
 	    function LoadingWpPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.loading-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1').fromTo('scale', '1.3', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.16');
+	        wrapper.fromTo('opacity', 0.01, 1).fromTo('scale', 1.3, 1);
+	        backdrop.fromTo('opacity', 0.01, 0.16);
 	        this
 	            .easing('cubic-bezier(0,0 0.05,1)')
 	            .duration(200)
@@ -74324,12 +74793,12 @@
 	var LoadingWpPopOut = (function (_super) {
 	    __extends(LoadingWpPopOut, _super);
 	    function LoadingWpPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.loading-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0').fromTo('scale', '1', '1.3');
-	        backdrop.fromTo('opacity', '0.16', '0');
+	        wrapper.fromTo('opacity', 0.99, 0).fromTo('scale', 1, 1.3);
+	        backdrop.fromTo('opacity', 0.16, 0);
 	        this
 	            .easing('ease-out')
 	            .duration(150)
@@ -74342,7 +74811,7 @@
 	var loadingIds = -1;
 
 /***/ },
-/* 401 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74351,7 +74820,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(341);
+	var animation_1 = __webpack_require__(340);
 	var menu_controller_1 = __webpack_require__(330);
 	/**
 	 * @private
@@ -74491,7 +74960,7 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
-/* 402 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74511,11 +74980,11 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var bootstrap_1 = __webpack_require__(103);
-	var animation_1 = __webpack_require__(341);
-	var nav_params_1 = __webpack_require__(334);
+	var animation_1 = __webpack_require__(340);
 	var util_1 = __webpack_require__(313);
 	var key_1 = __webpack_require__(321);
-	var transition_1 = __webpack_require__(340);
+	var nav_params_1 = __webpack_require__(334);
+	var page_transition_1 = __webpack_require__(405);
 	var view_controller_1 = __webpack_require__(333);
 	var dom_1 = __webpack_require__(310);
 	/**
@@ -74628,14 +75097,12 @@
 	        opts.enableBackdropDismiss = util_1.isPresent(opts.enableBackdropDismiss) ? !!opts.enableBackdropDismiss : true;
 	        data.opts = opts;
 	        _super.call(this, ModalCmp, data);
-	        this.modalViewType = componentType.name;
-	        this.viewType = 'modal';
 	        this.isOverlay = true;
 	        this.usePortal = true;
 	    }
 	    /**
-	    * @private
-	    */
+	     * @private
+	     */
 	    Modal.prototype.getTransitionName = function (direction) {
 	        var key = (direction === 'back' ? 'modalLeave' : 'modalEnter');
 	        return this._nav && this._nav.config.get(key);
@@ -74674,17 +75141,21 @@
 	}(view_controller_1.ViewController));
 	exports.Modal = Modal;
 	var ModalCmp = (function () {
-	    function ModalCmp(_compiler, _navParams, _viewCtrl) {
+	    function ModalCmp(_compiler, _renderer, _navParams, _viewCtrl) {
 	        this._compiler = _compiler;
+	        this._renderer = _renderer;
 	        this._navParams = _navParams;
 	        this._viewCtrl = _viewCtrl;
 	        this.d = _navParams.data.opts;
 	    }
 	    ModalCmp.prototype.loadComponent = function (done) {
 	        var _this = this;
-	        bootstrap_1.addSelector(this._navParams.data.componentType, 'ion-modal-inner');
-	        this._compiler.resolveComponent(this._navParams.data.componentType).then(function (componentFactory) {
+	        var componentType = this._navParams.data.componentType;
+	        bootstrap_1.addSelector(componentType, 'ion-page');
+	        this._compiler.resolveComponent(componentType).then(function (componentFactory) {
 	            var componentRef = _this.viewport.createComponent(componentFactory, _this.viewport.length, _this.viewport.parentInjector);
+	            _this._renderer.setElementClass(componentRef.location.nativeElement, 'show-page', true);
+	            _this._renderer.setElementClass(componentRef.location.nativeElement, componentType.name, true);
 	            _this._viewCtrl.setInstance(componentRef.instance);
 	            _this.enabled = true;
 	            done();
@@ -74721,13 +75192,13 @@
 	            selector: 'ion-modal',
 	            template: '<ion-backdrop disableScroll="false" (click)="bdClick($event)"></ion-backdrop>' +
 	                '<div class="modal-wrapper">' +
-	                '<div #viewport></div>' +
+	                '<div #viewport nav-viewport></div>' +
 	                '</div>'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _b) || Object, (typeof (_c = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _c) || Object, (typeof (_d = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _d) || Object])
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof nav_params_1.NavParams !== 'undefined' && nav_params_1.NavParams) === 'function' && _d) || Object, (typeof (_e = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _e) || Object])
 	    ], ModalCmp);
 	    return ModalCmp;
-	    var _a, _b, _c, _d;
+	    var _a, _b, _c, _d, _e;
 	}());
 	exports.ModalCmp = ModalCmp;
 	/**
@@ -74736,17 +75207,11 @@
 	var ModalSlideIn = (function (_super) {
 	    __extends(ModalSlideIn, _super);
 	    function ModalSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdropEle = ele.querySelector('ion-backdrop');
 	        var backdrop = new animation_1.Animation(backdropEle);
 	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
-	        var page = ele.querySelector('ion-page');
-	        var pageAnimation = new animation_1.Animation(page);
-	        // auto-add page css className created from component JS class name
-	        var cssClassName = util_1.pascalCaseToDashCase(enteringView.modalViewType);
-	        pageAnimation.before.addClass(cssClassName);
-	        pageAnimation.before.addClass('show-page');
 	        backdrop.fromTo('opacity', 0.01, 0.4);
 	        wrapper.fromTo('translateY', '100%', '0%');
 	        this
@@ -74754,8 +75219,7 @@
 	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
 	            .duration(400)
 	            .add(backdrop)
-	            .add(wrapper)
-	            .add(pageAnimation);
+	            .add(wrapper);
 	        if (enteringView.hasNavbar()) {
 	            // entering page has a navbar
 	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());
@@ -74764,12 +75228,12 @@
 	        }
 	    }
 	    return ModalSlideIn;
-	}(transition_1.Transition));
-	transition_1.Transition.register('modal-slide-in', ModalSlideIn);
+	}(page_transition_1.PageTransition));
+	page_transition_1.PageTransition.register('modal-slide-in', ModalSlideIn);
 	var ModalSlideOut = (function (_super) {
 	    __extends(ModalSlideOut, _super);
 	    function ModalSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapperEle = ele.querySelector('.modal-wrapper');
@@ -74788,30 +75252,23 @@
 	            .add(wrapper);
 	    }
 	    return ModalSlideOut;
-	}(transition_1.Transition));
-	transition_1.Transition.register('modal-slide-out', ModalSlideOut);
+	}(page_transition_1.PageTransition));
+	page_transition_1.PageTransition.register('modal-slide-out', ModalSlideOut);
 	var ModalMDSlideIn = (function (_super) {
 	    __extends(ModalMDSlideIn, _super);
 	    function ModalMDSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
-	        var page = ele.querySelector('ion-page');
-	        var pageAnimation = new animation_1.Animation(page);
-	        // auto-add page css className created from component JS class name
-	        var cssClassName = util_1.pascalCaseToDashCase(enteringView.modalViewType);
-	        pageAnimation.before.addClass(cssClassName);
-	        pageAnimation.before.addClass('show-page');
 	        backdrop.fromTo('opacity', 0.01, 0.4);
 	        wrapper.fromTo('translateY', '40px', '0px');
-	        wrapper.fromTo('opacity', '0.01', '1.0');
+	        wrapper.fromTo('opacity', 0.01, 1);
 	        var DURATION = 280;
 	        var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	        this.element(enteringView.pageRef()).easing(EASING).duration(DURATION)
 	            .add(backdrop)
-	            .add(wrapper)
-	            .add(pageAnimation);
+	            .add(wrapper);
 	        if (enteringView.hasNavbar()) {
 	            // entering page has a navbar
 	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());
@@ -74820,18 +75277,18 @@
 	        }
 	    }
 	    return ModalMDSlideIn;
-	}(transition_1.Transition));
-	transition_1.Transition.register('modal-md-slide-in', ModalMDSlideIn);
+	}(page_transition_1.PageTransition));
+	page_transition_1.PageTransition.register('modal-md-slide-in', ModalMDSlideIn);
 	var ModalMDSlideOut = (function (_super) {
 	    __extends(ModalMDSlideOut, _super);
 	    function ModalMDSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.modal-wrapper'));
 	        backdrop.fromTo('opacity', 0.4, 0.0);
 	        wrapper.fromTo('translateY', '0px', '40px');
-	        wrapper.fromTo('opacity', '1.0', '0.00');
+	        wrapper.fromTo('opacity', 0.99, 0);
 	        this
 	            .element(leavingView.pageRef())
 	            .duration(200)
@@ -74840,11 +75297,66 @@
 	            .add(backdrop);
 	    }
 	    return ModalMDSlideOut;
-	}(transition_1.Transition));
-	transition_1.Transition.register('modal-md-slide-out', ModalMDSlideOut);
+	}(page_transition_1.PageTransition));
+	page_transition_1.PageTransition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 403 */
+/* 405 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var animation_1 = __webpack_require__(340);
+	var content_1 = __webpack_require__(344);
+	var transition_1 = __webpack_require__(339);
+	/**
+	 * @private
+	 */
+	var PageTransition = (function (_super) {
+	    __extends(PageTransition, _super);
+	    function PageTransition(enteringView, leavingView, opts) {
+	        _super.call(this, enteringView, leavingView, opts);
+	        this.enteringPage = new animation_1.Animation(this.enteringView.pageRef());
+	        this.enteringPage.before.addClass('show-page');
+	        this.add(this.enteringPage);
+	        this.before.addDomReadFn(this.readDimensions.bind(this));
+	        this.before.addDomWriteFn(this.writeDimensions.bind(this));
+	    }
+	    /**
+	     * DOM READ
+	     */
+	    PageTransition.prototype.readDimensions = function () {
+	        var content = this.enteringView.getContent();
+	        if (content && content instanceof content_1.Content) {
+	            content.readDimensions();
+	        }
+	    };
+	    /**
+	     * DOM WRITE
+	     */
+	    PageTransition.prototype.writeDimensions = function () {
+	        var content = this.enteringView.getContent();
+	        if (content && content instanceof content_1.Content) {
+	            content.writeDimensions();
+	        }
+	    };
+	    PageTransition.prototype.destroy = function () {
+	        _super.prototype.destroy.call(this);
+	        this.enteringView = this.enteringPage = null;
+	    };
+	    return PageTransition;
+	}(transition_1.Transition));
+	exports.PageTransition = PageTransition;
+	function parsePxUnit(val) {
+	    return (val.indexOf('px') > 0) ? parseInt(val, 10) : 0;
+	}
+
+/***/ },
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -74864,13 +75376,13 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var bootstrap_1 = __webpack_require__(103);
-	var animation_1 = __webpack_require__(341);
-	var transition_1 = __webpack_require__(340);
+	var animation_1 = __webpack_require__(340);
 	var config_1 = __webpack_require__(311);
-	var nav_params_1 = __webpack_require__(334);
-	var key_1 = __webpack_require__(321);
-	var util_1 = __webpack_require__(313);
 	var dom_1 = __webpack_require__(310);
+	var util_1 = __webpack_require__(313);
+	var key_1 = __webpack_require__(321);
+	var nav_params_1 = __webpack_require__(334);
+	var page_transition_1 = __webpack_require__(405);
 	var view_controller_1 = __webpack_require__(333);
 	var POPOVER_IOS_BODY_PADDING = 2;
 	var POPOVER_MD_BODY_PADDING = 12;
@@ -74974,7 +75486,6 @@
 	        data.componentType = componentType;
 	        data.opts = opts;
 	        _super.call(this, PopoverCmp, data);
-	        this.viewType = 'popover';
 	        this.isOverlay = true;
 	        // by default, popovers should not fire lifecycle events of other views
 	        // for example, when a popover enters, the current active view should
@@ -74982,8 +75493,8 @@
 	        this.fireOtherLifecycles = false;
 	    }
 	    /**
-	    * @private
-	    */
+	     * @private
+	     */
 	    Popover.prototype.getTransitionName = function (direction) {
 	        var key = (direction === 'back' ? 'popoverLeave' : 'popoverEnter');
 	        return this._nav && this._nav.config.get(key);
@@ -75057,7 +75568,7 @@
 	        }
 	    };
 	    PopoverCmp.prototype._keyUp = function (ev) {
-	        if (this.enabled && this._viewCtrl.isLast() && ev.keyCode === key_1.Key.ESCAPE) {
+	        if (this.enabled && ev.keyCode === key_1.Key.ESCAPE && this._viewCtrl.isLast()) {
 	            this.bdClick();
 	        }
 	    };
@@ -75079,7 +75590,7 @@
 	                '<div class="popover-arrow"></div>' +
 	                '<div class="popover-content">' +
 	                '<div class="popover-viewport">' +
-	                '<div #viewport></div>' +
+	                '<div #viewport nav-viewport></div>' +
 	                '</div>' +
 	                '</div>' +
 	                '</div>'
@@ -75094,8 +75605,8 @@
 	 */
 	var PopoverTransition = (function (_super) {
 	    __extends(PopoverTransition, _super);
-	    function PopoverTransition(opts) {
-	        _super.call(this, opts);
+	    function PopoverTransition(enteringView, leavingView, opts) {
+	        _super.call(this, enteringView, leavingView, opts);
 	    }
 	    PopoverTransition.prototype.mdPositionView = function (nativeEle, ev) {
 	        var originY = 'top';
@@ -75212,19 +75723,17 @@
 	        popoverWrapperEle.style.opacity = '1';
 	    };
 	    return PopoverTransition;
-	}(transition_1.Transition));
+	}(page_transition_1.PageTransition));
 	var PopoverPopIn = (function (_super) {
 	    __extends(PopoverPopIn, _super);
 	    function PopoverPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        this.enteringView = enteringView;
-	        this.leavingView = leavingView;
+	        _super.call(this, enteringView, leavingView, opts);
 	        this.opts = opts;
 	        var ele = enteringView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.popover-wrapper'));
-	        wrapper.fromTo('opacity', '0.01', '1');
-	        backdrop.fromTo('opacity', '0.01', '0.08');
+	        wrapper.fromTo('opacity', 0.01, 1);
+	        backdrop.fromTo('opacity', 0.01, 0.08);
 	        this
 	            .easing('ease')
 	            .duration(100)
@@ -75240,19 +75749,17 @@
 	    };
 	    return PopoverPopIn;
 	}(PopoverTransition));
-	transition_1.Transition.register('popover-pop-in', PopoverPopIn);
+	page_transition_1.PageTransition.register('popover-pop-in', PopoverPopIn);
 	var PopoverPopOut = (function (_super) {
 	    __extends(PopoverPopOut, _super);
 	    function PopoverPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        this.enteringView = enteringView;
-	        this.leavingView = leavingView;
+	        _super.call(this, enteringView, leavingView, opts);
 	        this.opts = opts;
 	        var ele = leavingView.pageRef().nativeElement;
 	        var backdrop = new animation_1.Animation(ele.querySelector('ion-backdrop'));
 	        var wrapper = new animation_1.Animation(ele.querySelector('.popover-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0');
-	        backdrop.fromTo('opacity', '0.08', '0');
+	        wrapper.fromTo('opacity', 0.99, 0);
+	        backdrop.fromTo('opacity', 0.08, 0);
 	        this
 	            .easing('ease')
 	            .duration(500)
@@ -75261,19 +75768,17 @@
 	    }
 	    return PopoverPopOut;
 	}(PopoverTransition));
-	transition_1.Transition.register('popover-pop-out', PopoverPopOut);
+	page_transition_1.PageTransition.register('popover-pop-out', PopoverPopOut);
 	var PopoverMdPopIn = (function (_super) {
 	    __extends(PopoverMdPopIn, _super);
 	    function PopoverMdPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        this.enteringView = enteringView;
-	        this.leavingView = leavingView;
+	        _super.call(this, enteringView, leavingView, opts);
 	        this.opts = opts;
 	        var ele = enteringView.pageRef().nativeElement;
 	        var content = new animation_1.Animation(ele.querySelector('.popover-content'));
 	        var viewport = new animation_1.Animation(ele.querySelector('.popover-viewport'));
-	        content.fromTo('scale', '0.001', '1');
-	        viewport.fromTo('opacity', '0', '1');
+	        content.fromTo('scale', 0.001, 1);
+	        viewport.fromTo('opacity', 0.01, 1);
 	        this
 	            .easing('cubic-bezier(0.36,0.66,0.04,1)')
 	            .duration(300)
@@ -75289,30 +75794,28 @@
 	    };
 	    return PopoverMdPopIn;
 	}(PopoverTransition));
-	transition_1.Transition.register('popover-md-pop-in', PopoverMdPopIn);
+	page_transition_1.PageTransition.register('popover-md-pop-in', PopoverMdPopIn);
 	var PopoverMdPopOut = (function (_super) {
 	    __extends(PopoverMdPopOut, _super);
 	    function PopoverMdPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        this.enteringView = enteringView;
-	        this.leavingView = leavingView;
+	        _super.call(this, enteringView, leavingView, opts);
 	        this.opts = opts;
 	        var ele = leavingView.pageRef().nativeElement;
 	        var wrapper = new animation_1.Animation(ele.querySelector('.popover-wrapper'));
-	        wrapper.fromTo('opacity', '1', '0');
+	        wrapper.fromTo('opacity', 0.99, 0);
 	        this
 	            .easing('ease')
 	            .duration(500)
-	            .fadeIn()
+	            .fromTo('opacity', 0.01, 1)
 	            .add(wrapper);
 	    }
 	    return PopoverMdPopOut;
 	}(PopoverTransition));
-	transition_1.Transition.register('popover-md-pop-out', PopoverMdPopOut);
+	page_transition_1.PageTransition.register('popover-md-pop-out', PopoverMdPopOut);
 	var popoverIds = -1;
 
 /***/ },
-/* 404 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75331,12 +75834,12 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var animation_1 = __webpack_require__(341);
-	var transition_1 = __webpack_require__(340);
+	var animation_1 = __webpack_require__(340);
+	var transition_1 = __webpack_require__(339);
 	var config_1 = __webpack_require__(311);
 	var util_1 = __webpack_require__(313);
 	var nav_params_1 = __webpack_require__(334);
-	var nav_controller_1 = __webpack_require__(338);
+	var nav_controller_1 = __webpack_require__(337);
 	var view_controller_1 = __webpack_require__(333);
 	/**
 	 * @name Toast
@@ -75401,7 +75904,6 @@
 	        if (!opts.position || !this.isValidPosition(opts.position)) {
 	            opts.position = TOAST_POSITION_BOTTOM;
 	        }
-	        this.viewType = 'toast';
 	        this.isOverlay = true;
 	        this.usePortal = true;
 	        // by default, toasts should not fire lifecycle events of other views
@@ -75523,7 +76025,7 @@
 	var ToastSlideIn = (function (_super) {
 	    __extends(ToastSlideIn, _super);
 	    function ToastSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        // DOM READS
 	        var ele = enteringView.pageRef().nativeElement;
 	        var wrapperEle = ele.querySelector('.toast-wrapper');
@@ -75540,7 +76042,7 @@
 	            var topPosition = Math.floor(ele.clientHeight / 2 - wrapperEle.clientHeight / 2);
 	            // DOM WRITE
 	            wrapperEle.style.top = topPosition + "px";
-	            wrapper.fromTo('opacity', '0.01', '1.0');
+	            wrapper.fromTo('opacity', 0.01, 1);
 	        }
 	        else {
 	            // bottom
@@ -75548,18 +76050,14 @@
 	            // so move from that to 10 px above bottom: 0px
 	            wrapper.fromTo('translateY', '100%', (0 - 10) + "px");
 	        }
-	        var EASE = 'cubic-bezier(.36,.66,.04,1)';
-	        var DURATION = 400;
-	        // DOM WRITES
-	        this.easing(EASE).duration(DURATION).add(wrapper);
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(wrapper);
 	    }
 	    return ToastSlideIn;
 	}(transition_1.Transition));
 	var ToastSlideOut = (function (_super) {
 	    __extends(ToastSlideOut, _super);
 	    function ToastSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        // DOM reads
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var wrapperEle = ele.querySelector('.toast-wrapper');
 	        var wrapper = new animation_1.Animation(wrapperEle);
@@ -75571,24 +76069,21 @@
 	        else if (leavingView.data && leavingView.data.position === TOAST_POSITION_MIDDLE) {
 	            // Middle
 	            // just fade it out
-	            wrapper.fromTo('opacity', '1.0', '0.0');
+	            wrapper.fromTo('opacity', 0.99, 0);
 	        }
 	        else {
 	            // bottom
 	            // reverse arguments from enter transition
 	            wrapper.fromTo('translateY', (0 - 10) + "px", '100%');
 	        }
-	        var EASE = 'cubic-bezier(.36,.66,.04,1)';
-	        var DURATION = 300;
-	        // DOM writes
-	        this.easing(EASE).duration(DURATION).add(wrapper);
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(300).add(wrapper);
 	    }
 	    return ToastSlideOut;
 	}(transition_1.Transition));
 	var ToastMdSlideIn = (function (_super) {
 	    __extends(ToastMdSlideIn, _super);
 	    function ToastMdSlideIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        // DOM reads
 	        var ele = enteringView.pageRef().nativeElement;
 	        var wrapperEle = ele.querySelector('.toast-wrapper');
@@ -75597,7 +76092,7 @@
 	            // top
 	            // by default, it is -100% hidden (above the screen)
 	            // so move from that to top: 0px;
-	            wrapper.fromTo('translateY', '-100%', "0px");
+	            wrapper.fromTo('translateY', '-100%', "0%");
 	        }
 	        else if (enteringView.data && enteringView.data.position === TOAST_POSITION_MIDDLE) {
 	            // Middle
@@ -75605,62 +76100,55 @@
 	            var topPosition = Math.floor(ele.clientHeight / 2 - wrapperEle.clientHeight / 2);
 	            // DOM WRITE
 	            wrapperEle.style.top = topPosition + "px";
-	            wrapper.fromTo('opacity', '0.01', '1.0');
+	            wrapper.fromTo('opacity', 0.01, 1);
 	        }
 	        else {
 	            // bottom
 	            // by default, it is 100% hidden (below the screen),
 	            // so move from that to bottom: 0px
-	            wrapper.fromTo('translateY', '100%', "0px");
+	            wrapper.fromTo('translateY', '100%', "0%");
 	        }
-	        var EASE = 'cubic-bezier(.36,.66,.04,1)';
-	        var DURATION = 400;
-	        this.easing(EASE).duration(DURATION).add(wrapper);
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(400).add(wrapper);
 	    }
 	    return ToastMdSlideIn;
 	}(transition_1.Transition));
 	var ToastMdSlideOut = (function (_super) {
 	    __extends(ToastMdSlideOut, _super);
 	    function ToastMdSlideOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        // DOM reads
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = leavingView.pageRef().nativeElement;
 	        var wrapperEle = ele.querySelector('.toast-wrapper');
 	        var wrapper = new animation_1.Animation(wrapperEle);
 	        if (leavingView.data && leavingView.data.position === TOAST_POSITION_TOP) {
 	            // top
 	            // reverse arguments from enter transition
-	            wrapper.fromTo('translateY', 0 + "px", '-100%');
+	            wrapper.fromTo('translateY', 0 + "%", '-100%');
 	        }
 	        else if (leavingView.data && leavingView.data.position === TOAST_POSITION_MIDDLE) {
 	            // Middle
 	            // just fade it out
-	            wrapper.fromTo('opacity', '1.0', '0.0');
+	            wrapper.fromTo('opacity', 0.99, 0);
 	        }
 	        else {
 	            // bottom
 	            // reverse arguments from enter transition
-	            wrapper.fromTo('translateY', 0 + "px", '100%');
+	            wrapper.fromTo('translateY', 0 + "%", '100%');
 	        }
-	        // DOM writes
-	        var EASE = 'cubic-bezier(.36,.66,.04,1)';
-	        var DURATION = 450;
-	        this.easing(EASE).duration(DURATION).add(wrapper);
+	        this.easing('cubic-bezier(.36,.66,.04,1)').duration(450).add(wrapper);
 	    }
 	    return ToastMdSlideOut;
 	}(transition_1.Transition));
 	var ToastWpPopIn = (function (_super) {
 	    __extends(ToastWpPopIn, _super);
 	    function ToastWpPopIn(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
-	        // DOM reads
+	        _super.call(this, enteringView, leavingView, opts);
 	        var ele = enteringView.pageRef().nativeElement;
 	        var wrapperEle = ele.querySelector('.toast-wrapper');
 	        var wrapper = new animation_1.Animation(wrapperEle);
 	        if (enteringView.data && enteringView.data.position === TOAST_POSITION_TOP) {
 	            // top
-	            wrapper.fromTo('opacity', '0.01', '1');
-	            wrapper.fromTo('scale', '1.3', '1');
+	            wrapper.fromTo('opacity', 0.01, 1);
+	            wrapper.fromTo('scale', 1.3, 1);
 	        }
 	        else if (enteringView.data && enteringView.data.position === TOAST_POSITION_MIDDLE) {
 	            // Middle
@@ -75668,25 +76156,22 @@
 	            var topPosition = Math.floor(ele.clientHeight / 2 - wrapperEle.clientHeight / 2);
 	            // DOM WRITE
 	            wrapperEle.style.top = topPosition + "px";
-	            wrapper.fromTo('opacity', '0.01', '1.0');
-	            wrapper.fromTo('scale', '1.3', '1');
+	            wrapper.fromTo('opacity', 0.01, 1);
+	            wrapper.fromTo('scale', 1.3, 1);
 	        }
 	        else {
 	            // bottom
-	            wrapper.fromTo('opacity', '0.01', '1');
-	            wrapper.fromTo('scale', '1.3', '1');
+	            wrapper.fromTo('opacity', 0.01, 1);
+	            wrapper.fromTo('scale', 1.3, 1);
 	        }
-	        // DOM writes
-	        var EASE = 'cubic-bezier(0,0 0.05,1)';
-	        var DURATION = 200;
-	        this.easing(EASE).duration(DURATION).add(wrapper);
+	        this.easing('cubic-bezier(0,0 0.05,1)').duration(200).add(wrapper);
 	    }
 	    return ToastWpPopIn;
 	}(transition_1.Transition));
 	var ToastWpPopOut = (function (_super) {
 	    __extends(ToastWpPopOut, _super);
 	    function ToastWpPopOut(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        // DOM reads
 	        var ele = leavingView.pageRef().nativeElement;
 	        var wrapperEle = ele.querySelector('.toast-wrapper');
@@ -75694,20 +76179,20 @@
 	        if (leavingView.data && leavingView.data.position === TOAST_POSITION_TOP) {
 	            // top
 	            // reverse arguments from enter transition
-	            wrapper.fromTo('opacity', '1', '0.00');
-	            wrapper.fromTo('scale', '1', '1.3');
+	            wrapper.fromTo('opacity', 0.99, 0);
+	            wrapper.fromTo('scale', 1, 1.3);
 	        }
 	        else if (leavingView.data && leavingView.data.position === TOAST_POSITION_MIDDLE) {
 	            // Middle
 	            // just fade it out
-	            wrapper.fromTo('opacity', '1.0', '0.00');
-	            wrapper.fromTo('scale', '1', '1.3');
+	            wrapper.fromTo('opacity', 0.99, 0);
+	            wrapper.fromTo('scale', 1, 1.3);
 	        }
 	        else {
 	            // bottom
 	            // reverse arguments from enter transition
-	            wrapper.fromTo('opacity', '1', '0.00');
-	            wrapper.fromTo('scale', '1', '1.3');
+	            wrapper.fromTo('opacity', 0.99, 0);
+	            wrapper.fromTo('scale', 1, 1.3);
 	        }
 	        // DOM writes
 	        var EASE = 'ease-out';
@@ -75725,19 +76210,19 @@
 	var toastIds = -1;
 
 /***/ },
-/* 405 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
-	__export(__webpack_require__(406));
-	__export(__webpack_require__(407));
-	__export(__webpack_require__(408));
+	__export(__webpack_require__(409));
+	__export(__webpack_require__(410));
+	__export(__webpack_require__(411));
 
 /***/ },
-/* 406 */
+/* 409 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -75821,7 +76306,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 407 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75830,7 +76315,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(406);
+	var storage_1 = __webpack_require__(409);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -75935,7 +76420,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 408 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75944,7 +76429,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(406);
+	var storage_1 = __webpack_require__(409);
 	var util_1 = __webpack_require__(313);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -76087,7 +76572,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 409 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76101,7 +76586,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var translate_1 = __webpack_require__(397);
+	var translate_1 = __webpack_require__(399);
 	/**
 	 * @private
 	 * The Translate pipe makes it easy to translate strings.
@@ -76137,7 +76622,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 410 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76187,7 +76672,7 @@
 	    modalEnter: 'modal-md-slide-in',
 	    modalLeave: 'modal-md-slide-out',
 	    pageTransition: 'md-transition',
-	    pageTransitionDelay: 16,
+	    pageTransitionDelay: 64,
 	    pickerEnter: 'picker-slide-in',
 	    pickerLeave: 'picker-slide-out',
 	    pickerRotateFactor: 0,
@@ -76230,7 +76715,7 @@
 	});
 
 /***/ },
-/* 411 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76422,7 +76907,7 @@
 	}
 
 /***/ },
-/* 412 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76431,7 +76916,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(341);
+	var animation_1 = __webpack_require__(340);
 	var SlideIn = (function (_super) {
 	    __extends(SlideIn, _super);
 	    function SlideIn(element) {
@@ -76463,7 +76948,7 @@
 	        this
 	            .easing('ease-in')
 	            .duration(400)
-	            .fadeIn();
+	            .fromTo('opacity', 0.001, 1, true);
 	    }
 	    return FadeIn;
 	}(animation_1.Animation));
@@ -76475,14 +76960,14 @@
 	        this
 	            .easing('ease-out')
 	            .duration(250)
-	            .fadeOut();
+	            .fromTo('opacity', 0.999, 0);
 	    }
 	    return FadeOut;
 	}(animation_1.Animation));
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 413 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76491,8 +76976,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(341);
-	var transition_1 = __webpack_require__(340);
+	var animation_1 = __webpack_require__(340);
+	var page_transition_1 = __webpack_require__(405);
 	var DURATION = 500;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	var OPACITY = 'opacity';
@@ -76505,7 +76990,7 @@
 	var IOSTransition = (function (_super) {
 	    __extends(IOSTransition, _super);
 	    function IOSTransition(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        this.duration(opts.duration || DURATION);
 	        this.easing(opts.easing || EASING);
 	        // what direction is the transition going
@@ -76513,9 +76998,6 @@
 	        // do they have navbars?
 	        var enteringHasNavbar = enteringView.hasNavbar();
 	        var leavingHasNavbar = leavingView && leavingView.hasNavbar();
-	        var enteringPage = new animation_1.Animation(enteringView.pageRef());
-	        enteringPage.before.addClass('show-page');
-	        this.add(enteringPage);
 	        // entering content
 	        var enteringContent = new animation_1.Animation(enteringView.contentRef());
 	        enteringContent.element(enteringView.toolbarRefs());
@@ -76546,8 +77028,8 @@
 	                .add(enteringNavbarItems)
 	                .add(enteringNavbarBg)
 	                .add(enteringBackButton);
-	            enteringTitle.fadeIn();
-	            enteringNavbarItems.fadeIn();
+	            enteringTitle.fromTo(OPACITY, 0.01, 1, true);
+	            enteringNavbarItems.fromTo(OPACITY, 0.01, 1, true);
 	            // set properties depending on direction
 	            if (backDirection) {
 	                // entering navbar, back direction
@@ -76556,7 +77038,7 @@
 	                    // back direction, entering page has a back button
 	                    enteringBackButton
 	                        .before.addClass(SHOW_BACK_BTN_CSS)
-	                        .fadeIn();
+	                        .fromTo(OPACITY, 0.01, 1, true);
 	                }
 	            }
 	            else {
@@ -76567,7 +77049,7 @@
 	                    // should just fade in, no sliding
 	                    enteringNavbarBg
 	                        .before.clearStyles([TRANSLATEX])
-	                        .fadeIn();
+	                        .fromTo(OPACITY, 0.01, 1, true);
 	                }
 	                else {
 	                    // entering navbar, forward direction, and there's no leaving navbar
@@ -76580,7 +77062,7 @@
 	                    // forward direction, entering page has a back button
 	                    enteringBackButton
 	                        .before.addClass(SHOW_BACK_BTN_CSS)
-	                        .fadeIn();
+	                        .fromTo(OPACITY, 0.01, 1, true);
 	                    var enteringBackBtnText = new animation_1.Animation(enteringView.backBtnTextRef());
 	                    enteringBackBtnText.fromTo(TRANSLATEX, '100px', '0px');
 	                    enteringNavBar.add(enteringBackBtnText);
@@ -76622,9 +77104,9 @@
 	                    .add(leavingNavbarBg);
 	                this.add(leavingNavBar);
 	                // fade out leaving navbar items
-	                leavingBackButton.fadeOut();
-	                leavingTitle.fadeOut();
-	                leavingNavbarItems.fadeOut();
+	                leavingBackButton.fromTo(OPACITY, 0.99, 0);
+	                leavingTitle.fromTo(OPACITY, 0.99, 0);
+	                leavingNavbarItems.fromTo(OPACITY, 0.99, 0);
 	                if (backDirection) {
 	                    // leaving navbar, back direction
 	                    leavingTitle.fromTo(TRANSLATEX, CENTER, '100%');
@@ -76633,7 +77115,7 @@
 	                        // should just fade out, no sliding
 	                        leavingNavbarBg
 	                            .before.clearStyles([TRANSLATEX])
-	                            .fadeOut();
+	                            .fromTo('opacity', 0.99, 0);
 	                    }
 	                    else {
 	                        // leaving navbar, back direction, and there's no entering navbar
@@ -76654,11 +77136,11 @@
 	        }
 	    }
 	    return IOSTransition;
-	}(transition_1.Transition));
-	transition_1.Transition.register('ios-transition', IOSTransition);
+	}(page_transition_1.PageTransition));
+	page_transition_1.PageTransition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 414 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76667,8 +77149,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(341);
-	var transition_1 = __webpack_require__(340);
+	var animation_1 = __webpack_require__(340);
+	var page_transition_1 = __webpack_require__(405);
 	var TRANSLATEY = 'translateY';
 	var OFF_BOTTOM = '40px';
 	var CENTER = '0px';
@@ -76676,25 +77158,21 @@
 	var MDTransition = (function (_super) {
 	    __extends(MDTransition, _super);
 	    function MDTransition(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        // what direction is the transition going
 	        var backDirection = (opts.direction === 'back');
 	        // do they have navbars?
 	        var enteringHasNavbar = enteringView.hasNavbar();
 	        var leavingHasNavbar = leavingView && leavingView.hasNavbar();
-	        // entering content item moves in bottom to center
-	        var enteringPage = new animation_1.Animation(enteringView.pageRef());
-	        enteringPage.before.addClass('show-page');
-	        this.add(enteringPage);
 	        if (backDirection) {
 	            this.duration(opts.duration || 200).easing('cubic-bezier(0.47,0,0.745,0.715)');
-	            enteringPage.before.clearStyles([TRANSLATEY]);
+	            this.enteringPage.before.clearStyles([TRANSLATEY]);
 	        }
 	        else {
 	            this.duration(opts.duration || 280).easing('cubic-bezier(0.36,0.66,0.04,1)');
-	            enteringPage
+	            this.enteringPage
 	                .fromTo(TRANSLATEY, OFF_BOTTOM, CENTER, true)
-	                .fadeIn();
+	                .fromTo('opacity', 0.01, 1, true);
 	        }
 	        if (enteringHasNavbar) {
 	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());
@@ -76714,15 +77192,15 @@
 	            // leaving content
 	            this.duration(opts.duration || 200).easing('cubic-bezier(0.47,0,0.745,0.715)');
 	            var leavingPage = new animation_1.Animation(leavingView.pageRef());
-	            this.add(leavingPage.fromTo(TRANSLATEY, CENTER, OFF_BOTTOM).fadeOut());
+	            this.add(leavingPage.fromTo(TRANSLATEY, CENTER, OFF_BOTTOM).fromTo('opacity', 0.99, 0));
 	        }
 	    }
 	    return MDTransition;
-	}(transition_1.Transition));
-	transition_1.Transition.register('md-transition', MDTransition);
+	}(page_transition_1.PageTransition));
+	page_transition_1.PageTransition.register('md-transition', MDTransition);
 
 /***/ },
-/* 415 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -76731,32 +77209,28 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var animation_1 = __webpack_require__(341);
-	var transition_1 = __webpack_require__(340);
+	var animation_1 = __webpack_require__(340);
+	var page_transition_1 = __webpack_require__(405);
 	var SHOW_BACK_BTN_CSS = 'show-back-button';
 	var SCALE_SMALL = .95;
 	var WPTransition = (function (_super) {
 	    __extends(WPTransition, _super);
 	    function WPTransition(enteringView, leavingView, opts) {
-	        _super.call(this, opts);
+	        _super.call(this, enteringView, leavingView, opts);
 	        // what direction is the transition going
 	        var backDirection = (opts.direction === 'back');
 	        // do they have navbars?
 	        var enteringHasNavbar = enteringView.hasNavbar();
 	        var leavingHasNavbar = leavingView && leavingView.hasNavbar();
-	        // entering content scale from smaller to larger
-	        var enteringPage = new animation_1.Animation(enteringView.pageRef());
-	        enteringPage.before.addClass('show-page');
-	        this.add(enteringPage);
 	        if (backDirection) {
 	            this.duration(opts.duration || 120).easing('cubic-bezier(0.47,0,0.745,0.715)');
-	            enteringPage.before.clearStyles(['scale']);
+	            this.enteringPage.before.clearStyles(['scale']);
 	        }
 	        else {
 	            this.duration(opts.duration || 280).easing('cubic-bezier(0,0 0.05,1)');
-	            enteringPage
+	            this.enteringPage
 	                .fromTo('scale', SCALE_SMALL, 1, true)
-	                .fadeIn();
+	                .fromTo('opacity', 0.01, 1, true);
 	        }
 	        if (enteringHasNavbar) {
 	            var enteringNavBar = new animation_1.Animation(enteringView.navbarRef());
@@ -76776,12 +77250,12 @@
 	            // leaving content
 	            this.duration(opts.duration || 200).easing('cubic-bezier(0.47,0,0.745,0.715)');
 	            var leavingPage = new animation_1.Animation(leavingView.pageRef());
-	            this.add(leavingPage.fromTo('scale', 1, SCALE_SMALL).fadeOut());
+	            this.add(leavingPage.fromTo('scale', 1, SCALE_SMALL).fromTo('opacity', 0.99, 0));
 	        }
 	    }
 	    return WPTransition;
-	}(transition_1.Transition));
-	transition_1.Transition.register('wp-transition', WPTransition);
+	}(page_transition_1.PageTransition));
+	page_transition_1.PageTransition.register('wp-transition', WPTransition);
 
 /***/ }
 /******/ ]);

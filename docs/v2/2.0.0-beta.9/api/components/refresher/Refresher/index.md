@@ -35,7 +35,7 @@ Refresher
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/refresher/refresher.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/refresher/refresher.ts#L6">
 Improve this doc
 </a>
 

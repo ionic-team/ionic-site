@@ -67,24 +67,28 @@ directive a value.</p>
 <p>If placing the <code>menuToggle</code> in a navbar or toolbar, it should be
 placed as a child of the <code>&lt;ion-navbar&gt;</code> or <code>&lt;ion-toolbar&gt;</code>, and not in
 the <code>&lt;ion-buttons&gt;</code> element:</p>
-<pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
-  &lt;ion-buttons start&gt;
-    &lt;button&gt;
-      &lt;ion-icon name=&quot;contact&quot;&gt;&lt;/ion-icon&gt;
+<pre><code class="lang-html">&lt;ion-header&gt;
+
+  &lt;ion-navbar&gt;
+    &lt;ion-buttons start&gt;
+      &lt;button&gt;
+        &lt;ion-icon name=&quot;contact&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/button&gt;
+    &lt;/ion-buttons&gt;
+    &lt;button menuToggle&gt;
+      &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
     &lt;/button&gt;
-  &lt;/ion-buttons&gt;
-  &lt;button menuToggle&gt;
-    &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
-  &lt;/button&gt;
-  &lt;ion-title&gt;
-    Title
-  &lt;/ion-title&gt;
-  &lt;ion-buttons end&gt;
-    &lt;button (click)=&quot;doClick()&quot;&gt;
-      &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
-    &lt;/button&gt;
-  &lt;/ion-buttons&gt;
-&lt;/ion-navbar&gt;
+    &lt;ion-title&gt;
+      Title
+    &lt;/ion-title&gt;
+    &lt;ion-buttons end&gt;
+      &lt;button (click)=&quot;doClick()&quot;&gt;
+        &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/button&gt;
+    &lt;/ion-buttons&gt;
+  &lt;/ion-navbar&gt;
+
+&lt;/ion-header&gt;
 </code></pre>
 <p>Similar to <code>&lt;ion-buttons&gt;</code>, the <code>menuToggle</code> can be positioned using
 <code>start</code>, <code>end</code>, <code>left</code>, or <code>right</code>:</p>

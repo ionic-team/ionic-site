@@ -31,7 +31,7 @@ IONIC_DIRECTIVES
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/directives.ts#L113">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/directives.ts#L117">
 Improve this doc
 </a>
 
@@ -76,6 +76,8 @@ are part of the app&#39;s default directives.</p>
 <li>SlideLazy</li>
 <li>Tabs</li>
 <li>Tab</li>
+<li>Header</li>
+<li>Footer</li>
 <li>Toolbar</li>
 <li>ToolbarTitle</li>
 <li>ToolbarItem</li>

@@ -44,8 +44,10 @@ Improve this doc
 
 
 
-<p>Navbar is a global level toolbar that gets updated every time a page gets
-loaded. You can pass the navbar an <code>ion-title</code>, any number of buttons, a segment, or a searchbar.</p>
+<p>Navbar acts as the navigational toolbar, which also comes with a back
+button. A navbar can contain a <code>ion-title</code>, any number of buttons,
+a segment, or a searchbar. Navbars must be placed within an
+<code>&lt;ion-header&gt;</code> in order for them to be placed above the content.</p>
 
 
 
@@ -55,21 +57,25 @@ loaded. You can pass the navbar an <code>ion-title</code>, any number of buttons
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-html">&lt;ion-navbar *navbar&gt;
-  &lt;button menuToggle&gt;
-    &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
-  &lt;/button&gt;
+<pre><code class="lang-html">&lt;ion-header&gt;
 
-  &lt;ion-title&gt;
-    Page Title
-  &lt;/ion-title&gt;
-
-  &lt;ion-buttons end&gt;
-    &lt;button (click)=&quot;openModal()&quot;&gt;
-      &lt;ion-icon name=&quot;options&quot;&gt;&lt;/ion-icon&gt;
+  &lt;ion-navbar&gt;
+    &lt;button menuToggle&gt;
+      &lt;ion-icon name=&quot;menu&quot;&gt;&lt;/ion-icon&gt;
     &lt;/button&gt;
-  &lt;/ion-buttons&gt;
-&lt;/ion-navbar&gt;
+
+    &lt;ion-title&gt;
+      Page Title
+    &lt;/ion-title&gt;
+
+    &lt;ion-buttons end&gt;
+      &lt;button (click)=&quot;openModal()&quot;&gt;
+        &lt;ion-icon name=&quot;options&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/button&gt;
+    &lt;/ion-buttons&gt;
+  &lt;/ion-navbar&gt;
+
+&lt;/ion-header&gt;
 </code></pre>
 
 

@@ -175,6 +175,7 @@ Improve this doc
 
 </h3>
 
+NO DOM
 
 
 
@@ -195,6 +196,7 @@ Improve this doc
 
 </h3>
 
+NO DOM
 
 
 
@@ -215,6 +217,7 @@ Improve this doc
 
 </h3>
 
+NO DOM
 
 
 
@@ -235,6 +238,7 @@ Improve this doc
 
 </h3>
 
+NO DOM
 
 
 
@@ -255,6 +259,7 @@ Improve this doc
 
 </h3>
 
+NO DOM
 
 
 
@@ -275,6 +280,7 @@ Improve this doc
 
 </h3>
 
+NO DOM
 
 
 
@@ -295,6 +301,7 @@ Improve this doc
 
 </h3>
 
+NO DOM
 
 
 
@@ -315,6 +322,7 @@ Improve this doc
 
 </h3>
 
+NO DOM
 
 
 
@@ -335,46 +343,7 @@ Improve this doc
 
 </h3>
 
-
-
-
-
-
-
-
-
-
-
-
-<div id="fadeIn"></div>
-
-<h3>
-<a class="anchor" name="fadeIn" href="#fadeIn"></a>
-<code>fadeIn()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="fadeOut"></div>
-
-<h3>
-<a class="anchor" name="fadeOut" href="#fadeOut"></a>
-<code>fadeOut()</code>
-  
-
-</h3>
-
+NO DOM
 
 
 
@@ -395,6 +364,7 @@ Improve this doc
 
 </h3>
 
+NO DOM
 
 
 
@@ -415,6 +385,7 @@ Improve this doc
 
 </h3>
 
+NO DOM
 
 
 
@@ -435,6 +406,7 @@ Improve this doc
 
 </h3>
 
+DOM WRITE
 
 
 
@@ -455,6 +427,7 @@ Improve this doc
 
 </h3>
 
+DOM WRITE
 
 
 
@@ -475,6 +448,7 @@ Improve this doc
 
 </h3>
 
+DOM WRITE
 
 
 
@@ -495,6 +469,7 @@ Improve this doc
 
 </h3>
 
+DOM WRITE
 
 
 
@@ -515,26 +490,7 @@ Improve this doc
 
 </h3>
 
-
-
-
-
-
-
-
-
-
-
-
-<div id="onPlay"></div>
-
-<h3>
-<a class="anchor" name="onPlay" href="#onPlay"></a>
-<code>onPlay()</code>
-  
-
-</h3>
-
+DOM WRITE
 
 
 
@@ -555,6 +511,7 @@ Improve this doc
 
 </h3>
 
+POSSIBLE DOM READ/WRITE
 
 
 
@@ -575,6 +532,7 @@ Improve this doc
 
 </h3>
 
+NO DOM
 
 
 
@@ -595,6 +553,7 @@ Improve this doc
 
 </h3>
 
+DOM WRITE
 
 
 

@@ -35,7 +35,7 @@ List
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/list/list.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/list/list.ts#L7">
 Improve this doc
 </a>
 
@@ -169,6 +169,44 @@ export class MyClass {
 
 
 
+<!-- input methods on the class -->
+<h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>reorder</td>
+      <td><code></code></td>
+      <td></td>
+    </tr>
+    
+  </tbody>
+</table>
+<!-- output events on the class -->
+<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Attr</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>ionItemReorder</td>
+      <td></td>
+    </tr>
+    
+  </tbody>
+</table>
 
 
 <!-- related link -->

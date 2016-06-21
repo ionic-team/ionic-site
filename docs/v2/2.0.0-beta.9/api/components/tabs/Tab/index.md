@@ -133,6 +133,28 @@ the tabs.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="parent"></div>
+
+<h3>
+<a class="anchor" name="parent" href="#parent"></a>
+<code>parent</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -202,6 +224,13 @@ Defaults to <code>true</code>.</p>
       <td><code>boolean</code></td>
       <td><p> If the tab button is visible within the
 tabbar or not. Defaults to <code>true</code>.</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>swipeBackEnabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether it&#39;s possible to swipe-to-go-back on this tab or not.</p>
 </td>
     </tr>
     

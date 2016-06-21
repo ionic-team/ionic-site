@@ -4,11 +4,11 @@ version: "2.0.0-beta.9"
 versionHref: "/docs/v2/2.0.0-beta.9"
 path: ""
 category: api
-id: "ionicpostbootstrap"
-title: "ionicPostBootstrap"
+id: "header"
+title: "Header"
 header_sub_title: "Ionic API Documentation"
-doc: "ionicPostBootstrap"
-docType: "function"
+doc: "Header"
+docType: "class"
 
 ---
 
@@ -21,9 +21,11 @@ docType: "function"
 
 
 <h1 class="api-title">
-<a class="anchor" name="ionic-post-bootstrap" href="#ionic-post-bootstrap"></a>
+<a class="anchor" name="header" href="#header"></a>
 
-ionicPostBootstrap
+Header
+<h3><code>ion-header</code></h3>
+
 
 
 
@@ -31,7 +33,7 @@ ionicPostBootstrap
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/bootstrap.ts#L58">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/toolbar/toolbar.ts#L7">
 Improve this doc
 </a>
 

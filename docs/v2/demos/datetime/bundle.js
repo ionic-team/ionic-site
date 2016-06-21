@@ -56766,7 +56766,7 @@
 	         */
 	        get: function () {
 	            var nav = this.parent;
-	            while (nav.parent) {
+	            while (nav && nav.parent) {
 	                nav = nav.parent;
 	            }
 	            return nav;

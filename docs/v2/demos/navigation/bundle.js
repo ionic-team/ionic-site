@@ -46761,11 +46761,11 @@
 	var infinite_scroll_1 = __webpack_require__(348);
 	var infinite_scroll_content_1 = __webpack_require__(349);
 	var refresher_1 = __webpack_require__(350);
-	var refresher_content_1 = __webpack_require__(351);
-	var slides_1 = __webpack_require__(352);
-	var tabs_1 = __webpack_require__(354);
-	var tab_1 = __webpack_require__(356);
-	var list_1 = __webpack_require__(358);
+	var refresher_content_1 = __webpack_require__(352);
+	var slides_1 = __webpack_require__(353);
+	var tabs_1 = __webpack_require__(355);
+	var tab_1 = __webpack_require__(357);
+	var list_1 = __webpack_require__(359);
 	var item_1 = __webpack_require__(362);
 	var item_sliding_1 = __webpack_require__(366);
 	var virtual_scroll_1 = __webpack_require__(367);
@@ -55552,6 +55552,12 @@
 	    };
 	    /**
 	     * @private
+	     */
+	    Content.prototype.getScrollElement = function () {
+	        return this._scrollEle;
+	    };
+	    /**
+	     * @private
 	     * Call a method when scrolling has stopped
 	     * @param {Function} callback The method you want perform when scrolling has ended
 	     */
@@ -56651,6 +56657,7 @@
 	var content_1 = __webpack_require__(344);
 	var util_1 = __webpack_require__(313);
 	var dom_1 = __webpack_require__(310);
+	var ui_event_manager_1 = __webpack_require__(351);
 	/**
 	 * @name Refresher
 	 * @description
@@ -56736,9 +56743,9 @@
 	        this._content = _content;
 	        this._zone = _zone;
 	        this._appliedStyles = false;
-	        this._lastStart = 0;
 	        this._lastCheck = 0;
 	        this._isEnabled = true;
+	        this._events = new ui_event_manager_1.UIEventManager(false);
 	        /**
 	         * The current state which the refresher is in. The refresher's states include:
 	         *
@@ -56783,7 +56790,7 @@
 	         * will automatically go into the `refreshing` state. By default, the pull
 	         * maximum will be the result of `pullMin + 60`.
 	         */
-	        this.pullMax = null;
+	        this.pullMax = this.pullMin + 60;
 	        /**
 	         * @input {number} How many milliseconds it takes to close the refresher. Default is `280`.
 	         */
@@ -56837,23 +56844,23 @@
 	    Refresher.prototype._onStart = function (ev) {
 	        // if multitouch then get out immediately
 	        if (ev.touches && ev.touches.length > 1) {
-	            return 1;
+	            return false;
+	        }
+	        if (this.state !== STATE_INACTIVE) {
+	            return false;
+	        }
+	        var scrollHostScrollTop = this._content.getContentDimensions().scrollTop;
+	        // if the scrollTop is greater than zero then it's
+	        // not possible to pull the content down yet
+	        if (scrollHostScrollTop > 0) {
+	            return false;
 	        }
 	        var coord = dom_1.pointerCoord(ev);
 	        console.debug('Pull-to-refresh, onStart', ev.type, 'y:', coord.y);
-	        var now = Date.now();
-	        if (this._lastStart + 100 > now) {
-	            return 2;
-	        }
-	        this._lastStart = now;
-	        if (ev.type === 'mousedown' && !this._mMove) {
-	            this._mMove = this._content.addMouseMoveListener(this._onMove.bind(this));
-	        }
 	        this.startY = this.currentY = coord.y;
 	        this.progress = 0;
-	        if (!this.pullMax) {
-	            this.pullMax = (this.pullMin + 60);
-	        }
+	        this.state = STATE_PULLING;
+	        return true;
 	    };
 	    Refresher.prototype._onMove = function (ev) {
 	        // this method can get called like a bazillion times per second,
@@ -56978,12 +56985,6 @@
 	        }
 	        // reset on any touchend/mouseup
 	        this.startY = null;
-	        if (this._mMove) {
-	            // we don't want to always listen to mousemoves
-	            // remove it if we're still listening
-	            this._mMove();
-	            this._mMove = null;
-	        }
 	    };
 	    Refresher.prototype._beginRefresh = function () {
 	        // assumes we're already back in a zone
@@ -57033,10 +57034,8 @@
 	        // set that the refresh is actively cancelling/completing
 	        this.state = state;
 	        this._setCss(0, '', true, delay);
-	        if (this._mMove) {
-	            // always remove the mousemove event
-	            this._mMove();
-	            this._mMove = null;
+	        if (this._pointerEvents) {
+	            this._pointerEvents.stop();
 	        }
 	    };
 	    Refresher.prototype._setCss = function (y, duration, overflowVisible, delay) {
@@ -57048,40 +57047,10 @@
 	        content.setScrollElementStyle('overflow', (overflowVisible ? 'hidden' : ''));
 	    };
 	    Refresher.prototype._setListeners = function (shouldListen) {
-	        var self = this;
-	        var content = self._content;
+	        this._events.unlistenAll();
+	        this._pointerEvents = null;
 	        if (shouldListen) {
-	            // add listener outside of zone
-	            // touch handlers
-	            self._zone.runOutsideAngular(function () {
-	                if (!self._tStart) {
-	                    self._tStart = content.addTouchStartListener(self._onStart.bind(self));
-	                }
-	                if (!self._tMove) {
-	                    self._tMove = content.addTouchMoveListener(self._onMove.bind(self));
-	                }
-	                if (!self._tEnd) {
-	                    self._tEnd = content.addTouchEndListener(self._onEnd.bind(self));
-	                }
-	                // mouse handlers
-	                // mousemove does not get added until mousedown fires
-	                if (!self._mDown) {
-	                    self._mDown = content.addMouseDownListener(self._onStart.bind(self));
-	                }
-	                if (!self._mUp) {
-	                    self._mUp = content.addMouseUpListener(self._onEnd.bind(self));
-	                }
-	            });
-	        }
-	        else {
-	            // unregister event listeners from content element
-	            self._mDown && self._mDown();
-	            self._mMove && self._mMove();
-	            self._mUp && self._mUp();
-	            self._tStart && self._tStart();
-	            self._tMove && self._tMove();
-	            self._tEnd && self._tEnd();
-	            self._mDown = self._mMove = self._mUp = self._tStart = self._tMove = self._tEnd = null;
+	            this._pointerEvents = this._events.pointerEvents(this._content.getScrollElement(), this._onStart.bind(this), this._onMove.bind(this), this._onEnd.bind(this));
 	        }
 	    };
 	    /**
@@ -57153,6 +57122,157 @@
 
 /***/ },
 /* 351 */
+/***/ function(module, exports) {
+
+	"use strict";
+	/**
+	 * @private
+	 */
+	var PointerEvents = (function () {
+	    function PointerEvents(ele, pointerDown, pointerMove, pointerUp, zone, option) {
+	        var _this = this;
+	        this.ele = ele;
+	        this.pointerDown = pointerDown;
+	        this.pointerMove = pointerMove;
+	        this.pointerUp = pointerUp;
+	        this.zone = zone;
+	        this.option = option;
+	        this.rmTouchStart = null;
+	        this.rmTouchMove = null;
+	        this.rmTouchEnd = null;
+	        this.rmMouseStart = null;
+	        this.rmMouseMove = null;
+	        this.rmMouseUp = null;
+	        this.lastTouchEvent = 0;
+	        this.mouseWait = 2 * 1000;
+	        this.rmTouchStart = listenEvent(ele, 'touchstart', zone, option, function (ev) { return _this.handleTouchStart(ev); });
+	        this.rmMouseStart = listenEvent(ele, 'mousedown', zone, option, function (ev) { return _this.handleMouseDown(ev); });
+	    }
+	    PointerEvents.prototype.handleTouchStart = function (ev) {
+	        var _this = this;
+	        this.lastTouchEvent = Date.now() + this.mouseWait;
+	        if (!this.pointerDown(ev)) {
+	            return;
+	        }
+	        if (!this.rmTouchMove) {
+	            this.rmTouchMove = listenEvent(this.ele, 'touchmove', this.zone, this.option, this.pointerMove);
+	        }
+	        if (!this.rmTouchEnd) {
+	            this.rmTouchEnd = listenEvent(this.ele, 'touchend', this.zone, this.option, function (ev) { return _this.handleTouchEnd(ev); });
+	        }
+	    };
+	    PointerEvents.prototype.handleMouseDown = function (ev) {
+	        var _this = this;
+	        if (this.lastTouchEvent > Date.now()) {
+	            console.debug('mousedown event dropped because of previous touch');
+	            return;
+	        }
+	        if (!this.pointerDown(ev)) {
+	            return;
+	        }
+	        if (!this.rmMouseMove) {
+	            this.rmMouseMove = listenEvent(window, 'mousemove', this.zone, this.option, this.pointerMove);
+	        }
+	        if (!this.rmMouseUp) {
+	            this.rmMouseUp = listenEvent(window, 'mouseup', this.zone, this.option, function (ev) { return _this.handleMouseUp(ev); });
+	        }
+	    };
+	    PointerEvents.prototype.handleTouchEnd = function (ev) {
+	        this.rmTouchMove && this.rmTouchMove();
+	        this.rmTouchMove = null;
+	        this.rmTouchEnd && this.rmTouchEnd();
+	        this.rmTouchEnd = null;
+	        this.pointerUp(ev);
+	    };
+	    PointerEvents.prototype.handleMouseUp = function (ev) {
+	        this.rmMouseMove && this.rmMouseMove();
+	        this.rmMouseMove = null;
+	        this.rmMouseUp && this.rmMouseUp();
+	        this.rmMouseUp = null;
+	        this.pointerUp(ev);
+	    };
+	    PointerEvents.prototype.stop = function () {
+	        this.rmTouchMove && this.rmTouchMove();
+	        this.rmTouchEnd && this.rmTouchEnd();
+	        this.rmTouchMove = null;
+	        this.rmTouchEnd = null;
+	        this.rmMouseMove && this.rmMouseMove();
+	        this.rmMouseUp && this.rmMouseUp();
+	        this.rmMouseMove = null;
+	        this.rmMouseUp = null;
+	    };
+	    PointerEvents.prototype.destroy = function () {
+	        this.rmTouchStart && this.rmTouchStart();
+	        this.rmTouchStart = null;
+	        this.rmMouseStart && this.rmMouseStart();
+	        this.rmMouseStart = null;
+	        this.stop();
+	        this.pointerDown = null;
+	        this.pointerMove = null;
+	        this.pointerUp = null;
+	        this.ele = null;
+	    };
+	    return PointerEvents;
+	}());
+	exports.PointerEvents = PointerEvents;
+	/**
+	 * @private
+	 */
+	var UIEventManager = (function () {
+	    function UIEventManager(zoneWrapped) {
+	        if (zoneWrapped === void 0) { zoneWrapped = true; }
+	        this.zoneWrapped = zoneWrapped;
+	        this.events = [];
+	    }
+	    UIEventManager.prototype.listenRef = function (ref, eventName, callback, option) {
+	        return this.listen(ref.nativeElement, eventName, callback, option);
+	    };
+	    UIEventManager.prototype.pointerEventsRef = function (ref, pointerStart, pointerMove, pointerEnd, option) {
+	        return this.pointerEvents(ref.nativeElement, pointerStart, pointerMove, pointerEnd, option);
+	    };
+	    UIEventManager.prototype.pointerEvents = function (element, pointerDown, pointerMove, pointerUp, option) {
+	        if (option === void 0) { option = false; }
+	        if (!element) {
+	            return;
+	        }
+	        var submanager = new PointerEvents(element, pointerDown, pointerMove, pointerUp, this.zoneWrapped, option);
+	        var removeFunc = function () { return submanager.destroy(); };
+	        this.events.push(removeFunc);
+	        return submanager;
+	    };
+	    UIEventManager.prototype.listen = function (element, eventName, callback, option) {
+	        if (option === void 0) { option = false; }
+	        if (!element) {
+	            return;
+	        }
+	        var removeFunc = listenEvent(element, eventName, this.zoneWrapped, option, callback);
+	        this.events.push(removeFunc);
+	        return removeFunc;
+	    };
+	    UIEventManager.prototype.unlistenAll = function () {
+	        for (var _i = 0, _a = this.events; _i < _a.length; _i++) {
+	            var event = _a[_i];
+	            event();
+	        }
+	        this.events.length = 0;
+	    };
+	    return UIEventManager;
+	}());
+	exports.UIEventManager = UIEventManager;
+	function listenEvent(ele, eventName, zoneWrapped, option, callback) {
+	    var rawEvent = ('__zone_symbol__addEventListener' in ele && !zoneWrapped);
+	    if (rawEvent) {
+	        ele.__zone_symbol__addEventListener(eventName, callback, option);
+	        return function () { return ele.__zone_symbol__removeEventListener(eventName, callback); };
+	    }
+	    else {
+	        ele.addEventListener(eventName, callback, option);
+	        return function () { return ele.removeEventListener(eventName, callback); };
+	    }
+	}
+
+/***/ },
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57231,7 +57351,7 @@
 	exports.RefresherContent = RefresherContent;
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57260,7 +57380,7 @@
 	var util_1 = __webpack_require__(327);
 	var dom_1 = __webpack_require__(310);
 	var util_2 = __webpack_require__(313);
-	var swiper_widget_1 = __webpack_require__(353);
+	var swiper_widget_1 = __webpack_require__(354);
 	/**
 	 * @name Slides
 	 * @description
@@ -58001,7 +58121,7 @@
 	var slidesId = -1;
 
 /***/ },
-/* 353 */
+/* 354 */
 /***/ function(module, exports) {
 
 	/**
@@ -61961,7 +62081,7 @@
 
 
 /***/ },
-/* 354 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61989,8 +62109,8 @@
 	var util_1 = __webpack_require__(313);
 	var nav_controller_1 = __webpack_require__(338);
 	var platform_1 = __webpack_require__(312);
-	var tab_button_1 = __webpack_require__(355);
-	var tab_highlight_1 = __webpack_require__(357);
+	var tab_button_1 = __webpack_require__(356);
+	var tab_highlight_1 = __webpack_require__(358);
 	var view_controller_1 = __webpack_require__(333);
 	/**
 	 * @name Tabs
@@ -62445,7 +62565,7 @@
 	}());
 
 /***/ },
-/* 355 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62464,7 +62584,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var tab_1 = __webpack_require__(356);
+	var tab_1 = __webpack_require__(357);
 	var ion_1 = __webpack_require__(319);
 	var config_1 = __webpack_require__(311);
 	/**
@@ -62528,7 +62648,7 @@
 	exports.TabButton = TabButton;
 
 /***/ },
-/* 356 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62555,7 +62675,7 @@
 	var util_1 = __webpack_require__(313);
 	var keyboard_1 = __webpack_require__(320);
 	var nav_controller_1 = __webpack_require__(338);
-	var tabs_1 = __webpack_require__(354);
+	var tabs_1 = __webpack_require__(355);
 	/**
 	 * @name Tab
 	 * @description
@@ -62883,7 +63003,7 @@
 	exports.Tab = Tab;
 
 /***/ },
-/* 357 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62931,7 +63051,7 @@
 	exports.TabHighlight = TabHighlight;
 
 /***/ },
-/* 358 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62955,8 +63075,8 @@
 	var core_1 = __webpack_require__(6);
 	var content_1 = __webpack_require__(344);
 	var ion_1 = __webpack_require__(319);
-	var item_sliding_gesture_1 = __webpack_require__(359);
-	var item_reorder_gesture_1 = __webpack_require__(360);
+	var item_sliding_gesture_1 = __webpack_require__(360);
+	var item_reorder_gesture_1 = __webpack_require__(361);
 	var util_1 = __webpack_require__(313);
 	var dom_1 = __webpack_require__(310);
 	/**
@@ -63189,7 +63309,7 @@
 	exports.ListHeader = ListHeader;
 
 /***/ },
-/* 359 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63304,11 +63424,11 @@
 	}
 
 /***/ },
-/* 360 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var ui_event_manager_1 = __webpack_require__(361);
+	var ui_event_manager_1 = __webpack_require__(351);
 	var dom_1 = __webpack_require__(310);
 	var AUTO_SCROLL_MARGIN = 60;
 	var SCROLL_JUMP = 10;
@@ -63431,141 +63551,6 @@
 	    return ItemReorderGesture;
 	}());
 	exports.ItemReorderGesture = ItemReorderGesture;
-
-/***/ },
-/* 361 */
-/***/ function(module, exports) {
-
-	"use strict";
-	var MOUSE_WAIT = 2 * 1000;
-	var PointerEvents = (function () {
-	    function PointerEvents(ele, pointerDown, pointerMove, pointerUp, zone, option) {
-	        var _this = this;
-	        this.ele = ele;
-	        this.pointerDown = pointerDown;
-	        this.pointerMove = pointerMove;
-	        this.pointerUp = pointerUp;
-	        this.zone = zone;
-	        this.option = option;
-	        this.rmTouchStart = null;
-	        this.rmTouchMove = null;
-	        this.rmTouchEnd = null;
-	        this.rmMouseStart = null;
-	        this.rmMouseMove = null;
-	        this.rmMouseUp = null;
-	        this.lastTouchEvent = 0;
-	        this.rmTouchStart = listenEvent(ele, 'touchstart', zone, option, function (ev) { return _this.handleTouchStart(ev); });
-	        this.rmMouseStart = listenEvent(ele, 'mousedown', zone, option, function (ev) { return _this.handleMouseDown(ev); });
-	    }
-	    PointerEvents.prototype.handleTouchStart = function (ev) {
-	        var _this = this;
-	        this.lastTouchEvent = Date.now() + MOUSE_WAIT;
-	        if (!this.pointerDown(ev)) {
-	            return;
-	        }
-	        if (!this.rmTouchMove) {
-	            this.rmTouchMove = listenEvent(this.ele, 'touchmove', this.zone, this.option, this.pointerMove);
-	        }
-	        if (!this.rmTouchEnd) {
-	            this.rmTouchEnd = listenEvent(this.ele, 'touchend', this.zone, this.option, function (ev) { return _this.handleTouchEnd(ev); });
-	        }
-	    };
-	    PointerEvents.prototype.handleMouseDown = function (ev) {
-	        var _this = this;
-	        if (this.lastTouchEvent > Date.now()) {
-	            console.debug('mousedown event dropped because of previous touch');
-	            return;
-	        }
-	        if (!this.pointerDown(ev)) {
-	            return;
-	        }
-	        if (!this.rmMouseMove) {
-	            this.rmMouseMove = listenEvent(window, 'mousemove', this.zone, this.option, this.pointerMove);
-	        }
-	        if (!this.rmMouseUp) {
-	            this.rmMouseUp = listenEvent(window, 'mouseup', this.zone, this.option, function (ev) { return _this.handleMouseUp(ev); });
-	        }
-	    };
-	    PointerEvents.prototype.handleTouchEnd = function (ev) {
-	        this.rmTouchMove && this.rmTouchMove();
-	        this.rmTouchMove = null;
-	        this.rmTouchEnd && this.rmTouchEnd();
-	        this.rmTouchEnd = null;
-	        this.pointerUp(ev);
-	    };
-	    PointerEvents.prototype.handleMouseUp = function (ev) {
-	        this.rmMouseMove && this.rmMouseMove();
-	        this.rmMouseMove = null;
-	        this.rmMouseUp && this.rmMouseUp();
-	        this.rmMouseUp = null;
-	        this.pointerUp(ev);
-	    };
-	    PointerEvents.prototype.destroy = function () {
-	        this.rmTouchStart && this.rmTouchStart();
-	        this.rmTouchMove && this.rmTouchMove();
-	        this.rmTouchEnd && this.rmTouchEnd();
-	        this.rmMouseStart && this.rmMouseStart();
-	        this.rmMouseMove && this.rmMouseMove();
-	        this.rmMouseUp && this.rmMouseUp();
-	        this.rmTouchStart = null;
-	        this.rmTouchMove = null;
-	        this.rmTouchEnd = null;
-	        this.rmMouseStart = null;
-	        this.rmMouseMove = null;
-	        this.rmMouseUp = null;
-	        this.pointerDown = null;
-	        this.pointerMove = null;
-	        this.pointerUp = null;
-	        this.ele = null;
-	    };
-	    return PointerEvents;
-	}());
-	var UIEventManager = (function () {
-	    function UIEventManager(zoneWrapped) {
-	        if (zoneWrapped === void 0) { zoneWrapped = true; }
-	        this.zoneWrapped = zoneWrapped;
-	        this.events = [];
-	    }
-	    UIEventManager.prototype.listenRef = function (ref, eventName, callback, option) {
-	        return this.listen(ref.nativeElement, eventName, callback, option);
-	    };
-	    UIEventManager.prototype.pointerEventsRef = function (ref, pointerStart, pointerMove, pointerEnd, option) {
-	        return this.pointerEvents(ref.nativeElement, pointerStart, pointerMove, pointerEnd, option);
-	    };
-	    UIEventManager.prototype.pointerEvents = function (element, pointerDown, pointerMove, pointerUp, option) {
-	        if (option === void 0) { option = false; }
-	        var submanager = new PointerEvents(element, pointerDown, pointerMove, pointerUp, this.zoneWrapped, option);
-	        var removeFunc = function () { return submanager.destroy(); };
-	        this.events.push(removeFunc);
-	        return removeFunc;
-	    };
-	    UIEventManager.prototype.listen = function (element, eventName, callback, option) {
-	        if (option === void 0) { option = false; }
-	        var removeFunc = listenEvent(element, eventName, this.zoneWrapped, option, callback);
-	        this.events.push(removeFunc);
-	        return removeFunc;
-	    };
-	    UIEventManager.prototype.unlistenAll = function () {
-	        for (var _i = 0, _a = this.events; _i < _a.length; _i++) {
-	            var event = _a[_i];
-	            event();
-	        }
-	        this.events.length = 0;
-	    };
-	    return UIEventManager;
-	}());
-	exports.UIEventManager = UIEventManager;
-	function listenEvent(ele, eventName, zoneWrapped, option, callback) {
-	    var rawEvent = ('__zone_symbol__addEventListener' in ele && !zoneWrapped);
-	    if (rawEvent) {
-	        ele.__zone_symbol__addEventListener(eventName, callback, option);
-	        return function () { return ele.__zone_symbol__removeEventListener(eventName, callback); };
-	    }
-	    else {
-	        ele.addEventListener(eventName, callback, option);
-	        return function () { return ele.removeEventListener(eventName, callback); };
-	    }
-	}
 
 /***/ },
 /* 362 */
@@ -64342,7 +64327,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var list_1 = __webpack_require__(358);
+	var list_1 = __webpack_require__(359);
 	var item_1 = __webpack_require__(362);
 	var util_1 = __webpack_require__(313);
 	var dom_1 = __webpack_require__(310);
@@ -69097,7 +69082,7 @@
 	var nav_params_1 = __webpack_require__(334);
 	var view_controller_1 = __webpack_require__(333);
 	var dom_1 = __webpack_require__(310);
-	var ui_event_manager_1 = __webpack_require__(361);
+	var ui_event_manager_1 = __webpack_require__(351);
 	/**
 	 * @name Picker
 	 * @description
@@ -69665,6 +69650,7 @@
 	var util_1 = __webpack_require__(313);
 	var item_1 = __webpack_require__(362);
 	var dom_1 = __webpack_require__(310);
+	var ui_event_manager_1 = __webpack_require__(351);
 	var TOGGLE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
 	/**
 	 * @name Toggle
@@ -69715,6 +69701,7 @@
 	        this._disabled = false;
 	        this._activated = false;
 	        this._msPrv = 0;
+	        this._events = new ui_event_manager_1.UIEventManager();
 	        /**
 	         * @output {Toggle} expression to evaluate when the toggle value changes
 	         */
@@ -69726,24 +69713,13 @@
 	            this._item.setCssClass('item-toggle', true);
 	        }
 	    }
-	    /**
-	     * @private
-	     */
 	    Toggle.prototype.pointerDown = function (ev) {
-	        if (this._isPrevented(ev)) {
-	            return;
-	        }
 	        this._startX = dom_1.pointerCoord(ev).x;
 	        this._activated = true;
+	        return true;
 	    };
-	    /**
-	     * @private
-	     */
 	    Toggle.prototype.pointerMove = function (ev) {
 	        if (this._startX) {
-	            if (this._isPrevented(ev)) {
-	                return;
-	            }
 	            var currentX = dom_1.pointerCoord(ev).x;
 	            console.debug('toggle, pointerMove', ev.type, currentX);
 	            if (this._checked) {
@@ -69760,14 +69736,8 @@
 	            }
 	        }
 	    };
-	    /**
-	     * @private
-	     */
 	    Toggle.prototype.pointerUp = function (ev) {
 	        if (this._startX) {
-	            if (this._isPrevented(ev)) {
-	                return;
-	            }
 	            var endX = dom_1.pointerCoord(ev).x;
 	            if (this.checked) {
 	                if (this._startX + 4 > endX) {
@@ -69792,9 +69762,6 @@
 	        enumerable: true,
 	        configurable: true
 	    });
-	    /**
-	     * @private
-	     */
 	    Toggle.prototype._setChecked = function (isChecked) {
 	        if (isChecked !== this._checked) {
 	            this._checked = isChecked;
@@ -69855,26 +69822,16 @@
 	     * @private
 	     */
 	    Toggle.prototype.ngAfterContentInit = function () {
+	        var _this = this;
 	        this._init = true;
+	        this._events.pointerEventsRef(this._elementRef, function (ev) { return _this.pointerDown(ev); }, function (ev) { return _this.pointerMove(ev); }, function (ev) { return _this.pointerUp(ev); });
 	    };
 	    /**
 	     * @private
 	     */
 	    Toggle.prototype.ngOnDestroy = function () {
 	        this._form.deregister(this);
-	    };
-	    /**
-	     * @private
-	     */
-	    Toggle.prototype._isPrevented = function (ev) {
-	        if (ev.type.indexOf('touch') > -1) {
-	            this._msPrv = Date.now() + 2000;
-	        }
-	        else if (this._msPrv > Date.now() && ev.type.indexOf('mouse') > -1) {
-	            ev.preventDefault();
-	            ev.stopPropagation();
-	            return true;
-	        }
+	        this._events.unlistenAll();
 	    };
 	    __decorate([
 	        core_1.Output(), 
@@ -71459,7 +71416,7 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(188);
-	var list_1 = __webpack_require__(358);
+	var list_1 = __webpack_require__(359);
 	var util_1 = __webpack_require__(313);
 	var RADIO_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return RadioGroup; }), multi: true });
 	/**
@@ -71693,7 +71650,7 @@
 	var form_1 = __webpack_require__(316);
 	var util_1 = __webpack_require__(313);
 	var item_1 = __webpack_require__(362);
-	var ui_event_manager_1 = __webpack_require__(361);
+	var ui_event_manager_1 = __webpack_require__(351);
 	var dom_1 = __webpack_require__(310);
 	var debouncer_1 = __webpack_require__(386);
 	var RANGE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Range; }), multi: true });
@@ -74028,7 +73985,7 @@
 	__export(__webpack_require__(362));
 	__export(__webpack_require__(366));
 	__export(__webpack_require__(364));
-	__export(__webpack_require__(358));
+	__export(__webpack_require__(359));
 	__export(__webpack_require__(400));
 	__export(__webpack_require__(330));
 	__export(__webpack_require__(318));
@@ -74050,16 +74007,16 @@
 	__export(__webpack_require__(384));
 	__export(__webpack_require__(385));
 	__export(__webpack_require__(350));
-	__export(__webpack_require__(351));
+	__export(__webpack_require__(352));
 	__export(__webpack_require__(347));
 	__export(__webpack_require__(387));
 	__export(__webpack_require__(382));
 	__export(__webpack_require__(372));
 	__export(__webpack_require__(393));
-	__export(__webpack_require__(352));
+	__export(__webpack_require__(353));
 	__export(__webpack_require__(370));
-	__export(__webpack_require__(354));
-	__export(__webpack_require__(356));
+	__export(__webpack_require__(355));
+	__export(__webpack_require__(357));
 	__export(__webpack_require__(394));
 	__export(__webpack_require__(404));
 	__export(__webpack_require__(378));

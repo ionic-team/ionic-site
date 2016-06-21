@@ -35,7 +35,7 @@ Toggle
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/toggle/toggle.ts#L10">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/toggle/toggle.ts#L11">
 Improve this doc
 </a>
 
@@ -147,6 +147,68 @@ whether the toggle is disabled or not
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="pointerDown"></div>
+
+<h3>
+<a class="anchor" name="pointerDown" href="#pointerDown"></a>
+<code>pointerDown()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pointerMove"></div>
+
+<h3>
+<a class="anchor" name="pointerMove" href="#pointerMove"></a>
+<code>pointerMove()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="pointerUp"></div>
+
+<h3>
+<a class="anchor" name="pointerUp" href="#pointerUp"></a>
+<code>pointerUp()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

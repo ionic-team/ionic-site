@@ -54424,6 +54424,12 @@
 	    NavController.prototype.length = function () {
 	        return this._views.length;
 	    };
+	    /**
+	     * @private
+	     */
+	    NavController.prototype.isSwipeBackEnabled = function () {
+	        return this._sbEnabled;
+	    };
 	    Object.defineProperty(NavController.prototype, "rootNav", {
 	        /**
 	         * Returns the root `NavController`.
@@ -62794,6 +62800,9 @@
 	         */
 	        this.ionSelect = new core_1.EventEmitter();
 	        parentTabs.add(this);
+	        if (parentTabs.rootNav) {
+	            this._sbEnabled = parentTabs.rootNav.isSwipeBackEnabled();
+	        }
 	        this._panelId = 'tabpanel-' + this.id;
 	        this._btnId = 'tab-' + this.id;
 	    }
@@ -62823,6 +62832,19 @@
 	        },
 	        set: function (val) {
 	            this._isShown = util_1.isTrueProperty(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    Object.defineProperty(Tab.prototype, "swipeBackEnabled", {
+	        /**
+	         * @input {boolean} Whether it's possible to swipe-to-go-back on this tab or not.
+	         */
+	        get: function () {
+	            return this._sbEnabled;
+	        },
+	        set: function (val) {
+	            this._sbEnabled = util_1.isTrueProperty(val);
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -62973,6 +62995,10 @@
 	        core_1.Input(), 
 	        __metadata('design:type', Boolean)
 	    ], Tab.prototype, "show", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Tab.prototype, "swipeBackEnabled", null);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_b = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _b) || Object)

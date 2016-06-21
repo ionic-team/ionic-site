@@ -205,6 +205,13 @@ tabbar or not. Defaults to <code>true</code>.</p>
 </td>
     </tr>
     
+    <tr>
+      <td>swipeBackEnabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether it&#39;s possible to swipe-to-go-back on this tab or not.</p>
+</td>
+    </tr>
+    
   </tbody>
 </table>
 <!-- output events on the class -->

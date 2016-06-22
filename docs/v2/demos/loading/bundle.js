@@ -70418,13 +70418,6 @@
 	                '[attr.aria-checked]="_checked" ' +
 	                '[attr.aria-labelledby]="_labelId" ' +
 	                '[attr.aria-disabled]="_disabled" ' +
-	                '(touchstart)=pointerDown($event) ' +
-	                '(touchmove)=pointerMove($event) ' +
-	                '(mousemove)=pointerMove($event) ' +
-	                '(mousedown)=pointerDown($event) ' +
-	                '(touchend)=pointerUp($event) ' +
-	                '(mouseup)=pointerUp($event) ' +
-	                '(mouseout)=pointerUp($event) ' +
 	                'class="item-cover">' +
 	                '</button>',
 	            host: {

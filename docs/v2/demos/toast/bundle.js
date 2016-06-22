@@ -46799,7 +46799,7 @@
 	var datetime_1 = __webpack_require__(378);
 	var toggle_1 = __webpack_require__(380);
 	var input_1 = __webpack_require__(381);
-	var label_1 = __webpack_require__(364);
+	var label_1 = __webpack_require__(365);
 	var segment_1 = __webpack_require__(384);
 	var radio_button_1 = __webpack_require__(385);
 	var radio_group_1 = __webpack_require__(386);
@@ -46840,6 +46840,7 @@
 	 * - List
 	 * - ListHeader
 	 * - Item
+	 * - ItemContent
 	 * - ItemSliding
 	 * - VirtualScroll
 	 * - VirtualItem
@@ -46902,6 +46903,7 @@
 	    list_1.List,
 	    list_1.ListHeader,
 	    item_1.Item,
+	    item_1.ItemContent,
 	    item_sliding_1.ItemSliding,
 	    item_sliding_1.ItemOptions,
 	    virtual_scroll_1.VirtualScroll,
@@ -63430,9 +63432,9 @@
 	var core_1 = __webpack_require__(6);
 	var content_1 = __webpack_require__(344);
 	var ion_1 = __webpack_require__(319);
+	var util_1 = __webpack_require__(313);
 	var item_sliding_gesture_1 = __webpack_require__(360);
 	var item_reorder_gesture_1 = __webpack_require__(361);
-	var util_1 = __webpack_require__(313);
 	var dom_1 = __webpack_require__(310);
 	/**
 	 * The List is a widely used interface element in almost any mobile app,
@@ -63925,8 +63927,8 @@
 	var button_1 = __webpack_require__(343);
 	var form_1 = __webpack_require__(316);
 	var icon_1 = __webpack_require__(363);
-	var label_1 = __webpack_require__(364);
-	var item_reorder_1 = __webpack_require__(365);
+	var item_reorder_1 = __webpack_require__(364);
+	var label_1 = __webpack_require__(365);
 	/**
 	 * @name Item
 	 * @description
@@ -63937,16 +63939,34 @@
 	 *
 	 *
 	 * ## Common Usage
-	 * An item can be written as an `<ion-item>` element or it can be added to any element by adding
-	 * `ion-item` as an attribute.
+	 * There are a few elements that are considered items, but not all of them are styled to look the same.
+	 * The basic item can be written as an `<ion-item>` element or it can be added to any element by adding
+	 * `ion-item` as an attribute. List headers and item dividers, although styled differently, are also items
+	 * and can be written as `<ion-list-header>` and `<ion-item-divider>`, respectively.
 	 *
 	 * ### As an Element
-	 * An item should be written as a `<ion-item>` element when it is not clickable.
+	 * A basic item should be written as a `<ion-item>` element when it is not clickable.
 	 *
 	 * ```html
 	 * <ion-item>
 	 *   Item
 	 * </ion-item>
+	 * ```
+	 *
+	 * A list header should be written as `<ion-list-header>`.
+	 *
+	 * ```html
+	 * <ion-list-header>
+	 *   List Header
+	 * </ion-list-header>
+	 * ```
+	 *
+	 * An item divider should be written as `<ion-item-divider>`.
+	 *
+	 * ```html
+	 * <ion-item-divider>
+	 *   Item Divider
+	 * </ion-item-divider>
 	 * ```
 	 *
 	 * ### As an Attribute
@@ -63963,6 +63983,9 @@
 	 *   Anchor Item
 	 * </a>
 	 * ```
+	 *
+	 * Note: do not add `ion-item` as an attribute to an `<ion-list-header>` or `<ion-item-divider>` element
+	 * as they are already items and their styling will be changed to look like a basic item.
 	 *
 	 * ## Detail Arrows
 	 * By default, `<button>` and `<a>` elements with the `ion-item` attribute will display a right arrow icon
@@ -64027,6 +64050,10 @@
 	 * ```html
 	 * <ion-list>
 	 *
+	 *   <ion-list-header>
+	 *     Header
+	 *   </ion-list-header>
+	 *
 	 *   <ion-item>
 	 *     Item
 	 *   </ion-item>
@@ -64038,6 +64065,10 @@
 	 *   <button ion-item (click)="buttonClick()">
 	 *     Button Item
 	 *   </button>
+	 *
+	 *   <ion-item-divider>
+	 *     Item Divider
+	 *   </ion-item-divider>
 	 *
 	 *   <button ion-item detail-none (click)="buttonClick()">
 	 *     Button Item with no Detail Arrow
@@ -64064,6 +64095,13 @@
 	 *
 	 * ```html
 	 * <ion-list>
+	 *
+	 *   <!-- List header with buttons on each side -->
+	 *   <ion-list-header>
+	 *     <button item-left (click)="buttonClick()">Button</button>
+	 *     List Header
+	 *     <button outline item-right (click)="buttonClick()">Outline</button>
+	 *   </ion-list-header>
 	 *
 	 *   <!-- Loops through and creates multiple items -->
 	 *   <ion-item *ngFor="let item of items">
@@ -64092,6 +64130,12 @@
 	 *     Item
 	 *     <button outline item-right (click)="buttonClick()">Outline</button>
 	 *   </ion-item>
+	 *
+	 *   <!-- Item divider with a right button -->
+	 *   <ion-item-divider>
+	 *     Item Divider
+	 *     <button item-right>Button</button>
+	 *   </ion-item-divider>
 	 *
 	 *   <!-- Disabled button item with left and right buttons -->
 	 *   <button ion-item disabled>
@@ -64283,7 +64327,7 @@
 	    ], Item.prototype, "_icons", null);
 	    Item = __decorate([
 	        core_1.Component({
-	            selector: 'ion-item,[ion-item]',
+	            selector: 'ion-list-header,ion-item,[ion-item],ion-item-divider',
 	            template: '<ng-content select="[item-left],ion-checkbox:not([item-right])"></ng-content>' +
 	                '<div class="item-inner">' +
 	                '<div class="input-wrapper">' +
@@ -64297,9 +64341,6 @@
 	                '<ion-reorder></ion-reorder>' +
 	                '</div>' +
 	                '<ion-button-effect></ion-button-effect>',
-	            host: {
-	                'class': 'item'
-	            },
 	            directives: [core_1.forwardRef(function () { return item_reorder_1.ItemReorder; })],
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
@@ -64310,6 +64351,24 @@
 	    var _a, _b, _c, _d, _e, _f, _g;
 	}());
 	exports.Item = Item;
+	/**
+	 * @private
+	 */
+	var ItemContent = (function () {
+	    function ItemContent() {
+	    }
+	    ItemContent = __decorate([
+	        core_1.Directive({
+	            selector: 'ion-item,[ion-item]',
+	            host: {
+	                'class': 'item'
+	            }
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], ItemContent);
+	    return ItemContent;
+	}());
+	exports.ItemContent = ItemContent;
 
 /***/ },
 /* 363 */
@@ -64518,6 +64577,45 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
+	var item_1 = __webpack_require__(362);
+	/**
+	 * @private
+	 */
+	var ItemReorder = (function () {
+	    function ItemReorder(item, elementRef) {
+	        elementRef.nativeElement['$ionComponent'] = item;
+	    }
+	    ItemReorder = __decorate([
+	        core_1.Component({
+	            selector: 'ion-reorder',
+	            template: "<ion-icon name=\"menu\"></ion-icon>"
+	        }),
+	        __param(0, core_1.Inject(core_1.forwardRef(function () { return item_1.Item; }))), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
+	    ], ItemReorder);
+	    return ItemReorder;
+	    var _a, _b;
+	}());
+	exports.ItemReorder = ItemReorder;
+
+/***/ },
+/* 365 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
+	var core_1 = __webpack_require__(6);
 	/**
 	 * @name Label
 	 * @description
@@ -64624,45 +64722,6 @@
 	    var _a, _b;
 	}());
 	exports.Label = Label;
-
-/***/ },
-/* 365 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = (this && this.__param) || function (paramIndex, decorator) {
-	    return function (target, key) { decorator(target, key, paramIndex); }
-	};
-	var core_1 = __webpack_require__(6);
-	var item_1 = __webpack_require__(362);
-	/**
-	 * @private
-	 */
-	var ItemReorder = (function () {
-	    function ItemReorder(item, elementRef) {
-	        elementRef.nativeElement['$ionComponent'] = item;
-	    }
-	    ItemReorder = __decorate([
-	        core_1.Component({
-	            selector: 'ion-reorder',
-	            template: "<ion-icon name=\"menu\"></ion-icon>"
-	        }),
-	        __param(0, core_1.Inject(core_1.forwardRef(function () { return item_1.Item; }))), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
-	    ], ItemReorder);
-	    return ItemReorder;
-	    var _a, _b;
-	}());
-	exports.ItemReorder = ItemReorder;
 
 /***/ },
 /* 366 */
@@ -74481,7 +74540,7 @@
 	__export(__webpack_require__(381));
 	__export(__webpack_require__(362));
 	__export(__webpack_require__(366));
-	__export(__webpack_require__(364));
+	__export(__webpack_require__(365));
 	__export(__webpack_require__(359));
 	__export(__webpack_require__(402));
 	__export(__webpack_require__(330));

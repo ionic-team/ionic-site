@@ -5262,14 +5262,10 @@ ion-icon {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
     .ios ion-card ion-list {
       margin-bottom: 0; }
-      .ios ion-card ion-list .item {
-        padding-right: 0; }
-      .ios ion-card ion-list ion-label {
-        padding: 0; }
     .ios ion-card > .item:last-child,
     .ios ion-card > .item-wrapper:last-child .item {
       border-bottom: 0; }
-    .ios ion-card .item-inner {
+    .ios ion-card .item .item-inner {
       border: 0; }
     .ios ion-card ion-card-content {
       padding: 13px 16px 14px 16px;
@@ -5735,7 +5731,21 @@ ion-icon {
     display: block; }
   .ios ion-item-divider {
     z-index: 1000;
-    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
     width: 100%;
     min-height: 30px; }
     .ios ion-item-divider[sticky] {
@@ -5958,7 +5968,7 @@ ion-icon {
     background-color: #d9d9d9;
     -webkit-transition-duration: 0ms;
     transition-duration: 0ms; }
-  .ios .item-inner {
+  .ios .item .item-inner {
     padding-right: 8px;
     border-bottom: 1px solid #c8c7cc; }
   .ios.hairlines .item-inner {
@@ -6014,7 +6024,7 @@ ion-icon {
   .ios ion-item-group .item-wrapper:last-child .item-inner {
     border: 0; }
   .ios ion-item-divider {
-    padding: 12px 16px 13px 16px;
+    padding-left: 16px;
     color: #222;
     background-color: #f7f7f7; }
   .ios ion-item-divider[primary] {
@@ -6132,10 +6142,23 @@ ion-icon {
   .ios ion-label[dark] {
     color: #222; }
   .ios ion-list-header {
-    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 4rem; }
   .ios ion-list {
     display: block;
     margin: 0;
@@ -6147,7 +6170,7 @@ ion-icon {
     transform: translateZ(0); }
   .ios ion-list-header {
     position: relative;
-    padding: 10px 16px 10px 16px;
+    padding-left: 16px;
     border-bottom: 1px solid #c8c7cc;
     font-size: 1.2rem;
     font-weight: 500;
@@ -6164,7 +6187,7 @@ ion-icon {
     .ios ion-list > .item:last-child .item-inner,
     .ios ion-list > .item-wrapper:last-child .item-inner {
       border-bottom: 0; }
-    .ios ion-list .item-inner {
+    .ios ion-list .item .item-inner {
       border-bottom: 1px solid #c8c7cc; }
     .ios ion-list .item[no-lines],
     .ios ion-list .item[no-lines] .item-inner {
@@ -6190,11 +6213,9 @@ ion-icon {
       .ios ion-list ion-item-options button::before,
       .ios ion-list ion-item-options [button]::before {
         margin: 0 auto; }
-  .ios ion-list + ion-list {
-    margin-top: 42px; }
-    .ios ion-list + ion-list ion-list-header {
-      margin-top: -10px;
-      padding-top: 0; }
+  .ios ion-list + ion-list ion-list-header {
+    margin-top: -10px;
+    padding-top: 0; }
   .ios.hairlines ion-list-header {
     border-bottom-width: 0.55px; }
   .ios.hairlines ion-list ion-item-options {
@@ -8722,14 +8743,10 @@ ion-icon {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
     .md ion-card ion-list {
       margin-bottom: 0; }
-      .md ion-card ion-list ion-label {
-        padding: 0; }
-      .md ion-card ion-list .item-inner {
-        border-bottom: 1px solid #dedede; }
     .md ion-card > .item:last-child,
     .md ion-card > .item-wrapper:last-child .item {
       border-bottom: 0; }
-    .md ion-card .item-inner {
+    .md ion-card .item .item-inner {
       border: 0; }
     .md ion-card ion-card-content {
       padding: 13px 16px 13px 16px;
@@ -9215,7 +9232,21 @@ ion-icon {
     display: block; }
   .md ion-item-divider {
     z-index: 1000;
-    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
     width: 100%;
     min-height: 30px; }
     .md ion-item-divider[sticky] {
@@ -9432,7 +9463,7 @@ ion-icon {
     background-color: #f1f1f1; }
   .md .item[no-lines] {
     border-width: 0; }
-  .md .item-inner {
+  .md .item .item-inner {
     padding-right: 8px;
     border-bottom: 1px solid #dedede; }
   .md [item-left],
@@ -9480,7 +9511,7 @@ ion-icon {
   .md ion-item-group .item-wrapper:last-child .item-inner {
     border: 0; }
   .md ion-item-divider {
-    padding: 13px 16px 13px 16px;
+    padding-left: 16px;
     color: #222;
     background-color: #fff; }
   .md ion-item-divider[primary] {
@@ -9602,10 +9633,23 @@ ion-icon {
   .md ion-label[dark] {
     color: #222; }
   .md ion-list-header {
-    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 4rem; }
   .md ion-list {
     display: block;
     margin: 0;
@@ -9618,13 +9662,13 @@ ion-icon {
   .md ion-list-header,
   .md ion-item-divider {
     margin-left: 0;
-    padding: 16px 16px 16px 16px;
+    padding-left: 16px;
     border-bottom: 1px solid #dedede;
     font-size: 1.4rem;
     color: #858585; }
   .md ion-list {
     margin: 0 0 16px 0; }
-    .md ion-list .item-inner {
+    .md ion-list .item .item-inner {
       border-bottom: 1px solid #dedede; }
     .md ion-list > .item:first-child,
     .md ion-list > .item-wrapper:first-child .item {
@@ -9661,11 +9705,9 @@ ion-icon {
     .md ion-list .item[no-lines],
     .md ion-list .item[no-lines] .item-inner {
       border-width: 0; }
-    .md ion-list + ion-list {
-      margin-top: 32px; }
-      .md ion-list + ion-list ion-list-header {
-        margin-top: -16px;
-        padding-top: 0; }
+    .md ion-list + ion-list ion-list-header {
+      margin-top: -16px;
+      padding-top: 0; }
   .md ion-list[inset] {
     margin: 16px 16px 16px 16px;
     border-radius: 2px; }
@@ -12502,14 +12544,10 @@ ion-icon {
     box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2); }
     .wp ion-card ion-list {
       margin-bottom: 0; }
-      .wp ion-card ion-list ion-label {
-        padding: 0; }
-      .wp ion-card ion-list .item-inner {
-        border-bottom: 1px solid transparent; }
     .wp ion-card > .item:last-child,
     .wp ion-card > .item-wrapper:last-child .item {
       border-bottom: 0; }
-    .wp ion-card .item-inner {
+    .wp ion-card .item .item-inner {
       border: 0; }
     .wp ion-card ion-card-content {
       padding: 13px 16px 13px 16px;
@@ -12989,7 +13027,21 @@ ion-icon {
     display: block; }
   .wp ion-item-divider {
     z-index: 1000;
-    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
     width: 100%;
     min-height: 30px; }
     .wp ion-item-divider[sticky] {
@@ -13204,7 +13256,7 @@ ion-icon {
     background-color: #aaa; }
   .wp .item[no-lines] {
     border-width: 0; }
-  .wp .item-inner {
+  .wp .item .item-inner {
     padding-right: 8px;
     border-bottom: 1px solid transparent; }
   .wp [item-left],
@@ -13250,7 +13302,7 @@ ion-icon {
   .wp ion-note {
     color: rgba(0, 0, 0, 0.5); }
   .wp ion-item-divider {
-    padding: 13px 16px 13px 16px;
+    padding-left: 16px;
     color: #222;
     background-color: #fff; }
   .wp ion-item-divider[primary] {
@@ -13367,10 +13419,23 @@ ion-icon {
   .wp ion-label[dark] {
     color: #222; }
   .wp ion-list-header {
-    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 4rem; }
   .wp ion-list {
     display: block;
     margin: 0;
@@ -13383,13 +13448,13 @@ ion-icon {
   .wp ion-list-header,
   .wp ion-item-divider {
     margin-left: 0;
-    padding: 16px 16px 16px 16px;
+    padding-left: 16px;
     border-bottom: 1px solid transparent;
     font-size: 2rem;
     color: #000; }
   .wp ion-list {
     margin: 0 0 16px 0; }
-    .wp ion-list .item-inner {
+    .wp ion-list .item .item-inner {
       border-bottom: 1px solid transparent; }
     .wp ion-list > .item:first-child,
     .wp ion-list > .item-wrapper:first-child .item {
@@ -13426,11 +13491,9 @@ ion-icon {
     .wp ion-list .item[no-lines],
     .wp ion-list .item[no-lines] .item-inner {
       border-width: 0; }
-    .wp ion-list + ion-list {
-      margin-top: 32px; }
-      .wp ion-list + ion-list ion-list-header {
-        margin-top: -16px;
-        padding-top: 0; }
+    .wp ion-list + ion-list ion-list-header {
+      margin-top: -16px;
+      padding-top: 0; }
   .wp ion-list[inset] {
     margin: 16px 16px 16px 16px;
     border-radius: 2px; }

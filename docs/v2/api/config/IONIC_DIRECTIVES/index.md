@@ -31,7 +31,7 @@ IONIC_DIRECTIVES
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/directives.ts#L117">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/directives.ts#L118">
 Improve this doc
 </a>
 
@@ -66,6 +66,7 @@ are part of the app&#39;s default directives.</p>
 <li>List</li>
 <li>ListHeader</li>
 <li>Item</li>
+<li>ItemContent</li>
 <li>ItemSliding</li>
 <li>VirtualScroll</li>
 <li>VirtualItem</li>

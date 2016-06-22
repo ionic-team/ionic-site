@@ -10,14 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
-// Uses the list's demo but passes the demo var to change the title
+var ApiDemoPage = (function () {
+    function ApiDemoPage() {
+    }
+    ApiDemoPage = __decorate([
+        core_1.Component({
+            templateUrl: 'main.html'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], ApiDemoPage);
+    return ApiDemoPage;
+}());
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
-        this.demo = "Item";
+        this.root = ApiDemoPage;
     }
     ApiDemoApp = __decorate([
         core_1.Component({
-            templateUrl: '../list/main.html'
+            template: '<ion-nav [root]="root"></ion-nav>'
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);

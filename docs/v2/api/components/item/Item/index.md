@@ -26,7 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="item" href="#item"></a>
 
 Item
-<h3><code>ion-item,[ion-item]</code></h3>
+<h3><code>ion-list-header,ion-item,[ion-item],ion-item-divider</code></h3>
 
 
 
@@ -49,13 +49,25 @@ items. It can easily be swiped, deleted, reordered, edited, and more. An item is
 be in a <a href="../../list/List">List</a> if manipulating the item via gestures is required. It requires an
 <a href="../ItemSliding">ItemSliding</a> wrapper element in order to be swiped.</p>
 <h2 id="common-usage">Common Usage</h2>
-<p>An item can be written as an <code>&lt;ion-item&gt;</code> element or it can be added to any element by adding
-<code>ion-item</code> as an attribute.</p>
+<p>There are a few elements that are considered items, but not all of them are styled to look the same.
+The basic item can be written as an <code>&lt;ion-item&gt;</code> element or it can be added to any element by adding
+<code>ion-item</code> as an attribute. List headers and item dividers, although styled differently, are also items
+and can be written as <code>&lt;ion-list-header&gt;</code> and <code>&lt;ion-item-divider&gt;</code>, respectively.</p>
 <h3 id="as-an-element">As an Element</h3>
-<p>An item should be written as a <code>&lt;ion-item&gt;</code> element when it is not clickable.</p>
+<p>A basic item should be written as a <code>&lt;ion-item&gt;</code> element when it is not clickable.</p>
 <pre><code class="lang-html">&lt;ion-item&gt;
   Item
 &lt;/ion-item&gt;
+</code></pre>
+<p>A list header should be written as <code>&lt;ion-list-header&gt;</code>.</p>
+<pre><code class="lang-html">&lt;ion-list-header&gt;
+  List Header
+&lt;/ion-list-header&gt;
+</code></pre>
+<p>An item divider should be written as <code>&lt;ion-item-divider&gt;</code>.</p>
+<pre><code class="lang-html">&lt;ion-item-divider&gt;
+  Item Divider
+&lt;/ion-item-divider&gt;
 </code></pre>
 <h3 id="as-an-attribute">As an Attribute</h3>
 <p>The attribute <code>ion-item</code> should be added to a <code>&lt;button&gt;</code> when the item can be clicked or tapped. It
@@ -69,6 +81,8 @@ attribute to any element to take on the item styling.</p>
   Anchor Item
 &lt;/a&gt;
 </code></pre>
+<p>Note: do not add <code>ion-item</code> as an attribute to an <code>&lt;ion-list-header&gt;</code> or <code>&lt;ion-item-divider&gt;</code> element
+as they are already items and their styling will be changed to look like a basic item.</p>
 <h2 id="detail-arrows">Detail Arrows</h2>
 <p>By default, <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements with the <code>ion-item</code> attribute will display a right arrow icon
 on <code>ios</code> mode. To hide the right arrow icon on either of these elements, add the <code>detail-none</code> attribute
@@ -143,6 +157,10 @@ attributes and isn&#39;t one of the above elements will be placed inside of a <a
 
 <pre><code class="lang-html">&lt;ion-list&gt;
 
+  &lt;ion-list-header&gt;
+    Header
+  &lt;/ion-list-header&gt;
+
   &lt;ion-item&gt;
     Item
   &lt;/ion-item&gt;
@@ -154,6 +172,10 @@ attributes and isn&#39;t one of the above elements will be placed inside of a <a
   &lt;button ion-item (click)=&quot;buttonClick()&quot;&gt;
     Button Item
   &lt;/button&gt;
+
+  &lt;ion-item-divider&gt;
+    Item Divider
+  &lt;/ion-item-divider&gt;
 
   &lt;button ion-item detail-none (click)=&quot;buttonClick()&quot;&gt;
     Button Item with no Detail Arrow
@@ -185,6 +207,13 @@ attributes and isn&#39;t one of the above elements will be placed inside of a <a
 <!-- instance methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
 <pre><code class="lang-html">&lt;ion-list&gt;
 
+  &lt;!-- List header with buttons on each side --&gt;
+  &lt;ion-list-header&gt;
+    &lt;button item-left (click)=&quot;buttonClick()&quot;&gt;Button&lt;/button&gt;
+    List Header
+    &lt;button outline item-right (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
+  &lt;/ion-list-header&gt;
+
   &lt;!-- Loops through and creates multiple items --&gt;
   &lt;ion-item *ngFor=&quot;let item of items&quot;&gt;
     Item {% raw %}{{item}}{% endraw %}
@@ -212,6 +241,12 @@ attributes and isn&#39;t one of the above elements will be placed inside of a <a
     Item
     &lt;button outline item-right (click)=&quot;buttonClick()&quot;&gt;Outline&lt;/button&gt;
   &lt;/ion-item&gt;
+
+  &lt;!-- Item divider with a right button --&gt;
+  &lt;ion-item-divider&gt;
+    Item Divider
+    &lt;button item-right&gt;Button&lt;/button&gt;
+  &lt;/ion-item-divider&gt;
 
   &lt;!-- Disabled button item with left and right buttons --&gt;
   &lt;button ion-item disabled&gt;

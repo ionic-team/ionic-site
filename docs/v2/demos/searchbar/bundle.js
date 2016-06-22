@@ -2472,12 +2472,39 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(102);
+	var ApiDemoPage = (function () {
+	    function ApiDemoPage() {
+	    }
+	    ApiDemoPage.prototype.ngOnInit = function () {
+	        this.setItems();
+	    };
+	    ApiDemoPage.prototype.setItems = function () {
+	        this.items = ['Orange', 'Banana', 'Pear', 'Tomato', 'Grape', 'Apple', 'Cherries', 'Cranberries', 'Raspberries', 'Strawberries', 'Watermelon'];
+	    };
+	    ApiDemoPage.prototype.filterItems = function (ev) {
+	        this.setItems();
+	        var val = ev.target.value;
+	        if (val && val.trim() !== '') {
+	            this.items = this.items.filter(function (item) {
+	                return item.toLowerCase().includes(val.toLowerCase());
+	            });
+	        }
+	    };
+	    ApiDemoPage = __decorate([
+	        core_1.Component({
+	            templateUrl: 'main.html'
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], ApiDemoPage);
+	    return ApiDemoPage;
+	}());
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
+	        this.root = ApiDemoPage;
 	    }
 	    ApiDemoApp = __decorate([
 	        core_1.Component({
-	            templateUrl: 'main.html'
+	            template: '<ion-nav [root]="root"></ion-nav>'
 	        }), 
 	        __metadata('design:paramtypes', [])
 	    ], ApiDemoApp);

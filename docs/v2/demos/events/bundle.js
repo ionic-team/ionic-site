@@ -2484,7 +2484,9 @@
 	        this.events.publish('user:login');
 	    };
 	    Login = __decorate([
-	        core_1.Component({ templateUrl: 'login.html' }), 
+	        core_1.Component({
+	            templateUrl: 'login.html'
+	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.Events !== 'undefined' && ionic_angular_1.Events) === 'function' && _a) || Object])
 	    ], Login);
 	    return Login;
@@ -2498,7 +2500,9 @@
 	        this.events.publish('user:logout');
 	    };
 	    Logout = __decorate([
-	        core_1.Component({ templateUrl: 'logout.html' }), 
+	        core_1.Component({
+	            templateUrl: 'logout.html'
+	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.Events !== 'undefined' && ionic_angular_1.Events) === 'function' && _a) || Object])
 	    ], Logout);
 	    return Logout;
@@ -2507,11 +2511,13 @@
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp(events) {
 	        this.events = events;
-	        this.rootView = Login;
+	        this.root = Login;
 	        this.loggedIn = false;
-	        this.pages = [
-	            { title: 'Logout', component: Logout, showLoggedIn: true },
-	            { title: 'Login', component: Login, showLoggedIn: false },
+	        this.loggedInPages = [
+	            { title: 'Logout', component: Logout }
+	        ];
+	        this.loggedOutPages = [
+	            { title: 'Login', component: Login }
 	        ];
 	        this.listenToLoginEvents();
 	    }
@@ -2536,7 +2542,7 @@
 	    ], ApiDemoApp.prototype, "nav", void 0);
 	    ApiDemoApp = __decorate([
 	        core_1.Component({
-	            templateUrl: 'main.html'
+	            templateUrl: 'app.html'
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_b = typeof ionic_angular_1.Events !== 'undefined' && ionic_angular_1.Events) === 'function' && _b) || Object])
 	    ], ApiDemoApp);

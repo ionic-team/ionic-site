@@ -2472,20 +2472,32 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(102);
-	var ApiDemoApp = (function () {
-	    function ApiDemoApp(platform) {
+	var ApiDemoPage = (function () {
+	    function ApiDemoPage(platform) {
 	        this.isIos = platform.is('ios');
 	        this.isAndroid = platform.is('android');
 	        this.isWindows = platform.is('windows');
 	    }
-	    ApiDemoApp = __decorate([
+	    ApiDemoPage = __decorate([
 	        core_1.Component({
 	            templateUrl: 'main.html'
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _a) || Object])
+	    ], ApiDemoPage);
+	    return ApiDemoPage;
+	    var _a;
+	}());
+	var ApiDemoApp = (function () {
+	    function ApiDemoApp() {
+	        this.root = ApiDemoPage;
+	    }
+	    ApiDemoApp = __decorate([
+	        core_1.Component({
+	            template: '<ion-nav [root]="root"></ion-nav>'
+	        }), 
+	        __metadata('design:paramtypes', [])
 	    ], ApiDemoApp);
 	    return ApiDemoApp;
-	    var _a;
 	}());
 	ionic_angular_1.ionicBootstrap(ApiDemoApp);
 

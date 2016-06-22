@@ -2472,8 +2472,8 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(102);
-	var MainPage = (function () {
-	    function MainPage() {
+	var ApiDemoPage = (function () {
+	    function ApiDemoPage() {
 	        this.wwwReleased = '1991';
 	        this.netscapeReleased = '1994-12-15T13:47:20.789';
 	        this.operaReleased = '1995-04-15';
@@ -2499,7 +2499,7 @@
 	            this.madisonTime = this.calculateTime('-5');
 	        }
 	    }
-	    MainPage.prototype.calculateTime = function (offset) {
+	    ApiDemoPage.prototype.calculateTime = function (offset) {
 	        // create Date object for current location
 	        var d = new Date();
 	        // create new Date object for different city
@@ -2508,25 +2508,25 @@
 	        return nd.toISOString();
 	    };
 	    // Determine if the client uses DST
-	    MainPage.prototype.stdTimezoneOffset = function (today) {
+	    ApiDemoPage.prototype.stdTimezoneOffset = function (today) {
 	        var jan = new Date(today.getFullYear(), 0, 1);
 	        var jul = new Date(today.getFullYear(), 6, 1);
 	        return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
 	    };
-	    MainPage.prototype.dst = function (today) {
+	    ApiDemoPage.prototype.dst = function (today) {
 	        return today.getTimezoneOffset() < this.stdTimezoneOffset(today);
 	    };
-	    MainPage = __decorate([
+	    ApiDemoPage = __decorate([
 	        core_1.Component({
 	            templateUrl: 'main.html'
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], MainPage);
-	    return MainPage;
+	    ], ApiDemoPage);
+	    return ApiDemoPage;
 	}());
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
-	        this.root = MainPage;
+	        this.root = ApiDemoPage;
 	    }
 	    ApiDemoApp = __decorate([
 	        core_1.Component({

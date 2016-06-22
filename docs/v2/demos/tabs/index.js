@@ -10,14 +10,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
-var ApiDemoApp = (function () {
-    function ApiDemoApp() {
+var TabPage = (function () {
+    function TabPage() {
     }
-    ApiDemoApp = __decorate([
+    TabPage = __decorate([
+        core_1.Component({
+            template: 'tab',
+        }), 
+        __metadata('design:paramtypes', [])
+    ], TabPage);
+    return TabPage;
+}());
+var ApiDemoPage = (function () {
+    function ApiDemoPage() {
+        this.root = TabPage;
+    }
+    ApiDemoPage = __decorate([
         core_1.Component({
             templateUrl: 'main.html',
             styleUrls: ['style.css'],
             encapsulation: core_1.ViewEncapsulation.None
+        }), 
+        __metadata('design:paramtypes', [])
+    ], ApiDemoPage);
+    return ApiDemoPage;
+}());
+var ApiDemoApp = (function () {
+    function ApiDemoApp() {
+        this.root = ApiDemoPage;
+    }
+    ApiDemoApp = __decorate([
+        core_1.Component({
+            template: '<ion-nav [root]="root"></ion-nav>'
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);

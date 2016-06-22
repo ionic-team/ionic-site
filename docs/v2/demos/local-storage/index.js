@@ -10,8 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
-var ionic_angular_2 = require('ionic-angular');
-var core_2 = require('@angular/core');
 var CleanLocalDataPipe = (function () {
     function CleanLocalDataPipe() {
     }
@@ -27,18 +25,20 @@ var CleanLocalDataPipe = (function () {
         return JSON.stringify(this.output, null, 2);
     };
     CleanLocalDataPipe = __decorate([
-        core_2.Pipe({ name: 'cleanLocalData' }),
-        core_2.Injectable(), 
+        core_1.Pipe({
+            name: 'cleanLocalData'
+        }),
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
     ], CleanLocalDataPipe);
     return CleanLocalDataPipe;
 }());
-var MainPage = (function () {
-    function MainPage() {
+var ApiDemoPage = (function () {
+    function ApiDemoPage() {
         this.keys = ['username', 'name', 'email', 'address'];
         this.values = ['admin', 'Administrator', 'admin@administrator.com', '123 Admin St'];
         this.addedKeys = [];
-        this.local = new ionic_angular_2.Storage(ionic_angular_2.LocalStorage);
+        this.local = new ionic_angular_1.Storage(ionic_angular_1.LocalStorage);
         this.localStorageDemo = '{}';
         window.localStorage.clear();
         this.myItem = {
@@ -46,7 +46,7 @@ var MainPage = (function () {
             value: 'admin'
         };
     }
-    MainPage.prototype.set = function () {
+    ApiDemoPage.prototype.set = function () {
         if (this.myItem.key) {
             var added = false;
             for (var i = 0; i < this.addedKeys.length; i++) {
@@ -62,7 +62,7 @@ var MainPage = (function () {
             }
         }
     };
-    MainPage.prototype.remove = function () {
+    ApiDemoPage.prototype.remove = function () {
         this.local.remove(this.delKey);
         this.localStorageDemo = JSON.stringify(window.localStorage, null, 2);
         var index = this.addedKeys.indexOf(this.delKey);
@@ -70,18 +70,18 @@ var MainPage = (function () {
             this.addedKeys.splice(index, 1);
         }
     };
-    MainPage = __decorate([
+    ApiDemoPage = __decorate([
         core_1.Component({
             templateUrl: 'main.html',
             pipes: [CleanLocalDataPipe]
         }), 
         __metadata('design:paramtypes', [])
-    ], MainPage);
-    return MainPage;
+    ], ApiDemoPage);
+    return ApiDemoPage;
 }());
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
-        this.root = MainPage;
+        this.root = ApiDemoPage;
     }
     ApiDemoApp = __decorate([
         core_1.Component({

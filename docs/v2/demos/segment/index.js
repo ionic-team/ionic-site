@@ -10,8 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
-var ApiDemoApp = (function () {
-    function ApiDemoApp() {
+var ApiDemoPage = (function () {
+    function ApiDemoPage() {
         this.appType = "paid";
         this.safari = "links";
         this.news = "local";
@@ -23,9 +23,21 @@ var ApiDemoApp = (function () {
         this.calendar = "day";
         this.proxy = "auto";
     }
-    ApiDemoApp = __decorate([
+    ApiDemoPage = __decorate([
         core_1.Component({
             templateUrl: 'main.html'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], ApiDemoPage);
+    return ApiDemoPage;
+}());
+var ApiDemoApp = (function () {
+    function ApiDemoApp() {
+        this.root = ApiDemoPage;
+    }
+    ApiDemoApp = __decorate([
+        core_1.Component({
+            template: '<ion-nav [root]="root"></ion-nav>'
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);

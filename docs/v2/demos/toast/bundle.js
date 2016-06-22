@@ -2472,11 +2472,11 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(102);
-	var ApiPage = (function () {
-	    function ApiPage(nav) {
+	var ApiDemoPage = (function () {
+	    function ApiDemoPage(nav) {
 	        this.nav = nav;
 	    }
-	    ApiPage.prototype.showToast = function (position) {
+	    ApiDemoPage.prototype.showToast = function (position) {
 	        var toast = ionic_angular_1.Toast.create({
 	            message: 'User was created successfully',
 	            position: position,
@@ -2485,7 +2485,7 @@
 	        toast.onDismiss(this.dismissHandler);
 	        this.nav.present(toast);
 	    };
-	    ApiPage.prototype.showLongToast = function () {
+	    ApiDemoPage.prototype.showLongToast = function () {
 	        var toast = ionic_angular_1.Toast.create({
 	            message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptatibus quibusdam eum nihil optio, ullam accusamus magni, nobis suscipit reprehenderit, sequi quam amet impedit. Accusamus dolorem voluptates laborum dolor obcaecati.',
 	            duration: 3000
@@ -2493,7 +2493,7 @@
 	        toast.onDismiss(this.dismissHandler);
 	        this.nav.present(toast);
 	    };
-	    ApiPage.prototype.showDismissDurationToast = function () {
+	    ApiDemoPage.prototype.showDismissDurationToast = function () {
 	        var toast = ionic_angular_1.Toast.create({
 	            message: 'I am dismissed after 1.5 seconds',
 	            duration: 1500
@@ -2501,7 +2501,7 @@
 	        toast.onDismiss(this.dismissHandler);
 	        this.nav.present(toast);
 	    };
-	    ApiPage.prototype.showToastWithCloseButton = function () {
+	    ApiDemoPage.prototype.showToastWithCloseButton = function () {
 	        var toast = ionic_angular_1.Toast.create({
 	            message: 'Your internet connection appears to be offline. Data integrity is not guaranteed.',
 	            showCloseButton: true,
@@ -2510,21 +2510,21 @@
 	        toast.onDismiss(this.dismissHandler);
 	        this.nav.present(toast);
 	    };
-	    ApiPage.prototype.dismissHandler = function (toast) {
+	    ApiDemoPage.prototype.dismissHandler = function (toast) {
 	        console.info('Toast onDismiss()');
 	    };
-	    ApiPage = __decorate([
+	    ApiDemoPage = __decorate([
 	        core_1.Component({
 	            templateUrl: 'main.html'
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
-	    ], ApiPage);
-	    return ApiPage;
+	    ], ApiDemoPage);
+	    return ApiDemoPage;
 	    var _a;
 	}());
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
-	        this.root = ApiPage;
+	        this.root = ApiDemoPage;
 	    }
 	    ApiDemoApp = __decorate([
 	        core_1.Component({

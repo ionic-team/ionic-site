@@ -2477,22 +2477,21 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(102);
-	var ionic_angular_2 = __webpack_require__(102);
 	var ModalFirstPage = (function () {
 	    function ModalFirstPage(nav) {
 	        this.nav = nav;
 	        this.myParam = '';
 	    }
 	    ModalFirstPage.prototype.openBasicModal = function () {
-	        var myModal = ionic_angular_2.Modal.create(ModalContentPage);
+	        var myModal = ionic_angular_1.Modal.create(ModalContentPage);
 	        this.nav.present(myModal);
 	    };
 	    ModalFirstPage.prototype.openModalWithParams = function () {
-	        var myModal = ionic_angular_2.Modal.create(ModalContentPage, { 'myParam': this.myParam });
+	        var myModal = ionic_angular_1.Modal.create(ModalContentPage, { 'myParam': this.myParam });
 	        this.nav.present(myModal);
 	    };
 	    ModalFirstPage.prototype.openCustomAnimationModal = function () {
-	        var myModal = ionic_angular_2.Modal.create(ModalContentPage, {
+	        var myModal = ionic_angular_1.Modal.create(ModalContentPage, {
 	            animation: 'my-fade-in',
 	        });
 	        this.nav.present(myModal);
@@ -2501,7 +2500,7 @@
 	        core_1.Component({
 	            templateUrl: 'main.html'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
 	    ], ModalFirstPage);
 	    return ModalFirstPage;
 	    var _a;
@@ -2520,7 +2519,7 @@
 	        core_1.Component({
 	            templateUrl: "modal-content.html"
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_2.NavController !== 'undefined' && ionic_angular_2.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.ViewController !== 'undefined' && ionic_angular_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof ionic_angular_2.NavParams !== 'undefined' && ionic_angular_2.NavParams) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.ViewController !== 'undefined' && ionic_angular_1.ViewController) === 'function' && _b) || Object, (typeof (_c = typeof ionic_angular_1.NavParams !== 'undefined' && ionic_angular_1.NavParams) === 'function' && _c) || Object])
 	    ], ModalContentPage);
 	    return ModalContentPage;
 	    var _a, _b, _c;
@@ -2532,7 +2531,7 @@
 	    }
 	    ApiDemoApp = __decorate([
 	        core_1.Component({
-	            templateUrl: 'app.html'
+	            template: '<ion-nav [root]="root"></ion-nav>'
 	        }), 
 	        __metadata('design:paramtypes', [])
 	    ], ApiDemoApp);
@@ -2551,8 +2550,8 @@
 	            .before.addClass('show-page');
 	    }
 	    return FadeIn;
-	}(ionic_angular_2.Animation));
-	ionic_angular_2.Animation.register('my-fade-in', FadeIn);
+	}(ionic_angular_1.Animation));
+	ionic_angular_1.Animation.register('my-fade-in', FadeIn);
 	var FadeOut = (function (_super) {
 	    __extends(FadeOut, _super);
 	    function FadeOut(enteringView, leavingView) {
@@ -2564,8 +2563,8 @@
 	            .before.addClass('show-page');
 	    }
 	    return FadeOut;
-	}(ionic_angular_2.Animation));
-	ionic_angular_2.Animation.register('my-fade-out', FadeOut);
+	}(ionic_angular_1.Animation));
+	ionic_angular_1.Animation.register('my-fade-out', FadeOut);
 
 /***/ },
 /* 6 */

@@ -77,11 +77,11 @@ var PopoverRadioPage = (function () {
     return PopoverRadioPage;
     var _a;
 }());
-var PopoverPage = (function () {
-    function PopoverPage(nav) {
+var ApiDemoPage = (function () {
+    function ApiDemoPage(nav) {
         this.nav = nav;
     }
-    PopoverPage.prototype.presentRadioPopover = function (ev) {
+    ApiDemoPage.prototype.presentRadioPopover = function (ev) {
         var popover = ionic_angular_1.Popover.create(PopoverRadioPage, {
             contentEle: this.content.nativeElement,
             textEle: this.text.nativeElement
@@ -93,23 +93,23 @@ var PopoverPage = (function () {
     __decorate([
         core_1.ViewChild('popoverContent', { read: core_1.ElementRef }), 
         __metadata('design:type', (typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object)
-    ], PopoverPage.prototype, "content", void 0);
+    ], ApiDemoPage.prototype, "content", void 0);
     __decorate([
         core_1.ViewChild('popoverText', { read: core_1.ElementRef }), 
         __metadata('design:type', (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object)
-    ], PopoverPage.prototype, "text", void 0);
-    PopoverPage = __decorate([
+    ], ApiDemoPage.prototype, "text", void 0);
+    ApiDemoPage = __decorate([
         core_1.Component({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_c = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _c) || Object])
-    ], PopoverPage);
-    return PopoverPage;
+    ], ApiDemoPage);
+    return ApiDemoPage;
     var _a, _b, _c;
 }());
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
-        this.root = PopoverPage;
+        this.root = ApiDemoPage;
     }
     ApiDemoApp = __decorate([
         core_1.Component({

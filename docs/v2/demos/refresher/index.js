@@ -70,12 +70,12 @@ var MockProvider = (function () {
     return MockProvider;
 }());
 exports.MockProvider = MockProvider;
-var ApiDemoApp = (function () {
-    function ApiDemoApp(mockProvider) {
+var ApiDemoPage = (function () {
+    function ApiDemoPage(mockProvider) {
         this.mockProvider = mockProvider;
         this.items = mockProvider.getData();
     }
-    ApiDemoApp.prototype.doRefresh = function (refresher) {
+    ApiDemoPage.prototype.doRefresh = function (refresher) {
         var _this = this;
         console.log('DOREFRESH', refresher);
         this.mockProvider.getAsyncData().then(function (newData) {
@@ -85,15 +85,27 @@ var ApiDemoApp = (function () {
             refresher.complete();
         });
     };
-    ApiDemoApp.prototype.doPulling = function (refresher) {
+    ApiDemoPage.prototype.doPulling = function (refresher) {
         console.log('DOPULLING', refresher.progress);
     };
-    ApiDemoApp = __decorate([
+    ApiDemoPage = __decorate([
         core_1.Component({
             templateUrl: 'main.html',
             providers: [MockProvider]
         }), 
         __metadata('design:paramtypes', [MockProvider])
+    ], ApiDemoPage);
+    return ApiDemoPage;
+}());
+var ApiDemoApp = (function () {
+    function ApiDemoApp() {
+        this.root = ApiDemoPage;
+    }
+    ApiDemoApp = __decorate([
+        core_1.Component({
+            template: '<ion-nav [root]="root"></ion-nav>'
+        }), 
+        __metadata('design:paramtypes', [])
     ], ApiDemoApp);
     return ApiDemoApp;
 }());

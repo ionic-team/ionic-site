@@ -2472,8 +2472,6 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(102);
-	var ionic_angular_2 = __webpack_require__(102);
-	var core_2 = __webpack_require__(6);
 	var CleanLocalDataPipe = (function () {
 	    function CleanLocalDataPipe() {
 	    }
@@ -2489,18 +2487,20 @@
 	        return JSON.stringify(this.output, null, 2);
 	    };
 	    CleanLocalDataPipe = __decorate([
-	        core_2.Pipe({ name: 'cleanLocalData' }),
-	        core_2.Injectable(), 
+	        core_1.Pipe({
+	            name: 'cleanLocalData'
+	        }),
+	        core_1.Injectable(), 
 	        __metadata('design:paramtypes', [])
 	    ], CleanLocalDataPipe);
 	    return CleanLocalDataPipe;
 	}());
-	var MainPage = (function () {
-	    function MainPage() {
+	var ApiDemoPage = (function () {
+	    function ApiDemoPage() {
 	        this.keys = ['username', 'name', 'email', 'address'];
 	        this.values = ['admin', 'Administrator', 'admin@administrator.com', '123 Admin St'];
 	        this.addedKeys = [];
-	        this.local = new ionic_angular_2.Storage(ionic_angular_2.LocalStorage);
+	        this.local = new ionic_angular_1.Storage(ionic_angular_1.LocalStorage);
 	        this.localStorageDemo = '{}';
 	        window.localStorage.clear();
 	        this.myItem = {
@@ -2508,7 +2508,7 @@
 	            value: 'admin'
 	        };
 	    }
-	    MainPage.prototype.set = function () {
+	    ApiDemoPage.prototype.set = function () {
 	        if (this.myItem.key) {
 	            var added = false;
 	            for (var i = 0; i < this.addedKeys.length; i++) {
@@ -2524,7 +2524,7 @@
 	            }
 	        }
 	    };
-	    MainPage.prototype.remove = function () {
+	    ApiDemoPage.prototype.remove = function () {
 	        this.local.remove(this.delKey);
 	        this.localStorageDemo = JSON.stringify(window.localStorage, null, 2);
 	        var index = this.addedKeys.indexOf(this.delKey);
@@ -2532,18 +2532,18 @@
 	            this.addedKeys.splice(index, 1);
 	        }
 	    };
-	    MainPage = __decorate([
+	    ApiDemoPage = __decorate([
 	        core_1.Component({
 	            templateUrl: 'main.html',
 	            pipes: [CleanLocalDataPipe]
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], MainPage);
-	    return MainPage;
+	    ], ApiDemoPage);
+	    return ApiDemoPage;
 	}());
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
-	        this.root = MainPage;
+	        this.root = ApiDemoPage;
 	    }
 	    ApiDemoApp = __decorate([
 	        core_1.Component({

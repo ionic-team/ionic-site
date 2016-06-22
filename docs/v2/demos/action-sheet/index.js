@@ -10,12 +10,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
-var InitialPage = (function () {
-    function InitialPage(nav, platform) {
+var ApiDemoPage = (function () {
+    function ApiDemoPage(nav, platform) {
         this.nav = nav;
         this.platform = platform;
     }
-    InitialPage.prototype.present = function () {
+    ApiDemoPage.prototype.present = function () {
         var actionSheet = ionic_angular_1.ActionSheet.create({
             title: 'Albums',
             buttons: [
@@ -60,23 +60,23 @@ var InitialPage = (function () {
         });
         this.nav.present(actionSheet);
     };
-    InitialPage = __decorate([
+    ApiDemoPage = __decorate([
         core_1.Component({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _b) || Object])
-    ], InitialPage);
-    return InitialPage;
+    ], ApiDemoPage);
+    return ApiDemoPage;
     var _a, _b;
 }());
-exports.InitialPage = InitialPage;
+exports.ApiDemoPage = ApiDemoPage;
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
-        this.root = InitialPage;
+        this.root = ApiDemoPage;
     }
     ApiDemoApp = __decorate([
         core_1.Component({
-            templateUrl: 'app.html'
+            template: '<ion-nav [root]="root"></ion-nav>'
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);

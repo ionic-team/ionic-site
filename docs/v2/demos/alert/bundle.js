@@ -2472,13 +2472,13 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(102);
-	var InitialPage = (function () {
-	    function InitialPage(nav) {
+	var ApiDemoPage = (function () {
+	    function ApiDemoPage(nav) {
 	        this.nav = nav;
 	        this.testRadioOpen = false;
 	        this.testCheckboxOpen = false;
 	    }
-	    InitialPage.prototype.doAlert = function () {
+	    ApiDemoPage.prototype.doAlert = function () {
 	        var alert = ionic_angular_1.Alert.create({
 	            title: 'New Friend!',
 	            subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
@@ -2486,7 +2486,7 @@
 	        });
 	        this.nav.present(alert);
 	    };
-	    InitialPage.prototype.doConfirm = function () {
+	    ApiDemoPage.prototype.doConfirm = function () {
 	        var alert = ionic_angular_1.Alert.create({
 	            title: 'Use this lightsaber?',
 	            body: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
@@ -2507,7 +2507,7 @@
 	        });
 	        this.nav.present(alert);
 	    };
-	    InitialPage.prototype.doPrompt = function () {
+	    ApiDemoPage.prototype.doPrompt = function () {
 	        var alert = ionic_angular_1.Alert.create({
 	            title: 'Login',
 	            body: "Enter a name for this new album you're so keen on adding",
@@ -2534,7 +2534,7 @@
 	        });
 	        this.nav.present(alert);
 	    };
-	    InitialPage.prototype.doRadio = function () {
+	    ApiDemoPage.prototype.doRadio = function () {
 	        var _this = this;
 	        var alert = ionic_angular_1.Alert.create();
 	        alert.setTitle('Lightsaber color');
@@ -2585,7 +2585,7 @@
 	        });
 	        this.nav.present(alert);
 	    };
-	    InitialPage.prototype.doCheckbox = function () {
+	    ApiDemoPage.prototype.doCheckbox = function () {
 	        var _this = this;
 	        var alert = ionic_angular_1.Alert.create();
 	        alert.setTitle('Which planets have you visited?');
@@ -2646,23 +2646,23 @@
 	        });
 	        this.nav.present(alert);
 	    };
-	    InitialPage = __decorate([
+	    ApiDemoPage = __decorate([
 	        core_1.Component({
 	            templateUrl: 'main.html'
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
-	    ], InitialPage);
-	    return InitialPage;
+	    ], ApiDemoPage);
+	    return ApiDemoPage;
 	    var _a;
 	}());
-	exports.InitialPage = InitialPage;
+	exports.ApiDemoPage = ApiDemoPage;
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
-	        this.root = InitialPage;
+	        this.root = ApiDemoPage;
 	    }
 	    ApiDemoApp = __decorate([
 	        core_1.Component({
-	            templateUrl: 'app.html'
+	            template: '<ion-nav [root]="root"></ion-nav>'
 	        }), 
 	        __metadata('design:paramtypes', [])
 	    ], ApiDemoApp);

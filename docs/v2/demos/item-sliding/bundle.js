@@ -2472,8 +2472,8 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(102);
-	var InitialPage = (function () {
-	    function InitialPage(nav) {
+	var ApiDemoPage = (function () {
+	    function ApiDemoPage(nav) {
 	        this.nav = nav;
 	        this.chats = [
 	            {
@@ -2511,23 +2511,23 @@
 	                username: 'administrator',
 	            }];
 	    }
-	    InitialPage.prototype.more = function (item) {
+	    ApiDemoPage.prototype.more = function (item) {
 	        console.log('More');
 	        item.close();
 	    };
-	    InitialPage.prototype.delete = function (item) {
+	    ApiDemoPage.prototype.delete = function (item) {
 	        console.log('Delete');
 	        item.close();
 	    };
-	    InitialPage.prototype.mute = function (item) {
+	    ApiDemoPage.prototype.mute = function (item) {
 	        console.log('Mute');
 	        item.close();
 	    };
-	    InitialPage.prototype.archive = function (item) {
+	    ApiDemoPage.prototype.archive = function (item) {
 	        console.log('Archive');
 	        item.close();
 	    };
-	    InitialPage.prototype.download = function (item) {
+	    ApiDemoPage.prototype.download = function (item) {
 	        var _this = this;
 	        item.setClass('downloading', true);
 	        setTimeout(function () {
@@ -2541,18 +2541,18 @@
 	            setTimeout(function () { return toast.dismiss(); }, 2000);
 	        }, 1500);
 	    };
-	    InitialPage = __decorate([
+	    ApiDemoPage = __decorate([
 	        core_1.Component({
 	            templateUrl: 'main.html'
 	        }), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
-	    ], InitialPage);
-	    return InitialPage;
+	    ], ApiDemoPage);
+	    return ApiDemoPage;
 	    var _a;
 	}());
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
-	        this.root = InitialPage;
+	        this.root = ApiDemoPage;
 	    }
 	    ApiDemoApp = __decorate([
 	        core_1.Component({

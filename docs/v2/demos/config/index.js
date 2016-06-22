@@ -86,7 +86,7 @@ if (window.localStorage.getItem('configDemo')) {
 }
 var TabPage = (function () {
     function TabPage() {
-        this.tabOne = InitialPage;
+        this.tabOne = ApiDemoPage;
     }
     TabPage = __decorate([
         core_1.Component({
@@ -97,8 +97,8 @@ var TabPage = (function () {
     return TabPage;
 }());
 exports.TabPage = TabPage;
-var InitialPage = (function () {
-    function InitialPage(platform, nav) {
+var ApiDemoPage = (function () {
+    function ApiDemoPage(platform, nav) {
         this.platform = platform;
         this.nav = nav;
         if (window.localStorage.getItem('configDemo') !== null) {
@@ -120,40 +120,40 @@ var InitialPage = (function () {
         }
         this.initialConfig = JSON.parse(JSON.stringify(this.config));
     }
-    InitialPage.prototype.load = function () {
+    ApiDemoPage.prototype.load = function () {
         window.localStorage.setItem('configDemo', JSON.stringify(this.config));
         window.location.reload();
     };
-    InitialPage.prototype.push = function () {
-        this.nav.push(AnotherPage);
+    ApiDemoPage.prototype.push = function () {
+        this.nav.push(PushPage);
     };
-    InitialPage = __decorate([
+    ApiDemoPage = __decorate([
         core_1.Component({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _b) || Object])
-    ], InitialPage);
-    return InitialPage;
+    ], ApiDemoPage);
+    return ApiDemoPage;
     var _a, _b;
 }());
-exports.InitialPage = InitialPage;
-var AnotherPage = (function () {
-    function AnotherPage(nav) {
+exports.ApiDemoPage = ApiDemoPage;
+var PushPage = (function () {
+    function PushPage(nav) {
         this.nav = nav;
     }
-    AnotherPage.prototype.pop = function () {
+    PushPage.prototype.pop = function () {
         this.nav.pop();
     };
-    AnotherPage = __decorate([
+    PushPage = __decorate([
         core_1.Component({
             templateUrl: 'page.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
-    ], AnotherPage);
-    return AnotherPage;
+    ], PushPage);
+    return PushPage;
     var _a;
 }());
-exports.AnotherPage = AnotherPage;
+exports.PushPage = PushPage;
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
         this.root = TabPage;

@@ -10,46 +10,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
-var InitialPage = (function () {
-    function InitialPage(nav) {
+var ApiDemoPage = (function () {
+    function ApiDemoPage(nav) {
         this.nav = nav;
         this.myParam = '';
     }
-    InitialPage.prototype.pushParams = function () {
-        this.nav.push(Page2, { 'myParam': this.myParam });
+    ApiDemoPage.prototype.pushParams = function () {
+        this.nav.push(PushPage, { 'myParam': this.myParam });
     };
-    InitialPage = __decorate([
+    ApiDemoPage = __decorate([
         core_1.Component({
             templateUrl: 'main.html'
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
-    ], InitialPage);
-    return InitialPage;
+    ], ApiDemoPage);
+    return ApiDemoPage;
     var _a;
 }());
-exports.InitialPage = InitialPage;
-var Page2 = (function () {
-    function Page2(nav, params) {
+exports.ApiDemoPage = ApiDemoPage;
+var PushPage = (function () {
+    function PushPage(nav, params) {
         this.nav = nav;
         this.myParam = params.get('myParam');
     }
-    Page2 = __decorate([
+    PushPage = __decorate([
         core_1.Component({
-            templateUrl: "page-2.html"
+            templateUrl: "page.html"
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.NavParams !== 'undefined' && ionic_angular_1.NavParams) === 'function' && _b) || Object])
-    ], Page2);
-    return Page2;
+    ], PushPage);
+    return PushPage;
     var _a, _b;
 }());
-exports.Page2 = Page2;
+exports.PushPage = PushPage;
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
-        this.root = InitialPage;
+        this.root = ApiDemoPage;
     }
     ApiDemoApp = __decorate([
         core_1.Component({
-            templateUrl: 'app.html'
+            template: '<ion-nav [root]="root"></ion-nav>'
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);

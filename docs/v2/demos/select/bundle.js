@@ -2472,8 +2472,8 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(102);
-	var MainPage = (function () {
-	    function MainPage() {
+	var ApiDemoPage = (function () {
+	    function ApiDemoPage() {
 	        this.notifications = 'mute_1';
 	        this.rating = 2;
 	        this.gender = 'f';
@@ -2491,23 +2491,23 @@
 	        ];
 	        this.pets = ['cat', 'dog'];
 	    }
-	    MainPage.prototype.monthChange = function (val) {
+	    ApiDemoPage.prototype.monthChange = function (val) {
 	        console.log('Month Change:', val);
 	    };
-	    MainPage.prototype.yearChange = function (val) {
+	    ApiDemoPage.prototype.yearChange = function (val) {
 	        console.log('Year Change:', val);
 	    };
-	    MainPage = __decorate([
+	    ApiDemoPage = __decorate([
 	        core_1.Component({
 	            templateUrl: 'main.html'
 	        }), 
 	        __metadata('design:paramtypes', [])
-	    ], MainPage);
-	    return MainPage;
+	    ], ApiDemoPage);
+	    return ApiDemoPage;
 	}());
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
-	        this.root = MainPage;
+	        this.root = ApiDemoPage;
 	    }
 	    ApiDemoApp = __decorate([
 	        core_1.Component({

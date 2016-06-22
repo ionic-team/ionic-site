@@ -10,35 +10,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
-var Page1 = (function () {
-    function Page1(menu) {
+var ApiDemoPage = (function () {
+    function ApiDemoPage(menu) {
         this.menu = menu;
         this.menu1Active();
     }
-    Page1.prototype.menu1Active = function () {
+    ApiDemoPage.prototype.menu1Active = function () {
         this.activeMenu = 'menu1';
         this.menu.enable(true, 'menu1');
         this.menu.enable(false, 'menu2');
     };
-    Page1.prototype.menu2Active = function () {
+    ApiDemoPage.prototype.menu2Active = function () {
         this.activeMenu = 'menu2';
         this.menu.enable(false, 'menu1');
         this.menu.enable(true, 'menu2');
     };
-    Page1 = __decorate([
-        core_1.Component({ templateUrl: 'page1.html' }), 
+    ApiDemoPage = __decorate([
+        core_1.Component({
+            templateUrl: 'main.html'
+        }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.MenuController !== 'undefined' && ionic_angular_1.MenuController) === 'function' && _a) || Object])
-    ], Page1);
-    return Page1;
+    ], ApiDemoPage);
+    return ApiDemoPage;
     var _a;
 }());
 var ApiDemoApp = (function () {
     function ApiDemoApp() {
-        this.root = Page1;
+        this.root = ApiDemoPage;
     }
     ApiDemoApp = __decorate([
         core_1.Component({
-            templateUrl: 'main.html'
+            templateUrl: 'app.html'
         }), 
         __metadata('design:paramtypes', [])
     ], ApiDemoApp);

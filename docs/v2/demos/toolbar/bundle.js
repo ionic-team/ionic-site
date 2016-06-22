@@ -2472,15 +2472,27 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(102);
-	var ApiDemoApp = (function () {
-	    function ApiDemoApp() {
+	var ApiDemoPage = (function () {
+	    function ApiDemoPage() {
 	        this.demo = "Toolbar";
 	        this.favorites = "recent";
 	        this.apps = "free";
 	    }
-	    ApiDemoApp = __decorate([
+	    ApiDemoPage = __decorate([
 	        core_1.Component({
 	            templateUrl: 'main.html'
+	        }), 
+	        __metadata('design:paramtypes', [])
+	    ], ApiDemoPage);
+	    return ApiDemoPage;
+	}());
+	var ApiDemoApp = (function () {
+	    function ApiDemoApp() {
+	        this.root = ApiDemoPage;
+	    }
+	    ApiDemoApp = __decorate([
+	        core_1.Component({
+	            template: '<ion-nav [root]="root"></ion-nav>'
 	        }), 
 	        __metadata('design:paramtypes', [])
 	    ], ApiDemoApp);

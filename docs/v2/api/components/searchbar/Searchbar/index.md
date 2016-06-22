@@ -92,7 +92,7 @@ Improve this doc
     <tr>
       <td>showCancelButton</td>
       <td><code>boolean</code></td>
-      <td><p> Whether to hide the cancel button or not. Default: <code>&quot;false&quot;</code>.</p>
+      <td><p> Whether to show the cancel button or not. Default: <code>&quot;false&quot;</code>.</p>
 </td>
     </tr>
     

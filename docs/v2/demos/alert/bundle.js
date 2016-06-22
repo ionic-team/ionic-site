@@ -73097,7 +73097,7 @@
 	         */
 	        this.cancelButtonText = 'Cancel';
 	        /**
-	         * @input {boolean} Whether to hide the cancel button or not. Default: `"false"`.
+	         * @input {boolean} Whether to show the cancel button or not. Default: `"false"`.
 	         */
 	        this.showCancelButton = false;
 	        /**

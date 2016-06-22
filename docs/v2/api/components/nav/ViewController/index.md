@@ -31,7 +31,7 @@ ViewController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/nav/view-controller.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/nav/view-controller.ts#L6">
 Improve this doc
 </a>
 
@@ -50,8 +50,8 @@ Improve this doc
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
-import {ViewController} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
+import { ViewController } from &#39;ionic-angular&#39;;
 
 @Component({...})
 export class MyPage{

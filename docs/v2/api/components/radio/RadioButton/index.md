@@ -35,7 +35,7 @@ RadioButton
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/radio/radio-button.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/radio/radio-button.ts#L5">
 Improve this doc
 </a>
 

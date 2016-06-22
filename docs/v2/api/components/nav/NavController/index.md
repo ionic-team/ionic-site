@@ -85,7 +85,7 @@ example).  They are destroyed when removed from the navigation stack (on
 <h2 id="lifecycle-events">Lifecycle events</h2>
 <p>Lifecycle events are fired during various stages of navigation.  They can be
 defined in any component type which is pushed/popped from a <code>NavController</code>.</p>
-<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
+<pre><code class="lang-ts">import {Component } from &#39;@angular/core&#39;;
 
 @Component({
   template: &#39;Hello World&#39;
@@ -469,9 +469,9 @@ last view.
 
 
 ```ts
-import {NavController} from 'ionic-angular'
-import {Detail} from '../detail/detail'
-import {Info} from '../info/info'
+import {NavController } from 'ionic-angular'
+import {Detail } from '../detail/detail'
+import {Info } from '../info/info'
 
  export class Home {
    constructor(nav: NavController) {
@@ -493,8 +493,8 @@ options to the navigation controller.
 
 
 ```ts
-import {NavController} from 'ionic-angular'
-import {Detail} from '../detail/detail'
+import {NavController } from 'ionic-angular'
+import {Detail } from '../detail/detail'
 
  export class Home {
    constructor(nav: NavController) {
@@ -513,10 +513,10 @@ the array.
 
 
 ```ts
-import {NavController} from 'ionic-angular';
-import {Info} from '../info/info';
-import {List} from '../list/list';
-import {Detail} from '../detail/detail';
+import {NavController } from 'ionic-angular';
+import {Info } from '../info/info';
+import {List } from '../list/list';
+import {Detail } from '../detail/detail';
 
  export class Home {
    constructor(nav: NavController) {

@@ -113,7 +113,7 @@ to the <code>side</code> property:</p>
 </code></pre>
 <p>It can also be set in the app&#39;s config. The below will set the menu type to
 <code>push</code> for all modes, and then set the type to <code>overlay</code> for the <code>ios</code> mode.</p>
-<pre><code class="lang-ts">import {ionicBootstrap} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { ionicBootstrap } from &#39;ionic-angular&#39;;
 
 ionicBootstrap(MyApp, customProviders, {
   menuType: &#39;push&#39;,
@@ -146,8 +146,8 @@ for more information on these directives.</p>
 Inject the <code>MenuController</code> provider into the page and then call any of its
 methods. In the below example, the <code>openMenu</code> method will open the menu
 when it is called.</p>
-<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
-import {MenuController} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
+import { MenuController } from &#39;ionic-angular&#39;;
 
 @Component({...})
 export class MyPage {

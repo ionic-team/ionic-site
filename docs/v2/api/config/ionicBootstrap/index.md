@@ -31,7 +31,7 @@ ionicBootstrap
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/bootstrap.ts#L20">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/bootstrap.ts#L19">
 Improve this doc
 </a>
 
@@ -52,8 +52,8 @@ app as an array for the second argument. You can also pass a config object as th
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import {ionicBootstrap} from &#39;ionic-angular&#39;;
-import {Component} from &#39;@angular/core&#39;;
+<pre><code class="lang-ts">import { ionicBootstrap } from &#39;ionic-angular&#39;;
+import { Component } from &#39;@angular/core&#39;;
 
 @Component({
   templateUrl: &#39;build/app.html&#39;,

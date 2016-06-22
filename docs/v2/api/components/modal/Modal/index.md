@@ -69,7 +69,7 @@ standard page.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import {Page, Modal, NavController, NavParams} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Page, Modal, NavController, NavParams } from &#39;ionic-angular&#39;;
 
 @Component(...)
 class HomePage {
@@ -98,8 +98,8 @@ class Profile {
 data. For example, a profile page could slide up in a modal, and on submit,
 the submit button could pass the updated profile data, then dismiss the
 modal.</p>
-<pre><code class="lang-ts">import {Component} from &#39;@angular/core&#39;;
-import {Modal, NavController, ViewController} from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
+import { Modal, NavController, ViewController } from &#39;ionic-angular&#39;;
 
 @Component(...)
 class HomePage {

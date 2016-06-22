@@ -4,10 +4,10 @@ version: "nightly"
 versionHref: "/docs/v2"
 path: ""
 category: api
-id: "navrouter"
-title: "NavRouter"
+id: "itemreorder"
+title: "ItemReorder"
 header_sub_title: "Ionic API Documentation"
-doc: "NavRouter"
+doc: "ItemReorder"
 docType: "class"
 
 ---
@@ -21,10 +21,10 @@ docType: "class"
 
 
 <h1 class="api-title">
-<a class="anchor" name="nav-router" href="#nav-router"></a>
+<a class="anchor" name="item-reorder" href="#item-reorder"></a>
 
-NavRouter
-<h3><code>ion-nav</code></h3>
+ItemReorder
+<h3><code>ion-reorder</code></h3>
 
 
 
@@ -33,7 +33,7 @@ NavRouter
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/nav/nav-router.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/item/item-reorder.ts#L2">
 Improve this doc
 </a>
 

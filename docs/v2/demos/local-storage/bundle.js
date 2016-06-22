@@ -63145,7 +63145,7 @@
 	    Content.prototype.ngOnDestroy = function () {
 	        this._scLsn && this._scLsn();
 	        this._scroll && this._scroll.destroy();
-	        this._scrollEle = this._scLsn = null;
+	        this._scrollEle = this._footerEle = this._scLsn = null;
 	    };
 	    /**
 	     * @private
@@ -63463,6 +63463,7 @@
 	            }
 	            else if (ele.tagName === 'ION-FOOTER') {
 	                this._footerHeight = ele.clientHeight;
+	                this._footerEle = ele;
 	            }
 	        }
 	        ele = parentEle;
@@ -63485,6 +63486,7 @@
 	     */
 	    Content.prototype.writeDimensions = function () {
 	        var newVal;
+	        var scrollEle = this._scrollEle;
 	        // only write when it has changed
 	        if (this._fullscreen) {
 	            // adjust the content with padding, allowing content to scroll under headers/footers
@@ -63496,7 +63498,7 @@
 	                newVal += this._tabbarHeight;
 	            }
 	            if (newVal !== this.adjustedTop) {
-	                this._scrollEle.style.paddingTop = (newVal > 0 ? newVal + 'px' : '');
+	                scrollEle.style.paddingTop = (newVal > 0 ? newVal + 'px' : '');
 	                this.adjustedTop = newVal;
 	            }
 	            newVal = this._footerHeight + this._paddingBottom;
@@ -63504,8 +63506,11 @@
 	                newVal += this._tabbarHeight;
 	            }
 	            if (newVal !== this.adjustedBottom) {
-	                this._scrollEle.style.paddingBottom = (newVal > 0 ? newVal + 'px' : '');
+	                scrollEle.style.paddingBottom = (newVal > 0 ? newVal + 'px' : '');
 	                this.adjustedBottom = newVal;
+	                if (newVal > 0 && this._footerEle) {
+	                    this._footerEle.style.bottom = (newVal - this._footerHeight) + 'px';
+	                }
 	            }
 	        }
 	        else {
@@ -63515,7 +63520,7 @@
 	                newVal += this._tabbarHeight;
 	            }
 	            if (newVal !== this.adjustedTop) {
-	                this._scrollEle.style.marginTop = (newVal > 0 ? newVal + 'px' : '');
+	                scrollEle.style.marginTop = (newVal > 0 ? newVal + 'px' : '');
 	                this.adjustedTop = newVal;
 	            }
 	            newVal = this._footerHeight;
@@ -63523,8 +63528,11 @@
 	                newVal += this._tabbarHeight;
 	            }
 	            if (newVal !== this.adjustedBottom) {
-	                this._scrollEle.style.marginBottom = (newVal > 0 ? newVal + 'px' : '');
+	                scrollEle.style.marginBottom = (newVal > 0 ? newVal + 'px' : '');
 	                this.adjustedBottom = newVal;
+	                if (newVal > 0 && this._footerEle) {
+	                    this._footerEle.style.bottom = (newVal - this._footerHeight) + 'px';
+	                }
 	            }
 	        }
 	        if (this._tabbarPlacement !== null && this._tabs) {

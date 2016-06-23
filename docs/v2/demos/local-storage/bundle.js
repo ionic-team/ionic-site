@@ -73530,7 +73530,9 @@
 	    if (nodes.length && cells.length) {
 	        // first node
 	        // ******** DOM READ ****************
-	        cells[0].top = getElement(nodes[0]).offsetTop;
+	        var firstEle = getElement(nodes[0]);
+	        cells[0].top = firstEle.clientTop;
+	        cells[0].left = firstEle.clientLeft;
 	        cells[0].row = 0;
 	        // ******** DOM READ ****************
 	        updateDimensions(nodes, cells, data, true);
@@ -73795,6 +73797,7 @@
 	            return rootNodes[i];
 	        }
 	    }
+	    return null;
 	}
 	var VirtualContext = (function () {
 	    function VirtualContext($implicit, index, count) {

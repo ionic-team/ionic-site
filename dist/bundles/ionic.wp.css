@@ -6126,7 +6126,7 @@ ion-reorder {
   ion-reorder ion-icon {
     pointer-events: none; }
 
-.reorder-enabled ion-item {
+.reorder-enabled .item {
   will-change: transform; }
 
 .reorder-enabled ion-reorder {
@@ -6135,15 +6135,16 @@ ion-reorder {
   display: -ms-flexbox;
   display: flex; }
 
-ion-item.reorder-active {
+.reorder-active .item-inner {
+  pointer-events: none; }
+
+.item.reorder-active {
   z-index: 4;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   opacity: .8;
   -webkit-transition: none;
   transition: none;
   pointer-events: none; }
-  ion-item.reorder-active ion-reorder {
-    pointer-events: none; }
 
 .item {
   position: relative;

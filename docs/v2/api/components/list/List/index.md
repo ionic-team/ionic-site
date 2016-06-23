@@ -169,6 +169,46 @@ export class MyClass {
 
 
 
+
+<div id="setCssClass"></div>
+
+<h3>
+<a class="anchor" name="setCssClass" href="#setCssClass"></a>
+<code>setCssClass()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="reorderStart"></div>
+
+<h3>
+<a class="anchor" name="reorderStart" href="#reorderStart"></a>
+<code>reorderStart()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

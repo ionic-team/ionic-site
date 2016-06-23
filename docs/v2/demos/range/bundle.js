@@ -70852,8 +70852,9 @@
 	 */
 	var List = (function (_super) {
 	    __extends(List, _super);
-	    function List(elementRef, _zone, _content) {
+	    function List(elementRef, _rendered, _zone, _content) {
 	        _super.call(this, elementRef);
+	        this._rendered = _rendered;
 	        this._zone = _zone;
 	        this._content = _content;
 	        this._enableReorder = false;
@@ -70924,6 +70925,12 @@
 	    List.prototype.closeSlidingItems = function () {
 	        this._slidingGesture && this._slidingGesture.closeOpened();
 	    };
+	    List.prototype.setCssClass = function (classname, add) {
+	        this._rendered.setElementClass(this.getNativeElement(), classname, add);
+	    };
+	    List.prototype.reorderStart = function () {
+	        this.setCssClass('reorder-active', true);
+	    };
 	    /**
 	     * @private
 	     */
@@ -70955,6 +70962,7 @@
 	    List.prototype.reorderReset = function () {
 	        var children = this.elementRef.nativeElement.children;
 	        var len = children.length;
+	        this.setCssClass('reorder-active', false);
 	        for (var i = 0; i < len; i++) {
 	            children[i].style.transform = '';
 	        }
@@ -70969,7 +70977,11 @@
 	        }
 	        var lastToIndex = this._lastToIndex;
 	        this._lastToIndex = toIndex;
+	        // TODO: I think both loops can be merged into a single one
+	        // but I had no luck last time I tried
+	        /********* DOM READ ********** */
 	        var children = this.elementRef.nativeElement.children;
+	        /********* DOM WRITE ********* */
 	        if (toIndex >= lastToIndex) {
 	            for (var i = lastToIndex; i <= toIndex; i++) {
 	                if (i !== fromIndex) {
@@ -71024,11 +71036,11 @@
 	                '[class.reorder-enabled]': '_enableReorder',
 	            }
 	        }),
-	        __param(2, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _c) || Object, (typeof (_d = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _d) || Object])
+	        __param(3, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _d) || Object, (typeof (_e = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _e) || Object])
 	    ], List);
 	    return List;
-	    var _a, _b, _c, _d;
+	    var _a, _b, _c, _d, _e;
 	}(ion_1.Ion));
 	exports.List = List;
 	/**
@@ -71193,12 +71205,12 @@
 	 */
 	var ItemReorderGesture = (function () {
 	    function ItemReorderGesture(list) {
-	        var _this = this;
 	        this.list = list;
 	        this.selectedItem = null;
+	        this.selectedItemEle = null;
 	        this.events = new ui_event_manager_1.UIEventManager(false);
 	        var element = this.list.getNativeElement();
-	        this.events.pointerEvents(element, function (ev) { return _this.onDragStart(ev); }, function (ev) { return _this.onDragMove(ev); }, function (ev) { return _this.onDragEnd(ev); });
+	        this.events.pointerEvents(element, this.onDragStart.bind(this), this.onDragMove.bind(this), this.onDragEnd.bind(this));
 	    }
 	    ItemReorderGesture.prototype.onDragStart = function (ev) {
 	        var itemEle = ev.target;
@@ -71211,54 +71223,55 @@
 	            return false;
 	        }
 	        ev.preventDefault();
-	        // Preparing state    
-	        this.offset = dom_1.pointerCoord(ev);
-	        this.offset.y += this.list.scrollContent(0);
+	        // Preparing state
 	        this.selectedItem = item;
-	        this.itemHeight = item.height();
+	        this.selectedItemEle = item.getNativeElement();
+	        this.selectedItemHeight = item.height();
 	        this.lastToIndex = item.index;
+	        this.lastYcoord = -100;
 	        this.windowHeight = window.innerHeight - AUTO_SCROLL_MARGIN;
+	        this.lastScrollPosition = this.list.scrollContent(0);
+	        this.offset = dom_1.pointerCoord(ev);
+	        this.offset.y += this.lastScrollPosition;
 	        item.setCssClass(ITEM_REORDER_ACTIVE, true);
+	        this.list.reorderStart();
 	        return true;
 	    };
 	    ItemReorderGesture.prototype.onDragMove = function (ev) {
-	        var _this = this;
-	        if (!this.selectedItem) {
+	        var selectedItem = this.selectedItemEle;
+	        if (!selectedItem) {
 	            return;
 	        }
 	        ev.preventDefault();
 	        // Get coordinate
 	        var coord = dom_1.pointerCoord(ev);
+	        var posY = coord.y;
 	        // Scroll if we reach the scroll margins
-	        var scrollPosition = this.scroll(coord);
+	        var scrollPosition = this.scroll(posY);
+	        // Only perform hit test if we moved at least 30px from previous position
+	        if (Math.abs(posY - this.lastYcoord) > 30) {
+	            var overItem = this.itemForCoord(coord);
+	            if (overItem) {
+	                var toIndex = overItem.index;
+	                if (toIndex !== this.lastToIndex || this.emptyZone) {
+	                    var fromIndex = this.selectedItem.index;
+	                    this.lastToIndex = toIndex;
+	                    this.lastYcoord = posY;
+	                    this.emptyZone = false;
+	                    this.list.reorderMove(fromIndex, toIndex, this.selectedItemHeight);
+	                }
+	            }
+	            else {
+	                this.emptyZone = true;
+	            }
+	        }
 	        // Update selected item position    
-	        var ydiff = Math.round(coord.y - this.offset.y + scrollPosition);
-	        this.selectedItem.setCssStyle(dom_1.CSS.transform, "translateY(" + ydiff + "px)");
-	        // Only perform hit test if we moved at least 30px from previous position    
-	        if (Math.abs(coord.y - this.lastYcoord) < 30) {
-	            return;
-	        }
-	        // Hit test
-	        var overItem = this.itemForCoord(coord);
-	        if (!overItem) {
-	            this.emptyZone = true;
-	            return;
-	        }
-	        // Move surrounding items if needed 
-	        var toIndex = overItem.index;
-	        if (toIndex !== this.lastToIndex || this.emptyZone) {
-	            var fromIndex_1 = this.selectedItem.index;
-	            this.lastToIndex = overItem.index;
-	            this.lastYcoord = coord.y;
-	            this.emptyZone = false;
-	            dom_1.nativeRaf(function () {
-	                _this.list.reorderMove(fromIndex_1, toIndex, _this.itemHeight);
-	            });
-	        }
+	        var ydiff = Math.round(posY - this.offset.y + scrollPosition);
+	        selectedItem.style[dom_1.CSS.transform] = "translateY(" + ydiff + "px)";
 	    };
-	    ItemReorderGesture.prototype.onDragEnd = function (ev) {
+	    ItemReorderGesture.prototype.onDragEnd = function () {
 	        var _this = this;
-	        if (!this.selectedItem) {
+	        if (!this.selectedItemEle) {
 	            return;
 	        }
 	        dom_1.nativeRaf(function () {
@@ -71266,6 +71279,7 @@
 	            var fromIndex = _this.selectedItem.index;
 	            _this.selectedItem.setCssClass(ITEM_REORDER_ACTIVE, false);
 	            _this.selectedItem = null;
+	            _this.selectedItemEle = null;
 	            _this.list.reorderEmit(fromIndex, toIndex);
 	        });
 	    };
@@ -71274,8 +71288,7 @@
 	        if (!element) {
 	            return null;
 	        }
-	        element = dom_1.closest(element, 'ion-item', true);
-	        if (!element) {
+	        if (element.nodeName !== 'ION-ITEM') {
 	            return null;
 	        }
 	        var item = element['$ionComponent'];
@@ -71285,20 +71298,20 @@
 	        }
 	        return item;
 	    };
-	    ItemReorderGesture.prototype.scroll = function (coord) {
-	        var scrollDiff = 0;
-	        if (coord.y < AUTO_SCROLL_MARGIN) {
-	            scrollDiff = -SCROLL_JUMP;
+	    ItemReorderGesture.prototype.scroll = function (posY) {
+	        if (posY < AUTO_SCROLL_MARGIN) {
+	            this.lastScrollPosition = this.list.scrollContent(-SCROLL_JUMP);
 	        }
-	        else if (coord.y > this.windowHeight) {
-	            scrollDiff = SCROLL_JUMP;
+	        else if (posY > this.windowHeight) {
+	            this.lastScrollPosition = this.list.scrollContent(SCROLL_JUMP);
 	        }
-	        return this.list.scrollContent(scrollDiff);
+	        return this.lastScrollPosition;
 	    };
 	    /**
 	     * @private
 	     */
 	    ItemReorderGesture.prototype.destroy = function () {
+	        this.onDragEnd();
 	        this.events.unlistenAll();
 	        this.events = null;
 	        this.list = null;
@@ -71693,6 +71706,12 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    /**
+	     * @private
+	     */
+	    Item.prototype.getNativeElement = function () {
+	        return this._elementRef.nativeElement;
+	    };
 	    /**
 	     * @private
 	     */

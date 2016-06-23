@@ -5909,22 +5909,22 @@ ion-icon {
     touch-action: manipulation; }
     .ios ion-reorder ion-icon {
       pointer-events: none; }
-  .ios .reorder-enabled ion-item {
+  .ios .reorder-enabled .item {
     will-change: transform; }
   .ios .reorder-enabled ion-reorder {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-  .ios ion-item.reorder-active {
+  .ios .reorder-active .item-inner {
+    pointer-events: none; }
+  .ios .item.reorder-active {
     z-index: 4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: .8;
     -webkit-transition: none;
     transition: none;
     pointer-events: none; }
-    .ios ion-item.reorder-active ion-reorder {
-      pointer-events: none; }
   .ios .item {
     position: relative;
     padding-left: 16px;
@@ -9410,22 +9410,22 @@ ion-icon {
     touch-action: manipulation; }
     .md ion-reorder ion-icon {
       pointer-events: none; }
-  .md .reorder-enabled ion-item {
+  .md .reorder-enabled .item {
     will-change: transform; }
   .md .reorder-enabled ion-reorder {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-  .md ion-item.reorder-active {
+  .md .reorder-active .item-inner {
+    pointer-events: none; }
+  .md .item.reorder-active {
     z-index: 4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: .8;
     -webkit-transition: none;
     transition: none;
     pointer-events: none; }
-    .md ion-item.reorder-active ion-reorder {
-      pointer-events: none; }
   .md .item {
     position: relative;
     padding-right: 0;
@@ -13205,22 +13205,22 @@ ion-icon {
     touch-action: manipulation; }
     .wp ion-reorder ion-icon {
       pointer-events: none; }
-  .wp .reorder-enabled ion-item {
+  .wp .reorder-enabled .item {
     will-change: transform; }
   .wp .reorder-enabled ion-reorder {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-  .wp ion-item.reorder-active {
+  .wp .reorder-active .item-inner {
+    pointer-events: none; }
+  .wp .item.reorder-active {
     z-index: 4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: .8;
     -webkit-transition: none;
     transition: none;
     pointer-events: none; }
-    .wp ion-item.reorder-active ion-reorder {
-      pointer-events: none; }
   .wp .item {
     position: relative;
     padding-right: 0;

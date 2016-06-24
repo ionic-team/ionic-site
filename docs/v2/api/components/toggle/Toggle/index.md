@@ -84,131 +84,9 @@ for more info on forms and inputs.</p>
 
 <!-- @property tags -->
 
-<h2><a class="anchor" name="attributes" href="#attributes"></a>Attributes:</h2>
-<table class="table" style="margin:0;">
-<thead>
-<tr>
-<th>Attribute</th>
-
-
-
-
-
-
-
-
-
-
-
-
-<th>Type</th>
-
-
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr>
-<td>
-checked
-</td>
-
-
-<td>
-boolean
-</td>
-
-
-<td>
-whether the toggle it toggled or not
-</td>
-</tr>
-
-<tr>
-<td>
-disabled
-</td>
-
-
-<td>
-boolean
-</td>
-
-
-<td>
-whether the toggle is disabled or not
-</td>
-</tr>
-
-</tbody>
-</table>
-
 
 
 <!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="pointerDown"></div>
-
-<h3>
-<a class="anchor" name="pointerDown" href="#pointerDown"></a>
-<code>pointerDown()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="pointerMove"></div>
-
-<h3>
-<a class="anchor" name="pointerMove" href="#pointerMove"></a>
-<code>pointerMove()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="pointerUp"></div>
-
-<h3>
-<a class="anchor" name="pointerUp" href="#pointerUp"></a>
-<code>pointerUp()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -223,14 +101,16 @@ whether the toggle is disabled or not
     
     <tr>
       <td>checked</td>
-      <td><code></code></td>
-      <td></td>
+      <td><code>boolean</code></td>
+      <td><p> whether the toggle it toggled or not</p>
+</td>
     </tr>
     
     <tr>
       <td>disabled</td>
-      <td><code></code></td>
-      <td></td>
+      <td><code>boolean</code></td>
+      <td><p> whether the toggle is disabled or not</p>
+</td>
     </tr>
     
   </tbody>

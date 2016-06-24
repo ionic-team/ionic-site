@@ -77635,8 +77635,6 @@
 	 *
 	 * See the [Angular 2 Docs](https://angular.io/docs/ts/latest/guide/forms.html)
 	 * for more info on forms and inputs.
-	 * @property {boolean} [checked] - whether the toggle it toggled or not
-	 * @property {boolean} [disabled] - whether the toggle is disabled or not
 	 *
 	 * @usage
 	 * ```html
@@ -77686,11 +77684,17 @@
 	            this._item.setCssClass('item-toggle', true);
 	        }
 	    }
+	    /**
+	     * @private
+	     */
 	    Toggle.prototype.pointerDown = function (ev) {
 	        this._startX = dom_1.pointerCoord(ev).x;
 	        this._activated = true;
 	        return true;
 	    };
+	    /**
+	     * @private
+	     */
 	    Toggle.prototype.pointerMove = function (ev) {
 	        if (this._startX) {
 	            var currentX = dom_1.pointerCoord(ev).x;
@@ -77709,6 +77713,9 @@
 	            }
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    Toggle.prototype.pointerUp = function (ev) {
 	        if (this._startX) {
 	            var endX = dom_1.pointerCoord(ev).x;
@@ -77725,6 +77732,9 @@
 	        }
 	    };
 	    Object.defineProperty(Toggle.prototype, "checked", {
+	        /**
+	         * @input {boolean} whether the toggle it toggled or not
+	         */
 	        get: function () {
 	            return this._checked;
 	        },
@@ -77768,6 +77778,9 @@
 	     */
 	    Toggle.prototype.registerOnTouched = function (fn) { this.onTouched = fn; };
 	    Object.defineProperty(Toggle.prototype, "disabled", {
+	        /**
+	         * @input {boolean} whether the toggle is disabled or not
+	         */
 	        get: function () {
 	            return this._disabled;
 	        },

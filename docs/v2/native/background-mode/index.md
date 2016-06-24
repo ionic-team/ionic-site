@@ -72,9 +72,10 @@ docType: "class"
 
 <h2>Usage</h2>
 
-<p>```js
-import {BackgroundMode} from &#39;ionic-native&#39;;</p>
-<p>BackgroundMode.enable();</p>
+<pre><code class="lang-js">import {BackgroundMode} from &#39;ionic-native&#39;;
+
+BackgroundMode.enable();
+</code></pre>
 
 
 

@@ -5842,9 +5842,10 @@ ion-icon {
     position: relative;
     z-index: 2;
     opacity: 1;
-    -webkit-transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
-    transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
-    pointer-events: none; }
+    -webkit-transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transition: transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    pointer-events: none;
+    will-change: transform; }
   .ios ion-item-sliding.active-slide ion-item-options {
     display: -webkit-box;
     display: -webkit-flex;
@@ -5909,7 +5910,9 @@ ion-icon {
     touch-action: manipulation; }
     .ios ion-reorder ion-icon {
       pointer-events: none; }
-  .ios .reorder-enabled .item {
+  .ios .reorder-enabled .item, .ios .reorder-enabled .item-wrapper {
+    -webkit-transition: -webkit-transform 300ms;
+    transition: transform 300ms;
     will-change: transform; }
   .ios .reorder-enabled ion-reorder {
     display: -webkit-box;
@@ -5918,6 +5921,7 @@ ion-icon {
     display: flex; }
   .ios .reorder-active .item-inner {
     pointer-events: none; }
+  .ios .item-wrapper.reorder-active,
   .ios .item.reorder-active {
     z-index: 4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -9343,9 +9347,10 @@ ion-icon {
     position: relative;
     z-index: 2;
     opacity: 1;
-    -webkit-transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
-    transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
-    pointer-events: none; }
+    -webkit-transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transition: transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    pointer-events: none;
+    will-change: transform; }
   .md ion-item-sliding.active-slide ion-item-options {
     display: -webkit-box;
     display: -webkit-flex;
@@ -9410,7 +9415,9 @@ ion-icon {
     touch-action: manipulation; }
     .md ion-reorder ion-icon {
       pointer-events: none; }
-  .md .reorder-enabled .item {
+  .md .reorder-enabled .item, .md .reorder-enabled .item-wrapper {
+    -webkit-transition: -webkit-transform 300ms;
+    transition: transform 300ms;
     will-change: transform; }
   .md .reorder-enabled ion-reorder {
     display: -webkit-box;
@@ -9419,6 +9426,7 @@ ion-icon {
     display: flex; }
   .md .reorder-active .item-inner {
     pointer-events: none; }
+  .md .item-wrapper.reorder-active,
   .md .item.reorder-active {
     z-index: 4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -13138,9 +13146,10 @@ ion-icon {
     position: relative;
     z-index: 2;
     opacity: 1;
-    -webkit-transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
-    transition: all 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
-    pointer-events: none; }
+    -webkit-transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transition: transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    pointer-events: none;
+    will-change: transform; }
   .wp ion-item-sliding.active-slide ion-item-options {
     display: -webkit-box;
     display: -webkit-flex;
@@ -13205,7 +13214,9 @@ ion-icon {
     touch-action: manipulation; }
     .wp ion-reorder ion-icon {
       pointer-events: none; }
-  .wp .reorder-enabled .item {
+  .wp .reorder-enabled .item, .wp .reorder-enabled .item-wrapper {
+    -webkit-transition: -webkit-transform 300ms;
+    transition: transform 300ms;
     will-change: transform; }
   .wp .reorder-enabled ion-reorder {
     display: -webkit-box;
@@ -13214,6 +13225,7 @@ ion-icon {
     display: flex; }
   .wp .reorder-active .item-inner {
     pointer-events: none; }
+  .wp .item-wrapper.reorder-active,
   .wp .item.reorder-active {
     z-index: 4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

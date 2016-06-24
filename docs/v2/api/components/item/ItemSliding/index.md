@@ -35,7 +35,7 @@ ItemSliding
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/item/item-sliding.ts#L89">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/item/item-sliding.ts#L91">
 Improve this doc
 </a>
 
@@ -126,6 +126,66 @@ to the left of the text by setting <code>icon-left</code> as an attribute on the
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="item"></div>
+
+<h3>
+<a class="anchor" name="item" href="#item"></a>
+<code>item</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="fireSwipeEvent"></div>
+
+<h3>
+<a class="anchor" name="fireSwipeEvent" href="#fireSwipeEvent"></a>
+<code>fireSwipeEvent()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="calculateOptsWidth"></div>
+
+<h3>
+<a class="anchor" name="calculateOptsWidth" href="#calculateOptsWidth"></a>
+<code>calculateOptsWidth()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="close"></div>
 
 <h3>
@@ -192,7 +252,8 @@ export class MyClass {
       <td>ionDrag</td>
       <td><p> Expression to evaluate when the sliding position changes.
 It reports the relative position.</p>
-<pre><code class="lang-ts">ondrag(percent) {
+<pre><code class="lang-ts">ondrag(item) {
+  let percent = item.getSlidingPercent();
   if (percent &gt; 0) {
     // positive
     console.log(&#39;right side&#39;);

@@ -17587,6 +17587,8 @@
 	__export(__webpack_require__(359));
 	__export(__webpack_require__(366));
 	__export(__webpack_require__(361));
+	var util_1 = __webpack_require__(358);
+	exports.reorderArray = util_1.reorderArray;
 	__export(__webpack_require__(383));
 	__export(__webpack_require__(450));
 	__export(__webpack_require__(382));
@@ -53948,6 +53950,13 @@
 	    return queryParams;
 	}
 	exports.getQuerystring = getQuerystring;
+	function reorderArray(array, indexes) {
+	    var element = array[indexes.from];
+	    array.splice(indexes.from, 1);
+	    array.splice(indexes.to, 0, element);
+	    return array;
+	}
+	exports.reorderArray = reorderArray;
 
 /***/ },
 /* 359 */
@@ -54217,14 +54226,15 @@
 	var tabs_1 = __webpack_require__(391);
 	var tab_1 = __webpack_require__(393);
 	var list_1 = __webpack_require__(404);
-	var item_1 = __webpack_require__(407);
+	var item_1 = __webpack_require__(406);
+	var item_reorder_1 = __webpack_require__(408);
 	var item_sliding_1 = __webpack_require__(411);
 	var virtual_scroll_1 = __webpack_require__(412);
 	var virtual_item_1 = __webpack_require__(414);
 	var toolbar_1 = __webpack_require__(385);
 	var toolbar_item_1 = __webpack_require__(415);
 	var toolbar_title_1 = __webpack_require__(416);
-	var icon_1 = __webpack_require__(408);
+	var icon_1 = __webpack_require__(407);
 	var spinner_1 = __webpack_require__(417);
 	var checkbox_1 = __webpack_require__(418);
 	var select_1 = __webpack_require__(419);
@@ -54340,6 +54350,7 @@
 	    item_1.ItemContent,
 	    item_sliding_1.ItemSliding,
 	    item_sliding_1.ItemOptions,
+	    item_reorder_1.Reorder,
 	    virtual_scroll_1.VirtualScroll,
 	    virtual_item_1.VirtualItem,
 	    virtual_item_1.VirtualHeader,
@@ -70868,12 +70879,9 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var content_1 = __webpack_require__(389);
 	var ion_1 = __webpack_require__(365);
 	var util_1 = __webpack_require__(358);
 	var item_sliding_gesture_1 = __webpack_require__(405);
-	var item_reorder_gesture_1 = __webpack_require__(406);
-	var dom_1 = __webpack_require__(355);
 	/**
 	 * The List is a widely used interface element in almost any mobile app,
 	 * and can include content ranging from basic text all the way to
@@ -70892,55 +70900,65 @@
 	 */
 	var List = (function (_super) {
 	    __extends(List, _super);
-	    function List(elementRef, _rendered, _zone, _content) {
+	    function List(elementRef, _rendered) {
 	        _super.call(this, elementRef);
 	        this._rendered = _rendered;
-	        this._zone = _zone;
-	        this._content = _content;
-	        this._enableReorder = false;
-	        this._enableSliding = false;
-	        this._lastToIndex = -1;
-	        this.ionItemReorder = new core_1.EventEmitter();
+	        this._enableSliding = true;
+	        this._containsSlidingItems = false;
 	    }
 	    /**
 	     * @private
 	     */
 	    List.prototype.ngOnDestroy = function () {
 	        this._slidingGesture && this._slidingGesture.destroy();
-	        this._reorderGesture && this._reorderGesture.destroy();
 	    };
+	    Object.defineProperty(List.prototype, "sliding", {
+	        /**
+	         * Enable the sliding items.
+	         *
+	         * ```ts
+	         * import {Component, ViewChild} from '@angular/core';
+	         * import {List} from 'ionic-angular';
+	         *
+	         * @Component({...})
+	         * export class MyClass {
+	         *   @ViewChild(List) list: List;
+	         *
+	         *   constructor() { }
+	         *
+	         *   stopSliding() {
+	         *     this.list.enableSlidingItems(false);
+	         *   }
+	         * }
+	         * ```
+	         * @param {boolean} shouldEnable whether the item-sliding should be enabled or not
+	         */
+	        get: function () {
+	            return this._enableSliding;
+	        },
+	        set: function (val) {
+	            this._enableSliding = util_1.isTrueProperty(val);
+	            this._updateSlidingState();
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
-	     * Enable the sliding items.
-	     *
-	     * ```ts
-	     * import {Component, ViewChild} from '@angular/core';
-	     * import {List} from 'ionic-angular';
-	     *
-	     * @Component({...})
-	     * export class MyClass {
-	     *   @ViewChild(List) list: List;
-	     *
-	     *   constructor() { }
-	     *
-	     *   stopSliding() {
-	     *     this.list.enableSlidingItems(false);
-	     *   }
-	     * }
-	     * ```
-	     * @param {boolean} shouldEnable whether the item-sliding should be enabled or not
+	     * @private
 	     */
-	    List.prototype.enableSlidingItems = function (shouldEnable) {
-	        var _this = this;
-	        if (this._enableSliding === shouldEnable) {
-	            return;
-	        }
-	        this._enableSliding = shouldEnable;
-	        if (shouldEnable) {
-	            console.debug('enableSlidingItems');
-	            dom_1.nativeTimeout(function () { return _this._slidingGesture = new item_sliding_gesture_1.ItemSlidingGesture(_this); });
-	        }
-	        else {
+	    List.prototype.containsSlidingItem = function (contains) {
+	        this._containsSlidingItems = contains;
+	        this._updateSlidingState();
+	    };
+	    List.prototype._updateSlidingState = function () {
+	        var shouldSlide = this._enableSliding && this._containsSlidingItems;
+	        if (!shouldSlide) {
 	            this._slidingGesture && this._slidingGesture.unlisten();
+	            this._slidingGesture = null;
+	        }
+	        else if (!this._slidingGesture) {
+	            console.debug('enableSlidingItems');
+	            this._slidingGesture = new item_sliding_gesture_1.ItemSlidingGesture(this);
 	        }
 	    };
 	    /**
@@ -70965,122 +70983,18 @@
 	    List.prototype.closeSlidingItems = function () {
 	        this._slidingGesture && this._slidingGesture.closeOpened();
 	    };
-	    List.prototype.setCssClass = function (classname, add) {
-	        this._rendered.setElementClass(this.getNativeElement(), classname, add);
-	    };
-	    List.prototype.reorderStart = function () {
-	        this.setCssClass('reorder-active', true);
-	    };
-	    /**
-	     * @private
-	     */
-	    List.prototype.reorderEmit = function (fromIndex, toIndex) {
-	        var _this = this;
-	        this.reorderReset();
-	        if (fromIndex !== toIndex) {
-	            this._zone.run(function () {
-	                _this.ionItemReorder.emit({
-	                    from: fromIndex,
-	                    to: toIndex,
-	                });
-	            });
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    List.prototype.scrollContent = function (scroll) {
-	        var scrollTop = this._content.getScrollTop() + scroll;
-	        if (scroll !== 0) {
-	            this._content.scrollTo(0, scrollTop, 0);
-	        }
-	        return scrollTop;
-	    };
-	    /**
-	     * @private
-	     */
-	    List.prototype.reorderReset = function () {
-	        var children = this.elementRef.nativeElement.children;
-	        var len = children.length;
-	        this.setCssClass('reorder-active', false);
-	        for (var i = 0; i < len; i++) {
-	            children[i].style.transform = '';
-	        }
-	        this._lastToIndex = -1;
-	    };
-	    /**
-	     * @private
-	     */
-	    List.prototype.reorderMove = function (fromIndex, toIndex, itemHeight) {
-	        if (this._lastToIndex === -1) {
-	            this._lastToIndex = fromIndex;
-	        }
-	        var lastToIndex = this._lastToIndex;
-	        this._lastToIndex = toIndex;
-	        // TODO: I think both loops can be merged into a single one
-	        // but I had no luck last time I tried
-	        /********* DOM READ ********** */
-	        var children = this.elementRef.nativeElement.children;
-	        /********* DOM WRITE ********* */
-	        if (toIndex >= lastToIndex) {
-	            for (var i = lastToIndex; i <= toIndex; i++) {
-	                if (i !== fromIndex) {
-	                    children[i].style.transform = (i > fromIndex)
-	                        ? "translateY(" + -itemHeight + "px)" : '';
-	                }
-	            }
-	        }
-	        if (toIndex <= lastToIndex) {
-	            for (var i = toIndex; i <= lastToIndex; i++) {
-	                if (i !== fromIndex) {
-	                    children[i].style.transform = (i < fromIndex)
-	                        ? "translateY(" + itemHeight + "px)" : '';
-	                }
-	            }
-	        }
-	    };
-	    Object.defineProperty(List.prototype, "reorder", {
-	        get: function () {
-	            return this._enableReorder;
-	        },
-	        set: function (val) {
-	            var _this = this;
-	            var enabled = util_1.isTrueProperty(val);
-	            if (this._enableReorder === enabled) {
-	                return;
-	            }
-	            this._enableReorder = enabled;
-	            if (enabled) {
-	                console.debug('enableReorderItems');
-	                dom_1.nativeTimeout(function () { return _this._reorderGesture = new item_reorder_gesture_1.ItemReorderGesture(_this); });
-	            }
-	            else {
-	                this._reorderGesture && this._reorderGesture.destroy();
-	            }
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], List.prototype, "ionItemReorder", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Boolean)
-	    ], List.prototype, "reorder", null);
+	    ], List.prototype, "sliding", null);
 	    List = __decorate([
 	        core_1.Directive({
 	            selector: 'ion-list',
-	            host: {
-	                '[class.reorder-enabled]': '_enableReorder',
-	            }
-	        }),
-	        __param(3, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _d) || Object, (typeof (_e = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _e) || Object])
+	        }), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object, (typeof (_b = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _b) || Object])
 	    ], List);
 	    return List;
-	    var _a, _b, _c, _d, _e;
+	    var _a, _b;
 	}(ion_1.Ion));
 	exports.List = List;
 	/**
@@ -71184,35 +71098,37 @@
 	    };
 	    ItemSlidingGesture.prototype.onDragEnd = function (ev) {
 	        var _this = this;
-	        if (this.selectedContainer) {
-	            ev.preventDefault();
-	            var openAmount = this.selectedContainer.endSliding(ev.velocityX);
-	            this.selectedContainer = null;
-	            // TODO: I am not sure listening for a tap event is the best idea
-	            // we should try mousedown/touchstart
-	            if (openAmount === 0) {
-	                this.openContainer = null;
-	                this.off('tap', this.onTap);
-	                this.onTap = null;
-	            }
-	            else if (!this.onTap) {
-	                this.onTap = function (event) { return _this.onTapCallback(event); };
-	                this.on('tap', this.onTap);
-	            }
+	        if (!this.selectedContainer) {
+	            return;
+	        }
+	        ev.preventDefault();
+	        var openAmount = this.selectedContainer.endSliding(ev.velocityX);
+	        this.selectedContainer = null;
+	        // TODO: I am not sure listening for a tap event is the best idea
+	        // we should try mousedown/touchstart
+	        if (openAmount === 0) {
+	            this.openContainer = null;
+	            this.off('tap', this.onTap);
+	            this.onTap = null;
+	        }
+	        else if (!this.onTap) {
+	            this.onTap = function (event) { return _this.onTapCallback(event); };
+	            this.on('tap', this.onTap);
 	        }
 	    };
 	    ItemSlidingGesture.prototype.closeOpened = function () {
-	        if (this.openContainer) {
-	            this.openContainer.close();
-	            this.openContainer = null;
-	            this.selectedContainer = null;
-	            this.off('tap', this.onTap);
-	            this.onTap = null;
-	            return true;
+	        if (!this.openContainer) {
+	            return false;
 	        }
-	        return false;
+	        this.openContainer.close();
+	        this.openContainer = null;
+	        this.selectedContainer = null;
+	        this.off('tap', this.onTap);
+	        this.onTap = null;
+	        return true;
 	    };
 	    ItemSlidingGesture.prototype.unlisten = function () {
+	        this.closeOpened();
 	        _super.prototype.unlisten.call(this);
 	        this.list = null;
 	    };
@@ -71235,136 +71151,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var ui_event_manager_1 = __webpack_require__(400);
-	var dom_1 = __webpack_require__(355);
-	var AUTO_SCROLL_MARGIN = 60;
-	var SCROLL_JUMP = 10;
-	var ITEM_REORDER_ACTIVE = 'reorder-active';
-	/**
-	 * @private
-	 */
-	var ItemReorderGesture = (function () {
-	    function ItemReorderGesture(list) {
-	        this.list = list;
-	        this.selectedItem = null;
-	        this.selectedItemEle = null;
-	        this.events = new ui_event_manager_1.UIEventManager(false);
-	        var element = this.list.getNativeElement();
-	        this.events.pointerEvents(element, this.onDragStart.bind(this), this.onDragMove.bind(this), this.onDragEnd.bind(this));
-	    }
-	    ItemReorderGesture.prototype.onDragStart = function (ev) {
-	        var itemEle = ev.target;
-	        if (itemEle.nodeName !== 'ION-REORDER') {
-	            return false;
-	        }
-	        var item = itemEle['$ionComponent'];
-	        if (!item) {
-	            console.error('item does not contain ion component');
-	            return false;
-	        }
-	        ev.preventDefault();
-	        // Preparing state
-	        this.selectedItem = item;
-	        this.selectedItemEle = item.getNativeElement();
-	        this.selectedItemHeight = item.height();
-	        this.lastToIndex = item.index;
-	        this.lastYcoord = -100;
-	        this.windowHeight = window.innerHeight - AUTO_SCROLL_MARGIN;
-	        this.lastScrollPosition = this.list.scrollContent(0);
-	        this.offset = dom_1.pointerCoord(ev);
-	        this.offset.y += this.lastScrollPosition;
-	        item.setCssClass(ITEM_REORDER_ACTIVE, true);
-	        this.list.reorderStart();
-	        return true;
-	    };
-	    ItemReorderGesture.prototype.onDragMove = function (ev) {
-	        var selectedItem = this.selectedItemEle;
-	        if (!selectedItem) {
-	            return;
-	        }
-	        ev.preventDefault();
-	        // Get coordinate
-	        var coord = dom_1.pointerCoord(ev);
-	        var posY = coord.y;
-	        // Scroll if we reach the scroll margins
-	        var scrollPosition = this.scroll(posY);
-	        // Only perform hit test if we moved at least 30px from previous position
-	        if (Math.abs(posY - this.lastYcoord) > 30) {
-	            var overItem = this.itemForCoord(coord);
-	            if (overItem) {
-	                var toIndex = overItem.index;
-	                if (toIndex !== this.lastToIndex || this.emptyZone) {
-	                    var fromIndex = this.selectedItem.index;
-	                    this.lastToIndex = toIndex;
-	                    this.lastYcoord = posY;
-	                    this.emptyZone = false;
-	                    this.list.reorderMove(fromIndex, toIndex, this.selectedItemHeight);
-	                }
-	            }
-	            else {
-	                this.emptyZone = true;
-	            }
-	        }
-	        // Update selected item position    
-	        var ydiff = Math.round(posY - this.offset.y + scrollPosition);
-	        selectedItem.style[dom_1.CSS.transform] = "translateY(" + ydiff + "px)";
-	    };
-	    ItemReorderGesture.prototype.onDragEnd = function () {
-	        var _this = this;
-	        if (!this.selectedItemEle) {
-	            return;
-	        }
-	        dom_1.nativeRaf(function () {
-	            var toIndex = _this.lastToIndex;
-	            var fromIndex = _this.selectedItem.index;
-	            _this.selectedItem.setCssClass(ITEM_REORDER_ACTIVE, false);
-	            _this.selectedItem = null;
-	            _this.selectedItemEle = null;
-	            _this.list.reorderEmit(fromIndex, toIndex);
-	        });
-	    };
-	    ItemReorderGesture.prototype.itemForCoord = function (coord) {
-	        var element = document.elementFromPoint(this.offset.x - 100, coord.y);
-	        if (!element) {
-	            return null;
-	        }
-	        if (element.nodeName !== 'ION-ITEM') {
-	            return null;
-	        }
-	        var item = element['$ionComponent'];
-	        if (!item) {
-	            console.error('item does not have $ionComponent');
-	            return null;
-	        }
-	        return item;
-	    };
-	    ItemReorderGesture.prototype.scroll = function (posY) {
-	        if (posY < AUTO_SCROLL_MARGIN) {
-	            this.lastScrollPosition = this.list.scrollContent(-SCROLL_JUMP);
-	        }
-	        else if (posY > this.windowHeight) {
-	            this.lastScrollPosition = this.list.scrollContent(SCROLL_JUMP);
-	        }
-	        return this.lastScrollPosition;
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemReorderGesture.prototype.destroy = function () {
-	        this.onDragEnd();
-	        this.events.unlistenAll();
-	        this.events = null;
-	        this.list = null;
-	    };
-	    return ItemReorderGesture;
-	}());
-	exports.ItemReorderGesture = ItemReorderGesture;
-
-/***/ },
-/* 407 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -71377,8 +71163,8 @@
 	var core_1 = __webpack_require__(6);
 	var button_1 = __webpack_require__(388);
 	var form_1 = __webpack_require__(361);
-	var icon_1 = __webpack_require__(408);
-	var item_reorder_1 = __webpack_require__(409);
+	var icon_1 = __webpack_require__(407);
+	var item_reorder_1 = __webpack_require__(408);
 	var label_1 = __webpack_require__(410);
 	/**
 	 * @name Item
@@ -71650,7 +71436,6 @@
 	         */
 	        this.labelId = null;
 	        this.id = form.nextId().toString();
-	        _elementRef.nativeElement['$ionComponent'] = this;
 	    }
 	    /**
 	     * @private
@@ -71670,18 +71455,6 @@
 	        if (this._inputs.length > 1) {
 	            this.setCssClass('item-multiple-inputs', true);
 	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Item.prototype.setCssClass = function (cssClass, shouldAdd) {
-	        this._renderer.setElementClass(this._elementRef.nativeElement, cssClass, shouldAdd);
-	    };
-	    /**
-	     * @private
-	     */
-	    Item.prototype.setCssStyle = function (property, value) {
-	        this._renderer.setElementStyle(this._elementRef.nativeElement, property, value);
 	    };
 	    /**
 	     * @private
@@ -71749,19 +71522,21 @@
 	    /**
 	     * @private
 	     */
-	    Item.prototype.getNativeElement = function () {
-	        return this._elementRef.nativeElement;
+	    Item.prototype.setCssClass = function (cssClass, shouldAdd) {
+	        this._renderer.setElementClass(this._elementRef.nativeElement, cssClass, shouldAdd);
 	    };
 	    /**
 	     * @private
 	     */
-	    Item.prototype.height = function () {
-	        return this._elementRef.nativeElement.offsetHeight;
+	    Item.prototype.setCssStyle = function (property, value) {
+	        this._renderer.setElementStyle(this._elementRef.nativeElement, property, value);
 	    };
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Number)
-	    ], Item.prototype, "index", void 0);
+	    /**
+	     * @private
+	     */
+	    Item.prototype.getNativeElement = function () {
+	        return this._elementRef.nativeElement;
+	    };
 	    __decorate([
 	        core_1.ContentChild(label_1.Label), 
 	        __metadata('design:type', (typeof (_a = typeof label_1.Label !== 'undefined' && label_1.Label) === 'function' && _a) || Object), 
@@ -71828,7 +71603,7 @@
 	exports.ItemContent = ItemContent;
 
 /***/ },
-/* 408 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72017,7 +71792,7 @@
 	exports.Icon = Icon;
 
 /***/ },
-/* 409 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -72034,14 +71809,181 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var item_1 = __webpack_require__(407);
+	var content_1 = __webpack_require__(389);
+	var dom_1 = __webpack_require__(355);
+	var item_1 = __webpack_require__(406);
+	var item_reorder_gesture_1 = __webpack_require__(409);
+	var util_1 = __webpack_require__(358);
+	/**
+	 * @private
+	 */
+	var Reorder = (function () {
+	    function Reorder(elementRef, _rendered, _zone, _content) {
+	        this._rendered = _rendered;
+	        this._zone = _zone;
+	        this._content = _content;
+	        this._enableReorder = false;
+	        this._lastToIndex = -1;
+	        this.ionItemReorder = new core_1.EventEmitter();
+	        this._element = elementRef.nativeElement;
+	    }
+	    /**
+	     * @private
+	     */
+	    Reorder.prototype.ngOnDestroy = function () {
+	        this._element = null;
+	        this._reorderGesture && this._reorderGesture.destroy();
+	    };
+	    Object.defineProperty(Reorder.prototype, "reorder", {
+	        get: function () {
+	            return this._enableReorder;
+	        },
+	        set: function (val) {
+	            this._enableReorder = util_1.isTrueProperty(val);
+	            if (!this._enableReorder) {
+	                this._reorderGesture && this._reorderGesture.destroy();
+	                this._reorderGesture = null;
+	            }
+	            else if (!this._reorderGesture) {
+	                console.debug('enableReorderItems');
+	                this._reorderGesture = new item_reorder_gesture_1.ItemReorderGesture(this);
+	            }
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * @private
+	     */
+	    Reorder.prototype.reorderStart = function () {
+	        var children = this._element.children;
+	        var len = children.length;
+	        this.setCssClass('reorder-active', true);
+	        for (var i = 0; i < len; i++) {
+	            children[i]['$ionIndex'] = i;
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Reorder.prototype.reorderEmit = function (fromIndex, toIndex) {
+	        var _this = this;
+	        this.reorderReset();
+	        if (fromIndex !== toIndex) {
+	            this._zone.run(function () {
+	                _this.ionItemReorder.emit({
+	                    from: fromIndex,
+	                    to: toIndex,
+	                });
+	            });
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Reorder.prototype.scrollContent = function (scroll) {
+	        var scrollTop = this._content.getScrollTop() + scroll;
+	        if (scroll !== 0) {
+	            this._content.scrollTo(0, scrollTop, 0);
+	        }
+	        return scrollTop;
+	    };
+	    /**
+	     * @private
+	     */
+	    Reorder.prototype.reorderReset = function () {
+	        var children = this._element.children;
+	        var len = children.length;
+	        this.setCssClass('reorder-active', false);
+	        var transform = dom_1.CSS.transform;
+	        for (var i = 0; i < len; i++) {
+	            children[i].style[transform] = '';
+	        }
+	        this._lastToIndex = -1;
+	    };
+	    /**
+	     * @private
+	     */
+	    Reorder.prototype.reorderMove = function (fromIndex, toIndex, itemHeight) {
+	        if (this._lastToIndex === -1) {
+	            this._lastToIndex = fromIndex;
+	        }
+	        var lastToIndex = this._lastToIndex;
+	        this._lastToIndex = toIndex;
+	        // TODO: I think both loops can be merged into a single one
+	        // but I had no luck last time I tried
+	        /********* DOM READ ********** */
+	        var children = this._element.children;
+	        /********* DOM WRITE ********* */
+	        var transform = dom_1.CSS.transform;
+	        if (toIndex >= lastToIndex) {
+	            for (var i = lastToIndex; i <= toIndex; i++) {
+	                if (i !== fromIndex) {
+	                    children[i].style[transform] = (i > fromIndex)
+	                        ? "translateY(" + -itemHeight + "px)" : '';
+	                }
+	            }
+	        }
+	        if (toIndex <= lastToIndex) {
+	            for (var i = toIndex; i <= lastToIndex; i++) {
+	                if (i !== fromIndex) {
+	                    children[i].style[transform] = (i < fromIndex)
+	                        ? "translateY(" + itemHeight + "px)" : '';
+	                }
+	            }
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    Reorder.prototype.setCssClass = function (classname, add) {
+	        this._rendered.setElementClass(this._element, classname, add);
+	    };
+	    /**
+	     * @private
+	     */
+	    Reorder.prototype.getNativeElement = function () {
+	        return this._element;
+	    };
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
+	    ], Reorder.prototype, "ionItemReorder", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], Reorder.prototype, "reorder", null);
+	    Reorder = __decorate([
+	        core_1.Directive({
+	            selector: '[reorder]',
+	            host: {
+	                '[class.reorder-enabled]': '_enableReorder',
+	            }
+	        }),
+	        __param(3, core_1.Optional()), 
+	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _d) || Object, (typeof (_e = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _e) || Object])
+	    ], Reorder);
+	    return Reorder;
+	    var _a, _b, _c, _d, _e;
+	}());
+	exports.Reorder = Reorder;
 	/**
 	 * @private
 	 */
 	var ItemReorder = (function () {
 	    function ItemReorder(item, elementRef) {
-	        elementRef.nativeElement['$ionComponent'] = item;
+	        this.item = item;
+	        this.elementRef = elementRef;
 	    }
+	    ItemReorder.prototype.ngAfterContentInit = function () {
+	        var item = this.item.getNativeElement();
+	        if (item.parentNode.nodeName === 'ION-ITEM-SLIDING') {
+	            this.elementRef.nativeElement['$ionReorderNode'] = item.parentNode;
+	        }
+	        else {
+	            this.elementRef.nativeElement['$ionReorderNode'] = item;
+	        }
+	    };
 	    ItemReorder = __decorate([
 	        core_1.Component({
 	            selector: 'ion-reorder',
@@ -72054,6 +71996,137 @@
 	    var _a, _b;
 	}());
 	exports.ItemReorder = ItemReorder;
+
+/***/ },
+/* 409 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var ui_event_manager_1 = __webpack_require__(400);
+	var dom_1 = __webpack_require__(355);
+	var AUTO_SCROLL_MARGIN = 60;
+	var SCROLL_JUMP = 10;
+	var ITEM_REORDER_ACTIVE = 'reorder-active';
+	/**
+	 * @private
+	 */
+	var ItemReorderGesture = (function () {
+	    function ItemReorderGesture(list) {
+	        this.list = list;
+	        this.selectedItemEle = null;
+	        this.events = new ui_event_manager_1.UIEventManager(false);
+	        var element = this.list.getNativeElement();
+	        this.events.pointerEvents(element, this.onDragStart.bind(this), this.onDragMove.bind(this), this.onDragEnd.bind(this));
+	    }
+	    ItemReorderGesture.prototype.onDragStart = function (ev) {
+	        var reorderElement = ev.target;
+	        if (reorderElement.nodeName !== 'ION-REORDER') {
+	            return false;
+	        }
+	        var item = reorderElement['$ionReorderNode'];
+	        if (!item) {
+	            console.error('item does not contain ion ionReorderNode');
+	            return false;
+	        }
+	        ev.preventDefault();
+	        // Preparing state
+	        this.selectedItemEle = item;
+	        this.selectedItemHeight = item.offsetHeight;
+	        this.lastYcoord = this.lastToIndex = -100;
+	        this.windowHeight = window.innerHeight - AUTO_SCROLL_MARGIN;
+	        this.lastScrollPosition = this.list.scrollContent(0);
+	        this.offset = dom_1.pointerCoord(ev);
+	        this.offset.y += this.lastScrollPosition;
+	        item.classList.add(ITEM_REORDER_ACTIVE);
+	        this.list.reorderStart();
+	        return true;
+	    };
+	    ItemReorderGesture.prototype.onDragMove = function (ev) {
+	        var selectedItem = this.selectedItemEle;
+	        if (!selectedItem) {
+	            return;
+	        }
+	        ev.preventDefault();
+	        // Get coordinate
+	        var coord = dom_1.pointerCoord(ev);
+	        var posY = coord.y;
+	        // Scroll if we reach the scroll margins
+	        var scrollPosition = this.scroll(posY);
+	        // Only perform hit test if we moved at least 30px from previous position
+	        if (Math.abs(posY - this.lastYcoord) > 30) {
+	            var overItem = this.itemForCoord(coord);
+	            if (overItem) {
+	                var toIndex = indexForItem(overItem);
+	                if (toIndex && (toIndex !== this.lastToIndex || this.emptyZone)) {
+	                    var fromIndex = indexForItem(this.selectedItemEle);
+	                    this.lastToIndex = toIndex;
+	                    this.lastYcoord = posY;
+	                    this.emptyZone = false;
+	                    this.list.reorderMove(fromIndex, toIndex, this.selectedItemHeight);
+	                }
+	            }
+	            else {
+	                this.emptyZone = true;
+	            }
+	        }
+	        // Update selected item position
+	        var ydiff = Math.round(posY - this.offset.y + scrollPosition);
+	        selectedItem.style[dom_1.CSS.transform] = "translateY(" + ydiff + "px)";
+	    };
+	    ItemReorderGesture.prototype.onDragEnd = function () {
+	        if (!this.selectedItemEle) {
+	            return;
+	        }
+	        var toIndex = this.lastToIndex;
+	        var fromIndex = indexForItem(this.selectedItemEle);
+	        this.selectedItemEle.classList.remove(ITEM_REORDER_ACTIVE);
+	        this.selectedItemEle = null;
+	        this.list.reorderEmit(fromIndex, toIndex);
+	    };
+	    ItemReorderGesture.prototype.itemForCoord = function (coord) {
+	        return itemForPosition(this.offset.x - 100, coord.y);
+	    };
+	    ItemReorderGesture.prototype.scroll = function (posY) {
+	        if (posY < AUTO_SCROLL_MARGIN) {
+	            this.lastScrollPosition = this.list.scrollContent(-SCROLL_JUMP);
+	        }
+	        else if (posY > this.windowHeight) {
+	            this.lastScrollPosition = this.list.scrollContent(SCROLL_JUMP);
+	        }
+	        return this.lastScrollPosition;
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemReorderGesture.prototype.destroy = function () {
+	        this.onDragEnd();
+	        this.events.unlistenAll();
+	        this.events = null;
+	        this.list = null;
+	    };
+	    return ItemReorderGesture;
+	}());
+	exports.ItemReorderGesture = ItemReorderGesture;
+	function itemForPosition(x, y) {
+	    var element = document.elementFromPoint(x, y);
+	    if (!element) {
+	        return null;
+	    }
+	    if (element.nodeName !== 'ION-ITEM' && !element.hasAttribute('ion-item')) {
+	        return null;
+	    }
+	    if (indexForItem(element)) {
+	        return element;
+	    }
+	    var parent = element.parentNode;
+	    if (indexForItem(parent)) {
+	        return parent;
+	    }
+	    return null;
+	}
+	function indexForItem(element) {
+	    return element['$ionIndex'];
+	}
 
 /***/ },
 /* 410 */
@@ -72199,10 +72272,10 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var dom_1 = __webpack_require__(355);
-	var item_1 = __webpack_require__(407);
+	var item_1 = __webpack_require__(406);
 	var util_1 = __webpack_require__(358);
 	var list_1 = __webpack_require__(404);
-	var SWIPE_FACTOR = 1.1;
+	var SWIPE_MARGIN = 20;
 	var ELASTIC_FACTOR = 0.55;
 	(function (ItemSideFlags) {
 	    ItemSideFlags[ItemSideFlags["None"] = 0] = "None";
@@ -72284,10 +72357,12 @@
 	exports.ItemOptions = ItemOptions;
 	var SlidingState;
 	(function (SlidingState) {
-	    SlidingState[SlidingState["Disabled"] = 0] = "Disabled";
-	    SlidingState[SlidingState["Enabled"] = 1] = "Enabled";
-	    SlidingState[SlidingState["Right"] = 2] = "Right";
-	    SlidingState[SlidingState["Left"] = 3] = "Left";
+	    SlidingState[SlidingState["Disabled"] = 2] = "Disabled";
+	    SlidingState[SlidingState["Enabled"] = 4] = "Enabled";
+	    SlidingState[SlidingState["Right"] = 8] = "Right";
+	    SlidingState[SlidingState["Left"] = 16] = "Left";
+	    SlidingState[SlidingState["SwipeRight"] = 32] = "SwipeRight";
+	    SlidingState[SlidingState["SwipeLeft"] = 64] = "SwipeLeft";
 	})(SlidingState || (SlidingState = {}));
 	/**
 	 * @name ItemSliding
@@ -72374,8 +72449,7 @@
 	 * @see {@link ../../list/List List API Docs}
 	 */
 	var ItemSliding = (function () {
-	    function ItemSliding(_list, _renderer, _elementRef) {
-	        this._list = _list;
+	    function ItemSliding(list, _renderer, _elementRef) {
 	        this._renderer = _renderer;
 	        this._elementRef = _elementRef;
 	        this._openAmount = 0;
@@ -72386,15 +72460,12 @@
 	        this._optsDirty = true;
 	        this._state = SlidingState.Disabled;
 	        /**
-	        * @private
-	        * */
-	        this.slidingPercent = 0;
-	        /**
 	         * @output {event} Expression to evaluate when the sliding position changes.
 	         * It reports the relative position.
 	         *
 	         * ```ts
-	         * ondrag(percent) {
+	         * ondrag(item) {
+	         *   let percent = item.getSlidingPercent();
 	         *   if (percent > 0) {
 	         *     // positive
 	         *     console.log('right side');
@@ -72410,14 +72481,11 @@
 	         *
 	         */
 	        this.ionDrag = new core_1.EventEmitter();
-	        _list.enableSlidingItems(true);
+	        list && list.containsSlidingItem(true);
 	        _elementRef.nativeElement.$ionComponent = this;
-	        _renderer.setElementClass(_elementRef.nativeElement, 'item-wrapper', true);
+	        this.setCssClass('item-wrapper', true);
 	    }
 	    Object.defineProperty(ItemSliding.prototype, "_itemOptions", {
-	        /**
-	         * @private
-	         */
 	        set: function (itemOptions) {
 	            var sides = 0;
 	            for (var _i = 0, _a = itemOptions.toArray(); _i < _a.length; _i++) {
@@ -72440,9 +72508,30 @@
 	    /**
 	     * @private
 	     */
+	    ItemSliding.prototype.getOpenAmount = function () {
+	        return this._openAmount;
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemSliding.prototype.getSlidingPercent = function () {
+	        var openAmount = this._openAmount;
+	        if (openAmount > 0) {
+	            return openAmount / this._optsWidthRightSide;
+	        }
+	        else if (openAmount < 0) {
+	            return openAmount / this._optsWidthLeftSide;
+	        }
+	        else {
+	            return 0;
+	        }
+	    };
+	    /**
+	     * @private
+	     */
 	    ItemSliding.prototype.startSliding = function (startX) {
 	        if (this._timer) {
-	            clearTimeout(this._timer);
+	            dom_1.clearNativeTimeout(this._timer);
 	            this._timer = null;
 	        }
 	        if (this._openAmount === 0) {
@@ -72460,7 +72549,7 @@
 	            this.calculateOptsWidth();
 	            return;
 	        }
-	        var openAmount = this._startX - x;
+	        var openAmount = (this._startX - x);
 	        switch (this._sides) {
 	            case ItemSideFlags.Right:
 	                openAmount = Math.max(0, openAmount);
@@ -72497,101 +72586,80 @@
 	        if (shouldClose(isCloseDirection, isMovingFast, isOnCloseZone)) {
 	            restingPoint = 0;
 	        }
-	        this.fireSwipeEvent();
 	        this._setOpenAmount(restingPoint, true);
+	        this.fireSwipeEvent();
 	        return restingPoint;
 	    };
-	    /**
-	    * @private
-	    * */
 	    ItemSliding.prototype.fireSwipeEvent = function () {
-	        if (this.slidingPercent > SWIPE_FACTOR) {
+	        if (this._state & SlidingState.SwipeRight) {
 	            this._rightOptions.ionSwipe.emit(this);
 	        }
-	        else if (this.slidingPercent < -SWIPE_FACTOR) {
+	        else if (this._state & SlidingState.SwipeLeft) {
 	            this._leftOptions.ionSwipe.emit(this);
 	        }
 	    };
-	    /**
-	    * @private
-	    * */
 	    ItemSliding.prototype.calculateOptsWidth = function () {
 	        var _this = this;
 	        dom_1.nativeRaf(function () {
-	            if (_this._optsDirty) {
-	                _this._optsWidthRightSide = 0;
-	                if (_this._rightOptions) {
-	                    _this._optsWidthRightSide = _this._rightOptions.width();
-	                }
-	                _this._optsWidthLeftSide = 0;
-	                if (_this._leftOptions) {
-	                    _this._optsWidthLeftSide = _this._leftOptions.width();
-	                }
-	                _this._optsDirty = false;
+	            if (!_this._optsDirty) {
+	                return;
 	            }
+	            _this._optsWidthRightSide = 0;
+	            if (_this._rightOptions) {
+	                _this._optsWidthRightSide = _this._rightOptions.width();
+	            }
+	            _this._optsWidthLeftSide = 0;
+	            if (_this._leftOptions) {
+	                _this._optsWidthLeftSide = _this._leftOptions.width();
+	            }
+	            _this._optsDirty = false;
 	        });
 	    };
-	    /**
-	     * @private
-	     */
 	    ItemSliding.prototype._setOpenAmount = function (openAmount, isFinal) {
 	        var _this = this;
 	        if (this._timer) {
-	            clearTimeout(this._timer);
+	            dom_1.clearNativeTimeout(this._timer);
 	            this._timer = null;
 	        }
 	        this._openAmount = openAmount;
-	        var didEnd = openAmount === 0;
-	        if (didEnd) {
-	            // TODO: refactor. there must exist a better way
-	            // if sliding ended, we wait 400ms until animation finishes
+	        if (isFinal) {
+	            this.item.setCssStyle(dom_1.CSS.transition, '');
+	        }
+	        else {
+	            if (openAmount > 0) {
+	                var state = (openAmount >= (this._optsWidthRightSide + SWIPE_MARGIN))
+	                    ? SlidingState.Right | SlidingState.SwipeRight
+	                    : SlidingState.Right;
+	                this._setState(state);
+	            }
+	            else if (openAmount < 0) {
+	                var state = (openAmount <= (-this._optsWidthLeftSide - SWIPE_MARGIN))
+	                    ? SlidingState.Left | SlidingState.SwipeLeft
+	                    : SlidingState.Left;
+	                this._setState(state);
+	            }
+	        }
+	        if (openAmount === 0) {
 	            this._timer = dom_1.nativeTimeout(function () {
 	                _this._setState(SlidingState.Disabled);
 	                _this._timer = null;
-	            }, 400);
-	            this.slidingPercent = 0;
+	            }, 600);
+	            this.item.setCssStyle(dom_1.CSS.transform, '');
+	            return;
 	        }
-	        else if (openAmount > 0) {
-	            this._setState(SlidingState.Right);
-	            this.slidingPercent = openAmount / this._optsWidthRightSide;
-	        }
-	        else if (openAmount < 0) {
-	            this._setState(SlidingState.Left);
-	            this.slidingPercent = openAmount / this._optsWidthLeftSide;
-	        }
-	        if (!isFinal) {
-	            this.setClass('active-swipe-right', this.slidingPercent > SWIPE_FACTOR);
-	            this.setClass('active-swipe-left', this.slidingPercent < -SWIPE_FACTOR);
-	        }
-	        else {
-	            this.item.setCssStyle(dom_1.CSS.transition, '');
-	        }
-	        this.ionDrag.emit(this.slidingPercent);
-	        this.item.setCssStyle(dom_1.CSS.transform, (didEnd ? '' : 'translate3d(' + -openAmount + 'px,0,0)'));
+	        this.item.setCssStyle(dom_1.CSS.transform, "translate3d(" + -openAmount + "px,0,0)");
+	        this.ionDrag.emit(this);
 	    };
 	    ItemSliding.prototype._setState = function (state) {
-	        if (state !== this._state) {
-	            this._state = state;
-	            this.setClass('active-slide', state !== SlidingState.Disabled);
-	            this.setClass('active-options-right', state === SlidingState.Right);
-	            this.setClass('active-options-left', state === SlidingState.Left);
-	            if (state === SlidingState.Disabled || state === SlidingState.Enabled) {
-	                this.setClass('active-swipe-right', false);
-	                this.setClass('active-swipe-left', false);
-	            }
+	        if (state === this._state) {
+	            return;
 	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemSliding.prototype.setClass = function (className, add) {
-	        this._renderer.setElementClass(this._elementRef.nativeElement, className, add);
-	    };
-	    /**
-	     * @private
-	     */
-	    ItemSliding.prototype.getOpenAmount = function () {
-	        return this._openAmount;
+	        this.setCssClass('active-slide', (state !== SlidingState.Disabled));
+	        this.setCssClass('active-options-right', !!(state & SlidingState.Right));
+	        this.setCssClass('active-options-left', !!(state & SlidingState.Left));
+	        this.setCssClass('active-swipe-right', !!(state & SlidingState.SwipeRight));
+	        this.setCssClass('active-swipe-left', !!(state & SlidingState.SwipeLeft));
+	        this._state = state;
 	    };
 	    /**
 	     * Close the sliding item. Items can also be closed from the [List](../../list/List).
@@ -72629,6 +72697,18 @@
 	     */
 	    ItemSliding.prototype.close = function () {
 	        this._setOpenAmount(0, true);
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemSliding.prototype.setCssClass = function (cssClass, shouldAdd) {
+	        this._renderer.setElementClass(this._elementRef.nativeElement, cssClass, shouldAdd);
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemSliding.prototype.setCssStyle = function (property, value) {
+	        this._renderer.setElementStyle(this._elementRef.nativeElement, property, value);
 	    };
 	    __decorate([
 	        core_1.ContentChild(item_1.Item), 
@@ -74355,7 +74435,7 @@
 	var core_1 = __webpack_require__(6);
 	var common_1 = __webpack_require__(117);
 	var form_1 = __webpack_require__(361);
-	var item_1 = __webpack_require__(407);
+	var item_1 = __webpack_require__(406);
 	var util_1 = __webpack_require__(358);
 	var CHECKBOX_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Checkbox; }), multi: true });
 	/**
@@ -74580,7 +74660,7 @@
 	var alert_1 = __webpack_require__(421);
 	var form_1 = __webpack_require__(361);
 	var util_1 = __webpack_require__(358);
-	var item_1 = __webpack_require__(407);
+	var item_1 = __webpack_require__(406);
 	var nav_controller_1 = __webpack_require__(379);
 	var option_1 = __webpack_require__(422);
 	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
@@ -76266,7 +76346,7 @@
 	var config_1 = __webpack_require__(356);
 	var picker_1 = __webpack_require__(424);
 	var form_1 = __webpack_require__(361);
-	var item_1 = __webpack_require__(407);
+	var item_1 = __webpack_require__(406);
 	var util_1 = __webpack_require__(358);
 	var datetime_util_1 = __webpack_require__(374);
 	var nav_controller_1 = __webpack_require__(379);
@@ -77669,7 +77749,7 @@
 	var common_1 = __webpack_require__(117);
 	var form_1 = __webpack_require__(361);
 	var util_1 = __webpack_require__(358);
-	var item_1 = __webpack_require__(407);
+	var item_1 = __webpack_require__(406);
 	var dom_1 = __webpack_require__(355);
 	var ui_event_manager_1 = __webpack_require__(400);
 	var TOGGLE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Toggle; }), multi: true });
@@ -77937,7 +78017,7 @@
 	var content_1 = __webpack_require__(389);
 	var form_1 = __webpack_require__(361);
 	var input_base_1 = __webpack_require__(427);
-	var item_1 = __webpack_require__(407);
+	var item_1 = __webpack_require__(406);
 	var native_input_1 = __webpack_require__(428);
 	var nav_controller_1 = __webpack_require__(379);
 	var platform_1 = __webpack_require__(357);
@@ -79245,7 +79325,7 @@
 	var core_1 = __webpack_require__(6);
 	var form_1 = __webpack_require__(361);
 	var util_1 = __webpack_require__(358);
-	var item_1 = __webpack_require__(407);
+	var item_1 = __webpack_require__(406);
 	var radio_group_1 = __webpack_require__(431);
 	/**
 	 * @description
@@ -79678,7 +79758,7 @@
 	var dom_1 = __webpack_require__(355);
 	var debouncer_1 = __webpack_require__(433);
 	var form_1 = __webpack_require__(361);
-	var item_1 = __webpack_require__(407);
+	var item_1 = __webpack_require__(406);
 	var ui_event_manager_1 = __webpack_require__(400);
 	var RANGE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Range; }), multi: true });
 	/**
@@ -81996,7 +82076,7 @@
 	exports.Content = content_1.Content;
 	var datetime_1 = __webpack_require__(423);
 	exports.DateTime = datetime_1.DateTime;
-	var icon_1 = __webpack_require__(408);
+	var icon_1 = __webpack_require__(407);
 	exports.Icon = icon_1.Icon;
 	var img_1 = __webpack_require__(395);
 	exports.Img = img_1.Img;
@@ -82007,9 +82087,9 @@
 	var input_1 = __webpack_require__(426);
 	exports.TextArea = input_1.TextArea;
 	exports.TextInput = input_1.TextInput;
-	var item_1 = __webpack_require__(407);
+	var item_1 = __webpack_require__(406);
 	exports.Item = item_1.Item;
-	var item_reorder_1 = __webpack_require__(409);
+	var item_reorder_1 = __webpack_require__(408);
 	exports.ItemReorder = item_reorder_1.ItemReorder;
 	var item_sliding_1 = __webpack_require__(411);
 	exports.ItemSliding = item_sliding_1.ItemSliding;

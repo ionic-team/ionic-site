@@ -35,7 +35,7 @@ List
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/list/list.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/list/list.ts#L5">
 Improve this doc
 </a>
 
@@ -67,71 +67,6 @@ removing items.</p>
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="enableSlidingItems"></div>
-
-<h3>
-<a class="anchor" name="enableSlidingItems" href="#enableSlidingItems"></a>
-<code>enableSlidingItems(shouldEnable)</code>
-  
-
-</h3>
-
-Enable the sliding items.
-
-```ts
-import {Component, ViewChild} from '@angular/core';
-import {List} from 'ionic-angular';
-
-@Component({...})
-export class MyClass {
-  @ViewChild(List) list: List;
-
-  constructor() { }
-
-  stopSliding() {
-    this.list.enableSlidingItems(false);
-  }
-}
-```
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        shouldEnable
-        
-        
-      </td>
-      <td>
-        
-  <code>boolean</code>
-      </td>
-      <td>
-        <p>whether the item-sliding should be enabled or not</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
-
 
 <div id="closeSlidingItems"></div>
 
@@ -169,46 +104,6 @@ export class MyClass {
 
 
 
-
-<div id="setCssClass"></div>
-
-<h3>
-<a class="anchor" name="setCssClass" href="#setCssClass"></a>
-<code>setCssClass()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="reorderStart"></div>
-
-<h3>
-<a class="anchor" name="reorderStart" href="#reorderStart"></a>
-<code>reorderStart()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">
@@ -222,27 +117,21 @@ export class MyClass {
   <tbody>
     
     <tr>
-      <td>reorder</td>
-      <td><code></code></td>
-      <td></td>
-    </tr>
-    
-  </tbody>
-</table>
-<!-- output events on the class -->
-<h2><a class="anchor" name="output-events" href="#output-events"></a>Output Events</h2>
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Attr</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>ionItemReorder</td>
-      <td></td>
+      <td>sliding</td>
+      <td><code>Component, ViewChild</code></td>
+      <td><p> from &#39;@angular/core&#39;;
+import {List} from &#39;ionic-angular&#39;;</p>
+<p>@Component({...})
+export class MyClass {
+  @ViewChild(List) list: List;</p>
+<p>  constructor() { }</p>
+<p>  stopSliding() {
+    this.list.enableSlidingItems(false);
+  }
+}
+```
+@param {boolean} shouldEnable whether the item-sliding should be enabled or not</p>
+</td>
     </tr>
     
   </tbody>

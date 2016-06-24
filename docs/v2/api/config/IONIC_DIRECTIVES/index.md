@@ -31,7 +31,7 @@ IONIC_DIRECTIVES
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/directives.ts#L119">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/config/directives.ts#L120">
 Improve this doc
 </a>
 

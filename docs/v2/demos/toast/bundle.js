@@ -78314,6 +78314,7 @@
 	        },
 	        set: function (val) {
 	            this._value = val;
+	            this.checkHasValue(val);
 	        },
 	        enumerable: true,
 	        configurable: true

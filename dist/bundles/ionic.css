@@ -5910,7 +5910,8 @@ ion-icon {
     touch-action: manipulation; }
     .ios ion-reorder ion-icon {
       pointer-events: none; }
-  .ios .reorder-enabled .item, .ios .reorder-enabled .item-wrapper {
+  .ios .reorder-enabled .item,
+  .ios .reorder-enabled .item-wrapper {
     -webkit-transition: -webkit-transform 300ms;
     transition: transform 300ms;
     will-change: transform; }
@@ -9415,7 +9416,8 @@ ion-icon {
     touch-action: manipulation; }
     .md ion-reorder ion-icon {
       pointer-events: none; }
-  .md .reorder-enabled .item, .md .reorder-enabled .item-wrapper {
+  .md .reorder-enabled .item,
+  .md .reorder-enabled .item-wrapper {
     -webkit-transition: -webkit-transform 300ms;
     transition: transform 300ms;
     will-change: transform; }
@@ -13214,7 +13216,8 @@ ion-icon {
     touch-action: manipulation; }
     .wp ion-reorder ion-icon {
       pointer-events: none; }
-  .wp .reorder-enabled .item, .wp .reorder-enabled .item-wrapper {
+  .wp .reorder-enabled .item,
+  .wp .reorder-enabled .item-wrapper {
     -webkit-transition: -webkit-transform 300ms;
     transition: transform 300ms;
     will-change: transform; }

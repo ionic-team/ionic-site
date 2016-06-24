@@ -33,7 +33,7 @@ Loading
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/loading/loading.ts#L7">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/loading/loading.ts#L7">
 Improve this doc
 </a>
 

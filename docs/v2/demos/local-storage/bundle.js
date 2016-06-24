@@ -60659,8 +60659,7 @@
 	 * @usage
 	 * ```ts
 	 * export class MyClass{
-	 *  constructor(params: NavParams){
-	 *    this.params = params;
+	 *  constructor(private params: NavParams){
 	 *    // userParams is an object we have in our nav-parameters
 	 *    this.params.get('userParams');
 	 *  }
@@ -60686,8 +60685,7 @@
 	     *
 	     * ```ts
 	     * export class MyClass{
-	     *  constructor(params: NavParams){
-	     *    this.params = params;
+	     *  constructor(private params: NavParams){
 	     *    // userParams is an object we have in our nav-parameters
 	     *    this.params.get('userParams');
 	     *  }

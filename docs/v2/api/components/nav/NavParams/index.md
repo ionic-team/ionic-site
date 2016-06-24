@@ -55,8 +55,7 @@ option with a simple <code>get</code> method.</p>
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-ts">export class MyClass{
- constructor(params: NavParams){
-   this.params = params;
+ constructor(private params: NavParams){
    // userParams is an object we have in our nav-parameters
    this.params.get(&#39;userParams&#39;);
  }
@@ -107,8 +106,7 @@ Get the value of a nav-parameter for the current view
 
 ```ts
 export class MyClass{
- constructor(params: NavParams){
-   this.params = params;
+ constructor(private params: NavParams){
    // userParams is an object we have in our nav-parameters
    this.params.get('userParams');
  }

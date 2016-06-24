@@ -63398,6 +63398,7 @@
 	        this._paddingBottom = 0;
 	        this._paddingLeft = 0;
 	        this._headerHeight = 0;
+	        this._footerHeight = 0;
 	        this._tabbarPlacement = null;
 	        var ele = this._elementRef.nativeElement;
 	        var parentEle = ele.parentElement;

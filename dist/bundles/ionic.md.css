@@ -5803,7 +5803,9 @@ input.text-input:-webkit-autofill {
   pointer-events: none; }
 
 .input-has-focus input,
-.input-has-focus textarea {
+.input-has-focus textarea,
+.input-has-focus a,
+.input-has-focus button {
   pointer-events: auto; }
 
 [next-input] {
@@ -5824,7 +5826,7 @@ input.text-input:-webkit-autofill {
   background-repeat: no-repeat;
   background-position: center; }
 
-.input-has-value .text-input-clear-icon {
+.input-has-focus.input-has-value .text-input-clear-icon {
   display: block; }
 
 .text-input.cloned-input {

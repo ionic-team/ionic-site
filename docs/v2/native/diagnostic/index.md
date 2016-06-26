@@ -43,8 +43,8 @@ docType: "class"
 
 <pre><code>$ ionic plugin add cordova.plugins.diagnostic</code></pre>
 <p>Repo:
-  <a href="https://github.com/floatinghotpot/cordova-plugin-admob">
-    https://github.com/floatinghotpot/cordova-plugin-admob
+  <a href="https://github.com/dpa99c/cordova-diagnostic-plugin">
+    https://github.com/dpa99c/cordova-diagnostic-plugin
   </a>
 </p>
 
@@ -96,6 +96,8 @@ On Android this requires permission. `<uses-permission android:name="android.per
   
 </h3>
 
+Checks if the device has a camera. On Android this returns true if the device has a camera. On iOS this returns true if both the device has a camera AND the application is authorized to use it. On Windows 10 Mobile this returns true if both the device has a rear-facing camera AND the
+application is authorized to use it.
 
 
 
@@ -111,6 +113,8 @@ On Android this requires permission. `<uses-permission android:name="android.per
   
 </h3>
 
+Checks if the device has Bluetooth capabilities and if so that Bluetooth is switched on (same on Android, iOS and Windows 10 Mobile)
+On Android this requires permission <uses-permission android:name="android.permission.BLUETOOTH" />
 
 
 
@@ -126,6 +130,10 @@ On Android this requires permission. `<uses-permission android:name="android.per
   
 </h3>
 
+Returns the location authorization status for the application.
+Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
+
+mode - (iOS-only / optional) location authorization mode: "always" or "when_in_use". If not specified, defaults to "when_in_use".
 
 
 
@@ -141,6 +149,8 @@ On Android this requires permission. `<uses-permission android:name="android.per
   
 </h3>
 
+Checks if the application is authorized to use location.
+Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.
 
 
 
@@ -156,6 +166,7 @@ On Android this requires permission. `<uses-permission android:name="android.per
   
 </h3>
 
+Checks if camera hardware is present on device.
 
 
 
@@ -171,6 +182,8 @@ On Android this requires permission. `<uses-permission android:name="android.per
   
 </h3>
 
+Checks if the application is authorized to use the camera.
+Note for Android: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return TRUE as permissions are already granted at installation time.
 
 
 
@@ -186,6 +199,10 @@ On Android this requires permission. `<uses-permission android:name="android.per
   
 </h3>
 
+Checks if location mode is set to return high-accuracy locations from GPS hardware.
+  Returns true if Location mode is enabled and is set to either:
+  - Device only = GPS hardware only (high accuracy)
+  - High accuracy = GPS hardware, network triangulation and Wifi network IDs (high and low accuracy)
 
 
 
@@ -201,6 +218,10 @@ On Android this requires permission. `<uses-permission android:name="android.per
   
 </h3>
 
+Checks if location mode is set to return low-accuracy locations from network triangulation/WiFi access points.
+Returns true if Location mode is enabled and is set to either:
+  - Battery saving = network triangulation and Wifi network IDs (low accuracy)
+  - High accuracy = GPS hardware, network triangulation and Wifi network IDs (high and low accuracy)
 
 
 

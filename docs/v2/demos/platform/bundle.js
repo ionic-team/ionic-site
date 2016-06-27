@@ -54068,6 +54068,19 @@
 	    }
 	    return canDo;
 	});
+	FeatureDetect.add('backdrop-filter', function (window, document, body) {
+	    /**
+	    * backdrop-filter Shim
+	    * Checks if css backdrop-filter is implemented by the browser.
+	    */
+	    var styles = body.style;
+	    var backdrop = styles['backdrop-filter'] !== undefined ||
+	        styles['-webkit-backdrop-filter'] !== undefined;
+	    if (backdrop) {
+	        body.classList.add('backdrop-filter');
+	    }
+	    return backdrop;
+	});
 
 /***/ },
 /* 361 */

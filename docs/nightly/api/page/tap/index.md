@@ -11,11 +11,11 @@ docType: "page"
 ---
 
 <div class="improve-docs">
-<a href='http://github.com/driftyco/ionic/tree/master/js/utils/tap.js#L2'>
+<a href='http://github.com/driftyco/ionic/tree/1.x/js/utils/tap.js#L2'>
 View Source
 </a>
 &nbsp;
-<a href='http://github.com/driftyco/ionic/edit/master/js/utils/tap.js#L2'>
+<a href='http://github.com/driftyco/ionic/edit/1.x/js/utils/tap.js#L2'>
 Improve this doc
 </a>
 </div>
@@ -82,7 +82,7 @@ add the attribute `data-tap-disabled="true"`.
 - Works with labels surrounding inputs
 - Does not fire off a click if the user moves the pointer too far
 - Adds and removes an 'activated' css class
-- Multiple [unit tests](https://github.com/driftyco/ionic/blob/master/test/unit/utils/tap.unit.js) for each scenario
+- Multiple [unit tests](https://github.com/driftyco/ionic/blob/1.x/test/unit/utils/tap.unit.js) for each scenario
 
 
 

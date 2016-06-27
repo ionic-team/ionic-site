@@ -80876,8 +80876,7 @@
 	 * For more information on using navigation controllers like Nav or [Tab](../../Tabs/Tab/),
 	 * take a look at the [NavController API Docs](../NavController/).
 	 *
-	 * You must set a root page (where page is any [@Page](../../config/Page/)
-	 * component) to be loaded initially by any Nav you create, using
+	 * You must set a root page to be loaded initially by any Nav you create, using
 	 * the 'root' property:
 	 *
 	 * @usage

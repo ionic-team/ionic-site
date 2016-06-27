@@ -5958,9 +5958,11 @@ ion-icon {
       font-weight: normal;
       line-height: normal; }
     .ios .item p {
+      overflow: inherit;
       margin: 0 0 2px;
       font-size: 1.2rem;
       line-height: normal;
+      text-overflow: inherit;
       color: #666; }
     .ios .item h2:last-child,
     .ios .item h3:last-child,
@@ -9471,9 +9473,11 @@ ion-icon {
       font-weight: normal;
       line-height: normal; }
     .md .item p {
+      overflow: inherit;
       margin: 0 0 2px;
       font-size: 1.4rem;
       line-height: normal;
+      text-overflow: inherit;
       color: #666; }
   .md .item.activated {
     background-color: #f1f1f1; }
@@ -13274,9 +13278,11 @@ ion-icon {
       font-weight: normal;
       line-height: normal; }
     .wp .item p {
+      overflow: inherit;
       margin: 0 0 2px;
       font-size: 1.4rem;
       line-height: normal;
+      text-overflow: inherit;
       color: #666; }
   .wp .item.activated {
     background-color: #aaa; }

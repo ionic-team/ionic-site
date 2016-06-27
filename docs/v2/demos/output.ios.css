@@ -6271,9 +6271,11 @@ ion-reorder {
     font-weight: normal;
     line-height: normal; }
   .item p {
+    overflow: inherit;
     margin: 0 0 2px;
     font-size: 1.2rem;
     line-height: normal;
+    text-overflow: inherit;
     color: #666; }
   .item h2:last-child,
   .item h3:last-child,

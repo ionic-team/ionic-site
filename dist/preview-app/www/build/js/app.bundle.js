@@ -2361,7 +2361,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var BasicPage = (function () {
     function BasicPage() {
-        this.searchQuery = '';
         this.initializeItems();
     }
     BasicPage.prototype.initializeItems = function () {
@@ -2405,21 +2404,17 @@ var BasicPage = (function () {
             'Washington'
         ];
     };
-    BasicPage.prototype.getItems = function (searchbar) {
+    BasicPage.prototype.getItems = function (ev) {
         // Reset items back to all of the items
         this.initializeItems();
-        // set q to the value of the searchbar
-        var q = searchbar.value;
+        // set val to the value of the ev target
+        var val = ev.target.value;
         // if the value is an empty string don't filter the items
-        if (q.trim() == '') {
-            return;
+        if (val && val.trim() != '') {
+            this.items = this.items.filter(function (item) {
+                return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+            });
         }
-        this.items = this.items.filter(function (v) {
-            if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
-                return true;
-            }
-            return false;
-        });
     };
     BasicPage = __decorate([
         core_1.Component({
@@ -2988,7 +2983,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SearchbarPage = (function () {
     function SearchbarPage() {
-        this.searchQuery = '';
         this.initializeItems();
     }
     SearchbarPage.prototype.initializeItems = function () {
@@ -3003,21 +2997,17 @@ var SearchbarPage = (function () {
             'CoffeeScript'
         ];
     };
-    SearchbarPage.prototype.getItems = function (searchbar) {
+    SearchbarPage.prototype.getItems = function (ev) {
         // Reset items back to all of the items
         this.initializeItems();
-        // set q to the value of the searchbar
-        var q = searchbar.value;
+        // set val to the value of the ev target
+        var val = ev.target.value;
         // if the value is an empty string don't filter the items
-        if (q.trim() == '') {
-            return;
+        if (val && val.trim() != '') {
+            this.items = this.items.filter(function (item) {
+                return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+            });
         }
-        this.items = this.items.filter(function (v) {
-            if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
-                return true;
-            }
-            return false;
-        });
     };
     SearchbarPage = __decorate([
         core_1.Component({

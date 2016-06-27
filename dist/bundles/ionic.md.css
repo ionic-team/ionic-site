@@ -6124,9 +6124,11 @@ ion-item-sliding.active-slide ion-item-options {
   display: flex; }
 
 ion-item-sliding.active-slide.active-options-left ion-item-options[side=left] {
+  width: 100%;
   visibility: visible; }
 
 ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=left]) {
+  width: 100%;
   visibility: visible; }
 
 .button-expandable {
@@ -6139,10 +6141,6 @@ ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=le
   transition-property: none;
   -webkit-transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
   transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1); }
-
-ion-item-sliding.active-swipe-right ion-item-options,
-ion-item-sliding.active-swipe-left ion-item-options {
-  width: 100%; }
 
 ion-item-sliding.active-swipe-right .button-expandable {
   -webkit-box-ordinal-group: 2;
@@ -6520,6 +6518,8 @@ ion-list {
     border-bottom: 0; }
   ion-list > ion-input:last-child::after {
     left: 0; }
+  ion-list ion-item-options {
+    border-bottom: 1px solid #dedede; }
   ion-list ion-item-options button,
   ion-list ion-item-options [button] {
     display: -webkit-inline-box;
@@ -6566,6 +6566,7 @@ ion-list[inset] {
     background-color: #fff; }
 
 ion-list[no-lines] .item,
+ion-list[no-lines] ion-item-options,
 ion-list[no-lines] .item .item-inner {
   border-width: 0; }
 

@@ -128,7 +128,7 @@ Another common design paradigm is to include a searchbar inside your toolbar.
 
 ```html
 <ion-toolbar primary>
-  <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
+  <ion-searchbar (input)="getItems($event)"></ion-searchbar>
 </ion-toolbar>
 
 <ion-content>
@@ -146,7 +146,6 @@ Another common design paradigm is to include a searchbar inside your toolbar.
 })
 class SearchPage {
   constructor() {
-    this.searchQuery = '';
     this.initializeItems();
   }
 
@@ -163,24 +162,19 @@ class SearchPage {
     ];
   }
 
-  getItems(searchbar) {
+  getItems(ev) {
     // Reset items back to all of the items
     this.initializeItems();
 
-    // set q to the value of the searchbar
-    var q = searchbar.target.value;
+    // set val to the value of the searchbar
+    var val = ev.target.value;
 
     // if the value is an empty string don't filter the items
-    if (q.trim() == '') {
-      return;
+    if (val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
     }
-
-    this.items = this.items.filter((v) => {
-      if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
-        return true;
-      }
-      return false;
-    })
   }
 }
 ```

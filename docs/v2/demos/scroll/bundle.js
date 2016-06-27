@@ -82682,7 +82682,7 @@
 	 *
 	 * @usage
 	 * ```ts
-	 * import { Page, Modal, NavController, NavParams } from 'ionic-angular';
+	 * import { Modal, NavController, NavParams } from 'ionic-angular';
 	 *
 	 * @Component(...)
 	 * class HomePage {

@@ -69,7 +69,7 @@ standard page.</p>
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">import { Page, Modal, NavController, NavParams } from &#39;ionic-angular&#39;;
+<pre><code class="lang-ts">import { Modal, NavController, NavParams } from &#39;ionic-angular&#39;;
 
 @Component(...)
 class HomePage {

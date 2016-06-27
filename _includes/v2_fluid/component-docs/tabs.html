@@ -51,19 +51,23 @@ Individual tabs are just `@Components`
 ```typescript
 @Component({
   template: `
-    <ion-navbar *navbar>
+  <ion-header>
+    <ion-navbar>
       <ion-title>Heart</ion-title>
     </ion-navbar>
-    <ion-content>Tab 1</ion-content>`
+  </ion-header>
+  <ion-content>Tab 1</ion-content>`
 })
 class Tab1 {}
 
 @Component({
   template: `
-    <ion-navbar *navbar>
+  <ion-header>
+    <ion-navbar>
       <ion-title>Star</ion-title>
     </ion-navbar>
-    <ion-content>Tab 2</ion-content>`
+  </ion-header>
+  <ion-content>Tab 2</ion-content>`
 })
 class Tab2 {}
 ```
@@ -103,11 +107,13 @@ To add an icon inside of a tab, use the `tab-icon` attribute. This attribute can
 ```typescript
 @Component({
   template: `
-  <ion-navbar *navbar>
-    <ion-title>Tabs</ion-title>
-  </ion-navbar>
-  <ion-content>
-  </ion-content>`,
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Tabs</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content></ion-content>
+  `
 })
 class TabContentPage {
   constructor() {}
@@ -141,11 +147,13 @@ To add text and an icon inside of a tab, use the `tab-icon` and `tab-title` attr
 ```typescript
 @Component({
   template: `
-  <ion-navbar *navbar>
-    <ion-title>Tabs</ion-title>
-  </ion-navbar>
-  <ion-content>
-  </ion-content>`
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Tabs</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content></ion-content>
+  `
 })
 class TabsTextContentPage {
   constructor() {}
@@ -180,23 +188,26 @@ To add a badge to a tab, use the `tabBadge` and `tabBadgeStyle` attributes. The 
 ```typescript
 @Component({
   template: `
-  <ion-navbar *navbar>
-    <ion-title>Tabs</ion-title>
-  </ion-navbar>
-  <ion-content>
-  </ion-content>`,
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Tabs</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content></ion-content>
+  `
 })
 class TabBadgePage {
   constructor() {}
 }
 
 @Component({
-  template:
-    '<ion-tabs>' +
-      '<ion-tab tabIcon="call" [root]="tabOne" tabBadge="3" tabBadgeStyle="danger"></ion-tab>' +
-      '<ion-tab tabIcon="chatbubbles" [root]="tabTwo" tabBadge="14" tabBadgeStyle="danger"></ion-tab>' +
-      '<ion-tab tabIcon="musical-notes" [root]="tabThree"></ion-tab>' +
-    '</ion-tabs>',
+  template: `
+    <ion-tabs>
+      <ion-tab tabIcon="call" [root]="tabOne" tabBadge="3" tabBadgeStyle="danger"></ion-tab>
+      <ion-tab tabIcon="chatbubbles" [root]="tabTwo" tabBadge="14" tabBadgeStyle="danger"></ion-tab>
+      <ion-tab tabIcon="musical-notes" [root]="tabThree"></ion-tab>
+    </ion-tabs>
+    `
 })
 export class BadgesPage {
   constructor() {

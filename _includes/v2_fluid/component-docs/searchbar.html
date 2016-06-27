@@ -12,7 +12,7 @@ A Searchbar binds to a model, and emits an input event when the model is changed
 </a>
 
 ```html
-<ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getItems($event)"></ion-searchbar>
+<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 <ion-list>
   <ion-item *ngFor="let item of items">
     {% raw %}{{ item }}{% endraw %}
@@ -20,7 +20,7 @@ A Searchbar binds to a model, and emits an input event when the model is changed
 </ion-list>
 ```
 
-Note that in this example, the Searchbar binds to the `searchQuery` variable. The `getItems()` function is called when the input changes, which updates the cities that are displayed. Although this example filters the list based on the search input, Searchbar can be used in many different scenarios:
+Note that in this example, the `getItems()` function is called when the input changes, which updates the cities that are displayed. Although this example filters the list based on the search input, Searchbar can be used in many different scenarios:
 
 ```typescript
 @Component({

@@ -141,7 +141,7 @@ class MyDirective {
 
 ### Multiple instances of a provider
 
-If you inject a provider in every component because you want it available to all of them you will end up with multiple instances of the provider. You should inject the provider once in the parent component if you want it to be available to the child components. `@App` is the parent component in the below example:
+If you inject a provider in every component because you want it available to all of them you will end up with multiple instances of the provider. You should inject the provider once in the parent component if you want it to be available to the child components.
 
 ```ts
 let id = 0;
@@ -165,7 +165,7 @@ class MyComp {
   }
 }
 
-@App({
+@Component({
   template: '<my-component></my-component>',
   providers: [MyService], // MyService only needs to be here
   directives: [MyComp]
@@ -240,7 +240,7 @@ If the parameter is a service, make sure you have added the specified class to t
 ```ts
 import {MyService} from 'my-service';
 
-@App({
+@Component({
   templateUrl: 'app/app.html',
   providers: [MyService] // Don't forget me!
 })
@@ -274,7 +274,7 @@ class MyDir {
   }
 }
 
-@App({
+@Component({
   template: "<my-comp></my-comp>" + // No error in MyDir constructor, MyComp is parent of MyDir
             "<my-comp my-dir></my-comp>" + // No error in MyDir constructor, MyComp is host of MyDir
             "<div my-dir></div>", // Errors in MyDir constructor

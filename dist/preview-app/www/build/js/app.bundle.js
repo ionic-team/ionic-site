@@ -94,8 +94,6 @@ var DemoApp = (function () {
         this.currentPageIndex = this.currentPageIndex + 1;
     };
     DemoApp.prototype.openPage = function (page) {
-        // close the menu when clicking a link from the menu
-        // this.menu.close();
         // Reset the content nav to have just this page
         // we wouldn't want the back button to show in this scenario
         helpers.debounce(this.content.setRoot(page.component), 60, false);
@@ -1899,7 +1897,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
+var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var BasicPage = (function () {
     function BasicPage(app, menu) {

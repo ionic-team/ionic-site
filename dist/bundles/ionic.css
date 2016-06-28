@@ -5511,6 +5511,15 @@ ion-icon {
   .ios [margin-horizontal] scroll-content {
     margin-right: 16px;
     margin-left: 16px; }
+  .ios ion-content:not([no-bounce]) > scroll-content::before, .ios ion-content:not([no-bounce]) > scroll-content::after {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    content: ""; }
+  .ios ion-content:not([no-bounce]) > scroll-content::before {
+    bottom: -1px; }
+  .ios ion-content:not([no-bounce]) > scroll-content::after {
+    top: -1px; }
   .ios ion-datetime {
     display: -webkit-box;
     display: -webkit-flex;

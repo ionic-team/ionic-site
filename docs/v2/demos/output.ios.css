@@ -5765,6 +5765,18 @@ ion-page.show-page ~ .nav-decor {
   margin-right: 16px;
   margin-left: 16px; }
 
+ion-content:not([no-bounce]) > scroll-content::before, ion-content:not([no-bounce]) > scroll-content::after {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  content: ""; }
+
+ion-content:not([no-bounce]) > scroll-content::before {
+  bottom: -1px; }
+
+ion-content:not([no-bounce]) > scroll-content::after {
+  top: -1px; }
+
 ion-datetime {
   display: -webkit-box;
   display: -webkit-flex;

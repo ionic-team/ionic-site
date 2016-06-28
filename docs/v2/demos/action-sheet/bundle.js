@@ -53700,7 +53700,7 @@
 	    }
 	    if (format === FORMAT_YY || format === FORMAT_MM ||
 	        format === FORMAT_DD || format === FORMAT_HH ||
-	        format === FORMAT_mm) {
+	        format === FORMAT_mm || format === FORMAT_ss) {
 	        return twoDigit(value);
 	    }
 	    if (format === FORMAT_YYYY) {
@@ -53759,6 +53759,12 @@
 	    }
 	    else if (format === FORMAT_mm || format === FORMAT_m) {
 	        // minutes
+	        for (i = 0; i < 60; i++) {
+	            opts.push(i);
+	        }
+	    }
+	    else if (format === FORMAT_ss || format === FORMAT_s) {
+	        // seconds
 	        for (i = 0; i < 60; i++) {
 	            opts.push(i);
 	        }
@@ -54004,6 +54010,8 @@
 	var FORMAT_h = 'h';
 	var FORMAT_mm = 'mm';
 	var FORMAT_m = 'm';
+	var FORMAT_ss = 'ss';
+	var FORMAT_s = 's';
 	var FORMAT_A = 'A';
 	var FORMAT_a = 'a';
 	var FORMAT_KEYS = [
@@ -54018,11 +54026,13 @@
 	    { f: FORMAT_HH, k: 'hour' },
 	    { f: FORMAT_hh, k: 'hour' },
 	    { f: FORMAT_mm, k: 'minute' },
+	    { f: FORMAT_ss, k: 'second' },
 	    { f: FORMAT_M, k: 'month' },
 	    { f: FORMAT_D, k: 'day' },
 	    { f: FORMAT_H, k: 'hour' },
 	    { f: FORMAT_h, k: 'hour' },
 	    { f: FORMAT_m, k: 'minute' },
+	    { f: FORMAT_s, k: 'second' },
 	    { f: FORMAT_A, k: 'ampm' },
 	    { f: FORMAT_a, k: 'ampm' },
 	];

@@ -107,7 +107,7 @@ var Page2 = (function () {
     }
     Page2 = __decorate([
         core_1.Component({
-            template: "\n    <ion-navbar *navbar>\n      <ion-title>Page 2</ion-title>\n    </ion-navbar>\n    <ion-content padding>This is another page!</ion-content>\n  "
+            template: "\n    <ion-header>\n      <ion-navbar>\n        <ion-title>Page 2</ion-title>\n      </ion-navbar>\n    </ion-header>\n    <ion-content padding>This is another page!</ion-content>\n  "
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _b) || Object])
     ], Page2);

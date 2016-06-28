@@ -68,8 +68,8 @@ providers and dependency injection, see <a href="">Providers and DI</a>.</p>
 navigation controller for most situations (for more advanced situations, see
 <a href="../../Menu/Menu/">Menu</a> and <a href="../../Tab/Tab/">Tab</a>).</p>
 <pre><code class="lang-ts">class MyComponent {
-  constructor(nav: NavController) {
-    this.nav = nav;
+  constructor(private nav: NavController) {
+
   }
 }
 </code></pre>
@@ -474,8 +474,8 @@ import {Detail } from '../detail/detail'
 import {Info } from '../info/info'
 
  export class Home {
-   constructor(nav: NavController) {
-     this.nav = nav;
+   constructor(private nav: NavController) {
+
    }
    setPages() {
      this.nav.setPages([ {page: List}, {page: Detail}, {page:Info} ]);
@@ -497,8 +497,8 @@ import {NavController } from 'ionic-angular'
 import {Detail } from '../detail/detail'
 
  export class Home {
-   constructor(nav: NavController) {
-     this.nav = nav;
+   constructor(private nav: NavController) {
+
    }
    setPages() {
      this.nav.setPages([ {page: List}, {page: Detail} ], {
@@ -519,8 +519,8 @@ import {List } from '../list/list';
 import {Detail } from '../detail/detail';
 
  export class Home {
-   constructor(nav: NavController) {
-     this.nav = nav;
+   constructor(private nav: NavController) {
+
    }
    setPages() {
      this.nav.setPages([{
@@ -650,8 +650,8 @@ We can also pass any options to the transtion from that same method.
 
 ```ts
 class MyClass{
-   constructor(nav: NavController){
-     this.nav = nav;
+   constructor(private nav: NavController){
+
    }
 
    pushPage(user){
@@ -750,100 +750,6 @@ class MyClass{
 
 
 
-<div id="present"></div>
-
-<h3>
-<a class="anchor" name="present" href="#present"></a>
-<code>present(enteringView,&nbsp;opts)</code>
-  
-
-</h3>
-
-Present is how an app display overlays on top of the content, from within the
-root level `NavController`. The `present` method is used by overlays, such
-as `ActionSheet`, `Alert`, and `Modal`. The main difference between `push`
-and `present` is that `present` takes a `ViewController` instance, whereas
-`push` takes a component class which hasn't been instantiated yet.
-Additionally, `present` will place the overlay in the root NavController's
-stack.
-
-```ts
-class MyClass{
-   constructor(nav: NavController) {
-     this.nav = nav;
-   }
-
-   presentModal() {
-     let modal = Modal.create(ProfilePage);
-     this.nav.present(modal);
-   }
-}
-```
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        enteringView
-        
-        
-      </td>
-      <td>
-        
-  <code>ViewController</code>
-      </td>
-      <td>
-        <p>The component you want to push on the navigation stack.</p>
-
-        
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        opts
-        
-        
-      </td>
-      <td>
-        
-  <code>object</code>
-      </td>
-      <td>
-        <p>Nav options to go with this transition.</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-<div class="return-value">
-<i class="icon ion-arrow-return-left"></i>
-<b>Returns:</b> 
-  <code>Promise</code> <p>Returns a promise which is resolved when the transition has completed.</p>
-
-
-</div>
-
-
-
-
 <div id="insert"></div>
 
 <h3>
@@ -858,8 +764,8 @@ you need to add a view at any point in your navigation stack.
 
 ```ts
 export class Detail {
-   constructor(nav: NavController) {
-     this.nav = nav;
+   constructor(private nav: NavController) {
+
    }
    insertPage(){
      this.nav.insert(1, Info);
@@ -980,8 +886,8 @@ Inserts multiple pages into the nav stack at the specified index.
 
 ```ts
 export class Detail {
-   constructor(nav: NavController) {
-     this.nav = nav;
+   constructor(private nav: NavController) {
+
    }
    insertPages(){
      let pages = [
@@ -1295,8 +1201,8 @@ Removes a page from the nav stack at the specified index.
 
 ```ts
 export class Detail {
-   constructor(nav: NavController) {
-     this.nav = nav;
+   constructor(private nav: NavController) {
+
    }
    removePage(){
      this.nav.remove(1);

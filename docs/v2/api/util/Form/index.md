@@ -96,26 +96,6 @@ Improve this doc
 
 
 
-<div id="focusCtrl"></div>
-
-<h3>
-<a class="anchor" name="focusCtrl" href="#focusCtrl"></a>
-<code>focusCtrl()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="focusOut"></div>
 
 <h3>

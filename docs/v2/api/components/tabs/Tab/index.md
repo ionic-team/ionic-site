@@ -35,7 +35,7 @@ Tab
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tab.ts#L9">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/tabs/tab.ts#L10">
 Improve this doc
 </a>
 
@@ -114,13 +114,13 @@ the tabs.</p>
 &lt;/ion-tabs&gt;
 </code></pre>
 <pre><code class="lang-ts">export class Tabs {
-  constructor(nav: NavController) {
-    this.nav = nav;
+  constructor(private modalCtrl: ModalController) {
+
   }
 
   chat() {
-    let modal = Modal.create(ChatPage);
-    this.nav.present(modal);
+    let modal = this.modalCtrl.create(ChatPage);
+    modal.present();
   }
 }
 </code></pre>

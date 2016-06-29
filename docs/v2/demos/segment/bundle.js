@@ -17580,6 +17580,7 @@
 	var dom_1 = __webpack_require__(334);
 	var providers_1 = __webpack_require__(357);
 	var platform_1 = __webpack_require__(336);
+	var tap_click_1 = __webpack_require__(453);
 	var _reflect = Reflect;
 	/**
 	 * @name ionicBootstrap
@@ -17623,6 +17624,7 @@
 	    var platform = ngComponentRef.injector.get(platform_1.Platform);
 	    platform.setZone(ngComponentRef.injector.get(core_1.NgZone));
 	    platform.prepareReady();
+	    ngComponentRef.injector.get(tap_click_1.TapClick);
 	    return ngComponentRef;
 	}
 	exports.ionicPostBootstrap = ionicPostBootstrap;

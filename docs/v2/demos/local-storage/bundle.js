@@ -74002,6 +74002,9 @@
 	        this.fireSwipeEvent();
 	        return restingPoint;
 	    };
+	    /**
+	     * @private
+	     */
 	    ItemSliding.prototype.fireSwipeEvent = function () {
 	        if (this._state & SlidingState.SwipeRight) {
 	            this._rightOptions.ionSwipe.emit(this);
@@ -74010,6 +74013,9 @@
 	            this._leftOptions.ionSwipe.emit(this);
 	        }
 	    };
+	    /**
+	     * @private
+	     */
 	    ItemSliding.prototype.calculateOptsWidth = function () {
 	        var _this = this;
 	        dom_1.nativeRaf(function () {

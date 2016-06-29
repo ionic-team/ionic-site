@@ -2499,17 +2499,80 @@
 	var ionic_angular_1 = __webpack_require__(114);
 	var ApiDemoPage = (function () {
 	    function ApiDemoPage() {
-	        this.appType = "paid";
-	        this.safari = "links";
-	        this.news = "local";
-	        this.favorites = "recent";
-	        this.purchased = "all";
-	        this.mapStyle = "sat";
-	        this.teslaModels = "X";
-	        this.pet = "puppies";
-	        this.calendar = "day";
-	        this.proxy = "auto";
+	        this.appType = "Paid";
+	        this.safari = "Shared Links";
+	        this.weather = "sunny";
+	        this.apps = {
+	            "Paid": [
+	                {
+	                    name: 'Monopoly',
+	                    price: '$0.99'
+	                },
+	                {
+	                    name: 'Angry Birds',
+	                    price: '$2.99'
+	                }
+	            ],
+	            "Free": [
+	                {
+	                    name: 'Snapchat',
+	                    price: 'GET'
+	                },
+	                {
+	                    name: 'Instagram',
+	                    price: 'OPEN'
+	                }
+	            ],
+	            "Top": [
+	                {
+	                    name: 'Spotify',
+	                    price: 'OPEN'
+	                },
+	                {
+	                    name: 'Pandora',
+	                    price: 'GET'
+	                }
+	            ]
+	        };
+	        this.items = {
+	            "Bookmarks": [
+	                {
+	                    name: 'Favorites',
+	                    icon: 'ios-star-outline'
+	                },
+	                {
+	                    name: 'History',
+	                    icon: 'ios-clock-outline'
+	                }
+	            ],
+	            "Reading List": [
+	                {
+	                    name: 'Terms of Service',
+	                    icon: 'create'
+	                },
+	                {
+	                    name: 'User Guide',
+	                    icon: 'book'
+	                }
+	            ],
+	            "Shared Links": [
+	                {
+	                    name: 'Ionic Framework',
+	                    icon: 'ionic'
+	                },
+	                {
+	                    name: 'Learn Angular',
+	                    icon: 'logo-angular'
+	                }
+	            ]
+	        };
 	    }
+	    ApiDemoPage.prototype.getItems = function (type) {
+	        return this.apps[type];
+	    };
+	    ApiDemoPage.prototype.getSafariItems = function (type) {
+	        return this.items[type];
+	    };
 	    ApiDemoPage = __decorate([
 	        core_1.Component({
 	            templateUrl: 'main.html'
@@ -79334,34 +79397,31 @@
 	 * @name SegmentButton
 	 * @description
 	 * The child buttons of the `ion-segment` component. Each `ion-segment-button` must have a value.
+	 *
 	 * @usage
+	 *
 	 * ```html
-	 * <ion-segment [(ngModel)]="relationship" primary>
-	 *   <ion-segment-button value="friends" (ionSelect)="selectedFriends()">
-	 *     Friends
-	 *   </ion-segment-button>
-	 *   <ion-segment-button value="enemies" (ionSelect)="selectedEnemies()">
-	 *     Enemies
-	 *   </ion-segment-button>
-	 * </ion-segment>
-	 *```
-	 *
-	 * Or with `FormBuilder`
-	 *
-	 *```html
-	 * <form [ngFormModel]="myForm">
-	 *   <ion-segment ngControl="mapStyle" danger>
-	 *     <ion-segment-button value="standard">
-	 *       Standard
+	 * <ion-content>
+	 *   <!-- Segment buttons with icons -->
+	 *   <ion-segment [(ngModel)]="icons" secondary>
+	 *     <ion-segment-button value="camera">
+	 *       <ion-icon name="camera"></ion-icon>
 	 *     </ion-segment-button>
-	 *     <ion-segment-button value="hybrid">
-	 *       Hybrid
-	 *     </ion-segment-button>
-	 *     <ion-segment-button value="sat">
-	 *       Satellite
+	 *     <ion-segment-button value="bookmark">
+	 *       <ion-icon name="bookmark"></ion-icon>
 	 *     </ion-segment-button>
 	 *   </ion-segment>
-	 * </form>
+	 *
+	 *   <!-- Segment buttons with text -->
+	 *   <ion-segment [(ngModel)]="relationship" primary>
+	 *     <ion-segment-button value="friends" (ionSelect)="selectedFriends()">
+	 *       Friends
+	 *     </ion-segment-button>
+	 *     <ion-segment-button value="enemies" (ionSelect)="selectedEnemies()">
+	 *       Enemies
+	 *     </ion-segment-button>
+	 *   </ion-segment>
+	 * </ion-content>
 	 * ```
 	 *
 	 *
@@ -79470,34 +79530,47 @@
 	 * You could use Angular 2's `ngModel` or `FormBuilder` API. For an overview on how `FormBuilder` works, checkout [Angular 2 Forms](http://learnangular2.com/forms/), or [Angular FormBuilder](https://angular.io/docs/ts/latest/api/common/FormBuilder-class.html)
 	 *
 	 *
-	 * @usage
 	 * ```html
-	 * <ion-segment [(ngModel)]="relationship" (ionChange)="onSegmentChanged($event)" danger>
-	 *   <ion-segment-button value="friends">
-	 *     Friends
-	 *   </ion-segment-button>
-	 *   <ion-segment-button value="enemies">
-	 *     Enemies
-	 *   </ion-segment-button>
-	 * </ion-segment>
-	 *```
+	 * <!-- Segment in a header -->
+	 * <ion-header>
+	 *   <ion-toolbar>
+	 *     <ion-segment [(ngModel)]="icons" secondary>
+	 *       <ion-segment-button value="camera">
+	 *         <ion-icon name="camera"></ion-icon>
+	 *       </ion-segment-button>
+	 *       <ion-segment-button value="bookmark">
+	 *         <ion-icon name="bookmark"></ion-icon>
+	 *       </ion-segment-button>
+	 *     </ion-segment>
+	 *   </ion-toolbar>
+	 * </ion-header>
 	 *
-	 * Or with `FormBuilder`
-	 *
-	 *```html
-	 * <form [ngFormModel]="myForm">
-	 *   <ion-segment ngControl="mapStyle" danger>
-	 *     <ion-segment-button value="standard">
-	 *       Standard
+	 * <ion-content>
+	 *   <!-- Segment in content -->
+	 *   <ion-segment [(ngModel)]="relationship" primary>
+	 *     <ion-segment-button value="friends" (ionSelect)="selectedFriends()">
+	 *       Friends
 	 *     </ion-segment-button>
-	 *     <ion-segment-button value="hybrid">
-	 *       Hybrid
-	 *     </ion-segment-button>
-	 *     <ion-segment-button value="sat">
-	 *       Satellite
+	 *     <ion-segment-button value="enemies" (ionSelect)="selectedEnemies()">
+	 *       Enemies
 	 *     </ion-segment-button>
 	 *   </ion-segment>
-	 * </form>
+	 *
+	 *   <!-- Segment in a form -->
+	 *   <form [ngFormModel]="myForm">
+	 *     <ion-segment ngControl="mapStyle" danger>
+	 *       <ion-segment-button value="standard">
+	 *         Standard
+	 *       </ion-segment-button>
+	 *       <ion-segment-button value="hybrid">
+	 *         Hybrid
+	 *       </ion-segment-button>
+	 *       <ion-segment-button value="sat">
+	 *         Satellite
+	 *       </ion-segment-button>
+	 *     </ion-segment>
+	 *   </form>
+	 * </ion-content>
 	 * ```
 	 *
 	 *

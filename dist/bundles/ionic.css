@@ -11029,9 +11029,9 @@ ion-icon {
     position: absolute;
     width: 100%;
     height: 5px;
-    content: '';
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAIBAMAAAARjyJQAAAAFVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAASAQCkAAAAB3RSTlMBLRUGDSA4cBS/RQAAACBJREFUeF5jSEMCDIJIgCEUCTAoIQEGFyTAYIwEGHACAG7+EL36X1OAAAAAAElFTkSuQmCC);
-    background-repeat: repeat-x; }
+    background-repeat: repeat-x;
+    content: ""; }
   .md .toolbar {
     padding: 4px;
     min-height: 5.6rem; }

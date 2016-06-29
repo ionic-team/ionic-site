@@ -2500,56 +2500,53 @@
 	var ApiDemoPage = (function () {
 	    function ApiDemoPage(nav) {
 	        this.nav = nav;
-	        this.editButton = 'Reorder';
+	        this.editButton = 'Edit';
 	        this.editing = false;
-	        this.chats = [
+	        this.songs = [
 	            {
-	                img: './avatar-cher.png',
-	                name: 'Cher',
-	                message: 'Ugh. As if.',
-	                time: '9:38 pm'
-	            }, {
-	                img: './avatar-dionne.png',
-	                name: 'Dionne',
-	                message: 'Mr. Hall was way harsh.',
-	                time: '8:59 pm'
-	            }, {
-	                img: './avatar-murray.png',
-	                name: 'Murray',
-	                message: 'Excuse me, "Ms. Dione."',
-	                time: 'Wed'
+	                title: 'Everything Beta',
+	                band: 'Phoria',
+	                album: 'Volition'
 	            },
 	            {
-	                img: './avatar-cher.png',
-	                name: 'Cher',
-	                message: 'Ugh. As if.',
-	                time: '9:38 pm'
-	            }, {
-	                img: './avatar-dionne.png',
-	                name: 'Dionne',
-	                message: 'Mr. Hall was way harsh.',
-	                time: '8:59 pm'
-	            }, {
-	                img: './avatar-murray.png',
-	                name: 'Murray',
-	                message: 'Excuse me, "Ms. Dione."',
-	                time: 'Wed'
+	                title: 'Hello',
+	                band: 'Adele',
+	                album: '25'
 	            },
 	            {
-	                img: './avatar-cher.png',
-	                name: 'Cher',
-	                message: 'Ugh. As if.',
-	                time: '9:38 pm'
-	            }, {
-	                img: './avatar-dionne.png',
-	                name: 'Dionne',
-	                message: 'Mr. Hall was way harsh.',
-	                time: '8:59 pm'
-	            }, {
-	                img: './avatar-murray.png',
-	                name: 'Murray',
-	                message: 'Excuse me, "Ms. Dione."',
-	                time: 'Wed'
+	                title: 'Bohemian Rhapsody',
+	                band: 'Queen',
+	                album: 'A Night at the Opera'
+	            },
+	            {
+	                title: 'Don\'t Stop Believin\'',
+	                band: 'Journey',
+	                album: 'Escape'
+	            },
+	            {
+	                title: 'Smells Like Teen Spirit',
+	                band: 'Nirvana',
+	                album: 'Nevermind'
+	            },
+	            {
+	                title: 'All You Need Is Love',
+	                band: 'The Beatles',
+	                album: 'Magical Mystery Tour'
+	            },
+	            {
+	                title: 'Hotel California',
+	                band: 'The Eagles',
+	                album: 'Hotel California'
+	            },
+	            {
+	                title: 'The Hand That Feeds',
+	                band: 'Nine Inch Nails',
+	                album: 'With Teeth'
+	            },
+	            {
+	                title: 'Who Are You',
+	                band: 'The Who',
+	                album: 'Who Are You'
 	            }];
 	    }
 	    ApiDemoPage.prototype.toggleEdit = function () {
@@ -2558,11 +2555,11 @@
 	            this.editButton = 'Done';
 	        }
 	        else {
-	            this.editButton = 'Reorder';
+	            this.editButton = 'Edit';
 	        }
 	    };
 	    ApiDemoPage.prototype.reorderData = function (indexes) {
-	        this.chats = ionic_angular_1.reorderArray(this.chats, indexes);
+	        this.songs = ionic_angular_1.reorderArray(this.songs, indexes);
 	    };
 	    ApiDemoPage = __decorate([
 	        core_1.Component({
@@ -73120,7 +73117,7 @@
 	 * @description
 	 * Item reorder adds the ability to change an item's order in a group.
 	 * It can be used within an `ion-list` or `ion-item-group` to provide a
-	 * visual drap and drop interface.
+	 * visual drag and drop interface.
 	 *
 	 * ## Grouping Items
 	 *

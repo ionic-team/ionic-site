@@ -46,7 +46,7 @@ Improve this doc
 
 <p>Item reorder adds the ability to change an item&#39;s order in a group.
 It can be used within an <code>ion-list</code> or <code>ion-item-group</code> to provide a
-visual drap and drop interface.</p>
+visual drag and drop interface.</p>
 <h2 id="grouping-items">Grouping Items</h2>
 <p>All reorderable items must be grouped in the same element. If an item
 should not be reordered, it shouldn&#39;t be included in this group. For

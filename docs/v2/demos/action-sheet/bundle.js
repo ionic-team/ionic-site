@@ -52101,6 +52101,10 @@
 	                // it should be removed after the transition
 	                view.state = STATE_REMOVE_AFTER_TRANS;
 	            }
+	            else if (view.state === STATE_INIT_ENTER) {
+	                // asked to be removed before it even entered!
+	                view.state = STATE_CANCEL_ENTER;
+	            }
 	            else {
 	                // if this view is already leaving then no need to immediately
 	                // remove it, otherwise set the remove state
@@ -52326,9 +52330,9 @@
 	        // create the transitions animation, play the animation
 	        // when the transition ends call wait for it to end
 	        var _this = this;
-	        if (enteringView.state === STATE_INACTIVE) {
-	            // this entering view is already set to inactive, so this
-	            // transition must be canceled, so don't continue
+	        if (enteringView.state === STATE_INACTIVE || enteringView.state === STATE_CANCEL_ENTER) {
+	            // this entering view is already set to inactive or has been canceled
+	            // so this transition must not begin, so don't continue
 	            return done();
 	        }
 	        enteringView.state = STATE_TRANS_ENTER;
@@ -52410,9 +52414,10 @@
 	                    _this.viewDidEnter.emit(enteringView);
 	                    _this._app.viewDidEnter.emit(enteringView);
 	                }
-	                if (enteringView.fireOtherLifecycles) {
+	                if (enteringView.fireOtherLifecycles && _this._init) {
 	                    // only fire leaving lifecycle if the entering
 	                    // view hasn't explicitly set not to
+	                    // and after the nav has initialized
 	                    leavingView.fireDidLeave();
 	                    _this.viewDidLeave.emit(leavingView);
 	                    _this._app.viewDidLeave.emit(leavingView);
@@ -52445,6 +52450,10 @@
 	        // a transition has completed, but not sure if it's the last one or not
 	        // check if this transition is the most recent one or not
 	        var _this = this;
+	        if (enteringView.state === STATE_CANCEL_ENTER) {
+	            // this view was told to leave before it finished entering
+	            this.remove(enteringView.index, 1);
+	        }
 	        if (transId === this._transIds) {
 	            // ok, good news, there were no other transitions that kicked
 	            // off during the time this transition started and ended
@@ -52480,9 +52489,7 @@
 	                }
 	                // this check only needs to happen once, which will add the css
 	                // class to the nav when it's finished its first transition
-	                if (!this._init) {
-	                    this._init = true;
-	                }
+	                this._init = true;
 	            }
 	            else {
 	                // this transition has not completed, meaning the
@@ -52607,6 +52614,13 @@
 	        // TODO: use componentFactory.create once fixed
 	        bootstrap_1.addSelector(view.componentType, 'ion-page');
 	        this._compiler.resolveComponent(view.componentType).then(function (componentFactory) {
+	            if (view.state === STATE_CANCEL_ENTER) {
+	                // view may have already been removed from the stack
+	                // if so, don't even bother adding it
+	                view.destroy();
+	                _this._views.splice(view.index, 1);
+	                return;
+	            }
 	            // add more providers to just this page
 	            var componentProviders = core_1.ReflectiveInjector.resolve([
 	                core_1.provide(NavController, { useValue: _this }),
@@ -52875,6 +52889,7 @@
 	    });
 	    /**
 	     * @private
+	     * Dismiss all pages which have set the `dismissOnPageChange` property.
 	     */
 	    NavController.prototype.dismissPageChangeViews = function () {
 	        this._views.forEach(function (view) {
@@ -52928,15 +52943,16 @@
 	    return NavController;
 	}(ion_1.Ion));
 	exports.NavController = NavController;
-	var STATE_ACTIVE = 'active';
-	var STATE_INACTIVE = 'inactive';
-	var STATE_INIT_ENTER = 'init_enter';
-	var STATE_INIT_LEAVE = 'init_leave';
-	var STATE_TRANS_ENTER = 'trans_enter';
-	var STATE_TRANS_LEAVE = 'trans_leave';
-	var STATE_REMOVE = 'remove';
-	var STATE_REMOVE_AFTER_TRANS = 'remove_after_trans';
-	var STATE_FORCE_ACTIVE = 'force_active';
+	var STATE_ACTIVE = 1;
+	var STATE_INACTIVE = 2;
+	var STATE_INIT_ENTER = 3;
+	var STATE_INIT_LEAVE = 4;
+	var STATE_TRANS_ENTER = 5;
+	var STATE_TRANS_LEAVE = 6;
+	var STATE_REMOVE = 7;
+	var STATE_REMOVE_AFTER_TRANS = 8;
+	var STATE_CANCEL_ENTER = 9;
+	var STATE_FORCE_ACTIVE = 10;
 	var INIT_ZINDEX = 100;
 	var PORTAL_ZINDEX = 9999;
 	var ctrlIds = -1;
@@ -57216,7 +57232,7 @@
 	        /**
 	         * @private
 	         */
-	        this.state = '';
+	        this.state = 0;
 	        /**
 	         * @private
 	         * If this is currently the active view, then set to false

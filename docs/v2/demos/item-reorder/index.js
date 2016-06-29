@@ -74,8 +74,8 @@ var ApiDemoPage = (function () {
             this.editButton = 'Reorder';
         }
     };
-    ApiDemoPage.prototype.reorderData = function (indices) {
-        this.chats = ionic_angular_1.reorderArray(this.chats, indices);
+    ApiDemoPage.prototype.reorderData = function (indexes) {
+        this.chats = ionic_angular_1.reorderArray(this.chats, indexes);
     };
     ApiDemoPage = __decorate([
         core_1.Component({

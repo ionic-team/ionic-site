@@ -18,7 +18,7 @@ To create a page you can use the following command:
 ionic g page myPage
 
 √ Create app/pages/my-page/my-page.html
-√ Create app/pages/my-page/my-page.js
+√ Create app/pages/my-page/my-page.ts
 √ Create app/pages/my-page/my-page.scss
 ```
 
@@ -30,7 +30,7 @@ To create a service, you can replace `page` with `provider`:
 ```bash
 ionic g provider MyData
 
-√ Create app/pages/my-data/my-data.js
+√ Create app/providers/my-data/my-data.ts
 ```
 
 This will create a standard class with a simple `http` get request using Angular's `http` class.

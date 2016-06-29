@@ -72271,7 +72271,7 @@
 	        this.listen();
 	    }
 	    ItemSlidingGesture.prototype.onTapCallback = function (ev) {
-	        if (isFromOptionButtons(ev.target)) {
+	        if (isFromOptionButtons(ev)) {
 	            return;
 	        }
 	        var didClose = this.closeOpened();
@@ -72357,8 +72357,12 @@
 	    }
 	    return null;
 	}
-	function isFromOptionButtons(ele) {
-	    return !!dom_1.closest(ele, 'ion-item-options', true);
+	function isFromOptionButtons(ev) {
+	    var button = dom_1.closest(ev.target, '.button', true);
+	    if (!button) {
+	        return false;
+	    }
+	    return !!dom_1.closest(button, 'ion-item-options', true);
 	}
 
 /***/ },

@@ -73257,13 +73257,18 @@
 	    /**
 	     * @private
 	     */
-	    ItemReorder.prototype.reorderStart = function () {
+	    ItemReorder.prototype.reorderPrepare = function () {
 	        var children = this._element.children;
 	        var len = children.length;
-	        this.setCssClass('reorder-active', true);
 	        for (var i = 0; i < len; i++) {
 	            children[i]['$ionIndex'] = i;
 	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    ItemReorder.prototype.reorderStart = function () {
+	        this.setCssClass('reorder-list-active', true);
 	    };
 	    /**
 	     * @private
@@ -73296,7 +73301,7 @@
 	    ItemReorder.prototype.reorderReset = function () {
 	        var children = this._element.children;
 	        var len = children.length;
-	        this.setCssClass('reorder-active', false);
+	        this.setCssClass('reorder-list-active', false);
 	        var transform = dom_1.CSS.transform;
 	        for (var i = 0; i < len; i++) {
 	            children[i].style[transform] = '';
@@ -73357,7 +73362,7 @@
 	    ], ItemReorder.prototype, "reorder", null);
 	    ItemReorder = __decorate([
 	        core_1.Directive({
-	            selector: '[reorder]',
+	            selector: 'ion-list[reorder],ion-item-group[reorder]',
 	            host: {
 	                '[class.reorder-enabled]': '_enableReorder',
 	            }
@@ -73376,15 +73381,11 @@
 	    function Reorder(item, elementRef) {
 	        this.item = item;
 	        this.elementRef = elementRef;
+	        elementRef.nativeElement['$ionComponent'] = this;
 	    }
-	    Reorder.prototype.ngAfterContentInit = function () {
-	        var item = this.item.getNativeElement();
-	        if (item.parentNode.nodeName === 'ION-ITEM-SLIDING') {
-	            this.elementRef.nativeElement['$ionReorderNode'] = item.parentNode;
-	        }
-	        else {
-	            this.elementRef.nativeElement['$ionReorderNode'] = item;
-	        }
+	    Reorder.prototype.getReorderNode = function () {
+	        var node = this.item.getNativeElement();
+	        return findReorderItem(node);
 	    };
 	    Reorder = __decorate([
 	        core_1.Component({
@@ -73398,12 +73399,35 @@
 	    var _a, _b;
 	}());
 	exports.Reorder = Reorder;
+	/**
+	 * @private
+	 */
+	function findReorderItem(node) {
+	    var nested = 0;
+	    while (node && nested < 4) {
+	        if (indexForItem(node) !== undefined) {
+	            return node;
+	        }
+	        node = node.parentNode;
+	        nested++;
+	    }
+	    return null;
+	}
+	exports.findReorderItem = findReorderItem;
+	/**
+	 * @private
+	 */
+	function indexForItem(element) {
+	    return element['$ionIndex'];
+	}
+	exports.indexForItem = indexForItem;
 
 /***/ },
 /* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	var item_reorder_1 = __webpack_require__(414);
 	var ui_event_manager_1 = __webpack_require__(406);
 	var dom_1 = __webpack_require__(334);
 	var AUTO_SCROLL_MARGIN = 60;
@@ -73425,16 +73449,23 @@
 	        if (reorderElement.nodeName !== 'ION-REORDER') {
 	            return false;
 	        }
-	        var item = reorderElement['$ionReorderNode'];
+	        var reorderMark = reorderElement['$ionComponent'];
+	        if (!reorderMark) {
+	            console.error('ion-reorder does not contain $ionComponent');
+	            return false;
+	        }
+	        this.list.reorderPrepare();
+	        var item = reorderMark.getReorderNode();
 	        if (!item) {
-	            console.error('item does not contain ion ionReorderNode');
+	            console.error('reorder node not found');
 	            return false;
 	        }
 	        ev.preventDefault();
 	        // Preparing state
 	        this.selectedItemEle = item;
 	        this.selectedItemHeight = item.offsetHeight;
-	        this.lastYcoord = this.lastToIndex = -100;
+	        this.lastYcoord = -100;
+	        this.lastToIndex = item_reorder_1.indexForItem(item);
 	        this.windowHeight = window.innerHeight - AUTO_SCROLL_MARGIN;
 	        this.lastScrollPosition = this.list.scrollContent(0);
 	        this.offset = dom_1.pointerCoord(ev);
@@ -73458,9 +73489,9 @@
 	        if (Math.abs(posY - this.lastYcoord) > 30) {
 	            var overItem = this.itemForCoord(coord);
 	            if (overItem) {
-	                var toIndex = indexForItem(overItem);
-	                if (toIndex && (toIndex !== this.lastToIndex || this.emptyZone)) {
-	                    var fromIndex = indexForItem(this.selectedItemEle);
+	                var toIndex = item_reorder_1.indexForItem(overItem);
+	                if (toIndex !== undefined && (toIndex !== this.lastToIndex || this.emptyZone)) {
+	                    var fromIndex = item_reorder_1.indexForItem(this.selectedItemEle);
 	                    this.lastToIndex = toIndex;
 	                    this.lastYcoord = posY;
 	                    this.emptyZone = false;
@@ -73480,7 +73511,7 @@
 	            return;
 	        }
 	        var toIndex = this.lastToIndex;
-	        var fromIndex = indexForItem(this.selectedItemEle);
+	        var fromIndex = item_reorder_1.indexForItem(this.selectedItemEle);
 	        this.selectedItemEle.classList.remove(ITEM_REORDER_ACTIVE);
 	        this.selectedItemEle = null;
 	        this.list.reorderEmit(fromIndex, toIndex);
@@ -73517,17 +73548,7 @@
 	    if (element.nodeName !== 'ION-ITEM' && !element.hasAttribute('ion-item')) {
 	        return null;
 	    }
-	    if (indexForItem(element)) {
-	        return element;
-	    }
-	    var parent = element.parentNode;
-	    if (indexForItem(parent)) {
-	        return parent;
-	    }
-	    return null;
-	}
-	function indexForItem(element) {
-	    return element['$ionIndex'];
+	    return item_reorder_1.findReorderItem(element);
 	}
 
 /***/ },

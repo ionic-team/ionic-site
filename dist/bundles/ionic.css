@@ -5937,10 +5937,11 @@ ion-icon {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-  .ios .reorder-active .item-inner {
+  .ios .reorder-list-active .item-inner {
     pointer-events: none; }
   .ios .item-wrapper.reorder-active,
-  .ios .item.reorder-active {
+  .ios .item.reorder-active,
+  .ios .reorder-active {
     z-index: 4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: .8;
@@ -9449,10 +9450,11 @@ ion-icon {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-  .md .reorder-active .item-inner {
+  .md .reorder-list-active .item-inner {
     pointer-events: none; }
   .md .item-wrapper.reorder-active,
-  .md .item.reorder-active {
+  .md .item.reorder-active,
+  .md .reorder-active {
     z-index: 4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: .8;
@@ -13263,10 +13265,11 @@ ion-icon {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-  .wp .reorder-active .item-inner {
+  .wp .reorder-list-active .item-inner {
     pointer-events: none; }
   .wp .item-wrapper.reorder-active,
-  .wp .item.reorder-active {
+  .wp .item.reorder-active,
+  .wp .reorder-active {
     z-index: 4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: .8;

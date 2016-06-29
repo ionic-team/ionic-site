@@ -26,7 +26,7 @@ angular_controller: APIDemoCtrl
 <a class="anchor" name="item-reorder" href="#item-reorder"></a>
 
 ItemReorder
-<h3><code>[reorder]</code></h3>
+<h3><code>ion-list[reorder],ion-item-group[reorder]</code></h3>
 
 
 

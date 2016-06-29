@@ -110,13 +110,13 @@ var ApiDemoPage = (function () {
     };
     ApiDemoPage.prototype.download = function (item) {
         var _this = this;
-        item.setClass('downloading', true);
+        item.setCssClass('downloading', true);
         setTimeout(function () {
             var toast = _this.toastCtrl.create({
                 message: 'Item was downloaded!'
             });
             toast.present();
-            item.setClass('downloading', false);
+            item.setCssClass('downloading', false);
             item.close();
             // Wait 2s to close toast
             setTimeout(function () { return toast.dismiss(); }, 2000);

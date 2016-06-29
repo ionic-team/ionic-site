@@ -6251,11 +6251,12 @@ ion-reorder {
   display: -ms-flexbox;
   display: flex; }
 
-.reorder-active .item-inner {
+.reorder-list-active .item-inner {
   pointer-events: none; }
 
 .item-wrapper.reorder-active,
-.item.reorder-active {
+.item.reorder-active,
+.reorder-active {
   z-index: 4;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   opacity: .8;

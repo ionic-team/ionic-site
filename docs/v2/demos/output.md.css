@@ -8279,6 +8279,14 @@ ion-navbar.toolbar {
   -ms-flex-align: center;
   align-items: center; }
 
+ion-header::after {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  content: '';
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAIBAMAAAARjyJQAAAAFVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAASAQCkAAAAB3RSTlMBLRUGDSA4cBS/RQAAACBJREFUeF5jSEMCDIJIgCEUCTAoIQEGFyTAYIwEGHACAG7+EL36X1OAAAAAAElFTkSuQmCC);
+  background-repeat: repeat-x; }
+
 .toolbar {
   padding: 4px;
   min-height: 5.6rem; }

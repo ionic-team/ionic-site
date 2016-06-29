@@ -2503,29 +2503,29 @@
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(114);
 	var ModalFirstPage = (function () {
-	    function ModalFirstPage(nav) {
-	        this.nav = nav;
+	    function ModalFirstPage(modalCtrl) {
+	        this.modalCtrl = modalCtrl;
 	        this.myParam = '';
 	    }
 	    ModalFirstPage.prototype.openBasicModal = function () {
-	        var myModal = ionic_angular_1.Modal.create(ModalContentPage);
-	        this.nav.present(myModal);
+	        var myModal = this.modalCtrl.create(ModalContentPage);
+	        myModal.present();
 	    };
 	    ModalFirstPage.prototype.openModalWithParams = function () {
-	        var myModal = ionic_angular_1.Modal.create(ModalContentPage, { 'myParam': this.myParam });
-	        this.nav.present(myModal);
+	        var myModal = this.modalCtrl.create(ModalContentPage, { 'myParam': this.myParam });
+	        myModal.present();
 	    };
 	    ModalFirstPage.prototype.openCustomAnimationModal = function () {
-	        var myModal = ionic_angular_1.Modal.create(ModalContentPage, {
+	        var myModal = this.modalCtrl.create(ModalContentPage, {
 	            animation: 'my-fade-in',
 	        });
-	        this.nav.present(myModal);
+	        myModal.present();
 	    };
 	    ModalFirstPage = __decorate([
 	        core_1.Component({
 	            templateUrl: 'main.html'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.ModalController !== 'undefined' && ionic_angular_1.ModalController) === 'function' && _a) || Object])
 	    ], ModalFirstPage);
 	    return ModalFirstPage;
 	    var _a;
@@ -2571,7 +2571,7 @@
 	            .easing('ease')
 	            .duration(1000)
 	            .fromTo('translateY', '0%', '0%')
-	            .fadeIn()
+	            .fromTo('opacity', 0, 1)
 	            .before.addClass('show-page');
 	    }
 	    return FadeIn;
@@ -2584,7 +2584,7 @@
 	        this
 	            .easing('ease')
 	            .duration(500)
-	            .fadeOut()
+	            .fromTo('opacity', 1, 0)
 	            .before.addClass('show-page');
 	    }
 	    return FadeOut;
@@ -51782,7 +51782,7 @@
 	    NavController.prototype.present = function (enteringView, opts) {
 	        // deprecated warning: added beta.11 2016-06-27
 	        console.warn('nav.present() has been deprecated.\n' +
-	            'Please use inject the overlays controller and use the present method on the instance instead.');
+	            'Please inject the overlay\'s controller and use the present method on the instance instead.');
 	        return Promise.resolve();
 	    };
 	    /**

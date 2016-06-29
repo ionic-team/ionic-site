@@ -11,12 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var ApiDemoPage = (function () {
-    function ApiDemoPage(nav, platform) {
-        this.nav = nav;
+    function ApiDemoPage(alertCtrl, platform) {
+        this.alertCtrl = alertCtrl;
         this.platform = platform;
     }
     ApiDemoPage.prototype.present = function () {
-        var actionSheet = ionic_angular_1.ActionSheet.create({
+        var actionSheet = this.alertCtrl.create({
             title: 'Albums',
             buttons: [
                 {
@@ -58,13 +58,13 @@ var ApiDemoPage = (function () {
                 }
             ]
         });
-        this.nav.present(actionSheet);
+        actionSheet.present();
     };
     ApiDemoPage = __decorate([
         core_1.Component({
             templateUrl: 'main.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.ActionSheetController !== 'undefined' && ionic_angular_1.ActionSheetController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.Platform !== 'undefined' && ionic_angular_1.Platform) === 'function' && _b) || Object])
     ], ApiDemoPage);
     return ApiDemoPage;
     var _a, _b;

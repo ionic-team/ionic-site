@@ -2498,8 +2498,8 @@
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(114);
 	var ApiDemoPage = (function () {
-	    function ApiDemoPage(nav) {
-	        this.nav = nav;
+	    function ApiDemoPage(toastCtrl) {
+	        this.toastCtrl = toastCtrl;
 	        this.editButton = 'Edit';
 	        this.editing = false;
 	        this.chats = [
@@ -2599,10 +2599,10 @@
 	        var _this = this;
 	        item.setClass('downloading', true);
 	        setTimeout(function () {
-	            var toast = ionic_angular_1.Toast.create({
+	            var toast = _this.toastCtrl.create({
 	                message: 'Item was downloaded!'
 	            });
-	            _this.nav.present(toast);
+	            toast.present();
 	            item.setClass('downloading', false);
 	            item.close();
 	            // Wait 2s to close toast
@@ -2614,7 +2614,7 @@
 	            templateUrl: 'main.html',
 	            encapsulation: core_1.ViewEncapsulation.None
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.ToastController !== 'undefined' && ionic_angular_1.ToastController) === 'function' && _a) || Object])
 	    ], ApiDemoPage);
 	    return ApiDemoPage;
 	    var _a;
@@ -51824,7 +51824,7 @@
 	    NavController.prototype.present = function (enteringView, opts) {
 	        // deprecated warning: added beta.11 2016-06-27
 	        console.warn('nav.present() has been deprecated.\n' +
-	            'Please use inject the overlays controller and use the present method on the instance instead.');
+	            'Please inject the overlay\'s controller and use the present method on the instance instead.');
 	        return Promise.resolve();
 	    };
 	    /**

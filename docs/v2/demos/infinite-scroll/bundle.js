@@ -51776,7 +51776,7 @@
 	    NavController.prototype.present = function (enteringView, opts) {
 	        // deprecated warning: added beta.11 2016-06-27
 	        console.warn('nav.present() has been deprecated.\n' +
-	            'Please use inject the overlays controller and use the present method on the instance instead.');
+	            'Please inject the overlay\'s controller and use the present method on the instance instead.');
 	        return Promise.resolve();
 	    };
 	    /**

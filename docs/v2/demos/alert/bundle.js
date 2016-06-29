@@ -2498,21 +2498,21 @@
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(114);
 	var ApiDemoPage = (function () {
-	    function ApiDemoPage(nav) {
-	        this.nav = nav;
+	    function ApiDemoPage(alertCtrl) {
+	        this.alertCtrl = alertCtrl;
 	        this.testRadioOpen = false;
 	        this.testCheckboxOpen = false;
 	    }
 	    ApiDemoPage.prototype.doAlert = function () {
-	        var alert = ionic_angular_1.Alert.create({
+	        var alert = this.alertCtrl.create({
 	            title: 'New Friend!',
 	            subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
 	            buttons: ['Ok']
 	        });
-	        this.nav.present(alert);
+	        alert.present();
 	    };
 	    ApiDemoPage.prototype.doConfirm = function () {
-	        var alert = ionic_angular_1.Alert.create({
+	        var alert = this.alertCtrl.create({
 	            title: 'Use this lightsaber?',
 	            body: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
 	            buttons: [
@@ -2530,10 +2530,10 @@
 	                }
 	            ]
 	        });
-	        this.nav.present(alert);
+	        alert.present();
 	    };
 	    ApiDemoPage.prototype.doPrompt = function () {
-	        var alert = ionic_angular_1.Alert.create({
+	        var alert = this.alertCtrl.create({
 	            title: 'Login',
 	            body: "Enter a name for this new album you're so keen on adding",
 	            inputs: [
@@ -2557,11 +2557,11 @@
 	                }
 	            ]
 	        });
-	        this.nav.present(alert);
+	        alert.present();
 	    };
 	    ApiDemoPage.prototype.doRadio = function () {
 	        var _this = this;
-	        var alert = ionic_angular_1.Alert.create();
+	        var alert = this.alertCtrl.create();
 	        alert.setTitle('Lightsaber color');
 	        alert.addInput({
 	            type: 'radio',
@@ -2608,11 +2608,11 @@
 	                _this.testRadioResult = data;
 	            }
 	        });
-	        this.nav.present(alert);
+	        alert.present();
 	    };
 	    ApiDemoPage.prototype.doCheckbox = function () {
 	        var _this = this;
-	        var alert = ionic_angular_1.Alert.create();
+	        var alert = this.alertCtrl.create();
 	        alert.setTitle('Which planets have you visited?');
 	        alert.addInput({
 	            type: 'checkbox',
@@ -2669,13 +2669,13 @@
 	                _this.testCheckboxResult = data;
 	            }
 	        });
-	        this.nav.present(alert);
+	        alert.present();
 	    };
 	    ApiDemoPage = __decorate([
 	        core_1.Component({
 	            templateUrl: 'main.html'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.AlertController !== 'undefined' && ionic_angular_1.AlertController) === 'function' && _a) || Object])
 	    ], ApiDemoPage);
 	    return ApiDemoPage;
 	    var _a;
@@ -51886,7 +51886,7 @@
 	    NavController.prototype.present = function (enteringView, opts) {
 	        // deprecated warning: added beta.11 2016-06-27
 	        console.warn('nav.present() has been deprecated.\n' +
-	            'Please use inject the overlays controller and use the present method on the instance instead.');
+	            'Please inject the overlay\'s controller and use the present method on the instance instead.');
 	        return Promise.resolve();
 	    };
 	    /**

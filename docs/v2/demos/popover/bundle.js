@@ -2565,15 +2565,15 @@
 	    var _a;
 	}());
 	var ApiDemoPage = (function () {
-	    function ApiDemoPage(nav) {
-	        this.nav = nav;
+	    function ApiDemoPage(popoverCtrl) {
+	        this.popoverCtrl = popoverCtrl;
 	    }
 	    ApiDemoPage.prototype.presentRadioPopover = function (ev) {
-	        var popover = ionic_angular_1.Popover.create(PopoverRadioPage, {
+	        var popover = this.popoverCtrl.create(PopoverRadioPage, {
 	            contentEle: this.content.nativeElement,
 	            textEle: this.text.nativeElement
 	        });
-	        this.nav.present(popover, {
+	        popover.present({
 	            ev: ev
 	        });
 	    };
@@ -2589,7 +2589,7 @@
 	        core_1.Component({
 	            templateUrl: 'main.html'
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof ionic_angular_1.PopoverController !== 'undefined' && ionic_angular_1.PopoverController) === 'function' && _c) || Object])
 	    ], ApiDemoPage);
 	    return ApiDemoPage;
 	    var _a, _b, _c;
@@ -51801,7 +51801,7 @@
 	    NavController.prototype.present = function (enteringView, opts) {
 	        // deprecated warning: added beta.11 2016-06-27
 	        console.warn('nav.present() has been deprecated.\n' +
-	            'Please use inject the overlays controller and use the present method on the instance instead.');
+	            'Please inject the overlay\'s controller and use the present method on the instance instead.');
 	        return Promise.resolve();
 	    };
 	    /**

@@ -41,6 +41,7 @@ To run your app, `cd` into the directory that was created and then run the `ioni
 $ cd cutePuppyPics
 $ ionic serve
 ```
+> Having issues with your app building? Make sure your package.json matches [ours](https://github.com/driftyco/ionic2-app-base/blob/master/package.json)
 
 You can play with it right in the browser!
 

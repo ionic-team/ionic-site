@@ -62171,7 +62171,7 @@
 	    item_1.ItemContent,
 	    item_sliding_1.ItemSliding,
 	    item_sliding_1.ItemOptions,
-	    item_reorder_1.Reorder,
+	    item_reorder_1.ItemReorder,
 	    virtual_scroll_1.VirtualScroll,
 	    virtual_item_1.VirtualItem,
 	    virtual_item_1.VirtualHeader,
@@ -72818,7 +72818,7 @@
 	                '<ion-reorder></ion-reorder>' +
 	                '</div>' +
 	                '<ion-button-effect></ion-button-effect>',
-	            directives: [core_1.forwardRef(function () { return item_reorder_1.ItemReorder; })],
+	            directives: [core_1.forwardRef(function () { return item_reorder_1.Reorder; })],
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }), 
@@ -73060,10 +73060,100 @@
 	var item_reorder_gesture_1 = __webpack_require__(415);
 	var util_1 = __webpack_require__(337);
 	/**
-	 * @private
+	 * @name ItemReorder
+	 * @description
+	 * ItemReorder can be used with `ion-list` or `ion-item-group` to provide a visual
+	 * drap and drop interface for reordering of items in a list.
+	 *
+	 * ## Usage
+	 * It is very important to follow the rules below in order to integrate reordering in your app.
+	 *
+	 * ### All items in a reorder list have to be part of the same set
+	 * You can not have non-reorderable and reorderable items in the same list or item's group.
+	 *
+	 *  ```html
+	 *  <ion-list reorder="true">
+	 *    <ion-item *ngFor="let item of items">{{item.name}}</ion-item
+	 *  </ion-list>
+	 *  ```
+	 *
+	 * **GOOD!**
+	 *
+	 *  ```html
+	 *  <ion-list reorder="true">
+	 *    <ion-list-header>HEADER</ion-list-header>
+	 *    <ion-item *ngFor="let item of items">{{item.name}}</ion-item>
+	 *  </ion-list>
+	 *  ```
+	 *
+	 * **BAD!** There is a `ion-list-header` that is not part of the same set.
+	 *
+	 * In order to mix different sets of items, `ion-item-group` has to be used:
+	 *
+	 *  ```html
+	 *  <ion-list>
+	 *    <ion-list-header>HEADER</ion-list-header>
+	 *    <ion-item-group reorder="true">
+	 *      <ion-item *ngFor="let item of items">{{item.name}}</ion-item>
+	 *    </ion-item-group>
+	 *  </ion-list>
+	 *  ```
+	 *
+	 * **GOOD!** It's important to notice that in this case, the `[reorder]` directive it applied to `ion-item-group` instead of
+	 * `ion-list`. This way we are able to have a list-header and satisfy the first gold rule at the same time.
+	 *
+	 *
+	 * ### Implement a reorder function
+	 *
+	 * Once the user drags an item and drops it in the new position, this directive fires the `(ionItemReorder)`
+	 * event providing the initial index (from) and the new index (to) of the reordered item.
+	 * For example, if an user drags the first item to the 5th position, `(ionItemReorder)` would fire
+	 * `{from:0, to: 4}` (note that the indices start at zero).
+	 *
+	 * In order to integrate reordering in your app, it's a MUST to implement your own function that takes this indices and perform
+	 * the actual reordering of the data models. Here's is an example of how this can be done:
+	 *
+	 * @usage
+	 *
+	 *  ```ts
+	 * class E2EPage {
+	 *   items = [];
+	 *
+	 *   constructor() {
+	 *     for (let x = 0; x < 5; x++) {
+	 *       this.items.push(x);
+	 *     }
+	 *   }
+	 *
+	 *   reorderItem(indices) {
+	 *     let element = this.items[indices.from];
+	 *     this.items.splice(indices.from, 1);
+	 *     this.items.splice(indices.to, 0, element);
+	 *
+	 *     // For maximum convenience, ionic already provides an helper function:
+	 *     // import { reorderArray } from 'ionic-angular';
+	 *     // this.item = reorderArray(this.item, indices);
+	 *   }
+	 * }
+	 *  ```
+	 *
+	 *  ```html
+	 *  <ion-list>
+	 *    <ion-list-header>HEADER</ion-list-header>
+	 *    <ion-item-group reorder="true" (ionItemReorder)="reorderItem($event)">
+	 *      <ion-item *ngFor="let item of items">Number: {{item}}</ion-item>
+	 *    </ion-item-group>
+	 *  </ion-list>
+	 *  ```
+	 *
+	 *
+	 * @demo /docs/v2/demos/item-reorder/
+	 * @see {@link /docs/v2/components#lists List Component Docs}
+	 * @see {@link ../../list/List List API Docs}
+	 * @see {@link ../Item Item API Docs}
 	 */
-	var Reorder = (function () {
-	    function Reorder(elementRef, _rendered, _zone, _content) {
+	var ItemReorder = (function () {
+	    function ItemReorder(elementRef, _rendered, _zone, _content) {
 	        this._rendered = _rendered;
 	        this._zone = _zone;
 	        this._content = _content;
@@ -73075,11 +73165,11 @@
 	    /**
 	     * @private
 	     */
-	    Reorder.prototype.ngOnDestroy = function () {
+	    ItemReorder.prototype.ngOnDestroy = function () {
 	        this._element = null;
 	        this._reorderGesture && this._reorderGesture.destroy();
 	    };
-	    Object.defineProperty(Reorder.prototype, "reorder", {
+	    Object.defineProperty(ItemReorder.prototype, "reorder", {
 	        get: function () {
 	            return this._enableReorder;
 	        },
@@ -73100,7 +73190,7 @@
 	    /**
 	     * @private
 	     */
-	    Reorder.prototype.reorderStart = function () {
+	    ItemReorder.prototype.reorderStart = function () {
 	        var children = this._element.children;
 	        var len = children.length;
 	        this.setCssClass('reorder-active', true);
@@ -73111,7 +73201,7 @@
 	    /**
 	     * @private
 	     */
-	    Reorder.prototype.reorderEmit = function (fromIndex, toIndex) {
+	    ItemReorder.prototype.reorderEmit = function (fromIndex, toIndex) {
 	        var _this = this;
 	        this.reorderReset();
 	        if (fromIndex !== toIndex) {
@@ -73126,7 +73216,7 @@
 	    /**
 	     * @private
 	     */
-	    Reorder.prototype.scrollContent = function (scroll) {
+	    ItemReorder.prototype.scrollContent = function (scroll) {
 	        var scrollTop = this._content.getScrollTop() + scroll;
 	        if (scroll !== 0) {
 	            this._content.scrollTo(0, scrollTop, 0);
@@ -73136,7 +73226,7 @@
 	    /**
 	     * @private
 	     */
-	    Reorder.prototype.reorderReset = function () {
+	    ItemReorder.prototype.reorderReset = function () {
 	        var children = this._element.children;
 	        var len = children.length;
 	        this.setCssClass('reorder-active', false);
@@ -73149,7 +73239,7 @@
 	    /**
 	     * @private
 	     */
-	    Reorder.prototype.reorderMove = function (fromIndex, toIndex, itemHeight) {
+	    ItemReorder.prototype.reorderMove = function (fromIndex, toIndex, itemHeight) {
 	        if (this._lastToIndex === -1) {
 	            this._lastToIndex = fromIndex;
 	        }
@@ -73181,24 +73271,24 @@
 	    /**
 	     * @private
 	     */
-	    Reorder.prototype.setCssClass = function (classname, add) {
+	    ItemReorder.prototype.setCssClass = function (classname, add) {
 	        this._rendered.setElementClass(this._element, classname, add);
 	    };
 	    /**
 	     * @private
 	     */
-	    Reorder.prototype.getNativeElement = function () {
+	    ItemReorder.prototype.getNativeElement = function () {
 	        return this._element;
 	    };
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-	    ], Reorder.prototype, "ionItemReorder", void 0);
+	    ], ItemReorder.prototype, "ionItemReorder", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Boolean)
-	    ], Reorder.prototype, "reorder", null);
-	    Reorder = __decorate([
+	    ], ItemReorder.prototype, "reorder", null);
+	    ItemReorder = __decorate([
 	        core_1.Directive({
 	            selector: '[reorder]',
 	            host: {
@@ -73207,20 +73297,20 @@
 	        }),
 	        __param(3, core_1.Optional()), 
 	        __metadata('design:paramtypes', [(typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, (typeof (_d = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _d) || Object, (typeof (_e = typeof content_1.Content !== 'undefined' && content_1.Content) === 'function' && _e) || Object])
-	    ], Reorder);
-	    return Reorder;
+	    ], ItemReorder);
+	    return ItemReorder;
 	    var _a, _b, _c, _d, _e;
 	}());
-	exports.Reorder = Reorder;
+	exports.ItemReorder = ItemReorder;
 	/**
 	 * @private
 	 */
-	var ItemReorder = (function () {
-	    function ItemReorder(item, elementRef) {
+	var Reorder = (function () {
+	    function Reorder(item, elementRef) {
 	        this.item = item;
 	        this.elementRef = elementRef;
 	    }
-	    ItemReorder.prototype.ngAfterContentInit = function () {
+	    Reorder.prototype.ngAfterContentInit = function () {
 	        var item = this.item.getNativeElement();
 	        if (item.parentNode.nodeName === 'ION-ITEM-SLIDING') {
 	            this.elementRef.nativeElement['$ionReorderNode'] = item.parentNode;
@@ -73229,18 +73319,18 @@
 	            this.elementRef.nativeElement['$ionReorderNode'] = item;
 	        }
 	    };
-	    ItemReorder = __decorate([
+	    Reorder = __decorate([
 	        core_1.Component({
 	            selector: 'ion-reorder',
 	            template: "<ion-icon name=\"menu\"></ion-icon>"
 	        }),
 	        __param(0, core_1.Inject(core_1.forwardRef(function () { return item_1.Item; }))), 
 	        __metadata('design:paramtypes', [(typeof (_a = typeof item_1.Item !== 'undefined' && item_1.Item) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
-	    ], ItemReorder);
-	    return ItemReorder;
+	    ], Reorder);
+	    return Reorder;
 	    var _a, _b;
 	}());
-	exports.ItemReorder = ItemReorder;
+	exports.Reorder = Reorder;
 
 /***/ },
 /* 415 */

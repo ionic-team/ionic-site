@@ -2497,116 +2497,90 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var ionic_angular_1 = __webpack_require__(114);
-	var Page1 = (function () {
-	    function Page1(loadingCtrl, nav) {
-	        this.loadingCtrl = loadingCtrl;
+	var ApiDemoPage = (function () {
+	    function ApiDemoPage(nav) {
 	        this.nav = nav;
+	        this.editButton = 'Reorder';
+	        this.editing = false;
+	        this.chats = [
+	            {
+	                img: './avatar-cher.png',
+	                name: 'Cher',
+	                message: 'Ugh. As if.',
+	                time: '9:38 pm'
+	            }, {
+	                img: './avatar-dionne.png',
+	                name: 'Dionne',
+	                message: 'Mr. Hall was way harsh.',
+	                time: '8:59 pm'
+	            }, {
+	                img: './avatar-murray.png',
+	                name: 'Murray',
+	                message: 'Excuse me, "Ms. Dione."',
+	                time: 'Wed'
+	            },
+	            {
+	                img: './avatar-cher.png',
+	                name: 'Cher',
+	                message: 'Ugh. As if.',
+	                time: '9:38 pm'
+	            }, {
+	                img: './avatar-dionne.png',
+	                name: 'Dionne',
+	                message: 'Mr. Hall was way harsh.',
+	                time: '8:59 pm'
+	            }, {
+	                img: './avatar-murray.png',
+	                name: 'Murray',
+	                message: 'Excuse me, "Ms. Dione."',
+	                time: 'Wed'
+	            },
+	            {
+	                img: './avatar-cher.png',
+	                name: 'Cher',
+	                message: 'Ugh. As if.',
+	                time: '9:38 pm'
+	            }, {
+	                img: './avatar-dionne.png',
+	                name: 'Dionne',
+	                message: 'Mr. Hall was way harsh.',
+	                time: '8:59 pm'
+	            }, {
+	                img: './avatar-murray.png',
+	                name: 'Murray',
+	                message: 'Excuse me, "Ms. Dione."',
+	                time: 'Wed'
+	            }];
 	    }
-	    Page1.prototype.presentLoadingIos = function () {
-	        var loading = this.loadingCtrl.create({
-	            spinner: 'ios',
-	            content: 'This is the "ios" spinner. It will dismiss after 3 seconds.',
-	            duration: 3000
-	        });
-	        loading.present();
+	    ApiDemoPage.prototype.toggleEdit = function () {
+	        this.editing = !this.editing;
+	        if (this.editing) {
+	            this.editButton = 'Done';
+	        }
+	        else {
+	            this.editButton = 'Reorder';
+	        }
 	    };
-	    Page1.prototype.presentLoadingDots = function () {
-	        var loading = this.loadingCtrl.create({
-	            spinner: 'dots',
-	            content: 'This is the "dots" spinner. It will dismiss after 3 seconds.',
-	            duration: 3000
-	        });
-	        loading.present();
+	    ApiDemoPage.prototype.reorderData = function (indices) {
+	        this.chats = ionic_angular_1.reorderArray(this.chats, indices);
 	    };
-	    Page1.prototype.presentLoadingBubbles = function () {
-	        var loading = this.loadingCtrl.create({
-	            spinner: 'bubbles',
-	            content: 'This is the "bubbles" spinner. It will dismiss after 3 seconds.',
-	            duration: 3000
-	        });
-	        loading.present();
-	    };
-	    Page1.prototype.presentLoadingCircles = function () {
-	        var loading = this.loadingCtrl.create({
-	            spinner: 'circles',
-	            content: 'This is the "circles" spinner. It will dismiss after 3 seconds.',
-	            duration: 3000
-	        });
-	        loading.present();
-	    };
-	    Page1.prototype.presentLoadingCrescent = function () {
-	        var loading = this.loadingCtrl.create({
-	            spinner: 'crescent',
-	            content: 'This is the "crescent" spinner. It will dismiss after 3 seconds.',
-	            duration: 3000
-	        });
-	        loading.present();
-	    };
-	    Page1.prototype.presentLoadingDefault = function () {
-	        var loading = this.loadingCtrl.create({
-	            content: 'This is the mode specific spinner. It will dismiss after 3 seconds.',
-	            duration: 3000
-	        });
-	        loading.present();
-	    };
-	    Page1.prototype.presentLoadingCustom = function () {
-	        var loading = this.loadingCtrl.create({
-	            spinner: 'hide',
-	            content: "\n        <div class=\"custom-spinner-container\">\n          <div class=\"custom-spinner-box\"></div>\n        </div>\n        <div>This is a custom spinner. It will dismiss after 3 seconds.</div>",
-	            duration: 3000
-	        });
-	        loading.present();
-	    };
-	    Page1.prototype.presentLoadingText = function () {
-	        var loading = this.loadingCtrl.create({
-	            spinner: 'hide',
-	            content: 'This has no spinner, only text. It will dismiss after 3 seconds.',
-	            duration: 3000
-	        });
-	        loading.present();
-	    };
-	    Page1.prototype.goToPage2 = function () {
-	        var _this = this;
-	        var loading = this.loadingCtrl.create({
-	            content: 'This will navigate to the next page and then dismiss after 3 seconds.'
-	        });
-	        loading.present();
-	        setTimeout(function () {
-	            _this.nav.push(Page2);
-	        }, 1000);
-	        setTimeout(function () {
-	            loading.dismiss();
-	        }, 4000);
-	    };
-	    Page1 = __decorate([
+	    ApiDemoPage = __decorate([
 	        core_1.Component({
-	            templateUrl: 'main.html'
+	            templateUrl: 'main.html',
+	            encapsulation: core_1.ViewEncapsulation.None
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.LoadingController !== 'undefined' && ionic_angular_1.LoadingController) === 'function' && _a) || Object, (typeof (_b = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _b) || Object])
-	    ], Page1);
-	    return Page1;
-	    var _a, _b;
-	}());
-	var Page2 = (function () {
-	    function Page2() {
-	    }
-	    Page2 = __decorate([
-	        core_1.Component({
-	            template: "\n    <ion-header>\n      <ion-navbar>\n        <ion-title>Page 2</ion-title>\n      </ion-navbar>\n    </ion-header>\n    <ion-content padding>This is another page!</ion-content>\n  "
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], Page2);
-	    return Page2;
+	        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
+	    ], ApiDemoPage);
+	    return ApiDemoPage;
+	    var _a;
 	}());
 	var ApiDemoApp = (function () {
 	    function ApiDemoApp() {
-	        this.root = Page1;
+	        this.root = ApiDemoPage;
 	    }
 	    ApiDemoApp = __decorate([
 	        core_1.Component({
-	            template: '<ion-nav [root]="root"></ion-nav>',
-	            styleUrls: ['styles.css'],
-	            encapsulation: core_1.ViewEncapsulation.None
+	            template: '<ion-nav [root]="root"></ion-nav>'
 	        }), 
 	        __metadata('design:paramtypes', [])
 	    ], ApiDemoApp);

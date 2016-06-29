@@ -113,7 +113,7 @@ $ ionic start myproject
   </p>
 
   <p>
-    The CSS and JS files can be found in the <a href="https://www.npmjs.com/package/ionic-sdk">ionic-sdk</a> npm package. 
+    The CSS and JS files can be found in the <a href="https://www.npmjs.com/package/ionic-sdk">ionic-sdk</a> npm package.
     You can also download them directly at <a href="http://code.ionicframework.com/">http://code.ionicframework.com/</a> or in the github repo: <a href="http://code.ionicframework.com/">https://github.com/driftyco/ionic</a>. The release directory will have the files you need: <a href="https://github.com/driftyco/ionic/tree/master/release">https://github.com/driftyco/ionic/tree/master/release</a>. The "Manual Start" section of the README also goes through some other ways to install.
   </p>
 
@@ -127,14 +127,31 @@ $ ionic start myproject
 
   <h2 class="title"><a href="#browser-support">Browser Support</a></h2>
 
+  <h3>Ionic 1</h3>
+
   <p>
-    Ionic is focused on building <strong>native/hybrid</strong> mobile apps rather than mobile websites.
+    Ionic V1 is focused on building <strong>native/hybrid</strong> mobile apps rather than mobile websites.
   </p>
   <p>
     As such, our browser support tends to be whatever Web View API is available to native apps on a given platform.
-    For Ionic {{ site.latest_version }}, that means UIWebView for iOS 7+, and Android 4.1 and up. Windows Phone and
-    FirefoxOS support is on our roadmap.
+    For Ionic 1x, that means UIWebView for iOS 7+, and Android 4.1 and up. We recommend using <a href="https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview">Crosswalk</a> to improve performance on older devices.
   </p>
+
+
+  <h3>Ionic 2</h3>
+
+  <p>Ionic 2 is focused on building both native/hybrid apps though Cordova, as well as adding the ability for <a href="/docs/v2/resources/progressive-web-apps/">Progressive Web Apps</a> and <a href="http://electron.atom.io">Electron</a>  .</p>
+  <p>The following OSs and browsers are supported: </p>
+
+  <ul>
+    <li>iOS 8+</li>
+    <li>Windows 10 Universal App</li>
+    <li>Android 4.4+
+      <ul>
+        <li>Support can be pushed back to 4.1 if Crosswalk is used with Cordova</li>
+      </ul>
+    </li>
+  </ul>
 </section>
 
 

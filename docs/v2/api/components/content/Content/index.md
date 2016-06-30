@@ -641,6 +641,55 @@ Returns the content and scroll elements' dimensions.
 
 
 
+
+<div id="resize"></div>
+
+<h3>
+<a class="anchor" name="resize" href="#resize"></a>
+<code>resize()</code>
+  
+
+</h3>
+
+Tell the content to recalculate its dimensions. This should be called
+after dynamically adding headers, footers, or tabs.
+
+```ts
+@Component({
+  template: `
+    <ion-header>
+      <ion-navbar>
+        <ion-title>Main Navbar</ion-title>
+      </ion-navbar>
+      <ion-toolbar *ngIf="showToolbar">
+        <ion-title>Dynamic Toolbar</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <button (click)="toggleToolbar()">Toggle Toolbar</button>
+    </ion-content>
+`})
+
+class E2EPage {
+  @ViewChild(Content) content: Content;
+  showToolbar: boolean = false;
+
+  toggleToolbar() {
+    this.showToolbar = !this.showToolbar;
+    this.content.resize();
+  }
+}
+```
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

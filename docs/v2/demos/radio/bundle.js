@@ -64496,6 +64496,45 @@
 	        }
 	    };
 	    /**
+	     * Tell the content to recalculate its dimensions. This should be called
+	     * after dynamically adding headers, footers, or tabs.
+	     *
+	     * ```ts
+	     * @Component({
+	     *   template: `
+	     *     <ion-header>
+	     *       <ion-navbar>
+	     *         <ion-title>Main Navbar</ion-title>
+	     *       </ion-navbar>
+	     *       <ion-toolbar *ngIf="showToolbar">
+	     *         <ion-title>Dynamic Toolbar</ion-title>
+	     *       </ion-toolbar>
+	     *     </ion-header>
+	     *     <ion-content>
+	     *       <button (click)="toggleToolbar()">Toggle Toolbar</button>
+	     *     </ion-content>
+	     * `})
+	     *
+	     * class E2EPage {
+	     *   @ViewChild(Content) content: Content;
+	     *   showToolbar: boolean = false;
+	     *
+	     *   toggleToolbar() {
+	     *     this.showToolbar = !this.showToolbar;
+	     *     this.content.resize();
+	     *   }
+	     * }
+	     * ```
+	     *
+	     */
+	    Content.prototype.resize = function () {
+	        var _this = this;
+	        dom_1.nativeRaf(function () {
+	            _this.readDimensions();
+	            _this.writeDimensions();
+	        });
+	    };
+	    /**
 	     * @private
 	     * DOM READ
 	     */

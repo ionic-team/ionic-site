@@ -56302,6 +56302,8 @@
 	        this._c = [];
 	        this._el = [];
 	        this._fx = {};
+	        this._dur = null;
+	        this._easing = null;
 	        this._bfSty = {};
 	        this._bfAdd = [];
 	        this._bfRmv = [];

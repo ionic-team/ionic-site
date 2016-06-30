@@ -9,4 +9,4 @@ header_sub_title: Ionic CLI
 
 ## Description
 
-The `v2` command prints out information relevant to starting a V2 application.
+The `--v2` command prints out information relevant to starting a V2 application.

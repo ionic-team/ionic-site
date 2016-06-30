@@ -171,8 +171,7 @@ body {
 ion-app,
 ion-nav,
 ion-tab,
-ion-tabs,
-.app-root {
+ion-tabs {
   position: absolute;
   top: 0;
   left: 0;
@@ -800,11 +799,6 @@ ion-menu {
   width: 304px;
   -webkit-transform: translate3d(-9999px, 0, 0);
   transform: translate3d(-9999px, 0, 0); }
-
-ion-menu > ion-header,
-ion-menu > ion-content,
-ion-menu > ion-footer {
-  position: relative; }
 
 ion-menu[side=right] {
   right: 0;
@@ -5939,9 +5933,7 @@ input.text-input:-webkit-autofill {
   pointer-events: none; }
 
 .input-has-focus input,
-.input-has-focus textarea,
-.input-has-focus a,
-.input-has-focus button {
+.input-has-focus textarea {
   pointer-events: auto; }
 
 [next-input] {
@@ -5956,15 +5948,13 @@ input.text-input:-webkit-autofill {
 
 .text-input-clear-icon {
   position: absolute;
-  top: 0;
   display: none;
   margin: 0;
   padding: 0;
-  height: 100%;
   background-repeat: no-repeat;
   background-position: center; }
 
-.input-has-focus.input-has-value .text-input-clear-icon {
+.input-has-value .text-input-clear-icon {
   display: block; }
 
 .text-input.cloned-input {
@@ -6036,6 +6026,7 @@ ion-input[clearInput] {
 .text-input-clear-icon {
   background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='%235b5b5b'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
   right: 8px;
+  bottom: 4px;
   width: 30px;
   background-size: 22px; }
 
@@ -6260,11 +6251,9 @@ ion-item-sliding.active-slide ion-item-options {
   display: flex; }
 
 ion-item-sliding.active-slide.active-options-left ion-item-options[side=left] {
-  width: 100%;
   visibility: visible; }
 
 ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=left]) {
-  width: 100%;
   visibility: visible; }
 
 .button-expandable {
@@ -6277,6 +6266,10 @@ ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=le
   transition-property: none;
   -webkit-transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
   transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1); }
+
+ion-item-sliding.active-swipe-right ion-item-options,
+ion-item-sliding.active-swipe-left ion-item-options {
+  width: 100%; }
 
 ion-item-sliding.active-swipe-right .button-expandable {
   -webkit-box-ordinal-group: 2;
@@ -6335,12 +6328,11 @@ ion-reorder {
   display: -ms-flexbox;
   display: flex; }
 
-.reorder-list-active .item-inner {
+.reorder-active .item-inner {
   pointer-events: none; }
 
 .item-wrapper.reorder-active,
-.item.reorder-active,
-.reorder-active {
+.item.reorder-active {
   z-index: 4;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   opacity: .8;
@@ -6377,11 +6369,9 @@ ion-reorder {
     font-weight: normal;
     line-height: normal; }
   .item p {
-    overflow: inherit;
     margin: 0 0 2px;
     font-size: 1.4rem;
     line-height: normal;
-    text-overflow: inherit;
     color: #666; }
 
 .item.activated {
@@ -6671,8 +6661,6 @@ ion-list {
     border-bottom: 0; }
   ion-list > ion-input:last-child::after {
     left: 0; }
-  ion-list ion-item-options {
-    border-bottom: 1px solid #dedede; }
   ion-list ion-item-options button,
   ion-list ion-item-options [button] {
     display: -webkit-inline-box;
@@ -6719,7 +6707,6 @@ ion-list[inset] {
     background-color: #fff; }
 
 ion-list[no-lines] .item,
-ion-list[no-lines] ion-item-options,
 ion-list[no-lines] .item .item-inner {
   border-width: 0; }
 
@@ -8279,14 +8266,6 @@ ion-navbar.toolbar {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center; }
-
-ion-header::after {
-  position: absolute;
-  width: 100%;
-  height: 5px;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAIBAMAAAARjyJQAAAAFVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAASAQCkAAAAB3RSTlMBLRUGDSA4cBS/RQAAACBJREFUeF5jSEMCDIJIgCEUCTAoIQEGFyTAYIwEGHACAG7+EL36X1OAAAAAAElFTkSuQmCC);
-  background-repeat: repeat-x;
-  content: ""; }
 
 .toolbar {
   padding: 4px;

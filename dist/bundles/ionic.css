@@ -171,8 +171,7 @@ body {
 ion-app,
 ion-nav,
 ion-tab,
-ion-tabs,
-.app-root {
+ion-tabs {
   position: absolute;
   top: 0;
   left: 0;
@@ -800,11 +799,6 @@ ion-menu {
   width: 304px;
   -webkit-transform: translate3d(-9999px, 0, 0);
   transform: translate3d(-9999px, 0, 0); }
-
-ion-menu > ion-header,
-ion-menu > ion-content,
-ion-menu > ion-footer {
-  position: relative; }
 
 ion-menu[side=right] {
   right: 0;
@@ -5517,15 +5511,6 @@ ion-icon {
   .ios [margin-horizontal] scroll-content {
     margin-right: 16px;
     margin-left: 16px; }
-  .ios ion-content:not([no-bounce]) > scroll-content::before, .ios ion-content:not([no-bounce]) > scroll-content::after {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    content: ""; }
-  .ios ion-content:not([no-bounce]) > scroll-content::before {
-    bottom: -1px; }
-  .ios ion-content:not([no-bounce]) > scroll-content::after {
-    top: -1px; }
   .ios ion-datetime {
     display: -webkit-box;
     display: -webkit-flex;
@@ -5609,9 +5594,7 @@ ion-icon {
   .ios .input-has-focus {
     pointer-events: none; }
   .ios .input-has-focus input,
-  .ios .input-has-focus textarea,
-  .ios .input-has-focus a,
-  .ios .input-has-focus button {
+  .ios .input-has-focus textarea {
     pointer-events: auto; }
   .ios [next-input] {
     position: absolute;
@@ -5624,14 +5607,12 @@ ion-icon {
     pointer-events: none; }
   .ios .text-input-clear-icon {
     position: absolute;
-    top: 0;
     display: none;
     margin: 0;
     padding: 0;
-    height: 100%;
     background-repeat: no-repeat;
     background-position: center; }
-  .ios .input-has-focus.input-has-value .text-input-clear-icon {
+  .ios .input-has-value .text-input-clear-icon {
     display: block; }
   .ios .text-input.cloned-input {
     position: relative;
@@ -5667,6 +5648,7 @@ ion-icon {
   .ios .text-input-clear-icon {
     background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><path%20fill='rgba(0,%200,%200,%200.5)'%20d='M403.1,108.9c-81.2-81.2-212.9-81.2-294.2,0s-81.2,212.9,0,294.2c81.2,81.2,212.9,81.2,294.2,0S484.3,190.1,403.1,108.9z%20M352,340.2L340.2,352l-84.4-84.2l-84,83.8L160,339.8l84-83.8l-84-83.8l11.8-11.8l84,83.8l84.4-84.2l11.8,11.8L267.6,256L352,340.2z'/></svg>");
     right: 8px;
+    bottom: 0;
     width: 30px;
     background-size: 18px; }
   .ios .item {
@@ -5870,10 +5852,8 @@ ion-icon {
     display: -ms-flexbox;
     display: flex; }
   .ios ion-item-sliding.active-slide.active-options-left ion-item-options[side=left] {
-    width: 100%;
     visibility: visible; }
   .ios ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=left]) {
-    width: 100%;
     visibility: visible; }
   .ios .button-expandable {
     -webkit-flex-shrink: 0;
@@ -5885,6 +5865,9 @@ ion-icon {
     transition-property: none;
     -webkit-transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
     transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1); }
+  .ios ion-item-sliding.active-swipe-right ion-item-options,
+  .ios ion-item-sliding.active-swipe-left ion-item-options {
+    width: 100%; }
   .ios ion-item-sliding.active-swipe-right .button-expandable {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
@@ -5937,11 +5920,10 @@ ion-icon {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-  .ios .reorder-list-active .item-inner {
+  .ios .reorder-active .item-inner {
     pointer-events: none; }
   .ios .item-wrapper.reorder-active,
-  .ios .item.reorder-active,
-  .ios .reorder-active {
+  .ios .item.reorder-active {
     z-index: 4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: .8;
@@ -5974,11 +5956,9 @@ ion-icon {
       font-weight: normal;
       line-height: normal; }
     .ios .item p {
-      overflow: inherit;
       margin: 0 0 2px;
       font-size: 1.2rem;
       line-height: normal;
-      text-overflow: inherit;
       color: #666; }
     .ios .item h2:last-child,
     .ios .item h3:last-child,
@@ -6272,11 +6252,9 @@ ion-icon {
   .ios.hairlines ion-list[inset] .item {
     border-width: 0.55px; }
   .ios ion-list[no-lines] ion-list-header,
-  .ios ion-list[no-lines] ion-item-options,
   .ios ion-list[no-lines] .item,
   .ios ion-list[no-lines] .item .item-inner,
   .ios.hairlines ion-list[no-lines] ion-list-header,
-  .ios.hairlines ion-list[no-lines] ion-item-options,
   .ios.hairlines ion-list[no-lines] .item,
   .ios.hairlines ion-list[no-lines] .item .item-inner {
     border-width: 0; }
@@ -9102,9 +9080,7 @@ ion-icon {
   .md .input-has-focus {
     pointer-events: none; }
   .md .input-has-focus input,
-  .md .input-has-focus textarea,
-  .md .input-has-focus a,
-  .md .input-has-focus button {
+  .md .input-has-focus textarea {
     pointer-events: auto; }
   .md [next-input] {
     position: absolute;
@@ -9117,14 +9093,12 @@ ion-icon {
     pointer-events: none; }
   .md .text-input-clear-icon {
     position: absolute;
-    top: 0;
     display: none;
     margin: 0;
     padding: 0;
-    height: 100%;
     background-repeat: no-repeat;
     background-position: center; }
-  .md .input-has-focus.input-has-value .text-input-clear-icon {
+  .md .input-has-value .text-input-clear-icon {
     display: block; }
   .md .text-input.cloned-input {
     position: relative;
@@ -9180,6 +9154,7 @@ ion-icon {
   .md .text-input-clear-icon {
     background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='%235b5b5b'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
     right: 8px;
+    bottom: 4px;
     width: 30px;
     background-size: 22px; }
   .md .item {
@@ -9383,10 +9358,8 @@ ion-icon {
     display: -ms-flexbox;
     display: flex; }
   .md ion-item-sliding.active-slide.active-options-left ion-item-options[side=left] {
-    width: 100%;
     visibility: visible; }
   .md ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=left]) {
-    width: 100%;
     visibility: visible; }
   .md .button-expandable {
     -webkit-flex-shrink: 0;
@@ -9398,6 +9371,9 @@ ion-icon {
     transition-property: none;
     -webkit-transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
     transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1); }
+  .md ion-item-sliding.active-swipe-right ion-item-options,
+  .md ion-item-sliding.active-swipe-left ion-item-options {
+    width: 100%; }
   .md ion-item-sliding.active-swipe-right .button-expandable {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
@@ -9450,11 +9426,10 @@ ion-icon {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-  .md .reorder-list-active .item-inner {
+  .md .reorder-active .item-inner {
     pointer-events: none; }
   .md .item-wrapper.reorder-active,
-  .md .item.reorder-active,
-  .md .reorder-active {
+  .md .item.reorder-active {
     z-index: 4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: .8;
@@ -9490,11 +9465,9 @@ ion-icon {
       font-weight: normal;
       line-height: normal; }
     .md .item p {
-      overflow: inherit;
       margin: 0 0 2px;
       font-size: 1.4rem;
       line-height: normal;
-      text-overflow: inherit;
       color: #666; }
   .md .item.activated {
     background-color: #f1f1f1; }
@@ -9720,8 +9693,6 @@ ion-icon {
       border-bottom: 0; }
     .md ion-list > ion-input:last-child::after {
       left: 0; }
-    .md ion-list ion-item-options {
-      border-bottom: 1px solid #dedede; }
     .md ion-list ion-item-options button,
     .md ion-list ion-item-options [button] {
       display: -webkit-inline-box;
@@ -9766,7 +9737,6 @@ ion-icon {
     .md ion-list[inset] ion-list-header {
       background-color: #fff; }
   .md ion-list[no-lines] .item,
-  .md ion-list[no-lines] ion-item-options,
   .md ion-list[no-lines] .item .item-inner {
     border-width: 0; }
   .md ion-loading {
@@ -11027,13 +10997,6 @@ ion-icon {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center; }
-  .md ion-header::after {
-    position: absolute;
-    width: 100%;
-    height: 5px;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAIBAMAAAARjyJQAAAAFVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAASAQCkAAAAB3RSTlMBLRUGDSA4cBS/RQAAACBJREFUeF5jSEMCDIJIgCEUCTAoIQEGFyTAYIwEGHACAG7+EL36X1OAAAAAAElFTkSuQmCC);
-    background-repeat: repeat-x;
-    content: ""; }
   .md .toolbar {
     padding: 4px;
     min-height: 5.6rem; }
@@ -12926,9 +12889,7 @@ ion-icon {
   .wp .input-has-focus {
     pointer-events: none; }
   .wp .input-has-focus input,
-  .wp .input-has-focus textarea,
-  .wp .input-has-focus a,
-  .wp .input-has-focus button {
+  .wp .input-has-focus textarea {
     pointer-events: auto; }
   .wp [next-input] {
     position: absolute;
@@ -12941,14 +12902,12 @@ ion-icon {
     pointer-events: none; }
   .wp .text-input-clear-icon {
     position: absolute;
-    top: 0;
     display: none;
     margin: 0;
     padding: 0;
-    height: 100%;
     background-repeat: no-repeat;
     background-position: center; }
-  .wp .input-has-focus.input-has-value .text-input-clear-icon {
+  .wp .input-has-value .text-input-clear-icon {
     display: block; }
   .wp .text-input.cloned-input {
     position: relative;
@@ -12994,6 +12953,7 @@ ion-icon {
       padding-right: 30px; }
   .wp .text-input-clear-icon {
     background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'><polygon%20fill='rgba(0,%200,%200,%200.5)'%20points='405,136.798%20375.202,107%20256,226.202%20136.798,107%20107,136.798%20226.202,256%20107,375.202%20136.798,405%20256,285.798%20375.202,405%20405,375.202%20285.798,256'/></svg>");
+    top: 13px;
     right: 8px;
     width: 30px;
     background-size: 22px; }
@@ -13198,10 +13158,8 @@ ion-icon {
     display: -ms-flexbox;
     display: flex; }
   .wp ion-item-sliding.active-slide.active-options-left ion-item-options[side=left] {
-    width: 100%;
     visibility: visible; }
   .wp ion-item-sliding.active-slide.active-options-right ion-item-options:not([side=left]) {
-    width: 100%;
     visibility: visible; }
   .wp .button-expandable {
     -webkit-flex-shrink: 0;
@@ -13213,6 +13171,9 @@ ion-icon {
     transition-property: none;
     -webkit-transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
     transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1); }
+  .wp ion-item-sliding.active-swipe-right ion-item-options,
+  .wp ion-item-sliding.active-swipe-left ion-item-options {
+    width: 100%; }
   .wp ion-item-sliding.active-swipe-right .button-expandable {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
@@ -13265,11 +13226,10 @@ ion-icon {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-  .wp .reorder-list-active .item-inner {
+  .wp .reorder-active .item-inner {
     pointer-events: none; }
   .wp .item-wrapper.reorder-active,
-  .wp .item.reorder-active,
-  .wp .reorder-active {
+  .wp .item.reorder-active {
     z-index: 4;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: .8;
@@ -13303,11 +13263,9 @@ ion-icon {
       font-weight: normal;
       line-height: normal; }
     .wp .item p {
-      overflow: inherit;
       margin: 0 0 2px;
       font-size: 1.4rem;
       line-height: normal;
-      text-overflow: inherit;
       color: #666; }
   .wp .item.activated {
     background-color: #aaa; }

@@ -35,7 +35,7 @@ Item
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/item/item.ts#L6">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/item/item.ts#L6">
 Improve this doc
 </a>
 

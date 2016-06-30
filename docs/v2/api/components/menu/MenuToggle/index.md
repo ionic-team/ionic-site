@@ -35,7 +35,7 @@ MenuToggle
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/menu/menu-toggle.ts#L4">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/menu/menu-toggle.ts#L4">
 Improve this doc
 </a>
 

@@ -31,7 +31,7 @@ SqlStorage
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/platform/storage/sql.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/platform/storage/sql.ts#L5">
 Improve this doc
 </a>
 
@@ -40,8 +40,8 @@ Improve this doc
 
 
 
-<p>SqlStorage uses SQLite or WebSQL (development only!) to store data in a
-persistent SQL store on the filesystem.</p>
+<p>SqlStorage is a wrapper that uses SQLite when in mobile to store data in a persistent SQL store on the filesystem
+or uses WebSQL when serving the app to the browser.</p>
 <p>This is the preferred storage engine, as data will be stored in appropriate
 app storage, unlike Local Storage which is treated differently by the OS.</p>
 <p>For convenience, the engine supports key/value storage for simple get/set and blob

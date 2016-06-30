@@ -11,21 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var ApiDemoPage = (function () {
-    function ApiDemoPage(alertCtrl) {
-        this.alertCtrl = alertCtrl;
+    function ApiDemoPage(nav) {
+        this.nav = nav;
         this.testRadioOpen = false;
         this.testCheckboxOpen = false;
     }
     ApiDemoPage.prototype.doAlert = function () {
-        var alert = this.alertCtrl.create({
+        var alert = ionic_angular_1.Alert.create({
             title: 'New Friend!',
             subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
             buttons: ['Ok']
         });
-        alert.present();
+        this.nav.present(alert);
     };
     ApiDemoPage.prototype.doConfirm = function () {
-        var alert = this.alertCtrl.create({
+        var alert = ionic_angular_1.Alert.create({
             title: 'Use this lightsaber?',
             body: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
             buttons: [
@@ -43,10 +43,10 @@ var ApiDemoPage = (function () {
                 }
             ]
         });
-        alert.present();
+        this.nav.present(alert);
     };
     ApiDemoPage.prototype.doPrompt = function () {
-        var alert = this.alertCtrl.create({
+        var alert = ionic_angular_1.Alert.create({
             title: 'Login',
             body: "Enter a name for this new album you're so keen on adding",
             inputs: [
@@ -70,11 +70,11 @@ var ApiDemoPage = (function () {
                 }
             ]
         });
-        alert.present();
+        this.nav.present(alert);
     };
     ApiDemoPage.prototype.doRadio = function () {
         var _this = this;
-        var alert = this.alertCtrl.create();
+        var alert = ionic_angular_1.Alert.create();
         alert.setTitle('Lightsaber color');
         alert.addInput({
             type: 'radio',
@@ -121,11 +121,11 @@ var ApiDemoPage = (function () {
                 _this.testRadioResult = data;
             }
         });
-        alert.present();
+        this.nav.present(alert);
     };
     ApiDemoPage.prototype.doCheckbox = function () {
         var _this = this;
-        var alert = this.alertCtrl.create();
+        var alert = ionic_angular_1.Alert.create();
         alert.setTitle('Which planets have you visited?');
         alert.addInput({
             type: 'checkbox',
@@ -182,13 +182,13 @@ var ApiDemoPage = (function () {
                 _this.testCheckboxResult = data;
             }
         });
-        alert.present();
+        this.nav.present(alert);
     };
     ApiDemoPage = __decorate([
         core_1.Component({
             templateUrl: 'main.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.AlertController !== 'undefined' && ionic_angular_1.AlertController) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
     ], ApiDemoPage);
     return ApiDemoPage;
     var _a;

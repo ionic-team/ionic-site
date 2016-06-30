@@ -156,18 +156,7 @@ presentLoadingText() {
 
 </h3>
 
-Create a loading indicator with the following options
-
-| Option                | Type       | Description                                                                                                      |
-|-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
-| spinner               |`string`    | The name of the SVG spinner for the loading indicator.                                                           |
-| content               |`string`    | The html content for the loading indicator.                                                                      |
-| cssClass              |`string`    | An additional class for custom styles.                                                                           |
-| showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
-| dismissOnPageChange   |`boolean`   | Whether to dismiss the indicator when navigating to a new page. Default false.                                   |
-| duration              |`number`    | How many milliseconds to wait before hiding the indicator. By default, it will show until `dismiss()` is called. |
-
-
+Create a loading indicator. See below for options.
 
 
 <table class="table param-table" style="margin:0;">
@@ -205,6 +194,49 @@ Create a loading indicator with the following options
 
 
 
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>Loading options</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spinner</td>
+<td><code>string</code></td>
+<td>The name of the SVG spinner for the loading indicator.</td>
+</tr>
+<tr>
+<td>content</td>
+<td><code>string</code></td>
+<td>The html content for the loading indicator.</td>
+</tr>
+<tr>
+<td>cssClass</td>
+<td><code>string</code></td>
+<td>An additional class for custom styles.</td>
+</tr>
+<tr>
+<td>showBackdrop</td>
+<td><code>boolean</code></td>
+<td>Whether to show the backdrop. Default true.</td>
+</tr>
+<tr>
+<td>dismissOnPageChange</td>
+<td><code>boolean</code></td>
+<td>Whether to dismiss the indicator when navigating to a new page. Default false.</td>
+</tr>
+<tr>
+<td>duration</td>
+<td><code>number</code></td>
+<td>How many milliseconds to wait before hiding the indicator. By default, it will show until <code>dismiss()</code> is called.</td>
+</tr>
+</tbody>
+</table>
 
 
 

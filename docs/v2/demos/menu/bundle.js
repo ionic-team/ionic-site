@@ -61270,8 +61270,42 @@
 	 *   alert.present();
 	 * }
 	 * ```
+	 * @advanced
 	 *
 	 *
+	 *  Alert options
+	 *
+	 *  | Property              | Type      | Description                                                               |
+	 *  |-----------------------|-----------|---------------------------------------------------------------------------|
+	 *  | title                 | `string`  | The string for the alert (optional)                                       |
+	 *  | subTitle              | `string`  | The subtitle for the alert (optional)                                     |
+	 *  | message               | `string`  | The message for the alert (optional)                                      |
+	 *  | cssClass              | `string`  | Any additional class for the alert (optional)                             |
+	 *  | inputs                | `array`   | An array of inputs for the alert. See input options. (optional)           |
+	 *  | buttons               | `array`   | An array of buttons for the alert. See buttons options. (optional)        |
+	 *  | enableBackdropDismiss | `boolean` | Whether the alert should be dismissed by tapping the backdrop (optional)  |
+	 *
+	 *
+	 *  Input options
+	 *
+	 *  | Property    | Type      | Description                                                     |
+	 *  |-------------|-----------|-----------------------------------------------------------------|
+	 *  | type        | `string`  | The type the input should be, text, tel, number, etc (optional) |
+	 *  | name        | `string`  | The name for the input (optional)                               |
+	 *  | placeholder | `string`  | The input's placeholder (optional, for textual/numeric inputs)  |
+	 *  | value       | `string`  | The input's value (optional)                                    |
+	 *  | label       | `string`  | The input's label (optional, only for radio/checkbox inputs)    |
+	 *  | checked     | `boolean` | Whether or not the input is checked or not (optional)           |
+	 *  | id          | `string`  | The input's id (optional)                                       |
+	 *
+	 *  Button options
+	 *
+	 *  | Property | Type     | Description                                                    |
+	 *  |----------|----------|----------------------------------------------------------------|
+	 *  | text     | `string` | The buttons displayed text                                     |
+	 *  | handler  | `any`    | Expression that should be evaluated when the button is pressed |
+	 *  | cssClass | `string` | An additional CSS class for the button                         |
+	 *  | role     | `string` | The buttons role, null or `cancel`                             |
 	 * ### Dismissing And Async Navigation
 	 *
 	 * After an alert has been dismissed, the app may need to also transition
@@ -61334,42 +61368,8 @@
 	        this._app = _app;
 	    }
 	    /**
-	     *
-	     *  Alert options
-	     *
-	     *  | Property              | Type      | Description                                                               |
-	     *  |-----------------------|-----------|---------------------------------------------------------------------------|
-	     *  | title                 | `string`  | The string for the alert (optional)                                       |
-	     *  | subTitle              | `string`  | The subtitle for the alert (optional)                                     |
-	     *  | message               | `string`  | The message for the alert (optional)                                      |
-	     *  | cssClass              | `string`  | Any additional class for the alert (optional)                             |
-	     *  | inputs                | `array`   | An array of inputs for the alert. See input options. (optional)           |
-	     *  | buttons               | `array`   | An array of buttons for the alert. See buttons options. (optional)        |
-	     *  | enableBackdropDismiss | `boolean` | Whether the alert should be dismissed by tapping the backdrop (optional)  |
-	     *
-	     *
-	     *  Input options
-	     *
-	     *  | Property    | Type      | Description                                                     |
-	     *  |-------------|-----------|-----------------------------------------------------------------|
-	     *  | type        | `string`  | The type the input should be, text, tel, number, etc (optional) |
-	     *  | name        | `string`  | The name for the input (optional)                               |
-	     *  | placeholder | `string`  | The input's placeholder (optional, for textual/numeric inputs)  |
-	     *  | value       | `string`  | The input's value (optional)                                    |
-	     *  | label       | `string`  | The input's label (optional, only for radio/checkbox inputs)    |
-	     *  | checked     | `boolean` | Whether or not the input is checked or not (optional)           |
-	     *  | id          | `string`  | The input's id (optional)                                       |
-	     *
-	     *  Button options
-	     *
-	     *  | Property | Type     | Description                                                    |
-	     *  |----------|----------|----------------------------------------------------------------|
-	     *  | text     | `string` | The buttons displayed text                                     |
-	     *  | handler  | `any`    | Expression that should be evaluated when the button is pressed |
-	     *  | cssClass | `string` | An additional CSS class for the button                         |
-	     *  | role     | `string` | The buttons role, null or `cancel`                             |
-	     *
-	     * @param {AlertOptions} opts Alert. See the table above
+	     * Display an alert with a title, inputs, and buttons
+	     * @param {AlertOptions} opts Alert. See the table below
 	     */
 	    AlertController.prototype.create = function (opts) {
 	        if (opts === void 0) { opts = {}; }
@@ -81874,6 +81874,18 @@
 	 *   }, 5000);
 	 * }
 	 * ```
+	 * @advanced
+	 *
+	 * Loading options
+	 *
+	 * | Option                | Type       | Description                                                                                                      |
+	 * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
+	 * | spinner               |`string`    | The name of the SVG spinner for the loading indicator.                                                           |
+	 * | content               |`string`    | The html content for the loading indicator.                                                                      |
+	 * | cssClass              |`string`    | An additional class for custom styles.                                                                           |
+	 * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
+	 * | dismissOnPageChange   |`boolean`   | Whether to dismiss the indicator when navigating to a new page. Default false.                                   |
+	 * | duration              |`number`    | How many milliseconds to wait before hiding the indicator. By default, it will show until `dismiss()` is called. |
 	 *
 	 * @demo /docs/v2/demos/loading/
 	 * @see {@link /docs/v2/api/components/spinner/Spinner Spinner API Docs}
@@ -81883,18 +81895,7 @@
 	        this._app = _app;
 	    }
 	    /**
-	     * Create a loading indicator with the following options
-	     *
-	     * | Option                | Type       | Description                                                                                                      |
-	     * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
-	     * | spinner               |`string`    | The name of the SVG spinner for the loading indicator.                                                           |
-	     * | content               |`string`    | The html content for the loading indicator.                                                                      |
-	     * | cssClass              |`string`    | An additional class for custom styles.                                                                           |
-	     * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
-	     * | dismissOnPageChange   |`boolean`   | Whether to dismiss the indicator when navigating to a new page. Default false.                                   |
-	     * | duration              |`number`    | How many milliseconds to wait before hiding the indicator. By default, it will show until `dismiss()` is called. |
-	     *
-	     *
+	     * Create a loading indicator. See below for options.
 	     * @param {LoadingOptions} opts Loading options
 	     */
 	    LoadingController.prototype.create = function (opts) {
@@ -82240,6 +82241,13 @@
 	 * }
 	 * ```
 	 *
+	 * @advanced
+	 *
+	 * | Option                | Type       | Description                                                                                                      |
+	 * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
+	 * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
+	 * | enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
+	 *
 	 * A modal can also emit data, which is useful when it is used to add or edit
 	 * data. For example, a profile page could slide up in a modal, and on submit,
 	 * the submit button could pass the updated profile data, then dismiss the
@@ -82293,13 +82301,7 @@
 	        this._app = _app;
 	    }
 	    /**
-	     * Create a modal with the following options
-	     *
-	     * | Option                | Type       | Description                                                                                                      |
-	     * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
-	     * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
-	     * | enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
-	     *
+	     * Create a modal to display. See below for options.
 	     *
 	     * @param {object} componentType The Modal view
 	     * @param {object} data Any data to pass to the Modal view

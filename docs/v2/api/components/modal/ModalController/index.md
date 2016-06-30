@@ -94,49 +94,6 @@ class Profile {
 
 }
 </code></pre>
-<p>A modal can also emit data, which is useful when it is used to add or edit
-data. For example, a profile page could slide up in a modal, and on submit,
-the submit button could pass the updated profile data, then dismiss the
-modal.</p>
-<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
-import { ModalController, ViewController } from &#39;ionic-angular&#39;;
-
-@Component(...)
-class HomePage {
-
- constructor(private modalCtrl: ModalController) {
-
- }
-
- presentContactModal() {
-   let contactModal = this.modalCtrl.create(ContactUs);
-   contactModal.present();
- }
-
- presentProfileModal() {
-   let profileModal = this.modalCtrl.create(Profile, { userId: 8675309 });
-   profileModal.onDidDismiss(data =&gt; {
-     console.log(data);
-   });
-   profileModal.present();
- }
-
-}
-
-@Component(...)
-class Profile {
-
- constructor(private viewCtrl: ViewController) {
-
- }
-
- dismiss() {
-   let data = { &#39;foo&#39;: &#39;bar&#39; };
-   this.viewCtrl.dismiss(data);
- }
-
-}
-</code></pre>
 
 
 
@@ -158,13 +115,7 @@ class Profile {
 
 </h3>
 
-Create a modal with the following options
-
-| Option                | Type       | Description                                                                                                      |
-|-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
-| showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
-| enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
-
+Create a modal to display. See below for options.
 
 
 
@@ -237,6 +188,71 @@ Create a modal with the following options
 
 
 
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>showBackdrop</td>
+<td><code>boolean</code></td>
+<td>Whether to show the backdrop. Default true.</td>
+</tr>
+<tr>
+<td>enableBackdropDismiss</td>
+<td><code>boolean</code></td>
+<td>Whether the popover should be dismissed by tapping the backdrop. Default true.</td>
+</tr>
+</tbody>
+</table>
+<p>A modal can also emit data, which is useful when it is used to add or edit
+data. For example, a profile page could slide up in a modal, and on submit,
+the submit button could pass the updated profile data, then dismiss the
+modal.</p>
+<pre><code class="lang-ts">import { Component } from &#39;@angular/core&#39;;
+import { ModalController, ViewController } from &#39;ionic-angular&#39;;
+
+@Component(...)
+class HomePage {
+
+ constructor(private modalCtrl: ModalController) {
+
+ }
+
+ presentContactModal() {
+   let contactModal = this.modalCtrl.create(ContactUs);
+   contactModal.present();
+ }
+
+ presentProfileModal() {
+   let profileModal = this.modalCtrl.create(Profile, { userId: 8675309 });
+   profileModal.onDidDismiss(data =&gt; {
+     console.log(data);
+   });
+   profileModal.present();
+ }
+
+}
+
+@Component(...)
+class Profile {
+
+ constructor(private viewCtrl: ViewController) {
+
+ }
+
+ dismiss() {
+   let data = { &#39;foo&#39;: &#39;bar&#39; };
+   this.viewCtrl.dismiss(data);
+ }
+
+}
+</code></pre>
 
 
 

@@ -154,6 +154,192 @@ presentPrompt() {
   alert.present();
 }
 </code></pre>
+
+
+
+
+<!-- @property tags -->
+
+
+
+<!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="create"></div>
+
+<h3>
+<a class="anchor" name="create" href="#create"></a>
+<code>create(opts)</code>
+  
+
+</h3>
+
+Display an alert with a title, inputs, and buttons
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>AlertOptions</code>
+      </td>
+      <td>
+        <p>Alert. See the table below</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>Alert options</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td><code>string</code></td>
+<td>The string for the alert (optional)</td>
+</tr>
+<tr>
+<td>subTitle</td>
+<td><code>string</code></td>
+<td>The subtitle for the alert (optional)</td>
+</tr>
+<tr>
+<td>message</td>
+<td><code>string</code></td>
+<td>The message for the alert (optional)</td>
+</tr>
+<tr>
+<td>cssClass</td>
+<td><code>string</code></td>
+<td>Any additional class for the alert (optional)</td>
+</tr>
+<tr>
+<td>inputs</td>
+<td><code>array</code></td>
+<td>An array of inputs for the alert. See input options. (optional)</td>
+</tr>
+<tr>
+<td>buttons</td>
+<td><code>array</code></td>
+<td>An array of buttons for the alert. See buttons options. (optional)</td>
+</tr>
+<tr>
+<td>enableBackdropDismiss</td>
+<td><code>boolean</code></td>
+<td>Whether the alert should be dismissed by tapping the backdrop (optional)</td>
+</tr>
+</tbody>
+</table>
+<p> Input options</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><code>string</code></td>
+<td>The type the input should be, text, tel, number, etc (optional)</td>
+</tr>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>The name for the input (optional)</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td><code>string</code></td>
+<td>The input&#39;s placeholder (optional, for textual/numeric inputs)</td>
+</tr>
+<tr>
+<td>value</td>
+<td><code>string</code></td>
+<td>The input&#39;s value (optional)</td>
+</tr>
+<tr>
+<td>label</td>
+<td><code>string</code></td>
+<td>The input&#39;s label (optional, only for radio/checkbox inputs)</td>
+</tr>
+<tr>
+<td>checked</td>
+<td><code>boolean</code></td>
+<td>Whether or not the input is checked or not (optional)</td>
+</tr>
+<tr>
+<td>id</td>
+<td><code>string</code></td>
+<td>The input&#39;s id (optional)</td>
+</tr>
+</tbody>
+</table>
+<p> Button options</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td><code>string</code></td>
+<td>The buttons displayed text</td>
+</tr>
+<tr>
+<td>handler</td>
+<td><code>any</code></td>
+<td>Expression that should be evaluated when the button is pressed</td>
+</tr>
+<tr>
+<td>cssClass</td>
+<td><code>string</code></td>
+<td>An additional CSS class for the button</td>
+</tr>
+<tr>
+<td>role</td>
+<td><code>string</code></td>
+<td>The buttons role, null or <code>cancel</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="dismissing-and-async-navigation">Dismissing And Async Navigation</h3>
 <p>After an alert has been dismissed, the app may need to also transition
 to another page depending on the handler&#39;s logic. However, because multiple
@@ -202,98 +388,6 @@ the handler returns <code>false</code>, then the alert does not automatically di
 itself. Instead, you now have complete control of when the alert has finished
 transitioning, and the ability to wait for the alert to finish transitioning
 out before starting a new transition.</p>
-
-
-
-
-<!-- @property tags -->
-
-
-
-<!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="create"></div>
-
-<h3>
-<a class="anchor" name="create" href="#create"></a>
-<code>create(opts)</code>
-  
-
-</h3>
-
-Alert options
-
- | Property              | Type      | Description                                                               |
- |-----------------------|-----------|---------------------------------------------------------------------------|
- | title                 | `string`  | The string for the alert (optional)                                       |
- | subTitle              | `string`  | The subtitle for the alert (optional)                                     |
- | message               | `string`  | The message for the alert (optional)                                      |
- | cssClass              | `string`  | Any additional class for the alert (optional)                             |
- | inputs                | `array`   | An array of inputs for the alert. See input options. (optional)           |
- | buttons               | `array`   | An array of buttons for the alert. See buttons options. (optional)        |
- | enableBackdropDismiss | `boolean` | Whether the alert should be dismissed by tapping the backdrop (optional)  |
-
-
- Input options
-
- | Property    | Type      | Description                                                     |
- |-------------|-----------|-----------------------------------------------------------------|
- | type        | `string`  | The type the input should be, text, tel, number, etc (optional) |
- | name        | `string`  | The name for the input (optional)                               |
- | placeholder | `string`  | The input's placeholder (optional, for textual/numeric inputs)  |
- | value       | `string`  | The input's value (optional)                                    |
- | label       | `string`  | The input's label (optional, only for radio/checkbox inputs)    |
- | checked     | `boolean` | Whether or not the input is checked or not (optional)           |
- | id          | `string`  | The input's id (optional)                                       |
-
- Button options
-
- | Property | Type     | Description                                                    |
- |----------|----------|----------------------------------------------------------------|
- | text     | `string` | The buttons displayed text                                     |
- | handler  | `any`    | Expression that should be evaluated when the button is pressed |
- | cssClass | `string` | An additional CSS class for the button                         |
- | role     | `string` | The buttons role, null or `cancel`                             |
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        opts
-        
-        
-      </td>
-      <td>
-        
-  <code>AlertOptions</code>
-      </td>
-      <td>
-        <p>Alert. See the table above</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
 
 
 

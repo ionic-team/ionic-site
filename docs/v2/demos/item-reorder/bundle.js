@@ -49292,7 +49292,7 @@
 	     * @return {boolean}
 	     */
 	    App.prototype.isScrolling = function () {
-	        return (this._scrollTime + 64 > Date.now());
+	        return (this._scrollTime + 48 > Date.now());
 	    };
 	    /**
 	     * @private
@@ -64431,16 +64431,15 @@
 	 */
 	var Content = (function (_super) {
 	    __extends(Content, _super);
-	    function Content(_elementRef, _config, _app, _keyboard, _zone, viewCtrl, _tabs) {
+	    function Content(_elementRef, config, _app, _keyboard, _zone, viewCtrl, _tabs) {
 	        _super.call(this, _elementRef);
 	        this._elementRef = _elementRef;
-	        this._config = _config;
 	        this._app = _app;
 	        this._keyboard = _keyboard;
 	        this._zone = _zone;
 	        this._tabs = _tabs;
 	        this._inputPolling = false;
-	        this._sbPadding = _config.getBoolean('statusbarPadding', false);
+	        this._sbPadding = config.getBoolean('statusbarPadding', false);
 	        if (viewCtrl) {
 	            viewCtrl.setContent(this);
 	            viewCtrl.setContentRef(_elementRef);
@@ -64450,15 +64449,11 @@
 	     * @private
 	     */
 	    Content.prototype.ngOnInit = function () {
-	        var self = this;
-	        self._scrollEle = self._elementRef.nativeElement.children[0];
-	        self._zone.runOutsideAngular(function () {
-	            self._scroll = new scroll_view_1.ScrollView(self._scrollEle);
-	            if (self._config.getBoolean('tapPolyfill')) {
-	                self._scLsn = self.addScrollListener(function () {
-	                    self._app.setScrolling();
-	                });
-	            }
+	        var _this = this;
+	        this._scrollEle = this._elementRef.nativeElement.children[0];
+	        this._zone.runOutsideAngular(function () {
+	            _this._scroll = new scroll_view_1.ScrollView(_this._scrollEle);
+	            _this._scLsn = _this.addScrollListener(_this._app.setScrolling);
 	        });
 	    };
 	    /**
@@ -64467,7 +64462,7 @@
 	    Content.prototype.ngOnDestroy = function () {
 	        this._scLsn && this._scLsn();
 	        this._scroll && this._scroll.destroy();
-	        this._scrollEle = this._footerEle = this._scLsn = null;
+	        this._scrollEle = this._footerEle = this._scLsn = this._scroll = null;
 	    };
 	    /**
 	     * @private
@@ -83410,7 +83405,7 @@
 	        if (activatableEle) {
 	            this.startCoord = dom_1.pointerCoord(ev);
 	            var now = Date.now();
-	            if (this.lastActivated + 150 < now) {
+	            if (this.lastActivated + 150 < now && !this.app.isScrolling()) {
 	                this.activator && this.activator.downAction(ev, activatableEle, this.startCoord);
 	                this.lastActivated = now;
 	            }

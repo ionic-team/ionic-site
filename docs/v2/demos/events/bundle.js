@@ -61646,6 +61646,7 @@
 	                value: util_1.isPresent(input.value) ? input.value : '',
 	                label: input.label,
 	                checked: !!input.checked,
+	                disabled: !!input.disabled,
 	                id: 'alert-input-' + _this.id + '-' + index
 	            };
 	        });
@@ -61774,7 +61775,7 @@
 	    AlertCmp = __decorate([
 	        core_1.Component({
 	            selector: 'ion-alert',
-	            template: "\n    <ion-backdrop (click)=\"bdClick()\"></ion-backdrop>\n    <div class=\"alert-wrapper\">\n      <div class=\"alert-head\">\n        <h2 id=\"{{hdrId}}\" class=\"alert-title\" *ngIf=\"d.title\" [innerHTML]=\"d.title\"></h2>\n        <h3 id=\"{{subHdrId}}\" class=\"alert-sub-title\" *ngIf=\"d.subTitle\" [innerHTML]=\"d.subTitle\"></h3>\n      </div>\n      <div id=\"{{msgId}}\" class=\"alert-message\" [innerHTML]=\"d.message\"></div>\n      <div *ngIf=\"d.inputs.length\" [ngSwitch]=\"inputType\">\n\n        <template ngSwitchCase=\"radio\">\n          <div class=\"alert-radio-group\" role=\"radiogroup\" [attr.aria-labelledby]=\"hdrId\" [attr.aria-activedescendant]=\"activeId\">\n            <button category=\"alert-radio-button\" *ngFor=\"let i of d.inputs\" (click)=\"rbClick(i)\" [attr.aria-checked]=\"i.checked\" [attr.id]=\"i.id\" class=\"alert-tappable alert-radio\" role=\"radio\">\n              <div class=\"alert-radio-icon\"><div class=\"alert-radio-inner\"></div></div>\n              <div class=\"alert-radio-label\">\n                {{i.label}}\n              </div>\n            </button>\n          </div>\n        </template>\n\n        <template ngSwitchCase=\"checkbox\">\n          <div class=\"alert-checkbox-group\">\n            <button category=\"alert-checkbox-button\" *ngFor=\"let i of d.inputs\" (click)=\"cbClick(i)\" [attr.aria-checked]=\"i.checked\" class=\"alert-tappable alert-checkbox\" role=\"checkbox\">\n              <div class=\"alert-checkbox-icon\"><div class=\"alert-checkbox-inner\"></div></div>\n              <div class=\"alert-checkbox-label\">\n                {{i.label}}\n              </div>\n            </button>\n          </div>\n        </template>\n\n        <template ngSwitchDefault>\n          <div class=\"alert-input-group\">\n            <div *ngFor=\"let i of d.inputs\" class=\"alert-input-wrapper\">\n              <input [placeholder]=\"i.placeholder\" [(ngModel)]=\"i.value\" [type]=\"i.type\" class=\"alert-input\">\n            </div>\n          </div>\n        </template>\n\n      </div>\n      <div class=\"alert-button-group\" [ngClass]=\"{vertical: d.buttons.length>2}\">\n        <button category=\"alert-button\" *ngFor=\"let b of d.buttons\" (click)=\"btnClick(b)\" [ngClass]=\"b.cssClass\">\n          {{b.text}}\n        </button>\n      </div>\n    </div>\n    ",
+	            template: "\n    <ion-backdrop (click)=\"bdClick()\"></ion-backdrop>\n    <div class=\"alert-wrapper\">\n      <div class=\"alert-head\">\n        <h2 id=\"{{hdrId}}\" class=\"alert-title\" *ngIf=\"d.title\" [innerHTML]=\"d.title\"></h2>\n        <h3 id=\"{{subHdrId}}\" class=\"alert-sub-title\" *ngIf=\"d.subTitle\" [innerHTML]=\"d.subTitle\"></h3>\n      </div>\n      <div id=\"{{msgId}}\" class=\"alert-message\" [innerHTML]=\"d.message\"></div>\n      <div *ngIf=\"d.inputs.length\" [ngSwitch]=\"inputType\">\n\n        <template ngSwitchCase=\"radio\">\n          <div class=\"alert-radio-group\" role=\"radiogroup\" [attr.aria-labelledby]=\"hdrId\" [attr.aria-activedescendant]=\"activeId\">\n            <button category=\"alert-radio-button\" *ngFor=\"let i of d.inputs\" (click)=\"rbClick(i)\" [attr.aria-checked]=\"i.checked\" [disabled]=\"i.disabled\" [attr.id]=\"i.id\" class=\"alert-tappable alert-radio\" role=\"radio\">\n              <div class=\"alert-radio-icon\"><div class=\"alert-radio-inner\"></div></div>\n              <div class=\"alert-radio-label\">\n                {{i.label}}\n              </div>\n            </button>\n          </div>\n        </template>\n\n        <template ngSwitchCase=\"checkbox\">\n          <div class=\"alert-checkbox-group\">\n            <button category=\"alert-checkbox-button\" *ngFor=\"let i of d.inputs\" (click)=\"cbClick(i)\" [attr.aria-checked]=\"i.checked\" [disabled]=\"i.disabled\" class=\"alert-tappable alert-checkbox\" role=\"checkbox\">\n              <div class=\"alert-checkbox-icon\"><div class=\"alert-checkbox-inner\"></div></div>\n              <div class=\"alert-checkbox-label\">\n                {{i.label}}\n              </div>\n            </button>\n          </div>\n        </template>\n\n        <template ngSwitchDefault>\n          <div class=\"alert-input-group\">\n            <div *ngFor=\"let i of d.inputs\" class=\"alert-input-wrapper\">\n              <input [placeholder]=\"i.placeholder\" [(ngModel)]=\"i.value\" [type]=\"i.type\" class=\"alert-input\">\n            </div>\n          </div>\n        </template>\n\n      </div>\n      <div class=\"alert-button-group\" [ngClass]=\"{vertical: d.buttons.length>2}\">\n        <button category=\"alert-button\" *ngFor=\"let b of d.buttons\" (click)=\"btnClick(b)\" [ngClass]=\"b.cssClass\">\n          {{b.text}}\n        </button>\n      </div>\n    </div>\n    ",
 	            host: {
 	                'role': 'dialog',
 	                '[attr.aria-labelledby]': 'hdrId',
@@ -76318,7 +76319,8 @@
 	                    type: (_this._multi ? 'checkbox' : 'radio'),
 	                    label: input.text,
 	                    value: input.value,
-	                    checked: input.checked
+	                    checked: input.checked,
+	                    disabled: input.disabled
 	                };
 	            });
 	            // create the alert instance from our built up alertOptions
@@ -76583,6 +76585,7 @@
 	    function Option(_elementRef) {
 	        this._elementRef = _elementRef;
 	        this._checked = false;
+	        this._disabled = false;
 	        /**
 	         * @input {any} Event to evaluate when option is selected
 	         */
@@ -76617,6 +76620,19 @@
 	        enumerable: true,
 	        configurable: true
 	    });
+	    Object.defineProperty(Option.prototype, "disabled", {
+	        /**
+	         * @input {boolean} Whether or not the option is disabled
+	         */
+	        get: function () {
+	            return this._disabled;
+	        },
+	        set: function (val) {
+	            this._disabled = util_1.isTrueProperty(val);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Option.prototype, "text", {
 	        /**
 	         * @private
@@ -76639,6 +76655,10 @@
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
 	    ], Option.prototype, "value", null);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Object)
+	    ], Option.prototype, "disabled", null);
 	    Option = __decorate([
 	        core_1.Directive({
 	            selector: 'ion-option'

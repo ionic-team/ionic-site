@@ -84,6 +84,13 @@ Improve this doc
 </td>
     </tr>
     
+    <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether or not the option is disabled</p>
+</td>
+    </tr>
+    
   </tbody>
 </table>
 <!-- output events on the class -->

@@ -57237,6 +57237,7 @@
 	    };
 	    /**
 	     * @private
+	     * onDismiss(..) has been deprecated. Please use onDidDismiss(..) instead
 	     */
 	    ViewController.prototype.onDismiss = function (callback) {
 	        // deprecated warning: added beta.11 2016-06-30

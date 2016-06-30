@@ -143,15 +143,7 @@ class PopoverPage {
 
 </h3>
 
-Create a popover with the following options
-
-| Option                | Type       | Description                                                                                                      |
-|-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
-| cssClass              |`string`    | An additional class for custom styles.                                                                           |
-| showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
-| enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
-
-
+Present a popover. See below for options
 
 
 <table class="table param-table" style="margin:0;">
@@ -223,6 +215,34 @@ Create a popover with the following options
 
 
 
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>Popover Options</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cssClass</td>
+<td><code>string</code></td>
+<td>An additional class for custom styles.</td>
+</tr>
+<tr>
+<td>showBackdrop</td>
+<td><code>boolean</code></td>
+<td>Whether to show the backdrop. Default true.</td>
+</tr>
+<tr>
+<td>enableBackdropDismiss</td>
+<td><code>boolean</code></td>
+<td>Whether the popover should be dismissed by tapping the backdrop. Default true.</td>
+</tr>
+</tbody>
+</table>
 
 
 

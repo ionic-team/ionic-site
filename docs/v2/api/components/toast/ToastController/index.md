@@ -113,18 +113,7 @@ presentToast() {
 
 </h3>
 
-Toast options
-
- | Property              | Type      | Default         | Description                                                                                                   |
- |-----------------------|-----------|-----------------|---------------------------------------------------------------------------------------------------------------|
- | message               | `string`  | -               | The message for the toast. Long strings will wrap and the toast container will expand.                        |
- | duration              | `number`  | -               | How many milliseconds to wait before hiding the toast. By default, it will show until `dismiss()` is called.  |
- | position              | `string`  | "bottom"        | The position of the toast on the screen. Accepted values: "top", "middle", "bottom".                          |
- | cssClass              | `string`  | -               | Any additional class for custom styles.                                                                       |
- | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
- | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |
- | dismissOnPageChange   | `boolean` | false           | Whether to dismiss the toast when navigating to a new page.                                                   |
-
+Create a new toast component. See options below
 
 
 <table class="table param-table" style="margin:0;">
@@ -162,6 +151,61 @@ Toast options
 
 
 
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td><code>string</code></td>
+<td>-</td>
+<td>The message for the toast. Long strings will wrap and the toast container will expand.</td>
+</tr>
+<tr>
+<td>duration</td>
+<td><code>number</code></td>
+<td>-</td>
+<td>How many milliseconds to wait before hiding the toast. By default, it will show until <code>dismiss()</code> is called.</td>
+</tr>
+<tr>
+<td>position</td>
+<td><code>string</code></td>
+<td>&quot;bottom&quot;</td>
+<td>The position of the toast on the screen. Accepted values: &quot;top&quot;, &quot;middle&quot;, &quot;bottom&quot;.</td>
+</tr>
+<tr>
+<td>cssClass</td>
+<td><code>string</code></td>
+<td>-</td>
+<td>Any additional class for custom styles.</td>
+</tr>
+<tr>
+<td>showCloseButton</td>
+<td><code>boolean</code></td>
+<td>false</td>
+<td>Whether or not to show a button to close the toast.</td>
+</tr>
+<tr>
+<td>closeButtonText</td>
+<td><code>string</code></td>
+<td>&quot;Close&quot;</td>
+<td>Text to display in the close button.</td>
+</tr>
+<tr>
+<td>dismissOnPageChange</td>
+<td><code>boolean</code></td>
+<td>false</td>
+<td>Whether to dismiss the toast when navigating to a new page.</td>
+</tr>
+</tbody>
+</table>
 
 
 

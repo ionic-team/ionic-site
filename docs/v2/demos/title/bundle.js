@@ -50984,6 +50984,9 @@
 	    return queryParams;
 	}
 	exports.getQuerystring = getQuerystring;
+	/**
+	 * @private
+	 */
 	function reorderArray(array, indexes) {
 	    var element = array[indexes.from];
 	    array.splice(indexes.from, 1);
@@ -53189,6 +53192,9 @@
 	var slide_gesture_1 = __webpack_require__(348);
 	var util_1 = __webpack_require__(337);
 	var dom_1 = __webpack_require__(334);
+	/**
+	 * @private
+	 */
 	var SlideEdgeGesture = (function (_super) {
 	    __extends(SlideEdgeGesture, _super);
 	    function SlideEdgeGesture(element, opts) {
@@ -53239,6 +53245,9 @@
 	};
 	var drag_gesture_1 = __webpack_require__(349);
 	var util_1 = __webpack_require__(351);
+	/**
+	 * @private
+	 */
 	var SlideGesture = (function (_super) {
 	    __extends(SlideGesture, _super);
 	    function SlideGesture(element, opts) {
@@ -57163,17 +57172,7 @@
 	    });
 	    Object.defineProperty(ViewController.prototype, "index", {
 	        /**
-	         * You can find out the index of the current view is in the current navigation stack.
-	         *
-	         * ```ts
-	         *  export class Page1 {
-	         *    constructor(private view: ViewController){
-	         *      // Just log out the index
-	         *      console.log(this.view.index);
-	         *    }
-	         *  }
-	         * ```
-	         *
+	         * Get the index of the current component in the current navigation stack.
 	         * @returns {number} Returns the index of this page within its `NavController`.
 	         */
 	        get: function () {
@@ -57306,20 +57305,10 @@
 	        return this._nbDir;
 	    };
 	    /**
-	     * You can find out of the current view has a Navbar or not. Be sure
+	     *
+	     * Find out if the current component has a NavBar or not. Be sure
 	     * to wrap this in an `ionViewWillEnter` method in order to make sure
 	     * the view has rendered fully.
-	     *
-	     * ```ts
-	     * export class Page1 {
-	     *  constructor(private viewCtrl: ViewController) {}
-	     *
-	     *  ionViewWillEnter(){
-	     *    console.log('Do we have a Navbar?', this.viewCtrl.hasNavbar());
-	     *  }
-	     *}
-	     * ```
-	     *
 	     * @returns {boolean} Returns a boolean if this Page has a navbar or not.
 	     */
 	    ViewController.prototype.hasNavbar = function () {
@@ -57368,19 +57357,8 @@
 	        return navbar && navbar.getBackgroundRef();
 	    };
 	    /**
-	     * You can change the text of the back button on a view-by-view basis.
-	     *
-	     * ```ts
-	     * export class MyClass{
-	     *  constructor(private viewCtrl: ViewController) {}
-	     *
-	     *  ionViewWillEnter() {
-	     *    this.viewCtrl.setBackButtonText('Previous');
-	     *  }
-	     * }
-	     * ```
-	     * Make sure you use the view events when calling this method, otherwise the back-button will not have been created
-	     *
+	     * Change the title of the back-button. Be sure to call this
+	     * after `ionViewWillEnter` to make sure the  DOM has been rendered.
 	     * @param {string} backButtonText Set the back button text.
 	     */
 	    ViewController.prototype.setBackButtonText = function (val) {
@@ -57390,7 +57368,8 @@
 	        }
 	    };
 	    /**
-	     * Set if the back button for the current view is visible or not. Be sure to wrap this in `ionViewWillEnter` to make sure the has been compleltly rendered.
+	     * Set if the back button for the current view is visible or not. Be sure to call this
+	     * after `ionViewWillEnter` to make sure the  DOM has been rendered.
 	     * @param {boolean} Set if this Page's back button should show or not.
 	     */
 	    ViewController.prototype.showBackButton = function (shouldShow) {
@@ -77404,6 +77383,7 @@
 	}(view_controller_1.ViewController));
 	exports.Picker = Picker;
 	/**
+	 * @private
 	 * @name PickerController
 	 * @description
 	 *
@@ -82718,6 +82698,15 @@
 	 *   }
 	 * }
 	 * ```
+	 * @advanced
+	 * Popover Options
+	 *
+	 * | Option                | Type       | Description                                                                                                      |
+	 * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
+	 * | cssClass              |`string`    | An additional class for custom styles.                                                                           |
+	 * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
+	 * | enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
+	 *
 	 *
 	 *
 	 * @demo /docs/v2/demos/popover/
@@ -82727,15 +82716,7 @@
 	        this._app = _app;
 	    }
 	    /**
-	     * Create a popover with the following options
-	     *
-	     * | Option                | Type       | Description                                                                                                      |
-	     * |-----------------------|------------|------------------------------------------------------------------------------------------------------------------|
-	     * | cssClass              |`string`    | An additional class for custom styles.                                                                           |
-	     * | showBackdrop          |`boolean`   | Whether to show the backdrop. Default true.                                                                      |
-	     * | enableBackdropDismiss |`boolean`   | Whether the popover should be dismissed by tapping the backdrop. Default true.                                   |
-	     *
-	     *
+	     * Present a popover. See below for options
 	     * @param {object} componentType The Popover
 	     * @param {object} data Any data to pass to the Popover view
 	     * @param {PopoverOptions} opts Popover options
@@ -83599,6 +83580,16 @@
 	 *   toast.present();
 	 * }
 	 * ```
+	 * @advanced
+	 * | Property              | Type      | Default         | Description                                                                                                   |
+	 * |-----------------------|-----------|-----------------|---------------------------------------------------------------------------------------------------------------|
+	 * | message               | `string`  | -               | The message for the toast. Long strings will wrap and the toast container will expand.                        |
+	 * | duration              | `number`  | -               | How many milliseconds to wait before hiding the toast. By default, it will show until `dismiss()` is called.  |
+	 * | position              | `string`  | "bottom"        | The position of the toast on the screen. Accepted values: "top", "middle", "bottom".                          |
+	 * | cssClass              | `string`  | -               | Any additional class for custom styles.                                                                       |
+	 * | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
+	 * | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |
+	 * | dismissOnPageChange   | `boolean` | false           | Whether to dismiss the toast when navigating to a new page.                                                   |
 	 *
 	 * @demo /docs/v2/demos/toast/
 	 */
@@ -83607,19 +83598,7 @@
 	        this._app = _app;
 	    }
 	    /**
-	     *
-	     *  Toast options
-	     *
-	     *  | Property              | Type      | Default         | Description                                                                                                   |
-	     *  |-----------------------|-----------|-----------------|---------------------------------------------------------------------------------------------------------------|
-	     *  | message               | `string`  | -               | The message for the toast. Long strings will wrap and the toast container will expand.                        |
-	     *  | duration              | `number`  | -               | How many milliseconds to wait before hiding the toast. By default, it will show until `dismiss()` is called.  |
-	     *  | position              | `string`  | "bottom"        | The position of the toast on the screen. Accepted values: "top", "middle", "bottom".                          |
-	     *  | cssClass              | `string`  | -               | Any additional class for custom styles.                                                                       |
-	     *  | showCloseButton       | `boolean` | false           | Whether or not to show a button to close the toast.                                                           |
-	     *  | closeButtonText       | `string`  | "Close"         | Text to display in the close button.                                                                          |
-	     *  | dismissOnPageChange   | `boolean` | false           | Whether to dismiss the toast when navigating to a new page.                                                   |
-	     *
+	     * Create a new toast component. See options below
 	     * @param {ToastOptions} opts Toast options. See the above table for available options.
 	     */
 	    ToastController.prototype.create = function (opts) {

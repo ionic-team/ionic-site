@@ -64749,9 +64749,9 @@
 	            if (this._tabbarPlacement === 'top') {
 	                newVal += this._tabbarHeight;
 	            }
-	            if (newVal !== this.adjustedTop) {
+	            if (newVal !== this.contentTop) {
 	                scrollEle.style.paddingTop = (newVal > 0 ? newVal + 'px' : '');
-	                this.adjustedTop = newVal;
+	                this.contentTop = newVal;
 	            }
 	            newVal = this._footerHeight + this._paddingBottom;
 	            if (this._tabbarPlacement === 'bottom') {
@@ -64760,9 +64760,9 @@
 	                    this._footerEle.style.bottom = (newVal - this._footerHeight - this._paddingBottom) + 'px';
 	                }
 	            }
-	            if (newVal !== this.adjustedBottom) {
+	            if (newVal !== this.contentBottom) {
 	                scrollEle.style.paddingBottom = (newVal > 0 ? newVal + 'px' : '');
-	                this.adjustedBottom = newVal;
+	                this.contentBottom = newVal;
 	            }
 	        }
 	        else {
@@ -64771,17 +64771,17 @@
 	            if (this._tabbarPlacement === 'top') {
 	                newVal += this._tabbarHeight;
 	            }
-	            if (newVal !== this.adjustedTop) {
+	            if (newVal !== this.contentTop) {
 	                scrollEle.style.marginTop = (newVal > 0 ? newVal + 'px' : '');
-	                this.adjustedTop = newVal;
+	                this.contentTop = newVal;
 	            }
 	            newVal = this._footerHeight;
 	            if (this._tabbarPlacement === 'bottom') {
 	                newVal += this._tabbarHeight;
 	            }
-	            if (newVal !== this.adjustedBottom) {
+	            if (newVal !== this.contentBottom) {
 	                scrollEle.style.marginBottom = (newVal > 0 ? newVal + 'px' : '');
-	                this.adjustedBottom = newVal;
+	                this.contentBottom = newVal;
 	                if (newVal > 0 && this._footerEle) {
 	                    this._footerEle.style.bottom = (newVal - this._footerHeight) + 'px';
 	                }
@@ -66882,8 +66882,8 @@
 	        }
 	        var coord = dom_1.pointerCoord(ev);
 	        console.debug('Pull-to-refresh, onStart', ev.type, 'y:', coord.y);
-	        if (this._content.adjustedTop > 0) {
-	            var newTop = this._content.adjustedTop + 'px';
+	        if (this._content.contentTop > 0) {
+	            var newTop = this._content.contentTop + 'px';
 	            if (this._top !== newTop) {
 	                this._top = newTop;
 	            }

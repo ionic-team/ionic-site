@@ -85,6 +85,50 @@ export class MyPage{
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="contentTop"></div>
+
+<h3>
+<a class="anchor" name="contentTop" href="#contentTop"></a>
+<code>contentTop</code>
+  
+
+</h3>
+
+A number representing how many pixels the top of the content has been
+adjusted, which could be by either padding or margin.
+
+
+
+
+
+
+
+
+
+
+
+<div id="contentBottom"></div>
+
+<h3>
+<a class="anchor" name="contentBottom" href="#contentBottom"></a>
+<code>contentBottom</code>
+  
+
+</h3>
+
+A number representing how many pixels the bottom of the content has been
+adjusted, which could be by either padding or margin.
+
+
+
+
+
+
+
+
+
+
+
 <div id="scrollTo"></div>
 
 <h3>

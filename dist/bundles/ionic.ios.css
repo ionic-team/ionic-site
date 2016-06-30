@@ -5151,9 +5151,6 @@ button[disabled],
     background-color: #327eff;
     opacity: 1; }
 
-.hairlines .button-outline {
-  border-width: 0.55px; }
-
 .button-clear {
   border-color: transparent;
   color: #327eff;

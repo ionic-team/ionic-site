@@ -56810,15 +56810,21 @@
 	            this._c[i]._setTrans(duration, forcedLinearEasing);
 	        }
 	        if (Object.keys(this._fx).length) {
+	            easing = (forcedLinearEasing ? 'linear' : this.getEasing());
 	            for (i = 0; i < this._el.length; i++) {
-	                // all parent/child animations should have the same duration
-	                // ******** DOM WRITE ****************
-	                this._el[i].style[dom_1.CSS.transitionDuration] = duration + 'ms';
-	                // each animation can have a different easing
-	                easing = (forcedLinearEasing ? 'linear' : this.getEasing());
-	                if (easing) {
+	                if (duration > 0) {
+	                    // all parent/child animations should have the same duration
 	                    // ******** DOM WRITE ****************
-	                    this._el[i].style[dom_1.CSS.transitionTimingFn] = easing;
+	                    this._el[i].style[dom_1.CSS.transition] = '';
+	                    this._el[i].style[dom_1.CSS.transitionDuration] = duration + 'ms';
+	                    // each animation can have a different easing
+	                    if (easing) {
+	                        // ******** DOM WRITE ****************
+	                        this._el[i].style[dom_1.CSS.transitionTimingFn] = easing;
+	                    }
+	                }
+	                else {
+	                    this._el[i].style[dom_1.CSS.transition] = 'none';
 	                }
 	            }
 	        }
@@ -56984,6 +56990,8 @@
 	            // ******** DOM WRITE ****************
 	            this._c[i].progressStart();
 	        }
+	        // ******** DOM WRITE ****************
+	        this._willChg(true);
 	        // ******** DOM WRITE ****************
 	        this._before();
 	        // force no duration, linear easing

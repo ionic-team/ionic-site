@@ -78649,8 +78649,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var util_1 = __webpack_require__(337);
 	var dom_1 = __webpack_require__(334);
+	var util_1 = __webpack_require__(337);
 	var native_input_1 = __webpack_require__(434);
 	var InputBase = (function () {
 	    function InputBase(config, _form, _item, _app, _platform, _elementRef, _scrollView, _nav, ngControl) {
@@ -78665,8 +78665,8 @@
 	        this._type = 'text';
 	        this._value = '';
 	        this.placeholder = '';
-	        this.blur = new core_1.EventEmitter;
-	        this.focus = new core_1.EventEmitter;
+	        this.blur = new core_1.EventEmitter();
+	        this.focus = new core_1.EventEmitter();
 	        this._useAssist = config.getBoolean('scrollAssist', false);
 	        this._usePadding = config.getBoolean('scrollPadding', this._useAssist);
 	        this._keyboardHeight = config.getNumber('keyboardHeight');

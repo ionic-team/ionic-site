@@ -47,6 +47,20 @@ Ionic provides a set of SCSS/CSS utility attributes that can help when developin
 | `padding-horizontal` | adds padding to the left and right  |
 | `no-padding`         | removes any padding                 |
 
+### Element Margin
+
+
+| Attribute            | Description                         |
+|----------------------|-------------------------------------|
+| `margin`             | adds margin to the whole element    |
+| `margin-top`         | adds margin-top                     |
+| `margin-left`        | adds margin-left                    |
+| `margin-right`       | adds margin-right                   |
+| `margin-bottom`      | adds margin-bottom                  |
+| `margin-vertical`    | adds margin to the top and botttom  |
+| `margin-horizontal`  | adds margin to the left and right   |
+| `no-margin`          | removes any margin                  |
+
 
 ### `ion-buttons` property
 

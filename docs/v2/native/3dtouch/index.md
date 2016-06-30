@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.3.1"
+version: "1.3.2"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -177,11 +177,7 @@ You can get a notification when the user force touches the webview. The plugin d
 <div id="onHomeIconPressed"></div>
 <h3><code>onHomeIconPressed()</code>
   
-</h3>
-
-
-
-When a home icon is pressed, your app launches and this JS callback is invoked.
+</h3>When a home icon is pressed, your app launches and this JS callback is invoked.
 
 
 

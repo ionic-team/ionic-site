@@ -16,29 +16,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var ModalFirstPage = (function () {
-    function ModalFirstPage(nav) {
-        this.nav = nav;
+    function ModalFirstPage(modalCtrl) {
+        this.modalCtrl = modalCtrl;
         this.myParam = '';
     }
     ModalFirstPage.prototype.openBasicModal = function () {
-        var myModal = ionic_angular_1.Modal.create(ModalContentPage);
-        this.nav.present(myModal);
+        var myModal = this.modalCtrl.create(ModalContentPage);
+        myModal.present();
     };
     ModalFirstPage.prototype.openModalWithParams = function () {
-        var myModal = ionic_angular_1.Modal.create(ModalContentPage, { 'myParam': this.myParam });
-        this.nav.present(myModal);
+        var myModal = this.modalCtrl.create(ModalContentPage, { 'myParam': this.myParam });
+        myModal.present();
     };
     ModalFirstPage.prototype.openCustomAnimationModal = function () {
-        var myModal = ionic_angular_1.Modal.create(ModalContentPage, {
+        var myModal = this.modalCtrl.create(ModalContentPage, {
             animation: 'my-fade-in',
         });
-        this.nav.present(myModal);
+        myModal.present();
     };
     ModalFirstPage = __decorate([
         core_1.Component({
             templateUrl: 'main.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.ModalController !== 'undefined' && ionic_angular_1.ModalController) === 'function' && _a) || Object])
     ], ModalFirstPage);
     return ModalFirstPage;
     var _a;
@@ -84,7 +84,7 @@ var FadeIn = (function (_super) {
             .easing('ease')
             .duration(1000)
             .fromTo('translateY', '0%', '0%')
-            .fadeIn()
+            .fromTo('opacity', 0, 1)
             .before.addClass('show-page');
     }
     return FadeIn;
@@ -97,7 +97,7 @@ var FadeOut = (function (_super) {
         this
             .easing('ease')
             .duration(500)
-            .fadeOut()
+            .fromTo('opacity', 1, 0)
             .before.addClass('show-page');
     }
     return FadeOut;

@@ -11,51 +11,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var ApiDemoPage = (function () {
-    function ApiDemoPage(nav) {
-        this.nav = nav;
+    function ApiDemoPage(toastCtrl) {
+        this.toastCtrl = toastCtrl;
     }
     ApiDemoPage.prototype.showToast = function (position) {
-        var toast = ionic_angular_1.Toast.create({
+        var toast = this.toastCtrl.create({
             message: 'User was created successfully',
             position: position,
             duration: 3000
         });
         toast.onDismiss(this.dismissHandler);
-        this.nav.present(toast);
+        toast.present();
     };
     ApiDemoPage.prototype.showLongToast = function () {
-        var toast = ionic_angular_1.Toast.create({
+        var toast = this.toastCtrl.create({
             message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptatibus quibusdam eum nihil optio, ullam accusamus magni, nobis suscipit reprehenderit, sequi quam amet impedit. Accusamus dolorem voluptates laborum dolor obcaecati.',
             duration: 3000
         });
         toast.onDismiss(this.dismissHandler);
-        this.nav.present(toast);
+        toast.present();
     };
     ApiDemoPage.prototype.showDismissDurationToast = function () {
-        var toast = ionic_angular_1.Toast.create({
+        var toast = this.toastCtrl.create({
             message: 'I am dismissed after 1.5 seconds',
             duration: 1500
         });
         toast.onDismiss(this.dismissHandler);
-        this.nav.present(toast);
+        toast.present();
     };
     ApiDemoPage.prototype.showToastWithCloseButton = function () {
-        var toast = ionic_angular_1.Toast.create({
+        var toast = this.toastCtrl.create({
             message: 'Your internet connection appears to be offline. Data integrity is not guaranteed.',
             showCloseButton: true,
             closeButtonText: 'Ok'
         });
         toast.onDismiss(this.dismissHandler);
-        this.nav.present(toast);
+        toast.present();
     };
-    ApiDemoPage.prototype.dismissHandler = function (toast) {
+    ApiDemoPage.prototype.dismissHandler = function () {
         console.info('Toast onDismiss()');
     };
     ApiDemoPage = __decorate([
         core_1.Component({
             templateUrl: 'main.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.ToastController !== 'undefined' && ionic_angular_1.ToastController) === 'function' && _a) || Object])
     ], ApiDemoPage);
     return ApiDemoPage;
     var _a;

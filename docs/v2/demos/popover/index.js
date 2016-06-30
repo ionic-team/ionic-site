@@ -78,15 +78,15 @@ var PopoverRadioPage = (function () {
     var _a;
 }());
 var ApiDemoPage = (function () {
-    function ApiDemoPage(nav) {
-        this.nav = nav;
+    function ApiDemoPage(popoverCtrl) {
+        this.popoverCtrl = popoverCtrl;
     }
     ApiDemoPage.prototype.presentRadioPopover = function (ev) {
-        var popover = ionic_angular_1.Popover.create(PopoverRadioPage, {
+        var popover = this.popoverCtrl.create(PopoverRadioPage, {
             contentEle: this.content.nativeElement,
             textEle: this.text.nativeElement
         });
-        this.nav.present(popover, {
+        popover.present({
             ev: ev
         });
     };
@@ -102,7 +102,7 @@ var ApiDemoPage = (function () {
         core_1.Component({
             templateUrl: 'main.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_c = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _c) || Object])
+        __metadata('design:paramtypes', [(typeof (_c = typeof ionic_angular_1.PopoverController !== 'undefined' && ionic_angular_1.PopoverController) === 'function' && _c) || Object])
     ], ApiDemoPage);
     return ApiDemoPage;
     var _a, _b, _c;

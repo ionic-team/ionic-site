@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ionic_angular_1 = require('ionic-angular');
 var ApiDemoPage = (function () {
-    function ApiDemoPage(nav) {
-        this.nav = nav;
+    function ApiDemoPage(toastCtrl) {
+        this.toastCtrl = toastCtrl;
         this.editButton = 'Edit';
         this.editing = false;
         this.chats = [
@@ -110,13 +110,13 @@ var ApiDemoPage = (function () {
     };
     ApiDemoPage.prototype.download = function (item) {
         var _this = this;
-        item.setClass('downloading', true);
+        item.setCssClass('downloading', true);
         setTimeout(function () {
-            var toast = ionic_angular_1.Toast.create({
+            var toast = _this.toastCtrl.create({
                 message: 'Item was downloaded!'
             });
-            _this.nav.present(toast);
-            item.setClass('downloading', false);
+            toast.present();
+            item.setCssClass('downloading', false);
             item.close();
             // Wait 2s to close toast
             setTimeout(function () { return toast.dismiss(); }, 2000);
@@ -127,7 +127,7 @@ var ApiDemoPage = (function () {
             templateUrl: 'main.html',
             encapsulation: core_1.ViewEncapsulation.None
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.NavController !== 'undefined' && ionic_angular_1.NavController) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof ionic_angular_1.ToastController !== 'undefined' && ionic_angular_1.ToastController) === 'function' && _a) || Object])
     ], ApiDemoPage);
     return ApiDemoPage;
     var _a;

@@ -51076,14 +51076,15 @@
 	var app_1 = __webpack_require__(332);
 	var config_1 = __webpack_require__(335);
 	var keyboard_1 = __webpack_require__(339);
-	var nav_controller_1 = __webpack_require__(342);
+	var menu_controller_1 = __webpack_require__(342);
+	var nav_controller_1 = __webpack_require__(343);
 	/**
 	 * @private
 	 */
 	var NavPortal = (function (_super) {
 	    __extends(NavPortal, _super);
-	    function NavPortal(app, config, keyboard, elementRef, zone, renderer, compiler, viewPort) {
-	        _super.call(this, null, app, config, keyboard, elementRef, zone, renderer, compiler);
+	    function NavPortal(app, config, keyboard, elementRef, zone, renderer, compiler, menuCtrl, viewPort) {
+	        _super.call(this, null, app, config, keyboard, elementRef, zone, renderer, compiler, menuCtrl);
 	        this.isPortal = true;
 	        this.setViewport(viewPort);
 	        app.setPortal(this);
@@ -51096,10 +51097,10 @@
 	            selector: '[nav-portal]'
 	        }),
 	        __param(0, core_1.Inject(core_1.forwardRef(function () { return app_1.App; }))), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _g) || Object, (typeof (_h = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _h) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _a) || Object, (typeof (_b = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _b) || Object, (typeof (_c = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _c) || Object, (typeof (_d = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _d) || Object, (typeof (_e = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _e) || Object, (typeof (_f = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _f) || Object, (typeof (_g = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _g) || Object, (typeof (_h = typeof menu_controller_1.MenuController !== 'undefined' && menu_controller_1.MenuController) === 'function' && _h) || Object, (typeof (_j = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _j) || Object])
 	    ], NavPortal);
 	    return NavPortal;
-	    var _a, _b, _c, _d, _e, _f, _g, _h;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 	}(nav_controller_1.NavController));
 	exports.NavPortal = NavPortal;
 
@@ -51382,6 +51383,290 @@
 
 /***/ },
 /* 342 */
+/***/ function(module, exports) {
+
+	"use strict";
+	/**
+	 * @name MenuController
+	 * @description
+	 * The MenuController is a provider which makes it easy to control a [Menu](../Menu).
+	 * Its methods can be used to display the menu, enable the menu, toggle the menu, and more.
+	 * The controller will grab a reference to the menu by the `side`, `id`, or, if neither
+	 * of these are passed to it, it will grab the first menu it finds.
+	 *
+	 *
+	 * @usage
+	 *
+	 * Add a basic menu component to start with. See the [Menu](../Menu) API docs
+	 * for more information on adding menu components.
+	 *
+	 * ```html
+	 * <ion-menu [content]="mycontent">
+	 *   <ion-content>
+	 *     <ion-list>
+	 *     ...
+	 *     </ion-list>
+	 *   </ion-content>
+	 * </ion-menu>
+	 *
+	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * ```
+	 *
+	 * To call the controller methods, inject the `MenuController` provider
+	 * into the page. Then, create some methods for opening, closing, and
+	 * toggling the menu.
+	 *
+	 * ```ts
+	 * import {Component} from '@angular/core';
+	 * import {MenuController} from 'ionic-angular';
+	 *
+	 * @Component({...})
+	 * export class MyPage {
+	 *
+	 *  constructor(private menu: MenuController) {
+	 *
+	 *  }
+	 *
+	 *  openMenu() {
+	 *    this.menu.open();
+	 *  }
+	 *
+	 *  closeMenu() {
+	 *    this.menu.close();
+	 *  }
+	 *
+	 *  toggleMenu() {
+	 *    this.menu.toggle();
+	 *  }
+	 *
+	 * }
+	 * ```
+	 *
+	 * Since only one menu exists, the `MenuController` will grab the
+	 * correct menu and call the correct method for each.
+	 *
+	 *
+	 * ### Multiple Menus on Different Sides
+	 *
+	 * For applications with both a left and right menu, the desired menu can be
+	 * grabbed by passing the `side` of the menu. If nothing is passed, it will
+	 * default to the `"left"` menu.
+	 *
+	 * ```html
+	 * <ion-menu side="left" [content]="mycontent">...</ion-menu>
+	 * <ion-menu side="right" [content]="mycontent">...</ion-menu>
+	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * ```
+	 *
+	 * ```ts
+	 *  toggleLeftMenu() {
+	 *    this.menu.toggle();
+	 *  }
+	 *
+	 *  toggleRightMenu() {
+	 *    this.menu.toggle('right');
+	 *  }
+	 * ```
+	 *
+	 *
+	 * ### Multiple Menus on the Same Side
+	 *
+	 * An application can have multiple menus on the same side. In order to determine
+	 * the menu to control, an `id` should be passed. In the example below, the menu
+	 * with the `authenticated` id will be enabled, and the menu with the `unauthenticated`
+	 * id will be disabled.
+	 *
+	 * ```html
+	 * <ion-menu id="authenticated" side="left" [content]="mycontent">...</ion-menu>
+	 * <ion-menu id="unauthenticated" side="left" [content]="mycontent">...</ion-menu>
+	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
+	 * ```
+	 *
+	 * ```ts
+	 *  enableAuthenticatedMenu() {
+	 *    this.menu.enable(true, 'authenticated');
+	 *    this.menu.enable(false, 'unauthenticated');
+	 *  }
+	 * ```
+	 *
+	 * Note: if an app only has one menu, there is no reason to pass an `id`.
+	 *
+	 *
+	 * @demo /docs/v2/demos/menu/
+	 *
+	 * @see {@link /docs/v2/components#menus Menu Component Docs}
+	 * @see {@link ../Menu Menu API Docs}
+	 *
+	 */
+	var MenuController = (function () {
+	    function MenuController() {
+	        this._menus = [];
+	    }
+	    /**
+	     * Progamatically open the Menu.
+	     * @return {Promise} returns a promise when the menu is fully opened
+	     */
+	    MenuController.prototype.open = function (menuId) {
+	        var menu = this.get(menuId);
+	        if (menu) {
+	            return menu.open();
+	        }
+	        return Promise.resolve(false);
+	    };
+	    /**
+	     * Progamatically close the Menu. If no `menuId` is given as the first
+	     * argument then it'll close any menu which is open. If a `menuId`
+	     * is given then it'll close that exact menu.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Promise} returns a promise when the menu is fully closed
+	     */
+	    MenuController.prototype.close = function (menuId) {
+	        var menu;
+	        if (menuId) {
+	            // find the menu by its id
+	            menu = this.get(menuId);
+	        }
+	        else {
+	            // find the menu that is open
+	            menu = this._menus.find(function (m) { return m.isOpen; });
+	        }
+	        if (menu) {
+	            // close the menu
+	            return menu.close();
+	        }
+	        return Promise.resolve(false);
+	    };
+	    MenuController.prototype.tempDisable = function (temporarilyDisable) {
+	        this._menus.forEach(function (menu) {
+	            menu.tempDisable(temporarilyDisable);
+	        });
+	    };
+	    /**
+	     * Toggle the menu. If it's closed, it will open, and if opened, it
+	     * will close.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Promise} returns a promise when the menu has been toggled
+	     */
+	    MenuController.prototype.toggle = function (menuId) {
+	        var menu = this.get(menuId);
+	        if (menu) {
+	            return menu.toggle();
+	        }
+	        return Promise.resolve(false);
+	    };
+	    /**
+	     * Used to enable or disable a menu. For example, there could be multiple
+	     * left menus, but only one of them should be able to be opened at the same
+	     * time. If there are multiple menus on the same side, then enabling one menu
+	     * will also automatically disable all the others that are on the same side.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
+	     */
+	    MenuController.prototype.enable = function (shouldEnable, menuId) {
+	        var menu = this.get(menuId);
+	        if (menu) {
+	            return menu.enable(shouldEnable);
+	        }
+	    };
+	    /**
+	     * Used to enable or disable the ability to swipe open the menu.
+	     * @param {boolean} shouldEnable  True if it should be swipe-able, false if not.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
+	     */
+	    MenuController.prototype.swipeEnable = function (shouldEnable, menuId) {
+	        var menu = this.get(menuId);
+	        if (menu) {
+	            return menu.swipeEnable(shouldEnable);
+	        }
+	    };
+	    /**
+	     * @return {boolean} Returns true if the menu is currently open, otherwise false.
+	     */
+	    MenuController.prototype.isOpen = function (menuId) {
+	        var menu = this.get(menuId);
+	        return menu && menu.isOpen || false;
+	    };
+	    /**
+	     * @return {boolean} Returns true if the menu is currently enabled, otherwise false.
+	     */
+	    MenuController.prototype.isEnabled = function (menuId) {
+	        var menu = this.get(menuId);
+	        return menu && menu.enabled || false;
+	    };
+	    /**
+	     * Used to get a menu instance. If a `menuId` is not provided then it'll
+	     * return the first menu found. If a `menuId` is `left` or `right`, then
+	     * it'll return the enabled menu on that side. Otherwise, if a `menuId` is
+	     * provided, then it'll try to find the menu using the menu's `id`
+	     * property. If a menu is not found then it'll return `null`.
+	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
+	     * @return {Menu}  Returns the instance of the menu if found, otherwise `null`.
+	     */
+	    MenuController.prototype.get = function (menuId) {
+	        var menu;
+	        if (menuId === 'left' || menuId === 'right') {
+	            // there could be more than one menu on the same side
+	            // so first try to get the enabled one
+	            menu = this._menus.find(function (m) { return m.side === menuId && m.enabled; });
+	            if (menu)
+	                return menu;
+	            // didn't find a menu side that is enabled
+	            // so try to get the first menu side found
+	            return this._menus.find(function (m) { return m.side === menuId; }) || null;
+	        }
+	        else if (menuId) {
+	            // the menuId was not left or right
+	            // so try to get the menu by its "id"
+	            return this._menus.find(function (m) { return m.id === menuId; }) || null;
+	        }
+	        // return the first enabled menu
+	        menu = this._menus.find(function (m) { return m.enabled; });
+	        if (menu)
+	            return menu;
+	        // get the first menu in the array, if one exists
+	        return (this._menus.length ? this._menus[0] : null);
+	    };
+	    /**
+	     * @return {Array<Menu>}  Returns an array of all menu instances.
+	     */
+	    MenuController.prototype.getMenus = function () {
+	        return this._menus;
+	    };
+	    /**
+	     * @private
+	     */
+	    MenuController.prototype.register = function (menu) {
+	        this._menus.push(menu);
+	    };
+	    /**
+	     * @private
+	     */
+	    MenuController.prototype.unregister = function (menu) {
+	        var index = this._menus.indexOf(menu);
+	        if (index > -1) {
+	            this._menus.splice(index, 1);
+	        }
+	    };
+	    /**
+	     * @private
+	     */
+	    MenuController.registerType = function (name, cls) {
+	        menuTypes[name] = cls;
+	    };
+	    /**
+	     * @private
+	     */
+	    MenuController.create = function (type, menuCmp, platform) {
+	        return new menuTypes[type](menuCmp, platform);
+	    };
+	    return MenuController;
+	}());
+	exports.MenuController = MenuController;
+	var menuTypes = {};
+
+/***/ },
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51392,9 +51677,8 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var bootstrap_1 = __webpack_require__(115);
-	var ion_1 = __webpack_require__(343);
+	var ion_1 = __webpack_require__(344);
 	var util_1 = __webpack_require__(337);
-	var menu_controller_1 = __webpack_require__(344);
 	var nav_params_1 = __webpack_require__(345);
 	var swipe_back_1 = __webpack_require__(346);
 	var transition_1 = __webpack_require__(354);
@@ -51544,13 +51828,14 @@
 	 */
 	var NavController = (function (_super) {
 	    __extends(NavController, _super);
-	    function NavController(parent, _app, config, _keyboard, elementRef, _zone, _renderer, _compiler) {
+	    function NavController(parent, _app, config, _keyboard, elementRef, _zone, _renderer, _compiler, _menuCtrl) {
 	        _super.call(this, elementRef);
 	        this._app = _app;
 	        this._keyboard = _keyboard;
 	        this._zone = _zone;
 	        this._renderer = _renderer;
 	        this._compiler = _compiler;
+	        this._menuCtrl = _menuCtrl;
 	        this._transIds = 0;
 	        this._init = false;
 	        this._children = [];
@@ -52727,8 +53012,7 @@
 	                    edge: 'left',
 	                    threshold: this._sbThreshold
 	                };
-	                var menuCtrl = this._app.getAppInjector().get(menu_controller_1.MenuController);
-	                this._sbGesture = new swipe_back_1.SwipeBackGesture(this.getNativeElement(), opts, this, menuCtrl);
+	                this._sbGesture = new swipe_back_1.SwipeBackGesture(this.getNativeElement(), opts, this, this._menuCtrl);
 	            }
 	            if (this.canSwipeBack()) {
 	                // it is be possible to swipe back
@@ -52974,7 +53258,7 @@
 	var ctrlIds = -1;
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53011,290 +53295,6 @@
 	    return Ion;
 	}());
 	exports.Ion = Ion;
-
-/***/ },
-/* 344 */
-/***/ function(module, exports) {
-
-	"use strict";
-	/**
-	 * @name MenuController
-	 * @description
-	 * The MenuController is a provider which makes it easy to control a [Menu](../Menu).
-	 * Its methods can be used to display the menu, enable the menu, toggle the menu, and more.
-	 * The controller will grab a reference to the menu by the `side`, `id`, or, if neither
-	 * of these are passed to it, it will grab the first menu it finds.
-	 *
-	 *
-	 * @usage
-	 *
-	 * Add a basic menu component to start with. See the [Menu](../Menu) API docs
-	 * for more information on adding menu components.
-	 *
-	 * ```html
-	 * <ion-menu [content]="mycontent">
-	 *   <ion-content>
-	 *     <ion-list>
-	 *     ...
-	 *     </ion-list>
-	 *   </ion-content>
-	 * </ion-menu>
-	 *
-	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
-	 * ```
-	 *
-	 * To call the controller methods, inject the `MenuController` provider
-	 * into the page. Then, create some methods for opening, closing, and
-	 * toggling the menu.
-	 *
-	 * ```ts
-	 * import {Component} from '@angular/core';
-	 * import {MenuController} from 'ionic-angular';
-	 *
-	 * @Component({...})
-	 * export class MyPage {
-	 *
-	 *  constructor(private menu: MenuController) {
-	 *
-	 *  }
-	 *
-	 *  openMenu() {
-	 *    this.menu.open();
-	 *  }
-	 *
-	 *  closeMenu() {
-	 *    this.menu.close();
-	 *  }
-	 *
-	 *  toggleMenu() {
-	 *    this.menu.toggle();
-	 *  }
-	 *
-	 * }
-	 * ```
-	 *
-	 * Since only one menu exists, the `MenuController` will grab the
-	 * correct menu and call the correct method for each.
-	 *
-	 *
-	 * ### Multiple Menus on Different Sides
-	 *
-	 * For applications with both a left and right menu, the desired menu can be
-	 * grabbed by passing the `side` of the menu. If nothing is passed, it will
-	 * default to the `"left"` menu.
-	 *
-	 * ```html
-	 * <ion-menu side="left" [content]="mycontent">...</ion-menu>
-	 * <ion-menu side="right" [content]="mycontent">...</ion-menu>
-	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
-	 * ```
-	 *
-	 * ```ts
-	 *  toggleLeftMenu() {
-	 *    this.menu.toggle();
-	 *  }
-	 *
-	 *  toggleRightMenu() {
-	 *    this.menu.toggle('right');
-	 *  }
-	 * ```
-	 *
-	 *
-	 * ### Multiple Menus on the Same Side
-	 *
-	 * An application can have multiple menus on the same side. In order to determine
-	 * the menu to control, an `id` should be passed. In the example below, the menu
-	 * with the `authenticated` id will be enabled, and the menu with the `unauthenticated`
-	 * id will be disabled.
-	 *
-	 * ```html
-	 * <ion-menu id="authenticated" side="left" [content]="mycontent">...</ion-menu>
-	 * <ion-menu id="unauthenticated" side="left" [content]="mycontent">...</ion-menu>
-	 * <ion-nav #mycontent [root]="rootPage"></ion-nav>
-	 * ```
-	 *
-	 * ```ts
-	 *  enableAuthenticatedMenu() {
-	 *    this.menu.enable(true, 'authenticated');
-	 *    this.menu.enable(false, 'unauthenticated');
-	 *  }
-	 * ```
-	 *
-	 * Note: if an app only has one menu, there is no reason to pass an `id`.
-	 *
-	 *
-	 * @demo /docs/v2/demos/menu/
-	 *
-	 * @see {@link /docs/v2/components#menus Menu Component Docs}
-	 * @see {@link ../Menu Menu API Docs}
-	 *
-	 */
-	var MenuController = (function () {
-	    function MenuController() {
-	        this._menus = [];
-	    }
-	    /**
-	     * Progamatically open the Menu.
-	     * @return {Promise} returns a promise when the menu is fully opened
-	     */
-	    MenuController.prototype.open = function (menuId) {
-	        var menu = this.get(menuId);
-	        if (menu) {
-	            return menu.open();
-	        }
-	        return Promise.resolve(false);
-	    };
-	    /**
-	     * Progamatically close the Menu. If no `menuId` is given as the first
-	     * argument then it'll close any menu which is open. If a `menuId`
-	     * is given then it'll close that exact menu.
-	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
-	     * @return {Promise} returns a promise when the menu is fully closed
-	     */
-	    MenuController.prototype.close = function (menuId) {
-	        var menu;
-	        if (menuId) {
-	            // find the menu by its id
-	            menu = this.get(menuId);
-	        }
-	        else {
-	            // find the menu that is open
-	            menu = this._menus.find(function (m) { return m.isOpen; });
-	        }
-	        if (menu) {
-	            // close the menu
-	            return menu.close();
-	        }
-	        return Promise.resolve(false);
-	    };
-	    MenuController.prototype.tempDisable = function (temporarilyDisable) {
-	        this._menus.forEach(function (menu) {
-	            menu.tempDisable(temporarilyDisable);
-	        });
-	    };
-	    /**
-	     * Toggle the menu. If it's closed, it will open, and if opened, it
-	     * will close.
-	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
-	     * @return {Promise} returns a promise when the menu has been toggled
-	     */
-	    MenuController.prototype.toggle = function (menuId) {
-	        var menu = this.get(menuId);
-	        if (menu) {
-	            return menu.toggle();
-	        }
-	        return Promise.resolve(false);
-	    };
-	    /**
-	     * Used to enable or disable a menu. For example, there could be multiple
-	     * left menus, but only one of them should be able to be opened at the same
-	     * time. If there are multiple menus on the same side, then enabling one menu
-	     * will also automatically disable all the others that are on the same side.
-	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
-	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
-	     */
-	    MenuController.prototype.enable = function (shouldEnable, menuId) {
-	        var menu = this.get(menuId);
-	        if (menu) {
-	            return menu.enable(shouldEnable);
-	        }
-	    };
-	    /**
-	     * Used to enable or disable the ability to swipe open the menu.
-	     * @param {boolean} shouldEnable  True if it should be swipe-able, false if not.
-	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
-	     * @return {Menu}  Returns the instance of the menu, which is useful for chaining.
-	     */
-	    MenuController.prototype.swipeEnable = function (shouldEnable, menuId) {
-	        var menu = this.get(menuId);
-	        if (menu) {
-	            return menu.swipeEnable(shouldEnable);
-	        }
-	    };
-	    /**
-	     * @return {boolean} Returns true if the menu is currently open, otherwise false.
-	     */
-	    MenuController.prototype.isOpen = function (menuId) {
-	        var menu = this.get(menuId);
-	        return menu && menu.isOpen || false;
-	    };
-	    /**
-	     * @return {boolean} Returns true if the menu is currently enabled, otherwise false.
-	     */
-	    MenuController.prototype.isEnabled = function (menuId) {
-	        var menu = this.get(menuId);
-	        return menu && menu.enabled || false;
-	    };
-	    /**
-	     * Used to get a menu instance. If a `menuId` is not provided then it'll
-	     * return the first menu found. If a `menuId` is `left` or `right`, then
-	     * it'll return the enabled menu on that side. Otherwise, if a `menuId` is
-	     * provided, then it'll try to find the menu using the menu's `id`
-	     * property. If a menu is not found then it'll return `null`.
-	     * @param {string} [menuId]  Optionally get the menu by its id, or side.
-	     * @return {Menu}  Returns the instance of the menu if found, otherwise `null`.
-	     */
-	    MenuController.prototype.get = function (menuId) {
-	        var menu;
-	        if (menuId === 'left' || menuId === 'right') {
-	            // there could be more than one menu on the same side
-	            // so first try to get the enabled one
-	            menu = this._menus.find(function (m) { return m.side === menuId && m.enabled; });
-	            if (menu)
-	                return menu;
-	            // didn't find a menu side that is enabled
-	            // so try to get the first menu side found
-	            return this._menus.find(function (m) { return m.side === menuId; }) || null;
-	        }
-	        else if (menuId) {
-	            // the menuId was not left or right
-	            // so try to get the menu by its "id"
-	            return this._menus.find(function (m) { return m.id === menuId; }) || null;
-	        }
-	        // return the first enabled menu
-	        menu = this._menus.find(function (m) { return m.enabled; });
-	        if (menu)
-	            return menu;
-	        // get the first menu in the array, if one exists
-	        return (this._menus.length ? this._menus[0] : null);
-	    };
-	    /**
-	     * @return {Array<Menu>}  Returns an array of all menu instances.
-	     */
-	    MenuController.prototype.getMenus = function () {
-	        return this._menus;
-	    };
-	    /**
-	     * @private
-	     */
-	    MenuController.prototype.register = function (menu) {
-	        this._menus.push(menu);
-	    };
-	    /**
-	     * @private
-	     */
-	    MenuController.prototype.unregister = function (menu) {
-	        var index = this._menus.indexOf(menu);
-	        if (index > -1) {
-	            this._menus.splice(index, 1);
-	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    MenuController.registerType = function (name, cls) {
-	        menuTypes[name] = cls;
-	    };
-	    /**
-	     * @private
-	     */
-	    MenuController.create = function (type, menuCmp, platform) {
-	        return new menuTypes[type](menuCmp, platform);
-	    };
-	    return MenuController;
-	}());
-	exports.MenuController = MenuController;
-	var menuTypes = {};
 
 /***/ },
 /* 345 */
@@ -57755,7 +57755,7 @@
 	var util_1 = __webpack_require__(337);
 	var keyboard_1 = __webpack_require__(339);
 	var loading_1 = __webpack_require__(446);
-	var menu_controller_1 = __webpack_require__(344);
+	var menu_controller_1 = __webpack_require__(342);
 	var modal_1 = __webpack_require__(448);
 	var picker_1 = __webpack_require__(428);
 	var platform_1 = __webpack_require__(336);
@@ -62296,11 +62296,11 @@
 	var core_1 = __webpack_require__(6);
 	var backdrop_1 = __webpack_require__(387);
 	var config_1 = __webpack_require__(335);
-	var ion_1 = __webpack_require__(343);
+	var ion_1 = __webpack_require__(344);
 	var util_1 = __webpack_require__(337);
 	var keyboard_1 = __webpack_require__(339);
 	var menu_gestures_1 = __webpack_require__(388);
-	var menu_controller_1 = __webpack_require__(344);
+	var menu_controller_1 = __webpack_require__(342);
 	var platform_1 = __webpack_require__(336);
 	/**
 	 * @name Menu
@@ -63115,7 +63115,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var menu_controller_1 = __webpack_require__(344);
+	var menu_controller_1 = __webpack_require__(342);
 	var navbar_1 = __webpack_require__(390);
 	var view_controller_1 = __webpack_require__(356);
 	/**
@@ -63285,9 +63285,9 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(332);
 	var config_1 = __webpack_require__(335);
-	var ion_1 = __webpack_require__(343);
+	var ion_1 = __webpack_require__(344);
 	var util_1 = __webpack_require__(337);
-	var nav_controller_1 = __webpack_require__(342);
+	var nav_controller_1 = __webpack_require__(343);
 	var toolbar_1 = __webpack_require__(391);
 	var view_controller_1 = __webpack_require__(356);
 	var BackButton = (function (_super) {
@@ -63547,7 +63547,7 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(335);
-	var ion_1 = __webpack_require__(343);
+	var ion_1 = __webpack_require__(344);
 	var view_controller_1 = __webpack_require__(356);
 	/**
 	 * @private
@@ -63785,7 +63785,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var menu_controller_1 = __webpack_require__(344);
+	var menu_controller_1 = __webpack_require__(342);
 	/**
 	 * @name MenuClose
 	 * @description
@@ -64360,7 +64360,7 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(332);
-	var ion_1 = __webpack_require__(343);
+	var ion_1 = __webpack_require__(344);
 	var config_1 = __webpack_require__(335);
 	var keyboard_1 = __webpack_require__(339);
 	var dom_1 = __webpack_require__(334);
@@ -64741,6 +64741,8 @@
 	        this._footerHeight = 0;
 	        this._tabbarPlacement = null;
 	        var ele = this._elementRef.nativeElement;
+	        if (!ele)
+	            return;
 	        var parentEle = ele.parentElement;
 	        var computedStyle;
 	        for (var i = 0; i < parentEle.children.length; i++) {
@@ -64783,6 +64785,8 @@
 	    Content.prototype.writeDimensions = function () {
 	        var newVal;
 	        var scrollEle = this._scrollEle;
+	        if (!scrollEle)
+	            return;
 	        // only write when it has changed
 	        if (this._fullscreen) {
 	            // adjust the content with padding, allowing content to scroll under headers/footers
@@ -65127,10 +65131,10 @@
 	var app_1 = __webpack_require__(332);
 	var config_1 = __webpack_require__(335);
 	var content_1 = __webpack_require__(395);
-	var ion_1 = __webpack_require__(343);
+	var ion_1 = __webpack_require__(344);
 	var util_1 = __webpack_require__(337);
 	var dom_1 = __webpack_require__(334);
-	var nav_controller_1 = __webpack_require__(342);
+	var nav_controller_1 = __webpack_require__(343);
 	var platform_1 = __webpack_require__(336);
 	var tab_button_1 = __webpack_require__(398);
 	var tab_highlight_1 = __webpack_require__(400);
@@ -65619,7 +65623,7 @@
 	};
 	var core_1 = __webpack_require__(6);
 	var config_1 = __webpack_require__(335);
-	var ion_1 = __webpack_require__(343);
+	var ion_1 = __webpack_require__(344);
 	var tab_1 = __webpack_require__(399);
 	/**
 	 * @private
@@ -65708,7 +65712,8 @@
 	var config_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(337);
 	var keyboard_1 = __webpack_require__(339);
-	var nav_controller_1 = __webpack_require__(342);
+	var menu_controller_1 = __webpack_require__(342);
+	var nav_controller_1 = __webpack_require__(343);
 	var tabs_1 = __webpack_require__(397);
 	/**
 	 * @name Tab
@@ -65817,9 +65822,9 @@
 	 */
 	var Tab = (function (_super) {
 	    __extends(Tab, _super);
-	    function Tab(parent, app, config, keyboard, elementRef, zone, renderer, compiler, _cd) {
+	    function Tab(parent, app, config, keyboard, elementRef, zone, renderer, compiler, _cd, menuCtrl) {
 	        // A Tab is a NavController for its child pages
-	        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, compiler);
+	        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, compiler, menuCtrl);
 	        this.parent = parent;
 	        this._cd = _cd;
 	        this._isEnabled = true;
@@ -66032,10 +66037,10 @@
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(0, core_1.Inject(core_1.forwardRef(function () { return tabs_1.Tabs; }))), 
-	        __metadata('design:paramtypes', [(typeof (_d = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _d) || Object, (typeof (_e = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _h) || Object, (typeof (_j = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _j) || Object, (typeof (_k = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _k) || Object, (typeof (_l = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _l) || Object, (typeof (_m = typeof core_1.ChangeDetectorRef !== 'undefined' && core_1.ChangeDetectorRef) === 'function' && _m) || Object])
+	        __metadata('design:paramtypes', [(typeof (_d = typeof tabs_1.Tabs !== 'undefined' && tabs_1.Tabs) === 'function' && _d) || Object, (typeof (_e = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _h) || Object, (typeof (_j = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _j) || Object, (typeof (_k = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _k) || Object, (typeof (_l = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _l) || Object, (typeof (_m = typeof core_1.ChangeDetectorRef !== 'undefined' && core_1.ChangeDetectorRef) === 'function' && _m) || Object, (typeof (_o = typeof menu_controller_1.MenuController !== 'undefined' && menu_controller_1.MenuController) === 'function' && _o) || Object])
 	    ], Tab);
 	    return Tab;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
 	}(nav_controller_1.NavController));
 	exports.Tab = Tab;
 
@@ -66299,7 +66304,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var ion_1 = __webpack_require__(343);
+	var ion_1 = __webpack_require__(344);
 	/**
 	 * @name Scroll
 	 * @description
@@ -67453,7 +67458,7 @@
 	var dom_1 = __webpack_require__(334);
 	var util_1 = __webpack_require__(337);
 	var util_2 = __webpack_require__(351);
-	var ion_1 = __webpack_require__(343);
+	var ion_1 = __webpack_require__(344);
 	var swiper_widget_1 = __webpack_require__(409);
 	/**
 	 * @name Slides
@@ -72176,7 +72181,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var ion_1 = __webpack_require__(343);
+	var ion_1 = __webpack_require__(344);
 	var util_1 = __webpack_require__(337);
 	var item_sliding_gesture_1 = __webpack_require__(411);
 	/**
@@ -75489,7 +75494,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var ion_1 = __webpack_require__(343);
+	var ion_1 = __webpack_require__(344);
 	var navbar_1 = __webpack_require__(390);
 	var toolbar_1 = __webpack_require__(391);
 	/**
@@ -76106,7 +76111,7 @@
 	var form_1 = __webpack_require__(340);
 	var util_1 = __webpack_require__(337);
 	var item_1 = __webpack_require__(412);
-	var nav_controller_1 = __webpack_require__(342);
+	var nav_controller_1 = __webpack_require__(343);
 	var option_1 = __webpack_require__(426);
 	var SELECT_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return Select; }), multi: true });
 	/**
@@ -78420,7 +78425,7 @@
 	var input_base_1 = __webpack_require__(433);
 	var item_1 = __webpack_require__(412);
 	var native_input_1 = __webpack_require__(434);
-	var nav_controller_1 = __webpack_require__(342);
+	var nav_controller_1 = __webpack_require__(343);
 	var platform_1 = __webpack_require__(336);
 	/**
 	 * @name Input
@@ -81314,7 +81319,8 @@
 	var config_1 = __webpack_require__(335);
 	var keyboard_1 = __webpack_require__(339);
 	var util_1 = __webpack_require__(337);
-	var nav_controller_1 = __webpack_require__(342);
+	var menu_controller_1 = __webpack_require__(342);
+	var nav_controller_1 = __webpack_require__(343);
 	var view_controller_1 = __webpack_require__(356);
 	/**
 	 * @name Nav
@@ -81416,8 +81422,8 @@
 	 */
 	var Nav = (function (_super) {
 	    __extends(Nav, _super);
-	    function Nav(viewCtrl, parent, app, config, keyboard, elementRef, zone, renderer, compiler) {
-	        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, compiler);
+	    function Nav(viewCtrl, parent, app, config, keyboard, elementRef, zone, renderer, compiler, menuCtrl) {
+	        _super.call(this, parent, app, config, keyboard, elementRef, zone, renderer, compiler, menuCtrl);
 	        this._hasInit = false;
 	        if (viewCtrl) {
 	            // an ion-nav can also act as an ion-page within a parent ion-nav
@@ -81506,10 +81512,10 @@
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _d) || Object, (typeof (_e = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _h) || Object, (typeof (_j = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _j) || Object, (typeof (_k = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _k) || Object, (typeof (_l = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _l) || Object])
+	        __metadata('design:paramtypes', [(typeof (_c = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _c) || Object, (typeof (_d = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _d) || Object, (typeof (_e = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _e) || Object, (typeof (_f = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _f) || Object, (typeof (_g = typeof keyboard_1.Keyboard !== 'undefined' && keyboard_1.Keyboard) === 'function' && _g) || Object, (typeof (_h = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _h) || Object, (typeof (_j = typeof core_1.NgZone !== 'undefined' && core_1.NgZone) === 'function' && _j) || Object, (typeof (_k = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _k) || Object, (typeof (_l = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _l) || Object, (typeof (_m = typeof menu_controller_1.MenuController !== 'undefined' && menu_controller_1.MenuController) === 'function' && _m) || Object])
 	    ], Nav);
 	    return Nav;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 	}(nav_controller_1.NavController));
 	exports.Nav = Nav;
 
@@ -81531,7 +81537,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var nav_controller_1 = __webpack_require__(342);
+	var nav_controller_1 = __webpack_require__(343);
 	/**
 	 * @name NavPop
 	 * @description
@@ -81597,7 +81603,7 @@
 	    return function (target, key) { decorator(target, key, paramIndex); }
 	};
 	var core_1 = __webpack_require__(6);
-	var nav_controller_1 = __webpack_require__(342);
+	var nav_controller_1 = __webpack_require__(343);
 	/**
 	 * @name NavPush
 	 * @description
@@ -83860,7 +83866,7 @@
 	var core_1 = __webpack_require__(6);
 	var animation_1 = __webpack_require__(355);
 	var config_1 = __webpack_require__(335);
-	var nav_controller_1 = __webpack_require__(342);
+	var nav_controller_1 = __webpack_require__(343);
 	var nav_params_1 = __webpack_require__(345);
 	var transition_1 = __webpack_require__(354);
 	var view_controller_1 = __webpack_require__(356);
@@ -84277,7 +84283,7 @@
 	exports.Menu = menu_1.Menu;
 	var menu_close_1 = __webpack_require__(392);
 	exports.MenuClose = menu_close_1.MenuClose;
-	var menu_controller_1 = __webpack_require__(344);
+	var menu_controller_1 = __webpack_require__(342);
 	exports.MenuController = menu_controller_1.MenuController;
 	var menu_toggle_1 = __webpack_require__(389);
 	exports.MenuToggle = menu_toggle_1.MenuToggle;
@@ -84290,7 +84296,7 @@
 	exports.ModalOptions = modal_options_1.ModalOptions;
 	var nav_1 = __webpack_require__(441);
 	exports.Nav = nav_1.Nav;
-	var nav_controller_1 = __webpack_require__(342);
+	var nav_controller_1 = __webpack_require__(343);
 	exports.NavController = nav_controller_1.NavController;
 	var nav_options_1 = __webpack_require__(466);
 	exports.NavOptions = nav_options_1.NavOptions;
@@ -84399,7 +84405,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var animation_1 = __webpack_require__(355);
-	var menu_controller_1 = __webpack_require__(344);
+	var menu_controller_1 = __webpack_require__(342);
 	/**
 	 * @private
 	 * Menu Type

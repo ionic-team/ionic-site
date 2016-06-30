@@ -31,7 +31,7 @@ Form
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/util/form.ts#L0">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/util/form.ts#L0">
 Improve this doc
 </a>
 
@@ -81,26 +81,6 @@ Improve this doc
 <h3>
 <a class="anchor" name="deregister" href="#deregister"></a>
 <code>deregister()</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="focusCtrl"></div>
-
-<h3>
-<a class="anchor" name="focusCtrl" href="#focusCtrl"></a>
-<code>focusCtrl()</code>
   
 
 </h3>

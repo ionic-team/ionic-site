@@ -35,7 +35,7 @@ Option
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/2.0//src/components/option/option.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/option/option.ts#L2">
 Improve this doc
 </a>
 
@@ -81,6 +81,13 @@ Improve this doc
       <td>value</td>
       <td><code>any</code></td>
       <td><p> The value of the option</p>
+</td>
+    </tr>
+    
+    <tr>
+      <td>disabled</td>
+      <td><code>boolean</code></td>
+      <td><p> Whether or not the option is disabled</p>
 </td>
     </tr>
     

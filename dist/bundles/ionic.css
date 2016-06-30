@@ -11026,15 +11026,24 @@ ion-icon {
     -ms-flex-align: center;
     align-items: center; }
   .md ion-header::after,
-  .md [tabbarplacement="top"] > ion-tabbar::after {
+  .md [tabbarplacement="top"] > ion-tabbar::after,
+  .md ion-footer::before,
+  .md [tabbarplacement="bottom"] > ion-tabbar::before {
     position: absolute;
     bottom: -5px;
     left: 0;
     width: 100%;
     height: 5px;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAIBAMAAAARjyJQAAAAFVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAASAQCkAAAAB3RSTlMBLRUGDSA4cBS/RQAAACBJREFUeF5jSEMCDIJIgCEUCTAoIQEGFyTAYIwEGHACAG7+EL36X1OAAAAAAElFTkSuQmCC);
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAHBAMAAADzDtBxAAAAD1BMVEUAAAAAAAAAAAAAAAAAAABPDueNAAAABXRSTlMUCS0gBIh/TXEAAAAaSURBVAjXYxCEAgY4UIICBmMogMsgFLtAAQCNSwXZKOdPxgAAAABJRU5ErkJggg==);
+    background-position: 0 -2px;
     background-repeat: repeat-x;
     content: ""; }
+  .md ion-footer::before,
+  .md [tabbarplacement="bottom"] > ion-tabbar::before {
+    bottom: auto;
+    top: -2px;
+    height: 2px;
+    background-position: 0 0; }
   .md .toolbar {
     padding: 4px;
     min-height: 5.6rem; }

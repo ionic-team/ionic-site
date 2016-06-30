@@ -63,7 +63,7 @@ an example of passing this event.</p>
 <p>To dismiss the popover after creation, call the <code>dismiss()</code> method on the
 <code>Popover</code> instance. The popover can also be dismissed from within the popover&#39;s
 view by calling the <code>dismiss()</code> method on the <a href="../../nav/ViewController">ViewController</a>.
-The <code>onDismiss</code> function can be called to perform an action after the popover
+The <code>onDidDismiss</code> function can be called to perform an action after the popover
 is dismissed. The popover will dismiss when the backdrop is clicked, but this
 can be disabled by setting <code>enableBackdropDismiss</code> to <code>false</code> in the popover
 options.</p>

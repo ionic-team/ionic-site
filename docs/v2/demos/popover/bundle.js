@@ -57265,7 +57265,8 @@
 	        this._hdAttr = null;
 	        this._leavingOpts = null;
 	        this._loaded = false;
-	        this._onDismiss = null;
+	        this._onDidDismiss = null;
+	        this._onWillDismiss = null;
 	        /**
 	         * @private
 	         */
@@ -57313,7 +57314,21 @@
 	     * @private
 	     */
 	    ViewController.prototype.onDismiss = function (callback) {
-	        this._onDismiss = callback;
+	        // deprecated warning: added beta.11 2016-06-30
+	        console.warn('onDismiss(..) has been deprecated. Please use onDidDismiss(..) instead');
+	        this.onDidDismiss(callback);
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.onDidDismiss = function (callback) {
+	        this._onDidDismiss = callback;
+	    };
+	    /**
+	     * @private
+	     */
+	    ViewController.prototype.onWillDismiss = function (callback) {
+	        this._onWillDismiss = callback;
 	    };
 	    /**
 	     * @private
@@ -57322,8 +57337,9 @@
 	        var _this = this;
 	        if (navOptions === void 0) { navOptions = {}; }
 	        var options = util_1.merge({}, this._leavingOpts, navOptions);
+	        this._onWillDismiss && this._onWillDismiss(data, role);
 	        return this._nav.remove(this._nav.indexOf(this), 1, options).then(function () {
-	            _this._onDismiss && _this._onDismiss(data, role);
+	            _this._onDidDismiss && _this._onDidDismiss(data, role);
 	            return data;
 	        });
 	    };
@@ -76382,7 +76398,7 @@
 	        }
 	        overlay.present(alertOptions);
 	        this._isOpen = true;
-	        overlay.onDismiss(function () {
+	        overlay.onDidDismiss(function () {
 	            _this._isOpen = false;
 	        });
 	    };
@@ -77064,7 +77080,7 @@
 	        });
 	        picker.present(pickerOptions);
 	        this._isOpen = true;
-	        picker.onDismiss(function () {
+	        picker.onDidDismiss(function () {
 	            _this._isOpen = false;
 	        });
 	    };
@@ -82034,7 +82050,7 @@
 	 * will show even during page changes, but this can be disabled by setting
 	 * `dismissOnPageChange` to `true`. To dismiss the loading indicator after
 	 * creation, call the `dismiss()` method on the Loading instance. The
-	 * `onDismiss` function can be called to perform an action after the loading
+	 * `onDidDismiss` function can be called to perform an action after the loading
 	 * indicator is dismissed.
 	 *
 	 * >Note that after the component is dismissed, it will not be usable anymore
@@ -82075,7 +82091,7 @@
 	 *     duration: 5000
 	 *   });
 	 *
-	 *   loading.onDismiss(() => {
+	 *   loading.onDidDismiss(() => {
 	 *     console.log('Dismissed loading');
 	 *   });
 	 *
@@ -82488,7 +82504,7 @@
 	 *
 	 *  presentProfileModal() {
 	 *    let profileModal = this.modalCtrl.create(Profile, { userId: 8675309 });
-	 *    profileModal.onDismiss(data => {
+	 *    profileModal.onDidDismiss(data => {
 	 *      console.log(data);
 	 *    });
 	 *    profileModal.present();
@@ -82890,7 +82906,7 @@
 	 * To dismiss the popover after creation, call the `dismiss()` method on the
 	 * `Popover` instance. The popover can also be dismissed from within the popover's
 	 * view by calling the `dismiss()` method on the [ViewController](../../nav/ViewController).
-	 * The `onDismiss` function can be called to perform an action after the popover
+	 * The `onDidDismiss` function can be called to perform an action after the popover
 	 * is dismissed. The popover will dismiss when the backdrop is clicked, but this
 	 * can be disabled by setting `enableBackdropDismiss` to `false` in the popover
 	 * options.
@@ -83807,7 +83823,7 @@
 	 * by passing the number of milliseconds to display it in the `duration` of
 	 * the toast options. If `showCloseButton` is set to true, then the close button
 	 * will dismiss the toast. To dismiss the toast after creation, call the `dismiss()`
-	 * method on the Toast instance. The `onDismiss` function can be called to perform an action after the toast
+	 * method on the Toast instance. The `onDidDismiss` function can be called to perform an action after the toast
 	 * is dismissed.
 	 *
 	 * @usage
@@ -83823,7 +83839,7 @@
 	 *     position: 'top'
 	 *   });
 	 *
-	 *   toast.onDismiss(() => {
+	 *   toast.onDidDismiss(() => {
 	 *     console.log('Dismissed toast');
 	 *   });
 	 *

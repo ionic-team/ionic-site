@@ -63,7 +63,7 @@ If the position is not specified, the toast will be displayed at the bottom of t
 by passing the number of milliseconds to display it in the <code>duration</code> of
 the toast options. If <code>showCloseButton</code> is set to true, then the close button
 will dismiss the toast. To dismiss the toast after creation, call the <code>dismiss()</code>
-method on the Toast instance. The <code>onDismiss</code> function can be called to perform an action after the toast
+method on the Toast instance. The <code>onDidDismiss</code> function can be called to perform an action after the toast
 is dismissed.</p>
 
 
@@ -85,7 +85,7 @@ presentToast() {
     position: &#39;top&#39;
   });
 
-  toast.onDismiss(() =&gt; {
+  toast.onDidDismiss(() =&gt; {
     console.log(&#39;Dismissed toast&#39;);
   });
 

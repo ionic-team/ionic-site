@@ -115,7 +115,7 @@ class HomePage {
 
  presentProfileModal() {
    let profileModal = this.modalCtrl.create(Profile, { userId: 8675309 });
-   profileModal.onDismiss(data =&gt; {
+   profileModal.onDidDismiss(data =&gt; {
      console.log(data);
    });
    profileModal.present();

@@ -20,7 +20,7 @@ var ApiDemoPage = (function () {
             position: position,
             duration: 3000
         });
-        toast.onDismiss(this.dismissHandler);
+        toast.onDidDismiss(this.dismissHandler);
         toast.present();
     };
     ApiDemoPage.prototype.showLongToast = function () {
@@ -28,7 +28,7 @@ var ApiDemoPage = (function () {
             message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptatibus quibusdam eum nihil optio, ullam accusamus magni, nobis suscipit reprehenderit, sequi quam amet impedit. Accusamus dolorem voluptates laborum dolor obcaecati.',
             duration: 3000
         });
-        toast.onDismiss(this.dismissHandler);
+        toast.onDidDismiss(this.dismissHandler);
         toast.present();
     };
     ApiDemoPage.prototype.showDismissDurationToast = function () {
@@ -36,7 +36,7 @@ var ApiDemoPage = (function () {
             message: 'I am dismissed after 1.5 seconds',
             duration: 1500
         });
-        toast.onDismiss(this.dismissHandler);
+        toast.onDidDismiss(this.dismissHandler);
         toast.present();
     };
     ApiDemoPage.prototype.showToastWithCloseButton = function () {
@@ -45,11 +45,11 @@ var ApiDemoPage = (function () {
             showCloseButton: true,
             closeButtonText: 'Ok'
         });
-        toast.onDismiss(this.dismissHandler);
+        toast.onDidDismiss(this.dismissHandler);
         toast.present();
     };
     ApiDemoPage.prototype.dismissHandler = function () {
-        console.info('Toast onDismiss()');
+        console.info('Toast onDidDismiss()');
     };
     ApiDemoPage = __decorate([
         core_1.Component({

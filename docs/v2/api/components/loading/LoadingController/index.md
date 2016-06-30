@@ -64,7 +64,7 @@ the <code>duration</code> of the loading options. By default the loading indicat
 will show even during page changes, but this can be disabled by setting
 <code>dismissOnPageChange</code> to <code>true</code>. To dismiss the loading indicator after
 creation, call the <code>dismiss()</code> method on the Loading instance. The
-<code>onDismiss</code> function can be called to perform an action after the loading
+<code>onDidDismiss</code> function can be called to perform an action after the loading
 indicator is dismissed.</p>
 <blockquote>
 <p>Note that after the component is dismissed, it will not be usable anymore
@@ -111,7 +111,7 @@ presentLoadingCustom() {
     duration: 5000
   });
 
-  loading.onDismiss(() =&gt; {
+  loading.onDidDismiss(() =&gt; {
     console.log(&#39;Dismissed loading&#39;);
   });
 

@@ -51809,14 +51809,14 @@
 	 * }
 	 * ```
 	 *
-	 *  | Page Event         | Description                                                                                                                                                                                                                                                                       |
-	 *  |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+	 *  | Page Event          | Description                                                                                                                                                                                                                                                                        |
+	 *  |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 	 *  | `ionViewLoaded`     | Runs when the page has loaded. This event only happens once per page being created and added to the DOM. If a page leaves but is cached, then this event will not fire again on a subsequent viewing. The `ionViewLoaded` event is good place to put your setup code for the page. |
-	 *  | `ionViewWillEnter`  | Runs when the page is about to enter and become the active page.                                                                                                                                                                                                                  |
-	 *  | `ionViewDidEnter`   | Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.                                                                                                                                            |
-	 *  | `ionViewWillLeave`  | Runs when the page is about to leave and no longer be the active page.                                                                                                                                                                                                            |
-	 *  | `ionViewDidLeave`   | Runs when the page has finished leaving and is no longer the active page.                                                                                                                                                                                                         |
-	 *  | `ionViewWillUnload` | Runs when the page is about to be destroyed and have its elements removed.                                                                                                                                                                                                        |
+	 *  | `ionViewWillEnter`  | Runs when the page is about to enter and become the active page.                                                                                                                                                                                                                   |
+	 *  | `ionViewDidEnter`   | Runs when the page has fully entered and is now the active page. This event will fire, whether it was the first load or a cached page.                                                                                                                                             |
+	 *  | `ionViewWillLeave`  | Runs when the page is about to leave and no longer be the active page.                                                                                                                                                                                                             |
+	 *  | `ionViewDidLeave`   | Runs when the page has finished leaving and is no longer the active page.                                                                                                                                                                                                          |
+	 *  | `ionViewWillUnload` | Runs when the page is about to be destroyed and have its elements removed.                                                                                                                                                                                                         |
 	 *  | `ionViewDidUnload`  | Runs after the page has been destroyed and its elements have been removed.
 	 *
 	 *
@@ -51932,77 +51932,10 @@
 	        return this.setPages([{ page: page, params: params }], opts);
 	    };
 	    /**
-	     * You can set the views of the current navigation stack and navigate to the
-	     * last view.
-	     *
-	     *
-	     *```ts
-	     * import {NavController } from 'ionic-angular'
-	     * import {Detail } from '../detail/detail'
-	     * import {Info } from '../info/info'
-	     *
-	     *  export class Home {
-	     *    constructor(private nav: NavController) {
-	     *
-	     *    }
-	     *    setPages() {
-	     *      this.nav.setPages([ {page: List}, {page: Detail}, {page:Info} ]);
-	     *    }
-	     *  }
-	     *```
-	     *
-	     *
-	     * In this example, we're giving the current nav stack an array of pages.
-	     * Then the navigation stack will navigate to the last page in the array
-	     * and remove the previously active page.
-	     *
-	     * By default animations are disabled, but they can be enabled by passing
-	     * options to the navigation controller.
-	     *
-	     *
-	     * ```ts
-	     * import {NavController } from 'ionic-angular'
-	     * import {Detail } from '../detail/detail'
-	     *
-	     *  export class Home {
-	     *    constructor(private nav: NavController) {
-	     *
-	     *    }
-	     *    setPages() {
-	     *      this.nav.setPages([ {page: List}, {page: Detail} ], {
-	     *        animate: true
-	     *      });
-	     *    }
-	     *  }
-	     * ```
-	     *
-	     * You can also pass any navigation params to the individual pages in
-	     * the array.
-	     *
-	     *
-	     * ```ts
-	     * import {NavController } from 'ionic-angular';
-	     * import {Info } from '../info/info';
-	     * import {List } from '../list/list';
-	     * import {Detail } from '../detail/detail';
-	     *
-	     *  export class Home {
-	     *    constructor(private nav: NavController) {
-	     *
-	     *    }
-	     *    setPages() {
-	     *      this.nav.setPages([{
-	     *        page: Info
-	     *      }, {
-	     *        page: List,
-	     *        params: {tags: 'css'}
-	     *      }, {
-	     *        page: Detail,
-	     *        params: {id: 325}
-	     *      }]);
-	     *    }
-	     *  }
-	     *```
+	     * Set the views of the current navigation stack and navigate to the
+	     * last view. By default animations are disabled, but they can be enabled
+	     * by passing options to the navigation controller.You can also pass any
+	     * navigation params to the individual pages in the array.
 	     *
 	     * @param {array<Page>} pages  An arry of page components and their params to load in the stack.
 	     * @param {object} [opts={}] Nav options to go with this transition.
@@ -52036,66 +51969,9 @@
 	        return promise;
 	    };
 	    /**
-	     * Push is how we can pass components and navigate to them. We push the component
-	     * we want to navigate to on to the navigation stack.
+	     * Push a new component onto the current navication stack. Pass any aditional information
+	     * along as an object. This additional information is acessible through NavParams
 	     *
-	     * ```ts
-	     * class MyClass{
-	     *    constructor(nav:NavController){
-	     *      this.nav = nav;
-	     *    }
-	     *
-	     *    pushPage(){
-	     *      this.nav.push(SecondView);
-	     *    }
-	     * }
-	     * ```
-	     *
-	     * We can also pass along parameters to the next view, such as data that we have
-	     * on the current view. This is a similar concept to to V1 apps with `$stateParams`.
-	     *
-	     * ```ts
-	     * class MyClass{
-	     *    constructor(nav:NavController){
-	     *      this.nav = nav;
-	     *    }
-	     *
-	     *    pushPage(user){
-	     *       // user is an object we have in our view
-	     *       // typically this comes from an ngFor or some array
-	     *       // here we can create an object with a property of
-	     *       // paramUser, and set its value to the user object we passed in
-	     *      this.nav.push(SecondView, { paramUser: user });
-	     *    }
-	     * }
-	     * ```
-	     *
-	     * We'll look at how we can access that data in the `SecondView` in the
-	     * navParam docs.
-	     *
-	     * We can also pass any options to the transtion from that same method.
-	     *
-	     * ```ts
-	     * class MyClass{
-	     *    constructor(private nav: NavController){
-	     *
-	     *    }
-	     *
-	     *    pushPage(user){
-	     *      this.nav.push(SecondView,{
-	     *       // user is an object we have in our view
-	     *       // typically this comes from an ngFor or some array
-	     *       // here we can create an object with a property of
-	     *       // paramUser, and set it's value to the user object we passed in
-	     *       paramUser: user
-	     *      },{
-	     *       // here we can configure things like the animations direction or
-	     *       // or if the view should animate at all.
-	     *       direction: 'back'
-	     *      });
-	     *    }
-	     * }
-	     * ```
 	     * @param {Page} page  The page component class you want to push on to the navigation stack
 	     * @param {object} [params={}] Any nav-params you want to pass along to the next view
 	     * @param {object} [opts={}] Nav options to go with this transition.
@@ -52115,21 +51991,9 @@
 	        return Promise.resolve();
 	    };
 	    /**
-	     * Inserts a view into the nav stack at the specified index. This is useful if
-	     * you need to add a view at any point in your navigation stack.
+	     * Inserts a component into the nav stack at the specified index. This is useful if
+	     * you need to add a component at any point in your navigation stack.
 	     *
-	     * ```ts
-	     * export class Detail {
-	     *    constructor(private nav: NavController) {
-	     *
-	     *    }
-	     *    insertPage(){
-	     *      this.nav.insert(1, Info);
-	     *    }
-	     *  }
-	     * ```
-	     *
-	     * This will insert the `Info` page into the second slot of our navigation stack.
 	     *
 	     * @param {number} insertIndex  The index where to insert the page.
 	     * @param {Page} page  The component you want to insert into the nav stack.
@@ -52141,27 +52005,8 @@
 	        return this.insertPages(insertIndex, [{ page: page, params: params }], opts);
 	    };
 	    /**
-	     * Inserts multiple pages into the nav stack at the specified index.
-	     *
-	     * ```ts
-	     * export class Detail {
-	     *    constructor(private nav: NavController) {
-	     *
-	     *    }
-	     *    insertPages(){
-	     *      let pages = [
-	     *        { page: Info },
-	     *        { page: ProfileList },
-	     *        { page: ProfileDetail, params: {userId:5} }
-	     *      ];
-	     *      this.nav.insertPages(2, pages);
-	     *    }
-	     *  }
-	     * ```
-	     *
-	     * This will insert each of the pages in the array, starting at the third slot
-	     * (second index) of the nav stack. The last page in the array will animate
-	     * in and become the active page.
+	     * Inserts an array of components into the nav stack at the specified index.
+	     * The last component in the array will animate in and become the active component
 	     *
 	     * @param {number} insertIndex  The index where you want to insert the page.
 	     * @param {array<{page: Page, params=: any}>} insertPages  An array of objects, each with a `page` and optionally `params` property.
@@ -52266,20 +52111,8 @@
 	        return insertView;
 	    };
 	    /**
-	     * If you wanted to navigate back from a current view, you can use the
-	     * back-button or programatically call `pop()`. Similar to `push()`, you
+	     * Call to navigate back from a current component. Similar to `push()`, you
 	     * can also pass navigation options.
-	     *
-	     * ```ts
-	     * class SecondView{
-	     *    constructor(nav:NavController){
-	     *      this.nav = nav;
-	     *    }
-	     *    goBack(){
-	     *      this.nav.pop();
-	     *    }
-	     * }
-	     * ```
 	     *
 	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
@@ -52301,8 +52134,8 @@
 	        return this.remove(this.indexOf(activeView), 1, opts);
 	    };
 	    /**
-	     * Similar to `pop()`, this method let's you navigate back to the root of
-	     * the stack, no matter how many pages back that is.
+	     * Navigate back to the root of the stack, no matter how far back that is.
+	     *
 	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
 	     */
@@ -52311,6 +52144,7 @@
 	    };
 	    /**
 	     * Pop to a specific view in the history stack.
+	     *
 	     * @param {ViewController} view  to pop to
 	     * @param {object} [opts={}] Nav options to go with this transition.
 	     * @returns {Promise} Returns a promise which is resolved when the transition has completed.
@@ -52328,17 +52162,6 @@
 	    };
 	    /**
 	     * Removes a page from the nav stack at the specified index.
-	     *
-	     * ```ts
-	     * export class Detail {
-	     *    constructor(private nav: NavController) {
-	     *
-	     *    }
-	     *    removePage(){
-	     *      this.nav.remove(1);
-	     *    }
-	     *  }
-	     * ```
 	     *
 	     * @param {number} [startIndex]  The starting index to remove pages from the stack. Default is the index of the last page.
 	     * @param {number} [removeCount]  The number of pages to remove, defaults to remove `1`.
@@ -60941,40 +60764,66 @@
 	 *
 	 * @usage
 	 * ```ts
-	 * constructor(private actionSheetCtrl: ActionSheetController) {
+	 * import {ActionSheetController} from 'ionic-angular'
 	 *
-	 * }
+	 * export class MyClass{
 	 *
-	 * presentActionSheet() {
-	 *   let actionSheet = this.actionSheetCtrl.create({
-	 *     title: 'Modify your album',
-	 *     buttons: [
-	 *       {
-	 *         text: 'Destructive',
-	 *         role: 'destructive',
-	 *         handler: () => {
-	 *           console.log('Destructive clicked');
-	 *         }
-	 *       },
-	 *       {
-	 *         text: 'Archive',
-	 *         handler: () => {
-	 *           console.log('Archive clicked');
-	 *         }
-	 *       },
-	 *       {
-	 *         text: 'Cancel',
-	 *         role: 'cancel',
-	 *         handler: () => {
-	 *           console.log('Cancel clicked');
-	 *         }
-	 *       }
-	 *     ]
-	 *   });
+	 *  constructor(private actionSheetCtrl: ActionSheetController) {}
 	 *
-	 *   actionSheet.present();
+	 *  presentActionSheet() {
+	 *    let actionSheet = this.actionSheetCtrl.create({
+	 *      title: 'Modify your album',
+	 *      buttons: [
+	 *        {
+	 *          text: 'Destructive',
+	 *          role: 'destructive',
+	 *          handler: () => {
+	 *            console.log('Destructive clicked');
+	 *          }
+	 *        },
+	 *        {
+	 *          text: 'Archive',
+	 *          handler: () => {
+	 *            console.log('Archive clicked');
+	 *          }
+	 *        },
+	 *        {
+	 *          text: 'Cancel',
+	 *          role: 'cancel',
+	 *          handler: () => {
+	 *            console.log('Cancel clicked');
+	 *          }
+	 *        }
+	 *      ]
+	 *    });
+	 *
+	 *    actionSheet.present();
+	 *  }
 	 * }
 	 * ```
+	 *
+	 * @advanced
+	 *
+	 * ActionSheet create options
+	 *
+	 * | Option                | Type       | Description                                                     |
+	 * |-----------------------|------------|-----------------------------------------------------------------|
+	 * | title                 |`string`    | The title for the actionsheet                                   |
+	 * | subTitle              |`string`    | The sub-title for the actionsheet                               |
+	 * | cssClass              |`string`    | An additional class for custom styles                           |
+	 * | enableBackdropDismiss |`boolean`   | If the actionsheet should close when the user taps the backdrop |
+	 * | buttons               |`array<any>`| An array of buttons to display                                  |
+	 *
+	 * ActionSheet button options
+	 *
+	 * | Option   | Type     | Description                                                                                                                                      |
+	 * |----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+	 * | text     | `string` | The buttons text                                                                                                                                 |
+	 * | icon     | `icon`   | The buttons icons                                                                                                                                |
+	 * | handler  | `any`    | An express the button should evaluate                                                                                                            |
+	 * | cssClass | `string` | An additional class for custom styles                                                                                                            |
+	 * | role     | `string` | How the button should be displayed, `destructive` or `cancel`. If not role is provided, it will display the button without any additional styles |
+	 *
 	 *
 	 *
 	 * ### Dismissing And Async Navigation
@@ -61040,28 +60889,7 @@
 	        this._app = _app;
 	    }
 	    /**
-	     * Open an action sheet with the following options
-	     *
-	     * | Option                | Type       | Description                                                     |
-	     * |-----------------------|------------|-----------------------------------------------------------------|
-	     * | title                 |`string`    | The title for the actionsheet                                   |
-	     * | subTitle              |`string`    | The sub-title for the actionsheet                               |
-	     * | cssClass              |`string`    | An additional class for custom styles                           |
-	     * | enableBackdropDismiss |`boolean`   | If the actionsheet should close when the user taps the backdrop |
-	     * | buttons               |`array<any>`| An array of buttons to display                                  |
-	     *
-	     * For the buttons:
-	     *
-	     * | Option   | Type     | Description                                                                                                                                      |
-	     * |----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-	     * | text     | `string` | The buttons text                                                                                                                                 |
-	     * | icon     | `icon`   | The buttons icons                                                                                                                                |
-	     * | handler  | `any`    | An express the button should evaluate                                                                                                            |
-	     * | cssClass | `string` | An additional class for custom styles                                                                                                            |
-	     * | role     | `string` | How the button should be displayed, `destructive` or `cancel`. If not role is provided, it will display the button without any additional styles |
-	     *
-	     *
-	     *
+	     * Open an action sheet with a title, subTitle, and an array of buttons
 	     * @param {ActionSheetOptions} opts Action sheet options
 	     */
 	    ActionSheetController.prototype.create = function (opts) {

@@ -72,40 +72,177 @@ instance has methods to add options, like <code>setTitle()</code> or <code>addBu
 
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
-<pre><code class="lang-ts">constructor(private actionSheetCtrl: ActionSheetController) {
+<pre><code class="lang-ts">import {ActionSheetController} from &#39;ionic-angular&#39;
 
-}
+export class MyClass{
 
-presentActionSheet() {
-  let actionSheet = this.actionSheetCtrl.create({
-    title: &#39;Modify your album&#39;,
-    buttons: [
-      {
-        text: &#39;Destructive&#39;,
-        role: &#39;destructive&#39;,
-        handler: () =&gt; {
-          console.log(&#39;Destructive clicked&#39;);
-        }
-      },
-      {
-        text: &#39;Archive&#39;,
-        handler: () =&gt; {
-          console.log(&#39;Archive clicked&#39;);
-        }
-      },
-      {
-        text: &#39;Cancel&#39;,
-        role: &#39;cancel&#39;,
-        handler: () =&gt; {
-          console.log(&#39;Cancel clicked&#39;);
-        }
-      }
-    ]
-  });
+ constructor(private actionSheetCtrl: ActionSheetController) {}
 
-  actionSheet.present();
+ presentActionSheet() {
+   let actionSheet = this.actionSheetCtrl.create({
+     title: &#39;Modify your album&#39;,
+     buttons: [
+       {
+         text: &#39;Destructive&#39;,
+         role: &#39;destructive&#39;,
+         handler: () =&gt; {
+           console.log(&#39;Destructive clicked&#39;);
+         }
+       },
+       {
+         text: &#39;Archive&#39;,
+         handler: () =&gt; {
+           console.log(&#39;Archive clicked&#39;);
+         }
+       },
+       {
+         text: &#39;Cancel&#39;,
+         role: &#39;cancel&#39;,
+         handler: () =&gt; {
+           console.log(&#39;Cancel clicked&#39;);
+         }
+       }
+     ]
+   });
+
+   actionSheet.present();
+ }
 }
 </code></pre>
+
+
+
+
+<!-- @property tags -->
+
+
+
+<!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="create"></div>
+
+<h3>
+<a class="anchor" name="create" href="#create"></a>
+<code>create(opts)</code>
+  
+
+</h3>
+
+Open an action sheet with a title, subTitle, and an array of buttons
+
+
+<table class="table param-table" style="margin:0;">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        opts
+        
+        
+      </td>
+      <td>
+        
+  <code>ActionSheetOptions</code>
+      </td>
+      <td>
+        <p>Action sheet options</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+<h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>ActionSheet create options</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td><code>string</code></td>
+<td>The title for the actionsheet</td>
+</tr>
+<tr>
+<td>subTitle</td>
+<td><code>string</code></td>
+<td>The sub-title for the actionsheet</td>
+</tr>
+<tr>
+<td>cssClass</td>
+<td><code>string</code></td>
+<td>An additional class for custom styles</td>
+</tr>
+<tr>
+<td>enableBackdropDismiss</td>
+<td><code>boolean</code></td>
+<td>If the actionsheet should close when the user taps the backdrop</td>
+</tr>
+<tr>
+<td>buttons</td>
+<td><code>array&lt;any&gt;</code></td>
+<td>An array of buttons to display</td>
+</tr>
+</tbody>
+</table>
+<p>ActionSheet button options</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td><code>string</code></td>
+<td>The buttons text</td>
+</tr>
+<tr>
+<td>icon</td>
+<td><code>icon</code></td>
+<td>The buttons icons</td>
+</tr>
+<tr>
+<td>handler</td>
+<td><code>any</code></td>
+<td>An express the button should evaluate</td>
+</tr>
+<tr>
+<td>cssClass</td>
+<td><code>string</code></td>
+<td>An additional class for custom styles</td>
+</tr>
+<tr>
+<td>role</td>
+<td><code>string</code></td>
+<td>How the button should be displayed, <code>destructive</code> or <code>cancel</code>. If not role is provided, it will display the button without any additional styles</td>
+</tr>
+</tbody>
+</table>
 <h3 id="dismissing-and-async-navigation">Dismissing And Async Navigation</h3>
 <p>After an action sheet has been dismissed, the app may need to also transition
 to another page depending on the handler&#39;s logic. However, because multiple
@@ -154,86 +291,6 @@ the handler returns <code>false</code>, then the action sheet does not automatic
 itself. Instead, you now have complete control of when the action sheet has finished
 transitioning, and the ability to wait for the action sheet to finish transitioning
 out before starting a new transition.</p>
-
-
-
-
-<!-- @property tags -->
-
-
-
-<!-- instance methods on the class -->
-
-<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="create"></div>
-
-<h3>
-<a class="anchor" name="create" href="#create"></a>
-<code>create(opts)</code>
-  
-
-</h3>
-
-Open an action sheet with the following options
-
-| Option                | Type       | Description                                                     |
-|-----------------------|------------|-----------------------------------------------------------------|
-| title                 |`string`    | The title for the actionsheet                                   |
-| subTitle              |`string`    | The sub-title for the actionsheet                               |
-| cssClass              |`string`    | An additional class for custom styles                           |
-| enableBackdropDismiss |`boolean`   | If the actionsheet should close when the user taps the backdrop |
-| buttons               |`array<any>`| An array of buttons to display                                  |
-
-For the buttons:
-
-| Option   | Type     | Description                                                                                                                                      |
-|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| text     | `string` | The buttons text                                                                                                                                 |
-| icon     | `icon`   | The buttons icons                                                                                                                                |
-| handler  | `any`    | An express the button should evaluate                                                                                                            |
-| cssClass | `string` | An additional class for custom styles                                                                                                            |
-| role     | `string` | How the button should be displayed, `destructive` or `cancel`. If not role is provided, it will display the button without any additional styles |
-
-
-
-
-
-<table class="table param-table" style="margin:0;">
-  <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>
-        opts
-        
-        
-      </td>
-      <td>
-        
-  <code>ActionSheetOptions</code>
-      </td>
-      <td>
-        <p>Action sheet options</p>
-
-        
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-
-
-
-
 
 
 

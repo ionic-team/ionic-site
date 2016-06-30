@@ -8048,8 +8048,11 @@ ion-navbar.toolbar {
   -ms-flex-align: center;
   align-items: center; }
 
-ion-header::after {
+ion-header::after,
+[tabbarplacement="top"] > ion-tabbar::after {
   position: absolute;
+  bottom: -5px;
+  left: 0;
   width: 100%;
   height: 5px;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAIBAMAAAARjyJQAAAAFVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAASAQCkAAAAB3RSTlMBLRUGDSA4cBS/RQAAACBJREFUeF5jSEMCDIJIgCEUCTAoIQEGFyTAYIwEGHACAG7+EL36X1OAAAAAAElFTkSuQmCC);

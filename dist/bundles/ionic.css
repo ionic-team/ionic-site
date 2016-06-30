@@ -11027,8 +11027,11 @@ ion-icon {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center; }
-  .md ion-header::after {
+  .md ion-header::after,
+  .md [tabbarplacement="top"] > ion-tabbar::after {
     position: absolute;
+    bottom: -5px;
+    left: 0;
     width: 100%;
     height: 5px;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAIBAMAAAARjyJQAAAAFVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAASAQCkAAAAB3RSTlMBLRUGDSA4cBS/RQAAACBJREFUeF5jSEMCDIJIgCEUCTAoIQEGFyTAYIwEGHACAG7+EL36X1OAAAAAAElFTkSuQmCC);

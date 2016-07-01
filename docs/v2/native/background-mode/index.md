@@ -130,7 +130,11 @@ Checks if background mode is enabled or not.
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code> returns a true of false if the background mode is enabled.
+</div>
 
 
 
@@ -146,12 +150,16 @@ Can be used to get the information if the background mode is active.
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>boolean</code> returns tru or flase if the background mode is active.
+</div>
 
 
 
 <div id="setDefaults"></div>
-<h3><code>setDefaults()</code>
+<h3><code>setDefaults(options)</code>
   
 </h3>
 
@@ -164,7 +172,35 @@ Override the default title, ticker and text.
 Available only for Android platform.
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>Configure</code>
+    </td>
+    <td>
+      <p>List of option to configure. See table below</p>
 
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -173,7 +209,7 @@ Available only for Android platform.
 
 
 <div id="update"></div>
-<h3><code>update()</code>
+<h3><code>update(options)</code>
   
 </h3>
 
@@ -186,7 +222,35 @@ Modify the displayed information.
 Available only for Android platform.
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      options
+      
+      
+    </td>
+    <td>
+      
+<code>Configure</code>
+    </td>
+    <td>
+      <p>Any options you want to update. See table below.</p>
 
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -242,7 +306,45 @@ Can be used to get notified or run function when the background mode has been ac
 
 
 
-<!-- methods on the class -->
+<!-- methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>Configuration options</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td><code>string</code></td>
+<td>Title of the background task. Optional</td>
+</tr>
+<tr>
+<td>ticker</td>
+<td><code>string</code></td>
+<td>The text that scrolls itself on the statusbar. Optional</td>
+</tr>
+<tr>
+<td>text</td>
+<td><code>string</code></td>
+<td>Description of the background task. Optional</td>
+</tr>
+<tr>
+<td>silent</td>
+<td><code>boolean</code></td>
+<td>If the plugin will display a notification or not. Default is false. Optional</td>
+</tr>
+<tr>
+<td>resume</td>
+<td><code>boolean</code></td>
+<td>Bring the app into the foreground if the notification is tapped. Optional</td>
+</tr>
+</tbody>
+</table>
+
 
 <!-- related link --><!-- end content block -->
 

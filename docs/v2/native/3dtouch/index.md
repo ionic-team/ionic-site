@@ -67,8 +67,10 @@ docType: "class"
 <h2>Usage</h2>
 
 <p>Please do refer to the original plugin&#39;s repo for detailed usage. The usage example here might not be sufficient.</p>
-<pre><code>import {ThreeDeeTouch, ThreeDeeTouchQuickAction, ThreeDeeTouchForceTouch} from &#39;ionic-native&#39;;
+<pre><code>import {ThreeDeeTouch} from &#39;ionic-native&#39;;
 
+// import for type completion on variables
+import {ThreeDeeTouchQuickAction, ThreeDeeTouchForceTouch} from &#39;ionic-native&#39;;
 ...
 
 ThreeDeeTouch.isAvailable().then(isAvailable =&gt; console.log(&quot;3D Touch available? &quot; + isAvailable)):
@@ -108,6 +110,15 @@ let actions: Array&lt;ThreeDeeTouchQuickAction&gt; = [
   }
 ];
 ThreeDeeTouch.configureQuickActions(actions);
+
+ThreeDeeTouchForceTouch.onHomeIconPressed().subscribe(
+ (payload) =&gt; {
+   // returns an object that is the button you presed
+   console.log(`Pressed the ${payload.title} button`)
+   console.log(payload.type)
+
+ }
+)
 </code></pre>
 
 
@@ -158,15 +169,95 @@ You can get a notification when the user force touches the webview. The plugin d
 
 
 <div id="configureQuickActions"></div>
-<h3><code>configureQuickActions()</code>
+<h3><code>configureQuickActions(type,&nbsp;title,&nbsp;subtitle,&nbsp;iconType)</code>
   
 </h3>
 
 
 
+setup the 3D-touch actions, takes an array of objects with the following
 
 
+<table class="table param-table" style="margin:0;">
+  <thead>
+  <tr>
+    <th>Param</th>
+    <th>Type</th>
+    <th>Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td>
+      type
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>(optional) A type that can be used <code>onHomeIconPressed</code> callback</p>
 
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      title
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>Title for your action</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      subtitle
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>(optional) A short description for your action</p>
+
+      
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      iconType
+      
+      
+    </td>
+    <td>
+      
+<code>string</code>
+    </td>
+    <td>
+      <p>(optional) Choose between Prohibit, Contact, Home, MarkLocation, Favorite, Love, Cloud, Invitation, Confirmation, Mail, Message, Date, Time, CapturePhoto, CaptureVideo, Task, TaskCompleted, Alarm, Bookmark, Shuffle, Audio, Update</p>
+
+      
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
 
 
 
@@ -199,6 +290,7 @@ You can get a notification when the user force touches the webview. The plugin d
 
 
 
+Enable Link Preview.
 UIWebView and WKWebView (the webviews powering Cordova apps) don't allow the fancy new link preview feature of iOS9.
 
 

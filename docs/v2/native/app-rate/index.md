@@ -90,23 +90,10 @@ AppRate.promptForRating();
   
 </h3>
 
-Rating dialog preferences
+Configure various settings for the Rating View.
+See table below for options
 
-| Option                       | Type       | Default | Description                                                                            |
-|------------------------------|------------|---------|----------------------------------------------------------------------------------------|
-| useLanguage                  | `String`   | null    | custom BCP 47 language tag                                                             |
-| displayAppName               | `String`   | ''      | custom application title                                                               |
-| promptAgainForEachNewVersion | `Boolean`  | true    | show dialog again when application version will be updated                             |
-| usesUntilPrompt              | `Integer`  | 3       | count of runs of application before dialog will be displayed                           |
-| openStoreInApp               | `Boolean`  | false   | leave app or no when application page opened in app store (now supported only for iOS) |
-| useCustomRateDialog          | `Boolean`  | false   | use custom view for rate dialog                                                        |
-| callbacks.onButtonClicked    | `Function` | null    | call back function. called when user clicked on rate-dialog buttons                    |
-| callbacks.onRateDialogShow   | `Function` | null    | call back function. called when rate-dialog showing                                    |
-| storeAppURL.ios              | `String`   | null    | application id in AppStore                                                             |
-| storeAppURL.android          | `String`   | null    | application URL in GooglePlay                                                          |
-| storeAppURL.blackberry       | `String`   | null    | application URL in AppWorld                                                            |
-| storeAppURL.windows8         | `String`   | null    | application URL in WindowsStore                                                        |
-| customLocale                 | `Object`   | null    | custom locale object                                                                   |
+
 
 
 
@@ -121,7 +108,6 @@ Rating dialog preferences
 </h3>
 
 Prompts the user for rating
-
 
 
 <table class="table param-table" style="margin:0;">
@@ -161,7 +147,99 @@ Prompts the user for rating
 
 
 
-<!-- methods on the class -->
+<!-- methods on the class --><h2><a class="anchor" name="advanced" href="#advanced"></a>Advanced</h2>
+<p>Rating dialog preferences</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>useLanguage</td>
+<td><code>String</code></td>
+<td>null</td>
+<td>custom BCP 47 language tag</td>
+</tr>
+<tr>
+<td>displayAppName</td>
+<td><code>String</code></td>
+<td>&#39;&#39;</td>
+<td>custom application title</td>
+</tr>
+<tr>
+<td>promptAgainForEachNewVersion</td>
+<td><code>Boolean</code></td>
+<td>true</td>
+<td>show dialog again when application version will be updated</td>
+</tr>
+<tr>
+<td>usesUntilPrompt</td>
+<td><code>Integer</code></td>
+<td>3</td>
+<td>count of runs of application before dialog will be displayed</td>
+</tr>
+<tr>
+<td>openStoreInApp</td>
+<td><code>Boolean</code></td>
+<td>false</td>
+<td>leave app or no when application page opened in app store (now supported only for iOS)</td>
+</tr>
+<tr>
+<td>useCustomRateDialog</td>
+<td><code>Boolean</code></td>
+<td>false</td>
+<td>use custom view for rate dialog</td>
+</tr>
+<tr>
+<td>callbacks.onButtonClicked</td>
+<td><code>Function</code></td>
+<td>null</td>
+<td>call back function. called when user clicked on rate-dialog buttons</td>
+</tr>
+<tr>
+<td>callbacks.onRateDialogShow</td>
+<td><code>Function</code></td>
+<td>null</td>
+<td>call back function. called when rate-dialog showing</td>
+</tr>
+<tr>
+<td>storeAppURL.ios</td>
+<td><code>String</code></td>
+<td>null</td>
+<td>application id in AppStore</td>
+</tr>
+<tr>
+<td>storeAppURL.android</td>
+<td><code>String</code></td>
+<td>null</td>
+<td>application URL in GooglePlay</td>
+</tr>
+<tr>
+<td>storeAppURL.blackberry</td>
+<td><code>String</code></td>
+<td>null</td>
+<td>application URL in AppWorld</td>
+</tr>
+<tr>
+<td>storeAppURL.windows8</td>
+<td><code>String</code></td>
+<td>null</td>
+<td>application URL in WindowsStore</td>
+</tr>
+<tr>
+<td>customLocale</td>
+<td><code>Object</code></td>
+<td>null</td>
+<td>custom locale object</td>
+</tr>
+</tbody>
+</table>
+
 
 <!-- related link --><!-- end content block -->
 

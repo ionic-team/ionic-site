@@ -144,7 +144,9 @@ Checks if an app is available on device
 
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -197,7 +197,9 @@ This will clear the OAuth2 token, forget which account was used to login, and di
 
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

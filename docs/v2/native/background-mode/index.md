@@ -242,7 +242,9 @@ Can be used to get notified or run function when the background mode has been ac
 
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

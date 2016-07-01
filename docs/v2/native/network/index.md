@@ -178,7 +178,9 @@ Get notified when the device goes online
 
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

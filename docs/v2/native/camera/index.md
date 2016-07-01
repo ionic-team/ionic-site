@@ -253,7 +253,9 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
 
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

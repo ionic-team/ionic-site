@@ -263,7 +263,9 @@ Creates an observable that notifies you when the keyboard is hidden. Unsubscribe
 
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -169,7 +169,9 @@ Retrieve the version of the card.io library. Useful when contacting support.
 
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

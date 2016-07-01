@@ -269,7 +269,9 @@ On iOS <=7, returns true if app is registered for remote notifications AND alert
 
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

@@ -837,7 +837,9 @@ Enable/disable automatic reporting of uncaught exceptions
 
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

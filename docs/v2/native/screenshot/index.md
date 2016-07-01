@@ -182,7 +182,9 @@ On ios, only &#39;jpg&#39; format is supported</p>
 
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

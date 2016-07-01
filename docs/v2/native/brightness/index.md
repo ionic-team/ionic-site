@@ -171,7 +171,9 @@ Keeps the screen on. Prevents the device from setting the screen to sleep.
 
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

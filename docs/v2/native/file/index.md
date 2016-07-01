@@ -1135,7 +1135,9 @@ If an existing file exists and the replace value is false, the promise will fail
 
 
 
-<!-- methods on the class --><!-- related link --><!-- end content block -->
+<!-- methods on the class -->
+
+<!-- related link --><!-- end content block -->
 
 
 <!-- end body block -->

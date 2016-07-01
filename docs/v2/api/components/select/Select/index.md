@@ -129,6 +129,29 @@ for more properties.</p>
 
 
 <!-- instance methods on the class -->
+
+<h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="open"></div>
+
+<h3>
+<a class="anchor" name="open" href="#open"></a>
+<code>open()</code>
+  
+
+</h3>
+
+Open the select interface.
+
+
+
+
+
+
+
+
+
+
 <!-- input methods on the class -->
 <h2><a class="anchor" name="input-properties" href="#input-properties"></a>Input Properties</h2>
 <table class="table param-table" style="margin:0;">

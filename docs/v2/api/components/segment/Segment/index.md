@@ -73,8 +73,8 @@ You could use Angular 2&#39;s <code>ngModel</code> or <code>FormBuilder</code> A
   &lt;/ion-segment&gt;
 
   &lt;!-- Segment in a form --&gt;
-  &lt;form [ngFormModel]=&quot;myForm&quot;&gt;
-    &lt;ion-segment ngControl=&quot;mapStyle&quot; danger&gt;
+  &lt;form [formGroup]=&quot;myForm&quot;&gt;
+    &lt;ion-segment formControlName=&quot;mapStyle&quot; danger&gt;
       &lt;ion-segment-button value=&quot;standard&quot;&gt;
         Standard
       &lt;/ion-segment-button&gt;

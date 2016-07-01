@@ -5919,7 +5919,8 @@ ion-icon {
     justify-content: center;
     max-width: 40px;
     height: 100%;
-    font-size: 1.6em;
+    font-size: 1.45em;
+    opacity: .5;
     pointer-events: all;
     -ms-touch-action: manipulation;
     touch-action: manipulation; }
@@ -9432,7 +9433,8 @@ ion-icon {
     justify-content: center;
     max-width: 40px;
     height: 100%;
-    font-size: 1.6em;
+    font-size: 1.45em;
+    opacity: .5;
     pointer-events: all;
     -ms-touch-action: manipulation;
     touch-action: manipulation; }
@@ -13259,7 +13261,8 @@ ion-icon {
     justify-content: center;
     max-width: 40px;
     height: 100%;
-    font-size: 1.6em;
+    font-size: 1.45em;
+    opacity: .5;
     pointer-events: all;
     -ms-touch-action: manipulation;
     touch-action: manipulation; }

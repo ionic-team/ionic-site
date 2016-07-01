@@ -33,7 +33,7 @@ NavbarTemplate
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/navbar/navbar.ts#L223">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/navbar/navbar.ts#L225">
 Improve this doc
 </a>
 

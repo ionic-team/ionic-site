@@ -33,7 +33,7 @@ SlideLazy
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/slides/slides.ts#L889">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/slides/slides.ts#L875">
 Improve this doc
 </a>
 

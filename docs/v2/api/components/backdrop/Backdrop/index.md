@@ -33,7 +33,7 @@ Backdrop
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/backdrop/backdrop.ts#L3">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/backdrop/backdrop.ts#L5">
 Improve this doc
 </a>
 

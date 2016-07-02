@@ -7961,7 +7961,11 @@ tab-highlight {
 
 ion-tabbar {
   border-top: 1px solid #b2b2b2;
-  background: #f8f8f8; }
+  background: #f8f8f8;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
 
 ion-tabs[tabbarPlacement=top] ion-tabbar {
   border-top: 0;

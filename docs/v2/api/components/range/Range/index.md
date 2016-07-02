@@ -211,7 +211,8 @@ If there is only one knob, then this will return `null`.
     <tr>
       <td>debounce</td>
       <td><code>number</code></td>
-      <td><p> If true, a pin with integer value is shown when the knob is pressed. Defaults to <code>false</code>.</p>
+      <td><p> How long, in milliseconds, to wait to trigger the <code>ionChange</code>
+event after each change in the range value. Default <code>0</code>.</p>
 </td>
     </tr>
     

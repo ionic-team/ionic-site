@@ -87711,7 +87711,8 @@
 	    });
 	    Object.defineProperty(Range.prototype, "debounce", {
 	        /**
-	         * @input {number} If true, a pin with integer value is shown when the knob is pressed. Defaults to `false`.
+	         * @input {number} How long, in milliseconds, to wait to trigger the `ionChange`
+	         * event after each change in the range value. Default `0`.
 	         */
 	        get: function () {
 	            return this._debouncer.wait;

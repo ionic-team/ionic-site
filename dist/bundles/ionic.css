@@ -5947,7 +5947,7 @@ ion-icon {
   .ios .item.reorder-active,
   .ios .reorder-active {
     z-index: 4;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     opacity: .8;
     -webkit-transition: none;
     transition: none;
@@ -9465,7 +9465,7 @@ ion-icon {
   .md .item.reorder-active,
   .md .reorder-active {
     z-index: 4;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     opacity: .8;
     -webkit-transition: none;
     transition: none;
@@ -13293,7 +13293,7 @@ ion-icon {
   .wp .item.reorder-active,
   .wp .reorder-active {
     z-index: 4;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     opacity: .8;
     -webkit-transition: none;
     transition: none;

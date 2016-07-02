@@ -81073,13 +81073,24 @@
 	        selectedItem.style[dom_1.CSS.transform] = "translateY(" + ydiff + "px)";
 	    };
 	    ItemReorderGesture.prototype.onDragEnd = function () {
+	        var _this = this;
 	        if (!this.selectedItemEle) {
 	            return;
 	        }
 	        var toIndex = this.lastToIndex;
 	        var fromIndex = item_reorder_1.indexForItem(this.selectedItemEle);
-	        this.selectedItemEle.classList.remove(ITEM_REORDER_ACTIVE);
-	        this.selectedItemEle = null;
+	        var reorderInactive = function () {
+	            _this.selectedItemEle.style.transition = '';
+	            _this.selectedItemEle.classList.remove(ITEM_REORDER_ACTIVE);
+	            _this.selectedItemEle = null;
+	        };
+	        if (toIndex === fromIndex) {
+	            this.selectedItemEle.style.transition = 'transform 200ms ease-in-out';
+	            setTimeout(reorderInactive, 200);
+	        }
+	        else {
+	            reorderInactive();
+	        }
 	        this.list.reorderEmit(fromIndex, toIndex);
 	    };
 	    ItemReorderGesture.prototype.itemForCoord = function (coord) {

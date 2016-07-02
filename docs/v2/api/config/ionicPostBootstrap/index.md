@@ -31,7 +31,7 @@ ionicPostBootstrap
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/bootstrap.ts#L44">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/config/bootstrap.ts#L47">
 Improve this doc
 </a>
 

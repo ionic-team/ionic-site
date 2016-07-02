@@ -18587,11 +18587,14 @@
 	    // get all Ionic Providers
 	    var providers = providers_1.ionicProviders(customProviders, config);
 	    providers.push({ provide: app_1.UserComponent, useValue: appRootComponent });
-	    cssReady(function () {
-	        // call angular bootstrap
-	        platform_browser_dynamic_1.bootstrap(app_1.AppRoot, providers).then(function (ngComponentRef) {
-	            // ionic app has finished bootstrapping
-	            ionicPostBootstrap(ngComponentRef);
+	    return new Promise(function (resolve) {
+	        cssReady(function () {
+	            // call angular bootstrap
+	            platform_browser_dynamic_1.bootstrap(app_1.AppRoot, providers).then(function (ngComponentRef) {
+	                // ionic app has finished bootstrapping
+	                ionicPostBootstrap(ngComponentRef);
+	                resolve(ngComponentRef);
+	            });
 	        });
 	    });
 	}

@@ -185,8 +185,13 @@ ion-tabs,
 ion-tab scroll-cotent {
   display: none; }
 
+ion-tab {
+  -webkit-transform: translateY(-200%);
+  transform: translateY(-200%); }
+
 ion-tab.show-tab {
-  z-index: 1; }
+  -webkit-transform: translateY(0);
+  transform: translateY(0); }
 
 ion-tab.show-tab scroll-cotent {
   display: block; }
@@ -7732,12 +7737,12 @@ tab-highlight {
   right: calc(50% - 50px); }
 
 ion-tabbar {
-  border-top: 1px solid #b2b2b2;
-  background: #f8f8f8;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  border-top: 1px solid #b2b2b2;
+  background: #f8f8f8; }
 
 ion-tabs[tabbarPlacement=top] ion-tabbar {
   border-top: 0;

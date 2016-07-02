@@ -24,6 +24,7 @@ ionic g page myPage
 
 This will give you a html file, sass file, and a js file with your component definition.
 
+### Create a new service
 
 To create a service, you can replace `page` with `provider`:
 
@@ -34,6 +35,20 @@ ionic g provider MyData
 ```
 
 This will create a standard class with a simple `http` get request using Angular's `http` class.
+
+### Create a new pipe
+
+To create a custom pipe, you can replace `page` with `pipe`:
+
+```bash
+ionic g pipe MyFilter
+
+√ Create app/pipes/my-filter/my-filter.ts
+```
+
+This will create a standard class with a simple transform function to be used as pipe. 
+
+Note: Be sure to handle `null === value` in the transform function to use your pipe with the `async` pipe.
 
 ### A quick note on naming conventions
 

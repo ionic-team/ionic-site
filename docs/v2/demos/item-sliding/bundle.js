@@ -68592,8 +68592,9 @@
 	 * @private
 	 */
 	var Backdrop = (function () {
-	    function Backdrop(_appRoot) {
+	    function Backdrop(_appRoot, _elementRef) {
 	        this._appRoot = _appRoot;
+	        this._elementRef = _elementRef;
 	        this.pushed = false;
 	        this.disableScroll = true;
 	    }
@@ -68623,6 +68624,9 @@
 	            this.pushed = false;
 	        }
 	    };
+	    Backdrop.prototype.getNativeElement = function () {
+	        return this._elementRef.nativeElement;
+	    };
 	    Backdrop.nuBackDrops = 0;
 	    __decorate([
 	        core_1.Input(), 
@@ -68637,10 +68641,10 @@
 	                'disable-activated': ''
 	            },
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.AppRoot !== 'undefined' && app_1.AppRoot) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.AppRoot !== 'undefined' && app_1.AppRoot) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
 	    ], Backdrop);
 	    return Backdrop;
-	    var _a;
+	    var _a, _b;
 	}());
 	exports.Backdrop = Backdrop;
 
@@ -70412,7 +70416,7 @@
 	     * @private
 	     */
 	    Menu.prototype.getBackdropElement = function () {
-	        return this.backdrop.elementRef.nativeElement;
+	        return this.backdrop.getNativeElement();
 	    };
 	    /**
 	     * @private

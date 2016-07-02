@@ -123,26 +123,6 @@ Improve this doc
 
 
 
-<div id="elementRef"></div>
-
-<h3>
-<a class="anchor" name="elementRef" href="#elementRef"></a>
-<code>elementRef</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="ngOnInit"></div>
 
 <h3>

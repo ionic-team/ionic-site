@@ -52203,6 +52203,7 @@
 	        this._cmp = _cmp;
 	        this._cr = _cr;
 	        this._renderer = _renderer;
+	        this.disableScroll = false;
 	    }
 	    AppRoot.prototype.ngAfterViewInit = function () {
 	        var _this = this;
@@ -52218,6 +52219,10 @@
 	        core_1.ViewChild('anchor', { read: core_1.ViewContainerRef }), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _a) || Object)
 	    ], AppRoot.prototype, "_viewport", void 0);
+	    __decorate([
+	        core_1.HostBinding('class.disable-scroll'), 
+	        __metadata('design:type', Boolean)
+	    ], AppRoot.prototype, "disableScroll", void 0);
 	    AppRoot = __decorate([
 	        core_1.Component({
 	            selector: 'ion-app',
@@ -68602,47 +68607,41 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
+	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var dom_1 = __webpack_require__(337);
 	var DISABLE_SCROLL = 'disable-scroll';
 	/**
 	 * @private
 	 */
 	var Backdrop = (function () {
-	    function Backdrop(elementRef) {
-	        this.elementRef = elementRef;
+	    function Backdrop(_appRoot) {
+	        this._appRoot = _appRoot;
 	        this.pushed = false;
 	        this.disableScroll = true;
 	    }
-	    Backdrop.push = function () {
+	    Backdrop.push = function (appRoot) {
 	        if (this.nuBackDrops === 0) {
-	            dom_1.nativeRaf(function () {
-	                console.debug('adding .disable-scroll to body');
-	                document.body.classList.add(DISABLE_SCROLL);
-	            });
+	            appRoot.disableScroll = true;
 	        }
 	        this.nuBackDrops++;
 	    };
-	    Backdrop.pop = function () {
+	    Backdrop.pop = function (appRoot) {
 	        if (this.nuBackDrops > 0) {
 	            this.nuBackDrops--;
 	            if (this.nuBackDrops === 0) {
-	                dom_1.nativeRaf(function () {
-	                    console.debug('removing .disable-scroll from body');
-	                    document.body.classList.remove(DISABLE_SCROLL);
-	                });
+	                appRoot.disableScroll = false;
 	            }
 	        }
 	    };
 	    Backdrop.prototype.ngOnInit = function () {
 	        if (util_1.isTrueProperty(this.disableScroll)) {
-	            Backdrop.push();
+	            Backdrop.push(this._appRoot);
 	            this.pushed = true;
 	        }
 	    };
 	    Backdrop.prototype.ngOnDestroy = function () {
 	        if (this.pushed) {
-	            Backdrop.pop();
+	            Backdrop.pop(this._appRoot);
 	            this.pushed = false;
 	        }
 	    };
@@ -68660,7 +68659,7 @@
 	                'disable-activated': ''
 	            },
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.AppRoot !== 'undefined' && app_1.AppRoot) === 'function' && _a) || Object])
 	    ], Backdrop);
 	    return Backdrop;
 	    var _a;

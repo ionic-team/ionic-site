@@ -285,6 +285,10 @@ ion-content.js-scroll > scroll-content {
   -webkit-overflow-scrolling: auto;
   will-change: initial; }
 
+.disable-scroll ion-page > ion-content > scroll-content {
+  overflow-y: hidden;
+  overflow-x: hidden; }
+
 [nav-viewport],
 [nav-portal],
 [tab-portal],
@@ -1088,10 +1092,6 @@ ion-scroll {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     will-change: scroll-position; }
-
-body.disable-scroll scroll-content {
-  overflow-y: hidden;
-  overflow-x: hidden; }
 
 .hidden-show-when {
   display: none !important; }

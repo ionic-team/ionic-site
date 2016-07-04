@@ -74,12 +74,14 @@ All pages have both a class, and an associated template that's being compiled as
 
 ```html
 {% raw %}
-<ion-navbar *navbar>
-  <button menuToggle>
-    <ion-icon name="menu"></ion-icon>
-  </button>
-  <ion-title>Hello Ionic</ion-title>
-</ion-navbar>
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hello Ionic</ion-title>
+  </ion-navbar>
+</ion-header>
 
 
 <ion-content padding class="getting-started">

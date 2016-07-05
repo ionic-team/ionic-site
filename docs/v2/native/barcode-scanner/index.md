@@ -95,19 +95,6 @@ BarcodeScanner.scan().then((barcodeData) =&gt; {
 
 <!-- @property tags -->
 <h2>Static Members</h2>
-<div id="Encode"></div>
-<h3><code>Encode()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
 <div id="scan"></div>
 <h3><code>scan()</code>
   

@@ -120,20 +120,6 @@ Starts listening
 
 
 
-<div id="stop"></div>
-<h3><code>stop()</code>
-  
-</h3>
-
-Stops listening
-
-
-
-
-
-
-
-
 <div id="isListening"></div>
 <h3><code>isListening()</code>
   

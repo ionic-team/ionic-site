@@ -111,10 +111,11 @@ Converts a base64 string to an image file in the device gallery
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      
+      <p>The actual base64 string that you want to save</p>
+
       
     </td>
   </tr>
@@ -127,10 +128,11 @@ Converts a base64 string to an image file in the device gallery
     </td>
     <td>
       
-
+<code>sstring</code>
     </td>
     <td>
-      
+      <p>Prefix the file with a string. Default is &#39;img_&#39;. Optional.</p>
+
       
     </td>
   </tr>
@@ -141,6 +143,12 @@ Converts a base64 string to an image file in the device gallery
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise that resolves when the image is saved.
+</div>
 
 
 

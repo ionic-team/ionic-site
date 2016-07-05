@@ -71,6 +71,28 @@ docType: "class"
 
 <!-- @usage tag -->
 
+<h2>Usage</h2>
+
+<pre><code class="lang-ts">// Write a string
+Bluetooth.write(&quot;hello world&quot;).then(success, failure);
+
+// Array of int or bytes
+Bluetooth.write([186, 220, 222]).then(success, failure);
+
+// Typed Array
+var data = new Uint8Array(4);
+data[0] = 0x41;
+data[1] = 0x42;
+data[2] = 0x43;
+data[3] = 0x44;
+Bluetooth.write(data).then(success, failure);
+
+// Array Buffer
+Bluetooth.write(data.buffer).then(success, failure);
+</code></pre>
+
+
+
 
 <!-- @property tags -->
 <h2>Static Members</h2>
@@ -80,16 +102,17 @@ docType: "class"
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Connect to a Bluetooth device
-Returns an Observable. Subscribe to connect, unsubscribe to disconnect.
 
 
 <table class="table param-table" style="margin:0;">
@@ -110,7 +133,7 @@ Returns an Observable. Subscribe to connect, unsubscribe to disconnect.
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       <p>Identifier of the remote device</p>
@@ -126,6 +149,12 @@ Returns an Observable. Subscribe to connect, unsubscribe to disconnect.
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable</code> Subscribe to connect, unsubscribe to disconnect.
+</div>
+
 
 
 <div id="connectInsecure"></div>
@@ -134,12 +163,13 @@ Returns an Observable. Subscribe to connect, unsubscribe to disconnect.
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
+</p>
 
 
 Connect insecurely to a Bluetooth device
-Returns an Observable. Subscribe to connect, unsubscribe to disconnect.
 
 
 <table class="table param-table" style="margin:0;">
@@ -160,7 +190,7 @@ Returns an Observable. Subscribe to connect, unsubscribe to disconnect.
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       <p>Identifier of the remote device</p>
@@ -176,6 +206,12 @@ Returns an Observable. Subscribe to connect, unsubscribe to disconnect.
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable</code> Subscribe to connect, unsubscribe to disconnect.
+</div>
+
 
 
 <div id="write"></div>
@@ -184,12 +220,14 @@ Returns an Observable. Subscribe to connect, unsubscribe to disconnect.
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Writes data to the serial port
@@ -213,7 +251,7 @@ Writes data to the serial port
     </td>
     <td>
       
-
+<code>any</code>
     </td>
     <td>
       <p>ArrayBuffer of data</p>
@@ -229,6 +267,12 @@ Writes data to the serial port
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise when data has been written
+</div>
+
 
 
 <div id="available"></div>
@@ -237,12 +281,14 @@ Writes data to the serial port
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Gets the number of bytes of data available
@@ -252,7 +298,11 @@ Gets the number of bytes of data available
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise that contains the available bytes
+</div>
 
 
 
@@ -262,12 +312,14 @@ Gets the number of bytes of data available
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Reads data from the buffer
@@ -277,7 +329,11 @@ Reads data from the buffer
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise with data from the buffer
+</div>
 
 
 
@@ -287,12 +343,14 @@ Reads data from the buffer
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Reads data from the buffer until it reaches a delimiter
@@ -316,10 +374,11 @@ Reads data from the buffer until it reaches a delimiter
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      
+      <p>string that you want to search until</p>
+
       
     </td>
   </tr>
@@ -331,6 +390,12 @@ Reads data from the buffer until it reaches a delimiter
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise
+</div>
+
 
 
 <div id="subscribe"></div>
@@ -339,12 +404,14 @@ Reads data from the buffer until it reaches a delimiter
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Subscribe to be notified when data is received
@@ -368,10 +435,11 @@ Subscribe to be notified when data is received
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      
+      <p>the string you want to watch for</p>
+
       
     </td>
   </tr>
@@ -383,6 +451,12 @@ Subscribe to be notified when data is received
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable</code> returns an observable.
+</div>
+
 
 
 <div id="subscribeRawData"></div>
@@ -391,12 +465,14 @@ Subscribe to be notified when data is received
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Subscribe to be notified when data is received
@@ -406,7 +482,11 @@ Subscribe to be notified when data is received
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable</code> returns an observable
+</div>
 
 
 
@@ -416,12 +496,14 @@ Subscribe to be notified when data is received
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Clears data in buffer
@@ -431,7 +513,11 @@ Clears data in buffer
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise when completed
+</div>
 
 
 
@@ -441,12 +527,14 @@ Clears data in buffer
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Lists bonded devices
@@ -456,7 +544,11 @@ Lists bonded devices
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise
+</div>
 
 
 
@@ -466,12 +558,14 @@ Lists bonded devices
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Reports if bluetooth is enabled
@@ -481,7 +575,11 @@ Reports if bluetooth is enabled
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise
+</div>
 
 
 
@@ -491,12 +589,14 @@ Reports if bluetooth is enabled
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Reports the connection status
@@ -506,7 +606,11 @@ Reports the connection status
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise
+</div>
 
 
 
@@ -516,12 +620,14 @@ Reports the connection status
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Reads the RSSI from the connected peripheral
@@ -531,7 +637,11 @@ Reads the RSSI from the connected peripheral
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise
+</div>
 
 
 
@@ -541,12 +651,14 @@ Reads the RSSI from the connected peripheral
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Show the Bluetooth settings on the device
@@ -556,7 +668,11 @@ Show the Bluetooth settings on the device
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise
+</div>
 
 
 
@@ -566,12 +682,14 @@ Show the Bluetooth settings on the device
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Enable Bluetooth on the device
@@ -581,7 +699,11 @@ Enable Bluetooth on the device
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise
+</div>
 
 
 
@@ -591,12 +713,14 @@ Enable Bluetooth on the device
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Discover unpaired devices
@@ -606,6 +730,12 @@ Discover unpaired devices
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise
+</div>
+
 
 
 <div id="setDeviceDiscoveredListener"></div>
@@ -614,12 +744,14 @@ Discover unpaired devices
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
 
 <code>iOS</code>&nbsp;
 
 <code>Windows Phone</code>&nbsp;
+</p>
 
 
 Subscribe to be notified on Bluetooth device discovery. Discovery process must be initiated with the `discoverUnpaired` function.
@@ -629,7 +761,11 @@ Subscribe to be notified on Bluetooth device discovery. Discovery process must b
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Observable</code> Returns an observable
+</div>
 
 
 
@@ -639,8 +775,10 @@ Subscribe to be notified on Bluetooth device discovery. Discovery process must b
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
+</p>
 
 
 Sets the human readable device name that is broadcasted to other devices
@@ -664,7 +802,7 @@ Sets the human readable device name that is broadcasted to other devices
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
       <p>Desired name of device</p>
@@ -688,8 +826,10 @@ Sets the human readable device name that is broadcasted to other devices
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
+</p>
 
 
 Makes the device discoverable by other devices
@@ -713,7 +853,7 @@ Makes the device discoverable by other devices
     </td>
     <td>
       
-
+<code>number</code>
     </td>
     <td>
       <p>Desired number of seconds device should be discoverable for</p>

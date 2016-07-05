@@ -185,10 +185,12 @@ Shares using the share sheet
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>iOS</code>&nbsp;
 
 <code>Android</code>&nbsp;
+</p>
 
 
 Shares using the share sheet with additional options and returns a result object or an error message (requires plugin version 5.1.0+)
@@ -236,10 +238,12 @@ Shares using the share sheet with additional options and returns a result object
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>iOS</code>&nbsp;
 
 <code>Android</code>&nbsp;
+</p>
 
 
 Checks if you can share via a specific app.
@@ -287,10 +291,12 @@ Checks if you can share via a specific app.
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>iOS</code>&nbsp;
 
 <code>Android</code>&nbsp;
+</p>
 
 
 Shares directly to Twitter
@@ -369,10 +375,12 @@ Shares directly to Twitter
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>iOS</code>&nbsp;
 
 <code>Android</code>&nbsp;
+</p>
 
 
 Shares directly to Facebook
@@ -451,10 +459,12 @@ Shares directly to Facebook
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>iOS</code>&nbsp;
 
 <code>Android</code>&nbsp;
+</p>
 
 
 Shares directly to Facebook with a paste message hint
@@ -549,10 +559,12 @@ Shares directly to Facebook with a paste message hint
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>iOS</code>&nbsp;
 
 <code>Android</code>&nbsp;
+</p>
 
 
 Shares directly to Instagram
@@ -615,10 +627,12 @@ Shares directly to Instagram
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>iOS</code>&nbsp;
 
 <code>Android</code>&nbsp;
+</p>
 
 
 Shares directly to WhatsApp
@@ -697,10 +711,12 @@ Shares directly to WhatsApp
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>iOS</code>&nbsp;
 
 <code>Android</code>&nbsp;
+</p>
 
 
 Shares directly to a WhatsApp Contact
@@ -799,10 +815,12 @@ Shares directly to a WhatsApp Contact
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>iOS</code>&nbsp;
 
 <code>Android</code>&nbsp;
+</p>
 
 
 Share via SMS
@@ -867,10 +885,12 @@ Share via SMS
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>iOS</code>&nbsp;
 
 <code>Android</code>&nbsp;
+</p>
 
 
 Share via Email

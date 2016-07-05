@@ -164,8 +164,10 @@ Can be used to get the information if the background mode is active.
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
+</p>
 
 
 Override the default title, ticker and text.
@@ -214,8 +216,10 @@ Available only for Android platform.
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>Android</code>&nbsp;
+</p>
 
 
 Modify the displayed information.

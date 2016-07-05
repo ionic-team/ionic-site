@@ -158,8 +158,10 @@ Take a picture or video, or load one from the library.
 </h3>
 
 
+<p>
 <b>Platforms:</b>
 <code>iOS</code>&nbsp;
+</p>
 
 
 Remove intermediate image files that are kept in temporary storage after calling camera.getPicture.

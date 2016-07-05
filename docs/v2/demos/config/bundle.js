@@ -68609,7 +68609,6 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var DISABLE_SCROLL = 'disable-scroll';
 	/**
 	 * @private
 	 */
@@ -71666,7 +71665,10 @@
 	     * @private
 	     */
 	    Button.prototype.setRole = function (val) {
+	        this._assignCss(false);
 	        this._role = val;
+	        this._readIcon(this._elementRef.nativeElement);
+	        this._assignCss(true);
 	    };
 	    /**
 	     * @private
@@ -71779,15 +71781,6 @@
 	                });
 	            });
 	        }
-	    };
-	    /**
-	     * @private
-	     */
-	    Button.setRoles = function (contentButtonChildren, role) {
-	        var buttons = contentButtonChildren.toArray();
-	        buttons.forEach(function (button) {
-	            button.setRole(role);
-	        });
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -83090,7 +83083,9 @@
 	    Object.defineProperty(ToolbarItem.prototype, "_buttons", {
 	        set: function (buttons) {
 	            if (this.inToolbar) {
-	                button_1.Button.setRoles(buttons, 'bar-button');
+	                buttons.forEach(function (button) {
+	                    button.setRole('bar-button');
+	                });
 	            }
 	        },
 	        enumerable: true,

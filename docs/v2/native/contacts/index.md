@@ -30,7 +30,7 @@ docType: "class"
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/-native/src/plugins/contacts.ts#L211">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic-native/edit/master/-native/src/plugins/contacts.ts#L232">
   Improve this doc
 </a>
 

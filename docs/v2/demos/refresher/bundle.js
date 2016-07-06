@@ -75493,7 +75493,7 @@
 	        setTimeout(function () {
 	            var swiper = new swiper_widget_1.Swiper(_this.getNativeElement().children[0], options);
 	            _this.slider = swiper;
-	        });
+	        }, 300);
 	        /*
 	        * TODO: Finish this
 	        if (isTrueProperty(this.zoom)) {
@@ -75776,7 +75776,7 @@
 	            if (_this.length() > 10) {
 	                _this.showPager = false;
 	            }
-	        });
+	        }, 300);
 	    };
 	    /**
 	     * Transition to the specified slide.

@@ -60,7 +60,7 @@ import { Component } from &#39;@angular/core&#39;;
 })
 export class MyClass{}
 
-ionicBootstrap(MyClass, null, {tabbarPlacement: &#39;bottom&#39;})
+ionicBootstrap(MyClass, null, {tabsPlacement: &#39;bottom&#39;})
 </code></pre>
 
 

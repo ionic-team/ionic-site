@@ -18480,7 +18480,7 @@
 	 * })
 	 * export class MyClass{}
 	 *
-	 * ionicBootstrap(MyClass, null, {tabbarPlacement: 'bottom'})
+	 * ionicBootstrap(MyClass, null, {tabsPlacement: 'bottom'})
 	 * ```
 	 */
 	function ionicBootstrap(appRootComponent, customProviders, config) {
@@ -52533,7 +52533,7 @@
 	 *   iconMode: 'ios',
 	 *   modalEnter: 'modal-slide-in',
 	 *   modalLeave: 'modal-slide-out',
-	 *   tabbarPlacement: 'bottom',
+	 *   tabsPlacement: 'bottom',
 	 *   pageTransition: 'ios',
 	 * });
 	 * ```
@@ -52546,19 +52546,19 @@
 	 * import {ionicBootstrap} from 'ionic-angular';
 	 *
 	 * ionicBootstrap(AppRoot, customProviders, {
-	 *   tabbarPlacement: 'bottom',
+	 *   tabsPlacement: 'bottom',
 	 *   platforms: {
 	 *   ios: {
-	 *     tabbarPlacement: 'top',
+	 *     tabsPlacement: 'top',
 	 *   }
 	 * });
 	 * ```
 	 *
-	 * We could also configure these values at a component level. Take `tabbarPlacement`,
+	 * We could also configure these values at a component level. Take `tabsPlacement`,
 	 * we can configure this as a property on our `ion-tabs`.
 	 *
 	 * ```html
-	 * <ion-tabs tabbarPlacement="top">
+	 * <ion-tabs tabsPlacement="top">
 	 *   <ion-tab tabTitle="Dash" tabIcon="pulse" [root]="tabRoot"></ion-tab>
 	 * </ion-tabs>
 	 * ```
@@ -52567,7 +52567,7 @@
 	 * while in the browser. Simply add `?ionic<PROPERTYNAME>=<value>` to the url.
 	 *
 	 * ```bash
-	 * http://localhost:8100/?ionicTabbarPlacement=bottom
+	 * http://localhost:8100/?ionicTabsPlacement=bottom
 	 * ```
 	 *
 	 * Any value can be added to config, and looked up at a later in any component.
@@ -52609,10 +52609,10 @@
 	 * | `popoverLeave`           | `string`            | The name of the transition to use while a popover is dismissed.                                                                                  |
 	 * | `prodMode`               | `boolean`           | Disable development mode, which turns off assertions and other checks within the framework. One important assertion this disables verifies that a change detection pass does not result in additional changes to any bindings (also known as unidirectional data flow).
 	 * | `spinner`                | `string`            | The default spinner to use when a name is not defined.                                                                                           |
-	 * | `tabbarHighlight`        | `boolean`           | Whether to show a highlight line under the tab when it is selected.                                                                              |
-	 * | `tabbarLayout`           | `string`            | The layout to use for all tabs. Available options: `"icon-top"`, `"icon-left"`, `"icon-right"`, `"icon-bottom"`, `"icon-hide"`, `"title-hide"`.  |
-	 * | `tabbarPlacement`        | `string`            | The position of the tabs. Available options: `"top"`, `"bottom"`                                                                                 |
-	 * | `tabSubPages`            | `boolean`           | Whether to hide the tabs on child pages or not. If `true` it will not show the tabs on child pages.                                              |
+	 * | `tabsHighlight`          | `boolean`           | Whether to show a highlight line under the tab when it is selected.                                                                              |
+	 * | `tabsLayout`             | `string`            | The layout to use for all tabs. Available options: `"icon-top"`, `"icon-left"`, `"icon-right"`, `"icon-bottom"`, `"icon-hide"`, `"title-hide"`.  |
+	 * | `tabsPlacement`          | `string`            | The position of the tabs relative to the content. Available options: `"top"`, `"bottom"`                                                         |
+	 * | `tabsHideOnSubPages`     | `boolean`           | Whether to hide the tabs on child pages or not. If `true` it will not show the tabs on child pages.                                              |
 	 * | `toastEnter`             | `string`            | The name of the transition to use while a toast is presented.                                                                                    |
 	 * | `toastLeave`             | `string`            | The name of the transition to use while a toast is dismissed.                                                                                    |
 	 *
@@ -72236,7 +72236,7 @@
 	        this._paddingLeft = 0;
 	        this._headerHeight = 0;
 	        this._footerHeight = 0;
-	        this._tabbarPlacement = null;
+	        this._tabsPlacement = null;
 	        var ele = this._elementRef.nativeElement;
 	        if (!ele)
 	            return;
@@ -72267,9 +72267,9 @@
 	            if (ele.tagName === 'ION-TABS') {
 	                tabbarEle = ele.firstElementChild;
 	                this._tabbarHeight = tabbarEle.clientHeight;
-	                if (this._tabbarPlacement === null) {
+	                if (this._tabsPlacement === null) {
 	                    // this is the first tabbar found, remember it's position
-	                    this._tabbarPlacement = ele.getAttribute('tabbarplacement');
+	                    this._tabsPlacement = ele.getAttribute('tabsplacement');
 	                }
 	            }
 	            ele = ele.parentElement;
@@ -72291,7 +72291,7 @@
 	            // only add inline padding styles if the computed padding value, which would
 	            // have come from the app's css, is different than the new padding value
 	            newVal = this._headerHeight + this._paddingTop;
-	            if (this._tabbarPlacement === 'top') {
+	            if (this._tabsPlacement === 'top') {
 	                newVal += this._tabbarHeight;
 	            }
 	            if (newVal !== this.contentTop) {
@@ -72299,7 +72299,7 @@
 	                this.contentTop = newVal;
 	            }
 	            newVal = this._footerHeight + this._paddingBottom;
-	            if (this._tabbarPlacement === 'bottom') {
+	            if (this._tabsPlacement === 'bottom') {
 	                newVal += this._tabbarHeight;
 	                if (newVal > 0 && this._footerEle) {
 	                    this._footerEle.style.bottom = (newVal - this._footerHeight - this._paddingBottom) + 'px';
@@ -72313,7 +72313,7 @@
 	        else {
 	            // adjust the content with margins
 	            newVal = this._headerHeight;
-	            if (this._tabbarPlacement === 'top') {
+	            if (this._tabsPlacement === 'top') {
 	                newVal += this._tabbarHeight;
 	            }
 	            if (newVal !== this.contentTop) {
@@ -72321,7 +72321,7 @@
 	                this.contentTop = newVal;
 	            }
 	            newVal = this._footerHeight;
-	            if (this._tabbarPlacement === 'bottom') {
+	            if (this._tabsPlacement === 'bottom') {
 	                newVal += this._tabbarHeight;
 	            }
 	            if (newVal !== this.contentBottom) {
@@ -72332,9 +72332,9 @@
 	                }
 	            }
 	        }
-	        if (this._tabbarPlacement !== null && this._tabs) {
+	        if (this._tabsPlacement !== null && this._tabs) {
 	            // set the position of the tabbar
-	            if (this._tabbarPlacement === 'top') {
+	            if (this._tabsPlacement === 'top') {
 	                this._tabs.setTabbarPosition(this._headerHeight, -1);
 	            }
 	            else {
@@ -72651,21 +72651,21 @@
 	 * The position of the tabs relative to the content varies based on
 	 * the mode. By default, the tabs are placed at the bottom of the screen
 	 * for `ios` mode, and at the top for the `md` and `wp` modes. You can
-	 * configure the position using the `tabbarPlacement` property on the
+	 * configure the position using the `tabsPlacement` property on the
 	 * `<ion-tabs>` element, or in your app's [config](../../config/Config/).
 	 * See the [Input Properties](#input-properties) below for the available
-	 * values of `tabbarPlacement`.
+	 * values of `tabsPlacement`.
 	 *
 	 * ### Layout
 	 *
-	 * The layout for all of the tabs can be defined using the `tabbarLayout`
+	 * The layout for all of the tabs can be defined using the `tabsLayout`
 	 * property. If the individual tab has a title and icon, the icons will
 	 * show on top of the title by default. All tabs can be changed by setting
-	 * the value of `tabbarLayout` on the `<ion-tabs>` element, or in your
+	 * the value of `tabsLayout` on the `<ion-tabs>` element, or in your
 	 * app's [config](../../config/Config/). For example, this is useful if
 	 * you want to show tabs with a title only on Android, but show icons
 	 * and a title for iOS. See the [Input Properties](#input-properties)
-	 * below for the available values of `tabbarLayout`.
+	 * below for the available values of `tabsLayout`.
 	 *
 	 * ### Selecting a Tab
 	 *
@@ -72780,9 +72780,19 @@
 	        this.ionChange = new core_1.EventEmitter();
 	        this.parent = parent;
 	        this.id = ++tabIds;
-	        this.subPages = _config.getBoolean('tabSubPages');
-	        this._useHighlight = _config.getBoolean('tabbarHighlight');
 	        this._sbPadding = _config.getBoolean('statusbarPadding');
+	        this.subPages = _config.getBoolean('tabsHideOnSubPages');
+	        this._useHighlight = _config.getBoolean('tabsHighlight');
+	        // TODO deprecated 07-07-2016 beta.11
+	        if (_config.get('tabSubPages') !== null) {
+	            console.warn('Config option "tabSubPages" has been deprecated. Please use "tabsHideOnSubPages" instead.');
+	            this.subPages = _config.getBoolean('tabSubPages');
+	        }
+	        // TODO deprecated 07-07-2016 beta.11
+	        if (_config.get('tabbarHighlight') !== null) {
+	            console.warn('Config option "tabbarHighlight" has been deprecated. Please use "tabsHighlight" instead.');
+	            this._useHighlight = _config.getBoolean('tabbarHighlight');
+	        }
 	        if (parent) {
 	            // this Tabs has a parent Nav
 	            parent.registerChildNav(this);
@@ -72807,8 +72817,33 @@
 	     */
 	    Tabs.prototype.ngAfterViewInit = function () {
 	        var _this = this;
+	        this._setConfig('tabsPlacement', 'bottom');
+	        this._setConfig('tabsLayout', 'icon-top');
+	        // TODO deprecated 07-07-2016 beta.11
 	        this._setConfig('tabbarPlacement', 'bottom');
 	        this._setConfig('tabbarLayout', 'icon-top');
+	        // TODO deprecated 07-07-2016 beta.11
+	        if (this.tabbarPlacement !== undefined) {
+	            console.warn('Input "tabbarPlacement" has been deprecated. Please use "tabsPlacement" instead.');
+	            this._renderer.setElementAttribute(this._elementRef.nativeElement, 'tabsPlacement', this.tabbarPlacement);
+	            this.tabsPlacement = this.tabbarPlacement;
+	        }
+	        // TODO deprecated 07-07-2016 beta.11
+	        if (this._config.get('tabbarPlacement') !== null) {
+	            console.warn('Config option "tabbarPlacement" has been deprecated. Please use "tabsPlacement" instead.');
+	            this._renderer.setElementAttribute(this._elementRef.nativeElement, 'tabsPlacement', this._config.get('tabbarPlacement'));
+	        }
+	        // TODO deprecated 07-07-2016 beta.11
+	        if (this.tabbarLayout !== undefined) {
+	            console.warn('Input "tabbarLayout" has been deprecated. Please use "tabsLayout" instead.');
+	            this._renderer.setElementAttribute(this._elementRef.nativeElement, 'tabsLayout', this.tabbarLayout);
+	            this.tabsLayout = this.tabbarLayout;
+	        }
+	        // TODO deprecated 07-07-2016 beta.11
+	        if (this._config.get('tabbarLayout') !== null) {
+	            console.warn('Config option "tabbarLayout" has been deprecated. Please use "tabsLayout" instead.');
+	            this._renderer.setElementAttribute(this._elementRef.nativeElement, 'tabsLayout', this._config.get('tabsLayout'));
+	        }
 	        if (this._useHighlight) {
 	            this._platform.onResize(function () {
 	                _this._highlight.select(_this.getSelected());
@@ -73055,7 +73090,15 @@
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', String)
+	    ], Tabs.prototype, "tabsLayout", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
 	    ], Tabs.prototype, "tabbarPlacement", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], Tabs.prototype, "tabsPlacement", void 0);
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
@@ -73121,11 +73164,15 @@
 	        _super.call(this, elementRef);
 	        this.ionSelect = new core_1.EventEmitter();
 	        this.disHover = (config.get('hoverCSS') === false);
-	        this.layout = config.get('tabbarLayout');
+	        this.layout = config.get('tabsLayout');
+	        // TODO deprecated 07-07-2016 beta.11
+	        if (config.get('tabbarLayout') !== undefined) {
+	            this.layout = config.get('tabbarLayout');
+	        }
 	    }
 	    TabButton.prototype.ngOnInit = function () {
 	        this.tab.btn = this;
-	        this.layout = this.tab.parent.tabbarLayout || this.layout;
+	        this.layout = this.tab.parent.tabsLayout || this.layout;
 	        this.hasTitle = !!this.tab.tabTitle;
 	        this.hasIcon = !!this.tab.tabIcon && this.layout !== 'icon-hide';
 	        this.hasTitleOnly = (this.hasTitle && !this.hasIcon);
@@ -92236,9 +92283,9 @@
 	    popoverEnter: 'popover-pop-in',
 	    popoverLeave: 'popover-pop-out',
 	    spinner: 'ios',
-	    tabbarHighlight: false,
-	    tabbarPlacement: 'bottom',
-	    tabSubPages: false,
+	    tabsHighlight: false,
+	    tabsPlacement: 'bottom',
+	    tabsHideOnSubPages: false,
 	    toastEnter: 'toast-slide-in',
 	    toastLeave: 'toast-slide-out',
 	});
@@ -92265,9 +92312,9 @@
 	    popoverEnter: 'popover-md-pop-in',
 	    popoverLeave: 'popover-md-pop-out',
 	    spinner: 'crescent',
-	    tabbarHighlight: true,
-	    tabbarPlacement: 'top',
-	    tabSubPages: true,
+	    tabsHighlight: true,
+	    tabsPlacement: 'top',
+	    tabsHideOnSubPages: true,
 	    toastEnter: 'toast-md-slide-in',
 	    toastLeave: 'toast-md-slide-out',
 	});
@@ -92294,8 +92341,9 @@
 	    popoverEnter: 'popover-md-pop-in',
 	    popoverLeave: 'popover-md-pop-out',
 	    spinner: 'circles',
-	    tabbarPlacement: 'top',
-	    tabSubPages: true,
+	    tabsHighlight: false,
+	    tabsPlacement: 'top',
+	    tabsHideOnSubPages: true,
 	    toastEnter: 'toast-wp-slide-in',
 	    toastLeave: 'toast-wp-slide-out',
 	});

@@ -108,14 +108,14 @@ var ApiDemoPage = (function () {
             this.config = {
                 'backButtonIcon': 'ios-arrow-back',
                 'iconMode': 'ios',
-                'tabbarPlacement': 'bottom'
+                'tabsPlacement': 'bottom'
             };
         }
         else {
             this.config = {
                 'backButtonIcon': 'md-arrow-back',
                 'iconMode': 'md',
-                'tabbarPlacement': 'top'
+                'tabsPlacement': 'top'
             };
         }
         this.initialConfig = JSON.parse(JSON.stringify(this.config));

@@ -260,7 +260,7 @@ ion-tabbar {
 ion-tabbar.show-tabbar {
   opacity: 1; }
 
-[tabbarPlacement=top] > ion-tabbar {
+[tabsPlacement=top] > ion-tabbar {
   top: 0;
   bottom: auto; }
 
@@ -285,7 +285,7 @@ ion-content.js-scroll > scroll-content {
   -webkit-overflow-scrolling: auto;
   will-change: initial; }
 
-.disable-scroll ion-page > ion-content > scroll-content {
+.disable-scroll ion-page scroll-content {
   overflow-y: hidden;
   overflow-x: hidden; }
 
@@ -7252,36 +7252,36 @@ ion-icon {
     white-space: normal; }
   .ios tab-highlight {
     display: none; }
-  .ios [tabbarLayout=icon-bottom] .tab-button .tab-button-icon {
+  .ios [tabsLayout=icon-bottom] .tab-button .tab-button-icon {
     -webkit-box-ordinal-group: 11;
     -webkit-order: 10;
     -ms-flex-order: 10;
     order: 10; }
-  .ios [tabbarLayout=icon-left] .tab-button {
+  .ios [tabsLayout=icon-left] .tab-button {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row; }
-    .ios [tabbarLayout=icon-left] .tab-button .tab-button-icon {
+    .ios [tabsLayout=icon-left] .tab-button .tab-button-icon {
       padding-right: 8px;
       text-align: right; }
-  .ios [tabbarLayout=icon-right] .tab-button {
+  .ios [tabsLayout=icon-right] .tab-button {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row; }
-    .ios [tabbarLayout=icon-right] .tab-button .tab-button-icon {
+    .ios [tabsLayout=icon-right] .tab-button .tab-button-icon {
       -webkit-box-ordinal-group: 11;
       -webkit-order: 10;
       -ms-flex-order: 10;
       order: 10;
       padding-left: 8px;
       text-align: left; }
-  .ios [tabbarLayout=icon-hide] .tab-button-icon {
+  .ios [tabsLayout=icon-hide] .tab-button-icon {
     display: none; }
-  .ios [tabbarLayout=title-hide] .tab-button-text {
+  .ios [tabsLayout=title-hide] .tab-button-text {
     display: none; }
   .ios .tab-badge {
     position: absolute;
@@ -7294,9 +7294,9 @@ ion-icon {
     line-height: 16px; }
   .ios .has-icon .tab-badge {
     right: calc(50% - 30px); }
-  .ios [tabbarLayout=icon-bottom] .tab-badge,
-  .ios [tabbarLayout=icon-left] .tab-badge,
-  .ios [tabbarLayout=icon-right] .tab-badge {
+  .ios [tabsLayout=icon-bottom] .tab-badge,
+  .ios [tabsLayout=icon-left] .tab-badge,
+  .ios [tabsLayout=icon-right] .tab-badge {
     right: calc(50% - 50px); }
   .ios ion-tabbar {
     -webkit-box-pack: center;
@@ -7305,7 +7305,7 @@ ion-icon {
     justify-content: center;
     border-top: 1px solid #b2b2b2;
     background: #f8f8f8; }
-  .ios ion-tabs[tabbarPlacement=top] ion-tabbar {
+  .ios ion-tabs[tabsPlacement=top] ion-tabbar {
     border-top: 0;
     border-bottom: 1px solid #b2b2b2; }
   .ios .tab-button {
@@ -7329,29 +7329,29 @@ ion-icon {
     font-size: 30px; }
     .ios .tab-button-icon::before {
       vertical-align: top; }
-  .ios [tabbarLayout=icon-right] .tab-button .tab-button-text,
-  .ios [tabbarLayout=icon-left] .tab-button .tab-button-text {
+  .ios [tabsLayout=icon-right] .tab-button .tab-button-text,
+  .ios [tabsLayout=icon-left] .tab-button .tab-button-text {
     font-size: 1.4rem;
     line-height: 1.1; }
-  .ios [tabbarLayout=icon-right] .tab-button ion-icon,
-  .ios [tabbarLayout=icon-left] .tab-button ion-icon {
+  .ios [tabsLayout=icon-right] .tab-button ion-icon,
+  .ios [tabsLayout=icon-left] .tab-button ion-icon {
     min-width: 24px;
     height: 26px;
     font-size: 24px; }
-  .ios [tabbarLayout=icon-hide] .tab-button,
+  .ios [tabsLayout=icon-hide] .tab-button,
   .ios .tab-button.has-title-only {
     min-height: 41px; }
-    .ios [tabbarLayout=icon-hide] .tab-button .tab-button-text,
+    .ios [tabsLayout=icon-hide] .tab-button .tab-button-text,
     .ios .tab-button.has-title-only .tab-button-text {
       margin: 2px 0;
       font-size: 1.4rem;
       line-height: 1.1; }
-  .ios [tabbarLayout=title-hide] .tab-button,
+  .ios [tabsLayout=title-hide] .tab-button,
   .ios .tab-button.icon-only {
     min-height: 41px; }
   .ios.hairlines ion-tabs ion-tabbar {
     border-top-width: 0.55px; }
-  .ios.hairlines ion-tabs[tabbarPlacement="top"] ion-tabbar {
+  .ios.hairlines ion-tabs[tabsPlacement="top"] ion-tabbar {
     border-bottom-width: 0.55px; }
   .ios ion-tabs[primary] ion-tabbar {
     border-color: #005efe;
@@ -10646,36 +10646,36 @@ ion-icon {
     white-space: normal; }
   .md tab-highlight {
     display: none; }
-  .md [tabbarLayout=icon-bottom] .tab-button .tab-button-icon {
+  .md [tabsLayout=icon-bottom] .tab-button .tab-button-icon {
     -webkit-box-ordinal-group: 11;
     -webkit-order: 10;
     -ms-flex-order: 10;
     order: 10; }
-  .md [tabbarLayout=icon-left] .tab-button {
+  .md [tabsLayout=icon-left] .tab-button {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row; }
-    .md [tabbarLayout=icon-left] .tab-button .tab-button-icon {
+    .md [tabsLayout=icon-left] .tab-button .tab-button-icon {
       padding-right: 8px;
       text-align: right; }
-  .md [tabbarLayout=icon-right] .tab-button {
+  .md [tabsLayout=icon-right] .tab-button {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row; }
-    .md [tabbarLayout=icon-right] .tab-button .tab-button-icon {
+    .md [tabsLayout=icon-right] .tab-button .tab-button-icon {
       -webkit-box-ordinal-group: 11;
       -webkit-order: 10;
       -ms-flex-order: 10;
       order: 10;
       padding-left: 8px;
       text-align: left; }
-  .md [tabbarLayout=icon-hide] .tab-button-icon {
+  .md [tabsLayout=icon-hide] .tab-button-icon {
     display: none; }
-  .md [tabbarLayout=title-hide] .tab-button-text {
+  .md [tabsLayout=title-hide] .tab-button-text {
     display: none; }
   .md .tab-badge {
     position: absolute;
@@ -10688,9 +10688,9 @@ ion-icon {
     line-height: 16px; }
   .md .has-icon .tab-badge {
     right: calc(50% - 30px); }
-  .md [tabbarLayout=icon-bottom] .tab-badge,
-  .md [tabbarLayout=icon-left] .tab-badge,
-  .md [tabbarLayout=icon-right] .tab-badge {
+  .md [tabsLayout=icon-bottom] .tab-badge,
+  .md [tabsLayout=icon-left] .tab-badge,
+  .md [tabsLayout=icon-right] .tab-badge {
     right: calc(50% - 50px); }
   .md ion-tabbar {
     background: #f8f8f8; }
@@ -10714,17 +10714,17 @@ ion-icon {
   .md .tab-button-icon {
     min-width: 7.4rem;
     font-size: 2.4rem; }
-  .md [tabbarLayout=icon-bottom] .tab-button {
+  .md [tabsLayout=icon-bottom] .tab-button {
     padding-top: 8px;
     padding-bottom: 8px; }
-  .md [tabbarLayout=icon-right] .tab-button,
-  .md [tabbarLayout=icon-left] .tab-button {
+  .md [tabsLayout=icon-right] .tab-button,
+  .md [tabsLayout=icon-left] .tab-button {
     padding-bottom: 10px; }
-    .md [tabbarLayout=icon-right] .tab-button ion-icon,
-    .md [tabbarLayout=icon-left] .tab-button ion-icon {
+    .md [tabsLayout=icon-right] .tab-button ion-icon,
+    .md [tabsLayout=icon-left] .tab-button ion-icon {
       min-width: 24px; }
-  .md [tabbarLayout=icon-hide] .tab-button,
-  .md [tabbarLayout=title-hide] .tab-button,
+  .md [tabsLayout=icon-hide] .tab-button,
+  .md [tabsLayout=title-hide] .tab-button,
   .md .tab-button.icon-only,
   .md .tab-button.has-title-only {
     padding: 6px 10px; }
@@ -10743,7 +10743,7 @@ ion-icon {
     .md tab-highlight.animate {
       -webkit-transition-duration: 300ms;
       transition-duration: 300ms; }
-  .md [tabbarPlacement=bottom] tab-highlight {
+  .md [tabsPlacement=bottom] tab-highlight {
     top: 0; }
   .md ion-tabs[primary] ion-tabbar {
     background-color: #327eff; }
@@ -11037,9 +11037,9 @@ ion-icon {
     -ms-flex-align: center;
     align-items: center; }
   .md ion-header::after,
-  .md [tabbarplacement="top"] > ion-tabbar::after,
+  .md [tabsPlacement="top"] > ion-tabbar::after,
   .md ion-footer::before,
-  .md [tabbarplacement="bottom"] > ion-tabbar::before {
+  .md [tabsPlacement="bottom"] > ion-tabbar::before {
     position: absolute;
     bottom: -5px;
     left: 0;
@@ -11050,7 +11050,7 @@ ion-icon {
     background-position: 0 -2px;
     content: ""; }
   .md ion-footer::before,
-  .md [tabbarplacement="bottom"] > ion-tabbar::before {
+  .md [tabsPlacement="bottom"] > ion-tabbar::before {
     top: -2px;
     bottom: auto;
     height: 2px;
@@ -14382,36 +14382,36 @@ ion-icon {
     white-space: normal; }
   .wp tab-highlight {
     display: none; }
-  .wp [tabbarLayout=icon-bottom] .tab-button .tab-button-icon {
+  .wp [tabsLayout=icon-bottom] .tab-button .tab-button-icon {
     -webkit-box-ordinal-group: 11;
     -webkit-order: 10;
     -ms-flex-order: 10;
     order: 10; }
-  .wp [tabbarLayout=icon-left] .tab-button {
+  .wp [tabsLayout=icon-left] .tab-button {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row; }
-    .wp [tabbarLayout=icon-left] .tab-button .tab-button-icon {
+    .wp [tabsLayout=icon-left] .tab-button .tab-button-icon {
       padding-right: 8px;
       text-align: right; }
-  .wp [tabbarLayout=icon-right] .tab-button {
+  .wp [tabsLayout=icon-right] .tab-button {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row; }
-    .wp [tabbarLayout=icon-right] .tab-button .tab-button-icon {
+    .wp [tabsLayout=icon-right] .tab-button .tab-button-icon {
       -webkit-box-ordinal-group: 11;
       -webkit-order: 10;
       -ms-flex-order: 10;
       order: 10;
       padding-left: 8px;
       text-align: left; }
-  .wp [tabbarLayout=icon-hide] .tab-button-icon {
+  .wp [tabsLayout=icon-hide] .tab-button-icon {
     display: none; }
-  .wp [tabbarLayout=title-hide] .tab-button-text {
+  .wp [tabsLayout=title-hide] .tab-button-text {
     display: none; }
   .wp .tab-badge {
     position: absolute;
@@ -14424,9 +14424,9 @@ ion-icon {
     line-height: 16px; }
   .wp .has-icon .tab-badge {
     right: calc(50% - 30px); }
-  .wp [tabbarLayout=icon-bottom] .tab-badge,
-  .wp [tabbarLayout=icon-left] .tab-badge,
-  .wp [tabbarLayout=icon-right] .tab-badge {
+  .wp [tabsLayout=icon-bottom] .tab-badge,
+  .wp [tabsLayout=icon-left] .tab-badge,
+  .wp [tabsLayout=icon-right] .tab-badge {
     right: calc(50% - 50px); }
   .wp ion-tabbar {
     background: #f8f8f8; }
@@ -14452,24 +14452,24 @@ ion-icon {
   .wp .tab-button-icon {
     min-width: 2.4rem;
     font-size: 2.4rem; }
-  .wp [tabbarLayout=icon-bottom] .tab-button {
+  .wp [tabsLayout=icon-bottom] .tab-button {
     padding-top: 8px;
     padding-bottom: 8px; }
-  .wp [tabbarLayout=icon-right] .tab-button,
-  .wp [tabbarLayout=icon-left] .tab-button {
+  .wp [tabsLayout=icon-right] .tab-button,
+  .wp [tabsLayout=icon-left] .tab-button {
     padding-bottom: 10px; }
-    .wp [tabbarLayout=icon-right] .tab-button ion-icon,
-    .wp [tabbarLayout=icon-left] .tab-button ion-icon {
+    .wp [tabsLayout=icon-right] .tab-button ion-icon,
+    .wp [tabsLayout=icon-left] .tab-button ion-icon {
       min-width: 24px; }
-  .wp [tabbarLayout=icon-hide] .tab-button,
-  .wp [tabbarLayout=title-hide] .tab-button,
+  .wp [tabsLayout=icon-hide] .tab-button,
+  .wp [tabsLayout=title-hide] .tab-button,
   .wp .tab-button.icon-only,
   .wp .tab-button.has-title-only {
     padding: 6px 10px; }
-  .wp [tabbarPlacement=bottom] .tab-button {
+  .wp [tabsPlacement=bottom] .tab-button {
     border-top: 2px solid transparent;
     border-bottom-width: 0; }
-    .wp [tabbarPlacement=bottom] .tab-button[aria-selected=true] {
+    .wp [tabsPlacement=bottom] .tab-button[aria-selected=true] {
       border-top-color: #327eff; }
   .wp ion-tabs[primary] ion-tabbar {
     background-color: #327eff; }

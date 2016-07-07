@@ -94,7 +94,6 @@ Get the current acceleration along the x, y, and z axes.
 
 
 
-
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
@@ -111,16 +110,6 @@ Get the current acceleration along the x, y, and z axes.
 
 
 Watch the device acceleration. Clear the watch by unsubscribing from the observable.
-
-```ts
-// Watch device acceleration
-var subscription = DeviceMotion.watchPosition().subscribe(acceleration => {
-  console.log(acceleration);
-});
-
-// Stop watch
-subscription.unsubscribe();
-```
 
 
 <table class="table param-table" style="margin:0;">
@@ -141,10 +130,11 @@ subscription.unsubscribe();
     </td>
     <td>
       
-
+<code>AccelerometerOptions</code>
     </td>
     <td>
-      
+      <p>list of options for the accelerometer.</p>
+
       
     </td>
   </tr>
@@ -159,7 +149,7 @@ subscription.unsubscribe();
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;AccelerationData&gt;</code> 
+<code>Observable&lt;AccelerationData&gt;</code> Observable returns an observable that you can subscribe to
 </div>
 
 

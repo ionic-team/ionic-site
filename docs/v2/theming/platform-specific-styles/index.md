@@ -60,10 +60,10 @@ Each mode has a default configuration. The [configuration properties](../../api/
 | `popoverEnter`        | `"popover-pop-in"`         | `"popover-md-pop-in"`         | `"popover-md-pop-in"`         |
 | `popoverLeave`        | `"popover-pop-out"`        | `"popover-md-pop-out"`        | `"popover-md-pop-out"`        |
 | `spinner`             | `"ios"`                    | `"crescent"`                  | `"circles"`                   |
-| `tabbarHighlight`     | `false`                    | `true`                        | `false`                       |
-| `tabbarLayout`        | `"icon-top"`               | `"icon-top"`                  | `"icon-top"`                  |
-| `tabbarPlacement`     | `"bottom"`                 | `"top"`                       | `"top"`                       |
-| `tabSubPages`         | `false`                    | `true`                        | `true`                        |
+| `tabsHighlight`       | `false`                    | `true`                        | `false`                       |
+| `tabsLayout`          | `"icon-top"`               | `"icon-top"`                  | `"icon-top"`                  |
+| `tabsPlacement`       | `"bottom"`                 | `"top"`                       | `"top"`                       |
+| `tabsHideOnSubPages`  | `false`                    | `true`                        | `true`                        |
 | `toastEnter`          | `"toast-slide-in"`         | `"toast-md-slide-in"`         | `"toast-wp-slide-in"`         |
 | `toastLeave`          | `"toast-slide-out"`        | `"toast-md-slide-out"`        | `"toast-wp-slide-out"`        |
 

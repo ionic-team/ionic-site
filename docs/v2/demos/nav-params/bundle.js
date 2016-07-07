@@ -89389,9 +89389,12 @@
 	            activeElement.blur();
 	        }
 	        // If there is a duration, dismiss after that amount of time
-	        this.d.duration ? setTimeout(function () { return _this.dismiss('backdrop'); }, this.d.duration) : null;
+	        this.d.duration ? this.durationTimeout = setTimeout(function () { return _this.dismiss('backdrop'); }, this.d.duration) : null;
 	    };
 	    LoadingCmp.prototype.dismiss = function (role) {
+	        if (this.durationTimeout) {
+	            clearTimeout(this.durationTimeout);
+	        }
 	        return this._viewCtrl.dismiss(null, role);
 	    };
 	    LoadingCmp = __decorate([

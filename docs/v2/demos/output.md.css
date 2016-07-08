@@ -911,6 +911,10 @@ ion-modal-inner {
 
 .item-range ion-range {
   width: 100%; }
+  .item-range ion-range ion-label {
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center; }
 
 ion-range {
   position: relative;
@@ -7162,6 +7166,10 @@ ion-radio[bright] .radio-inner {
 
 .item-range ion-range {
   width: 100%; }
+  .item-range ion-range ion-label {
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center; }
 
 ion-range {
   position: relative;

@@ -6291,8 +6291,8 @@ ion-label[fixed] {
   min-width: 100px;
   max-width: 200px; }
 
-.item-label-stacked ion-label,
-.item-label-floating ion-label {
+.item-label-stacked > ion-label,
+.item-label-floating > ion-label {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;

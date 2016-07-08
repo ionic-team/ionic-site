@@ -6060,8 +6060,8 @@ ion-icon {
     width: 100px;
     min-width: 100px;
     max-width: 200px; }
-  .ios .item-label-stacked ion-label,
-  .ios .item-label-floating ion-label {
+  .ios .item-label-stacked > ion-label,
+  .ios .item-label-floating > ion-label {
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch;
@@ -9612,8 +9612,8 @@ ion-icon {
     width: 100px;
     min-width: 100px;
     max-width: 200px; }
-  .md .item-label-stacked ion-label,
-  .md .item-label-floating ion-label {
+  .md .item-label-stacked > ion-label,
+  .md .item-label-floating > ion-label {
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch;
@@ -13482,8 +13482,8 @@ ion-icon {
     width: 100px;
     min-width: 100px;
     max-width: 200px; }
-  .wp .item-label-stacked ion-label,
-  .wp .item-label-floating ion-label {
+  .wp .item-label-stacked > ion-label,
+  .wp .item-label-floating > ion-label {
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch;

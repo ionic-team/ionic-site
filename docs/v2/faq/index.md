@@ -1,4 +1,3 @@
----
 layout: v2_fluid/docs_base
 id: faq
 category: faq
@@ -138,6 +137,19 @@ class MyDirective {
 }
 ```
 
+
+
+### Cordova plugins not working in the browser
+
+At some point in your development you may, try to call Cordova plugin, but get a warning:
+
+```
+[Warning] Native: tried calling StatusBar.styleDefault, but Cordova is not available. Make sure to include cordova.js or run in a device/simulator (app.bundle.js, line 83388)
+```
+
+This happens when you try to call a native plugin, but Cordova isn't available. Thankfully, Ionic Native will print out a nice warning, instead of an error.
+
+In other cases where the plugin is not being used through Ionic Native, plugins can print a much more obscure warning. If this happens, test the plugin on a real device or simulator.
 
 ### Multiple instances of a provider
 

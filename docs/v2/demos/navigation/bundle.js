@@ -69144,7 +69144,9 @@
 	        this.d = params.data;
 	        if (this.d.cssClass) {
 	            this.d.cssClass.split(' ').forEach(function (cssClass) {
-	                renderer.setElementClass(_elementRef.nativeElement, cssClass, true);
+	                // Make sure the class isn't whitespace, otherwise it throws exceptions
+	                if (cssClass.trim() !== '')
+	                    renderer.setElementClass(_elementRef.nativeElement, cssClass, true);
 	            });
 	        }
 	        this.id = (++alertIds);
@@ -83650,16 +83652,20 @@
 	                    disabled: input.disabled
 	                };
 	            });
+	            var selectCssClass = 'select-alert';
 	            // create the alert instance from our built up alertOptions
 	            overlay = new alert_1.Alert(this._app, alertOptions);
 	            if (this._multi) {
 	                // use checkboxes
-	                overlay.setCssClass('select-alert multiple-select-alert');
+	                selectCssClass += ' multiple-select-alert';
 	            }
 	            else {
 	                // use radio buttons
-	                overlay.setCssClass('select-alert single-select-alert');
+	                selectCssClass += ' single-select-alert';
 	            }
+	            // If the user passed a cssClass for the select, add it
+	            selectCssClass += alertOptions.cssClass ? ' ' + alertOptions.cssClass : '';
+	            overlay.setCssClass(selectCssClass);
 	            overlay.addButton({
 	                text: this.okText,
 	                handler: function (selectedValues) {

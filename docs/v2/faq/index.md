@@ -1,3 +1,4 @@
+---
 layout: v2_fluid/docs_base
 id: faq
 category: faq

@@ -10757,12 +10757,10 @@ ion-icon {
     border-radius: 0;
     font-size: 1.4rem;
     font-weight: 500;
-    color: #8c8c8c;
-    box-shadow: none;
-    opacity: .7; }
+    color: rgba(140, 140, 140, 0.7);
+    box-shadow: none; }
     .md .tab-button[aria-selected=true] {
-      color: #327eff;
-      opacity: 1; }
+      color: #327eff; }
   .md .tab-button-text {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -14543,13 +14541,11 @@ ion-icon {
     border-radius: 0;
     font-size: 1.2rem;
     font-weight: normal;
-    color: #8c8c8c;
-    box-shadow: none;
-    opacity: .7; }
+    color: rgba(140, 140, 140, 0.7);
+    box-shadow: none; }
     .wp .tab-button[aria-selected=true] {
       border-bottom-color: #327eff;
-      color: #327eff;
-      opacity: 1; }
+      color: #327eff; }
     .wp .tab-button.activated {
       background: rgba(0, 0, 0, 0.1); }
   .wp .tab-button-text {

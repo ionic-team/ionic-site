@@ -7874,12 +7874,10 @@ ion-tabbar {
   border-radius: 0;
   font-size: 1.4rem;
   font-weight: 500;
-  color: #8c8c8c;
-  box-shadow: none;
-  opacity: .7; }
+  color: rgba(140, 140, 140, 0.7);
+  box-shadow: none; }
   .tab-button[aria-selected=true] {
-    color: #387ef5;
-    opacity: 1; }
+    color: #387ef5; }
 
 .tab-button-text {
   margin-top: 5px;

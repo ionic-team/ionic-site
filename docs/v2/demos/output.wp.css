@@ -7677,13 +7677,11 @@ ion-tabbar {
   border-radius: 0;
   font-size: 1.2rem;
   font-weight: normal;
-  color: #8c8c8c;
-  box-shadow: none;
-  opacity: .7; }
+  color: rgba(140, 140, 140, 0.7);
+  box-shadow: none; }
   .tab-button[aria-selected=true] {
     border-bottom-color: #387ef5;
-    color: #387ef5;
-    opacity: 1; }
+    color: #387ef5; }
   .tab-button.activated {
     background: rgba(0, 0, 0, 0.1); }
 

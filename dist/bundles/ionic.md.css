@@ -8054,6 +8054,14 @@ ion-navbar.toolbar {
   -ms-flex-align: center;
   align-items: center; }
 
+.toolbar {
+  padding: 4px;
+  min-height: 5.6rem; }
+
+.toolbar-background {
+  border-color: #b2b2b2;
+  background: #f8f8f8; }
+
 ion-header::after,
 [tabsPlacement="top"] > ion-tabbar::after,
 ion-footer::before,
@@ -8075,13 +8083,11 @@ ion-footer::before,
   height: 2px;
   background-position: 0 0; }
 
-.toolbar {
-  padding: 4px;
-  min-height: 5.6rem; }
-
-.toolbar-background {
-  border-color: #b2b2b2;
-  background: #f8f8f8; }
+ion-header[no-shadow]::after,
+ion-footer[no-shadow]::before,
+[tabsPlacement="top"][no-shadow] > ion-tabbar::after,
+[tabsPlacement="bottom"][no-shadow] > ion-tabbar::before {
+  display: none; }
 
 .toolbar-content {
   -webkit-box-flex: 1;

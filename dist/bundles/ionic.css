@@ -7666,6 +7666,9 @@ ion-icon {
   .ios ion-footer .toolbar:last-child .toolbar-background,
   .ios .toolbar[no-border-bottom] .toolbar-background {
     border-bottom-width: 0; }
+  .ios .toolbar[no-border] .toolbar-background {
+    border-top-width: 0;
+    border-bottom-width: 0; }
   .ios .toolbar-content {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -11042,6 +11045,12 @@ ion-icon {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center; }
+  .md .toolbar {
+    padding: 4px;
+    min-height: 5.6rem; }
+  .md .toolbar-background {
+    border-color: #b2b2b2;
+    background: #f8f8f8; }
   .md ion-header::after,
   .md [tabsPlacement="top"] > ion-tabbar::after,
   .md ion-footer::before,
@@ -11061,12 +11070,11 @@ ion-icon {
     bottom: auto;
     height: 2px;
     background-position: 0 0; }
-  .md .toolbar {
-    padding: 4px;
-    min-height: 5.6rem; }
-  .md .toolbar-background {
-    border-color: #b2b2b2;
-    background: #f8f8f8; }
+  .md ion-header[no-shadow]::after,
+  .md ion-footer[no-shadow]::before,
+  .md [tabsPlacement="top"][no-shadow] > ion-tabbar::after,
+  .md [tabsPlacement="bottom"][no-shadow] > ion-tabbar::before {
+    display: none; }
   .md .toolbar-content {
     -webkit-box-flex: 1;
     -webkit-flex: 1;

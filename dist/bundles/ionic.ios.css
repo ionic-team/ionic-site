@@ -8165,6 +8165,10 @@ ion-footer .toolbar:last-child .toolbar-background,
 .toolbar[no-border-bottom] .toolbar-background {
   border-bottom-width: 0; }
 
+.toolbar[no-border] .toolbar-background {
+  border-top-width: 0;
+  border-bottom-width: 0; }
+
 .toolbar-content {
   -webkit-box-flex: 1;
   -webkit-flex: 1;

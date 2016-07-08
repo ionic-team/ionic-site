@@ -334,7 +334,7 @@ Improve this doc
   <code>string</code>
       </td>
       <td>
-        <p>CSS class name to add to the alert&#39;s outer wrapper</p>
+        <p>Set the CSS class names on the alert&#39;s outer wrapper.</p>
 
         
       </td>

@@ -68905,7 +68905,7 @@
 	        this.data.buttons.push(button);
 	    };
 	    /**
-	     * @param {string} cssClass CSS class name to add to the alert's outer wrapper
+	     * @param {string} cssClass Set the CSS class names on the alert's outer wrapper.
 	     */
 	    Alert.prototype.setCssClass = function (cssClass) {
 	        this.data.cssClass = cssClass;

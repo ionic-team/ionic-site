@@ -133,10 +133,11 @@ Copies the given text
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      
+      <p>Text that gets copied on the system clipboard</p>
+
       
     </td>
   </tr>
@@ -151,7 +152,7 @@ Copies the given text
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;T&gt;</code> 
+<code>Promise&lt;T&gt;</code> Returns a promise after the text has been copied
 </div>
 
 
@@ -171,7 +172,7 @@ Pastes the text stored in clipboard
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;T&gt;</code> 
+<code>Promise&lt;T&gt;</code> Returns a promise after the text has been pasted
 </div>
 
 

@@ -41,7 +41,7 @@ docType: "class"
 <!-- decorators -->
 
 
-<pre><code>$ ionic plugin add de.appplant.cordova.plugin.background-mode</code></pre>
+<pre><code>$ ionic plugin add cordova-plugin-background-mode</code></pre>
 <p>Repo:
   <a href="https://github.com/katzer/cordova-plugin-background-mode">
     https://github.com/katzer/cordova-plugin-background-mode

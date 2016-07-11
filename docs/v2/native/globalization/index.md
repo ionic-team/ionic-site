@@ -133,10 +133,11 @@ Converts date to string
     </td>
     <td>
       
-
+<code>Date</code>
     </td>
     <td>
-      
+      <p>Date you wish to convert</p>
+
       
     </td>
   </tr>
@@ -152,7 +153,8 @@ Converts date to string
 
     </td>
     <td>
-      
+      <p>Options for the converted date. Length, selector.</p>
+
       
     </td>
   </tr>
@@ -167,7 +169,7 @@ Converts date to string
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Promise&lt;{value: string}&gt;</code> 
+<code>Promise&lt;{value: string}&gt;</code> Returns a promise when the date has been converted.
 </div>
 
 
@@ -179,7 +181,7 @@ Converts date to string
 
 
 
-
+Parses a date formatted as a string, according to the client's user preferences and calendar using the time zone of the client, and returns the corresponding date object.
 
 
 <table class="table param-table" style="margin:0;">
@@ -200,10 +202,11 @@ Converts date to string
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      
+      <p>Date as a string to be converted</p>
+
       
     </td>
   </tr>
@@ -219,7 +222,8 @@ Converts date to string
 
     </td>
     <td>
-      
+      <p>Options for the converted date. Length, selector.</p>
+
       
     </td>
   </tr>
@@ -230,6 +234,12 @@ Converts date to string
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;{value: string}&gt;</code> Returns a promise when the date has been converted.
+</div>
 
 
 
@@ -240,7 +250,7 @@ Converts date to string
 
 
 
-
+Returns a pattern string to format and parse dates according to the client's user preferences.
 
 
 <table class="table param-table" style="margin:0;">
@@ -264,7 +274,8 @@ Converts date to string
 
     </td>
     <td>
-      
+      <p>Object with the format length and selector</p>
+
       
     </td>
   </tr>
@@ -275,6 +286,12 @@ Converts date to string
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;{value: string}&gt;</code> Returns a promise.
+</div>
 
 
 
@@ -285,7 +302,7 @@ Converts date to string
 
 
 
-
+Returns an array of the names of the months or days of the week, depending on the client's user preferences and calendar.
 
 
 <table class="table param-table" style="margin:0;">
@@ -309,7 +326,8 @@ Converts date to string
 
     </td>
     <td>
-      
+      <p>Object with type (narrow or wide) and item (month or days).</p>
+
       
     </td>
   </tr>
@@ -321,6 +339,12 @@ Converts date to string
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;{value: string}&gt;</code> Returns a promise.
+</div>
+
 
 
 <div id="isDayLightSavingsTime"></div>
@@ -328,7 +352,7 @@ Converts date to string
   
 </h3>
 
-Check if day light saving is active
+Indicates whether daylight savings time is in effect for a given date using the client's time zone and calendar.
 
 
 <table class="table param-table" style="margin:0;">
@@ -349,10 +373,11 @@ Check if day light saving is active
     </td>
     <td>
       
-
+<code>data</code>
     </td>
     <td>
-      
+      <p>Date to process</p>
+
       
     </td>
   </tr>
@@ -364,6 +389,12 @@ Check if day light saving is active
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;dst&gt;</code> reutrns a promise with the value
+</div>
+
 
 
 <div id="getFirstDayOfWeek"></div>
@@ -371,14 +402,18 @@ Check if day light saving is active
   
 </h3>
 
-Get first day of week
+Returns the first day of the week according to the client's user preferences and calendar.
 
 
 
 
 
 
-
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise&lt;value&gt;</code> reutrns a promise with the value
+</div>
 
 
 
@@ -389,7 +424,7 @@ Get first day of week
 
 
 
-
+Returns a number formatted as a string according to the client's user preferences.
 
 
 <table class="table param-table" style="margin:0;">
@@ -455,10 +490,11 @@ Get first day of week
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      
+      <p>String you want to conver to a number</p>
+
       
     </td>
   </tr>
@@ -474,7 +510,8 @@ Get first day of week
 
     </td>
     <td>
-      
+      <p>The type of number you want to return. Can be decimal, percent, or currency.</p>
+
       
     </td>
   </tr>
@@ -486,6 +523,12 @@ Get first day of week
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a promise with the value.
+</div>
+
 
 
 <div id="getNumberPattern"></div>
@@ -495,7 +538,7 @@ Get first day of week
 
 
 
-
+Returns a pattern string to format and parse numbers according to the client's user preferences.
 
 
 <table class="table param-table" style="margin:0;">
@@ -519,7 +562,8 @@ Get first day of week
 
     </td>
     <td>
-      
+      <p>Can be decimal, percent, or currency.</p>
+
       
     </td>
   </tr>
@@ -531,6 +575,12 @@ Get first day of week
 
 
 
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise with the value.
+</div>
+
 
 
 <div id="getCurrencyPattern"></div>
@@ -538,7 +588,7 @@ Get first day of week
   
 </h3>
 
-
+Returns a pattern string to format and parse currency values according to the client's user preferences and ISO 4217 currency code.
 
 
 <table class="table param-table" style="margin:0;">
@@ -559,10 +609,11 @@ Get first day of week
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      
+      <p>Currency Code.A</p>
+
       
     </td>
   </tr>
@@ -573,6 +624,12 @@ Get first day of week
 
 
 
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> returns a promise with the value
+</div>
 
 
 

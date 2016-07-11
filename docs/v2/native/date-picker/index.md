@@ -63,7 +63,6 @@ docType: "class"
 <pre><code class="lang-js">import {DatePicker} from &#39;ionic-native&#39;;
 
 
-
 DatePicker.show({
   date: new Date(),
   mode: &#39;date&#39;
@@ -104,10 +103,11 @@ Shows the date and/or time picker dialog(s)
     </td>
     <td>
       
-
+<code>DatePickerOptions</code>
     </td>
     <td>
-      
+      <p>Options for the date picker.</p>
+
       
     </td>
   </tr>

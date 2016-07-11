@@ -127,10 +127,11 @@ Browser wrapper
     </td>
     <td>
       
-
+<code>number</code>
     </td>
     <td>
-      
+      <p>Your Facebook AppID from their dashboard</p>
+
       
     </td>
   </tr>
@@ -143,10 +144,11 @@ Browser wrapper
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      
+      <p>The version of API you may want to use. Optional</p>
+
       
     </td>
   </tr>

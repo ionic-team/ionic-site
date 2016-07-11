@@ -132,10 +132,11 @@ Stop the watch by unsubscribing from the observable
     </td>
     <td>
       
-
+<code>CompassOptions</code>
     </td>
     <td>
-      
+      <p>Options for compass. Frequency and Filter. Optional</p>
+
       
     </td>
   </tr>
@@ -150,7 +151,7 @@ Stop the watch by unsubscribing from the observable
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
-<code>Observable&lt;CompassHeading&gt;</code> 
+<code>Observable&lt;CompassHeading&gt;</code> Returns an observable that contains the compass heading
 </div>
 
 

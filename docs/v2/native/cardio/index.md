@@ -135,10 +135,11 @@ Scan a credit card with card.io.
     </td>
     <td>
       
-
+<code>CardIOOptions</code>
     </td>
     <td>
-      
+      <p>Options for configuring the plugin</p>
+
       
     </td>
   </tr>

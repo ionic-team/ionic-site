@@ -97,9 +97,6 @@ contact.save().then(
 
 Search for contacts in the Contacts list.
 
-Example: Contacts.find(['*'], { filter: 'Max' }) // will search for a displayName of 'Max'
-
-
 
 <table class="table param-table" style="margin:0;">
   <thead>

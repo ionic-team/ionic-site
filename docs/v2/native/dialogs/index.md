@@ -95,10 +95,10 @@ Shows a custom alert or dialog box.
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      <p>Dialog message. (String)</p>
+      <p>Dialog message.</p>
 
       
     </td>
@@ -112,10 +112,10 @@ Shows a custom alert or dialog box.
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      <p>Dialog title. (String) (Optional, defaults to Alert)</p>
+      <p>Dialog title. (Optional, defaults to Alert)</p>
 
       
     </td>
@@ -129,10 +129,10 @@ Shows a custom alert or dialog box.
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      <p>Button name. (String) (Optional, defaults to OK)</p>
+      <p>Button name. (Optional, defaults to OK)</p>
 
       
     </td>
@@ -181,10 +181,10 @@ Displays a customizable confirmation dialog box.
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      <p>Dialog message. (String)</p>
+      <p>Dialog message.</p>
 
       
     </td>
@@ -198,10 +198,10 @@ Displays a customizable confirmation dialog box.
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      <p>Dialog title. (String) (Optional, defaults to Confirm)</p>
+      <p>Dialog title. (Optional, defaults to Confirm)</p>
 
       
     </td>
@@ -215,10 +215,10 @@ Displays a customizable confirmation dialog box.
     </td>
     <td>
       
-
+<code>Array&lt;string&gt;</code>
     </td>
     <td>
-      <p>Array of strings specifying button labels. (Array) (Optional, defaults to [OK,Cancel])</p>
+      <p>Array of strings specifying button labels. (Optional, defaults to [OK,Cancel])</p>
 
       
     </td>
@@ -267,10 +267,10 @@ Displays a native dialog box that is more customizable than the browser's prompt
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      <p>Dialog message. (String)</p>
+      <p>Dialog message.</p>
 
       
     </td>
@@ -284,10 +284,10 @@ Displays a native dialog box that is more customizable than the browser's prompt
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      <p>Dialog title (String) (Optional, defaults to Prompt)</p>
+      <p>Dialog title. (Optional, defaults to Prompt)</p>
 
       
     </td>
@@ -301,10 +301,10 @@ Displays a native dialog box that is more customizable than the browser's prompt
     </td>
     <td>
       
-
+<code>Array&lt;string&gt;</code>
     </td>
     <td>
-      <p>Array of strings specifying button labels (Array) (Optional, defaults to [&quot;OK&quot;,&quot;Cancel&quot;])</p>
+      <p>Array of strings specifying button labels. (Optional, defaults to [&quot;OK&quot;,&quot;Cancel&quot;])</p>
 
       
     </td>
@@ -318,10 +318,10 @@ Displays a native dialog box that is more customizable than the browser's prompt
     </td>
     <td>
       
-
+<code>string</code>
     </td>
     <td>
-      <p>Default textbox input value (String) (Optional, Default: empty string)</p>
+      <p>Default textbox input value.  (Optional, Default: empty string)</p>
 
       
     </td>
@@ -370,10 +370,10 @@ The device plays a beep sound.
     </td>
     <td>
       
-
+<code>numbers</code>
     </td>
     <td>
-      <p>The number of times to repeat the beep. (Number)</p>
+      <p>The number of times to repeat the beep.</p>
 
       
     </td>

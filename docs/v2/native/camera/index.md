@@ -130,7 +130,8 @@ Take a picture or video, or load one from the library.
 <code>CameraOptions</code>
     </td>
     <td>
-      
+      <p>Options that you want to pass to the camera. Encoding type, quality, etc.</p>
+
       
     </td>
   </tr>
@@ -145,9 +146,7 @@ Take a picture or video, or load one from the library.
 <div class="return-value" markdown="1">
   <i class="icon ion-arrow-return-left"></i>
   <b>Returns:</b> 
- Returns a Promise that resolves with Base64 encoding of the image data, or the image file URI, depending on cameraOptions, otherwise rejects with an error.
-
-
+<code>Promise</code> Returns a Promise that resolves with Base64 encoding of the image data, or the image file URI, depending on cameraOptions, otherwise rejects with an error.
 </div>
 
 
@@ -179,78 +178,6 @@ Applies only when the value of Camera.sourceType equals Camera.PictureSourceType
 
 
 </div>
-
-
-
-<div id="DestinationType"></div>
-<h3><code>DestinationType()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-<div id="EncodingType"></div>
-<h3><code>EncodingType()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-<div id="MediaType"></div>
-<h3><code>MediaType()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-<div id="PictureSourceType"></div>
-<h3><code>PictureSourceType()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-<div id="PopoverArrowDirection"></div>
-<h3><code>PopoverArrowDirection()</code>
-  
-</h3>Matches iOS UIPopoverArrowDirection constants to specify arrow location on popover.
-
-
-
-
-
-
-
-
-<div id="Direction"></div>
-<h3><code>Direction()</code>
-  
-</h3>
-
-
-
-
-
 
 
 

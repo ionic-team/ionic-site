@@ -54535,15 +54535,11 @@
 	        /**
 	         * @private
 	         */
-	        this.routers = [];
-	        /**
-	         * @private
-	         */
 	        this.isPortal = false;
 	        /**
 	         * @private
 	         */
-	        this._trnsTime = 0;
+	        this.trnsTime = 0;
 	        this.parent = parent;
 	        this.config = config;
 	        this._trnsDelay = config.get('pageTransitionDelay');
@@ -54601,7 +54597,7 @@
 	            opts.animate = false;
 	        }
 	        // set the nav direction to "back" if it wasn't set
-	        opts.direction = opts.direction || 'back';
+	        opts.direction = opts.direction || exports.DIRECTION_BACK;
 	        var resolve;
 	        var promise = new Promise(function (res) { resolve = res; });
 	        // start the transition, fire resolve when done...
@@ -54744,7 +54740,7 @@
 	            view.setNav(_this);
 	            view.state = STATE_INACTIVE;
 	            // give this inserted view an ID
-	            _this._incId(view);
+	            view.id = _this.id + '-' + (++_this._ids);
 	            // insert the entering view into the correct index in the stack
 	            _this._views.splice(insertIndex + i, 0, view);
 	        });
@@ -54825,7 +54821,7 @@
 	            opts = {};
 	        }
 	        // default the direction to "back"
-	        opts.direction = opts.direction || 'back';
+	        opts.direction = opts.direction || exports.DIRECTION_BACK;
 	        // figure out the states of each view in the stack
 	        var leavingView = this._remove(startIndex, removeCount);
 	        if (!leavingView) {
@@ -55322,14 +55318,8 @@
 	            if (transitionEndTime <= 0) {
 	                this._app && this._app.setEnabled(true);
 	            }
+	            // update that this nav is not longer actively transitioning
 	            this.setTransitioning(false);
-	            if (direction !== null && hasCompleted && !this.isPortal) {
-	                // notify router of the state change if a direction was provided
-	                // multiple routers can exist and each should be notified
-	                this.routers.forEach(function (router) {
-	                    router.stateChange(direction, enteringView);
-	                });
-	            }
 	            // see if we should add the swipe back gesture listeners or not
 	            this._sbCheck();
 	        }
@@ -55476,7 +55466,7 @@
 	    NavController.prototype.swipeBackStart = function () {
 	        // default the direction to "back"
 	        var opts = {
-	            direction: 'back',
+	            direction: exports.DIRECTION_BACK,
 	            progressAnimation: true
 	        };
 	        // figure out the states of each view in the stack
@@ -55572,15 +55562,19 @@
 	     * Returns if the nav controller is actively transitioning or not.
 	     * @return {boolean}
 	     */
-	    NavController.prototype.isTransitioning = function () {
-	        return (this._trnsTime > Date.now());
+	    NavController.prototype.isTransitioning = function (includeAncestors) {
+	        var now = Date.now();
+	        if (includeAncestors && this._getLongestTrans(now) > 0) {
+	            return true;
+	        }
+	        return (this.trnsTime > now);
 	    };
 	    /**
 	     * @private
 	     */
 	    NavController.prototype.setTransitioning = function (isTransitioning, fallback) {
 	        if (fallback === void 0) { fallback = 700; }
-	        this._trnsTime = (isTransitioning ? Date.now() + fallback : 0);
+	        this.trnsTime = (isTransitioning ? Date.now() + fallback : 0);
 	    };
 	    /**
 	     * @private
@@ -55593,8 +55587,8 @@
 	        var parentNav = this.parent;
 	        var transitionEndTime = -1;
 	        while (parentNav) {
-	            if (parentNav._trnsTime > transitionEndTime) {
-	                transitionEndTime = parentNav._trnsTime;
+	            if (parentNav.trnsTime > transitionEndTime) {
+	                transitionEndTime = parentNav.trnsTime;
 	            }
 	            parentNav = parentNav.parent;
 	        }
@@ -55715,18 +55709,6 @@
 	    /**
 	     * @private
 	     */
-	    NavController.prototype.registerRouter = function (router) {
-	        this.routers.push(router);
-	    };
-	    /**
-	     * @private
-	     */
-	    NavController.prototype._incId = function (view) {
-	        view.id = this.id + '-' + (++this._ids);
-	    };
-	    /**
-	     * @private
-	     */
 	    NavController.prototype._setZIndex = function (enteringView, leavingView, direction) {
 	        if (enteringView) {
 	            // get the leaving view, which could be in various states
@@ -55744,7 +55726,7 @@
 	                    enteringView.setZIndex(this.isPortal ? PORTAL_ZINDEX : INIT_ZINDEX, this._renderer);
 	                }
 	            }
-	            else if (direction === 'back') {
+	            else if (direction === exports.DIRECTION_BACK) {
 	                // moving back
 	                enteringView.setZIndex(leavingView.zIndex - 1, this._renderer);
 	            }
@@ -55767,6 +55749,8 @@
 	var STATE_REMOVE_AFTER_TRANS = 8;
 	var STATE_CANCEL_ENTER = 9;
 	var STATE_FORCE_ACTIVE = 10;
+	exports.DIRECTION_BACK = 'back';
+	exports.DIRECTION_FORWARD = 'forward';
 	var INIT_ZINDEX = 100;
 	var PORTAL_ZINDEX = 9999;
 	var ctrlIds = -1;
@@ -72779,6 +72763,7 @@
 	    function Tabs(parent, viewCtrl, _app, _config, _elementRef, _platform, _renderer) {
 	        var _this = this;
 	        _super.call(this, _elementRef);
+	        this.viewCtrl = viewCtrl;
 	        this._app = _app;
 	        this._config = _config;
 	        this._elementRef = _elementRef;
@@ -72866,6 +72851,14 @@
 	                _this._highlight.select(_this.getSelected());
 	            });
 	        }
+	        this.initTabs();
+	    };
+	    /**
+	     * @private
+	     */
+	    Tabs.prototype.initTabs = function () {
+	        var _this = this;
+	        // first check if preloadTab is set as an input @Input, then check the config
 	        var preloadTabs = (util_1.isBlank(this.preloadTabs) ? this._config.getBoolean('preloadTabs') : util_1.isTrueProperty(this.preloadTabs));
 	        // get the selected index
 	        var selectedIndex = this.selectedIndex ? parseInt(this.selectedIndex, 10) : 0;
@@ -72927,7 +72920,7 @@
 	            // no change
 	            return this._touchActive(selectedTab);
 	        }
-	        console.debug('Tabs, select', selectedTab.id);
+	        console.debug("Tabs, select: " + selectedTab.id);
 	        var opts = {
 	            animate: false
 	        };
@@ -73219,7 +73212,7 @@
 	            selector: '.tab-button',
 	            host: {
 	                '[attr.id]': 'tab._btnId',
-	                '[attr.aria-controls]': 'tab._panelId',
+	                '[attr.aria-controls]': 'tab._tabId',
 	                '[attr.aria-selected]': 'tab.isSelected',
 	                '[class.has-title]': 'hasTitle',
 	                '[class.has-icon]': 'hasIcon',
@@ -73388,7 +73381,7 @@
 	        if (parent.rootNav) {
 	            this._sbEnabled = parent.rootNav.isSwipeBackEnabled();
 	        }
-	        this._panelId = 'tabpanel-' + this.id;
+	        this._tabId = 'tabpanel-' + this.id;
 	        this._btnId = 'tab-' + this.id;
 	    }
 	    Object.defineProperty(Tab.prototype, "enabled", {
@@ -73580,7 +73573,7 @@
 	            selector: 'ion-tab',
 	            host: {
 	                '[class.show-tab]': 'isSelected',
-	                '[attr.id]': '_panelId',
+	                '[attr.id]': '_tabId',
 	                '[attr.aria-labelledby]': '_btnId',
 	                'role': 'tabpanel'
 	            },
@@ -88841,10 +88834,11 @@
 	 * @usage
 	 * ```html
 	 * <ion-content>
-	 *  <div block button nav-pop>go back</div>
+	 *
+	 *  <button navPop>Go Back</button>
+	 *
 	 * </ion-content>
 	 * ```
-	 * This will go back one page in the navigation stack
 	 *
 	 * Similar to {@link /docs/v2/api/components/nav/NavPush/ `NavPush` }
 	 * @demo /docs/v2/demos/navigation/
@@ -91570,8 +91564,8 @@
 	exports.Nav = nav_1.Nav;
 	var nav_controller_1 = __webpack_require__(346);
 	exports.NavController = nav_controller_1.NavController;
-	var nav_options_1 = __webpack_require__(505);
-	exports.NavOptions = nav_options_1.NavOptions;
+	var nav_interfaces_1 = __webpack_require__(505);
+	exports.NavOptions = nav_interfaces_1.NavOptions;
 	var nav_params_1 = __webpack_require__(348);
 	exports.NavParams = nav_params_1.NavParams;
 	var nav_pop_1 = __webpack_require__(482);

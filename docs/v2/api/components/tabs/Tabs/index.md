@@ -148,6 +148,26 @@ ionViewDidEnter() {
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
 
+<div id="viewCtrl"></div>
+
+<h3>
+<a class="anchor" name="viewCtrl" href="#viewCtrl"></a>
+<code>viewCtrl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="select"></div>
 
 <h3>

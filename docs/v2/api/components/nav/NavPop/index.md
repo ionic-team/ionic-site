@@ -35,7 +35,7 @@ NavPop
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-pop.ts#L2">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/nav/nav-pop.ts#L1">
 Improve this doc
 </a>
 
@@ -55,10 +55,11 @@ Improve this doc
 <h2><a class="anchor" name="usage" href="#usage"></a>Usage</h2>
 
 <pre><code class="lang-html">&lt;ion-content&gt;
- &lt;div block button nav-pop&gt;go back&lt;/div&gt;
+
+ &lt;button navPop&gt;Go Back&lt;/button&gt;
+
 &lt;/ion-content&gt;
 </code></pre>
-<p>This will go back one page in the navigation stack</p>
 <p>Similar to <a href='/docs/v2/api/components/nav/NavPush/'><code>NavPush</code></a></p>
 
 

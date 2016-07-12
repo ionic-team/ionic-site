@@ -6,6 +6,8 @@
 
 Lists are used to display rows of information, such as a contact list, playlist, or menu. Or maybe something crazy we don't even know exists yet!
 
+_For more information, Check out the [List API docs](../api/components/list/List) and the [Item API docs](../api/components/item/Item)._
+
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
   <li class="docs-content-item"><a href="{{components_link}}#lists">Basic Lists</a></li>
@@ -14,12 +16,12 @@ Lists are used to display rows of information, such as a contact list, playlist,
   <li class="docs-content-item"><a href="{{components_link}}#list-headers">List Headers</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#icon-list">Icon List</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#avatar-list">Avatar List</a></li>
-  <li class="docs-content-item"><a href="{{components_link}}#multiline-list">Multiline List</a></li>
+  <li class="docs-content-item"><a href="{{components_link}}#multiline-list">Multi-line List</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#sliding-list">Sliding List</a></li>
   <li class="docs-content-item"><a href="{{components_link}}#thumbnail-list">Thumbnail List</a></li>
 </ul>
 
-<h3 class="section-nav" id="list-lines">Basic Usage (Default)</h3>
+<h3 class="section-nav" id="list-lines">Basic Usage</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/lists/basic">
   Demo Source
 </a>
@@ -35,7 +37,7 @@ By default, all lists will be styled with divider lines:
 ```
 
 
-<h3 class="no-para" id="list-no-lines">Basic Usage (No Lines)</h3>
+<h3 class="no-para" id="list-no-lines">No Lines</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/lists/no-lines">
   Demo Source
 </a>
@@ -55,7 +57,7 @@ Adding the `no-lines` attribute will hide the dividers between list items:
   Demo Source
 </a>
 
-By default, lists have no outside margin, to add one, add the `inset` property to the list component.
+Lists don’t have an outside margin by default.  To add one, add the `inset` attribute to `ion-list` component.
 
 ```html
 <ion-list inset>
@@ -108,8 +110,7 @@ Each list can include a header at the top of the list:
   Demo Source
 </a>
 
-Adding [icons](#icons) to list items is a great way to hint about the contents of each item. The position of the icon can be set using the `item-left` and `item-right` attributes:
-
+Adding [icons](#icons) to list items is a great way to hint about the contents of each item. The position of the icon can be set using the `item-left` and `item-right` attributes. The size of the icon defaults to `small`, and can be made larger with the `large` attribute.
 
 ```html
 <ion-list>
@@ -141,12 +142,12 @@ Item avatars showcase an image larger than an icon, but smaller than a thumbnail
 </ion-list>
 ```
 
-<h3 class="section-nav" id="multiline-list">Multiline List</h3>
+<h3 class="section-nav" id="multiline-list">Multi-line List</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/lists/multiline">
   Demo Source
 </a>
 
-Multiline lists are identical to regular lists, except they can multiple lines of text. When multiple header or paragraph tags are added to an `<ion-item>`, the item will automatically adjust its height to fit the new lines. Below is an example with three lines of text:
+Multi-line lists are identical to regular lists, except items have multiple lines of text. When an `<ion-item`> component contains multiple header or paragraph elements, it will automatically expand it’s height to fit the new lines of text. Below is an example with three lines of text:
 
 ```html
 <ion-list>
@@ -166,7 +167,9 @@ Multiline lists are identical to regular lists, except they can multiple lines o
   Demo Source
 </a>
 
-Sliding items can be swiped to the left to reveal a set of buttons. To use a sliding item, add a `<ion-item-sliding>` component inside of a list. Next, add a `<ion-item-options>` component inside of the sliding item to contain the buttons:
+Sliding items can be swiped to the left or right to reveal a hidden set of buttons.  To use a sliding item, add an `ion-item-sliding` component inside of an `ion-list` component.  Next, add an `<ion-item-options>` component inside of the sliding item to contain the buttons.
+
+For more information, Check out the [API docs](../api/components/item/ItemSliding).
 
 ```html
 <ion-list>
@@ -177,7 +180,7 @@ Sliding items can be swiped to the left to reveal a set of buttons. To use a sli
       </ion-avatar>
       <h2>Slimer</h2>
     </ion-item>
-    <ion-item-options>
+    <ion-item-options side="left">
       <button primary>
         <ion-icon name="text"></ion-icon>
         Text
@@ -185,6 +188,12 @@ Sliding items can be swiped to the left to reveal a set of buttons. To use a sli
       <button secondary>
         <ion-icon name="call"></ion-icon>
         Call
+      </button>
+    </ion-item-options>
+    <ion-item-options side="right">
+      <button primary>
+        <ion-icon name="mail"></ion-icon>
+        Email
       </button>
     </ion-item-options>
   </ion-item-sliding>

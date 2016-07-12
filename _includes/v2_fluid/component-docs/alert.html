@@ -6,9 +6,11 @@
 
 Alerts are a great way to offer the user the ability to choose a specific action or list of actions. They also can provide the user with important information, or require them to make a decision (or multiple decisions).
 
-From a UI perspective, you can think of Alerts as a type of “floating” modal, that covers only a portion of the screen. This means Alerts should only be used for quick actions like password verification, small app notifications, or quick options. More in depth user flows should be reserved for full screen ​[Modals](#modals)​.
+From a UI perspective, Alerts can be thought of as a type of “floating” modal that covers only a portion of the screen. This means Alerts should only be used for quick actions like password verification, small app notifications, or quick options. More in depth user flows should be reserved for full screen ​[Modals](#modals)​.
 
-Alerts are quite flexible, and can easily be customized. Check out the [API docs](../api/components/alert/Alert) for more information.
+Alerts are quite flexible, and can easily be customized.
+
+_For more information, Check out the [API docs](../api/components/alert/AlertController)._
 
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
@@ -25,17 +27,24 @@ Alerts are quite flexible, and can easily be customized. Check out the [API docs
   Demo Source
 </a>
 
-Basic Alerts are generally used to notify the user about new information (a change in the app, a new feature), an urgent situation that requires acknowledgement, or as a confirmation to the user that an action was successful or not.
+Basic Alerts are typically used to notify the user about new information (a change in the app, a new feature, etc), an urgent situation that requires acknowledgement, or as a confirmation to the user that an action was successful or not.
 
-```
-  doAlert() {
-    let alert = Alert.create({
+```typescript
+import { AlertController } from 'ionic-angular';
+
+export class MyPage {
+  constructor(private alertController: AlertController){
+  }
+
+  showAlert() {
+    let alert = this.alertController.create({
       title: 'New Friend!',
       subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
       buttons: ['OK']
     });
-    this.nav.present(alert);
+    alert.present();
   }
+}
 ```
 
 <h3 class="section-nav" id="alert-prompt">Prompt Alerts</h3>
@@ -44,10 +53,17 @@ Basic Alerts are generally used to notify the user about new information (a chan
   Demo Source
 </a>
 
-Prompts offer the user a way to input data or information. For example, often times Prompt Alerts will be used to ask the user for password confirmation as a means of security before moving forward in an app’s ux flow.
+Prompts offer a way to input data or information.  Often times  Prompts will be used to ask the user for a password before moving forward in an application’s flow.
 
 ```
-    let prompt = Alert.create({
+import { AlertController } from 'ionic-angular';
+
+export class MyPage {
+  constructor(private alertController: AlertController){
+  }
+
+  showPrompt() {
+    let prompt = this.alertController.create({
       title: 'Login',
       message: "Enter a name for this new album you're so keen on adding",
       inputs: [
@@ -71,6 +87,9 @@ Prompts offer the user a way to input data or information. For example, often ti
         }
       ]
     });
+    prompt.present();
+  }
+}
 ```
 
 <h3 class="section-nav" id="alert-confirm">Confirmation Alerts</h3>
@@ -82,7 +101,14 @@ Prompts offer the user a way to input data or information. For example, often ti
 Confirmation Alerts are used when it is required that the user explicitly confirms a particular choice before progressing forward in the app. A common example of the Confirmation Alert is checking to make sure a user wants to delete or remove a contact from their address book.
 
 ```
-    let confirm = Alert.create({
+import { AlertController } from 'ionic-angular';
+
+export class MyPage {
+  constructor(private alertController: AlertController){
+  }
+
+  showConfirm() {
+    let confirm = this.alertController.create({
       title: 'Use this lightsaber?',
       message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
       buttons: [
@@ -100,6 +126,9 @@ Confirmation Alerts are used when it is required that the user explicitly confir
         }
       ]
     });
+    confirm.present();
+  }
+}
 ```
 
 
@@ -109,11 +138,17 @@ Confirmation Alerts are used when it is required that the user explicitly confir
   Demo Source
 </a>
 
-Radio Alerts are simply another type of Confirmation Alert, but use the [Radio](http://ionicframework.com/docs/v2/components/#radio) component to offer several choices. They offer the user a set of options to choose from, but are allowed to only make one final selection before continuing forward.
+Radio Alerts are a type of Confirmation Alert, but use the [Radio](http://ionicframework.com/docs/v2/components/#radio) component to offer several choices. They offer A set of options is provided to the user, but only one option can be chosen.
 
 ```
-  doRadio() {
-    let alert = Alert.create();
+import { AlertController } from 'ionic-angular';
+
+export class MyPage {
+  constructor(private alertController: AlertController){
+  }
+
+  showRadio() {
+    let alert = this.alertController.create();
     alert.setTitle('Lightsaber color');
 
     alert.addInput({
@@ -131,6 +166,9 @@ Radio Alerts are simply another type of Confirmation Alert, but use the [Radio](
         this.testRadioResult = data;
       }
     });
+    alert.present();
+  }
+}
 ```
 
 
@@ -140,11 +178,17 @@ Radio Alerts are simply another type of Confirmation Alert, but use the [Radio](
   Demo Source
 </a>
 
-Checkbox Alerts are simply another type of Confirmation Alert, but use the [Checkbox](/docs/v2/components/#checkbox) component to offer several choices. They offer the user a set of options to choose from.
+Checkbox Alerts are a type of Confirmation Alert, but use the [Checkbox](/docs/v2/components/#checkbox) component to offer several choices. They offer the user a set of options to choose from.
 
 ```
-  doCheckbox() {
-    let alert = Alert.create();
+import { AlertController } from 'ionic-angular';
+
+export class MyPage {
+  constructor(private alertController: AlertController){
+  }
+
+  showCheckbox() {
+    let alert = this.alertController.create();
     alert.setTitle('Which planets have you visited?');
 
     alert.addInput({
@@ -169,5 +213,7 @@ Checkbox Alerts are simply another type of Confirmation Alert, but use the [Chec
         this.testCheckboxResult = data;
       }
     });
+    alert.present();
   }
+}
 ```

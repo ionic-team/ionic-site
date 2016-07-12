@@ -4,14 +4,9 @@
   Improve this Doc
 </a>
 
-_For more details on the Tabs component, see the [Tabs API reference](../api/components/tabs/Tabs/), and the [Tab API reference](../api/components/tabs/Tab/) for information on configuring the individual Tab components it contains._
+Tabs powers a multi-tabbed interface with a Tab Bar and a set of views that can be tabbed through.
 
-Tabs powers a multi-tabbed interface with a Tab Bar and a set of "pages" that can be tabbed through.
-
-For iOS, tabs will appear at the bottom of the screen. For Android, tabs will be at the top of the screen, below the nav-bar. This follows each platform's design specification, but can be configured with [Config](../api/config/Config/).
-
-Tabs are useful if you have a few "root" or "top-level" pages.  They are obvious to the user and quickly accessed, since they are always on the screen.  However if screen space is limited, or you have a large number of root pages, a [Menu](#menus) may be a better option.
-
+_For more information, Check out the [Tabs API docs](../api/components/tabs/Tabs) and the [Tab API docs](../api/components/tabs/Tab)._
 
 <ul class="docs-content">
   <li class="docs-content-header">Contents</li>
@@ -30,6 +25,10 @@ Tabs are useful if you have a few "root" or "top-level" pages.  They are obvious
 To initialize Tabs, use [`<ion-tabs>`](../api/components/tabs/Tabs/), with a child [`<ion-tab>`](../api/components/tabs/Tab/) for each tab:
 
 ```typescript
+import { Component } from '@angular/core';
+import { ionicBootstrap } from 'ionic-angular';
+import { Tab1 } from './tab1-page';
+import { Tab2 } from './tab2-page';
 @Component({
   template: `
     <ion-tabs>
@@ -38,17 +37,24 @@ To initialize Tabs, use [`<ion-tabs>`](../api/components/tabs/Tabs/), with a chi
     </ion-tabs>`
 })
 class MyApp {
+
+  private tab1: any;
+  private tab2: any;
+
   constructor() {
     this.tab1 = Tab1;
     this.tab2 = Tab2;
   }
 }
+
 ionicBootstrap(MyApp)
 ```
 
 Individual tabs are just `@Components`
 
 ```typescript
+import { Component } from '@angular/core';
+
 @Component({
   template: `
   <ion-header>
@@ -58,7 +64,7 @@ Individual tabs are just `@Components`
   </ion-header>
   <ion-content>Tab 1</ion-content>`
 })
-class Tab1 {}
+export class Tab1 {}
 
 @Component({
   template: `
@@ -69,12 +75,15 @@ class Tab1 {}
   </ion-header>
   <ion-content>Tab 2</ion-content>`
 })
-class Tab2 {}
+export class Tab2 {}
 ```
 
 Notice that each `<ion-tab>` binds to a `[root]` property, just like [`<ion-nav>`](../api/components/nav/Nav/) in the [Navigation](#navigation) section above.  That is because each `<ion-tab>` is really just a navigation controller.  This means that each tab has its own history stack, and [`NavController instances injected`](../api/components/nav/NavController/#injecting_nav_controller) into children `@Components` of each tab will be unique to each tab:
 
 ```typescript
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+
 @Component({
 ...
 })

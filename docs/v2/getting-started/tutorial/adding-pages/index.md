@@ -25,19 +25,22 @@ Taking a look at `app/app.html`, we see this line near the bottom:
 <ion-nav id="nav" [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>
 ```
 
-Pay attention to the `[root]` property binding. This sets what is essentially the first, or "root" page for the `ion-nav` component. When `ion-nav` loads, the component referenced by the variable `rootPage` will be the root page.
+Pay attention to the `[root]` property binding. This sets what is essentially the first, or "root" page for the `ion-nav` component. When `ion-nav` loads, the component referenced by the variable `rootPage` will be the root (or first) page.
 
 In `app/app.ts`, the `MyApp` component specifies this in its constructor:
 
 ```ts
 ...
-import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
+import { App, MenuController, Platform } from 'ionic-angular';
+import { HelloIonicPage } from './pages/hello-ionic/hello-ionic';
 ...
 
 class MyApp {
   ...
 
-  constructor(app, platform, menu) {
+  private rootPage: any;
+
+  constructor(app: App, menu: MenuController, platform: Platform) {
     ...
 
     // make HelloIonicPage the root (or first) page
@@ -74,12 +77,14 @@ All pages have both a class, and an associated template that's being compiled as
 
 ```html
 {% raw %}
-<ion-navbar *navbar>
-  <button menuToggle>
-    <ion-icon name="menu"></ion-icon>
-  </button>
-  <ion-title>Hello Ionic</ion-title>
-</ion-navbar>
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hello Ionic</ion-title>
+  </ion-navbar>
+</ion-header>
 
 
 <ion-content padding class="getting-started">
@@ -100,7 +105,7 @@ All pages have both a class, and an associated template that's being compiled as
 {% endraw %}
 ```
 
-The `<ion-navbar *navbar>` is a template for the [navigation bar](/docs/v2/api/components/navbar/Navbar/) on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
+The `<ion-navbar>` is a template for the [navigation bar](/docs/v2/api/components/navbar/Navbar/) on this page. As we navigate to this page, the button and title of the navigation bar transition in as part of the page transition.
 
 The rest of the template is standard Ionic code that sets up our content area and prints our welcome message.
 
@@ -111,21 +116,17 @@ To create an additional page, we don't need to do much beyond making sure we cor
 Let's check out the contents of `app/pages/list/list.ts`. Inside, you will see a new page is defined:
 
 ```ts
-import {Component} from "@angular/core";
-import {NavController, NavParams} from 'ionic-angular';
-import {ItemDetailsPage} from '../item-details/item-details';
+import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+import { ItemDetailsPage } from '../item-details/item-details';
 
 
 @Component({
   templateUrl: 'build/pages/list/list.html'
 })
 export class ListPage {
-  // provide Angular with metadata about things it should inject in the constructor
-  static get parameters() {
-    return [[NavController], [NavParams]];
-  }
 
-  constructor(nav, navParams) {
+  constructor(nav: NavController, navParams: NavParams) {
     this.nav = nav;
 
     // If we navigated to this page, we will have an item available as a nav param

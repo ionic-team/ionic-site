@@ -4,13 +4,13 @@
   Improve this Doc
 </a>
 
-Navigation is how users move between different pages in your app. Ionic's navigation follows standard native animation concepts, like [those in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
+Navigation is how users move between different views in your app. Ionic's navigation follows standard native animation concepts, like [those in iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/Navigation.html).
 
 Views are pushed on and popped off of a navigation controller's view stack.
 
-For more information, Check out the [API docs for NavController](../api/components/nav/NavController) and the [API docs for Nav](../api/components/nav/Nav).
+_For more information, Check out the [API docs for NavController](../api/components/nav/NavController), the [API docs for NavBar](../api/components/navbar/Navbar/), and the [API docs for Nav](../api/components/nav/Nav)._
 
-<h3 id="basic_navigation">Basic Navigation</h3>
+<h3 id="basic_navigation">Basic Usage</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/navigation/basic">
   Demo Source
 </a>
@@ -35,112 +35,3 @@ class MyApp {
 
 ionicBootstrap(MyApp)
 ```
-
-You can access the navigation controller you create by injecting it into any of your Pages:
-
-```typescript
-@Component({
-  template: `
-  <ion-header>
-    <ion-navbar>
-      <ion-title>Login</ion-title>
-    </ion-navbar>
-  </ion-header>
-
-    <ion-content>Hello World</ion-content>`
-})
-export class StartPage {
-  constructor(private nav: NavController){}
-}
-```
-
-To navigate from one page to another simply push or pop a new page onto the stack:
-
-```typescript
-@Component({
-  template: `
-  <ion-header>
-    <ion-navbar>
-      <ion-title>Login</ion-title>
-    </ion-navbar>
-  </ion-header>
-
-    <ion-content>
-      <button (click)="goToOtherPage()">
-        Go to OtherPage
-      </button>
-    </ion-content>`
-})
-export class StartPage {
-  constructor(private nav: NavController) {}
-
-  goToOtherPage(){
-    //push another page onto the history stack
-    //causing the nav controller to animate the new page in
-    this.nav.push(OtherPage);
-  }
-}
-
-@Component({
-  template: `
-  <ion-header>
-    <ion-navbar>
-      <ion-title>Other Page</ion-title>
-    </ion-navbar>
-  </ion-header>
-
-    <ion-content>I'm the other page!</ion-content>`
-})
-class OtherPage {}
-```
-
-If your page has an [`<ion-navbar>`](../api/components/nav-bar/NavBar/), a back button will automatically be added to it if it is not a root page.
-
-Alternatively, if you want to go back, but don't have a NavBar, you can pop the current page off the stack:
-
-```typescript
-@Component({
-  template: `
-    <ion-content>
-      <button (click)="goBack()">
-        There's no place like home
-      </button>
-    </ion-content>`
-})
-class OtherPage {
-  constructor(private nav: NavController) {}
-
-  goBack() {
-    this.nav.pop();
-  }
-}
-```
-
-For more information on basic navigation, check out the [Nav API reference](../api/components/nav/Nav/).
-
-
-<h3 id="navigating_from_root">Navigating from the Root Component</h3>
-What if you want to control navigation from your root app component? You can't inject `NavController` because any components that are navigation controllers are _children_ of the root component so they aren't available to be injected.
-
-By adding a reference variable to the `ion-nav`, you can use `@ViewChild` to get an instance of the `Nav` component, which is a navigation controller (it extends `NavController`):
-
-```typescript
-@App({
-  template: '<ion-nav #myNav [root]="rootPage"></ion-nav>'
-})
-export class MyApp {
-  @ViewChild('myNav') nav
-  rootPage = TabsPage;
-
-  // Wait for the components in MyApp's template to be initialized
-  // In this case, we are waiting for the Nav with id="my-nav"
-  ngAfterViewInit() {
-    // Let's navigate from TabsPage to Page1
-    this.nav.push(Page1);
-  }
-}
-```
-
-
-<h3 id="advanced_navigation">Advanced Navigation</h3>
-What if you have several "root" or "top-level" pages that don't have a parent-child relationship, but rather are siblings? You have two options: [Tabs](#tabs) and [Menu](#menus).

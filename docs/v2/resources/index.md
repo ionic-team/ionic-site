@@ -119,6 +119,10 @@ title: Ionic Resources
         <a target="_blank" href="http://www.nikola-breznjak.com/blog/javascript/ionic2/posting-data-from-ionic-2-app/" class="title">Posting data to a PHP server</a>
         <p>Learn how to use the SQLite plugin for Cordova in your Ionic 2 app.</p>
       </li>
+      <li>
+        <a target="_blank" href="http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html" class="title">Taking advantage of observables</a>
+        <p>Learn how to use observables in your Ionic 2 app.</p>
+      </li>
     </ul>
   </section>
 

@@ -6,52 +6,24 @@
 
 Modals slide in off screen to display a temporary UI, often used for login or signup pages, message composition, and option selection.
 
+_For more information, Check out the [API docs](../api/components/modal/ModalController)._
+
 <h3 class="section-nav">Basic Usage</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/modals/basic">
   Demo Source
 </a>
 
-
-Next, we need to create the class that will control our modal. Let's import `Modal`, `NavController`, `Page` and `ViewController`:
-
 ```typescript
-import {Component} from '@angular/core';
-import {Modal, NavController,ViewController} from 'ionic-angular';
-```
+import { ModalController } from 'ionic-angular';
+import { ModalPage } from './modal-page';
 
-Next, let's create our modal and define add its template:
+export class MyPage {
+  constructor ( private modalController : ModalController ){
+  }
 
-```typescript
-@Component({
-  template: `
-  <ion-content padding>
-    <h2>I'm a modal!</h2>
-    <button (click)="close()">Close</button>
-  </ion-content>`
-})
-class MyModal {
-  constructor(
-    private viewCtrl: ViewController) {}
-
-  close() {
-    this.viewCtrl.dismiss();
+  presentModal() {
+    let modal = this.modalController.create(ModalPage);
+    modal.present();
   }
 }
 ```
-
-
-Finally, let's add the code that will open our Modal:
-
-```typescript
-import {Modal, NavController} from 'ionic-angular'
-class MyPage {
-  constructor(private nav: NavController){}
-
-  showModal() {
-    let modal = Modal.create(MyModal);
-    this.nav.present(modal);
-  }
-}
-```
-
-The `Modal.create()` function can also receive an object as the second argument that will be passed to the modal. See the [Modal API docs](/docs/v2/api/components/modal/Modal/) for more information.

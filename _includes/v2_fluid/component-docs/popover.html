@@ -9,33 +9,24 @@ The Popover is a view that floats above an app’s content. Popovers provide an 
 - Select a commonly used tool or configuration
 - Present a list of actions to perform inside one of your views
 
+_For more information, Check out the [API docs](../api/components/popover/PopoverController)._
+
 <h3 class="no-para">Basic Usage</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/popovers">
     Demo Source
 </a>
 
-```html
-@Component({
-  template: `This is a popover`
-})
+```typescript
+import { PopoverController } from 'ionic-angular';
+import { MyPopOverPage } from './my-pop-over';
 
-export class MyPopover{}
+export class MyPage {
+  constructor ( private popoverController : PopoverController ){
+  }
 
-@Component({
-  templateUrl: 'build/pages/home/home.html'
-})
-
-export class HomePage{
-  constructor(
-    private nav: NavController
-  ){}
-
-  showPopover(){
-    let popover = Popover.create(MyPopover)
-    this.nav.present(popover, {
-      ev: ev
-    })
+  presentPopover() {
+    let popover = this.popoverController.create(MyPopOverPage);
+    popover.present();
   }
 }
 ```
-

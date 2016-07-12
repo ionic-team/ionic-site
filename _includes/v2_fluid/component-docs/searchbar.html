@@ -6,6 +6,8 @@
 
 A Searchbar binds to a model, and emits an input event when the model is changed.
 
+_For more information, Check out the [API docs](../api/components/searchbar/Searchbar)._
+
 <h3 class="section-nav">Basic Usage</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/searchbars">
   Demo Source
@@ -27,8 +29,11 @@ Note that in this example, the `getItems()` function is called when the input ch
   templateUrl: 'search/template.html',
 })
 class SearchPage {
+
+  private searchQuery: string = '';
+  private items: string[];
+
   constructor() {
-    this.searchQuery = '';
     this.initializeItems();
   }
 
@@ -40,21 +45,19 @@ class SearchPage {
     ];
   }
 
-  getItems(ev) {
+  getItems(ev: any) {
     // Reset items back to all of the items
     this.initializeItems();
 
     // set val to the value of the searchbar
     let val = ev.target.value;
 
-   // if the value is an empty string don't filter the items
-      if (val && val.trim() != '') {
-        this.items = this.items.filter((item) => {
-          return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-        })
-      }
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
   }
 }
 ```
-
-The Searchbar takes a number of configuration options on the `<ion-searchbar>` element, such as `cancelButtonText` and `hideCancelButton`. Check out the [Searchbar API reference](../api/components/searchbar/Searchbar/) for more information on configuring a Searchbar.

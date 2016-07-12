@@ -26,3 +26,21 @@ presentLoading() {
   this.nav.present(loading);
 }
 ```
+
+Alternatively you can show and hide the loading component based on async calls using the returned `ViewController` object. 
+
+```typescript
+presentLoading() {
+  let loading = Loading.create({
+    content: "Please wait..."
+    });
+  this.nav.present(loading);
+  
+  //performing some form of async call, e.g. a http request to a server. 
+  backend.someAsyncCall().subscribe(response=>{
+    loading.dismiss();
+  });
+  
+}
+```
+

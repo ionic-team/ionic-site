@@ -18418,14 +18418,14 @@
 	exports.IONIC_DIRECTIVES = directives_1.IONIC_DIRECTIVES;
 	var providers_1 = __webpack_require__(360);
 	exports.ionicProviders = providers_1.ionicProviders;
+	__export(__webpack_require__(498));
 	__export(__webpack_require__(499));
-	__export(__webpack_require__(500));
 	__export(__webpack_require__(352));
 	__export(__webpack_require__(353));
 	__export(__webpack_require__(350));
 	__export(__webpack_require__(351));
 	__export(__webpack_require__(339));
-	__export(__webpack_require__(509));
+	__export(__webpack_require__(508));
 	__export(__webpack_require__(336));
 	__export(__webpack_require__(425));
 	__export(__webpack_require__(342));
@@ -18433,17 +18433,17 @@
 	var util_1 = __webpack_require__(340);
 	exports.reorderArray = util_1.reorderArray;
 	__export(__webpack_require__(358));
-	__export(__webpack_require__(490));
+	__export(__webpack_require__(489));
 	__export(__webpack_require__(357));
-	__export(__webpack_require__(498));
-	__export(__webpack_require__(513));
+	__export(__webpack_require__(497));
+	__export(__webpack_require__(512));
 	// these modules don't export anything
+	__webpack_require__(513);
 	__webpack_require__(514);
 	__webpack_require__(515);
 	__webpack_require__(516);
 	__webpack_require__(517);
 	__webpack_require__(518);
-	__webpack_require__(519);
 
 /***/ },
 /* 117 */
@@ -18456,7 +18456,7 @@
 	var dom_1 = __webpack_require__(337);
 	var providers_1 = __webpack_require__(360);
 	var platform_1 = __webpack_require__(339);
-	var tap_click_1 = __webpack_require__(493);
+	var tap_click_1 = __webpack_require__(492);
 	var _reflect = Reflect;
 	/**
 	 * @name ionicBootstrap
@@ -53679,6 +53679,9 @@
 	exports.isBlank = function (val) { return val === undefined || val === null; };
 	exports.isObject = function (val) { return typeof val === 'object'; };
 	exports.isArray = Array.isArray;
+	exports.isPrimitive = function (val) {
+	    return exports.isString(val) || exports.isBoolean(val) || (exports.isNumber(val) && !isNaN(val));
+	};
 	exports.isTrueProperty = function (val) {
 	    if (typeof val === 'string') {
 	        val = val.toLowerCase().trim();
@@ -60284,16 +60287,16 @@
 	var directives_1 = __webpack_require__(427);
 	var util_1 = __webpack_require__(340);
 	var keyboard_1 = __webpack_require__(342);
-	var loading_1 = __webpack_require__(486);
+	var loading_1 = __webpack_require__(485);
 	var menu_controller_1 = __webpack_require__(345);
-	var modal_1 = __webpack_require__(488);
+	var modal_1 = __webpack_require__(487);
 	var picker_1 = __webpack_require__(468);
 	var platform_1 = __webpack_require__(339);
-	var popover_1 = __webpack_require__(491);
+	var popover_1 = __webpack_require__(490);
 	var scroll_view_1 = __webpack_require__(437);
-	var tap_click_1 = __webpack_require__(493);
-	var toast_1 = __webpack_require__(496);
-	var translate_1 = __webpack_require__(498);
+	var tap_click_1 = __webpack_require__(492);
+	var toast_1 = __webpack_require__(495);
+	var translate_1 = __webpack_require__(497);
 	/**
 	 * @private
 	 */
@@ -69696,9 +69699,8 @@
 	var nav_1 = __webpack_require__(481);
 	var nav_pop_1 = __webpack_require__(482);
 	var nav_push_1 = __webpack_require__(483);
-	var nav_router_1 = __webpack_require__(484);
 	var navbar_1 = __webpack_require__(431);
-	var show_hide_when_1 = __webpack_require__(485);
+	var show_hide_when_1 = __webpack_require__(484);
 	/**
 	 * @private
 	 * @name IONIC_DIRECTIVES
@@ -69765,7 +69767,6 @@
 	 * - Navbar
 	 * - NavPush
 	 * - NavPop
-	 * - NavRouter
 	 * - IdRef
 	 * - ShowWhen
 	 * - HideWhen
@@ -69837,7 +69838,6 @@
 	    navbar_1.Navbar,
 	    nav_push_1.NavPush,
 	    nav_pop_1.NavPop,
-	    nav_router_1.NavRouter,
 	    show_hide_when_1.ShowWhen,
 	    show_hide_when_1.HideWhen
 	];
@@ -89008,37 +89008,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(6);
-	/**
-	 * @private
-	 */
-	var NavRouter = (function () {
-	    function NavRouter() {
-	    }
-	    NavRouter = __decorate([
-	        core_1.Directive({
-	            selector: 'ion-nav'
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], NavRouter);
-	    return NavRouter;
-	}());
-	exports.NavRouter = NavRouter;
-
-/***/ },
-/* 485 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -89224,7 +89193,7 @@
 	exports.HideWhen = HideWhen;
 
 /***/ },
-/* 486 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89245,7 +89214,7 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var loading_component_1 = __webpack_require__(487);
+	var loading_component_1 = __webpack_require__(486);
 	var view_controller_1 = __webpack_require__(359);
 	/**
 	 * @private
@@ -89422,7 +89391,7 @@
 	exports.LoadingController = LoadingController;
 
 /***/ },
-/* 487 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89618,7 +89587,7 @@
 	var loadingIds = -1;
 
 /***/ },
-/* 488 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89639,7 +89608,7 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var modal_component_1 = __webpack_require__(489);
+	var modal_component_1 = __webpack_require__(488);
 	var view_controller_1 = __webpack_require__(359);
 	/**
 	 * @private
@@ -89833,7 +89802,7 @@
 	exports.ModalController = ModalController;
 
 /***/ },
-/* 489 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -89858,7 +89827,7 @@
 	var key_1 = __webpack_require__(344);
 	var nav_params_1 = __webpack_require__(348);
 	var util_1 = __webpack_require__(340);
-	var page_transition_1 = __webpack_require__(490);
+	var page_transition_1 = __webpack_require__(489);
 	var view_controller_1 = __webpack_require__(359);
 	var dom_1 = __webpack_require__(337);
 	/**
@@ -90025,7 +89994,7 @@
 	page_transition_1.PageTransition.register('modal-md-slide-out', ModalMDSlideOut);
 
 /***/ },
-/* 490 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90080,7 +90049,7 @@
 	}
 
 /***/ },
-/* 491 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90101,7 +90070,7 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var popover_component_1 = __webpack_require__(492);
+	var popover_component_1 = __webpack_require__(491);
 	var view_controller_1 = __webpack_require__(359);
 	/**
 	 * @private
@@ -90277,7 +90246,7 @@
 	exports.PopoverController = PopoverController;
 
 /***/ },
-/* 492 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90303,7 +90272,7 @@
 	var dom_1 = __webpack_require__(337);
 	var key_1 = __webpack_require__(344);
 	var nav_params_1 = __webpack_require__(348);
-	var page_transition_1 = __webpack_require__(490);
+	var page_transition_1 = __webpack_require__(489);
 	var view_controller_1 = __webpack_require__(359);
 	/**
 	 * @private
@@ -90595,7 +90564,7 @@
 	var POPOVER_MD_BODY_PADDING = 12;
 
 /***/ },
-/* 493 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90609,11 +90578,11 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var activator_1 = __webpack_require__(494);
+	var activator_1 = __webpack_require__(493);
 	var app_1 = __webpack_require__(335);
 	var config_1 = __webpack_require__(338);
 	var dom_1 = __webpack_require__(337);
-	var ripple_1 = __webpack_require__(495);
+	var ripple_1 = __webpack_require__(494);
 	/**
 	 * @private
 	 */
@@ -90795,7 +90764,7 @@
 	var DISABLE_NATIVE_CLICK_AMOUNT = 2500;
 
 /***/ },
-/* 494 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90880,7 +90849,7 @@
 	var CLEAR_STATE_DEFERS = 5;
 
 /***/ },
-/* 495 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -90889,7 +90858,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var activator_1 = __webpack_require__(494);
+	var activator_1 = __webpack_require__(493);
 	var dom_1 = __webpack_require__(337);
 	/**
 	 * @private
@@ -90990,7 +90959,7 @@
 	var TOUCH_DOWN_ACCEL = 300;
 
 /***/ },
-/* 496 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91011,7 +90980,7 @@
 	var core_1 = __webpack_require__(6);
 	var app_1 = __webpack_require__(335);
 	var util_1 = __webpack_require__(340);
-	var toast_component_1 = __webpack_require__(497);
+	var toast_component_1 = __webpack_require__(496);
 	var view_controller_1 = __webpack_require__(359);
 	/**
 	 * @private
@@ -91161,7 +91130,7 @@
 	var TOAST_POSITION_BOTTOM = 'bottom';
 
 /***/ },
-/* 497 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91445,7 +91414,7 @@
 	var TOAST_POSITION_BOTTOM = 'bottom';
 
 /***/ },
-/* 498 */
+/* 497 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -91513,7 +91482,7 @@
 	exports.Translate = Translate;
 
 /***/ },
-/* 499 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91539,19 +91508,19 @@
 	exports.Page = Page;
 
 /***/ },
-/* 500 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var action_sheet_1 = __webpack_require__(419);
 	exports.ActionSheet = action_sheet_1.ActionSheet;
 	exports.ActionSheetController = action_sheet_1.ActionSheetController;
-	var action_sheet_options_1 = __webpack_require__(501);
+	var action_sheet_options_1 = __webpack_require__(500);
 	exports.ActionSheetOptions = action_sheet_options_1.ActionSheetOptions;
 	var alert_1 = __webpack_require__(423);
 	exports.Alert = alert_1.Alert;
 	exports.AlertController = alert_1.AlertController;
-	var alert_options_1 = __webpack_require__(502);
+	var alert_options_1 = __webpack_require__(501);
 	exports.AlertOptions = alert_options_1.AlertOptions;
 	exports.AlertInputOptions = alert_options_1.AlertInputOptions;
 	var app_1 = __webpack_require__(335);
@@ -91592,10 +91561,10 @@
 	var list_1 = __webpack_require__(452);
 	exports.List = list_1.List;
 	exports.ListHeader = list_1.ListHeader;
-	var loading_1 = __webpack_require__(486);
+	var loading_1 = __webpack_require__(485);
 	exports.Loading = loading_1.Loading;
 	exports.LoadingController = loading_1.LoadingController;
-	var loading_options_1 = __webpack_require__(503);
+	var loading_options_1 = __webpack_require__(502);
 	exports.LoadingOptions = loading_options_1.LoadingOptions;
 	var menu_1 = __webpack_require__(428);
 	exports.Menu = menu_1.Menu;
@@ -91605,18 +91574,18 @@
 	exports.MenuController = menu_controller_1.MenuController;
 	var menu_toggle_1 = __webpack_require__(430);
 	exports.MenuToggle = menu_toggle_1.MenuToggle;
-	var menu_types_1 = __webpack_require__(504);
+	var menu_types_1 = __webpack_require__(503);
 	exports.MenuType = menu_types_1.MenuType;
-	var modal_1 = __webpack_require__(488);
+	var modal_1 = __webpack_require__(487);
 	exports.Modal = modal_1.Modal;
 	exports.ModalController = modal_1.ModalController;
-	var modal_options_1 = __webpack_require__(505);
+	var modal_options_1 = __webpack_require__(504);
 	exports.ModalOptions = modal_options_1.ModalOptions;
 	var nav_1 = __webpack_require__(481);
 	exports.Nav = nav_1.Nav;
 	var nav_controller_1 = __webpack_require__(346);
 	exports.NavController = nav_controller_1.NavController;
-	var nav_options_1 = __webpack_require__(506);
+	var nav_options_1 = __webpack_require__(505);
 	exports.NavOptions = nav_options_1.NavOptions;
 	var nav_params_1 = __webpack_require__(348);
 	exports.NavParams = nav_params_1.NavParams;
@@ -91636,10 +91605,10 @@
 	exports.PickerController = picker_1.PickerController;
 	var picker_options_1 = __webpack_require__(470);
 	exports.PickerOptions = picker_options_1.PickerOptions;
-	var popover_1 = __webpack_require__(491);
+	var popover_1 = __webpack_require__(490);
 	exports.Popover = popover_1.Popover;
 	exports.PopoverController = popover_1.PopoverController;
-	var popover_options_1 = __webpack_require__(507);
+	var popover_options_1 = __webpack_require__(506);
 	exports.PopoverOptions = popover_options_1.PopoverOptions;
 	var radio_button_1 = __webpack_require__(476);
 	exports.RadioButton = radio_button_1.RadioButton;
@@ -91662,7 +91631,7 @@
 	exports.SegmentButton = segment_1.SegmentButton;
 	var select_1 = __webpack_require__(465);
 	exports.Select = select_1.Select;
-	var show_hide_when_1 = __webpack_require__(485);
+	var show_hide_when_1 = __webpack_require__(484);
 	exports.ShowWhen = show_hide_when_1.ShowWhen;
 	exports.HideWhen = show_hide_when_1.HideWhen;
 	exports.DisplayWhen = show_hide_when_1.DisplayWhen;
@@ -91676,13 +91645,13 @@
 	exports.Tab = tab_1.Tab;
 	var tabs_1 = __webpack_require__(438);
 	exports.Tabs = tabs_1.Tabs;
-	var tap_click_1 = __webpack_require__(493);
+	var tap_click_1 = __webpack_require__(492);
 	exports.TapClick = tap_click_1.TapClick;
 	exports.isActivatable = tap_click_1.isActivatable;
-	var toast_1 = __webpack_require__(496);
+	var toast_1 = __webpack_require__(495);
 	exports.Toast = toast_1.Toast;
 	exports.ToastController = toast_1.ToastController;
-	var toast_options_1 = __webpack_require__(508);
+	var toast_options_1 = __webpack_require__(507);
 	exports.ToastOptions = toast_options_1.ToastOptions;
 	var toggle_1 = __webpack_require__(471);
 	exports.Toggle = toggle_1.Toggle;
@@ -91693,6 +91662,12 @@
 	exports.Footer = toolbar_1.Footer;
 	var virtual_scroll_1 = __webpack_require__(459);
 	exports.VirtualScroll = virtual_scroll_1.VirtualScroll;
+
+/***/ },
+/* 500 */
+/***/ function(module, exports) {
+
+	"use strict";
 
 /***/ },
 /* 501 */
@@ -91708,12 +91683,6 @@
 
 /***/ },
 /* 503 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
-/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91862,6 +91831,12 @@
 	menu_controller_1.MenuController.registerType('overlay', MenuOverlayType);
 
 /***/ },
+/* 504 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+/***/ },
 /* 505 */
 /***/ function(module, exports) {
 
@@ -91881,24 +91856,18 @@
 
 /***/ },
 /* 508 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
-/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
+	__export(__webpack_require__(509));
 	__export(__webpack_require__(510));
 	__export(__webpack_require__(511));
-	__export(__webpack_require__(512));
 
 /***/ },
-/* 510 */
+/* 509 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -91982,7 +91951,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 511 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -91991,7 +91960,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(510);
+	var storage_1 = __webpack_require__(509);
 	/**
 	 * @name LocalStorage
 	 * @description
@@ -92096,7 +92065,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 512 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92105,7 +92074,7 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var storage_1 = __webpack_require__(510);
+	var storage_1 = __webpack_require__(509);
 	var util_1 = __webpack_require__(340);
 	var DB_NAME = '__ionicstorage';
 	var win = window;
@@ -92248,7 +92217,7 @@
 	exports.SqlStorage = SqlStorage;
 
 /***/ },
-/* 513 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92262,7 +92231,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var translate_1 = __webpack_require__(498);
+	var translate_1 = __webpack_require__(497);
 	/**
 	 * @private
 	 * The Translate pipe makes it easy to translate strings.
@@ -92298,7 +92267,7 @@
 	exports.TranslatePipe = TranslatePipe;
 
 /***/ },
-/* 514 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92392,7 +92361,7 @@
 	});
 
 /***/ },
-/* 515 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92584,7 +92553,7 @@
 	}
 
 /***/ },
-/* 516 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92644,7 +92613,7 @@
 	animation_1.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 517 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92654,7 +92623,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var animation_1 = __webpack_require__(358);
-	var page_transition_1 = __webpack_require__(490);
+	var page_transition_1 = __webpack_require__(489);
 	var DURATION = 500;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	var OPACITY = 'opacity';
@@ -92817,7 +92786,7 @@
 	page_transition_1.PageTransition.register('ios-transition', IOSTransition);
 
 /***/ },
-/* 518 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92827,7 +92796,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var animation_1 = __webpack_require__(358);
-	var page_transition_1 = __webpack_require__(490);
+	var page_transition_1 = __webpack_require__(489);
 	var TRANSLATEY = 'translateY';
 	var OFF_BOTTOM = '40px';
 	var CENTER = '0px';
@@ -92877,7 +92846,7 @@
 	page_transition_1.PageTransition.register('md-transition', MDTransition);
 
 /***/ },
-/* 519 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -92887,7 +92856,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var animation_1 = __webpack_require__(358);
-	var page_transition_1 = __webpack_require__(490);
+	var page_transition_1 = __webpack_require__(489);
 	var SHOW_BACK_BTN_CSS = 'show-back-button';
 	var SCALE_SMALL = .95;
 	var WPTransition = (function (_super) {

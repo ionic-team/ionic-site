@@ -16,7 +16,7 @@ next_page_link: /docs/v2/getting-started/tutorial
 
 Like Ionic 1, Ionic 2 apps can be quickly created from the Ionic CLI or GUI tool or built and tested right in the browser.
 
-To install the Ionic SDK and create Ionic 2 projects, you'll need to install the latest beta release:
+To get started with Ionic 2, install the latest CLI beta release:
 
 ```bash
 $ npm install -g ionic@beta
@@ -27,7 +27,7 @@ Make sure you have NodeJS installed. Download the installer [here](https://nodej
 
 > Unfamiliar with NPM? Learn more about it and what packages we use [here](/docs/v2/resources/using-npm/)
 
-Worried about your V1 Ionic projects? Don't worry! The beta release has all the functionality to work with both V1 projects and V2 projects.
+The beta release of the CLI has all of the functionality to work with both Ionic V1 and Ionic V2 projects.
 
 Once that's done, create your first Ionic app:
 
@@ -62,7 +62,7 @@ Once you have Cordova installed and a device or emulator ready to go, you can mo
 $ ionic platform add ios
 {% endhighlight %}
 
-Next, you'll need to install <a href="../../resources/what-is/#xcode">Xcode</a>. Xcode allows you to build compile to a target device running iOS.
+Next, you'll need to install <a href="../../resources/what-is/#xcode">Xcode</a>. Xcode is needed to compile and develop an app for iOS
 
 From there, you should be able to run the iOS emulator using the following command:
 

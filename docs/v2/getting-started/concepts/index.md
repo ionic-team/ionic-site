@@ -22,7 +22,7 @@ Ionic Framework is an open source SDK that enables developers to build performan
 
 Ionic is focused mainly on the look and feel, or the UI interaction, of an app. This means that it’s not a replacement for PhoneGap or your favorite JavaScript framework. Instead, Ionic fits in well with these projects, in order to simplify one big part of your app development process: the front-end. Check out [“Where does the Ionic Framework fit in?”](http://blog.ionic.io/where-does-the-ionic-framework-fit-in/) to get a good understanding of Ionic's core philosophy and goals.
 
-**Ionic currently requires AngularJS in order to work at its full potential.** While you can still use the CSS portion of the framework, you'll miss out on powerful UI interactions, gestures, animations, and other things. In the future, Ionic plans to become more agnostic in order to support a broader variety of JavaScript frameworks.
+**Ionic currently requires Angular 2 in order to work at its full potential.** While you can still use the CSS portion of the framework, you'll miss out on powerful UI interactions, gestures, animations, and other things. In the future, Ionic plans to become more agnostic in order to support a broader variety of JavaScript frameworks.
 
 ### How is Ionic Licensed?
 
@@ -44,10 +44,10 @@ Themes are sets of styles that get applied to an app. Ionic uses a light theme b
 
 ### How does navigation work?
 
-Navigation works like a stack &mdash; **push** a page to the stack to navigate to it, and **pop** to go back. Modals and alerts can also be displayed by pushing them onto the navigation stack.
+Navigation works like a stack &mdash; **push** a page to the stack to navigate to it, and **pop** to go back.
 
 ### Who is behind Ionic?
 
 Ionic was originally built by [@benjsperry](https://twitter.com/benjsperry), [@adamdbradley](https://twitter.com/adamdbradley), and [@maxlynch](https://twitter.com/maxlynch). After releasing an alpha version of Ionic in November 2013, we released a 1.0 beta in March 2014 and a 1.0 final in May 2015.
 
-Now, Ionic has a massive international community of developers and contributors propelling its growth and adoption. Companies small and large are using Ionic to build better apps, faster. In 2015 Ionic developers reportedly created over 1.3M apps with Ionic, a number that continues to grow each day.
+Now, Ionic has a massive international community of developers and contributors propelling its growth and adoption. Companies small and large are using Ionic to build better apps, faster. To date, 2.5M apps have been built with Ionic, a number that continues to grow each day.

@@ -4,87 +4,31 @@
   Improve this Doc
 </a>
 
-_For more in depth information on Menus, see the [Menu API reference](../api/components/menu/Menu)._
+Menu is a side-menu navigation that can be dragged out or toggled to show. The content of a menu will be hidden when the menu is closed.
 
-Menu is a side-menu navigation that can be dragged out or toggled to show. Menu supports two display styles currently: overlay, and reveal. Overlay is the tradtional Android drawer style, and Reveal is the traditional iOS style. By default, Menu will adjust to the correct style for the platform.
-
-Along with [Tabs](#tabs), Menus are a common way to navigate through an app if you have several "root" or "top-level" pages. For the basics of navigating through an Ionic app, see the [Navigation section](#navigation).
-
-For UX reasons, we first recommend using Tabs. However, for situations where using Tabs might not be desirable, for example if you have a large number of root pages (making a TabBar impractical), a menu might be a better solution.
-
-Menus also allow you to return to root pages at any point. This can be helpful if you have particularly deep navigation by allowing you to return to the top level of your app quickly.
-
-However, because Menus are not always and immediately visible on screen, they require more work for the user than Tabs. Make sure to weigh your priorities when designing the navigational structure of your app.
-
-To use a Menu add an [`<ion-menu>`](../api/components/menu/Menu/) to your markup next to your root [`<ion-nav>`](../api/components/nav/Nav/).
+_For more information, Check out the [API docs](../api/components/menu/Menu)._
 
 <h3 class="section-nav">Basic Usage</h3>
 <a target="_blank" class="component-doc-demo" href="https://github.com/driftyco/ionic-preview-app/tree/master/app/pages/menus/basic">
   Demo Source
 </a>
 
-```typescript
-@Component({
-  template: `
-    <ion-menu [content]="content">
-      <ion-toolbar>
-        <ion-title>Pages</ion-title>
-      </ion-toolbar>
-      <ion-content>
-        <ion-list>
-          <button ion-item (click)="openPage(loginPage)">
-            Login
-          </button>
-          <button ion-item (click)="openPage(signupPage)">
-            Signup
-          </button>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
+```html
+<ion-menu [content]="content">
+  <ion-toolbar>
+    <ion-title>Pages</ion-title>
+  </ion-toolbar>
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="openPage(loginPage)">
+        Login
+      </button>
+      <button ion-item (click)="openPage(signupPage)">
+        Signup
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 
-    <ion-nav id="nav" #content [root]="rootPage"></ion-nav>`
-})
-class MyApp {}
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
 ```
-
-The `<ion-menu>`s bound `[content]` property gets a [reference](https://angular.io/docs/ts/latest/guide/user-input.html#local-variables) to the `<ion-nav>` in order to listen for drag events on the main content so it knows when to open/close.
-
-Then in our root component we have two buttons with click handlers that navigate to a new root page:
-
-```typescript
-import {Component} from '@angular/core';
-import {MenuController, ionicBootstrap} from 'ionic-angular';
-import {LoginPage} from 'login';
-import {SignupPage} from 'signup';
-
-@Component({
-...
-})
-class MyApp {
-
-  private rootPage = LoginPage;
-  private loginPage = LoginPage;
-  private signupPage = SignupPage;
-
-  constructor(
-    private app: IonicApp,
-    private menu: MenuController) {}
-
-  openPage(page) {
-    // Reset the nav controller to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.rootPage = page;
-
-    // close the menu when clicking a link from the menu
-    this.menu.close();
-  }
-}
-
-ionicBootstrap(MyApp)
-```
-
-We inject the [`MenuController`](../api/components/menu/Menu/) provider so we can close the opened menu.  We then use the NavController's [`setRoot`](../api/components/nav/NavController/#setRoot) function to clear the navigation stack and set the selected page as the new navigation root.
-
-Menus can be a little more complicated, but they allow for many different configuration options.  For example, the Google Maps app uses a drawer style Menu that exposes a list of items that open [Modals](#modals) over the main map content area and toggle settings on and off.
-
-For more information on Menus, check out the [Menu API reference](../api/components/menu/Menu/).

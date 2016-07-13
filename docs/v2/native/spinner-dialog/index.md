@@ -149,7 +149,7 @@ Shows the spinner dialog
 <code>boolean</code>|<code>function()</code>
     </td>
     <td>
-      <p>Set to false to set spinner not cancelable. Or provide a function to call when the user cancels the spinner.</p>
+      <p>Set to true to set spinner not cancelable. Or provide a function to call when the user cancels the spinner.</p>
 
       
     </td>

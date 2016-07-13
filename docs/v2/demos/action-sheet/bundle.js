@@ -70401,13 +70401,14 @@
 	        if (menu.isOpen) {
 	            return true;
 	        }
+	        var cosine = Math.cos(ev.angle * (Math.PI / 180));
 	        if (menu.side === 'right') {
-	            if ((ev.angle > 140 && ev.angle <= 180) || (ev.angle > -140 && ev.angle <= -180)) {
+	            if (cosine < -0.95) {
 	                return _super.prototype.canStart.call(this, ev);
 	            }
 	        }
 	        else {
-	            if (ev.angle > -40 && ev.angle < 40) {
+	            if (cosine > 0.95) {
 	                return _super.prototype.canStart.call(this, ev);
 	            }
 	        }
@@ -80423,8 +80424,8 @@
 	            return false;
 	        }
 	        // Close open container if it is not the selected one.
-	        if (container !== this.openContainer && this.closeOpened()) {
-	            return false;
+	        if (container !== this.openContainer) {
+	            this.closeOpened();
 	        }
 	        // Try to start gesture
 	        if (!this.gesture.start()) {

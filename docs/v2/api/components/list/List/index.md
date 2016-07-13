@@ -35,7 +35,7 @@ List
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/list/list.ts#L5">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/components/list/list.ts#L6">
 Improve this doc
 </a>
 
@@ -67,6 +67,26 @@ removing items.</p>
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
+
+<div id="gestureCtrl"></div>
+
+<h3>
+<a class="anchor" name="gestureCtrl" href="#gestureCtrl"></a>
+<code>gestureCtrl</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="closeSlidingItems"></div>
 

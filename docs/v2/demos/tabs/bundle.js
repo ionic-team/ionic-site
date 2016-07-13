@@ -52553,7 +52553,6 @@
 	 * | `tabsHighlight`          | `boolean`           | Whether to show a highlight line under the tab when it is selected.                                                                              |
 	 * | `tabsLayout`             | `string`            | The layout to use for all tabs. Available options: `"icon-top"`, `"icon-left"`, `"icon-right"`, `"icon-bottom"`, `"icon-hide"`, `"title-hide"`.  |
 	 * | `tabsPlacement`          | `string`            | The position of the tabs relative to the content. Available options: `"top"`, `"bottom"`                                                         |
-	 * | `tabsHideOnSubPages`     | `boolean`           | Whether to hide the tabs on child pages or not. If `true` it will not show the tabs on child pages.                                              |
 	 * | `toastEnter`             | `string`            | The name of the transition to use while a toast is presented.                                                                                    |
 	 * | `toastLeave`             | `string`            | The name of the transition to use while a toast is dismissed.                                                                                    |
 	 *
@@ -72224,7 +72223,7 @@
 	        }
 	        ele = parentEle;
 	        var tabbarEle;
-	        while (ele && ele.tagName !== 'ION-MODAL' && !ele.classList.contains('tab-subpage')) {
+	        while (ele && ele.tagName !== 'ION-MODAL') {
 	            if (ele.tagName === 'ION-TABS') {
 	                tabbarEle = ele.firstElementChild;
 	                this._tabbarHeight = tabbarEle.clientHeight;
@@ -72743,12 +72742,10 @@
 	        this.parent = parent;
 	        this.id = ++tabIds;
 	        this._sbPadding = _config.getBoolean('statusbarPadding');
-	        this.subPages = _config.getBoolean('tabsHideOnSubPages');
 	        this._useHighlight = _config.getBoolean('tabsHighlight');
 	        // TODO deprecated 07-07-2016 beta.11
 	        if (_config.get('tabSubPages') !== null) {
-	            console.warn('Config option "tabSubPages" has been deprecated. Please use "tabsHideOnSubPages" instead.');
-	            this.subPages = _config.getBoolean('tabSubPages');
+	            console.warn('Config option "tabSubPages" has been deprecated. The Material Design spec now supports Bottom Navigation: https://material.google.com/components/bottom-navigation.html');
 	        }
 	        // TODO deprecated 07-07-2016 beta.11
 	        if (_config.get('tabbarHighlight') !== null) {
@@ -73081,23 +73078,19 @@
 	        core_1.ViewChild('tabbar'), 
 	        __metadata('design:type', (typeof (_c = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _c) || Object)
 	    ], Tabs.prototype, "_tabbar", void 0);
-	    __decorate([
-	        core_1.ViewChild('portal', { read: core_1.ViewContainerRef }), 
-	        __metadata('design:type', (typeof (_d = typeof core_1.ViewContainerRef !== 'undefined' && core_1.ViewContainerRef) === 'function' && _d) || Object)
-	    ], Tabs.prototype, "portal", void 0);
 	    Tabs = __decorate([
 	        core_1.Component({
 	            selector: 'ion-tabs',
-	            template: "\n    <ion-tabbar role=\"tablist\" #tabbar>\n      <a *ngFor=\"let t of _tabs\" [tab]=\"t\" class=\"tab-button\" [class.tab-disabled]=\"!t.enabled\" [class.tab-hidden]=\"!t.show\" role=\"tab\" href=\"#\" (ionSelect)=\"select($event)\">\n        <ion-icon *ngIf=\"t.tabIcon\" [name]=\"t.tabIcon\" [isActive]=\"t.isSelected\" class=\"tab-button-icon\"></ion-icon>\n        <span *ngIf=\"t.tabTitle\" class=\"tab-button-text\">{{t.tabTitle}}</span>\n        <ion-badge *ngIf=\"t.tabBadge\" class=\"tab-badge\" [ngClass]=\"'badge-' + t.tabBadgeStyle\">{{t.tabBadge}}</ion-badge>\n        <ion-button-effect></ion-button-effect>\n      </a>\n      <tab-highlight></tab-highlight>\n    </ion-tabbar>\n    <ng-content></ng-content>\n    <div #portal tab-portal></div>\n  ",
+	            template: "\n    <ion-tabbar role=\"tablist\" #tabbar>\n      <a *ngFor=\"let t of _tabs\" [tab]=\"t\" class=\"tab-button\" [class.tab-disabled]=\"!t.enabled\" [class.tab-hidden]=\"!t.show\" role=\"tab\" href=\"#\" (ionSelect)=\"select($event)\">\n        <ion-icon *ngIf=\"t.tabIcon\" [name]=\"t.tabIcon\" [isActive]=\"t.isSelected\" class=\"tab-button-icon\"></ion-icon>\n        <span *ngIf=\"t.tabTitle\" class=\"tab-button-text\">{{t.tabTitle}}</span>\n        <ion-badge *ngIf=\"t.tabBadge\" class=\"tab-badge\" [ngClass]=\"'badge-' + t.tabBadgeStyle\">{{t.tabBadge}}</ion-badge>\n        <ion-button-effect></ion-button-effect>\n      </a>\n      <tab-highlight></tab-highlight>\n    </ion-tabbar>\n    <ng-content></ng-content>\n  ",
 	            directives: [badge_1.Badge, icon_1.Icon, common_1.NgClass, common_1.NgFor, common_1.NgIf, tab_button_1.TabButton, tab_highlight_1.TabHighlight],
 	            encapsulation: core_1.ViewEncapsulation.None,
 	        }),
 	        __param(0, core_1.Optional()),
 	        __param(1, core_1.Optional()), 
-	        __metadata('design:paramtypes', [(typeof (_e = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _e) || Object, (typeof (_f = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _f) || Object, (typeof (_g = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _g) || Object, (typeof (_h = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _h) || Object, (typeof (_j = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _j) || Object, (typeof (_k = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _k) || Object, (typeof (_l = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _l) || Object])
+	        __metadata('design:paramtypes', [(typeof (_d = typeof nav_controller_1.NavController !== 'undefined' && nav_controller_1.NavController) === 'function' && _d) || Object, (typeof (_e = typeof view_controller_1.ViewController !== 'undefined' && view_controller_1.ViewController) === 'function' && _e) || Object, (typeof (_f = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _f) || Object, (typeof (_g = typeof config_1.Config !== 'undefined' && config_1.Config) === 'function' && _g) || Object, (typeof (_h = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _h) || Object, (typeof (_j = typeof platform_1.Platform !== 'undefined' && platform_1.Platform) === 'function' && _j) || Object, (typeof (_k = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _k) || Object])
 	    ], Tabs);
 	    return Tabs;
-	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+	    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 	}(ion_1.Ion));
 	exports.Tabs = Tabs;
 	var tabIds = -1;
@@ -73436,19 +73429,7 @@
 	     * @private
 	     */
 	    Tab.prototype.loadPage = function (viewCtrl, viewport, opts, done) {
-	        var _this = this;
-	        var isTabSubPage = (this.parent.subPages && viewCtrl.index > 0);
-	        if (isTabSubPage) {
-	            viewport = this.parent.portal;
-	        }
 	        _super.prototype.loadPage.call(this, viewCtrl, viewport, opts, function () {
-	            if (isTabSubPage) {
-	                // add the .tab-subpage css class to tabs pages that should act like subpages
-	                var pageEleRef = viewCtrl.pageRef();
-	                if (pageEleRef) {
-	                    _this._renderer.setElementClass(pageEleRef.nativeElement, 'tab-subpage', true);
-	                }
-	            }
 	            done();
 	        });
 	    };
@@ -91437,7 +91418,6 @@
 	        config.selector = 'ion-page';
 	        config.host = config.host || {};
 	        config.host['[hidden]'] = '_hidden';
-	        config.host['[class.tab-subpage]'] = '_tabSubPage';
 	        var annotations = _reflect.getMetadata('annotations', cls) || [];
 	        annotations.push(new core_1.Component(config));
 	        _reflect.defineMetadata('annotations', annotations, cls);
@@ -92236,7 +92216,6 @@
 	    spinner: 'ios',
 	    tabsHighlight: false,
 	    tabsPlacement: 'bottom',
-	    tabsHideOnSubPages: false,
 	    toastEnter: 'toast-slide-in',
 	    toastLeave: 'toast-slide-out',
 	});
@@ -92264,8 +92243,7 @@
 	    popoverLeave: 'popover-md-pop-out',
 	    spinner: 'crescent',
 	    tabsHighlight: true,
-	    tabsPlacement: 'top',
-	    tabsHideOnSubPages: true,
+	    tabsPlacement: 'bottom',
 	    toastEnter: 'toast-md-slide-in',
 	    toastLeave: 'toast-md-slide-out',
 	});
@@ -92294,7 +92272,6 @@
 	    spinner: 'circles',
 	    tabsHighlight: false,
 	    tabsPlacement: 'top',
-	    tabsHideOnSubPages: true,
 	    toastEnter: 'toast-wp-slide-in',
 	    toastLeave: 'toast-wp-slide-out',
 	});

@@ -51951,6 +51951,16 @@
 	    };
 	    /**
 	     * @private
+	     */
+	    App.prototype.setScrollDisabled = function (disabled) {
+	        if (!this.appRoot) {
+	            console.error('appRoot is missing, scrolling can not be enabled/disabled');
+	            return;
+	        }
+	        this.appRoot.disableScroll = disabled;
+	    };
+	    /**
+	     * @private
 	     * Boolean if the app is actively enabled or not.
 	     * @return {boolean}
 	     */
@@ -52116,11 +52126,12 @@
 	 * @private
 	 */
 	var AppRoot = (function () {
-	    function AppRoot(_cmp, _cr, _renderer) {
+	    function AppRoot(_cmp, _cr, _renderer, app) {
 	        this._cmp = _cmp;
 	        this._cr = _cr;
 	        this._renderer = _renderer;
 	        this.disableScroll = false;
+	        app.appRoot = this;
 	    }
 	    AppRoot.prototype.ngAfterViewInit = function () {
 	        var _this = this;
@@ -52146,7 +52157,7 @@
 	            template: "\n    <div #anchor nav-portal></div>\n    <click-block></click-block>\n  ",
 	            directives: [nav_portal_1.NavPortal, click_block_1.ClickBlock]
 	        }), 
-	        __metadata('design:paramtypes', [UserComponent, (typeof (_b = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object])
+	        __metadata('design:paramtypes', [UserComponent, (typeof (_b = typeof core_1.ComponentResolver !== 'undefined' && core_1.ComponentResolver) === 'function' && _b) || Object, (typeof (_c = typeof core_1.Renderer !== 'undefined' && core_1.Renderer) === 'function' && _c) || Object, App])
 	    ], AppRoot);
 	    return AppRoot;
 	    var _a, _b, _c;
@@ -53806,7 +53817,11 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
+	var __param = (this && this.__param) || function (paramIndex, decorator) {
+	    return function (target, key) { decorator(target, key, paramIndex); }
+	};
 	var core_1 = __webpack_require__(6);
+	var app_1 = __webpack_require__(335);
 	(function (GesturePriority) {
 	    GesturePriority[GesturePriority["Minimun"] = -10000] = "Minimun";
 	    GesturePriority[GesturePriority["NavigationOptional"] = -20] = "NavigationOptional";
@@ -53823,7 +53838,8 @@
 	})(exports.DisableScroll || (exports.DisableScroll = {}));
 	var DisableScroll = exports.DisableScroll;
 	var GestureController = (function () {
-	    function GestureController() {
+	    function GestureController(_app) {
+	        this._app = _app;
 	        this.id = 1;
 	        this.requestedStart = {};
 	        this.disabledGestures = {};
@@ -53832,9 +53848,12 @@
 	    }
 	    GestureController.prototype.create = function (name, opts) {
 	        if (opts === void 0) { opts = {}; }
+	        return new GestureDelegate(name, this.newID(), this, opts);
+	    };
+	    GestureController.prototype.newID = function () {
 	        var id = this.id;
 	        this.id++;
-	        return new GestureDelegate(name, id, this, opts);
+	        return id;
 	    };
 	    GestureController.prototype.start = function (gestureName, id, priority) {
 	        if (!this.canStart(gestureName)) {
@@ -53885,13 +53904,17 @@
 	    GestureController.prototype.disableScroll = function (id) {
 	        var isEnabled = !this.isScrollDisabled();
 	        this.disabledScroll.add(id);
-	        if (isEnabled && this.isScrollDisabled()) {
+	        if (this._app && isEnabled && this.isScrollDisabled()) {
+	            console.debug('GestureController: Disabling scrolling');
+	            this._app.setScrollDisabled(true);
 	        }
 	    };
 	    GestureController.prototype.enableScroll = function (id) {
 	        var isDisabled = this.isScrollDisabled();
 	        this.disabledScroll.delete(id);
-	        if (isDisabled && !this.isScrollDisabled()) {
+	        if (this._app && isDisabled && !this.isScrollDisabled()) {
+	            console.debug('GestureController: Enabling scrolling');
+	            this._app.setScrollDisabled(false);
 	        }
 	    };
 	    GestureController.prototype.canStart = function (gestureName) {
@@ -53918,10 +53941,12 @@
 	        return false;
 	    };
 	    GestureController = __decorate([
-	        core_1.Injectable(), 
-	        __metadata('design:paramtypes', [])
+	        core_1.Injectable(),
+	        __param(0, core_1.Inject(core_1.forwardRef(function () { return app_1.App; }))), 
+	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.App !== 'undefined' && app_1.App) === 'function' && _a) || Object])
 	    ], GestureController);
 	    return GestureController;
+	    var _a;
 	}());
 	exports.GestureController = GestureController;
 	var GestureDelegate = (function () {
@@ -60221,6 +60246,7 @@
 	        core_1.provide(events_1.Events, { useValue: events }),
 	        core_1.provide(feature_detect_1.FeatureDetect, { useValue: featureDetect }),
 	        form_1.Form,
+	        gesture_controller_1.GestureController,
 	        http_1.HTTP_PROVIDERS,
 	        keyboard_1.Keyboard,
 	        loading_1.LoadingController,
@@ -60234,7 +60260,6 @@
 	        tap_click_1.TapClick,
 	        toast_1.ToastController,
 	        translate_1.Translate,
-	        gesture_controller_1.GestureController,
 	    ];
 	    if (util_1.isPresent(customProviders)) {
 	        providers.push(customProviders);
@@ -68438,48 +68463,32 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(6);
-	var app_1 = __webpack_require__(335);
+	var gesture_controller_1 = __webpack_require__(342);
 	var util_1 = __webpack_require__(340);
 	/**
 	 * @private
 	 */
 	var Backdrop = (function () {
-	    function Backdrop(_appRoot, _elementRef) {
-	        this._appRoot = _appRoot;
+	    function Backdrop(_gestureCtrl, _elementRef) {
+	        this._gestureCtrl = _gestureCtrl;
 	        this._elementRef = _elementRef;
-	        this.pushed = false;
+	        this._gestureID = null;
 	        this.disableScroll = true;
 	    }
-	    Backdrop.push = function (appRoot) {
-	        if (this.nuBackDrops === 0) {
-	            appRoot.disableScroll = true;
-	        }
-	        this.nuBackDrops++;
-	    };
-	    Backdrop.pop = function (appRoot) {
-	        if (this.nuBackDrops > 0) {
-	            this.nuBackDrops--;
-	            if (this.nuBackDrops === 0) {
-	                appRoot.disableScroll = false;
-	            }
-	        }
-	    };
 	    Backdrop.prototype.ngOnInit = function () {
 	        if (util_1.isTrueProperty(this.disableScroll)) {
-	            Backdrop.push(this._appRoot);
-	            this.pushed = true;
+	            this._gestureID = this._gestureCtrl.newID();
+	            this._gestureCtrl.disableScroll(this._gestureID);
 	        }
 	    };
 	    Backdrop.prototype.ngOnDestroy = function () {
-	        if (this.pushed) {
-	            Backdrop.pop(this._appRoot);
-	            this.pushed = false;
+	        if (this._gestureID) {
+	            this._gestureCtrl.enableScroll(this._gestureID);
 	        }
 	    };
 	    Backdrop.prototype.getNativeElement = function () {
 	        return this._elementRef.nativeElement;
 	    };
-	    Backdrop.nuBackDrops = 0;
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Object)
@@ -68493,7 +68502,7 @@
 	                'disable-activated': ''
 	            },
 	        }), 
-	        __metadata('design:paramtypes', [(typeof (_a = typeof app_1.AppRoot !== 'undefined' && app_1.AppRoot) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
+	        __metadata('design:paramtypes', [(typeof (_a = typeof gesture_controller_1.GestureController !== 'undefined' && gesture_controller_1.GestureController) === 'function' && _a) || Object, (typeof (_b = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _b) || Object])
 	    ], Backdrop);
 	    return Backdrop;
 	    var _a, _b;

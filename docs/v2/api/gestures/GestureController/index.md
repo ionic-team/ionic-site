@@ -31,7 +31,7 @@ GestureController
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/gestures/gesture-controller.ts#L24">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/gestures/gesture-controller.ts#L23">
 Improve this doc
 </a>
 
@@ -136,26 +136,6 @@ Improve this doc
 
 
 
-<div id="appRoot"></div>
-
-<h3>
-<a class="anchor" name="appRoot" href="#appRoot"></a>
-<code>appRoot</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="capturedID"></div>
 
 <h3>
@@ -181,6 +161,26 @@ Improve this doc
 <h3>
 <a class="anchor" name="create" href="#create"></a>
 <code>create()</code>
+  
+
+</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="newID"></div>
+
+<h3>
+<a class="anchor" name="newID" href="#newID"></a>
+<code>newID()</code>
   
 
 </h3>

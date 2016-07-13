@@ -51,77 +51,12 @@ Improve this doc
 
 
 <!-- @property tags -->
-<h2><a class="anchor" name="static-members" href="#static-members"></a>Static Members</h2>
-<div id="nuBackDrops"></div>
-<h3><a class="anchor" name="nuBackDrops" href="#nuBackDrops"></a><code>nuBackDrops()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="push"></div>
-<h3><a class="anchor" name="push" href="#push"></a><code>push()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
-
-<div id="pop"></div>
-<h3><a class="anchor" name="pop" href="#pop"></a><code>pop()</code>
-  
-</h3>
-
-
-
-
-
-
-
-
-
-
 
 
 
 <!-- instance methods on the class -->
 
 <h2><a class="anchor" name="instance-members" href="#instance-members"></a>Instance Members</h2>
-
-<div id="pushed"></div>
-
-<h3>
-<a class="anchor" name="pushed" href="#pushed"></a>
-<code>pushed</code>
-  
-
-</h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id="ngOnInit"></div>
 

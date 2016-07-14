@@ -1,6 +1,6 @@
 ---
 layout: "v2_fluid/docs_base"
-version: "1.3.3"
+version: "1.3.4"
 versionHref: "/docs/v2/native"
 path: ""
 category: native
@@ -101,6 +101,27 @@ TouchID.verifyFingerprint(&#39;Scan your fingerprint please&#39;)
 
 <!-- @property tags -->
 <h2>Static Members</h2>
+<div id="isAvailable"></div>
+<h3><code>isAvailable()</code>
+  
+</h3>
+
+Whether TouchID is available or not.
+
+
+
+
+
+
+
+<div class="return-value" markdown="1">
+  <i class="icon ion-arrow-return-left"></i>
+  <b>Returns:</b> 
+<code>Promise</code> Returns a Promise that resolves if yes, rejects if no.
+</div>
+
+
+
 <div id="verifyFingerprint"></div>
 <h3><code>verifyFingerprint(message)</code>
   
@@ -273,33 +294,6 @@ Show TouchID dialog with custom 'Enter Password' message and wait for a fingerpr
 
 
 <!-- methods on the class -->
-
-<h2>Instance Members</h2>
-
-<div id="isAvailable"></div>
-
-<h3>
-  <code>isAvailable()</code>
-  
-
-</h3>
-
-Whether TouchID is available or not.
-
-
-
-
-
-
-
-<div class="return-value" markdown="1">
-  <i class="icon ion-arrow-return-left"></i>
-  <b>Returns:</b> 
-<code>Promise</code> Returns a Promise that resolves if yes, rejects if no.
-</div>
-
-
-
 
 <!-- related link --><!-- end content block -->
 

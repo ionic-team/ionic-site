@@ -50,7 +50,7 @@ You can play with it right in the browser!
 After you have Ionic installed, you can build your app to a physical device. If you don't have a physical device on hand, you can still build to a device emulator. Check out the <a href="../../resources/developer-tips/#using-ios-simulator">iOS simulator</a> docs if you are on a Mac, or the <a href="../../resources/developer-tips/#using-genymotion-android">Genymotion</a> docs if you are looking to emulate an Android device. You will also need <a href="../../resources/what-is/#cordova">Cordova</a> to run your app on a native device. To install Cordova, run:
 
 ```bash
-$ sudo npm install -g cordova
+$ npm install -g cordova
 ```
 
 Once you have Cordova installed and a device or emulator ready to go, you can move on and begin building your app!

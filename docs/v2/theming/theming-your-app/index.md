@@ -68,7 +68,7 @@ For any custom components, you can use the `color` function to get the right col
 
 ```scss
 my-component {
-  background : color($colors, twitter, contrast)
+  background : color($colors, twitter, base)
 }
 ```
 

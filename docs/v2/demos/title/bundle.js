@@ -70326,8 +70326,8 @@
 	var slide_edge_gesture_1 = __webpack_require__(350);
 	var util_1 = __webpack_require__(340);
 	var gesture_controller_1 = __webpack_require__(342);
-	var DEGRESS_TO_RADIANS = Math.PI / 180;
-	var MIN_COSINE = Math.cos(40 * DEGRESS_TO_RADIANS);
+	var DEGREES_TO_RADIANS = Math.PI / 180;
+	var MIN_COSINE = Math.cos(40 * DEGREES_TO_RADIANS);
 	/**
 	 * Gesture attached to the content which the menu is assigned to
 	 */
@@ -70368,7 +70368,7 @@
 	        if (menu.isOpen) {
 	            return true;
 	        }
-	        var cosine = Math.cos(ev.angle * DEGRESS_TO_RADIANS);
+	        var cosine = Math.cos(ev.angle * DEGREES_TO_RADIANS);
 	        if (menu.side === 'right') {
 	            if (cosine < -MIN_COSINE) {
 	                return _super.prototype.canStart.call(this, ev);

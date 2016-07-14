@@ -80521,12 +80521,11 @@
 	    };
 	    return AngleRecognizer;
 	}());
-	var degresToRadians = Math.PI / 180;
 	var PanXRecognizer = (function (_super) {
 	    __extends(PanXRecognizer, _super);
 	    function PanXRecognizer(threshold, maxAngle) {
 	        _super.call(this, threshold);
-	        this.maxAngle = maxAngle * degresToRadians;
+	        this.maxAngle = maxAngle * (Math.PI / 180);
 	    }
 	    PanXRecognizer.prototype.start = function (coord) {
 	        _super.prototype.start.call(this, coord);

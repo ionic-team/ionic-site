@@ -3,8 +3,11 @@
   <head>
     {% include v2_fluid/header_tags.html %}
 
-    <title>{{page.title}}{% if page.header_sub_title %} - {{ page.header_sub_title}}{% endif %} -  Ionic Framework</title>
-
+    {% if page.category == 'api' %}
+      <title>{{page.title}}{% if page.header_sub_title %} - {{ page.header_sub_title}}{% endif %} -  Ionic Framework</title>
+    {% elsif page.category == 'native' %}
+      <title>Ionic Native: Harness the power of Native APIs</title>
+    {% endif %}
   </head>
   <body id="docs-page-{{page.id}}"
         class="v2 docs page-{{page.id}}"

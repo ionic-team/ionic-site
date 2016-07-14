@@ -11,7 +11,7 @@ docType: "controller"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/popover.js#L136'>
+  <a href='http://github.com/driftyco/ionic/tree/1.x/js/angular/service/popover.js#L136'>
     View Source
   </a>
   &nbsp;

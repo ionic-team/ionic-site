@@ -11,7 +11,7 @@ docType: "utility"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/utils/platform.js#L7'>
+  <a href='http://github.com/driftyco/ionic/tree/1.x/js/utils/platform.js#L7'>
     View Source
   </a>
   &nbsp;

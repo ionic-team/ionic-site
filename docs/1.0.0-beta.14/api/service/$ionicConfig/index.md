@@ -11,7 +11,7 @@ docType: "service"
 ---
 
 <div class="improve-docs">
-  <a href='http://github.com/driftyco/ionic/tree/master/js/angular/service/ionicConfig.js#L560'>
+  <a href='http://github.com/driftyco/ionic/tree/1.x/js/angular/service/ionicConfig.js#L560'>
     View Source
   </a>
   &nbsp;

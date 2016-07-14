@@ -77,7 +77,7 @@ In this case the compile output would be:
 
 ```css
 my-component {
-  background : #55acee
+  background : #ffffff
 }
 ```
 

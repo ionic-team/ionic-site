@@ -38,6 +38,10 @@ title: Ionic Resources
         <a target="_blank" href="http://www.joshmorony.com/ionic-2-how-to-use-google-maps-geolocation-video-tutorial/"  class="title">Google Maps in Ionic 2</a>
         <p>Add Google maps to your Ionic 2 App.</p>
       </li>
+      <li>
+        <a target="_blank" href="http://blog.ionic.io/ionic-and-typings/" class="title">Ionic &amp; Typings</a>
+        <p>Learn how to add typings for libraries you are using in your Ionic 2 app</p>
+      </li>
     </ul>
   </section>
 

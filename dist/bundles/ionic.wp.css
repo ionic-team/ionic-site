@@ -5776,13 +5776,13 @@ input.text-input:-webkit-autofill {
   margin: 6.5px 16px 6.5px 16px;
   padding: 6.5px 8px 6.5px 8px; }
 
-.input-has-focus .text-input {
+.item-input.input-has-focus .text-input {
   border-color: #327eff; }
 
-ion-input.ng-valid.input-has-value .text-input {
+.item-input.ng-valid.input-has-value:not(.input-has-focus) .text-input {
   border-color: #32db64; }
 
-ion-input.ng-invalid.ng-touched .text-input {
+.item-input.ng-invalid.ng-touched:not(.input-has-focus) .text-input {
   border-color: #f53d3d; }
 
 .item-label-stacked .text-input,

@@ -5951,30 +5951,35 @@ input.text-input:-webkit-autofill {
   margin: 6.5px 16px 6.5px 16px;
   padding: 6.5px 8px 6.5px 8px; }
 
-.item-input::after {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 16px;
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
-  border-bottom-color: transparent;
-  content: ""; }
+.item-input.input-has-focus .item-inner {
+  border-bottom-color: #387ef5;
+  box-shadow: inset 0 -1px 0 0 #387ef5; }
 
-.item-input.input-has-focus::after {
-  border-bottom-color: #387ef5; }
+ion-list .item-input.input-has-focus:last-child {
+  border-bottom-color: #387ef5;
+  box-shadow: inset 0 -1px 0 0 #387ef5; }
+  ion-list .item-input.input-has-focus:last-child .item-inner {
+    box-shadow: none; }
 
-.item-input.ng-valid.input-has-value::after {
-  border-bottom-color: #32db64; }
+.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+  border-bottom-color: #32db64;
+  box-shadow: inset 0 -1px 0 0 #32db64; }
 
-.item-input.ng-valid.input-has-value.input-has-focus::after {
-  border-bottom-color: #387ef5; }
+ion-list .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+  border-bottom-color: #32db64;
+  box-shadow: inset 0 -1px 0 0 #32db64; }
+  ion-list .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner {
+    box-shadow: none; }
 
-.item-input.ng-invalid.ng-touched::after {
-  border-bottom-color: #f53d3d; }
+.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+  border-bottom-color: #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d; }
 
-.item-input.ng-invalid.ng-touched.input-has-focus::after {
-  border-bottom-color: #387ef5; }
+ion-list .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
+  border-bottom-color: #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d; }
+  ion-list .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child .item-inner {
+    box-shadow: none; }
 
 .item-label-stacked .text-input,
 .item-label-floating .text-input {

@@ -9155,25 +9155,30 @@ ion-icon {
   .md .inset-input {
     margin: 6.5px 16px 6.5px 16px;
     padding: 6.5px 8px 6.5px 8px; }
-  .md .item-input::after {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 16px;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-    border-bottom-color: transparent;
-    content: ""; }
-  .md .item-input.input-has-focus::after {
-    border-bottom-color: #327eff; }
-  .md .item-input.ng-valid.input-has-value::after {
-    border-bottom-color: #32db64; }
-  .md .item-input.ng-valid.input-has-value.input-has-focus::after {
-    border-bottom-color: #327eff; }
-  .md .item-input.ng-invalid.ng-touched::after {
-    border-bottom-color: #f53d3d; }
-  .md .item-input.ng-invalid.ng-touched.input-has-focus::after {
-    border-bottom-color: #327eff; }
+  .md .item-input.input-has-focus .item-inner {
+    border-bottom-color: #327eff;
+    box-shadow: inset 0 -1px 0 0 #327eff; }
+  .md ion-list .item-input.input-has-focus:last-child {
+    border-bottom-color: #327eff;
+    box-shadow: inset 0 -1px 0 0 #327eff; }
+    .md ion-list .item-input.input-has-focus:last-child .item-inner {
+      box-shadow: none; }
+  .md .item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+    border-bottom-color: #32db64;
+    box-shadow: inset 0 -1px 0 0 #32db64; }
+  .md ion-list .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+    border-bottom-color: #32db64;
+    box-shadow: inset 0 -1px 0 0 #32db64; }
+    .md ion-list .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner {
+      box-shadow: none; }
+  .md .item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+    border-bottom-color: #f53d3d;
+    box-shadow: inset 0 -1px 0 0 #f53d3d; }
+  .md ion-list .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
+    border-bottom-color: #f53d3d;
+    box-shadow: inset 0 -1px 0 0 #f53d3d; }
+    .md ion-list .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child .item-inner {
+      box-shadow: none; }
   .md .item-label-stacked .text-input,
   .md .item-label-floating .text-input {
     margin-top: 8px;
@@ -13038,11 +13043,11 @@ ion-icon {
   .wp .inset-input {
     margin: 6.5px 16px 6.5px 16px;
     padding: 6.5px 8px 6.5px 8px; }
-  .wp .input-has-focus .text-input {
+  .wp .item-input.input-has-focus .text-input {
     border-color: #327eff; }
-  .wp ion-input.ng-valid.input-has-value .text-input {
+  .wp .item-input.ng-valid.input-has-value:not(.input-has-focus) .text-input {
     border-color: #32db64; }
-  .wp ion-input.ng-invalid.ng-touched .text-input {
+  .wp .item-input.ng-invalid.ng-touched:not(.input-has-focus) .text-input {
     border-color: #f53d3d; }
   .wp .item-label-stacked .text-input,
   .wp .item-label-floating .text-input,

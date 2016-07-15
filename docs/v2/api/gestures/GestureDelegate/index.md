@@ -31,7 +31,7 @@ GestureDelegate
 
 </h1>
 
-<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/gestures/gesture-controller.ts#L143">
+<a class="improve-v2-docs" href="http://github.com/driftyco/ionic/edit/master//src/gestures/gesture-controller.ts#L148">
 Improve this doc
 </a>
 

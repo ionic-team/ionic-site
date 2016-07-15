@@ -7731,7 +7731,7 @@ tab-highlight {
 ion-tabs[primary] ion-tabbar {
   background-color: #327eff; }
   ion-tabs[primary] ion-tabbar .tab-button {
-    color: #fff; }
+    color: rgba(255, 255, 255, 0.7); }
   ion-tabs[primary] ion-tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[primary] ion-tabbar .tab-button[aria-selected=true] {
     color: #fff; }
@@ -7741,7 +7741,7 @@ ion-tabs[primary] ion-tabbar {
 ion-tabs[secondary] ion-tabbar {
   background-color: #32db64; }
   ion-tabs[secondary] ion-tabbar .tab-button {
-    color: #fff; }
+    color: rgba(255, 255, 255, 0.7); }
   ion-tabs[secondary] ion-tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[secondary] ion-tabbar .tab-button[aria-selected=true] {
     color: #fff; }
@@ -7751,7 +7751,7 @@ ion-tabs[secondary] ion-tabbar {
 ion-tabs[danger] ion-tabbar {
   background-color: #f53d3d; }
   ion-tabs[danger] ion-tabbar .tab-button {
-    color: #fff; }
+    color: rgba(255, 255, 255, 0.7); }
   ion-tabs[danger] ion-tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[danger] ion-tabbar .tab-button[aria-selected=true] {
     color: #fff; }
@@ -7761,7 +7761,7 @@ ion-tabs[danger] ion-tabbar {
 ion-tabs[light] ion-tabbar {
   background-color: #f4f4f4; }
   ion-tabs[light] ion-tabbar .tab-button {
-    color: #000; }
+    color: rgba(0, 0, 0, 0.7); }
   ion-tabs[light] ion-tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[light] ion-tabbar .tab-button[aria-selected=true] {
     color: #000; }
@@ -7771,7 +7771,7 @@ ion-tabs[light] ion-tabbar {
 ion-tabs[dark] ion-tabbar {
   background-color: #222; }
   ion-tabs[dark] ion-tabbar .tab-button {
-    color: #fff; }
+    color: rgba(255, 255, 255, 0.7); }
   ion-tabs[dark] ion-tabbar .tab-button:hover:not(.disable-hover),
   ion-tabs[dark] ion-tabbar .tab-button[aria-selected=true] {
     color: #fff; }
